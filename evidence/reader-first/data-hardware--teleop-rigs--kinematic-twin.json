@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/data-hardware/teleop-rigs/",
+  "mount": "mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
+  "screenshots": {
+    "375": "evidence/reader-first/data-hardware--teleop-rigs--kinematic-twin.375.png",
+    "1280": "evidence/reader-first/data-hardware--teleop-rigs--kinematic-twin.1280.png"
+  },
+  "takeaway": "A leader arm built as a smaller twin of the robot sends each joint's reading to the robot's same joint unchanged, so the robot copies the operator joint for joint and the demonstration is already in the robot's joint space.",
+  "sentence": "Moving the smaller leader arm tells the larger robot arm to copy the same shoulder and elbow angles.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both describe a smaller matching leader arm sending unchanged joint angles for the robot to copy.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0002",
+  "sourceDigest": "239f4274d3e6fb82202c5b0e7bf684d9a883fbfb9b468e1a37df942a35323fb4",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

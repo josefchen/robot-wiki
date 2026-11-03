@@ -36,7 +36,7 @@ test('Brooks remaining readers: corrected Ernst and eWeek spans, Cite metadata a
   // Neighboring out-of-scope claims for Brooks4 are untouched; the Go-Big
   // sentence and coupled full-scale lead were corrected by original12, and the
   // Go-Big sentence opens its own paragraph since the 2026-10-13 length cut.
-  expect(eweekText).toContain('Brooks reproduces an eWeek report that describes Tesla as moving Optimus training toward a "vision-only approach"');
+  expect(eweekText).toContain('Brooks reproduces an eWeek report describing Tesla as moving Optimus training toward a "vision-only approach"');
   expect(eweekText).not.toContain('running that experiment at full scale');
   const goBig = prose.locator('p').filter({ hasText: "Figure's September 2025 Project Go-Big announcement" });
   await expect(goBig).toHaveCount(1);

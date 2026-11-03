@@ -186,14 +186,14 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
               data-testid="time-offset-run"
               className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
             >
-              {running ? 'Stop the bench' : 'Run the bench'}
+              {running ? 'Stop' : 'Play the run'}
             </button>
           </>
         }
         stage={
           <AnatomyStage
             viewWidth={WIDTH}
-            hint={running ? 'Running, slowed for the eye' : 'Set the speed, then run the bench'}
+            hint={running ? 'Running, slowed for the eye' : 'Set the speed, then play the run'}
             readout={readoutText(speed, gap)}
             status="Illustrative bench; measured camera delay"
             data-testid="time-offset-stage-frame"

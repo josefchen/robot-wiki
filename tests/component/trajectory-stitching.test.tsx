@@ -31,10 +31,10 @@ describe('TrajectoryStitching', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Trajectory stitching');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Offline RL joins two old runs into one success',
+      "Learning from recordings joins two runs into one success",
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Neither recorded run reaches the goal from here; offline RL joins their useful halves, copying cannot.',
+      "Offline reinforcement learning rewards successful recorded actions: joining useful parts reaches the goal, although copying either complete run cannot.",
     );
   });
 

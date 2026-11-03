@@ -7,19 +7,14 @@
     "1280": "evidence/reader-first/classical--control--impedance-contact-lab.1280.png"
   },
   "takeaway": "An arm that controls how hard it pushes can be set soft enough to touch a fragile object without crushing it; a stiff arm that only follows a position cannot.",
-  "sentence": "A robot arm that is set to be soft presses on a fragile object with a first bump that stays just under the force that would crush it, and the later bounces get smaller and smaller.",
-  "unclearTerms": [
-    "Arm that controls its own push (how it differs from 'Arm with a built-in spring')",
-    "why the arm bounces repeatedly on the object instead of touching it once",
-    "dark teal first spike versus the paler teal later spikes (whether the colour difference means something beyond 'first' and 'later')",
-    "Adjust more",
-    "a position-only arm"
-  ],
-  "samePoint": "no",
-  "reason": "My sentence got the soft arm staying under the crushing force, but it said nothing about a stiff, position-only arm being unable to do this, so the comparison is missing.",
-  "verdict": "fail",
-  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
-  "date": "2026-10-08",
-  "reviewerSession": "reader-session-842252fb",
-  "sourceDigest": "5e7dbd37f01003b6a776ef11834cebcc68debba2450fc94bb15f366fb1e460a8"
+  "sentence": "An arm that controls how hard it pushes can keep pressure below the level that breaks the glass, while a stiff arm crushes it.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It contrasts controlling the push to protect fragile glass with a stiff arm crushing it.",
+  "verdict": "pass",
+  "screenshotCommit": "524d32c818ed2a6e63b7e492af46b26cc1aa44fe",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r4-a-20261103",
+  "sourceDigest": "b7ecc1a7c3d81de386969832fe8f736b4825d65afe7bd328ae9b1f35fbe36274",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

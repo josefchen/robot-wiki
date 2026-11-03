@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/bc-foundations/",
+  "mount": "mount:/manipulation/bc-foundations/:CompoundingError:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--bc-foundations--compounding-error.375.png",
+    "1280": "evidence/reader-first/manipulation--bc-foundations--compounding-error.1280.png"
+  },
+  "takeaway": "When a robot copies an expert, its small slips pile up: a task twice as long leaves it about four times as far off course.",
+  "sentence": "A robot copying an expert for twice as many moves ends up about four times farther from the demonstrated path as small errors accumulate.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It states that copying for twice as many moves lets small errors accumulate into about four times the deviation.",
+  "verdict": "pass",
+  "screenshotCommit": "524d32c818ed2a6e63b7e492af46b26cc1aa44fe",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r4-a-20261103",
+  "sourceDigest": "c8d3bda649a640dcda94e32b6245cda7cc0beea01f22717e6f65480dd1338427",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

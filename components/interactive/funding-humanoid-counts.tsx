@@ -4,7 +4,7 @@ import { useId } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
 import { InstrumentFigure, PlotStage } from '@/components/ui/instrument';
-import { FigureStage } from '@/components/motion/figure-frame';
+import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import {
   Bar,
   CHART_STROKE,
@@ -116,9 +116,10 @@ export function FundingHumanoidCounts({ className }: { className?: string }) {
       figureId="funding-humanoid-counts"
       className={className}
       kicker="Robotics funding and humanoid counts"
-      heading="Startups raised a record while humanoids shipped in the thousands"
+      heading="By June 2026, robotics funding surpassed every earlier year"
       stage={
-        <FigureStage>
+        <FigureStage footer={<StageStatus>IFR: International Federation of Robotics. SAG: Smart Analytics Global, a market research firm.</StageStatus>}>
+          <p className="font-sans text-sm leading-snug text-text">By 22 June 2026, startup funding exceeded every earlier full year; humanoids sold or shipped still numbered thousands.</p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Robotics startup funding by year, and humanoids sold or shipped"

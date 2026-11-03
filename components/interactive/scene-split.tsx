@@ -245,7 +245,7 @@ export function SceneSplit({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="Split by the factor you claim to generalize across: a random split lets every test scene into training."
+      caption="Each card is one recorded run, an episode. Hold out whole scenes: randomly splitting runs leaves every test scene in training."
       method={
         <>
           <p>

@@ -7,12 +7,12 @@ import {
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 
 const producing = process.env.PARALLEL_WRITE_BROWSER === '1';
-const DISCLOSURE = 'The opening scene is an illustrative calculation: a fixed 220-million-transition budget, an assumed CPU-cost curve that raises per-iteration costs, and a calibrated near-four-minute time at 4,096 environments.';
+const DISCLOSURE = 'The opening scene illustrates a calculation: a fixed 220-million-transition budget, an assumed CPU-cost curve raising per-iteration costs, and calibrated near-four-minute timing at 4,096 environments.';
 const CAPTIONS = [
-  'With 64 virtual robots practising at once, the same amount of practice takes hours.',
+  'With 64 robots sharing one graphics chip, the same amount of practice takes hours.',
   'With 4,096 robots side by side on one graphics chip, the same practice finishes in minutes.',
   'Some work for each robot still runs on the main computer, so with that overhead the dashed line flattens.',
-  'Robots need huge amounts of practice; a graphics chip running 16,384 virtual robots side by side finishes it in minutes.',
+  'Thousands of practice robots share one graphics chip, cutting hours to minutes, until extra work on the main computer limits the speed-up.',
 ];
 type Envs = typeof ENVS[number];
 type Beat = { n: number; id: string; envs: Envs; dashed: boolean };
@@ -26,6 +26,13 @@ const solid = Object.fromEntries(ENVS.map(envs => [envs, batchOracle(envs, false
 const dashed = Object.fromEntries(ENVS.map(envs => [envs, batchOracle(envs, true)])) as Record<Envs, ReturnType<typeof batchOracle>>;
 const METHOD = `The lab's times along the solid curve: ${ENVS.map(envs => solid[envs].method).join('; ')}. `
   + `Along the dashed curve: ${dashed[64].words}, ${dashed[4096].words} and ${dashed[16384].words}.`;
+
+/** Current display copy only; every numeric/time value stays with the historical oracle. */
+function currentBatchReadout(readout: string): string {
+  const parts = readout.split(' robots at once: ');
+  if (parts.length !== 2) throw new Error('Expected exactly one historical BatchScale readout phrase');
+  return parts.join(' robots on one graphics chip: ');
+}
 
 async function capture(page: Page, name: string) {
   const viewport = page.viewportSize()!;
@@ -96,7 +103,7 @@ test('parallel18 BatchScale default, every beat, method times, reset and 375 px'
     const point = stagePoint(beat.envs, time.seconds);
     await expect(scene.getByTestId('motion-beat-readout')).toHaveText(`${beat.n} / 4`);
     await expect(scene.getByTestId('motion-caption')).toHaveText(CAPTIONS[beat.n - 1]);
-    await expect(scene.getByTestId('motion-readout')).toHaveText(`beat ${beat.n} / 4 ${time.readout}`);
+    await expect(scene.getByTestId('motion-readout')).toHaveText(`beat ${beat.n} / 4 ${currentBatchReadout(time.readout)}`);
     const marker = scene.locator('[data-scene-mark="selected-environment-count"]');
     await expect(marker).toHaveAttribute('cx', String(point.x));
     await expect(marker).toHaveAttribute('cy', String(point.y));
@@ -106,7 +113,7 @@ test('parallel18 BatchScale default, every beat, method times, reset and 375 px'
     await expect(scene.locator('[data-scene-mark="cpu-cost-time"]')).toHaveAttribute('opacity', beat.dashed ? '1' : '0');
     const annotation = scene.locator('g[data-figure-annotation]');
     await expect(annotation).toHaveAttribute('opacity', beat.n === 4 ? '1' : '0');
-    await expect(annotation.locator('text')).toHaveText(['16,384 at once:', `about ${solid[16384].words}`]);
+    await expect(annotation.locator('text')).toHaveText(['One chip:', 'hours to', `about ${solid[16384].words}`]);
     return point;
   }
   async function observe(name: string, beat: Beat, cpuBound: boolean, caseId: string, prestate: string, action: string) {
@@ -116,9 +123,9 @@ test('parallel18 BatchScale default, every beat, method times, reset and 375 px'
     const time = (cpuBound ? dashed : solid)[beat.envs];
     const readouts = cpuBound
       ? [{ selector: '[data-motion-scene="batch-scale"] [data-figure-fold="method"]', text: time.words }]
-      : [{ selector: '[data-motion-scene="batch-scale"] [data-testid="motion-readout"]', text: time.readout },
+      : [{ selector: '[data-motion-scene="batch-scale"] [data-testid="motion-readout"]', text: currentBatchReadout(time.readout) },
         { selector: '[data-motion-scene="batch-scale"] [data-figure-fold="method"]', text: time.method }];
-    expect(readouts.map(r => r.text)).toEqual(time.display);
+    expect(readouts.map(r => r.text)).toEqual(time.display.map(text => text === time.readout ? currentBatchReadout(text) : text));
     await scene.evaluate(el => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 100));
     const observed = await capture(page, name);
     const curve = cpuBound
@@ -126,8 +133,8 @@ test('parallel18 BatchScale default, every beat, method times, reset and 375 px'
       : `How this was made reads "${time.method}"; dashed curve ${beat.dashed ? 'shown' : 'hidden'}`;
     observations.push({
       name, input: { envs: beat.envs, cpuBound }, mountId: MOUNT, caseId, prestate, action,
-      poststate: `beat ${beat.n} / 4 ${beat.id}: "${solid[beat.envs].readout}"; ${curve}; marker at (${point.x}, ${point.y}); `
-        + `${Math.max(1, beat.envs / 64)} robot dots${beat.n === 4 ? `; annotation about ${solid[16384].words}` : ''}; exact 32-segment solid and dashed paths checked`,
+      poststate: `beat ${beat.n} / 4 ${beat.id}: "${currentBatchReadout(solid[beat.envs].readout)}"; ${curve}; marker at (${point.x}, ${point.y}); `
+        + `${Math.max(1, beat.envs / 64)} robot dots${beat.n === 4 ? `; annotation hours to about ${solid[16384].words}` : ''}; exact 32-segment solid and dashed paths checked`,
       readouts, ...observed,
     });
   }

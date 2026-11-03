@@ -1,8 +1,380 @@
-import type { SourceOracle } from './brand-v2-source-oracle-core.ts';
+import { ROBOT_POINTS, LLM_POINTS } from './data-scaling.ts';
+import { COMPANY_POINTS } from './data-scale-company.ts';
+import { DATA_SOURCE_ORACLES } from './brand-v2-source-oracles-data.ts';
+import { flowEndpointError, loopClosureValues, graspExpected, round, seededUniform, rrtExpected, teacherExpected, pendulumExpected, pendulumNeedlesExpected, pushDistanceExpected, representationExpected } from './brand-v2-source-oracle-models.ts';
+import type { SourceOracle, SourceBasis } from './brand-v2-source-oracle-core.ts';
 
 /** Explicit independent paper values and authored equations. Missing entries
  * fail the reader; this is not a source-presence or nonempty-text allowance. */
-export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
+const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
+  'interactive:EgoScaleScaling': {
+    basis:[{id:'egoscale-2026',kind:'citation',reference:'Paper Figure5 reports completion0.30,0.45,0.48,0.57,0.71 at1k,2k,4k,10k,20k hours; validation-loss law0.024-0.003ln(hours/1000).'}, {id:'assumption:EgoScaleScaling:qualified-extrapolation',kind:'assumption',reference:'The completion curve is an independently recomputed ordinary least-squares fit against log hours; its extrapolation is uncapped in text and flagged impossible above1. Geometry stops the fit at1. The band compares holding-law and plateau scenarios, not confidence. The90%solved bar is editorial.'}],citationText:{'egoscale-2026':'EgoScale (2026)'},evidencePaths:['lib/egoscale-law.ts'],
+    check(c){
+      const h=10**(c.input(/^Hours of video \(extrapolation horizon/)/1000),show=c.selected(/^Show the paper/),points=[[1000,.30],[2000,.45],[4000,.48],[10000,.57],[20000,.71]],xs=points.map(p=>Math.log(p[0]/1000)),mx=xs.reduce((a,b)=>a+b,0)/5,my=points.reduce((a,p)=>a+p[1],0)/5,slope=xs.reduce((sum,x,i)=>sum+(x-mx)*(points[i][1]-my),0)/xs.reduce((sum,x)=>sum+(x-mx)**2,0),intercept=my-slope*mx,fit=(hours:number)=>intercept+slope*Math.log(hours/1000),loss=(hours:number)=>.024-.003*Math.log(hours/1000),extrap=h>20020,impossible=fit(h)>1,stop=1000*Math.exp((1-intercept)/slope),shown=h>=1e6?1:Math.round(h/1000),shownMain=h>=999500?1:Math.round(h/1000),reported=extrap?round(fit(h),2):.71;
+      c.readoutNumbers(0,[shown]);c.readoutNumbers(1,[shown]);c.readoutNumbers(2,!extrap?[20,71,.71]:impossible?[shownMain,100,reported]:[shownMain,reported,Math.round(fit(h)*100)]);c.readoutNumbers(3,!extrap?[71,.71]:impossible?[100,reported]:[reported,Math.round(fit(h)*100)]);c.readoutNumbers(4,[round(loss(h),4),round(loss(Math.min(h,20000)),4)]);c.readoutNumbers(5,[round(fit(h),2),round(h<=20000?fit(h):.71,2),...(impossible?[100]:[])]);
+      for(const hours of [1000,4000,10000,20000])c.row(`${hours/1000}k h`,{'loss (MSE)':loss(hours).toFixed(4),'reported completion':points.find(p=>p[0]===hours)![1].toFixed(2),'completion fit':fit(hours).toFixed(2),region:hours===20000?'measured range ends':'measured'});
+      for(const hours of [100000,1000000])c.row(hours===100000?'100k h':'1M h',{'loss (MSE)':`${loss(hours).toFixed(4)} holds / ${loss(20000).toFixed(4)} plateau`,'reported completion':'n/a','completion fit':`${fit(hours).toFixed(2)} holds / 0.71 plateau`,region:hours===100000?'extrapolated, dashed':'extrapolated, dashed, fit past 100 percent, impossible'});
+      const x=(hours:number)=>round(44+(Math.log10(hours)-3)/3*258,2),top=round((show?118:0)+12*340/299*(1.03+2*1.25)+12,2),bottom=round((show?118:0)+12*340/299*(1.03+2*1.25)+12+220,2),ys=(score:number)=>round(bottom-score*(bottom-top),2),yl=(value:number)=>round(104-value/.03*74,2),sample=(from:number,to:number,fn:(v:number)=>number,y:(v:number)=>number)=>Array.from({length:41},(_,i)=>{const value=from*(to/from)**(i/40);return [x(value),y(fn(value))];}),path=(values:number[][])=>values.map(([xx,yy],i)=>`${i?'L':'M'}${xx},${yy}`).join(' '),band=(upper:number[][],lower:number[][])=>`${path(upper)} ${path([...lower].reverse()).replace(/^M/,'L')} Z`;
+      c.requireSeries(show?['loss-law','completion-fit','measured']:['completion-fit','measured']);c.svgMarkCount('measured','circle',5);points.forEach(([hours,score])=>c.svgMark('measured','circle',{cx:x(hours),cy:ys(score),r:2.5}));
+      const measured=sample(1000,20000,fit,ys);c.svgMarkCount('completion-fit','path',1+(extrap?1:0)+(show&&extrap?3:0));c.svgMark('completion-fit','path',{d:path(measured)},.05,{testId:'measured-completion-fit'});
+      if(extrap){const projected=sample(20000,Math.min(h,stop),fit,ys);c.svgMark('completion-fit','path',{d:path(projected)},.05,{testId:'extrapolated-completion-fit'});if(show){const upper=sample(20000,h,v=>Math.min(fit(v),1),ys),lower=[[x(20000),ys(.71)],[x(h),ys(.71)]];c.svgMark('completion-fit','path',{d:band(upper,lower)},.05,{ownerTestId:'completion-band'});c.svgMark('completion-fit','path',{d:path(upper)},.05,{ownerTestId:'completion-band'});c.svgMark('completion-fit','path',{d:path(lower)},.05,{ownerTestId:'completion-band'});}}
+      if(show){c.svgMarkCount('loss-law','circle',5);points.forEach(([hours])=>c.svgMark('loss-law','circle',{cx:x(hours),cy:yl(loss(hours)),r:1.5}));c.svgMarkCount('loss-law','path',extrap?5:1);c.svgMark('loss-law','path',{d:path(sample(1000,20000,loss,yl))},.05,{testId:'measured-loss-law'});if(extrap){const upper=sample(20000,h,loss,yl),lower=[[x(20000),yl(loss(20000))],[x(h),yl(loss(20000))]];c.svgMark('loss-law','path',{d:path(upper)},.05,{testId:'extrapolated-loss-law'});c.svgMark('loss-law','path',{d:path(upper)},.05,{ownerTestId:'uncertainty-band'});c.svgMark('loss-law','path',{d:band(upper,lower)},.05,{ownerTestId:'uncertainty-band'});c.svgMark('loss-law','path',{d:path(lower)},.05,{ownerTestId:'uncertainty-band'});}}
+      c.contains('not a confidence interval');
+    },
+  },
+  'interactive:AdvantageScrubber': {
+    basis:[{id:'assumption:AdvantageScrubber:fictional-espresso-trace',kind:'assumption',reference:'The authored40-second trace has knots(0,30),(8,38),(12,31),(16,26),(26,33),(30,27),(32,18),(36,12),(40,10). Segment tags use endpoint differences; all five stages stay in training. This is not Recap’s reward-inclusive n-step estimator or a recorded episode.'}],evidencePaths:['lib/advantage-episode.ts'],seriesIds:['low','value'],
+    check(c){
+      const time=c.input(/^Episode time in seconds/),view=c.selected(/^At execution$/)?2:c.selected(/^What it learns$/)?1:0,knots=[[0,30],[8,38],[12,31],[16,26],[26,33],[30,27],[32,18],[36,12],[40,10]],segments=[['Reach',0,8],['Grasp',8,16],['Dose and tamp',16,26],['Insert and lock',26,36],['Outcome',36,40]] as const;
+      const value=(t:number)=>{if(t>=40)return 10;const end=knots.findIndex(p=>p[0]>t);if(end===0)return 30;const a=knots[end-1],b=knots[end];return a[1]+(b[1]-a[1])*(t-a[0])/(b[0]-a[0]);},current=segments.find(row=>time>=row[1]&&time<row[2])??segments[4],delta=value(current[2])-value(current[1]);
+      c.readoutNumbers(0,[time,round(value(time),1)]);c.readoutNumbers(1,[time]);c.readoutNumbers(2,[round(value(time),1)]);c.readoutNumbers(3,[delta]);c.readoutNumbers(4,[delta]);for(let i=0;i<5;i++)c.readoutNumbers(5+i,[i%5+1]);
+      if(view===0)for(const t of [...new Set([0,8,16,26,32,40,time])]){const part=segments.find(row=>t>=row[1]&&t<row[2])??segments[4];c.row(String(t),{value:value(t).toFixed(1),segment:part[0],playhead:t===time?'playhead':'off'});}
+      else segments.forEach(([name,start,end])=>{const difference=value(end)-value(start),tag=difference>0?'high':'low';c.row(name,view===1?{'delta V':`${difference>0?'+':''}${difference.toFixed(1)}`,tag:`${tag} advantage`}:{tag:`${tag} advantage`,treatment:`${tag}-tag example`});});
+      if(view!==0)for(const id of ['low','value'])c.inactiveRetainedSeries(id,`Native ${view===1?'training':'execution'} view is selected; the retained episode is invisible/inert and its numeric values/coordinates are still checked.`);
+      const x=(t:number)=>round(8+t/40*324,2),y=(v:number)=>round(236-(v-5)/40*86,2),trace=(until:number)=>[...knots.filter(p=>p[0]<=until),[until,value(until)]].map(([t,v])=>`${x(t)},${y(v)}`).join(' ');
+      c.rectCount('low',3);segments.filter(([,start,end])=>value(end)<=value(start)).forEach(([,start,end])=>c.svgMark('low','rect',{x:round(x(start)+1,2),y:150,width:round(x(end)-x(start)-2,2),height:86}));c.svgMarkCount('value','polyline',time>0?2:1);c.svgMark('value','polyline',{points:trace(40)},.05,{expectedCount:time===40?2:1});if(time>0&&time<40)c.svgMark('value','polyline',{points:trace(time)});
+    },
+  },
+  'interactive:SceneRepresentationLadder': {
+    basis:[{id:'assumption:SceneRepresentationLadder:metric-room-and-storage',kind:'assumption',reference:'The same authored18m³room/14m²surface uses cell widths30/20/15/10cm. Storage models:16bytes per surface point;1per volume voxel;8per3surface-band voxels;24per2surface triangles;236per Gaussian. The plan view is300×200cm with an exact occlusion trapezoid and16cm transparent-surface depth bias; none is measured sensor accuracy.'}],evidencePaths:['lib/scene-representation.ts','lib/brand-v2-source-oracle-models.ts'],
+    check(c){
+      const choices=[/^Dots /,/^Grid of boxes /,/^Distance map /,/^Surface of triangles /,/^Overlapping colour blobs /].map(label=>c.selected(label));if(choices.filter(Boolean).length!==1)throw new Error('expected one representation');const mode=choices.indexOf(true),index=c.input(/^Detail, currently/),cm=[30,20,15,10][index];if(cm===undefined)throw new Error('invalid resolution index');
+      const elements=Math.round((mode===1?18/(cm/100)**3:14/(cm/100)**2)*[1,1,3,2,1][mode]),bytes=elements*[16,1,8,24,236][mode],byteText=bytes<1024?`${Math.round(bytes)} B`:bytes<1048576?`${(bytes/1024).toFixed(bytes/1024<10?1:0)} KB`:bytes<1073741824?`${(bytes/1048576).toFixed(bytes/1048576<10?1:0)} MB`:`${(bytes/1073741824).toFixed(1)} GB`,name=['points','voxels','band voxels','triangles','Gaussians'][mode];
+      c.readoutNumbers(0,[cm]);c.readoutNumbers(1,[Number.parseFloat(byteText),elements,cm]);c.readoutText(2,byteText);c.readoutText(3,`${elements.toLocaleString('en-US')} ${name}`);
+      const g=representationExpected(cm),series=(kind:string)=>kind==='thin'||kind==='transparent'?'uncertain':'surface';c.requireSeries(mode===1?['occupied','unknown','free','room']:mode===4?['surface','uncertain','room']:['surface','uncertain','unobserved','room']);
+      c.rectCount('room',4);[[20,14,260,8],[86,88,44,20],[139,191,22,11],[145,185,10,6]].forEach(([x,y,width,height])=>c.svgMark('room','rect',{x,y,width,height}));c.svgMarkCount('room','circle',3);[[240,74,12],[240,74,4],[200,97,1.6]].forEach(([cx,cy,r])=>c.svgMark('room','circle',{cx,cy,r}));
+      if(mode===1){for(const id of ['occupied','unknown','free'])c.rectCount(id,g.cells.filter(cell=>cell.state===id).length);g.cells.forEach(cell=>c.svgMark(cell.state,'rect',{x:cell.x,y:cell.y,width:cm,height:cm}));return;}
+      if(mode!==4){c.svgMarkCount('unobserved','polygon',1);c.svgMark('unobserved','polygon',{points:g.shadow.map(([x,y])=>`${round(x,2)},${round(y,2)}`).join(' ')});}
+      for(const id of ['surface','uncertain']){
+        const samples=g.samples.filter(point=>series(point.kind)===id);
+        if(mode===4){c.svgMarkCount(id,'ellipse',samples.length+(id==='uncertain'?g.invented.length:0));samples.forEach(point=>c.svgMark(id,'ellipse',{cx:round(point.x,2),cy:round(point.y,2),rx:round(cm*.8,2),ry:round(cm*.45,2)}));}
+        else{c.svgMarkCount(id,'circle',samples.length);samples.forEach(point=>c.svgMark(id,'circle',{cx:round(point.x,2),cy:round(point.y,2),r:round((mode===0?1.8:1.2)*(id==='uncertain'?1.7:1),2)}));}
+        c.rectCount(id,mode===2?samples.length:0);if(mode===2)samples.forEach(point=>c.svgMark(id,'rect',{x:round(point.x-cm*.6,2),y:round(point.y-cm*.6,2),width:round(cm*1.2,2),height:round(cm*1.2,2)}));
+      }
+      if(mode===4)g.invented.forEach(point=>c.svgMark('uncertain','ellipse',{cx:round(point.x,2),cy:round(point.y,2),rx:round(cm*.9,2),ry:round(cm*.55,2)}));
+      if(mode===3){c.svgMarkCount('surface','polyline',2);c.svgMarkCount('uncertain','polyline',1);for(const kind of ['wall','occluder','transparent'])c.svgMark(series(kind),'polyline',{points:g.samples.filter(point=>point.kind===kind).map(point=>`${round(point.x,2)},${round(point.y,2)}`).join(' ')});}
+    },
+  },
+  'interactive:CrossEmbodimentStrategies': {
+    basis:[{id:'assumption:CrossEmbodimentStrategies:explicit-slot-allocation',kind:'assumption',reference:'The32-slot illustration allocates native widths8,16,29 and an unspecified human row. Padding fills the remainder with zeros; Motion Transfer adds3hatched illustrative slots; relative-EEF allocates8shared slots to every body. These widths are toy choices, not source robot DoF or model dimensions.'}],evidencePaths:['lib/cross-embodiment.ts'],seriesIds:['active','blocked','zeroed','latent'],
+    check(c){
+      const selected=c.selected(/^Fill unused joint slots with zeros$/)?0:c.selected(/^Translate between bodies$/)?1:2;
+      const names=['Padded shared vector','Motion transfer','Shared relative EEF space'],verdicts=['human video: no adapter modelled in this toy','human-hand mapping not specified in this illustration','N1.7 README: 20K hours of EgoScale human video'];
+      c.readoutText(0,`${names[selected]}: ${verdicts[selected]}`);c.readoutText(1,verdicts[selected]);
+      const bodyIds=['arm','bimanual','humanoid','human-hand'],strategies=['padded','motion-transfer','relative-eef'],dims=[8,16,29,0],counts:Record<string,number>={active:0,blocked:0,zeroed:0,latent:0};
+      const slots=(mode:number,body:number)=>Array.from({length:32},(_,i)=>mode===2?i<8?'active':'blocked':body===3?'blocked':i<dims[body]?'active':mode===0?'zeroed':i<dims[body]+3?'latent':'blocked');
+      bodyIds.forEach((id,body)=>slots(selected,body).forEach((series,i)=>{counts[series]++;c.svgMark(series,'rect',{x:round(2+i*10.56,2),y:2,width:8.56,height:16},0.05,{ownerTestId:`row-${id}`});}));
+      for(let mode=0;mode<3;mode++)bodyIds.forEach((id,body)=>{const states=slots(mode,body),runs:Array<{series:string;from:number;to:number}>=[];states.forEach((series,i)=>{const last=runs.at(-1);if(last?.series===series)last.to=i+1;else runs.push({series,from:i,to:i+1});});for(const run of runs){if(run.series==='blocked')continue;counts[run.series]++;const x=round(92+mode*82.67,2)+5;c.svgMark(run.series,'rect',{x:round(x+run.from*72.67/32,2),y:59+body*34,width:round((run.to-run.from)*72.67/32,2),height:8},0.05,{overviewCell:`${strategies[mode]}:${id}`});}});
+      Object.entries(counts).forEach(([id,count])=>{c.rectCount(id,count);c.svgMarkCount(id,'rect',count);});
+    },
+  },
+  'interactive:DataScaleChart': {
+    basis:[...ROBOT_POINTS,...COMPANY_POINTS,...LLM_POINTS].map(point=>({id:point.cite,kind:'citation' as SourceBasis['kind'],reference:'Frozen source-scoped counts; demonstration hours and text tokens are different units. Company totals remain unreleased lower bounds.'})).concat([{id:'assumption:DataScaleChart:annual-farm',kind:'assumption' as const,reference:'Hypothetical collection rates7or1000productive hours per rig-year and targets10000/1000000hours. Years=target/(rigs*rate); neither the low rate nor10000hour target is a measured DROID/OXE statistic.'}]),
+    evidencePaths:['lib/data-scaling.ts','lib/data-scale-company.ts'],seriesIds:['llm-corpus','robot-data','human-video','company-total','farm-projection'],
+    check(c){
+      const rigs=c.input(/^Robots collecting/),annual=rigs*(c.selected(/^Part-time:/)?7:1000),duration=(years:number)=>years>=100?`${Math.round(years).toLocaleString('en-US')} years`:years>=1?`${years.toFixed(1)} ${years.toFixed(1)==='1.0'?'year':'years'}`:`${Math.max(1,Math.round(years*12))} ${Math.max(1,Math.round(years*12))===1?'month':'months'}`,d=(years:number)=>years>=100?Math.round(years):years>=1?round(years,1):Math.max(1,Math.round(years*12));
+      const goal=c.selected(/^1,000,000 hours$/)?1000000:10000,robots=`${rigs.toLocaleString('en-US')} ${c.selected(/^Part-time:/)?'part-time':'full-time'} ${rigs===1?'robot':'robots'}`;
+      c.contains(`The data bottleneck${robots} ${rigs===1?'needs':'need'} ${duration(goal/annual)} for ${goal.toLocaleString('en-US')} hours`);
+      c.readoutNumbers(0,[rigs]);c.readoutNumbers(1,[rigs,annual,10000,d(10000/annual),1000000,d(1000000/annual)]);c.readoutNumbers(2,[rigs]);c.readoutNumbers(3,[annual]);c.readoutText(4,duration(10000/annual));c.readoutText(5,duration(1000000/annual));
+      ROBOT_POINTS.forEach(row=>c.row(row.label,{'demonstration hours':row.value,'pretraining tokens':'n/a'}));c.row('OXE',{'demonstration hours':'No hour estimate plotted','pretraining tokens':'n/a'});LLM_POINTS.forEach(row=>c.row(row.label,{'demonstration hours':'n/a','pretraining tokens':row.value}));c.row(`your hypothetical farm (${rigs} rigs)`,{'demonstration hours':`${annual.toLocaleString('en-US')} h/yr`,'pretraining tokens':'n/a'});
+      const textHeight=12*340/299,line=textHeight*1.25,middle=textHeight*.35,tokenTitle=round(textHeight,2),tokenRows=[round(tokenTitle+line+6,2),round(tokenTitle+line*2+10,2)],tokenAxis=round(tokenRows[1]+14,2),hoursTitle=round(tokenAxis+5.5+line+28,2),pitch=round(line+3,2),rows=[...ROBOT_POINTS,...COMPANY_POINTS].sort((a,b)=>a.magnitude-b.magnitude),rowY=(i:number)=>round(hoursTitle+line+8+i*pitch,2),hoursAxis=round(rowY(rows.length-1)+14,2),farmTitle=round(hoursAxis+5.5+line+34,2),noteY=round(farmTitle+line+8,2),goalY=round(noteY+line*2+6,2),farmY=round(goalY+line,2);
+      const label=(series:string,text:string,x:number,y:number)=>{const right=x+8.5+text.length*textHeight*.55<=326;c.svgText(series,text,round(x+(right?8.5:-8.5),2),round(y+middle,2));};
+      c.svgMarkCount('llm-corpus','circle',2);LLM_POINTS.forEach((row,i)=>{const x=round(14+(Math.log10(row.magnitude)-11)/3*312,2);c.svgMark('llm-corpus','circle',{cx:x,cy:tokenRows[i],r:2.5});label('llm-corpus',`${row.label}: ${i===0?'300 billion':'15 trillion'}`,x,tokenRows[i]);});
+      for(const id of ['robot-data','human-video'])c.svgMarkCount(id,'circle',rows.filter(row=>(row.kind==='human-video'?'human-video':row.kind==='company'?'company-total':'robot-data')===id).length);
+      c.rectCount('company-total',COMPANY_POINTS.length);c.svgMarkCount('company-total','rect',COMPANY_POINTS.length);
+      rows.forEach((row,i)=>{const id=row.kind==='human-video'?'human-video':row.kind==='company'?'company-total':'robot-data',x=round(120+(Math.log10(row.magnitude)-2)/4*206,2),y=rowY(i);if(row.kind==='company')c.rect(id,round(x-2.5,2),round(y-2.5,2),5,5);else c.svgMark(id,'circle',{cx:x,cy:y,r:2.5});c.svgText(id,row.label,14,round(y+middle,2));label(id,`${row.kind==='company'?'over ':row.estimated?'about ':''}${row.magnitude.toLocaleString('en-US')}`,x,y);});
+      c.svgMarkCount('farm-projection','circle',1);c.svgMark('farm-projection','circle',{cx:round(14+Math.log10(annual)/6*312,2),cy:farmY,r:3.5});
+    },
+  },
+  'interactive:SampleEfficiencyLedger': {
+    basis:[{id:'assumption:SampleEfficiencyLedger:qualified-constant-rates',kind:'assumption',reference:'Simulation uses the Rudin time-boundary rate98304*1500/1200=122880steps/s; single-robot whole-process rate160000/7200; fleet assumes perfect linear scaling. Toy categories are <=1hour,<=720hours,then offline. Source durations retain bounds/aggregate-robot-hour distinctions, not matched benchmark wall times.'}],evidencePaths:['lib/sample-efficiency.ts'],seriesIds:['modelled-lanes','paper-anchors'],
+    check(c){
+      const exponent=c.input(/^How much practice:/),fleet=c.input(/^Real robots sharing/),budget=10**exponent,rates=[122880,160000/7200,160000/7200*fleet],labels=['massively parallel simulation','a single real robot',`a fleet of ${fleet} real robots`],selected=[c.selected(/^massively parallel simulation$/),c.selected(/^a single real robot$/),c.selected(/^a fleet of real robots$/)];if(selected.filter(Boolean).length!==1)throw new Error('expected one measured native/ARIA collection-source choice');const choice=selected.indexOf(true),seconds=budget/rates[choice],ratio=rates[0]/rates[choice];
+      const duration=(s:number)=>s<60?`${s<10?s.toFixed(1):Math.round(s)} s`:s<3600?`${(s/60).toFixed(1)} min`:s<172800?`${(s/3600).toFixed(1)} h`:s<365.25*86400?`${(s/86400).toFixed(1)} d`:`${(s/(365.25*86400)).toFixed(1)} yr`,rate=(v:number)=>v>=1000?`${Math.round(v/1000)}k steps/s`:v>=10?`${Math.round(v)} steps/s`:`${v.toFixed(1)} steps/s`,band=(s:number)=>s<=3600?'toy on-policy band':s<=720*3600?'toy off-policy band':'toy offline band';
+      const shortBudget=budget>=1e9?round(budget/1e9,2):budget>=1e6?Math.round(budget/1e6):Math.round(budget/1e3),slow=ratio<10?`${ratio.toFixed(1)}x`:`${Math.round(ratio).toLocaleString('en-US')}x`;
+      c.readoutNumbers(0,[budget>=1e9?round(budget/1e9,1):shortBudget]);c.readoutNumbers(1,[fleet]);c.readoutNumbers(2,[shortBudget,Number.parseFloat(duration(seconds)),Number.parseFloat(rate(rates[choice])),ratio<10?round(ratio,1):Math.round(ratio)]);c.readoutText(3,duration(seconds));c.readoutText(4,slow);c.readoutText(5,band(seconds));
+      const x=(s:number)=>round(12+Math.min(1,Math.max(0,Math.log10(Math.max(1,s))/9))*312,2);c.rectCount('modelled-lanes',3);rates.forEach((v,i)=>{const time=budget/v;c.row(labels[i],{'model steps/s':rate(v),'model wall clock':duration(time),'toy band':band(time)});c.rect('modelled-lanes',12,72+i*34,round(Math.max(x(time)-12,2),2),2);});
+      c.svgMarkCount('paper-anchors','circle',6);[240,1200,3600,7200,800*3600,60*86400].forEach(time=>c.svgMark('paper-anchors','circle',{cx:x(time),cy:184,r:2.5}));
+    },
+  },
+  'interactive:PendulumController': {
+    basis: [{ id: 'assumption:PendulumController:input-replayed-pid', kind: 'assumption', reference: 'Authored 1 kg, 1 m pendulum, gravity 9.81, bias torque 0.8 N·m, torque clamp ±40 and integral clamp ±1.5. Start 12° off upright with zero rate/integral. Independently replay input gain runs at dt=1/480 and +2 rad/s push impulses; no output state enters the witness. The two physical gauge needles sweep 18 degrees per Nm, clipped at 10 Nm, and their four-corner faces are independently projected at 68-degree azimuth and 20-degree elevation.' }], evidencePaths: ['lib/pendulum.ts','lib/figure-input-trace.ts','lib/brand-v2-source-oracle-models.ts','components/iso/figures/pendulum-stand.ts'], seriesIds:['pendulum-pole'],
+    check(c) {
+      if(c.sourceState('data-source-trace-complete')!=='true')throw new Error('incomplete pendulum input witness');
+      const state=pendulumExpected(JSON.parse(c.sourceState('data-source-inputs')),Number(c.sourceState('data-source-steps'))),kp=c.input(/^React to the lean/),ki=c.input(/^Fix lingering drift/),kd=c.input(/^Calm the swing/);
+      const angle=round(state.angle*180/Math.PI,1),rate=round(state.rate*180/Math.PI,1),integral=round(state.integral,2),torque=round(Math.max(-40,Math.min(40,-(kp*state.angle+kd*state.rate+ki*state.integral))),1);
+      c.readoutNumbers(0,[kp]);c.readoutNumbers(1,[ki]);c.readoutNumbers(2,[kd]);c.readoutNumbers(3,[angle,rate,integral,torque]);c.readoutNumbers(4,[angle]);c.readoutNumbers(5,[rate]);c.readoutNumbers(6,[integral]);c.readoutNumbers(7,[torque]);c.readoutNumbers(9,[Math.round(Math.abs(state.angle*180/Math.PI))]);
+      c.pendulumPartKeys(pendulumNeedlesExpected(Math.max(-40,Math.min(40,-(kp*state.angle+kd*state.rate+ki*state.integral))),Math.abs(9.81*Math.sin(state.angle)+0.8)));
+    },
+  },
+  'interactive:AppearancePhysicsPush': {
+    basis: [{ id:'assumption:AppearancePhysicsPush:observed-force-impulses',kind:'assumption',reference:'Authored 0.3 kg mug, 0.1 s contact time, Coulomb friction 0.5 and gravity 9.81. Each effective push travels (F/3)^2/9.81 metres; accumulated travel stops at 0.5 m. Replay only the recorded applied force inputs, never recorded output positions.' }],evidencePaths:['lib/appearance-physics-push.ts','lib/figure-input-trace.ts','lib/brand-v2-source-oracle-models.ts'],
+    check(c) {if(c.sourceState('data-source-trace-complete')!=='true')throw new Error('incomplete force input witness');const distance=pushDistanceExpected(JSON.parse(c.sourceState('data-source-forces'))),force=c.input(/^Push strength/),centimetres=round(distance*100,1);c.readoutNumbers(0,[force]);c.readoutNumbers(1,[centimetres]);c.readoutNumbers(2,[centimetres]);},
+  },
+  'interactive:TeacherStudent': {
+    basis: [{ id: 'assumption:TeacherStudent:constructed-error-fields', kind: 'assumption', reference: '24 authored terrain cells combine two sines, one step and one depression. Fixed LCG noise/dropout fields and a sigma-3 Gaussian blur construct the error; this is not inferred by a trained student. MAE is the mean absolute constructed error; action discrepancy is 2.2 times MAE.' }], evidencePaths: ['lib/sim2real.ts', 'lib/brand-v2-source-oracle-models.ts'],
+    check(c) {
+      const percent = c.input(/^Proprioceptive degradation/), e = teacherExpected(percent / 100), lost = e.lost.filter(Boolean).length;
+      c.readoutNumbers(0, [percent]); c.readoutNumbers(1, [round(e.mae, 2)]); c.readoutNumbers(2, [round(e.mae * 2.2, 2)]); c.readoutNumbers(3, [lost, 24]);
+      c.requireSeries(lost === 24 ? ['terrain','readings'] : ['terrain','reconstruction','readings']); if(lost===24)c.zeroSeries('reconstruction','All 24 independently seeded channels are occluded at 100 percent degradation, so the reconstruction has no retained segment.');
+      const x=(i:number)=>round(8+(i+0.5)*13.5,2),y=(v:number)=>round(150-(v-e.low)/(e.high-e.low)*46,2);
+      c.rectCount('terrain',24);c.rectCount('readings',24-lost);c.svgMarkCount('terrain','polyline',1);c.svgMark('terrain','polyline',{points:e.terrain.map((v,i)=>`${x(i)},${y(v)}`).join(' ')});
+      e.terrain.forEach((v,i)=>c.rect('terrain',round(8+i*13.5,2),y(v),13.7,round(158-y(v),2)));
+      const runs:number[][]=[];let run:number[]=[];e.lost.forEach((missing,i)=>{if(missing){if(run.length)runs.push(run);run=[];}else run.push(i);});if(run.length)runs.push(run);
+      c.svgMarkCount('reconstruction','line',runs.filter(r=>r.length===1).length);c.svgMarkCount('reconstruction','polyline',runs.filter(r=>r.length>1).length);
+      runs.forEach(r=>r.length===1?c.svgMark('reconstruction','line',{x1:x(r[0])-4.5,x2:x(r[0])+4.5,y1:y(e.guess[r[0]]),y2:y(e.guess[r[0]])}):c.svgMark('reconstruction','polyline',{points:r.map(i=>`${x(i)},${y(e.guess[i])}`).join(' ')}));
+      c.svgMarkCount('readings','line',lost);e.readings.forEach((v,i)=>{const left=round(9+i*13.5,2);if(e.lost[i])c.svgMark('readings','line',{x1:left,x2:left+10.5,y1:199,y2:199});else{const height=Math.max(2,Math.min(18,v*18));c.rect('readings',left,round(200-height,2),10.5,round(height,2));}});
+    },
+  },
+  'interactive:RewardShaping': {
+    basis: [{ id: 'assumption:RewardShaping:twelve-weighted-terms', kind: 'assumption', reference: 'Twelve authored per-step magnitudes have signed coefficients [1,0.5,-1,-0.5,-1,-1,-1,0.5,-0.8,0.6,-0.8,-1.5]. Native weights are tenths. Chatter has action-rate weight<=0.2; freeze and prance require weight>=2.5 and >=2*velocity weight. This is a teaching classifier, not trained policy performance.' }], evidencePaths: ['lib/reward-shaping.ts'], previewClock: { key: 'phase-readout', purpose: 'stride-preview', evidencePath: 'evidence/brand-v2/interactive-ledger.json' },
+    check(c) {
+      const names=['Linear velocity tracking','Yaw rate tracking','Torque penalty','Joint acceleration penalty','Action-rate penalty','Joint limit penalty','Collision penalty','Base height','Orientation penalty','Foot air time','Foot stumble penalty','Termination penalty'], weights=names.map(name=>c.input(new RegExp(`^${name} weight$`))/10), coefficients=[1,0.5,-1,-0.5,-1,-1,-1,0.5,-0.8,0.6,-0.8,-1.5], total=round(weights.reduce((sum,v,i)=>sum+v*coefficients[i],0),2);
+      const walk=weights[4]<=0.2?'Legs jitter':weights[2]>=2.5&&weights[2]>=2*weights[0]?'Stands still':weights[9]>=2.5&&weights[9]>=2*weights[0]?'Bounces in place':'Steady trot'; c.readoutText(12,walk);c.readoutText(13,walk);weights.forEach((v,i)=>c.readoutNumbers(i,[v]));c.readoutNumbers(14,[total]);c.readoutNumbers(15,[total]);c.previewClock();
+    },
+  },
+  'interactive:RrtExplorer': {
+    basis: [{ id: 'assumption:RrtExplorer:seeded-tree', kind: 'assumption', reference: 'Authored 100×64 world, start (7,32), goal (93,32), fixed obstacles, seed 19981001, step size 2 and goal bias 0.015. Rebuild the tree independently; visible branch count is controlled by the native playhead. The isometric gantry is a schematic of the tree, not a metric physical robot.' }], evidencePaths: ['lib/rrt.ts', 'lib/brand-v2-source-oracle-models.ts'],
+    check(c) { const n = c.input(/^How far the search has grown/), expected = rrtExpected(), reached = n >= expected.branches, length = round(expected.length, 1); c.requireSeries(['rrt-tree']); c.svgMarkCount('rrt-tree','line',n); c.svgMarkCount('rrt-tree','circle',n+1); c.readoutNumbers(0, reached ? [n, expected.branches, n + 1, expected.branches, length] : [n, expected.branches, n + 1]); c.readoutNumbers(1, [n, expected.branches]); c.readoutNumbers(2, [n + 1]); c.readoutNumbers(3, reached ? [expected.branches] : []); c.readoutNumbers(4, reached ? [length] : []); c.readoutNumbers(5, n ? [n] : []); },
+  },
+  'interactive:MpcVsRl': {
+    basis: [{ id: 'assumption:MpcVsRl:authored-disturbance-traces', kind: 'assumption', reference: 'Forty-step illustrative base-height traces start at step 4. Push: 6exp(-t/6), 8exp(-t/10)cos(t/2.2). Friction: min(24,1.15t),5.5exp(-t/9)cos(t/3). Payload:3.5(1-exp(-t/5)),0.6+3.9exp(-t/8). Torque:2.2(1-exp(-t/7)),min(20,0.45t(1+0.35sin t)). No measured controller performance is claimed.' }], evidencePaths: ['lib/mpc-vs-rl.ts'], seriesIds: ['mpc', 'rl'],
+    nonQuantitative: 'The dog poses convey categorical recovery/fall, without a quantitative pose axis. All authored numerical base-height trace samples and outcome table cells are checked.',
+    check(c) {
+      const state = c.selected(/^Sideways shove$/) ? 0 : c.selected(/^Slippery patch$/) ? 1 : c.selected(/^Heavy backpack$/) ? 2 : 3;
+      const functions = [[(t:number)=>6*Math.exp(-t/6),(t:number)=>8*Math.exp(-t/10)*Math.cos(t/2.2)],[(t:number)=>Math.min(24,1.15*t),(t:number)=>5.5*Math.exp(-t/9)*Math.cos(t/3)],[(t:number)=>3.5*(1-Math.exp(-t/5)),(t:number)=>0.6+3.9*Math.exp(-t/8)],[(t:number)=>2.2*(1-Math.exp(-t/7)),(t:number)=>Math.min(20,0.45*t*(1+0.35*Math.sin(t)))]];
+      for (const t of [0,4,10,20,30,39]) c.row(String(t), {'MPC (cm)':(t<4?0:functions[state][0](t-4)).toFixed(2),'RL (cm)':(t<4?0:functions[state][1](t-4)).toFixed(2)});
+      [['Sideways shove','stays up','stays up'],['Slippery patch','falls','stays up'],['Heavy backpack','stays up, body sags','stays up'],['Weaker motors (unpractised)','stays up, but slower','falls']].forEach(([row,mpc,rl])=>c.row(row,{'Plans ahead':mpc,'Learned by practice':rl}));
+    },
+  },
+  'interactive:WbcDecomposition': {
+    basis: [{ id: 'assumption:WbcDecomposition:canonical-architecture-summary', kind: 'assumption', reference: 'The frozen architecture records summarize the disclosed Figure, NVIDIA and Google systems. Rates that the source does not report remain not disclosed; no inferred numerical rate replaces them. The authored glyph has eight hollow joint-motor rings and a matching key; its drawing dimensions carry no metric claim.' }], evidencePaths: ['lib/wbc-decomposition.ts', 'components/interactive/wbc-decomposition.tsx', 'components/motion/motion-tokens.css', 'app/globals.css'], seriesIds: ['motors'], nonQuantitative: 'The motor drawing and stack spacing are categorical. Representative identity, layer counts and the fastest disclosed rate are checked numerically/textually below.',
+    check(c) {
+      const nvidia = c.selected(/^NVIDIA$/), google = c.selected(/^Google DeepMind$/), name = google ? 'Gemini Robotics 2' : nvidia ? 'GR00T N1.7 + GEAR-SONIC' : 'Figure Helix 02 S0', layers = google || nvidia ? 2 : 3, fastest = google ? 'not disclosed' : nvidia ? '50 Hz' : '1000 Hz';
+      c.readoutText(0, `Representative: ${name}Layers: ${layers}Fastest loop: ${fastest}`); c.readoutText(1, name); c.readoutNumbers(2, [layers]); c.readoutText(3, fastest);
+      for (const stat of google ? ['< 200 examples', 'not disclosed'] : nvidia ? ['3B', '132', '20,000 h'] : ['10M', '1000+ h', '200,000+']) c.contains(stat);
+      c.legendEncoding({ 'joint motors': ['motors'] }, { 'joint motors': { tag: 'circle', fill: 'rgb(250,250,248)', stroke: { seriesId: 'motors' }, strokeWidth: '1px' } });
+      c.svgMarkCount('motors', 'circle', 8);
+      for (const [cx, cy] of [[270,44],[302,44],[259,72],[313,72],[278,94],[294,94],[277,130],[295,130]]) c.svgMark('motors', 'circle', { cx, cy, r: 2.75, fill: 'var(--paper, var(--color-paper))', stroke: 'var(--role-action-stage)' }, 0.05, { effectiveOpacity: 1 });
+    },
+  },
+  'interactive:EurekaLoop': {
+    basis: [{ id: 'assumption:EurekaLoop:three-scripted-generations', kind: 'assumption', reference: 'The local three-round script has authored fitness scores 0.31, 0.58 and 0.86. It illustrates speed-only failure, survival-only stalling and a balanced reward; none is a recorded Eureka training run.' }], evidencePaths: ['lib/eureka.ts'],
+    check(c) { const gen = Number(c.sourceState('data-source-generation')); if (!Number.isInteger(gen) || gen < 0 || gen > 2) throw new Error('invalid generation input'); const score = [0.31, 0.58, 0.86][gen]; c.readoutNumbers(0, [gen + 1, 3]); c.readoutNumbers(1, [gen + 1, 3]); c.readoutNumbers(2, [gen, 2, score]); c.readoutNumbers(3, [gen, 2]); c.readoutNumbers(4, [score]); },
+  },
+  'interactive:TerrainCurriculum': {
+    basis: [{ id: 'rudin-2021', kind: 'citation', reference: 'Promote robots that cross a patch, demote insufficient progress, and recycle successful top-level robots.' }, { id: 'assumption:TerrainCurriculum:seeded-twenty-robots', kind: 'assumption', reference: 'The 20 robots, eight levels and thirty rounds are authored. Seed 20211007 defines skill in [0,0.8), per-round luck in [-0.4,0.4), and recycled levels. Covered distance=skill+0.5*round-0.85*(level-1)+luck.' }], evidencePaths: ['components/interactive/terrain-curriculum.tsx'], seriesIds: ['robots'],
+    check(c) {
+      const current = Number(c.sourceState('data-source-round')); if (!Number.isInteger(current) || current < 0 || current > 30) throw new Error('invalid curriculum round');
+      const random = seededUniform(20211007), skill = Array.from({ length: 20 }, () => random() * 0.8), luck = Array.from({ length: 30 }, () => Array.from({ length: 20 }, () => random() * 0.8 - 0.4)), recycle = Array.from({ length: 30 }, () => Array.from({ length: 20 }, () => 1 + Math.floor(random() * 8)));
+      const levels = [Array(20).fill(1) as number[]], moves: string[][] = [Array(20).fill('stay')];
+      for (let r = 1; r <= current; r++) { const choices: string[] = []; levels.push(levels[r - 1].map((level, i) => { const covered = skill[i] + 0.5 * r - 0.85 * (level - 1) + luck[r - 1][i]; if (covered >= 1) { choices.push(level === 8 ? 'loop' : 'up'); return level === 8 ? recycle[r - 1][i] : level + 1; } if (covered < 0.5 && level > 1) { choices.push('down'); return level - 1; } choices.push('stay'); return level; })); moves.push(choices); }
+      for (const r of [...new Set([1, 2, 3, 4, current])]) { if (!levels[r]) throw new Error('round sequence does not reach required reference rows'); c.row(String(r), { 'moved up': moves[r].filter(m => m === 'up').length, 'moved down': moves[r].filter(m => m === 'down').length, 'sent back': moves[r].filter(m => m === 'loop').length, 'highest level': Math.max(...levels[r]) }); }
+      const seen = new Map<number, number>(); c.svgMarkCount('robots', 'circle', 20);
+      levels[current].forEach((level, i) => { const within = seen.get(level) ?? 0; seen.set(level, within + 1); c.svgMark('robots', 'circle', { cx: 30 + (level - 1) * 40 + (within % 2 ? 5 : -5), cy: 156 - Math.floor(within / 2) * 9, r: moves[current][i] === 'stay' ? 2.2 : 3.4 }); });
+    },
+  },
+  'interactive:HierarchyTimescales': {
+    basis: [{ id: 'assumption:HierarchyTimescales:qualified-cadences', kind: 'assumption', reference: 'The documented lane periods are a mix of source-reported and explicitly schematic rates. All diagrams use a 2000 ms horizon, one initial instruction event, and at most 120 evenly subsampled ticks per lane. No schematic period is promoted to measured throughput.' }], evidencePaths: ['lib/hierarchy-timescales.ts'],
+    check(c) {
+      const time = c.input(/^Point in the 2 seconds:/), periods = c.selected(/^Helix 02$/) ? [null, 1000, 5, 1] : c.selected(/^Gemini Robotics 1.5$/) ? [null, 2000, 333, 20] : c.selected(/^GO-2$/) ? [null, 2000, 100, 20] : [null, 1000, 1000, 20];
+      c.readoutNumbers(0, [time]); c.readoutNumbers(1, [time]); let fired = 0, pending = 0;
+      periods.forEach((period, lane) => { const count = period === null ? 1 : Math.floor(2000 / period), stride = Math.ceil(count / 120); for (let i = 0; i < count; i += stride) { const t = period === null ? 0 : (i + 1) * period, active = t <= time, half = active ? 6 : 4, x = round(8 + t / 2000 * 324, 2), cy = 33 + lane * 40; if (active) fired++; else pending++; c.svgMark(active ? 'fired' : 'pending', 'line', { x1: x, x2: x, y1: cy - half, y2: cy + half }); } });
+      c.svgMarkCount('fired', 'line', fired); c.svgMarkCount('pending', 'line', pending); c.requireSeries(pending ? ['fired', 'pending'] : ['fired']);
+    },
+  },
+  'interactive:FrictionTransfer': {
+    basis: [{ id: 'assumption:FrictionTransfer:gaussian-and-plateau', kind: 'assumption', reference: 'Authored point success=0.97 exp(-(mu-0.8)^2/(2*0.09^2)). DR peak=0.93-0.55*halfwidth, flat within that range and Gaussian decay with sigma 0.1 outside. Curves and their peak penalty are illustrative, not trained policies.' }], evidencePaths: ['lib/sim2real.ts'], seriesIds: ['dr-policy', 'point-policy', 'real-robot'],
+    check(c) {
+      const mu = c.input(/^Real floor:/) / 100, range = c.input(/^Range of practice floors:/) / 100, point = (v: number) => 0.97 * Math.exp(-((v - 0.8) ** 2) / (2 * 0.09 ** 2)), dr = (v: number) => (0.93 - 0.55 * range) * Math.exp(-(Math.max(0, Math.abs(v - 0.8) - range) ** 2) / 0.02);
+      const delta = Math.round((dr(mu) - point(mu)) * 100); c.readoutNumbers(1, [mu]); c.readoutNumbers(2, [Math.round(point(mu) * 100)]); c.readoutNumbers(3, [Math.round(dr(mu) * 100)]); c.readoutText(4, delta >= 0 ? `DR +${delta} pts` : `point +${-delta} pts`);
+      for (const value of [...new Set([0.2, 0.5, 0.8, 1.1, 1.5, mu])]) c.row(value.toFixed(2), { 'point policy': `${Math.round(point(value) * 100)}%`, 'DR policy': `${Math.round(dr(value) * 100)}%`, playhead: value === mu ? 'playhead' : 'off' });
+      const x = (v: number) => round(72 + (v - 0.2) / 1.3 * 254, 2), y = (v: number) => round(210 - 124 * v, 2), low = x(Math.max(0.2, 0.8 - range)), high = x(Math.min(1.5, 0.8 + range));
+      c.rectCount('dr-policy', 1); c.rect('dr-policy', low, 86, round(high - low, 2), 124); c.rectCount('real-robot', 1); c.rect('real-robot', round(x(mu) - 12, 2), 76, 24, 134);
+      c.svgMarkCount('real-robot', 'line', 1); c.svgMark('real-robot', 'line', { x1: x(mu), x2: x(mu), y1: 84, y2: 210 });
+      for (const [id, fn] of [['point-policy', point], ['dr-policy', dr]] as const) { c.svgMarkCount(id, 'polyline', 1); c.svgMark(id, 'polyline', { points: Array.from({ length: 65 }, (_, i) => { const value = 0.2 + i / 64 * 1.3; return `${x(round(value, 4))},${y(round(fn(value), 4))}`; }).join(' ') }); }
+    },
+  },
+  'interactive:LoopClosure': {
+    basis: [{ id: 'assumption:LoopClosure:constrained-chain', kind: 'assumption', reference: 'A 5×3 rectangular circuit of 2 m legs has 14 measured turns, under-reading by drift*(1+0.8cos(pi*j/13)). Close the position and heading constraints while minimizing squared turn corrections. The independent solver uses central finite differences and pivoted elimination.' }], evidencePaths: ['lib/loop-closure.ts', 'lib/brand-v2-source-oracle-models.ts'],
+    check(c) { const drift = c.input(/^How far each turn is off$/), values = loopClosureValues(drift); c.readoutNumbers(0, [drift]); c.readoutNumbers(1, c.controlPresent(/^Open the loop$/) ? [14, Math.round(values.totalTurn), round(values.closedWorst, 2)] : [drift, round(values.openGap, 1)]); },
+  },
+  'interactive:FlowMatchingTrajectory': {
+    basis: [{ id: 'assumption:FlowMatchingTrajectory:seeded-bezier-transport', kind: 'assumption', reference: '48 authored noise-to-target pairs, seed 20241031 and 0.22 chord-relative bend. For a quadratic Bezier field, the Euler endpoint error is exactly 2*absolute lateral control-point offset/step count. No trained-policy error measurement is claimed.' }], evidencePaths: ['lib/flow-matching.ts', 'lib/brand-v2-source-oracle-models.ts'],
+    check(c) { const steps = c.input(/^Refining steps, any number/), error = round(flowEndpointError(steps), 2); c.readoutNumbers(0, [steps]); c.readoutNumbers(1, steps === 1 ? [steps, error] : [steps, error, round(flowEndpointError(1), 2)]); c.readoutNumbers(2, [steps]); c.readoutNumbers(3, [error]); },
+  },
+  'interactive:GraspWrenchLab': {
+    basis: [{ id: 'assumption:GraspWrenchLab:unit-square-wrenches', kind: 'assumption', reference: 'Authored unit square, point contacts, unit normal force and friction-cone edges n±mu*t. Torque is px*fy-py*fx. Epsilon is the origin-to-nearest supporting-facet distance of the wrench hull; eight central pulls are checked by positive conical combinations of at most three generators.' }], evidencePaths: ['lib/grasp.ts', 'lib/brand-v2-source-oracle-models.ts'],
+    check(c) {
+      const positions = c.inputs(/^Contact \d+ position/), mu = c.input(/^How rough the surface is/), { epsilon, slipping } = graspExpected(positions, mu);
+      positions.forEach((value, index) => c.readoutNumbers(index + 1, [value]));
+      c.readoutNumbers(positions.length + 1, epsilon > 0 || slipping === 0 ? [] : [slipping, 8]);
+      c.readoutWhere({ text: /^contacts \d/ }, [positions.length, round(epsilon, 3), mu]);
+      c.readoutWhere({ key: /^grasp-contacts-readout$/ }, [positions.length]); c.readoutWhere({ key: /^grasp-epsilon-readout$/ }, [round(epsilon, 3)]);
+      c.contains(`force closure ${epsilon > 0 ? 'yes' : 'no'}`);
+    },
+  },
+  'interactive:ImpedanceContactLab': {
+    basis: [{ id: 'assumption:ImpedanceContactLab:contact-ode', kind: 'assumption', reference: 'Authored 4 kg mass, 400000 N/m environment and optional 800 N/m series spring. Semi-implicit Euler at 0.0002 s over 0.6 s starts 0.5 mm off contact. Contact force is k*x; acceleration is [K(d-x)-D*v-max(0,k*x)]/4. Steady force is k*K*d/(k+K); 25 N crush and 255 N transient categories.' }], evidencePaths: ['lib/impedance.ts'],
+    check(c) {
+      const stiffness = c.input(/^Softness:/), depth = c.input(/^How far it presses in:/), damping = c.input(/^Calm the bounce:/), position = c.selected(/^Stiff arm$/), spring = c.selected(/^Arm with a built-in spring$/), contact = spring ? 400000 * 800 / 400800 : 400000;
+      let x = -0.0005, velocity = 0, peak = 0;
+      for (let step = 0; step < 3000; step++) { const force = Math.max(0, contact * x); peak = Math.max(peak, force); velocity += (stiffness * (depth - x) - damping * velocity - force) / 4 * 0.0002; x += velocity * 0.0002; }
+      const steady = contact * stiffness * depth / (contact + stiffness), outcome = position ? 'no force control' : peak > 255 ? 'past the human pain limit' : Math.max(peak, steady) > 25 ? 'object crushed' : 'object intact';
+      c.readoutNumbers(0, [depth * 1000]); c.readoutNumbers(1, [damping]); c.readoutNumbers(2, position ? [stiffness] : [stiffness, round(steady, 1), round(peak, 1)]);
+      if (position) { c.readoutText(3, 'unbounded'); c.readoutText(4, 'unbounded'); c.readoutText(6, 'No force control: the push runs off the scale'); }
+      else { c.readoutNumbers(3, [round(steady, 1)]); c.readoutNumbers(4, [round(peak, 1)]); c.readoutNumbers(6, [round(peak, 1)]); }
+      c.readoutText(5, outcome);
+      c.contains(`Impedance control${position ? 'The stiff position-following arm crushes the glass' : Math.max(peak, steady) > 25 ? 'This force-control setting still crushes the glass' : 'Force control keeps contact below the glass’s crushing force'}`);
+    },
+  },
+  'interactive:ActionTokenization': {
+    basis: [{ id: 'assumption:ActionTokenization:seven-authored-waves', kind: 'assumption', reference: 'Seven authored normalized action coordinates over 16 moments, quantized uniformly on [-1,1] into 256 bins. Input waves are rounded to four decimals before binning; reconstruction uses the bin midpoint. These are illustrative tokens and trajectories, not a recorded VLA vocabulary.' }], evidencePaths: ['lib/action-tokenization.ts'],
+    check(c) {
+      const labels = ['forward/back', 'left/right', 'up/down', 'twist along arm', 'tilt up/down', 'turn left/right', 'open/close'], dim = labels.findIndex(label => c.selected(new RegExp(`^${label}$`))), step = c.input(/^Moment in the movement$/);
+      if (dim < 0) throw new Error('no selected action coordinate');
+      const defs = [[1, 0.3, 0.62, 0], [1.5, 2.1, 0.48, 0], [0.75, 4, 0.35, -0.12], [2, 1.2, 0.22, 0], [1.25, 5.1, 0.28, 0], [0.5, 0.8, 0.55, 0]], value = (t: number) => dim === 6 ? t < 11 ? -0.85 : 0.85 : round(defs[dim][2] * Math.sin(2 * Math.PI * defs[dim][0] * t / 15 + defs[dim][1]) + defs[dim][3], 4), bin = (v: number) => Math.min(255, Math.floor((v + 1) * 128));
+      const v = value(step), index = bin(v), centre = -1 + (index + 0.5) / 128;
+      c.readoutNumbers(0, [step + 1, 16]); c.readoutNumbers(1, [step + 1, 16, round(v, 3), index, 256, index]); c.readoutNumbers(2, [round(v, 3)]); c.readoutNumbers(3, [index, 256]); c.readoutNumbers(4, [index]); c.readoutNumbers(5, [round(centre, 4), round(v - centre, 4)]);
+      for (const t of [...new Set([0, 3, 6, 9, 12, 15, step])]) c.row(String(t), { value: value(t).toFixed(3), bin: bin(value(t)), playhead: t === step ? 'playhead' : 'off' });
+    },
+  },
+  'interactive:ExecutionModes': {
+    basis: [{ id: 'assumption:ExecutionModes:deterministic-handoff', kind: 'assumption', reference: 'Authored velocity 0.6+0.25sin(tick/5), 20 ms ticks and handoff at tick 8. Delay/200 is the naive velocity offset. Synchronous control ramps over four ticks; chunking freezes ceil(delay/20) ticks then blends over five. The 0.30 delta-v threshold is a proxy, not physical jerk.' }], evidencePaths: ['lib/execution-modes.ts'],
+    check(c) {
+      const delay = c.input(/^Inference delay, any value/), pause = Math.ceil(delay / 20), old = (t: number) => 0.6 + 0.25 * Math.sin(t / 5);
+      const trace = (mode: string) => Array.from({ length: 30 }, (_, t) => {
+        if (mode === 'naive') return old(t) + (t >= 8 ? delay / 200 : 0);
+        if (mode === 'chunking') return old(t) + delay / 200 * Math.min(1, Math.max(0, (t - 8 - pause + 1) / 5));
+        const k = t - 8; if (pause === 0 || k < 0) return old(t); if (k < 4) return old(8) * (1 - (k + 1) / 5); if (k < 4 + pause) return 0; const j = k - 4 - pause; return j < 4 ? old(8) * (j + 1) / 5 : old(t - pause);
+      });
+      const naive = trace('naive'), chunking = trace('chunking'), sync = trace('synchronous'), peak = (values: number[]) => Math.max(...values.slice(1).map((v, i) => Math.abs(v - values[i]))), n = peak(naive), r = peak(chunking);
+      c.readoutNumbers(0, [delay]); c.readoutNumbers(1, n > 0.3 ? [delay, round(n, 2), 0.3, 20] : [delay, 0.3, 20]); c.readoutNumbers(2, [pause * 20]); c.readoutNumbers(3, [...(pause ? [pause * 0.02] : []), round(n, 2), round(r, 2), 0.3]);
+      for (const t of [0, 6, 12, 18, 24, 29]) c.row(String(t), { synchronous: sync[t].toFixed(2), naive: naive[t].toFixed(2), chunking: chunking[t].toFixed(2) });
+    },
+  },
+  'interactive:LatentImagination': {
+    basis: [{ id: 'assumption:LatentImagination:affine-error-recurrence', kind: 'assumption', reference: 'Authored recurrence d_next=d+epsilon*(1+0.02d), so d(H)=50*((1+0.02epsilon)^H-1). The 3–15 step band and reward error 0.35d are illustrative, not measured model reliability.' }], evidencePaths: ['lib/latent-imagination.ts'], seriesIds: ['typical-range', 'deviation'],
+    check(c) {
+      const horizon = c.input(/^How far ahead to imagine/), percent = c.input(/^How accurate each step is/), e = percent / 100, deviation = (h: number, error = e) => 50 * ((1 + 0.02 * error) ** h - 1), print = (v: number) => v >= 10 ? v.toFixed(1) : v >= 1 ? v.toFixed(2) : v.toFixed(3), current = Number(print(deviation(horizon)));
+      c.readoutWhere({ key: /^\d+$/, text: /^\d+ steps?$/ }, [horizon]); c.readoutWhere({ text: /% off per step$/ }, [percent]); c.readoutWhere({ text: /steps? ahead.*off the route/ }, [horizon, current, ...(c.selected(/^TD-MPC2/) ? [Number(print(deviation(horizon) * 0.35))] : [])]); c.readoutWhere({ key: /^deviation-readout$/ }, [current]);
+      if (c.selected(/^TD-MPC2/)) c.readoutWhere({ key: /^reward-error-readout$/ }, [Number(print(deviation(horizon) * 0.35))]);
+      for (const h of [...new Set([0, 10, 20, 30, 40, 50, horizon])]) c.row(String(h), { deviation: print(deviation(h)), range: h < 3 ? 'before illustrative band' : h <= 15 ? 'inside illustrative band' : 'past illustrative band', playhead: h === horizon ? 'playhead' : 'off' });
+      const x = (h: number) => 40 + h / 50 * 282, y = (d: number) => 116 - d / (deviation(50, 0.06) * 1.05) * 100, path = (start: number, end: number) => Array.from({ length: end - start + 1 }, (_, i) => `${i ? 'L' : 'M'}${x(start + i).toFixed(2)} ${y(deviation(start + i)).toFixed(2)}`).join(' ');
+      c.rectCount('typical-range', 1); c.svgMark('typical-range', 'rect', { x: x(3), y: 16, width: x(15) - x(3), height: 100 }); c.svgMarkCount('deviation', 'path', horizon === 50 ? 1 : 2); c.svgMark('deviation', 'path', { d: path(0, horizon) }); if (horizon < 50) c.svgMark('deviation', 'path', { d: path(horizon, 50) });
+    },
+  },
+  'interactive:JepaPlanning': {
+    basis: [{ id: 'assumption:JepaPlanning:prescribed-contraction', kind: 'assumption', reference: 'Authored Euclidean latent plane begins at (0.16,0.74), with goal (0.83,0.28) or (0.62,0.82). Each selected action moves 42% toward the goal rotated by ±pi/3*(64-candidates)/60, plus a 5% golden-angle wobble. This is not the paper’s L1 feature energy or CEM solver.' }], evidencePaths: ['lib/jepa-planning.ts'],
+    check(c) {
+      const candidates = c.input(/^Options tried each step/), steps = Number(c.sourceState('data-source-step')); if (!Number.isInteger(steps) || steps < 0 || steps > 12) throw new Error('invalid planning-step input');
+      const goal = c.selected(/^Cup on the shelf$/) ? [0.62, 0.82] : [0.83, 0.28]; let x = 0.16, y = 0.74; const initial = Math.hypot(goal[0] - x, goal[1] - y);
+      for (let s = 0; s < steps; s++) { const dx = goal[0] - x, dy = goal[1] - y, distance = Math.hypot(dx, dy), theta = Math.PI / 3 * (64 - candidates) / 60 * (s % 2 ? -1 : 1), wobble = 2.399963229728653 * (s + 1); x += 0.42 * (dx * Math.cos(theta) - dy * Math.sin(theta)) + 0.05 * distance * Math.cos(wobble); y += 0.42 * (dx * Math.sin(theta) + dy * Math.cos(theta)) + 0.05 * distance * Math.sin(wobble); }
+      const distance = Math.hypot(goal[0] - x, goal[1] - y); c.readoutNumbers(0, [candidates]); c.readoutNumbers(1, distance <= 0.03 ? [steps] : [steps, Math.round(distance / initial * 100), candidates]); c.readoutNumbers(2, [round(distance, 3)]); c.readoutNumbers(3, [steps]);
+    },
+  },
+  'interactive:ChunkBuffer': {
+    basis: [{ id: 'gemini-robotics-2025', kind: 'citation', reference: 'Approximately 250 ms response latency and 50 Hz effective control.' }, { id: 'assumption:ChunkBuffer:replace-latest-buffer', kind: 'assumption', reference: 'The reader chooses the chunk length. At 50 Hz and four answers/second, 13 actions covers every tick; shorter chunks fill four times their length of the 50 ticks.' }], citationText: { 'gemini-robotics-2025': 'Gemini Robotics' }, evidencePaths: ['lib/chunk-buffer.ts'],
+    check(c) { const k = c.input(/^Actions per chunk$/), enough = Math.ceil(250 * 50 / 1000); c.readoutNumbers(0, [k]); c.readoutNumbers(1, k >= enough ? [k, enough] : [k, 50 - 4 * k, 50, enough]); c.contains(`Action chunks${enough} actions bridge 250 milliseconds at 50 commands a second`); },
+  },
+  'interactive:RecedingHorizon': {
+    basis: [{ id: 'assumption:RecedingHorizon:ten-hertz', kind: 'assumption', reference: 'The Diffusion Policy configuration is 16 predicted and 8 executed actions at 10 commands/second. For any authored horizon, duration is steps/10 and replans/second is 10/executed steps.' }], evidencePaths: ['lib/receding-horizon.ts'],
+    check(c) { const tp = c.input(/^Steps planned,/), ta = c.input(/^Steps acted on,/), rate = Number((10 / ta).toFixed(2)); c.readoutNumbers(0, [tp]); c.readoutNumbers(1, [ta]); c.readoutNumbers(2, [tp / 10, ta / 10, rate]); c.readoutNumbers(3, [ta / 10]); c.readoutNumbers(4, [rate]); c.contains(`Receding horizon${tp>ta?`Plan ${(tp/10).toFixed(1)} seconds ahead; act on ${(ta/10).toFixed(1)} seconds, then rethink`:`Follow all ${(tp/10).toFixed(1)} seconds without replanning`}`); c.contains(tp>ta?`The robot plans ${(tp/10).toFixed(1)} seconds ahead, acts on ${(ta/10).toFixed(1)} seconds, then replans and replaces the unused moves.`:`The robot acts on all ${(tp/10).toFixed(1)} seconds of this plan without replanning.`); },
+  },
+  'interactive:MotInsulation': {
+    basis: [{ id: 'knowledge-insulation-paper-2025', kind: 'citation', reference: 'The source reports 7.5 times fewer training steps for the stated table-bussing comparison.' }, { id: 'assumption:MotInsulation:eight-trays', kind: 'assumption', reference: 'Eight trays are an authored abstraction of layers; the language score declines linearly from 92 to 34 only when an uninsulated backward pass crosses them.' }], evidencePaths: ['lib/knowledge-insulation.ts'],
+    check(c) { const depth = c.input(/^Pass depth$/); c.readoutNumbers(0, [depth, 8]); c.readoutNumbers(1, [depth, 8]); c.readoutNumbers(4, c.selected(/^backward pass$/) && c.selected(/^Protect language skills:/) ? [depth, 8] : [depth, 8, depth]); c.readoutNumbers(5, [7.5]); },
+  },
+  'interactive:HandMotionShare': {
+    basis: [{ id: 'assumption:HandMotionShare:unequal-two-link-arms', kind: 'assumption', reference: 'Authored human links 30/28 cm and robot links 24/18 cm, starting shoulder 30°, elbow 115°. The check stroke is (0,0)→(7,-7)→(19,4). Exact two-link IK followed by robot FK bounds the copied-joint error; hand-motion replay preserves the stroke.' }], evidencePaths: ['lib/hand-motion-share.ts'],
+    check(c) {
+      if (c.selected(/^Hand's motion$/)) { c.readoutText(0, "Hand's motion copied · same stroke"); return; }
+      const rad = Math.PI / 180, start = (a: number, b: number) => [a * Math.cos(30 * rad) + b * Math.cos(-85 * rad), a * Math.sin(30 * rad) + b * Math.sin(-85 * rad)];
+      const human = start(30, 28), robot = start(24, 18), first = Math.hypot(7, 7), total = first + Math.hypot(12, 11); let worst = 0;
+      for (let k = 0; k <= 400; k++) {
+        const along = total * k / 400, u = along <= first ? along / first : (along - first) / (total - first), dx = along <= first ? 7 * u : 7 + 12 * u, dy = along <= first ? -7 * u : -7 + 11 * u;
+        const x = human[0] + dx, y = human[1] + dy, bend = Math.acos(Math.min(1, Math.max(-1, (x * x + y * y - 30 ** 2 - 28 ** 2) / (2 * 30 * 28))));
+        const shoulder = Math.atan2(y, x) + Math.atan2(28 * Math.sin(bend), 30 + 28 * Math.cos(bend));
+        worst = Math.max(worst, Math.hypot(24 * Math.cos(shoulder) + 18 * Math.cos(shoulder - bend) - robot[0] - dx, 24 * Math.sin(shoulder) + 18 * Math.sin(shoulder - bend) - robot[1] - dy));
+      }
+      c.readoutNumbers(0, [Math.round(worst * 10) / 10]);
+    },
+  },
+  'interactive:ActuatorGap': {
+    basis: [{ id: 'assumption:ActuatorGap:second-order-response', kind: 'assumption', reference: 'Authored motor response: command at 0.1, delay 0.04, natural frequency 30, damping 0.45. The learned proxy delays this response by 0.006. Mean absolute error is over 201 evenly spaced samples on [0,1], reported as percent of command.' }], evidencePaths: ['components/interactive/actuator-gap.tsx'],
+    check(c) {
+      const response = (t: number) => { const u = t - 0.14, root = Math.sqrt(1 - 0.45 ** 2); return u <= 0 ? 0 : 1 - Math.exp(-13.5 * u) * (Math.cos(30 * root * u) + 0.45 / root * Math.sin(30 * root * u)); };
+      const gap = (learned: boolean) => Math.round(Array.from({ length: 201 }, (_, k) => Math.abs((learned ? response(k / 200 - 0.006) : k / 200 >= 0.1 ? 1 : 0) - response(k / 200))).reduce((a, b) => a + b, 0) / 201 * 100);
+      c.readoutNumbers(0, [gap(c.selected(/^Learned from real legs$/))]);
+      c.row('Ideal, instant', { 'average gap to the real motor (% of the move)': gap(false), 'on the real robot': 'falls at its first step' }); c.row('Learned from real legs', { 'average gap to the real motor (% of the move)': gap(true), 'on the real robot': 'walks' });
+    },
+  },
+  'interactive:OfflineValueOverreach': {
+    basis: [{ id: 'assumption:OfflineValueOverreach:penalized-extrapolation', kind: 'assumption', reference: 'Authored reward 0.15+0.7 exp(-((x-0.45)/0.22)^2); outside [0.18,0.57], guess adds 2.4 d^1.1 minus 1.2 caution d. Select the greatest guess on x=0,0.01,...,1, and print scores relative to 1.15.' }], evidencePaths: ['components/interactive/offline-value-overreach.tsx'],
+    check(c) {
+      const result = (x: number) => 0.15 + 0.7 * Math.exp(-(((x - 0.45) / 0.22) ** 2));
+      const guess = (x: number, caution: number) => { const outside = Math.max(0, 0.18 - x, x - 0.57); return result(x) + 2.4 * outside ** 1.1 - 1.2 * caution / 10 * outside; };
+      const pick = (caution: number) => { let best = 0; for (let k = 1; k <= 100; k++) if (guess(k / 100, caution) > guess(best, caution)) best = k / 100; return best; };
+      const score = (v: number) => Math.round(v / 1.15 * 100), caution = c.input(/^Caution about untried actions/), selected = pick(caution);
+      c.readoutNumbers(0, [caution, 10]); c.readoutNumbers(1, [score(guess(selected, caution)), score(result(selected))]);
+      for (const level of [0, 4, 5, 10]) { const x = pick(level); c.row(String(level), { 'squeeze picked (% of the way to hard)': Math.round(x * 100), 'expected score (of 100)': score(guess(x, level)), 'real score (of 100)': score(result(x)) }); }
+    },
+  },
+  'interactive:ChunkSizeCurve': {
+    basis: [{ id: 'assumption:ChunkSizeCurve:qualified-curve', kind: 'assumption', reference: 'ACT publishes 1% at k=1 and 44% at k=100. The authored curve uses 0.01*44^(log(k)/log(100)) through those anchors and 0.44 exp(-(k-100)/800) afterwards. Decisions are ceil(400/k); only anchors are measured.' }], evidencePaths: ['lib/chunk-size.ts'], seriesIds: ['illustrative-taper', 'measured-rise'],
+    check(c) {
+      const k = c.input(/^Moves per plan, any value/), value = (v: number) => v <= 100 ? 0.01 * 44 ** (Math.log(v) / Math.log(100)) : 0.44 * Math.exp(-(v - 100) / 800), percent = (v: number) => (100 * value(v)).toFixed(100 * value(v) < 10 && !Number.isInteger(100 * value(v)) ? 1 : 0);
+      const x = (v: number) => Number((44 + Math.log(v) / Math.log(400) * 274).toFixed(2)), y = (v: number) => Number((174 - v * 208).toFixed(2)), decisions = (v: number) => Math.ceil(400 / v);
+      c.readoutNumbers(0, [k]); c.readoutNumbers(1, [k, Number(percent(k)), decisions(k), 400]); c.readoutNumbers(2, [Number(percent(k))]); c.readoutNumbers(3, [decisions(k)]);
+      for (const v of [1, 25, 50, 100, 200, 300, 400]) c.row(String(v), { success: `${percent(v)}%`, decisions: decisions(v), provenance: v === 1 || v === 100 ? 'measured' : v < 100 ? 'interpolated' : 'estimated', playhead: v === k ? 'playhead' : 'off' });
+      c.circleCount(3); c.point('measured k=1', x(1), y(0.01), 2.5); c.point('measured k=100', x(100), y(0.44), 2.5); c.point('selected chunk', x(k), y(value(k)), 4.5);
+      for (const [id, values] of [['measured-rise', Array.from({ length: 100 }, (_, i) => i + 1)], ['illustrative-taper', Array.from({ length: 61 }, (_, i) => 100 + i * 5)]] as const) { c.svgMarkCount(id, 'path', 1); c.svgMark(id, 'path', { d: values.map((v, i) => `${i ? 'L' : 'M'}${x(v)},${y(value(v))}`).join(' ') }); }
+    },
+  },
+  'interactive:LatencyComparison': {
+    basis: [{ id: 'assumption:LatencyComparison:qualified-staleness-model', kind: 'assumption', reference: 'Authored throughput, not measured paper data: action=0.8/(1+(delay/125)^3); score clamps (action-0.55)/0.20 to [0,1]. The 24-tick trace blends to that action over ticks 8–10; RTC stays at 0.8 and score 1.' }], evidencePaths: ['lib/latency-chunking.ts'], seriesIds: ['lc-score-rtc', 'lc-score'],
+    check(c) {
+      const delay = c.input(/^Thinking delay, any value/), action = (d: number) => 0.8 / (1 + (d / 125) ** 3), score = (d: number) => Math.min(1, Math.max(0, (action(d) - 0.55) / 0.2)), status = (d: number) => score(d) >= 0.95 ? 'nominal' : score(d) > 0 ? 'degraded' : 'failed';
+      c.readoutNumbers(0, delay === 0 ? [] : [delay / 1000]); c.readoutNumbers(1, [Math.round(score(delay) * 100), 100]); c.readoutNumbers(2, [Math.round(score(delay) * 100)]); c.readoutNumbers(4, [100]);
+      const summary = { tableHeaders: ['delay (ms)', 'ensembling', 'chunking', 'ensembling status', 'playhead'] }, trace = { tableHeaders: ['tick', 'ensembling', 'chunking', 'ensembling validity'] };
+      for (const d of [...new Set([0, 60, 100, 140, 200, 240, delay])]) c.row(String(d), { ensembling: `${Math.round(score(d) * 100)}%`, chunking: '100%', 'ensembling status': status(d), playhead: d === delay ? 'playhead' : 'off' }, summary);
+      for (const tick of [0, 4, 8, 12, 18, 23]) { const a = 0.8 + (action(delay) - 0.8) * Math.min(1, Math.max(0, (tick - 7) / 3)); c.row(String(tick), { ensembling: a.toFixed(2), chunking: '0.80', 'ensembling validity': Math.abs(Math.abs(a) - 0.8) <= 0.25 ? 'on a mode' : 'off-mode' }, trace); }
+      const x = (d: number) => Number((44 + d / 240 * 282).toFixed(2)), y = (p: number) => Number((106 - 72 * p).toFixed(2));
+      for (const [id, fn] of [['lc-score-rtc', () => 1], ['lc-score', score]] as const) { c.svgMarkCount(id, 'circle', 1); c.svgMark(id, 'circle', { cx: x(delay), cy: y(fn(delay)), r: 2.5 }); c.svgMarkCount(id, 'path', 1); c.svgMark(id, 'path', { d: Array.from({ length: 61 }, (_, i) => `${i ? 'L' : 'M'}${x(i * 4)},${y(fn(i * 4))}`).join(' ') }); }
+    },
+  },
+  'interactive:CompoundingError': {
+    basis: [{ id: 'assumption:CompoundingError:additive-recurrence', kind: 'assumption', reference: 'At each decision add epsilon*(1+0.01*deviation); chunk decisions occur every 25 moves; the teacher removes 75% of deviation every 20 moves. Sum all deviations. Reference curves epsilon*T*(T+1)/2 and epsilon*T are scalings, not theorem bounds on this recurrence.' }], evidencePaths: ['lib/compounding-error.ts'], seriesIds: ['quadratic-reference', 'linear-reference', 'summed-deviation'],
+    check(c) {
+      const percent = c.input(/^How big each slip is/), steps = c.input(/^How many moves the task has/), chunk = c.selected(/^25 moves per plan$/), teacher = c.selected(/^A teacher corrects it$/), e = percent / 100;
+      let d = 0, sum = 0; const ds = [0], sums = [0];
+      for (let t = 1; t <= 240; t++) { if (!chunk || (t - 1) % 25 === 0) d += e * (1 + 0.01 * d); if (teacher && t % 20 === 0) d *= 0.25; ds.push(d); sum += d; sums.push(sum); }
+      // The positive integer horizon is split at its nearest whole move.
+      const printed = (v: number) => v >= 100 ? String(Math.round(v)) : v >= 1 ? v.toFixed(1) : v.toFixed(3), half = Math.floor((steps + 1) / 2);
+      const ratio = Math.round(sums[half] > 0 ? sums[steps] / sums[half] : 1), ratioWords = ratio <= 1 ? 'about as far' : ratio === 2 ? 'about twice as far' : `about ${({ 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine' } as Record<number, string>)[ratio] ?? ratio} times as far`;
+      c.contains(`Compounding errorTwice the task: ${ratioWords} off course`);
+      c.contains(`Copying an expert for twice as long leaves the robot ${ratioWords} off course as its small slips accumulate.`);
+      c.readoutNumbers(0, [percent]); c.readoutNumbers(1, [steps]); c.readoutNumbers(2, [steps, Number(printed(sums[steps])), half, Number(printed(sums[half]))]); c.readoutNumbers(3, [Number(printed(sums[steps]))]); c.readoutNumbers(4, [Number(printed(sums[half]))]); c.readoutNumbers(5, [Number(printed(ds[steps]))]);
+      for (const t of [0, 48, 96, 144, 192, 240]) c.row(String(t), { simulated: printed(sums[t]), 'εT(T+1)/2': printed(e * t * (t + 1) / 2), 'εT': printed(e * t) });
+      const x = (t: number) => Number((48 + t / 240 * 258).toFixed(1)), y = (v: number) => Number((Math.round((154 - Math.log10(1 + v / 100) / Math.log10(51) * 122) * 100) / 100).toFixed(1));
+      for (const [id, stride, fn] of [['quadratic-reference', 2, (t: number) => e * t * (t + 1) / 2], ['linear-reference', 2, (t: number) => e * t], ['summed-deviation', 1, (t: number) => sums[t]]] as const) { c.svgMarkCount(id, 'path', 1); c.svgMark(id, 'path', { d: Array.from({ length: 240 / stride + 1 }, (_, i) => `${i ? 'L' : 'M'}${x(i * stride)},${y(fn(i * stride))}`).join(' ') }); }
+      c.svgMarkCount('summed-deviation', 'circle', 1); c.svgMark('summed-deviation', 'circle', { cx: x(steps), cy: y(sums[steps]), r: 4.5 });
+    },
+  },
+  'interactive:DeploymentEconomics': {
+    basis: [{ id: 'assumption:DeploymentEconomics:calendar-payback', kind: 'assumption', reference: 'Authored cell model: effective cycle=cycle+(1-success)*jam seconds; available seconds=3600*uptime; value per month=picks/hour*730*cycle*wage/3600. Cell price is robot price times integration multiple; target is 24 months, amortization 60 months.' }], evidencePaths: ['lib/deployment-economics.ts'],
+    check(c) {
+      const jam = c.input(/^Time to fix each jam/), price = c.input(/^Robot price/), multiple = c.input(/^Whole cell cost/), cycle = c.input(/^Seconds per pick/), uptime = c.input(/^Share of time/), success = c.input(/^Picks that succeed/), wage = c.input(/^Hourly wage/);
+      const months = (seconds: number, percent: number) => price * multiple * (cycle + (1 - percent / 100) * seconds) / (uptime / 100 * 730 * cycle * wage), payback = months(jam, success);
+      [[jam >= 60 ? Number((jam / 60).toFixed(1)) : jam], [price / 1000], [multiple], [cycle], [uptime], [success], [wage], [24], [Number(payback.toFixed(1))]].forEach((v, index) => c.readoutNumbers(index, v));
+      for (const seconds of [5, 15, 60, 120, 180, 240, 300]) c.row(String(seconds), { 'payback at 99.9% success': months(seconds, 99.9).toFixed(1), 'payback at 99% success': months(seconds, 99).toFixed(1) });
+      const productive = uptime / 100 * cycle / (cycle + (1 - success / 100) * jam), jams = uptime / 100 - productive;
+      c.requireSeries(uptime === 100 ? ['economics-productive', 'economics-jam-clearing'] : ['economics-productive', 'economics-jam-clearing', 'economics-downtime']);
+      if (uptime === 100) { c.zeroSeries('economics-downtime', 'Model downtime = 3600 × (1 - uptime/100), exactly zero at 100 percent uptime.'); c.contains('downtime 0 s'); }
+      c.rectCount('economics-productive', 1); c.rect('economics-productive', 0, 1.2, productive * 150, 2.6); c.rectCount('economics-jam-clearing', 1); c.rect('economics-jam-clearing', productive * 150, 1.2, jams * 150, 2.6);
+      c.svgMarkCount('economics-downtime', 'path', uptime === 100 ? 0 : 1); if (uptime !== 100) c.svgMark('economics-downtime', 'path', { d: `M${uptime * 1.5} 1.2H150V3.8H${uptime * 1.5}Z` });
+    },
+  },
   'interactive:LinearizationGap': {
     basis: [{ id: 'assumption:LinearizationGap:tangent-error', kind: 'assumption', reference: 'For an authored 50 cm arm and angle a, the tangent point differs by (50(1-cos(a)),50(a-sin(a))); the displayed miss is its Euclidean norm.' }],
     evidencePaths: ['lib/linearization-gap.ts'],
@@ -26,7 +398,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   'interactive:BearCaseLock': {
     basis: [{ id: 'assumption:BearCaseLock:four-premises', kind: 'assumption', reference: 'The four article watchlist premises are an AND condition; two start partial and none met. Reader toggles are suppositions, not new research results.' }],
     evidencePaths: ['lib/bear-case.ts', 'components/iso/figures/bear-lock.ts'],
-    check(c) { const count = [/^10,000 at work$/, /^90% in unseen homes$/, /^Cost-per-task parity$/, /^Success scaling law$/].filter(label => c.selected(label)).length; c.readoutNumbers(0, count === 0 ? [4, 2] : count === 4 ? [4] : [count, 4]); },
+    check(c) { const count = [/^10,000 humanoids doing useful work$/, /^Over 90% task success in new homes$/, /^Cost per job matches a specialist machine$/, /^More data predictably improves task success$/].filter(label => c.selected(label)).length; c.readoutNumbers(0, count === 0 ? [4, 2] : count === 4 ? [4] : [count, 4]); },
   },
   'interactive:HelixClockwork': {
     basis: [{ id: 'helix-02-2026', kind: 'citation', reference: 'Figure reports S0 at 1000 Hz and S1 at 200 Hz, hence five control steps per joint target.' }, { id: 'assumption:HelixClockwork:elapsed-clock', kind: 'assumption', reference: 'The authored demonstration counts completed ticks from zero at the native elapsed-millisecond setting.' }],
@@ -64,14 +436,19 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   },
   'interactive:DemoOrSim': {
     basis: [{ id: 'reality-gap-survey-2026', kind: 'citation', reference: 'Contact-model fidelity differs between walking and manipulation.' }, { id: 'rudin-2021', kind: 'citation', reference: 'ANYmal flat-ground policy in under four minutes of training.' }, { id: 'act-aloha-2023', kind: 'citation', reference: 'Battery insertion success 80–90% after ten minutes of demonstrations.' }], evidencePaths: ['components/interactive/demo-or-sim.tsx'],
-    check(c) { c.row('Simulation, with RL', { 'needs a contact model': 'yes', example: 'ANYmal walked on flat ground after under 4 minutes of training' }); c.row('Real demonstrations', { 'needs a contact model': 'no', example: 'ACT slotted a battery 80 to 90% of the time after 10 minutes of demonstrations' }); },
+    check(c) {
+      c.row('Simulation, trial and error', { 'needs a contact model': 'yes', example: 'ANYmal walked on flat ground after under 4 minutes of training' }); c.row('Real demonstrations', { 'needs a contact model': 'no', example: 'ACT slotted a battery 80 to 90% of the time after 10 minutes of demonstrations' });
+      const sim = c.selected(/^Simulation, trial and error$/), demo = c.selected(/^Real demonstrations$/);
+      c.compare('exclusive training recipe', true, sim !== demo, sim !== demo);
+      c.svgText(null, sim ? 'The simulator’s contact errors carry over' : 'Real demonstrations need no contact model', 2, 16, 0.05, { ownerTestId: 'recipe-stage', requirePaint: true });
+    },
   },
   'interactive:NewtonSolvers': {
     basis: [{ id: 'state-of-simulation-2026', kind: 'citation', reference: 'NVIDIA solver inventory and supported material categories.' }, { id: 'newton-manipulation-blog-2026', kind: 'citation', reference: 'Newton release credits Kamino and coupled cable support.' }], evidencePaths: ['components/interactive/newton-solvers.tsx'],
     nonQuantitative: 'The four material examples and solver assignments are categorical; no speed, accuracy or solver benchmark is plotted.',
     check(c) {
       c.row('Robot arms and legs', { solver: 'MuJoCo Warp', 'what the sources say it handles': "jointed robots in generalized coordinates, as Newton's primary backend" });
-      c.row('Closed-chain linkages', { solver: 'Kamino', 'what the sources say it handles': 'closed-chain mechanisms, credited to Disney Research' });
+      c.row('Parts joined in a loop', { solver: 'Kamino', 'what the sources say it handles': 'closed-chain mechanisms, credited to Disney Research' });
       c.row('Cloth and cables', { solver: 'VBD', 'what the sources say it handles': 'rigid bodies, particles, cloth and soft bodies; the cable solver coupled to MuJoCo Warp' });
       c.row('Sand-like materials', { solver: 'implicit MPM', 'what the sources say it handles': 'particle-based continuum materials' });
     },
@@ -91,7 +468,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       c.readoutNumbers(0, [b]); c.readoutNumbers(1, [d]); c.readoutNumbers(2, [a, Number(x.toFixed(2)), Number(y.toFixed(2))]);
       const across = Math.abs(x) < 0.005 ? 'level with the shoulder' : `${Math.abs(x).toFixed(2)} ${x < 0 ? 'left' : 'right'}`;
       const out = Math.abs(y) < 0.005 ? 'level' : `${Math.abs(y).toFixed(2)} ${y < 0 ? 'back' : 'out'}`;
-      c.readoutText(3, `Shoulder ${Math.round(a)} degrees · hand ${across}, ${out}`);
+      c.readoutText(3, `Shoulder ${Math.round(a)} degrees · hand ${across}, ${out} from the shoulder, in upper-arm lengths`);
     },
   },
   'interactive:ImpedancePress': {
@@ -100,10 +477,12 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     check(c) {
       const target = c.input(/^Target$/), soft = c.selected(/^Soft$/), stiff = c.selected(/^Stiff$/), rate = soft ? 1 : stiff ? 4 : 2;
       const name = soft ? 'Soft' : stiff ? 'Stiff' : 'Medium', magnitude = Math.abs(target), words = `${Number.isInteger(magnitude) ? magnitude : magnitude.toFixed(1)} ${magnitude === 1 ? 'mark' : 'marks'}`;
-      const targetText = target === 0 ? 'on the surface' : `${words} ${target < 0 ? 'short' : 'past'}`;
+      const targetText = target === 0 ? 'on the surface' : `${words} ${target < 0 ? 'short of surface' : 'past surface'}`;
       c.readoutText(0, targetText);
       const push = rate * Math.max(0, target);
-      c.readoutText(1, `${name} · ${targetText} · ${target <= 0 ? 'no push' : `push ${Number.isInteger(push) ? push : push.toFixed(1)}`}`);
+      c.readoutText(1, `${name} · ${targetText} · ${target <= 0 ? 'no push' : `push ${Number.isInteger(push) ? push : push.toFixed(1)} dial marks`}`);
+      c.contains(`Impedance action${target > 0 ? 'Surface stops the tool; stiffness times target gap sets push' : target < 0 ? 'Before contact, the tool follows its target without pushing' : 'At the surface, no target gap means no push'}`);
+      c.contains(target > 0 ? `The surface stops the tool. Stiffness ${rate} times a target gap of ${target} ruler marks gives ${Number.isInteger(push) ? push : push.toFixed(1)} dial marks of push.` : target < 0 ? 'Before contact, the tool follows the target and pushes on nothing.' : 'Target and tool meet the surface with no gap, so there is no push.');
     },
   },
   'interactive:ScopeFollow': {
@@ -150,7 +529,13 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     basis: [{ id: 'assumption:PlannerExploit:untried-actions', kind: 'assumption', reference: 'The authored one-action curve and a model fitting only tried actions illustrate planner exploitation; no measured score or metric is claimed.' }],
     evidencePaths: ['lib/planner-exploit.ts'],
     nonQuantitative: 'The diagram conveys support/extrapolation qualitatively and states that no number is claimed; there is no numerical readout, table or plotted quantitative binding.',
-    check(c) { c.contains('Schematic: one action'); c.contains('no number is claimed'); },
+    check(c) {
+      c.contains('Schematic: one action'); c.contains('no number is claimed');
+      const inside = c.selected(/^Only inside the data$/);
+      c.contains(`Untried actions${inside ? 'Keeping the search inside data avoids this model’s error' : 'The highest predicted score takes planning beyond the data'}`);
+      c.contains(inside ? 'The planner still chooses the highest predicted score, now within the range covered by data, where this model agrees with reality.' : 'Choosing the highest predicted score takes the planner past tried actions, where the model guesses beyond its data and gets the score wrong.');
+      c.contains(inside ? 'Restricting this planner to the data’s range keeps its highest-scoring choice where this model’s prediction agrees with reality.' : 'The planner maximizes the model’s predicted score, selecting an untried action where a guess beyond the data is wrong.');
+    },
   },
   'interactive:ControlLoopBudget': {
     basis: [
@@ -166,6 +551,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       const params = c.input(/^Model size on/), server = c.selected(/^Data-centre computer$/);
       const curve = (size: number) => size <= 3 ? 52.57 * size / 3 : 52.57 * Math.exp(Math.log(size / 3) * Math.log((1000 / 3.9) / 52.57) / Math.log(9.1 / 3));
       const toy = curve(params), milliseconds = server ? 1000 / 162.5 : toy, hz = Math.round(1000 / milliseconds), missed = Math.max(0, Math.ceil(milliseconds / 20) - 1);
+      c.contains(`Control-loop budgetChoosing a move takes ${(milliseconds/20).toFixed(1)} times the available time`);
       c.readoutNumbers(0, [params, Number(toy.toFixed(1))]); c.readoutNumbers(1, [params]); c.readoutNumbers(2, [Number(toy.toFixed(1))]);
       c.readoutNumbers(3, [50, hz, missed]); c.readoutText(4, `${milliseconds <= 20 ? 'closes' : 'does not close'} at 50 Hz`);
       c.readoutNumbers(5, [hz]); c.readoutNumbers(6, [missed]);
@@ -193,7 +579,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       const values = [[angle], [distance], [requested], [pose], [round(hand, 1)], [round(depth, 1)], [round(pose, 1)], [round(total, 1)], [round(total, 2), round(depth, 2), effective], [round(total, 2)], [round(depth, 2), effective]];
       values.forEach((numbers, index) => c.readoutNumbers(index, numbers));
       c.readoutText(11, total <= 15 ? 'within model band' : total <= 30 ? 'marginal' : 'above model band');
-      c.readoutNumbers(12, [angle, distance, round(hand, 1)]);
+      c.readoutNumbers(12, hand < 0.05 ? [angle, distance] : [angle, distance, round(hand, 1)]);
       const needed = Math.max(total * 1.15, 36), step = needed <= 40 ? 5 : needed <= 100 ? 10 : 25, ceiling = Math.ceil(needed / step) * step;
       c.rectCount('input', 3); c.rectCount('total', 1);
       [hand, depth, pose].forEach((value, index) => c.rect('input', 76, 38 + index * 30, Math.max(value / ceiling * 212, 1), 14));
@@ -216,7 +602,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     check(c) {
       const ratio = c.input(/^Robot.*leg length/), gap = Math.round(90 * (100 - ratio) / 100);
       c.readoutNumbers(0, [ratio]); c.readoutNumbers(1, [gap]);
-      for (const value of [70, 75, 85, 100, 115, 130]) c.cell(String(value), 'lower foot (cm from the floor)', Math.round(90 * (100 - value) / 100));
+      for (const value of [...new Set([70, 85, 100, 115, 130, ratio])]) c.cell(String(value), 'lower foot (cm from the floor)', Math.round(90 * (100 - value) / 100));
     },
   },
   'interactive:HandEyePoses': {
@@ -227,7 +613,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       c.readoutNumbers(0, [poses, 20]);
       const values = poses < 3 ? [poses] : poses === 3 ? [3, 1] : [poses, tighter, 3];
       c.readoutNumbers(1, values); c.readoutNumbers(2, values);
-      for (const value of [3, 6, 12, 15, 20]) c.cell(String(value), 'times tighter than with 3 (illustrative)', Math.sqrt(value - 2).toFixed(1));
+      for (const value of [...new Set([3, 6, 12, 15, 20, poses])]) c.cell(String(value), 'times tighter than with 3 (illustrative)', value < 3 ? 'not solvable' : Math.sqrt(value - 2).toFixed(1));
     },
   },
   'interactive:ReliabilityCompounding': {
@@ -236,7 +622,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     check(c) {
       const n = c.input(/^How many steps the job has/), percent = c.input(/^How often each step goes right/);
       const chance = (steps: number) => Number((100 * (percent / 100) ** steps).toFixed(1));
-      c.readoutWhere({ key: /^\d+$/, text: /steps$/ }, [n]);
+      c.readoutWhere({ key: /^\d+$/, text: /steps?$/ }, [n]);
       c.readoutWhere({ key: /^\d+$/, text: /^\d+(?:\.\d+)?%$/ }, [percent]);
       c.readoutWhere({ text: /per step.*jobs finish/ }, [percent, n, chance(n)]);
       c.readoutWhere({ key: /^per-step-readout$/ }, [percent]); c.readoutWhere({ key: /^episode-success-readout$/ }, [chance(n)]);
@@ -280,6 +666,8 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       c.circleCount(1); c.point('Moon round trip', x(2.5), 74, 2.5);
       c.rectCount('drone-camera', 1); c.rect('drone-camera', x(0.017), 30, x(0.070) - x(0.017), 8);
       c.rectCount('mars-round-trip', 1); c.rect('mars-round-trip', x(480), 110, x(2400) - x(480), 8);
+      c.svgText(null, 'Delay; each tick is 60 times longer', 330, 190);
+      c.contains('Delays a robot works withinCamera: hundredths of seconds; Mars round trip: 8–40 minutes');
     },
   },
   'interactive:UmiCollectionRates': {
@@ -321,7 +709,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       { id: 'bora-2026', kind: 'citation', reference: 'Standard objects 60.8% to 82.5%.' },
     ], evidencePaths: ['lib/real-robot-rl-gains.ts'],
     check(c) {
-      const after = c.selected(/^After RL$/);
+      const after = c.selected(/^After extra practice$/);
       c.circleCount(8);
       const rows = [['RankQ, cube stacking', 43.1, 88.9], ['SCORE, eight hand tasks', 37.8, 89.9], ['PA-RL, openvla tasks', 40, 70], ['BORA, standard objects', 60.8, 82.5]] as const;
       rows.forEach(([label, before, next], row) => {
@@ -349,6 +737,8 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
         c.point(row, 10 + (Math.log10(miles) - 6) * 320 / 3, y);
       }
       c.contains('12.5 years');
+      c.svgText(null, 'Miles; each tick is ten times farther', 330, 182);
+      c.contains('Miles needed to prove safetyNo fatalities in 275 million miles: 95% confidence');
     },
   },
   'interactive:DatasetRunsHours': {
@@ -377,7 +767,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       c.readoutNumbers(0, [speed]);
       if (speed === 0) c.readoutText(1, 'Standing still: no gap');
       else c.readoutNumbers(1, [speed, gap]);
-      for (const value of [10, 25, 50, 100]) c.cell(String(value), 'gap (mm)', Math.round(value * 0.55 * 10) / 10);
+      for (const value of [...new Set([10, 25, 50, 100, speed])]) c.cell(String(value), 'gap (mm)', Math.round(value * 0.55 * 10) / 10);
     },
   },
   'interactive:MotionPantograph': {
@@ -391,3 +781,7 @@ export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     },
   },
 };
+
+const overlappingSources = Object.keys(MODEL_SOURCE_ORACLES).filter(id => Object.hasOwn(DATA_SOURCE_ORACLES, id));
+if (overlappingSources.length) throw new Error(`Duplicate independent source oracle owners: ${overlappingSources.join(', ')}`);
+export const SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = Object.freeze({ ...DATA_SOURCE_ORACLES, ...MODEL_SOURCE_ORACLES });

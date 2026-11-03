@@ -7,23 +7,14 @@
     "1280": "evidence/reader-first/manipulation--diffusion-policy--scene-diffusion-denoising.1280.png"
   },
   "takeaway": "Starting from random guesses and cleaning them up, the robot ends with two separate good moves instead of one blurred average.",
-  "sentence": "The figure shows a robot starting from many random guesses and nudging each one, step by step, until they all settle on one of two different good ways to move, so it keeps both options instead of blending them into a single average move.",
-  "unclearTerms": [
-    "the purple line connecting the two clusters of purple dots (it could be a path or a link between move one and move two)",
-    "the teal dot in the middle (labelled 'what the robot sees', but it is unclear how a single dot can be what the robot sees)",
-    "the grey legend dot, 'random guess and its path' (the guesses appear only as grey lines, and I could not find any grey dots in the figure)",
-    "the two tall green vertical lines (what they point at or measure)",
-    "the meaning of the position or direction on the chart, since there are no axes",
-    "'nudged onto a good move in 10 steps' (what a single step is)",
-    "'averaged into one' (what an averaged move would look like or where it would sit)",
-    "'a drawn model of the idea'",
-    "the 'Adjust more' control"
-  ],
+  "sentence": "Two random starting guesses are gradually turned into separate safe paths that avoid a bar.",
+  "unclearTerms": [],
   "samePoint": "yes",
-  "reason": "My sentence has the same subject (random guesses cleaned up step by step) and the same effect (they end as two separate good moves rather than one blended average), and the takeaway contains no number to misread.",
-  "verdict": "fail",
-  "screenshotCommit": "75347bba431426d683ec7c4395e5d0fccabb2eab",
-  "date": "2026-10-06",
-  "reviewerSession": "reader-session-a758421e",
-  "sourceDigest": "fd15faf0b9ba228700a3f01d69a5f2967cfe12c42e29890d152a6960d46f4096"
+  "reason": "It describes refining two random guesses into separate safe movements, preserving the two alternatives.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0001",
+  "sourceDigest": "526c5499306b5cf899cc887723a4b16327c5ddd078a1231e6b7a2d820bd46d84",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

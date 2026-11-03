@@ -99,6 +99,14 @@ const FILTERS: readonly { id: OpenFilter; label: string }[] = [
   { id: 'undisclosed', label: 'Not disclosed' },
 ];
 
+/** Plain display glosses; canonical source records and the source table stay unchanged. */
+const RELEASE_DISPLAY_GLOSSES: Readonly<Partial<Record<string, { weightsNote: string; capability: string }>>> = {
+  'helix-2025': {
+    weightsNote: "The February 20, 2025 announcement identifies a downloadable picture-and-language model; it does not establish a download or licence for Helix’s trained movement controller.",
+    capability: "Figure reports two connected parts: S2 represents the task; S1 uses that information, images and robot measurements, including joint positions, to control wrists, fingers, torso and head and report task completion.",
+  },
+};
+
 /** The card's plain availability line, one per weight state. */
 const AVAILABILITY: Record<ReturnType<typeof releaseWeightState>, string> = {
   open: 'Downloadable: yes',
@@ -199,6 +207,9 @@ export function GeneralistReleaseTimeline({
     GENERALIST_RELEASES.find((r) => r.id === selectedId) ?? GENERALIST_RELEASES[0];
   const citationFor = useCitationLookup();
   const citation = citationFor(selected.citationId);
+  const displayGloss = RELEASE_DISPLAY_GLOSSES[selected.citationId];
+  const weightsNote = displayGloss?.weightsNote ?? selected.weightsNote;
+  const capability = displayGloss?.capability ?? selected.capability;
   const downloadableOnly = filter === 'open';
 
   const rowsBottom = ROWS_TOP + total * ROW_H;
@@ -237,6 +248,7 @@ export function GeneralistReleaseTimeline({
   return (
     <InstrumentFigure
       figureId="generalist-release-timeline"
+      data-source-selected={selected.id}
       className={className}
       kicker="Generalist policies"
       heading="Thirteen robot brains since 2025; four you can download"
@@ -361,13 +373,13 @@ export function GeneralistReleaseTimeline({
               <div data-testid="release-availability" className="mt-1 text-text">
                 {AVAILABILITY[releaseWeightState(selected)]}
               </div>
-              {selected.weightsNote && (
+              {weightsNote && (
                 <p className="mt-1 max-w-[65ch] leading-relaxed text-text-dim">
-                  {selected.weightsNote}
+                  {weightsNote}
                 </p>
               )}
               <p className="mt-1.5 max-w-[65ch] leading-relaxed text-text">
-                {selected.capability}
+                {capability}
               </p>
               {selected.context && (
                 <p className="mt-1.5 text-text-dim">
@@ -440,6 +452,7 @@ export function GeneralistReleaseTimeline({
                 <g
                   key={r.id}
                   data-release={r.id}
+                  data-series={r.id}
                   data-filled={r.openWeights ? '' : undefined}
                   data-faint={faint ? '' : undefined}
                   className="cursor-pointer"
@@ -473,6 +486,7 @@ export function GeneralistReleaseTimeline({
                     />
                   </g>
                   <text
+                    data-series-label-for={r.id}
                     x={NAME_X}
                     y={cy}
                     dominantBaseline="middle"

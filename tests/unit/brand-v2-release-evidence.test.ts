@@ -5,23 +5,13 @@ import { describe, expect, it } from 'vitest';
 import {
   RELEASE_PROFILES, releaseSourceFingerprint, releaseStateProblems,
   releaseMapShard,
-  type ReleaseProfile, type ReleaseStateArtifact,
+  mapReleaseStateIds,
+  type ReleaseStateArtifact,
 } from '@/lib/brand-v2-release-evidence';
+import { releaseArtifactFixture } from '../helpers/release-state-fixture';
 
-function artifact(): ReleaseStateArtifact {
-  return {
-    version: 1, sourceFingerprint: 'a'.repeat(64), exportFingerprint: 'c'.repeat(64), group: 'routes', expectedStateIds: ['route:/'],
-    cases: [{ id: 'route:/', route: '/', state: 'default', steps: ['navigate', 'settle', 'profile'], profiles: RELEASE_PROFILES.map((plan): ReleaseProfile => ({
-      id: plan.id, viewport: { width: plan.width, height: plan.height, dpr: plan.dpr },
-      ...(plan.zoomBase ? { requestedCssViewport: { width: plan.zoomBase.width / 2, height: plan.zoomBase.height / 2 } } : {}),
-      mainCount: 1, visibleTextCount: 5, fontsLoaded: true, documentOverflowPx: 0,
-      axeViolations: [], semanticFailures: [], hiddenRequiredContent: [], requiredDisclosureIds: [], disclosures: [], focus: [],
-      textSizes: plan.textOnly ? [{ selector: 'p', baselinePx: 16, actualPx: 32, visible: true, clipped: false }] : [],
-      residue: { elements: 10, colourValues: 2, findings: [] },accessibility:{counts:{textRuns:5},findings:[],tables:[],graphics:[],scrollRegions:[],svgText:[]}, forcedColorsActive: Boolean(plan.forcedColors), reducedMotion: Boolean(plan.reducedMotion), stateBefore: 'state-1', stateAfter: 'state-1',
-      ...(plan.reducedMotion ? { motion: { windowMs: 3000, cssAnimations: [], geometryBefore: 'same', geometryAfter: 'same', canvases: [] } } : {}),
-    })) }],
-  };
-}
+const artifact = releaseArtifactFixture;
+
 const expected = { fingerprint: 'a'.repeat(64), exportFingerprint: 'c'.repeat(64), group: 'routes', stateIds: ['route:/'] };
 
 describe('final release state evidence', () => {
@@ -40,12 +30,14 @@ describe('final release state evidence', () => {
     ['duplicate case', (a: ReleaseStateArtifact) => { a.cases.push(a.cases[0]); }],
     ['wrong declared plan', (a: ReleaseStateArtifact) => { a.expectedStateIds = ['different']; }],
     ['missing profile', (a: ReleaseStateArtifact) => { a.cases[0].profiles.pop(); }],
+    ['omitted profile live region',(a:ReleaseStateArtifact)=>{a.cases[0].profiles[0].liveRegionCount=1;}],
     ['wrong viewport', (a: ReleaseStateArtifact) => { a.cases[0].profiles[0].viewport.width = 375; }],
     ['wrong DPR', (a: ReleaseStateArtifact) => { a.cases[0].profiles.find(({ id }) => id.startsWith('zoom'))!.viewport.dpr = 1; }],
     ['concealed rounding', (a: ReleaseStateArtifact) => { delete a.cases[0].profiles.find(({ id }) => id.startsWith('zoom'))!.requestedCssViewport; }],
     ['Axe violation', (a: ReleaseStateArtifact) => { a.cases[0].profiles[0].axeViolations = ['color-contrast']; }],
     ['overflow', (a: ReleaseStateArtifact) => { a.cases[0].profiles[0].documentOverflowPx = 1; }],
     ['missing main', (a: ReleaseStateArtifact) => { a.cases[0].profiles[0].mainCount = 0; }],
+    ['lost active control',(a:ReleaseStateArtifact)=>{a.cases[0].profiles[0].focusExpected=true;}],
     ['missing fonts', (a: ReleaseStateArtifact) => { a.cases[0].profiles[0].fontsLoaded = false; }],
     ['state changed by probe', (a: ReleaseStateArtifact) => { a.cases[0].profiles[0].stateAfter = 'other'; }],
     ['hidden content', (a: ReleaseStateArtifact) => { a.cases[0].profiles[0].hiddenRequiredContent = ['article paragraph']; }],
@@ -53,6 +45,9 @@ describe('final release state evidence', () => {
     ['inaccessible disclosure', (a: ReleaseStateArtifact) => { a.cases[0].profiles[0].requiredDisclosureIds = ['citation:one']; a.cases[0].profiles[0].disclosures = [{ id: 'citation:one', reached: true, keyboard: false, textPresent: true, restored: true }]; }],
     ['text not doubled', (a: ReleaseStateArtifact) => { a.cases[0].profiles.find(({ id }) => id === 'text-only-200')!.textSizes[0].actualPx = 16; }],
     ['text clipped', (a: ReleaseStateArtifact) => { a.cases[0].profiles.find(({ id }) => id === 'text-only-200')!.textSizes[0].clipped = true; }],
+    ['text overlapped',(a:ReleaseStateArtifact)=>{a.cases[0].profiles.find(({id})=>id==='text-only-200')!.textSizes[0].overlapped=true;}],
+    ['missing text member',(a:ReleaseStateArtifact)=>{a.cases[0].profiles.find(({id})=>id==='text-only-200')!.textPopulation.memberIds.push('omitted');}],
+    ['narrowed text selector scope',(a:ReleaseStateArtifact)=>{a.cases[0].profiles.find(({id})=>id==='text-only-200')!.textPopulation.selectors.pop();}],
     ['no text-only population', (a: ReleaseStateArtifact) => { a.cases[0].profiles.find(({ id }) => id === 'text-only-200')!.textSizes = []; }],
     ['fake pass override', (a: ReleaseStateArtifact) => { Object.assign(a, { passed: true }); }],
     ['missing motion window', (a: ReleaseStateArtifact) => { delete a.cases[0].profiles.find(({ reducedMotion }) => reducedMotion)!.motion; }],
@@ -87,5 +82,14 @@ describe('final release state evidence', () => {
     expect(() => releaseMapShard('0/3', states)).toThrow('must be I/N');
     expect(() => releaseMapShard('4/3', states)).toThrow('must be I/N');
     expect(() => releaseMapShard('12/12', states)).toThrow('empty applicable population');
+  });
+  it('requires map sheets and meaningful hover before their drivers dismiss them',()=>{
+    expect(mapReleaseStateIds([
+      {id:'selected-open',kind:'selection',group:'selection'},
+      {id:'selected-close',kind:'selection',group:'selection',dismissal:'close'},
+      {id:'facts',kind:'tooltip',group:'tooltip-parity'},
+      {id:'filter',kind:'filter',group:'discrete-options'},
+      {id:'unsupported',kind:'exception',group:'state-witness'},
+    ])).toEqual(['map:selected-open:opened','map:selected-close:opened','map:selected-close:dismissed','map:facts:hover','map:facts:keyboard-equivalent','map:filter']);
   });
 });

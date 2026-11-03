@@ -14,7 +14,7 @@ describe('ExpoFtResults', () => {
   it('leads with the plain headline, kicker, caption and one note on the EXPO-FT row', () => {
     const { container } = render(<ExpoFtResults />);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'One method succeeded every time on all four tasks',
+      'EXPO-FT beats the alternatives on all four tasks',
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent(
       'EXPO-FT vs four other methods',
@@ -24,16 +24,18 @@ describe('ExpoFtResults', () => {
     );
     const notes = container.querySelectorAll('[data-figure-annotation]');
     expect(notes).toHaveLength(1);
-    expect(notes[0].textContent).toBe('Perfect score: 30 of 30 on every task');
+    expect(notes[0].textContent).toBe('Best on all four tasks: 30 of 30');
     expect(container.querySelector('details[data-figure-fold="adjust"]')).toBeNull();
   });
 
   it('gives each method a plain description under its name', () => {
     render(<ExpoFtResults />);
     const stage = screen.getByRole('img');
-    expect(stage).toHaveTextContent('copying demos only');
-    expect(stage).toHaveTextContent('human steps in to correct');
-    expect(stage).toHaveTextContent('practice by trial and error');
+    expect(stage).toHaveTextContent('supervised copying of examples');
+    expect(stage).toHaveTextContent('copies human corrections');
+    expect(stage).toHaveTextContent('learns which starting noise works');
+    expect(stage).toHaveTextContent('learns from tries and human corrections');
+    expect(stage).toHaveTextContent('learns small edits to each move');
   });
 
   it('draws every published count at its recomputed bar geometry, EXPO-FT at full strength', () => {

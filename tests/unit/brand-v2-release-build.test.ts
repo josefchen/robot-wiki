@@ -10,11 +10,12 @@ const temporary: string[] = [];
 afterEach(() => temporary.splice(0).forEach((root) => rmSync(root, { recursive: true, force: true })));
 function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'release-build-')); temporary.push(root);
-  for (const directory of ['app', 'public', 'out', 'evidence/brand-v2/release']) mkdirSync(join(root, directory), { recursive: true });
+  for (const directory of ['app', 'public/pagefind', 'out/pagefind', 'evidence/brand-v2/release']) mkdirSync(join(root, directory), { recursive: true });
   writeFileSync(join(root, 'app/page.tsx'), 'current source');
   writeFileSync(join(root, 'public/asset.bin'), 'asset-input');
   writeFileSync(join(root, 'out/index.html'), 'built-home');
   writeFileSync(join(root, 'out/asset.bin'), 'asset-output');
+  for(const directory of ['public','out']){writeFileSync(join(root,directory,'search-index.json'),'{}');writeFileSync(join(root,directory,'pagefind/pagefind.js'),'export const source="measured";');}
   const current = { source: releaseSourceFingerprint(root), exported: releaseExportFingerprint(root) };
   const stamp: ReleaseBuildStamp = { version: 1, sourceBefore: current.source, sourceAfter: current.source, exportFingerprint: current.exported,
     commands: RELEASE_BUILD_COMMANDS.map((argv) => ({ argv: [...argv], exitCode: 0 })) };
@@ -48,5 +49,12 @@ describe('frozen production build stamp', () => {
   });
   it('does not accept a missing home page or an empty export',()=>{
     const {root}=fixture();rmSync(join(root,'out/index.html'));expect(()=>releaseExportFingerprint(root)).toThrow('home page');
+  });
+  it.each(['changed','added','missing'] as const)('rejects a %s generated public mirror without treating it as source',change=>{
+    const {root,current}=fixture();
+    if(change==='changed')writeFileSync(join(root,'public/search-index.json'),'{"wrong":true}');
+    if(change==='added')writeFileSync(join(root,'public/pagefind/extra.js'),'unmeasured');
+    if(change==='missing')rmSync(join(root,'public/pagefind/pagefind.js'));
+    expect(releaseSourceFingerprint(root)).toBe(current.source);expect(()=>readReleaseBuildStamp(root)).toThrow(/mirror/);
   });
 });

@@ -20,9 +20,9 @@ describe('CubeTrials', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Sim-trained dexterity');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('The cube-solving hand finished at most 2 of 10 trials');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Simulation training led to at most two real solves");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "OpenAI's sim-trained hand finished a fixed Rubik's cube scramble in 2 of 10 trials with a sensor cube, 0 with vision.",
+      "OpenAI taught the hand to solve in simulation; on the real cube it finished 2 of 10 trials with internal sensors, none with cameras.",
     );
   });
 
@@ -39,13 +39,13 @@ describe('CubeTrials', () => {
     expect(screen.getByTestId('cube-stage')).toHaveAttribute('data-solved', '2');
     expect(container.querySelectorAll('[data-trial]')).toHaveLength(10);
     expect(container.querySelectorAll('[data-trial][data-solved]')).toHaveLength(2);
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('2 of 10 trials finished the scramble');
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent("After simulation: 2 of 10 real trials solved");
     const vision = screen.getByTestId('cube-sensing-vision');
     fireEvent.click(vision);
     expect(vision).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('cube-stage')).toHaveAttribute('data-solved', '0');
     expect(container.querySelectorAll('[data-trial][data-solved]')).toHaveLength(0);
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('0 of 10 trials finished the scramble');
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent("After simulation: 0 of 10 real trials solved");
   });
 
   it('describes the stage and links the paper', () => {

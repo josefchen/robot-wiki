@@ -4,11 +4,37 @@ import type { BrandV2Registry } from './brand-v2-runners.ts';
 import type { InteractiveLedgerEvidence } from './brand-v2-interactive-ledger.ts';
 import { INTERACTIVE_DATA_CLASSIFICATION } from './brand-v2-interactive-data.ts';
 import { RELEASE_FRAME_DATA_PATH, type RawFrameData, type ReleaseFrameArtifact } from './brand-v2-release-frame-data.ts';
-import { SourceOracleContext, normalized } from './brand-v2-source-oracle-core.ts';
+import { SourceOracleContext, normalized, printedNumbers } from './brand-v2-source-oracle-core.ts';
 import { SOURCE_ORACLES } from './brand-v2-source-oracles.ts';
 import { getCitation } from '../data/citations.ts';
 
 export type SourceParityVerdict = { failures: string[]; observed: unknown; evidencePaths: string[]; notApplicable?: { reason: string } };
+
+/** Only RewardShaping's exact stride-preview clock is non-publication data.
+ * Its arithmetic and native playback state still have an independent oracle. */
+export function strideClockTransitionFailures(input: {
+  name: string; keys: readonly string[]; beforeControl: string; afterControl: string;
+  before: string; after: string; frame: string;
+}): string[] {
+  const failures: string[] = [], before = printedNumbers(input.before), after = printedNumbers(input.after), frame = printedNumbers(input.frame);
+  for (const [where, text, values] of [['before', input.before, before], ['after', input.after, after], ['frame', input.frame, frame]] as const) {
+    if (!/^Preview phase:/.test(text) || !/%$/.test(text) || values.length !== 1 || values[0] < 0 || values[0] > 100) failures.push(`stride clock ${where} lacks an exact bounded preview percentage`);
+  }
+  if (failures.length) return failures;
+  if (after[0] !== frame[0]) failures.push('stride clock ledger and raw frame disagree');
+  const activations = input.keys.filter(key => key === 'Space' || key === 'Enter').length;
+  let expected = before[0];
+  if (/reset/i.test(input.name)) expected = 0;
+  else if (/Step the preview forward/.test(input.name)) expected = (before[0] + 5 * activations) % 100;
+  else if (/rollout preview/.test(input.name)) {
+    if (/label=Stop rollout preview/.test(input.beforeControl)) failures.push('stride Stop requires its separately observed playback-start phase');
+    // This ledger runs under reduced motion: one complete stride ends where
+    // Play began, with the real control again offering Play.
+    if (!/label=Play rollout preview/.test(input.afterControl)) failures.push('stride playback did not return to its declared stopped state');
+  }
+  if (after[0] !== expected) failures.push(`stride clock expected ${expected}%, observed ${after[0]}%`);
+  return failures;
+}
 
 /** Exact independent population: each production mount and each source with
  * zero production mounts. Unknown/missing oracle coverage is a hard failure. */
@@ -23,7 +49,7 @@ export function collectSourceParity(input: {
   const oracles = SOURCE_ORACLES;
   const result = new Map<string, SourceParityVerdict>();
   for (const mount of mounts) {
-    const failures: string[] = [], readings: Array<{ state: string; checks: unknown[] }> = [];
+    const failures: string[] = [], readings: Array<{ state: string; checks: unknown[]; controls?: RawFrameData['controls']; sourceInputs?: RawFrameData['declaredBindings'] }> = [];
     const source = sources.find(({ id }) => id === mount.sourceId);
     const oracle = oracles[mount.sourceId];
     const classification = INTERACTIVE_DATA_CLASSIFICATION[mount.sourceId];
@@ -37,6 +63,20 @@ export function collectSourceParity(input: {
     for (const transition of ledger[0]?.transitions ?? []) {
       if (!transition.series?.frame) failures.push(`transition ${transition.caseId}:${transition.control}:${transition.keys.join('+')} lacks raw numerical frame evidence`);
       else states.push({ id: `${transition.caseId}:${transition.control}:${transition.keys.join('+')}`, frame: transition.series.frame });
+    }
+    if (oracle?.previewClock && ledger.length === 1) {
+      const clock = oracle.previewClock;
+      const clockChecks = [];
+      for (const transition of ledger[0].transitions) {
+        const changes = transition.readouts.filter(reading => reading.key === clock.key);
+        const frames = transition.series?.frame?.readouts.filter(reading => reading.key === clock.key) ?? [];
+        const control = ledger[0].controls.find(control => control.index === transition.control);
+        if (changes.length !== 1 || frames.length !== 1 || !control) { failures.push(`${transition.caseId}: missing exact preview-clock transition population`); continue; }
+        const input = { name: control.name, keys: transition.keys, beforeControl: transition.before.control, afterControl: transition.after.control, before: changes[0].before, after: changes[0].after, frame: frames[0].text };
+        const problems = strideClockTransitionFailures(input); failures.push(...problems.map(problem => `${transition.caseId}: ${problem}`));
+        clockChecks.push({ ...input, failures: problems, publicationParity: 'inapplicable: UI stride clock', motionEvidence: clock.evidencePath });
+      }
+      readings.push({ state: 'stride-clock-motion-ledger', checks: clockChecks });
     }
     if (oracle) {
       if (!oracle.basis.length) failures.push('oracle has no explicit source or assumption ID');
@@ -57,7 +97,7 @@ export function collectSourceParity(input: {
         }
         try { oracle.check(context); } catch (error) { context.failures.push(`${state.id}: ${error instanceof Error ? error.message : String(error)}`); }
         context.finish(); failures.push(...context.failures);
-        readings.push({ state: state.id, checks: context.checks });
+        readings.push({ state: state.id, controls: state.frame.controls, sourceInputs: state.frame.declaredBindings, checks: context.checks });
       }
     }
     result.set(mount.id, { failures, observed: { sourceId: mount.sourceId, classification: classification?.kind, basis: oracle?.basis ?? [], nonQuantitative: oracle?.nonQuantitative ?? null, readings }, evidencePaths: [RELEASE_FRAME_DATA_PATH, 'evidence/brand-v2/interactive-ledger.json', ...(oracle?.evidencePaths ?? [])] });

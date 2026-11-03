@@ -166,7 +166,7 @@ test.describe('adjacent surgical module', () => {
     const figure = page.locator('[data-figure-frame="surgical-autonomy-ladder"]');
     await figure.scrollIntoViewIfNeeded();
     await expect(figure.locator('[data-figure-title]')).toHaveText(
-      'These authorized systems reach level 1; studies claim level 4',
+      'Authorized: level 1; research on removed tissue: level 4',
     );
     await expect(figure.locator('[data-ladder-level]')).toHaveCount(6);
     await expect(figure.locator('[data-series="authorized"] [data-chart-mark="dot"]')).toHaveCount(2);

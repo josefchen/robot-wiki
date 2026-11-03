@@ -18,6 +18,14 @@ describe('PiGenerationTimeline', () => {
     }
   });
 
+  it('explains MEM without changing its native model choice or hiding the definition', () => {
+    render(<PiGenerationTimeline />);
+    expect(screen.getByRole('button', { name: 'π0.6-MEM' })).toBeInTheDocument();
+    const gloss = screen.getByTestId('generation-memory-gloss');
+    expect(gloss).toHaveTextContent('MEM adds memory: recent video plus notes the model writes for itself.');
+    expect(gloss.closest('button, details')).toBeNull();
+  });
+
   it('marks the pinned catalogue boundary', () => {
     render(<PiGenerationTimeline />);
     expect(screen.getByText(/pinned catalogue ends at π0\.5/i)).toBeInTheDocument();
@@ -42,13 +50,17 @@ describe('PiGenerationTimeline', () => {
     const { container } = render(<PiGenerationTimeline />);
     expect(
       container.querySelector('[data-figure-title]'),
-    ).toHaveTextContent('A new robot model every few months; first three downloadable');
+    ).toHaveTextContent('Only the first three models have confirmed downloads');
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent(
       "Physical Intelligence's models",
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
       'only the first three are confirmed downloadable',
     );
+    const summary = screen.getByTestId('generation-download-summary');
+    expect(summary).toHaveTextContent("Physical Intelligence released a model every few months, but downloads are confirmed only for the first three. Later models' availability is unverified.");
+    expect(summary.closest('details')).toBeNull();
+    expect(summary.compareDocumentPosition(screen.getByTestId('generation-track')) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
   });
 
   it('draws year bands that change at January, so November 2025 sits in 2025', () => {
@@ -97,7 +109,7 @@ describe('PiGenerationTimeline', () => {
     const detail = screen.getByTestId('generation-detail');
     expect(detail).toHaveTextContent('π0.7');
     expect(detail).toHaveTextContent('Apr 2026');
-    expect(detail).toHaveTextContent(/weights unverified/i);
+    expect(detail).toHaveTextContent(/trained model unverified/i);
     const sourceLine = screen.getByTestId('generation-source');
     expect(sourceLine).toHaveTextContent(/^Source for π0\.7:/);
     const source = within(sourceLine).getByRole('link');

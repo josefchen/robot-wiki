@@ -1025,7 +1025,7 @@
         "/manipulation/hierarchical/"
       ],
       "alt": "Open graph card for the Robot Wiki article Hierarchical Approaches",
-      "treeDigest": "f12144aee93bf4fc66be3724ee36fc3a4b61a6379388ed5e18da5a559343b0bb",
+      "treeDigest": "72cd086c918606330ac7549ec2d3faec52b7e6f3e087ad5490f0644d747f3a18",
       "strings": [
         {
           "field": "domain",
@@ -1057,10 +1057,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "44 REFERENCES",
+          "text": "45 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/manipulation/hierarchical.mdx#frontmatter.citations",
-          "sourceValue": 44
+          "sourceValue": 45
         }
       ],
       "facts": {
@@ -1068,7 +1068,7 @@
         "domain": "manipulation",
         "domainName": "Manipulation & Learned Policies",
         "reviewYear": 2026,
-        "referenceCount": 44
+        "referenceCount": 45
       },
       "devices": [
         "device:section-rule#header",
@@ -1093,23 +1093,23 @@
         "path": "/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "bytes": 33549,
-        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5"
+        "bytes": 33620,
+        "sha256": "e7a168d7d95d2b38c8aefa339cb11eda030cc00294b6732f0b6e69a570fdb256"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/manipulation/hierarchical-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 41253,
-          "sha256": "f2b11bfc49e80a991b892deea730152f4708fedf4bde2b4558ba13bff6e5a4bd"
+          "bytes": 41329,
+          "sha256": "dd4719db3bb3867348a352a02e0f0accfca018d4630ff1ab7bf8e4fd01468ad3"
         },
         {
           "path": "/structured-images/manipulation/hierarchical-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 49791,
-          "sha256": "0f47d1955b4b97ef9849cb92d77e97193938f22d6c8e1379440978b1fdde3807"
+          "bytes": 49873,
+          "sha256": "d2836031c3210baa753f46a04a2a07cd5dfb50f54f4bec0dc458b9ca4b3d9252"
         }
       ],
       "pixels": {
@@ -1124,7 +1124,7 @@
           "title": 26830,
           "identity": 1178
         },
-        "secondRenderSha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5"
+        "secondRenderSha256": "e7a168d7d95d2b38c8aefa339cb11eda030cc00294b6732f0b6e69a570fdb256"
       }
     },
     {
@@ -1358,7 +1358,7 @@
         "/manipulation/cross-embodiment/"
       ],
       "alt": "Open graph card for the Robot Wiki article Cross-Embodiment Transfer",
-      "treeDigest": "2c941ff5cab932d8b23c8faf7ed3acf7c92f4506ef1e54f36cc51375b6d29115",
+      "treeDigest": "94b73c4ba334aff078a98c8cbe8705dd7a45814ca8f75e9bdc8e0eaefba4b112",
       "strings": [
         {
           "field": "domain",
@@ -1390,10 +1390,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "38 REFERENCES",
+          "text": "40 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/manipulation/cross-embodiment.mdx#frontmatter.citations",
-          "sourceValue": 38
+          "sourceValue": 40
         }
       ],
       "facts": {
@@ -1401,7 +1401,7 @@
         "domain": "manipulation",
         "domainName": "Manipulation & Learned Policies",
         "reviewYear": 2026,
-        "referenceCount": 38
+        "referenceCount": 40
       },
       "devices": [
         "device:section-rule#header",
@@ -1426,23 +1426,23 @@
         "path": "/og/manipulation/cross-embodiment.png",
         "width": 1200,
         "height": 630,
-        "bytes": 32143,
-        "sha256": "bfd1ce6b70e985851d4acc583d1fbc9c55dbacc19a45896c7ca183f0e9ac9fdf"
+        "bytes": 32055,
+        "sha256": "2d805bfd04b670b382df54ff1312c79ef5e3db46e7241837f2bcbea65187505e"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/manipulation/cross-embodiment-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39813,
-          "sha256": "da68d48f6928d19a3fe5f9ac1bd44536d05c2d1d1377723e9e057891be6032cf"
+          "bytes": 39720,
+          "sha256": "4374b68ab2aeab3ba95d3e0ee2ce93385ed8f9159908038f6f4efe9d52434a04"
         },
         {
           "path": "/structured-images/manipulation/cross-embodiment-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 48327,
-          "sha256": "2a5ba0c9c0546bf60604bab3f53aea96a64819aa05d15d0d6fbce2ea78027071"
+          "bytes": 48232,
+          "sha256": "f16768431773a3786e76c769002d64d2e47358daf5de9f0174d25299df8f02ac"
         }
       ],
       "pixels": {
@@ -1457,7 +1457,7 @@
           "title": 21726,
           "identity": 1178
         },
-        "secondRenderSha256": "bfd1ce6b70e985851d4acc583d1fbc9c55dbacc19a45896c7ca183f0e9ac9fdf"
+        "secondRenderSha256": "2d805bfd04b670b382df54ff1312c79ef5e3db46e7241837f2bcbea65187505e"
       }
     },
     {
@@ -1691,7 +1691,7 @@
         "/manipulation/action-spaces/"
       ],
       "alt": "Open graph card for the Robot Wiki article Action Spaces for Robot Learning",
-      "treeDigest": "d4fa4a4385a73bc7511e769faaa28d6aefa0c5a80a77ced12c8a7fdca9fb31a8",
+      "treeDigest": "aa3c2fde5ec77308e6d5b26a35113ee7265fa8db48463885ff1d377715123ea3",
       "strings": [
         {
           "field": "domain",
@@ -1723,10 +1723,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "38 REFERENCES",
+          "text": "39 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/manipulation/action-spaces.mdx#frontmatter.citations",
-          "sourceValue": 38
+          "sourceValue": 39
         }
       ],
       "facts": {
@@ -1734,7 +1734,7 @@
         "domain": "manipulation",
         "domainName": "Manipulation & Learned Policies",
         "reviewYear": 2026,
-        "referenceCount": 38
+        "referenceCount": 39
       },
       "devices": [
         "device:section-rule#header",
@@ -1759,23 +1759,23 @@
         "path": "/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "bytes": 35285,
-        "sha256": "fc96e9228d7bb642b60f56a662853d246b70a0198e23c7b73fe6e5f7b8bddfcc"
+        "bytes": 35245,
+        "sha256": "7b04480f672945fe19956722958e14c7ad4377bd8146e9e38950cc77f80af584"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/manipulation/action-spaces-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 42995,
-          "sha256": "a79584ec449f0ead19fc8018f70c769d42bf8747193a7671f028ef0a6e45ae03"
+          "bytes": 42951,
+          "sha256": "7648ffe25c1567118da90e3ccd1d183c5424ec85f47d86809b1174c2d22d38d8"
         },
         {
           "path": "/structured-images/manipulation/action-spaces-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 51562,
-          "sha256": "d753b42ce919e5164ee72bc4f6ae41d4e454ffc29e9149c1265821d8e7dc5d16"
+          "bytes": 51517,
+          "sha256": "981d37def93b9eb37068b5803944584fe96e1d1f7ac25022dc50260bd06bf1c0"
         }
       ],
       "pixels": {
@@ -1790,7 +1790,7 @@
           "title": 26087,
           "identity": 1178
         },
-        "secondRenderSha256": "fc96e9228d7bb642b60f56a662853d246b70a0198e23c7b73fe6e5f7b8bddfcc"
+        "secondRenderSha256": "7b04480f672945fe19956722958e14c7ad4377bd8146e9e38950cc77f80af584"
       }
     },
     {
@@ -1802,7 +1802,7 @@
         "/manipulation/foundation-models/"
       ],
       "alt": "Open graph card for the Robot Wiki article Foundation Models for Robotics",
-      "treeDigest": "adad503432cca909dd31e82ca7cedc17dac0a51e421ef9aac5cb52a8fa1d2eff",
+      "treeDigest": "9a632d3284470220b7319bf70286360967a824076651bda428bd254ebd01f8cb",
       "strings": [
         {
           "field": "domain",
@@ -1834,10 +1834,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "39 REFERENCES",
+          "text": "41 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/manipulation/foundation-models.mdx#frontmatter.citations",
-          "sourceValue": 39
+          "sourceValue": 41
         }
       ],
       "facts": {
@@ -1845,7 +1845,7 @@
         "domain": "manipulation",
         "domainName": "Manipulation & Learned Policies",
         "reviewYear": 2026,
-        "referenceCount": 39
+        "referenceCount": 41
       },
       "devices": [
         "device:section-rule#header",
@@ -1870,23 +1870,23 @@
         "path": "/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "bytes": 33841,
-        "sha256": "51f3a80c79a1a0e02e480e154a96c81f1e2ce5de12828102b9fed73648803a55"
+        "bytes": 33610,
+        "sha256": "eafa53a13e381301b9caa2a846cb63cf9c9ac3c7a9f9fe0663725f4e8aa00ca2"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/manipulation/foundation-models-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 41547,
-          "sha256": "ad0a5189ecb89ed2cb4fe1f359feb094cc49177e8be6484f7d1730af0b810f3d"
+          "bytes": 41302,
+          "sha256": "233e29713efb7ed4158052e4874b9064ddbe5fb7cd83c63f9236121c9c3b55f6"
         },
         {
           "path": "/structured-images/manipulation/foundation-models-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 50095,
-          "sha256": "201ce71583076b65d4bdf1283ad95c97b06102551e58ee02ba6a077dc4aa32c2"
+          "bytes": 49853,
+          "sha256": "f70ee18d96ef5bb5d8cc6be1fc5ca5e31e57cee9d0899b84e63511280dfa2bd2"
         }
       ],
       "pixels": {
@@ -1901,7 +1901,7 @@
           "title": 25309,
           "identity": 1178
         },
-        "secondRenderSha256": "51f3a80c79a1a0e02e480e154a96c81f1e2ce5de12828102b9fed73648803a55"
+        "secondRenderSha256": "eafa53a13e381301b9caa2a846cb63cf9c9ac3c7a9f9fe0663725f4e8aa00ca2"
       }
     },
     {
@@ -2024,7 +2024,7 @@
         "/rl-sim2real/why-rl-locomotion/"
       ],
       "alt": "Open graph card for the Robot Wiki article Why RL Won Locomotion but Not Manipulation",
-      "treeDigest": "0c214dcdb82ca93e45b936ee12ca3d4a5f51278b82d040af55e13d6817508972",
+      "treeDigest": "c0fdbedd10684cf25a13ba3400e98d4943c58b0c86ac03e6f4a8f2e513153131",
       "strings": [
         {
           "field": "domain",
@@ -2056,10 +2056,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "34 REFERENCES",
+          "text": "35 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/rl-sim2real/why-rl-locomotion.mdx#frontmatter.citations",
-          "sourceValue": 34
+          "sourceValue": 35
         }
       ],
       "facts": {
@@ -2067,7 +2067,7 @@
         "domain": "rl-sim2real",
         "domainName": "RL, Sim-to-Real & Locomotion",
         "reviewYear": 2026,
-        "referenceCount": 34
+        "referenceCount": 35
       },
       "devices": [
         "device:section-rule#header",
@@ -2092,23 +2092,23 @@
         "path": "/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "bytes": 36267,
-        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b"
+        "bytes": 36326,
+        "sha256": "b42bf02d437375670deb0d720e6863b918356257ce113f07a11bb1e1b87caf09"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/rl-sim2real/why-rl-locomotion-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 43986,
-          "sha256": "e24c391296d325cc3c45ea99744f61cedfbb591f342454f4fd0645fb6888b3be"
+          "bytes": 44049,
+          "sha256": "e878de0840792402cc8feaa92cd972f82ca1c7fe3bac7cb5c40f2fb86d1f5b57"
         },
         {
           "path": "/structured-images/rl-sim2real/why-rl-locomotion-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 52571,
-          "sha256": "d1cc837fe63766e85415c54138ec7f4c6fee0c05d50e30f101866fd47d2d8922"
+          "bytes": 52634,
+          "sha256": "ebb70ed81f3e85cfcd5209dd65641c5a3c9404a7971bd1094aab071d304c9192"
         }
       ],
       "pixels": {
@@ -2123,7 +2123,7 @@
           "title": 24435,
           "identity": 1178
         },
-        "secondRenderSha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b"
+        "secondRenderSha256": "b42bf02d437375670deb0d720e6863b918356257ce113f07a11bb1e1b87caf09"
       }
     },
     {
@@ -2246,7 +2246,7 @@
         "/rl-sim2real/sim2real-transfer/"
       ],
       "alt": "Open graph card for the Robot Wiki article Sim-to-Real Transfer",
-      "treeDigest": "4ea309f458ee83b3275f4be1ae313b405cbff326032a848d31128822b7d1a670",
+      "treeDigest": "c0a8f5fff4ae72382aabfa7f6b530bad17802d1dbb81030cd4c42d80d8506ce0",
       "strings": [
         {
           "field": "domain",
@@ -2278,10 +2278,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "42 REFERENCES",
+          "text": "44 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/rl-sim2real/sim2real-transfer.mdx#frontmatter.citations",
-          "sourceValue": 42
+          "sourceValue": 44
         }
       ],
       "facts": {
@@ -2289,7 +2289,7 @@
         "domain": "rl-sim2real",
         "domainName": "RL, Sim-to-Real & Locomotion",
         "reviewYear": 2026,
-        "referenceCount": 42
+        "referenceCount": 44
       },
       "devices": [
         "device:section-rule#header",
@@ -2314,23 +2314,23 @@
         "path": "/og/rl-sim2real/sim2real-transfer.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31416,
-        "sha256": "44c06c5d40efaa0aac2efc2366480fb67f48fd29c245281206508cd527eac721"
+        "bytes": 31363,
+        "sha256": "e506ce8f1ec6ea37219fde885ea2e3ed59963e0e2c8179a5b2c107093f3b3fb6"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/rl-sim2real/sim2real-transfer-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39082,
-          "sha256": "6b04a76af2b570f095fb51e382921bc8b2d02cae2aeb9e82968cca94a9d69bf5"
+          "bytes": 39029,
+          "sha256": "6b879679d556dfe08aaf3073fc614087a2ed53a976cec288477d7e5671df6a37"
         },
         {
           "path": "/structured-images/rl-sim2real/sim2real-transfer-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 47591,
-          "sha256": "cb9407819e68e7a80d273457b6fc46df9e2efa14d3a0cb2219481f713141ca48"
+          "bytes": 47537,
+          "sha256": "7c2ee5f53827857228352ac9913251e04e2ab7ab8d58e2a3f0369946290e2d84"
         }
       ],
       "pixels": {
@@ -2345,7 +2345,7 @@
           "title": 21299,
           "identity": 1178
         },
-        "secondRenderSha256": "44c06c5d40efaa0aac2efc2366480fb67f48fd29c245281206508cd527eac721"
+        "secondRenderSha256": "e506ce8f1ec6ea37219fde885ea2e3ed59963e0e2c8179a5b2c107093f3b3fb6"
       }
     },
     {
@@ -2579,7 +2579,7 @@
         "/rl-sim2real/reward-design-mpc/"
       ],
       "alt": "Open graph card for the Robot Wiki article Reward Design and the MPC Debate",
-      "treeDigest": "c510570a8976d50b1c6ebee3b09fc2a099b3d8455cbce7cc890e631e1189870d",
+      "treeDigest": "ce3e57c276d4294dddf3ba12a454d4f123c698685c65032e68ac1508dbe52720",
       "strings": [
         {
           "field": "domain",
@@ -2611,10 +2611,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "43 REFERENCES",
+          "text": "44 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/rl-sim2real/reward-design-mpc.mdx#frontmatter.citations",
-          "sourceValue": 43
+          "sourceValue": 44
         }
       ],
       "facts": {
@@ -2622,7 +2622,7 @@
         "domain": "rl-sim2real",
         "domainName": "RL, Sim-to-Real & Locomotion",
         "reviewYear": 2026,
-        "referenceCount": 43
+        "referenceCount": 44
       },
       "devices": [
         "device:section-rule#header",
@@ -2647,23 +2647,23 @@
         "path": "/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "bytes": 35815,
-        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08"
+        "bytes": 35722,
+        "sha256": "f3f89e000ec627351eeac6f835a41dfaee360bc627b882408389a3e07af5d600"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/rl-sim2real/reward-design-mpc-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 43523,
-          "sha256": "f3b64231e35c0b309d1a50d1086b60778841ddf63d6cfdc7c173881f25f42fdf"
+          "bytes": 43430,
+          "sha256": "580b22c53de11febf52b2a0ee4ed78868f6ff39c8c2cbad49320738a92cb96f6"
         },
         {
           "path": "/structured-images/rl-sim2real/reward-design-mpc-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 52069,
-          "sha256": "415c3adda0bea76b73b93af7bc92647c52775cbb93cf0d951bbf6a06af873392"
+          "bytes": 51975,
+          "sha256": "9e7d198f15b6e5a6ff75672f557ef108279e1c7bbcf0787afdb1bc5a42deb1f8"
         }
       ],
       "pixels": {
@@ -2678,7 +2678,7 @@
           "title": 28468,
           "identity": 1178
         },
-        "secondRenderSha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08"
+        "secondRenderSha256": "f3f89e000ec627351eeac6f835a41dfaee360bc627b882408389a3e07af5d600"
       }
     },
     {
@@ -2801,7 +2801,7 @@
         "/world-models/taxonomy/"
       ],
       "alt": "Open graph card for the Robot Wiki article What Is a World Model?",
-      "treeDigest": "d25de6982be0417d8baca500db4402b0593532addfef7646cba64ca2ee673950",
+      "treeDigest": "e6477fc7cdbcc07c75e17ff8044fe69ab90759c81a3135c7e638cd66f181df98",
       "strings": [
         {
           "field": "domain",
@@ -2833,10 +2833,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "36 REFERENCES",
+          "text": "37 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/world-models/taxonomy.mdx#frontmatter.citations",
-          "sourceValue": 36
+          "sourceValue": 37
         }
       ],
       "facts": {
@@ -2844,7 +2844,7 @@
         "domain": "world-models",
         "domainName": "World Models",
         "reviewYear": 2026,
-        "referenceCount": 36
+        "referenceCount": 37
       },
       "devices": [
         "device:section-rule#header",
@@ -2869,23 +2869,23 @@
         "path": "/og/world-models/taxonomy.png",
         "width": 1200,
         "height": 630,
-        "bytes": 34792,
-        "sha256": "2323f49d7d8e80eae8a21f80a5a928f93823fd0e772f79c9c2e19fc86d7a4d6d"
+        "bytes": 34717,
+        "sha256": "5ff96499e0fc3319f4918f6aea2d77627a998426fbc77b589c2929a413c939cf"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/world-models/taxonomy-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 42497,
-          "sha256": "ea1c619002cbd4a6f1992812bebe6c82ea0901ac74d6ae269f72d335b102b83d"
+          "bytes": 42415,
+          "sha256": "03003b401719d86d38b79fcc51ec18f2e89d30891dc270eda98164c712c54f1c"
         },
         {
           "path": "/structured-images/world-models/taxonomy-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 51088,
-          "sha256": "f34ba31c7aee7384218ef966fb829870dd4e02215edec706fd4350794554cc65"
+          "bytes": 51006,
+          "sha256": "508f142e74b9444d7b590c6853589900ce834534ac4318ce6943f48ef403f64a"
         }
       ],
       "pixels": {
@@ -2900,7 +2900,7 @@
           "title": 24797,
           "identity": 1178
         },
-        "secondRenderSha256": "2323f49d7d8e80eae8a21f80a5a928f93823fd0e772f79c9c2e19fc86d7a4d6d"
+        "secondRenderSha256": "5ff96499e0fc3319f4918f6aea2d77627a998426fbc77b589c2929a413c939cf"
       }
     },
     {
@@ -2912,7 +2912,7 @@
         "/world-models/latent-dynamics/"
       ],
       "alt": "Open graph card for the Robot Wiki article Latent-Dynamics World Models",
-      "treeDigest": "df0ac200fa5bbd12a5e850e3b0ee75ffd3f42d6632c688c8b17a5b9a6ef5ae72",
+      "treeDigest": "4332f10f657fc32c0d13e9dcaba3da23c52813f1f51f02b11590357b454c5820",
       "strings": [
         {
           "field": "domain",
@@ -2944,10 +2944,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "33 REFERENCES",
+          "text": "36 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/world-models/latent-dynamics.mdx#frontmatter.citations",
-          "sourceValue": 33
+          "sourceValue": 36
         }
       ],
       "facts": {
@@ -2955,7 +2955,7 @@
         "domain": "world-models",
         "domainName": "World Models",
         "reviewYear": 2026,
-        "referenceCount": 33
+        "referenceCount": 36
       },
       "devices": [
         "device:section-rule#header",
@@ -2980,23 +2980,23 @@
         "path": "/og/world-models/latent-dynamics.png",
         "width": 1200,
         "height": 630,
-        "bytes": 34382,
-        "sha256": "32562600e9321f4f903b74d2fbc3df5b915ac825186bb98f8dca0cfa8306db97"
+        "bytes": 34391,
+        "sha256": "b35a50c9252cd28eebce10383111387e4fdd3c47d9485c419b783377ba5a29be"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/world-models/latent-dynamics-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 42080,
-          "sha256": "849cf1a99be660933af7ed8bb4208a5917f03dc7da18ea652dabc83878c37f77"
+          "bytes": 42091,
+          "sha256": "8535d28c9037cfd93e12951e83299ce1bef62eab363a9d4c126d8aa448cf617b"
         },
         {
           "path": "/structured-images/world-models/latent-dynamics-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 50615,
-          "sha256": "e58a66ed05e53753b16a7d21221b658e55e2a43567ec6b2e2ea243b201ad5ac0"
+          "bytes": 50627,
+          "sha256": "45487cc38861e1d734349fed4c47b9ff5468f1261c34d0eba583b54d179f149a"
         }
       ],
       "pixels": {
@@ -3011,7 +3011,7 @@
           "title": 24722,
           "identity": 1178
         },
-        "secondRenderSha256": "32562600e9321f4f903b74d2fbc3df5b915ac825186bb98f8dca0cfa8306db97"
+        "secondRenderSha256": "b35a50c9252cd28eebce10383111387e4fdd3c47d9485c419b783377ba5a29be"
       }
     },
     {
@@ -3023,7 +3023,7 @@
         "/world-models/generative-video/"
       ],
       "alt": "Open graph card for the Robot Wiki article Generative Video World Models",
-      "treeDigest": "b9cb350ae51cc2e6348403490ce5e4f99cef65c33c294b13518c1734a025fdf5",
+      "treeDigest": "4e8d515e9c435cb0e694703b5ac3696e0b755c4aed82efe1c63ad2e1f1691e09",
       "strings": [
         {
           "field": "domain",
@@ -3055,10 +3055,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "40 REFERENCES",
+          "text": "42 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/world-models/generative-video.mdx#frontmatter.citations",
-          "sourceValue": 40
+          "sourceValue": 42
         }
       ],
       "facts": {
@@ -3066,7 +3066,7 @@
         "domain": "world-models",
         "domainName": "World Models",
         "reviewYear": 2026,
-        "referenceCount": 40
+        "referenceCount": 42
       },
       "devices": [
         "device:section-rule#header",
@@ -3091,23 +3091,23 @@
         "path": "/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "bytes": 35311,
-        "sha256": "847342678d78612d2bcfbd2ce6eccd9586cd135e95e0d4476d60c3792f98216d"
+        "bytes": 35250,
+        "sha256": "23141da621778ad8fdad05fc5c4018f3ba5e14c6c6d329d2a3fb2642e9e88364"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/world-models/generative-video-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 43040,
-          "sha256": "164329b54bd524e27e9779cb42aeb456c4b2d6d5059b39e40f8ee7567cbfa6f2"
+          "bytes": 42974,
+          "sha256": "5c2b624f87b2e55089dea33351f667d21a0266224e2e0414e7be4e27cfa2caeb"
         },
         {
           "path": "/structured-images/world-models/generative-video-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 51621,
-          "sha256": "dc76e44f13fc2f6eea4808658fd677e78b7af647c4e76ce53eb9197c4936457b"
+          "bytes": 51539,
+          "sha256": "aff83a8fa5b8b56b180876c553f3f6550a46a8e44059a6d8444294927c187008"
         }
       ],
       "pixels": {
@@ -3122,7 +3122,7 @@
           "title": 25005,
           "identity": 1178
         },
-        "secondRenderSha256": "847342678d78612d2bcfbd2ce6eccd9586cd135e95e0d4476d60c3792f98216d"
+        "secondRenderSha256": "23141da621778ad8fdad05fc5c4018f3ba5e14c6c6d329d2a3fb2642e9e88364"
       }
     },
     {
@@ -3134,7 +3134,7 @@
         "/world-models/jepa/"
       ],
       "alt": "Open graph card for the Robot Wiki article JEPA and the Non-Generative Counterargument",
-      "treeDigest": "adf9c527537fd9f70b5faab7eb9153db9b1c4157c50d6ce2dd4f482b4bbe9ad8",
+      "treeDigest": "78f5cf8f00f5e87be3c4a0074925f034a715cfa426dd1ea352825d193d264f5c",
       "strings": [
         {
           "field": "domain",
@@ -3166,10 +3166,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "37 REFERENCES",
+          "text": "38 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/world-models/jepa.mdx#frontmatter.citations",
-          "sourceValue": 37
+          "sourceValue": 38
         }
       ],
       "facts": {
@@ -3177,7 +3177,7 @@
         "domain": "world-models",
         "domainName": "World Models",
         "reviewYear": 2026,
-        "referenceCount": 37
+        "referenceCount": 38
       },
       "devices": [
         "device:section-rule#header",
@@ -3202,23 +3202,23 @@
         "path": "/og/world-models/jepa.png",
         "width": 1200,
         "height": 630,
-        "bytes": 34496,
-        "sha256": "e3cd1f181dd4110789788714d6c5d268d46ee9cd9af789927571cf4bb599a820"
+        "bytes": 34600,
+        "sha256": "5b5fd0845e4df5acc72ba59efb2be66e9610a6f797f86451823ea0055bb80f4b"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/world-models/jepa-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 42191,
-          "sha256": "7a1cced13f04d455a3c5b3ad79efa04a9cb5179d2643d9b2c04108502b391919"
+          "bytes": 42299,
+          "sha256": "8ad4809324f1d5f6177f3034bc753f320dc622370e00ad4cea1c6fe73c4f69ac"
         },
         {
           "path": "/structured-images/world-models/jepa-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 50752,
-          "sha256": "cbe24fff3a0c97f55f1566fe22263ef5a61829bcac308903dd25895c058b19d3"
+          "bytes": 50871,
+          "sha256": "948d5a2ed50ec04b0ec491554128a1b846998807c867e492167a745dc9733ff5"
         }
       ],
       "pixels": {
@@ -3233,7 +3233,7 @@
           "title": 25403,
           "identity": 1178
         },
-        "secondRenderSha256": "e3cd1f181dd4110789788714d6c5d268d46ee9cd9af789927571cf4bb599a820"
+        "secondRenderSha256": "5b5fd0845e4df5acc72ba59efb2be66e9610a6f797f86451823ea0055bb80f4b"
       }
     },
     {
@@ -3245,7 +3245,7 @@
         "/world-models/generative-sim/"
       ],
       "alt": "Open graph card for the Robot Wiki article Generative Simulation",
-      "treeDigest": "bb2ada13a08d875302d6ca6e26b57cdc8c544ca4397af268d6707bae90df4419",
+      "treeDigest": "bcc3bcde1b9a069c10907d55eee9532d8b41707a842f9675c934739267360df9",
       "strings": [
         {
           "field": "domain",
@@ -3277,10 +3277,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "37 REFERENCES",
+          "text": "38 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/world-models/generative-sim.mdx#frontmatter.citations",
-          "sourceValue": 37
+          "sourceValue": 38
         }
       ],
       "facts": {
@@ -3288,7 +3288,7 @@
         "domain": "world-models",
         "domainName": "World Models",
         "reviewYear": 2026,
-        "referenceCount": 37
+        "referenceCount": 38
       },
       "devices": [
         "device:section-rule#header",
@@ -3313,23 +3313,23 @@
         "path": "/og/world-models/generative-sim.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31327,
-        "sha256": "034d737d9208bf8afa1e92a7355c4eab1c9f70b05e0e3a9c803f4f27c37ff02d"
+        "bytes": 31439,
+        "sha256": "a0950f144f79cf7428003988801d1bcd2aa83763a56a046ec22a141724a5e28f"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/world-models/generative-sim-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39003,
-          "sha256": "115e959a6390ac3563fba40554a0a7cc8e2d9ec92b06b7bff5defac85a6a130e"
+          "bytes": 39111,
+          "sha256": "5f4cbed6092102b5cf2e377a11e244def62c45a1fa40c82e3e80a6c499f4a094"
         },
         {
           "path": "/structured-images/world-models/generative-sim-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 47520,
-          "sha256": "ead7459a76d9368ab222f82718e22702d1a174c444e26acff050e88103a75aa0"
+          "bytes": 47637,
+          "sha256": "c0481efca43fb49639375ca6a54b98c8a8e9198d6f7beb8b04a09e0ab70eab93"
         }
       ],
       "pixels": {
@@ -3344,7 +3344,7 @@
           "title": 24106,
           "identity": 1178
         },
-        "secondRenderSha256": "034d737d9208bf8afa1e92a7355c4eab1c9f70b05e0e3a9c803f4f27c37ff02d"
+        "secondRenderSha256": "a0950f144f79cf7428003988801d1bcd2aa83763a56a046ec22a141724a5e28f"
       }
     },
     {
@@ -3356,7 +3356,7 @@
         "/world-models/model-based-robot-learning/"
       ],
       "alt": "Open graph card for the Robot Wiki article Model-Based Robot Learning",
-      "treeDigest": "1cc9c94781b4c96f9a231e1ed0c76fad514e578f23132c53656076f7d94dcdc6",
+      "treeDigest": "efcabb59daa443a28a073d10ff3ce434f0a5f796ad3b0ed960144766fa8bfbe4",
       "strings": [
         {
           "field": "domain",
@@ -3388,10 +3388,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "37 REFERENCES",
+          "text": "40 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/world-models/model-based-robot-learning.mdx#frontmatter.citations",
-          "sourceValue": 37
+          "sourceValue": 40
         }
       ],
       "facts": {
@@ -3399,7 +3399,7 @@
         "domain": "world-models",
         "domainName": "World Models",
         "reviewYear": 2026,
-        "referenceCount": 37
+        "referenceCount": 40
       },
       "devices": [
         "device:section-rule#header",
@@ -3424,23 +3424,23 @@
         "path": "/og/world-models/model-based-robot-learning.png",
         "width": 1200,
         "height": 630,
-        "bytes": 32150,
-        "sha256": "9271af359601c306a80df71bc5015c501500c7331882a3e01359a348939b47ae"
+        "bytes": 32167,
+        "sha256": "6cea0b812a1c8e7346d68742e47da3265cceffafdfa9b5fe8641742df4134565"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/world-models/model-based-robot-learning-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39832,
-          "sha256": "ee95ed7df22b9b868766e11f10669fbb6fd85ed96daac3086fafaff24568aac5"
+          "bytes": 39850,
+          "sha256": "dfcf2fc6f67106f7af219c95839a7e45f94f5e504ae2c0dbc417b27c158dc215"
         },
         {
           "path": "/structured-images/world-models/model-based-robot-learning-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 48362,
-          "sha256": "277d9ba137ae7a3702b020100084a5151ffb13ae67d388c7ae2a8c0dbd4dfd07"
+          "bytes": 48389,
+          "sha256": "d1248752199a25c979faf43fa7ec0b3b8c28531c4b3655161a3fe80265633ecb"
         }
       ],
       "pixels": {
@@ -3455,7 +3455,7 @@
           "title": 23537,
           "identity": 1178
         },
-        "secondRenderSha256": "9271af359601c306a80df71bc5015c501500c7331882a3e01359a348939b47ae"
+        "secondRenderSha256": "6cea0b812a1c8e7346d68742e47da3265cceffafdfa9b5fe8641742df4134565"
       }
     },
     {
@@ -3467,7 +3467,7 @@
         "/world-models/evaluation/"
       ],
       "alt": "Open graph card for the Robot Wiki article World Model Evaluation for Robotics",
-      "treeDigest": "231922d299c13451cf95c7e753ad91005804c77540a450ef0687b08d20298260",
+      "treeDigest": "3970ca30b13d60989e8103d3a9e13149213d810edcb775f1deb408349162c6db",
       "strings": [
         {
           "field": "domain",
@@ -3499,10 +3499,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "33 REFERENCES",
+          "text": "34 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/world-models/evaluation.mdx#frontmatter.citations",
-          "sourceValue": 33
+          "sourceValue": 34
         }
       ],
       "facts": {
@@ -3510,7 +3510,7 @@
         "domain": "world-models",
         "domainName": "World Models",
         "reviewYear": 2026,
-        "referenceCount": 33
+        "referenceCount": 34
       },
       "devices": [
         "device:section-rule#header",
@@ -3535,23 +3535,23 @@
         "path": "/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "bytes": 34006,
-        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df"
+        "bytes": 33933,
+        "sha256": "745db7567099429d0ff277c1ddb2d23b6fcf5cbfc2ed49005371c0e2502d323f"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/world-models/evaluation-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 41711,
-          "sha256": "dba420e064e3ab96311f8873ce921c158b9f86bd803243a8ea3d0c4436f63808"
+          "bytes": 41634,
+          "sha256": "bbb8de29585f7257af294637e74fbe54cbc0b36b0b16d7d60277a520c351b76b"
         },
         {
           "path": "/structured-images/world-models/evaluation-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 50251,
-          "sha256": "0e197a84e9759e98fc93a6d40a98c3b9f618faac0571329a630b3cef00da65e0"
+          "bytes": 50172,
+          "sha256": "6c5756a36331e04e5c39b0cb004331764485d4434044f3544b315086e691f86c"
         }
       ],
       "pixels": {
@@ -3566,7 +3566,7 @@
           "title": 19672,
           "identity": 1178
         },
-        "secondRenderSha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df"
+        "secondRenderSha256": "745db7567099429d0ff277c1ddb2d23b6fcf5cbfc2ed49005371c0e2502d323f"
       }
     },
     {
@@ -3578,7 +3578,7 @@
         "/world-models/world-models-vs-simulators/"
       ],
       "alt": "Open graph card for the Robot Wiki article World Models vs Physics Simulators",
-      "treeDigest": "fda397cc4df593077604b2c5b02159870c4ea486e3e884953f13076559fcba7c",
+      "treeDigest": "24fc63c665666f90ec52812277bec01cf7301eb260f3c487bf8b98c8153d2249",
       "strings": [
         {
           "field": "domain",
@@ -3610,10 +3610,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "35 REFERENCES",
+          "text": "37 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/world-models/world-models-vs-simulators.mdx#frontmatter.citations",
-          "sourceValue": 35
+          "sourceValue": 37
         }
       ],
       "facts": {
@@ -3621,7 +3621,7 @@
         "domain": "world-models",
         "domainName": "World Models",
         "reviewYear": 2026,
-        "referenceCount": 35
+        "referenceCount": 37
       },
       "devices": [
         "device:section-rule#header",
@@ -3646,23 +3646,23 @@
         "path": "/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "bytes": 36179,
-        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714"
+        "bytes": 36132,
+        "sha256": "1a6c822b995c468ba411d770a9dbea4d49db9f29ec68709357055c3b8b66fa3a"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/world-models/world-models-vs-simulators-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 43912,
-          "sha256": "3461f6369a6ae6c31767f0339e6312ffa44536dfa1f8d00d83e06d41b325a45f"
+          "bytes": 43858,
+          "sha256": "a158e9090d900bc9169c03d3301105d9f788db79a247644c7f96129eab499331"
         },
         {
           "path": "/structured-images/world-models/world-models-vs-simulators-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 52478,
-          "sha256": "2de134a32e4dc7449a14a5dd50f7209017720edfb0d83b7f193ee6e97b2f2666"
+          "bytes": 52423,
+          "sha256": "6b5f6e596ab11deec5fa9f5929cc911d849a07bf52ee1ddf43da97fe718fe8c6"
         }
       ],
       "pixels": {
@@ -3677,7 +3677,7 @@
           "title": 28146,
           "identity": 1178
         },
-        "secondRenderSha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714"
+        "secondRenderSha256": "1a6c822b995c468ba411d770a9dbea4d49db9f29ec68709357055c3b8b66fa3a"
       }
     },
     {
@@ -3689,7 +3689,7 @@
         "/data-hardware/data-bottleneck/"
       ],
       "alt": "Open graph card for the Robot Wiki article The Data Bottleneck",
-      "treeDigest": "72bee767fc0d26e478b43fab41d60a5db48e920af7c660ec8c0d93c307a101f4",
+      "treeDigest": "57966afc1490062d0dcf9dd21c18a16485f49812647a2e18a66a7b5497ff63b3",
       "strings": [
         {
           "field": "domain",
@@ -3721,10 +3721,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "38 REFERENCES",
+          "text": "48 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/data-bottleneck.mdx#frontmatter.citations",
-          "sourceValue": 38
+          "sourceValue": 48
         }
       ],
       "facts": {
@@ -3732,7 +3732,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 38
+        "referenceCount": 48
       },
       "devices": [
         "device:section-rule#header",
@@ -3757,23 +3757,23 @@
         "path": "/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31908,
-        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88"
+        "bytes": 31839,
+        "sha256": "7c77ab3cc89fe8249d428d272dd3cbd308eec10936b7576e400e1af7f84681a3"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/data-bottleneck-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39588,
-          "sha256": "00e048186686adac3b6a0941e8860727b2c9bc449c777bf1a7b9c1021e08495c"
+          "bytes": 39513,
+          "sha256": "4140e07b784954a0d3235057cba684060f88c68688bdef5a737ec8275b11920f"
         },
         {
           "path": "/structured-images/data-hardware/data-bottleneck-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 48097,
-          "sha256": "a64dc4cd49246f166a3b5b6d151f6da2f40e8adde056ce374f1f5cad1bdceb48"
+          "bytes": 48028,
+          "sha256": "fae259331c0f3954d4b876363ae40b12c5210f6d0151e33334d599f1a89fbff8"
         }
       ],
       "pixels": {
@@ -3788,7 +3788,7 @@
           "title": 22230,
           "identity": 1178
         },
-        "secondRenderSha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88"
+        "secondRenderSha256": "7c77ab3cc89fe8249d428d272dd3cbd308eec10936b7576e400e1af7f84681a3"
       }
     },
     {
@@ -3800,7 +3800,7 @@
         "/data-hardware/datasets/"
       ],
       "alt": "Open graph card for the Robot Wiki article Major Datasets",
-      "treeDigest": "52c7b15c125139db104acf1bf49a33d7179ea695744a4f407c0a0219853b6dff",
+      "treeDigest": "d415bbb60f3366c9dd73539c6680ca69e2e672b4513c7193f3799cebdf52ec6c",
       "strings": [
         {
           "field": "domain",
@@ -3832,10 +3832,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "38 REFERENCES",
+          "text": "50 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/datasets.mdx#frontmatter.citations",
-          "sourceValue": 38
+          "sourceValue": 50
         }
       ],
       "facts": {
@@ -3843,7 +3843,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 38
+        "referenceCount": 50
       },
       "devices": [
         "device:section-rule#header",
@@ -3868,23 +3868,23 @@
         "path": "/og/data-hardware/datasets.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31176,
-        "sha256": "dcc001da9064531bf19835510957977bed061d2bd6a0fbc99e4e682e64554180"
+        "bytes": 31146,
+        "sha256": "42cce009bae51add30c986beb83242a8e834d27bbde494fc978b29517c92906f"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/datasets-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 38843,
-          "sha256": "57ddc56c4026b99e60426d5e2f0729ba01e7b6f8512078efd923b4e8d795c87f"
+          "bytes": 38820,
+          "sha256": "909840ddda8999b7339130c0998f6a25e19f0e076a7cf8995932a34900fb9685"
         },
         {
           "path": "/structured-images/data-hardware/datasets-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 47347,
-          "sha256": "f5238261f4fb09ad2ca02e7d0e32929f5262960162d30819de5ffc587734c098"
+          "bytes": 47318,
+          "sha256": "02336fa16206d0bb738e6a522b8b07f494e1e603290ce6d69ae2c106b7733b84"
         }
       ],
       "pixels": {
@@ -3899,7 +3899,7 @@
           "title": 17161,
           "identity": 1178
         },
-        "secondRenderSha256": "dcc001da9064531bf19835510957977bed061d2bd6a0fbc99e4e682e64554180"
+        "secondRenderSha256": "42cce009bae51add30c986beb83242a8e834d27bbde494fc978b29517c92906f"
       }
     },
     {
@@ -3911,7 +3911,7 @@
         "/data-hardware/hardware-taxonomy/"
       ],
       "alt": "Open graph card for the Robot Wiki article Hardware Taxonomy",
-      "treeDigest": "c56520b5380a4ce021fb82223b0808484c5cf18efff98d3dfcb25d09f3d8333b",
+      "treeDigest": "f10712048c9912e426c1aa57f440149700947a4fc14c12fd012b7c942e40e566",
       "strings": [
         {
           "field": "domain",
@@ -3943,10 +3943,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "51 REFERENCES",
+          "text": "60 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/hardware-taxonomy.mdx#frontmatter.citations",
-          "sourceValue": 51
+          "sourceValue": 60
         }
       ],
       "facts": {
@@ -3954,7 +3954,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 51
+        "referenceCount": 60
       },
       "devices": [
         "device:section-rule#header",
@@ -3979,23 +3979,23 @@
         "path": "/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "bytes": 34106,
-        "sha256": "0bfdb9330fe1b960cf510ed9dde468cfa9ee034604443c3c94f766fc04a988f4"
+        "bytes": 34316,
+        "sha256": "0945ab5834563fc27810bc4f5cfd93af5727c011a644ff78c2d98a4474c15bfa"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/hardware-taxonomy-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 41798,
-          "sha256": "0bf17b5820de69d9571caba4d1fd2e05ff6b735cd47beca4104444c839726cd8"
+          "bytes": 42024,
+          "sha256": "6d3b87923f44f3d5c6833065b8d5fa14b0060becdb029aa330bd3be4fbe97c94"
         },
         {
           "path": "/structured-images/data-hardware/hardware-taxonomy-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 50362,
-          "sha256": "582c5f83f89ebfce8f5af4726bce1b5bc87e00fd6bb5505fb74fba298af1ad34"
+          "bytes": 50588,
+          "sha256": "01ff67f8d8398cc27c329a981bbfe072f4283aa2a1bce2cff052f390231da690"
         }
       ],
       "pixels": {
@@ -4010,7 +4010,7 @@
           "title": 22032,
           "identity": 1178
         },
-        "secondRenderSha256": "0bfdb9330fe1b960cf510ed9dde468cfa9ee034604443c3c94f766fc04a988f4"
+        "secondRenderSha256": "0945ab5834563fc27810bc4f5cfd93af5727c011a644ff78c2d98a4474c15bfa"
       }
     },
     {
@@ -4022,7 +4022,7 @@
         "/data-hardware/teleop-rigs/"
       ],
       "alt": "Open graph card for the Robot Wiki article Teleoperation Rigs",
-      "treeDigest": "795075a4e0156d6e6bca74c1232ebc82ec85a8bf910574b0397500cf60766115",
+      "treeDigest": "051c1b264d20a405eabada4a5391e3c52b91eccef2055d02a430ec750a6566da",
       "strings": [
         {
           "field": "domain",
@@ -4054,10 +4054,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "37 REFERENCES",
+          "text": "43 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/teleop-rigs.mdx#frontmatter.citations",
-          "sourceValue": 37
+          "sourceValue": 43
         }
       ],
       "facts": {
@@ -4065,7 +4065,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 37
+        "referenceCount": 43
       },
       "devices": [
         "device:section-rule#header",
@@ -4090,23 +4090,23 @@
         "path": "/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31226,
-        "sha256": "b4a7d217c1df6b536200c4cce7418caf149c41fd281e542d8ebeb7c34e39aade"
+        "bytes": 31227,
+        "sha256": "d9116126ec6c0907bf698e37814609aea90348b073e4071514b002a9a2383c8e"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/teleop-rigs-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 38868,
-          "sha256": "2b32a3076881e670a3857eb6c92041d08f4555e6a7503ddeaa2d28b0323617df"
+          "bytes": 38866,
+          "sha256": "75fe357cf1575e4308e49c3fc3ac1b0e790d8925c8aee5ee8ea8a64a321449b8"
         },
         {
           "path": "/structured-images/data-hardware/teleop-rigs-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 47382,
-          "sha256": "ba707c60324fa6d956ed500d4679fa8d75ddf34cff2ec761116db06824efb85e"
+          "bytes": 47381,
+          "sha256": "111da043ff6e56998b5682062a2fd9052c36ce1bdd3521ef7bed79e0ca502151"
         }
       ],
       "pixels": {
@@ -4121,7 +4121,7 @@
           "title": 20973,
           "identity": 1178
         },
-        "secondRenderSha256": "b4a7d217c1df6b536200c4cce7418caf149c41fd281e542d8ebeb7c34e39aade"
+        "secondRenderSha256": "d9116126ec6c0907bf698e37814609aea90348b073e4071514b002a9a2383c8e"
       }
     },
     {
@@ -4133,7 +4133,7 @@
         "/data-hardware/evaluation-crisis/"
       ],
       "alt": "Open graph card for the Robot Wiki article The Evaluation Crisis",
-      "treeDigest": "527be76615253e7f74090beed4d266697b2ffc3145a0d704f53a450f4082360b",
+      "treeDigest": "93699f1956a30b365bf52c98fe89688d11596b440dc09d04dce4a635a75bacff",
       "strings": [
         {
           "field": "domain",
@@ -4165,10 +4165,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "36 REFERENCES",
+          "text": "42 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/evaluation-crisis.mdx#frontmatter.citations",
-          "sourceValue": 36
+          "sourceValue": 42
         }
       ],
       "facts": {
@@ -4176,7 +4176,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 36
+        "referenceCount": 42
       },
       "devices": [
         "device:section-rule#header",
@@ -4201,23 +4201,23 @@
         "path": "/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31740,
-        "sha256": "a560c71abc92664cf205928b9db26b2bad13855abef3a1079265b8af78122e6d"
+        "bytes": 31621,
+        "sha256": "ea918c9cba6e3d49eda939e7ab84e1c6bee75eff2e9efc285bb4cb65e953ef89"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/evaluation-crisis-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39417,
-          "sha256": "f4931a2b1a9758f6ab19ec94606277eba848f07b53e4a15e57cbedf46db02ccd"
+          "bytes": 39289,
+          "sha256": "af8c437a869402a399bb171644380c1e78bd0f56c5da9996f3240b658a20a1ec"
         },
         {
           "path": "/structured-images/data-hardware/evaluation-crisis-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 47939,
-          "sha256": "ed67ffad318a1d1b5479c7838a8fff3e0051a39eaefa87533743094c86f6d305"
+          "bytes": 47815,
+          "sha256": "2301d680a4701f72f22f1b77c90fc50438915aee3439cfd5a0220bbae08af163"
         }
       ],
       "pixels": {
@@ -4232,7 +4232,7 @@
           "title": 21611,
           "identity": 1178
         },
-        "secondRenderSha256": "a560c71abc92664cf205928b9db26b2bad13855abef3a1079265b8af78122e6d"
+        "secondRenderSha256": "ea918c9cba6e3d49eda939e7ab84e1c6bee75eff2e9efc285bb4cb65e953ef89"
       }
     },
     {
@@ -4244,7 +4244,7 @@
         "/data-hardware/industrial-deployment/"
       ],
       "alt": "Open graph card for the Robot Wiki article Industrial Deployment",
-      "treeDigest": "d535857e5dbc51d1c72f80fc94fa843079d01a9a0e2814811c00a4e893afa675",
+      "treeDigest": "25554af0deb05152917a930955d6d1fe66ade10ebcfa58af45d9e765fd327ecf",
       "strings": [
         {
           "field": "domain",
@@ -4276,10 +4276,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "38 REFERENCES",
+          "text": "42 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/industrial-deployment.mdx#frontmatter.citations",
-          "sourceValue": 38
+          "sourceValue": 42
         }
       ],
       "facts": {
@@ -4287,7 +4287,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 38
+        "referenceCount": 42
       },
       "devices": [
         "device:section-rule#header",
@@ -4312,23 +4312,23 @@
         "path": "/og/data-hardware/industrial-deployment.png",
         "width": 1200,
         "height": 630,
-        "bytes": 32440,
-        "sha256": "20e429c1933ce024f24794a05b752c67aecdb0cdb23587f401252f3567cb16d8"
+        "bytes": 32286,
+        "sha256": "296d98804ca00c45204c7a858ff434b7559d28cfce10db26eeee50fc3e00c25c"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/industrial-deployment-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 40120,
-          "sha256": "48e1b0b8a029811441155b0b2a0aa5dff267907024b42946a60e8e91e23ddee2"
+          "bytes": 39958,
+          "sha256": "5194aeefd782002d34dd2ba6863e259c1bdab0048cb06b60c6f670bcbcf5b78b"
         },
         {
           "path": "/structured-images/data-hardware/industrial-deployment-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 48650,
-          "sha256": "abb5e036d9b545d33d1d90ba71687c48457ae9d87417cebc80df7751b4d5eb89"
+          "bytes": 48491,
+          "sha256": "ce87dc868e8e9516279c268452f23e3fdad0f064094df16deaf6995cd8f43c9a"
         }
       ],
       "pixels": {
@@ -4343,7 +4343,7 @@
           "title": 25099,
           "identity": 1178
         },
-        "secondRenderSha256": "20e429c1933ce024f24794a05b752c67aecdb0cdb23587f401252f3567cb16d8"
+        "secondRenderSha256": "296d98804ca00c45204c7a858ff434b7559d28cfce10db26eeee50fc3e00c25c"
       }
     },
     {
@@ -4355,7 +4355,7 @@
         "/data-hardware/robot-learning-stack/"
       ],
       "alt": "Open graph card for the Robot Wiki article The Robot Learning Stack",
-      "treeDigest": "901365c1ccba3f812c5815f53ec646e65b5955d890e36b2dd492cf4e482b588e",
+      "treeDigest": "d399082ae14d5b69e220d92872eb981a39c0785e4ce883eee4eee7248751e214",
       "strings": [
         {
           "field": "domain",
@@ -4387,10 +4387,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "39 REFERENCES",
+          "text": "44 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/robot-learning-stack.mdx#frontmatter.citations",
-          "sourceValue": 39
+          "sourceValue": 44
         }
       ],
       "facts": {
@@ -4398,7 +4398,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 39
+        "referenceCount": 44
       },
       "devices": [
         "device:section-rule#header",
@@ -4423,23 +4423,23 @@
         "path": "/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "bytes": 33552,
-        "sha256": "f714571412940da21d29a8d7798ffdeeb9783b2fa9ee81ea1bafdfdd7be5d855"
+        "bytes": 33392,
+        "sha256": "d8a4df94f2554ad7a78e10eddbbc40cf6fcb387539d4f774a8a6a19464bd032b"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/robot-learning-stack-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 41255,
-          "sha256": "4ab6185a9f0704bbe47fd4e65e88a3dc057dab258c68041649e71b31d2dd5cec"
+          "bytes": 41075,
+          "sha256": "ac39ac8a73c88fab32d7cd6b97fc92c7e8b94bc81fcf3225a994d016050366de"
         },
         {
           "path": "/structured-images/data-hardware/robot-learning-stack-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 49797,
-          "sha256": "05c86c3e2686f1ee9253ce0c313159d2a565cd72974de358814e2bea3cdd8657"
+          "bytes": 49629,
+          "sha256": "a0b2da963d5b3fbdab8ccc4824a61f2c598217553821ffc0c78fc13547c08011"
         }
       ],
       "pixels": {
@@ -4454,7 +4454,7 @@
           "title": 27284,
           "identity": 1178
         },
-        "secondRenderSha256": "f714571412940da21d29a8d7798ffdeeb9783b2fa9ee81ea1bafdfdd7be5d855"
+        "secondRenderSha256": "d8a4df94f2554ad7a78e10eddbbc40cf6fcb387539d4f774a8a6a19464bd032b"
       }
     },
     {
@@ -4466,7 +4466,7 @@
         "/classical/kinematics/"
       ],
       "alt": "Open graph card for the Robot Wiki article Kinematics",
-      "treeDigest": "49dc637ff362ecb3575291bb514ea447cd1179461f16294ff691b77fb5e9971e",
+      "treeDigest": "0521e25aeaaa258f02fdfee3151d00e393c3820a4cc4c22dac1f428de77067a7",
       "strings": [
         {
           "field": "domain",
@@ -4498,10 +4498,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "35 REFERENCES",
+          "text": "36 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/classical/kinematics.mdx#frontmatter.citations",
-          "sourceValue": 35
+          "sourceValue": 36
         }
       ],
       "facts": {
@@ -4509,7 +4509,7 @@
         "domain": "classical",
         "domainName": "Classical Foundations",
         "reviewYear": 2026,
-        "referenceCount": 35
+        "referenceCount": 36
       },
       "devices": [
         "device:section-rule#header",
@@ -4534,23 +4534,23 @@
         "path": "/og/classical/kinematics.png",
         "width": 1200,
         "height": 630,
-        "bytes": 29855,
-        "sha256": "096de012cea7eceee66ca63dfec550b3181b02296a54b7ecaa233c852f295586"
+        "bytes": 29872,
+        "sha256": "bc3be1ae7d245cdf7403c61d94c9d6e7f421d48a1e07f740a90ae74702b868b1"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/classical/kinematics-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 37518,
-          "sha256": "4548dad62290c107e2af09d156d8b0ea6f3d8af598018001b5111b5a076b5c39"
+          "bytes": 37541,
+          "sha256": "8b1972dbaa37c343bd3df7dd3f6ae20eff771afe71c7214f0cb690c4fb1e3b34"
         },
         {
           "path": "/structured-images/classical/kinematics-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 46007,
-          "sha256": "7f1a297f35f7263a65183ef1ede60d31d7fae18425bc80f7d5f2991dee66ce92"
+          "bytes": 46035,
+          "sha256": "d8a60e20561242d3abc98e391576d633f6b0b83cf3d1c08061a7daea60d740f3"
         }
       ],
       "pixels": {
@@ -4565,7 +4565,7 @@
           "title": 12430,
           "identity": 1178
         },
-        "secondRenderSha256": "096de012cea7eceee66ca63dfec550b3181b02296a54b7ecaa233c852f295586"
+        "secondRenderSha256": "bc3be1ae7d245cdf7403c61d94c9d6e7f421d48a1e07f740a90ae74702b868b1"
       }
     },
     {
@@ -4688,7 +4688,7 @@
         "/classical/control/"
       ],
       "alt": "Open graph card for the Robot Wiki article Control",
-      "treeDigest": "90ca5b4a6bbb5b460eece32f4c3859c86d5f93e939499d097b14959816ef4657",
+      "treeDigest": "4a75d058bd2bf0982f74217b98cec486450e97fce70197c7c32e5c2391bb043c",
       "strings": [
         {
           "field": "domain",
@@ -4720,10 +4720,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "45 REFERENCES",
+          "text": "46 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/classical/control.mdx#frontmatter.citations",
-          "sourceValue": 45
+          "sourceValue": 46
         }
       ],
       "facts": {
@@ -4731,7 +4731,7 @@
         "domain": "classical",
         "domainName": "Classical Foundations",
         "reviewYear": 2026,
-        "referenceCount": 45
+        "referenceCount": 46
       },
       "devices": [
         "device:section-rule#header",
@@ -4756,23 +4756,23 @@
         "path": "/og/classical/control.png",
         "width": 1200,
         "height": 630,
-        "bytes": 28370,
-        "sha256": "f300efc86dd30df3163dfb2b22ee819fa0ab49340d9e5fc5e97c093db0c75e7e"
+        "bytes": 28386,
+        "sha256": "7de20080964c725b5a6804464c5fa471ea3229706915cdc5ca74d9688a154336"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/classical/control-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 36095,
-          "sha256": "1b8e1462add31a39f59e76d647c5bdccb538754b0460666eb350c0690441e8f0"
+          "bytes": 36114,
+          "sha256": "59a20f4d7aee65dcae9de532220395635044b7e9ecdd3ab58ad8a9055bec9f5e"
         },
         {
           "path": "/structured-images/classical/control-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 44577,
-          "sha256": "d02ca4cfa8c40445d2f1daaa283c8e23a22a4d1e8c0d4c5f03d74c7357775e0a"
+          "bytes": 44597,
+          "sha256": "b75bfa5f98def7740cc7088f791e3326be0492b59fb6938b3076de8c2014a9db"
         }
       ],
       "pixels": {
@@ -4787,7 +4787,7 @@
           "title": 7752,
           "identity": 1178
         },
-        "secondRenderSha256": "f300efc86dd30df3163dfb2b22ee819fa0ab49340d9e5fc5e97c093db0c75e7e"
+        "secondRenderSha256": "7de20080964c725b5a6804464c5fa471ea3229706915cdc5ca74d9688a154336"
       }
     },
     {
@@ -4910,7 +4910,7 @@
         "/classical/grasp-planning/"
       ],
       "alt": "Open graph card for the Robot Wiki article Grasp Planning",
-      "treeDigest": "9afb2d124161f639fab485bcdc2241b3e963ebb08f456a8c4882db30dc82b9c9",
+      "treeDigest": "6e4c7b8bb39fbd3773d56f672b6f6c36a2c23f0fae14aa42182a0eb1326b4424",
       "strings": [
         {
           "field": "domain",
@@ -4942,10 +4942,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "41 REFERENCES",
+          "text": "42 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/classical/grasp-planning.mdx#frontmatter.citations",
-          "sourceValue": 41
+          "sourceValue": 42
         }
       ],
       "facts": {
@@ -4953,7 +4953,7 @@
         "domain": "classical",
         "domainName": "Classical Foundations",
         "reviewYear": 2026,
-        "referenceCount": 41
+        "referenceCount": 42
       },
       "devices": [
         "device:section-rule#header",
@@ -4978,23 +4978,23 @@
         "path": "/og/classical/grasp-planning.png",
         "width": 1200,
         "height": 630,
-        "bytes": 29871,
-        "sha256": "515ca50e3167ba288a6de1eacbdd588fa78d0db6f741b053548c0a48677f77f9"
+        "bytes": 29998,
+        "sha256": "50a04a73d6419cb352fbd7d88d5a67d59466c98c6c335054fa78323a6d280832"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/classical/grasp-planning-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 37524,
-          "sha256": "8aec80ef9919ac3f4a654ba163ed96d9765d4789e160695fb9517c070e78aebc"
+          "bytes": 37653,
+          "sha256": "4c2a0fddf6fe40613b4b915d57c1aba382dcb2a64a2acff94d05ce89b37e3252"
         },
         {
           "path": "/structured-images/classical/grasp-planning-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 46004,
-          "sha256": "126118d1abacaf4607125d82cb276a0930da8ce8e3c1dd67debe15cba42baee1"
+          "bytes": 46134,
+          "sha256": "ac117b86e148ca3f109454deb9a35fc26482ea9475b5c61e96353e130ca3a731"
         }
       ],
       "pixels": {
@@ -5009,7 +5009,7 @@
           "title": 16873,
           "identity": 1178
         },
-        "secondRenderSha256": "515ca50e3167ba288a6de1eacbdd588fa78d0db6f741b053548c0a48677f77f9"
+        "secondRenderSha256": "50a04a73d6419cb352fbd7d88d5a67d59466c98c6c335054fa78323a6d280832"
       }
     },
     {
@@ -5465,7 +5465,7 @@
         "/frontier/reliability-gap/"
       ],
       "alt": "Open graph card for the Robot Wiki article The Reliability Gap",
-      "treeDigest": "c1784ca68bbdd9665f881e2c04ff3b804877dd8326dc128414e187961414df8a",
+      "treeDigest": "ae4edba91fc9b0e5e6a03324e3b242d4e1961f41a7e3fd82e3f55e9a00b20145",
       "strings": [
         {
           "field": "domain",
@@ -5497,10 +5497,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "31 REFERENCES",
+          "text": "34 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/frontier/reliability-gap.mdx#frontmatter.citations",
-          "sourceValue": 31
+          "sourceValue": 34
         }
       ],
       "facts": {
@@ -5508,7 +5508,7 @@
         "domain": "frontier",
         "domainName": "Frontier & Open Problems",
         "reviewYear": 2026,
-        "referenceCount": 31
+        "referenceCount": 34
       },
       "devices": [
         "device:section-rule#header",
@@ -5533,23 +5533,23 @@
         "path": "/og/frontier/reliability-gap.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31505,
-        "sha256": "6f582aa880169eaa305d7c974125efa76d971fd4034507d81b68b6c65ed86221"
+        "bytes": 31562,
+        "sha256": "5085a41f6038cafc99effd5ce169eea8f091efd8db032a59ea3f46d152032405"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/frontier/reliability-gap-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39180,
-          "sha256": "9f47d5cb9445f05a9fe96071d7fffd347f3ed3264ea04108608f3f27cf187300"
+          "bytes": 39243,
+          "sha256": "01146397b670ff9188f303cca4e94fa89700567e642f0522efcf5cfe31ac0d44"
         },
         {
           "path": "/structured-images/frontier/reliability-gap-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 47696,
-          "sha256": "3d5228ed44930c4fc7cacc87e87b8386eea09f72e19bfa25d3ba6bfdee7d250c"
+          "bytes": 47759,
+          "sha256": "45aa4189022e9036425b1f5e8fd3c62dc0c6bb3e508aeee63f101d0826d5fc6d"
         }
       ],
       "pixels": {
@@ -5564,7 +5564,7 @@
           "title": 20689,
           "identity": 1178
         },
-        "secondRenderSha256": "6f582aa880169eaa305d7c974125efa76d971fd4034507d81b68b6c65ed86221"
+        "secondRenderSha256": "5085a41f6038cafc99effd5ce169eea8f091efd8db032a59ea3f46d152032405"
       }
     },
     {
@@ -5576,7 +5576,7 @@
         "/frontier/dexterity/"
       ],
       "alt": "Open graph card for the Robot Wiki article Dexterity",
-      "treeDigest": "b1fecad45234e21eafddf95df53686ff5d4d14accb5ba17d9a5691e0b9e781b9",
+      "treeDigest": "90f72348f25f18d530ff5357da4b34025c9ddbf859780f07a856081deb43a2e3",
       "strings": [
         {
           "field": "domain",
@@ -5608,10 +5608,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "33 REFERENCES",
+          "text": "41 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/frontier/dexterity.mdx#frontmatter.citations",
-          "sourceValue": 33
+          "sourceValue": 41
         }
       ],
       "facts": {
@@ -5619,7 +5619,7 @@
         "domain": "frontier",
         "domainName": "Frontier & Open Problems",
         "reviewYear": 2026,
-        "referenceCount": 33
+        "referenceCount": 41
       },
       "devices": [
         "device:section-rule#header",
@@ -5644,23 +5644,23 @@
         "path": "/og/frontier/dexterity.png",
         "width": 1200,
         "height": 630,
-        "bytes": 30623,
-        "sha256": "58230a6301cf68697faee41aa071e27adb93d70e5fc6680832547237ccbd7bd1"
+        "bytes": 30385,
+        "sha256": "8f256428e8fd2743b1036e63cbc65c18ada7028430955dc111a89d12a1dac370"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/frontier/dexterity-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 38306,
-          "sha256": "e635e375b4091fb0d0141bd6ce2f3a2eeb8e2900b1e9933292f3edc8401d6ba4"
+          "bytes": 38064,
+          "sha256": "0823b14508203bc656eb156112a7ec3bee39c531f744a5b4b2039e6480b4162a"
         },
         {
           "path": "/structured-images/frontier/dexterity-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 46801,
-          "sha256": "2a83b5b0805c24bff219794d10593d1e057193628060a2ce9953cf6177190303"
+          "bytes": 46559,
+          "sha256": "e5fa41eb9e08431aefb050a964a165a7be8bd630dfe0480c72227cf62531381f"
         }
       ],
       "pixels": {
@@ -5675,7 +5675,7 @@
           "title": 10672,
           "identity": 1178
         },
-        "secondRenderSha256": "58230a6301cf68697faee41aa071e27adb93d70e5fc6680832547237ccbd7bd1"
+        "secondRenderSha256": "8f256428e8fd2743b1036e63cbc65c18ada7028430955dc111a89d12a1dac370"
       }
     },
     {
@@ -5687,7 +5687,7 @@
         "/frontier/generalization/"
       ],
       "alt": "Open graph card for the Robot Wiki article Generalization",
-      "treeDigest": "6837cd21b430186f0306e41507c6babb8805b898a62e8186bcd21280ead24d79",
+      "treeDigest": "531b249625e644a548310ad20181b606720fd19fef4af799581364a6992938aa",
       "strings": [
         {
           "field": "domain",
@@ -5719,10 +5719,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "32 REFERENCES",
+          "text": "42 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/frontier/generalization.mdx#frontmatter.citations",
-          "sourceValue": 32
+          "sourceValue": 42
         }
       ],
       "facts": {
@@ -5730,7 +5730,7 @@
         "domain": "frontier",
         "domainName": "Frontier & Open Problems",
         "reviewYear": 2026,
-        "referenceCount": 32
+        "referenceCount": 42
       },
       "devices": [
         "device:section-rule#header",
@@ -5755,23 +5755,23 @@
         "path": "/og/frontier/generalization.png",
         "width": 1200,
         "height": 630,
-        "bytes": 30297,
-        "sha256": "dc7b10e7d0e2a01ba89895b6049506839e1e2818f01bdeffcb495fdc3c4ab0fe"
+        "bytes": 30210,
+        "sha256": "f2e9a3bd56c1db1a773dbe2208c6264aa99ad5d35e3d45dea8d73c191be06263"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/frontier/generalization-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 37958,
-          "sha256": "883b4fb4e159fff7ad3e230929097de79c0c86b3caace7909d34b68402769b48"
+          "bytes": 37867,
+          "sha256": "366d1577f7bf263b084e92e080b77ccf1e7fd6405ee0b34a65ea8794fcf01bf2"
         },
         {
           "path": "/structured-images/frontier/generalization-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 46454,
-          "sha256": "07479bdb0466191447f0ddc473f3aa0a50e04e3238791a4380cb2646a3a7feb3"
+          "bytes": 46360,
+          "sha256": "879e4781f8780e6eccc2cd95fecfc006af64729abbf9d67b49b6d023c7515018"
         }
       ],
       "pixels": {
@@ -5786,7 +5786,7 @@
           "title": 16258,
           "identity": 1178
         },
-        "secondRenderSha256": "dc7b10e7d0e2a01ba89895b6049506839e1e2818f01bdeffcb495fdc3c4ab0fe"
+        "secondRenderSha256": "f2e9a3bd56c1db1a773dbe2208c6264aa99ad5d35e3d45dea8d73c191be06263"
       }
     },
     {
@@ -6020,7 +6020,7 @@
         "/frontier/safety-and-assurance/"
       ],
       "alt": "Open graph card for the Robot Wiki article Safety and Assurance",
-      "treeDigest": "63e6437d333b79c0603dd1914b899531e9c182765df698a40581ddc3fcd6273b",
+      "treeDigest": "dc2f1b487f2d97ba75c0cc641d41be50b19e1a12a68b3cd0de152f59a9440f5f",
       "strings": [
         {
           "field": "domain",
@@ -6052,10 +6052,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "44 REFERENCES",
+          "text": "56 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/frontier/safety-and-assurance.mdx#frontmatter.citations",
-          "sourceValue": 44
+          "sourceValue": 56
         }
       ],
       "facts": {
@@ -6063,7 +6063,7 @@
         "domain": "frontier",
         "domainName": "Frontier & Open Problems",
         "reviewYear": 2026,
-        "referenceCount": 44
+        "referenceCount": 56
       },
       "devices": [
         "device:section-rule#header",
@@ -6088,23 +6088,23 @@
         "path": "/og/frontier/safety-and-assurance.png",
         "width": 1200,
         "height": 630,
-        "bytes": 33025,
-        "sha256": "8acb3d8b1ca9cfedcdabbd1a6e124b9d88290746e6fd972a8a915061d4e769b0"
+        "bytes": 33165,
+        "sha256": "13ba8126d1cfab98e4e7c26d10ef8257c971d455d0213c486012bf7182e5e93c"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/frontier/safety-and-assurance-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 40707,
-          "sha256": "d7ac60a2e69d2144221b50cd74fd0a5a56b68cd81020a479ed70ea862ed40875"
+          "bytes": 40850,
+          "sha256": "7f17224cf71bdfc1563c3aa555dd87b347544af5251136200ebff9cf015d523c"
         },
         {
           "path": "/structured-images/frontier/safety-and-assurance-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 49252,
-          "sha256": "e2b45fbc805706c86092b2c2875bb127c65d1190d9c3e3192859427f979272f4"
+          "bytes": 49417,
+          "sha256": "3130d399f771aa0aa3820274d771b9669ef41687ec25183c72c89cb192d5d7de"
         }
       ],
       "pixels": {
@@ -6119,7 +6119,7 @@
           "title": 23528,
           "identity": 1178
         },
-        "secondRenderSha256": "8acb3d8b1ca9cfedcdabbd1a6e124b9d88290746e6fd972a8a915061d4e769b0"
+        "secondRenderSha256": "13ba8126d1cfab98e4e7c26d10ef8257c971d455d0213c486012bf7182e5e93c"
       }
     },
     {
@@ -6131,7 +6131,7 @@
         "/adjacent/autonomous-vehicles/"
       ],
       "alt": "Open graph card for the Robot Wiki article Autonomous Vehicles",
-      "treeDigest": "49c0435ebaab5e80e0ff1a052a4d8b03f2d5ca578278fd6fefcd7a2f888546a2",
+      "treeDigest": "4410bbbcdc249ba822d835479013445edf7c87c815be4aecd2a2855b046becb2",
       "strings": [
         {
           "field": "domain",
@@ -6163,10 +6163,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "56 REFERENCES",
+          "text": "72 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/adjacent/autonomous-vehicles.mdx#frontmatter.citations",
-          "sourceValue": 56
+          "sourceValue": 72
         }
       ],
       "facts": {
@@ -6174,7 +6174,7 @@
         "domain": "adjacent",
         "domainName": "Adjacent Domains",
         "reviewYear": 2026,
-        "referenceCount": 56
+        "referenceCount": 72
       },
       "devices": [
         "device:section-rule#header",
@@ -6199,23 +6199,23 @@
         "path": "/og/adjacent/autonomous-vehicles.png",
         "width": 1200,
         "height": 630,
-        "bytes": 32585,
-        "sha256": "e6d15979ca08c03bf851059eeacb9fb97ae1fd6279e62fdfd8a2c21cf15fac53"
+        "bytes": 32483,
+        "sha256": "cf122b4e76b85a18cdda2b228e9eea94b5d03b03066da4fe64fab98ce01d69ff"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/adjacent/autonomous-vehicles-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 40263,
-          "sha256": "8d83d95f4ec4508c58d657ba7b0a87ea5eb168cb468849b9dcc2f1e3cc82c87b"
+          "bytes": 40164,
+          "sha256": "e59356109626879807bff832991c7f417d6bbcfcc7538c376370f4cd08eca3e1"
         },
         {
           "path": "/structured-images/adjacent/autonomous-vehicles-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 48807,
-          "sha256": "31c10995e2ab586e1eca3bbbd0f350db7dcda5312408e6289c4aaa659c47a96a"
+          "bytes": 48705,
+          "sha256": "b135cbf45a4aed2ea34dd543f4c3d7c3f224e86f5df7ffbf5803033345827e8d"
         }
       ],
       "pixels": {
@@ -6230,7 +6230,7 @@
           "title": 23502,
           "identity": 1178
         },
-        "secondRenderSha256": "e6d15979ca08c03bf851059eeacb9fb97ae1fd6279e62fdfd8a2c21cf15fac53"
+        "secondRenderSha256": "cf122b4e76b85a18cdda2b228e9eea94b5d03b03066da4fe64fab98ce01d69ff"
       }
     },
     {
@@ -6242,7 +6242,7 @@
         "/adjacent/drones/"
       ],
       "alt": "Open graph card for the Robot Wiki article Drones and Aerial Robotics",
-      "treeDigest": "6ae64da2cc122a1ce9cc3f011ad328675f5534b37f5075f28d1228e53e605626",
+      "treeDigest": "8ac98f609a86d4048bd54f29e7eca6f327c6aada32a9ae88fc95598d50c54d19",
       "strings": [
         {
           "field": "domain",
@@ -6274,10 +6274,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "37 REFERENCES",
+          "text": "43 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/adjacent/drones.mdx#frontmatter.citations",
-          "sourceValue": 37
+          "sourceValue": 43
         }
       ],
       "facts": {
@@ -6285,7 +6285,7 @@
         "domain": "adjacent",
         "domainName": "Adjacent Domains",
         "reviewYear": 2026,
-        "referenceCount": 37
+        "referenceCount": 43
       },
       "devices": [
         "device:section-rule#header",
@@ -6310,23 +6310,23 @@
         "path": "/og/adjacent/drones.png",
         "width": 1200,
         "height": 630,
-        "bytes": 32164,
-        "sha256": "04a8c70746e38a5eb634eb3cff6125ca7bc008780f69181642d8384eee116e98"
+        "bytes": 32165,
+        "sha256": "1659ff19c0b8ee0da650f0a37af5b651f80d38c62fdf1cf06023a2bcd28ed3f9"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/adjacent/drones-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39837,
-          "sha256": "86bc4e2bb36c6abaadea84bd2f8c7a4e257f8cc137d863de9d6c2cd1839475ed"
+          "bytes": 39829,
+          "sha256": "a65087fb190c6301ecc1dbb179608e4936793d14ff884a155cc0d3b1c297992d"
         },
         {
           "path": "/structured-images/adjacent/drones-square.png",
           "width": 1200,
           "height": 1200,
           "bytes": 48357,
-          "sha256": "589ee688bcb7478cf5201412d9827407d2f94d857c35da896f08497795f753c8"
+          "sha256": "cd854a259e83fc416b1e062c07ad5d9c1809150e78c745bf48842c351630a552"
         }
       ],
       "pixels": {
@@ -6341,7 +6341,7 @@
           "title": 21318,
           "identity": 1178
         },
-        "secondRenderSha256": "04a8c70746e38a5eb634eb3cff6125ca7bc008780f69181642d8384eee116e98"
+        "secondRenderSha256": "1659ff19c0b8ee0da650f0a37af5b651f80d38c62fdf1cf06023a2bcd28ed3f9"
       }
     },
     {
@@ -6353,7 +6353,7 @@
         "/adjacent/surgical/"
       ],
       "alt": "Open graph card for the Robot Wiki article Surgical Robotics",
-      "treeDigest": "7a4ff1a86ad327858bb369d4674ca035b9931c2438f774fcd0601982a76298ae",
+      "treeDigest": "ce97d528a1b79b37e695f8362413b158d94e624f43cbfa52bca62463b73a23ad",
       "strings": [
         {
           "field": "domain",
@@ -6385,10 +6385,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "32 REFERENCES",
+          "text": "36 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/adjacent/surgical.mdx#frontmatter.citations",
-          "sourceValue": 32
+          "sourceValue": 36
         }
       ],
       "facts": {
@@ -6396,7 +6396,7 @@
         "domain": "adjacent",
         "domainName": "Adjacent Domains",
         "reviewYear": 2026,
-        "referenceCount": 32
+        "referenceCount": 36
       },
       "devices": [
         "device:section-rule#header",
@@ -6421,23 +6421,23 @@
         "path": "/og/adjacent/surgical.png",
         "width": 1200,
         "height": 630,
-        "bytes": 30642,
-        "sha256": "3d6577bc9982eec5ba86976781ab5357aa53a6b01d5b07da4177a9eeb18aa1f6"
+        "bytes": 30666,
+        "sha256": "948890f16b2b3fa0d86d28f11d6d150bcd3ce59b676005ded18a850bcd9ad765"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/adjacent/surgical-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 38302,
-          "sha256": "5afd7f4ff32d81d2d7d5b68517df358c78768db513fd0b329d987c752b0364ba"
+          "bytes": 38332,
+          "sha256": "78fd307c8734c5d77ecc18ba56fa3ac40cb58165d8a1fc2f22dafe876bd055fd"
         },
         {
           "path": "/structured-images/adjacent/surgical-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 46797,
-          "sha256": "3218cf3a74f712d79637873cd5eb168cd6eef4357199d1e1ad1220f940ae806e"
+          "bytes": 46831,
+          "sha256": "146ccb07664cbe66f8ce1719cbfcf10aece9c81cbb5f23d0de36a35b76da4d58"
         }
       ],
       "pixels": {
@@ -6452,7 +6452,7 @@
           "title": 19455,
           "identity": 1178
         },
-        "secondRenderSha256": "3d6577bc9982eec5ba86976781ab5357aa53a6b01d5b07da4177a9eeb18aa1f6"
+        "secondRenderSha256": "948890f16b2b3fa0d86d28f11d6d150bcd3ce59b676005ded18a850bcd9ad765"
       }
     },
     {
@@ -6464,7 +6464,7 @@
         "/adjacent/space/"
       ],
       "alt": "Open graph card for the Robot Wiki article Space Robotics",
-      "treeDigest": "7d23665c5794e4d367424ab3f946e7c66393ec789bf53e00331189326e7a7bc2",
+      "treeDigest": "5f956d52ccda7509bb8512bb75acabd1f533a95a5b2ed9595c96e70d61c06eec",
       "strings": [
         {
           "field": "domain",
@@ -6496,10 +6496,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "42 REFERENCES",
+          "text": "52 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/adjacent/space.mdx#frontmatter.citations",
-          "sourceValue": 42
+          "sourceValue": 52
         }
       ],
       "facts": {
@@ -6507,7 +6507,7 @@
         "domain": "adjacent",
         "domainName": "Adjacent Domains",
         "reviewYear": 2026,
-        "referenceCount": 42
+        "referenceCount": 52
       },
       "devices": [
         "device:section-rule#header",
@@ -6532,23 +6532,23 @@
         "path": "/og/adjacent/space.png",
         "width": 1200,
         "height": 630,
-        "bytes": 30295,
-        "sha256": "7e1e6e54825910ccdc8e376e817bf30d3735a384a440c104ccfa7d72fe351d19"
+        "bytes": 30348,
+        "sha256": "d26b0bb2cb870574b7c4215c6a6e0b860392e81e42686810b7a7271e1893c2c2"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/adjacent/space-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 37941,
-          "sha256": "2f3b5a3fe53d88cfb48ea37929d7c02b5f59050de18bd11a09727e1d83af211a"
+          "bytes": 37999,
+          "sha256": "c601be642d584d7d27b7994c4a2e2227748f70677824a39e7a5106477efaaa8f"
         },
         {
           "path": "/structured-images/adjacent/space-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 46443,
-          "sha256": "8f2b153649a60227e69bc7e4a01364e7e99ce4cc9b70579047e285deb3566b90"
+          "bytes": 46499,
+          "sha256": "f0042d7a84dcef91f865ca204810f91568de4c274d3f55d0c532a27871cddf10"
         }
       ],
       "pixels": {
@@ -6563,37 +6563,17 @@
           "title": 17331,
           "identity": 1178
         },
-        "secondRenderSha256": "7e1e6e54825910ccdc8e376e817bf30d3735a384a440c104ccfa7d72fe351d19"
+        "secondRenderSha256": "d26b0bb2cb870574b7c4215c6a6e0b860392e81e42686810b7a7271e1893c2c2"
       }
     }
   ],
   "glyphProbes": [
-    {
-      "probeId": "probe:og-face:data:0388475b9ea453e3",
-      "faceId": "og-face:data",
-      "family": "IBM Plex Mono",
-      "text": "31 REFERENCES",
-      "assignedBy": [
-        "card:frontier/reliability-gap"
-      ],
-      "codePointCount": 13,
-      "cmapMissing": [],
-      "canvas": {
-        "width": 1200,
-        "height": 109
-      },
-      "ownFaceSha256": "93d20a699eeeedbea551e941d0be21ccf199a4eabe2a5137334aa75667441197",
-      "productionSha256": "93d20a699eeeedbea551e941d0be21ccf199a4eabe2a5137334aa75667441197",
-      "fallbackFree": true
-    },
     {
       "probeId": "probe:og-face:data:703d22cac5b2f55c",
       "faceId": "og-face:data",
       "family": "IBM Plex Mono",
       "text": "32 REFERENCES",
       "assignedBy": [
-        "card:adjacent/surgical",
-        "card:frontier/generalization",
         "card:manipulation/action-chunking",
         "card:manipulation/robot-learning-roadmap"
       ],
@@ -6615,11 +6595,8 @@
       "assignedBy": [
         "card:classical/ros2-for-ml-engineers",
         "card:frontier/competing-theses",
-        "card:frontier/dexterity",
         "card:manipulation/knowledge-insulation",
-        "card:rl-sim2real/parallel-sim-rl",
-        "card:world-models/evaluation",
-        "card:world-models/latent-dynamics"
+        "card:rl-sim2real/parallel-sim-rl"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6637,9 +6614,10 @@
       "family": "IBM Plex Mono",
       "text": "34 REFERENCES",
       "assignedBy": [
+        "card:frontier/reliability-gap",
         "card:manipulation/diffusion-policy",
         "card:manipulation/realtime-execution",
-        "card:rl-sim2real/why-rl-locomotion"
+        "card:world-models/evaluation"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6657,9 +6635,8 @@
       "family": "IBM Plex Mono",
       "text": "35 REFERENCES",
       "assignedBy": [
-        "card:classical/kinematics",
         "card:frontier/bear-case",
-        "card:world-models/world-models-vs-simulators"
+        "card:rl-sim2real/why-rl-locomotion"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6677,10 +6654,11 @@
       "family": "IBM Plex Mono",
       "text": "36 REFERENCES",
       "assignedBy": [
-        "card:data-hardware/evaluation-crisis",
+        "card:adjacent/surgical",
+        "card:classical/kinematics",
         "card:manipulation/bc-foundations",
         "card:manipulation/vla-models",
-        "card:world-models/taxonomy"
+        "card:world-models/latent-dynamics"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6698,13 +6676,10 @@
       "family": "IBM Plex Mono",
       "text": "37 REFERENCES",
       "assignedBy": [
-        "card:adjacent/drones",
-        "card:data-hardware/teleop-rigs",
         "card:manipulation/comparison-matrix",
         "card:manipulation/pi-line",
-        "card:world-models/generative-sim",
-        "card:world-models/jepa",
-        "card:world-models/model-based-robot-learning"
+        "card:world-models/taxonomy",
+        "card:world-models/world-models-vs-simulators"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6723,11 +6698,8 @@
       "text": "38 REFERENCES",
       "assignedBy": [
         "card:classical/calibration",
-        "card:data-hardware/data-bottleneck",
-        "card:data-hardware/datasets",
-        "card:data-hardware/industrial-deployment",
-        "card:manipulation/action-spaces",
-        "card:manipulation/cross-embodiment"
+        "card:world-models/generative-sim",
+        "card:world-models/jepa"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6745,8 +6717,7 @@
       "family": "IBM Plex Mono",
       "text": "39 REFERENCES",
       "assignedBy": [
-        "card:data-hardware/robot-learning-stack",
-        "card:manipulation/foundation-models",
+        "card:manipulation/action-spaces",
         "card:rl-sim2real/legged-locomotion"
       ],
       "codePointCount": 13,
@@ -6765,7 +6736,8 @@
       "family": "IBM Plex Mono",
       "text": "40 REFERENCES",
       "assignedBy": [
-        "card:world-models/generative-video"
+        "card:manipulation/cross-embodiment",
+        "card:world-models/model-based-robot-learning"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6783,8 +6755,9 @@
       "family": "IBM Plex Mono",
       "text": "41 REFERENCES",
       "assignedBy": [
-        "card:classical/grasp-planning",
         "card:classical/state-estimation",
+        "card:frontier/dexterity",
+        "card:manipulation/foundation-models",
         "card:manipulation/generalist-policies",
         "card:rl-sim2real/offline-rl"
       ],
@@ -6804,8 +6777,11 @@
       "family": "IBM Plex Mono",
       "text": "42 REFERENCES",
       "assignedBy": [
-        "card:adjacent/space",
-        "card:rl-sim2real/sim2real-transfer"
+        "card:classical/grasp-planning",
+        "card:data-hardware/evaluation-crisis",
+        "card:data-hardware/industrial-deployment",
+        "card:frontier/generalization",
+        "card:world-models/generative-video"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6823,9 +6799,10 @@
       "family": "IBM Plex Mono",
       "text": "43 REFERENCES",
       "assignedBy": [
+        "card:adjacent/drones",
         "card:classical/motion-planning",
-        "card:manipulation/rl-finetuning",
-        "card:rl-sim2real/reward-design-mpc"
+        "card:data-hardware/teleop-rigs",
+        "card:manipulation/rl-finetuning"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6843,8 +6820,9 @@
       "family": "IBM Plex Mono",
       "text": "44 REFERENCES",
       "assignedBy": [
-        "card:frontier/safety-and-assurance",
-        "card:manipulation/hierarchical"
+        "card:data-hardware/robot-learning-stack",
+        "card:rl-sim2real/reward-design-mpc",
+        "card:rl-sim2real/sim2real-transfer"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6862,7 +6840,7 @@
       "family": "IBM Plex Mono",
       "text": "45 REFERENCES",
       "assignedBy": [
-        "card:classical/control"
+        "card:manipulation/hierarchical"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6872,6 +6850,24 @@
       },
       "ownFaceSha256": "1ebfec7339c2eaf2e8f47d9d339fe6b010ec6cd32ad0b32d8dcf23ff64e6a9d7",
       "productionSha256": "1ebfec7339c2eaf2e8f47d9d339fe6b010ec6cd32ad0b32d8dcf23ff64e6a9d7",
+      "fallbackFree": true
+    },
+    {
+      "probeId": "probe:og-face:data:4317455717b1e118",
+      "faceId": "og-face:data",
+      "family": "IBM Plex Mono",
+      "text": "46 REFERENCES",
+      "assignedBy": [
+        "card:classical/control"
+      ],
+      "codePointCount": 13,
+      "cmapMissing": [],
+      "canvas": {
+        "width": 1200,
+        "height": 109
+      },
+      "ownFaceSha256": "5e40ccea909623acee05e42e5b04deca74210a6d59ec111e9de55c552cbaef76",
+      "productionSha256": "5e40ccea909623acee05e42e5b04deca74210a6d59ec111e9de55c552cbaef76",
       "fallbackFree": true
     },
     {
@@ -6894,12 +6890,12 @@
       "fallbackFree": true
     },
     {
-      "probeId": "probe:og-face:data:b1680133ef597b7a",
+      "probeId": "probe:og-face:data:60902712206cc914",
       "faceId": "og-face:data",
       "family": "IBM Plex Mono",
-      "text": "51 REFERENCES",
+      "text": "48 REFERENCES",
       "assignedBy": [
-        "card:data-hardware/hardware-taxonomy"
+        "card:data-hardware/data-bottleneck"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6907,8 +6903,44 @@
         "width": 1200,
         "height": 109
       },
-      "ownFaceSha256": "a03d49fd70a40c965c4bfc3a1104c44324314c61a6bd3da7c9d3f14df56a24bc",
-      "productionSha256": "a03d49fd70a40c965c4bfc3a1104c44324314c61a6bd3da7c9d3f14df56a24bc",
+      "ownFaceSha256": "482f96f46cf25fc8eef5e0702dc78098ba707683d6f99d07ed0f7d75f491b282",
+      "productionSha256": "482f96f46cf25fc8eef5e0702dc78098ba707683d6f99d07ed0f7d75f491b282",
+      "fallbackFree": true
+    },
+    {
+      "probeId": "probe:og-face:data:808f1dab89f8d0de",
+      "faceId": "og-face:data",
+      "family": "IBM Plex Mono",
+      "text": "50 REFERENCES",
+      "assignedBy": [
+        "card:data-hardware/datasets"
+      ],
+      "codePointCount": 13,
+      "cmapMissing": [],
+      "canvas": {
+        "width": 1200,
+        "height": 109
+      },
+      "ownFaceSha256": "1da0e8a121bd13b8189e3eac2149725f37810f3d95c92fdcb5e4dc94cc32ba27",
+      "productionSha256": "1da0e8a121bd13b8189e3eac2149725f37810f3d95c92fdcb5e4dc94cc32ba27",
+      "fallbackFree": true
+    },
+    {
+      "probeId": "probe:og-face:data:8e0c27e7679e7dfe",
+      "faceId": "og-face:data",
+      "family": "IBM Plex Mono",
+      "text": "52 REFERENCES",
+      "assignedBy": [
+        "card:adjacent/space"
+      ],
+      "codePointCount": 13,
+      "cmapMissing": [],
+      "canvas": {
+        "width": 1200,
+        "height": 109
+      },
+      "ownFaceSha256": "b8381d66abaa752423378eb34fb1132bd657d3e66add281414c691ba6885de84",
+      "productionSha256": "b8381d66abaa752423378eb34fb1132bd657d3e66add281414c691ba6885de84",
       "fallbackFree": true
     },
     {
@@ -6917,7 +6949,7 @@
       "family": "IBM Plex Mono",
       "text": "56 REFERENCES",
       "assignedBy": [
-        "card:adjacent/autonomous-vehicles"
+        "card:frontier/safety-and-assurance"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6935,7 +6967,8 @@
       "family": "IBM Plex Mono",
       "text": "60 REFERENCES",
       "assignedBy": [
-        "card:classical/scene-representation"
+        "card:classical/scene-representation",
+        "card:data-hardware/hardware-taxonomy"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6963,6 +6996,24 @@
       },
       "ownFaceSha256": "757ffcb327631b054454e8eeb37e60b76ed64e00550dcd7ae0eebe8699acb287",
       "productionSha256": "757ffcb327631b054454e8eeb37e60b76ed64e00550dcd7ae0eebe8699acb287",
+      "fallbackFree": true
+    },
+    {
+      "probeId": "probe:og-face:data:e91ea513787869a7",
+      "faceId": "og-face:data",
+      "family": "IBM Plex Mono",
+      "text": "72 REFERENCES",
+      "assignedBy": [
+        "card:adjacent/autonomous-vehicles"
+      ],
+      "codePointCount": 13,
+      "cmapMissing": [],
+      "canvas": {
+        "width": 1200,
+        "height": 109
+      },
+      "ownFaceSha256": "f1c7382d1db6d6766bd7e1612546966ee6df7e4526eb42b5b468cc9f71e97292",
+      "productionSha256": "f1c7382d1db6d6766bd7e1612546966ee6df7e4526eb42b5b468cc9f71e97292",
       "fallbackFree": true
     },
     {
@@ -8555,5 +8606,5 @@
       "fallbackFree": true
     }
   ],
-  "corpusSha256": "d7bdd1068c3533b2a945258a3e0db7c81a0d3a4cb0316c3812c42171f94037c8"
+  "corpusSha256": "db82e183960151ed2a81695eba47f1abf6e16638e32613d96b2434cf6c39607a"
 }

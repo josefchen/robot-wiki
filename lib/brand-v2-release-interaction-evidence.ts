@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto';
+import { iterateReleaseProfileRows } from './brand-v2-release-state-store.ts';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { COMPANIES } from '../data/companies.ts';
@@ -12,13 +14,14 @@ import { TABLE_MATH_EVIDENCE_PATH, tableContainmentVerdicts, type TableMathEvide
 import type { FigureRuntimeEvidence } from './brand-v2-figure-evidence.ts';
 import type { ControlStatesEvidence } from './brand-v2-control-states-evidence.ts';
 import { readReleaseStateIndex, type ReleaseStateIndex } from './brand-v2-release-index.ts';
-import { releaseStateArtifactSchema, releaseStateProblems, releaseArtifactHash, type ReleaseProfile } from './brand-v2-release-evidence.ts';
+import { type ReleaseProfile } from './brand-v2-release-evidence.ts';
 import { readReleaseFrameData, RELEASE_FRAME_DATA_PATH, type RawFrameData, type ReleaseFrameArtifact } from './brand-v2-release-frame-data.ts';
 import { readReleaseMapKeyboard } from './brand-v2-release-map-keyboard.ts';
 import { readReleaseMapData, mapCompanyRecordProblems, mapGeometryProblems, mapStateStyleProblems, mapLogoProblems, mapCompanyMarkProvenance, RELEASE_MAP_DATA_PATH, type ReleaseMapData } from './brand-v2-release-map-data.ts';
 import { readReleasePlayground, playgroundReadingProblems, playgroundTransitionProblems, RELEASE_PLAYGROUND_PATH, type ReleasePlaygroundArtifact } from './brand-v2-release-playground.ts';
 import { currentStateDescriptionProblems, persistentInputLabelProblems, segmentedControlProblems, targetSizeProblems, type ReleaseTargetRegistry, type ReleaseInteractionDetails } from './brand-v2-release-interaction-details.ts';
 import { authoredArticleTables, authoredTableProblems } from './brand-v2-release-authored-tables.ts';
+import { profileTableValueProof,checkedTableValueProof } from './brand-v2-release-values.ts';
 const PREFIX = 'lib/brand-v2-release-interaction-evidence.ts#';
 const suffix = (family: string, n: number) => 'VAL-B2-' + family + '-' + String(n).padStart(3, '0');
 export const ASSERTION_POPULATION_SOURCES: Readonly<Record<string, string>> = {
@@ -201,26 +204,8 @@ type ProfileRow = {
   profile: ReleaseProfile;
   path: string;
 };
-function profileRows(root: string, index: ReleaseStateIndex): ProfileRow[] {
-  return index.groups.flatMap(group => {
-    if (releaseArtifactHash(root, group.path) !== group.sha256) throw Error('state index group bytes changed while joining interactions');
-    const artifact = releaseStateArtifactSchema.parse(JSON.parse(readFileSync(join(root, group.path), 'utf8')));
-    const problems = releaseStateProblems(artifact, {
-      fingerprint: index.sourceFingerprint,
-      exportFingerprint: index.exportFingerprint,
-      group: group.group,
-      stateIds: group.stateIds
-    });
-    if (problems.length) throw Error('invalid indexed interaction states: ' + problems.join('; '));
-    return artifact.cases.flatMap(state => state.profiles.map(profile => ({
-      id: state.id + '|profile:' + profile.id,
-      route: state.route,
-      state: state.id,
-      profile,
-      path: group.path
-    })));
-  });
-}
+function profileRows(root:string,index:ReleaseStateIndex):Iterable<ProfileRow>{return iterateReleaseProfileRows(root,index);}
+function measuredDigest(value:unknown){return createHash('sha256').update(JSON.stringify(value??null)).digest('hex');}
 function caseSetProblems(cases: readonly StateCase[], expected: number, source: string): string[] {
   const failures: string[] = [];
   if (!cases.length || cases.length !== expected || new Set(cases.map(c => c.id)).size !== cases.length) failures.push('empty, duplicate or inexact bounded case set');
@@ -372,85 +357,61 @@ export function collectReleaseInteractionEvidence(input: ReleaseInteractionInput
       text: f.frame?.text
     }, [f.path, 'lib/brand-v2-interactive-data.ts']);
   }));
-  const interactiveProfiles = profiles.filter(p => execution.mounts.some(mount => p.state.startsWith(mount.id + '|')));
-  // Group names encode the mount; the raw state IDs are owned by the exact
-  // ledger state-index derivation, not selected by a screenshot subset.
-  const allInstrumentProfiles = profiles.filter(p => execution.mounts.some(mount => mount.route === p.route) || p.route === '/playground/');
-  const descriptionProblems = (p: ProfileRow) => {
-    const failures = currentStateDescriptionProblems(p.profile.interaction),
-      target = execution.mounts.find(mount => p.state.startsWith(mount.id + '|'));
-    if (target) {
-      if (PLAIN_TABLE_SOURCES.has(target.sourceId)) {
-        if (!p.profile.interaction.tables.length) failures.push('registered table instrument disappeared from its actual state');
-      } else {
-        const component = execution.sources.find(source => source.id === target.sourceId)!.component;
-        if (!p.profile.interaction.instruments.some(instrument => tidy(instrument.component) === tidy(component))) failures.push('registered instrument disappeared from its actual state: ' + target.id);
+  let interactiveProfileCount=0;
+  const profileAssertions=[suffix('VIZ',1),suffix('VIZ',9),...([3,4,9,10,14].map(id=>suffix('COMP',id)))];
+  const profileVerdicts:Record<string,InteractionVerdict[]>=Object.fromEntries(profileAssertions.map(id=>[id,[]]));
+  const controls=registry.controls as unknown as ReleaseTargetRegistry;
+  const sourceTables=new Map<string,ReturnType<typeof authoredArticleTables>>();
+  const descriptionProblems=(p:ProfileRow)=>{
+    const failures=currentStateDescriptionProblems(p.profile.interaction);
+    const target=execution.mounts.find(mount=>p.state.startsWith(mount.id+'|'));
+    if(target){
+      if(PLAIN_TABLE_SOURCES.has(target.sourceId)){
+        if(!p.profile.interaction.tables.length)failures.push('registered table instrument disappeared from its actual state');
+      }else{
+        const component=execution.sources.find(source=>source.id===target.sourceId)!.component;
+        if(!p.profile.interaction.instruments.some(instrument=>tidy(instrument.component)===tidy(component)))failures.push('registered instrument disappeared from its actual state: '+target.id);
       }
-    } else if (p.route === '/playground/' && !p.state.includes('fallback') && p.profile.interaction.instruments.length === 0) failures.push('playground current-state description disappeared');
+    }else if(p.route==='/playground/'&&!p.state.includes('fallback')&&p.profile.interaction.instruments.length===0)failures.push('playground current-state description disappeared');
     return failures;
   };
-  emit(suffix('VIZ', 1), allInstrumentProfiles.map(p => row(p.id, descriptionProblems(p), p.profile.interaction.instruments, [p.path])));
-  const reduced = allInstrumentProfiles.filter(p => p.profile.id === 'reduced-motion');
-  emit(suffix('VIZ', 9), reduced.map(p => row(p.id, [...(!p.profile.reducedMotion || !p.profile.motion ? ['missing actual reduced-motion measurement'] : []), ...(p.profile.motion && p.profile.motion.geometryBefore !== p.profile.motion.geometryAfter ? ['drawing moved without input in reduced motion'] : []), ...p.profile.hiddenRequiredContent, ...descriptionProblems(p)], {
-    motion: p.profile.motion,
-    availability: p.profile.disclosures,
-    instruments: p.profile.interaction.instruments
-  }, [p.path])));
-  emit(suffix('VIZ', 15), [...frames.map(f => row(f.id, f.frame && f.frame.canvasCount === 0 ? [] : ['interactive canvas requires an independent source/coordinate/DPR probe'], {
-    canvasCount: f.frame?.canvasCount ?? null
-  }, [f.path])), ...play.readings.filter(reading => reading.profile !== 'unavailable').map(reading => row('playground:' + reading.id, playgroundReadingProblems(root, reading)[suffix('PLAY', 12)], {
-    buffer: reading.buffer,
-    model: reading.model,
-    hand: reading.hand,
-    pixels: reading.pixels
-  }, [RELEASE_PLAYGROUND_PATH]))]);
-  const controls = registry.controls as unknown as ReleaseTargetRegistry;
-  emit(suffix('COMP', 3), profiles.filter(p => p.profile.interaction.segmented.length > 0).map(p => row(p.id, segmentedControlProblems(p.profile.interaction), p.profile.interaction.segmented, [p.path])));
-  emit(suffix('COMP', 4), profiles.filter(p => p.profile.interaction.inputs.length > 0).map(p => row(p.id, persistentInputLabelProblems(p.profile.interaction), p.profile.interaction.inputs, [p.path])));
-  emit(suffix('COMP', 14), profiles.map(p => row(p.id, targetSizeProblems(p.profile.interaction, controls), p.profile.interaction.targets, [p.path, 'contract/brand-v2-registries.json'])));
-  const tables = profiles.flatMap(p => p.profile.interaction.tables.map(table => ({
-    p,
-    table,
-    id: p.id + '|' + table.id
-  })));
-  const containment = [...tableContainmentVerdicts(input.tableMath)].map(([id, verdict]) => row('containment:' + id, verdict.failures, verdict.observed, [TABLE_MATH_EVIDENCE_PATH]));
-  emit(suffix('COMP', 9), [...tables.map(({
-    p,
-    table,
-    id
-  }) => row(id, tableSemanticProblems(table), table, [p.path])), ...containment]);
-  const sourceTables = new Map<string, ReturnType<typeof authoredArticleTables>>();
-  emit(suffix('COMP', 10), tables.map(({
-    p,
-    table,
-    id
-  }) => {
-    const mount = execution.mounts.find(mount => mount.route === p.route && tidy(execution.sources.find(source => source.id === mount.sourceId)!.component) === tidy(table.frame));
-    let proof: SourceParityVerdict | undefined = mount ? parity(mount.id) : input.tableParity?.get('table:' + p.route + ':' + table.name);
-    if (!proof) {
-      let authored = sourceTables.get(p.route);
-      if (!authored) {
-        authored = authoredArticleTables(root, p.route);
-        sourceTables.set(p.route, authored);
-      }
-      const matching = authored.filter(source => JSON.stringify(source.headers) === JSON.stringify(table.headers));
-      if (matching.length) {
-        const comparisons = matching.map(source => authoredTableProblems(source, table));
-        proof = {
-          failures: comparisons.find(failures => !failures.length) ?? comparisons[0],
-          observed: {
-            sourceTables: matching,
-            actual: table.cells
-          },
-          evidencePaths: ['content' + p.route.slice(0, -1) + '.mdx']
-        };
-      }
+  // Consume one validated state capsule at a time. Every original profile,
+  // table and control member still has its own verdict/ID, but raw readings
+  // are held once in the referenced capsule instead of copied into results.
+  for(const p of profiles){
+    const data=p.profile.interaction;
+    if(execution.mounts.some(mount=>p.state.startsWith(mount.id+'|')))interactiveProfileCount++;
+    const instrument=execution.mounts.some(mount=>mount.route===p.route)||p.route==='/playground/';
+    if(instrument){
+      profileVerdicts[suffix('VIZ',1)].push(row(p.id,descriptionProblems(p),{instruments:data.instruments.length,sha256:measuredDigest(data.instruments)},[p.path]));
+      if(p.profile.id==='reduced-motion')profileVerdicts[suffix('VIZ',9)].push(row(p.id,[...(!p.profile.reducedMotion||!p.profile.motion?['missing actual reduced-motion measurement']:[]),...(p.profile.motion&&p.profile.motion.geometryBefore!==p.profile.motion.geometryAfter?['drawing moved without input in reduced motion']:[]),...p.profile.hiddenRequiredContent,...descriptionProblems(p)],{motion:p.profile.motion,disclosures:p.profile.disclosures.length,instruments:data.instruments.length,sha256:measuredDigest({motion:p.profile.motion,disclosures:p.profile.disclosures,instruments:data.instruments})},[p.path]));
     }
-    return row(id, proof?.failures ?? ['source-value oracle missing for this rendered table'], {
-      table,
-      sourceParity: proof?.observed ?? null
-    }, [p.path, ...(proof?.evidencePaths ?? [])]);
-  }));
+    if(data.segmented.length)profileVerdicts[suffix('COMP',3)].push(row(p.id,segmentedControlProblems(data),{groups:data.segmented.length,sha256:measuredDigest(data.segmented)},[p.path]));
+    if(data.inputs.length)profileVerdicts[suffix('COMP',4)].push(row(p.id,persistentInputLabelProblems(data),{inputs:data.inputs.length,sha256:measuredDigest(data.inputs)},[p.path]));
+    profileVerdicts[suffix('COMP',14)].push(row(p.id,targetSizeProblems(data,controls),{targets:data.targets.count,large:{count:data.targets.large.count,minWidth:data.targets.large.minWidth,minHeight:data.targets.large.minHeight},small:data.targets.small.length,sha256:measuredDigest(data.targets)},[p.path,'contract/brand-v2-registries.json']));
+    for(const table of data.tables){
+      const id=p.id+'|'+table.id;
+      const observed={table:table.id,name:table.name,headers:table.headers.length,cells:table.cells.length,sha256:measuredDigest(table)};
+      profileVerdicts[suffix('COMP',9)].push(row(id,tableSemanticProblems(table),observed,[p.path]));
+      const bound=profileTableValueProof({id,route:p.route,table,frames:p.profile.tableFrames,mounts:execution.mounts});
+      const server=input.tableParity?.get('table:'+p.route+':'+table.name);
+      let proof:SourceParityVerdict|undefined=bound??(server?checkedTableValueProof(server,id,table):undefined);
+      if(!bound&&execution.mounts.some(mount=>mount.route===p.route&&tidy(execution.sources.find(source=>source.id===mount.sourceId)!.component)===tidy(table.frame)))proof={failures:['rendered interactive table omits its exact source/configuration frame'],observed:{table:table.id,frame:table.frame},evidencePaths:[p.path]};
+      if(!proof){
+        let authored=sourceTables.get(p.route);
+        if(!authored){authored=authoredArticleTables(root,p.route);sourceTables.set(p.route,authored);}
+        const matching=authored.filter(source=>JSON.stringify(source.headers)===JSON.stringify(table.headers));
+        if(matching.length){
+          const comparisons=matching.map(source=>authoredTableProblems(source,table));
+          proof={failures:comparisons.find(failures=>!failures.length)??comparisons[0],observed:{sourceTables:matching,actual:table.cells},evidencePaths:['content'+p.route.slice(0,-1)+'.mdx']};
+        }
+      }
+      profileVerdicts[suffix('COMP',10)].push(row(id,proof?.failures??['source-value oracle missing for this rendered table'],{...observed,sourceParitySha256:proof?measuredDigest(proof.observed):null},[p.path,...(proof?.evidencePaths??[])]));
+    }
+  }
+  profileVerdicts[suffix('COMP',9)].push(...[...tableContainmentVerdicts(input.tableMath)].map(([id,verdict])=>row('containment:'+id,verdict.failures,verdict.observed,[TABLE_MATH_EVIDENCE_PATH])));
+  for(const assertion of profileAssertions)emit(assertion,profileVerdicts[assertion]);
+  emit(suffix('VIZ',15),[...frames.map(f=>row(f.id,f.frame&&f.frame.canvasCount===0?[]:['interactive canvas requires an independent source/coordinate/DPR probe'],{canvasCount:f.frame?.canvasCount??null},[f.path])),...play.readings.filter(reading=>reading.profile!=='unavailable').map(reading=>row('playground:'+reading.id,playgroundReadingProblems(root,reading)[suffix('PLAY',12)],{buffer:reading.buffer,hand:reading.hand,pixels:reading.pixels,modelSha256:measuredDigest(reading.model)},[RELEASE_PLAYGROUND_PATH]))]);
   const mapCaseVerdicts = marketMapCaseVerdicts(input.mapEvidence, input.mapPlan),
     mapById = new Map(mapCaseVerdicts.map(v => [v.id, v]));
   emit(suffix('MAP', 1), [...mapData.records.map(record => row('record:' + record.id, mapCompanyRecordProblems(record), record, [RELEASE_MAP_DATA_PATH, 'data/companies.ts'])), ...mapCaseVerdicts.filter(v => ['filter', 'history'].includes(input.mapEvidence.cases.find(c => c.id === v.id)?.observed.kind ?? '')).map(v => row('state:' + v.id, v.failures, input.mapEvidence.cases.find(c => c.id === v.id)?.observed, ['evidence/brand-v2/market-map-states.json']))]);
@@ -499,7 +460,7 @@ export function collectReleaseInteractionEvidence(input: ReleaseInteractionInput
     mapData,
     playground: play,
     stateIndex: index,
-    interactiveProfileCount: interactiveProfiles.length,
+    interactiveProfileCount,
     canonicalCompanies: COMPANIES.length
   };
 }

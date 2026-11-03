@@ -1,6 +1,8 @@
 import path from 'node:path';
 import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
+import { PHASE_PRODUCTION_BUILD } from 'next/constants';
+import { releaseSourceFingerprint } from './lib/brand-v2-release-source';
 import { CITATIONS, citationLabel } from './data/citations';
 import { GLOSSARY } from './data/glossary';
 
@@ -103,4 +105,20 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+export default function configureNext(phase:string){
+  if(phase!==PHASE_PRODUCTION_BUILD)return withMDX(nextConfig);
+  const identity=releaseSourceFingerprint(process.cwd());
+  // Next16.3's installed config loader gives NEXT_DEPLOYMENT_ID precedence
+  // over deploymentId (despite the bundled guide saying the reverse).
+  // Its output:export + Turbopack Google-font path rejects nonempty asset
+  // suffixes as extra virtual-query entries. This static artifact advertises
+  // no custom Next skew ID; its full source hash is the build identity.
+  // VERCEL_DEPLOYMENT_ID and provider routing/settings remain untouched.
+  process.env.NEXT_DEPLOYMENT_ID='';
+  // Omit deploymentId entirely: Turbopack appends ?dpl= to font CSS for
+  // an explicit empty ID, while the preload emitter omits that empty query.
+  // Those distinct URLs download the same font twice and leave the preload
+  // unused. Clearing the environment above also prevents an injected ID.
+  return withMDX({...nextConfig,generateBuildId:()=>identity,
+    experimental:{...nextConfig.experimental,runtimeServerDeploymentId:false}});
+}

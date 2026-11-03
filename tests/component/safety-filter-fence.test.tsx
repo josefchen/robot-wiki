@@ -97,7 +97,19 @@ describe('the safety filter model', () => {
 describe('SafetyFilterFence', () => {
   it('draws the still pose: the aim inside the fence, the pen held at its edge, no words in the drawing', () => {
     render(<SafetyFilterFence />);
-    expect(screen.getByText('A safety filter changes the path only where it must')).toBeInTheDocument();
+    expect(screen.getByText('The simple filter gets checked; it guards each proposed move')).toBeInTheDocument();
+    const rule = screen.getByText('Safe proposal → unchanged move.');
+    const main = screen.getByTestId('fence-main-point');
+    expect(main).toHaveTextContent('The simple filter gets checked: it leaves the learned controller’s safe moves unchanged and corrects unsafe moves only enough to keep the robot outside the forbidden area.');
+    expect(main.closest('details')).toBeNull();
+    expect(main.compareDocumentPosition(screen.getByRole('slider', { name: /along the stroke/i })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(rule.closest('details')).toBeNull();
+    expect(screen.getByText('Unsafe proposal → smallest change that keeps the robot outside.').closest('details')).toBeNull();
+    expect(screen.getByText('Controller trained from data').closest('details')).toBeNull();
+    expect(screen.getByText('Controller trained from data').parentElement).toHaveTextContent('Proposes a move.');
+    expect(screen.getByTestId('fence-rule-flow')).toHaveTextContent('Simple safety filter: the part engineers check');
+    expect(screen.getByTestId('fence-rule-flow')).toHaveTextContent('Robot executes the resulting move');
+    expect(rule.compareDocumentPosition(screen.getByTestId('fence-drawing')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     const drawing = screen.getByTestId('fence-drawing');
     expect(drawing).toHaveAttribute('data-phase', 'inside');
     const pen = drawing.getAttribute('data-pen')!.split(',').map(Number) as [number, number];
@@ -138,15 +150,15 @@ describe('SafetyFilterFence', () => {
       render(<SafetyFilterFence />);
       const run = screen.getByTestId('fence-run');
       expect(run).not.toHaveAttribute('aria-pressed');
-      expect(run).toHaveTextContent('Run the policy');
+      expect(run).toHaveTextContent('Play the run');
       fireEvent.click(run);
-      expect(run).toHaveTextContent('Stop the policy');
+      expect(run).toHaveTextContent('Pause');
       expect(run).not.toHaveAttribute('aria-pressed');
       await act(async () => {
         vi.advanceTimersByTime(RUN_SECONDS * 1000 + 200);
       });
       expect(screen.getByTestId('fence-drawing')).toHaveAttribute('data-phase', 'done');
-      expect(run).toHaveTextContent('Run the policy');
+      expect(run).toHaveTextContent('Play the run');
     } finally {
       vi.useRealTimers();
     }

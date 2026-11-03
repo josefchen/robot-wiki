@@ -7,7 +7,7 @@ import { waitForHydration } from './interaction-ready';
 
 const routes = [
   { slug: 'knowledge-insulation', domain: 'manipulation', text: 'backbone is a 2B language model', source: 'https://www.pi.website/research/knowledge_insulation' },
-  { slug: 'pi-line', domain: 'manipulation', text: 'The openpi README at the pinned commit', source: 'https://arxiv.org/abs/2501.09747' },
+  { slug: 'pi-line', domain: 'manipulation', text: "The openpi README's pinned August 24, 2026 commit", source: 'https://arxiv.org/abs/2501.09747' },
   { slug: 'comparison-matrix', domain: 'manipulation', text: 'multi-TPU cloud service', source: 'https://arxiv.org/abs/2307.15818' },
   { slug: 'rl-finetuning', domain: 'manipulation', text: 'about a factor of two', source: 'https://www.pi.website/download/pistar06.pdf' },
   { slug: 'latent-dynamics', domain: 'world-models', text: '545M', source: 'https://arxiv.org/abs/2310.16828' },
@@ -105,7 +105,7 @@ for (const width of [375, 1440]) {
       if (route.slug === 'pi-line') {
         await page.getByRole('button', { name: 'π0.6-MEM', exact: true }).click();
         await expect(page.getByTestId('generation-detail')).toContainText('Date unverified');
-        await expect(page.getByTestId('generation-detail')).toContainText('weights unverified');
+        await expect(page.getByTestId('generation-detail')).toContainText('trained model unverified');
         await expect(page.getByRole('img', { name: /Timeline of dated/ })).toHaveAccessibleDescription(/not plotted/);
         await page.getByTestId('generation-track').scrollIntoViewIfNeeded();
         await page.screenshot({ path: info.outputPath('mem-unknown-state.png') });
@@ -169,7 +169,7 @@ for (const width of [375, 1440]) {
       if (route.slug === 'latent-dynamics') {
         // The model choice and Reset sit in the figure's "Adjust more" fold.
         const figure = page.locator('main [data-figure-frame="latent-imagination"]');
-        await expect(figure.getByText(/Illustrative: a toy model, not measured on a real robot/)).toBeVisible();
+        await expect(figure.getByText(/Illustrative distance scale: 100% means one toy unit of error/)).toBeVisible();
         const adjust = await openAdjustMore(figure);
         await adjust.getByRole('button', { name: 'TD-MPC2 (no pictures)', exact: true }).click();
         await expect(figure.getByTestId('decoded-frames')).toHaveCount(0);

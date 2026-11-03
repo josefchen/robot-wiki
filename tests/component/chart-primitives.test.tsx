@@ -6,9 +6,11 @@ import {
   ANNOTATION_ARROW,
   CHART_HATCH,
   CHART_STROKE,
+  CHART_STRUCTURE,
   CHART_TYPE,
   CHART_UNCERTAINTY,
   StageAnnotation,
+  DirectLabel,
   annotationArrow,
   roleColour,
 } from '@/components/motion/chart';
@@ -30,6 +32,17 @@ function marks(container: HTMLElement, kind: string) {
 }
 
 describe('chart primitives on the light page stage', () => {
+  it('keeps reference text legible without changing the reference geometry role', () => {
+    const { container } = render(<svg>
+      <path data-testid="reference" d="M0 0H100" stroke={roleColour('reference')} />
+      <DirectLabel x={0} y={20} role="reference" seriesFor="reference-series">97%</DirectLabel>
+    </svg>);
+    expect(container.querySelector('text')).toHaveAttribute('fill', CHART_STRUCTURE.label);
+    expect(container.querySelector('text')).toHaveAttribute('data-chart-role', 'reference');
+    expect(container.querySelector('text')).toHaveAttribute('data-series-label-for', 'reference-series');
+    expect(container.querySelector('path')).toHaveAttribute('stroke', roleColour('reference'));
+  });
+
   it('reads every size from the motion tokens', () => {
     // Successor (2026-10-10 figure standard): a 1.5 px trace and a 1 px dashed
     // reference, painted at CSS pixels by stage.css whatever the stage scale.

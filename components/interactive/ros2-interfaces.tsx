@@ -88,7 +88,7 @@ export const CHANNELS: readonly Channel[] = [
     id: 'action',
     label: 'Action',
     from: 'task manager',
-    to: 'fetch skill',
+    to: 'cup-fetching program',
     messages: [
       { to: 'right', label: 'Goal: fetch the cup' },
       { to: 'left', label: 'Progress: 30%' },
@@ -327,7 +327,7 @@ export function Ros2Interfaces({ className }: { className?: string }) {
       figureId="ros2-interfaces"
       className={className}
       kicker="ROS 2 interfaces"
-      heading="Nodes stream, ask, or run a job"
+      heading="Robot programs stream, ask, or run a job"
       controls={
         <div className="flex flex-wrap items-end gap-x-6 gap-y-1">
           <PresetGroup label="Way of talking" presets={CHANNELS} value={channelId} onChange={start} testId="ros2-channel" />
@@ -388,7 +388,7 @@ export function Ros2Interfaces({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="Use a stream for sensor data, a question for quick answers, an action for long tasks."
+      caption="Nodes are robot programs. Topics stream readings; services exchange a question and answer; actions run long jobs that can be cancelled."
       method={
         <>
           <div>

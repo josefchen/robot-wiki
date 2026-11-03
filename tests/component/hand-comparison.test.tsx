@@ -43,7 +43,7 @@ describe('HandComparison', () => {
     for (const hand of DEXTEROUS_HANDS) {
       const card = screen.getByTestId(`hand-card-${hand.id}`);
       expect(within(card).getByText(hand.name)).toBeInTheDocument();
-      expect(within(card).getByText('Ways it can move')).toBeInTheDocument();
+      expect(within(card).getByText('Joint motions')).toBeInTheDocument();
 
       const row = screen.getByTestId(`hand-row-${hand.id}`);
       const scope = within(row);
@@ -95,7 +95,7 @@ describe('HandComparison', () => {
     expect([tactile, cost, both]).toEqual([2, 2, 0]);
     expect(
       screen.getByText(
-        'Two numbers buyers need, touch sensitivity and price, are never published together for these five robot hands.',
+        'No hand publishes both touch sensitivity and price; counts are independent joint motions, including passive ones; active means motor-driven.',
       ),
     ).toHaveAttribute('data-figure-caption');
   });

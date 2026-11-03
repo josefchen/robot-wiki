@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/hierarchical/",
+  "mount": "mount:/manipulation/hierarchical/:KeypointString:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--hierarchical--keypoint-string.375.png",
+    "1280": "evidence/reader-first/manipulation--hierarchical--keypoint-string.1280.png"
+  },
+  "takeaway": "A point a model picks in an image fixes only a line from the camera; a depth reading picks the spot on that line the arm should reach.",
+  "sentence": "A camera image gives the direction of a target, but a depth measurement is needed to locate the actual point in space.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both distinguish the direction or line supplied by an image point from the actual position supplied by depth.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0002",
+  "sourceDigest": "a16fdb31d845fae081b0b214f6cfca871a77435a8b46e8393e39125eceb8c948",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/data-hardware/teleop-rigs/",
+  "mount": "mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
+  "screenshots": {
+    "375": "evidence/reader-first/data-hardware--teleop-rigs--umi-collection-rates.375.png",
+    "1280": "evidence/reader-first/data-hardware--teleop-rigs--umi-collection-rates.1280.png"
+  },
+  "takeaway": "Recording demonstrations with a handheld gripper was three times faster than steering a robot, though about half as fast as doing the task by hand.",
+  "sentence": "A handheld gripper records demonstrations about three times faster than steering a robot but only about half as fast as using a bare hand.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both give the handheld gripper's threefold speed advantage over robot steering and roughly half the speed of bare-hand work.",
+  "verdict": "pass",
+  "screenshotCommit": "e9abd96b936d238ffce88e1ba58e16400e2bb7a2",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0004",
+  "sourceDigest": "b4aa713193e352f7a1147291c8e618fb650ffc93119c8d34ca1637ab180bf67a",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

@@ -28,9 +28,9 @@ describe('QosQueueAge', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Quality of Service');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Deep queues feed the robot old pictures');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Ten queued pictures make the robot’s view ⅓ second old');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "A deep queue hands the model old pictures first, so log each picture's age at the model.",
+      "At 30 pictures per second, a queue of ten makes the robot’s decision program act on a view one-third of a second old.",
     );
   });
 

@@ -66,7 +66,7 @@ describe('the bear-case lock model', () => {
 describe('BearCaseLock', () => {
   it('draws the still pose: four pins above the line, the plug held, no words in the drawing', () => {
     render(<BearCaseLock />);
-    expect(screen.getByText('Four results together would falsify the bear case')).toBeInTheDocument();
+    expect(screen.getByText('Four results would overturn robotics skepticism')).toBeInTheDocument();
     const drawing = screen.getByTestId('bear-lock-drawing');
     expect(drawing).toHaveAttribute('data-lifts', '10,4.5,10,4.5');
     expect(drawing).toHaveAttribute('data-on-line', '0');

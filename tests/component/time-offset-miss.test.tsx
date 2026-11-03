@@ -56,7 +56,7 @@ describe('TimeOffsetMiss', () => {
     expect(screen.getByTestId('time-offset-spot')).toBeInTheDocument();
     expect(screen.getByTestId('time-offset-beam')).toHaveAttribute('d', expect.stringMatching(/^M/));
     expect(container.querySelector('[data-readout]')).toHaveTextContent('photo 27.5 mm behind');
-    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Run the bench');
+    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Play the run');
     // A secondary action carries no pressed state: its label says what it does next.
     expect(screen.getByTestId('time-offset-run')).not.toHaveAttribute('aria-pressed');
   });
@@ -80,7 +80,7 @@ describe('TimeOffsetMiss', () => {
     const readout = () => container.querySelector('[data-readout]')!.textContent;
     const still = { drawing: drawing(), readout: readout() };
     fireEvent.click(screen.getByTestId('time-offset-run'));
-    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Stop the bench');
+    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Stop');
     await act(async () => {
       vi.advanceTimersByTime(2500);
     });
@@ -89,7 +89,7 @@ describe('TimeOffsetMiss', () => {
     await act(async () => {
       vi.advanceTimersByTime(500);
     });
-    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Run the bench');
+    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Play the run');
     expect(drawing()).toBe(still.drawing);
     expect(readout()).toBe(still.readout);
   });

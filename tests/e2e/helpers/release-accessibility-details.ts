@@ -63,9 +63,27 @@ export function collectReleaseAccessibilityDetails(): Pick<ReleaseAccessibility,
   const blend=(top:Colour,bottom:Colour):Colour=>({r:top.r*top.a+bottom.r*(1-top.a),g:top.g*top.a+bottom.g*(1-top.a),b:top.b*top.a+bottom.b*(1-top.a),a:1});
   const ground=(node:Element|null):Colour=>{if(!node)return {r:255,g:255,b:255,a:1};const colour=rgba(getComputedStyle(node).backgroundColor);return colour?blend(colour,ground(node.parentElement)):ground(node.parentElement);};
   const light=(c:Colour)=>{const channel=(n:number)=>{const v=n/255;return v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4;};return .2126*channel(c.r)+.7152*channel(c.g)+.0722*channel(c.b);};
+  const svgGround=(text:Element):Colour=>{
+    let background=ground(text);const svg=text.closest('svg');if(!svg)return background;
+    const box=text.getBoundingClientRect();const point=new DOMPoint(box.left+box.width/2,box.top+box.height/2);
+    // SVG fills are paint, not CSS backgrounds. A white number on an ink
+    // mark must be compared with that mark, not with the page behind it.
+    // Walk preceding geometry in document paint order and use the browser's
+    // actual transformed fill containment rather than bounding-box overlap.
+    for(const shape of svg.querySelectorAll('rect,circle,ellipse,path,polygon,polyline')){
+      if(!(shape instanceof SVGGeometryElement)||!visible(shape)||shape.closest('defs,clipPath,mask,pattern')||!(shape.compareDocumentPosition(text)&Node.DOCUMENT_POSITION_FOLLOWING))continue;
+      const matrix=shape.getScreenCTM();if(!matrix||!shape.isPointInFill(point.matrixTransform(matrix.inverse())))continue;
+      const style=getComputedStyle(shape);if(style.fill==='none')continue;
+      const fill=rgba(style.fill);if(!fill)throw new Error(`SVG text background requires a measured paint sampler: ${style.fill}`);
+      let opacity=Number(style.fillOpacity)||0;for(let owner:Element|null=shape;owner&&owner!==svg.parentElement;owner=owner.parentElement)opacity*=Number(getComputedStyle(owner).opacity);
+      background=blend({...fill,a:fill.a*opacity},background);
+    }
+    return background;
+  };
   const svgText=[...document.querySelectorAll('main svg text')].filter((node)=>visible(node)&&node.textContent?.trim()).flatMap((node,index)=>{
     const style=getComputedStyle(node);const foreground=rgba(style.fill);if(!foreground)return [{id:`svg-text:${index}:${node.textContent}`,foreground:style.fill,background:'unresolved',ratio:0,required:4.5}];
-    const background=ground(node);const fg=light(blend(foreground,background));const bg=light(background);const size=Number.parseFloat(style.fontSize);
+    const background=svgGround(node);let opacity=Number(style.fillOpacity)||0;for(let owner:Element|null=node;owner;owner=owner.parentElement)opacity*=Number(getComputedStyle(owner).opacity);
+    const fg=light(blend({...foreground,a:foreground.a*opacity},background));const bg=light(background);const size=Number.parseFloat(style.fontSize);
     return [{id:`svg-text:${index}:${node.textContent}`,foreground:style.fill,background:`rgb(${background.r}, ${background.g}, ${background.b})`,ratio:(Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05),required:size>=24||size>=18.66&&Number(style.fontWeight)>=700?3:4.5}];
   });
   return {tables,graphics,scrollRegions,svgText};

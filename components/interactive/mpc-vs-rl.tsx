@@ -66,7 +66,7 @@ const PLAIN: Record<
   'low-friction': {
     name: 'Slippery patch',
     focus: 'mpc',
-    note: ['It plans for a grippy floor,', 'so it slips on the patch and falls'],
+    note: ['Wrong floor guess: planning fails;', 'Unpractised weak motors topple the trained robot'],
   },
   payload: {
     name: 'Heavy backpack',
@@ -75,10 +75,10 @@ const PLAIN: Record<
     note: ['It plans as if there is no', 'backpack, so its body sags'],
   },
   'torque-limit': {
-    name: 'Weaker motors',
+    name: 'Weaker motors (unpractised)',
     focus: 'rl',
     degraded: 'stays up, but slower',
-    note: ['It never practised with weaker', 'motors, so it falls'],
+    note: ['Unpractised weak motors topple the trained robot;', 'wrong floor guesses defeat planning'],
   },
 };
 
@@ -195,7 +195,7 @@ export function MpcVsRl({ className }: { className?: string }) {
       figureId="mpc-vs-rl"
       className={className}
       kicker="Two ways to stay upright"
-      heading="Planning ahead fails on wrong guesses, practice on new surprises"
+      heading="Wrong predictions defeat planning; unpractised surprises defeat learned moves"
       controls={
         <PresetGroup
           label="Surprise for the robot"
@@ -269,7 +269,7 @@ export function MpcVsRl({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="Planning ahead relies on guesses about the world, and practice only covers the surprises a robot has already met."
+      caption="A planner fails when its world predictions are wrong; a robot trained by practice fails on surprises it never practised."
       method={
         <>
           <p>

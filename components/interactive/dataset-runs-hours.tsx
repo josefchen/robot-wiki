@@ -85,7 +85,7 @@ const RUN_RATIO = Math.round(MOST_RUNS.runs / LONG.runs);
 const shortest = Math.min(...OTHERS.map(secondsPerRun));
 const longestOther = Math.max(...OTHERS.map(secondsPerRun));
 
-const CAPTION = `AgiBot World has about ${RUN_RATIO} times FineART's runs but under twice its hours. FineART's runs average ${runLengthInWords(secondsPerRun(LONG))}, the others under 20 seconds.`;
+const CAPTION = `About ${RUN_RATIO} times the runs, under twice the hours: FineART’s attempts last much longer, averaging ${runLengthInWords(secondsPerRun(LONG))} versus under 20 seconds elsewhere.`;
 
 const DESCRIPTION = `Five robot datasets by runs and hours: ${DATASET_RUNS_HOURS.map(
   (d) => `${d.label} ${d.runs.toLocaleString('en-US')} runs and ${d.hours.toLocaleString('en-US')} hours`,
@@ -125,9 +125,10 @@ export function DatasetRunsHours({ className }: { className?: string }) {
       figureId="dataset-runs-hours"
       className={className}
       kicker="Five robot datasets"
-      heading="Run counts and hours rank these datasets differently"
+      heading={`AgiBot World: ${RUN_RATIO} times FineART’s runs, under twice its hours`}
       stage={
         <FigureStage>
+          <p className="m-0 font-sans text-sm text-text-dim">AgiBot World has about {RUN_RATIO} times FineART’s recorded attempts, but under twice its hours. Each dot is a dataset; one run is one attempt.</p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Recorded runs against recorded hours for five robot datasets"

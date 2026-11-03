@@ -7,26 +7,14 @@
     "1280": "evidence/reader-first/manipulation--pi-line--pi-generation-timeline.1280.png"
   },
   "takeaway": "Physical Intelligence released a new robot model every few months, and only the first three are confirmed downloadable.",
-  "sentence": "Physical Intelligence has brought out a new robot model every few months from late 2024 to 2026, and only the first three can be downloaded.",
-  "unclearTerms": [
-    "π",
-    "π0-FAST",
-    "π*0.6 (the star)",
-    "π0.6-MEM",
-    "MEM",
-    "FAST",
-    "weights downloadable",
-    "weights",
-    "picture-and-language model",
-    "openpi checkpoint catalogue",
-    "checkpoint",
-    "filled dots versus hollow dots"
-  ],
-  "samePoint": "yes",
-  "reason": "Both say Physical Intelligence put out a new robot model every few months and only the first three can be downloaded; the only difference is that mine adds the 2024 to 2026 date range and leaves out the word \"confirmed\".",
+  "sentence": "The timeline shows when Physical Intelligence released its robot models, with downloads confirmed for the first three and later releases still unverified.",
+  "unclearTerms": [],
+  "samePoint": "no",
+  "reason": "My sentence identifies the first three confirmed downloads but does not state the release trend of a new model every few months.",
   "verdict": "fail",
-  "screenshotCommit": "19e993716295c5fc894ce7164b84116bcd84e15f",
-  "date": "2026-10-06",
-  "reviewerSession": "reader-session-69a682c9",
-  "sourceDigest": "4afa4b960af78dd82949bd30588c5baaebb9715c9a2ac4987141511674e41e24"
+  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r9-a-20261103",
+  "sourceDigest": "f8e49408958ed12facbab40149826cb05ca99dcbcfd5d1f9323a3962d97c9e58",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

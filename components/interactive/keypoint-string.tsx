@@ -136,7 +136,7 @@ export function KeypointString({ className }: { className?: string }) {
             data-testid="keypoint-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {running ? 'Stop the lift' : 'Lift the point'}
+            {running ? 'Pause' : 'Find the depth target'}
           </button>
         </>
       }

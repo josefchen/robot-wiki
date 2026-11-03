@@ -30,10 +30,13 @@ describe('RetargetingGap', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Motion retargeting');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Copied human poses misplace a robot's feet");
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Different proportions make copied human poses float or sink");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "Joint-for-joint copies onto other proportions leave robot feet floating or sunk, which hurts tracking policies.",
+      "Copying human joint positions onto differently proportioned robots leaves feet above the floor with shorter legs, or below it with longer legs.",
     );
+    const comparison = screen.getByText('shorter robot legs leave feet floating; longer legs make feet sink.');
+    expect(comparison.closest('details')).toBeNull();
+    expect(comparison.compareDocumentPosition(screen.getByTestId('retargeting-robot')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   it('floats shorter legs, sinks longer ones and lands equal ones', () => {

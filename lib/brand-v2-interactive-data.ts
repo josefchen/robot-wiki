@@ -359,6 +359,18 @@ export const NA_CELL_FAMILIES: ReadonlyArray<NaCellFamily> = [
     justification:
       'The paper reports completion only inside its measured range; beyond it there is no reported score to disclose, and the region column says extrapolated.',
   },
+  {
+    sourceId: 'interactive:SurgicalAutonomyLadder',
+    column: 'evidence',
+    justification:
+      'Level 5 has no system or study on the ladder, so no evidence category applies. The source-value oracle permits n/a on that empty rung only.',
+  },
+  {
+    sourceId: 'interactive:SurgicalAutonomyLadder',
+    column: 'placed by',
+    justification:
+      'Level 5 has no system to place, so there is no placement author. Every occupied rung retains its named placement author in the source-value oracle.',
+  },
 ];
 
 /**

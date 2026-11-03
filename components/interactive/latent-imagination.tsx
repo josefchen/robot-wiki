@@ -109,9 +109,9 @@ function path(points: readonly ChartPoint[]): string {
 
 /** The note under the bench: how far the imagined head is from the real route. */
 function noteLines(horizon: number, gap: number, stopped: boolean): readonly [string, string] {
-  if (gap < VISIBLE_GAP) return [`${stepsWord(horizon)} ahead:`, 'still close to the real route'];
-  if (stopped) return [`${stepsWord(horizon)} ahead: so far off,`, 'it has already run into the hub'];
-  return [`${stepsWord(horizon)} ahead:`, 'already this far off'];
+  if (gap < VISIBLE_GAP) return [`${stepsWord(horizon)} ahead:`, 'ruler shows a small gap to the real route'];
+  if (stopped) return [`${stepsWord(horizon)} ahead: so far off,`, 'the blue tip has run into the central hub'];
+  return [`${stepsWord(horizon)} ahead:`, 'ruler measures the gap from blue tip to real route'];
 }
 
 /** The imagined steps Dreamer decodes into pictures: a quarter, a half and three quarters of the way. */
@@ -242,15 +242,15 @@ export function LatentImagination({
   const rewardWords = mode === 'decoder-free' ? ` · reward error ${formatUnits(rewardError)}` : '';
   const readout =
     laying === null
-      ? `${stepsWord(horizon)} ahead · ${formatUnits(deviationNow)} off the route${rewardWords}`
-      : `laying step ${shown} of ${horizon} · ${formatUnits(shownDeviation)} off the route`;
+      ? `${stepsWord(horizon)} ahead · ${formatUnits(deviationNow)} toy units off the route${rewardWords}`
+      : `laying step ${shown} of ${horizon} · ${formatUnits(shownDeviation)} toy units off the route`;
 
   const rolloutStage = (
     <AnatomyStage
       viewWidth={BENCH_WIDTH}
       hint={<span data-testid="drift-note">{lines.join(' ')}</span>}
       readout={readout}
-      status="Illustrative: a toy model, not measured on a real robot."
+      status="Illustrative distance scale: 100% means one toy unit of error."
       data-testid="latent-imagination-stage"
       data-stopped={stopped ? '' : undefined}
     >
@@ -326,7 +326,7 @@ export function LatentImagination({
           </ControlField>
           <ControlField>
             <ControlLabel htmlFor={epsilonId} value={errorWords}>
-              How accurate each step is
+              How accurate
             </ControlLabel>
             <input
               id={epsilonId}
@@ -425,7 +425,7 @@ export function LatentImagination({
             is a teaching choice, not a published range, a confidence interval or a reliability bound;
             the article discusses the horizons the papers use.
           </p>
-          {deviationStage}
+          <div data-inset-plot>{deviationStage}</div>
           <ChartDescription
             id={descriptionId}
             form="table"

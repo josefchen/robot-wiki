@@ -12,7 +12,8 @@ const swatch = z.object({
   stroke: text.nullable(),
   fill: text.nullable(),
   dash: text.nullable(),
-  strokeWidth: text.nullable()
+  strokeWidth: text.nullable(),
+  points: text.nullable().optional(),
 }).strict();
 export const frameDataSchema = z.object({
   labels: z.array(z.object({
@@ -25,7 +26,8 @@ export const frameDataSchema = z.object({
   legend: z.array(z.object({
     text,
     seriesId: text.nullable(),
-    swatch: swatch.nullable()
+    swatch: swatch.nullable(),
+    paintFailures: z.array(text).optional()
   }).strict()),
   series: z.record(text, z.object({
     paints: z.array(text),
@@ -33,6 +35,12 @@ export const frameDataSchema = z.object({
     labelled: z.boolean(),
     marks: number.int().nonnegative()
   }).strict()),
+  physicalNeedles: z.array(z.object({
+    id: z.enum(['pendulum-gravity-arrow', 'pendulum-push-arrow']),
+    topPaths: z.array(text),
+    visible: z.boolean(),
+  }).strict()).optional(),
+  seriesDeclarations: z.array(text).optional(),
   accentMarks: z.array(z.object({
     seriesId: text.nullable(),
     onRole: z.boolean(),
@@ -68,6 +76,7 @@ export const frameDataSchema = z.object({
     id: text,
     testId: text,
     label: text,
+    group: text.optional(),
     value: text.nullable(),
     min: text.nullable(),
     max: text.nullable(),
@@ -87,16 +96,35 @@ export const frameDataSchema = z.object({
     seriesId: text.nullable(),
     testId: text,
     id: text,
+    ownerTestId: text.optional(),
+    overviewCell: text.optional(),
+    effectiveOpacity: number.optional(),
+    displayed: z.boolean().optional(),
     attrs: z.record(text, text),
     viewBox: text
   }).strict()),
   svgTexts: z.array(z.object({
-    seriesId: text,
+    seriesId: text.nullable(),
     text,
     x: number.nullable(),
     y: number.nullable(),
-    testId: text
+    testId: text,
+    ownerTestId: text.optional(),
+    overviewCell: text.optional(),
+    dy: text.nullable().optional(),
+    painted: z.boolean().optional(),
+    paintFailures: z.array(text).optional(),
   }).strict()),
+  htmlMarks: z.array(z.object({
+    seriesId: text.nullable(),
+    ownerTestId: text,
+    tag: text,
+    box: z.object({ x: number, y: number, width: number, height: number }).strict(),
+    parentBox: z.object({ x: number, y: number, width: number, height: number }).strict(),
+    widthStyle: text,
+    opacity: number,
+  }).strict()).optional(),
+  methodCards: z.array(z.object({ id: text, text, visible: z.boolean(), paintFailures: z.array(text).optional() }).strict()).optional(),
   declaredBindings: z.array(z.object({
     element: text,
     attributes: z.record(text, text)
@@ -107,6 +135,7 @@ export const frameDataSchema = z.object({
     scopedThCount: number.int().nonnegative(),
     sortable: z.boolean(),
     ariaSortCount: number.int().nonnegative(),
+    sortStates: z.array(z.object({ column: text, direction: text }).strict()).optional(),
     naCells: z.array(z.object({
       column: text
     }).strict()),

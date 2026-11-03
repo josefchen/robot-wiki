@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/comparison-matrix/",
+  "mount": "mount:/manipulation/comparison-matrix/:ChunkBuffer:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--comparison-matrix--chunk-buffer.375.png",
+    "1280": "evidence/reader-first/manipulation--comparison-matrix--chunk-buffer.1280.png"
+  },
+  "takeaway": "Gemini Robotics answers in about 250 ms yet controls at 50 Hz because each answer carries a chunk of actions; 13 or more cover the wait, fewer leave the arm idle.",
+  "sentence": "The card conveyor shows how sending enough actions at once can keep a robot arm working while it waits for the next reply.",
+  "unclearTerms": [],
+  "samePoint": "no",
+  "reason": "It captures the buffering idea, but omits Gemini Robotics' 250 ms reply time, 50 Hz control rate and 13-action threshold.",
+  "verdict": "fail",
+  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r9-b-20261103",
+  "sourceDigest": "35d377ba45536ae9726798db4a21fab7e838b5a06b056e6585ff61b4d2278b11",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

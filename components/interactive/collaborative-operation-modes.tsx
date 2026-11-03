@@ -610,7 +610,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             data-testid="cell-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {runState === 'running' ? 'Stop the run' : 'Run the cell'}
+            {runState === 'running' ? 'Stop' : 'Play the run'}
           </button>
           <InstrumentReadout data-testid="safety-plain-readout" className="basis-full">
             {plainReadout}
@@ -650,6 +650,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           readout={readout}
           status="illustrative"
           data-testid="cobot-cell-stage"
+          data-source-phase={phase}
         >
           <Stage className="iso-stage">
             <svg
@@ -685,7 +686,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           </div>
         </AnatomyStage>
       }
-      caption="Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force limit."
+      caption="A faster robot needs more room to stop. The cabinet dial shows robot speed; the dial beside the person shows contact force."
       method={
         <>
           <p data-testid="mode-constraint">

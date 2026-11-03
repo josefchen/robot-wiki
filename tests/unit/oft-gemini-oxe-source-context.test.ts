@@ -25,7 +25,7 @@ describe('OFT, Gemini and OXE source scope', () => {
   });
   it('attributes Skild claims and preserves the valuation lower bound and data categories', () => {
     const text = article('generalist-policies');
-    for (const phrase of ['over \\$14', 'company', 'simulation and Internet video', 'teleoperation and deployments', 'Architecture, parameter count, control rate, chunk horizon, benchmark protocol and weight terms are not given']) expect(text).toContain(phrase);
+    for (const phrase of ['over \\$14', 'company', 'simulation and Internet video', 'teleoperation and deployments', 'That announcement gives no architecture, parameter count, control rate, chunk horizon, benchmark protocol or weight terms']) expect(text).toContain(phrase);
     expect(text).not.toContain('essentially nothing technical');
   });
   it('uses complete source author lists, not corporate affiliations as authors', () => {

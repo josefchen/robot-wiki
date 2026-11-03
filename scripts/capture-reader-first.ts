@@ -60,6 +60,13 @@ try {
       await page.addStyleTag({ content: 'header.sticky, .skip-link { visibility: hidden !important; }' });
       const frame = page.locator(`main [data-figure-frame="${entry.figure}"]`).first();
       await frame.scrollIntoViewIfNeeded();
+      // Sticky-header scroll padding remains after its paint is hidden. It
+      // can leave a phone frame's bottom outside the painted viewport, even
+      // when the full frame fits. Align its top without changing the viewport.
+      await frame.evaluate((el) => window.scrollBy({
+        top: el.getBoundingClientRect().top - 8,
+        behavior: 'instant',
+      }));
       await page.waitForTimeout(1200);
       const open = await frame.evaluate((el) => [...el.querySelectorAll('[data-figure-fold]')]
         .filter((fold) => (fold as HTMLDetailsElement).open).length);

@@ -1,5 +1,6 @@
 'use client';
 
+import { beginForceTrace, recordForce } from '@/lib/figure-input-trace';
 import { useCallback, useId, useLayoutEffect, useRef, useState } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
@@ -187,6 +188,7 @@ export function AppearancePhysicsPush({
   const forceId = `${id}-force`;
   const [layers, setLayers] = useState<LayerState>(INITIAL_LAYERS);
   const [mug, setMug] = useState<MugState>(INITIAL_MUG);
+  const [forceInputs, setForceInputs] = useState(beginForceTrace);
   const [forceN, setForceN] = useState(defaultForceN);
   // The pose React draws first, on the server and at hydration; the loop owns the moving parts after that.
   const [first] = useState<Pose>(() => restOf(layers, mug, forceN));
@@ -320,6 +322,7 @@ export function AppearancePhysicsPush({
   function rest(force: number) {
     setLayers(INITIAL_LAYERS);
     setMug(INITIAL_MUG);
+    setForceInputs(beginForceTrace());
     settle(INITIAL_LAYERS, INITIAL_MUG, force, null);
   }
 
@@ -333,6 +336,7 @@ export function AppearancePhysicsPush({
     const { next: answered, push } = pushOf(INITIAL_MUG, PHYSICS_LAYERS, forceN);
     setLayers(PHYSICS_LAYERS);
     setMug(answered);
+    setForceInputs(recordForce(beginForceTrace(), forceN));
     settle(PHYSICS_LAYERS, answered, forceN, push);
   }
 
@@ -345,6 +349,7 @@ export function AppearancePhysicsPush({
   function push() {
     const { next, push: run } = pushOf(mug, layers, forceN);
     setMug(next);
+    if (layers.physics && layers.simulation) setForceInputs((previous) => recordForce(previous, forceN));
     settle(layers, next, forceN, run);
   }
 
@@ -486,6 +491,8 @@ export function AppearancePhysicsPush({
       }
       status="illustrative, not measured"
       data-testid="push-bench"
+      data-source-forces={JSON.stringify(forceInputs.forces)}
+      data-source-trace-complete={forceInputs.complete}
     >
       <IsoFigure
         width={WIDTH}

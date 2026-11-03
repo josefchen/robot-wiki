@@ -47,6 +47,7 @@ describe('FlowMatchingTrajectory', () => {
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     expect(stepReadout()).toBeInTheDocument();
     expect(dispersionReadout()).toBeInTheDocument();
+    expect(screen.getByTestId('fm-area-result').compareDocumentPosition(screen.getByRole('button', { name: '1 step' })) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
   });
 
   it('names the steps slider starting with its visible label', () => {
@@ -139,7 +140,7 @@ describe('FlowMatchingTrajectory', () => {
     expect(ghost.querySelector('.iso-line[data-tone="mid"]')).toHaveAttribute('d', modelInk(1));
     expect(ghost.querySelector('.iso-line[data-tone="red"]')).not.toBeNull();
     expect(container.querySelector('[data-figure-readout]')).toHaveTextContent(
-      `one big jump misses by ${endpointDispersion(generateFlowField(), 1).toFixed(2)}`,
+      `one big jump averages ${endpointDispersion(generateFlowField(), 1).toFixed(2)}`,
     );
     expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/10 small steps land/);
     expect(container.querySelector('[data-flow-field]')).toBeNull();
@@ -208,6 +209,19 @@ describe('FlowMatchingTrajectory field table', () => {
       expect(container.querySelectorAll('[data-bead][data-spent]')).toHaveLength(steps);
       // One hop lands outside its pocket; five and ten land in it.
       expect(container.querySelector('[data-flow-outcome]')).toHaveAttribute('data-flow-outcome', steps === 1 ? 'missed' : 'in-pocket');
+      expect(screen.getByTestId('fm-area-result')).toHaveTextContent(steps === 1 ? 'One big jump misses the good-move area.' : `${steps} steps reach a good move inside the outlined area`);
+    }
+  });
+
+  it('separates the existing pocket boundary from exact-target error at two, three and four steps', () => {
+    const { container } = render(<FlowMatchingTrajectory />);
+    for (const steps of [2, 3, 4]) {
+      fireEvent.change(slider(), { target: { value: String(steps) } });
+      expect(container.querySelector('[data-flow-outcome]')).toHaveAttribute('data-flow-outcome', steps === 2 ? 'missed' : 'in-pocket');
+      expect(screen.getByTestId('fm-area-result')).toHaveTextContent(`${steps} steps ${steps === 2 ? 'miss the good-move area.' : 'reach a good move inside the outlined area'}`);
+      const residual = endpointDispersion(generateFlowField(), steps);
+      expect(residual).toBeGreaterThan(0);
+      expect(dispersionReadout()).toHaveTextContent(residual.toFixed(2));
     }
   });
 
@@ -215,7 +229,7 @@ describe('FlowMatchingTrajectory field table', () => {
     const field = generateFlowField();
     const { container } = render(<FlowMatchingTrajectory defaultSteps={5} />);
     expect(container.querySelector('[data-figure-readout]')).toHaveTextContent(
-      `5 steps · on average lands ${endpointDispersion(field, 5).toFixed(2)} from a good move · one big jump misses by ${endpointDispersion(field, 1).toFixed(2)}`,
+      `Exact target-dot distance: 5 steps average ${endpointDispersion(field, 5).toFixed(2)} · one big jump averages ${endpointDispersion(field, 1).toFixed(2)}`,
     );
     expect(dispersionReadout()).toHaveTextContent(endpointDispersion(field, 5).toFixed(2));
     expect(stepReadout()).toHaveTextContent('5 steps');
@@ -225,16 +239,16 @@ describe('FlowMatchingTrajectory field table', () => {
     render(<FlowMatchingTrajectory />);
     const run = screen.getByTestId('fm-run');
     expect(run).toHaveAttribute('data-brand-control-id', 'control:secondary-action');
-    expect(run).toHaveTextContent('Run the stylus');
+    expect(run).toHaveTextContent('Play');
     fireEvent.click(run);
-    expect(run).toHaveTextContent('Stop the stylus');
+    expect(run).toHaveTextContent('Stop');
     expect(run).not.toHaveAttribute('aria-pressed');
     fireEvent.click(run);
-    expect(run).toHaveTextContent('Run the stylus');
+    expect(run).toHaveTextContent('Play');
     // A preset stops a run.
     fireEvent.click(run);
     fireEvent.click(screen.getByRole('button', { name: /^5 steps/ }));
-    expect(run).toHaveTextContent('Run the stylus');
+    expect(run).toHaveTextContent('Play');
   });
 
   it('plays the hops one by one, a vane and a bead each, and comes to rest on the landing', () => {
@@ -259,7 +273,7 @@ describe('FlowMatchingTrajectory field table', () => {
     expect(container.querySelectorAll('[data-flow-reading]:not([display="none"])')).toHaveLength(hop);
     expect(container.querySelectorAll('[data-bead][data-spent]')).toHaveLength(hop - 1);
     advance(400);
-    expect(screen.getByTestId('fm-run')).toHaveTextContent('Run the stylus');
+    expect(screen.getByTestId('fm-run')).toHaveTextContent('Play');
     expect(container.querySelector('[data-fm-phase]')).toHaveTextContent('');
     expect(screen.getByTestId('fm-ink').querySelector('.iso-line')).toHaveAttribute('d', modelInk(5));
     expect(container.querySelectorAll('[data-bead][data-spent]')).toHaveLength(5);
@@ -274,7 +288,7 @@ describe('FlowMatchingTrajectory field table', () => {
     }));
     render(<FlowMatchingTrajectory />);
     fireEvent.click(screen.getByTestId('fm-run'));
-    expect(screen.getByTestId('fm-run')).toHaveTextContent('Run the stylus');
+    expect(screen.getByTestId('fm-run')).toHaveTextContent('Play');
     expect(screen.getByTestId('fm-ink').querySelector('.iso-line')).toHaveAttribute('d', modelInk(10));
   });
 });

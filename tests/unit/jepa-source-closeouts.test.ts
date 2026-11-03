@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { getCitation } from '../../data/citations';
 import { missingOccurrences } from '../e2e/source-reader-requirements';
+import { sourceFloorPredecessor } from '../../lib/audit-source-floor-continuity';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const jepa = read('content/world-models/jepa.mdx');
@@ -23,7 +24,10 @@ describe('JEPA retained-primary closeouts', () => {
   });
 
   it('cuts the unsupported value follow-up without deleting its historical registry identity', () => {
-    expect(jepa).not.toContain('jepa-value-planning-2026');
+    const path = 'content/world-models/jepa.mdx';
+    const historical = sourceFloorPredecessor(process.cwd(), { path, bytes: 0, sha256: '' }, Buffer.from(jepa)).toString();
+    expect(historical).not.toContain('jepa-value-planning-2026');
+    expect(jepa).toContain('A separate JEPA study trains embedding distances to approximate negative goal-conditioned value, improving planning on simple control tasks <Cite id="jepa-value-planning-2026" />');
     expect(getCitation('jepa-value-planning-2026')).toBeDefined();
     expect(jepa).toContain('This goal distance has no demonstrated calibration to a value function');
     expect(jepa).toContain('the pixel decoder trained for visualization plays no part in control');

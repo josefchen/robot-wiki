@@ -78,7 +78,7 @@ test.describe('parallel-sim-rl module', () => {
     }
     await expect(page.getByRole('slider', { name: /parallel environments/i })).toHaveCount(0);
     await expect(prose).toContainText(
-      'Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once',
+      'Massively parallel simulation trains a robot policy across thousands of simulated environment copies simultaneously',
     );
 
     const poster = scene.getByRole('button', { name: /^play the motion scene/i });
@@ -94,7 +94,7 @@ test.describe('parallel-sim-rl module', () => {
     await page.keyboard.press('k');
     await page.keyboard.press('Home');
     await page.keyboard.press('ArrowRight');
-    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 virtual robots/i);
+    await expect(scene.getByTestId('motion-caption')).toHaveText(/64 robots sharing one graphics chip/i);
     await openAdjustMore(scene);
     const forward = scene.getByRole('button', { name: 'Step forward one beat' });
     await expect(forward).toHaveText('Step forward');

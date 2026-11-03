@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/generalist-policies/",
+  "mount": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--generalist-policies--generalist-release-timeline.375.png",
+    "1280": "evidence/reader-first/manipulation--generalist-policies--generalist-release-timeline.1280.png"
+  },
+  "takeaway": "Thirteen general-purpose robot models have come out since early 2025, and only four can be downloaded.",
+  "sentence": "Thirteen robot brains appeared from 2025 onward, but only four are shown as available to download.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both give thirteen robot models since 2025 and four available downloads.",
+  "verdict": "pass",
+  "screenshotCommit": "e9abd96b936d238ffce88e1ba58e16400e2bb7a2",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0003",
+  "sourceDigest": "21fe12710e3efbf2942fe84278368297b08232757db822c5362b055f6f70fa3c",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

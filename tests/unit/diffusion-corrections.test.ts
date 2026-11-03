@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { CITATIONS, getCitation } from '@/data/citations';
 import { parseLedger, originalClaimDigest } from '@/lib/audit-ledger';
 import { preDomainPassCitations } from '../helpers/domain-pass';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
 
 const source = readFileSync('content/manipulation/diffusion-policy.mdx', 'utf8');
 const ledger = readFileSync('audit/manipulation.md', 'utf8');
@@ -19,8 +20,9 @@ describe('authorized Diffusion Policy current-claim corrections', () => {
         compoundPlans: JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')),
         articleCitations: { 'diffusion-policy': declared },
       }).find(s => s.slug === 'diffusion-policy')!;
-    expect(section.claimRows).toBe(25);
-    expect(section.claimRecords.filter(r => r.evidenceFailures.length === 0)).toHaveLength(25);
+    expect(verifyLedgerAdditions(section)).toEqual({ originalRows: 25, addedRows: 2, currentRows: 27 });
+    expect(section.claimRows).toBe(27);
+    expect(section.claimRecords.filter(r => r.evidenceFailures.length === 0)).toHaveLength(27);
     expect(section.claimRecords[2].verdict).toBe('cut');
     expect(section.claimRecords[2].note).toContain('not evidence of universal absence');
     const marker = /<!-- current-claim-history-20260907\n([\s\S]*?)\n-->/;

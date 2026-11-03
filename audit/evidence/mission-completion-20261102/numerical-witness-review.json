@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "numerical-witness-successor-review-v1",
+  "observedAt": "2026-11-02T23:32:09.840Z",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/action-conditioning.tsx",
+      "sourcePath": "components/interactive/action-conditioning.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "240268acaee18793c0fafa28cc5f8af7c2d3e8c285e380487208f23c38cda36f",
+      "currentSourceSha256": "0e993cf9ab375b81dbf6d0eb62953a3733e93846799238b433dfbc3282227984",
+      "oldMemberHash": "084f33d2515be593cf1b20d5b7758d3637c9711df55601505510c6eba993f7a4",
+      "newMemberHash": "c17fb38c0eca16d8a8e442ba3cc207032fef8223260b031956057cd3dfd06138",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-72",
+        "round5-closeout2-src-interactive-action-conditioning-tsx",
+        "completion-figure-20261102-source-components-interactive-action-conditioning-tsx-084f33d251"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/appearance-physics-push.tsx",
+      "sourcePath": "components/interactive/appearance-physics-push.tsx",
+      "previousSource": "trace-parent",
+      "previousSourceSha256": "995721b869dd712278c53a0b83eda3942be77d320fc0331e9873cc3a6ff4db73",
+      "currentSourceSha256": "2451c99798e02d9270010b98da30c6adca0bafa90c00553393585ae2101fa198",
+      "oldMemberHash": "a7c282394a0a338528ca16fdd3e7c65e91b5f6b5cf45fca455cdf2823a18ca58",
+      "newMemberHash": "cffa43b8848e22b755df3a1babb6f8ab7ef074b7e5dcf2574eb4e8891add0b1f",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-73",
+        "round5-closeout2-src-interactive-appearance-physics-push-tsx",
+        "completion-figure-20261102-source-components-interactive-appearance-physics-push-tsx-a7c282394a"
+      ],
+      "reason": "Retain a bounded input-only action history so independent numerical checks can replay the simulation from its original state. The trace records inputs and physics step counts, never computed outputs; exhaustion is explicit and cannot pass numerical proof. Existing equations, initial values, controls and rendered geometry remain."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/collaborative-operation-modes.tsx",
+      "sourcePath": "components/interactive/collaborative-operation-modes.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "2d10ea28e0be9706f201c116d2f1d155259d96e954e04f949cb439aaeb75be35",
+      "currentSourceSha256": "f98d5b197f060662115bfa9a62f0bf1c53cbabc737458d88cc61daad1d96a770",
+      "oldMemberHash": "b41dfaf3c0b932b1e49d91638eb4590d808cd0dedbb27474f699c2266b0b0e25",
+      "newMemberHash": "90c6edad845383291964ae2d2e051e071d040be2cbf1a5dd2ce3c27c8ef30e64",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-75",
+        "round5-closeout2-src-interactive-collaborative-operation-modes-tsx",
+        "final-seven-closure-20260923-6",
+        "continuation-merge-2026-09-24-safety-range-interactive-sources-mounts",
+        "completion-figure-20261102-source-components-interactive-collaborative-operation-modes-tsx-b41dfaf3c0"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/comparison-matrix.tsx",
+      "sourcePath": "components/interactive/comparison-matrix.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "82fa9bda95032d36df175496d6dfc332181672686c35742e4951583330491948",
+      "currentSourceSha256": "744a1284173dd04c24dcf91c20aadb76ad567fcd48e0745612d716fdec0a7903",
+      "oldMemberHash": "d270c225d68c0717d662de83a810a08e1fe7f80dc4fcae000e1de2a212214db5",
+      "newMemberHash": "c887cd2fa4daf90b5063c5a3e9032737f8c6f66c089d8636fec450bd4dfc8d09",
+      "priorApprovalIds": [
+        "act-five-sources-20260907-6",
+        "comparison-current-20260907-3",
+        "perf-articles-20260923-src-comparison-matrix",
+        "completion-figure-20261102-source-components-interactive-comparison-matrix-tsx-d270c225d6"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/eureka-loop.tsx",
+      "sourcePath": "components/interactive/eureka-loop.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "002311b1e187512f56d9d23bee63ea4b4a15d1ae04c65ac6e5c16e3eca4edcd3",
+      "currentSourceSha256": "5bf12a308f4f2fb85ad93c5ca5ba4d51841580a270fcd9866a0972281186d936",
+      "oldMemberHash": "03ea84a41474bfd2a72a382d2c42fe5a5ccaf3a36724c30df73631a54d1f389e",
+      "newMemberHash": "72051bc970135f261fc5f309fd4128693fa859d7122546f34406d4b160ed3a7a",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-83",
+        "round5-closeout2-src-interactive-eureka-loop-tsx",
+        "reward-local-20260923-3",
+        "continuation-merge-2026-09-23-0740-interactive-sources-mounts-source-components-interactive-eureka-loop-tsx",
+        "continuation-merge-2026-09-24-0305-interactive-sources-mounts-source-components-interactive-eureka-loop-tsx",
+        "completion-figure-20261102-source-components-interactive-eureka-loop-tsx-03ea84a414"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/excavator-practice.tsx",
+      "sourcePath": "components/interactive/excavator-practice.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "eea586f3bed50e9f996ee6ebcb9ef22a864650b654fbd17efea183ca71fe70af",
+      "currentSourceSha256": "e1c37bae8372986af744b58d648bae59edd3769b2142ab753f30ed8bd0d2eb6f",
+      "oldMemberHash": "0dd516dba6b95efa90ebb97ca03a6025f0159b2c4c0370452207565eddbc6e2b",
+      "newMemberHash": "7b414a0122741427be1d15a184001b5ed328009d613d1d98dcd4504b997bcba0",
+      "priorApprovalIds": [
+        "anatomy-wm-b03-figures-20261015-interactive-sources-mounts-source-excavator-practice",
+        "mount-evidence-20261024-interactive-sources-mounts-source-excavator-practice"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/generalist-release-timeline.tsx",
+      "sourcePath": "components/interactive/generalist-release-timeline.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "4f115353f504e773080b369023f7fcd9cb03edfbca7186107baffbfa6773db94",
+      "currentSourceSha256": "24f1db3c99f79a58006ee412691065b91130f39146db0c30d0a42a4d2fc19f79",
+      "oldMemberHash": "77037cd0a4fed3d4ba7b9e0b14ba1f3b22660fe7ea2c9de9b8733134e0343da3",
+      "newMemberHash": "2e31404bb0ed256179b5ba5330f84b24b06367e571ebda1cb25c993a0d39ff0d",
+      "priorApprovalIds": [
+        "oft-gemini-oxe-20260908-13",
+        "perf-articles-20260923-src-generalist-release-timeline",
+        "crossdomain-closure-20260923-3",
+        "continuation-merge-2026-09-24-0140-interactive-sources-mounts-source-components-interactive-generalist-release-timeline-tsx",
+        "completion-figure-20261102-source-components-interactive-generalist-release-timeline-tsx-77037cd0a4"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hardware-price-ladder.tsx",
+      "sourcePath": "components/interactive/hardware-price-ladder.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "3508ea77191a3c88deb15d75263527496302da1224cbea374d63e88e2fa93bc7",
+      "currentSourceSha256": "2ef765e03da260b0460bec587ca8e40e2037bb966ac69ae8638d3752ee2400fd",
+      "oldMemberHash": "2794c9a2179745dab19f92247ec8c499b275979f4063faeb3667c80e9bff0a39",
+      "newMemberHash": "dacdbe543246e17d03c4b54448f7d9d9f9e50d637ed05686eae1ddde7c2de84b",
+      "priorApprovalIds": [
+        "owed-figures-dh-20261026-source-hardware-price-ladder"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/humanoid-pick-height.tsx",
+      "sourcePath": "components/interactive/humanoid-pick-height.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "476f57aaf22345f34fa1df33d9638ab430d2883bb5b24d3df1ae8f29929d0e03",
+      "currentSourceSha256": "b159308d2990e492645fc64201b5372c02fd172dd84f4062ffe64c7d993d4b02",
+      "oldMemberHash": "bb76808e368dc09059fc9008ba4301d50bb5884e59aa28541c21b9508c7f6aa0",
+      "newMemberHash": "cc944b56691d12b9df1ea1573d92809b511f4639abbf45e31f528f213c9f33cd",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-humanoid-pick-height-tsx-bb76808e36"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/jepa-planning.tsx",
+      "sourcePath": "components/interactive/jepa-planning.tsx",
+      "previousSource": "without-input-markers",
+      "previousSourceSha256": "442f719a376ee22d47fc85b1894b7efaeeb2bb7598071d68a0614c55b8e234a9",
+      "currentSourceSha256": "935ddfc46fa0564cbcff97e73eb4f4e68d15e85d4640a3f001284d1d2f620c64",
+      "oldMemberHash": "6f9db64d1ee77f8c279786418099e1f9f55f7ff1a8600278381bc159936db7e7",
+      "newMemberHash": "475542b4a44dfced6e6cc3f677e980fcd33fe5bcd3d242ce98f3b521cc3250be",
+      "priorApprovalIds": [
+        "jepa-source-closeouts-20260908-5",
+        "completion-figure-20261102-source-components-interactive-jepa-planning-tsx-6f9db64d1e"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pendulum-controller.tsx",
+      "sourcePath": "components/interactive/pendulum-controller.tsx",
+      "previousSource": "trace-parent",
+      "previousSourceSha256": "0a12cce4bdcc2798bf1af2159d07ff63c9ad8ff0d5dda59d5609bdee79744ae3",
+      "currentSourceSha256": "b4138e8d551abe677ad0acc64f3fef42fe41332aa29b5c99ffc9197b30ee563e",
+      "oldMemberHash": "529feb29148eaf96560826816fa1ad04508164129eb3ffdad8917c3cfdf0bc2e",
+      "newMemberHash": "c53b234351cec5ade514ba1dec0f729032917b34d506cd1b45a4cb8677c76283",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-93",
+        "round5-closeout2-src-interactive-pendulum-controller-tsx",
+        "reader-first-20261008-interactive-sources-mounts-source-pendulum-controller",
+        "domain-pass-20261008-sweep-source-pendulum-controller",
+        "completion-figure-20261102-source-components-interactive-pendulum-controller-tsx-529feb2914"
+      ],
+      "reason": "Retain a bounded input-only action history so independent numerical checks can replay the simulation from its original state. The trace records inputs and physics step counts, never computed outputs; exhaustion is explicit and cannot pass numerical proof. Existing equations, initial values, controls and rendered geometry remain."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pi-generation-timeline.tsx",
+      "sourcePath": "components/interactive/pi-generation-timeline.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "00e36e07784c4d1ec3ae054e13fcfee475a8bae9cea851105c5db5e407302708",
+      "currentSourceSha256": "8b14c1da7bb29025463ca148a6f65f7122430a370d64c64edc3b048a059edd93",
+      "oldMemberHash": "22927547a2922290fcb888de7b8947d954e60afffe240e93ca442386d9e38d38",
+      "newMemberHash": "9559e61afddab70f17c35c8d1beafc3ca1b62ec1b32aec4a058b4b04ba13e1f5",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-18",
+        "perf-articles-20260923-src-pi-generation-timeline",
+        "completion-figure-20261102-source-components-interactive-pi-generation-timeline-tsx-22927547a2"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/terrain-curriculum.tsx",
+      "sourcePath": "components/interactive/terrain-curriculum.tsx",
+      "previousSource": "HEAD",
+      "previousSourceSha256": "9bfe5b9a751a662c8c851f0e7000e426922d324251caf9fec66cfaf268ae0bc6",
+      "currentSourceSha256": "eb46fa31bae4afb669dea21d40b4ca6f6209ab5afa704ae58a6b04a57e3b253f",
+      "oldMemberHash": "708566ccdba3dafd8561fb7f58d082a39196c44daa0483e672d26865d5477137",
+      "newMemberHash": "eeb729dde50677708421e36ffe81c2814cb6d15e4c01b6d8c43a2d97ef09e1b9",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-terrain-curriculum-tsx-708566ccdb"
+      ],
+      "reason": "Expose existing input state, series identity and visible-label ownership through nonvisual attributes. This permits independent source-to-render comparisons without copying displayed answers or changing values, geometry, controls or defaults."
+    },
+    {
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:12",
+      "sourcePath": "components/interactive/pendulum-controller.tsx",
+      "previousExpression": "INITIAL_STATE, history: [INITIAL_STATE] });",
+      "currentExpression": "INITIAL_STATE, history: [INITIAL_STATE], inputs: beginPendulumTrace() });",
+      "oldMemberHash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171",
+      "newMemberHash": "b312fabf08162a57fdaac6d9bd6d5841ca7e31e6b149ff49303816e95b9d7cf5",
+      "priorApprovalIds": [
+        "reader-first-20261008-behavioral-defaults-pendulum-controller-12"
+      ],
+      "reason": "Attach an empty input trace to the existing pendulum run object at initialization, Reset and strength selection. Removing only the new trace field reconstructs the original expression exactly: INITIAL_STATE and the initial history are unchanged. Component tests preserve gain and reset behavior; trace boundary tests reject incomplete histories."
+    },
+    {
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:17",
+      "sourcePath": "components/interactive/pendulum-controller.tsx",
+      "previousExpression": "INITIAL_STATE, history: [INITIAL_STATE] });",
+      "currentExpression": "INITIAL_STATE, history: [INITIAL_STATE], inputs: beginPendulumTrace() });",
+      "oldMemberHash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171",
+      "newMemberHash": "b312fabf08162a57fdaac6d9bd6d5841ca7e31e6b149ff49303816e95b9d7cf5",
+      "priorApprovalIds": [
+        "reader-first-20261008-behavioral-defaults-pendulum-controller-17"
+      ],
+      "reason": "Attach an empty input trace to the existing pendulum run object at initialization, Reset and strength selection. Removing only the new trace field reconstructs the original expression exactly: INITIAL_STATE and the initial history are unchanged. Component tests preserve gain and reset behavior; trace boundary tests reject incomplete histories."
+    },
+    {
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/pendulum-controller.tsx:18",
+      "sourcePath": "components/interactive/pendulum-controller.tsx",
+      "previousExpression": "INITIAL_STATE, history: [INITIAL_STATE] });",
+      "currentExpression": "INITIAL_STATE, history: [INITIAL_STATE], inputs: beginPendulumTrace() });",
+      "oldMemberHash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171",
+      "newMemberHash": "b312fabf08162a57fdaac6d9bd6d5841ca7e31e6b149ff49303816e95b9d7cf5",
+      "priorApprovalIds": [
+        "reader-first-20261008-behavioral-defaults-pendulum-controller-18"
+      ],
+      "reason": "Attach an empty input trace to the existing pendulum run object at initialization, Reset and strength selection. Removing only the new trace field reconstructs the original expression exactly: INITIAL_STATE and the initial history are unchanged. Component tests preserve gain and reset behavior; trace boundary tests reject incomplete histories."
+    }
+  ]
+}

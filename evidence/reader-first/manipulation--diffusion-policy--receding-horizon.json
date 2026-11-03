@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/diffusion-policy/",
+  "mount": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--diffusion-policy--receding-horizon.375.png",
+    "1280": "evidence/reader-first/manipulation--diffusion-policy--receding-horizon.1280.png"
+  },
+  "takeaway": "The robot plans 1.6 seconds ahead, carries out only the first half, then plans again.",
+  "sentence": "The robot plans 1.6 seconds of movement, carries out the first 0.8 seconds, then replaces the remaining moves with a new plan.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It correctly gives 1.6 seconds of planning, 0.8 seconds of execution, and a replacement plan for the remaining moves.",
+  "verdict": "pass",
+  "screenshotCommit": "524d32c818ed2a6e63b7e492af46b26cc1aa44fe",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r4-a-20261103",
+  "sourceDigest": "7bbafbf80dccc4c55800349807600dccc930e013cd4afb2313a56d04442ac1be",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

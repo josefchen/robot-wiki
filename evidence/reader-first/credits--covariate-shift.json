@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/credits/",
+  "mount": "image:covariate-shift",
+  "screenshots": {
+    "375": "evidence/reader-first/credits--covariate-shift.375.png",
+    "1280": "evidence/reader-first/credits--covariate-shift.1280.png"
+  },
+  "takeaway": "After one small slip, a robot trained by copying lands where it has no examples to follow, and its mistakes grow.",
+  "sentence": "After one small slip, a robot copying demonstrations can leave the situations it has seen and drift farther off course.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It describes a small slip leaving the demonstrated situations and leading to growing errors.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0001",
+  "sourceDigest": "55ee29a9b6bafe1f0f92c06352fc9054b75ef1959947ec750ccca44f870d3719",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

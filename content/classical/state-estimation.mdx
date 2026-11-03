@@ -77,7 +77,7 @@ Try "Step forward one beat" to follow the Kalman prediction-and-update cycle <Ci
 
 ## The Bayes filter
 
-A belief $bel(x_t)$ is a probability distribution over the state, kept current by two alternating steps. The predict step pushes the belief through the process model, given the control $u_t$ <Cite id="thrun-2005" />:
+A belief $bel(x_t)$ is a probability distribution over the state, updated by two alternating steps. The predict step pushes the belief through the process model, given the control $u_t$ <Cite id="thrun-2005" />:
 
 $$
 \overline{bel}(x_t) = \int p(x_t \mid u_t, x_{t-1}) \, bel(x_{t-1}) \, dx_{t-1}
@@ -137,7 +137,7 @@ $$
 
 The mean moves through the true maps $g$ and $h$; only the covariance takes the linearized route <Cite id="thrun-2005" />. The Ames group moved from linearizing about a nominal reference trajectory to relinearizing about the *current estimated state*, which they hoped would bring "substantial advantages". An accidentally off-nominal simulation converged after initial overshoots, and the report names this modification the extended Kalman filter. It also discusses instability from round-off, inadequate statistical models and nonlinearities <Cite id="mcgee-schmidt-1985" />.
 
-Linearization holds near the estimate, which is itself uncertain, so where the nonlinearity is strong over the region the covariance covers, $\Sigma$ stops describing the true error, and the filter grows overconfident and can diverge <Cite id="mcgee-schmidt-1985" /><Cite id="dellaert-kaess-2006" />. Julier and Uhlmann summarize 35 years of experience: the EKF is difficult to implement and tune, and reliable only for systems almost linear on the time scale of the updates <Cite id="julier-uhlmann-2004" />. Li and Mourikis proved that standard EKF visual-inertial odometry is inconsistent because of how its Jacobians are computed, so it underestimates its uncertainty <Cite id="li-mourikis-2013" />.
+Linearization holds near the uncertain estimate, so where the nonlinearity is strong over the region the covariance covers, $\Sigma$ stops describing the true error, and the filter grows overconfident and can diverge <Cite id="mcgee-schmidt-1985" /><Cite id="dellaert-kaess-2006" />. Julier and Uhlmann summarize 35 years of experience: the EKF is difficult to implement and tune, and reliable only for systems almost linear on the time scale of the updates <Cite id="julier-uhlmann-2004" />. Li and Mourikis proved standard EKF visual-inertial odometry is inconsistent because of how its Jacobians are computed, so it underestimates its uncertainty <Cite id="li-mourikis-2013" />.
 
 <LinearizationGap className="my-6" />
 
@@ -169,7 +169,7 @@ Cadena and colleagues describe a classical SLAM period from 1986 to 2004, with E
 
 Smith, Self and Cheeseman's stochastic map stores estimated spatial relationships together with their uncertainties and updates them incrementally as measurements arrive <Cite id="smith-1990" />.
 
-The survey treats MAP estimation, often over factor graphs, as the de facto standard but notes EKF systems with state-of-the-art performance. The gap shrinks when EKF linearization is accurate, sliding windows are used and inconsistency is addressed, and graphs still face unbounded growth and information loss under sparsification <Cite id="cadena-2016" />. The MSCKF sliding-window filter keeps 3D feature positions out of the state and is optimal up to linearization errors <Cite id="msckf-2007" />, while OKVIS argues that nonlinear optimization offers superior accuracy and stays tractable through sparsity <Cite id="okvis-2014" />. [Scene representation and mapping](/classical/scene-representation) covers what a robot keeps from the estimate.
+The survey treats MAP estimation, often over factor graphs, as the de facto standard but notes EKF systems with state-of-the-art performance. The gap shrinks when EKF linearization is accurate, sliding windows are used and inconsistency is addressed, and graphs still face unbounded growth and information loss under sparsification <Cite id="cadena-2016" />. The MSCKF sliding-window filter keeps 3D feature positions out of the state and is optimal up to linearization errors <Cite id="msckf-2007" />, while OKVIS argues nonlinear optimization offers superior accuracy and stays tractable through sparsity <Cite id="okvis-2014" />. [Scene representation and mapping](/classical/scene-representation) covers what a robot keeps from the estimate.
 
 ## Where this meets the learned stack
 

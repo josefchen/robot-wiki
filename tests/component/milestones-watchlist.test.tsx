@@ -28,7 +28,7 @@ describe('MilestonesWatchlist', () => {
   it('draws a scoreboard tile for each of the eight milestones with its status', () => {
     render(<MilestonesWatchlist />);
     expect(
-      screen.getByText('Eight results would prove skeptics wrong; none has happened yet'),
+      screen.getByText('September 2026: eight tests, none complete, five partly achieved'),
     ).toBeInTheDocument();
     expect(screen.getAllByTestId(/^milestone-tile-/)).toHaveLength(8);
     for (const milestone of MILESTONES) {
@@ -44,6 +44,10 @@ describe('MilestonesWatchlist', () => {
       '5 partly there, 3 not yet, 0 done',
     );
     expect(screen.getByTestId('watchlist-readout')).toHaveTextContent(/^Showing all 8$/);
+    const purpose = screen.getByText('Eight results that would counter the claim that robotics is overhyped.');
+    expect(purpose.closest('details')).toBeNull();
+    expect(purpose.compareDocumentPosition(screen.getByTestId('watchlist-score')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(tile('data-scaling-law')).toHaveTextContent('100 times more data; measure the gain in task success (required gain not specified)');
   });
 
   it('keeps every original name, reason, evidence and test in the method table', () => {

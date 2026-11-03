@@ -73,7 +73,7 @@ export const JAM_OVERHEAD_SCENE: SceneDefinition = {
   id: 'jam-overhead',
   title: 'Clearing time takes capacity from an authored picking cell',
   kicker: 'Picking-cell economics',
-  headline: `Same 99% success; slow fixes eat ${SLOW_JAM_MINUTES} minutes an hour`,
+  headline: `99% successful picks still lose ${SLOW_JAM_MINUTES} minutes an hour`,
   beats: [
     {
       id: 'quick',
@@ -91,7 +91,7 @@ export const JAM_OVERHEAD_SCENE: SceneDefinition = {
     },
     {
       id: 'recap',
-      caption: 'A robot that rarely fails can still pay off slowly if every failure needs a person for minutes.',
+      caption: `Even at 99% success, slow fixes use ${SLOW_JAM_MINUTES} minutes an hour. Counters: picks per hour; small dials: seconds per fix.`,
     },
   ],
 };
@@ -345,7 +345,7 @@ export function JamOverhead({ className }: { className?: string }) {
   return (
     <SceneMount
       scene={JAM_OVERHEAD_SCENE}
-      stage={<JamOverheadStage />}
+      stage={<><p className="m-0 font-sans text-sm text-text" data-figure-annotation="">Same 99% pick success; slow fixes consume {SLOW_JAM_MINUTES} minutes per hour.</p><JamOverheadStage /></>}
       anchorId="jam-overhead"
       className={className}
       legend={<>

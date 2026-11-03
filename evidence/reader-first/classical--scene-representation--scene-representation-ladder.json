@@ -7,24 +7,14 @@
     "1280": "evidence/reader-first/classical--scene-representation--scene-representation-ladder.1280.png"
   },
   "takeaway": "The way a robot stores a scene decides which questions it can answer; finer resolution only changes cost and detail.",
-  "sentence": "A robot can store a room as a grid of boxes that tells it where it can move, but this way of storing the room cannot tell it which way surfaces face or what things look like.",
-  "unclearTerms": [
-    "occupancy grid",
-    "Dots, Distance map, Triangle skin, Soft blobs (the other options, which I cannot see)",
-    "Can the robot move here? (where 'here' is)",
-    "Which way does the surface face?",
-    "What does it look like from here?",
-    "More detail: ... same answers",
-    "the teal 'something there' square under the box sitting lower than the box outline",
-    "thin post shown only as a tiny dot with no teal fill",
-    "the 'real room, faint' legend symbol (rectangle and circle)",
-    "Adjust more"
-  ],
+  "sentence": "A robot's square-grid map marks occupied, empty and unseen parts of a room and can answer where it can move, while finer detail uses more memory without adding new kinds of answers.",
+  "unclearTerms": [],
   "samePoint": "no",
-  "reason": "I took away what one storage method can and cannot answer, but not that the method you choose decides the answerable questions, and I missed that finer detail only changes cost and sharpness.",
+  "reason": "My sentence captures the limits of finer detail for a square-grid map but does not state that changing the storage format changes which questions the robot can answer.",
   "verdict": "fail",
-  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
-  "date": "2026-10-08",
-  "reviewerSession": "reader-session-842252fb",
-  "sourceDigest": "bc2436865ab5b4120fbb74c60efa7036fb1897e3e7d79d53eed5b0b7a15950a8"
+  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r9-a-20261103",
+  "sourceDigest": "6e3f2904aa07da9a58c8ba299a987c90ba8df6dcf7407e9129c31fdbafdbd3b7",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

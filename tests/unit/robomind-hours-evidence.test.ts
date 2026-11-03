@@ -1,3 +1,4 @@
+import { completionEndpoint } from '../helpers/completion-endpoint';
 import { readFileSync } from 'node:fs';
 import { preservedPreIndustrialCitations } from '../helpers/industrial-integration';
 import { resolve } from 'node:path';
@@ -250,11 +251,11 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     // slice of 2026-10-26 straightened its quotes with one more.
     const entries = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
     const triage = kolQueue20261012Endpoint(entries, 'prose', 'article:data-hardware/data-bottleneck', kol[0].newHash);
-    expect(adjacentHash(read(adjacentPath))).toBe(convergenceProse20261026Endpoint(
+    expect(adjacentHash(read(adjacentPath))).toBe(completionEndpoint(entries, 'prose', 'article:data-hardware/data-bottleneck', convergenceProse20261026Endpoint(
       entries, 'prose', 'article:data-hardware/data-bottleneck', kolBatch20261020Endpoint(
         entries, 'prose', 'article:data-hardware/data-bottleneck', imagesDh20261015Endpoint(
           entries, 'prose', 'article:data-hardware/data-bottleneck', dataHardwareCut20261013Endpoint(
-            entries, 'prose', 'article:data-hardware/data-bottleneck', triage)))));
+            entries, 'prose', 'article:data-hardware/data-bottleneck', triage))))));
     expect(adjacentHash(preDataHardwareCut(adjacentPath).toString())).toBe(triage);
     expect(adjacentHash(read(adjacentPath))).not.toBe(kol[0].newHash);
     expect(preDataHardwareCut(adjacentPath).toString()).toContain('Real-world robot data is different. Every hour of it');

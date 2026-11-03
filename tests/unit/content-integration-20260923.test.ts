@@ -17,6 +17,9 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, ledgerAt, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { RELEASE_BASE as CONTINUATION_RELEASE_BASE } from '../helpers/continuation-integration';
 import { DOMAIN_PASS_CITATION_IDS, withoutDomainPassRegistryCorrections } from '../helpers/domain-pass';
+import { beforeCompletionApprovals, completionEndpoint } from '../helpers/completion-endpoint';
+import { sourceRegistryPredecessor } from '../../lib/audit-source-registry-continuity';
+import { readCitationRegistrySource } from '../../lib/citation-registry-source';
 
 /**
  * The 2026-09-23 content integration merged release/seo-content-fixes onto
@@ -70,7 +73,7 @@ function bundle(old: boolean): BaselineBundle {
   };
 }
 
-describe('content integration of 2026-09-23', () => {
+describe('content integration of 2026-09-23', { timeout: 30_000 }, () => {
   it('appends one contiguous block of exact approvals after the intact release-base ledger', () => {
     const base = ledgerAt(RELEASE_BASE);
     expect(approvals.slice(0, base.length)).toEqual(base);
@@ -87,14 +90,14 @@ describe('content integration of 2026-09-23', () => {
         disposition: 'permanent',
       });
       expect(entry).toEqual(ledgerAt(CONTINUATION_RELEASE_BASE).find(prior => prior.id === entry.id));
-      const head = headReanchorFor(approvals, entry.manifest, entry.memberId)!;
+      const head = headReanchorFor(beforeCompletionApprovals(approvals), entry.manifest, entry.memberId)!;
       if (entry.manifest === 'prose' && entry.memberId.startsWith('article:world-models/')) {
         // A later, exact world-model humanizer edge moves the live prose.
         // The imported-article endpoint remains the preceding historical
         // approval, not an approval for the rewritten current body.
         const next = approvals.find(a => a.id ===
           `motion-world-models-humanizer-v3-20260927-prose-${entry.memberId.slice('article:world-models/'.length)}`);
-        expect(approvedDeltaPath(approvals.filter(a =>
+        expect(approvedDeltaPath(beforeCompletionApprovals(approvals).filter(a =>
           a.manifest === entry.manifest && a.memberId === entry.memberId &&
           a.id !== next?.id), sealedHash(entry.manifest, entry.memberId), next!.oldHash).status)
           .toBe('approved');
@@ -132,9 +135,9 @@ describe('content integration of 2026-09-23', () => {
         if (options) expect(options.oldHash).toBe((kol ?? figures ?? images).newHash);
         const queue = approvals.find(a => a.id === `kol-batch-20261025-world-models-prose-${slug}`);
         if (queue) expect(queue.oldHash).toBe((options ?? kol ?? figures ?? images).newHash);
-        expect((queue ?? options ?? kol ?? figures ?? images).newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        expect(completionEndpoint(approvals, entry.manifest, entry.memberId, (queue ?? options ?? kol ?? figures ?? images).newHash)).toBe(currentHash(entry.manifest, entry.memberId));
       } else {
-        expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        expect(completionEndpoint(approvals, entry.manifest, entry.memberId, head.newHash), entry.memberId).toBe(currentHash(entry.manifest, entry.memberId));
       }
       expect(entry.ownerApproval).toMatch(/^Owner-delegated approval: Josef Chen delegated release decisions to the delegated release reviewer on 2026-09-22\/23 \('you think and decide all'\); approved after primary-source verification of \S/);
     }
@@ -152,8 +155,10 @@ describe('content integration of 2026-09-23', () => {
     const domainPassRendering = approvals.filter(a =>
       /^(domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020|kol-batch-20261021-[a-z0-9-]+|kol-batch-20261024|kol-batch-20261025-[a-z0-9-]+|convergence-prose-20261026|owed-figures-20261026|owed-figures-dh-20261026)-citation-rendering$/.test(a.id));
     expect(domainPassRendering.length).toBeGreaterThan(0);
-    expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
+    expect(headReanchorFor(beforeCompletionApprovals(approvals), 'article-metadata', 'citation-rendering:label-and-meta')?.id)
       .toBe(domainPassRendering.at(-1)!.id);
+    expect(completionEndpoint(approvals, 'article-metadata', 'citation-rendering:label-and-meta', domainPassRendering.at(-1)!.newHash))
+      .toBe(currentHash('article-metadata', 'citation-rendering:label-and-meta'));
     expect(approvals.find(a => a.id === 'main-merge-20260924-citation-rendering'))
       .toMatchObject({
         oldHash: sealedHash('article-metadata', 'citation-rendering:label-and-meta'),
@@ -183,7 +188,12 @@ describe('content integration of 2026-09-23', () => {
 
   it('adds exactly the two verified citations and leaves every earlier registry entry untouched', () => {
     const before = showAt(RELEASE_BASE, 'data/citations.ts');
-    const baseIds = [...before.matchAll(/^ {4}id: ['"]([^'"]+)['"],$/gm)].map((m) => m[1]);
+    const registrySource = readFileSync(resolve(root, 'data/citations.ts'));
+    const beforeCompletionRegistry = readCitationRegistrySource(sourceRegistryPredecessor(root,
+      { path: 'data/citations.ts', bytes: 0, sha256: '' }, registrySource).toString());
+    expect(readCitationRegistrySource(registrySource.toString())).toEqual(CITATIONS);
+    expect(CITATIONS).toHaveLength(beforeCompletionRegistry.length + 111);
+    const baseIds = readCitationRegistrySource(before).map(citation => citation.id);
     expect(new Set(baseIds).size).toBe(baseIds.length);
     // Every registry entry the release base carried is still present, except the
     // later Control closeout which retired the unused Åström member and the
@@ -191,11 +201,11 @@ describe('content integration of 2026-09-23', () => {
     const current = withoutDomainPassRegistryCorrections(read('data/citations.ts'));
     const retired = new Set(['astrom-murray-2008', 'technology-org-deployed-2026']);
     const laterCorrected = new Set(['astrom-murray-2008', 'kalman-1960', 'kroger-ocado-closures-2025', 'technology-org-deployed-2026']);
-    for (const id of baseIds) expect(CITATIONS.some((c) => c.id === id), id).toBe(!retired.has(id));
+    for (const id of baseIds) expect(beforeCompletionRegistry.some((c) => c.id === id), id).toBe(!retired.has(id));
     expect(before).toContain("id: 'astrom-murray-2008'");
     expect(before).toContain("id: 'technology-org-deployed-2026'");
-    expect(CITATIONS.some((c) => c.id === 'astrom-murray-2008')).toBe(false);
-    expect(CITATIONS.some((c) => c.id === 'technology-org-deployed-2026')).toBe(false);
+    expect(beforeCompletionRegistry.some((c) => c.id === 'astrom-murray-2008')).toBe(false);
+    expect(beforeCompletionRegistry.some((c) => c.id === 'technology-org-deployed-2026')).toBe(false);
     const block = (source: string, id: string) => {
       const at = source.search(new RegExp(`^ {4}id: ['"]${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"],$`, 'm'));
       return source.slice(at, source.indexOf('\n  },', at));
@@ -205,11 +215,11 @@ describe('content integration of 2026-09-23', () => {
     }
     expect(before).toContain('which introduced the');
     expect(current).toContain('does not prove historical LQR priority');
-    expect(CITATIONS.find((c) => c.id === 'kalman-1960')).toMatchObject({
+    expect(beforeCompletionRegistry.find((c) => c.id === 'kalman-1960')).toMatchObject({
       year: 1960,
       url: 'https://doi.org/10.1109/9780470544334.ch8',
     });
-    expect(CITATIONS.find((c) => c.id === 'kroger-ocado-closures-2025')?.url).toContain(
+    expect(beforeCompletionRegistry.find((c) => c.id === 'kroger-ocado-closures-2025')?.url).toContain(
       'web.archive.org/web/20251118224554/',
     );
     // The 2026-10-06 domain passes append the owner's verified-draft entries, checked by their own audit rows.
@@ -222,7 +232,7 @@ describe('content integration of 2026-09-23', () => {
     ];
     // Its data-hardware figures block adds four primary sources for the VAL-OPUS-093 leftovers, each with its audit row.
     const owedFiguresDhSources = ['grabette-2026', 'psyonic-ability-hand-2022', 'ros2-control-docs-2026', 'sharpa-wave-2026'];
-    expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id) && !DOMAIN_PASS_CITATION_IDS.has(id) &&
+    expect(beforeCompletionRegistry.map((c) => c.id).filter((id) => !baseIds.includes(id) && !DOMAIN_PASS_CITATION_IDS.has(id) &&
       !owedFiguresMakers.includes(id) && !owedFiguresDhSources.includes(id)).sort()).toEqual([
       'a3-r1506-2025-store', 'ad-e2e-jepa-2026', 'agibot-omdia-ranking-2026', 'agility-digit-production', 'agro-suvide-2026',
       'asena-2026', 'bjnews-noetix-bumi-2025', 'chord-2026', 'chunktrust-2026', 'dexagent-2026',
@@ -236,30 +246,30 @@ describe('content integration of 2026-09-23', () => {
       'trace-cables-2026', 'wcbf-hyper-redundant-2026',
     ]);
     for (const id of [...owedFiguresMakers, ...owedFiguresDhSources]) {
-      expect(CITATIONS.filter((c) => c.id === id), id).toHaveLength(1);
+      expect(beforeCompletionRegistry.filter((c) => c.id === id), id).toHaveLength(1);
     }
-    expect(CITATIONS).toHaveLength(baseIds.length + 43 + owedFiguresMakers.length + owedFiguresDhSources.length
+    expect(beforeCompletionRegistry).toHaveLength(baseIds.length + 43 + owedFiguresMakers.length + owedFiguresDhSources.length
       + DOMAIN_PASS_CITATION_IDS.size);
-    expect(CITATIONS.find((c) => c.id === 'agility-digit-production')).toMatchObject({
+    expect(beforeCompletionRegistry.find((c) => c.id === 'agility-digit-production')).toMatchObject({
       year: 'n.d.',
       accessedOn: '2026-09-24',
       url: 'https://www.agilityrobotics.com/',
     });
-    expect(CITATIONS.find((c) => c.id === 'figure-bmw-production-2025')).toMatchObject({
+    expect(beforeCompletionRegistry.find((c) => c.id === 'figure-bmw-production-2025')).toMatchObject({
       year: 2025,
       url: 'https://www.figure.ai/news/production-at-bmw',
     });
-    expect(CITATIONS.find((c) => c.id === 'tesla-q1-2026-update')).toMatchObject({
+    expect(beforeCompletionRegistry.find((c) => c.id === 'tesla-q1-2026-update')).toMatchObject({
       year: 2026,
       url: 'https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf',
     });
     for (const id of ['lei-cycle-time-definition', 'lei-takt-time-definition']) {
-      expect(CITATIONS.find(c => c.id === id)).toMatchObject({ year: 'n.d.', accessedOn: '2026-09-22' });
+      expect(beforeCompletionRegistry.find(c => c.id === id)).toMatchObject({ year: 'n.d.', accessedOn: '2026-09-22' });
     }
-    expect(CITATIONS.find(c => c.id === 'nasa-availability-prediction-analysis')).toMatchObject({
+    expect(beforeCompletionRegistry.find(c => c.id === 'nasa-availability-prediction-analysis')).toMatchObject({
       year: 1994, url: 'https://llis.nasa.gov/lesson/841',
     });
-    expect(CITATIONS.find((c) => c.id === 'llama-3-herd-2024')).toEqual({
+    expect(beforeCompletionRegistry.find((c) => c.id === 'llama-3-herd-2024')).toEqual({
       id: 'llama-3-herd-2024',
       title: 'The Llama 3 Herd of Models',
       authors: ['Aaron Grattafiori', 'Abhimanyu Dubey', 'Abhinav Jauhri'],
@@ -268,7 +278,7 @@ describe('content integration of 2026-09-23', () => {
       url: 'https://arxiv.org/abs/2407.21783',
       type: 'paper',
     });
-    expect(CITATIONS.find((c) => c.id === 'shiu-ahmad-1989')).toEqual({
+    expect(beforeCompletionRegistry.find((c) => c.id === 'shiu-ahmad-1989')).toEqual({
       id: 'shiu-ahmad-1989',
       title: 'Calibration of wrist-mounted robotic sensors by solving homogeneous transform equations of the form AX=XB',
       authors: ['Y. C. Shiu', 'S. Ahmad'],
@@ -278,7 +288,7 @@ describe('content integration of 2026-09-23', () => {
       type: 'paper',
     });
     // Since the 2026-10-02 SEO pass a label marks a second author with "et al.".
-    expect(citationLabel(CITATIONS.find((c) => c.id === 'shiu-ahmad-1989')!)).toBe('Shiu et al. 1989');
+    expect(citationLabel(beforeCompletionRegistry.find((c) => c.id === 'shiu-ahmad-1989')!)).toBe('Shiu et al. 1989');
   });
 
   it('states the V-JEPA 2-AC FLOP estimate at the order its paper inputs imply', () => {

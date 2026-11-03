@@ -64,8 +64,8 @@ export const irisGap = (poses: number) => (poses < MIN_POSES ? IRIS_OPEN_GAP : 3
 /** What the stage says under the drawing, by how far the count has come. */
 export function hintFor(poses: number): string {
   if (poses < MIN_POSES) return 'Too few poses: it needs turns about two axes';
-  if (poses < 12) return 'Iris: the doubt about where the camera sits';
-  return 'Past about 12 poses the iris barely closes';
+  if (poses < 12) return 'Opening: relative position uncertainty; 1.0 is the three-pose baseline, with no physical units';
+  return 'Past about 12 poses that opening barely shrinks';
 }
 
 /** Seconds the arm takes to swing from one pose to the next. */
@@ -128,7 +128,7 @@ function writePieces(elements: Array<SVGGElement | SVGPathElement | null>, drawi
 
 function readout(poses: number): string {
   if (poses < MIN_POSES) return `${poses} ${poses === 1 ? 'pose' : 'poses'}: too few to solve`;
-  if (poses === MIN_POSES) return '3 poses: just enough to solve (1.0 baseline)';
+  if (poses === MIN_POSES) return '3 poses: minimum to locate the camera on the wrist; relative uncertainty 1.0';
   return `${poses} poses: ${tighterThanMinimum(poses).toFixed(1)} times tighter than with 3`;
 }
 
@@ -191,7 +191,7 @@ export function HandEyePoses({ className }: { className?: string }) {
       figureId="hand-eye-poses"
       className={className}
       kicker="Hand-eye calibration"
-      heading="Three poses solve it; twelve pin it down"
+      heading="Camera calibration needs three poses; past twelve, little improves"
       controls={
         <SliderRow
           htmlFor={sliderId}
@@ -257,7 +257,7 @@ export function HandEyePoses({ className }: { className?: string }) {
           </Stage>
         </AnatomyStage>
       }
-      caption="More poses shrink the doubt about where the wrist camera sits, until about 12."
+      caption="At least three poses locate the camera relative to the wrist. More poses improve the estimate, with little benefit beyond about twelve."
       method={
         <>
           <div>

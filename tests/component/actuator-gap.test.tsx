@@ -32,7 +32,7 @@ describe('ActuatorGap', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Actuator network');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Simulated motors must respond like the real ones');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "A policy trained with ideal simulated motors fell at ANYmal's first step; a learned motor model let it walk.",
+      "A movement controller trained with ideal simulated motors fell at ANYmal’s first step; modelling the real motors’ response let it walk.",
     );
   });
 
@@ -79,14 +79,14 @@ describe('ActuatorGap', () => {
   it('starts and stops the bench from a reader control, never on its own', () => {
     renderFigure();
     const run = screen.getByTestId('actuator-run');
-    expect(run).toHaveTextContent('Run the bench');
+    expect(run).toHaveTextContent("Play the run");
     // A secondary action carries no pressed state: its label says what it does next.
     expect(run).not.toHaveAttribute('aria-pressed');
     fireEvent.click(run);
-    expect(run).toHaveTextContent('Stop the bench');
+    expect(run).toHaveTextContent("Stop");
     expect(run).not.toHaveAttribute('aria-pressed');
     fireEvent.click(run);
-    expect(run).toHaveTextContent('Run the bench');
+    expect(run).toHaveTextContent("Play the run");
   });
 
   it('describes the stage and links the paper', () => {

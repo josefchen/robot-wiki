@@ -494,14 +494,20 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
             };
             // A readout that eases to the new value (RetargetingGap's legs
             // telescope for about a second) is graded once it has settled:
-            // two equal reads 120 ms apart, or the 2 s cap, whichever comes
-            // first. The settled readout must still carry every cell.
+            // text AND drawn geometry must agree 120 ms apart, or reach the
+            // 2 s cap. Rounded text can plateau while the legs still move;
+            // text alone previously stopped at 99% on the way to 100%.
+            // The settled readout must still carry every cell.
+            const geometry = () => [...panel.querySelectorAll('svg')].map((svg) => svg.outerHTML).join('\n');
             let text = read();
+            let drawn = geometry();
             for (let waited = 0; waited < 2000; waited += 120) {
               await new Promise((res) => setTimeout(res, 120));
               const next = read();
-              if (next === text) break;
+              const nextDrawn = geometry();
+              if (next === text && nextDrawn === drawn) break;
               text = next;
+              drawn = nextDrawn;
             }
             return text;
           },

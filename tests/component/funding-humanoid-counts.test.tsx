@@ -42,7 +42,7 @@ describe('FundingHumanoidCounts', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Robotics funding and humanoid counts');
-    expect(heading).toBe('Startups raised a record while humanoids shipped in the thousands');
+    expect(heading).toBe('By June 2026, robotics funding surpassed every earlier year');
     expect(caption).toBe(
       'Crunchbase counts all robotics startups, and 2026 runs to 22 June. IFR counts full-size humanoids sold; SAG counts humanoids shipped.',
     );

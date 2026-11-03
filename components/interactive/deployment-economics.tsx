@@ -391,7 +391,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
       stage={
         <AnatomyStage
           viewWidth={DRAWING_WIDTH}
-          hint="The poise rests where the beam balances: the months to pay back"
+          hint="The sliding weight marks months to earn back the robot’s cost"
           readout={
             <>
               Pays for itself in{' '}
@@ -407,7 +407,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
             width={DRAWING_WIDTH}
             height={DRAWING_HEIGHT}
             fit={PHONE_FIT}
-            label={`A steelyard: the cell's cost, ${formatMoney(out.totalCellCost)}, hangs from the short arm as ${discs.length} slotted weights, and a poise for one month of labour value rests ${out.paybackMonths === null || out.paybackMonths > SCALE_MONTHS ? `on the end stop at ${SCALE_MONTHS} months, short of balance` : `${paybackText} out along the arm`}, against a collar at ${HORIZON_MONTHS} months.`}
+            label={`A steelyard: the cell's cost, ${formatMoney(out.totalCellCost)}, hangs from the short arm as ${discs.length} slotted weights, and a sliding weight for one month of labour value rests ${out.paybackMonths === null || out.paybackMonths > SCALE_MONTHS ? `on the end stop at ${SCALE_MONTHS} months, short of balance` : `${paybackText} out along the arm`}, against a collar at ${HORIZON_MONTHS} months.`}
             describedBy={`${captionId} ${descriptionId}`}
           >
             {PARTS.map((part, index) => {
@@ -493,7 +493,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
           </div>
         </AnatomyStage>
       }
-      caption="Every failed pick pulls a person over, and how long that takes decides when the robot earns back its price."
+      caption="Longer human jam repairs reduce completed picks and delay when the robot earns back its purchase price."
       captionProps={{ id: captionId }}
       method={
         <>

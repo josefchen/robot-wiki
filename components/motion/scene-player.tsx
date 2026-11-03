@@ -374,26 +374,29 @@ export function ScenePlayer({
                 />
               }
               timeline={
-                <input
-                  ref={scrubberRef}
-                  id={`${scene.id}-scrubber`}
-                  data-brand-control-id="control:input"
-                  data-pagefind-ignore
-                  data-testid="motion-scrubber"
-                  type="range"
-                  min={0}
-                  max={total}
-                  step={50}
-                  defaultValue={poster}
-                  onChange={(event) => {
-                    setLastScrub(Date.now());
-                    setFinished(false);
-                    time.set(Number(event.target.value));
-                  }}
-                  aria-label="Scene timeline"
-                  aria-valuetext={caption}
-                  className={SCENE_SCRUBBER_CLASS}
-                />
+                <label className="block text-xs text-muted" htmlFor={`${scene.id}-scrubber`}>
+                  Scene timeline
+                  <input
+                    ref={scrubberRef}
+                    id={`${scene.id}-scrubber`}
+                    data-brand-control-id="control:input"
+                    data-pagefind-ignore
+                    data-testid="motion-scrubber"
+                    type="range"
+                    min={0}
+                    max={total}
+                    step={50}
+                    defaultValue={poster}
+                    onChange={(event) => {
+                      setLastScrub(Date.now());
+                      setFinished(false);
+                      time.set(Number(event.target.value));
+                    }}
+                    aria-label="Scene timeline"
+                    aria-valuetext={caption}
+                    className={SCENE_SCRUBBER_CLASS}
+                  />
+                </label>
               }
             >
               <div data-motion-stage="">{children}</div>

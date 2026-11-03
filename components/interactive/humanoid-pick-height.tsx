@@ -177,10 +177,10 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
       figureId="humanoid-pick-height"
       className={className}
       kicker="Whole-body picking"
-      heading="Lower objects are harder for a whole-body humanoid"
+      heading="Lower picks succeed less often; the floor is worst"
       controls={<PresetGroup label="The object sits on" presets={PLACES} value={place} onChange={setPlace} testId="pick-height-place" />}
       stage={
-        <FigureStage footer={<StageStatus>Drawing illustrative; rates as published</StageStatus>}>
+        <FigureStage footer={<StageStatus>Shelf picks succeed most often, table picks less, floor picks least. Dashed line: a stationary arm fitting a part, a different task. Drawing illustrative; rates published.</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`A humanoid robot reaching for an object ${PLACES.find((p) => p.id === place)!.words}. Bars show how often its whole-body picks succeed: ${formatSuccess(PICK_RATES.shelf)} from a shelf, ${formatSuccess(PICK_RATES.table)} from a table, ${formatSuccess(PICK_RATES.floor)} from the floor.`}
@@ -223,7 +223,7 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
             <g data-series="insertion">
               <line x1={insertionX} y1={22} x2={insertionX} y2={AXIS_Y} stroke={muted} strokeWidth={CHART_STROKE.reference} strokeDasharray={CHART_STROKE.dash} />
               <text data-series-label-for="insertion" x={BAR_RIGHT} y={14} textAnchor="end" fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
-                gripper insertion {formatSuccess(INSERTION_RATE)}
+                arm fitting {formatSuccess(INSERTION_RATE)}
               </text>
             </g>
             {PLACES.map((p) => {
@@ -231,7 +231,7 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
               const chosen = p.id === place;
               const label = `${formatSuccess(PICK_RATES[p.id])} ${p.words}`;
               return (
-                <g key={p.id} data-testid={`pick-bar-${p.id}`} data-chosen={chosen ? 'yes' : 'no'}>
+                <g key={p.id} data-testid={`pick-bar-${p.id}`} data-series={p.id} data-chosen={chosen ? 'yes' : 'no'}>
                   <rect
                     data-chart-role={chosen ? 'highlight' : 'value'}
                     x={BAR_LEFT}
@@ -241,9 +241,9 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
                     fill={chosen ? accent : CHART_STRUCTURE.labelSecondary}
                   />
                   {chosen ? (
-                    <StageAnnotation x={BAR_LEFT} y={y - 8} lines={[label]} />
+                    <StageAnnotation x={BAR_LEFT} y={y - 8} lines={[label]} seriesFor={p.id} />
                   ) : (
-                    <DirectLabel x={BAR_LEFT} y={y - 8}>
+                    <DirectLabel x={BAR_LEFT} y={y - 8} seriesFor={p.id}>
                       {label}
                     </DirectLabel>
                   )}
@@ -253,7 +253,7 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption={`Gemini Robotics 2's humanoid succeeded on ${Math.round(PICK_RATES.shelf)}% of shelf picks but ${Math.round(PICK_RATES.floor)}% of floor picks.`}
+      caption={`One model controls the humanoid’s whole body: success falls from ${Math.round(PICK_RATES.shelf)}% shelf to ${Math.round(PICK_RATES.table)}% table to ${Math.round(PICK_RATES.floor)}% floor, the least reliable height.`}
       method={
         <>
           <div>

@@ -43,9 +43,23 @@ const MARK_X = 16;
 const ENTRY_X = 28;
 const RUNGS = [...AUTONOMY_LEVELS].reverse();
 const HEIGHT = TOP + RUNGS.length * ROW_PITCH + 2;
+// Plain display equivalents; the canonical terminology and attribution remain in the method table.
+const LEVEL_WORDS: Record<number, string> = {
+  0: 'surgeon controls motion',
+  1: 'robot assists surgeon',
+  2: 'supervised task',
+  3: 'human chooses robot plan',
+  4: 'surgery under supervision',
+  5: 'whole procedure alone',
+};
+const RESEARCH_WORDS: Record<string, string> = {
+  'star-2016': 'STAR, 2016, stitching in live pigs',
+  'saeidi-2022': 'Bowel joining, 2022, live pigs',
+  'srt-h-2025': 'SRT-H, 2025, removed gallbladders',
+};
 
 const CAPTION =
-  'Dots are systems the FDA has authorized; crosses are research demonstrations in pigs or excised tissue.';
+  'In this comparison’s six levels, FDA-authorized platforms reach level 1; SRT-H’s authors claim level 4 for research on tissue outside a body.';
 const DESCRIPTION = `Yang and colleagues' six levels of surgical autonomy, with the systems this article covers placed on them. The teleoperated platforms the FDA has authorized, from Intuitive, CMR, Medtronic and J&J, sit at level 0, and Moon Surgical's Maestro with ScoPilot at level 1. Research demonstrations sit higher: STAR suturing live pigs in 2016 at level 2, Yang's own example; Saeidi and colleagues' 2022 laparoscopic anastomosis in live pigs at level 3, because the operator picks among plans the robot generates; and SRT-H's 2025 clipping-and-cutting experiments on excised gallbladders at level 4, as its authors place it. No system in this comparison is at level 5.`;
 
 export function SurgicalAutonomyLadder({ className }: { className?: string }) {
@@ -57,9 +71,15 @@ export function SurgicalAutonomyLadder({ className }: { className?: string }) {
       figureId="surgical-autonomy-ladder"
       className={className}
       kicker="Six levels of surgical autonomy"
-      heading={`These authorized systems reach level ${HIGHEST_AUTHORIZED_LEVEL}; studies claim level ${HIGHEST_CLAIMED_LEVEL}`}
+      heading={`Authorized: level ${HIGHEST_AUTHORIZED_LEVEL}; research on removed tissue: level ${HIGHEST_CLAIMED_LEVEL}`}
       stage={
         <FigureStage>
+          <p className="font-sans text-sm leading-snug text-text">
+            Six levels, numbered 0–5. <strong className="font-medium">Authorized platforms here reach level 1; SRT-H’s authors claim level 4</strong> for research on tissue outside a body.
+          </p>
+          <p className="font-sans text-sm leading-snug text-text">
+            Dots: platforms authorized by the US Food and Drug Administration (FDA). Crosses: research demonstrations.
+          </p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Surgical systems and studies placed on six levels of autonomy"
@@ -93,7 +113,7 @@ export function SurgicalAutonomyLadder({ className }: { className?: string }) {
                     fontWeight={600}
                     fill={CHART_STRUCTURE.labelSecondary}
                   >
-                    {`Level ${rung.level}, ${rung.name.toLowerCase()}`}
+                    {`Level ${rung.level}, ${LEVEL_WORDS[rung.level]}`}
                   </text>
                   {entry ? (
                     <g
@@ -109,7 +129,7 @@ export function SurgicalAutonomyLadder({ className }: { className?: string }) {
                         shape={entry.evidence === 'authorized' ? 'dot' : 'cross'}
                       />
                       <DirectLabel x={ENTRY_X} y={top + ENTRY_BASELINE} seriesFor={entry.evidence}>
-                        <tspan fontWeight={lead ? 700 : 400}>{entry.label}</tspan>
+                        <tspan fontWeight={lead ? 700 : 400}>{RESEARCH_WORDS[entry.id] ?? entry.label}</tspan>
                       </DirectLabel>
                     </g>
                   ) : (
@@ -127,6 +147,8 @@ export function SurgicalAutonomyLadder({ className }: { className?: string }) {
               );
             })}
           </PlotStage>
+          <p className="font-sans text-sm leading-snug text-text-dim">SRT-H plans surgery and guides arm movements; STAR stitches tissue; CMR Surgical makes robots.</p>
+
         </FigureStage>
       }
       caption={CAPTION}

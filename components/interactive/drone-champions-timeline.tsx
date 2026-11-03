@@ -56,7 +56,7 @@ const READOUT_SIDE: Record<string, 'start' | 'end'> = {
 const SWIFT = contestOf(SWIFT_ID);
 
 const CAPTION =
-  'Dots mark AI wins, the cross a human win. Swift raced in its own lab, the others at A2RL events.';
+  'Dots mark drone wins over human champions in 2023 and 2025; the cross marks the 2026 loss after hitting a gate in the decider.';
 const DESCRIPTION = `Three contests between autonomous racing drones and human champions. Swift, from the University of Zurich, ${SWIFT.readout} against three champions in its own lab, reported in Nature in August 2023. In April 2025 TU Delft's MonoRace won the A2RL race in Abu Dhabi, beating three human world champions in a knockout on hardware and a track the organisers set. In January 2026 world FPV champion Minchan Kim beat TII Racing's drone in a best-of-nine final: at four wins each, the drone struck a gate in the deciding race and could not recover.`;
 
 export function DroneChampionsTimeline({ className }: { className?: string }) {
@@ -68,7 +68,7 @@ export function DroneChampionsTimeline({ className }: { className?: string }) {
       figureId="drone-champions-timeline"
       className={className}
       kicker="AI against human racing champions"
-      heading="AI beat racing champions twice, then lost the 2026 final"
+      heading="Drones won twice; a gate collision decided the 2026 final"
       stage={
         <FigureStage>
           <PlotStage
@@ -118,7 +118,7 @@ export function DroneChampionsTimeline({ className }: { className?: string }) {
                     fontWeight={lead ? 700 : 400}
                     fill={CHART_STRUCTURE.label}
                   >
-                    {contest.readout}
+                    {contest.id === A2RL_2026_ID ? 'hit gate; lost decider at 4 to 4' : contest.readout}
                   </text>
                 </g>
               );
@@ -147,6 +147,9 @@ export function DroneChampionsTimeline({ className }: { className?: string }) {
               month announced
             </text>
           </PlotStage>
+          <p className="font-sans text-sm leading-snug text-text-dim">
+            A2RL: Abu Dhabi Autonomous Racing League. TII Racing: Technology Innovation Institute’s team.
+          </p>
         </FigureStage>
       }
       caption={CAPTION}

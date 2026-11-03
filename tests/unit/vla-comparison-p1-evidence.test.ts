@@ -1,3 +1,4 @@
+import { completionEndpoint } from '../helpers/completion-endpoint';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
@@ -100,7 +101,7 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
     expect(figureEntry.oldHash).toBe(imagesEntry.newHash);
     expect(figureEntry.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/comparison-matrix')?.hash)
-      .toBe(figureEntry.newHash);
+      .toBe(completionEndpoint(JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries, 'prose', 'article:manipulation/comparison-matrix', figureEntry.newHash));
     expect(article).toContain(currentIntro);
     expect(article).not.toContain(oldIntro);
     expect({ ...matter(article).data, seeAlso: undefined })
@@ -154,10 +155,10 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
     expect(vlaDomainPass.oldHash).toBe(vlaReaderFirst.newHash);
     expect(vlaDomainPass.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(kolBatch20261021Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
+      .toBe(completionEndpoint(ledger, 'prose', 'article:manipulation/vla-models', kolBatch20261021Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
         imagesA20261013Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
           humanize20261012Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
-            domainPassEndpoint(ledger, vlaDomainPass).newHash))));
+            domainPassEndpoint(ledger, vlaDomainPass).newHash)))));
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

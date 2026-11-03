@@ -11,6 +11,7 @@ import { committedSource, preservedApprovalPacket } from '../helpers/continuatio
 import { classicalPassEndpoint } from '../helpers/domain-pass';
 import { READER_RELEASE_BASE, readerTruthAt } from '../helpers/reader-integration';
 import { finalSevenBefore } from '../helpers/residual-integration';
+import { completionEdges, verifyCompletionApprovals } from '../helpers/completion-approvals';
 import { preDomainPass, preKolBacklog, preReaderFirst, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -22,6 +23,7 @@ const read = (path: string) => path.startsWith('content/') ? preSeoPassText(path
 const readSeoSuccessor = (path: string) => preReaderFirst(path).toString('utf8');
 const ledger = 'contract/brand-v2-approved-deltas.json';
 const approvals: ApprovedDelta[] = JSON.parse(read(ledger)).entries;
+verifyCompletionApprovals(approvals);
 const integrated = approvals.filter(a => a.id.startsWith('continuation-merge-2026-09-23-1745-'));
 const truth = collectArticleTruthManifests();
 const sealed: BaselineBundle = JSON.parse(read('evidence/brand-v2/baseline/baseline.json'));
@@ -356,6 +358,14 @@ function throughSeoPass(path: string) {
     expect(continues(edit, end)).toBe(true);
     end = edit.newHash;
   }
+  // The separately pinned completion suffix continues every historical
+  // endpoint with its exact, ordered member edges. No unlisted edge is admitted.
+  for (const edgeId of completionEdges('prose', id)) {
+    const edit = approvals.find(approval => approval.id === edgeId)!;
+    expect(edit, edgeId).toBeDefined();
+    expect(continues(edit, end), edgeId).toBe(true);
+    end = edit.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 
@@ -491,7 +501,14 @@ describe('merged reader corrections preserve production additions and exact appr
           a.id === 'kol-batch-20261021-world-models-relationships-generative-sim')!;
         expect(kolRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: cutRelationship.newHash });
         expect(kolRelationship.reconciles).toBeUndefined();
-        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(kolRelationship.newHash);
+        let relationshipEnd = kolRelationship.newHash;
+        for (const edgeId of completionEdges('relationships', id)) {
+          const edit = approvals.find(approval => approval.id === edgeId)!;
+          expect(edit, edgeId).toBeDefined();
+          expect(edit.oldHash === relationshipEnd || edit.reconciles?.some(edge => edge.newHash === relationshipEnd), edgeId).toBe(true);
+          relationshipEnd = edit.newHash;
+        }
+        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(relationshipEnd);
         const relationshipEdges = approvals.filter(a => a.manifest === 'relationships' && a.memberId === id);
         const sealedHash = sealed.manifests.relationships.members.find(m => m.id === id)!.hash;
         expect(approvedDeltaPath(relationshipEdges, sealedHash, relationship.newHash).status).toBe('approved');

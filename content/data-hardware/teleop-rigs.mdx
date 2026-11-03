@@ -109,13 +109,13 @@ The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted Go
 
 <Image id="umi-handheld-grippers-2024" />
 
-Latency matching at inference time and a camera-relative action representation let UMI policies deploy zero-shot on any arm with a compatible gripper and camera, shown on UR5 and Franka. The data lack a force channel <Cite id="umi-2024" />. ForceMimic adds one: its operator peeled a zucchini in 5 minutes, against over 13 with force-feedback teleoperation <Cite id="forcemimic-2024" />.
+Inference-time latency matching and a camera-relative action representation let UMI policies deploy zero-shot on any arm with a compatible gripper and camera, shown on UR5 and Franka. The data lack a force channel <Cite id="umi-2024" />. ForceMimic adds one: its operator peeled a zucchini in 5 minutes, against over 13 with force-feedback teleoperation <Cite id="forcemimic-2024" />.
 
 FACTR 2 estimates external joint torques from free-motion data, enabling force-feedback teleoperation on commodity arms without dedicated force sensors <Cite id="factr-2-2026" />.
 
 Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id="lin-data-scaling-laws-2024" />. A policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id="hifi-umi-2026" />.
 
-Pollen Robotics' Grabette (July 2026) is an open-source handheld recorder modelled on UMI that writes LeRobot datasets, with parts costing about €490. Its motorized twin, Gripette (about €120 in parts), is the robot-arm gripper that carries out the learned movements on a real or simulated arm <Cite id="grabette-2026" />.
+Pollen Robotics' Grabette (July 2026) is an open-source handheld recorder modelled on UMI that writes LeRobot datasets, with parts costing about €490. Its motorized twin, Gripette (about €120 in parts), is the robot-arm gripper executing the learned movements on a real or simulated arm <Cite id="grabette-2026" />.
 
 ## VR teleoperation: scale through headsets
 
@@ -129,7 +129,7 @@ Human and robot arms share no kinematics; every action passes through <Term id="
 
 ## Gloves and wearables
 
-DexCap records wrist and finger motion with SLAM and electromagnetic tracking, alongside 3D observations of the scene. Its DexIL algorithm combines inverse kinematics with point-cloud imitation learning to transfer those motions to a robot hand <Cite id="dexcap-2024" />.
+DexCap records wrist and finger motion with SLAM and electromagnetic tracking, alongside 3D scene observations. Its DexIL algorithm combines inverse kinematics with point-cloud imitation learning to transfer those motions to a robot hand <Cite id="dexcap-2024" />.
 
 DexUMI's hand exoskeleton gives the operator direct haptic feedback and adapts human motion to feasible robot-hand motion, for an 86% average success rate <Cite id="dexumi-2025" />. SEED-UMI collects data 3.0x faster than exoskeleton-based teleoperation <Cite id="seed-umi-2026" />. Sunday's Skill Capture Glove shares its robot hand's geometry and sensor layout; Sunday reports converting glove data to robot data with a 90% success rate <Cite id="sunday-act1-2025" />. DITTO-X, from Stanford and Columbia researchers (September 2026), renders joint-level force and fingertip contacts from the robot hand and improved demonstration quality and throughput over a commercial hand-tracking glove <Cite id="ditto-x-2026" />.
 
@@ -137,7 +137,7 @@ FOMO-Dex, from Ying Yuan, Jitendra Malik and colleagues at Amazon FAR and Carneg
 
 PanTact, from Xiaomeng Xu, Shuran Song, Guanya Shi and colleagues at Stanford, Amazon FAR and Carnegie Mellon (October 2026), pairs bimanual UMI grippers with force-sensing patches on the demonstrator's forearms and knees, so each demonstration records where and when the body touches the scene. A Unitree G1 with no body contact sensors, trained on 100 or 110 such demonstrations per task, grasped a small object and then embraced a bulky one in 17 of 20 trials, and carried a box while pushing another with its legs in 9 of 10. Trained on the same demonstrations, a humanoid UMI baseline that tracked only the grippers consistently failed to support the bulky object <Cite id="pantact-2026" />.
 
-Boston Dynamics argues that wearables capture only proxy signals for controlling a dexterous hand, and that reinforcement learning in simulation is an essential component <Cite id="bd-atlas-hand-2026" />. EgoMimic found an extra hour of hand data worth more than an extra hour of robot data <Cite id="egomimic-2024" />. Apple's EgoDex recorded 829 hours with Vision Pro hand tracking <Cite id="egodex-2025" />; Generalist AI reports over 270,000 hours for GEN-0 <Cite id="generalist-gen0-2025" />.
+Boston Dynamics argues that wearables capture only proxy signals for controlling a dexterous hand, and reinforcement learning in simulation is an essential component <Cite id="bd-atlas-hand-2026" />. EgoMimic found an extra hour of hand data worth more than an extra hour of robot data <Cite id="egomimic-2024" />. Apple's EgoDex recorded 829 hours with Vision Pro hand tracking <Cite id="egodex-2025" />; Generalist AI reports over 270,000 hours for GEN-0 <Cite id="generalist-gen0-2025" />.
 
 ## Choosing by axis
 

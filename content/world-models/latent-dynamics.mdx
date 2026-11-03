@@ -51,7 +51,7 @@ seeAlso:
 
 import { LatentImagination } from '@/components/interactive/latent-imagination';
 
-<Term id="latent-dynamics">Latent dynamics</Term> is the world-model paradigm that learns a compact recurrent state, predicts how it and the reward evolve under actions, and trains or plans inside that imagination <Cite id="dreamer-2019" />. It is the oldest of the six paradigms in the [taxonomy](/world-models/taxonomy/): Embed to Control learned locally linear latent dynamics from raw images in 2015 <Cite id="e2c-2015" />.
+<Term id="latent-dynamics">Latent dynamics</Term> is the world-model paradigm that learns a compact recurrent state, predicts how it and the reward evolve under actions, and trains or plans inside that imagination <Cite id="dreamer-2019" />. It is the oldest of six paradigms in the [taxonomy](/world-models/taxonomy/): Embed to Control learned locally linear latent dynamics from raw images in 2015 <Cite id="e2c-2015" />.
 
 <Image id="tdmpc2-task-grid-2023" />
 
@@ -71,7 +71,7 @@ Drag "How far ahead to imagine" in the figure and the imagined throw peels away 
 
 Ha and Schmidhuber trained an agent "entirely inside of its own hallucinated dream" and transferred it back to the real environment <Cite id="ha-world-models-2018" />. PlaNet planned from pixels with deterministic and stochastic latent transitions <Cite id="planet-2018" />. DreamerV3's Recurrent State-Space Model (RSSM) pairs a recurrent state that carries memory with a stochastic categorical representation, and learns to reconstruct inputs and predict reward and continuation <Cite id="dreamerv3-2023" />.
 
-Dreamer's actor and critic are trained purely on imagined latent rollouts from real encoded states, backpropagating value gradients through the model <Cite id="dreamer-2019" />. DreamerV2, which added discrete latents, was the first agent to reach human-level performance on the 55-task Atari benchmark by learning inside a separately trained world model <Cite id="dreamerv2-2020" />.
+Dreamer's actor and critic train purely on imagined latent rollouts from real encoded states, backpropagating value gradients through the model <Cite id="dreamer-2019" />. DreamerV2, which added discrete latents, was the first agent to reach human-level performance on the 55-task Atari benchmark by learning inside a separately trained world model <Cite id="dreamerv2-2020" />.
 
 IRIS learns inside a discrete-autoencoder and autoregressive-transformer world model, evaluated on the Atari 100k benchmark <Cite id="iris-world-model-2022" />. TransDreamer replaces recurrent dynamics with a Transformer State-Space Model shared with a transformer policy, targeting visual tasks that need long-range memory <Cite id="transdreamer-2022" />.
 
@@ -79,7 +79,7 @@ IRIS learns inside a discrete-autoencoder and autoregressive-transformer world m
 
 DreamerV3 was evaluated on more than 150 tasks across eight domains with fixed hyperparameters. It uses symlog transforms for vector observations, free bits with KL balancing and percentile-based return normalization <Cite id="dreamerv3-2023" />. In the 2025 Nature article its authors call it, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula <Cite id="dreamerv3-nature-2025" />. Its MineRL-based task used abstract crafting actions, accelerated block breaking and sparse intermediate rewards for 12 milestones from log to diamond <Cite id="dreamerv3-2023" />.
 
-DreamerV3 learned online; in 2025 Dreamer 4 became "the first agent to obtain diamonds in Minecraft purely from offline data", with a world model that runs in real time on a single GPU <Cite id="dreamer4-2025" />.
+DreamerV3 learned online; in 2025 Dreamer 4 became "the first agent to obtain diamonds in Minecraft purely from offline data", with a world model running in real time on a single GPU <Cite id="dreamer4-2025" />.
 
 <span id="td-mpc-and-td-mpc2-drop-the-decoder-plan-at-every-step" />
 ## TD-MPC2 drops the decoder and plans at every step
@@ -113,11 +113,11 @@ Robotic World Model (RWM) predicts observations over long horizons under partial
 
 Dream-MPC refines policy-proposed action sequences by gradient ascent on predicted return, with an uncertainty penalty. Used in place of MPPI in pretrained TD-MPC2 and BMPC on 24 simulated tasks, over three seeds and ten episodes, the BMPC variant raises interquartile mean by 26.7% and mean by 20.5%. The TD-MPC2 variant beats its policy alone but does not consistently match MPPI <Cite id="dream-mpc-2026" />. BMPC learns its policy by imitating the MPC planner <Cite id="bmpc-2025" />, and HumanoidBench, one of the three task suites, poses whole-body humanoid tasks <Cite id="humanoidbench-2024" />.
 
-TD-M(PC)² found that planner-generated data causes "persistent value overestimation" and fixed it with a policy constraint, gaining most on 61-DoF humanoids <Cite id="td-m-pc2-2025" />. Fast-WAM, a video world-action model, keeps video co-training but encodes the current frame once and runs action denoising on a chunk, with success similar to its imagine-then-execute variants on LIBERO and RoboTwin 2.0. On Galaxea R1 Lite towel folding it reports 190 ms inference latency against 810 ms for Fast-WAM-IDM on one RTX 5090D V2 32GB GPU <Cite id="fast-wam-2026" />.
+TD-M(PC)² found planner-generated data causes "persistent value overestimation" and fixed it with a policy constraint, gaining most on 61-DoF humanoids <Cite id="td-m-pc2-2025" />. Fast-WAM, a video world-action model, keeps video co-training but encodes the current frame once and runs action denoising on a chunk, with success similar to its imagine-then-execute variants on LIBERO and RoboTwin 2.0. On Galaxea R1 Lite towel folding it reports 190 ms inference latency against 810 ms for Fast-WAM-IDM on one RTX 5090D V2 32GB GPU <Cite id="fast-wam-2026" />.
 
 ## TD-MPC2's authors expect broad generalization to need far more tasks
 
-TD-MPC2's authors expect broad generalization, such as transfer to new embodiments, "will likely require several orders of magnitude more tasks" <Cite id="tdmpc2-2023" />. In November 2025 the same group's Newt trained one language-conditioned world model jointly across 200 tasks <Cite id="newt-2025" />. In simulation, one world model trained on up to 90 insertion tasks reached 56% zero-shot success on unseen parts, against 7% for a model-free baseline <Cite id="insertion-world-models-2026" />. DayDreamer's authors report that long hardware training causes wear needing human intervention or repair <Cite id="daydreamer-2022" />.
+TD-MPC2's authors expect broad generalization, such as transfer to new embodiments, "will likely require several orders of magnitude more tasks" <Cite id="tdmpc2-2023" />. In November 2025 the same group's Newt trained one language-conditioned world model jointly across 200 tasks <Cite id="newt-2025" />. In simulation, one world model trained on up to 90 insertion tasks reached 56% zero-shot success on unseen parts, against 7% for a model-free baseline <Cite id="insertion-world-models-2026" />. DayDreamer's authors report long hardware training causes wear needing human intervention or repair <Cite id="daydreamer-2022" />.
 
 <span id="pick-the-models-role-before-its-architecture" />
 ## Imagination tolerates slow models; online planning needs predictable latency

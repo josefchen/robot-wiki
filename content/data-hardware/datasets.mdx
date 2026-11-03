@@ -67,7 +67,7 @@ import { DatasetTable } from '@/components/interactive/dataset-table';
 
 import { DatasetRunsHours } from '@/components/interactive/dataset-runs-hours';
 
-Major robot learning datasets are the open collections of recorded robot trajectories that generalist policies train on. <Term id="open-x-embodiment">Open X-Embodiment</Term> pools over a million trajectories from 22 embodiments <Cite id="open-x-embodiment-2023" />, AgiBot World holds 1,001,552 (2,976 hours) on one robot platform <Cite id="agibot-world-2025" />, and DROID holds 76,000 (350 hours) across 564 scenes <Cite id="droid-2024" />.
+Major robot learning datasets are open collections of recorded robot trajectories for training generalist policies. <Term id="open-x-embodiment">Open X-Embodiment</Term> pools over a million trajectories from 22 embodiments <Cite id="open-x-embodiment-2023" />, AgiBot World holds 1,001,552 (2,976 hours) on one robot platform <Cite id="agibot-world-2025" />, and DROID holds 76,000 (350 hours) across 564 scenes <Cite id="droid-2024" />.
 
 <Image id="open-x-embodiment-overview-2023" />
 
@@ -96,15 +96,15 @@ RT-1-X trained on the pool beat each small-scale domain's original method by 50%
 
 Later <Term id="cross-embodiment">cross-embodiment</Term> pools are larger or broader. ARIO reports about 3 million episodes across 321,064 tasks <Cite id="ario-2024" />, and CrossFormer trained one policy on 900K trajectories from 20 embodiments, including wheeled robots, quadcopters and quadrupeds <Cite id="crossformer-2024" />.
 
-Federation costs consistency: constituents differ in action spaces, control rates, cameras and licenses. Moritz Reuss's review of VLA papers at ICLR 2026 calls OXE mostly low-quality data and notes that <Term id="imitation-learning">imitation learning</Term> still lacks good ways to quantify data quality <Cite id="oxe-quality-critique-2026" />. Re-Mix's learned domain weights beat uniform weighting by 38% on average on the data used to train the RT-X models <Cite id="remix-2024" />.
+Federation costs consistency: constituents differ in action spaces, control rates, cameras and licenses. Moritz Reuss's review of VLA papers at ICLR 2026 calls OXE mostly low-quality data and notes <Term id="imitation-learning">imitation learning</Term> still lacks good ways to quantify data quality <Cite id="oxe-quality-critique-2026" />. Re-Mix's learned domain weights beat uniform weighting by 38% on average on the RT-X models' training data <Cite id="remix-2024" />.
 
 ## DROID: depth on one platform
 
-DROID's distinction is scene and site diversity: 76,000 trajectories totaling 350 hours, across 564 scenes and 86 tasks, gathered by 50 operators at 13 institutions over 12 months <Cite id="droid-2024" />. Every trajectory came from one rig, a Franka Panda with two ZED 2 cameras and a ZED Mini wrist camera, [teleoperated](/data-hardware/teleop-rigs) through a Meta Quest 2. One platform gives one action space and one camera geometry, at the price of embodiment lock-in.
+DROID's distinction is scene and site diversity: 76,000 trajectories totaling 350 hours, across 564 scenes and 86 tasks, gathered by 50 operators at 13 institutions over 12 months <Cite id="droid-2024" />. Every trajectory came from one rig, a Franka Panda with two ZED 2 cameras and a ZED Mini wrist camera, [teleoperated](/data-hardware/teleop-rigs) through a Meta Quest 2. One platform gives one action space and one camera geometry, with embodiment lock-in.
 
 Single-platform collections can be larger. RT-1's fleet of 13 robots gathered about 130k episodes over 17 months <Cite id="rt1-2022" />, and Language-Table released nearly 600,000 language-labelled trajectories <Cite id="language-table-2022" />. The Galaxea Open-World Dataset holds 500 hours across 50 scenes, all from one consistent robot embodiment <Cite id="galaxea-open-world-2025" />.
 
-<Term id="diffusion-policy">Diffusion policies</Term> trained on DROID beat policies trained on the next-best dataset by 22% in-distribution and 17% out-of-distribution <Cite id="droid-2024" />. The project added language annotations for 75,000 episodes in December 2024 and improved camera calibrations for 36,000 in April 2025 <Cite id="droid-project-page" />. The paper releases DROID under CC BY 4.0 <Cite id="droid-2024" />, whose deed allows commercial sharing and adaptation subject to attribution, a license link, change notices and the other license terms, and warns that other rights may limit a particular use <Cite id="cc-by-4-0-deed" />.
+<Term id="diffusion-policy">Diffusion policies</Term> trained on DROID beat policies trained on the next-best dataset by 22% in-distribution and 17% out-of-distribution <Cite id="droid-2024" />. The project added language annotations for 75,000 episodes in December 2024 and improved camera calibrations for 36,000 in April 2025 <Cite id="droid-project-page" />. The paper releases DROID under CC BY 4.0 <Cite id="droid-2024" />, whose deed allows commercial sharing and adaptation subject to attribution, a license link, change notices and the other license terms, and warns other rights may limit a particular use <Cite id="cc-by-4-0-deed" />.
 
 ## BridgeData V2: the academic workhorse
 
@@ -128,7 +128,7 @@ RoboMIND 2.0 (December 2025) reports over 310K dual-arm trajectories from six em
 
 ## How to read dataset claims
 
-Hours compare better than episodes. DROID averages about 17 seconds per trajectory and AgiBot World Beta about 11, so a large episode count can hide less interaction than a smaller set of long tasks ([the data bottleneck](/data-hardware/data-bottleneck)). The 2025 BEHAVIOR Challenge supplies 10,000 teleoperated demonstrations totaling 1,200+ hours <Cite id="behavior-challenge-2025" />, and the synthetic InternData-A1 holds over 630k trajectories and 7,433 hours <Cite id="interndata-a1-2025" />.
+Hours compare better than episodes. DROID averages about 17 seconds per trajectory and AgiBot World Beta about 11, so a large episode count can hide less interaction than fewer long tasks ([the data bottleneck](/data-hardware/data-bottleneck)). The 2025 BEHAVIOR Challenge supplies 10,000 teleoperated demonstrations totaling 1,200+ hours <Cite id="behavior-challenge-2025" />, and the synthetic InternData-A1 holds over 630k trajectories and 7,433 hours <Cite id="interndata-a1-2025" />.
 
 Modalities differ as much as size. RH20T records visual, force, audio and action data in over 110,000 contact-rich sequences <Cite id="rh20t-2023" />. Humanoid Everyday adds depth, LiDAR and tactile streams to 10.3k humanoid trajectories across 260 tasks, with a cloud evaluation platform <Cite id="humanoid-everyday-2025" />. Scaling work finds task diversity worth more than per-task demonstration count, and multi-embodiment pretraining optional given high-quality single-embodiment data <Cite id="diversity-scaling-2025" />.
 
@@ -136,9 +136,9 @@ Perception datasets cover failures that action trajectories alone do not label. 
 
 Hand-object datasets make contact supervision explicit. ContactDB uses thermal imaging to record grasp-contact maps <Cite id="contactdb-2019" />; ContactPose pairs contact with hand pose, object pose and RGB-D images <Cite id="contactpose-2020" />. DexYCB benchmarks hand and object pose estimation and safe robot grasps for human-to-robot handover <Cite id="dexycb-2021" />.
 
-HOI4D supplies egocentric RGB-D video with hand-pose, object-pose and action annotations <Cite id="hoi4d-2022" />. OakInk connects object affordances to recorded human interactions and transfers those interactions to virtual counterparts <Cite id="oakink-2022" />.
+HOI4D supplies egocentric RGB-D video with hand-pose, object-pose and action annotations <Cite id="hoi4d-2022" />. OakInk connects object affordances to recorded human interactions and transfers them to virtual counterparts <Cite id="oakink-2022" />.
 
-Object models supply another kind of supervision. ShapeNet organizes CAD models by semantic category and records attributes such as alignment and size <Cite id="shapenet-2015" />. PartNet adds detailed hierarchical part labels <Cite id="partnet-2018" />; ABC retains explicitly parameterized curves and surfaces for geometric ground truth <Cite id="abc-models-2018" />. The YCB set pairs physical everyday objects with scans, physical properties, geometric models and example manipulation protocols <Cite id="ycb-models-2015" />.
+Object models supply another kind of supervision. ShapeNet organizes CAD models by semantic category and records attributes including alignment and size <Cite id="shapenet-2015" />. PartNet adds detailed hierarchical part labels <Cite id="partnet-2018" />; ABC retains explicitly parameterized curves and surfaces for geometric ground truth <Cite id="abc-models-2018" />. The YCB set pairs physical everyday objects with scans, physical properties, geometric models and example manipulation protocols <Cite id="ycb-models-2015" />.
 
 ## Releases since 2025
 
@@ -148,6 +148,6 @@ In simulation, RoboCasa365 offers 365 tasks across 2,500 kitchens, with over 600
 
 ## From dataset headline to training contract
 
-A useful dataset is legal for the intended deployment, consistent in actions, units, frames and rates, complete for the claimed tasks, scenes and embodiments, and downloadable as versioned episodes traceable to a release. Datasheets for Datasets asks every dataset to document its motivation, composition, collection process and recommended uses <Cite id="datasheets-for-datasets-2018" />. LeRobot's format moved to multi-episode files in 2025, after one file per episode hit file-system limits at millions of episodes <Cite id="lerobot-dataset-v3-2025" />.
+A useful dataset is legal for the intended deployment, consistent in actions, units, frames and rates, complete for claimed tasks, scenes and embodiments, and downloadable as versioned episodes traceable to a release. Datasheets for Datasets asks every dataset to document motivation, composition, collection process and recommended uses <Cite id="datasheets-for-datasets-2018" />. LeRobot's format moved to multi-episode files in 2025, after one file per episode hit file-system limits at millions of episodes <Cite id="lerobot-dataset-v3-2025" />.
 
-Mixing datasets needs a canonical observation and action schema, one adapter per source and source labels kept through training, so positive transfer can be told apart from one corpus dominating <Cite id="open-x-embodiment-2023" /> <Cite id="octo-2024" /> <Cite id="remix-2024" />. The [robot-learning stack](/data-hardware/robot-learning-stack) supplies the versioned artifacts, and the [robot-learning roadmap](/manipulation/robot-learning-roadmap) places dataset selection in a broader program.
+Mixing datasets needs a canonical observation and action schema, one adapter per source and source labels kept through training, so positive transfer can be distinguished from one corpus dominating <Cite id="open-x-embodiment-2023" /> <Cite id="octo-2024" /> <Cite id="remix-2024" />. The [robot-learning stack](/data-hardware/robot-learning-stack) supplies the versioned artifacts, and the [robot-learning roadmap](/manipulation/robot-learning-roadmap) places dataset selection in a broader program.

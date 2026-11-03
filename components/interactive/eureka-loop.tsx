@@ -408,6 +408,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           readout={<span data-testid="round-readout"><ReadoutText>{`Round ${gen + 1} of ${rounds}`}</ReadoutText></span>}
           status="Illustrative example, not a recorded run"
           data-outcome={PLAIN[gen].outcome}
+          data-source-generation={gen}
         >
           <div className="iso-stage">
             <svg

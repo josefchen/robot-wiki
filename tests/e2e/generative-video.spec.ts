@@ -82,7 +82,7 @@ test.describe('world-models generative-video module', () => {
       /eight policy-level scores/,
       /26 February 2026 RoboArena leaderboard/,
       /Pearson r = 0\.989 and Spearman rho = 0\.970/,
-      /the eight aggregates are the correlation points/,
+      /the eight aggregates are correlation points/,
       /only a weak proxy for control utility/,
       /first among its open challenges/,
     ]) {

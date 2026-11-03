@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/world-models/world-models-vs-simulators/",
+  "mount": "mount:/world-models/world-models-vs-simulators/:WorldModelOutputTimes:1",
+  "screenshots": {
+    "375": "evidence/reader-first/world-models--world-models-vs-simulators--world-model-output-times.375.png",
+    "1280": "evidence/reader-first/world-models--world-models-vs-simulators--world-model-output-times.1280.png"
+  },
+  "takeaway": "A rendered frame, an action chunk, a planned action and a generated clip have very different waiting times and hardware requirements.",
+  "sentence": "The plot compares how long different image, video and robot-move tasks take, from a tiny fraction of a second to four minutes, and lists the chips used.",
+  "unclearTerms": [
+    "DreamZero-Flash: The frame gives its output, but does not say what this named thing is."
+  ],
+  "samePoint": "yes",
+  "reason": "It compares image, video and robot-move outputs by waiting time and the hardware used, which is the same comparison.",
+  "verdict": "fail",
+  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r9-b-20261103",
+  "sourceDigest": "a84513d9b073862f9efab331911313a544fe2e0dea4ffa0aef46b8387b0271f2",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

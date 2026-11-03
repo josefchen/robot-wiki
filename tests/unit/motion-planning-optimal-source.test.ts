@@ -1,3 +1,4 @@
+import { completionEndpoint } from '../helpers/completion-endpoint';
 import fs from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -110,10 +111,10 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       const classicalEnd = classicalPassEndpoint(entries, 'prose', memberId,
         domainPassEndpoint(entries, domainPass!).newHash);
       expect(classicalEnd).not.toBe(digest(read(e.path)));
-      expect(explainerMounts20261026Endpoint(entries, 'prose', memberId,
+      expect(completionEndpoint(entries, 'prose', memberId, explainerMounts20261026Endpoint(entries, 'prose', memberId,
         educationalCue20261023Endpoint(entries, 'prose', memberId, imagesA20261013Endpoint(entries, 'prose', memberId,
           humanize20261012Endpoint(entries, 'prose', memberId,
-            kolQueue20261012Endpoint(entries, 'prose', memberId, classicalEnd)))))).toBe(digest(read(e.path)));
+            kolQueue20261012Endpoint(entries, 'prose', memberId, classicalEnd))))))).toBe(digest(read(e.path)));
       if (e.id.startsWith('row9-')) {
         expect(read(e.path)).toContain('which excludes differential constraints');
         expect(read(e.path)).toContain('the conservative one is');

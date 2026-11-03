@@ -60,10 +60,10 @@ export type PinStatus = 'not-met' | 'partial' | 'met';
 
 /** The four premises, in the article's order, each with the watchlist milestone that tracks its breaking result. */
 export const PREMISES = [
-  { id: 'commercial', milestone: 'ten-thousand-unit-deployment', label: '10,000 at work', premise: 'commercial viability', result: 'a verified deployment of 10,000 humanoids doing documented work' },
-  { id: 'generalization', milestone: 'unseen-homes-policy', label: '90% in unseen homes', premise: 'generalization', result: 'one policy above 90% across more than ten unseen homes' },
-  { id: 'form-factor', milestone: 'cost-per-task-parity', label: 'Cost-per-task parity', premise: 'form factor', result: 'a published cost-per-task parity analysis' },
-  { id: 'plateau', milestone: 'data-scaling-law', label: 'Success scaling law', premise: 'plateau', result: 'a real-world success-rate scaling law across tasks' },
+  { id: 'commercial', milestone: 'ten-thousand-unit-deployment', label: '10,000 humanoids doing useful work', premise: 'commercial viability', result: 'a verified deployment of 10,000 humanoids doing documented work' },
+  { id: 'generalization', milestone: 'unseen-homes-policy', label: 'Over 90% task success in new homes', premise: 'generalization', result: 'one policy above 90% across more than ten unseen homes' },
+  { id: 'form-factor', milestone: 'cost-per-task-parity', label: 'Cost per job matches a specialist machine', premise: 'form factor', result: 'a published cost-per-task parity analysis' },
+  { id: 'plateau', milestone: 'data-scaling-law', label: 'More data predictably improves task success', premise: 'plateau', result: 'a real-world success-rate scaling law across tasks' },
 ] as const;
 export type PremiseId = (typeof PREMISES)[number]['id'];
 

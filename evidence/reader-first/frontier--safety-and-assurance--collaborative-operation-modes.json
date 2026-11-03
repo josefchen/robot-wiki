@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/frontier/safety-and-assurance/",
+  "mount": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+  "screenshots": {
+    "375": "evidence/reader-first/frontier--safety-and-assurance--collaborative-operation-modes.375.png",
+    "1280": "evidence/reader-first/frontier--safety-and-assurance--collaborative-operation-modes.1280.png"
+  },
+  "takeaway": "The faster a robot moves, the bigger the gap it must keep from people.",
+  "sentence": "A faster-moving robot needs a larger gap from a person so it has enough room and time to stop safely.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It states the same speed-distance relationship: faster robot movement requires a larger gap from people.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0001",
+  "sourceDigest": "1814f8aa963943981774637a7593fff267a51df638041a2db7aa8407007264da",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

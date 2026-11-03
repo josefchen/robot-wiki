@@ -20,6 +20,7 @@ import {
   StageAnnotation,
   roleColour,
   CHART_STROKE,
+  CHART_STRUCTURE,
   CHART_TYPE,
   CHART_VIEW_WIDTH,
 } from '@/components/motion/chart';
@@ -318,7 +319,7 @@ export function ChunkSizeCurve({
                 const labelY = STRIP_TOP + i * STRIP_ROW + LABEL_ASCENT - 4;
                 return (
                   <g key={i} data-testid={i === 0 ? 'decision-ticks-single' : 'decision-ticks-current'} data-count={row.count}>
-                    <text x={PLOT.left} y={labelY} fontSize={CHART_TYPE.labelPx} fill={row.colour}>
+                    <text x={PLOT.left} y={labelY} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.label}>
                       {row.label}
                     </text>
                     <path

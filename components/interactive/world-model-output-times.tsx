@@ -13,6 +13,16 @@ const ROW = 58;
 const AXIS = 374;
 const round = (n: number) => Number(n.toFixed(3));
 
+/** Plain output roles; the complete published workload names stay in the method table. */
+const OUTPUT_ROLE: Record<string, string> = {
+  '3dgs': 'Single image',
+  dreamzero: 'Group of robot moves',
+  '1xwm': 'Five seconds of predicted moves',
+  vjepa2: 'One chosen move',
+  predict2: 'Video clip',
+  'cosmos-planner': 'One chosen move',
+};
+
 /** Different output units are labelled on every row; the axis measures elapsed seconds only. */
 export function WorldModelOutputTimes({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
@@ -22,9 +32,16 @@ export function WorldModelOutputTimes({ className }: { className?: string }) {
       figureId="world-model-output-times"
       className={className}
       kicker="Time to the stated output"
-      heading="Rendering a frame and planning an action take different time"
+      heading="Different outputs need different waits and hardware"
       stage={
-        <FigureStage>
+        <FigureStage footer={
+          <p className="font-sans text-sm leading-snug text-text-dim">
+            3DGS blends overlapping 3D colour blobs into a frame. Action chunks group upcoming moves. 1XWM predicts five seconds of actions before execution. Predict2’s 14B means 14 billion internal settings adjusted using training examples. V-JEPA 2-AC is a prediction model; a planner uses its forecasts after proposed moves to choose a robot move.
+          </p>
+        }>
+          <p className="font-sans text-lg leading-snug text-text" data-testid="output-times-main-comparison">
+            Single images, groups of robot moves, a move chosen from several options, and video clips need different waits and different graphics chips.
+          </p>
           <PlotStage className="mx-auto max-w-xl" viewBox="0 0 340 416" aria-label="Reported time per frame, action or clip" aria-describedby={descriptionId} data-testid="world-model-output-times-stage">
             <g stroke={CHART_STRUCTURE.grid} strokeWidth={CHART_STROKE.structure}>
               {TICKS.map(tick => <line key={tick} x1={round(outputTimeX(tick))} x2={round(outputTimeX(tick))} y1="4" y2={AXIS} />)}
@@ -37,9 +54,9 @@ export function WorldModelOutputTimes({ className }: { className?: string }) {
               return (
                 <g key={row.id} data-series={row.id} data-testid={`output-time-${row.id}`} data-seconds={row.seconds} data-time-kind={row.kind}>
                   <DirectLabel x={12} y={y} seriesFor={row.id}>
-                    <tspan fontWeight={600}>{row.label}</tspan> · {row.output}
+                    <tspan fontWeight={600}>{OUTPUT_ROLE[row.id]}</tspan> · {row.label}
                   </DirectLabel>
-                  <text x="12" y={y + 17} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.labelSecondary}>{row.hardware}</text>
+                  <text x="12" y={y + 17} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.labelSecondary}>Chips: {row.hardware}</text>
                   {row.kind === 'upper-bound' ? (
                     <path d={`M${x + 8} ${pointY - 4} L${x} ${pointY} L${x + 8} ${pointY + 4}`} fill="none" stroke={roleColour('measurement')} strokeWidth={CHART_STROKE.trace} />
                   ) : <PointMarker x={x} y={pointY} role={highlighted ? 'highlight' : 'measurement'} />}
@@ -56,12 +73,14 @@ export function WorldModelOutputTimes({ className }: { className?: string }) {
             {TICKS.map((tick, i) => <text key={tick} x={round(outputTimeX(tick))} y={AXIS + 15} textAnchor={i === 0 ? 'start' : 'middle'} fontSize={CHART_TYPE.tickPx} fill={CHART_STRUCTURE.labelSecondary} data-scene-tick="">{tick}</text>)}
             <text x="12" y="405" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>Seconds, each tick is ten times longer</text>
           </PlotStage>
+
         </FigureStage>
       }
-      caption="The output and hardware change between rows; only the two planning rows use the same GPU and one-step horizon."
+      caption="Frames, grouped moves, planned actions and clips need different waits and graphics processors (GPUs). The two RTX 4090 planning rows share hardware."
       method={
         <>
           <div>
+            V-JEPA 2-AC predicts numerical descriptions of camera views after chosen moves.
             Reported elapsed times on a logarithmic axis. The left-pointing mark is an upper bound from 3DGS rendering at least 100 frames per second.
             DreamZero uses its reported 150-millisecond inference latency; its robot executes commands faster than it refreshes an action chunk.
             The 1XWM total adds 11 seconds of video generation and one second of inverse dynamics.

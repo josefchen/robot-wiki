@@ -30,8 +30,8 @@ test('every phone plot keeps its full-size stage and readable tick numerals', as
           }),
         }));
         observations.push({ route: path, ...measured });
-        expect(measured.width, `${path} phone stage width`).toBeGreaterThanOrEqual(tokens.type.stageScale.fullSizeMinStagePx);
-        for (const tick of measured.ticks) expect(tick, `${path} painted tick size`).toBeGreaterThanOrEqual(tokens.stage.labelMinPx);
+        expect.soft(measured.width, `${path} phone stage width`).toBeGreaterThanOrEqual(tokens.type.stageScale.fullSizeMinStagePx);
+        for (const tick of measured.ticks) expect.soft(tick, `${path} painted tick size`).toBeGreaterThanOrEqual(tokens.stage.labelMinPx);
       }
     } finally {
       await context.close();

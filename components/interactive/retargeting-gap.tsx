@@ -226,7 +226,7 @@ export function RetargetingGap({ className }: { className?: string }) {
       figureId="retargeting-gap"
       className={className}
       kicker="Motion retargeting"
-      heading="Copied human poses misplace a robot's feet"
+      heading="Different proportions make copied human poses float or sink"
       controls={
         <SliderRow
           htmlFor={sliderId}
@@ -251,11 +251,14 @@ export function RetargetingGap({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Lit: the robot's planted foot"
+          hint="Copied poses: shorter legs float; longer legs sink."
           readout={rest.readout}
-          status="Illustrative bodies"
+          status="Lit: the robot foot meant to touch the floor. Illustrative bodies."
           data-testid="retargeting-stage"
         >
+          <p className="font-sans text-sm leading-snug text-text">
+            Copy the same human pose: <strong className="font-medium">shorter robot legs leave feet floating; longer legs make feet sink.</strong>
+          </p>
           <div ref={stageRef}>
             <IsoFigure
               width={WIDTH}
@@ -277,7 +280,7 @@ export function RetargetingGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Joint-for-joint copies onto other proportions leave robot feet floating or sunk, which hurts tracking policies."
+      caption="Copying human joint positions onto differently proportioned robots leaves feet above the floor with shorter legs, or below it with longer legs."
       method={
         <>
           <div>

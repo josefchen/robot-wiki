@@ -19,9 +19,9 @@ describe('DemoOrSim', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Two training recipes');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Real demonstrations need no contact model');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Simulated contact errors transfer; demonstrations need no contact model");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "A policy trained in simulation inherits its contact model's errors; one copied from real demonstrations needs none.",
+      "Simulation teaches its mistakes about surfaces touching and pushing to the robot; copying real demonstrations needs no contact model.",
     );
   });
 
@@ -39,13 +39,14 @@ describe('DemoOrSim', () => {
     expect(screen.getByTestId('recipe-stage')).toHaveAttribute('data-contact-model', 'yes');
     expect(screen.getByTestId('recipe-contact')).toHaveTextContent('contact: approximate');
     expect(screen.getByTestId('recipe-carry')).toHaveTextContent('its errors reach the robot');
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('The simulator’s contact errors carry over');
     const demo = screen.getByTestId('recipe-demo');
     fireEvent.click(demo);
     expect(demo).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('recipe-stage')).toHaveAttribute('data-contact-model', 'no');
     expect(screen.getByTestId('recipe-contact')).toHaveTextContent('contact: real, recorded');
     expect(screen.getByTestId('recipe-carry')).not.toHaveTextContent('its errors reach the robot');
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('Real contact, so no contact model to get wrong');
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('Real demonstrations need no contact model');
   });
 
   it('describes the stage and links all three sources', () => {

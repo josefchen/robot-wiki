@@ -1,0 +1,1077 @@
+{
+  "schemaVersion": "reader-round3-successor-review-v1",
+  "observedAt": "2026-11-03T09:10:42.495Z",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/action-tokenization.tsx",
+      "sourcePath": "components/interactive/action-tokenization.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "28c42078632d9bbd83734d7971975f5f85d3f96b2897e782620436d221df315a",
+      "currentSourceSha256": "fe74cf520edabee4a1182e2ed07658ecf564a382555ca8166041bd4f658eb094",
+      "oldMemberHash": "99908bc816e392fa6d45cfc2b5b117bb7ac2a7ef16c1935cc64461f6d1d77a2f",
+      "newMemberHash": "7838caf5e5133f9d0bdf8e492d1deb19365bf38ca10343059c48fc68ed006f9e",
+      "priorApprovalIds": [
+        "vla-generalist-closeouts-20260908-7",
+        "completion-figure-20261102-source-components-interactive-action-tokenization-tsx-f3349ceb85",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-action-tokenization-tsx-99908bc816"
+      ],
+      "reason": "components/interactive/action-tokenization.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/advantage-scrubber.tsx",
+      "sourcePath": "components/interactive/advantage-scrubber.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "b3db154b148d2478c228b8cb069ae9c6dfff629853ff4d1e13a211f76a5076f1",
+      "currentSourceSha256": "34836fbf21dd06dd8be2954d9a499b6103a840c39f84afc9498aa6475c5c5aae",
+      "oldMemberHash": "e79496ba927937017b1f778285b8b8572b7eac62661345c530edef0d2cf6bbfc",
+      "newMemberHash": "12805efa9f96bd8cc7ab08134b9e3bff0c8c24c217b75dfbcacd2e3178bcc829",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-15",
+        "completion-figure-20261102-source-components-interactive-advantage-scrubber-tsx-0effd18ef0",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-advantage-scrubber-tsx-e79496ba92"
+      ],
+      "reason": "components/interactive/advantage-scrubber.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/av-safety-miles.tsx",
+      "sourcePath": "components/interactive/av-safety-miles.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "95496336b74d6e40d52dd201b0641f1b936259bfdebc685ebba06ce9d35654a1",
+      "currentSourceSha256": "728bd476957baff08096890426eac277a86079c17182a258d59fa6b7b868874a",
+      "oldMemberHash": "6457090edf31f93d0971090f5e2ee306c1e5e0b3b5af9ba3fc643c36095ba7cf",
+      "newMemberHash": "e5db5ab71d60084370a4a736bf44797fe285f0adaeb57eab1d0b89a0ed3d185d",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-av-safety-miles",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-av-safety-miles-tsx-6457090edf"
+      ],
+      "reason": "components/interactive/av-safety-miles.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/chunk-buffer.tsx",
+      "sourcePath": "components/interactive/chunk-buffer.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "21fd857b4865a1343aea2fa1cbb0a6d002ed6f09c8a533f036c0cd8606205efe",
+      "currentSourceSha256": "61d8a908f0298b8f2187b8f78735c276614386011bd17eb9e0d69b5f6a4ed916",
+      "oldMemberHash": "32ddc5ac44bd794c6dead5be34c6f0276f484faa9b75fe3b896d6ac9135bcfde",
+      "newMemberHash": "efe8431f366e2a4e685fbfc5657ef142594a4b862614deb75926340aca9366f6",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-chunk-buffer",
+        "polish-1019-interactive-sources-mounts-source-chunk-buffer-tsx",
+        "mount-evidence-20261024-interactive-sources-mounts-source-chunk-buffer",
+        "completion-figure-20261102-source-components-interactive-chunk-buffer-tsx-04e414b17b",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-chunk-buffer-tsx-32ddc5ac44"
+      ],
+      "reason": "components/interactive/chunk-buffer.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/comparison-matrix.tsx",
+      "sourcePath": "components/interactive/comparison-matrix.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "044062c0fdf9eb0b981f4a477bc5a42b41e6198acda08b0cf01fa194e94f1ac3",
+      "currentSourceSha256": "8166686b2bc36d0f0070fb47ac7ef97a44ae86a7db6f70904da5df7a1a53bdb1",
+      "oldMemberHash": "4bc201bce617a268782708b4a6a8480254479b60821487b5196d559d5c051de0",
+      "newMemberHash": "4758ca80be55203fef3ad1421137f06c5023e60ea5aae50fb036334904b931c2",
+      "priorApprovalIds": [
+        "act-five-sources-20260907-6",
+        "comparison-current-20260907-3",
+        "perf-articles-20260923-src-comparison-matrix",
+        "completion-figure-20261102-source-components-interactive-comparison-matrix-tsx-d270c225d6",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-comparison-matrix-tsx-c887cd2fa4",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-comparison-matrix-tsx-4bc201bce6"
+      ],
+      "reason": "components/interactive/comparison-matrix.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/compounding-error.tsx",
+      "sourcePath": "components/interactive/compounding-error.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "dd4df592bea6f9bef0f76f55e84df37aaa2f2f6e9fa79e1f2bbfb68dfe9e5ce7",
+      "currentSourceSha256": "9f5b68a23a2e2c863277c3dd54e8de79ca0bd1261adc5df94aaee223eae879cc",
+      "oldMemberHash": "844cb8683293b2d5f316bf57b427bd306d5615bfe512c393ab2ed6efc07a16ee",
+      "newMemberHash": "0dd0f0fcc056c0faf9a3a96609efa660e50aa37074823b6fd0957968e1918458",
+      "priorApprovalIds": [
+        "bc-foundations-20260907-4",
+        "completion-figure-20261102-source-components-interactive-compounding-error-tsx-1fbe1aa470",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-compounding-error-tsx-844cb86832"
+      ],
+      "reason": "components/interactive/compounding-error.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/control-loop-budget.tsx",
+      "sourcePath": "components/interactive/control-loop-budget.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "3dad3a47388df05c657f039be23a93a1a79a1db2a5405efbb610549757d3c24c",
+      "currentSourceSha256": "9d19ec40912043eecae16851768216038b4148269948046f66791fe524f5d1fa",
+      "oldMemberHash": "a2353970c87d58d2f2bdd7b39f12c204c612a6d1131012b08f7cf2255bff5183",
+      "newMemberHash": "e3d68d472b1c58b39cc50b80c0a8864ae9b77972163214b2c80555c0751aad64",
+      "priorApprovalIds": [
+        "manipulation-rl-20260907-9",
+        "performance-worldmodels-20260908-12",
+        "completion-figure-20261102-source-components-interactive-control-loop-budget-tsx-097cd3b296",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-control-loop-budget-tsx-a2353970c8"
+      ],
+      "reason": "components/interactive/control-loop-budget.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/cross-embodiment-strategies.tsx",
+      "sourcePath": "components/interactive/cross-embodiment-strategies.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "57b9c4a94cdeccb51d964f452952d613683262a3e9b257318d274a0e464e8da6",
+      "currentSourceSha256": "b7d3520344e12275333ea0e469f54db0c5cc55409d8295e27ac526ca4488ad7f",
+      "oldMemberHash": "8ad71cffb273fe7c247732e7404afb638d6b845d5f973760775c0f2fbd2db634",
+      "newMemberHash": "50c0391c2930be950c1e54b01535b0bb51e8726f1ac719a7574c9b878973e6a2",
+      "priorApprovalIds": [
+        "oft-gemini-oxe-20260908-12",
+        "go-helix-cross-transfer-20260908-12",
+        "perf-articles-20260923-src-cross-embodiment-strategies",
+        "completion-figure-20261102-source-components-interactive-cross-embodiment-strategies-tsx-2239a51025",
+        "completion-ui-20261102-interactive-sources-mounts-components-interactive-cross-embodiment-strategies-tsx-7c59ff3087",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-cross-embodiment-strategies-tsx-8ad71cffb2"
+      ],
+      "reason": "components/interactive/cross-embodiment-strategies.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/cube-trials.tsx",
+      "sourcePath": "components/interactive/cube-trials.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "431bce36b8b80718978e73f432dd7978bfea56cab7a2abecc24d5dc3128fa565",
+      "currentSourceSha256": "022415bd2f9cfd1aae2d74f0235796f28850db7fd2def950f7e08a4dff657044",
+      "oldMemberHash": "5bfb60da1bb8062ffb4dff75bcb7918361f8e6c95b55c2e9f6692cac460ea20e",
+      "newMemberHash": "fd147212d0fdf69a1e72e99da6cce5da68723386145cca70ddcd24bc040dd9b4",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-cube-trials-tsx-5cf3a5274e",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-cube-trials-tsx-5bfb60da1b"
+      ],
+      "reason": "components/interactive/cube-trials.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/data-scale-chart.tsx",
+      "sourcePath": "components/interactive/data-scale-chart.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "3f5f6f325918d833cf5828cfa5f2a1c638ac59410fab111752b2d6f9831529c9",
+      "currentSourceSha256": "cc62951ac27ebc5f1eb94417bd109eda99d176a227cf0f251fc86e2212a9b9a1",
+      "oldMemberHash": "623b16b106b8d02a7dc852bfd42ca9270b5407392dfc90df3be042c4017f0202",
+      "newMemberHash": "fffdaf09bd2082fb81581014b7de3a12ce7fce47ecf242811edffe434b5805dd",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-77",
+        "round5-closeout2-src-interactive-data-scale-chart-tsx",
+        "data-bottleneck-zero-credit-20260922-3",
+        "continuation-merge-2026-09-23-interactive-sources-mounts-source-components-interactive-data-scale-chart-tsx",
+        "release-oxe-link-safety-20260923-interactive-sources-mounts",
+        "final-seven-closure-20260923-5",
+        "continuation-merge-2026-09-24-0140-interactive-sources-mounts-source-components-interactive-data-scale-chart-tsx",
+        "completion-figure-20261102-source-components-interactive-data-scale-chart-tsx-b0824c5b9e",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-data-scale-chart-tsx-623b16b106"
+      ],
+      "reason": "components/interactive/data-scale-chart.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/dataset-runs-hours.tsx",
+      "sourcePath": "components/interactive/dataset-runs-hours.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "11edd2d5fc33e920ed8af535e09062e0ca884ccb4a3f3a632ed678fb614ce2f5",
+      "currentSourceSha256": "d89531e15762d64fa46254d309a4919872aec794d92bb0c68e5f4a8b9285bbe1",
+      "oldMemberHash": "069c5732811bf3dfca43cf8fa9f3b8920d715f9fb3314b8e49a7ae73402b91ed",
+      "newMemberHash": "c732cf4534450f71d791ec942d2e5fe2e8a9036d1b55d661e30497062004dcf8",
+      "priorApprovalIds": [
+        "owed-figures-dh-20261026-source-dataset-runs-hours",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-dataset-runs-hours-tsx-069c573281"
+      ],
+      "reason": "components/interactive/dataset-runs-hours.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/demo-or-sim.tsx",
+      "sourcePath": "components/interactive/demo-or-sim.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "6b22dded28cc7f2da1bac7187c1c584d5d5dc89dfd67b3f988dcbdcbb5da32b8",
+      "currentSourceSha256": "c75f5eb47cc127d9ce3dc0b2af93dd006c4dca97cf0d5bbfbd6fa72eeec6e84c",
+      "oldMemberHash": "9b85662100571be6f41e7a89a708641531ad8b86ca450430adca669046369140",
+      "newMemberHash": "f1aadf6e04a7cf9b94437bf2fac312e071dbb3b1035fac058298b52a887b6249",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-demo-or-sim-tsx-051e2ed0e6",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-demo-or-sim-tsx-9b85662100"
+      ],
+      "reason": "components/interactive/demo-or-sim.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/deployment-dashboard.tsx",
+      "sourcePath": "components/interactive/deployment-dashboard.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "abce4f26b9d914ba389ff952779e9ef0b3dde2c441ef27d6b00f84fb0c589b88",
+      "currentSourceSha256": "c1a4ccd9b3c23b5f26b2a4483713451304f2049d3fdc1fdaeebdc7b73b17ce60",
+      "oldMemberHash": "39a7c9afd927bf5232af613ce752918e6e98ab545d66209773c13e2287909748",
+      "newMemberHash": "6ebea3e8d35f3177aa1bfd3207c0b6b826779909248590c6fcb88836f6b8473a",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-80",
+        "round5-closeout2-src-interactive-deployment-dashboard-tsx",
+        "perf-articles-20260923-src-deployment-dashboard",
+        "continuation-merge-2026-09-24-tech-withdrawal-interactive-deployment-dashboard",
+        "completion-figure-20261102-source-components-interactive-deployment-dashboard-tsx-39a7c9afd9"
+      ],
+      "reason": "components/interactive/deployment-dashboard.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/deployment-economics.tsx",
+      "sourcePath": "components/interactive/deployment-economics.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "79e1072d6e752423fe2124f004bb25d9a5c5289bf16c35e57c06a3236f67cf6e",
+      "currentSourceSha256": "f25e72292f4825c0a85dd1cced7f1ae55a52b4c3fc2da163a34d4abed4984d9a",
+      "oldMemberHash": "c81ec1e7db3a1e40ef4cce8a61b3108595679a16b56ae842f1e7ac7f9d8d0b97",
+      "newMemberHash": "a893989f4cfd21c478453fd9901019b801364a6ac4e29e5c2526ab8e9a66c650",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-81",
+        "round5-closeout2-src-interactive-deployment-economics-tsx",
+        "economics-local-20260923-2",
+        "continuation-merge-2026-09-23-1430-interactive-sources-mounts-source-components-interactive-deployment-economics-tsx",
+        "continuation-merge-2026-09-24-0305-interactive-sources-mounts-source-components-interactive-deployment-economics-tsx",
+        "completion-figure-20261102-source-components-interactive-deployment-economics-tsx-c81ec1e7db"
+      ],
+      "reason": "components/interactive/deployment-economics.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/drone-champions-timeline.tsx",
+      "sourcePath": "components/interactive/drone-champions-timeline.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "e7bd1780989bd681cb98f8c26b1bcdee8afa0bac8694a2ac3d12eae5514ee830",
+      "currentSourceSha256": "7ccbd6f54e728ed92ffb13a58ac190f2afafd4d1997bb0cb261f85c2785a7b73",
+      "oldMemberHash": "545e9961db6b9eac184235ec7dc21d03e66f7c2207dfa361a15df9a5e3b39e96",
+      "newMemberHash": "cb2c7175769bb3cda0fb835516420f7f97ffdb31843a884a98a7c6e620df8dd0",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-drone-champions-timeline",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-drone-champions-timeline-tsx-545e9961db"
+      ],
+      "reason": "components/interactive/drone-champions-timeline.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/excavator-practice.tsx",
+      "sourcePath": "components/interactive/excavator-practice.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "e1c37bae8372986af744b58d648bae59edd3769b2142ab753f30ed8bd0d2eb6f",
+      "currentSourceSha256": "c5fc80d8856a2d73067881f6512fcab1b1e8c0881bf4b4fc1b92cf47350160e1",
+      "oldMemberHash": "7b414a0122741427be1d15a184001b5ed328009d613d1d98dcd4504b997bcba0",
+      "newMemberHash": "c5f24da109a16ff20d9b395331f00412a023b77df29c39e81d009a26dae87eb2",
+      "priorApprovalIds": [
+        "anatomy-wm-b03-figures-20261015-interactive-sources-mounts-source-excavator-practice",
+        "mount-evidence-20261024-interactive-sources-mounts-source-excavator-practice",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-excavator-practice-tsx-7b414a0122"
+      ],
+      "reason": "components/interactive/excavator-practice.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/execution-modes.tsx",
+      "sourcePath": "components/interactive/execution-modes.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "967d4c516971a3130086c996eb4d9037d0b871022b20f7b57c53f128a2ad972f",
+      "currentSourceSha256": "3fdcd6f301a43ce28cd3885c1fa7409806df781572c7ebf50f1d11bc54090bb6",
+      "oldMemberHash": "c11883c131561e5b444472dff84f2b69a11963405a8894506d58c4a74a4cfc4e",
+      "newMemberHash": "f3718e5024b61d2f398088ad4d70b52e383245842fb38273b335eab726a5a925",
+      "priorApprovalIds": [
+        "performance-worldmodels-20260908-13",
+        "completion-figure-20261102-source-components-interactive-execution-modes-tsx-88346d732f",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-execution-modes-tsx-c11883c131"
+      ],
+      "reason": "components/interactive/execution-modes.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/expo-ft-results.tsx",
+      "sourcePath": "components/interactive/expo-ft-results.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "0f8d8d463b18931c50a1e68d3edaef47240077ed52b2e18c0458565a952d435d",
+      "currentSourceSha256": "bbd0658a53b63529166f64f11633065c7a10cc956546806052e983ad103be29b",
+      "oldMemberHash": "38f36fc09e155856770b0d334812dafa8a89da305f370dd32fb6893cb4d37d93",
+      "newMemberHash": "8e106944d2fa5c1e141c508827b807f4f4f7d00d5e44a2b9db63d32f156f264b",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-expo-ft-results-tsx-38f36fc09e"
+      ],
+      "reason": "components/interactive/expo-ft-results.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/flow-matching-trajectory.tsx",
+      "sourcePath": "components/interactive/flow-matching-trajectory.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "a8d86a6abbca57963899c6599d6bf410909230a78fc6189298d9e7332cee5485",
+      "currentSourceSha256": "7403b6ccbe5fa7eaed9fb4622fab6846a412811987ac30f01acb8f3cf92603c0",
+      "oldMemberHash": "c1463d5c8c4655b854da93cc609c4e033884211743ffeecdf9f91e46d6e8964a",
+      "newMemberHash": "1ad55296f7cac29017e2c3adbee9c0aa062d915b5aa5488dfeb153f1a9cd3009",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-84",
+        "round5-closeout2-src-interactive-flow-matching-trajectory-tsx",
+        "completion-figure-20261102-source-components-interactive-flow-matching-trajectory-tsx-03212afe65",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-flow-matching-trajectory-tsx-c1463d5c8c"
+      ],
+      "reason": "components/interactive/flow-matching-trajectory.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/funding-humanoid-counts.tsx",
+      "sourcePath": "components/interactive/funding-humanoid-counts.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "99b46a207ffd526bfec551ef7ffb88297f8e086ee5a62e693dcedc6cf09e6445",
+      "currentSourceSha256": "e1a0c39f7e89a57aa42d310eab5f159d97d23556d45b80ba17eb851cf1a037a3",
+      "oldMemberHash": "4e9930056f819e22a7dd2142deeb59690e02feffebab3ce844e302ffc4465f59",
+      "newMemberHash": "54fd8e81b99d7d24af1e77a837018ffcaf01879772d1def6e961a138168449a4",
+      "priorApprovalIds": [
+        "owed-figures-frontier-20261027-source-funding-humanoid-counts"
+      ],
+      "reason": "components/interactive/funding-humanoid-counts.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/generalist-release-timeline.tsx",
+      "sourcePath": "components/interactive/generalist-release-timeline.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "fcf3e953a3fc08dfd7a9c98d6d22dfe4ac6547d6dfd9911c08d8db4b35cd4eb5",
+      "currentSourceSha256": "741af16db210a82de231a0e1cbd886ce272f9866ae3cd39fc52dfc4b09d87651",
+      "oldMemberHash": "7dc5b23ef68b601598388470b1087aaa007dc27df69837132881ea7d95d0f7eb",
+      "newMemberHash": "4c91b6d22a226c58353ac3140640c5600e44e97baa73d9f2de4f742399a866a9",
+      "priorApprovalIds": [
+        "oft-gemini-oxe-20260908-13",
+        "perf-articles-20260923-src-generalist-release-timeline",
+        "crossdomain-closure-20260923-3",
+        "continuation-merge-2026-09-24-0140-interactive-sources-mounts-source-components-interactive-generalist-release-timeline-tsx",
+        "completion-figure-20261102-source-components-interactive-generalist-release-timeline-tsx-77037cd0a4",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-generalist-release-timeline-tsx-2e31404bb0",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-generalist-release-timeline-tsx-7dc5b23ef6"
+      ],
+      "reason": "components/interactive/generalist-release-timeline.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/grasp-wrench-lab.tsx",
+      "sourcePath": "components/interactive/grasp-wrench-lab.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "54776a701204a7347ff7e3731673f59ecaac3d70cf60856534e4640d79bf091e",
+      "currentSourceSha256": "80dc7e213131dc79cda6c82ca88719bdb7d71be971386bb5dfb302d0be6d6a58",
+      "oldMemberHash": "51cd5d7b73c6a5c02ef06704757e2d3deeeb5c72dea34a294904fc8b74aefcb8",
+      "newMemberHash": "76559559778aa576e330605aad8e0f3f6b25e8179bdeba7abdce5529b038a07d",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-86",
+        "round5-closeout2-src-interactive-grasp-wrench-lab-tsx",
+        "reader-first-20261008-retest-interactive-sources-mounts-source-grasp-wrench-lab",
+        "domain-pass-20261008-sweep-source-grasp-wrench-lab",
+        "completion-figure-20261102-source-components-interactive-grasp-wrench-lab-tsx-c439c3cff4",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-grasp-wrench-lab-tsx-51cd5d7b73"
+      ],
+      "reason": "components/interactive/grasp-wrench-lab.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hand-comparison.tsx",
+      "sourcePath": "components/interactive/hand-comparison.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "3f188b70c5b406487954a7d7fea8a2e5b2a6a789e2de7f4823e972242c099f9a",
+      "currentSourceSha256": "818356676f2d8071f70523bad4ae53d428d45750d5f62fa7af965ec606fdcc5f",
+      "oldMemberHash": "4824ccadd43e3a06d04db45d53a781e09ef86e614aa3109e682ddbf1336d8180",
+      "newMemberHash": "06729006ebf178546b32412a3897ef194dd0d3466b01c341397c0464f8f40df5",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-87",
+        "round5-closeout2-src-interactive-hand-comparison-tsx",
+        "perf-articles-20260923-src-hand-comparison",
+        "completion-figure-20261102-source-components-interactive-hand-comparison-tsx-253e741a37",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-hand-comparison-tsx-4824ccadd4"
+      ],
+      "reason": "components/interactive/hand-comparison.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hand-eye-poses.tsx",
+      "sourcePath": "components/interactive/hand-eye-poses.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "5028efa1861680f0b854877ebb460e49d5a791d0ff0d14453eb544347a69c27b",
+      "currentSourceSha256": "6b1a340645596bc9fcb5a112b03d4450f499604ff1cb30b32c295fa2185b7919",
+      "oldMemberHash": "6d4964715847bd0174b6fe43e1922992a6e1faeae8a4d56112c703a6f85ba71c",
+      "newMemberHash": "11c9b6f8c30fbb61fccc757fcd9e58f02fc4e50a99a67976ee2ea5d41a3b3c1f",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-hand-eye-poses-tsx-3a8ad1364d",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-hand-eye-poses-tsx-6d49647158"
+      ],
+      "reason": "components/interactive/hand-eye-poses.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hardware-price-ladder.tsx",
+      "sourcePath": "components/interactive/hardware-price-ladder.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "2225b5f0e62353be4c04a99428cb42d51adb1e380e3ab8083d88c1b550f9b3ad",
+      "currentSourceSha256": "2e9cd029c1b426b9d0925245a14c563d53c0761b2a02878542a157bb77d2dbdc",
+      "oldMemberHash": "5183b7a445387f4c9097166b6e8cc2e7ded36bfeb5e58566c842d1e32c83da8d",
+      "newMemberHash": "daa0ec3878eb30a0596e9765956bf51a6310081c3350265117ab5d46405cfc2b",
+      "priorApprovalIds": [
+        "owed-figures-dh-20261026-source-hardware-price-ladder",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-hardware-price-ladder-tsx-dacdbe5432",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-hardware-price-ladder-tsx-5183b7a445"
+      ],
+      "reason": "components/interactive/hardware-price-ladder.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/helix-clockwork.tsx",
+      "sourcePath": "components/interactive/helix-clockwork.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "aeb151eadbc332d24a513a6fa95bb8e853b3d2580f0833bf26407af16f34a183",
+      "currentSourceSha256": "80d1346072fc94889bff9c683765e017360c2b17da85b3afe40c7539eeba6d1a",
+      "oldMemberHash": "bfbeaf7b01e1feb33e801a3effb9684c06b640a2caf7ecfb5039adca66d9c728",
+      "newMemberHash": "a1d1330394887ac2bcef50a5aed313534cc5d56558772237fcd7e7624d8eb7dd",
+      "priorApprovalIds": [
+        "anatomy-2-figures-20261012-interactive-sources-mounts-source-helix-clockwork",
+        "a11y-gate-20261017-interactive-sources-mounts-source-helix-clockwork",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-helix-clockwork-tsx-bfbeaf7b01"
+      ],
+      "reason": "components/interactive/helix-clockwork.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/humanoid-pick-height.tsx",
+      "sourcePath": "components/interactive/humanoid-pick-height.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "803a1c49eabd9217734365e8d866a4e609bc2b7f5e3cd42cfa4e33bbf02dc4d9",
+      "currentSourceSha256": "e0e58eced467c9430dac6bb7694820e8eea6ace04b522da511f64abbb4d80abe",
+      "oldMemberHash": "ad5776192e919880083f5ca5058403f4f73e6939e35c276e0fe3527d5d0809a2",
+      "newMemberHash": "093f9834c1d5a3f3e2d82e61e860e6b6fe0a69634aafcee6e871a267309aab0a",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-humanoid-pick-height-tsx-bb76808e36",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-humanoid-pick-height-tsx-cc944b5669",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-humanoid-pick-height-tsx-ad5776192e"
+      ],
+      "reason": "components/interactive/humanoid-pick-height.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-contact-lab.tsx",
+      "sourcePath": "components/interactive/impedance-contact-lab.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "d759f1492209c74d60336155f3d6b617477c888a8ae551df571bf5ca3dcbbd6f",
+      "currentSourceSha256": "6fcae7e718153e47f0f63b3d5f9ef4dfba0c81caafb427289337f17a15d0966c",
+      "oldMemberHash": "cbf56476db7e12ab3a53d16f9da91e346a4d34ca9b33b6b6a78b0abb4fcd9630",
+      "newMemberHash": "5d3d88230b26f70be0dcad7073317b7e287d6c99202f2fb6e72e31557ddb2efe",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-88",
+        "round5-closeout2-src-interactive-impedance-contact-lab-tsx",
+        "perf-articles-20260923-src-impedance-contact-lab",
+        "reader-first-20261008-interactive-sources-mounts-source-impedance-contact-lab",
+        "domain-pass-20261008-source-impedance-contact-lab",
+        "domain-pass-20261008-sweep-source-impedance-contact-lab",
+        "completion-figure-20261102-source-components-interactive-impedance-contact-lab-tsx-19e4d187bb",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-contact-lab-tsx-cbf56476db"
+      ],
+      "reason": "components/interactive/impedance-contact-lab.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "7b805d06bba627632cd2d6f1ceefed7abe58f966315fe1443261380a28f3c80f",
+      "currentSourceSha256": "ce321c5bacc8118eaa51d7c432386eccf185820d51826d4030f24235daa6a232",
+      "oldMemberHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943",
+      "newMemberHash": "4f8b327b007c0110a3436baa61c2a6d7da9e3460b2034639f6a86371a2bb95f8",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/jepa-planning.tsx",
+      "sourcePath": "components/interactive/jepa-planning.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "386f21453b860d33b2005ac3a0585361ade967d09d19e4f97abe6ff17aa384fb",
+      "currentSourceSha256": "ec0392f6013fa3b5d1835db925ecb13fb798047151777cb59e3fcd22220363f8",
+      "oldMemberHash": "4bc01f1d04663dc6d56484df87f5716f4acd0d1f4d8bd0489c399ac84cf029f3",
+      "newMemberHash": "c6e36655aef67b52afef4b63971087354b6ba4e211750e0cbdfea6164ed50d3d",
+      "priorApprovalIds": [
+        "jepa-source-closeouts-20260908-5",
+        "completion-figure-20261102-source-components-interactive-jepa-planning-tsx-6f9db64d1e",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-jepa-planning-tsx-475542b4a4",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-jepa-planning-tsx-4bc01f1d04"
+      ],
+      "reason": "components/interactive/jepa-planning.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/latency-comparison.tsx",
+      "sourcePath": "components/interactive/latency-comparison.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "3283014f61a3c1676f50d07d76c6402eb8d79165e5c7d4f939aa954838f6e110",
+      "currentSourceSha256": "5043a380b2348818f9a341f269519426b16bdb58dde86d87382db622df853e9f",
+      "oldMemberHash": "03deeab61473c718ed4203e6f6813f91366b9493b8cb98682534e3929ef179c1",
+      "newMemberHash": "be9e0622f7db4f744d1d52054ea9f99b125128225cd3142cdbc69bed751ce10c",
+      "priorApprovalIds": [
+        "act-current-claims-20260907-4",
+        "completion-figure-20261102-source-components-interactive-latency-comparison-tsx-2198772726",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-latency-comparison-tsx-03deeab614"
+      ],
+      "reason": "components/interactive/latency-comparison.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/latent-imagination.tsx",
+      "sourcePath": "components/interactive/latent-imagination.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "15e8901a8e827a060ef2184f32494be27978f3855d5e827d8501fd345243d475",
+      "currentSourceSha256": "6190cf6d15f482212360d7bde318fe863c9fcc114d3f0995406cf25e94b0b0a1",
+      "oldMemberHash": "debc4707e97ab9fa8b75f819554f28ca98b0c573a2f4628b127be1fa389fc6cd",
+      "newMemberHash": "9d04012475ec4d27e175ab4e1a87ab4275c746005e384001e7223f9300a51bc3",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-16",
+        "seo-merge-20260916-interactive-sources-mounts-90",
+        "completion-figure-20261102-source-components-interactive-latent-imagination-tsx-3f8c9a231c",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-latent-imagination-tsx-debc4707e9"
+      ],
+      "reason": "components/interactive/latent-imagination.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/linearization-gap.tsx",
+      "sourcePath": "components/interactive/linearization-gap.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "0b4a38fe397ba94165081e89b477cdf51a7ac74772d8fecba719d24183aa86f2",
+      "currentSourceSha256": "f76c9d5311280b230f22818313f736aaac643bbae87b0079478f6e0b3b7bcd4e",
+      "oldMemberHash": "71c7f32bb8ea173d0860c123e9fa1a030e57d254b2d7ecb62d6fc820143312d2",
+      "newMemberHash": "8c867895f14117e1988d837691069306172535b45aa0e1e54789a6acd16cfe7d",
+      "priorApprovalIds": [
+        "anatomy-crda-b01-figures-20261020-interactive-sources-mounts-source-linearization-gap",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-linearization-gap-tsx-71c7f32bb8"
+      ],
+      "reason": "components/interactive/linearization-gap.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/loop-closure.tsx",
+      "sourcePath": "components/interactive/loop-closure.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "f4838d6ba21de5aafea64e53b50cccf3385a44258d01c1def691e168c9de84fa",
+      "currentSourceSha256": "454a4d3f270dd84b56231c34200de3dc879092269b751815cc89644283b6491b",
+      "oldMemberHash": "db49928f58ee85de9df18839fd041b1d92d7685a6d4f43cc4830fb322746d17b",
+      "newMemberHash": "ff3399b058ed00bb150b97160bb3a7e7abd6b6917ce8dcfe7b33d7a7054b1185",
+      "priorApprovalIds": [
+        "anatomy-loop-b01-figures-20261020-interactive-sources-mounts-source-loop-closure"
+      ],
+      "reason": "components/interactive/loop-closure.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/milestones-watchlist.tsx",
+      "sourcePath": "components/interactive/milestones-watchlist.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "899e4965d4acb96849f69e919120aeeee519804fa1a820a34f249d471d1521ed",
+      "currentSourceSha256": "aad47842cde4f37167075397566b485d845d1bf6f3ec0594ea683ab62434828c",
+      "oldMemberHash": "c2cb7b8b0648b11157ae8eea4e1b284124b731e32265f0498c4d15d59f3314b3",
+      "newMemberHash": "b59bb11b7aecb8922fe8a906d338e8d8a8a2fdd7db6ebfa52f0d23105988b156",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-91",
+        "round5-closeout2-src-interactive-milestones-watchlist-tsx",
+        "perf-articles-20260923-src-milestones-watchlist",
+        "completion-figure-20261102-source-components-interactive-milestones-watchlist-tsx-6d6e1d775a",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-milestones-watchlist-tsx-c2cb7b8b06"
+      ],
+      "reason": "components/interactive/milestones-watchlist.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/mot-insulation.tsx",
+      "sourcePath": "components/interactive/mot-insulation.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "3e0a39e0a6022c1826cfadf7898c58eeb59b7213b578ae03b315abf251f34382",
+      "currentSourceSha256": "e1c860628bdb14049e4960dbca679067a4e42a5574ae1600c6dc9a1b7886c3af",
+      "oldMemberHash": "c6837447a2229f3d8fbeceaf5599699896243f0b317ddc9b130b0694f9337144",
+      "newMemberHash": "59ed613b4e9a9efeea6214df86c355e50c880a8f1fc09876d9d2aeab50ddea1c",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-17",
+        "perf-articles-20260923-src-mot-insulation",
+        "completion-figure-20261102-source-components-interactive-mot-insulation-tsx-056bc65786",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-mot-insulation-tsx-c6837447a2"
+      ],
+      "reason": "components/interactive/mot-insulation.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/mpc-vs-rl.tsx",
+      "sourcePath": "components/interactive/mpc-vs-rl.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "9c356cf750f0e71084fee9b47e7c2d8be686f5045302e5030e8ee42c8a5018d7",
+      "currentSourceSha256": "58bfbd9286c0fb8aaa794ea16aef6f4daca24f8d105880caf59c07bdd3498168",
+      "oldMemberHash": "4019ce564e04133f772f35d50e2087719d6626f99fd12a8d5436aebd0479bc33",
+      "newMemberHash": "386b5800f9782cfac5d0b5449c057a570f1659ab12e185ec63ef2f3aa6b79e99",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-92",
+        "round5-closeout2-src-interactive-mpc-vs-rl-tsx",
+        "completion-figure-20261102-source-components-interactive-mpc-vs-rl-tsx-4019ce564e"
+      ],
+      "reason": "components/interactive/mpc-vs-rl.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/newton-solvers.tsx",
+      "sourcePath": "components/interactive/newton-solvers.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "0a0969b9b3ab052a9f6e149aa01bcd9a4be9eca38762434372d539e6a31446a0",
+      "currentSourceSha256": "8e0af15a57c98240409437309e85f0ebe77e3c3b306494962530bbc034fa0997",
+      "oldMemberHash": "08175b688b2c386bb92f0ca8bb4cc3d34ad087234fdc4721141c1eb04b08f661",
+      "newMemberHash": "11a549af9b0fe1ea06fb34c20fbd25e8abebff7117e02007c7827a005dcd99af",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-newton-solvers-tsx-792a90d2b3",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-newton-solvers-tsx-08175b688b"
+      ],
+      "reason": "components/interactive/newton-solvers.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/noise-or-edit.tsx",
+      "sourcePath": "components/interactive/noise-or-edit.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "dbae02eb9feda865ee959cbc6d199214406c724302409d39b2081b8217218e4b",
+      "currentSourceSha256": "db11ac6bad8b0533f3cf46c082ed76cd7067ec3657ca4691c4716f605282e20d",
+      "oldMemberHash": "a2ff6415c21c56f3b007df5c95d03f6da49722004f9b8bdc52f7c73e359b84b1",
+      "newMemberHash": "79ac737bd01889684733eaa4963458a93eecec591cfcc11b1625597004de0553",
+      "priorApprovalIds": [
+        "anatomy-mwf-b01-figures-20261020-interactive-sources-mounts-source-noise-or-edit",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-noise-or-edit-tsx-a2ff6415c2"
+      ],
+      "reason": "components/interactive/noise-or-edit.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/offline-value-overreach.tsx",
+      "sourcePath": "components/interactive/offline-value-overreach.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "4968196196802ce16959a5a6f3fd45ca4f030d1a4bdbbf5fdaafba02263f61d8",
+      "currentSourceSha256": "b22d380368fb099c96503579f9fe6077bc351f4d2f105d6840c612a725651049",
+      "oldMemberHash": "dbdec7efb0e04816c3c75548c4508eb38fe78ab2d5dcc7c9165d55efba1e6e5d",
+      "newMemberHash": "cb14e0c8e8ea419e1cf7188f9384b86a0bb3680cb0c47e11ff3262f183c6c7e8",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-offline-value-overreach-tsx-37b616cbdb",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-offline-value-overreach-tsx-dbdec7efb0"
+      ],
+      "reason": "components/interactive/offline-value-overreach.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pi-generation-timeline.tsx",
+      "sourcePath": "components/interactive/pi-generation-timeline.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "8c9c278623e893b5002958b3cf193f5bebe44b4c56b8576585619bdeedfc10aa",
+      "currentSourceSha256": "6f22f214b03386b4eeb1ac23680ed46824635b0d5e1b59ed10c2a32b0c89b683",
+      "oldMemberHash": "b13ccff11a61b91c52f64b1e1775c877f293e513e9f0969c2b9183e983c3404c",
+      "newMemberHash": "8c8880e2bc809664679d077ffe8518a4dc11c3e00225d81581397483876fddf4",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-18",
+        "perf-articles-20260923-src-pi-generation-timeline",
+        "completion-figure-20261102-source-components-interactive-pi-generation-timeline-tsx-22927547a2",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-9559e61afd",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-b13ccff11a"
+      ],
+      "reason": "components/interactive/pi-generation-timeline.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/planar-fk-arm.tsx",
+      "sourcePath": "components/interactive/planar-fk-arm.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "779d50541ddf04715e20df3a2a37a5b283d03f382383a517979818e69934b24d",
+      "currentSourceSha256": "9c20173d70d154c2f9f96d38701814fb3343766f7765242cf93fb7d34ba0fdcc",
+      "oldMemberHash": "a5ed41f18f09b89b1b902bde64ffb2d2804cc5734d09a2c1c46c50b1a41d4db7",
+      "newMemberHash": "965e1147df4c0e54ebd4d54a9cb7b0389173b7cc97160e696b20db98515da5b4",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-95",
+        "round5-closeout2-src-interactive-planar-fk-arm-tsx",
+        "reader-first-20261008-interactive-sources-mounts-source-planar-fk-arm",
+        "domain-pass-20261008-sweep-source-planar-fk-arm",
+        "completion-figure-20261102-source-components-interactive-planar-fk-arm-tsx-b4b59eb34e",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-planar-fk-arm-tsx-a5ed41f18f"
+      ],
+      "reason": "components/interactive/planar-fk-arm.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/planner-exploit.tsx",
+      "sourcePath": "components/interactive/planner-exploit.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "bd5b4ec23bb56c23673ed72394ee741b969fe7688aaccf3a0149b57f35f35f89",
+      "currentSourceSha256": "501d28e2daf1ce2ea0f8709cda11329c7216590af55a620aa64cad25a14ece8d",
+      "oldMemberHash": "301b4cd54bc9f70deee9a754028f1a36c3ddb4c92e14a736cca9455e8f8053ef",
+      "newMemberHash": "c98485f813e913071ab74fb43517c3765e7fe6910acd428168093c2423fcf265",
+      "priorApprovalIds": [
+        "anatomy-wm-b03-figures-20261015-interactive-sources-mounts-source-planner-exploit"
+      ],
+      "reason": "components/interactive/planner-exploit.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/qos-queue-age.tsx",
+      "sourcePath": "components/interactive/qos-queue-age.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "2aee16decc7382dd7a85981af8ffb53ddc4bcfc1f4269b659d77afeb9cd8a8fe",
+      "currentSourceSha256": "141f737fa211be92cc478202a1c36d1cf31c7e01908979cd012d94a94d11f3d4",
+      "oldMemberHash": "991e3daddd3238d17c2760f52761042fd694ea458e380e0f532ef812ab009d2d",
+      "newMemberHash": "70c287bc336f8f65bd2ccd11019f861b07b51334482456be092c43f2ea704a06",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-qos-queue-age-tsx-af68ba9c5d",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-qos-queue-age-tsx-991e3daddd"
+      ],
+      "reason": "components/interactive/qos-queue-age.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/real-robot-rl-gains.tsx",
+      "sourcePath": "components/interactive/real-robot-rl-gains.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "b57b3de1634ae15b2c7a6b8131c027e80d6d8efb93fdd08516cdc483ccd2e2f4",
+      "currentSourceSha256": "9678afd8c88a674e28f5295952ad57e54eb8dc52bf9bdb1d5de386621877a96e",
+      "oldMemberHash": "96654dd6f096b7a40aba5188ab5cbcda27afe6862822161c3167676628dcba70",
+      "newMemberHash": "34299f5bc5b531ee948cfd06ac4cbc00966c9dfb42cb9a79953f34e2419e9fb4",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-real-robot-rl-gains-tsx-db9e59d2aa",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-real-robot-rl-gains-tsx-96654dd6f0"
+      ],
+      "reason": "components/interactive/real-robot-rl-gains.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/receding-horizon.tsx",
+      "sourcePath": "components/interactive/receding-horizon.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "d0d390435fea4dd2e1ead3f25ebeab5f996612e52855a41cc253494172efa004",
+      "currentSourceSha256": "65ecc1a10835ca0e28f9a225eadbebeaf61ac835980048830713701ee6f7c355",
+      "oldMemberHash": "2e8dcf5451d790d5df1c95e4d05a26c25e6e0388fd357e6a7cc7d961f2bb5d07",
+      "newMemberHash": "14cd3d1e6067df72cba294a397cfa670466792742e1bde96a9a45f797bd21208",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-96",
+        "round5-closeout2-src-interactive-receding-horizon-tsx",
+        "completion-figure-20261102-source-components-interactive-receding-horizon-tsx-fc9a72b276",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-receding-horizon-tsx-2e8dcf5451"
+      ],
+      "reason": "components/interactive/receding-horizon.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/replay-reuse.tsx",
+      "sourcePath": "components/interactive/replay-reuse.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "558b239e451a1e7efc6ab32b3ff1ec71c7467d5c1b0f2c119fdd369689e2595d",
+      "currentSourceSha256": "25259abc80b4b2b9b3aa08383d68c6d8a2216c240d4953c3aa4dd017ed829f11",
+      "oldMemberHash": "d3ad0bb60d6eb06c29b21f49ea5e346a582071dc73d8828a9d6ba4a5bde598ab",
+      "newMemberHash": "b95edbe56fa57d8142b797460f8e316a119af902ea8ff66c4fac55b768cdf832",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-replay-reuse-tsx-2e54a683b2",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-replay-reuse-tsx-d3ad0bb60d"
+      ],
+      "reason": "components/interactive/replay-reuse.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/retargeting-gap.tsx",
+      "sourcePath": "components/interactive/retargeting-gap.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "3637ce7a381c80262effd66cc38a4d44190e7c8231b1d1cf71429a8d38e543cd",
+      "currentSourceSha256": "f842ad4fb24ad61bc6465e19242a501638202059e279505d3f4921aece3d80e8",
+      "oldMemberHash": "1e5c573931b11beb6d359a94c85c94ee00984f17d86b36776596d841ad47f42c",
+      "newMemberHash": "3b72d03f70b4e4cb06aced9ab9a9ad224e42b8810f4c7fad3f530e29279844c5",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-retargeting-gap-tsx-6afed658e2",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-retargeting-gap-tsx-1e5c573931"
+      ],
+      "reason": "components/interactive/retargeting-gap.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/ros2-interfaces.tsx",
+      "sourcePath": "components/interactive/ros2-interfaces.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "9a28902f38be1449880776e115f823110b6d128e9c101c11101041830c5d341c",
+      "currentSourceSha256": "d84c0d3af597f73cc32bb9562e9db24cdc433ed288207bc53660866a202fded8",
+      "oldMemberHash": "672900669f8943d47879130e1d7f1bb03650cf0afbede3d5cb4db9ea0f63bba6",
+      "newMemberHash": "03ab7bbe6d13604f85892f6f8116d53ddfe52b3c6deac67976ff104306e7bc50",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-ros2-interfaces-tsx-f7a85564b2",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-ros2-interfaces-tsx-672900669f"
+      ],
+      "reason": "components/interactive/ros2-interfaces.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/safety-filter-fence.tsx",
+      "sourcePath": "components/interactive/safety-filter-fence.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "727d585046ef5fbd72a867dcab3c4e832f325aae63632dc16596eaecf5ac2945",
+      "currentSourceSha256": "13d5e7345434a15e344373c261f3f54fff59a73715826362c5fddd5a682815a5",
+      "oldMemberHash": "8482c573b03790a997e2a3c5bcd171ebdf542f86ce3c063925313efa9b50eb2d",
+      "newMemberHash": "5f25a3064e1dd989923894d86022670c521acdcb7a08bdc1810feed47320271e",
+      "priorApprovalIds": [
+        "anatomy-frontier-b02-figures-20261015-interactive-sources-mounts-source-safety-filter-fence",
+        "a11y-gate-20261017-interactive-sources-mounts-source-safety-filter-fence",
+        "mount-evidence-20261024-interactive-sources-mounts-source-safety-filter-fence",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-safety-filter-fence-tsx-8482c573b0"
+      ],
+      "reason": "components/interactive/safety-filter-fence.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/safety-rules-timeline.tsx",
+      "sourcePath": "components/interactive/safety-rules-timeline.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "a1850da1646b319270142e6546ae57616505ba99cd60d9b81826aea80c99edab",
+      "currentSourceSha256": "45379ef6971548aba9027637c536749792a4a0692662c4a3a9fe7804f1d9f9b5",
+      "oldMemberHash": "ddf5ada1a3f681f3414ca0b48939452fd8578dc853692ac0df87a376485aeaa2",
+      "newMemberHash": "480e394a49ccdc2183a62bc203b4a3bc42785f8e59483831796d6d75c41287ff",
+      "priorApprovalIds": [
+        "owed-figures-frontier-20261027-source-safety-rules-timeline",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-safety-rules-timeline-tsx-ddf5ada1a3"
+      ],
+      "reason": "components/interactive/safety-rules-timeline.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/sample-efficiency-ledger.tsx",
+      "sourcePath": "components/interactive/sample-efficiency-ledger.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "c49ce14d02946d470f1feb545ebf6de4745635d7ca46a9fff313f19c3823113a",
+      "currentSourceSha256": "4bfdf56cd4d1acee70e392c1f17cc6396429f76cd043037fbdb8527bb7761ec7",
+      "oldMemberHash": "b34a2a835f4b78510c2053ebf61a312e0cc5aacbd1d4f780eae539fc3044f966",
+      "newMemberHash": "8a982397853526ad37401fae78392a104654af4c997462250b13ce9c37c4285b",
+      "priorApprovalIds": [
+        "rl-source-closeouts-20260908-4",
+        "seo-merge-20260916-interactive-sources-mounts-99",
+        "perf-articles-20260923-src-sample-efficiency-ledger",
+        "completion-figure-20261102-source-components-interactive-sample-efficiency-ledger-tsx-cc0fd3ce83",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-sample-efficiency-ledger-tsx-b34a2a835f"
+      ],
+      "reason": "components/interactive/sample-efficiency-ledger.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scanned-twin-check.tsx",
+      "sourcePath": "components/interactive/scanned-twin-check.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "f9a7d0c36faf9448391b88a239107f8484285739562bf9c0ab372e7568773c19",
+      "currentSourceSha256": "b8667f6960a290c660c78c180cb2d2715795f6639a15a47b1797cb6f84126ab0",
+      "oldMemberHash": "cc945e128f5ca916100413f182ecf324c297947148c48abc70fb39b45bf05790",
+      "newMemberHash": "bcdc033b6e00e4f2819c62e96e520e7c5e8a136b90682318deb61141aab22e76",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-scanned-twin-check-tsx-afbf825685",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-scanned-twin-check-tsx-cc945e128f"
+      ],
+      "reason": "components/interactive/scanned-twin-check.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scene-representation-ladder.tsx",
+      "sourcePath": "components/interactive/scene-representation-ladder.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "2a55393b38e7db592b427610f6cb18095e0b71b4d14e21ec35c64b67128de160",
+      "currentSourceSha256": "033255de76d423b0694f6adabf709db3fe1f1c44daabdc82b8353d0fa24380dd",
+      "oldMemberHash": "0b0071753db0f44970d23ae4e457207c56cc19a17eb4ee57b5ac99b760cac67d",
+      "newMemberHash": "6a3422390d0b014d47c3f423615fa396158362786eea6e7c48649589e801d7bb",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-100",
+        "round5-closeout2-src-interactive-scene-representation-ladder-tsx",
+        "perf-articles-20260923-src-scene-representation-ladder",
+        "domain-pass-20261008-sweep-source-scene-representation-ladder",
+        "completion-figure-20261102-source-components-interactive-scene-representation-ladder-tsx-698d581917",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-scene-representation-ladder-tsx-0b0071753d"
+      ],
+      "reason": "components/interactive/scene-representation-ladder.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/space-latency-ladder.tsx",
+      "sourcePath": "components/interactive/space-latency-ladder.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "6df2d0ea52fa82bbed05d1594d38fa774bc5af69679cd271fdb6bd1d5bee8a1c",
+      "currentSourceSha256": "5c705191cb9f0a437ddfea2104a94c2399759a87253673599ec89269183197b8",
+      "oldMemberHash": "b57bfa2b88843410ac12c85ff278a293bb26a987abcae2ff7053a5edbad7bc0f",
+      "newMemberHash": "58be90d5120066aa5aa47a6507cf6f0d8ea0504a05ce0017be9e69b4628c7dcf",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-space-latency-ladder",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-space-latency-ladder-tsx-b57bfa2b88"
+      ],
+      "reason": "components/interactive/space-latency-ladder.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/surgical-autonomy-ladder.tsx",
+      "sourcePath": "components/interactive/surgical-autonomy-ladder.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "25668b3d5e8b123e1a384bdfde4c28dbfd41ccb853c46426f72bc07e515ab7c4",
+      "currentSourceSha256": "5261da8145c6c84e32254b16d84922a48e9b663fb4d67eec4d26c76219f6c98e",
+      "oldMemberHash": "657da4692dfb91f6cf260696ca21fcd0b9f0ca0c3e03d135e08826fd0546e0da",
+      "newMemberHash": "8eb14d91478f2686153d0728cb61f63687c6182a52333eb0aee3781f848192ea",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-surgical-autonomy-ladder",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-surgical-autonomy-ladder-tsx-657da4692d"
+      ],
+      "reason": "components/interactive/surgical-autonomy-ladder.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/teacher-student.tsx",
+      "sourcePath": "components/interactive/teacher-student.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "fab9f84a339f2df5d6d70386ddc4d3e49f25c6c9f91eda07b14d77f2e3e15f49",
+      "currentSourceSha256": "b93ae6bc5bfadf754b00ff01f705abc81579e20fe438d2523fb25f59fc903f6a",
+      "oldMemberHash": "26f7f55c318f4ab4219aab8720f2ffada5b2e35fee3fc8e350c8008e58a2a27e",
+      "newMemberHash": "03742f81d612dd705affc712c2469a0fb8a72da82996410f86557a97e3ba8350",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-101",
+        "round5-closeout2-src-interactive-teacher-student-tsx",
+        "sim2real-local-20260923-2",
+        "continuation-merge-2026-09-23-0740-interactive-sources-mounts-source-components-interactive-teacher-student-tsx",
+        "continuation-merge-2026-09-24-0305-interactive-sources-mounts-source-components-interactive-teacher-student-tsx",
+        "completion-figure-20261102-source-components-interactive-teacher-student-tsx-70542789a8",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-teacher-student-tsx-26f7f55c31"
+      ],
+      "reason": "components/interactive/teacher-student.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/thesis-explorer.tsx",
+      "sourcePath": "components/interactive/thesis-explorer.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "4a8ac523111e5a1be1408ecad805fc021a7fdebbf349897cec33e7aa1e84455d",
+      "currentSourceSha256": "9b7fdc1677c3fd10df76f25f009376c1ae54697e75f0af451bae273273fa4d71",
+      "oldMemberHash": "1a19ae203482de68242e41783ac19dbbf4c0769db4873a113cc6f5c8aa32f1fd",
+      "newMemberHash": "c03dd5527fdca9b22bc401e6adfa6bb21ad5912841ba69a7dd06821a2c20be90",
+      "priorApprovalIds": [
+        "cosmos-reader-closeout-20260908-6",
+        "seo-merge-20260916-thesis-explorer-cite-site",
+        "perf-articles-20260923-src-thesis-explorer",
+        "completion-figure-20261102-source-components-interactive-thesis-explorer-tsx-6b832988d3",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-thesis-explorer-tsx-1a19ae2034"
+      ],
+      "reason": "components/interactive/thesis-explorer.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/trajectory-stitching.tsx",
+      "sourcePath": "components/interactive/trajectory-stitching.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "1439df4d07e8447c61fe86414d972270c394a76aabaf91006ffb8b396a40a8b0",
+      "currentSourceSha256": "78bbd739bacdfabb77f307961f65253a6b4f72eff9ca35a40dc6c103818e6ed4",
+      "oldMemberHash": "ce7428abe7418d871ceea7225e29f1d77037123b5c7f23460e83930d7b2992a8",
+      "newMemberHash": "2c6cd17ae931a4cfc567331696618e74f34a8f1ad7e1d5b520bc90b6a08fd426",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-trajectory-stitching-tsx-65c07c1f91",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-trajectory-stitching-tsx-ce7428abe7"
+      ],
+      "reason": "components/interactive/trajectory-stitching.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/umi-collection-rates.tsx",
+      "sourcePath": "components/interactive/umi-collection-rates.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "31cd85270cb19b16bd9fa0a17a6e9a4f100b0c8a762f21e4edb285106328e26f",
+      "currentSourceSha256": "9563814e4ad2c716a61d82d9e3dcb39d19c6b1a5a4606bf513fadd4a1319d3fb",
+      "oldMemberHash": "572279d41670b7d6a5241362a2b5145ae2af673884e474b4acee62f86f904d4f",
+      "newMemberHash": "74b909da611c8b4f6c3491af3feadb64108c8334fcd6235392a6cf4478ba89f9",
+      "priorApprovalIds": [
+        "owed-figures-dh-20261026-source-umi-collection-rates",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-umi-collection-rates-tsx-572279d416"
+      ],
+      "reason": "components/interactive/umi-collection-rates.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/wbc-decomposition.tsx",
+      "sourcePath": "components/interactive/wbc-decomposition.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "b588d52a32d59407b753d0f157420abc9b29b1b8b31e89af57022023502edb10",
+      "currentSourceSha256": "af247fe2fa955473f22c71af23c008289aff6e92d4eab760849685ec631ff30c",
+      "oldMemberHash": "5d956b87665d0e51a9526ea6d72f11c130af7286f985532b3863d8f71c6a29fa",
+      "newMemberHash": "f8d183adea04eb9e8009682d660ca4261da0d1aa05fe771fea9fda14fdb55ebd",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-102",
+        "round5-closeout2-src-interactive-wbc-decomposition-tsx",
+        "completion-figure-20261102-source-components-interactive-wbc-decomposition-tsx-5d956b8766"
+      ],
+      "reason": "components/interactive/wbc-decomposition.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/wm-disambiguator.tsx",
+      "sourcePath": "components/interactive/wm-disambiguator.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "ddf22811e621ad2e76338af9c8851b0b0ecb16ee0c31a45df441bf2cab495aaf",
+      "currentSourceSha256": "0017ca3b137bd04d3bb6f432e982ce3b1ec0e39575a2d2ebe60038223ee04106",
+      "oldMemberHash": "b9138860ebdcd3fa2f0d8f0eb1563e2184717ff31e4ff628025fefa15800c764",
+      "newMemberHash": "c6ac9f2d6b5cd468db2fb67b31a90ea609bb9e5d06aea64620ab9bc78d0fb4bb",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-103",
+        "round5-closeout2-src-interactive-wm-disambiguator-tsx",
+        "completion-figure-20261102-source-components-interactive-wm-disambiguator-tsx-b9138860eb"
+      ],
+      "reason": "components/interactive/wm-disambiguator.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/world-model-evaluation-ladder.tsx",
+      "sourcePath": "components/interactive/world-model-evaluation-ladder.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "782316bdf06b74266c6a2017e2550518662d48b1a9acc80b6215ef52bc6a25e2",
+      "currentSourceSha256": "150a4a8f83ea4a583f96ad23d17f26b348fa1e6b99251414580f75599b8cacf2",
+      "oldMemberHash": "4409dd427858726f2777d17d031d2c1716b53434071b3f5e4f02c88a65ffa12f",
+      "newMemberHash": "5c1eb84f4a314006cd3f8be6be6329a1ec8ad251da26603a7e7366b43884a984",
+      "priorApprovalIds": [
+        "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-world-model-evaluation-ladder-tsx",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-world-model-evaluation-ladder-tsx-4409dd4278"
+      ],
+      "reason": "components/interactive/world-model-evaluation-ladder.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/world-model-output-times.tsx",
+      "sourcePath": "components/interactive/world-model-output-times.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "da7b1da01109fb853aef3786cedad537bc1e1fe3f496f3e44ed53535036865bd",
+      "currentSourceSha256": "a8e22ee4190b81d3a3246c363fc364e158cdeda97df6773163b0fb4864b303dd",
+      "oldMemberHash": "fc5172facb3426eeaf26a7ae63472c7c55b09097e35128f2fed4646d6e456595",
+      "newMemberHash": "5201c45f7653d230499eb13b895502ae92ba4e7324c39e7cfef806c18901634c",
+      "priorApprovalIds": [
+        "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-world-model-output-times-tsx",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-world-model-output-times-tsx-fc5172facb"
+      ],
+      "reason": "components/interactive/world-model-output-times.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "value-states",
+      "memberId": "state-source:components/interactive/data-scale-chart.tsx",
+      "sourcePath": "components/interactive/data-scale-chart.tsx",
+      "previousSourceCommit": "38145e1d",
+      "previousSourceSha256": "3f5f6f325918d833cf5828cfa5f2a1c638ac59410fab111752b2d6f9831529c9",
+      "currentSourceSha256": "cc62951ac27ebc5f1eb94417bd109eda99d176a227cf0f251fc86e2212a9b9a1",
+      "oldMemberHash": "623b16b106b8d02a7dc852bfd42ca9270b5407392dfc90df3be042c4017f0202",
+      "newMemberHash": "fffdaf09bd2082fb81581014b7de3a12ce7fce47ecf242811edffe434b5805dd",
+      "priorApprovalIds": [
+        "seo-merge-20260916-value-states-113",
+        "data-bottleneck-zero-credit-20260922-4",
+        "continuation-merge-2026-09-23-value-states-state-source-components-interactive-data-scale-chart-tsx",
+        "release-oxe-link-safety-20260923-value-states",
+        "final-seven-closure-20260923-11",
+        "continuation-merge-2026-09-24-0140-value-states-state-source-components-interactive-data-scale-chart-tsx",
+        "completion-value-state-20261102-state-source-components-interactive-data-scale-chart-tsx-b0824c5b",
+        "completion-reader-clarity-20261103-value-states-state-source-components-interactive-data-scale-chart-tsx-623b16b106"
+      ],
+      "reason": "components/interactive/data-scale-chart.tsx: address the second sealed blind-reader observations with explicit units, keyed marks, source-faithful name glosses and complete comparisons; retain scientific values, geometry, defaults, controls and canonical source records. This records the exact implementation successor and does not infer a passing reader verdict. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-round3-review.json; final blind and release verification remain required."
+    }
+  ]
+}

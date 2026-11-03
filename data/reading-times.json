@@ -1,230 +1,230 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1584,
+    "words": 1605,
     "minutes": 8
   },
   "manipulation/action-chunking": {
-    "words": 1980,
+    "words": 2067,
     "minutes": 10
   },
   "manipulation/diffusion-policy": {
-    "words": 1427,
+    "words": 1460,
     "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1811,
+    "words": 1871,
     "minutes": 9
   },
   "manipulation/pi-line": {
-    "words": 1801,
-    "minutes": 9
+    "words": 1926,
+    "minutes": 10
   },
   "manipulation/generalist-policies": {
-    "words": 1592,
+    "words": 1650,
     "minutes": 8
   },
   "manipulation/comparison-matrix": {
-    "words": 1637,
-    "minutes": 8
+    "words": 1713,
+    "minutes": 9
   },
   "manipulation/hierarchical": {
-    "words": 2023,
-    "minutes": 10
+    "words": 2123,
+    "minutes": 11
   },
   "manipulation/rl-finetuning": {
-    "words": 3372,
+    "words": 3448,
     "minutes": 17
   },
   "manipulation/realtime-execution": {
-    "words": 1574,
+    "words": 1636,
     "minutes": 8
   },
   "manipulation/cross-embodiment": {
-    "words": 1415,
-    "minutes": 7
+    "words": 1530,
+    "minutes": 8
   },
   "manipulation/knowledge-insulation": {
-    "words": 1070,
+    "words": 1089,
     "minutes": 5
   },
   "manipulation/robot-learning-roadmap": {
-    "words": 1014,
+    "words": 1027,
     "minutes": 5
   },
   "manipulation/action-spaces": {
-    "words": 1167,
+    "words": 1285,
     "minutes": 6
   },
   "manipulation/foundation-models": {
-    "words": 1313,
+    "words": 1373,
     "minutes": 7
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 1727,
+    "words": 1823,
     "minutes": 9
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1233,
+    "words": 1283,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1477,
-    "minutes": 7
+    "words": 1521,
+    "minutes": 8
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1914,
+    "words": 2007,
     "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1971,
+    "words": 2024,
     "minutes": 10
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 2380,
-    "minutes": 12
+    "words": 2525,
+    "minutes": 13
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2178,
+    "words": 2290,
     "minutes": 11
   },
   "rl-sim2real/offline-rl": {
-    "words": 1462,
-    "minutes": 7
+    "words": 1629,
+    "minutes": 8
   },
   "world-models/taxonomy": {
-    "words": 1665,
+    "words": 1686,
     "minutes": 8
   },
   "world-models/latent-dynamics": {
-    "words": 1368,
+    "words": 1470,
     "minutes": 7
   },
   "world-models/generative-video": {
-    "words": 2077,
-    "minutes": 10
+    "words": 2196,
+    "minutes": 11
   },
   "world-models/jepa": {
-    "words": 1596,
+    "words": 1633,
     "minutes": 8
   },
   "world-models/generative-sim": {
-    "words": 1621,
+    "words": 1698,
     "minutes": 8
   },
   "world-models/model-based-robot-learning": {
-    "words": 1313,
+    "words": 1448,
     "minutes": 7
   },
   "world-models/evaluation": {
-    "words": 1196,
+    "words": 1268,
     "minutes": 6
   },
   "world-models/world-models-vs-simulators": {
+    "words": 2211,
+    "minutes": 11
+  },
+  "data-hardware/data-bottleneck": {
+    "words": 2130,
+    "minutes": 11
+  },
+  "data-hardware/datasets": {
+    "words": 1969,
+    "minutes": 10
+  },
+  "data-hardware/hardware-taxonomy": {
+    "words": 3424,
+    "minutes": 17
+  },
+  "data-hardware/teleop-rigs": {
+    "words": 2160,
+    "minutes": 11
+  },
+  "data-hardware/evaluation-crisis": {
     "words": 2068,
     "minutes": 10
   },
-  "data-hardware/data-bottleneck": {
-    "words": 1947,
-    "minutes": 10
-  },
-  "data-hardware/datasets": {
-    "words": 1746,
-    "minutes": 9
-  },
-  "data-hardware/hardware-taxonomy": {
-    "words": 3115,
-    "minutes": 16
-  },
-  "data-hardware/teleop-rigs": {
-    "words": 2029,
-    "minutes": 10
-  },
-  "data-hardware/evaluation-crisis": {
-    "words": 1902,
-    "minutes": 10
-  },
   "data-hardware/industrial-deployment": {
-    "words": 2368,
+    "words": 2457,
     "minutes": 12
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1242,
-    "minutes": 6
+    "words": 1325,
+    "minutes": 7
   },
   "classical/kinematics": {
-    "words": 1864,
-    "minutes": 9
+    "words": 1928,
+    "minutes": 10
   },
   "classical/motion-planning": {
-    "words": 2859,
-    "minutes": 14
+    "words": 3135,
+    "minutes": 16
   },
   "classical/control": {
-    "words": 2288,
-    "minutes": 11
-  },
-  "classical/state-estimation": {
-    "words": 2838,
-    "minutes": 14
-  },
-  "classical/grasp-planning": {
-    "words": 1809,
-    "minutes": 9
-  },
-  "classical/perception": {
-    "words": 3042,
-    "minutes": 15
-  },
-  "classical/scene-representation": {
-    "words": 2403,
+    "words": 2449,
     "minutes": 12
   },
+  "classical/state-estimation": {
+    "words": 2971,
+    "minutes": 15
+  },
+  "classical/grasp-planning": {
+    "words": 1986,
+    "minutes": 10
+  },
+  "classical/perception": {
+    "words": 3301,
+    "minutes": 17
+  },
+  "classical/scene-representation": {
+    "words": 2917,
+    "minutes": 15
+  },
   "classical/calibration": {
-    "words": 993,
-    "minutes": 5
+    "words": 1130,
+    "minutes": 6
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1161,
+    "words": 1249,
     "minutes": 6
   },
   "frontier/reliability-gap": {
-    "words": 1309,
+    "words": 1378,
     "minutes": 7
   },
   "frontier/dexterity": {
-    "words": 2739,
-    "minutes": 14
+    "words": 2947,
+    "minutes": 15
   },
   "frontier/generalization": {
-    "words": 1780,
-    "minutes": 9
+    "words": 1976,
+    "minutes": 10
   },
   "frontier/competing-theses": {
-    "words": 2106,
+    "words": 2162,
     "minutes": 11
   },
   "frontier/bear-case": {
-    "words": 1503,
+    "words": 1538,
     "minutes": 8
   },
   "frontier/safety-and-assurance": {
-    "words": 2675,
-    "minutes": 13
+    "words": 3098,
+    "minutes": 15
   },
   "adjacent/autonomous-vehicles": {
-    "words": 2848,
-    "minutes": 14
+    "words": 3216,
+    "minutes": 16
   },
   "adjacent/drones": {
-    "words": 2121,
-    "minutes": 11
+    "words": 2418,
+    "minutes": 12
   },
   "adjacent/surgical": {
-    "words": 1987,
-    "minutes": 10
+    "words": 2204,
+    "minutes": 11
   },
   "adjacent/space": {
-    "words": 1919,
-    "minutes": 10
+    "words": 2230,
+    "minutes": 11
   }
 }

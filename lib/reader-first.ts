@@ -76,8 +76,45 @@ export function sourceDigest(root: string, sources: readonly string[]): string {
 }
 
 /** Names a tool, model or vendor; a record must stay neutral. */
-const NAMED_TOOL = /\b(claude|opus|sonnet|haiku|anthropic|openai|gpt|gemini|grok|llm|chatgpt|droid|playwright|chromium)\b/i;
+const NAMED_TOOL = /\b(claude|opus|sonnet|haiku|anthropic|openai|gpt|gemini|grok|llm|chatgpt|droid|playwright|chromium|codex)\b/i;
 const NEUTRAL_SESSION = /^reader-session-[0-9a-z-]+$/;
+const CHUNK_BUFFER_TAKEAWAY = 'Gemini Robotics answers in about 250 ms yet controls at 50 Hz because each answer carries a chunk of actions; 13 or more cover the wait, fewer leave the arm idle.';
+const ROBOTICS_PRODUCT = /\bGemini Robotics\b/gi;
+const PRODUCT_REVIEW_ATTRIBUTION = [
+  /\b(?:reviewed|read|written|generated|evaluated|judged|assessed|produced|checked)\s+(?:by|with|using)\s+Gemini Robotics\b/i,
+  /\b(?:reviewer|evaluator|assessor|judge|checker|assistant|agent|tool)(?:\s+(?:was|is|named|called))?(?:\s*[:,=]\s*|\s+)Gemini Robotics\b/i,
+  /\b(?:use|used|using|ask|asked|asking|employed)\s+Gemini Robotics\b[^.!?;\n]*?\b(?:review|evaluate|assess|judge|check)\b/i,
+  /\bGemini Robotics\s+(?:(?:as|was|is)\s+)?(?:the\s+)?(?:reviewer|evaluator|assessor|judge|checker|assistant|agent|tool)\b/i,
+  /\bGemini Robotics\s+(?:(?:has|had|will|would|can)\s+)?(?:reviewed|evaluated|judged|assessed|checked|generated|produced|wrote|review|evaluate|assess|judge|check)\b/i,
+];
+
+/** Identity validation is shared by the writer and reader. It never requires
+ * a passing verdict: an honest failed review must remain recordable. */
+export function readerRecordIdentityProblems(record: ReaderRecord, entry: RegistryEntry): string[] {
+  const problems: string[] = [];
+  if (!/^[0-9a-f]{7,40}$/.test(record.screenshotCommit ?? '') || !NEUTRAL_SESSION.test(record.reviewerSession ?? '') ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(record.date ?? '')) {
+    problems.push('record lacks its commit, date or neutral reviewer session');
+  }
+  const productEntry = entry.id === 'manipulation--comparison-matrix--chunk-buffer' &&
+    entry.route === '/manipulation/comparison-matrix/' && entry.mount === 'mount:/manipulation/comparison-matrix/:ChunkBuffer:1' &&
+    entry.takeaway === CHUNK_BUFFER_TAKEAWAY && record.takeaway === CHUNK_BUFFER_TAKEAWAY &&
+    record.route === entry.route && record.mount === entry.mount;
+  // Only this registered product name in actual observation content is
+  // subject matter. Attribution, identity and arbitrary extra fields stay
+  // fully scanned, as do every other tool name and a plain model name.
+  // Review-work attribution cannot borrow the product-name exception;
+  // a reader checking the robot's timings is still subject matter.
+  const content = (value: string) => typeof value === 'string' && !PRODUCT_REVIEW_ATTRIBUTION.some((pattern) => pattern.test(value))
+    ? value.replace(ROBOTICS_PRODUCT, '') : value;
+  const scanned = productEntry ? {
+    ...record,
+    takeaway: content(record.takeaway), sentence: content(record.sentence), reason: content(record.reason),
+    unclearTerms: Array.isArray(record.unclearTerms) ? record.unclearTerms.map(content) : record.unclearTerms,
+  } : record;
+  if (NAMED_TOOL.test(JSON.stringify(scanned))) problems.push('record names a tool, model or vendor');
+  return problems;
+}
 
 /** Problems with one entry's record, each naming the figure. */
 export function recordProblems(root: string, entry: RegistryEntry, rubric: LoadedRubric = loadRubric(root)): string[] {
@@ -114,11 +151,7 @@ export function recordProblems(root: string, entry: RegistryEntry, rubric: Loade
       problems.push(`${name}: missing ${width} px screenshot`);
     }
   }
-  if (!/^[0-9a-f]{7,40}$/.test(record.screenshotCommit ?? '') || !NEUTRAL_SESSION.test(record.reviewerSession ?? '') ||
-    !/^\d{4}-\d{2}-\d{2}$/.test(record.date ?? '')) {
-    problems.push(`${name}: record lacks its commit, date or neutral reviewer session`);
-  }
-  if (NAMED_TOOL.test(JSON.stringify(record))) problems.push(`${name}: record names a tool, model or vendor`);
+  problems.push(...readerRecordIdentityProblems(record, entry).map((problem) => `${name}: ${problem}`));
   const digest = sourceDigest(root, entry.sources);
   if (record.sourceDigest !== digest) {
     problems.push(`${name}: source files changed since the reader test (digest ${digest.slice(0, 12)}, record ${String(record.sourceDigest).slice(0, 12)})`);

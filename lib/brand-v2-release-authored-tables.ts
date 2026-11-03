@@ -4,6 +4,7 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkMdx from 'remark-mdx';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 import type { RootContent, PhrasingContent } from 'mdast';
 import { moduleBody } from './references.ts';
 import type { ReleaseInteractionDetails } from './brand-v2-release-interaction-details.ts';
@@ -22,7 +23,7 @@ export function authoredArticleTables(root: string, route: string): Array<{
   } catch {
     return [];
   }
-  const tree = unified().use(remarkParse).use(remarkMdx).use(remarkGfm).parse(moduleBody(source));
+  const tree = unified().use(remarkParse).use(remarkMath).use(remarkMdx).use(remarkGfm).parse(moduleBody(source));
   const visible = (node: PhrasingContent | RootContent): string => {
     if (node.type === 'mdxJsxTextElement' && node.name === 'Cite') return '';
     if ('children' in node) return node.children.map(child => visible(child as PhrasingContent)).join('');

@@ -52,9 +52,9 @@ describe('Ros2Interfaces', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('ROS 2 interfaces');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Nodes stream, ask, or run a job');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Robot programs stream, ask, or run a job');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Use a stream for sensor data, a question for quick answers, an action for long tasks.',
+      'Nodes are robot programs. Topics stream readings; services exchange a question and answer; actions run long jobs that can be cancelled.',
     );
   });
 

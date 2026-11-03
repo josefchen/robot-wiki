@@ -161,7 +161,7 @@ export function LoopClosure({ className }: { className?: string }) {
       figureId="loop-closure"
       className={className}
       kicker="Loop closure"
-      heading="Recognising the start pulls the drifted map back into shape"
+      heading="Recognising a place corrects every step of the map"
       controls={
         <>
           <SliderRow htmlFor={driftId} label="How far each turn is off" value={<span data-testid="lc-drift">{drift.toFixed(1)} degrees</span>}>
@@ -193,9 +193,9 @@ export function LoopClosure({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Close the loop: every spring gives a little and the chain settles onto the plan"
+          hint="Small turn errors bend the map; recognising a visited place spreads the correction across every recorded step."
           readout={readout}
-          status="Illustrative course and drift; each joint's share is that chain's exact least-squares solution"
+          status="Illustrative course and drift. Faint floor circles mark where the robot truly stopped; each recorded step shares the correction."
           data-testid="lc-stage"
         >
           <div data-testid="lc-drawing" data-drift={hundredth(table.drift)} data-share={hundredth(table.share)}>
@@ -231,7 +231,7 @@ export function LoopClosure({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Small errors in every measured turn bend a robot's map; recognising the start ties its two ends, and every joint takes back a share."
+      caption="Turn errors bend the map. Recognising the start spreads the correction across every recorded step."
       method={
         <>
           <p>

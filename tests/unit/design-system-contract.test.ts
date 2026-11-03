@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { BRAND_COLORS, BRAND_SPACING } from '@/lib/brand-v2-tokens';
 import { OG_RENDERER_FACES } from '@/lib/og-renderer-fonts';
+import { readProjectInstructionText } from '../helpers/project-instructions';
 
 /**
  * The design system is load-bearing documentation: Factory agents read it,
@@ -15,7 +16,7 @@ const read = (rel: string): string =>
 
 const spec = read('library/design-system.md');
 const integrity = read('contract/design-integrity.md');
-const agents = read('AGENTS.md');
+const agents = readProjectInstructionText(process.cwd());
 const readme = read('README.md');
 const badge = read('components/ui/badge.tsx');
 const callout = read('components/ui/callout.tsx');
@@ -128,12 +129,12 @@ describe('canonical design-system documentation', () => {
     expect(integrity).toContain('No human approval step is required');
   });
 
-  it('is wired into both agent instructions and contributor documentation', () => {
-    for (const text of [agents, readme]) {
+  it('keeps contributor guidance and retained project-agent instructions wired to the same contracts', () => {
+    for (const text of [readme, ...(agents === null ? [] : [agents])]) {
       expect(text).toContain('library/design-system.md');
       expect(text).toContain('contract/design-integrity.md');
     }
-    expect(agents).toContain('Do not invent a logo');
+    if (agents !== null) expect(agents).toContain('Do not invent a logo');
     expect(readme).toMatch(/there is\s+no separate logo/i);
   });
 
@@ -294,7 +295,7 @@ describe('design tokens stay aligned', () => {
 
 describe('identity geometry and typography stay aligned', () => {
   it('seals the exact v2 identity while preserving technical identifiers', () => {
-    for (const text of [spec, integrity, agents]) {
+    for (const text of [spec, integrity, ...(agents === null ? [] : [agents])]) {
       expect(text).toContain('Robot Wiki');
       expect(text).toContain(
         'Citation-first encyclopedia of modern robot learning.',

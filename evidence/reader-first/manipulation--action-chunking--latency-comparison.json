@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/action-chunking/",
+  "mount": "mount:/manipulation/action-chunking/:LatencyComparison:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--action-chunking--latency-comparison.375.png",
+    "1280": "evidence/reader-first/manipulation--action-chunking--latency-comparison.1280.png"
+  },
+  "takeaway": "Averaging an old plan with a late new one can send the robot on a move neither plan chose, straight into the obstacle.",
+  "sentence": "Combining an old movement plan with a delayed new one can steer a robot into an obstacle even when both original routes are safe.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "The sentence identifies the old and delayed new plans being combined into an unsafe route despite both original routes being safe.",
+  "verdict": "pass",
+  "screenshotCommit": "d31edaa660c07ae74b27bf8b6f84c01ab55b988c",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r7-a-20261103",
+  "sourceDigest": "92721e54e66ce6728e78d6eaad729d84906991f4e0081b63148272a71228646c",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

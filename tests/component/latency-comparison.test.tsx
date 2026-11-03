@@ -190,16 +190,16 @@ describe('LatencyComparison', () => {
   it('starts and stops the plotter from the one run button, with no pressed state', () => {
     render(<LatencyComparison />);
     const run = screen.getByTestId('lc-run');
-    expect(run).toHaveTextContent('Run the plotter');
+    expect(run).toHaveTextContent('Play');
     fireEvent.click(run);
-    expect(run).toHaveTextContent('Stop the plotter');
+    expect(run).toHaveTextContent('Stop');
     expect(run).not.toHaveAttribute('aria-pressed');
     fireEvent.click(run);
-    expect(run).toHaveTextContent('Run the plotter');
+    expect(run).toHaveTextContent('Play');
     // A preset stops a run.
     fireEvent.click(run);
     fireEvent.click(screen.getByRole('button', { name: 'None' }));
-    expect(run).toHaveTextContent('Run the plotter');
+    expect(run).toHaveTextContent('Play');
   });
 });
 

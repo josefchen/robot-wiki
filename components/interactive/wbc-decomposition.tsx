@@ -16,7 +16,6 @@ import {
   CHART_STROKE,
   CHART_STRUCTURE,
   CHART_VIEW_WIDTH,
-  LegendSwatch,
   StageAnnotation,
   annotationArrow,
   roleColour,
@@ -265,7 +264,7 @@ export function WbcDecomposition({
           footer={
             <>
               <InstrumentLegend>
-                <LegendItem series="motors" swatch={<LegendSwatch role="action" mark="dot" />}>
+                <LegendItem series="motors" swatch={<svg aria-hidden="true" focusable="false" width={28} height={14} viewBox="0 0 28 14" className="shrink-0"><circle cx={14} cy={7} r={2.75} fill={MOTION_STAGE.background} stroke={roleColour('action')} strokeWidth={CHART_STROKE.structure} /></svg>}>
                   joint motors
                 </LegendItem>
               </InstrumentLegend>

@@ -145,7 +145,7 @@ describe('discovery budget check (VAL-OPUS-107)', () => {
     const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { scripts: Record<string, string> };
     expect(pkg.scripts['check:discovery-prose']).toBe('node scripts/measure-discovery-prose.ts --check');
     for (const hook of ['postbuild', 'vercel-build']) {
-      const command = pkg.scripts[hook];
+      const command = pkg.scripts[hook].replace('npm run build', [pkg.scripts.prebuild, pkg.scripts.build, pkg.scripts.postbuild].join(' && '));
       expect(command, hook).toContain('&& npm run check:discovery-prose &&');
       expect(command.indexOf('check:discovery-prose'), hook).toBeGreaterThan(command.lastIndexOf('next build'));
       expect(command.indexOf('check:discovery-prose'), hook).toBeGreaterThan(command.indexOf('patch-404-guard'));

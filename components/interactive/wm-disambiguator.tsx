@@ -67,7 +67,7 @@ const FORM_WORDS: Record<Form, string> = {
 /** Each form's label on the stage. */
 const FORM_LABEL: Record<Form, string> = {
   pictures: 'The next picture',
-  summary: 'A compressed summary',
+  summary: 'A learned number code',
   facts: 'Plain facts',
 };
 
@@ -525,7 +525,7 @@ export function WmDisambiguator({
       figureId="wm-disambiguator"
       className={className}
       kicker="Six kinds of world model"
-      heading="Robot imaginations: some predict pictures, others compact summaries"
+      heading="Robot imaginations: pictures, number codes, or plain facts"
       controls={
         <PresetGroup<Form>
           label="What it imagines"
@@ -591,7 +591,7 @@ export function WmDisambiguator({
           <PanelArt id={selectedId} hidden={false} describedBy={descriptionId} />
         </FigureStage>
       }
-      caption="To plan, a robot imagines what happens next; models differ in whether they imagine full pictures, a compressed summary, or plain facts."
+      caption="Some models imagine pictures; others predict number summaries of images. Plain facts instead name relationships, such as the cup being held."
       method={<Method selected={selected} descriptionId={descriptionId} />}
       source="Original schematic; the drawings are illustrative."
     >

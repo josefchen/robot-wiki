@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/frontier/bear-case/",
+  "mount": "mount:/frontier/bear-case/:BearCaseLock:1",
+  "screenshots": {
+    "375": "evidence/reader-first/frontier--bear-case--bear-case-lock.375.png",
+    "1280": "evidence/reader-first/frontier--bear-case--bear-case-lock.1280.png"
+  },
+  "takeaway": "The bear case rests on four premises, each broken by its own result, and it falls only when all four results are in; by September 2026 none was.",
+  "sentence": "Four practical milestones must all be reached to answer the doubts about robotics, and none is fully achieved in the status shown.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both require all four results to answer the doubts and state that none is fully achieved in the status shown.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0002",
+  "sourceDigest": "6227378a07c338790216833e91b66025eb5a5251eec0dcfb84667caae54cbc7b",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

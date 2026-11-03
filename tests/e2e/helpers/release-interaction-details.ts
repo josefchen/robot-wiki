@@ -34,7 +34,9 @@ export function collectReleaseInteractionDetails(): ReleaseInteractionDetails {
       disabled: node.disabled
     };
   });
+  document.querySelectorAll('[data-release-value-table]').forEach(table=>table.removeAttribute('data-release-value-table'));
   const tables = [...document.querySelectorAll<HTMLTableElement>('main table')].filter(visible).map((table, index) => {
+    table.dataset.releaseValueTable = 'table:' + index;
     const headers = [...table.querySelectorAll('thead th')].map(clean),
       rows = [...table.querySelectorAll('tbody tr')],
       cells: ReleaseInteractionDetails['tables'][number]['cells'] = [];
@@ -55,7 +57,7 @@ export function collectReleaseInteractionDetails(): ReleaseInteractionDetails {
     while (parent && parent !== document.body && !/auto|scroll/.test(getComputedStyle(parent).overflowX)) parent = parent.parentElement;
     return {
       id: 'table:' + index,
-      frame: table.closest('[data-figure-frame]')?.getAttribute('data-figure-frame') ?? '',
+      frame: table.closest('[data-figure-frame]')?.getAttribute('data-figure-frame') ?? table.closest('[data-article-interactive]')?.getAttribute('data-article-interactive') ?? '',
       name: table.querySelector('caption') ? clean(table.querySelector('caption')!) : name(table),
       headers,
       unassociated: [...table.querySelectorAll('th')].filter(cell => !cell.hasAttribute('scope') && !cell.id).map(clean),
@@ -103,6 +105,24 @@ export function collectReleaseInteractionDetails(): ReleaseInteractionDetails {
   });
   const selector = 'a[href],button,input:not([type=hidden]),select,textarea,summary,[role=button],[role=tab],[role=checkbox],[role=radio],[role=slider],[role=switch],[role=menuitem],[role=option],[data-testid=playground-viewport] canvas[tabindex]';
   const controls = [...document.querySelectorAll(selector)].filter(node => visible(node) && !node.matches(':disabled') && node.getAttribute('aria-disabled') !== 'true');
+  const cssPath=(node:Element)=>{
+    if(node.id&&document.querySelectorAll('#'+CSS.escape(node.id)).length===1)return '#'+CSS.escape(node.id);
+    const parts:string[]=[];for(let current:Element|null=node;current&&current!==document.body;current=current.parentElement){const siblings=[...(current.parentElement?.children??[])].filter(sibling=>sibling.tagName===current!.tagName);parts.unshift(current.tagName.toLowerCase()+`:nth-of-type(${siblings.indexOf(current)+1})`);}return 'body > '+parts.join(' > ');
+  };
+  const plainRect=(rect:DOMRect)=>({x:rect.x,y:rect.y,width:rect.width,height:rect.height});
+  const clipping=(node:Element,fragments:DOMRect[])=>{
+    let context:Element|null=null;
+    let exposed=[...fragments];
+    const ancestors:Array<{selector:string;overflowX:string;overflowY:string;bounds:ReturnType<typeof plainRect>}>=[];
+    const crop=(bounds:DOMRect,x:boolean,y:boolean)=>{exposed=exposed.flatMap(rect=>{const left=x?Math.max(rect.left,bounds.left):rect.left,right=x?Math.min(rect.right,bounds.right):rect.right,top=y?Math.max(rect.top,bounds.top):rect.top,bottom=y?Math.min(rect.bottom,bounds.bottom):rect.bottom;return right>left&&bottom>top?[new DOMRect(left,top,right-left,bottom-top)]:[];});};
+    for(let ancestor=node.parentElement;ancestor&&ancestor!==document.body;ancestor=ancestor.parentElement){
+      const style=getComputedStyle(ancestor),x=/^(auto|scroll|hidden|clip)$/.test(style.overflowX),y=/^(auto|scroll|hidden|clip)$/.test(style.overflowY);
+      if(!context&&((style.position==='fixed'||style.position==='sticky')||x&&ancestor.scrollWidth>ancestor.clientWidth+1||y&&ancestor.scrollHeight>ancestor.clientHeight+1))context=ancestor;
+      if(x||y){const box=ancestor.getBoundingClientRect(),bounds=new DOMRect(box.left+ancestor.clientLeft,box.top+ancestor.clientTop,ancestor.clientWidth,ancestor.clientHeight);ancestors.push({selector:cssPath(ancestor),overflowX:style.overflowX,overflowY:style.overflowY,bounds:plainRect(bounds)});crop(bounds,x,y);}
+    }
+    const viewport=new DOMRect(0,0,innerWidth,innerHeight);crop(viewport,true,true);
+    return {context,exposed,evidence:{context:context?cssPath(context):'document',ancestors,visibleFragments:exposed.map(plainRect)}};
+  };
   const measured = controls.map((node, index) => {
     let fragments = [...node.getClientRects()].filter(rect => rect.width > 0 && rect.height > 0);
     if (node instanceof SVGGeometryElement) {
@@ -138,7 +158,8 @@ export function collectReleaseInteractionDetails(): ReleaseInteractionDetails {
       index,
       box,
       fragments,
-      squareFits: Boolean(fit)
+      squareFits: Boolean(fit),
+      clipping:clipping(node,fragments)
     };
   });
   const large = measured.filter(entry => entry.squareFits);
@@ -151,7 +172,8 @@ export function collectReleaseInteractionDetails(): ReleaseInteractionDetails {
     node,
     index,
     box,
-    fragments
+    fragments,
+    clipping: ownClipping
   }) => {
     const parent = formatBlock(node.parentElement);
     let inlineText = '';
@@ -167,19 +189,19 @@ export function collectReleaseInteractionDetails(): ReleaseInteractionDetails {
       inlineText = words.join(' ').replace(/\s+/g, ' ').trim();
     }
     const others = measured.filter(other => other.node !== node && !node.contains(other.node) && !other.node.contains(node));
-    const pieces = others.flatMap(other => other.fragments.map(fragment => ({
-      ...other,
-      box: fragment
-    })));
-    const distances = pieces.map(({
-      box: b
-    }) => Math.min(...fragments.map(own => {
-      const ox = own.x + own.width / 2,
-        oy = own.y + own.height / 2;
-      return Math.hypot(Math.max(b.left, Math.min(ox, b.right)) - ox, Math.max(b.top, Math.min(oy, b.bottom)) - oy);
-    })));
-    const nearest = pieces[distances.indexOf(Math.min(...distances))];
-    const centres = others.filter(other => !other.squareFits).flatMap(other => other.fragments.flatMap(b => fragments.map(own => Math.hypot(b.x + b.width / 2 - own.x - own.width / 2, b.y + b.height / 2 - own.y - own.height / 2))));
+    // Within one independently scrollable plane, retain all logical hit
+    // fragments: scrolling must not excuse cramped offscreen targets. Across
+    // planes, compare only exposed fragments. A sheet's clipped text below
+    // its scrollport cannot collide with the unrelated document footer.
+    const pieces=others.flatMap(other=>{
+      const samePlane=other.clipping.context===ownClipping.context;
+      const own=samePlane?fragments:ownClipping.exposed;
+      const theirs=samePlane?other.fragments:other.clipping.exposed;
+      return own.length?theirs.map(box=>({...other,box,own})):[];
+    });
+    const distances=pieces.map(({box:b,own})=>Math.min(...own.map(a=>{const x=a.x+a.width/2,y=a.y+a.height/2;return Math.hypot(Math.max(b.left,Math.min(x,b.right))-x,Math.max(b.top,Math.min(y,b.bottom))-y);})));
+    const nearest=pieces[distances.indexOf(Math.min(...distances))];
+    const centres=pieces.filter(other=>!other.squareFits).flatMap(({box:b,own})=>own.map(a=>Math.hypot(b.x+b.width/2-a.x-a.width/2,b.y+b.height/2-a.y-a.height/2)));
     return {
       id: id(node, index),
       registeredId: node.getAttribute('data-brand-control-id'),
@@ -189,6 +211,7 @@ export function collectReleaseInteractionDetails(): ReleaseInteractionDetails {
       height: box.height,
       inlineText,
       parentWidth: parent?.getBoundingClientRect().width ?? 0,
+      clipping:ownClipping.evidence,
       nearestTargetClearance: distances.length ? Math.min(...distances) : null,
       nearestSmallCentre: centres.length ? Math.min(...centres) : null,
       nativePointer: node.matches('a[href],button,input,select,textarea,summary'),
@@ -240,8 +263,10 @@ export function collectReleaseInteractionDetails(): ReleaseInteractionDetails {
     tables,
     segmented,
     targets: {
-      count: measured.length,
+      count: controls.length,
+      censusIds:controls.map((node,index)=>id(node,index)),
       large: {
+        ids:large.map(({node,index})=>id(node,index)),
         count: large.length,
         minWidth: large.length ? Math.min(...large.map(({
           box

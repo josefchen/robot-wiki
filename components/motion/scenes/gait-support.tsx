@@ -57,7 +57,7 @@ export const GAIT_SUPPORT_SCENE: SceneDefinition = {
     { id: 'pronk', duration: 'long', linear: true, caption: 'Hopping: all four feet push off and land together, so at times none touch the ground.' },
     {
       id: 'recap',
-      caption: 'One robot can walk, trot or hop by changing which feet move together.',
+      caption: 'A four-legged robot trades steadiness for bounce as fewer feet stay down. The dial counts feet on the ground.',
     },
   ],
 };

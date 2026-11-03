@@ -36,7 +36,7 @@ describe('LatentImagination', () => {
   it('opens on the insight: the imagined track head is already off the real route 15 steps ahead', () => {
     render(<LatentImagination />);
     expect(screen.getByTestId('drift-note')).toHaveTextContent('15 steps ahead:');
-    expect(screen.getByTestId('drift-note')).toHaveTextContent('already this far off');
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('ruler measures the gap from blue tip to real route');
     expect(screen.getByTestId('drift-bracket')).toBeInTheDocument();
     expect(Number(screen.getByTestId('drift-bracket').getAttribute('data-offset'))).toBeCloseTo(0.301 * SPREAD, 0);
     expect(Number(screen.getByTestId('imagined-head').getAttribute('data-offset'))).toBeCloseTo(0.301 * SPREAD, 0);
@@ -73,7 +73,7 @@ describe('LatentImagination', () => {
     expect(container.querySelector('[data-readout]')).toHaveTextContent(/laying step 1 of 15/);
     await user.click(stop);
     expect(screen.getByRole('button', { name: /lay the track/i })).toBe(lay);
-    expect(container.querySelector('[data-readout]')).toHaveTextContent('15 steps ahead · 0.301 off the route');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('15 steps ahead · 0.301 toy units off the route');
   });
 
   it('grows the drift monotonically as the robot imagines further ahead', () => {
@@ -92,7 +92,7 @@ describe('LatentImagination', () => {
     render(<LatentImagination />);
     fireEvent.change(horizon(), { target: { value: '1' } });
     expect(screen.getByTestId('drift-note')).toHaveTextContent('1 step ahead:');
-    expect(screen.getByTestId('drift-note')).toHaveTextContent('still close to the real route');
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('ruler shows a small gap to the real route');
     expect(screen.queryByTestId('drift-bracket')).toBeNull();
   });
 
@@ -102,7 +102,7 @@ describe('LatentImagination', () => {
     fireEvent.change(accuracy(), { target: { value: '6' } });
     expect(deviationReadout()).toBeGreaterThan(sharp);
     fireEvent.change(horizon(), { target: { value: '50' } });
-    expect(screen.getByTestId('drift-note')).toHaveTextContent('it has already run into the hub');
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('the blue tip has run into the central hub');
     expect(Number(screen.getByTestId('imagined-head').getAttribute('data-offset'))).toBeCloseTo(REACH, 1);
     expect(screen.getByTestId('deviation-readout')).toHaveTextContent('3.09');
   });
@@ -123,9 +123,9 @@ describe('LatentImagination', () => {
     try {
       const { container } = render(<LatentImagination />);
       const readout = container.querySelector('[data-readout]')!;
-      expect(readout.textContent).toBe('15 steps ahead · 0.301 off the route');
+      expect(readout.textContent).toBe('15 steps ahead · 0.301 toy units off the route');
       fireEvent.click(within(adjustFold(container)).getByRole('button', { name: /td-mpc2/i }));
-      expect(readout.textContent).toBe('15 steps ahead · 0.301 off the route · reward error 0.105');
+      expect(readout.textContent).toBe('15 steps ahead · 0.301 toy units off the route · reward error 0.105');
       expect(readout.textContent).toContain(screen.getByTestId('reward-error-readout').textContent!);
       await act(async () => {
         await Promise.resolve();

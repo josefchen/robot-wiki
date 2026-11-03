@@ -7,20 +7,14 @@
     "1280": "evidence/reader-first/rl-sim2real--legged-locomotion--scene-gait-support.1280.png"
   },
   "takeaway": "Going from walking to hopping, a four-legged robot keeps fewer feet on the ground, trading steadiness for bounce.",
-  "sentence": "The figure shows one four-legged robot walking, trotting and hopping: the fewer feet it keeps on the ground, the less steady and the bouncier it gets.",
-  "unclearTerms": [
-    "Trot: I know it from horses but was not sure what it means exactly for a robot until I read the line underneath",
-    "Play button: I could not tell what would happen if I pressed it, for example whether the robots would move",
-    "green double-headed arrow: I was not sure whether it is a scale, a direction of movement, or just a decoration linking 'steadier' and 'more bounce'",
-    "green colour of the arrow and labels: I did not know whether green means good or something else",
-    "teal blobs under the feet: I had to check the key to learn they mean a foot on the ground, and at a glance the Walk robot seems to have three and the Trot robot two, which I could not match to 'one foot at a time'",
-    "How this was made: unclear whether it explains the drawing or the robot"
-  ],
+  "sentence": "The robot becomes less steady and more bouncy as it goes from lifting one foot at a time to lifting all four.",
+  "unclearTerms": [],
   "samePoint": "yes",
-  "reason": "Both say the same robot keeps fewer feet down going from walking to hopping, and becomes less steady and bouncier.",
-  "verdict": "fail",
-  "screenshotCommit": "ee211309e71b215f470d068a95f8b2fb1dd45c3a",
-  "date": "2026-10-09",
-  "reviewerSession": "reader-session-b5cda415",
-  "sourceDigest": "b43b45da6b4e9d9486ef8cb857d5b0e662ae2d33cfb3814d9ef061bd579f6c2a"
+  "reason": "It gives the same tradeoff: lifting more feet together produces less steadiness and more bounce.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0001",
+  "sourceDigest": "ace80a23a9ce279bb39c54d6569348d56b4d525b54d4be01046cb58f4aa41d39",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

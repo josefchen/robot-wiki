@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/realtime-execution/",
+  "mount": "mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--realtime-execution--control-loop-budget.375.png",
+    "1280": "evidence/reader-first/manipulation--realtime-execution--control-loop-budget.1280.png"
+  },
+  "takeaway": "The robot's computer takes more than twice as long to choose a move as the arm can wait between commands.",
+  "sentence": "The robot's computer takes 2.6 times longer to choose a move than the arm can wait between commands, so the arm misses fresh instructions.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "My sentence identifies the same timing mismatch and gives 2.6 times the waiting interval, which is more than twice as long.",
+  "verdict": "pass",
+  "screenshotCommit": "3e545c6dee3df0d4b5832bca2b7cc6f701576b49",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r6-a-20261103",
+  "sourceDigest": "ebb9e83f908e25e3182c488dfd593eaf9becb432787916bf7a374ea5c139fc47",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

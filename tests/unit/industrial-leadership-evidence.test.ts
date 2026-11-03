@@ -1,3 +1,4 @@
+import { completionEndpoint } from '../helpers/completion-endpoint';
 import { readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -409,7 +410,7 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     expect(owed.reconciles?.at(-1)).toEqual({
       id: convergence.id, oldHash: convergence.oldHash, newHash: convergence.newHash,
     });
-    expect(owed.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
+    expect(completionEndpoint(approvals, 'prose', owed.memberId, owed.newHash)).toBe(proseHash(readFileSync(articlePath, 'utf8')));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

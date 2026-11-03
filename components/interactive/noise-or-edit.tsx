@@ -129,10 +129,10 @@ export function NoiseOrEdit({ className }: { className?: string }) {
       figureId="noise-or-edit"
       className={className}
       kicker="Frozen base policy"
-      heading="Steering the noise finds only actions the policy already makes"
+      heading="Choosing starting guesses stays within the robot’s learned moves"
       controls={
         <>
-          <PresetGroup<ModeId> label="What RL may change" presets={MODES} value={mode} onChange={choose} testId="noise-or-edit" />
+          <PresetGroup<ModeId> label="What each learning method may change" presets={MODES.map((option) => ({ ...option, label: option.id === 'noise' ? 'Starting guess only (DSRL)' : 'Guess and movement edit (EXPO)' }))} value={mode} onChange={choose} testId="noise-or-edit" />
           <button
             type="button"
             data-brand-control-id="control:secondary-action"
@@ -157,9 +157,9 @@ export function NoiseOrEdit({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Dark strip: every place the frozen cam can put the peg"
+          hint="The pear-shaped wheel represents a fixed movement model. Its dark strip marks every peg position it can produce."
           readout={readoutFor(mode, pose)}
-          status="Schematic: an illustrative cam, hole and edit; nothing is measured"
+          status="Noise is a random starting guess for a move. An edit shifts the final movement beyond the wheel’s range. Illustrative mechanism."
           data-testid="noise-or-edit-stage-frame"
         >
           <div data-testid="noise-or-edit-drawing" data-mode={mode} data-deg={r2(pose.deg % 360)} data-edit={r2(pose.edit)} data-drop={r2(pose.drop)} data-phase={pose.phase} data-landed={landed}>
@@ -180,7 +180,7 @@ export function NoiseOrEdit({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="DSRL steers a frozen policy's noise, so it reaches only actions the policy already makes. EXPO adds a small edit that can step past them."
+      caption="DSRL, a starting-guess learning method, stays within learned moves; EXPO, a movement-editing method, can reach beyond them."
       method={
         <>
           <p>

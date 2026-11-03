@@ -323,7 +323,7 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
       figureId="offline-value-overreach"
       className={className}
       kicker="Distributional shift"
-      heading="Recorded data alone overrates untried actions"
+      heading="Caution stops recorded-data learners overrating untried actions"
       controls={
         <SliderRow
           htmlFor={sliderId}
@@ -348,9 +348,9 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Lit bob: the real result"
+          hint="Across: grip strength. Up: score out of 100. Pinned strip: prediction; thin curve: actual result."
           readout={rest.readout}
-          status="Illustrative curves"
+          status="Pins: recorded tries. Lit weight: actual score. Caution lowers untried predictions toward recorded results. Illustrative curves."
           data-testid="overreach-stage"
         >
           <div ref={stageRef}>
@@ -376,7 +376,7 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Marking down untried actions keeps an offline learner's choice where its data can vouch for it."
+      caption="Learning only from recordings can overrate untried actions; lowering their predicted scores keeps choices closer to the recorded experience."
       method={
         <>
           <div>

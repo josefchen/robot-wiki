@@ -558,7 +558,11 @@ export function EgoScaleScaling({
                 <DirectLabel x={f(boundaryX + 6)} y={yScore(0.58)} role="value" seriesFor="completion-fit">
                   if the trend held
                 </DirectLabel>
-              ) : null}
+              ) : (
+                <DirectLabel x={f(boundaryX + 6)} y={yScore(completionFit(MEASURED_MAX_HOURS))} role="value" seriesFor="completion-fit">
+                  completion fit
+                </DirectLabel>
+              )}
             </g>
 
             <g data-series="measured">

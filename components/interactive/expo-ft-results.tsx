@@ -36,11 +36,11 @@ export const MAX_TRIALS = 30;
 
 /** Verified successes out of 30 per method and task (arXiv:2605.25477v2). */
 export const METHODS = [
-  { id: 'sft', label: 'SFT on π0.5', plain: 'copying demos only', values: [16, 22, 23, 14] },
-  { id: 'hg-dagger', label: 'HG-DAgger', plain: 'human steps in to correct', values: [18, 26, 14, 24] },
-  { id: 'dsrl', label: 'DSRL', plain: 'practice by trial and error', values: [15, 24, 25, 12] },
-  { id: 'hil-serl', label: 'HIL-SERL', plain: 'practice by trial and error', values: [13, 0, 1, 8] },
-  { id: 'expo-ft', label: 'EXPO-FT', plain: 'practice by trial and error', values: [30, 30, 30, 30] },
+  { id: 'sft', label: 'SFT on π0.5', plain: 'supervised copying of examples', values: [16, 22, 23, 14] },
+  { id: 'hg-dagger', label: 'HG-DAgger', plain: 'copies human corrections', values: [18, 26, 14, 24] },
+  { id: 'dsrl', label: 'DSRL', plain: 'learns which starting noise works', values: [15, 24, 25, 12] },
+  { id: 'hil-serl', label: 'HIL-SERL', plain: 'learns from tries and human corrections', values: [13, 0, 1, 8] },
+  { id: 'expo-ft', label: 'EXPO-FT', plain: 'learns small edits to each move', values: [30, 30, 30, 30] },
 ] as const;
 
 const LEAD_ID = 'expo-ft';
@@ -96,7 +96,7 @@ const SCALE_BASELINE = 14;
 const TITLE_BASELINE = 50;
 const TITLE_LEADING_EM = 1.2;
 
-const NOTE_LINES = ['Perfect score: 30 of 30 on every task'] as const;
+const NOTE_LINES = ['Best on all four tasks: 30 of 30'] as const;
 
 export function ExpoFtResults({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
@@ -109,9 +109,10 @@ export function ExpoFtResults({ className }: { className?: string }) {
       figureId="expo-ft-results"
       className={className}
       kicker="EXPO-FT vs four other methods"
-      heading="One method succeeded every time on all four tasks"
+      heading="EXPO-FT beats the alternatives on all four tasks"
       stage={
         <FigureStage>
+          <p className="m-0 font-sans text-sm text-text-dim">EXPO-FT leads every task with 30 successes out of 30 tries. Names identify training methods; π0.5 is the starting model, and noise a random move guess.</p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Successful trials out of 30 for five methods across four manipulation tasks"
@@ -237,7 +238,7 @@ export function ExpoFtResults({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="After practising with EXPO-FT, the robot succeeded on every try across four tasks; copying demonstrations alone managed 14 to 23 of 30."
+      caption="EXPO-FT succeeded in all 30 tries on each of four tasks, beating every alternative; copying demonstrations alone managed 14 to 23 of 30."
       method={
         <>
           <div>

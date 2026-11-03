@@ -41,7 +41,7 @@ describe('SampleEfficiencyLedger', () => {
   it('labels the measured region and the modelled region separately', () => {
     render(<SampleEfficiencyLedger />);
     expect(screen.getByTestId('sample-measured-label')).toHaveTextContent(
-      /paper-reported durations and bounds/i,
+      /reported times, including “under” limits/i,
     );
     expect(screen.getByTestId('sample-modelled-label')).toHaveTextContent(
       /modelled/i,
@@ -145,7 +145,7 @@ describe('SampleEfficiencyLedger', () => {
   it('says the same practice in words on the stage: minutes in simulation, months on one robot', () => {
     const { container } = render(<SampleEfficiencyLedger />);
     const note = container.querySelector('[data-figure-annotation]')?.textContent ?? '';
-    expect(note).toBe('Same practice: about 21 minutes in simulation,about 2.7 months on one robot');
+    expect(note).toBe("158 million steps of trial and error:21 minutes simulated; 2.7 months on one robot");
     expect(readout('sample-budget-value')).toBe('158 million steps');
     const lanes = [...container.querySelectorAll('[data-series="modelled-lanes"] text')].map((t) => t.textContent);
     expect(lanes).toEqual(['In simulation: 21 minutes', 'One real robot: 2.7 months', '7 real robots: 12 days']);

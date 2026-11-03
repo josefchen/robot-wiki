@@ -43,7 +43,7 @@ export const SENSE_AVOID_SCENE: SceneDefinition = {
   id: 'sense-avoid',
   title: 'Perception delay lowers the safe speed',
   kicker: 'Camera delay',
-  headline: 'A slower camera forces the drone to fly slower',
+  headline: 'Slower camera: safe speed falls from 69 to 53 km/h',
   beats: [
     { id: 'obstacle', caption: 'A drone’s camera spots a wall 8 metres ahead.' },
     {
@@ -59,7 +59,7 @@ export const SENSE_AVOID_SCENE: SceneDefinition = {
     },
     {
       id: 'recap',
-      caption: 'When a drone’s camera takes longer to report an obstacle, the drone must fly slower to stay safe, even with the same swerving skill.',
+      caption: 'The slower camera cuts the drone’s safe speed from about 69 to 53 km/h, even with the same swerving skill.',
     },
   ],
 };
@@ -329,7 +329,7 @@ function SenseAvoidReadout() {
   const text = (t: number) => {
     const frame = senseAvoidFrame(t);
     const d = senseAvoidDistances(frame.latency);
-    return `${frame.slowShown > 0 ? 'Slow' : 'Quick'} camera: top safe speed about ${d.speedKmh} km/h, after flying about ${d.blindM.toFixed(1)} metres before the wall is reported.`;
+    return `A slower camera cuts safe speed from about ${kmh(QUICK.maxSpeedMs)} to ${kmh(SLOW.maxSpeedMs)} km/h. Shown: ${d.speedKmh} km/h; ${d.blindM.toFixed(1)} metres flown before the wall is reported.`;
   };
   useLayoutEffect(() => {
     if (!time) return;
@@ -366,7 +366,7 @@ export function SenseAvoid({ className }: { className?: string }) {
           style={{ backgroundColor: 'var(--role-constraint-graphic)' }} />}>flown before the camera reports</LegendItem>
         <LegendItem series="avoidance-time" swatch={<span aria-hidden className="inline-block h-1.5 w-3 border"
           style={{ borderColor: 'var(--role-action-graphic)' }} />}>swerving</LegendItem>
-        <LegendItem swatch={<LaneSwatch />}>back lane and track: quick camera; front: slow camera</LegendItem>
+        <LegendItem swatch={<LaneSwatch />}>back lane: quick camera; front: slow camera; dials: safe speed in km/h</LegendItem>
       </>}
       readout={() => <SenseAvoidReadout />}
       statusLine="illustrative"

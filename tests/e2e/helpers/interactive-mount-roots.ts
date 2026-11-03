@@ -34,7 +34,7 @@ const frameName = (value: string) => value.replace(/-/g, '').toLowerCase();
  * its component, the `ordinal`-th such frame in document order; the registry
  * lists a route's mounts by component name, not by position, so binding by
  * index would hand a mount its neighbour's frame. A plain-table mount binds
- * to the block around the next unframed table region. Every frame is bound
+ * to its stable named widget owner, which remains in an empty state. Every frame is bound
  * exactly once, so no mount can borrow another's markup.
  */
 export async function mountRoots(
@@ -57,11 +57,18 @@ export async function mountRoots(
       await regions.count(),
       `${route} renders one unframed table per plain-table mount (${plainCount})`,
     ).toBe(plainCount);
+    for (const component of new Set(mounts.filter(mount => PLAIN_TABLE_SOURCES.has(mount.sourceId)).map(mount => mount.component))) {
+      expect(
+        await page.locator(`main [data-article-interactive="${component}"]`).count(),
+        `${route} renders one stable named owner for every ${component} mount`,
+      ).toBe(mounts.filter(mount => mount.component === component).length);
+    }
   }
   const bound = new Set<number>();
-  let regionIndex = 0;
   const roots = mounts.map((mount) => {
-    if (PLAIN_TABLE_SOURCES.has(mount.sourceId)) return regions.nth(regionIndex++).locator('xpath=..');
+    // A table region legitimately disappears at zero matching rows. The
+    // named owner still contains its controls, count and empty-state text.
+    if (PLAIN_TABLE_SOURCES.has(mount.sourceId)) return page.locator(`main [data-article-interactive="${mount.component}"]`).nth(mount.ordinal - 1);
     const matching = frameIds.flatMap((id, index) =>
       id !== null && frameName(id) === frameName(mount.component) ? [index] : [],
     );

@@ -12,6 +12,8 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { committedSource } from '../helpers/continuation-integration';
 import { preDomainPass, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
+import { beforeCompletionApprovals, completionEndpoint } from '../helpers/completion-endpoint';
 import {
   domainPassEndpoint, educationalCue20261023Endpoint, humanize20261012Endpoint, imagesA20261013Endpoint,
   kolBatch20261021Endpoint, preDomainPassCitations,
@@ -174,7 +176,7 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     const humanizer = approvals.find(a => a.id === 'humanizer-manipulation-v3-20260925-prose-generalist-policies')!;
     const cue = approvals.find(a => a.id === 'educational-cue-20260926-prose-generalist-policies')!;
     const hashOf = (text: string) => buildManifest('prose', [{ id: 'article:manipulation/generalist-policies', value: { path: articlePath, body: matter(text).content.trim() } }]).members[0].hash;
-    const lastPrePassAnchor = approvals
+    const lastPrePassAnchor = beforeCompletionApprovals(approvals)
       .filter(a => a.manifest === 'prose' && a.memberId === 'article:manipulation/generalist-policies'
         && !a.id.startsWith('humanizer-manipulation-v3-') && !a.id.startsWith('educational-cue-20260926-')
         && !a.id.startsWith('seo-pass-20261002-') && !a.id.startsWith('reader-first-20261003-')
@@ -204,11 +206,11 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     // to the live article with the timeline's operating cue.
     const domainPass = approvals.find(a => a.id === 'domain-pass-20261006-g3-prose-generalist-policies')!;
     expect(domainPass.reconciles?.some(binding => binding.id === readerFirst.id && binding.newHash === readerFirst.newHash)).toBe(true);
-    expect(hashOf(read(articlePath))).toBe(educationalCue20261023Endpoint(approvals, 'prose',
+    expect(hashOf(read(articlePath))).toBe(completionEndpoint(approvals, 'prose', 'article:manipulation/generalist-policies', educationalCue20261023Endpoint(approvals, 'prose',
       'article:manipulation/generalist-policies', kolBatch20261021Endpoint(approvals, 'prose',
         'article:manipulation/generalist-policies', imagesA20261013Endpoint(approvals, 'prose',
           'article:manipulation/generalist-policies', humanize20261012Endpoint(approvals, 'prose',
-            'article:manipulation/generalist-policies', domainPassEndpoint(approvals, domainPass).newHash)))));
+            'article:manipulation/generalist-policies', domainPassEndpoint(approvals, domainPass).newHash))))));
     expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
@@ -307,10 +309,12 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     const historical = parse(attributionPlans, attributionLedger);
     const current = parse();
     expect(historical).toHaveLength(21);
-    expect(current).toHaveLength(21);
+    expect(verifyLedgerAdditions({ ledgerPath: 'audit/manipulation.md', slug: 'generalist-policies',
+      claimRows: current.length, claimRecords: current })).toEqual({ originalRows: 21, addedRows: 2, currentRows: 23 });
+    expect(current).toHaveLength(23);
     for (let i = 0; i < old.length; i++) {
       if (![14, 20].includes(i)) expect(historical[i]).toEqual(old[i]);
-      if (i !== 18) expect(current[i]).toEqual(historical[i]);
+      if (i !== 18) expect({ ...current[i], line: historical[i].line }).toEqual(historical[i]);
     }
     const held = parse(oldPlans, read('audit/evidence/crossdomain-closure-20260923/before-audit--manipulation.md.txt'))[18];
     expect(held.claim).toBe('Local timeline inventory: 13 entries with report/announcement dates from Feb 2025 to Jul 2026; 4 marked downloadable (GR00T N1 and N1.7, GO-1, π0.5), not a license classification; 5 selected arXiv sources, 1 repository source and 7 selected blog/press sources. The seven-entry enumeration is not a census of external replication.');
@@ -387,9 +391,9 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
         // 2026-10-13, then the KOL triage batch of 2026-10-21, then the
         // 2026-10-23 cue fix, carry the member on to HEAD.
         if (seo) {
-          expect(educationalCue20261023Endpoint(approvals, manifest, memberId,
+          expect(completionEndpoint(approvals, manifest, memberId, educationalCue20261023Endpoint(approvals, manifest, memberId,
             kolBatch20261021Endpoint(approvals, manifest, memberId, imagesA20261013Endpoint(approvals, manifest, memberId,
-              humanize20261012Endpoint(approvals, manifest, memberId, domainPass?.newHash ?? seo.newHash)))))
+              humanize20261012Endpoint(approvals, manifest, memberId, domainPass?.newHash ?? seo.newHash))))))
             .toBe(currentHash(manifest, memberId));
         }
         expect(a?.newHash).toBe(endpoint);

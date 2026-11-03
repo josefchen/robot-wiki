@@ -51,13 +51,18 @@ describe('SurgicalAutonomyLadder', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Six levels of surgical autonomy');
-    expect(heading).toBe('These authorized systems reach level 1; studies claim level 4');
+    expect(heading).toBe('Authorized: level 1; research on removed tissue: level 4');
     expect(caption).toBe(
-      'Dots are systems the FDA has authorized; crosses are research demonstrations in pigs or excised tissue.',
+      'In this comparison’s six levels, FDA-authorized platforms reach level 1; SRT-H’s authors claim level 4 for research on tissue outside a body.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
     expect(words(caption)).toBeLessThanOrEqual(25);
+    const comparison = screen.getByText('Authorized platforms here reach level 1; SRT-H’s authors claim level 4');
+    expect(comparison.closest('details')).toBeNull();
+    expect(comparison.parentElement).toHaveTextContent('Six levels, numbered 0–5.');
+    expect(comparison.parentElement).toHaveTextContent('for research on tissue outside a body.');
+    expect(screen.getByText(/US Food and Drug Administration \(FDA\)/).closest('details')).toBeNull();
     // One keyboard activation of the method fold reveals the complete table.
     expect(container.querySelector('details[data-figure-fold="method"]')).not.toHaveAttribute('open');
     expect(container.querySelector('details[data-chart-data]')).toHaveAttribute('open');

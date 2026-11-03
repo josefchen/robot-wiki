@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/frontier/competing-theses/",
+  "mount": "mount:/frontier/competing-theses/:HelixClockwork:1",
+  "screenshots": {
+    "375": "evidence/reader-first/frontier--competing-theses--helix-clockwork.375.png",
+    "1280": "evidence/reader-first/frontier--competing-theses--helix-clockwork.1280.png"
+  },
+  "takeaway": "In Figure's Helix 02 the whole-body controller acts five times for every joint target the layer above it sets: 1,000 times a second against 200.",
+  "sentence": "This robot system sets a new joint movement target 200 times a second and makes five whole-body control adjustments for each target.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "The sentence states 200 joint targets per second and five whole-body adjustments per target, expressing the same 1,000-to-200 rate.",
+  "verdict": "pass",
+  "screenshotCommit": "d31edaa660c07ae74b27bf8b6f84c01ab55b988c",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r7-a-20261103",
+  "sourceDigest": "088c96d3c0422ed2682a6925fe524a3ceea36cae5af0976a18bb5dada1342780",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

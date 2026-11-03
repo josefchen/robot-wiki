@@ -101,9 +101,12 @@ export function SafetyFilterFence({ className }: { className?: string }) {
       figureId="safety-filter-fence"
       className={className}
       kicker="Safety filter"
-      heading="A safety filter changes the path only where it must"
+      heading="The simple filter gets checked; it guards each proposed move"
       controls={
         <>
+          <p data-testid="fence-main-point" className="basis-full font-sans text-lg font-medium leading-snug text-text">
+            The simple filter gets checked: it leaves the learned controller’s safe moves unchanged and corrects unsafe moves only enough to keep the robot outside the forbidden area.
+          </p>
           <SliderRow htmlFor={sliderId} label="Along the stroke" value={<span data-testid="fence-percent">{percent}%</span>}>
             <input
               id={sliderId}
@@ -140,19 +143,37 @@ export function SafetyFilterFence({ className }: { className?: string }) {
             data-testid="fence-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {running ? 'Stop the policy' : 'Run the policy'}
+            {running ? 'Pause' : 'Play the run'}
           </button>
         </>
       }
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Faint: the policy's path. Dark: what the pen drew"
+          hint="Safe proposals pass unchanged; unsafe ones move only enough to stay outside. The simple filter is what gets checked."
           readout={readoutFor(t)}
-          status="Schematic: the filter's rule on an illustrative stroke"
+          status="Faint: the learned controller’s proposed path. Dark: what the pen drew. The ring represents the separately checked filter. Schematic."
           data-testid="fence-stage-frame"
         >
+          <div className="grid items-center gap-3 pb-4 font-sans text-sm leading-snug text-text sm:grid-cols-[1fr_auto_2fr_auto_1fr]" data-testid="fence-rule-flow">
+            <div>
+              <strong className="font-medium">Controller trained from data</strong>
+              <p>Proposes a move.</p>
+            </div>
+            <span aria-hidden="true"><span className="sm:hidden">↓</span><span className="hidden sm:inline">→</span></span>
+            <div className="grid gap-2">
+              <p className="text-lg font-medium">Simple safety filter: the part engineers check</p>
+              <p>Safe proposal → unchanged move.</p>
+              <p>Unsafe proposal → smallest change that keeps the robot outside.</p>
+            </div>
+            <span aria-hidden="true"><span className="sm:hidden">↓</span><span className="hidden sm:inline">→</span></span>
+            <div>
+              <strong className="font-medium">Robot executes the resulting move</strong>
+              <p>Unchanged if safe; minimally corrected otherwise.</p>
+            </div>
+          </div>
           <div
+            className="mx-auto max-w-sm"
             data-testid="fence-drawing"
             data-t={Number(t.toFixed(3))}
             data-phase={phase}
@@ -179,7 +200,7 @@ export function SafetyFilterFence({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A sealed policy proposes the path. The fence, simple enough to check, moves the pen only where it would enter, and by the least amount."
+      caption="The learned controller proposes moves; the separately checked filter preserves safe ones and makes the smallest change needed to keep unsafe ones outside."
       method={
         <>
           <p>

@@ -36,7 +36,7 @@ test('Holson/outlook/keyring readers: corrected spans, Cite metadata and Referen
   expect(outlookText).not.toContain('stick flips to slip');
 
   const keyring = prose.locator('p').filter({
-    hasText: "gold-medal \"Use a key\" event of Holson's Humanoid Olympics",
+    hasText: "Holson's Humanoid Olympics gold-medal \"Use a key\" event",
   });
   await expect(keyring).toHaveCount(1);
   const keyringText = await keyring.innerText();

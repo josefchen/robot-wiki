@@ -40,13 +40,22 @@ describe('AvSafetyMiles', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Miles needed to prove safety');
-    expect(heading).toBe('275 million failure-free miles to match the human death rate');
+    expect(heading).toBe('No fatalities in 275 million miles: 95% confidence');
     expect(caption).toBe(
-      'A lower bound that assumes not one failure in all those miles, measured against US human drivers.',
+      'At 95% confidence, 275 million miles without a fatality supports a rate no higher than the study’s US human-driver benchmark.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
     expect(words(caption)).toBeLessThanOrEqual(25);
+    const confidence = screen.getByTestId('av-confidence-summary');
+    expect(confidence).toHaveTextContent('supports a fatality rate no higher than the study’s US human-driver benchmark.');
+    expect(confidence.closest('details')).toBeNull();
+    expect(screen.getByTestId('av-confidence-summary')).toHaveTextContent('275 million miles without a death');
+    expect(screen.getByTestId('av-confidence-summary')).toHaveTextContent('At 95% confidence');
+    expect(screen.getByTestId('av-confidence-summary').closest('details')).toBeNull();
+    expect(screen.getByTestId('av-confidence-summary').compareDocumentPosition(screen.getByTestId('av-safety-miles-stage')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(confidence.nextElementSibling).toHaveTextContent('95% refers to upper limits calculated from repeated studies. In the long run, at least 95 out of 100 such limits would reach or exceed the true fatality rate.');
+    expect(confidence.nextElementSibling).toHaveTextContent('about 1.09 deaths per 100 million miles');
     // One keyboard activation of the method fold reveals the complete table.
     expect(container.querySelector('details[data-figure-fold="method"]')).not.toHaveAttribute('open');
     expect(container.querySelector('details[data-chart-data]')).toHaveAttribute('open');
@@ -73,9 +82,9 @@ describe('AvSafetyMiles', () => {
       'about 12.5 years for 100 cars driving nonstop',
     );
     expect([...document.querySelectorAll('[data-scene-readout]')].map((r) => r.textContent)).toEqual([
-      '275 million',
-      '3.9 million',
-      '1.6 million',
+      '275 million; no death',
+      '3.9 million; no reported injury',
+      '1.6 million; no reported crash',
     ]);
   });
 

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/credits/",
+  "mount": "image:temporal-ensembling",
+  "screenshots": {
+    "375": "evidence/reader-first/credits--temporal-ensembling.375.png",
+    "1280": "evidence/reader-first/credits--temporal-ensembling.1280.png"
+  },
+  "takeaway": "The robot's next move blends three overlapping plans, and the oldest plan gets the biggest say.",
+  "sentence": "Three plans suggest different directions, and the move the robot makes is pulled most toward the oldest plan.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It describes three plans influencing one move, with the oldest plan exerting the strongest pull.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0001",
+  "sourceDigest": "55ee29a9b6bafe1f0f92c06352fc9054b75ef1959947ec750ccca44f870d3719",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

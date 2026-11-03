@@ -260,7 +260,7 @@ export const ORIGINAL_SCHEMATICS: Readonly<Record<string, OriginalSchematic>> = 
     kicker: 'Temporal ensembling',
     heading: 'Three overlapping plans vote; the oldest gets the loudest voice',
     caption:
-      'Blending several overlapping plans smooths the robot’s motion, so one odd prediction jerks the arm less.',
+      'The bracket is the robot’s gripper. Its next move blends the three arrows, with the oldest plan contributing most.',
     method: (
       <>
         <p>

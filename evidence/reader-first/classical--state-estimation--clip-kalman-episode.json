@@ -7,20 +7,14 @@
     "1280": "evidence/reader-first/classical--state-estimation--clip-kalman-episode.1280.png"
   },
   "takeaway": "Even with noisy readings that sometimes drop out, the filter tracks the target, and it grows less sure while readings are missing.",
-  "sentence": "Over a whole run, the robot's estimate follows the real position through noisy readings, and when readings stop for a while its uncertainty grows.",
-  "unclearTerms": [
-    "filter / filter's estimate (what the 'filter' is)",
-    "what the up-and-down direction of the lines means (no label on the vertical direction)",
-    "the dashed grey 'true position' line, which I could barely find in the chart",
-    "the green shaded wedge under the green arrow",
-    "where exactly the stretch with no readings begins and ends",
-    "'the object' in the caption below (what object?)"
-  ],
+  "sentence": "An object's estimated position follows noisy sensor readings, and the estimate becomes less certain when the readings stop.",
+  "unclearTerms": [],
   "samePoint": "yes",
-  "reason": "My sentence makes the same two points: the estimate keeps following the real position through noisy readings, and its uncertainty grows when readings stop.",
-  "verdict": "fail",
-  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
-  "date": "2026-10-08",
-  "reviewerSession": "reader-session-72c5c167",
-  "sourceDigest": "a43183acd5f349bdd50272ee58d3f19e0e7ad88177d5cbc8f0686ac16b13943b"
+  "reason": "Both describe tracking despite noisy readings and increasing uncertainty when readings stop.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0002",
+  "sourceDigest": "391669c33d80d22e82a09e58afb70c818aa47b78d2dc0b6f9b925416102a72c7",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

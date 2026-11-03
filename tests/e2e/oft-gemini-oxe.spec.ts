@@ -198,7 +198,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           const group = page.getByRole('group', { name: 'Way to share one action list' });
           const panel = page.locator('main [data-figure-frame="cross-embodiment-strategies"]');
           for (const mode of ['padded', 'relative']) {
-            const control = group.getByRole('button', { name: mode === 'relative' ? 'Describe where the hand goes' : "Pad each robot's own list", exact: true });
+            const control = group.getByRole('button', { name: mode === 'relative' ? 'Describe where the hand goes' : "Fill unused joint slots with zeros", exact: true });
             await control.focus();
             await page.keyboard.press('Enter');
             await expect(control).toBeFocused();
@@ -224,7 +224,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
             }
             await captureWholeElement(page, panel, info.outputPath(`full-${mode}-panel.png`));
           }
-          await group.getByRole('button', { name: "Pad each robot's own list", exact: true }).click();
+          await group.getByRole('button', { name: "Fill unused joint slots with zeros", exact: true }).click();
           const reset = panel.getByRole('button', { name: 'Reset', exact: true });
           await reset.focus();
           await page.keyboard.press('Enter');

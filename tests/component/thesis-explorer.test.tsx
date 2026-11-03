@@ -42,7 +42,7 @@ describe('ThesisExplorer', () => {
       expect(card).toHaveTextContent(String(THESES.indexOf(thesis) + 1).padStart(2, '0'));
     }
     expect(screen.getByTestId('thesis-wrong-if-note')).toHaveTextContent(
-      'Each bet names the result that would prove it wrong',
+      'Six expert bets on generally capable robots; each names what would prove it wrong',
     );
     expect(screen.getByTestId('thesis-readout')).toHaveTextContent(
       '6 bets. Tap one to read the evidence for and against.',

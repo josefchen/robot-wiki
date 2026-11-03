@@ -8,10 +8,20 @@ import {
   readerFirstRegistry, registryRecordHash, verifyReaderFirstSource,
 } from '../../lib/audit-reader-first-continuity';
 import { preKolBacklog } from '../helpers/seo-pass';
+import { historicalGit } from '../helpers/historical-git';
+import {
+  loadReaderFirstProofReview, READER_FIRST_PROOF_PATHS, READER_FIRST_PROOF_REVIEW,
+  readerFirstProofInput, replayReaderFirstProofInput,
+} from '../helpers/reader-first-proof-inputs';
 
 const root = resolve(import.meta.dirname, '../..');
-// The reader-first successors as the newer KOL backlog layer hands them back.
-const read = (path: string) => preKolBacklog(path);
+// Product sources use the newer continuity chain. The finite proof-input
+// selector verifies current raw bytes before replaying the original review.
+const read = (path: string) => {
+  const current = readFileSync(join(root, path));
+  const selected = readerFirstProofInput(root, path, current);
+  return selected === current ? preKolBacklog(path) : selected;
+};
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const sourceDrift = /reader-first continuity drift/;
 const registryDrift = /reader-first registry continuity drift/;
@@ -42,8 +52,8 @@ describe('reader-first source successors', () => {
     expect(review.sources.length).toBeGreaterThan(0);
     for (const source of review.sources) {
       const prior = readerFirstPredecessor(root, source.before, read(source.after.path));
-      expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
-      expect(readerFirstPredecessor(root, source.after, read(source.after.path))).toEqual(read(source.after.path));
+      expect.soft([prior.length, sha(prior)], source.before.path).toEqual([source.before.bytes, source.before.sha256]);
+      expect.soft(readerFirstPredecessor(root, source.after, read(source.after.path)), source.after.path).toEqual(read(source.after.path));
     }
   });
 
@@ -52,6 +62,34 @@ describe('reader-first source successors', () => {
     const drifted = Buffer.concat([read(source.after.path), Buffer.from('\n')]);
     expect(readerFirstPredecessor(root, source.before, drifted)).toBe(drifted);
     expect(() => verifyReaderFirstSource(source, drifted)).toThrow(sourceDrift);
+  });
+
+  it('bounds historical proof input selection to twenty exact current successors with named current coverage', { timeout: 60_000 }, () => {
+    const selected = loadReaderFirstProofReview(root);
+    expect(selected.entries.map(({ current }) => current.path)).toEqual([...READER_FIRST_PROOF_PATHS]);
+    for (const entry of selected.entries) {
+      const current = readFileSync(join(root, entry.current.path));
+      expect([current.length, sha(current)]).toEqual([entry.current.bytes, entry.current.sha256]);
+      expect(() => readerFirstProofInput(root, entry.current.path, Buffer.concat([current, Buffer.from('\n')]))).toThrow(/current successor/);
+      const source = review.sources.find(({ after }) => after.path === entry.current.path)!;
+      const prior = historicalGit(['show', `${source.archivedFrom}:${source.before.path}`]);
+      expect(() => replayReaderFirstProofInput(source, Buffer.concat([prior, Buffer.from('\n')]))).toThrow(/original input/);
+      const edited = structuredClone(source);
+      edited.edits[0].after += '\n';
+      expect(() => replayReaderFirstProofInput(edited, prior)).toThrow(/drift/);
+      expect(readerFirstProofInput(root, entry.current.path, current)).toEqual(replayReaderFirstProofInput(source, prior));
+    }
+    const other = Buffer.from('unreviewed source');
+    expect(readerFirstProofInput(scratch(false), 'tests/unit/unreviewed.test.ts', other)).toBe(other);
+  });
+
+  it('rejects a changed proof selection review without rewriting the original review', () => {
+    const tmp = scratch(true);
+    const path = join(tmp, READER_FIRST_PROOF_REVIEW);
+    mkdirSync(join(tmp, 'tests/fixtures/history'), { recursive: true });
+    cpSync(join(root, READER_FIRST_PROOF_REVIEW), path);
+    writeFileSync(path, `${readFileSync(path, 'utf8')} `);
+    expect(() => loadReaderFirstProofReview(tmp)).toThrow(/historical proof input drift/);
   });
 });
 

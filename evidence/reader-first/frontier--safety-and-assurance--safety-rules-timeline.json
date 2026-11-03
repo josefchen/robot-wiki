@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/frontier/safety-and-assurance/",
+  "mount": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1",
+  "screenshots": {
+    "375": "evidence/reader-first/frontier--safety-and-assurance--safety-rules-timeline.375.png",
+    "1280": "evidence/reader-first/frontier--safety-and-assurance--safety-rules-timeline.1280.png"
+  },
+  "takeaway": "The industrial robot safety standards were renewed in 2025, the humanoid standard is still a draft with no next date, and EU law reaches learned safety parts in January 2027.",
+  "sentence": "The timeline shows when robot safety standards and EU rules were or will be introduced, while the humanoid rules still have no confirmed next date.",
+  "unclearTerms": [],
+  "samePoint": "no",
+  "reason": "It mentions the standards and undated humanoid next step, but omits the 2025 renewal and January 2027 coverage of learned safety parts.",
+  "verdict": "fail",
+  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r9-b-20261103",
+  "sourceDigest": "9092525ccaeac1c17e88c5c58319ba7f4f3a607f955f6e0fc5f70924f5d7927b",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

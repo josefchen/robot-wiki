@@ -23,7 +23,7 @@ describe('RobotsPerGpu', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Massively parallel simulation');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('One graphics chip trains thousands of robots at once');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "On one graphics chip, Rudin's team simulated 16,384 robots at once, against 128 typical of CPU simulators.",
+      "One graphics chip simulated 16,384 robots at once; older simulators using a computer’s central processor typically ran 128.",
     );
   });
 
@@ -34,9 +34,9 @@ describe('RobotsPerGpu', () => {
   it('lights one tile of the chip per 128 robots, from the same counts as the readout', () => {
     expect(TILES).toBe(128);
     expect(COUNTS.map((c) => tilesFor(c.robots))).toEqual([1, 32, 128]);
-    expect(readoutFor('cpu')).toBe('128 robots: the CPU-era count');
-    expect(readoutFor('policy')).toBe('4,096 robots: 32 times the CPU-era count');
-    expect(readoutFor('gpu')).toBe('16,384 robots: 128 times the CPU-era count');
+    expect(readoutFor('cpu')).toBe("128 robots: the older processor count");
+    expect(readoutFor('policy')).toBe("4,096 robots: 32 times the older processor count");
+    expect(readoutFor('gpu')).toBe("16,384 robots: 128 times the older processor count");
   });
 
   it('opens on the full chip lit and empties it to one tile with the one preset row', () => {
@@ -46,12 +46,12 @@ describe('RobotsPerGpu', () => {
     // At rest every tile of the default count is lit, and the magnifier shows the first tile's 128 robots.
     expect([...container.querySelectorAll('[data-lit-tile]')].every((tile) => tile.getAttribute('opacity') === '1')).toBe(true);
     expect(screen.getByTestId('robots-lens').querySelectorAll('circle')).toHaveLength(128);
-    expect(container.querySelector('[data-readout]')).toHaveTextContent('16,384 robots: 128 times the CPU-era count');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent("16,384 robots: 128 times the older processor count");
     const cpu = screen.getByTestId('robots-count-cpu');
     fireEvent.click(cpu);
     expect(cpu).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('robots-stage')).toHaveAttribute('data-squares', '1');
-    expect(container.querySelector('[data-readout]')).toHaveTextContent('128 robots: the CPU-era count');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent("128 robots: the older processor count");
     fireEvent.click(screen.getByTestId('robots-count-policy'));
     expect(screen.getByRole('img', { name: /4,096 robots fill 32 of the 128 squares/ })).toBeInTheDocument();
   });

@@ -39,7 +39,7 @@ const TABLE_CELL = 'px-3 py-2 align-top';
 const PLAIN: Record<string, { name: string; bet: string; wrongIf: string }> = {
   'end-to-end-vla': {
     name: 'Just make it bigger',
-    bet: 'More data and bigger models will make robots generally capable, as they did for chatbots.',
+    bet: 'More training examples and larger systems that learn patterns from them will bring general capability, as for chatbots.',
     wrongIf: 'We’d know it’s wrong if 10 times more data brings no improvement.',
   },
   'hierarchical-planner': {
@@ -60,7 +60,7 @@ const PLAIN: Record<string, { name: string; bet: string; wrongIf: string }> = {
   'teleop-bridge': {
     name: 'Humans steer while robots learn',
     bet: 'People remote-control robots doing real work now, and step back as the robots learn.',
-    wrongIf: 'We’d know it’s wrong if robots reach 99% without any human-steered data.',
+    wrongIf: 'We’d know it’s wrong if robots succeed at 99% of tasks without any human-steered training data.',
   },
   'form-factor': {
     name: 'Human-shaped or built for the job',
@@ -187,7 +187,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
         >
           <div className="px-3 pt-3 pb-2 font-sans text-sm leading-snug">
             <StageCallout data-testid="thesis-wrong-if-note">
-              Each bet names the result that would prove it wrong
+              Six expert bets on generally capable robots; each names what would prove it wrong
             </StageCallout>
             <ul
               data-testid="thesis-cards"

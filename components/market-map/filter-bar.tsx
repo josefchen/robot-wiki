@@ -62,7 +62,7 @@ function tabClass(on: boolean) {
     'shrink-0 cursor-pointer border-b py-1.5 font-sans text-[14px] leading-5 whitespace-nowrap transition-colors duration-150',
     'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink',
     on
-      ? 'border-ink text-text'
+      ? 'border-ink text-text forced-colors:font-semibold'
       : 'border-transparent text-text-dim hover:border-border-strong hover:text-text',
   );
 }

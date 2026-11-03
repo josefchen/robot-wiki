@@ -114,12 +114,13 @@ const preConvergenceText = preConvergenceProse(articlePath).toString();
 // The same article as the data-hardware owed-figures block of 2026-10-26 found
 // it, before its runs-and-hours figure mount, rebuilt by that layer.
 const preOwedFiguresText = preOwedFigures(articlePath).toString();
+const preCompletionText = sourceFloorPredecessor(root, { path: articlePath, bytes: 0, sha256: '' }, Buffer.from(read(articlePath))).toString();
 type Stage = 'before' | 'historical' | 'sealed' | 'preMotion' | 'preSeoPass' | 'preDataHardwareCut' | 'preImageMounts'
-  | 'preConvergenceProse' | 'preOwedFigures' | 'current';
+  | 'preConvergenceProse' | 'preOwedFigures' | 'preCompletion' | 'current';
 function scopedBundle(stage: Stage): BaselineBundle {
   const stageText = stage === 'preImageMounts' ? preImagesText
     : stage === 'preConvergenceProse' ? preConvergenceText
-      : stage === 'preOwedFigures' ? preOwedFiguresText : preCutText;
+      : stage === 'preOwedFigures' ? preOwedFiguresText : stage === 'preCompletion' ? preCompletionText : preCutText;
   const members = [
     ['prose', 'article:data-hardware/datasets', '4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95'],
     ['relationships', 'article:data-hardware/datasets', '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'],
@@ -132,7 +133,7 @@ function scopedBundle(stage: Stage): BaselineBundle {
       if (stage === 'preSeoPass') return { id, hash: preSeoPassHash(kind, id) };
       const manifests = stage === 'historical' ? historicalTruth
         : stage === 'preDataHardwareCut' || stage === 'preImageMounts' || stage === 'preConvergenceProse'
-          || stage === 'preOwedFigures' ? [
+          || stage === 'preOwedFigures' || stage === 'preCompletion' ? [
           buildManifest('prose', [{
             id: 'article:data-hardware/datasets',
             value: { path: articlePath, body: matter(stageText).content.trim() },
@@ -373,7 +374,9 @@ describe('RoboMIND original10 truthful release licensing disclosure', { timeout:
       [scopedBundle('preDataHardwareCut'), scopedBundle('preImageMounts'), dataHardwareCut],
       [scopedBundle('preImageMounts'), scopedBundle('preConvergenceProse'), imagesDh],
       [scopedBundle('preConvergenceProse'), scopedBundle('preOwedFigures'), convergence],
-      [scopedBundle('preOwedFigures'), scopedBundle('current'), owedFigures],
+      [scopedBundle('preOwedFigures'), scopedBundle('preCompletion'), owedFigures],
+      [scopedBundle('sealed'), scopedBundle('current'), approvals.filter(approval =>
+        ['prose', 'relationships'].includes(approval.manifest) && approval.memberId === 'article:data-hardware/datasets')],
     ] as const) {
       const comparison = compareBaseline(previous, next, edges);
       expect(comparison.ok, JSON.stringify(comparison)).toBe(true);
@@ -384,3 +387,4 @@ describe('RoboMIND original10 truthful release licensing disclosure', { timeout:
     }
   });
 });
+import { sourceFloorPredecessor } from '../../lib/audit-source-floor-continuity';

@@ -59,7 +59,7 @@ describe('motion scene mount', () => {
     // at the final frame and the recap caption, with no scrubber. Play is
     // the one control in the header; the step and reset controls wait in
     // the closed "Adjust more" fold, and none of them is disabled.
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Mixing the robot’s guess with the sensor reading narrows the possible position/i);
     expect(screen.queryByTestId('motion-scrubber')).not.toBeInTheDocument();
     expect((poster as HTMLButtonElement).disabled).toBe(false);
     const fold = document.querySelector('[data-figure-fold="adjust"]') as HTMLDetailsElement;
@@ -199,7 +199,7 @@ describe('motion scene mount', () => {
     expect(
       screen.getByRole('button', { name: /play the scene/i }),
     ).toBeInTheDocument();
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Mixing the robot’s guess with the sensor reading narrows the possible position/i);
   });
 });
 
@@ -212,7 +212,7 @@ describe('motion scene player', () => {
 
   it('opens on the poster still, captioned by the recap beat', () => {
     mountPlayer();
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Mixing the robot’s guess with the sensor reading narrows the possible position/i);
     expect(screen.getByTestId('motion-beat-count')).toHaveTextContent('beat 5 / 5');
     expect(
       screen.getByRole('button', { name: /play the scene/i }),
@@ -254,7 +254,7 @@ describe('motion scene player', () => {
       });
     }
     expect(screen.getByRole('button', { name: /play the scene/i })).toBeInTheDocument();
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Mixing the robot’s guess with the sensor reading narrows the possible position/i);
     expect(document.querySelector('[data-scene-hint]')).toHaveTextContent(
       'Drag the timeline to look again',
     );
@@ -288,7 +288,7 @@ describe('motion scene player', () => {
     fireEvent.keyDown(shell, { key: 'ArrowLeft' });
     expect(caption).toHaveTextContent(/Measure: a sensor/);
     fireEvent.keyDown(shell, { key: 'End' });
-    expect(caption).toHaveTextContent(/never knows exactly where it is/i);
+    expect(caption).toHaveTextContent(/Mixing the robot’s guess with the sensor reading narrows the possible position/i);
     // Space toggles when focus is off the buttons.
     fireEvent.keyDown(shell, { key: ' ' });
     expect(
@@ -356,7 +356,7 @@ describe('motion scene player', () => {
     fireEvent.click(
       screen.getByRole('button', { name: /reset the scene to its poster still/i }),
     );
-    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/never knows exactly where it is/i);
+    expect(screen.getByTestId('motion-caption')).toHaveTextContent(/Mixing the robot’s guess with the sensor reading narrows the possible position/i);
     expect(
       screen.getByRole('button', { name: /play the scene/i }),
     ).toBeInTheDocument();

@@ -59,7 +59,9 @@ describe('the card feeder drawing', () => {
 describe('ChunkBuffer', () => {
   it('draws the still pose: a deck of 16 just after an answer landed, every slot full, no words in the drawing', () => {
     render(<ChunkBuffer />);
-    expect(screen.getByText('Each answer carries enough actions to last until the next')).toBeInTheDocument();
+    expect(screen.getByText('13 actions bridge 250 milliseconds at 50 commands a second')).toBeInTheDocument();
+    expect(screen.getByTestId('chunk-rate-comparison')).toHaveTextContent('Gemini Robotics replies in about 250 milliseconds yet controls at 50 Hz (50 commands a second): each reply carries an action chunk. 13 or more actions cover the wait; fewer leave the robot arm idle.');
+    expect(screen.getByTestId('chunk-rate-comparison').compareDocumentPosition(screen.getByRole('slider', { name: 'Actions per chunk' })) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
     const drawing = screen.getByTestId('chunk-drawing');
     expect(drawing).toHaveAttribute('data-chunk', String(STILL_CHUNK));
     expect(drawing).toHaveAttribute('data-ms', String(STILL_MS));
@@ -67,6 +69,8 @@ describe('ChunkBuffer', () => {
     expect(drawing).toHaveAttribute('data-filled', '50');
     expect(screen.getByTestId('chunk-stage-frame').querySelector('[data-readout]')).toHaveTextContent('16 per chunk · the arm never waits');
     const svg = drawing.querySelector('svg')!;
+    expect(svg).toHaveAccessibleName(/^A card feeder representing queued actions; the robot arm is not drawn\./);
+    expect(screen.getByTestId('chunk-stage-frame').querySelector('[data-anatomy-hint]')).toHaveTextContent('This card feeder represents the action queue. The robot arm is not drawn: empty belt slots show moments when it waits.');
     expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
     expect(svg.textContent).toBe('');
     // The one lit part is the deck being played.
@@ -179,6 +183,24 @@ describe('ChunkBuffer', () => {
     expect(runOffset(0, true)).toBe(RUN_STOPS[0]);
     expect(runOffset(RUN_MS * SLOW, true)).toBeNull();
     expect(runOffset(RUN_MS * SLOW, false)).toBeNull();
+  });
+
+  it('identifies an empty card holder without calling a sufficient chunk idle', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    try {
+      render(<ChunkBuffer />);
+      fireEvent.change(screen.getByRole('slider', { name: 'Actions per chunk' }), { target: { value: '13' } });
+      fireEvent.click(screen.getByTestId('chunk-run'));
+      await act(async () => {
+        vi.advanceTimersByTime((ANSWER_MS * 3 - 1 - STILL_MS) * SLOW);
+      });
+      expect(screen.getByTestId('chunk-drawing')).toHaveAttribute('data-left', '0');
+      const stage = screen.getByTestId('chunk-stage-frame');
+      expect(stage).toHaveTextContent('Beside the upright ruler: no cards left from this reply.');
+      expect(stage.querySelector('[data-readout]')).toHaveTextContent('13 per chunk · the arm never waits');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('server-renders the still pose it hydrates', () => {

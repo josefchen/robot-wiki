@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/frontier/generalization/",
+  "mount": "mount:/frontier/generalization/:HelixZeroShotSuccess:1",
+  "screenshots": {
+    "375": "evidence/reader-first/frontier--generalization--helix-zero-shot-success.375.png",
+    "1280": "evidence/reader-first/frontier--generalization--helix-zero-shot-success.1280.png"
+  },
+  "takeaway": "Pretraining on human data lifted Figure's robot from 9% to 56% success in homes it had never seen, still well short of the 90% this article calls solved.",
+  "sentence": "Training first on human data raised success in unfamiliar homes from 9 percent to 56 percent, still below the figure's 90 percent target.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "The sentence correctly identifies human-data pretraining, unfamiliar homes, the rise from 9 to 56 percent and the unmet 90 percent target.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0002",
+  "sourceDigest": "02902c27295b2e1798e6961748529440fb0a107a15e7a5a131a4874ec3e4eacd",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

@@ -155,6 +155,9 @@ test.describe('bubble view hover/focus affordances', () => {
     page,
   }) => {
     await openBubble(page);
+    // Enter the actual keyboard modality before placing focus on the
+    // specific geometry witness. Pointer focus intentionally has no ring.
+    await page.keyboard.press('Tab');
     await mark(page, 'figure-ai').focus();
     const ring = page.locator('circle[data-focus-ring]');
     await expect(ring).toHaveCount(1);
@@ -211,6 +214,30 @@ test.describe('bubble view hover/focus affordances', () => {
     // The ring clears when focus leaves the mark.
     await page.evaluate(() => (document.activeElement as HTMLElement).blur());
     await expect(ring).toHaveCount(0);
+  });
+
+  test('a pointer-focused sole mark keeps its label and gains its ring on an arrow key', async ({ page }) => {
+    await openBubble(page);
+    await page.getByRole('searchbox', { name: 'Search companies by name' }).fill('Figure AI');
+    await expect(marks(page)).toHaveCount(1);
+    // The last pointer action establishes pointer modality after entering
+    // the search query. With one result, an arrow cannot move focus away.
+    await page.getByRole('button', { name: 'Bubble', exact: true }).click();
+    const topId = await marks(page).first().getAttribute('data-company-id');
+    expect(topId).toBeTruthy();
+    const top = mark(page, topId!);
+    await top.focus();
+    await expect(top).toBeFocused();
+    expect(await top.evaluate((node) => node.matches(':focus-visible'))).toBe(false);
+    const text = await label(page).textContent();
+    expect(text?.trim()).toBeTruthy();
+    const ring = page.locator('circle[data-focus-ring]');
+    await expect(ring).toBeHidden();
+    await page.keyboard.press('ArrowUp');
+    await expect(top).toBeFocused();
+    await expect(ring).toBeVisible();
+    await expect(ring).toHaveCSS('stroke', ACCENT);
+    await expect(label(page)).toHaveText(text!);
   });
 
   test('arrow keys move between marks spatially (single tab stop)', async ({

@@ -536,7 +536,7 @@ test.describe('classical control module', () => {
     await expect(lab.getByTestId('impedance-needle')).toBeVisible();
     // The main view names the first bump against the crush mark; the exact
     // readouts sit in "Adjust more".
-    await expect(lab.locator('[data-readout]')).toHaveText(/First bump 23\.7 newtons · just under the crushing force/);
+    await expect(lab.locator('[data-readout]')).toHaveText(/Peak push 23\.7 newtons · just under the crushing force/);
     await expect(lab.getByTestId('impedance-stiffness-slider')).toBeVisible();
     await openAdjustMore(lab);
     const peak = await lab

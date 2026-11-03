@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/legged-locomotion/",
+  "mount": "mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--legged-locomotion--actuator-gap.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--legged-locomotion--actuator-gap.1280.png"
+  },
+  "takeaway": "A walking robot trained in a simulator with perfect motors falls on real legs; simulating the real motors lets it walk.",
+  "sentence": "Training with motors that respond like the real robot's motors lets it walk, while training with unrealistically instant motors makes it fall.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both contrast falling after training with ideal motors against walking after training with realistic motor responses.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0002",
+  "sourceDigest": "c1ead8841517fa8f1ce5e501526b37b9fdebdba2c2fc1e3dcb2560ea0eadb18c",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

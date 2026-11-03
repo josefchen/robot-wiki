@@ -20,10 +20,10 @@ describe('HumanoidPickHeight', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Whole-body picking');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Lower objects are harder for a whole-body humanoid',
+      'Lower picks succeed less often; the floor is worst',
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "Gemini Robotics 2's humanoid succeeded on 76% of shelf picks but 46% of floor picks.",
+      "One model controls the humanoid’s whole body: success falls from 76% shelf to 68% table to 46% floor, the least reliable height.",
     );
   });
 

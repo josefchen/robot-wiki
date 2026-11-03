@@ -14,7 +14,7 @@ function strategyButton(name: RegExp | string) {
 describe('CrossEmbodimentStrategies', () => {
   it('renders the three strategy toggles, four embodiment rows, and a reset', () => {
     render(<CrossEmbodimentStrategies />);
-    expect(strategyButton("Pad each robot's own list")).toBeInTheDocument();
+    expect(strategyButton("Fill unused joint slots with zeros")).toBeInTheDocument();
     expect(strategyButton('Translate between bodies')).toBeInTheDocument();
     expect(strategyButton('Describe where the hand goes')).toBeInTheDocument();
     for (const id of ['arm', 'bimanual', 'humanoid', 'human-hand']) {
@@ -43,7 +43,7 @@ describe('CrossEmbodimentStrategies', () => {
     expect(container.querySelectorAll('[data-overview-body]')).toHaveLength(4);
     const notes = container.querySelectorAll('[data-figure-annotation]');
     expect(notes).toHaveLength(1);
-    expect(notes[0].textContent).toBe("Only this way can a person'svideo fill the robot's slots");
+    expect(notes[0].textContent).toBe("One model can learn fromhuman videos and robot moves");
     // The full strips, their readouts, the detail and Reset sit in Adjust more.
     const adjust = container.querySelector('details[data-figure-fold="adjust"]')!;
     expect(adjust).toContainElement(screen.getByTestId('row-arm'));
@@ -53,7 +53,7 @@ describe('CrossEmbodimentStrategies', () => {
 
   it('a preset brings its column forward in the grid', () => {
     const { container } = render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton("Pad each robot's own list"));
+    fireEvent.click(strategyButton("Fill unused joint slots with zeros"));
     expect(
       container.querySelector('[data-overview-column="padded"]')?.getAttribute('data-selected'),
     ).toBe('true');
@@ -68,7 +68,7 @@ describe('CrossEmbodimentStrategies', () => {
       'aria-pressed',
       'true',
     );
-    expect(strategyButton("Pad each robot's own list")).toHaveAttribute(
+    expect(strategyButton("Fill unused joint slots with zeros")).toHaveAttribute(
       'aria-pressed',
       'false',
     );
@@ -80,8 +80,8 @@ describe('CrossEmbodimentStrategies', () => {
 
   it('padded mode shows the toggle pressed and zero-padding visible', () => {
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton("Pad each robot's own list"));
-    expect(strategyButton("Pad each robot's own list")).toHaveAttribute(
+    fireEvent.click(strategyButton("Fill unused joint slots with zeros"));
+    expect(strategyButton("Fill unused joint slots with zeros")).toHaveAttribute(
       'aria-pressed',
       'true',
     );
@@ -95,7 +95,7 @@ describe('CrossEmbodimentStrategies', () => {
 
   it('shows the unmodelled human adapter in the padded toy', () => {
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton("Pad each robot's own list"));
+    fireEvent.click(strategyButton("Fill unused joint slots with zeros"));
     const hand = screen.getByTestId('row-human-hand');
     expect(hand).toHaveTextContent(/no adapter modelled/i);
     expect(screen.getByTestId('human-video-readout')).toHaveTextContent(
@@ -110,7 +110,7 @@ describe('CrossEmbodimentStrategies', () => {
       'aria-pressed',
       'true',
     );
-    expect(strategyButton("Pad each robot's own list")).toHaveAttribute(
+    expect(strategyButton("Fill unused joint slots with zeros")).toHaveAttribute(
       'aria-pressed',
       'false',
     );
@@ -135,7 +135,7 @@ describe('CrossEmbodimentStrategies', () => {
       expect(pattern).not.toBeNull();
       expect(row.querySelector(`rect[fill="url(#${pattern!.id})"]`)).not.toBeNull();
     }
-    expect(screen.getByText('hatched: illustrative link, not model dimensions')).toBeInTheDocument();
+    expect(screen.getByText("hatched: illustration of shared movement information; actual contents and size undisclosed")).toBeInTheDocument();
     expect(screen.getByTestId('row-human-hand')).toHaveTextContent(
       /mapping not specified in this illustration/i,
     );
@@ -151,7 +151,7 @@ describe('CrossEmbodimentStrategies', () => {
   it('reset restores the default relative EEF view', async () => {
     const user = userEvent.setup();
     render(<CrossEmbodimentStrategies />);
-    fireEvent.click(strategyButton("Pad each robot's own list"));
+    fireEvent.click(strategyButton("Fill unused joint slots with zeros"));
     expect(screen.getByTestId('row-arm')).toHaveTextContent(/24 zero-padded/);
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(strategyButton('Describe where the hand goes')).toHaveAttribute(
@@ -165,7 +165,7 @@ describe('CrossEmbodimentStrategies', () => {
   it('tells every slot series apart without colour under every way, drawing fresh strip slots for each (VAL-B2-VIZ-002)', () => {
     const { container } = render(<CrossEmbodimentStrategies />);
     const stripSlots = () => [...container.querySelectorAll('[data-testid^="row-"] rect[data-series]')];
-    for (const name of ["Pad each robot's own list", 'Translate between bodies', 'Describe where the hand goes', "Pad each robot's own list"]) {
+    for (const name of ["Fill unused joint slots with zeros", 'Translate between bodies', 'Describe where the hand goes', "Fill unused joint slots with zeros"]) {
       const before = stripSlots();
       fireEvent.click(strategyButton(name));
       // A driven slot is a filled bar, an unused one an empty outline, zero-padding a dashed outline,

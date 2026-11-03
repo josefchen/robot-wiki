@@ -33,15 +33,15 @@ type Recipe = Preset<RecipeId> & {
 export const RECIPES: readonly Recipe[] = [
   {
     id: 'sim',
-    label: 'Simulation, with RL',
-    boxes: [['simulator'], ['learns by', 'trial and error'], ['policy runs on', 'the real robot']],
+    label: 'Simulation, trial and error',
+    boxes: [['simulator'], ['learns by', 'trial and error'], ['learned moves', 'on real robot']],
     contact: 'contact: approximate',
     example: ['ANYmal walked on flat ground', 'after under 4 minutes of training'],
   },
   {
     id: 'demo',
     label: 'Real demonstrations',
-    boxes: [['person drives', 'the real robot'], ['copies the', 'recorded moves'], ['policy runs on', 'the real robot']],
+    boxes: [['person drives', 'the real robot'], ['copies the', 'recorded moves'], ['learned moves', 'on real robot']],
     contact: 'contact: real, recorded',
     example: ['ACT slotted a battery 80 to 90% of the time', 'after 10 minutes of demonstrations'],
   },
@@ -64,8 +64,8 @@ const CARRY_TO = boxX(2) + BOX / 2;
 const f = (v: number) => Number(v.toFixed(2));
 
 const STATEMENT: Record<RecipeId, string> = {
-  sim: "The simulator's contact errors carry over",
-  demo: 'Real contact, so no contact model to get wrong',
+  sim: 'The simulator’s contact errors carry over',
+  demo: 'Real demonstrations need no contact model',
 };
 
 function describe(id: RecipeId): string {
@@ -102,10 +102,10 @@ export function DemoOrSim({ className }: { className?: string }) {
       figureId="demo-or-sim"
       className={className}
       kicker="Two training recipes"
-      heading="Real demonstrations need no contact model"
-      controls={<PresetGroup label="Train the policy from" presets={RECIPES} value={recipeId} onChange={setRecipeId} testId="recipe" />}
+      heading="Simulated contact errors transfer; demonstrations need no contact model"
+      controls={<PresetGroup label="Train the movement controller from" presets={RECIPES} value={recipeId} onChange={setRecipeId} testId="recipe" />}
       stage={
-        <FigureStage footer={<StageStatus>Schematic; examples cited</StageStatus>}>
+        <FigureStage footer={<StageStatus>Simulation guesses how surfaces touch and push; its mistakes transfer. Copying real demonstrations needs no contact model. Schematic; examples cited.</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Three steps from training to the real robot. ${sim ? 'Trained in a simulator, the policy learns against an approximate contact model, and its errors reach the real robot.' : 'Copied from real demonstrations, the policy meets real contact and needs no contact model.'}`}
@@ -165,7 +165,7 @@ export function DemoOrSim({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="A policy trained in simulation inherits its contact model's errors; one copied from real demonstrations needs none."
+      caption="Simulation teaches its mistakes about surfaces touching and pushing to the robot; copying real demonstrations needs no contact model."
       method={
         <>
           <div>

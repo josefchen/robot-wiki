@@ -7,25 +7,14 @@
     "1280": "evidence/reader-first/rl-sim2real--humanoid-wbc--wbc-decomposition.1280.png"
   },
   "takeaway": "Humanoid control is split into layers, slow decisions on top and fast balancing below.",
-  "sentence": "The figure shows a robot's control split into three stacked layers, from deciding what to do down to driving the motors very fast, with the fastest bottom layer keeping the robot balanced.",
-  "unclearTerms": [
-    "Figure AI / NVIDIA / Google DeepMind buttons: I recognise some as companies, but not why I would pick one or what would change if I did",
-    "Figure AI: I was not sure whether this is a company name or means 'this figure'",
-    "joint motor: I guessed it means the motors at the elbows and knees, but was not sure",
-    "Plans how each arm and leg moves vs Drives every joint motor: the difference between planning a movement and driving the motors was not clear to me",
-    "top box has no speed: the title says 'slow thinking', but no number tells me how slow the top layer is",
-    "200 / 1,000 times a second: I could not tell whether these speeds are large or small for a robot",
-    "downward arrows between boxes: I guessed they mean one layer passes instructions to the next",
-    "arrow from the bottom box to the body: unclear whether only the bottom layer controls the body",
-    "green upward arrow under the bottom box: unclear why it points up at the box and what the green colour means",
-    "thicker outline on the bottom box: I could not tell whether it is highlighted on purpose",
-    "purple dots: I needed the key to learn they are joint motors"
-  ],
+  "sentence": "A robot divides its thinking into layers, with slower decisions at the top and very fast joint control keeping it balanced below.",
+  "unclearTerms": [],
   "samePoint": "yes",
-  "reason": "Both describe control split into stacked layers, with deciding at the top and the fastest layer at the bottom keeping balance.",
-  "verdict": "fail",
-  "screenshotCommit": "ee211309e71b215f470d068a95f8b2fb1dd45c3a",
-  "date": "2026-10-09",
-  "reviewerSession": "reader-session-b5cda415",
-  "sourceDigest": "f895af7ed7a21478daab117ac828babaa8f507b75a4b97fd1f8b4e2150ec680c"
+  "reason": "Both describe layered control with slow decisions above fast control that keeps the robot balanced.",
+  "verdict": "pass",
+  "screenshotCommit": "e9abd96b936d238ffce88e1ba58e16400e2bb7a2",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0003",
+  "sourceDigest": "dcb415c727ae7554bb2b2b2d90706c743c8b6ec324b7c93bce47b7c5c548e694",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

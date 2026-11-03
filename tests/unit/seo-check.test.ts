@@ -121,7 +121,7 @@ describe('build wiring', () => {
     expect(pkg.scripts['check:seo']).toBe('node scripts/check-seo.ts');
     expect(pkg.scripts['check:internal-links']).toBe('node scripts/check-internal-links.ts');
     for (const hook of ['postbuild', 'vercel-build']) {
-      const command = pkg.scripts[hook];
+      const command = pkg.scripts[hook].replace('npm run build', [pkg.scripts.prebuild, pkg.scripts.build, pkg.scripts.postbuild].join(' && '));
       for (const check of ['check:seo', 'check:internal-links']) {
         expect(command, hook).toContain(`&& npm run ${check} &&`);
         expect(command.indexOf(check), hook).toBeGreaterThan(command.lastIndexOf('next build'));

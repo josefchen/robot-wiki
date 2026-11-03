@@ -28,6 +28,7 @@ import {
   type LedgerTransition,
 } from '../../../lib/brand-v2-interactive-ledger';
 import { valueTextCovers } from '../../../components/motion/settled-speech';
+import { selectionTransitionSatisfied } from '../../../lib/brand-v2-selection-state';
 
 /**
  * The browser side of the keyboard transition ledger
@@ -1243,14 +1244,15 @@ async function runTransition(session: Session, facts: ControlFacts, plan: Plan, 
   });
 
   const ownStateMoved = beforeState !== afterState;
-  const stateExposed =
+  const selectionSatisfied = selectionTransitionSatisfied(facts.kind, beforeState, afterState);
+  const stateExposed = selectionSatisfied ?? (
     facts.kind === 'action'
       ? ownStateMoved || (afterDigest !== beforeDigest && announcements.length > 0) || afterDigest === beforeDigest
       : facts.kind === 'toggle'
         ? ownStateMoved || /aria-(pressed|selected)=true/.test(afterState)
         : facts.kind === 'radio'
           ? /checked=true|aria-checked=true/.test(afterState)
-          : ownStateMoved;
+          : ownStateMoved);
 
   await session.observeState?.(page, {
     id: `transition:${plan.target}:${base.path.at(-1) ?? 'main'}:${plan.caseId}:${(compress(plan.keys).length ? compress(plan.keys) : ['(none)']).join('+')}`,

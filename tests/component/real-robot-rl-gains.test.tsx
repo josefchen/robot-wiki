@@ -19,12 +19,12 @@ const renderFigure = () => render(<RealRobotRlGains />, { wrapper: Wrapper });
 describe('RealRobotRlGains', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
-    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Offline-to-online improvement');
+    expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Additional reinforcement learning');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Online RL raised real-robot success in every study',
+      "Reinforcement learning improves robots already trained on recordings",
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'In each study, RL after offline training raised real-robot success by 22 to 52 percentage points.',
+      "In four studies, reinforcement learning after training on recordings raised success on real robots by 22 to 52 percentage points.",
     );
   });
 

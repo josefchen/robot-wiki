@@ -1,3 +1,4 @@
+import { releaseActivityProblems } from '../../lib/brand-v2-release-activity';
 import { writeFileSync } from 'node:fs';
 import { expect, test } from './brand-v2-static-fixture';
 import { probeReleaseState } from './helpers/release-state-probe';
@@ -38,8 +39,9 @@ if (process.env.ROBOT_WIKI_RELEASE_PILOT === '1') {
     let observation;
     let error: string | null = null;
     try { observation = await probeReleaseState(page, { id: `pilot:${subject.id}`, route: subject.route, state: subject.state, steps: ['diagnostic preparation only', subject.state] }); }
-    catch (caught) { error = caught instanceof Error ? caught.message : String(caught); }
-    const problems = observation?.profiles.flatMap((profile) => releaseProfileProblems(profile, RELEASE_PROFILES.find(({ id }) => id === profile.id)!)) ?? [];
+    catch (caught) { error = caught instanceof Error ? caught.message : String(caught); if(caught instanceof Error&&'observation'in caught)observation=caught.observation as Awaited<ReturnType<typeof probeReleaseState>>; }
+    const problems = observation?.profiles.flatMap((profile) => releaseProfileProblems(profile, RELEASE_PROFILES.find(({ id }) => id === profile.id)!,subject.route)) ?? [];
+    if(observation)problems.push(...releaseActivityProblems(observation.activity).map((failure)=>`native activity: ${failure}`));
     const report = { kind: 'diagnostic-pilot-not-final-evidence', subject, base, setupMs: probeStarted - started, probeMs: Date.now() - probeStarted, profiles: observation?.profiles.length ?? 0, problems, error, observation };
     writeFileSync(info.outputPath('pilot.json'), JSON.stringify(report, null, 2) + '\n');
     console.log(JSON.stringify({ subject: subject.id, setupMs: report.setupMs, probeMs: report.probeMs, profiles: report.profiles, failures: problems.length, error }));

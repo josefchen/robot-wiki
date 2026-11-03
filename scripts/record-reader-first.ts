@@ -14,6 +14,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import {
   readRegistry,
+  readerRecordIdentityProblems,
   recordPath,
   screenshotPath,
   sourceDigest,
@@ -36,7 +37,8 @@ const date = option('--date', new Date().toISOString().slice(0, 10));
 const registry = readRegistry('.');
 const rubric = loadRubric('.');
 
-for (const answer of answers) {
+// Validate the complete batch before replacing any previous observations.
+const prepared = answers.map((answer) => {
   const entry = registry.figures.find((candidate) => candidate.id === answer.id);
   const shot = capture.captured.find((candidate) => candidate.id === answer.id);
   if (!entry || !shot) throw new Error(`record-reader-first: ${answer.id} is not registered or was not captured`);
@@ -61,6 +63,12 @@ for (const answer of answers) {
     sourceDigest: shot.sourceDigest,
     rubricDigest: rubric.digest,
   };
+  const identityProblems = readerRecordIdentityProblems(record, entry);
+  if (identityProblems.length) throw new Error(`record-reader-first: ${answer.id}: ${identityProblems.join('; ')}`);
+  return { entry, record, unclearTerms };
+});
+
+for (const { entry, record, unclearTerms } of prepared) {
   writeFileSync(recordPath(entry.id), `${JSON.stringify(record, null, 2)}\n`);
   const counted = countedTerms(rubric.rubric, unclearTerms);
   const exempt = unclearTerms.filter((term) => !counted.includes(term));

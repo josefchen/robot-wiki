@@ -7,7 +7,7 @@ describe('final machine-gate evidence',()=>{
   it('declares the fixed read-only gate population without build, generate or self-check recursion',()=>{
     expect(RELEASE_MACHINE_SCRIPTS).toHaveLength(22);
     expect(RELEASE_MACHINE_SCRIPTS.some((name)=>/^(build|generate)|release|machine-gate/.test(name))).toBe(false);
-    expect(releaseMachineCommand('test')).toEqual(['npm','test','--','--reporter=default','--reporter=json','--outputFile.json=evidence/brand-v2/release/machine/unit-report.json','--allowOnly=false']);
+    expect(releaseMachineCommand('test')).toEqual(['npm','test','--','--reporter=default','--reporter=json','--outputFile.json=evidence/brand-v2/release/machine/unit-report.json','--allowOnly=false','--no-file-parallelism','--maxWorkers=1']);
     expect(()=>releaseMachineCommand('build')).toThrow('Unregistered');
   });
   it('accepts an actually complete unit report including duplicate-title multiplicity',()=>{

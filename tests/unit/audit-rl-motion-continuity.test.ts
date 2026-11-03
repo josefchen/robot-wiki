@@ -54,6 +54,10 @@ function fixture() {
     'audit/evidence/convergence-prose-20261026/source-transition.json',
     // The owed figures (2026-10-26) rebuild the pre-mount articles from this review.
     'audit/evidence/owed-figures-20261026/source-transition.json',
+    // Exact reviewed successors added by the final source and shared UI pass.
+    'audit/evidence/source-floor-20261102/source-transition.json',
+    'audit/evidence/source-floor-20261102/registry-transition.json',
+    'audit/evidence/shared-ui-repairs-20261102/source-transition.json',
     // The parallel18 rebinding (2026-10-12) archived the proofs the parallel-sim-rl population names.
     'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),

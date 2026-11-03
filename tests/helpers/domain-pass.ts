@@ -7,6 +7,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { ApprovedDelta } from '@/lib/brand-v2-baseline';
 import { preDomainPassCitations as preDomainPassCitationList } from '@/lib/audit-domain-pass-continuity';
+import { sourceRegistryPredecessor } from '../../lib/audit-source-registry-continuity.ts';
 
 const root = resolve(import.meta.dirname, '../..');
 
@@ -828,7 +829,7 @@ export const DOMAIN_PASS_REGISTRY_CORRECTIONS: readonly (readonly [string, strin
 
 /** The registry source with every reviewed domain-pass correction swapped back. */
 export function withoutDomainPassRegistryCorrections(registry: string): string {
-  let result = registry;
+  let result = sourceRegistryPredecessor(root, { path: 'data/citations.ts', bytes: 0, sha256: '' }, Buffer.from(registry)).toString();
   for (const [before, after] of DOMAIN_PASS_REGISTRY_CORRECTIONS) {
     if (result.split(after).length !== 2) throw new Error('a reviewed domain-pass registry correction drifted');
     result = result.split(after).join(before);

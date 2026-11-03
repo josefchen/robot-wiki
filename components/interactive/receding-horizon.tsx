@@ -376,7 +376,9 @@ export function RecedingHorizon({
       figureId="receding-horizon"
       className={className}
       kicker="Receding horizon"
-      heading="Plan 1.6 seconds ahead, act on half, then rethink"
+      heading={tailSteps > 0
+        ? `Plan ${secondsWords(commitDurationS(clamped.tp))} ahead; act on ${secondsWords(commitDurationS(clamped.ta))}, then rethink`
+        : `Follow all ${secondsWords(commitDurationS(clamped.tp))} without replanning`}
       controls={
         <>
           <PresetGroup<HorizonPreset>
@@ -384,7 +386,7 @@ export function RecedingHorizon({
             presets={[
               {
                 id: 'diffusion',
-                label: `Diffusion Policy: rethink every ${secondsWords(commitDurationS(defaults.ta))}`,
+                label: `Rethink every ${secondsWords(commitDurationS(defaults.ta))}`,
               },
               { id: 'never', label: 'Never rethink' },
             ]}
@@ -451,7 +453,7 @@ export function RecedingHorizon({
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? 'Running three times slower than the robot' : 'Run the reader to watch each plan cut short'}
+          hint={running ? 'Running three times slower than the robot' : tailSteps > 0 ? `Plans ${secondsWords(commitDurationS(clamped.tp))} ahead; acts on ${secondsWords(commitDurationS(clamped.ta))}, then replans` : 'No unused moves: the robot follows the whole plan'}
           readout={
             <>
               <LiveReadoutText ref={phaseRef} data-rh-phase="">{running ? '' : restPhase}</LiveReadoutText>
@@ -459,7 +461,7 @@ export function RecedingHorizon({
               <span data-testid="rh-replan-readout">{rateWords(replanRateHz(clamped.ta))}</span>
             </>
           }
-          status="A schematic of the replanning cycle, not a recorded run."
+          status="Schematic: each tape row is one move; dots mark planned positions, and the blue line joins executed moves."
           data-testid="rh-stage-frame"
         >
           <IsoFigure width={WIDTH} height={HEIGHT} label={label} describedBy={descriptionId}>
@@ -507,7 +509,7 @@ export function RecedingHorizon({
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="Acting on only the first half of each plan, then replanning, lets the robot react to what it sees while still moving smoothly."
+      caption={tailSteps > 0 ? `The robot plans ${secondsWords(commitDurationS(clamped.tp))} ahead, acts on ${secondsWords(commitDurationS(clamped.ta))}, then replans and replaces the unused moves.` : `The robot acts on all ${secondsWords(commitDurationS(clamped.tp))} of this plan without replanning.`}
       method={
         <>
           <p>
@@ -538,7 +540,7 @@ export function RecedingHorizon({
           />
         </>
       }
-      source="Schematic of the replanning cycle; the preset uses the Diffusion Policy setting: plan 16 steps, act on 8, ten steps a second."
+      source="Replanning schematic. Diffusion Policy refines random movement guesses; its preset plans 16 steps, acts on 8, at ten steps a second."
     />
   );
 }

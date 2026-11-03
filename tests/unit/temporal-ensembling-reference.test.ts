@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { committedJson } from '../helpers/editorial-current-context';
 import { preDomainPassCitations } from '../helpers/domain-pass';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
 
 test('ACT reference example uses already-selected oldest-to-newest predictions', () => {
   const article = readFileSync(join(process.cwd(), 'content/manipulation/action-chunking.mdx'), 'utf8');
@@ -89,10 +90,11 @@ test('ACT preserves original row histories and requires all sixteen P1 identitie
   const act = parseLedger('audit/manipulation.md', ledger, new Set(CITATIONS.map(c => c.id)), {
     compoundPlans: plans, articleCitations: { 'action-chunking': declared },
   }).find(s => s.slug === 'action-chunking')!;
-  expect(act.claimRows).toBe(32);
+  expect(verifyLedgerAdditions(act)).toEqual({ originalRows: 32, addedRows: 2, currentRows: 34 });
+  expect(act.claimRows).toBe(34);
   // Later action-chunking packets completed the remaining originals; all 32
-  // claim records now carry no evidence failures.
-  expect(act.claimRecords.filter(r => !r.evidenceFailures.length)).toHaveLength(32);
+  // original records and the two separately bound additions have no failures.
+  expect(act.claimRecords.filter(r => !r.evidenceFailures.length)).toHaveLength(34);
   expect(act.claimRecords[13].citationId).toBe('act-reference-2023');
   expect(act.claimRecords[13].verdict).toBe('corrected');
   expect(act.claimRecords[31].verdict).toBe('corrected');

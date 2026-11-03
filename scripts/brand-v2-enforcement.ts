@@ -1,3 +1,4 @@
+import { beginReleaseValidation,finishReleaseValidation } from '../lib/brand-v2-release-build.ts';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
@@ -20,12 +21,13 @@ import {
   CONTROL_STATES_EVIDENCE_PATH,
   CONTROL_STATES_SWEEP_MODULE,
   controlStateVerdict,
+  controlFocusPopulation,controlFocusVerdict,
   controlStatesEvidenceFingerprint,
   readControlStatesEvidence,
   type ControlStateAssertion,
   type ControlStateRegistry,
 } from '../lib/brand-v2-control-states-evidence.ts';
-import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
+import { BRAND_V2_DEEP_ROWS,type BrandV2Registry } from '../lib/brand-v2-runners.ts';
 import { testTitlesIn } from '../lib/test-title-index.ts';
 import {
   ARTICLE_TRUTH_MANIFEST_KINDS,
@@ -42,8 +44,14 @@ import {
   releaseBaselineMutationProof, releaseBaselinePopulation, releaseBaselineReading,
   releaseBaselineSourceProblems,
 } from '../lib/brand-v2-release-baseline.ts';
-import { closeGovernanceEvidence, RELEASE_GOVERNANCE_ASSERTIONS } from '../lib/brand-v2-release-governance.ts';
-import { collectReleaseClosure, RELEASE_CLOSURE_POPULATION_SOURCES, enforceReleaseDependencies } from '../lib/brand-v2-release-closure.ts';
+import { closeGovernanceEvidence, RELEASE_GOVERNANCE_ASSERTIONS, RELEASE_SCHEMA_ASSERTIONS } from '../lib/brand-v2-release-governance.ts';
+import { RELEASE_COMPOSITE_DEPENDENCIES,RELEASE_COMPOSITE_SOURCES,releaseCompositePopulations,closeReleaseComposites } from '../lib/brand-v2-release-composites.ts';
+import { collectReleaseInteractionEvidence, ASSERTION_POPULATION_SOURCES as RELEASE_INTERACTION_POPULATION_SOURCES } from '../lib/brand-v2-release-interaction-evidence.ts';
+import { collectSourceParity } from '../lib/brand-v2-source-parity.ts';
+import { collectTableSourceParity } from '../lib/brand-v2-table-source-parity.ts';
+import { collectReleaseLiveEvidence,RELEASE_LIVE_SOURCE } from '../lib/brand-v2-release-live.ts';
+import { readReleaseFrameData } from '../lib/brand-v2-release-frame-data.ts';
+import { collectReleaseClosure, RELEASE_CLOSURE_POPULATION_SOURCES, enforceReleaseDependencies, type ReleaseClosureVerdict } from '../lib/brand-v2-release-closure.ts';
 import { collectReleaseResidueEvidence, ASSERTION_POPULATION_SOURCES as RELEASE_RESIDUE_POPULATION_SOURCES, type ReleaseResidueInput } from '../lib/brand-v2-release-residue.ts';
 import {
   LINK_SAFETY_EVIDENCE_PATH,
@@ -197,6 +205,7 @@ import {
   interactiveLedgerPlan,
   interactiveLedgerSourceJoins,
   interactiveLedgerVerdicts,
+  interactiveLedgerFocusMembers,
   readInteractiveLedgerEvidence,
   type LedgerAssertion,
 } from '../lib/brand-v2-interactive-ledger.ts';
@@ -380,6 +389,7 @@ import {
 } from '../lib/brand-v2-og-evidence.ts';
 
 const ROOT = process.cwd();
+const RELEASE_VALIDATION_SCOPE=beginReleaseValidation(ROOT);
 const MAP_PATH = join(ROOT, 'contract', 'brand-v2-enforcement-map.json');
 const RESULTS_PATH = join(ROOT, 'evidence', 'brand-v2', 'results.json');
 /**
@@ -474,8 +484,11 @@ function isMeasured(id: string): boolean {
     LEDGER_ASSERTION_IDS.has(id) ||
     OG_ASSERTIONS.has(id) ||
     GLOBAL_CONVERGENCE_ASSERTIONS.has(id) ||
+    Object.hasOwn(RELEASE_COMPOSITE_SOURCES,id) ||
+    Object.hasOwn(RELEASE_INTERACTION_POPULATION_SOURCES,id) ||
     Object.hasOwn(RELEASE_CLOSURE_POPULATION_SOURCES,id) ||
     Object.hasOwn(RELEASE_RESIDUE_POPULATION_SOURCES,id) ||
+    id==='VAL-B2-A11Y-002'||id==='VAL-B2-A11Y-012'||
     Object.hasOwn(RELEASE_BASELINE_ASSERTIONS, id)
   );
 }
@@ -1707,14 +1720,29 @@ const OG_POPULATIONS = ogPopulations(OG_EVIDENCE);
 // production build, deep PNG/rubric bytes and the complete test inventories.
 // Missing artifacts fail here; registered membership alone grants no pass.
 const RELEASE_CLOSURE = collectReleaseClosure(ROOT);
+const RELEASE_FOCUS_SOURCE='evidence/brand-v2/control-states.json#literal-focus-and-ledger-transitions';
+const RELEASE_FOCUS_VERDICTS=[
+  ...controlFocusPopulation(CONTROL_STATES).map((id)=>{const verdict=controlFocusVerdict(id,CONTROL_STATES);return {id:`control-focus:${id}`,failures:verdict.failures,observed:verdict.observed,notApplicable:verdict.notApplicable,evidencePaths:[CONTROL_STATES_EVIDENCE_PATH],mode:'browser-state' as const};}),
+  ...interactiveLedgerFocusMembers(LEDGER_EVIDENCE).map((verdict)=>({...verdict,id:`ledger-focus:${verdict.id}`,evidencePaths:[INTERACTIVE_LEDGER_EVIDENCE_PATH],mode:'browser-state' as const})),
+];
 const RELEASE_RESIDUE = collectReleaseResidueEvidence({ root: ROOT,
   registry:REGISTRY as unknown as ReleaseResidueInput['registry'],
   identity:IDENTITY_EVIDENCE,global:GLOBAL_CONVERGENCE_EVIDENCE,controls:CONTROL_STATES,figures:FIGURE_EVIDENCE,og:OG_EVIDENCE,
   baseline:RELEASE_BASELINE_BUNDLE,current:RELEASE_BASELINE_COLLECTION.bundle,approvedDeltas:APPROVED_DELTAS,
   activatedStateResidue:RELEASE_CLOSURE.activatedStateResidue,expectedActivatedStateIds:RELEASE_CLOSURE.expectedActivatedStateIds,
 });
-const RELEASE_MEASURED_VERDICTS = new Map(Object.entries({...RELEASE_CLOSURE.verdicts,...RELEASE_RESIDUE.verdicts})
-  .map(([assertion,rows])=>[assertion,new Map(rows.map((row)=>[row.id,row]))]));
+const RELEASE_FRAME_DATA=readReleaseFrameData(ROOT,(REGISTRY as unknown as BrandV2Registry).interactive.mounts);
+const RELEASE_SOURCE_PARITY=collectSourceParity({root:ROOT,registry:REGISTRY as unknown as BrandV2Registry,frames:RELEASE_FRAME_DATA,ledger:LEDGER_EVIDENCE});
+const RELEASE_TABLE_PARITY=collectTableSourceParity({root:ROOT,registry:REGISTRY as unknown as BrandV2Registry,stateIndex:RELEASE_CLOSURE.index});
+const RELEASE_INTERACTIONS=collectReleaseInteractionEvidence({root:ROOT,registry:REGISTRY as unknown as BrandV2Registry,
+  mapPlan:MAP_PLAN,mapEvidence:MAP_EVIDENCE,ledgerPlan:LEDGER_PLAN,ledgerEvidence:LEDGER_EVIDENCE,
+  controls:CONTROL_STATES,tableMath:TABLE_MATH_EVIDENCE,figures:FIGURE_EVIDENCE,stateIndex:RELEASE_CLOSURE.index,
+  frameData:RELEASE_FRAME_DATA,sourceParity:RELEASE_SOURCE_PARITY,tableParity:RELEASE_TABLE_PARITY,
+});
+const RELEASE_LIVE=collectReleaseLiveEvidence({root:ROOT,registry:REGISTRY as unknown as BrandV2Registry,index:RELEASE_CLOSURE.index,frames:RELEASE_FRAME_DATA,ledger:LEDGER_EVIDENCE,search:SEARCH_EVIDENCE,playground:RELEASE_INTERACTIONS.playground,controlRoutes:CONTROL_STATE_ROUTES,controlViewports:CONTROL_STATES.viewports});
+const normalizedReleaseVerdict=(row:ReleaseClosureVerdict&{notApplicable?:string|null|{reason:string}}):ReleaseClosureVerdict&{notApplicable?:string|null}=>({...row,notApplicable:typeof row.notApplicable==='string'?row.notApplicable:row.notApplicable?.reason??null});
+const RELEASE_MEASURED_VERDICTS:Map<string,Map<string,ReleaseClosureVerdict&{notApplicable?:string|null}>> = new Map(Object.entries({...RELEASE_CLOSURE.verdicts,...RELEASE_RESIDUE.verdicts,...RELEASE_INTERACTIONS.verdicts,...RELEASE_LIVE.verdicts,'VAL-B2-A11Y-002':RELEASE_FOCUS_VERDICTS})
+  .map(([assertion,rows])=>[assertion,new Map(rows.map((row)=>[row.id,normalizedReleaseVerdict(row)]))]));
 
 function populationSources(assertionIds: string[]) {
   return buildEnforcementPopulationSources({
@@ -1769,6 +1797,10 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
     ...RELEASE_BASELINE_POPULATIONS,
     ...RELEASE_CLOSURE.populations,
     ...RELEASE_RESIDUE.populations,
+    ...RELEASE_INTERACTIONS.populations,
+    ...RELEASE_LIVE.populations,
+    ...releaseCompositePopulations(assertionIds),
+    [RELEASE_FOCUS_SOURCE]:RELEASE_FOCUS_VERDICTS.map(({id})=>id),
     [TYPE_POPULATION_SOURCE]: Object.keys(TYPE_POPULATIONS),
     [SURFACE_FAMILY_POPULATION_SOURCE]: [...SURFACE_FAMILIES],
     [REPRESENTATIVE_SURFACE_POPULATION_SOURCE]: [...REPRESENTATIVE_SURFACES],
@@ -1776,7 +1808,11 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
 }
 
 function populationSourceFor(id: string): string {
-  const finalSource=RELEASE_CLOSURE_POPULATION_SOURCES[id]??RELEASE_RESIDUE_POPULATION_SOURCES[id];
+  if(Object.hasOwn(RELEASE_COMPOSITE_SOURCES,id))return RELEASE_COMPOSITE_SOURCES[id];
+  if(id==='VAL-B2-A11Y-002')return RELEASE_FOCUS_SOURCE;
+  if(id==='VAL-B2-A11Y-012')return RELEASE_LIVE_SOURCE;
+  if(RELEASE_SCHEMA_ASSERTIONS.some((candidate)=>candidate===id))return 'contract/design-integrity.md#VAL-B2-assertions';
+  const finalSource=RELEASE_CLOSURE_POPULATION_SOURCES[id]??RELEASE_RESIDUE_POPULATION_SOURCES[id]??RELEASE_INTERACTION_POPULATION_SOURCES[id];
   if(finalSource)return finalSource;
   if (Object.hasOwn(RELEASE_BASELINE_ASSERTIONS, id)) return `${RELEASE_BASELINE_SOURCE_PREFIX}${id}`;
   const ogSource = OG_ASSERTION_POPULATION_SOURCES[id];
@@ -1850,6 +1886,7 @@ function populationSourceFor(id: string): string {
 }
 
 function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] {
+  if(Object.hasOwn(RELEASE_COMPOSITE_SOURCES,id))return 'automated-machine';
   const final=RELEASE_MEASURED_VERDICTS.get(id)?.values().next().value;
   if(final)return final.mode;
   const area = id.split('-')[2];
@@ -2941,6 +2978,31 @@ function ogTargetsFor(id: string): TestTarget[] {
 }
 
 function testTargetsFor(id: string): TestTarget[] {
+  if(id==='VAL-B2-A11Y-012')return [
+    testTarget('tests/unit/brand-v2-release-live.test.ts','exact native live-region joins > binds changed text to the exact source and operation while retaining the complete replay','Every native interval, region, operation and changed message is source-bound; omitted changes, wrong messages, roles, timing and focus fail.'),
+    testTarget('tests/unit/brand-v2-release-activity.test.ts','native operation and live-region evidence > requires every route-state/viewport and every navigation interval under the current stamp','The complete independent route/viewport/navigation population is required under the current source/export stamp.'),
+  ];
+  if(id==='VAL-B2-COMP-010')return [
+    testTarget('tests/unit/brand-v2-release-values.test.ts','exact profile source-table joins > rechecks the source oracle on the actual configuration and every table cell','Current profile/configuration source oracle and exact independent table-cell join reject borrowed default proofs.'),
+    testTarget('tests/unit/brand-v2-release-values.test.ts','exact profile source-table joins > binds the exact state/profile/table identity and hash for server tables','Every source-fed server table binds its exact validated capsule reading and byte hash.'),
+  ];
+  if(Object.hasOwn(RELEASE_COMPOSITE_SOURCES,id)){
+    const targets=[testTarget('tests/unit/brand-v2-release-composites.test.ts','release composite clause joins > joins all independently expected members and changes when their actual measurements change','Each clause owner contributes every actual result, complete independent population and evidence hash; unresolved truth or interaction evidence blocks the composite.'),...RELEASE_COMPOSITE_DEPENDENCIES[id].flatMap((dependency)=>testTargetsFor(dependency))];
+    return [...new Map(targets.map((target)=>[JSON.stringify(target),target])).values()];
+  }
+  if(Object.hasOwn(RELEASE_INTERACTION_POPULATION_SOURCES,id))return [
+    testTarget('tests/unit/brand-v2-release-runtime-oracles.test.ts','falsifiable figure/table clauses > finds every physical source and authored mount independently of the registry','Independent current source/mount census prevents registry-only omissions.'),
+    testTarget('tests/unit/brand-v2-release-interactions.test.ts','strict retained figure frames > accepts exactly two genuinely bound width readings per independent mount','Exact stamped measured figure population and semantic data.'),
+    testTarget('tests/unit/brand-v2-release-interactions.test.ts','complete map keyboard state proofs > rejects missing, duplicate and stale stamped case records','Every applicable map state uses actual keyboard operations with canonical company/count expectations.'),
+    testTarget('tests/unit/brand-v2-release-runtime-oracles.test.ts','independent rendered robot oracle > composes URDF translation, joint rotation and scene basis from first principles','Real rendered model probes compare against independent kinematics and material expectations.'),
+  ];
+  if(id==='VAL-B2-A11Y-002')return [
+    testTarget('tests/unit/brand-v2-focus-paint.test.ts','literal focus paint > requires raw full paint records and genuine keyboard reach for each instance','Every structural route/viewport instance and declared interactive transition must expose literal current keyboard focus paint, exact offset and named exceptions.'),
+    testTarget('tests/e2e/brand-v2-focus-paint.spec.ts','literal focus proof mutations › measures every structural instance even when resting styles are identical','Actual Tab/arrow reach and pointer selector match cover every unmerged structural focus instance.'),
+  ];
+  if(RELEASE_SCHEMA_ASSERTIONS.some((candidate)=>candidate===id))return [
+    testTarget('tests/unit/brand-v2-release-governance.test.ts','release governance measurements > executes current common-envelope and four-family payload omission and sequence mutants','Actual current payload representatives, common failed-envelope requirements, strict family fields and ordered multi-phase captures all reject mutations.'),
+  ];
   if(Object.hasOwn(RELEASE_CLOSURE_POPULATION_SOURCES,id))return [
     testTarget('tests/unit/brand-v2-release-closure.test.ts','final release composite evidence > does not let profile or visual success waive pending interaction or truth evidence','Fails a missing or unresolved independent truth/interaction prerequisite.'),
     testTarget('tests/unit/brand-v2-release-evidence.test.ts','final release state evidence > accepts complete measured observations and includes every sealed half viewport','Exact source/export, state and twelve-profile coverage with measured reflow/media/content accessibility predicates.'),
@@ -4456,15 +4518,17 @@ function resultFor(
     selectorOrRegistryId: populationSource,
     exceptionVerdict: 'none' as const,
   };
-  if(Object.hasOwn(RELEASE_CLOSURE_POPULATION_SOURCES,assertionId)||Object.hasOwn(RELEASE_RESIDUE_POPULATION_SOURCES,assertionId)){
+  if(Object.hasOwn(RELEASE_COMPOSITE_SOURCES,assertionId))return {...common,status:'pending',actual:'awaiting current measured clause joins',payload:{kind:'source-build',sourcePath:'lib/brand-v2-release-composites.ts',predicate:requirement,observed:{dependency:member}}};
+  if(Object.hasOwn(RELEASE_CLOSURE_POPULATION_SOURCES,assertionId)||Object.hasOwn(RELEASE_RESIDUE_POPULATION_SOURCES,assertionId)||Object.hasOwn(RELEASE_INTERACTION_POPULATION_SOURCES,assertionId)||assertionId==='VAL-B2-A11Y-002'||assertionId==='VAL-B2-A11Y-012'){
     if(!member)throw new Error(`${assertionId}: final evidence must be per member`);
     const verdict=RELEASE_MEASURED_VERDICTS.get(assertionId)?.get(member);
     if(!verdict)throw new Error(`${assertionId}: missing final observation for ${member}`);
     if(verdict.failures.length)throw new Error(`${assertionId}/${member}: ${verdict.failures.join('; ')}`);
+    if('notApplicable'in verdict&&verdict.notApplicable)return {...common,status:'not-applicable',actual:verdict.notApplicable,notApplicableReason:{code:'unsupported-state',registryId:member,detail:verdict.notApplicable}};
     const payload='payload' in verdict&&verdict.payload?verdict.payload:mode==='browser-state'
       ?{kind:'browser-state' as const,computed:{observed:verdict.observed,evidence:verdict.evidencePaths,tool:'current source/export-bound final release readers'}}
       :{kind:'source-build' as const,sourcePath:verdict.evidencePaths[0],predicate:requirement,observed:verdict.observed,tool:'current source/export-bound final release readers'};
-    return {...common,actual:`${member}: current measured predicates pass; ${verdict.evidencePaths.length} traceable evidence paths`,payload};
+    return {...common,...('context'in verdict&&verdict.context?{context:verdict.context}:{}),actual:`${member}: current measured predicates pass; ${verdict.evidencePaths.length} traceable evidence paths`,payload};
   }
   if (Object.hasOwn(RELEASE_BASELINE_ASSERTIONS, assertionId)) {
     if (!member) throw new Error(`${assertionId}: per-member release evidence is required`);
@@ -5130,14 +5194,15 @@ function generate() {
     },
   );
   const map = enforcementMapSchema.parse({ schemaVersion: 1, rows });
-  enforceReleaseDependencies(results);
   assertNamedTestsExist(map);
   const governed = closeGovernanceEvidence({ assertionIds: assertions.map(({ id }) => id), populationSources: sources,
     map, results: results.map((result) => evidenceResultSchema.parse(result)), testTargetInventory: deriveTestTargetInventory() });
+  const closed=closeReleaseComposites({map:governed.map,results:governed.results,populationSources:sources},ROOT);
+  enforceReleaseDependencies(closed.results);
   return {
     sources,
-    map: governed.map,
-    results: governed.results,
+    map: closed.map,
+    results: closed.results,
     colourOnlyMarks: colourOnlyMarkArchive(),
   };
 }
@@ -5217,6 +5282,7 @@ const mode = process.argv.slice(2).find((argument) =>
 );
 const countOnly = args.has('--count-only');
 const generated = generate();
+let successMessage:string|undefined;
 if (mode === '--write') {
   writeFileSync(MAP_PATH, `${JSON.stringify(generated.map, null, 2)}\n`);
   writeFileSync(
@@ -5227,9 +5293,7 @@ if (mode === '--write') {
     join(ROOT, SEMANTIC_COLOUR_ONLY_MARKS_PATH),
     `${JSON.stringify(generated.colourOnlyMarks, null, 2)}\n`,
   );
-  console.log(
-    `brand-v2-enforcement: wrote ${generated.map.rows.length} assertion rows, ${generated.results.length} tagged results and ${generated.colourOnlyMarks.marks.length} archived colour-only marks`,
-  );
+  successMessage=`brand-v2-enforcement: wrote ${generated.map.rows.length} assertion rows, ${generated.results.length} tagged results and ${generated.colourOnlyMarks.marks.length} archived colour-only marks`;
 } else if (mode === '--check' || mode === '--check-release') {
   const map = enforcementMapSchema.parse(readJson(MAP_PATH));
   const resultDocument = readJson(RESULTS_PATH) as {
@@ -5292,9 +5356,7 @@ if (mode === '--write') {
     }
     process.exitCode = 1;
   } else {
-    console.log(
-      `brand-v2-enforcement: OK (${map.rows.length} assertions, ${results.length} tagged results)`,
-    );
+    successMessage=`brand-v2-enforcement: OK (${map.rows.length} assertions, ${results.length} tagged results)`;
   }
 } else {
   console.error(
@@ -5302,3 +5364,6 @@ if (mode === '--write') {
   );
   process.exitCode = 2;
 }
+
+finishReleaseValidation(RELEASE_VALIDATION_SCOPE);
+if(successMessage)console.log(successMessage);

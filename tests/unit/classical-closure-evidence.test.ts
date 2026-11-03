@@ -30,7 +30,9 @@ describe('classical closure recipes and reader corrections', () => {
     }
   });
   it('removes unsupported IK attributions without deleting the playground or DH matrix', () => {
-    const article = read('content/classical/kinematics.mdx');
+    const path = 'content/classical/kinematics.mdx';
+    const live = read(path);
+    const article = sourceFloorPredecessor(root, { path, bytes: 0, sha256: '' }, Buffer.from(live)).toString();
     expect(article).toContain('lavalle-2006');
     for (const absent of ['Wampler', 'Levenberg-Marquardt', 'wampler-1986', 'levenberg-1944', 'marquardt-1963',
       'residual decreases monotonically', '\\lambda^2 I']) {
@@ -38,6 +40,9 @@ describe('classical closure recipes and reader corrections', () => {
     }
     for (const retained of ['<PlanarFkArm', '<DhParameterTable', '/playground', 'A_i = \\begin{bmatrix}',
       'Product-of-exponentials (POE)', '±0.5mm']) expect(article).toContain(retained);
+    expect(live).toContain("Wampler's damped least-squares formulation makes the tradeoff explicit");
+    expect(live).toContain('reduce pose error while penalizing the size of the corrective joint motion <Cite id="wampler-1986" />');
+    expect(live).not.toContain('residual decreases monotonically');
   });
   it('labels the fixed RRT as authored and extensions as capped, not all equal length', () => {
     const component = read('components/interactive/rrt-explorer.tsx');
@@ -144,9 +149,11 @@ describe('classical closure native evidence and preservation', { timeout: 60_000
     const before = parseLedger('audit/classical.md', read(`${evidence}/classical-before.md`));
     // The stack-classical packet appends calibration and ros2-for-ml-engineers
     // sections after the closure snapshot; every closure-time section is unchanged.
-    expect(sections.slice(0, before.length).map(s => [s.slug, s.claimRows])).toEqual(before.map(s => [s.slug, s.claimRows]));
-    expect(sections.slice(before.length).map(s => [s.slug, s.claimRows]))
+    const counts = sections.map(section => ({ slug: section.slug, ...verifyLedgerAdditions(section) }));
+    expect(counts.slice(0, before.length).map(s => [s.slug, s.originalRows])).toEqual(before.map(s => [s.slug, s.claimRows]));
+    expect(counts.slice(before.length).map(s => [s.slug, s.originalRows]))
       .toEqual([['calibration', 8], ['ros2-for-ml-engineers', 7]]);
+    expect(counts.reduce((sum, section) => sum + section.addedRows, 0)).toBe(68);
     const all = ['classical', 'manipulation', 'rl-sim2real', 'world-models', 'data-hardware', 'frontier', 'adjacent'];
     const identities = (source: (path: string) => string) => all.flatMap((d) =>
       parseLedger(`audit/${d}.md`, source(`audit/${d}.md`)).flatMap((section) =>
@@ -154,7 +161,7 @@ describe('classical closure native evidence and preservation', { timeout: 60_000
     const released = identities((path) => committedSource('0cbdda1', path));
     expect(released).toHaveLength(994);
     const live = identities(read);
-    expect(live).toHaveLength(1080);
+    expect(live).toHaveLength(1254);
     const liveSet = new Set(live);
     expect(liveSet.size).toBe(live.length);
     for (const id of released) expect(liveSet.has(id), id).toBe(true);
@@ -169,7 +176,11 @@ describe('classical closure native evidence and preservation', { timeout: 60_000
     expect(Object.values(sealed).reduce((n, v) => n + v, 0)).toBe(994);
     const perLedger = Object.fromEntries(all.map(d => [d, parseLedger(`audit/${d}.md`, read(`audit/${d}.md`)).reduce((n, s) => n + s.claimRows, 0)]));
     for (const d of all) expect(perLedger[d], d).toBeGreaterThanOrEqual(sealed[d]);
-    expect(Object.values(perLedger).reduce((n, v) => n + v, 0)).toBe(1080);
+    expect(Object.values(perLedger).reduce((n, v) => n + v, 0)).toBe(1254);
+    const retained = all.flatMap(domain => parseLedger(`audit/${domain}.md`, read(`audit/${domain}.md`), ids, ctx))
+      .map(section => verifyLedgerAdditions(section));
+    expect(retained.reduce((sum, section) => sum + section.originalRows, 0)).toBe(1080);
+    expect(retained.reduce((sum, section) => sum + section.addedRows, 0)).toBe(174);
   });
   it('preserves old local proof bytes and the full AND source obligations', () => {
     const ctx = context();
@@ -232,3 +243,5 @@ describe('classical closure native evidence and preservation', { timeout: 60_000
       ids, ctx.localBasis).failures.length).toBeGreaterThan(0);
   });
 });
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
+import { sourceFloorPredecessor } from '../../lib/audit-source-floor-continuity';

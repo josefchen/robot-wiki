@@ -7,21 +7,14 @@
     "1280": "evidence/reader-first/classical--control--pendulum-controller.1280.png"
   },
   "takeaway": "To hold the pole upright the motor must push back harder than gravity pulls; push too gently and the pole sags over.",
-  "sentence": "A motor at the base of a pole has to push back harder than gravity pulls, or the pole falls over.",
-  "unclearTerms": [
-    "the small green arrowhead labelled push next to the pole",
-    "the circle at the bottom of the pole (I guessed it is the motor, but it is not labelled)",
-    "the larger green arrow pointing at that circle from the lower left",
-    "I could not tell whether Too gentle or Strong enough is the selected option",
-    "Give it a push (I could not tell who or what does the pushing)",
-    "the hatched line at the bottom",
-    "Adjust more"
-  ],
+  "sentence": "A leaning pole can stay upright only if the motor pushes back strongly enough to overcome gravity.",
+  "unclearTerms": [],
   "samePoint": "yes",
-  "reason": "My sentence says that the motor must push back harder than gravity pulls or the pole falls over, which matches the pole sagging over when the push is too gentle.",
-  "verdict": "fail",
-  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
-  "date": "2026-10-08",
-  "reviewerSession": "reader-session-817aaa8e",
-  "sourceDigest": "daeb2352bb90d9e9ae52f800a645c5a33252bde8316e934fb3b5c7b79ea4dd86"
+  "reason": "It states that the motor must push strongly enough to overcome gravity to keep the pole upright.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0001",
+  "sourceDigest": "b10bab42f493a76c476aa5fce7c6a03121beccd4ced42c635beb11448878a6fb",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

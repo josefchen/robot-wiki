@@ -179,6 +179,9 @@ const RULES: readonly Rule[] = [
   // I. approvals and roles
   [/to the Claude release session/g, 'to the delegated release reviewer'],
   [/in this Codex task/g, 'in this review session'],
+  [/Codex continuation review/g, 'Continuation review'],
+  [/Owner-authorized Codex takeover/g, 'Owner-authorized implementation takeover'],
+  [/Owner-authorized Codex mission completion/g, 'Owner-authorized implementation mission completion'],
   [/in the Devin session/g, 'in the recorded owner session'],
   [/"implementer": "droid"/g, '"implementer": "implementation"'],
   [/"reviewer": "codex"/g, '"reviewer": "review"'],

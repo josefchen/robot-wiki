@@ -89,7 +89,7 @@ import { AvSafetyMiles } from '@/components/interactive/av-safety-miles';
 
 import { AvStackTable } from '@/components/mdx/av-stack-table';
 
-Autonomous vehicles are cars and trucks that drive themselves, with sensors and software for perception, prediction, planning and control. The field runs from ALVINN, a 1988 neural network that steered a van from camera and laser range-finder images <Cite id="alvinn-1988" />, to Waymo robotaxis that gave more than 500,000 fully autonomous rides a week in April 2026 <Cite id="alphabet-q1-2026" />.
+Autonomous vehicles are self-driving cars and trucks, with sensors and software for perception, prediction, planning and control. The field runs from ALVINN, a 1988 neural network steering a van from camera and laser range-finder images <Cite id="alvinn-1988" />, to Waymo robotaxis giving more than 500,000 fully autonomous rides a week in April 2026 <Cite id="alphabet-q1-2026" />.
 
 <Image id="waymo-jaguar-ipace-san-francisco-2023" />
 
@@ -103,9 +103,9 @@ A production autonomous vehicle is a pipeline of perception, prediction, plannin
 
 ### Perception
 
-Perception turns sensor streams into a model of the scene: which objects exist, where they are, how they move and what the road permits. Waymo's encoder fuses camera, lidar and radar inputs over time <Cite id="waymo-foundation-model-2025" />, and Waymo argues that no single sensor can replicate that redundant view <Cite id="waymo-ai-lessons-2026" />. BEVFormer, a camera-only bird's-eye-view detector, matched lidar-based baselines on the nuScenes test set <Cite id="bevformer-2022" />.
+Perception turns sensor streams into a scene model: which objects exist, where they are, how they move and what the road permits. Waymo's encoder fuses camera, lidar and radar inputs over time <Cite id="waymo-foundation-model-2025" />, and Waymo argues no single sensor can replicate that redundant view <Cite id="waymo-ai-lessons-2026" />. BEVFormer, a camera-only bird's-eye-view detector, matched lidar-based baselines on the nuScenes test set <Cite id="bevformer-2022" />.
 
-Point-cloud detectors make different choices about geometry. PointPillars organizes points into vertical columns for a 2D detector <Cite id="pointpillars-2018" />; PV-RCNN combines voxel convolutions with point-level features <Cite id="pv-rcnn-2019" />. CenterPoint detects object centres, estimates size, orientation and velocity, and links detections by nearest-centre matching <Cite id="centerpoint-2020" />.
+Point-cloud detectors represent geometry differently. PointPillars organizes points into vertical columns for a 2D detector <Cite id="pointpillars-2018" />; PV-RCNN combines voxel convolutions with point-level features <Cite id="pv-rcnn-2019" />. CenterPoint detects object centres, estimates size, orientation and velocity, and links detections by nearest-centre matching <Cite id="centerpoint-2020" />.
 
 <Image id="waymo-roof-sensor-suite-2025" />
 
@@ -117,7 +117,7 @@ Every later stage inherits a perception error. At Tempe in 2018 the system first
 
 ### Prediction
 
-Prediction estimates what every other agent will do over the next several seconds. The future is multi-modal: a pedestrian may cross or wait, and a predictor that averages the two forecasts a path through neither. The Waymo Open Motion Dataset made interactive forecasting a benchmark: over 100,000 scenes of 20 seconds at 10 Hz, more than 570 hours over 1,750 km of roads <Cite id="waymo-open-motion-2021" />.
+Prediction estimates what every other agent will do over the next several seconds. The future is multi-modal: a pedestrian may cross or wait, and a predictor averaging the two forecasts a path through neither. The Waymo Open Motion Dataset made interactive forecasting a benchmark: over 100,000 scenes of 20 seconds at 10 Hz, more than 570 hours over 1,750 km of roads <Cite id="waymo-open-motion-2021" />.
 
 Early predictors drew agent histories and map features into a top-down image for a convolutional network. VectorNet replaced that raster with a hierarchical graph network over vectorized polylines <Cite id="vectornet-2020" />. It matched or beat the raster with over 70 percent fewer parameters and an order of magnitude less computation <Cite id="vectornet-2020" />. MotionLM then cast multi-agent forecasting as language modeling over discrete motion tokens <Cite id="motionlm-2023" />.
 
@@ -131,7 +131,7 @@ Planning decides the route, lane, speed profile and trajectory for the next few 
 
 On nuPlan, the first closed-loop machine-learning planning benchmark <Cite id="nuplan-2021" />, an extremely simple planner built on rule-based priors won the 2023 challenge <Cite id="dauner-misconceptions-2023" />. Dauner and colleagues found learned planners limited in complex scenarios <Cite id="dauner-misconceptions-2023" />.
 
-ChauffeurNet, Waymo's 2018 imitative planner, found standard behavior cloning on 30 million examples insufficient, even with perception preparing its inputs and a controller executing its outputs <Cite id="chauffeurnet-2018" />. It perturbed the expert's driving into collisions and off-road excursions and added losses that penalize them <Cite id="chauffeurnet-2018" />. Manipulation later rediscovered that fix for covariate shift, as [behavior cloning foundations](/manipulation/bc-foundations/) explains.
+ChauffeurNet, Waymo's 2018 imitative planner, found standard behavior cloning on 30 million examples insufficient, even with perception preparing its inputs and a controller executing its outputs <Cite id="chauffeurnet-2018" />. It perturbed the expert's driving into collisions and off-road excursions and added losses penalizing them <Cite id="chauffeurnet-2018" />. Manipulation later rediscovered that fix for covariate shift, as [behavior cloning foundations](/manipulation/bc-foundations/) explains.
 
 Closed-loop tests ask what happens after the planner acts. CARLA provides configurable sensors and environmental conditions for urban-driving simulation <Cite id="carla-2017" />. Bench2Drive tests separate interactive driving scenarios across locations and weather in CARLA <Cite id="bench2drive-2024" />. TrafficSim learns a joint policy for surrounding actors from human driving data, so their behaviour can be simulated together <Cite id="trafficsim-2021" />.
 
@@ -143,7 +143,7 @@ Control turns a planned trajectory into steering, brake and throttle commands, a
 
 Each interface between stages is a lossy summary, and an upstream error cannot be corrected downstream. A 2024 survey frames the trade: end-to-end systems optimize perception and planning features jointly, while modular designs are easier to interpret and debug <Cite id="e2e-ad-survey-2024" />. UniAD kept the task structure but trained it as one network, with stages linked by unified query interfaces <Cite id="uniad-2023" />. Waymo's EMMA, built on a multimodal large language model foundation like Gemini, maps raw camera data to driving outputs written as text <Cite id="emma-2024" />.
 
-On NAVSIM, open-loop results on real data did not reflect closed-loop performance <Cite id="navsim-2024" />. Simple methods such as TransFuser matched large architectures such as UniAD <Cite id="navsim-2024" />. Waymo says its own foundation model has significant benefits over both pure end-to-end and modular approaches <Cite id="waymo-foundation-model-2025" />.
+On NAVSIM, open-loop results on real data did not reflect closed-loop performance <Cite id="navsim-2024" />. Simple methods like TransFuser matched large architectures like UniAD <Cite id="navsim-2024" />. Waymo says its own foundation model has significant benefits over both pure end-to-end and modular approaches <Cite id="waymo-foundation-model-2025" />.
 
 ## Why AV is not solved
 
@@ -171,7 +171,7 @@ The tail still produces recalls. In December 2025 Waymo recalled software on 3,0
 
 ### The measurement problem
 
-Kalra and Paddock's 2016 RAND study found that test driving alone would need hundreds of millions of miles, sometimes hundreds of billions, to show safety <Cite id="kalra-paddock-2016" />. Mobileye's Responsibility-Sensitive Safety defines safe longitudinal and lateral distances as a white-box, interpretable model <Cite id="rss-2017" />. Its authors warned that without such standards the field risked a "winter of autonomous driving" <Cite id="rss-2017" />. Koopman argues that "safe enough" also requires no risk hot spots, such as reckless driving or risk shifted onto vulnerable populations, plus standards conformance and accountability <Cite id="koopman-safe-enough-2026" />.
+Kalra and Paddock's 2016 RAND study found test driving alone would need hundreds of millions of miles, sometimes hundreds of billions, to show safety <Cite id="kalra-paddock-2016" />. Mobileye's Responsibility-Sensitive Safety defines safe longitudinal and lateral distances as a white-box, interpretable model <Cite id="rss-2017" />. Its authors warned that without such standards the field risked a "winter of autonomous driving" <Cite id="rss-2017" />. Koopman argues "safe enough" also requires no risk hot spots, such as reckless driving or risk shifted onto vulnerable populations, plus standards conformance and accountability <Cite id="koopman-safe-enough-2026" />.
 
 <AvSafetyMiles className="my-6" />
 
@@ -183,7 +183,7 @@ In September 2026, Chris Paxton argued that an automated system should be judged
 
 Waymo's peer-reviewed 2025 study covered 56.7 million rider-only miles through January 2025 <Cite id="waymo-crash-rates-2025" />. Against human benchmarks on the same roads, it found statistically significant lower rates of any-injury-reported, airbag-deployment and suspected-serious-injury crashes <Cite id="waymo-crash-rates-2025" />. Vehicle-to-vehicle intersection crashes with any injury fell 96 percent, with no significant disbenefit in any of its 11 crash-type groups <Cite id="waymo-crash-rates-2025" />.
 
-Waymo's own safety hub reports 271.3 million rider-only miles through June 2026 <Cite id="waymo-safety-hub-2026" />. Over the same distance it counts 95 percent fewer serious-injury-or-worse crashes and 82 percent fewer injury-causing crashes than human drivers <Cite id="waymo-safety-hub-2026" />. IIHS found that Waymo's driverless vehicles in San Francisco, Phoenix, Los Angeles and Austin had 68 percent fewer police-reportable crashes per mile than human drivers <Cite id="iihs-waymo-2026" />.
+Waymo's own safety hub reports 271.3 million rider-only miles through June 2026 <Cite id="waymo-safety-hub-2026" />. Over the same distance it counts 95 percent fewer serious-injury-or-worse crashes and 82 percent fewer injury-causing crashes than human drivers <Cite id="waymo-safety-hub-2026" />. IIHS found Waymo's driverless vehicles in San Francisco, Phoenix, Los Angeles and Austin had 68 percent fewer police-reportable crashes per mile than human drivers <Cite id="iihs-waymo-2026" />.
 
 Tesla says it launched unsupervised rides in Miami, Orlando and Tampa in July 2026 and expanded its unsupervised area in Austin <Cite id="tesla-q2-2026-update" />. Baidu reported in August 2026 that Apollo Go had reached 28 cities and more than 240 million fully driverless kilometres <Cite id="baidu-q2-2026" />. Aurora began driverless customer deliveries between Dallas and Houston in May 2025 after closing its safety case <Cite id="aurora-driverless-launch-2025" />. By its count it drove nearly 440,000 driverless miles through June 2026 with zero collisions attributed to its system, and expected to end the year with 200 driverless trucks <Cite id="aurora-q2-2026" />.
 
@@ -193,7 +193,7 @@ On October 2, 2023, a driverless Cruise vehicle dragged a pedestrian about 20 fe
 
 ## The relation to robot learning
 
-The imitation toolkit was built on driving before it reached arms. DAgger, the canonical fix for covariate shift, was demonstrated on steering a car in a 3D racing game <Cite id="dagger-2011" />. It cuts the growth of mistakes over the horizon from quadratic to linear <Cite id="dagger-2011" />. On 500,000 hours of driving, Waymo found that forecasting and planning improve as a power law in compute, and closed-loop metrics improve too <Cite id="waymo-scaling-laws-2025" />.
+The imitation toolkit began with driving before reaching arms. DAgger, the canonical fix for covariate shift, was demonstrated on steering a car in a 3D racing game <Cite id="dagger-2011" />. It cuts the growth of mistakes over the horizon from quadratic to linear <Cite id="dagger-2011" />. On 500,000 hours of driving, Waymo found forecasting and planning improve as a power law in compute, and closed-loop metrics improve too <Cite id="waymo-scaling-laws-2025" />.
 
 RAD trains end-to-end policies by reinforcement learning in photorealistic 3D Gaussian splatting replicas, to address imitation's causal confusion and open-loop gap <Cite id="rad-2025" />. It reports a 3x lower collision rate <Cite id="rad-2025" />.
 
@@ -201,7 +201,7 @@ RAD trains end-to-end policies by reinforcement learning in photorealistic 3D Ga
 
 EMMA is a vision-language model co-trained as a generalist on planning, detection and road-graph tasks, with its driving outputs written as text <Cite id="emma-2024" />. It is a <Term id="vision-language-action-model">vision-language-action model</Term> whose embodiment is a car. A late-2025 survey splits driving VLAs into end-to-end models, which perceive, reason and plan in one network, and dual-system models, where a slow VLM deliberates over fast, safety-critical execution <Cite id="vla-ad-survey-2026" />.
 
-Waymo's foundation model uses such a "Think Fast and Think Slow" design, a sensor-fusion encoder for rapid reactions beside a driving VLM trained using Gemini <Cite id="waymo-foundation-model-2025" />. The split mirrors the end-to-end versus [hierarchical](/manipulation/hierarchical/) divide in manipulation and the [knowledge insulation](/manipulation/knowledge-insulation/) case for a separate fast path. NVIDIA reports that its Alpamayo-R1 driving VLA runs on the vehicle in real time at 99 ms latency <Cite id="alpamayo-r1-2025" />.
+Waymo's foundation model uses such a "Think Fast and Think Slow" design, a sensor-fusion encoder for rapid reactions beside a driving VLM trained using Gemini <Cite id="waymo-foundation-model-2025" />. The split mirrors the end-to-end versus [hierarchical](/manipulation/hierarchical/) divide in manipulation and the [knowledge insulation](/manipulation/knowledge-insulation/) case for a separate fast path. NVIDIA reports its Alpamayo-R1 driving VLA runs on the vehicle in real time at 99 ms latency <Cite id="alpamayo-r1-2025" />.
 
 Shiva Sreeram, Daniela Rus and colleagues at MIT CSAIL and the University of Haifa (October 2026) asked six open video-language models which way the ego car moves in driving clips <Cite id="mind-temporal-gap-2026" />. On 200 simulated forward and 200 backward clips, every model answered forward every time, and the same biases appeared on 60 real videos <Cite id="mind-temporal-gap-2026" />. After LoRA finetuning on 80 percent of those clips, all six scored 100 percent on the held-out 80, and the authors conclude that the motion cues are learnable but not reliably exposed through prompting <Cite id="mind-temporal-gap-2026" />.
 

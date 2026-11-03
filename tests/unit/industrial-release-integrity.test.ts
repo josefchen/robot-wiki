@@ -40,9 +40,10 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
       if (name === 'classical-closure-evidence') {
         expect(current).toContain('industrial-release-20260924/corrections.json');
         expect(current).toContain('expect(released).toHaveLength(994)');
-        expect(current).toContain('expect(live).toHaveLength(1080)');
-        expect(released).not.toContain('expect(live).toHaveLength(1080)');
-        expect(current).toContain("expect(Object.values(perLedger).reduce((n, v) => n + v, 0)).toBe(1080)");
+        expect(current).toContain('expect(live).toHaveLength(1254)');
+        expect(released).not.toContain('expect(live).toHaveLength(1254)');
+        expect(current).toContain('verifyLedgerAdditions');
+        expect(current).toContain("expect(Object.values(perLedger).reduce((n, v) => n + v, 0)).toBe(1254)");
         expect(current).toContain("['calibration', 8]");
         expect(current).toContain("['ros2-for-ml-engineers', 7]");
       } else {
@@ -186,9 +187,8 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
       expect(Date.parse(record.review.observedAt)).toBeGreaterThan(Date.parse(old[index].review.observedAt));
       expect(Date.parse(record.review.observedAt)).toBeGreaterThan(Date.parse(released[index].review.observedAt));
       const citation = record.dependencies.find((dependency: LocalArtifact) => dependency.path === 'data/citations.ts');
-      // Re-bound 2026-09-25: the corrections cite the live registry after
-      // the EXPO-FT intake, matching the fresh reader-run dependencies.
-      expect(citation.sha256).toBe(sha256(readFileSync('data/citations.ts')));
+      // Exact successor reviews retain the dependency recorded by the old run.
+      expect(citation.sha256).toBe(sha256(createLocalArtifactReader(process.cwd())(citation)));
     }
     expect(sha256(readFileSync(`${mergeDir}local-citations.ts.txt`))).toBe(kroger.citationAfter.sha256);
     expect(sha256(readFileSync('data/citations.ts'))).not.toBe(sha256(readFileSync(`${mergeDir}main-citations.ts.txt`)));
@@ -255,6 +255,8 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
             'audit/evidence/convergence-prose-20261026',
             // The owed figures (2026-10-26) rebuild the pre-mount articles from this review.
             'audit/evidence/owed-figures-20261026',
+            'audit/evidence/source-floor-20261102',
+            'audit/evidence/shared-ui-repairs-20261102',
             'audit/evidence/parallel-local-20261009/checker-transition.json',
             'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',

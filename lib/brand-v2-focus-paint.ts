@@ -56,7 +56,7 @@ export const FOCUS_INK = 'rgb(28, 28, 26)';
 export const FOCUS_CHART_ACCENT = 'rgb(59, 110, 168)';
 
 export function focusPaintColorException(paint: FocusPaint): string | null {
-  return paint.forcedColors && paint.systemFocus !== '' && paint.color === paint.systemFocus && /^<(?:input|select|textarea|button)\b/.test(paint.target)
+  return paint.forcedColors && paint.systemFocus !== '' && paint.color === paint.systemFocus && /^<(?:input|select|textarea|button|summary)(?=[\s>])/.test(paint.target)
     ? 'focus:forced-native-system-highlight' : null;
 }
 

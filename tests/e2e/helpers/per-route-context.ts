@@ -1,3 +1,4 @@
+import { installReleaseActivityObserver } from './release-activity';
 import type { Browser, BrowserContextOptions, Page } from '@playwright/test';
 import { parseE2EViewport } from '../../helpers/e2e-viewport';
 
@@ -30,7 +31,9 @@ export async function inOwnContext<T>(
     ? parseE2EViewport(process.env.E2E_VIEWPORT)
     : undefined;
   const context = await browser.newContext({ ...(viewport ? { viewport } : {}), ...options });
+  await context.addInitScript(installReleaseActivityObserver);
   const page = await context.newPage();
+  await page.evaluate(installReleaseActivityObserver);
   try {
     return await visit(page);
   } finally {

@@ -134,7 +134,7 @@ function HandCard({ hand, selected }: { hand: DexterousHand; selected: boolean }
         <div className="text-text-dim">{hand.maker}</div>
         <dl className="m-0 mt-1.5 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 sm:grid-cols-1">
           <div className="contents sm:block">
-            <dt className="text-text-dim">Ways it can move</dt>
+            <dt className="text-text-dim">Joint motions</dt>
             <dd className="m-0 text-text">{waysToMove(hand.dofDisplay)}</dd>
           </div>
           <div className="contents sm:block">
@@ -283,12 +283,12 @@ export function HandComparison({ className }: { className?: string }) {
           </div>
         </FigureStage>
       }
-      caption="Two numbers buyers need, touch sensitivity and price, are never published together for these five robot hands."
+      caption="No hand publishes both touch sensitivity and price; counts are independent joint motions, including passive ones; active means motor-driven."
       method={
         <>
           <p>
-            &ldquo;Ways it can move&rdquo; is the hand&rsquo;s degrees of freedom (DoF), the number
-            of independently driven motions. &ldquo;Lightest touch felt&rdquo; is the tactile
+            &ldquo;Joint motions&rdquo; is the hand&rsquo;s degrees of freedom (DoF), the number
+            of independent joint motions, including passive ones. &ldquo;Lightest touch felt&rdquo; is the tactile
             threshold, the smallest force a fingertip sensor registers: Sanctuary reports about
             5 mN for the Phoenix fingerpads (about 0.5 gram-force), Figure reports 3 g (about
             29 mN) for its fingertips. Every other value is one the maker has not published, shown

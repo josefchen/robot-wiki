@@ -39,7 +39,7 @@ describe('CompoundingError', () => {
     const { container } = render(<CompoundingError />);
     expect(container.querySelector('[data-figure-kicker]')?.textContent).toBe('Compounding error');
     expect(container.querySelector('[data-figure-title]')?.textContent).toBe(
-      'Small mistakes snowball: twice the task, four times the drift',
+      'Twice the task: about four times as far off course',
     );
     const groups = container.querySelectorAll(':scope [data-figure-controls] > [data-preset-group]');
     expect(groups).toHaveLength(2);
@@ -73,10 +73,10 @@ describe('CompoundingError', () => {
     expect(screen.getByTestId('half-deviation-readout')).toHaveTextContent('370');
     // The readout says it in plain words, from the same model sums.
     expect(container.querySelector('[data-readout]')?.textContent).toBe(
-      '240 moves · drift 1,505 units · the first 120 moves drift 370',
+      '240 moves · drift 1,505 toy units · the first 120 moves drift 370',
     );
     expect(screen.getByTestId('robot-gripper')).toBeInTheDocument();
-    expect(container.querySelector('[data-figure-stage]')?.textContent).toContain('the path a person showed it');
+    expect(container.querySelector('[data-figure-stage]')?.textContent).toContain('Groove: demonstrated path');
   });
 
   it('a teacher keeps the drift growing only about as fast as the task', async () => {
@@ -85,6 +85,8 @@ describe('CompoundingError', () => {
     await user.click(screen.getByRole('button', { name: 'A teacher corrects it' }));
     const note = container.querySelector('[data-figure-stage] [data-figure-annotation]');
     expect(note?.textContent).toBe('Twice as long:about twice as far off course');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Twice the task: about twice as far off course');
+    expect(container.querySelector('[data-figure-caption]')).toHaveTextContent('about twice as far off course');
   });
 
   it('increases the accumulated deviation as the error slider moves up', () => {
@@ -198,15 +200,15 @@ describe('CompoundingError', () => {
   it('starts and stops the bench from the one run button, with no pressed state', () => {
     render(<CompoundingError />);
     const run = screen.getByTestId('ce-run');
-    expect(run).toHaveTextContent('Run the bench');
+    expect(run).toHaveTextContent("Play the run");
     fireEvent.click(run);
-    expect(run).toHaveTextContent('Stop the bench');
+    expect(run).toHaveTextContent("Stop");
     expect(run).not.toHaveAttribute('aria-pressed');
     fireEvent.click(run);
-    expect(run).toHaveTextContent('Run the bench');
+    expect(run).toHaveTextContent("Play the run");
     fireEvent.click(run);
     fireEvent.click(screen.getByRole('button', { name: 'A teacher corrects it' }));
-    expect(run).toHaveTextContent('Run the bench');
+    expect(run).toHaveTextContent("Play the run");
   });
 });
 

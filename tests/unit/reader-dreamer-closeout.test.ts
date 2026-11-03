@@ -17,6 +17,7 @@ import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedText, committedJson } from '../helpers/editorial-current-context';
 import { round6RemainingRepairPredecessor } from '@/lib/audit-round6-remaining-repairs-continuity';
 import { preDomainPass, preSeoPass } from '../helpers/seo-pass';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '90c8a0f4c958c42750711082bfb54960cac7d5e8';
@@ -187,15 +188,18 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     const current = parseLedger(path, read(path), ids, context);
     const archived = JSON.parse(read('audit/evidence/crossdomain-closure-20260923/row-history.json'))
       .rows.find((r: { originalId: string }) => r.originalId === 'audit/world-models.md:taxonomy:4');
-    expect(current.slice(0, prior.length).map(s => [s.slug, s.claimRows]))
+    const counts = current.map(section => ({ slug: section.slug, ...verifyLedgerAdditions(section) }));
+    expect(counts.slice(0, prior.length).map(s => [s.slug, s.originalRows]))
       .toEqual(prior.map(s => [s.slug, s.claimRows]));
-    expect(current.slice(prior.length).map(s => [s.slug, s.claimRows]))
+    expect(counts.slice(prior.length).map(s => [s.slug, s.originalRows]))
       .toEqual([['world-models-vs-simulators', 11], ['model-based-robot-learning', 8], ['evaluation', 7]]);
+    expect(counts.reduce((sum, section) => sum + section.addedRows, 0)).toBe(39);
+    expect(current.reduce((sum, section) => sum + section.claimRows, 0)).toBe(157);
     for (const section of current) {
       const old = prior.find(s => s.slug === section.slug);
       if (!old) continue;
-      expect(section.claimRows).toBe(old.claimRows);
-      for (const [i, record] of section.claimRecords.entries()) {
+      expect(verifyLedgerAdditions(section).originalRows).toBe(old.claimRows);
+      for (const [i, record] of section.claimRecords.slice(0, old.claimRows).entries()) {
         if (section.slug === 'taxonomy' && i === 3) {
           expect(originalClaimDigest(archived.currentCells)).toBe(originalClaimDigest(old.claimRecords[i]));
           expect(record.localBasis?.planId).toBe('crossdomain-taxonomy4-20260923');

@@ -3673,16 +3673,16 @@
     {
       "id": "albu-schaffer-2003",
       "url": "https://dblp.org/rec/conf/icra/OttAKH03.html",
-      "requestId": "f12196d4-b337-4568-b1fb-ba35914c9604",
       "byline": "[Christian Ott](https://dblp.org/pid/97/2913.html), [Alin Albu-Schäffer](https://dblp.org/pid/56/6561.html), [Andreas Kugi](https://dblp.org/pid/78/3741.html), [Gerd Hirzinger](https://dblp.org/pid/h/GerdHirzinger.html): \n Decoupling based Cartesian impedance control of flexible joint robots. [ICRA 2003](https://dblp.org/db/conf/icra/icra2003.html#conf/icra/OttAKH03): 3101-3107",
-      "retrievedAt": "2026-11-02T18:08:35.823Z"
+      "retrievedAt": "2026-11-02T18:08:35.823Z",
+      "retrievalFingerprint": "e7cd7a80658e492c94556a998d19f79947c27d92317bc3032bf1b50b2765c56e"
     },
     {
       "id": "mishra-1987",
       "url": "https://dblp.org/rec/journals/algorithmica/MishraSS87.html",
-      "requestId": "54a65425-7c97-44cd-ae84-cc5b10affce2",
       "byline": "[Bhubaneswar Mishra](https://dblp.org/pid/m/BhubaneswarMishra.html), [Jacob T. Schwartz](https://dblp.org/pid/s/JacobTSchwartz.html), [Micha Sharir](https://dblp.org/pid/s/MichaSharir.html): \n On the Existence and Synthesis of Multifinger Positive Grips. [Algorithmica 2](https://dblp.org/db/journals/algorithmica/algorithmica2.html#journals/algorithmica/MishraSS87): 541-558 (1987)",
-      "retrievedAt": "2026-11-02T18:08:35.824Z"
+      "retrievedAt": "2026-11-02T18:08:35.824Z",
+      "retrievalFingerprint": "d7b9cbb3ecf425f7abd86d601b01c66ad5e325b63abc262369e869d83a45844b"
     },
     {
       "id": "smith-1990",

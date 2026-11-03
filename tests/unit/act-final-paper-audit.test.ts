@@ -9,6 +9,7 @@ import {
   parseLedger,
 } from '@/lib/audit-ledger';
 import { preDomainPassCitations } from '../helpers/domain-pass';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
 
 const path = 'audit/manipulation.md';
 const ledger = readFileSync(path, 'utf8');
@@ -16,13 +17,15 @@ const plans = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidenc
 const ids = new Set(CITATIONS.map(c => c.id));
 // A domain-pass rewrite appends new ids, with their own audit rows; the P1 row keeps certifying the list it declared.
 const citations = [...preDomainPassCitations('manipulation', 'action-chunking', matter(readFileSync('content/manipulation/action-chunking.mdx', 'utf8')).data.citations as string[])];
-const rows = (compoundPlans = plans) => parseLedger(path, ledger, ids, {
+const section = (compoundPlans = plans) => parseLedger(path, ledger, ids, {
   compoundPlans, articleCitations: { 'action-chunking': citations },
-}).find(section => section.slug === 'action-chunking')!.claimRecords;
+}).find(section => section.slug === 'action-chunking')!;
+const rows = (compoundPlans = plans) => section(compoundPlans).claimRecords;
 
 describe('ACT final paper audit binding', () => {
   it('completes exactly the existing 32 ACT identities including the two corrected rows', () => {
-    expect(rows()).toHaveLength(32);
+    expect(verifyLedgerAdditions(section())).toEqual({ originalRows: 32, addedRows: 2, currentRows: 34 });
+    expect(rows()).toHaveLength(34);
     expect(rows().every(row => row.evidenceFailures.length === 0)).toBe(true);
     for (const ordinal of [27, 28]) {
       expect(rows()[ordinal - 1].verdict).toBe('corrected');

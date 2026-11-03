@@ -255,7 +255,7 @@ export function ScopeFollow({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="ScoPilot lets the robot keep the laparoscope on the instrument tip. The surgeon still moves every instrument."
+      caption="At Level 1, ScoPilot handles one supervised task: aiming the camera at the instrument tip while the surgeon still moves every instrument."
       method={
         <>
           <p>
