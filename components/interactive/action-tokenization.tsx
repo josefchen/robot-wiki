@@ -88,9 +88,9 @@ const MOTION_GLOSS: Readonly<Record<string, string>> = {
   x: 'forward/back',
   y: 'left/right',
   z: 'up/down',
-  roll: 'roll',
-  pitch: 'tilt',
-  yaw: 'turn',
+  roll: 'twist along arm',
+  pitch: 'tilt up/down',
+  yaw: 'turn left/right',
   gripper: 'open/close',
 };
 
@@ -348,7 +348,7 @@ export function ActionTokenization({
       figureId="action-tokenization"
       className={className}
       kicker="Action tokens"
-      heading="Each arm movement becomes seven words a language model writes"
+      heading="Seven motion words let a language model move the arm"
       controls={
         <>
           <ControlField>
@@ -436,7 +436,7 @@ export function ActionTokenization({
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={writing ? 'The setter writes one rack at a time' : 'Scrub the moment, or write the next one'}
+          hint={writing ? 'The setter writes one rack at a time' : 'Slide to another moment, or write the next one'}
           readout={
             <>
               <LiveReadoutText ref={phaseRef} data-tok-phase="" />
@@ -468,7 +468,7 @@ export function ActionTokenization({
             {AFTER_RUNS.map((run, index) => renderRun(run, `after-${index}`))}
           </IsoFigure>
           <div className="mt-3 font-sans text-[12px] text-text-dim" data-testid="tok-detail-intro">
-            Up close, the {gloss} rack: its slider sits in notch {bin}, and the needle marks the smooth command, {value.toFixed(3)}.
+            The {gloss} movement amount is {value.toFixed(3)} on a scale from −1 to 1. The needle shows that amount; notch {bin} is its nearest level.
           </div>
           <IsoFigure
             width={DETAIL_WIDTH}
@@ -508,7 +508,7 @@ export function ActionTokenization({
             })}
           </IsoFigure>
           <div className="mt-3 font-sans text-[12px]">
-            <div className="text-text-dim">The seven words for this moment, in order:</div>
+            <div className="text-text-dim">A language model predicts words; here, seven numbered words specify the arm&apos;s motion:</div>
             <ol data-testid="token-stream" className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
               {ACTION_DIMS.map((d, i) => (
                 <li
@@ -528,7 +528,7 @@ export function ActionTokenization({
           </div>
         </AnatomyStage>
       }
-      caption="Chopping each motion into 256 levels lets a language model steer an arm by writing seven words per moment, one after another."
+      caption="At each moment, seven numbered words each describe one motion direction, allowing a language model to produce the arm’s movement."
       method={
         <>
           <p>
@@ -580,7 +580,7 @@ export function ActionTokenization({
           />
         </>
       }
-      source={`Toy movement with every nudge kept between ${VALUE_MIN} and ${VALUE_MAX}, and made-up word labels.`}
+      source={`Made-up movement with every nudge kept between ${VALUE_MIN} and ${VALUE_MAX}, and made-up word labels.`}
     />
   );
 }

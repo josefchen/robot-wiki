@@ -20,11 +20,11 @@ describe('AdvantageScrubber', () => {
   it('leads with Play and a two-way toggle; the execution view, slider, readouts and reset sit in Adjust more', () => {
     const { container } = render(<AdvantageScrubber />);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'The robot learns its real mistake came 20 seconds earlier',
+      'Helping and hurting tags reveal the earlier crooked grip',
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Advantage tags');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Tagging each step as helping or hurting lets the robot trace a failure to a cause long before it.',
+      "Marking each step as helping or hurting traces failure to a crooked grip 20 seconds before the coffee-filter handle failed to lock.",
     );
     expect(screen.getByRole('button', { name: /^play$/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /^the attempt$/i })).toHaveAttribute('aria-pressed', 'true');
@@ -54,7 +54,7 @@ describe('AdvantageScrubber', () => {
     const notes = container.querySelectorAll('[data-figure-annotation]');
     expect(notes).toHaveLength(1);
     expect(notes[0].textContent).toBe(
-      'The failure shows up here, butthe cause was this crooked grip',
+      "Tag each step: shaded hurts, clear helps;crooked grip caused failure 20 seconds later",
     );
   });
 
@@ -97,7 +97,7 @@ describe('AdvantageScrubber', () => {
     render(<AdvantageScrubber />);
     const credit = screen.getByTestId('credit-annotation');
     expect(credit).toHaveTextContent(/crooked grip/i);
-    expect(credit).toHaveTextContent(/failure shows up here/i);
+    expect(credit).toHaveTextContent(/Tag each step: shaded hurts, clear helps;crooked grip caused failure 20 seconds later/i);
     scrubTo(20);
     expect(screen.queryByTestId('credit-annotation')).not.toBeInTheDocument();
   });

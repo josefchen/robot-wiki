@@ -34,7 +34,7 @@ describe('ImpedanceContactLab served HTML', () => {
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
     expect(lines).toContain(
-      'The pointer stays at the first bump; past the shaded arc the glass cracksFirst bump 23.7 newtons · just under the crushing force',
+      'Force control can be set soft enough to spare the glass; the stiff arm only follows position and crushes it.Peak push 23.7 newtons · just under the crushing force',
     );
     // The pain limit is off the gauge's scale; it is stated, with its citation, in the method fold.
     expect(lines.some((line) => /pain limit|Han et al/i.test(line))).toBe(false);
@@ -81,6 +81,7 @@ describe('ImpedanceContactLab', () => {
     expect(soft).not.toBeNull();
     expect(hard).not.toBeNull();
     expect(soft!).toBeLessThan(hard!);
+    expect(screen.getByText('This force-control setting still crushes the glass')).toBeInTheDocument();
   });
 
   it('position mode disables K and D natively and reads unbounded; torque restores both', async () => {
@@ -177,7 +178,8 @@ describe('ImpedanceContactLab', () => {
     const { container } = render(<ImpedanceContactLab />);
     const run = simulateContact(DEFAULT_PARAMS);
     expect(screen.getByTestId('impedance-press')).toHaveAttribute('data-arm', 'torque');
-    expect(container.querySelector('[data-readout]')).toHaveTextContent('First bump 23.7 newtons · just under the crushing force');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('Peak push 23.7 newtons · just under the crushing force');
+    expect(screen.getByText('Force control keeps contact below the glass’s crushing force')).toBeInTheDocument();
     expect(screen.getByTestId('impedance-needle')).toHaveAttribute('data-newtons', run.steadyForceN.toFixed(1));
     expect(screen.getByTestId('impedance-needle').getAttribute('d')).toBe(needleAt(run.steadyForceN));
     expect(screen.getByTestId('impedance-peak-pointer')).toHaveAttribute('data-newtons', run.peakForceN.toFixed(1));
@@ -215,13 +217,13 @@ describe('ImpedanceContactLab', () => {
     stillMotion();
     const { container } = render(<ImpedanceContactLab />);
     fireEventChange(screen.getByTestId('impedance-stiffness-slider') as HTMLInputElement, '1500');
-    expect(container.querySelector('[data-readout]')?.textContent).toBe('First bump 34.7 newtons · past the crushing force');
+    expect(container.querySelector('[data-readout]')?.textContent).toBe('Peak push 34.7 newtons · past the crushing force');
     expect(screen.getByTestId('impedance-crack').style.opacity).toBe('1');
     expect(Number(screen.getByTestId('impedance-peak-pointer').getAttribute('data-newtons'))).toBeGreaterThan(CRUSH_N);
     expect(screen.getByTestId('impedance-outcome-readout')).toHaveTextContent('object crushed');
     fireEventChange(screen.getByTestId('impedance-stiffness-slider') as HTMLInputElement, '20000');
     expect(container.querySelector('[data-readout]')?.textContent).toBe(
-      'First bump 166.2 newtons · off the scale, far past the crushing force',
+      'Peak push 166.2 newtons · off the scale, far past the crushing force',
     );
     expect(screen.getByTestId('impedance-peak-pointer')).toHaveAttribute('data-newtons', STOP_N.toFixed(1));
   });
@@ -232,7 +234,7 @@ describe('ImpedanceContactLab', () => {
     const { container } = render(<ImpedanceContactLab />);
     await user.click(screen.getByTestId('impedance-hardware-sea'));
     expect(screen.getByTestId('impedance-press')).toHaveAttribute('data-arm', 'sea');
-    expect(container.querySelector('[data-readout]')?.textContent).toBe('First bump 1.3 newtons · well under the crushing force');
+    expect(container.querySelector('[data-readout]')?.textContent).toBe('Peak push 1.3 newtons · well under the crushing force');
     expect(screen.getByTestId('impedance-spring')).toBeInTheDocument();
     expect(screen.getByTestId('impedance-knob')).toBeInTheDocument();
     const sea = simulateContact({ ...DEFAULT_PARAMS, hardware: 'sea' });
@@ -247,6 +249,7 @@ describe('ImpedanceContactLab', () => {
     expect(screen.getByTestId('impedance-needle')).toHaveAttribute('data-newtons', STOP_N.toFixed(1));
     expect(screen.getByTestId('impedance-crack').style.opacity).toBe('1');
     expect(screen.getByTestId('impedance-outcome-readout')).toHaveTextContent('no force control');
+    expect(screen.getByText('The stiff position-following arm crushes the glass')).toBeInTheDocument();
   });
 });
 
@@ -258,8 +261,8 @@ describe('ImpedanceContactLab pressing again', () => {
     const readout = () => container.querySelector('[data-readout]')?.textContent ?? '';
     await waitFor(() => expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Pressing, slowed for the eye'), { timeout: 2000 });
     expect(readout()).toMatch(/^Pressing · /);
-    await waitFor(() => expect(readout()).toBe('First bump 34.7 newtons · past the crushing force'), { timeout: (PRESS_SECONDS + 2) * 1000 });
-    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('The pointer stays at the first bump');
+    await waitFor(() => expect(readout()).toBe('Peak push 34.7 newtons · past the crushing force'), { timeout: (PRESS_SECONDS + 2) * 1000 });
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Force control can be set soft enough to spare the glass; the stiff arm only follows position and crushes it.');
     expect(screen.getByTestId('impedance-crack').style.opacity).toBe('1');
   }, 15000);
 });
@@ -325,7 +328,7 @@ describe('ImpedanceContactLab press model', () => {
     expect(knobAngle(100)).toBeCloseTo((-135 * Math.PI) / 180, 9);
     expect(knobAngle(20000)).toBeCloseTo((135 * Math.PI) / 180, 9);
     expect(knobAngle(800)).toBeGreaterThan(knobAngle(400));
-    expect(stillReadout('torque', simulateContact(DEFAULT_PARAMS))).toBe('First bump 23.7 newtons · just under the crushing force');
+    expect(stillReadout('torque', simulateContact(DEFAULT_PARAMS))).toBe('Peak push 23.7 newtons · just under the crushing force');
   });
 });
 

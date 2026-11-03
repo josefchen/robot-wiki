@@ -27,6 +27,7 @@ import {
   collectBaselineCheckResult,
   collectBundle,
   jsxExpressionAt,
+  isInternalValueStateCheckerText,
   valueStateRenderSites,
 } from '../../scripts/brand-v2-baseline';
 
@@ -547,6 +548,21 @@ describe('brand-v2 immutable baseline', () => {
       'state-site:lib/audit-local-basis.ts:not-applicable:1',
       'state-site:lib/brand-v2-table-math-evidence.ts:not-applicable:1',
       'state-site:lib/brand-v2-table-math-evidence.ts:not-disclosed:1',
+      'state-site:lib/brand-v2-source-oracle-core.ts:not-disclosed:1',
+      'state-site:lib/no-slop.ts:not-disclosed:1',
+      'state-site:components/ui/badge.tsx:not-disclosed:1',
+      'state-site:lib/brand-v2-interactive-data.ts:not-disclosed:1',
+      'state-site:lib/brand-v2-interactive-data.ts:not-applicable:1',
+      'state-site:lib/brand-v2-interactive-data.ts:not-applicable:2',
+      'state-site:lib/brand-v2-interactive-data.ts:not-applicable:3',
+      'state-site:lib/brand-v2-interactive-data.ts:not-applicable:4',
+      "state-site:lib/brand-v2-interactive-data.ts:not-applicable:5",
+      "state-site:lib/brand-v2-release-interaction-evidence.ts:not-applicable:1",
+      "state-site:lib/brand-v2-release-interaction-evidence.ts:not-disclosed:1",
+      "state-site:lib/brand-v2-release-map-data.ts:not-applicable:1",
+      "state-site:lib/brand-v2-release-map-data.ts:not-disclosed:1",
+      "state-site:lib/brand-v2-release-map-data.ts:not-applicable:2",
+      "state-site:lib/brand-v2-release-map-data.ts:not-disclosed:2",
     ]) {
       expect(rawIds.has(id), `${id} was never scanned`).toBe(true);
       expect(boundedIds.has(id), `${id} is not a reader render site`).toBe(false);
@@ -561,6 +577,15 @@ describe('brand-v2 immutable baseline', () => {
         `${prefix} must remain measured`,
       ).toBe(true);
     }
+  });
+
+  it('does not extend an exact internal-comment exclusion to another line, ordinal or renderer', () => {
+    const comment = '// Buyer\'s-guide table; undisclosed figures render "not disclosed".';
+    expect(isInternalValueStateCheckerText('lib/brand-v2-interactive-data.ts', 'not-disclosed', 1, comment)).toBe(true);
+    expect(isInternalValueStateCheckerText('lib/brand-v2-interactive-data.ts', 'not-disclosed', 2, comment)).toBe(false);
+    expect(isInternalValueStateCheckerText('components/market-map/company-card.tsx', 'not-disclosed', 1, comment)).toBe(false);
+    expect(isInternalValueStateCheckerText('lib/brand-v2-interactive-data.ts', 'not-disclosed', 1, 'return "not disclosed";')).toBe(false);
+    expect(isInternalValueStateCheckerText('lib/entity-cells.ts', 'not-disclosed', 1, 'return "not disclosed";')).toBe(false);
   });
 
   it.each([

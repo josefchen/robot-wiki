@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/world-models/model-based-robot-learning/",
+  "mount": "mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
+  "screenshots": {
+    "375": "evidence/reader-first/world-models--model-based-robot-learning--excavator-practice.375.png",
+    "1280": "evidence/reader-first/world-models--model-based-robot-learning--excavator-practice.1280.png"
+  },
+  "takeaway": "An excavator that learned a model of its own arm from its own moves tracked paths after 20 minutes as well as earlier controllers trained for 100 to 150.",
+  "sentence": "An excavator that learns from its own arm movements can match earlier path-following performance after 20 minutes of practice instead of 100–150 minutes.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Matches learning from the excavator's own arm movements and the correct 20-minute versus 100–150-minute comparison.",
+  "verdict": "pass",
+  "screenshotCommit": "524d32c818ed2a6e63b7e492af46b26cc1aa44fe",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r4-b-20261103",
+  "sourceDigest": "9eb6019fbfcd9209d56624310418b67a1b8e048f9338ac5d1e3a04aeaec0c464",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

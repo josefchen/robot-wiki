@@ -132,7 +132,7 @@ function describe(depth: number): string {
 }
 
 const restReadout = (depth: number) =>
-  `${depth === 1 ? 'Newest picture only' : `Last ${depth} pictures`} · the model gets one ${formatAge(pictureAgeS(depth))} seconds old`;
+  `${depth === 1 ? 'Newest picture only' : `Last ${depth} pictures`} · robot uses a view ${formatAge(pictureAgeS(depth))} seconds old`;
 /** While running: the camera prints picture newest + 1 as the model is handed the oldest, newest - depth + 1. */
 export const runReadout = (depth: number, newest: number) =>
   `camera taking picture ${newest + 1} · model handed picture ${newest - depth + 1} · ${formatAge(pictureAgeS(depth))} seconds old`;
@@ -298,7 +298,7 @@ export function QosQueueAge({ className }: { className?: string }) {
       figureId="qos-queue-age"
       className={className}
       kicker="Quality of Service"
-      heading="Deep queues feed the robot old pictures"
+      heading="Ten queued pictures make the robot’s view ⅓ second old"
       controls={
         <div className="flex flex-wrap items-end gap-x-6 gap-y-1">
           <PresetGroup label="Queue keeps" presets={QUEUES} value={queue} onChange={choose} testId="qos-queue" />
@@ -317,7 +317,7 @@ export function QosQueueAge({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? `Running, slowed about ${SLOW} times` : 'Lit: the picture the model is handed'}
+          hint={running ? `Running, slowed about ${SLOW} times` : 'Blue: picture handed to the robot’s decision program'}
           readout={restReadout(depth)}
           status="Illustrative camera rate"
           data-testid="qos-stage-frame"
@@ -357,7 +357,7 @@ export function QosQueueAge({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="A deep queue hands the model old pictures first, so log each picture's age at the model."
+      caption="At 30 pictures per second, a queue of ten makes the robot’s decision program act on a view one-third of a second old."
       method={
         <>
           <div>

@@ -599,7 +599,7 @@
         "components/interactive/milestones-watchlist.tsx",
         "lib/bear-case.ts"
       ],
-      "takeaway": "Eight results would show robotics is not overhyped; as of August 2026 none has fully happened and four are partly there."
+      "takeaway": "Eight results would show robotics is not overhyped; as of September 2026 none has fully happened and five are partly there."
     },
     {
       "id": "adjacent--drones--perception-latency",
@@ -1036,7 +1036,7 @@
         "components/iso/figures/bear-lock.ts",
         "lib/bear-case.ts"
       ],
-      "takeaway": "The bear case rests on four premises, each broken by its own result, and it falls only when all four results are in; by August 2026 none was."
+      "takeaway": "The bear case rests on four premises, each broken by its own result, and it falls only when all four results are in; by September 2026 none was."
     },
     {
       "id": "frontier--safety-and-assurance--safety-filter-fence",

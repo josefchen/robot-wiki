@@ -339,7 +339,7 @@ export function ActuatorGap({ className }: { className?: string }) {
             data-testid="actuator-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {running ? 'Stop the bench' : 'Run the bench'}
+            {running ? 'Stop' : 'Play the run'}
           </button>
         </>
       }
@@ -348,7 +348,7 @@ export function ActuatorGap({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint={running ? 'Running, slowed for the eye' : 'Lit crank: the simulated motor'}
           readout={stillReadout(model)}
-          status="Illustrative response; outcome cited"
+          status="Graph: time across, motor position upward. Blue: simulation; dark curve: real motor; faint step: target. Gap is their average position difference as a percent of the move. Illustrative responses; cited outcome."
           data-testid="actuator-stage"
           data-outcome={model === 'ideal' ? 'falls' : 'walks'}
         >
@@ -384,7 +384,7 @@ export function ActuatorGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A policy trained with ideal simulated motors fell at ANYmal's first step; a learned motor model let it walk."
+      caption="A movement controller trained with ideal simulated motors fell at ANYmal’s first step; modelling the real motors’ response let it walk."
       method={
         <>
           <div>

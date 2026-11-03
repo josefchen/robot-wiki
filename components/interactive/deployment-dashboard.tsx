@@ -65,7 +65,7 @@ const STAGE_NAME: Record<string, string> = {
 
 /** The stage line for a record with no hours to draw. */
 const NO_HOURS_NOTE: Record<string, string> = {
-  'tesla-optimus': 'No work hours; lines still being built',
+  'tesla-optimus': 'No work hours; robot production lines being built',
 };
 
 /** The note under the biggest drawn record, by record. */

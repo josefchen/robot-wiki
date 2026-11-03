@@ -134,7 +134,7 @@ test('parallel: changed Stat and source-scoped prose retain readable geometry', 
   for (const text of ['Isaac Sim 6.0 and Isaac Lab 3.0 early access releases',
     'support differs between solvers', 'its assembly example sets',
     'Samsung "will use Newton"', 'RB-Y1 cable insertion', '252x for locomotion and 475x for manipulation',
-    'RTX PRO 6000 Blackwell', 'without stating task variants']) await expect(prose).toContainText(text);
+    'RTX PRO 6000 Blackwell', 'without task variants']) await expect(prose).toContainText(text);
   const value = prose.getByText('252x / 475x', { exact: true });
   await center(value);
   const stat = value.locator('..'), box = await stat.boundingBox();
@@ -142,7 +142,7 @@ test('parallel: changed Stat and source-scoped prose retain readable geometry', 
   expect(await stat.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
   expect(box!.x + box!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
   await capture(page, 'parallel-stat');
-  await center(prose.getByText(/The post describes SDF collision from CAD meshes/));
+  await center(prose.getByText(/The post describes CAD-mesh SDF collision/));
   await capture(page, 'parallel-sdf');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

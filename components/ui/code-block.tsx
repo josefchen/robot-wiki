@@ -24,9 +24,9 @@ export function CodeBlock({ code, language, title }: CodeBlockProps) {
     >
       <figcaption
         data-brand-surface-id="surface:flat"
-        className="flex items-center justify-between px-6 pt-3"
+        className="flex items-center justify-between gap-3 px-6 pt-3 max-[359px]:flex-col max-[359px]:items-start"
       >
-        <span className="font-mono text-xs text-text-dim">
+        <span className="min-w-0 [overflow-wrap:anywhere] font-mono text-xs text-text-dim">
           {title ?? language ?? 'code'}
         </span>
         <CopyButton text={code} />

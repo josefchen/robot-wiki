@@ -1,5 +1,5 @@
-import { HARDWARE } from '@/data/hardware';
-import type { HardwareEntry } from '@/data/schemas/hardware';
+import { HARDWARE } from '../data/hardware.ts';
+import type { HardwareEntry } from '../data/schemas/hardware.ts';
 
 /**
  * The buyer's-guide prices a maker or seller lists, for the price ladder on

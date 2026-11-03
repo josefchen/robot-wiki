@@ -222,7 +222,7 @@ export function MotionPantograph({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A surgical robot divides the surgeon's hand movement, tremor included, so the instrument moves less than the hand."
+      caption="At 3 to 1, a surgeon’s 30 mm hand stroke becomes 10 mm at the instrument tip, with every wobble divided too."
       method={
         <>
           <p>
@@ -244,7 +244,7 @@ export function MotionPantograph({ className }: { className?: string }) {
           </p>
         </>
       }
-      source="Motion scaling as Level 0 autonomy: Yang et al., Science Robotics (2017)."
+      source="Level 0 means the surgeon controls every movement: Yang et al., Science Robotics (2017)."
     />
   );
 }

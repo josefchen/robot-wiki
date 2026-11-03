@@ -618,7 +618,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             onClick={reset}
             aria-label="Reset: restore the default grasp and friction"
           />
-          <div className="basis-full space-y-1">
+          <div data-inset-plot className="basis-full space-y-1">
             <div className="font-sans text-sm text-text-dim">
               The same grip as forces and twists: each dot is one edge of a friction cone. The grip holds while
               the ring where the axes cross sits inside the shaded hull.
@@ -638,7 +638,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           {objectView}
         </AnatomyStage>
       }
-      caption="A robot hand must place its fingers so they can resist a push from any direction, or the object slips."
+      caption="Three well-placed fingers resist every push. Blue pins mark resisted directions; the dial’s leftmost tick is zero, where slipping becomes possible."
       method={
         <>
           <p>

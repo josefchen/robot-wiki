@@ -65,10 +65,10 @@ describe('world-model figure source semantics', () => {
 
   it('keeps the SimFoundry correlation on rung 4 and separates it from success or safety', () => {
     render(<CitationRecordsProvider records={widgetCitationRecords('WorldModelEvaluationLadder')}><WorldModelEvaluationLadder /></CitationRecordsProvider>);
-    expect(screen.getByTestId('evaluation-rung-4')).toHaveTextContent('4. Policy ranking');
+    expect(screen.getByTestId('evaluation-rung-4')).toHaveTextContent('4. Robot strategy ranking');
     const stage = screen.getByTestId('world-model-evaluation-ladder-stage');
-    expect(stage).toHaveTextContent('SimFoundry: 0.911 correlation');
-    expect(stage).toHaveTextContent('7 tasks, 5 policy architectures');
+    expect(stage).toHaveTextContent('SimFoundry study: 0.911 correlation');
+    expect(stage).toHaveTextContent('7 tasks, 5 robot strategy designs');
     const method = document.querySelector('[data-figure-fold="method"]')!;
     expect(method).toHaveTextContent('rank violation 0.018');
     expect(method).toHaveTextContent('Neither number is a success percentage or proof of safety');
@@ -110,5 +110,20 @@ describe('world-model figure source semantics', () => {
     expect(within(table).getAllByRole('row', { hidden: true })).toHaveLength(7);
     expect(table).toHaveTextContent('85.26 seconds');
     expect(table).toHaveTextContent('five-second action rollout');
+    const explanation = screen.getByText(/3DGS blends overlapping 3D colour blobs into a frame/);
+    expect(explanation.closest('details')).toBeNull();
+    expect(document.querySelector('[data-figure-fold="method"]')).toHaveTextContent('V-JEPA 2-AC predicts numerical descriptions of camera views after chosen moves.');
+    expect(explanation).not.toHaveTextContent('numerical descriptions of camera views');
+    expect(explanation).toHaveTextContent('V-JEPA 2-AC is a prediction model; a planner uses its forecasts after proposed moves to choose a robot move.');
+    expect(explanation).toHaveTextContent('Predict2’s 14B means 14 billion internal settings adjusted using training examples.');
+    expect(explanation).toHaveTextContent('1XWM predicts five seconds of actions before execution');
+    expect(screen.getByText('Single images, groups of robot moves, a move chosen from several options, and video clips need different waits and different graphics chips.').closest('details')).toBeNull();
+    expect(screen.getByTestId('output-time-3dgs')).toHaveTextContent('Single image · 3DGS');
+    expect(screen.getByTestId('output-time-dreamzero')).toHaveTextContent('Group of robot moves · DreamZero-Flash');
+    expect(screen.getByTestId('output-time-vjepa2')).toHaveTextContent('One chosen move · V-JEPA 2-AC');
+    expect(screen.getByTestId('output-time-cosmos-planner')).toHaveTextContent('One chosen move · Cosmos planner');
+    expect(screen.getByTestId('output-time-1xwm')).toHaveTextContent('Five seconds of predicted moves · 1XWM');
+    expect(screen.getByTestId('output-time-predict2')).toHaveTextContent('Video clip · Cosmos Predict2 14B');
+    for (const row of WORLD_MODEL_OUTPUT_TIMES) expect(screen.getByTestId(`output-time-${row.id}`)).toHaveTextContent(`Chips: ${row.hardware}`);
   });
 });

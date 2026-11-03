@@ -70,7 +70,7 @@ describe('HierarchyTimescales', () => {
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Hierarchical control');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'keeps one goal in mind, updates its next step now and then',
+      "During these two seconds, the plan changes twice while the motors receive about 100 commands.",
     );
     const svg = container.querySelector('svg[aria-describedby]')!;
     expect(svg.textContent).toContain('Next step, in words');

@@ -6,7 +6,7 @@ import { AnatomyStage } from '@/components/iso/anatomy-stage';
 import { Dots, IsoFigure, Line, Solid } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import { HEIGHT, PARTS, WIDTH, beltCards, movingAt, poseAt, type Part } from '@/components/iso/figures/card-feeder';
-import { CHUNK_MAX, CHUNK_MIN, ENOUGH, SLOW, STILL_CHUNK, STILL_MS, TICKS_PER_SECOND, filledPerSecond, readoutFor } from '@/lib/chunk-buffer';
+import { ANSWER_MS, CHUNK_MAX, CHUNK_MIN, ENOUGH, SLOW, STILL_CHUNK, STILL_MS, TICKS_PER_SECOND, filledPerSecond, readoutFor } from '@/lib/chunk-buffer';
 
 /**
  * ChunkBuffer: how a model that answers slowly drives a fast control clock,
@@ -106,10 +106,21 @@ export function ChunkBuffer({ className }: { className?: string }) {
       figureId="chunk-buffer"
       className={className}
       kicker="Action chunks"
-      heading="Each answer carries enough actions to last until the next"
+      heading={`${ENOUGH} actions bridge ${ANSWER_MS} milliseconds at ${TICKS_PER_SECOND} commands a second`}
       controls={
         <>
-          <SliderRow htmlFor={sliderId} label="Actions per chunk" value={<span data-testid="chunk-size">{chunk} actions</span>}>
+          <p className="basis-full pb-2 font-sans text-[16px] font-semibold leading-normal text-text" data-testid="chunk-rate-comparison">
+            Gemini Robotics replies in about <strong className="font-mono text-[24px]">{ANSWER_MS}</strong> milliseconds
+            yet controls at <strong className="font-mono text-[24px]">{TICKS_PER_SECOND}</strong> Hz
+            ({TICKS_PER_SECOND} commands a second): each reply carries an action chunk.{' '}
+            <strong className="font-mono text-[24px]">{ENOUGH}</strong> or more actions cover the wait; fewer leave the robot arm idle.
+          </p>
+          <SliderRow
+            htmlFor={sliderId}
+            label="Actions per chunk"
+            value={<span data-testid="chunk-size">{chunk} actions</span>}
+            className="max-[320px]:grid max-[320px]:grid-cols-1 max-[320px]:[&>div]:min-w-0 max-[320px]:[&_input]:min-w-0 max-[320px]:[&>span]:whitespace-normal"
+          >
             <input
               id={sliderId}
               type="range"
@@ -145,41 +156,43 @@ export function ChunkBuffer({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="The deck on its way is the next answer; the lit deck is being played"
-          readout={readoutFor(chunk)}
-          status="250 ms and 50 Hz from Gemini Robotics; chunk sizes illustrative; slowed twenty times"
+          hint="This card feeder represents the action queue. The robot arm is not drawn: empty belt slots show moments when it waits."
+          readout={`${readoutFor(chunk)} · ${ENOUGH} or more cover the wait`}
+          status={`${pose.left > 0 ? 'Beside the upright ruler: cards left from this reply.' : 'Beside the upright ruler: no cards left from this reply.'} One card per action; the next reply arrives from the box. Chunk sizes illustrative; slowed twenty times.`}
           data-testid="chunk-stage-frame"
         >
-          <div
-            data-testid="chunk-drawing"
-            data-chunk={chunk}
-            data-ms={Number(ms.toFixed(1))}
-            data-tick={pose.tick}
-            data-left={pose.left}
-            data-on-belt={onBelt}
-            data-filled={filledPerSecond(chunk)}
-          >
-            <IsoFigure
-              width={WIDTH}
-              height={HEIGHT}
-              describedBy={drawingId}
-              label={`A card feeder. A sealed box sends a deck of ${chunk} cards down a channel for every answer, one card per action; the next deck is on its way while the lit deck in the well is played. A Geneva wheel moves a belt one slot every tick, and the bottom card of the deck slides onto the empty slot. ${
-                chunk >= ENOUGH ? 'Each deck lasts until the next one lands, so every slot carries a card.' : 'Each deck runs out before the next one lands, so some slots go by empty: ticks the arm waits.'
-              }`}
+          <div className="mx-auto w-full sm:w-1/2">
+            <div
+              data-testid="chunk-drawing"
+              data-chunk={chunk}
+              data-ms={Number(ms.toFixed(1))}
+              data-tick={pose.tick}
+              data-left={pose.left}
+              data-on-belt={onBelt}
+              data-filled={filledPerSecond(chunk)}
             >
-              {PARTS.map((part, index) => {
-                if (part.kind !== 'slot') return <PartView key={index} part={part} />;
-                return (
-                  <g key={part.slot} data-part={part.slot}>
-                    {moving[part.slot].map((child, n) => (child.kind === 'slot' ? null : <PartView key={n} part={child} />))}
-                  </g>
-                );
-              })}
-            </IsoFigure>
+              <IsoFigure
+                width={WIDTH}
+                height={HEIGHT}
+                describedBy={drawingId}
+                label={`A card feeder representing queued actions; the robot arm is not drawn. A sealed box sends a deck of ${chunk} cards down a channel for every answer, one card per action; the next deck is on its way while the stack beside the upright ruler feeds the belt. A Geneva wheel moves a belt one slot every tick, and the bottom card of the deck slides onto the empty slot. ${
+                  chunk >= ENOUGH ? 'Each deck lasts until the next one lands, so every slot carries a card.' : 'Each deck runs out before the next one lands, so some slots go by empty: ticks the arm waits.'
+                }`}
+              >
+                {PARTS.map((part, index) => {
+                  if (part.kind !== 'slot') return <PartView key={index} part={part} />;
+                  return (
+                    <g key={part.slot} data-part={part.slot}>
+                      {moving[part.slot].map((child, n) => (child.kind === 'slot' ? null : <PartView key={n} part={child} />))}
+                    </g>
+                  );
+                })}
+              </IsoFigure>
+            </div>
           </div>
         </AnatomyStage>
       }
-      caption="Gemini Robotics takes about 250 ms to answer yet acts at 50 Hz: 13 actions per chunk cover the wait; fewer leave the arm idle."
+      caption="Gemini Robotics needs 250 milliseconds per plan but sends 50 commands a second: 13 queued actions cover the wait; fewer leave it idle."
       method={
         <>
           <p>

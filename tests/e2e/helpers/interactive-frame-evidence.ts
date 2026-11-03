@@ -35,6 +35,7 @@ export type LegendSwatch = {
   fill: string | null;
   dash: string | null;
   strokeWidth: string | null;
+  points?: string | null;
 };
 
 export type LegendEntry = {
@@ -68,6 +69,7 @@ export type TableEvidence = {
   scopedThCount: number;
   sortable: boolean;
   ariaSortCount: number;
+  sortStates?: Array<{ column: string; direction: string }>;
   naCells: Array<{ column: string }>;
   notDisclosedColumns: string[];
   notDisclosedCount: number;
@@ -85,6 +87,7 @@ export type FrameEvidence = {
   labels: SeriesLabelEvidence[];
   legend: LegendEntry[];
   series: Record<string, SeriesEvidence>;
+  seriesDeclarations?: string[];
   accentMarks: AccentMark[];
   retiredMarks: RetiredMark[];
   canvasCount: number;
@@ -92,10 +95,13 @@ export type FrameEvidence = {
   seriesRects: Array<{ seriesId: string; x: number; y: number; width: number; height: number }>;
   text: string;
   sourceBindings: Array<{ citationId: string | null; href: string; label: string }>;
-  controls: Array<{index:number;tag:string;type:string;id:string;testId:string;label:string;value:string|null;min:string|null;max:string|null;step:string|null;checked:boolean|null;pressed:string|null;selected:string|null;disabled:boolean}>;
+  controls: Array<{index:number;tag:string;type:string;id:string;testId:string;label:string;group?:string;value:string|null;min:string|null;max:string|null;step:string|null;checked:boolean|null;pressed:string|null;selected:string|null;disabled:boolean}>;
   readouts: Array<{key:string;text:string;visible:boolean}>;
-  svgMarks: Array<{tag:string;seriesId:string|null;testId:string;id:string;attrs:Record<string,string>;viewBox:string}>;
-  svgTexts: Array<{seriesId:string;text:string;x:number|null;y:number|null;testId:string}>;
+  svgMarks: Array<{tag:string;seriesId:string|null;testId:string;id:string;ownerTestId?:string;overviewCell?:string;effectiveOpacity?:number;displayed?:boolean;attrs:Record<string,string>;viewBox:string}>;
+  svgTexts: Array<{seriesId:string|null;text:string;x:number|null;y:number|null;testId:string;ownerTestId?:string;overviewCell?:string;dy?:string|null;painted?:boolean;paintFailures?:string[]}>;
+  htmlMarks?: Array<{seriesId:string|null;ownerTestId:string;tag:string;box:{x:number;y:number;width:number;height:number};parentBox:{x:number;y:number;width:number;height:number};widthStyle:string;opacity:number}>;
+  methodCards?: Array<{id:string;text:string;visible:boolean;paintFailures?:string[]}>;
+  physicalNeedles?: Array<{id:'pendulum-gravity-arrow'|'pendulum-push-arrow';topPaths:string[];visible:boolean}>;
   declaredBindings: Array<{element:string;attributes:Record<string,string>}>;
   tables: TableEvidence[];
 };
@@ -183,7 +189,7 @@ export function observeFrame(
     const legend: Array<{
       text: string;
       seriesId: string | null;
-      swatch: { tag: string; stroke: string | null; fill: string | null; dash: string | null; strokeWidth: string | null } | null;
+      swatch: { tag: string; stroke: string | null; fill: string | null; dash: string | null; strokeWidth: string | null; points?: string | null } | null;
     }> = [];
     for (const band of frameElement.querySelectorAll('[data-instrument-legend]')) {
       for (const item of Array.from(band.querySelectorAll('[data-legend-item]'))) {
@@ -211,6 +217,7 @@ export function observeFrame(
                   ? cs.strokeDasharray
                   : null,
               strokeWidth: cs.strokeWidth,
+              points: mark.getAttribute('points'),
             };
           }
         }
@@ -358,6 +365,7 @@ export function observeFrame(
       scopedThCount: number;
       sortable: boolean;
       ariaSortCount: number;
+      sortStates?: Array<{ column: string; direction: string }>;
       naCells: Array<{ column: string }>;
       notDisclosedColumns: string[];
       notDisclosedCount: number;
@@ -429,6 +437,7 @@ export function observeFrame(
         scopedThCount: ths.filter((th) => th.hasAttribute('scope')).length,
         sortable: ths.some((th) => th.querySelector('button')),
         ariaSortCount: ths.filter((th) => th.hasAttribute('aria-sort')).length,
+        sortStates: ths.filter((th) => th.hasAttribute('aria-sort')).map(th => ({ column: (th.textContent ?? '').replace(/\s+/g, ' ').trim(), direction: th.getAttribute('aria-sort')! })),
         naCells,
         notDisclosedColumns,
         notDisclosedCount,
@@ -550,10 +559,65 @@ export function observeFrame(
       for (const fold of closedFolds) fold.open = false;
     }
 
+    // Paint and semantic exposure are different observations. This check
+    // deliberately ignores aria-hidden, but retains CSS clipping, every
+    // painted text run and the figure boundary. The source oracle may use
+    // it only with an exact, independently verified semantic alternative.
+    const textPaintFailures = (element: Element): string[] => {
+      const failures: string[] = [], frameBox = frameElement.getBoundingClientRect();
+      const transparent = (value: string) => {
+        if (value === 'transparent' || value === 'none') return true;
+        const channels = value.match(/^(?:rgba?|color)\((?:srgb\s+)?([^)]*)\)$/)?.[1].split(/[\s,/]+/).filter(Boolean);
+        return channels?.length === 4 && parseFloat(channels[3]) === 0;
+      };
+      const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      for (let text = walker.nextNode() as Text | null; text; text = walker.nextNode() as Text | null) {
+        if (!(text.textContent ?? '').trim()) continue;
+        const parent = text.parentElement;
+        if (!parent) { failures.push('missing text owner'); continue; }
+        const style = getComputedStyle(parent);
+        const filled = !transparent(style.fill) && Number(style.fillOpacity) > 0;
+        const stroked = !transparent(style.stroke) && Number(style.strokeOpacity) > 0 && parseFloat(style.strokeWidth) > 0;
+        if (parent instanceof SVGElement ? !filled && !stroked : transparent(style.color)) failures.push('unpainted text');
+        const range = document.createRange(); range.selectNodeContents(text);
+        const box = parent instanceof SVGElement ? parent.getBoundingClientRect() : range.getBoundingClientRect();
+        if (box.width < 1 || box.height < 1) failures.push('text has no box');
+        if (box.left < frameBox.left - 1 || box.right > frameBox.right + 1 || box.top < frameBox.top - 1 || box.bottom > frameBox.bottom + 1) failures.push('text outside figure');
+        for (let node: Element | null = parent; node; node = node.parentElement) {
+          const css = getComputedStyle(node);
+          if (css.display === 'none' || css.visibility !== 'visible' || Number(css.opacity) === 0) failures.push('text hidden by CSS');
+          if (node.classList.contains('sr-only') || /^inset\(50%/.test(css.clipPath) || (css.position === 'absolute' && css.clip.startsWith('rect('))) failures.push('text clipped away');
+          if (node instanceof HTMLElement && /hidden|clip|auto|scroll/.test(css.overflowX + css.overflowY)) {
+            const clip = node.getBoundingClientRect();
+            const clipX = /hidden|clip|auto|scroll/.test(css.overflowX), clipY = /hidden|clip|auto|scroll/.test(css.overflowY);
+            if (clip.width <= 1 || clip.height <= 1 || clipX && (box.left < clip.left - 1 || box.right > clip.right + 1) || clipY && (box.top < clip.top - 1 || box.bottom > clip.bottom + 1)) failures.push('text outside scroll clip');
+          }
+          if (node === frameElement) break;
+        }
+      }
+      return [...new Set(failures)];
+    };
+
     return {
       labels,
-      legend,
+      legend: legend.map((entry, index) => ({
+        ...entry,
+        paintFailures: textPaintFailures([...frameElement.querySelectorAll('[data-instrument-legend]')]
+          .flatMap(band => [...band.querySelectorAll('[data-legend-item]')])[index]),
+      })),
+      physicalNeedles: [...frameElement.querySelectorAll('[data-testid="pendulum-gravity-arrow"],[data-testid="pendulum-push-arrow"]')].map(node => {
+        const caps = [...node.querySelectorAll<SVGPathElement>('path.iso-top')];
+        return {
+          id: node.getAttribute('data-testid') as 'pendulum-gravity-arrow' | 'pendulum-push-arrow',
+          topPaths: caps.map(path => path.getAttribute('d') ?? ''),
+          visible: node.checkVisibility({ visibilityProperty: true, opacityProperty: true }) && caps.length > 0 && caps.every(path => {
+            const box = path.getBoundingClientRect(), style = getComputedStyle(path);
+            return path.checkVisibility({ visibilityProperty: true, opacityProperty: true }) && box.width > 0 && box.height > 0 && isPaint(style.fill) && Number(style.fillOpacity) > 0;
+          }),
+        };
+      }),
       series,
+      seriesDeclarations: [...new Set([...frameElement.querySelectorAll('[data-series]')].map(node => node.getAttribute('data-series')!).filter(Boolean))],
       accentMarks,
       retiredMarks,
       canvasCount: frameElement.querySelectorAll('canvas').length,
@@ -566,11 +630,15 @@ export function observeFrame(
         const ids=(node.getAttribute('aria-labelledby')??'').split(/\s+/).filter(Boolean);
         const native=node instanceof HTMLInputElement||node instanceof HTMLSelectElement||node instanceof HTMLTextAreaElement;
         const label=ids.map(id=>document.getElementById(id)?.textContent??'').join(' ').trim()||node.getAttribute('aria-label')||(native?[...(node.labels??[])].map(label=>label.textContent??'').join(' '):(node.textContent??''));
-        return {index,tag:node.tagName.toLowerCase(),type:node.getAttribute('type')??'',id:node.id,testId:node.getAttribute('data-testid')??'',label:label.replace(/\s+/g,' ').trim(),value:native?node.value:node.getAttribute('aria-valuenow'),min:node.getAttribute('min')??node.getAttribute('aria-valuemin'),max:node.getAttribute('max')??node.getAttribute('aria-valuemax'),step:node.getAttribute('step'),checked:node instanceof HTMLInputElement?node.checked:null,pressed:node.getAttribute('aria-pressed'),selected:node.getAttribute('aria-selected'),disabled:node.matches(':disabled')||node.getAttribute('aria-disabled')==='true'};
+        const groupNode=node.closest('[role=group],[role=radiogroup]');
+        const group=groupNode?.getAttribute('aria-label')??(groupNode?.getAttribute('aria-labelledby')??'').split(/\s+/).filter(Boolean).map(id=>document.getElementById(id)?.textContent??'').join(' ');
+        return {index,tag:node.tagName.toLowerCase(),type:node.getAttribute('type')??'',id:node.id,testId:node.getAttribute('data-testid')??'',label:label.replace(/\s+/g,' ').trim(),...(group?{group:group.replace(/\s+/g,' ').trim()}:{}),value:native?node.value:node.getAttribute('aria-valuenow'),min:node.getAttribute('min')??node.getAttribute('aria-valuemin'),max:node.getAttribute('max')??node.getAttribute('aria-valuemax'),step:node.getAttribute('step'),checked:node instanceof HTMLInputElement?node.checked:node.getAttribute('aria-checked')==='true'?true:node.getAttribute('aria-checked')==='false'?false:null,pressed:node.getAttribute('aria-pressed'),selected:node.getAttribute('aria-selected'),disabled:node.matches(':disabled')||node.getAttribute('aria-disabled')==='true'};
       }),
-      readouts:[...frameElement.querySelectorAll('[data-readout],[data-figure-readout],[data-scene-readout],[data-chart-readout],[data-figure-control-value],[data-testid$="-readout"]')].map((node,index)=>({key:node.getAttribute('data-readout')||node.getAttribute('data-testid')||node.id||String(index),text:(node.textContent??'').replace(/\s+/g,' ').trim(),visible:node.checkVisibility({visibilityProperty:true,opacityProperty:true})&&node.getClientRects().length>0})),
-      svgMarks:[...frameElement.querySelectorAll('svg path,svg line,svg rect,svg circle,svg ellipse,svg polyline,svg polygon')].filter(node=>node.closest('[data-series]')&&!node.closest('defs,clipPath,mask,pattern')).map(node=>({tag:node.tagName.toLowerCase(),seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,testId:node.getAttribute('data-testid')??'',id:node.id,attrs:Object.fromEntries(['x','y','x1','y1','x2','y2','cx','cy','r','rx','ry','width','height','d','points','transform'].flatMap(attribute=>node.hasAttribute(attribute)?[[attribute,node.getAttribute(attribute)!]]:[])),viewBox:node.closest('svg')?.getAttribute('viewBox')??''})),
-      svgTexts:[...frameElement.querySelectorAll('svg text')].filter(node=>node.closest('[data-series]')&&!node.closest('defs,clipPath,mask,pattern')).map(node=>{const coordinate=(name:string)=>{const value=node.getAttribute(name);return value!==null&&Number.isFinite(Number(value))?Number(value):null;};return {seriesId:node.closest('[data-series]')!.getAttribute('data-series')!,text:(node.textContent??'').replace(/\s+/g,' ').trim(),x:coordinate('x'),y:coordinate('y'),testId:node.getAttribute('data-testid')??''};}),
+      readouts:[...frameElement.querySelectorAll('[data-readout],[data-figure-readout],[data-scene-readout],[data-chart-readout],[data-figure-control-value],[data-testid$="-readout"],[data-testid^="term-"],[data-testid="force-limited-speed"]')].map((node,index)=>({key:node.getAttribute('data-readout')||node.getAttribute('data-testid')||node.id||String(index),text:(node.textContent??'').replace(/\s+/g,' ').trim(),visible:node.checkVisibility({visibilityProperty:true,opacityProperty:true})&&node.getClientRects().length>0})),
+      svgMarks:[...frameElement.querySelectorAll('svg path,svg line,svg rect,svg circle,svg ellipse,svg polyline,svg polygon')].filter(node=>(node.closest('[data-series]')||node.hasAttribute('data-chart-mark'))&&!node.closest('defs,clipPath,mask,pattern')).map(node=>({displayed:node.checkVisibility({visibilityProperty:true,opacityProperty:true}),effectiveOpacity:(()=>{let opacity=1;for(let parent:Element|null=node;parent;parent=parent.parentElement){opacity*=Number(getComputedStyle(parent).opacity);if(parent===frameElement)break;}return opacity;})(),tag:node.tagName.toLowerCase(),seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,testId:node.getAttribute('data-testid')??'',id:node.id,...(node.parentElement?.closest('[data-testid]')?{ownerTestId:node.parentElement.closest('[data-testid]')!.getAttribute('data-testid')!}:{}),...(node.closest('[data-overview-cell]')?{overviewCell:node.closest('[data-overview-cell]')!.getAttribute('data-overview-cell')!}:{}),attrs:Object.fromEntries(['x','y','x1','y1','x2','y2','cx','cy','r','rx','ry','width','height','d','points','transform','class','opacity','fill-opacity','fill','stroke','data-chart-role','data-chart-mark','data-lit-tile','data-method-dot'].flatMap(attribute=>node.hasAttribute(attribute)?[[attribute,node.getAttribute(attribute)!]]:[])),viewBox:node.closest('svg')?.getAttribute('viewBox')??''})),
+      svgTexts:[...frameElement.querySelectorAll('svg text')].filter(node=>!node.closest('defs,clipPath,mask,pattern')).map(node=>{const coordinate=(name:string)=>{const value=node.getAttribute(name);return value!==null&&Number.isFinite(Number(value))?Number(value):null;};const paintFailures=textPaintFailures(node);return {painted:paintFailures.length===0,paintFailures,seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,dy:node.getAttribute('dy'),...(node.parentElement?.closest('[data-testid]')?{ownerTestId:node.parentElement.closest('[data-testid]')!.getAttribute('data-testid')!}:{}),...(node.closest('[data-overview-cell]')?{overviewCell:node.closest('[data-overview-cell]')!.getAttribute('data-overview-cell')!}:{}),text:(node.textContent??'').replace(/\s+/g,' ').trim(),x:coordinate('x'),y:coordinate('y'),testId:node.getAttribute('data-testid')??''};}),
+      htmlMarks:[...frameElement.querySelectorAll<HTMLElement>('[data-chart-mark]')].filter(node=>!node.closest('svg')).map(node=>{const rect=(element:Element)=>{const r=element.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};};return {seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,ownerTestId:node.closest('[data-testid]')?.getAttribute('data-testid')??'',tag:node.getAttribute('data-chart-mark')??'',box:rect(node),parentBox:rect(node.parentElement!),widthStyle:node.style.width,opacity:Number(getComputedStyle(node).opacity)};}),
+      methodCards:[...frameElement.querySelectorAll('[data-method-card]')].map(node=>{const paintFailures=textPaintFailures(node);return {id:node.getAttribute('data-method-card')!,text:(node.textContent??'').replace(/\s+/g,' ').trim(),paintFailures,visible:paintFailures.length===0&&node.checkVisibility({visibilityProperty:true,opacityProperty:true})&&node.getClientRects().length>0&&!node.closest('[aria-hidden=true],[inert]')};}),
       declaredBindings:[frameElement,...frameElement.querySelectorAll('*')].flatMap(node=>{const attributes=Object.fromEntries([...node.attributes].filter(attribute=>/^data-(?:source|assumption)(?:-|$)/.test(attribute.name)).map(attribute=>[attribute.name,attribute.value]));return Object.keys(attributes).length?[{element:node.tagName.toLowerCase()+(node.id?'#'+node.id:''),attributes}]:[];}),
     };
   }, { accentRoles: [...ACCENT_ROLE_PROPERTIES], retired: [...RETIRED_PAINTS] });

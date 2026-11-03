@@ -77,7 +77,7 @@ export function readoutFor(angles: readonly number[]): string {
   const { x, y } = planarForwardKinematics(LINK_LENGTHS, angles).effector;
   const across = Math.abs(x) < 0.005 ? 'level with the shoulder' : `${Math.abs(x).toFixed(2)} ${x < 0 ? 'left' : 'right'}`;
   const out = Math.abs(y) < 0.005 ? 'level' : `${Math.abs(y).toFixed(2)} ${y < 0 ? 'back' : 'out'}`;
-  return `Shoulder ${Math.round(angles[0])} degrees · hand ${across}, ${out}`;
+  return `Shoulder ${Math.round(angles[0])} degrees · hand ${across}, ${out} from the shoulder, in upper-arm lengths`;
 }
 
 /** The figure's moving parts, grouped so the arm's links and pen keep their test ids. */
@@ -228,9 +228,9 @@ export function PlanarFkArm({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Turn the shoulder: the elbow, wrist and pen ride along"
+          hint="Faint circles: joints before the turn. Curved line: the pen’s path as shoulder, elbow and wrist swing together"
           readout={readoutFor(shown)}
-          status="Schematic: one grid square is half a link"
+          status="Schematic: one grid square is half the upper-arm length, from shoulder to elbow"
           data-testid="fk-stage-frame"
         >
           <Stage className="iso-stage">

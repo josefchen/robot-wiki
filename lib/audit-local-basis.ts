@@ -1241,7 +1241,7 @@ export function createLocalArtifactReader(root: string, parsedInputCache?: Map<s
 // Only the checker and reviewed assertion-only test edits are compatible.
 // Models, imports, disclosures, captures, receipts and all other files stay live.
 const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
-  bytes: number; sha256: string; snapshot: string; currentTestHash?: string;
+  bytes: number; sha256: string; snapshot: string; currentTestHash?: string; currentTestBytes?: number;
 }>> = {
   'lib/audit-local-basis.ts': {
     bytes: 40817, sha256: '99f3d60d05b597500a75800c01be8cb0b2a70146b993a8f72021df6dfdcadec8',
@@ -1266,6 +1266,7 @@ const HISTORICAL_VERIFICATION_INPUTS: Readonly<Record<string, {
     bytes: 12839, sha256: '9537b31a882d4ab119e514dee5011b9356a6358e1d49a33f8c6f5228e02bf8c7',
     snapshot: 'classical-closure.pre-residual-release.test.ts.txt',
     currentTestHash: '60e2ac48fb9091fa6c6fc1790190672f5e67c529e2cfc39a7a3f2fcfb59afc66',
+    currentTestBytes: 17690,
   },
   'tests/unit/crossdomain-closure-evidence.test.ts': {
     bytes: 5982, sha256: '1a032856eb14361495d2cbdb451de87f8bd7ec68e00e4165eb8760aa8e7047d3',
@@ -1303,7 +1304,11 @@ function readVerificationInput(ref: LocalArtifact, root: string, read: (a: Local
       'context checker differs from running implementation');
   } else {
     // Exact reviewed live version only; a later producer/oracle edit needs new proof.
-    requireThat(sha256(current) === history.currentTestHash, 'unreviewed historical test compatibility');
+    // The classical row-accounting successor has an exact current-to-e10
+    // source review; use the normal artifact reader and retain its old pin.
+    const compatible = history.currentTestBytes ? read({ path: ref.path,
+      bytes: history.currentTestBytes, sha256: history.currentTestHash! }) : current;
+    requireThat(sha256(compatible) === history.currentTestHash, 'unreviewed historical test compatibility');
   }
   return retained;
 }

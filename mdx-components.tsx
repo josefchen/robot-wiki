@@ -96,7 +96,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       'data-rehype-pretty-code-figure' in props ? (
         <div {...props} className={`relative ${className ?? ''}`.trim()}>
           {children}
-          <span className="absolute right-6 top-[11px]">
+          <span data-code-copy className="absolute right-6 top-[11px]">
             <CopyButton />
           </span>
         </div>

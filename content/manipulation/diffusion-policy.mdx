@@ -66,13 +66,13 @@ $T_a$ acts like ACT's chunk size: large values give smooth motion that reacts sl
 
 ## Multimodal demonstrations
 
-When one operator passes an obstacle on the left and another on the right, mean-squared-error regression averages the demonstrations into a collision. Energy-based implicit policies often beat such explicit policies <Cite id="implicit-bc-2021" />, and diffusion models learn an expressive distribution over the joint action space <Cite id="pearce-diffusion-bc-2023" />. Pan et al. (2025) contest this motivation: generative policies owe their gains to supervised iterative computation, and a two-step regression policy essentially matches flow policies <Cite id="much-ado-noising-2025" />. Fine-tuned OpenVLA-OFT, an L1-regression VLA, beat from-scratch Diffusion Policy and ACT by up to 15 points of average success <Cite id="openvla-oft-2025" />.
+When one operator passes left of an obstacle and another right, mean-squared-error regression averages the demonstrations into a collision. Energy-based implicit policies often beat such explicit policies <Cite id="implicit-bc-2021" />, and diffusion models learn an expressive distribution over the joint action space <Cite id="pearce-diffusion-bc-2023" />. Pan et al. (2025) contest this motivation: generative policies owe their gains to supervised iterative computation, and a two-step regression policy essentially matches flow policies <Cite id="much-ado-noising-2025" />. Fine-tuned OpenVLA-OFT, an L1-regression VLA, beat from-scratch Diffusion Policy and ACT by up to 15 points of average success <Cite id="openvla-oft-2025" />.
 
 ## Denoising in action space
 
 <DiffusionDenoising className="my-6" />
 
-The policy is a denoising diffusion probabilistic model (DDPM) <Cite id="ddpm-2020" /> conditioned on recent observations. Where a regression head computes $a_t = f_\theta(o_t)$, Diffusion Policy models $p(A_t \mid O_t)$ over the next $T_p$ actions. Inference starts from Gaussian noise and repeatedly subtracts a fraction of the noise that the denoiser $\epsilon_\theta$ predicts,
+The policy is a denoising diffusion probabilistic model (DDPM) <Cite id="ddpm-2020" /> conditioned on recent observations. Where a regression head computes $a_t = f_\theta(o_t)$, Diffusion Policy models $p(A_t \mid O_t)$ over the next $T_p$ actions. Inference starts from Gaussian noise and repeatedly subtracts a fraction of the noise the denoiser $\epsilon_\theta$ predicts,
 
 $$
 A_t^{k-1} = \alpha \left( A_t^k - \gamma \, \epsilon_\theta(O_t, A_t^k, k) + \mathcal{N}(0, \sigma^2 I) \right)

@@ -31,8 +31,8 @@ const LARGEST = GAIN_STUDIES.reduce((a, b) => (gainPoints(b) > gainPoints(a) ? b
 
 type PhaseId = 'before' | 'after';
 const PHASES: readonly Preset<PhaseId>[] = [
-  { id: 'before', label: 'Before RL' },
-  { id: 'after', label: 'After RL' },
+  { id: 'before', label: 'Before extra practice' },
+  { id: 'after', label: 'After extra practice' },
 ];
 export const DEFAULT_PHASE: PhaseId = 'after';
 
@@ -67,11 +67,11 @@ export function RealRobotRlGains({ className }: { className?: string }) {
     <InstrumentFigure
       figureId="real-robot-rl-gains"
       className={className}
-      kicker="Offline-to-online improvement"
-      heading="Online RL raised real-robot success in every study"
+      kicker="Additional reinforcement learning"
+      heading="Reinforcement learning improves robots already trained on recordings"
       controls={<PresetGroup label="Real-robot success" presets={PHASES} value={phase} onChange={setPhase} testId="rl-gains-phase" />}
       stage={
-        <FigureStage footer={<StageStatus>Reported rates; tasks differ</StageStatus>}>
+        <FigureStage footer={<StageStatus>Hollow: learned from recordings. Filled: reinforcement learning rewards useful actions. Rates: real-robot tests. RankQ ranks actions; SCORE keeps simulated practice near recorded moves; PA-RL adapts different robot brains; BORA learns corrections. OpenVLA moves objects from camera views and instructions.</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Real-robot success in four studies ${phase === 'after' ? 'after' : 'before'} reinforcement learning: ${GAIN_STUDIES.map((s) => `${s.task}, ${pct(phase === 'after' ? s.after : s.before)}`).join('; ')}.`}
@@ -128,7 +128,7 @@ export function RealRobotRlGains({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption={`In each study, RL after offline training raised real-robot success by ${Math.round(Math.min(...GAIN_STUDIES.map(gainPoints)))} to ${Math.round(Math.max(...GAIN_STUDIES.map(gainPoints)))} percentage points.`}
+      caption={`In four studies, reinforcement learning after training on recordings raised success on real robots by ${Math.round(Math.min(...GAIN_STUDIES.map(gainPoints)))} to ${Math.round(Math.max(...GAIN_STUDIES.map(gainPoints)))} percentage points.`}
       method={
         <>
           <div>

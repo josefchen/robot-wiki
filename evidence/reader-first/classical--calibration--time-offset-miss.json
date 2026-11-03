@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/calibration/",
+  "mount": "mount:/classical/calibration/:TimeOffsetMiss:1",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--calibration--time-offset-miss.375.png",
+    "1280": "evidence/reader-first/classical--calibration--time-offset-miss.1280.png"
+  },
+  "takeaway": "The faster the arm moves, the further a late camera photo misplaces its hand.",
+  "sentence": "A delayed camera image falls farther behind the real robot hand as the hand moves faster.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both say that faster hand movement makes the position error from a delayed camera image larger.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0002",
+  "sourceDigest": "002bad87ebc0bc8be0fefc26b59da814ee06b33c65f62660236c9d05fa111ccb",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

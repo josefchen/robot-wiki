@@ -70,7 +70,7 @@ describe('the Helix clockwork model', () => {
 describe('HelixClockwork', () => {
   it('draws the still pose at 7 milliseconds: the S0 hand on its seventh division, the lit S1 hand on its first mark', () => {
     render(<HelixClockwork />);
-    expect(screen.getByText("Helix 02's controller takes five steps for every joint target")).toBeInTheDocument();
+    expect(screen.getByText("Helix 02: 1,000 control steps, 200 joint targets per second")).toBeInTheDocument();
     const drawing = screen.getByTestId('clockwork-drawing');
     expect(drawing).toHaveAttribute('data-steps', '7');
     expect(drawing).toHaveAttribute('data-targets', '1');

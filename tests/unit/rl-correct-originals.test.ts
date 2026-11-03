@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { compoundPartDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const parsedCatalog = parseCompoundPlans(JSON.parse(read('audit/compound-evidence.json')));
@@ -36,7 +37,9 @@ const planId = (ordinal: number) => `rl-correct-original-${ordinal}-20260908`;
 describe('correctly bound RL originals 6/8/9/10', () => {
   it('keeps the four named originals distinct from later completed originals', () => {
     const current = rows();
-    expect(current).toHaveLength(11);
+    expect(verifyLedgerAdditions({ ledgerPath: 'audit/manipulation.md', slug: 'rl-finetuning',
+      claimRows: current.length, claimRecords: current })).toEqual({ originalRows: 11, addedRows: 3, currentRows: 14 });
+    expect(current).toHaveLength(14);
     for (const source of sources) {
       const row = current[source.ordinal - 1];
       expect(row.claim).toContain(source.name);

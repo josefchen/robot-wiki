@@ -1,4 +1,4 @@
-import { AUTONOMY_LEVELS, SURGICAL_SYSTEM_ROWS } from '@/lib/surgical-systems';
+import { AUTONOMY_LEVELS, SURGICAL_SYSTEM_ROWS } from './surgical-systems.ts';
 
 /**
  * The surgical article's systems and research demonstrations placed on

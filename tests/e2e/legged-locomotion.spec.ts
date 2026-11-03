@@ -49,7 +49,7 @@ for (const width of [375, 1440]) {
     await expect(paragraph).toContainText('Park, Wensing and Kim plan stance time from stride length and');
     await expect(paragraph).toContainText('modulate duty cycle by vertical impulse scaling');
     await expect(paragraph).toContainText('only up to 3 m/s');
-    await expect(paragraph).toContainText('The minimum cost of transport, 0.47, came at 4 m/s');
+    await expect(paragraph).toContainText('Minimum cost of transport, 0.47, came at 4 m/s');
     await expect(paragraph).toContainText('Roll instability ended the 6.4 m/s top-speed treadmill run');
     // The drift gloss is gone: the paper's own impulse-scaling mechanism and
     // the Sec. 7 stride schedule replace the all-speed duty-cycle scaling.
@@ -136,7 +136,7 @@ test.describe('legged-locomotion module', () => {
     await expect(page.getByRole('button', { name: 'Play gait cycle' })).toHaveCount(0);
     await expect(page.getByRole('slider', { name: /gait phase/i })).toHaveCount(0);
     await expect(prose).toContainText(
-      'is the control of walking and running robots, and the area where sim-to-real reinforcement learning reached shipping products',
+      'is walking and running robot control, the area where sim-to-real reinforcement learning reached shipping products',
     );
 
     const poster = scene.getByRole('button', { name: /^play the motion scene/i });

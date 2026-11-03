@@ -1,7 +1,7 @@
 import { historicalGit, HistoricalFileAbsent } from '../../helpers/historical-git';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind } from '../../../lib/brand-v2-baseline';
+import { approvedDeltaPath, sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind } from '../../../lib/brand-v2-baseline';
 import { neutralizeHistory } from '../../../lib/neutral-tooling';
 import { parseLedger, originalClaimDigest, compoundPlanDigest, compoundPartDigest } from '../../../lib/audit-ledger';
 import { localPartDigest, localPlanDigest, parseOriginalLedgerSection, type LocalPlan, type LocalProof } from '../../../lib/audit-local-basis';
@@ -548,6 +548,14 @@ export function headReanchorFor(
   kind: BaselineKind,
   memberId: string,
 ): ApprovedDelta | undefined {
+  const members = approvals.filter((entry) => entry.manifest === kind && entry.memberId === memberId);
+  const latest = members.at(-1);
+  // Later reviewed resolutions bind every preceding ID and both endpoint
+  // hashes. Derive their validity from that complete graph, rather than
+  // treating the name of a new authorized pass as an unknown endpoint.
+  if (latest?.reconciles && approvedDeltaPath(members, sealedHash(kind, memberId), latest.newHash).status === 'approved') {
+    return latest;
+  }
   return approvals.findLast(
     (entry) =>
       [REANCHOR_PREFIX, ...LATER_REANCHOR_PREFIXES].some((prefix) => entry.id.startsWith(prefix)) &&

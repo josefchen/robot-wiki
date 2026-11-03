@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest';
 import { keepsSourceFloorObligations, loadSourceFloorReview, sourceFloorPredecessor,
   SOURCE_FLOOR_CONTINUITY_FILE, verifySourceFloorSource } from '../../lib/audit-source-floor-continuity';
 import { owedFiguresPredecessor } from '../../lib/audit-owed-figures-continuity';
+import { uiRepairPredecessor } from '../../lib/audit-ui-repair-continuity';
 import { seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
 import { exactEdits } from '../../scripts/record-reader-first-continuity';
 
@@ -22,10 +23,14 @@ describe('final source-floor article continuity', () => {
     expect(review.sources.length).toBeGreaterThan(40);
     for (const source of review.sources) {
       const live = readFileSync(join(root, source.after.path));
-      const prior = sourceFloorPredecessor(root, source.before, live);
+      const landing = uiRepairPredecessor(root, source.after, live);
+      expect(landing.length).toBe(source.after.bytes);
+      expect(hash(landing), source.after.path).toBe(source.after.sha256);
+      const prior = sourceFloorPredecessor(root, source.before, landing);
       expect(hash(prior), source.after.path).toBe(source.before.sha256);
       expect(prior).toEqual(historicalGit(['show', `${source.archivedFrom}:${source.before.path}`], { cwd: root }));
-      expect(sourceFloorPredecessor(root, source.after, live)).toBe(live);
+      expect(sourceFloorPredecessor(root, source.after, landing)).toBe(landing);
+      expect(owedFiguresPredecessor(root, { path: source.after.path, bytes: live.length, sha256: hash(live) }, live)).toBe(live);
       expect(owedFiguresPredecessor(root, source.before, live)).toEqual(prior);
       expect(seoPassPredecessor(root, source.before, live)).toEqual(prior);
     }
@@ -86,6 +91,7 @@ describe('final source-floor article continuity', () => {
     const [source] = loadSourceFloorReview(root).sources;
     const changed = Buffer.concat([readFileSync(join(root, source.after.path)), Buffer.from('\n')]);
     expect(sourceFloorPredecessor(root, source.before, changed)).toBe(changed);
+    expect(owedFiguresPredecessor(root, source.before, changed)).toBe(changed);
     expect(hash(changed)).not.toBe(source.before.sha256);
     const scratch = mkdtempSync(join(tmpdir(), 'source-floor-review-'));
     try {
@@ -94,7 +100,9 @@ describe('final source-floor article continuity', () => {
       cpSync(join(root, 'audit/evidence/source-floor-20261102'), join(scratch, 'audit/evidence/source-floor-20261102'), { recursive: true });
       loadSourceFloorReview(scratch);
       writeFileSync(target, readFileSync(target, 'utf8') + '\n');
-      expect(() => sourceFloorPredecessor(scratch, source.before, readFileSync(join(root, source.after.path)))).toThrow(/source-floor continuity drift/);
+      const landing = uiRepairPredecessor(root, source.after, readFileSync(join(root, source.after.path)));
+      expect(hash(landing)).toBe(source.after.sha256);
+      expect(() => sourceFloorPredecessor(scratch, source.before, landing)).toThrow(/source-floor continuity drift/);
     } finally { rmSync(scratch, { recursive: true, force: true }); }
   });
 });

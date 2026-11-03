@@ -113,9 +113,9 @@ function StandingDog() {
 }
 
 function annotationLines(degradation: number): string[] {
-  if (degradation === 0) return ['With clean leg readings the guess (dashed)', 'lies right on the real ground (solid)'];
-  if (degradation <= 0.2) return ['The student’s guess (dashed) almost', 'matches the real ground (solid)'];
-  return ['With noisy legs the guess (dashed)', 'drifts from the real ground (solid)'];
+  if (degradation === 0) return ['No ground view: clean leg readings', 'match the ground’s shape'];
+  if (degradation <= 0.2) return ['No ground view: its leg readings', 'nearly reveal the ground’s shape'];
+  return ['No ground view: noisy leg readings', 'give a poorer ground-shape guess'];
 }
 
 export function TeacherStudent({
@@ -194,7 +194,7 @@ export function TeacherStudent({
                   what its legs feel
                 </LegendItem>
               </InstrumentLegend>
-              <StageStatus>Illustrative, not measured</StageStatus>
+              <StageStatus>Dotted gaps are missing leg readings. Grey legs are the far pair. Illustrative, not measured.</StageStatus>
             </>
           }
         >
@@ -293,7 +293,7 @@ export function TeacherStudent({
           </PlotStage>
         </FigureStage>
       }
-      caption="Robots trained in simulation with a perfect map must later walk without one; learning to read the ground from leg sensations bridges that gap."
+      caption="The robot cannot see the ground: it learns its shape from what its legs feel, even when those sensor readings are imperfect."
       method={
         <>
           <p>
@@ -335,7 +335,7 @@ export function TeacherStudent({
           />
         </>
       }
-      source="Chosen terrain, seeded noise and an authored error field; no recorded robot sensing or trained policies."
+      source="Illustrative terrain, repeatable sensor errors and a drawn ground estimate; no recorded readings or trained movement controller."
     />
   );
 }

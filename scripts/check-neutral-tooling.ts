@@ -69,6 +69,9 @@ function uuidInsideUrl(line: string, uuid: string): boolean {
 /** Robotics subject-matter scopes where the dataset spelling legitimately lives. */
 const SUBJECT_MATTER_SCOPES = /^(content|research|audit|tests|evidence|data)\//;
 const TOOLING_CONTEXT = /\b(integrator|auditor|worker|delegated|session|mission|reviewer|harness|watcher|orchestrat(?:ed|ing) by)\b/i;
+// This exact declaration defines the reader's rejection rule. No other line
+// in the reader library is exempt, and any changed declaration needs review.
+const READER_NAMED_TOOL_DECLARATION = 'const NAMED_TOOL = /\\b(claude|opus|sonnet|haiku|anthropic|openai|gpt|gemini|grok|llm|chatgpt|droid|playwright|chromium|codex)\\b/i;';
 
 const rules: Array<{
   id: string;
@@ -94,7 +97,11 @@ const rules: Array<{
   },
   {
     id: 'Codex outside the quoted passage',
-    test: (line) => (line.includes('OpenAI Codex code-davinci-002') ? null : line.match(/\bCodex\b/)?.[0] ?? null),
+    test: (line, file) => {
+      if (file === 'lib/reader-first.ts' && line === READER_NAMED_TOOL_DECLARATION) return null;
+      // Preserve the scientific phrase itself, never unrelated text beside it.
+      return line.replaceAll('OpenAI Codex code-davinci-002', '').match(/\bCodex\b/i)?.[0] ?? null;
+    },
   },
   {
     id: 'model routes',

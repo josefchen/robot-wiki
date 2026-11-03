@@ -7,12 +7,12 @@ const scenes = [
   {
     id: 'batch-scale',
     route: '/rl-sim2real/parallel-sim-rl/',
-    captions: [/64 virtual robots/i, /4,096 robots/i, /main computer/i, /16,384 virtual robots/i],
+    captions: [/64 robots sharing one graphics chip/i, /4,096 robots/i, /main computer/i, /Thousands of practice robots share one graphics chip, cutting hours to minutes/i],
   },
   {
     id: 'gait-support',
     route: '/rl-sim2real/legged-locomotion/',
-    captions: [/walk/i, /trot/i, /hop/i, /which feet move together/i],
+    captions: [/walk/i, /trot/i, /hop/i, /trades steadiness for bounce as fewer feet stay down/i],
   },
 ] as const;
 
@@ -159,7 +159,7 @@ test('paired RL scenes keep value, constraint, highlight and stance roles in bot
 
 test('paired RL stage labels render at least twelve CSS pixels across every reveal, and the gait drawing carries none', async ({ browser }) => {
   for (const { id, route, captions } of scenes) {
-    for (const width of [375, 1440]) {
+    for (const width of [320, 375, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
       try {
         const page = await context.newPage();
@@ -206,8 +206,9 @@ test('paired RL stage labels render at least twelve CSS pixels across every reve
             expect(texts, `${id} ${width} ${beat} stage heading`).toContain('training time');
             if (beat === 'poster' || beat === 'beat 4') {
               expect(texts, `${id} ${width} ${beat} recap`).toEqual(
-                expect.arrayContaining(['16,384 at once:', 'about 1.5 minutes']),
+                expect.arrayContaining(['One chip:', 'hours to', 'about 1.5 minutes']),
               );
+              await expect(scene.getByTestId('motion-readout')).toContainText('16,384 robots on one graphics chip:');
             }
           }
           for (const label of sizes) expect(label.px, `${id} ${width} ${beat} ${label.text}`).toBeGreaterThanOrEqual(12);

@@ -62,7 +62,7 @@ describe('WmDisambiguator', () => {
     for (const p of WM_PARADIGMS) {
       const art = screen.getByTestId(`panel-art-${p.id}`);
       expect(art, p.id).toHaveAttribute('data-form', forms[p.id]);
-      for (const label of ['Now', 'The next picture', 'A compressed summary', 'Plain facts', 'pick up the cup']) {
+      for (const label of ['Now', 'The next picture', 'A learned number code', 'Plain facts', 'pick up the cup']) {
         expect(art, `${p.id} ${label}`).toHaveTextContent(label);
       }
     }

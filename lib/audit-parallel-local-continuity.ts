@@ -15,6 +15,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { uiRepairPredecessor } from './audit-ui-repair-continuity.ts';
 
 export const PARALLEL_LOCAL_CONTINUITY_DIR = 'audit/evidence/parallel-local-20261009/';
 const checkerReviewFile = `${PARALLEL_LOCAL_CONTINUITY_DIR}checker-transition.json`;
@@ -96,6 +97,7 @@ export function loadParallelLocalCheckerReview(root: string): ParallelLocalCheck
  * recorded edits, and the domain-pass head is rebuilt from it and returned.
  */
 export function parallelLocalCheckerPredecessor(root: string, live: Buffer): Buffer {
+  live = uiRepairPredecessor(root, { path: checkerPath, bytes: 0, sha256: '' }, live);
   if (live.length !== checkerAfter.bytes || digest(live) !== checkerAfter.sha256) return live;
   const review = loadParallelLocalCheckerReview(root);
   const cached = checkerPriorCache.get(review);

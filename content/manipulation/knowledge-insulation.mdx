@@ -47,7 +47,7 @@ seeAlso:
 ---
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 
-<Term id="knowledge-insulation">Knowledge insulation</Term> (KI) is a training recipe that keeps action learning from damaging a vision-language-action model's pretrained backbone. Discrete FAST action tokens train the backbone, while a stop-gradient keeps a <Term id="flow-matching">flow-matching</Term> action expert's gradients out of it <Cite id="knowledge-insulation-paper-2025" />.
+<Term id="knowledge-insulation">Knowledge insulation</Term> (KI) is a training recipe keeping action learning from damaging a vision-language-action model's pretrained backbone. Discrete FAST action tokens train the backbone, while a stop-gradient keeps a <Term id="flow-matching">flow-matching</Term> action expert's gradients out of it <Cite id="knowledge-insulation-paper-2025" />.
 
 <Image id="pi0-fast-table-bussing-2025" />
 
@@ -68,7 +68,7 @@ RT-2 tokenizes each continuous action dimension into 256 uniform bins, as RT-1 d
 
 ## Naive joint training
 
-Fine-tuning a pretrained network through a random head distorts its features and raises out-of-distribution error <Cite id="kumar-finetuning-distorts-2022" />. The KI paper finds the same in VLAs: gradients from a new action expert degrade the backbone, slowing training and weakening language following, so that π0, told to bus a spoon into the bin, grasps trash <Cite id="knowledge-insulation-paper-2025" />.
+Fine-tuning a pretrained network through a random head distorts its features and raises out-of-distribution error <Cite id="kumar-finetuning-distorts-2022" />. The KI paper finds the same in VLAs: gradients from a new action expert degrade the backbone, slowing training and weakening language following, so π0, told to bus a spoon into the bin, grasps trash <Cite id="knowledge-insulation-paper-2025" />.
 
 ChatVLA calls this spurious forgetting, robot training overwriting visual-text alignments <Cite id="chatvla-2025" />. Between robot tasks, though, pretrained VLAs resist forgetting, and simple experience replay sometimes removes it <Cite id="vla-continual-forgetting-2026" />.
 
@@ -82,17 +82,17 @@ Training both outputs costs about 20% more compute. The paper's backbone is a 2B
 
 ## Limits and alternatives
 
-Stopping expert gradients does not adapt the backbone: with the backbone frozen, the paper's shirt-folding policy scores 0%. FAST supervision supplies that signal, and vision-language co-training can give plain joint training good language following without stop-gradient <Cite id="knowledge-insulation-paper-2025" />.
+Stopping expert gradients does not adapt the backbone: with it frozen, the paper's shirt-folding policy scores 0%. FAST supervision supplies that signal, and vision-language co-training can give plain joint training good language following without stop-gradient <Cite id="knowledge-insulation-paper-2025" />.
 
-GR00T N1 freezes the language part of its VLM <Cite id="gr00t-n1-2025" />. NVIDIA reports that N1.5, which froze the whole VLM among other changes, raised real GR-1 language following from 46.6% to 93.3% <Cite id="gr00t-n1-5-2025" />, and N1.6 unfreezes the top 4 layers <Cite id="gr00t-n1-6-2025" />.
+GR00T N1 freezes the language part of its VLM <Cite id="gr00t-n1-2025" />. NVIDIA reports N1.5, which froze the whole VLM among other changes, raised real GR-1 language following from 46.6% to 93.3% <Cite id="gr00t-n1-5-2025" />, and N1.6 unfreezes the top 4 layers <Cite id="gr00t-n1-6-2025" />.
 
 BLIP-2 bridges frozen image encoders and language models <Cite id="blip2-2023" />; VLM2VLA writes actions as language and trains only LoRA adapters <Cite id="vlm2vla-2025" />, and UAM keeps over 95% of its VLM's multimodal capability with no freezing, gradient stopping or co-training <Cite id="uam-forgetting-2026" />. Figure's Helix instead backpropagates from its fast policy into the VLM through their shared latent vector <Cite id="helix-2025" />, and HybridVLA trains discrete and diffusion action prediction together <Cite id="hybridvla-2025" />. InstructVLA jointly trains reasoning and action generation on vision-language and robot instruction data using mixture-of-experts adaptation <Cite id="instructvla-2025" />.
 
 ## Results
 
-A many-embodiment π0 generalist needs 7.5 times the training steps of π0.5 + KI to reach similar table-bussing performance, and single-embodiment π0-FAST specialists need twice the wall-clock time from slow inference. Table bussing is scored at ten episodes per task and policy. When a mobile robot moves unseen objects into an open drawer, web-data co-training boosts generalization most, and language following improves but stays imperfect <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />.
+A many-embodiment π0 generalist needs 7.5 times π0.5 + KI's training steps to reach similar table-bussing performance, and single-embodiment π0-FAST specialists need twice the wall-clock time from slow inference. Table bussing uses ten scored episodes per task and policy. When a mobile robot moves unseen objects into an open drawer, web-data co-training boosts generalization most, and language following improves but stays imperfect <Cite id="knowledge-insulation-paper-2025" /> <Cite id="knowledge-insulation-2025" />.
 
-In third-party fine-tuning, π0.5 with KI stays near zero on out-of-distribution task perturbations, so KI alone does not fix out-of-distribution language generalization <Cite id="apt-action-expert-pretraining-2026" />. A reimplemented co-training plus KI baseline trailed standard behavior cloning on mean LIBERO-PRO and LIBERO-Plus success <Cite id="anchor-align-2026" />, though the dual FAST and flow objective mitigates forgetting more than flow alone <Cite id="garg-self-demonstrated-control-2026" />. Across seven VLAs, VQA co-training goes with better knowledge retention <Cite id="act2answer-2026" />, and in Toyota Research Institute's 89-policy study, training only on robot data cost the VLM backbone its ability to generate language <Cite id="lbm-cotraining-2026" />.
+In third-party fine-tuning, π0.5 with KI stays near zero on out-of-distribution task perturbations, so KI alone does not fix out-of-distribution language generalization <Cite id="apt-action-expert-pretraining-2026" />. A reimplemented co-training plus KI baseline trailed standard behavior cloning on mean LIBERO-PRO and LIBERO-Plus success <Cite id="anchor-align-2026" />, though the dual FAST and flow objective mitigates forgetting more than flow alone <Cite id="garg-self-demonstrated-control-2026" />. Across seven VLAs, VQA co-training accompanies better knowledge retention <Cite id="act2answer-2026" />, and in Toyota Research Institute's 89-policy study, training only on robot data cost the VLM backbone its ability to generate language <Cite id="lbm-cotraining-2026" />.
 
 ## Later models
 

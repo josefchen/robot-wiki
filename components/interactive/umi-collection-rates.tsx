@@ -48,7 +48,7 @@ const UMI = rateOf(UMI_RATE_ID);
 const HAND = rateOf('bare-hand');
 const TELEOP = rateOf('spacemouse');
 
-const CAPTION = `On one cup-arrangement task, UMI's gripper recorded ${UMI} demonstrations an hour: about half the bare hand's ${HAND}, and over three times teleoperation's ${TELEOP}.`;
+const CAPTION = `The handheld gripper records ${UMI} demonstrations hourly: about three times robot control (${TELEOP}), and half bare-hand speed (${HAND}).`;
 const DESCRIPTION = `Demonstrations recorded per hour on UMI's cup-arrangement task: ${HAND} by bare hand with no robot, ${UMI} with the UMI handheld gripper and ${TELEOP} by spacemouse teleoperation of a robot. The UMI gripper ran at ${Math.round((UMI / HAND) * 100)} percent of bare-hand speed and ${(UMI / TELEOP).toFixed(1)} times the teleoperation rate.`;
 
 export function UmiCollectionRates({ className }: { className?: string }) {
@@ -61,9 +61,10 @@ export function UmiCollectionRates({ className }: { className?: string }) {
       figureId="umi-collection-rates"
       className={className}
       kicker="Demonstrations per hour"
-      heading="Holding the gripper was three times faster than teleoperation"
+      heading="Handheld recording: triple robot control, half bare-hand speed"
       stage={
         <FigureStage>
+          <p className="m-0 font-sans text-sm text-text-dim">UMI means Universal Manipulation Interface: a handheld gripper that records demonstrations.</p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Demonstrations per hour by bare hand, UMI gripper and spacemouse teleoperation"
@@ -86,7 +87,7 @@ export function UmiCollectionRates({ className }: { className?: string }) {
               return (
                 <g key={rate.id} data-testid={`umi-rate-${rate.id}`} data-series={rate.id} data-per-hour={rate.perHour}>
                   <DirectLabel x={f(PLOT.left + 6)} y={top + NAME_BASELINE} seriesFor={rate.id}>
-                    <tspan fontWeight={lead ? 700 : 600}>{rate.label}</tspan>
+                    <tspan fontWeight={lead ? 700 : 600}>{rate.id === 'spacemouse' ? 'Spacemouse controller steering a robot' : rate.label}</tspan>
                   </DirectLabel>
                   <Bar
                     x={PLOT.left}

@@ -68,15 +68,16 @@ describe('hardware price ladder data', () => {
 });
 
 describe('HardwarePriceLadder', () => {
-  it('leads with the kicker, the range headline and the caption naming the unpriced rows', () => {
+  it('leads with both price ranges and retains the named unpriced-product disclosures', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Maker list prices');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Listed prices run from $295 to $70,000');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Arms $295–$70,000; humanoids $4,900–$29,900; some prices unpublished');
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(caption).toBe(
-      'No maker price for EngineAI SE01, Fourier GR-3 or UBTECH Walker S2; Figure 03, Atlas and Optimus 3 are not on open sale.',
+      'Arms: $295 to $70,000. Humanoids: $4,900 to $29,900. Several humanoid makers publish no price or do not offer open sales.',
     );
     expect(caption.split(/\s+/).length).toBeLessThanOrEqual(25);
+    expect(container).toHaveTextContent('EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.');
   });
 
   it('draws one strip per family and names only each strip’s ends', () => {

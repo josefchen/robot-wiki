@@ -193,9 +193,9 @@ export function DeltaFrame({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Dark stroke: the demonstration. Blue ink: the replay"
+          hint="A frame fixes the directions: tool directions turn with the tool; table directions stay fixed"
           readout={readoutNow(frame, angle, pen)}
-          status="The move and the angles are illustrative; the geometry is exact"
+          status="Dark stroke: demonstration. Blue ink: replay. Move and angles illustrative; geometry exact."
           data-testid="delta-frame-stage-frame"
         >
           <div data-testid="delta-frame-drawing" data-frame={frame} data-angle={degrees} data-pen={`${r2(pen.at[0])},${r2(pen.at[1])}`} data-phase={pen.phase} data-gap={gap}>

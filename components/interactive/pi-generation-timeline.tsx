@@ -97,11 +97,11 @@ const COLUMNS: Column[] = PI_GENERATIONS.reduce<Column[]>((columns, g) => {
 }, []);
 
 /**
- * At a phone width π0-FAST sits one row up so its name clears π0 and
- * π0.5, three months away on either side; from the sm breakpoint every
- * single name sits on the lower row.
+ * Stagger the wide FAST label and the final model so adjacent names stay
+ * separate when text is enlarged. The label grid grows with its tallest
+ * stack; every column stays anchored to its original source month.
  */
-const NARROW_RAISED = new Set(['pi0-fast']);
+const RAISED_LABELS = new Set(['pi0-fast', 'pi07']);
 
 const NAME_CLASS =
   'inline-flex min-h-8 items-center justify-center whitespace-nowrap px-1.5 font-sans text-[13px] text-text-dim transition-colors hover:text-text aria-pressed:text-ink aria-pressed:underline aria-pressed:decoration-1 aria-pressed:underline-offset-4';
@@ -200,7 +200,13 @@ export function PiGenerationTimeline({
       figureId="pi-generation-timeline"
       className={className}
       kicker="Physical Intelligence's models"
-      heading="A new robot model every few months; first three downloadable"
+      heading="Only the first three models have confirmed downloads"
+      controls={
+        <p className="basis-full font-sans text-[16px] font-semibold leading-normal text-text" data-testid="generation-download-summary">
+          Physical Intelligence released a model every few months, but downloads are confirmed only for the first three.
+          Later models&apos; availability is unverified.
+        </p>
+      }
       adjust={
         <InstrumentReset
           onClick={() => select(PI_GENERATIONS.findIndex((g) => g.id === defaultSelected))}
@@ -212,16 +218,17 @@ export function PiGenerationTimeline({
             <div
               data-testid="generation-detail"
               aria-live="polite"
-              className="basis-full font-sans text-sm leading-relaxed"
+              className="min-w-0 basis-full font-sans text-sm leading-relaxed"
             >
               <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
                 <span className="font-semibold text-text">{selected.name}</span>
                 <span className="text-text-dim">{selected.dateLabel}</span>
-                <span className="whitespace-nowrap text-text-dim">
-                  weights {weightsLabel(selected)}
+                <span className="text-text-dim">
+                  trained model {weightsLabel(selected)}
                 </span>
               </div>
               <div className="mt-1 max-w-[65ch] text-text">{selected.plain}</div>
+              <div className="mt-1 text-text-dim">The star in π*0.6 marks π0.6 further trained through practice and coaching.</div>
             </div>
           }
         >
@@ -231,21 +238,26 @@ export function PiGenerationTimeline({
             aria-label="Select a generation"
             className="@container max-w-[520px]"
           >
-            <div className="relative h-18">
+            <div className="grid min-h-18">
               {COLUMNS.map((column) => {
                 const raised =
-                  column.members.length === 1 && NARROW_RAISED.has(column.members[0].id);
+                  column.members.length === 1 && RAISED_LABELS.has(column.members[0].id);
                 return (
                   <div
                     key={column.released}
                     data-generation-column={column.released}
-                    className="absolute bottom-0 flex -translate-x-1/2 flex-col items-center"
+                    className="relative col-start-1 row-start-1 flex w-max -translate-x-1/2 flex-col items-center self-end"
                     style={{ left: `${f((dateToX(column.released) / WIDTH) * 100)}%` }}
                   >
                     {column.members.map(nameButton)}
                     <span
                       aria-hidden="true"
-                      className={cx('w-px bg-border-strong', raised ? 'h-10 sm:h-2' : 'h-2')}
+                      className={cx(
+                        'w-px bg-border-strong',
+                        column.members[0].id === 'pi07'
+                          ? 'h-18 min-[320px]:h-10'
+                          : raised ? 'h-10' : 'h-2',
+                      )}
                     />
                   </div>
                 );
@@ -304,11 +316,12 @@ export function PiGenerationTimeline({
                 const open = column.members.some((g) => g.openWeights === true);
                 const isSelected = column.members.some((g) => g.id === selected.id);
                 return (
-                  <g key={column.released} data-generation-dot={column.released}>
+                  <g key={column.released} data-generation-dot={column.released} data-series={column.released}>
                     <circle
                       cx={cx}
                       cy={AXIS_Y}
                       r={NODE_R}
+                      className={open ? undefined : 'forced-colors:fill-[Canvas]'}
                       fill={open ? measurement : MOTION_STAGE.background}
                       stroke={measurement}
                       strokeWidth={1.5}
@@ -325,6 +338,7 @@ export function PiGenerationTimeline({
                       />
                     ) : null}
                     <text
+                      data-series-label-for={column.released}
                       data-scene-tick=""
                       x={cx}
                       y={MONTH_Y}
@@ -360,6 +374,9 @@ export function PiGenerationTimeline({
             <div className="mt-1 flex flex-wrap items-center gap-x-2 font-sans text-sm text-text-dim">
               <span>Month not known:</span>
               {undated.map(nameButton)}
+              <p className="m-0 basis-full text-text" data-testid="generation-memory-gloss">
+                MEM adds memory: recent video plus notes the model writes for itself.
+              </p>
             </div>
           </div>
         </FigureStage>
@@ -446,10 +463,10 @@ export function PiGenerationTimeline({
             >
               {citation.label}
             </a>
-            ; download status from the openpi checkpoint catalogue.
+            ; download status from the openpi catalogue of downloadable trained models.
           </span>
         ) : (
-          'Download status from the openpi checkpoint catalogue.'
+          'Download status from the openpi catalogue of downloadable trained models.'
         )
       }
     />

@@ -7,14 +7,14 @@ import { waitForHydration } from './interaction-ready';
 const ROUTE = '/frontier/bear-case/';
 
 const MILESTONE_NAMES = [
-  'One robot brain succeeds in 9 of 10 new homes',
+  'One robot brain completes over 90% of fixed tasks across more than 10 new homes',
   '10,000 humanoids doing documented work',
   'Labs agree on one shared public test',
   'Practice gets robots to 99% on many tasks',
   'Touch sensing built into the robot’s brain',
   'Hand skills learned only in simulation work for real',
   'A humanoid matches a specialist machine’s cost per job',
-  '100 times more data brings matching gains',
+  '100 times more data; measure the gain in task success (required gain not specified)',
 ];
 
 /** The original milestone names, kept in the method table. */
@@ -160,7 +160,7 @@ test.describe('frontier bear-case module', () => {
     const panel = page.getByTestId('milestones-watchlist');
     await expect(panel).toBeVisible();
     await expect(
-      panel.getByText('Eight results would prove skeptics wrong; none has happened yet'),
+      panel.getByText('September 2026: eight tests, none complete, five partly achieved'),
     ).toBeVisible();
     await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(8);
     for (const name of MILESTONE_NAMES) {
@@ -169,7 +169,7 @@ test.describe('frontier bear-case module', () => {
         `milestone tile: ${name}`,
       ).toBeVisible();
     }
-    await expect(page.getByTestId('watchlist-score')).toHaveText('0 of 8 done');
+    await expect(page.getByTestId('watchlist-score')).toHaveText('September 2026: 0 of 8 done');
     await expect(page.getByTestId('watchlist-tally')).toHaveText(
       '5 partly there, 3 not yet, 0 done',
     );
@@ -242,7 +242,7 @@ test.describe('frontier bear-case module', () => {
     // Keyboard: Enter opens a tile, arrows move the selection between tiles.
     await panel
       .getByRole('button', {
-        name: 'One robot brain succeeds in 9 of 10 new homes',
+        name: 'One robot brain completes over 90% of fixed tasks across more than 10 new homes',
         exact: true,
       })
       .focus();
@@ -302,8 +302,9 @@ test.describe('frontier bear-case module', () => {
     const figure = page.locator('[data-figure-frame="funding-humanoid-counts"]');
     await figure.scrollIntoViewIfNeeded();
     await expect(figure.locator('[data-figure-title]')).toHaveText(
-      'Startups raised a record while humanoids shipped in the thousands',
+      'By June 2026, robotics funding surpassed every earlier year',
     );
+    await expect(figure.locator('[data-figure-stage]').getByText('humanoids sold or shipped still numbered thousands.', { exact: false })).toBeVisible();
     const width = async (testId: string) =>
       Number(await figure.getByTestId(testId).locator('rect').first().getAttribute('width'));
     expect((await width('funding-2026')) / (await width('funding-2020'))).toBeCloseTo(18.8 / 5.8, 1);

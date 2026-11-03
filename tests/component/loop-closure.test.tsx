@@ -19,7 +19,7 @@ const slider = () => screen.getByRole('slider', { name: 'How far each turn is of
 describe('LoopClosure', () => {
   it('draws the still pose: the chain swung wide and the lit bar off the start post', () => {
     render(<LoopClosure />);
-    expect(screen.getByText('Recognising the start pulls the drifted map back into shape')).toBeInTheDocument();
+    expect(screen.getByText('Recognising a place corrects every step of the map')).toBeInTheDocument();
     const drawing = screen.getByTestId('lc-drawing');
     expect(drawing).toHaveAttribute('data-drift', String(OPENING_DRIFT));
     expect(drawing).toHaveAttribute('data-share', '0');

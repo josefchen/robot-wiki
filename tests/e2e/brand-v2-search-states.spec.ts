@@ -1,10 +1,11 @@
+import type { ReleaseStateReference } from '../../lib/brand-v2-release-state-store';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { Page } from '@playwright/test';
 import { expect, test } from './brand-v2-static-fixture';
-import { RELEASE_PROFILES, type ReleaseState } from '../../lib/brand-v2-release-evidence';
-import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
+import { RELEASE_PROFILES, } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, captureReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
 import {
   SEARCH_DESKTOP_VIEWPORT,
   SEARCH_MOBILE_VIEWPORT,
@@ -770,10 +771,10 @@ test.describe('brand-v2 search states sweep', () => {
     staticBase,
   }) => {
     test.setTimeout(FINAL_RELEASE_PROFILES ? 240_000 * RELEASE_PROFILES.length : 240_000);
-    const releaseStates: ReleaseState[] = [];
+    const releaseStates: ReleaseStateReference[] = [];
     const collect = async (target: Page, stateId: string, viewport: string) => {
       const reading = await collectState(target, stateId, viewport);
-      if (FINAL_RELEASE_PROFILES && viewport === SEARCH_DESKTOP_VIEWPORT.id) releaseStates.push(await probeReleaseState(target, {
+      if (FINAL_RELEASE_PROFILES && viewport === SEARCH_DESKTOP_VIEWPORT.id) releaseStates.push(await captureReleaseState(target, {
         id: `search:${stateId}`, route: '/search/', state: stateId,
         steps: [`drive deterministic ${stateId}`, 'read actual search status, group rows and selected facets'],
       }));

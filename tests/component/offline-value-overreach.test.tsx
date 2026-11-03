@@ -34,10 +34,10 @@ describe('OfflineValueOverreach', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Distributional shift');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Recorded data alone overrates untried actions',
+      'Caution stops recorded-data learners overrating untried actions',
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "Marking down untried actions keeps an offline learner's choice where its data can vouch for it.",
+      "Learning only from recordings can overrate untried actions; lowering their predicted scores keeps choices closer to the recorded experience.",
     );
   });
 

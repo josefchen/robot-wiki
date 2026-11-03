@@ -58,7 +58,7 @@ seeAlso:
 import { DeploymentEconomics } from '@/components/interactive/deployment-economics';
 import { JamOverhead } from '@/components/motion/scenes/jam-overhead';
 
-Industrial deployment is the installation of robots in factories and warehouses, where each cell has to pay back its cost. IFR counts a record 5 million industrial robots operating worldwide in 2025, after more than 600,000 installations that year, 59 percent of them in China <Cite id="ifr-world-robotics-2026-release" />.
+Industrial deployment installs robots in factories and warehouses, where each cell must repay its cost. IFR counts a record 5 million industrial robots operating worldwide in 2025, after more than 600,000 installations that year, 59 percent of them in China <Cite id="ifr-world-robotics-2026-release" />.
 
 <Image id="bmw-leipzig-body-shop-spot-welding-2005" />
 
@@ -72,7 +72,7 @@ Drag the time to fix each jam and watch the payback change. Payback here divides
 
 This worked example has no measured deployment behind it, and each of its seven inputs is an assumption, labelled beside its control. The model also assumes 730 hours a month and a 60-month amortization period, counts modeled picks per elapsed hour, including downtime, and judges payback against a chosen 24-month horizon, the upper end of EVST's estimate for multi-shift palletising cells <Cite id="evst-cell-cost-2026" />.
 
-At 15-second jam clearing, cutting per-pick success from 99.9 to 99 percent moves payback from 11.56 to 11.82 months, an increase of 2.2 percent. At 300 seconds the same cut moves payback from 12.11 to 17.30 months, and modeled output falls 30 percent, from 542.9 to 380.0 picks per elapsed hour. EVST, a vendor that quotes complete cells, publishes no fixed list prices and puts the robot at a third to half of total cell cost <Cite id="evst-cell-cost-2026" />.
+At 15-second jam clearing, cutting per-pick success from 99.9 to 99 percent moves payback from 11.56 to 11.82 months, an increase of 2.2 percent. At 300 seconds the same cut moves payback from 12.11 to 17.30 months, and modeled output falls 30 percent, from 542.9 to 380.0 picks per elapsed hour. EVST, a vendor quoting complete cells, publishes no fixed list prices and puts the robot at a third to half of total cell cost <Cite id="evst-cell-cost-2026" />.
 
 ## What the installed base automates
 
@@ -82,7 +82,7 @@ At 15-second jam clearing, cutting per-pick success from 99.9 to 99 percent move
   <Stat label="China share" value="59%" note="of global installations in 2025" />
 </div>
 
-IFR's World Robotics 2026, released on September 24, 2026, counts a record operational stock of 5 million industrial robots in 2025, up 9 percent, after more than 600,000 installations that year, up 11 percent. China installed 354,000 units, 59 percent of the total, and the United States, with almost 38,500 installations, passed Japan to become the second-largest market <Cite id="ifr-world-robotics-2026-release" />.
+IFR's World Robotics 2026, released September 24, 2026, counts a record operational stock of 5 million industrial robots in 2025, up 9 percent, after more than 600,000 installations that year, up 11 percent. China installed 354,000 units, 59 percent of the total, and the United States, with almost 38,500 installations, passed Japan to become the second-largest market <Cite id="ifr-world-robotics-2026-release" />.
 
 A year earlier, World Robotics 2025 counted 4,663,698 robots in operation and 542,076 installed in 2024, above 500,000 in each year from 2021 <Cite id="ifr-world-robotics-2025" />. China then held 2,027,190, about 4.5 times second-ranked Japan's 450,530, and took 295,045 installations, 54 percent of the total <Cite id="ifr-world-robotics-2025" /> <Cite id="ifr-china-five-year-plan-2026" />.
 
@@ -128,13 +128,13 @@ Assembly research also has to solve the contact itself. IndustReal combines sign
 
 <Term id="cycle-time">Cycle time</Term> is the time required to produce a part or complete a process, measured for that operation <Cite id="lei-cycle-time-definition" />. <Term id="takt-time">Takt time</Term> is available production time divided by customer demand, and its purpose is to match production with demand <Cite id="lei-takt-time-definition" />. NASA distinguishes inherent availability, computed from <Term id="mean-time-between-failures">mean time between failures</Term> and mean time to repair without administrative, logistics or preventive-maintenance time, from operational availability, which includes them. Uptime is time in an operable state <Cite id="nasa-availability-prediction-analysis" />.
 
-The calculator above reports capital cost per modeled pick: robot price times the integration multiple, divided by modeled lifetime picks over a fixed amortization period. It does not include running costs. The <Term id="payback-period">payback period</Term> is total system capital cost divided by monthly labour, reduced-damage and throughput value. EVST's guide estimates 12 to 24 months for multi-shift palletising cells and 24 to 36 months for single-shift or lower-throughput operations <Cite id="evst-cell-cost-2026" />.
+The calculator reports capital cost per modeled pick: robot price times the integration multiple, divided by modeled lifetime picks over a fixed amortization period. It does not include running costs. The <Term id="payback-period">payback period</Term> is total system capital cost divided by monthly labour, reduced-damage and throughput value. EVST's guide estimates 12 to 24 months for multi-shift palletising cells and 24 to 36 months for single-shift or lower-throughput operations <Cite id="evst-cell-cost-2026" />.
 
 ## The jam rate is the lesson
 
 A separate authored example has no measured intervention rate behind it. At 99 percent per-pick success, with every failure needing a ten-second clearing, overhead is (1 − 0.99) × 10 = 0.1 seconds per attempted pick. Amazon's stow system is designed to stow 80 percent of warehouse items at 300 units per hour. A no-stow turnaway, when a pod leaves with nothing stowed, consumes at least 12 seconds <Cite id="amazon-stow-2025" />.
 
-The <Term id="intervention-rate">intervention rate</Term> and clearing cost together decide whether a cell ships. Physical Intelligence reports that training on deployment data, including expert corrections during autonomous runs, more than doubled throughput and roughly halved the failure rate on some of its hardest tasks <Cite id="pistar06-2025" />. Ken Goldberg proposes combining model-based engineering with model-free learning so robots can perform useful work, collect real-world data, and use those data to improve performance and learn adjacent skills. Goldberg does not claim that engineering removes the need for learning, and he expects model-free AI eventually to enable fully general-purpose robots <Cite id="goldberg-data-gap-2025" />.
+The <Term id="intervention-rate">intervention rate</Term> and clearing cost together decide whether a cell ships. Physical Intelligence reports training on deployment data, including expert corrections during autonomous runs, more than doubled throughput and roughly halved the failure rate on some of its hardest tasks <Cite id="pistar06-2025" />. Ken Goldberg proposes combining model-based engineering with model-free learning so robots can perform useful work, collect real-world data, and use those data to improve performance and learn adjacent skills. Goldberg does not claim that engineering removes the need for learning, and he expects model-free AI eventually to enable fully general-purpose robots <Cite id="goldberg-data-gap-2025" />.
 
 [The Reliability Gap](/frontier/reliability-gap) tracks the demo-to-production gap and selected deployment examples; [Autonomous Vehicles](/adjacent/autonomous-vehicles) covers the same question for driverless cars. Morgan Stanley's 2026 note on the humanoid industry's "PR problem", as reported by CNBC, describes [investors](/market-map) looking for real-world return on investment over polished demonstrations <Cite id="morgan-stanley-pr-problem-2026" />. Figure says its livestreamed logistics run lasted 200 hours <Cite id="helix-2-5-2026" />, but it was one task at one site, with [no published success rate](/data-hardware/evaluation-crisis).
 
@@ -146,7 +146,7 @@ OSHA describes safeguards for non-collaborative robot applications during automa
 
 ## The labour evidence, disagreement intact
 
-Daron Acemoglu and Pascual Restrepo find that one more robot per thousand workers cuts the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent. Losses concentrate in commuting zones exposed to industrial automation <Cite id="acemoglu-restrepo-2020" />.
+Daron Acemoglu and Pascual Restrepo find one more robot per thousand workers cuts the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent. Losses concentrate in commuting zones exposed to industrial automation <Cite id="acemoglu-restrepo-2020" />.
 
 In Germany, robot-driven displacement in manufacturing was fully offset by new jobs in services, and the cost fell mostly on young workers entering the labour force <Cite id="dauth-robots-germany-2021" />. Spanish manufacturers that adopted robots raised output by 20 to 25 percent within four years and created net jobs at a rate of 10 percent <Cite id="koch-robots-firms-2021" />. French adopters also grew employment, at their competitors' expense, and the overall effect on industry employment was negative <Cite id="acemoglu-lelarge-restrepo-2020" />.
 

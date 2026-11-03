@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/data-hardware/datasets/",
+  "mount": "mount:/data-hardware/datasets/:DatasetRunsHours:1",
+  "screenshots": {
+    "375": "evidence/reader-first/data-hardware--datasets--dataset-runs-hours.375.png",
+    "1280": "evidence/reader-first/data-hardware--datasets--dataset-runs-hours.1280.png"
+  },
+  "takeaway": "Counting recorded runs and counting hours rank robot datasets differently: AgiBot World has about 25 times FineART's runs but under twice its hours, because FineART's runs are much longer.",
+  "sentence": "AgiBot World records about 25 times as many attempts as FineART but less than twice as many hours because FineART’s attempts last much longer.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Correctly compares about 25 times the attempts with under twice the hours and explains FineART's longer attempts.",
+  "verdict": "pass",
+  "screenshotCommit": "524d32c818ed2a6e63b7e492af46b26cc1aa44fe",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r4-b-20261103",
+  "sourceDigest": "a872b621fa483e6dc3a60bc1dcde4a14ce1f1942d4dc8a07025ed625c17cb6a4",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

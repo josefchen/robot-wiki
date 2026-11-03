@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/humanoid-wbc/",
+  "mount": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--humanoid-wbc--retargeting-gap.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--humanoid-wbc--retargeting-gap.1280.png"
+  },
+  "takeaway": "Copying a person's movements straight onto a robot with different proportions leaves its feet floating or sinking.",
+  "sentence": "Copying a human pose onto a robot with shorter legs leaves its feet above the floor, while longer legs would put them below it.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It gives the same consequence of copying a human pose onto differently proportioned legs: feet above or below the floor.",
+  "verdict": "pass",
+  "screenshotCommit": "60618a24f5b35a08714aab7a5022c93d5cc3e508",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r5-a-20261103",
+  "sourceDigest": "971389b2a933b80caffb65551b39cc64d8cf8872570fc4bb49b9a537cefce774",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

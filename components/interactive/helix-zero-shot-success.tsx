@@ -51,7 +51,7 @@ const HELIX = zeroShotOf(HELIX_ID);
 const SHORT_BY = SOLVED_BAR_PERCENT - HELIX;
 const BAR_X = f(sx(SOLVED_BAR_PERCENT));
 
-const CAPTION = `Figure's blind trials on three whole-body tasks, no partial credit. The ${SOLVED_BAR_PERCENT}% line is this article's bar for solved.`;
+const CAPTION = `Figure tested three tasks in homes absent from training, with no partial credit. This article sets ${SOLVED_BAR_PERCENT}% as the bar for solved.`;
 const DESCRIPTION = `Zero-shot success on three whole-body tasks in 30 unseen homes, as Figure reports it: ${SCRATCH}% for a policy trained from scratch and ${HELIX}% for Helix 2.5, pretrained on Figure's Index human data, both trained on the same task data. Helix 2.5 sits ${SHORT_BY} points below the ${SOLVED_BAR_PERCENT}% bar this article sets for solved. Figure published no trial counts.`;
 
 export function HelixZeroShotSuccess({ className }: { className?: string }) {

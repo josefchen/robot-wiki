@@ -1523,3 +1523,119 @@ test.describe('Tektur web delivery', () => {
     // therefore cannot be published as a clean delivery record.
   });
 });
+
+test.describe('Font preload delivery', () => {
+  test('reuses cold-page font preloads for the exact CSS source URLs without duplicate requests or unused-preload warnings', async ({
+    browser,
+    staticBase,
+  }, testInfo) => {
+    test.setTimeout(60_000);
+    for (const width of [375, 1280]) {
+      // Each width gets an empty cache. The shared typography sweep cannot
+      // prove reuse because its previous navigations may have cached a face.
+      const context = await browser.newContext({
+        viewport: { width, height: 900 },
+      });
+      const page = await context.newPage();
+      const warnings: string[] = [];
+      const errors: string[] = [];
+      page.on('console', (message) => {
+        if (message.type() === 'warning' || message.type() === 'error') {
+          warnings.push(`${message.type()}: ${message.text()}`);
+        }
+      });
+      page.on('pageerror', (error) => errors.push(error.message));
+      const capture = captureRequests(page, staticBase);
+      capture.open(`cold font preload @${width}`);
+      try {
+        const response = await page.goto(
+          `${staticBase}/classical/scene-representation/`,
+        );
+        await page.evaluate(() => document.fonts.ready);
+        // Chromium reports unused preloads several seconds after load.
+        // This delay observes that diagnostic; fonts.ready alone is too early.
+        await page.waitForTimeout(6_000);
+        const measurement = await page.evaluate(measureDocument, {
+          classes: REGISTERED_CLASSES,
+          mathScope: MATH_SCOPE,
+        });
+        const delivery = await page.evaluate(() => ({
+          preloads: [
+            ...document.querySelectorAll<HTMLLinkElement>(
+              'link[rel="preload"][as="font"]',
+            ),
+          ].map((link) => ({
+            href: link.href,
+            crossOrigin: link.getAttribute('crossorigin'),
+          })),
+          resources: performance.getEntriesByType('resource').map((entry) => ({
+            name: entry.name,
+            initiatorType: (entry as PerformanceResourceTiming).initiatorType,
+            decodedBodySize: (entry as PerformanceResourceTiming).decodedBodySize,
+          })),
+          loadedFamilies: [...document.fonts]
+            .filter((face) => face.status === 'loaded')
+            .map((face) => face.family),
+        }));
+        await capture.settled();
+        const fonts = [...capture.transactions.values()]
+          .map(classifyTransaction)
+          .filter(({ isFont }) => isFont)
+          .map(({ transaction }) => transaction);
+        await testInfo.attach(`cold-font-preloads-${width}`, {
+          body: Buffer.from(JSON.stringify({
+            width, measurement, delivery, fonts, warnings, errors,
+          }, null, 2)),
+          contentType: 'application/json',
+        });
+        expect(response?.status()).toBe(200);
+        expect(measurement.unreadableStyleSheets).toEqual([]);
+        expect(delivery.preloads).toHaveLength(2);
+        const preloadedFamilies = new Set<string>();
+        for (const preload of delivery.preloads) {
+          const url = new URL(preload.href);
+          expect(url.origin).toBe(new URL(staticBase).origin);
+          expect(url.pathname.startsWith(FRAMEWORK_FONT_PATH_PREFIX)).toBe(true);
+          expect(['', 'anonymous']).toContain(preload.crossOrigin);
+          // Keep the query string: equal pathnames hid the empty ?dpl=
+          // mismatch between the preload and the Turbopack @font-face URL.
+          const key = `${url.pathname}${url.search}`;
+          const matchingFaces = measurement.fontFaces.filter((face) =>
+            face.sources.some((source) =>
+              new URL(source, staticBase).pathname === url.pathname,
+            ),
+          );
+          expect(matchingFaces.length, `${key} has a CSS face`).toBeGreaterThan(0);
+          const sources = matchingFaces.flatMap(({ sources }) => sources)
+            .filter((source) => new URL(source, staticBase).pathname === url.pathname);
+          expect([...new Set(sources)], `${key} preload and CSS identity`).toEqual([key]);
+          for (const face of matchingFaces) {
+            const family = fontFamilyKey(face.family);
+            preloadedFamilies.add(family);
+            expect(measurement.headsOutsideMath.map(fontFamilyKey)).toContain(family);
+            expect(delivery.loadedFamilies.map(fontFamilyKey)).toContain(family);
+          }
+          const fetched = fonts.filter((font) => new URL(font.url).pathname === url.pathname);
+          expect(fetched, `${key} must be fetched exactly once`).toHaveLength(1);
+          expect(fetched[0].url).toBe(preload.href);
+          expect(fetched[0].responded).toBe(true);
+          expect(fetched[0].bodyError).toBeNull();
+          expect(fetched[0].payloadSignature).toBe('774f4632');
+          expect(fetched[0].sha256).toMatch(/^[0-9a-f]{64}$/);
+          const resources = delivery.resources.filter((entry) =>
+            new URL(entry.name).pathname === url.pathname,
+          );
+          expect(resources, `${key} must reuse its preload resource`).toHaveLength(1);
+          expect(resources[0].name).toBe(preload.href);
+          expect(resources[0].initiatorType).toBe('link');
+          expect(resources[0].decodedBodySize).toBeGreaterThan(0);
+        }
+        expect([...preloadedFamilies].sort()).toEqual(['dm sans', 'geist']);
+        expect(warnings, `cold page @${width} console diagnostics`).toEqual([]);
+        expect(errors, `cold page @${width} uncaught errors`).toEqual([]);
+      } finally {
+        await context.close();
+      }
+    }
+  });
+});

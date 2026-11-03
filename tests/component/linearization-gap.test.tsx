@@ -19,7 +19,7 @@ const slider = () => screen.getByRole('slider', { name: 'How uncertain the guess
 describe('LinearizationGap', () => {
   it('draws the still pose: the arm at the edge of the spread, the groove fallen away below the rule', () => {
     render(<LinearizationGap />);
-    expect(screen.getByText('A straight line fits the curve only near the guess')).toBeInTheDocument();
+    expect(screen.getByText('Greater uncertainty makes the straight-line shortcut miss further')).toBeInTheDocument();
     const drawing = screen.getByTestId('lg-drawing');
     expect(drawing).toHaveAttribute('data-spread', String(OPENING_SPREAD));
     expect(drawing).toHaveAttribute('data-angle', String(OPENING_SPREAD));

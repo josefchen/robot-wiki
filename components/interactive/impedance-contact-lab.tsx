@@ -215,7 +215,7 @@ function bumpWords(peakN: number): string {
 /** The resting readout: the first bump and where it falls. */
 export function stillReadout(hardware: HardwareMode, run: ContactRun): string {
   if (hardware === 'position') return 'No force control: the push runs off the scale';
-  return `First bump ${run.peakForceN.toFixed(1)} newtons · ${bumpWords(run.peakForceN)}`;
+  return `Peak push ${run.peakForceN.toFixed(1)} newtons · ${bumpWords(run.peakForceN)}`;
 }
 
 /** The readout while it presses, from the same instant as the gauge. */
@@ -551,15 +551,15 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
       data-testid="impedance-lab"
       className={className}
       kicker="Impedance control"
-      heading="A softer arm touches gently enough not to crush"
+      heading={positionMode ? "The stiff position-following arm crushes the glass" : outcome === 'success' ? "Force control keeps contact below the glass’s crushing force" : "This force-control setting still crushes the glass"}
       controls={controls}
       adjust={adjust}
       stage={
         <AnatomyStage
           viewWidth={STAGE_WIDTH}
-          hint={pressing ? 'Pressing, slowed for the eye' : 'The pointer stays at the first bump; past the shaded arc the glass cracks'}
+          hint={pressing ? 'Pressing, slowed for the eye' : 'Force control can be set soft enough to spare the glass; the stiff arm only follows position and crushes it.'}
           readout={stillReadout(hardware, run)}
-          status="Illustrative model, not measured"
+          status="The pointer records peak push; glass cracks above 25 newtons, the shaded arc’s end. Illustrative model, not measured. One newton is roughly the weight of 100 grams on Earth."
           data-testid="impedance-press"
           data-arm={hardware}
         >
@@ -596,7 +596,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="An arm that controls how hard it pushes can be tuned to touch gently; a position-only arm has no such dial."
+      caption="Force control can keep the push below the glass’s 25-newton limit. The stiff arm follows position and crushes it."
       method={
         <>
           <p>

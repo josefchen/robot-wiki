@@ -1,3 +1,4 @@
+import type { ReleaseStateReference } from '../../lib/brand-v2-release-state-store';
 import { BRAND_V2_FLOW_SUITES, executeEvidencePlans } from '../../lib/brand-v2-runners';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
 import {
@@ -7,8 +8,8 @@ import {
   revealCiteNote,
 } from './helpers/citation-note';
 import { openClosedAncestorDetails } from './helpers/open-ancestor-details';
-import { RELEASE_PROFILES, type ReleaseState } from '../../lib/brand-v2-release-evidence';
-import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
+import { RELEASE_PROFILES, } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, captureReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
 
 test.describe('brand-v2-article-interactions', () => {
   test('executes the ordered article interaction flow over the derived article population', async ({
@@ -23,7 +24,7 @@ test.describe('brand-v2-article-interactions', () => {
 
     const flow = BRAND_V2_FLOW_SUITES['brand-v2-article-interactions'];
     if (FINAL_RELEASE_PROFILES) test.setTimeout(articleRoutes.length * flow.captures.length * 180_000);
-    const releaseStates = new Map<string, ReleaseState>();
+    const releaseStates = new Map<string, ReleaseStateReference>();
     const records = await executeEvidencePlans(
       articleRoutes.map((route) => ({ id: route, ...flow })),
       {
@@ -62,7 +63,7 @@ test.describe('brand-v2-article-interactions', () => {
               if (FINAL_RELEASE_PROFILES) {
                 const capture = flow.captures.find(({ afterStep }) => afterStep === step.id)!;
                 const id = `article:${route}:${capture.id}`;
-                releaseStates.set(id, await probeReleaseState(page, { id, route, state: 'citation-note-open', steps: ['keyboard focus citation number', 'open referenced note', 'read described-by target'] }));
+                releaseStates.set(id, await captureReleaseState(page, { id, route, state: 'citation-note-open', steps: ['keyboard focus citation number', 'open referenced note', 'read described-by target'] }));
               }
               await closeCiteNote(citation);
               await cycleInlineCiteNote(page, citation);
@@ -117,7 +118,7 @@ test.describe('brand-v2-article-interactions', () => {
           await test.step(`${route}:${capture.id}`, async () => {
             expect(await page.locator('article').count()).toBe(1);
             const id = `article:${route}:${capture.id}`;
-            if (FINAL_RELEASE_PROFILES && !releaseStates.has(id)) releaseStates.set(id, await probeReleaseState(page, { id, route, state: capture.afterStep, steps: ['navigate article', capture.afterStep, 'read actual article state'] }));
+            if (FINAL_RELEASE_PROFILES && !releaseStates.has(id)) releaseStates.set(id, await captureReleaseState(page, { id, route, state: capture.afterStep, steps: ['navigate article', capture.afterStep, 'read actual article state'] }));
           });
         },
       },

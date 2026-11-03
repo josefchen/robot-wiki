@@ -60,7 +60,7 @@ const DEATHS = benchmarkOf(FATALITY_ID);
 const INJURIES = benchmarkOf('injuries');
 const CRASHES = benchmarkOf('crashes');
 
-const CAPTION = 'A lower bound that assumes not one failure in all those miles, measured against US human drivers.';
+const CAPTION = 'At 95% confidence, 275 million miles without a fatality supports a rate no higher than the study’s US human-driver benchmark.';
 const DESCRIPTION = `Miles a driverless fleet must drive with no failure to show, with 95% confidence, that its failure rate is no higher than human drivers', from Kalra and Paddock's RAND study: ${DEATHS.printedText} miles against ${DEATHS.per100MillionMiles} deaths per 100 million miles, ${INJURIES.printedText} against ${INJURIES.per100MillionMiles} reported injuries and ${CRASHES.printedText} against ${CRASHES.per100MillionMiles} reported crashes. The deaths test would take a fleet of 100 cars driving around the clock about ${FLEET_YEARS} years. These are lower bounds that assume perfect driving.`;
 
 export function AvSafetyMiles({ className }: { className?: string }) {
@@ -73,9 +73,15 @@ export function AvSafetyMiles({ className }: { className?: string }) {
       figureId="av-safety-miles"
       className={className}
       kicker="Miles needed to prove safety"
-      heading="275 million failure-free miles to match the human death rate"
+      heading="No fatalities in 275 million miles: 95% confidence"
       stage={
         <FigureStage>
+          <p className="pb-3 font-sans text-lg font-medium leading-snug text-text" data-testid="av-confidence-summary">
+            At 95% confidence, 275 million miles without a death supports a fatality rate no higher than the study’s US human-driver benchmark.
+          </p>
+          <p className="font-sans text-sm leading-snug text-text">
+            95% refers to upper limits calculated from repeated studies. In the long run, at least 95 out of 100 such limits would reach or exceed the true fatality rate. Here the upper limit is about 1.09 deaths per 100 million miles.
+          </p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Failure-free miles needed to match human death, injury and crash rates"
@@ -123,7 +129,7 @@ export function AvSafetyMiles({ className }: { className?: string }) {
                     fontWeight={lead ? 700 : 400}
                     fill={CHART_STRUCTURE.label}
                   >
-                    {benchmark.printedText}
+                    {benchmark.printedText}; no {lead ? 'death' : benchmark.id === 'injuries' ? 'reported injury' : 'reported crash'}
                   </text>
                   {lead ? (
                     <text
@@ -162,9 +168,10 @@ export function AvSafetyMiles({ className }: { className?: string }) {
               fontSize={CHART_TYPE.axisPx}
               fill={CHART_STRUCTURE.labelSecondary}
             >
-              miles with no failure, log scale
+              Required miles; each tick is ten times farther
             </text>
           </PlotStage>
+
         </FigureStage>
       }
       caption={CAPTION}

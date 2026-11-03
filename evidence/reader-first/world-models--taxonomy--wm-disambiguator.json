@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/world-models/taxonomy/",
+  "mount": "mount:/world-models/taxonomy/:WmDisambiguator:1",
+  "screenshots": {
+    "375": "evidence/reader-first/world-models--taxonomy--wm-disambiguator.375.png",
+    "1280": "evidence/reader-first/world-models--taxonomy--wm-disambiguator.1280.png"
+  },
+  "takeaway": "World models differ in what they imagine: some predict full pictures of what comes next, others only a compact summary.",
+  "sentence": "A robot can imagine the result of picking up a cup as a picture, a number-based summary, or a plain statement.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both distinguish imagining a full picture from imagining a compact summary of what happens next.",
+  "verdict": "pass",
+  "screenshotCommit": "e9abd96b936d238ffce88e1ba58e16400e2bb7a2",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0003",
+  "sourceDigest": "6a232c7ee197ff83bf978f6d51c4debbb2893aca31a2ab296cb5a8e40f53ba86",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

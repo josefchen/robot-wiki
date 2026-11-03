@@ -1,3 +1,4 @@
+import { beforeCompletionApprovals, completionEndpoint } from '../helpers/completion-endpoint';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { committedSource, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
@@ -242,7 +243,7 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
       // block landed after the KOL batch; the world-models block touches none
       // of these members.)
       const isSeoPass = (entry: ApprovedDelta) => entry.id.startsWith('seo-pass-20261002-');
-      const preSeoPass = entries.filter((entry) => !isSeoPass(entry) && !isDomainPassEdge(entry)
+      const preSeoPass = beforeCompletionApprovals(entries).filter((entry) => !isSeoPass(entry) && !isDomainPassEdge(entry)
         && !isClassicalPassEdge(entry) && !isKolQueue20261012Edge(entry) && !isLandedPassEdge(entry)
         && !isHumanize20261012Edge(entry) && !isImagesA20261013Edge(entry) && !isHomeHubs20261014Edge(entry)
         && !isHomeHubs20261016Edge(entry) && !isAnatomyLoopB0120261020Edge(entry)
@@ -267,7 +268,7 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         (entry.oldHash === seoEndpoint || (entry.reconciles ?? []).some((binding) => binding.newHash === seoEndpoint)));
       const domainEndpoint = (domainPass ? domainPassEndpoint(entries, domainPass).newHash : undefined) ?? seoEndpoint;
       const classicalEndpoint = classicalPassEndpoint(entries, delta.manifest, delta.memberId, domainEndpoint);
-      expect(convergenceProse20261026Endpoint(entries, delta.manifest, delta.memberId,
+      expect(completionEndpoint(entries, delta.manifest, delta.memberId, convergenceProse20261026Endpoint(entries, delta.manifest, delta.memberId,
         explainerMounts20261026Endpoint(entries, delta.manifest, delta.memberId,
           anatomyLoopB0120261020Endpoint(entries, delta.manifest, delta.memberId,
             homeHubs20261016Endpoint(entries, delta.manifest, delta.memberId,
@@ -275,7 +276,7 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
                 imagesA20261013Endpoint(entries, delta.manifest, delta.memberId,
                   humanize20261012Endpoint(entries, delta.manifest, delta.memberId,
                     landedPassEndpoint(entries, delta.manifest, delta.memberId,
-                      kolQueue20261012Endpoint(entries, delta.manifest, delta.memberId, classicalEndpoint))))))))))
+                      kolQueue20261012Endpoint(entries, delta.manifest, delta.memberId, classicalEndpoint)))))))))))
         .toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });

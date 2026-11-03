@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseLedger, parseCompoundPlans } from '../../lib/audit-ledger.ts';
 import { CITATIONS } from '../../data/citations.ts';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
 
 /**
  * Pins the 2026-09-16j jepa-originals integration: the five dispatched
@@ -49,7 +50,8 @@ const loadSection = () => {
 describe('jepa originals integration (2026-09-16j evidence completions)', () => {
   it('binds the five applied jepa rows to complete compound evidence', () => {
     const { jepa, compoundPlans } = loadSection();
-    expect(jepa.claimRecords).toHaveLength(14);
+    expect(verifyLedgerAdditions(jepa)).toEqual({ originalRows: 14, addedRows: 3, currentRows: 17 });
+    expect(jepa.claimRecords).toHaveLength(17);
     for (const [ordinal, planId] of Object.entries(EXPECTED_20260916J)) {
       const record = jepa.claimRecords[Number(ordinal) - 1];
       expect(record.claim).toContain(' ');

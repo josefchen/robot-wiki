@@ -181,6 +181,7 @@ export function TerrainCurriculum({ className }: { className?: string }) {
             aria-describedby={descriptionId}
             data-testid="curriculum-stage"
             data-round={round}
+            data-source-round={round}
           >
             {Array.from({ length: LEVELS }, (_, k) => (
               <Tile key={k} level={k + 1} />

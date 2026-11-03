@@ -25,12 +25,12 @@ export const BATCH_SCALE_SCENE: SceneDefinition = {
   id: 'batch-scale',
   title: 'Parallel rollouts change a fixed training budget',
   kicker: 'Parallel simulation',
-  headline: 'Running thousands of copies at once speeds training, with limits',
+  headline: 'Thousands share one graphics chip; training gains level off',
   beats: [
-    { id: 'one-batch', caption: 'With 64 virtual robots practising at once, the same amount of practice takes hours.' },
+    { id: 'one-batch', caption: 'With 64 robots sharing one graphics chip, the same amount of practice takes hours.' },
     { id: 'scale', duration: 'long', linear: true, caption: 'With 4,096 robots side by side on one graphics chip, the same practice finishes in minutes.' },
     { id: 'cpu', caption: 'Some work for each robot still runs on the main computer, so with that overhead the dashed line flattens.' },
-    { id: 'recap', caption: 'Robots need huge amounts of practice; a graphics chip running 16,384 virtual robots side by side finishes it in minutes.' },
+    { id: 'recap', caption: 'Thousands of practice robots share one graphics chip, cutting hours to minutes, until extra work on the main computer limits the speed-up.' },
   ],
 };
 
@@ -169,8 +169,8 @@ function BatchScaleStage() {
   const gpuEnd = y(finalSeconds);
   const cpuEnd = y(wallClockSeconds(MAX_ENVS, true));
   return (
-    <StageSvg viewBox="0 0 340 240">
-      <text data-scene-stage-label="time-axis" data-scene-axis x={8} y={20} fontSize={14} fill={INK}>training time</text>
+    <StageSvg viewBox="0 0 340 240" className="[--motion-stage-tick-size:12px] [--motion-stage-type-min-width:0px]">
+      <text data-scene-stage-label="time-axis" data-scene-axis x={LEFT} y={22} fontSize={14} fill={INK}>training time</text>
       <text x={332} y={24} textAnchor="end" fontSize={14} fill={DIM}>each dot: 64 robots</text>
 
       <g data-scene-structure="axes" stroke="var(--motion-stage-axes)">
@@ -182,7 +182,8 @@ function BatchScaleStage() {
         <line x1={LEFT} y1={BOTTOM} x2={RIGHT} y2={BOTTOM} />
       </g>
       {TIME_TICKS.map((tick) => (
-        <text key={tick.minutes} data-scene-stage-label="axis-tick" data-scene-tick x={LEFT - 6} y={r(y(tick.minutes * 60) + 5)}
+        <text key={tick.minutes} data-scene-stage-label="axis-tick" data-scene-tick x={LEFT - 3}
+          y={tick.minutes === MAX_MINUTES ? TOP - 8 : r(y(tick.minutes * 60) + 5)}
           textAnchor="end" fontSize={14} fill={DIM}>{tick.label}</text>
       ))}
       {ENV_TICKS.map((envs) => (
@@ -190,7 +191,7 @@ function BatchScaleStage() {
           textAnchor={envs === MIN_ENVS ? 'start' : envs === MAX_ENVS ? 'end' : 'middle'} fontSize={14} fill={DIM}>{formatEnvs(envs)}</text>
       ))}
       <text data-scene-stage-label="axis-caption" data-scene-axis x={(LEFT + RIGHT) / 2} y={206} textAnchor="middle" fontSize={14} fill={INK}>
-        virtual robots practising at once
+        robots sharing one graphics chip
       </text>
 
       <g data-scene-mark="fixed-budget-time" fill="none" stroke="var(--role-value-stage)" strokeWidth={1.5} strokeLinecap="round">
@@ -208,8 +209,8 @@ function BatchScaleStage() {
       {/* Label type is sized in CSS pixels, so the two lines step in em: a step in stage units widens with
           the stage until the lines sit as far apart as "no overhead". The pair is centred on the dashed end. */}
       <AnimatedGroup bindings={{ opacity: (t) => batchScaleFrame(t).overheadLabel }}>
-        <text data-scene-stage-label="cpu-label" x={RIGHT + 6} y={r(cpuEnd)} fontSize={14} fill={INK}>
-          <tspan x={RIGHT + 6} dy="-0.275em">with computer</tspan>
+        <text data-scene-stage-label="cpu-label" x={RIGHT + 6} y={r(cpuEnd - 3)} fontSize={14} fill={INK}>
+          <tspan x={RIGHT + 6} dy="-0.275em">computer</tspan>
           <tspan x={RIGHT + 6} dy="1.25em">overhead</tspan>
         </text>
       </AnimatedGroup>
@@ -228,8 +229,11 @@ function BatchScaleStage() {
 
       {/* The settle note sits in the empty corner under the curves, led to the highlighted dot. */}
       <AnimatedGroup data-figure-annotation="" bindings={{ opacity: (t) => batchScaleFrame(t).recap }}>
+        <text data-scene-stage-label="annotation" x={68} y={114} fontSize={14} fill={INK}>
+          One chip:
+        </text>
         <text data-scene-stage-label="annotation" x={68} y={136} fontSize={14} fill={INK}>
-          16,384 at once:
+          hours to
         </text>
         <text data-scene-stage-label="annotation" x={68} y={158} fontSize={14} fill={INK}>
           about {trainingTimeWords(finalSeconds)}
@@ -250,12 +254,12 @@ export function BatchScale({ className }: { className?: string }) {
       className={className}
       legend={<>
         <LegendItem series="batch-time" swatch={<span aria-hidden className="inline-block h-0.5 w-4" style={{ backgroundColor: 'var(--role-value-graphic)' }} />}>training time</LegendItem>
-        <LegendItem series="batch-cpu" swatch={<span aria-hidden className="inline-block h-0.5 w-4 border-t border-dashed" style={{ borderColor: 'var(--role-constraint-graphic)' }} />}>with computer overhead</LegendItem>
+        <LegendItem series="batch-cpu" swatch={<span aria-hidden className="inline-block h-0.5 w-4 border-t border-dashed" style={{ borderColor: 'var(--role-constraint-graphic)' }} />}>overhead: extra work on the main computer</LegendItem>
         <LegendItem series="batch-selected" swatch={<span aria-hidden className="inline-block h-2.5 w-2.5 rounded-full" style={{ backgroundColor: 'var(--role-highlight-graphic)' }} />}>robots shown</LegendItem>
       </>}
       readout={({ beatIndex }) => {
         const frame = batchScaleFrame(SPANS[beatIndex].end);
-        return <>{formatEnvs(frame.environments)} robots at once:{' '}
+        return <>{formatEnvs(frame.environments)} robots on one graphics chip:{' '}
           <span className="text-text">{trainingTimeWords(frame.wallSeconds)}</span> of training</>;
       }}
       statusLine="An illustrative calculation, not a measured training curve"

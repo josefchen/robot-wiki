@@ -6,6 +6,8 @@ import {
   GAIN_SPECS,
   INITIAL_STATE,
   PENDULUM_PARAMS,
+  PHYSICS_DT,
+  PUSH_IMPULSE,
   advancePendulum,
   applyPush,
   classifyStability,
@@ -16,6 +18,7 @@ import {
   type PendulumState,
   type Stability,
 } from '@/lib/pendulum';
+import { beginPendulumTrace, recordAdvance, recordPendulumPush, type PendulumInputTrace } from '@/lib/figure-input-trace';
 import { ChartDescription } from '@/components/ui';
 import {
   ControlField,
@@ -277,7 +280,8 @@ export function PendulumController({
   const [run, setRun] = useState<{
     sim: PendulumState;
     history: PendulumState[];
-  }>({ sim: INITIAL_STATE, history: [INITIAL_STATE] });
+    inputs: PendulumInputTrace;
+  }>({ sim: INITIAL_STATE, history: [INITIAL_STATE], inputs: beginPendulumTrace() });
   // Mirror of `gains` for the interval callback, so retuning mid-run takes
   // effect on the next tick without recreating the timer.
   const gainsRef = useRef(gains);
@@ -307,7 +311,8 @@ export function PendulumController({
         );
         const cutoff = sim.t - 2;
         const history = [...prev.history, sim].filter((s) => s.t >= cutoff);
-        return { sim, history };
+        const inputs = recordAdvance(prev.inputs, Math.round(simSecondsPerTick / PHYSICS_DT), gainsRef.current);
+        return { sim, history, inputs };
       });
     }, tickMs);
     return () => window.clearInterval(timer);
@@ -344,20 +349,20 @@ export function PendulumController({
   );
 
   const push = () => {
-    setRun((prev) => ({ ...prev, sim: applyPush(prev.sim) }));
+    setRun((prev) => ({ ...prev, sim: applyPush(prev.sim), inputs: recordPendulumPush(prev.inputs, PUSH_IMPULSE) }));
     if (!playing) setPlaying(true);
   };
 
   const reset = () => {
     setPlaying(false);
     setGains({ ...DEFAULT_GAINS, kp: defaultKp });
-    setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] });
+    setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE], inputs: beginPendulumTrace() });
   };
 
   // A strength is a fresh trial: the pole goes back to its release and runs.
   const chooseStrength = (id: StrengthId) => {
     setGains((g) => ({ ...g, kp: STRENGTHS.find((option) => option.id === id)!.kp }));
-    setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] });
+    setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE], inputs: beginPendulumTrace() });
     setPlaying(true);
   };
 
@@ -409,6 +414,9 @@ export function PendulumController({
           readout={stageReadout}
           status="Illustrative simulation"
           data-testid="pendulum-stage-frame"
+          data-source-inputs={JSON.stringify(run.inputs.events)}
+          data-source-trace-complete={run.inputs.complete}
+          data-source-steps={run.inputs.steps}
         >
           <Stage className="iso-stage">
             <svg

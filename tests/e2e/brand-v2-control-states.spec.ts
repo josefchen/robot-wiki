@@ -1,3 +1,6 @@
+import { takeReleaseActivity } from './helpers/release-activity';
+import { readReleaseBuildStamp } from '../../lib/brand-v2-release-build';
+import { RELEASE_CONTROL_ACTIVITY_PATH,validateReleaseControlActivity,type ReleaseControlActivity } from '../../lib/brand-v2-release-control-activity';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { Browser, BrowserContextOptions, Page } from '@playwright/test';
@@ -70,6 +73,13 @@ const ROUTES = derivePrimitiveSweepRouteStates(brandV2Registry);
 const REGISTRY = brandV2Registry as unknown as ControlStateRegistry;
 const EVIDENCE_FILE = join(process.cwd(), CONTROL_STATES_EVIDENCE_PATH);
 const PARK = { x: -10, y: -10 } as const;
+const FINAL_ACTIVITY=process.env.ROBOT_WIKI_RELEASE_PROFILES==='1';
+const activityByPage=new WeakMap<Page,{navigationCount:number;intervals:ReleaseControlActivity['records'][number]['intervals']}>();
+async function flushControlActivity(page:Page){
+  const record=activityByPage.get(page);
+  if(record&&record.navigationCount>record.intervals.length+1)throw new Error('control activity omitted a real document interval');
+  if(record&&record.navigationCount>record.intervals.length)record.intervals.push(await page.evaluate(takeReleaseActivity));
+}
 
 type Viewport = (typeof CONTROL_STATE_VIEWPORTS)[number];
 
@@ -1750,6 +1760,7 @@ async function preparedActions(page: Page, at: PageContext): Promise<ControlActi
 }
 
 type PageResult = {
+  activity?:ReleaseControlActivity['records'][number];
   page: ControlPageObservation;
   focus: ControlStatesEvidence['focus'];
   variants: ControlVariantObservation[];
@@ -1762,7 +1773,9 @@ type PageResult = {
 };
 
 async function openRoute(page: Page, base: string, route: string): Promise<number> {
+  await flushControlActivity(page);
   const response = await page.goto(`${base}${route}`, { waitUntil: 'load' });
+  const activity=activityByPage.get(page);if(activity)activity.navigationCount++;
   await page.evaluate(() => document.fonts.ready);
   if (route === '/playground/') await waitForArm(page);
   await page.waitForTimeout(150);
@@ -1785,6 +1798,11 @@ async function openRoute(page: Page, base: string, route: string): Promise<numbe
 
 async function sweepPage(page: Page, base: string, route: string, viewport: Viewport): Promise<PageResult> {
   const at = { route, viewport: viewport.id };
+  const activity={navigationCount:0,intervals:[] as ReleaseControlActivity['records'][number]['intervals']};
+  // openRoute owns every real document load in this sweep. Same-document
+  // filter/hash history events must remain in their existing observer
+  // interval instead of inventing missing document navigations.
+  if(FINAL_ACTIVITY)activityByPage.set(page,activity);
   const status = await openRoute(page, base, route);
   const focus = await measureFocusInstances(page, route, viewport.id);
   // The arrow walk can select a native radio. Start all existing state
@@ -1853,7 +1871,9 @@ async function sweepPage(page: Page, base: string, route: string, viewport: View
     actions.push(...(await preparedActions(page, at)));
   }
 
+  await flushControlActivity(page);
   return {
+    ...(FINAL_ACTIVITY?{activity:{id:`${route}|${viewport.id}`,route,viewport:viewport.id,...activity}}:{}),
     focus: focus.instances,
     page: {
       route,
@@ -1878,6 +1898,8 @@ let cached: ControlStatesEvidence | null = null;
 
 async function sweep(browser: Browser, base: string): Promise<ControlStatesEvidence> {
   if (cached) return cached;
+  const stamp=FINAL_ACTIVITY?readReleaseBuildStamp(process.cwd()):null;
+  const activityRecords:ReleaseControlActivity['records']=[];
   const evidence: ControlStatesEvidence = {
     version: CONTROL_STATES_VERSION,
     generatedBy: CONTROL_STATES_SWEEP_MODULE,
@@ -1897,6 +1919,7 @@ async function sweep(browser: Browser, base: string): Promise<ControlStatesEvide
   for (const viewport of CONTROL_STATE_VIEWPORTS) {
     for (const route of ROUTES) {
       const result = await inOwnContext(browser, (page) => sweepPage(page, base, route, viewport), contextOptions(viewport));
+      if(FINAL_ACTIVITY){if(!result.activity)throw new Error('missing control activity interval');activityRecords.push(result.activity);}
       evidence.pages.push(result.page);
       evidence.focus.push(...result.focus);
       evidence.variants.push(...result.variants);
@@ -1910,6 +1933,13 @@ async function sweep(browser: Browser, base: string): Promise<ControlStatesEvide
   }
   mkdirSync(dirname(EVIDENCE_FILE), { recursive: true });
   writeFileSync(EVIDENCE_FILE, `${JSON.stringify(evidence, null, 1)}\n`);
+  if(stamp){
+    const end=readReleaseBuildStamp(process.cwd());
+    if(end.sourceAfter!==stamp.sourceAfter||end.exportFingerprint!==stamp.exportFingerprint)throw new Error('source/export changed during control activity capture');
+    const activity=validateReleaseControlActivity({version:1,sourceFingerprint:stamp.sourceAfter,exportFingerprint:stamp.exportFingerprint,records:activityRecords},{source:stamp.sourceAfter,exported:stamp.exportFingerprint,routes:ROUTES,viewports:CONTROL_STATE_VIEWPORTS.map(({id})=>id)});
+    mkdirSync(dirname(join(process.cwd(),RELEASE_CONTROL_ACTIVITY_PATH)),{recursive:true});
+    writeFileSync(join(process.cwd(),RELEASE_CONTROL_ACTIVITY_PATH),JSON.stringify(activity,null,1)+'\n');
+  }
   cached = evidence;
   return evidence;
 }

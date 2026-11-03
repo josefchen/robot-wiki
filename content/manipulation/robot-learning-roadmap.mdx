@@ -48,7 +48,7 @@ seeAlso:
 
 import { DeltaFrame } from '@/components/interactive/delta-frame';
 
-The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id="robot-learning-tutorial-2025" />.
+The robot learning curriculum for ML engineers is a staged path through the robotics underlying policy experiments: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id="robot-learning-tutorial-2025" />.
 
 <Image id="droid-in-the-wild-scenes-2024" />
 
@@ -93,13 +93,13 @@ Record and replay ten episodes before scaling, checking timestamps, units and ro
 
 ## Stage 3: imitation baseline
 
-[Behavior cloning](/manipulation/bc-foundations/) trains on expert states and then visits its own; DAgger formalized why errors compound and why corrective labels on learner-induced states change the problem <Cite id="dagger-2011" />. Start with the smallest closed-loop baseline, such as an image encoder and MLP on one camera, task and action convention, and debug alignment, normalization and reset diversity before adding scale. robomimic found results sensitive to design choices, demonstration quality and stopping criteria <Cite id="robomimic-2021" />.
+[Behavior cloning](/manipulation/bc-foundations/) trains on expert states and then visits its own; DAgger formalized why errors compound and corrective labels on learner-induced states change the problem <Cite id="dagger-2011" />. Start with the smallest closed-loop baseline, such as an image encoder and MLP on one camera, task and action convention, and debug alignment, normalization and reset diversity before adding scale. robomimic found results sensitive to design choices, demonstration quality and stopping criteria <Cite id="robomimic-2021" />.
 
 Then add temporal structure: ACT predicts action chunks <Cite id="act-aloha-2023" />, and Diffusion Policy models a multimodal distribution over action sequences <Cite id="diffusion-policy-2023" />.
 
 ## Stage 4: action contract
 
-Among [action spaces](/manipulation/action-spaces/), joint positions are mechanism-specific, while end-effector deltas share a task-space convention across compatible controllers. Per-dimension binning tokenizers handle high-frequency dexterous data poorly <Cite id="pi0-fast-2025" />. The action representation is part of the dataset, fixing the labels, controller, error modes and which robots can share data, so change it separately from the model.
+Among [action spaces](/manipulation/action-spaces/), joint positions are mechanism-specific, while end-effector deltas share a task-space convention across compatible controllers. Per-dimension binning tokenizers handle high-frequency dexterous data poorly <Cite id="pi0-fast-2025" />. The action representation belongs to the dataset, fixing the labels, controller, error modes and which robots can share data, so change it separately from the model.
 
 ## Stage 5: pretraining
 
@@ -113,11 +113,11 @@ Open-loop loss is only a diagnostic; closed-loop success under controlled shifts
 
 ## Simulation and RL
 
-Simulation tests controller stability and safe reward optimization. Domain randomization aims to make the real world look like one more simulated variation <Cite id="tobin-2017" />, and Isaac Lab targets large-scale robot learning <Cite id="isaac-lab-2025" />, though its dynamics gap to the hardware needs measuring.
+Simulation tests controller stability and safe reward optimization. Domain randomization aims to make reality resemble one more simulated variation <Cite id="tobin-2017" />, and Isaac Lab targets large-scale robot learning <Cite id="isaac-lab-2025" />, though its dynamics gap to the hardware needs measuring.
 
 <Image id="robocasa-kitchens-2024" />
 
-Offline RL learns from logged data without new collection <Cite id="offline-rl-tutorial-2020" />. Online RL needs safe exploration, automatic resets and cheap evaluation, which SERL bundles with an off-policy learner <Cite id="serl-2024" />; without them, start with <Term id="imitation-learning">imitation learning</Term>. In simulation, RL can stand in for scarce demonstrations: SimpleVLA-RL lifted OpenVLA-OFT trained on one demonstration per task from 48.9% to 96.9% average LIBERO success <Cite id="simplevla-rl-2025" />.
+Offline RL learns from logged data without new collection <Cite id="offline-rl-tutorial-2020" />. Online RL needs safe exploration, automatic resets and cheap evaluation, which SERL bundles with an off-policy learner <Cite id="serl-2024" />; without them, start with <Term id="imitation-learning">imitation learning</Term>. In simulation, RL can substitute for scarce demonstrations: SimpleVLA-RL lifted OpenVLA-OFT trained on one demonstration per task from 48.9% to 96.9% average LIBERO success <Cite id="simplevla-rl-2025" />.
 
 ## A practical sequence
 

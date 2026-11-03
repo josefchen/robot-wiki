@@ -120,13 +120,16 @@ export function SceneStageFooter({
  */
 export function SceneTimelineAtEnd() {
   return (
-    <div
-      aria-hidden="true"
-      data-scene-timeline="poster"
-      className="relative flex h-8 items-center"
-    >
-      <span className="block h-px w-full" style={{ backgroundColor: 'var(--ink)' }} />
-      <span className="absolute right-0 block size-3 rounded-full" style={{ backgroundColor: 'var(--ink)' }} />
+    <div className="block text-xs text-muted">
+      Scene timeline
+      <div
+        aria-hidden="true"
+        data-scene-timeline="poster"
+        className="relative flex h-8 items-center"
+      >
+        <span className="block h-px w-full" style={{ backgroundColor: 'var(--ink)' }} />
+        <span className="absolute right-0 block size-3 rounded-full" style={{ backgroundColor: 'var(--ink)' }} />
+      </div>
     </div>
   );
 }

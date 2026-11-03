@@ -491,6 +491,7 @@ describe('authored-local-basis-v1 compatibility cases', () => {
       'audit/evidence/seo-pass-20261002/checker-transition.json',
       'audit/evidence/domain-pass-20261006/checker-transition.json',
       'audit/evidence/parallel-local-20261009/checker-transition.json',
+      'audit/evidence/shared-ui-repairs-20261102/source-transition.json',
     ]) f.put(path, readFileSync(join(project, path)));
     const bind = (path: string, snapshot: string) => {
       const retained = `audit/evidence/local-proof-compat-20260923/${snapshot}`;

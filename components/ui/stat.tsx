@@ -55,16 +55,20 @@ const STRIP_COLUMN_CHARACTERS = 9;
 export function Stat({ label, value, note, accent, className }: StatProps) {
   const longWord = value.split(/\s+/).some((word) => word.length > STRIP_COLUMN_CHARACTERS);
   return (
-    <div data-stat-long-word={longWord ? '' : undefined} className={cx('min-w-0', className)}>
+    <div
+      data-stat=""
+      data-stat-long-word={longWord ? '' : undefined}
+      className={cx('min-w-0 max-[320px]:col-span-full', className)}
+    >
       <div
         className={cx(
-          'font-mono text-2xl leading-tight tabular-nums',
+          'font-mono text-2xl leading-tight tabular-nums max-[320px]:[overflow-wrap:anywhere]',
           accent ? 'font-semibold text-text' : 'text-text',
         )}
       >
         {value}
       </div>
-      <div className="mt-1 font-sans text-xs text-text-dim">
+      <div className="mt-1 font-sans text-xs text-text-dim [overflow-wrap:anywhere]">
         {labelText(label)}
       </div>
       {/* The note is the dim token at full strength, not a fainter step off

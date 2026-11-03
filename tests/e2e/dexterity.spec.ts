@@ -83,7 +83,7 @@ test.describe('frontier dexterity module', () => {
       main.getByRole('heading', { level: 2, name: 'The bet against touch' }),
     ).toBeVisible();
     expect(mainText).toContain(
-      'Brooks reproduces an eWeek report that describes Tesla as moving Optimus training toward a "vision-only approach"',
+      'Brooks reproduces an eWeek report describing Tesla as moving Optimus training toward a "vision-only approach"',
     );
     expect(mainText).toMatch(/Project Go-Big/);
     expect(mainText).toMatch(/100% egocentric human video/);

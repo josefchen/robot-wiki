@@ -408,6 +408,7 @@ export function ActionConditioning({
   const stage = (
     <AnatomyStage
       viewWidth={WIDTH}
+      story={<p className="font-sans text-sm leading-snug text-text-dim">The upper dial measures average future difference in toy units; zero means identical. The lower dial rates picture realism from zero to one; one looks most realistic.</p>}
       // The drawing holds no words, so the screens are named here, under it.
       hint={
         <>
@@ -423,8 +424,9 @@ export function ActionConditioning({
         </>
       }
       readout={readout}
-      status="Illustrative: a toy model, not a trained video model."
+      status="Illustrative: hand-set futures and realism scores; one distance unit is the block or gripper’s full travel."
       data-testid="action-conditioning-stage"
+      data-source-frame={playing ?? 'rest'}
     >
       <IsoFigure
         width={WIDTH}

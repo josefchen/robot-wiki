@@ -181,7 +181,7 @@ export function ExcavatorPractice({ className }: { className?: string }) {
       figureId="excavator-practice"
       className={className}
       kicker="Learning on the machine"
-      heading="An excavator learned its own arm in 20 minutes"
+      heading={practice.id === 'twenty' ? "Learning its arm: 20 minutes matches 100–150 minutes’ practice" : practice.reads.replace(' · ', ': ')}
       controls={
         <>
           <PresetGroup<PracticeId>
@@ -214,7 +214,7 @@ export function ExcavatorPractice({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Faint: the five models' guesses. Blue: where the shovel went"
+          hint="Learning from its own moves matched earlier controllers after 20 minutes versus 100–150 minutes. Faint: five learned predictions; their spread shows disagreement. Blue: shovel path."
           readout={readoutFor(practice, s, tracing)}
           status="Checkpoints from the paper; the path and the guesses' spread are illustrative"
           data-testid="excavator-stage-frame"
@@ -224,6 +224,8 @@ export function ExcavatorPractice({ className }: { className?: string }) {
             data-minutes={r2(shown.minutes)}
             data-settled={settledOn ? 'true' : 'false'}
             data-s={r2(s)}
+            data-source-progress={s}
+            data-source-tracing={tracing}
             data-guesses={marks.guesses.length}
           >
             <IsoFigure
@@ -237,7 +239,7 @@ export function ExcavatorPractice({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Learning a model from its own moves, the excavator tracked paths after 20 minutes as well as earlier controllers trained for 100 to 150."
+      caption="Learning an arm model from its own moves, the excavator matched path tracking after 20 minutes versus earlier controllers’ 100–150 minutes."
       method={
         <>
           <p>

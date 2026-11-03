@@ -26,7 +26,7 @@ test.describe('world-models latent-dynamics module', () => {
     for (const name of [
       /recurrent state that carries memory/,
       /stochastic categorical representation/,
-      /trained purely on imagined latent rollouts/,
+      /train purely on imagined latent rollouts/,
       /symlog/,
       /more than 150 tasks/,
       /collect diamonds in Minecraft/,
@@ -75,14 +75,14 @@ test.describe('world-models latent-dynamics module', () => {
 
     // The stage says it is an illustrative toy; the method fold's chart
     // says its band is not a paper result.
-    await expect(figure.getByText(/Illustrative: a toy model, not measured on a real robot/)).toBeVisible();
+    await expect(figure.getByText(/Illustrative distance scale: 100% means one toy unit of error/)).toBeVisible();
     await openHowThisWasMade(figure);
     await expect(figure.getByRole('img', { name: /latent deviation versus/i }))
       .toHaveAttribute('aria-label', /illustrative, not a published reliability bound/);
     // Default: the Dreamer view with its imagined pictures, and the
     // insight on the first frame.
     await expect(figure.getByTestId('decoded-frames')).toBeVisible();
-    await expect(figure.getByTestId('drift-note')).toContainText('already this far off');
+    await expect(figure.getByTestId('drift-note')).toContainText('ruler measures the gap from blue tip to real route');
     const initial = await deviationReadout(page);
 
     // Extending the horizon increases the deviation readout monotonically.

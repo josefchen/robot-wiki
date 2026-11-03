@@ -19,9 +19,9 @@ describe('NewtonSolvers', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Multi-solver physics');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('One physics library, one solver per material');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent("One simulation toolkit, specialist programs for each material");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Newton routes each material to its own solver, such as MuJoCo Warp for robot joints.',
+      "Newton is one software toolkit that sends robot joints, linked parts, cloth and sand to programs suited to their motion.",
     );
   });
 

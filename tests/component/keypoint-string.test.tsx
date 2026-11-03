@@ -77,9 +77,9 @@ describe('KeypointString', () => {
       fireEvent.change(screen.getByRole('slider', { name: 'Depth along the line' }), { target: { value: '0.5' } });
       const run = screen.getByTestId('keypoint-run');
       expect(run).not.toHaveAttribute('aria-pressed');
-      expect(run).toHaveTextContent('Lift the point');
+      expect(run).toHaveTextContent("Find the depth target");
       fireEvent.click(run);
-      expect(run).toHaveTextContent('Stop the lift');
+      expect(run).toHaveTextContent("Pause");
       expect(run).not.toHaveAttribute('aria-pressed');
       await act(async () => {
         vi.advanceTimersByTime(RUN_SECONDS * 500);
@@ -90,7 +90,7 @@ describe('KeypointString', () => {
         vi.advanceTimersByTime(RUN_SECONDS * 1000);
       });
       expect(drawing).toHaveAttribute('data-place', 'on');
-      expect(run).toHaveTextContent('Lift the point');
+      expect(run).toHaveTextContent("Find the depth target");
     } finally {
       vi.useRealTimers();
     }

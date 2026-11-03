@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/realtime-execution/",
+  "mount": "mount:/manipulation/realtime-execution/:ExecutionModes:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--realtime-execution--execution-modes.375.png",
+    "1280": "evidence/reader-first/manipulation--realtime-execution--execution-modes.1280.png"
+  },
+  "takeaway": "A robot handed a new plan mid-motion can pause, lurch or blend the two plans.",
+  "sentence": "When a robot switches movement plans, it can pause or jerk suddenly, while blending the change keeps it moving smoothly.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It describes the same three responses when a robot changes plans: pausing, jerking suddenly, or blending the change.",
+  "verdict": "pass",
+  "screenshotCommit": "60618a24f5b35a08714aab7a5022c93d5cc3e508",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r5-a-20261103",
+  "sourceDigest": "4fc4613603f3cb5f71f2db7ebf71dd1094919a47217cff1a14737564e9073777",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

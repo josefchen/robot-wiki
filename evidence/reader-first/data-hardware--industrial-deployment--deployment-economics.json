@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/data-hardware/industrial-deployment/",
+  "mount": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+  "screenshots": {
+    "375": "evidence/reader-first/data-hardware--industrial-deployment--deployment-economics.375.png",
+    "1280": "evidence/reader-first/data-hardware--industrial-deployment--deployment-economics.1280.png"
+  },
+  "takeaway": "The longer each jam takes a person to fix, the longer a picking robot takes to pay for itself.",
+  "sentence": "The longer people take to fix a picking robot's jams, the longer it takes the robot to earn back its purchase cost.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both say longer human jam repairs delay the picking robot earning back its purchase cost.",
+  "verdict": "pass",
+  "screenshotCommit": "e9abd96b936d238ffce88e1ba58e16400e2bb7a2",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0003",
+  "sourceDigest": "037ce75e6b9d6ac256fe7bac1194145d6029eb29bba42d1b9a863678aa72974c",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

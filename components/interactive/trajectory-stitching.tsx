@@ -342,7 +342,7 @@ export function TrajectoryStitching({ className }: { className?: string }) {
       figureId="trajectory-stitching"
       className={className}
       kicker="Trajectory stitching"
-      heading="Offline RL joins two old runs into one success"
+      heading="Learning from recordings joins two runs into one success"
       controls={
         <PresetGroup label="The robot learns by" presets={LEARNERS} value={learner} onChange={choose} testId="stitching-learner" />
       }
@@ -377,7 +377,7 @@ export function TrajectoryStitching({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Neither recorded run reaches the goal from here; offline RL joins their useful halves, copying cannot."
+      caption="Offline reinforcement learning rewards successful recorded actions: joining useful parts reaches the goal, although copying either complete run cannot."
       method={
         <>
           <div>

@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { MpcVsRl } from '@/components/interactive/mpc-vs-rl';
 import { PERTURBATIONS } from '@/lib/mpc-vs-rl';
 
-const SURPRISES = ['Sideways shove', 'Slippery patch', 'Heavy backpack', 'Weaker motors'];
+const SURPRISES = ['Sideways shove', 'Slippery patch', 'Heavy backpack', 'Weaker motors (unpractised)'];
 const surprise = (name: string) => screen.getByRole('button', { name });
 
 describe('MpcVsRl', () => {
@@ -52,7 +52,7 @@ describe('MpcVsRl', () => {
     expect(screen.getByRole('table', { name: 'Which robot stays up after each surprise' })).toBe(screen.getByTestId('mpc-verdicts'));
     // The note says why the planning robot falls, and its robot is the one at full ink, lying on its back.
     const note = container.querySelector('[data-figure-annotation]');
-    expect(note?.textContent).toMatch(/plans for a grippy floor/);
+    expect(note?.textContent).toMatch(/Wrong floor guess: planning fails;/);
     // Its arrow drops straight down onto that robot, in the planning robot's column above the ground line.
     const [tipX, tipY] = (note?.querySelector('[data-annotation-pointer] polygon')?.getAttribute('points') ?? '')
       .split(' ')[0]
@@ -84,7 +84,7 @@ describe('MpcVsRl', () => {
   it('weaker motors trip the policy, and the focus moves to its line', async () => {
     const user = userEvent.setup();
     render(<MpcVsRl />);
-    await user.click(surprise('Weaker motors'));
+    await user.click(surprise('Weaker motors (unpractised)'));
     expect(screen.getByTestId('mpc-status').textContent).toBe('stays up, but slower');
     expect(screen.getByTestId('rl-status').textContent).toBe('falls');
     expect(screen.getByTestId('rl-robot').closest('[data-series]')).toHaveAttribute('data-focus', '');
@@ -102,7 +102,7 @@ describe('MpcVsRl', () => {
       'Sideways shovestays upstays up',
       'Slippery patchfallsstays up',
       'Heavy backpackstays up, body sagsstays up',
-      'Weaker motorsstays up, but slowerfalls',
+      'Weaker motors (unpractised)stays up, but slowerfalls',
     ]);
     expect(rows.map((r) => r.hasAttribute('data-selected'))).toEqual([false, false, true, false]);
     // The page's one aria-current belongs to the navigation's current route.

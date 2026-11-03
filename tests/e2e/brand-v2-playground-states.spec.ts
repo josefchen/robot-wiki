@@ -1,9 +1,10 @@
+import type { ReleaseStateReference } from '../../lib/brand-v2-release-state-store';
 import { BRAND_V2_FLOW_SUITES, executeEvidencePlans } from '../../lib/brand-v2-runners';
 import { expect, test } from './brand-v2-static-fixture';
 import { openImport, waitForPlayground } from './helpers/playground';
 import { setSlider } from './slider';
-import { RELEASE_PROFILES, type ReleaseState } from '../../lib/brand-v2-release-evidence';
-import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
+import { RELEASE_PROFILES, } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, captureReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
 
 test.describe('brand-v2-playground-states', () => {
   test('executes ordered FK/IK, import/error, trajectory, and fallback phases', async ({
@@ -12,7 +13,7 @@ test.describe('brand-v2-playground-states', () => {
   }) => {
     test.setTimeout(FINAL_RELEASE_PROFILES ? 120_000 * RELEASE_PROFILES.length : 120_000);
     const flow = BRAND_V2_FLOW_SUITES['brand-v2-playground-states'];
-    const releaseStates: ReleaseState[] = [];
+    const releaseStates: ReleaseStateReference[] = [];
     const records = await executeEvidencePlans(
       [{ id: 'route:/playground/', ...flow }],
       {
@@ -96,7 +97,7 @@ test.describe('brand-v2-playground-states', () => {
               await expect(
                 page.getByTestId('joint-readout-shoulder_pan'),
               ).toContainText('5');
-              if (FINAL_RELEASE_PROFILES) releaseStates.push(await probeReleaseState(page, { id: 'playground:reduced-motion-live', route: '/playground/', state: 'reduced-motion-live', steps: ['emulate reduced motion', 'load live WebGL scene', 'change joint with direct manipulation', 'read 5 degree result'] }));
+              if (FINAL_RELEASE_PROFILES) releaseStates.push(await captureReleaseState(page, { id: 'playground:reduced-motion-live', route: '/playground/', state: 'reduced-motion-live', steps: ['emulate reduced motion', 'load live WebGL scene', 'change joint with direct manipulation', 'read 5 degree result'] }));
               await page.addInitScript(() => {
                 HTMLCanvasElement.prototype.getContext = (() =>
                   null) as typeof HTMLCanvasElement.prototype.getContext;
@@ -121,7 +122,7 @@ test.describe('brand-v2-playground-states', () => {
                 await page.locator('main input, main button').count(),
               ).toBeGreaterThan(0);
             }
-            if (FINAL_RELEASE_PROFILES) releaseStates.push(await probeReleaseState(page, { id: `playground:${capture.id}`, route: '/playground/', state: capture.afterStep, steps: [capture.afterStep, 'read actual playground result'] }));
+            if (FINAL_RELEASE_PROFILES) releaseStates.push(await captureReleaseState(page, { id: `playground:${capture.id}`, route: '/playground/', state: capture.afterStep, steps: [capture.afterStep, 'read actual playground result'] }));
           });
         },
       },

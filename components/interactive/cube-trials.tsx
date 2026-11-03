@@ -60,8 +60,8 @@ export function CubeTrials({ className }: { className?: string }) {
       figureId="cube-trials"
       className={className}
       kicker="Sim-trained dexterity"
-      heading="The cube-solving hand finished at most 2 of 10 trials"
-      controls={<PresetGroup label="The cube's face angles read by" presets={SENSING} value={sensingId} onChange={setSensingId} testId="cube-sensing" />}
+      heading="Simulation training led to at most two real solves"
+      controls={<PresetGroup label="How far each cube face has turned, read by" presets={SENSING} value={sensingId} onChange={setSensingId} testId="cube-sensing" />}
       stage={
         <FigureStage>
           <PlotStage
@@ -71,7 +71,7 @@ export function CubeTrials({ className }: { className?: string }) {
             data-testid="cube-stage"
             data-solved={sensing.solved}
           >
-            <StageAnnotation x={LEFT} y={16} lines={[`${sensing.solved} of ${TRIALS} trials finished the scramble`]} />
+            <StageAnnotation x={LEFT} y={16} lines={[`After simulation: ${sensing.solved} of ${TRIALS} real trials solved`]} />
             <g data-series="trials">
               {Array.from({ length: TRIALS }, (_, k) => {
                 const fill = Math.max(0, Math.min(1, shown - k));
@@ -96,7 +96,7 @@ export function CubeTrials({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="OpenAI's sim-trained hand finished a fixed Rubik's cube scramble in 2 of 10 trials with a sensor cube, 0 with vision."
+      caption="OpenAI taught the hand to solve in simulation; on the real cube it finished 2 of 10 trials with internal sensors, none with cameras."
       method={
         <>
           <div>

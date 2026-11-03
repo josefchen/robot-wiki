@@ -1,3 +1,4 @@
+import type { ReleaseStateReference } from '../../lib/brand-v2-release-state-store';
 import {
   buildInteractiveExecutionPlan,
 } from '../../lib/brand-v2-runners';
@@ -49,8 +50,8 @@ import {
   type LedgerPlanMount,
   type SourceDefaultJoin,
 } from '../../lib/brand-v2-interactive-ledger';
-import { ledgerReleaseStateIds, RELEASE_PROFILES, type ReleaseState } from '../../lib/brand-v2-release-evidence';
-import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
+import { ledgerReleaseStateIds, RELEASE_PROFILES, } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, captureReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
 
 const INTERACTIVE_IMPORT =
   /import\s+\{\s*([A-Z][A-Za-z0-9]*)\s*\}\s+from\s+['"]@\/components\/interactive\/[^'"]+['"]/g;
@@ -420,7 +421,7 @@ async function sweepLedger(
       const { mount, job } = item;
       try {
         if (job === 'main') {
-          const profiles = new Map<string, ReleaseState>();
+          const profiles = new Map<string, ReleaseStateReference>();
           const observation = await measureLedgerMount(browser, staticBase, LEDGER_PLAN, mount, undefined,
             FINAL_RELEASE_PROFILES ? async (page, state) => {
               const id = `${mount.mountId}|${state.id}`;
@@ -428,7 +429,7 @@ async function sweepLedger(
               // arrows; transition records cover each resulting state.
               if (state.id.startsWith('focus:') && profiles.has(id)) return;
               if (profiles.has(id)) throw new Error(`duplicate release state ${id}`);
-              profiles.set(id, await probeReleaseState(page, { id, route: mount.route, state: state.caseId, steps: state.steps }, state.maintain));
+              profiles.set(id, await captureReleaseState(page, { id, route: mount.route, state: state.caseId, steps: state.steps }, state.maintain));
             } : undefined);
           ledgerMain.set(mount.mountId, observation);
           if (FINAL_RELEASE_PROFILES) {

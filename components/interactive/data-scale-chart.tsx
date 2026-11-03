@@ -230,9 +230,6 @@ const FILTER_SERIES: Record<Exclude<KindFilter, 'all'>, RowSeries> = {
   company: 'company-total',
 };
 
-const CAPTION =
-  'Text piles up online for free; robot data needs people and hardware. The three largest totals are company reports, with no data released.';
-
 export function DataScaleChart({
   defaultRigs = DEFAULT_RIGS,
   defaultRate = 'dedicated',
@@ -303,7 +300,7 @@ export function DataScaleChart({
       figureId="data-scale-chart"
       className={className}
       kicker="The data bottleneck"
-      heading="Robot training data is tiny next to chatbot training text"
+      heading={`${robotsWord} ${rigs === 1 ? 'needs' : 'need'} ${durationInWords(goalYears)} for ${goal.toLocaleString('en-US')} hours`}
       controls={
         <>
           <ControlField className="content-start">
@@ -401,7 +398,7 @@ export function DataScaleChart({
             {/* Panel A, top: chatbot text, in tokens. */}
             <g data-testid="token-ruler" data-series="llm-corpus">
               <DirectLabel x={LEFT} y={TOKEN_TITLE_Y} seriesFor="llm-corpus">
-                <tspan fontWeight={600}>Chatbot training text, in word pieces</tspan>
+                <tspan fontWeight={600}>Chatbot text: words or word fragments</tspan>
               </DirectLabel>
               {LLM_POINTS.map((p, index) => {
                 const x = TOKEN_X(p.magnitude);
@@ -579,7 +576,7 @@ export function DataScaleChart({
           </PlotStage>
         </FigureStage>
       }
-      caption={CAPTION}
+      caption={`Robot data is tiny beside chatbot text: ${robotsWord} ${rigs === 1 ? 'needs' : 'need'} ${durationInWords(goalYears)} for ${goal.toLocaleString('en-US')} hours at this collection rate.`}
       method={
         <>
           <p>

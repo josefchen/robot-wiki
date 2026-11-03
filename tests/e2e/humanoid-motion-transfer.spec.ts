@@ -18,7 +18,7 @@ const targets = {
     ['On the G1 with fixed wrists', 'asap-2025'],
   ],
   'humanoid-wbc': [
-    ['Humanoid whole-body control is the control of every actuated joint', 'h2o-2024'],
+    ['Humanoid whole-body control treats every actuated humanoid joint', 'h2o-2024'],
     ['On the Unitree H1, H2O', 'h2o-2024'],
   ],
 } as const;

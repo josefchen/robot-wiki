@@ -439,7 +439,7 @@ export function HierarchyTimescales({
           </PlotStage>
         </FigureStage>
       }
-      caption="Like a person, the robot keeps one goal in mind, updates its next step now and then, and adjusts its motors constantly."
+      caption={`During these two seconds, the plan changes ${timesWord(slowCount)} while the motors receive about ${fastCount.toLocaleString('en-US')} commands.`}
       method={
         <>
           <p>

@@ -59,14 +59,14 @@ const FILTERS: ReadonlyArray<{ id: MilestoneFilter; label: string }> = [
 
 /** Plain tile names, keyed by milestone id. */
 const PLAIN_NAME: Record<string, string> = {
-  'unseen-homes-policy': 'One robot brain succeeds in 9 of 10 new homes',
+  'unseen-homes-policy': 'One robot brain completes over 90% of fixed tasks across more than 10 new homes',
   'ten-thousand-unit-deployment': '10,000 humanoids doing documented work',
   'open-benchmark': 'Labs agree on one shared public test',
   'broad-rl-reliability': 'Practice gets robots to 99% on many tasks',
   'tactile-foundation-model': 'Touch sensing built into the robot’s brain',
   'sim-to-real-contact': 'Hand skills learned only in simulation work for real',
   'cost-per-task-parity': 'A humanoid matches a specialist machine’s cost per job',
-  'data-scaling-law': '100 times more data brings matching gains',
+  'data-scaling-law': '100 times more data; measure the gain in task success (required gain not specified)',
 };
 
 /** The plain tile name a reader sees for a milestone. */
@@ -169,7 +169,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
       data-testid="milestones-watchlist"
       className={className}
       kicker="Bear-case milestones"
-      heading="Eight results would prove skeptics wrong; none has happened yet"
+      heading="September 2026: eight tests, none complete, five partly achieved"
       controls={
         <PresetGroup<MilestoneFilter>
           label="Show"
@@ -185,9 +185,12 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
           footer={<InstrumentReadout data-testid="watchlist-readout">{readout}</InstrumentReadout>}
         >
           <div className="pt-1 pb-2 font-sans text-[13px] leading-snug">
+            <p className="m-0 mb-2 text-sm text-text">
+              <strong className="font-medium">Eight results that would counter the claim that robotics is overhyped.</strong>
+            </p>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
               <div data-testid="watchlist-score" className="m-0 text-[15px] text-text">
-                {tally('met')} of {MILESTONES.length} done
+                September 2026: {tally('met')} of {MILESTONES.length} done
               </div>
               <StageCallout data-testid="watchlist-tally">
                 {tally('partial')} partly there, {tally('not-met')} not yet, {tally('met')} done

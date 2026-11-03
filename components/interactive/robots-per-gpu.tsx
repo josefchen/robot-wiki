@@ -18,7 +18,7 @@ import { LENS, PARTS, TILES, TILE_PATHS, WIDTH, HEIGHT, type LiveId, type Part }
  *
  * The card's cooler is set aside so its chip shows. The chip's face is a
  * grid of 128 tiles, and each tile is one block of 128 robots: a magnifier
- * over the first tile shows its 128 robots as dots, the CPU-era count. The
+ * over the first tile shows its 128 robots as dots, the older processor count. The
  * one control picks the count, and the tiles fill or empty in reading order
  * to 1, 32 or all 128 lit; the lit tiles are the one accent. Reduced motion
  * jumps. Every count is the paper's; the tiles only draw it.
@@ -44,7 +44,7 @@ export const TILE_KEY: AnatomyKey = { series: 'robots', words: `Each lit tile on
 /** The readout: the count and how it compares with the CPU era, from the same table as the tiles. */
 export function readoutFor(id: CountId): string {
   const squares = tilesFor(countOf(id).robots);
-  return `${thousands(countOf(id).robots)} robots: ${squares === 1 ? 'the CPU-era count' : `${thousands(squares)} times the CPU-era count`}`;
+  return `${thousands(countOf(id).robots)} robots: ${squares === 1 ? 'the older processor count' : `${thousands(squares)} times the older processor count`}`;
 }
 
 function describe(id: CountId): string {
@@ -170,7 +170,7 @@ export function RobotsPerGpu({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="On one graphics chip, Rudin's team simulated 16,384 robots at once, against 128 typical of CPU simulators."
+      caption="One graphics chip simulated 16,384 robots at once; older simulators using a computer’s central processor typically ran 128."
       method={
         <>
           <div>
@@ -182,7 +182,7 @@ export function RobotsPerGpu({ className }: { className?: string }) {
           </div>
           <div>
             The drawing is a graphics card with its cooler set aside. Each of the 128 tiles on its chip stands for
-            128 robots, so the first tile, under the magnifier, is the CPU-era count and the whole chip is the
+            128 robots, so the first tile, under the magnifier, is the older processor count and the whole chip is the
             paper&apos;s 16,384. The tiles are a way of counting; a real chip lays out its cores differently.
           </div>
           <ChartDescription

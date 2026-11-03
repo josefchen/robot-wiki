@@ -195,7 +195,7 @@ test.describe('adjacent drones module', () => {
     const figure = page.locator('[data-figure-frame="drone-champions-timeline"]');
     await figure.scrollIntoViewIfNeeded();
     await expect(figure.locator('[data-figure-title]')).toHaveText(
-      'AI beat racing champions twice, then lost the 2026 final',
+      'Drones won twice; a gate collision decided the 2026 final',
     );
     await expect(figure.locator('[data-outcome="ai-won"] [data-chart-mark="dot"]')).toHaveCount(2);
     await expect(figure.getByTestId('drone-champions-a2rl-2026').locator('[data-chart-mark="cross"]')).toHaveAttribute(
@@ -205,7 +205,7 @@ test.describe('adjacent drones module', () => {
     await expect(figure.locator('[data-scene-readout]')).toHaveText([
       'won 15 of 25 races',
       'beat three champions',
-      'lost the decider at 4 to 4',
+      'hit gate; lost decider at 4 to 4',
     ]);
     const stage = figure.getByRole('img', { name: /Three races between autonomous drones/ });
     const name = (await stage.getAttribute('aria-label')) ?? '';

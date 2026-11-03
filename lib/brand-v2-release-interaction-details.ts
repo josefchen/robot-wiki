@@ -64,7 +64,9 @@ export const releaseInteractionDetailsSchema = z.object({
   }).strict()),
   targets: z.object({
     count: number.int().nonnegative(),
+    censusIds:z.array(nonempty),
     large: z.object({
+      ids:z.array(nonempty),
       count: number.int().nonnegative(),
       minWidth: number.nonnegative().nullable(),
       minHeight: number.nonnegative().nullable()
@@ -78,6 +80,7 @@ export const releaseInteractionDetailsSchema = z.object({
       height: number.nonnegative(),
       inlineText: text,
       parentWidth: number.nonnegative(),
+      clipping:z.object({context:nonempty,ancestors:z.array(z.object({selector:nonempty,overflowX:text,overflowY:text,bounds:z.object({x:number,y:number,width:number.nonnegative(),height:number.nonnegative()}).strict()}).strict()),visibleFragments:z.array(z.object({x:number,y:number,width:number.positive(),height:number.positive()}).strict())}).strict(),
       nearestTargetClearance: number.nullable(),
       nearestSmallCentre: number.nullable(),
       nativePointer: z.boolean(),
@@ -163,6 +166,8 @@ export function segmentedControlProblems(data: ReleaseInteractionDetails): strin
 }
 export function targetSizeProblems(data: ReleaseInteractionDetails, registry: ReleaseTargetRegistry): string[] {
   const failures: string[] = [];
+  const measuredIds=[...data.targets.large.ids,...data.targets.small.map(({id})=>id)];
+  if(data.targets.censusIds.length!==data.targets.count||new Set(data.targets.censusIds).size!==data.targets.count||JSON.stringify([...data.targets.censusIds].sort())!==JSON.stringify(measuredIds.sort())||data.targets.large.ids.length!==data.targets.large.count)failures.push('target IDs differ from the independent structural census');
   const {
     targets
   } = data;

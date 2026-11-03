@@ -33,7 +33,7 @@ const linkClass = 'ink-link';
 export function ContentsIndex() {
   const published = publishedModules();
   return (
-    <div className="divide-y divide-border border-y border-border">
+    <div className={'divide-y divide-border border-y border-border' /* taste-skill-ignore: Research-page domain index rows retain their required hairlines. */}>
       {DOMAINS.map((domain) => (
         <div
           key={domain}
@@ -54,7 +54,7 @@ export function ContentsIndex() {
           </p>
           <ul
             aria-label={`${DOMAIN_META[domain].name} articles`}
-            className="home-run text-[14px] leading-[1.45]"
+            className="home-run text-[14px] leading-[1.75]"
           >
             {published
               .filter((entry) => entry.domain === domain)

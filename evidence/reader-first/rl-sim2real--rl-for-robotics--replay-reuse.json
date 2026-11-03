@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/rl-for-robotics/",
+  "mount": "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--rl-for-robotics--replay-reuse.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--rl-for-robotics--replay-reuse.1280.png"
+  },
+  "takeaway": "An on-policy learner throws each batch of experience away after using it; an off-policy learner keeps every batch to learn from again.",
+  "sentence": "The selected learner uses the latest group of experiences and discards earlier groups, while the other option lets it reuse saved experiences.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "My sentence preserves the contrast between a learner discarding earlier experience and another learner reusing saved experience.",
+  "verdict": "pass",
+  "screenshotCommit": "3e545c6dee3df0d4b5832bca2b7cc6f701576b49",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r6-a-20261103",
+  "sourceDigest": "b425eb5d863a42d941b3afc0442f4ee3ee75a7d2ceb001e78043cc2b827a820d",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

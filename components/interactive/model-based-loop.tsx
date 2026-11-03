@@ -44,7 +44,7 @@ export function ModelBasedLoop({ className }: { className?: string }) {
                 </DirectLabel>
                 <PointMarker x={step.x} y={step.y} role={step.id === 'update' ? 'highlight' : step.id === 'act' ? 'action' : step.id === 'score' ? 'value' : step.id === 'observe' ? 'measurement' : 'state'} />
                 <text x={step.x} y={step.y + 22} textAnchor="middle" fill={CHART_STRUCTURE.labelSecondary} fontSize={CHART_TYPE.labelPx}>
-                  {step.detail.map((line, index) => <tspan key={line} x={step.x} dy={index === 0 ? 0 : '1.25em'}>{line}</tspan>)}
+                  {(step.id === 'score' ? ['compare', 'future rewards'] : step.detail).map((line, index) => <tspan key={line} x={step.x} dy={index === 0 ? 0 : '1.25em'}>{line}</tspan>)}
                 </text>
               </g>
             ))}
@@ -54,7 +54,7 @@ export function ModelBasedLoop({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="The planner tries actions in its model, then learns from what the robot actually does."
+      caption="The planner compares predicted rewards for possible actions, then learns from real outcomes; rewards are scores for making progress on the task."
       method={
         <>
           <div>

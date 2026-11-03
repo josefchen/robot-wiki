@@ -225,7 +225,7 @@ export function ControlLoopBudget({
       figureId="control-loop-budget"
       className={className}
       kicker="Control-loop budget"
-      heading="The robot's brain thinks slower than the arm needs"
+      heading={`Choosing a move takes ${(inferenceMs / CONTROL_PERIOD_MS).toFixed(1)} times the available time`}
       controls={
         <PresetGroup<Computer>
           label="Where the model runs"
@@ -291,10 +291,15 @@ export function ControlLoopBudget({
         <FigureStage
           footer={
             <StageStatus>
-              A filled beat gets a fresh command; a hollow grey beat passes with none.
+              Solid bar: thinking within one command interval. Stripes: thinking beyond that deadline. Filled beats get a fresh command; hollow beats miss one.
             </StageStatus>
           }
         >
+          <p className="mb-4 px-3 font-sans text-[14px] leading-normal text-text sm:px-0" data-testid="control-time-comparison">
+            Choosing a move takes <strong className="font-mono text-[24px]">{inferenceMs.toFixed(1)}</strong> milliseconds; the arm has{' '}
+            <strong className="font-mono text-[24px]">{CONTROL_PERIOD_MS}</strong> milliseconds between commands. That is{' '}
+            <strong className="font-mono text-[24px]">{(inferenceMs / CONTROL_PERIOD_MS).toFixed(1)}</strong> times the available time.
+          </p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Control-loop timeline at ${paramsB.toFixed(1)}B parameters`}
@@ -376,7 +381,7 @@ export function ControlLoopBudget({
           </PlotStage>
         </FigureStage>
       }
-      caption="If the robot's brain can't answer before the next beat, the arm either waits or keeps going on stale orders, which is why speed matters."
+      caption={loopCloses(inferenceMs) ? "This computer chooses a move before the next motor command is due." : `This computer takes ${(inferenceMs / CONTROL_PERIOD_MS).toFixed(1)} command intervals to choose a move; the arm must wait or reuse old orders.`}
       method={
         <>
           <p>
@@ -457,7 +462,7 @@ export function ControlLoopBudget({
           />
         </>
       }
-      source="Latencies from VLA-Perf, the π0.6 model card, the real-time chunking paper and the π0.7 paper; teaching curve in between."
+      source="Computer timings are predictions from VLA-Perf, a robot timing study; values for other model sizes are illustrative. Other references cover the π0.6 and π0.7 robot-control software models and switching movement plans."
     />
   );
 }

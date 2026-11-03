@@ -2,6 +2,7 @@ import { expect, test as base } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { BrandV2Registry } from '../../lib/brand-v2-runners';
+import { installReleaseActivityObserver } from './helpers/release-activity';
 import { startStaticExportServer } from './static-export-server';
 
 const OUT = join(process.cwd(), 'out');
@@ -96,7 +97,12 @@ type WorkerFixtures = {
   staticBase: string;
 };
 
-export const test = base.extend<Record<never, never>, WorkerFixtures>({
+export const test = base.extend<{releaseActivity:void}, WorkerFixtures>({
+  releaseActivity:[async({page},run)=>{
+    await page.addInitScript(installReleaseActivityObserver);
+    await page.evaluate(installReleaseActivityObserver);
+    await run();
+  },{auto:true}],
   staticBase: [
     async ({}, run) => {
       expect(

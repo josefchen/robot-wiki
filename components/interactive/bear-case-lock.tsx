@@ -117,7 +117,7 @@ export function BearCaseLock({ className }: { className?: string }) {
       figureId="bear-case-lock"
       className={className}
       kicker="What would prove the bears wrong"
-      heading="Four results together would falsify the bear case"
+      heading="Four results would overturn robotics skepticism"
       controls={
         <div role="group" aria-labelledby={groupLabel} data-preset-group="" className="grid justify-items-start gap-1">
           <span id={groupLabel} className="font-sans text-[13px] text-text-dim">
@@ -182,7 +182,7 @@ export function BearCaseLock({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Four results would each break one premise of the bear case. The lock opens only with all four; by September 2026, none had arrived."
+      caption="Each result answers one doubt: scale, new homes, cost or improvement. All four must arrive to overturn robotics skepticism; none had by September 2026."
       method={
         <>
           <p>

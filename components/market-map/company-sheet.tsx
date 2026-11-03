@@ -123,8 +123,9 @@ export function CompanySheet({ company, focusRequest, onClose }: CompanySheetPro
         data-pagefind-ignore
         className="fixed inset-0 z-50"
       >
-        <div aria-hidden onClick={onClose} className="absolute inset-0 bg-ink/60" />
+        <div key="company-scrim" aria-hidden onClick={onClose} className="absolute inset-0 bg-ink/60" />
         <div
+          key="company-panel"
           ref={panelRef}
           className="absolute inset-x-0 bottom-0 max-h-[86dvh] overflow-y-auto overscroll-contain border-t border-border-strong bg-bg px-5 pt-6 pb-[max(2rem,env(safe-area-inset-bottom))]"
         >
@@ -145,6 +146,7 @@ export function CompanySheet({ company, focusRequest, onClose }: CompanySheetPro
       className="fixed top-[var(--topbar-height)] right-0 bottom-0 z-30 w-[min(440px,100vw)]"
     >
       <div
+        key="company-panel"
         ref={panelRef}
         className="h-full overflow-y-auto overscroll-contain border-l border-border-strong bg-bg px-8 pt-7 pb-12"
       >

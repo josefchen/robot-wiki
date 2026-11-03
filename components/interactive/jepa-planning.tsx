@@ -315,10 +315,11 @@ export function JepaPlanning({
     </g>
   );
 
-  const note = `Each step: try ${candidateCount} possible moves, keep the one closest to the goal`;
+  const note = `In the number code: try ${candidateCount} moves; keep the closest to the goal`;
   const plane = (
     <AnatomyStage
       viewWidth={TABLE_WIDTH}
+      story={<p className="font-sans text-sm leading-snug text-text-dim">Table points represent compact number summaries of cup-and-gripper images. Nearby points mean similar scenes; dial: percentage of starting goal distance left.</p>}
       hint={
         <span data-testid="plan-note" data-figure-annotation="">
           {note}
@@ -327,6 +328,7 @@ export function JepaPlanning({
       readout={reached ? `goal reached after ${steps} moves` : `move ${steps} · ${gapNow}% of the distance left · ${candidateCount} tried`}
       status="Illustrative: a toy model, not learned robot features."
       data-testid="jepa-planning-stage"
+      data-source-step={steps}
     >
       <IsoFigure
         width={TABLE_WIDTH}
@@ -435,7 +437,7 @@ export function JepaPlanning({
         </>
       }
       stage={plane}
-      caption="Instead of imagining full video, this robot compares compact summaries of now and the goal, and picks whichever move closes the gap."
+      caption="The robot predicts moves in a compact number summary of the scene, keeping whichever brings that summary closest to the goal’s summary."
       method={
         <>
           <p>
@@ -487,7 +489,7 @@ export function JepaPlanning({
             goal feature maps and searches with the Cross-Entropy Method, using 800 samples and ten
             refinement iterations a step (arXiv:2506.09985, Section 3.2).
           </p>
-          {strip}
+          <div data-inset-plot>{strip}</div>
           <ChartDescription
             id={descriptionId}
             form="state"

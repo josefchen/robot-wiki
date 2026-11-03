@@ -229,7 +229,7 @@ test.describe('data-hardware teleop-rigs module', () => {
     const figure = page.locator('[data-figure-frame="umi-collection-rates"]');
     await figure.scrollIntoViewIfNeeded();
     await expect(figure.locator('[data-figure-title]')).toHaveText(
-      'Holding the gripper was three times faster than teleoperation',
+      'Handheld recording: triple robot control, half bare-hand speed',
     );
     const width = async (id: string) =>
       Number(await figure.getByTestId(`umi-rate-${id}`).locator('rect').first().getAttribute('width'));

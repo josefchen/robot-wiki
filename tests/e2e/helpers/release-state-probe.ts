@@ -1,12 +1,12 @@
+import { writeReleaseStateRecord,writeReleaseStateManifest,type ReleaseStateReference,type ReleaseStateManifest } from '../../../lib/brand-v2-release-state-store';
+import { takeReleaseActivity,resumeReleaseActivity } from './release-activity';
 import AxeBuilder from '@axe-core/playwright';
 import type { Page } from '@playwright/test';
-import { mkdirSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { join } from 'node:path';
 import {
-  RELEASE_EVIDENCE_DIRECTORY, RELEASE_PROFILES, RELEASE_STATE_VERSION,
-  releaseSourceFingerprint, releaseStateProblems,
-  type ReleaseProfile, type ReleaseState, type ReleaseStateArtifact,
+  RELEASE_PROFILES,
+  releaseSourceFingerprint,
+  type ReleaseProfile, type ReleaseState,
 } from '../../../lib/brand-v2-release-evidence';
 import { documentOverflow } from './document-overflow';
 import { readReleaseBuildStamp, releaseExportFingerprint } from '../../../lib/brand-v2-release-build';
@@ -16,6 +16,13 @@ import { collectGlobalConvergence } from './global-convergence-collector';
 import { collectorInput, readConvergenceRegistry } from '../../../lib/brand-v2-global-convergence-evidence';
 import { RELEASE_ACCESSIBILITY_PREDICATES, type ReleaseAccessibility } from '../../../lib/brand-v2-release-accessibility';
 import { decodePng } from '../../../lib/png-decode';
+import { readFocusPaint } from './focus-paint';
+import { collectReleaseInteractionDetails } from './release-interaction-details';
+import { readReleaseCheckpoint,writeReleaseCheckpoint } from '../../../lib/brand-v2-release-checkpoint';
+import { RELEASE_TEXT_ONLY_SELECTORS,RELEASE_TEXT_ONLY_SOURCE } from '../../../lib/brand-v2-release-text';
+import { readReleaseFonts } from './release-fonts';
+import { captureTextPopulation,measureTextPopulation } from './release-text-profile';
+import { collectReleaseTableFrames } from './release-table-values';
 
 export const FINAL_RELEASE_PROFILES = process.env.ROBOT_WIKI_RELEASE_PROFILES === '1';
 export const FINAL_CAPTURE_SOURCE_FINGERPRINT = FINAL_RELEASE_PROFILES ? releaseSourceFingerprint(process.cwd()) : null;
@@ -25,9 +32,10 @@ const accessibilityRegistry = readConvergenceRegistry(process.cwd());
 /** A stable semantic digest excludes geometry and generated probe attributes.
  * It catches a measurement accidentally activating a control, losing state,
  * changing a selection or leaving a disclosure open. */
-async function semanticState(page: Page): Promise<string> {
-  const value = await page.evaluate(() => JSON.stringify({
+async function semanticStateValue(page: Page): Promise<string> {
+  return page.evaluate(() => JSON.stringify({
     url: location.pathname + location.search + location.hash,
+    active:document.activeElement?{tag:document.activeElement.tagName,id:document.activeElement.id,role:document.activeElement.getAttribute('role'),label:document.activeElement.getAttribute('aria-label'),company:document.activeElement.getAttribute('data-company-id')}:null,
     controls: [...document.querySelectorAll('main input, main select, main textarea, main [aria-pressed], main [aria-selected], main details')].map((node) => ({
       tag: node.tagName, id: node.id,
       value: 'value' in node ? String(node.value) : null,
@@ -35,8 +43,42 @@ async function semanticState(page: Page): Promise<string> {
       pressed: node.getAttribute('aria-pressed'), selected: node.getAttribute('aria-selected'),
       open: node instanceof HTMLDetailsElement ? node.open : null,
     })),
+    text:(document.querySelector('main')?.textContent??'').replace(/\s+/g,' ').trim(),
+    states:[...document.querySelectorAll('main [aria-expanded],main [data-state],main [data-status],main [data-camera-position]')].map((node)=>({id:node.id,expanded:node.getAttribute('aria-expanded'),state:node.getAttribute('data-state'),status:node.getAttribute('data-status'),camera:node.getAttribute('data-camera-position')})),
   }));
-  return createHash('sha256').update(value).digest('hex');
+}
+async function semanticState(page:Page):Promise<string>{return createHash('sha256').update(await semanticStateValue(page)).digest('hex');}
+
+
+/** Cache identity also covers current rendered geometry, inline attributes
+ * and CSSOM rules. A planted style or stale drawing cannot reuse an earlier
+ * green case merely because its controls still have the same values. Canvas
+ * states remain freshly measured: DOM signatures cannot establish pixels. */
+export async function checkpointVisualState(page:Page):Promise<string|null>{
+  const value=await page.evaluate(()=>{
+    const visible=(node:Element)=>node.checkVisibility({opacityProperty:true,visibilityProperty:true})&&node.getClientRects().length>0;
+    if([...document.querySelectorAll('canvas')].some(visible))return null;
+    if([...document.querySelectorAll<HTMLImageElement>('img')].some((node)=>visible(node)&&(!node.complete||node.naturalWidth===0)))return null;
+    const sheets=[...document.styleSheets,...document.adoptedStyleSheets].map((sheet)=>{
+      // Each static-export worker gets a fresh local port. Bind local sheets
+      // to their full resource path while keeping external origins and every
+      // CSSOM rule. Frozen source/export fingerprints still bind file bytes.
+      const url=sheet.href?new URL(sheet.href):null;
+      const local=url&&(url.protocol==='http:'||url.protocol==='https:')&&url.origin===location.origin;
+      const href=local?`${url.pathname}${url.search}${url.hash}`:sheet.href;
+      try{return {href,disabled:sheet.disabled,rules:[...sheet.cssRules].map(({cssText})=>cssText)};}
+      catch{return {href,disabled:sheet.disabled,rules:['unreadable stylesheet']};}
+    });
+    if(sheets.some(({rules})=>rules[0]==='unreadable stylesheet'))return null;
+    const nodes=[document.documentElement,...document.body.querySelectorAll('*')].filter((node)=>!node.matches('script,style,noscript,template')&&visible(node)).map((node)=>{
+      const box=node.getBoundingClientRect(),style=getComputedStyle(node);
+      return {tag:node.tagName,attributes:[...node.attributes].map(({name,value})=>[name,value]),
+        box:[box.x,box.y,box.width,box.height].map((value)=>Math.round(value*100)/100),
+        paint:[style.fontFamily,style.fontSize,style.fontWeight,style.lineHeight,style.color,style.backgroundColor,style.opacity,style.transform,style.fill,style.stroke,style.strokeWidth,style.outline,style.outlineOffset,style.boxShadow,style.filter]};
+    });
+    return JSON.stringify({width:innerWidth,height:innerHeight,dpr:devicePixelRatio,forced:matchMedia('(forced-colors:active)').matches,reduced:matchMedia('(prefers-reduced-motion:reduce)').matches,sheets,nodes});
+  });
+  return value===null?null:createHash('sha256').update(value).digest('hex');
 }
 
 async function requiredText(page: Page) {
@@ -114,8 +156,8 @@ async function contentAvailability(page: Page, baseline: Awaited<ReturnType<type
     }
   } finally {
     await active.evaluate((node) => {
-      if (node === document.body && document.activeElement instanceof HTMLElement) document.activeElement.blur();
-      else if (node instanceof HTMLElement && node.isConnected) node.focus({ preventScroll: true });
+      if (node === document.body && (document.activeElement instanceof HTMLElement||document.activeElement instanceof SVGElement)) document.activeElement.blur();
+      else if ((node instanceof HTMLElement||node instanceof SVGElement) && node.isConnected) node.focus({ preventScroll: true });
     });
     await active.dispose();
     await page.evaluate(({ x, y }) => scrollTo({ left: x, top: y, behavior: 'instant' }), scroll);
@@ -138,14 +180,18 @@ async function semanticReading(page: Page) {
         : node.getAttribute('aria-label') ?? (node instanceof HTMLInputElement || node instanceof HTMLSelectElement || node instanceof HTMLTextAreaElement
           ? [...(node.labels ?? [])].map(text).join(' ') : text(node));
     };
+    // Region contents describe the scrollable/graphical subject; they are
+    // not a visible action label. Native and ARIA action labels still bind
+    // the accessible name, including nested label text.
+    const visibleLabel=(node:Element)=>node.matches('button,summary,a[href],input,select,textarea,[role=button],[role=slider],[role=tab]')?text(node):'';
     const ids = new Set<string>();
     for (const node of document.querySelectorAll('[id]')) {
       if (ids.has(node.id)) failures.push(`duplicate id ${node.id}`);
       ids.add(node.id);
     }
-    const controls = [...document.querySelectorAll('input:not([type=hidden]), select, textarea, button, summary, a[href], [role=button], [role=slider], [role=tab]')].filter(visible);
+    const controls = [...document.querySelectorAll('input:not([type=hidden]), select, textarea, button, summary, a[href], [role=button], [role=slider], [role=tab], [tabindex]:not(main)')].filter(visible);
     for (const control of controls) {
-      const label = text(control);
+      const label = visibleLabel(control);
       const accessible = name(control);
       if (!accessible.trim()) failures.push(`unnamed control ${control.tagName}#${control.id}`);
       if (control instanceof HTMLInputElement || control instanceof HTMLSelectElement || control instanceof HTMLTextAreaElement) {
@@ -170,21 +216,23 @@ async function semanticReading(page: Page) {
     }
     const active = document.activeElement;
     const focus: ReleaseProfile['focus'] = [];
-    if (active instanceof HTMLElement && controls.includes(active)) {
+    if (active instanceof Element && controls.includes(active)) {
       const rect = active.getBoundingClientRect();
       const style = getComputedStyle(active);
-      const painted = style.outlineStyle !== 'none' && parseFloat(style.outlineWidth) >= 1 || style.boxShadow !== 'none';
+      const chartRing=active.closest('svg')?.querySelector('[data-focus-ring]');
+      const ringStyle=chartRing?getComputedStyle(chartRing):null;
+      const painted = style.outlineStyle !== 'none' && parseFloat(style.outlineWidth) >= 1 || style.boxShadow !== 'none'||Boolean(chartRing&&visible(chartRing)&&ringStyle?.stroke!=='none'&&parseFloat(ringStyle?.strokeWidth??'0')>=1);
       const centerX = Math.max(0, Math.min(innerWidth - 1, rect.x + rect.width / 2));
       const centerY = Math.max(0, Math.min(innerHeight - 1, rect.y + rect.height / 2));
       const top = document.elementFromPoint(centerX, centerY);
       focus.push({ selector: active.id ? `#${active.id}` : `${active.tagName}:${name(active).slice(0, 80)}`, reached: true,
         visible: active.matches(':focus-visible') ? painted : true,
         obscured: rect.bottom < 0 || rect.top >= innerHeight || (top !== null && !active.contains(top) && !top.contains(active)),
-        name: name(active), label: text(active) });
+        name: name(active), label: visibleLabel(active) });
     }
     return { mainCount: document.querySelectorAll('main, [role=main]').length,
       visibleTextCount: [...document.querySelectorAll('main *')].filter((node) => visible(node) && text(node)).length,
-      fontsLoaded: document.fonts.status === 'loaded', semanticFailures: failures, focus,
+      semanticFailures: failures, focus,
       viewport: { width: innerWidth, height: innerHeight, dpr: devicePixelRatio },
       forcedColorsActive: matchMedia('(forced-colors: active)').matches,
       reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches };
@@ -194,7 +242,7 @@ async function semanticReading(page: Page) {
 async function readIdleMotion(page: Page): Promise<NonNullable<ReleaseProfile['motion']>> {
   const pixels=async(canvas:ReturnType<Page['locator']>)=>createHash('sha256').update(decodePng(await canvas.screenshot()).rgba).digest('hex');
   const geometry = async () => createHash('sha256').update(await page.evaluate(() => JSON.stringify(
-    [...document.querySelectorAll('main svg, main svg *')].filter((node) => node.checkVisibility({ opacityProperty: true, visibilityProperty: true }))
+    [...document.querySelectorAll('main, main *')].filter((node) => node.checkVisibility({ opacityProperty: true, visibilityProperty: true }))
       .map((node) => { const box = node.getBoundingClientRect(); const style = getComputedStyle(node);
         return { tag: node.tagName, attrs: [...node.attributes].filter(({ name }) => /^(d|x|y|x1|x2|y1|y2|cx|cy|r|width|height|transform|opacity)$/.test(name)).map(({ name, value }) => [name, value]),
           box: [box.x, box.y, box.width, box.height], transform: style.transform, opacity: style.opacity }; }),
@@ -233,14 +281,27 @@ async function readIdleMotion(page: Page): Promise<NonNullable<ReleaseProfile['m
 /** Run immediately after the owning driver reaches a real state. No reload,
  * selection or synthetic copied DOM is used. CDP changes only viewport/DPR;
  * every media/style mutation is restored even when a probe fails. */
-export async function probeReleaseState(page: Page, input: Omit<ReleaseState, 'profiles'>, maintain?: () => Promise<void>): Promise<ReleaseState> {
+export async function probeReleaseState(page: Page, input: Omit<ReleaseState, 'profiles'|'activity'>, maintain?: () => Promise<void>): Promise<ReleaseState> {
+  const activity=await page.evaluate(takeReleaseActivity);
   const originalViewport = page.viewportSize();
   const original = await page.evaluate(() => ({ dpr: devicePixelRatio, width: innerWidth, height: innerHeight,
     forcedColors: matchMedia('(forced-colors:active)').matches, reduced: matchMedia('(prefers-reduced-motion:reduce)').matches,
     scrollX, scrollY }));
+  await page.evaluate(()=>document.fonts.ready);
+  const initialValue=await semanticStateValue(page);
+  const initial=createHash('sha256').update(initialValue).digest('hex');
+  const visual=FINAL_RELEASE_PROFILES?await checkpointVisualState(page):null;
+  const checkpoint=FINAL_RELEASE_PROFILES&&FINAL_CAPTURE_BUILD&&FINAL_CAPTURE_SOURCE_FINGERPRINT&&visual?
+    {source:FINAL_CAPTURE_SOURCE_FINGERPRINT,exported:FINAL_CAPTURE_BUILD.exportFingerprint,semanticDigest:createHash('sha256').update(initial).update(visual).digest('hex'),input}:null;
+  if(checkpoint&&process.env.ROBOT_WIKI_RELEASE_RESUME!=='0'){
+    const cached=readReleaseCheckpoint(process.cwd(),checkpoint);
+    const fonts=await page.evaluate(readReleaseFonts);
+    const fontsReady=fonts.status==='loaded'&&fonts.used.every(({ready})=>ready)&&fonts.usedFaceFailures.length===0;
+    if(cached&&fontsReady){await page.evaluate(resumeReleaseActivity);return {...cached,activity};}
+  }
   const session = await page.context().newCDPSession(page);
   const profiles: ReleaseProfile[] = [];
-  const initial = await semanticState(page);
+  const focusExpected=await page.evaluate(()=>Boolean(document.activeElement?.matches('input:not([type=hidden]),select,textarea,button,summary,a[href],[role=button],[role=slider],[role=tab],[tabindex]:not(main)')));
   const baselineText = await requiredText(page);
   try {
     for (const plan of RELEASE_PROFILES) {
@@ -259,7 +320,7 @@ export async function probeReleaseState(page: Page, input: Omit<ReleaseState, 'p
       // state, then still fail if sticky chrome actually obscures it.
       await page.evaluate(() => {
         const active = document.activeElement;
-        if (active instanceof HTMLElement && active !== document.body && active !== document.documentElement) {
+        if (active instanceof Element && active !== document.body && active !== document.documentElement) {
           active.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
         }
       });
@@ -271,26 +332,24 @@ export async function probeReleaseState(page: Page, input: Omit<ReleaseState, 'p
       await maintain?.();
       const stateBefore = await semanticState(page);
       let textSizes: ReleaseProfile['textSizes'] = [];
+      let textPopulation:ReleaseProfile['textPopulation']={source:null,selectors:[],memberIds:[]};
       let textStyle: Awaited<ReturnType<Page['addStyleTag']>> | undefined;
       if (plan.textOnly) {
-        const sizes = await page.evaluate(() => [...document.querySelectorAll<HTMLElement>('body h1, body h2, body h3, body p, body button, body label, body a, body th, body td, body li, body summary, body input, body select')]
-          .filter((node) => node.getClientRects().length > 0 && getComputedStyle(node).visibility !== 'hidden' && !node.closest('.sr-only, [aria-hidden="true"]') &&
-            (node.textContent?.trim() || node.matches('input, select, textarea')))
-          .map((node, index) => { node.dataset.releaseTextProbe = String(index); return { index, baselinePx: parseFloat(getComputedStyle(node).fontSize) }; }));
-        textStyle = await page.addStyleTag({ content: sizes.map(({ index, baselinePx }) => `[data-release-text-probe="${index}"]{font-size:${baselinePx * 2}px!important}`).join('\n') });
-        textSizes = await page.evaluate((expected) => expected.map(({ index, baselinePx }) => {
-          const node = document.querySelector<HTMLElement>(`[data-release-text-probe="${index}"]`)!;
-          const style = getComputedStyle(node);
-          const box = node.getBoundingClientRect();
-          const clips = /hidden|clip/.test(style.overflow) && (node.scrollWidth > node.clientWidth + 1 || node.scrollHeight > node.clientHeight + 1);
-          return { selector: `[data-release-text-probe="${index}"] ${node.tagName.toLowerCase()}#${node.id} ${(node.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 60)}`, baselinePx, actualPx: parseFloat(style.fontSize), visible: box.width > 0 && box.height > 0 && style.visibility !== 'hidden', clipped: clips };
-        }), sizes);
+        const sizes = await page.evaluate(captureTextPopulation,[...RELEASE_TEXT_ONLY_SELECTORS]);
+        textPopulation={source:RELEASE_TEXT_ONLY_SOURCE,selectors:[...RELEASE_TEXT_ONLY_SELECTORS],memberIds:sizes.map(({id})=>id)};
+        textStyle = await page.addStyleTag({ content: sizes.map(({ baselinePx },index) => `[data-release-text-probe="${index}"]{font-size:${baselinePx * 2}px!important}`).join('\n') });
+        await page.evaluate(()=>document.fonts.ready);
+        textSizes = await page.evaluate(measureTextPopulation,sizes);
       }
       try {
+        await page.evaluate(()=>document.fonts.ready);
         const reading = await semanticReading(page);
+        const fonts=await page.evaluate(readReleaseFonts);
+        const fontsLoaded=fonts.status==='loaded'&&fonts.used.every(({ready})=>ready)&&fonts.usedFaceFailures.length===0;
         const axe = await new AxeBuilder({ page }).analyze();
         if(process.env.ROBOT_WIKI_RELEASE_PILOT==='1')console.log(`pilot ${input.id}: ${plan.id} Axe complete; checking disclosures`);
         const availability = await contentAvailability(page, baselineText);
+        await maintain?.();
         if(process.env.ROBOT_WIKI_RELEASE_PILOT==='1')console.log(`pilot ${input.id}: ${plan.id} disclosures complete`);
         const motion = plan.reducedMotion ? await readIdleMotion(page) : undefined;
         const residue = await page.evaluate(collectReleaseResidueState);
@@ -298,7 +357,11 @@ export async function probeReleaseState(page: Page, input: Omit<ReleaseState, 'p
         const details=await page.evaluate(collectReleaseAccessibilityDetails);
         const accessibility:ReleaseAccessibility={counts:convergence.counts,
           findings:convergence.findings.filter(({predicate})=>RELEASE_ACCESSIBILITY_PREDICATES.some((p)=>p===predicate)) as ReleaseAccessibility['findings'],...details};
-        profiles.push({ id: plan.id, ...reading,
+        const interaction=await page.evaluate(collectReleaseInteractionDetails);
+        const tableFrames=await collectReleaseTableFrames(page,input.route,interaction.tables.map(({id})=>id));
+        const live=await page.evaluate(takeReleaseActivity);
+        const focusPaint=reading.focus.length>0&&await page.locator(':focus').count()?await page.locator(':focus').evaluate(readFocusPaint):null;
+        profiles.push({ id: plan.id, ...reading,fonts,fontsLoaded,focusExpected,
           ...(plan.zoomBase ? { requestedCssViewport: { width: plan.zoomBase.width / 2, height: plan.zoomBase.height / 2 } } : {}),
           documentOverflowPx: Math.max(0, await documentOverflow(page)),
           axeViolations: axe.violations.map(({ id, nodes }) => `${id}:${nodes.map(({ target }) => target.join(' ')).join(';')}`),
@@ -306,7 +369,8 @@ export async function probeReleaseState(page: Page, input: Omit<ReleaseState, 'p
           ...(motion ? { motion } : {}),
           residue,
           accessibility,
-          textSizes, stateBefore, stateAfter: await semanticState(page) });
+          interaction,tableFrames,liveRegions:live.finalRegions,liveRegionCount:live.finalRegionCount,focusPaint,
+          textSizes,textPopulation, stateBefore, stateAfter: await semanticState(page) });
       } finally {
         await textStyle?.evaluate((node) => node.parentNode?.removeChild(node));
         await page.evaluate(() => document.querySelectorAll('[data-release-text-probe]').forEach((node) => node.removeAttribute('data-release-text-probe')));
@@ -317,26 +381,33 @@ export async function probeReleaseState(page: Page, input: Omit<ReleaseState, 'p
     await session.send('Emulation.setDeviceMetricsOverride', { width: original.width, height: original.height, deviceScaleFactor: original.dpr, mobile: false });
     await page.emulateMedia({ forcedColors: original.forcedColors ? 'active' : 'none', reducedMotion: original.reduced ? 'reduce' : 'no-preference' });
     if (originalViewport) await page.setViewportSize(originalViewport);
+    await page.evaluate(async()=>{await document.fonts.ready;await new Promise<void>((resolve)=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));});
     await page.evaluate(({ x, y }) => scrollTo({ left: x, top: y, behavior: 'instant' }), { x: original.scrollX, y: original.scrollY });
     await maintain?.();
     await session.detach();
+    await page.evaluate(resumeReleaseActivity);
   }
-  if (initial !== await semanticState(page)) throw new Error(`${input.id}: final profiles did not restore the original semantic state`);
-  return { ...input, profiles };
+  const finalValue=await semanticStateValue(page);
+  if(initialValue!==finalValue){
+    const before=JSON.parse(initialValue),after=JSON.parse(finalValue);
+    const changed=Object.keys(before).filter((key)=>JSON.stringify(before[key])!==JSON.stringify(after[key])).map((key)=>`${key}: ${JSON.stringify(before[key]).slice(0,500)} -> ${JSON.stringify(after[key]).slice(0,500)}`);
+    const error=new Error(`${input.id}: final profiles did not restore the original semantic state: ${changed.join('; ')}`) as Error&{observation:ReleaseState};
+    error.observation={...input,profiles,activity};throw error;
+  }
+  const result={...input,profiles,activity};
+  if(checkpoint)writeReleaseCheckpoint(process.cwd(),checkpoint,result);
+  return result;
 }
 
-export function writeReleaseStateGroup(group: string, expectedStateIds: readonly string[], cases: ReleaseState[]): ReleaseStateArtifact {
-  const currentFingerprint = releaseSourceFingerprint(process.cwd());
-  if (!FINAL_CAPTURE_SOURCE_FINGERPRINT || currentFingerprint !== FINAL_CAPTURE_SOURCE_FINGERPRINT) throw new Error('release capture source changed during the run, or final capture was not enabled; freeze source and rebuild before measuring');
-  if (!FINAL_CAPTURE_BUILD || releaseExportFingerprint(process.cwd()) !== FINAL_CAPTURE_BUILD.exportFingerprint) throw new Error('production export changed during release state capture');
-  const artifact: ReleaseStateArtifact = { version: RELEASE_STATE_VERSION, sourceFingerprint: FINAL_CAPTURE_SOURCE_FINGERPRINT, exportFingerprint: FINAL_CAPTURE_BUILD.exportFingerprint, group, expectedStateIds: [...expectedStateIds], cases };
-  const failures = releaseStateProblems(artifact, { fingerprint: artifact.sourceFingerprint, exportFingerprint: artifact.exportFingerprint, group, stateIds: expectedStateIds });
-  const dir = join(process.cwd(), RELEASE_EVIDENCE_DIRECTORY);
-  mkdirSync(dir, { recursive: true });
-  if (failures.length) {
-    writeFileSync(join(dir, `${group}.failed.json`), JSON.stringify({ artifact, failures }, null, 2) + '\n');
-    throw new Error(failures.join('\n'));
-  }
-  writeFileSync(join(dir, `${group}.json`), JSON.stringify(artifact, null, 2) + '\n');
-  return artifact;
+/** Final drivers keep only these small references, never the whole matrix. */
+export async function captureReleaseState(page:Page,input:Omit<ReleaseState,'profiles'|'activity'>,maintain?:()=>Promise<void>):Promise<ReleaseStateReference>{
+  if(!FINAL_CAPTURE_SOURCE_FINGERPRINT||!FINAL_CAPTURE_BUILD)throw new Error('final state capture requires the current successful production stamp');
+  const state=await probeReleaseState(page,input,maintain);
+  return writeReleaseStateRecord(process.cwd(),state,{source:FINAL_CAPTURE_SOURCE_FINGERPRINT,exported:FINAL_CAPTURE_BUILD.exportFingerprint});
+}
+export function writeReleaseStateGroup(group:string,expectedStateIds:readonly string[],cases:ReleaseStateReference[]):ReleaseStateManifest{
+  const currentFingerprint=releaseSourceFingerprint(process.cwd());
+  if(!FINAL_CAPTURE_SOURCE_FINGERPRINT||currentFingerprint!==FINAL_CAPTURE_SOURCE_FINGERPRINT)throw new Error('release capture source changed during the run, or final capture was not enabled; freeze source and rebuild before measuring');
+  if(!FINAL_CAPTURE_BUILD||releaseExportFingerprint(process.cwd())!==FINAL_CAPTURE_BUILD.exportFingerprint)throw new Error('production export changed during release state capture');
+  return writeReleaseStateManifest(process.cwd(),group,expectedStateIds,cases,{source:FINAL_CAPTURE_SOURCE_FINGERPRINT,exported:FINAL_CAPTURE_BUILD.exportFingerprint});
 }

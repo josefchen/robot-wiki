@@ -148,6 +148,39 @@ async function inViewport(target: Locator) {
 }
 
 test.describe('the side sheet sits beside the map, never over it (VAL-B2-MAP-006)', () => {
+  test('retains the focused heading and link when details switch between side and bottom layouts', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto(ROUTE);
+    const tiles = page.locator('button[data-map-tile]');
+    await expect(tiles).toHaveCount(COMPANIES.length);
+    await openWithPointer(page, tiles.first());
+    const dialog = page.getByRole('dialog');
+    const heading = dialog.getByRole('heading').first();
+    await expect(heading).toBeFocused();
+    const name = await heading.textContent();
+    const selectedUrl = page.url();
+    for (const width of [375, 1024, 320, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await expect(dialog).toHaveAttribute('data-company-sheet', width < 1024 ? 'bottom' : 'side');
+      await expect(heading).toBeFocused();
+      await expect(heading).toHaveText(name!);
+      expect(page.url()).toBe(selectedUrl);
+    }
+    const link = dialog.getByRole('link').first();
+    await page.keyboard.press('Tab');
+    await link.focus();
+    await expect(link).toBeFocused();
+    const href = await link.getAttribute('href');
+    for (const width of [375, 1440, 320, 1024]) {
+      await page.setViewportSize({ width, height: 900 });
+      await expect(dialog).toHaveAttribute('aria-modal', width < 1024 ? 'true' : 'false');
+      await expect(link).toBeFocused();
+      await expect(link).toHaveAttribute('href', href!);
+      expect(page.url()).toBe(selectedUrl);
+    }
+  });
+
   for (const viewport of DESKTOPS) {
     const at = `at ${viewport.width}px`;
 

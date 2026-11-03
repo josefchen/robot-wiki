@@ -1,10 +1,11 @@
+import { beforeCompletionApprovals, completionEndpoint } from '../helpers/completion-endpoint';
 import { createHash } from 'node:crypto';
 import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import {
   classicalPassEndpoint, convergenceProse20261026Endpoint, educationalCue20261023Endpoint, explainerMounts20261026Endpoint, humanize20261012Endpoint,
   imagesA20261013Endpoint,
-  kolBatch20261021Endpoint, kolQueue20261012Endpoint, polish1019Endpoint,
+  isClassicalPassEdge, kolBatch20261021Endpoint, kolQueue20261012Endpoint, polish1019Endpoint,
 } from '../helpers/domain-pass';
 import { preFigureMigration } from '../helpers/figure-migration';
 import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
@@ -320,7 +321,9 @@ describe('four bounded local truth repairs without completion credit', { timeout
         id: delta.memberId,
         value: delta.manifest === 'prose' ? { path, body: matter(text).content.trim() } : { path, source: text },
       }]).members[0].hash;
-      const merged = headReanchorFor(entries.filter(({ id }) => !id.startsWith('seo-pass-20261002-')
+      // Reconstruct this historical endpoint from the exact retained prefix;
+      // the separately validated completion suffix continues it below.
+      const merged = headReanchorFor(beforeCompletionApprovals(entries).filter((entry) => !isClassicalPassEdge(entry)).filter(({ id }) => !id.startsWith('seo-pass-20261002-')
         && !id.startsWith('reader-first-20261003-') && !id.startsWith('domain-pass-20261006-')
         && !id.startsWith('humanize-20261012-manipulation-') && !id.startsWith('images-a-20261013-')
         && !id.startsWith('kol-batch-20261021-') && !id.startsWith('educational-cue-20261023-')
@@ -381,14 +384,14 @@ describe('four bounded local truth repairs without completion credit', { timeout
         // more after that, the KOL triage batch of 2026-10-21 one more, the
         // 2026-10-23 cue fix one more, the 2026-10-26 explainer mounts one
         // more, and the 2026-10-26 convergence prose slice one more.
-        expect(convergenceProse20261026Endpoint(entries, 'prose', delta.memberId,
+        expect(completionEndpoint(entries, 'prose', delta.memberId, convergenceProse20261026Endpoint(entries, 'prose', delta.memberId,
           explainerMounts20261026Endpoint(entries, 'prose', delta.memberId,
             educationalCue20261023Endpoint(entries, 'prose', delta.memberId,
               kolBatch20261021Endpoint(entries, 'prose', delta.memberId, polish1019Endpoint(entries, 'prose', delta.memberId,
                 imagesA20261013Endpoint(entries, 'prose', delta.memberId,
                   humanize20261012Endpoint(entries, 'prose', delta.memberId,
                     kolQueue20261012Endpoint(entries, 'prose', delta.memberId,
-                      classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint)))))))))).toBe(memberHash(read(path)));
+                      classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint))))))))))).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }

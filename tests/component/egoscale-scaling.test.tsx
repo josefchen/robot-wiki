@@ -64,7 +64,7 @@ describe('EgoScaleScaling', () => {
   });
 
   it('hides the band and dashed extrapolation at the measured-range boundary', () => {
-    render(<EgoScaleScaling />);
+    const { container } = render(<EgoScaleScaling />);
     showLaw();
     fireEvent.click(screen.getByTestId('egoscale-preset-measured'));
     expect(slider()).toHaveValue(String(SLIDER_MIN));
@@ -75,6 +75,8 @@ describe('EgoScaleScaling', () => {
       /the most the study measured/i,
     );
     expect(screen.getByTestId('completion-readout')).toHaveTextContent('71% of each task (a score of 0.71)');
+    expect(container.querySelector('[data-series-label-for="completion-fit"]')).toHaveTextContent('completion fit');
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 
   it('projects both scenarios at the 1M-hour maximum and flags the impossible completion', () => {

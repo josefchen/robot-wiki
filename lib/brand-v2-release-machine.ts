@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { readReleaseBuildStamp } from './brand-v2-release-build.ts';
-import { releaseArtifactHash } from './brand-v2-release-evidence.ts';
+import { publicEvidenceReferenceSchema,readPublicEvidence } from './brand-v2-release-public-evidence.ts';
 import { releaseUnitNonExecutions, type UnitNonExecution } from './brand-v2-release-unit-scope.ts';
 
 export const RELEASE_MACHINE_DIRECTORY='evidence/brand-v2/release/machine';
@@ -18,7 +18,7 @@ export const RELEASE_MACHINE_SCRIPTS=[
 export const RELEASE_UNIT_LIST_COMMAND=['npx','vitest','list',`--json=${RELEASE_UNIT_INVENTORY}`] as const;
 export function releaseMachineCommand(script:string):string[]{
   if(!RELEASE_MACHINE_SCRIPTS.some((name)=>name===script))throw new Error(`Unregistered final machine gate ${script}`);
-  return script==='test'?['npm','test','--','--reporter=default','--reporter=json',`--outputFile.json=${RELEASE_UNIT_REPORT}`,'--allowOnly=false']:['npm','run',script];
+  return script==='test'?['npm','test','--','--reporter=default','--reporter=json',`--outputFile.json=${RELEASE_UNIT_REPORT}`,'--allowOnly=false','--no-file-parallelism','--maxWorkers=1']:['npm','run',script];
 }
 
 export type UnitInventory=Array<{name:string;file:string}>;
@@ -41,10 +41,10 @@ export function unitReportProblems(inventory:UnitInventory,report:UnitJson,nonEx
 }
 
 const hash=z.string().regex(/^[a-f0-9]{64}$/);
-const file=z.object({path:z.string().min(1),sha256:hash}).strict();
-const command=z.object({name:z.string().min(1),argv:z.array(z.string()).min(1),exitCode:z.number().int(),durationMs:z.number().nonnegative(),log:file}).strict();
+const file=publicEvidenceReferenceSchema;
+const command=z.object({name:z.string().min(1),argv:z.array(z.string()).min(1),exitCode:z.number().int(),durationMs:z.number().nonnegative(),sourceBefore:hash,sourceAfter:hash,exportBefore:hash,exportAfter:hash,log:file}).strict();
 export const releaseMachineSchema=z.object({
-  version:z.literal(1),sourceFingerprint:hash,exportFingerprint:hash,commands:z.array(command).min(1),
+  version:z.literal(2),sourceFingerprint:hash,exportFingerprint:hash,commands:z.array(command).min(1),
   unitInventory:z.object({command,artifact:file}).strict(),unitReport:file,unitCount:z.number().int().positive(),unitPassedCount:z.number().int().nonnegative(),
   unitNonExecutions:z.array(z.object({file:z.string(),name:z.string(),kind:z.enum(['conditional-evidence-producer','derived-inapplicable']),reason:z.string().min(1),derivation:z.string().min(1),sourcePaths:z.array(z.string()).min(1),sourceHash:hash,population:z.array(z.string()).length(0)}).strict()),
 }).strict();
@@ -54,11 +54,13 @@ export function readReleaseMachineEvidence(root:string):ReleaseMachineEvidence{
   const evidence=releaseMachineSchema.parse(JSON.parse(readFileSync(path,'utf8')));const build=readReleaseBuildStamp(root);
   if(evidence.sourceFingerprint!==build.sourceAfter||evidence.exportFingerprint!==build.exportFingerprint)throw new Error('stale final machine-gate source or production export');
   if(JSON.stringify(evidence.commands.map(({name})=>name))!==JSON.stringify(RELEASE_MACHINE_SCRIPTS))throw new Error('machine-gate command population differs');
+  for(const row of [...evidence.commands,evidence.unitInventory.command])if(row.sourceBefore!==build.sourceAfter||row.sourceAfter!==build.sourceAfter||row.exportBefore!==build.exportFingerprint||row.exportAfter!==build.exportFingerprint)throw new Error(`machine gate did not preserve source/export bytes: ${row.name}`);
   for(const row of evidence.commands)if(row.exitCode!==0||JSON.stringify(row.argv)!==JSON.stringify(releaseMachineCommand(row.name)))throw new Error(`failed or changed final machine command ${row.name}`);
-  if(evidence.unitInventory.command.exitCode!==0||JSON.stringify(evidence.unitInventory.command.argv)!==JSON.stringify(RELEASE_UNIT_LIST_COMMAND))throw new Error('missing or filtered independent unit inventory command');
-  for(const artifact of [...evidence.commands.map(({log})=>log),evidence.unitInventory.command.log,evidence.unitInventory.artifact,evidence.unitReport])if(releaseArtifactHash(root,artifact.path)!==artifact.sha256)throw new Error(`changed final machine evidence bytes ${artifact.path}`);
-  const inventory=JSON.parse(readFileSync(join(root,evidence.unitInventory.artifact.path),'utf8')) as UnitInventory;
-  const report=JSON.parse(readFileSync(join(root,evidence.unitReport.path),'utf8')) as UnitJson;
+  if(evidence.unitInventory.command.name!=='unit-inventory'||evidence.unitInventory.command.exitCode!==0||JSON.stringify(evidence.unitInventory.command.argv)!==JSON.stringify(RELEASE_UNIT_LIST_COMMAND))throw new Error('missing or filtered independent unit inventory command');
+  const context=(command:ReleaseMachineEvidence['commands'][number])=>({sourceFingerprint:build.sourceAfter,exportFingerprint:build.exportFingerprint,producer:{name:command.name,argv:command.argv,exitCode:command.exitCode}});
+  for(const command of [...evidence.commands,evidence.unitInventory.command])readPublicEvidence(root,command.log,'command-log',context(command));
+  const inventory=JSON.parse(readPublicEvidence(root,evidence.unitInventory.artifact,'vitest-inventory',context(evidence.unitInventory.command)).toString('utf8')) as UnitInventory;
+  const report=JSON.parse(readPublicEvidence(root,evidence.unitReport,'vitest-report',context(evidence.commands.find(command=>command.name==='test')!)).toString('utf8')) as UnitJson;
   const nonExecutions=releaseUnitNonExecutions(root);const failures=unitReportProblems(inventory,report,nonExecutions);if(inventory.length!==evidence.unitCount||report.numPassedTests!==evidence.unitPassedCount)failures.push('unit count differs');
   if(JSON.stringify(evidence.unitNonExecutions)!==JSON.stringify(nonExecutions))failures.push('unit non-execution scope differs from current source derivation');
   if(failures.length)throw new Error(failures.join('\n'));return evidence;

@@ -107,8 +107,8 @@ describe('arm plotting table model', () => {
   });
 
   it('reads the pose in plain words', () => {
-    expect(readoutFor([...DEFAULT_ANGLES_DEG])).toBe('Shoulder 110 degrees · hand 0.45 right, 1.89 out');
-    expect(readoutFor([150, -45, -35])).toMatch(/^Shoulder 150 degrees · hand \d\.\d\d left, \d\.\d\d out$/);
+    expect(readoutFor([...DEFAULT_ANGLES_DEG])).toBe('Shoulder 110 degrees · hand 0.45 right, 1.89 out from the shoulder, in upper-arm lengths');
+    expect(readoutFor([150, -45, -35])).toMatch(/^Shoulder 150 degrees · hand \d\.\d\d left, \d\.\d\d out from the shoulder, in upper-arm lengths$/);
     for (const angles of [[...DEFAULT_ANGLES_DEG], [0, 180, 0], [180, -90, 0]]) {
       expect(symbolHits(readoutFor(angles))).toEqual([]);
     }
@@ -240,7 +240,7 @@ describe('PlanarFkArm', () => {
     const hand = planarForwardKinematics(LINK_LENGTHS, [...DEFAULT_ANGLES_DEG]).effector;
     expect(Number(swing.getAttribute('data-radius'))).toBeCloseTo(Math.hypot(hand.x, hand.y), 3);
     expect(container.querySelector('[data-anatomy-hint]')?.textContent).toBe(
-      'Turn the shoulder: the elbow, wrist and pen ride along',
+      'Faint circles: joints before the turn. Curved line: the pen’s path as shoulder, elbow and wrist swing together',
     );
     expect(container.querySelector('[data-readout]')?.textContent).toBe(readoutFor([...DEFAULT_ANGLES_DEG]));
     // No words in the drawing: the hint, readout and caption carry them.

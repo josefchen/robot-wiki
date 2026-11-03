@@ -457,7 +457,7 @@ export function CompoundingError({
       figureId="compounding-error"
       className={className}
       kicker="Compounding error"
-      heading="Small mistakes snowball: twice the task, four times the drift"
+      heading={`Twice the task: ${timesWords(ratio)} off course`}
       controls={
         <>
           <PresetGroup<TaskPreset>
@@ -491,7 +491,7 @@ export function CompoundingError({
             data-testid="ce-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {running ? 'Stop the bench' : 'Run the bench'}
+            {running ? 'Stop' : 'Play the run'}
           </button>
         </>
       }
@@ -559,14 +559,14 @@ export function CompoundingError({
             <>
               <LiveReadoutText ref={phaseRef} data-ce-phase="" />
               {steps} moves · drift <span data-testid="accumulated-deviation-readout">{readoutUnits(rollout.cost)}</span>{' '}
-              units · the first {half} moves drift{' '}
+              toy units · the first {half} moves drift{' '}
               <span data-testid="half-deviation-readout">{readoutUnits(rollout.halfCost)}</span>
             </>
           }
           status={
             dagger
-              ? `The groove is the path a person showed it; the teacher winds the slide back every ${DAGGER_INTERVAL} moves. A toy model.`
-              : 'The groove is the path a person showed it; the ink is the robot. A toy model, not a measured robot.'
+              ? `Groove: demonstrated path. The teacher corrects every ${DAGGER_INTERVAL} moves. Toy units have no assigned physical distance.`
+              : 'Groove: demonstrated path. Ink: robot path. Toy units have no assigned physical distance.'
           }
           data-testid="ce-stage-frame"
         >
@@ -584,7 +584,7 @@ export function CompoundingError({
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="A robot that copies an expert makes tiny slips; each slip pushes it somewhere unfamiliar, so mistakes pile up faster than the task grows."
+      caption={`Copying an expert for twice as long leaves the robot ${timesWords(ratio)} off course as its small slips accumulate.`}
       method={
         <>
           <p>
@@ -627,7 +627,7 @@ export function CompoundingError({
             <span data-testid="final-deviation-readout">{formatUnits(rollout.finalDeviation)}</span>
             . Neither curve bounds this trace.
           </p>
-          <PlotStage
+          <div data-inset-plot><PlotStage
             viewBox={`0 0 ${WIDTH} ${BOUNDS_H}`}
             aria-label="Accumulated toy deviation and illustrative reference curves over the episode horizon on a logarithmic deviation axis; neither dashed curve is a bound on the solid trace."
             aria-describedby={`${uid}-bounds-description`}
@@ -689,7 +689,7 @@ export function CompoundingError({
                 strokeWidth={CHART_STROKE.trace}
               />
             </g>
-          </PlotStage>
+          </PlotStage></div>
           <ChartDescription
             id={`${uid}-bounds-description`}
             form="table"
@@ -705,7 +705,7 @@ export function CompoundingError({
           />
         </>
       }
-      source="Original deterministic toy; reference curves after Ross, Gordon and Bagnell (2011)."
+      source="Illustrative model: the same settings repeat the same drift; reference curves after Ross, Gordon and Bagnell (2011)."
     />
   );
 }

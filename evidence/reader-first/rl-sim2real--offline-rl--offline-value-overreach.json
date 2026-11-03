@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/rl-sim2real/offline-rl/",
+  "mount": "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1",
+  "screenshots": {
+    "375": "evidence/reader-first/rl-sim2real--offline-rl--offline-value-overreach.375.png",
+    "1280": "evidence/reader-first/rl-sim2real--offline-rl--offline-value-overreach.1280.png"
+  },
+  "takeaway": "A robot that learns only from old records overrates actions it never tried, unless it is made cautious about them.",
+  "sentence": "A robot trained from recorded attempts can expect an untried grip to work much better than it really does unless it is cautious about unfamiliar actions.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both say that learning from recordings can overrate untried actions unless caution is applied.",
+  "verdict": "pass",
+  "screenshotCommit": "e9abd96b936d238ffce88e1ba58e16400e2bb7a2",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0004",
+  "sourceDigest": "43826bc34be7af37fd6820a29fae35a8c7915e799e474e407fdde6609a408d94",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

@@ -28,7 +28,7 @@ import { MOTION_STAGE } from '@/lib/motion-tokens';
 type MaterialId = 'robot' | 'linkage' | 'cloth' | 'continuum';
 export const MATERIALS: readonly (Preset<MaterialId> & { name: string; solver: readonly string[]; handles: string })[] = [
   { id: 'robot', label: 'Robot arms and legs', name: 'robot', solver: ['MuJoCo', 'Warp'], handles: "jointed robots in generalized coordinates, as Newton's primary backend" },
-  { id: 'linkage', label: 'Closed-chain linkages', name: 'linkage', solver: ['Kamino'], handles: 'closed-chain mechanisms, credited to Disney Research' },
+  { id: 'linkage', label: 'Parts joined in a loop', name: 'linkage', solver: ['Kamino'], handles: 'closed-chain mechanisms, credited to Disney Research' },
   { id: 'cloth', label: 'Cloth and cables', name: 'cloth', solver: ['VBD'], handles: 'rigid bodies, particles, cloth and soft bodies; the cable solver coupled to MuJoCo Warp' },
   { id: 'continuum', label: 'Sand-like materials', name: 'sand', solver: ['implicit', 'MPM'], handles: 'particle-based continuum materials' },
 ];
@@ -119,10 +119,10 @@ export function NewtonSolvers({ className }: { className?: string }) {
       figureId="newton-solvers"
       className={className}
       kicker="Multi-solver physics"
-      heading="One physics library, one solver per material"
+      heading="One simulation toolkit, specialist programs for each material"
       controls={<PresetGroup label="What is being simulated" presets={MATERIALS} value={materialId} onChange={setMaterialId} testId="newton-material" />}
       stage={
-        <FigureStage footer={<StageStatus>Schematic; four of eight solvers</StageStatus>}>
+        <FigureStage footer={<StageStatus>Solvers calculate motion. VBD (vertex block descent) adjusts cloth points in turns. MPM (material point method) moves particles on a grid; “implicit” solves them together. Four of eight programs, schematically.</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Four materials above four solvers, joined through one Newton interface: ${material.label.toLowerCase()} go to ${solverName(material)}.`}
@@ -189,7 +189,7 @@ export function NewtonSolvers({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="Newton routes each material to its own solver, such as MuJoCo Warp for robot joints."
+      caption="Newton is one software toolkit that sends robot joints, linked parts, cloth and sand to programs suited to their motion."
       method={
         <>
           <div>

@@ -1,3 +1,4 @@
+import type { ReleaseStateReference } from '../../lib/brand-v2-release-state-store';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -37,10 +38,14 @@ import {
   type MarketMapView,
 } from '../../lib/brand-v2-market-map-states';
 import { expect, test } from './brand-v2-static-fixture';
-import { RELEASE_PROFILES, releaseMapShard, type ReleaseState } from '../../lib/brand-v2-release-evidence';
-import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
+import { RELEASE_PROFILES, releaseMapShard, mapReleaseStateIds, } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, captureReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
+import { readReleaseBuildStamp } from '../../lib/brand-v2-release-build';
+import { releaseMapKeyboardCaseIds, validateReleaseMapKeyboard, mapKeyboardRecordFailures, type ReleaseMapKeyboardArtifact } from '../../lib/brand-v2-release-map-keyboard';
 
 const ROOT = process.cwd();
+const finalKeyboardSteps=new Map<string,string[]>();
+const finalKeyboardRecords=new Map<string,ReleaseMapKeyboardArtifact['records'][number]>();
 
 function segment(page: Page, name: RegExp) {
   return page.getByRole('group', { name: 'Segment' }).getByRole('button', { name });
@@ -523,7 +528,7 @@ function installMarketMapProbe(config: ProbeConfig) {
       const index = timelineHits().indexOf(hit);
       return index === -1 ? null : (timelineRows()[index]?.getAttribute('data-timeline-id') ?? null);
     },
-    async focusLabel(companyId: string) {
+    async focusLabel(companyId: string,keepFocus=false) {
       const mark = document.querySelector<SVGElement>(
         `circle[data-company-id="${CSS.escape(companyId)}"]`,
       );
@@ -531,8 +536,7 @@ function installMarketMapProbe(config: ProbeConfig) {
       mark.focus({ preventScroll: true });
       await probe.waitForLabel('bubble', true);
       const lines = probe.labelLines('bubble');
-      mark.blur();
-      await probe.waitForLabel('bubble', false);
+      if(!keepFocus){mark.blur();await probe.waitForLabel('bubble', false);}
       return lines;
     },
     timelineRow(eventId: string) {
@@ -566,10 +570,11 @@ function installMarketMapProbe(config: ProbeConfig) {
     },
     startCountLedger() {
       const node = countNode();
+      const alreadyObserved=node!==null&&node===state.countNode;
       state.countNode = node;
       state.countRecords = [];
       if (!node) return null;
-      new MutationObserver((records) => {
+      if(!alreadyObserved)new MutationObserver((records) => {
         const at = performance.now();
         for (let index = 0; index < records.length; index += 1) {
           state.countRecords.push({ at, text: clean(node) });
@@ -596,6 +601,7 @@ function installMarketMapProbe(config: ProbeConfig) {
       const view = snapshot();
       return {
         mutations: records.length,
+        announcements:records.map(({text})=>text),
         latencyMs: first && before.length > 0 ? round(first.at - Math.max(...before)) : null,
         inKeyTask: first
           ? keyTasks.some((task) => task.at <= first.at && first.at <= task.end)
@@ -782,6 +788,7 @@ async function runFilterCase(
   page: Page,
   stateCase: MarketMapCase,
   context: { docToken: string; requests: SeenRequest[] },
+  keyboardReplay=false,
 ): Promise<{ observation: Extract<MarketMapCaseObservation, { kind: 'filter' }>; missing: string[] }> {
   const before = context.requests.length;
   const actions = caseActions(stateCase);
@@ -811,7 +818,69 @@ async function runFilterCase(
       (window as unknown as ProbeWindow).__marketMapProbe.subSegmentOptions(),
     );
   }
+  if(keyboardReplay){
+    const replay=await runKeyboardActions(page,[['clear',''],...actions],stateCase.id);
+    const keyboard=filterObservation(replay.snapshot,{reloaded:replay.snapshot.docToken!==context.docToken,requests:context.requests.slice(before).map(({line})=>line),latencyMs:observation.latencyMs,latencySamplesMs:observation.latencySamplesMs,lateSteps:observation.lateSteps});
+    for(const field of ['view','params','countText','renderedIds','segmentTabCounts','bandCounts','emptyState'] as const)expect(keyboard[field],`${stateCase.id}: keyboard/pointer ${field}`).toEqual(observation[field]);
+    finalKeyboardSteps.set(stateCase.id,replay.steps);
+  }
   return { observation, missing: result.missing };
+}
+
+/** Actual key input independently replays the canonical filter action list.
+ * No value assignment, synthetic input/change or DOM .click grants keyboard
+ * proof. The existing in-page sweep remains the independent timing oracle. */
+async function runKeyboardActions(page:Page,actions:readonly Action[],caseId:string){
+  const steps:string[]=[];
+  const region=await page.evaluate(()=>(window as unknown as ProbeWindow).__marketMapProbe.startCountLedger());
+  const startFocus=await page.evaluate(()=>(window as unknown as ProbeWindow).__marketMapProbe.describe(document.activeElement));
+  const records:ReleaseMapKeyboardArtifact['records'][number]['steps']=[];const announcements:string[]=[];let sameNode=true;
+  const observe=async(step:string,keys:string[])=>{
+    const read=await page.evaluate(()=>(window as unknown as ProbeWindow).__marketMapProbe.endLedgerStep());sameNode&&=read.sameNode;announcements.push(...read.announcements);
+    const filters=Object.fromEntries(Object.entries(read.params).filter(([key])=>key!=='view').map(([key,value])=>[key==='q'?'query':key,value])) as MarketMapFilters;
+    records.push({step,keys,focusAfter:read.focusAfter,expectedText:expectedCountText(filters),text:read.text,mutations:read.mutations,latencyMs:read.latencyMs,inKeyTask:read.inKeyTask,params:read.params,state:read.state});
+  };
+  const key=async(step:string,value:string,type=false)=>{
+    await page.evaluate(()=>(window as unknown as ProbeWindow).__marketMapProbe.beginLedgerStep());
+    if(type)await page.keyboard.type(value);else await page.keyboard.press(value);
+    await observe(step,[value]);
+  };
+  for(const [control,value] of actions){
+    if(control==='clear'){
+      const button=page.locator('[data-result-count]').locator('..').getByRole('button',{name:'Clear filters',exact:true});
+      if(await button.count()&&await button.isEnabled()){await button.focus();await key('clear-filters','Enter');steps.push('keyboard Enter: Clear filters');}
+      else steps.push('Clear filters already disabled in the measured unfiltered state');
+    }else if(control==='view'||control==='segment'){
+      const label=control==='view'?value[0].toUpperCase()+value.slice(1):value==='all'?'All':SEGMENT_LABELS[value as keyof typeof SEGMENT_LABELS];
+      if(!label)throw new Error(`No visible keyboard label for ${control}=${value}`);
+      const button=page.getByRole('group',{name:control==='view'?'View':'Segment',exact:true}).getByRole('button',{name:control==='view'?label:new RegExp('^'+label.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?:\\s|$)')});
+      await button.focus();
+      await key(`${control}=${value}`,'Enter');steps.push(`keyboard Enter: ${control}=${value}`);
+    }else if(control==='query'){
+      const input=page.locator('[data-market-map-search]');await input.focus();await key('query-select-all','ControlOrMeta+A');
+      if(value){for(const character of value)await key(`query-type-${character}`,character,true);}else await key('query-clear','Backspace');
+      steps.push(`keyboard query: ${value}`);
+    }else{
+      const id=MARKET_MAP_DIMENSION_CONTROLS[control as keyof typeof MARKET_MAP_DIMENSION_CONTROLS]?.selectId;
+      if(!id)throw new Error(`Missing keyboard select ${control}`);
+      const select=page.locator('#'+id);
+      if(!await select.isVisible()){
+        const more=page.getByRole('button',{name:/More filters/i});await more.focus();await key('open-more-filters','Enter');steps.push('keyboard Enter: More filters');
+      }
+      const values=await select.locator('option').evaluateAll((nodes)=>nodes.map((node)=>(node as HTMLOptionElement).value));
+      const index=values.indexOf(value);if(index<0)throw new Error(`No keyboard option ${control}=${value}`);
+      await select.focus();const fromStart=index<=values.length-1-index;
+      await key(`${control}-initial-option`,fromStart?'Home':'End');
+      for(let count=0;count<(fromStart?index:values.length-1-index);count++)await key(`${control}-option-${count+1}`,fromStart?'ArrowDown':'ArrowUp');
+      await expect(select).toHaveValue(value);steps.push(`keyboard ${fromStart?'Home':'End'} and ${fromStart?index:values.length-1-index} arrows: ${control}=${value}`);
+    }
+    await page.evaluate(()=>(window as unknown as ProbeWindow).__marketMapProbe.settle());
+  }
+  if(!records.length){
+    await page.evaluate(()=>(window as unknown as ProbeWindow).__marketMapProbe.beginLedgerStep());await observe('initial-render-no-keyboard-input',[]);
+  }
+  finalKeyboardRecords.set(caseId,{caseId,region:{role:region?.role??null,ariaLive:region?.ariaLive??null,ariaAtomic:region?.ariaAtomic??null,sameNodeThroughout:sameNode},startFocus,steps:records,announcements});
+  return {snapshot:await snapshotOf(page),steps};
 }
 
 async function axeViolations(page: Page): Promise<string[]> {
@@ -846,6 +915,7 @@ async function runSelectionCase(
   stateCase: MarketMapCase,
   docToken: string,
   whileOpen?: () => Promise<void>,
+  afterDismiss?:()=>Promise<void>,
 ): Promise<Extract<MarketMapCaseObservation, { kind: 'selection' }>> {
   const view = stateCase.view as MarketMapView;
   const id = stateCase.companyId as string;
@@ -877,7 +947,8 @@ async function runSelectionCase(
   if (whileOpen) await whileOpen();
   let dismissed: Snapshot | null = null;
   if (stateCase.dismissal === 'close') {
-    await page.locator('[role="dialog"] button[aria-label^="Close "]').click();
+    const close=page.locator('[role="dialog"] button[aria-label^="Close "]');
+    if(FINAL_RELEASE_PROFILES){await close.focus();await page.keyboard.press('Enter');}else await close.click();
   } else if (stateCase.dismissal === 'escape') {
     await page.keyboard.press('Escape');
   } else if (stateCase.dismissal === 'back') {
@@ -886,6 +957,7 @@ async function runSelectionCase(
   if (stateCase.dismissal) {
     await waitForSheet(page, null);
     dismissed = await snapshotOf(page);
+    await afterDismiss?.();
   }
   const observation: Extract<MarketMapCaseObservation, { kind: 'selection' }> = {
     kind: 'selection',
@@ -991,6 +1063,7 @@ async function runHistoryCase(
 async function runTooltipCase(
   page: Page,
   stateCase: MarketMapCase,
+  observe?:(phase:'hover'|'keyboard-equivalent',maintain?:()=>Promise<void>)=>Promise<void>,
 ): Promise<Extract<MarketMapCaseObservation, { kind: 'tooltip' }>> {
   const view = stateCase.view as 'bubble' | 'timeline';
   const markId = (view === 'timeline' ? stateCase.eventId : stateCase.companyId) as string;
@@ -1024,6 +1097,16 @@ async function runTooltipCase(
     },
     { view, x: centre.x, y: centre.y },
   );
+  await observe?.('hover',async()=>{
+    const centre=await page.evaluate(({view,markId})=>(window as unknown as ProbeWindow).__marketMapProbe.markCentre(view,markId),{view,markId});
+    if(!centre)throw new Error(`${stateCase.id}: hovered mark disappeared during profile measurement`);
+    await page.mouse.move(centre.x,centre.y);
+    const seen=await page.evaluate(async({view,x,y})=>{
+      const probe=(window as unknown as ProbeWindow).__marketMapProbe;await probe.waitForLabel(view,true);
+      return {id:probe.hitAt(view,x,y),lines:probe.labelLines(view)??[]};
+    },{view,x:centre.x,y:centre.y});
+    expect(seen.id).toBe(markId);expect(seen.lines).toEqual(hover.lines);
+  });
   await page.mouse.move(2, 2);
   const after = await page.evaluate(
     async ({ view: target, hitId }) => {
@@ -1031,11 +1114,14 @@ async function runTooltipCase(
       const cleared = await probe.waitForLabel(target, false);
       if (hitId === null) return { cleared, focusLabel: null, row: null };
       return target === 'bubble'
-        ? { cleared, focusLabel: await probe.focusLabel(hitId), row: null }
+        ? { cleared, focusLabel: await probe.focusLabel(hitId,true), row: null }
         : { cleared, focusLabel: null, row: probe.timelineRow(hitId) };
     },
     { view, hitId: hover.hitId },
   );
+  if(view==='timeline')await page.locator(`li[data-timeline-id="${stateCase.eventId}"] > button`).focus();
+  await observe?.('keyboard-equivalent');
+  await page.evaluate(async(view)=>{const probe=(window as unknown as ProbeWindow).__marketMapProbe;probe.blur();if(view==='bubble')await probe.waitForLabel(view,false);},view);
   return {
     ...observation,
     hitId: hover.hitId,
@@ -1207,6 +1293,39 @@ async function preparePage(page: Page) {
 
 const PER_CASE_LOADS = new Set(['default-reset', 'url-history', 'focus-keyboard']);
 
+test('final map keyboard replay records actual native actions and count announcements',async({page,staticBase})=>{
+  test.setTimeout(120_000);await preparePage(page);const plan=marketMapStatePlan();
+  const subjects=[
+    plan.cases.find((c)=>c.group==='views'&&c.view==='bubble'),
+    plan.cases.find((c)=>c.group==='single-options'&&Boolean(c.filters?.country)),
+    plan.cases.find((c)=>c.group==='dependent-options'),
+    plan.cases.find((c)=>c.group==='states'&&c.kind!=='exception'),
+  ];
+  expect(subjects.every(Boolean)).toBe(true);
+  for(const subject of subjects){
+    const loaded=await openMap(page,mapUrl(staticBase,{}));
+    await runFilterCase(page,subject!,{docToken:loaded.docToken,requests:[]},true);
+    const observed=finalKeyboardRecords.get(subject!.id)!;
+    expect(observed.steps.some(({keys})=>keys.length>0)).toBe(true);
+    expect(mapKeyboardRecordFailures(observed,plan),subject!.id).toEqual([]);
+  }
+});
+
+test('final map observers run while sheets and hover facts are still present',async({page,staticBase})=>{
+  test.setTimeout(90_000);await preparePage(page);const plan=marketMapStatePlan();
+  const selected=plan.cases.find((c)=>c.group==='selection'&&c.view==='bubble'&&!c.dismissal)!;
+  const loaded=await openMap(page,mapUrl(staticBase,{}));const phases:string[]=[];
+  await runSelectionCase(page,selected,loaded.docToken,async()=>{await expect(page.locator('[data-company-detail]')).toBeVisible();phases.push('opened');});
+  await expect(page.locator('[data-company-detail]')).toHaveCount(0);expect(phases).toEqual(['opened']);
+  const tooltip=plan.cases.find((c)=>c.group==='tooltip-parity'&&c.view==='bubble')!;
+  await runTooltipCase(page,tooltip,async(phase,maintain)=>{
+    await maintain?.();
+    const lines=await page.evaluate(()=>(window as unknown as ProbeWindow).__marketMapProbe.labelLines('bubble'));
+    expect(lines?.length).toBeGreaterThan(0);phases.push(phase);
+  });
+  expect(phases).toEqual(['opened','hover','keyboard-equivalent']);
+});
+
 test.describe('brand-v2 market map states sweep', () => {
   test('measures every registered market-map case and persists the artifact', async ({
     page,
@@ -1215,16 +1334,18 @@ test.describe('brand-v2 market map states sweep', () => {
     // ~3,100 cases, nearly all one in-page round trip each.
     test.setTimeout(FINAL_RELEASE_PROFILES ? 1_200_000 * RELEASE_PROFILES.length : Math.max(1_200_000, marketMapStatePlan().cases.length * 1_000));
     await preparePage(page);
+    const frozen=FINAL_RELEASE_PROFILES?readReleaseBuildStamp(ROOT):null;
+    finalKeyboardSteps.clear();finalKeyboardRecords.clear();
     const requests = trackRequests(page);
     const plan = marketMapStatePlan();
-    const releaseShard = releaseMapShard(process.env.ROBOT_WIKI_RELEASE_MAP_SHARD, plan.cases.filter(({ kind }) => kind !== 'exception').map(({ id }) => `map:${id}`));
+    const releaseShard = releaseMapShard(process.env.ROBOT_WIKI_RELEASE_MAP_SHARD, mapReleaseStateIds(plan.cases));
     const releaseStateIds = new Set(releaseShard.stateIds);
     // The real selected-state pilot measured ~12s for all profiles. Budget
     // 30s per profiled case plus the semantic sweep; each shard still checks
     // its exact state list and can never pass by timing out or omitting work.
     if (FINAL_RELEASE_PROFILES) test.setTimeout(1_200_000 + releaseShard.stateIds.length * 30_000);
     const records: MarketMapCaseRecord[] = [];
-    const releaseCases: ReleaseState[] = [];
+    const releaseCases: ReleaseStateReference[] = [];
     const axe: MarketMapStatesEvidence['axe'] = [];
     const missingControls: string[] = [];
     const axeCases = new Set<string>(MARKET_MAP_AXE_CASES);
@@ -1244,6 +1365,9 @@ test.describe('brand-v2 market map states sweep', () => {
         }
       }
       let observed: MarketMapCaseObservation;
+      const profile=async(id:string,steps:string[],maintain?:()=>Promise<void>)=>{
+        if(FINAL_RELEASE_PROFILES&&releaseStateIds.has(id))releaseCases.push(await captureReleaseState(page,{id,route:MARKET_MAP_ROUTE,state:id,steps},maintain));
+      };
       if (stateCase.kind === 'exception') {
         // Completed after the sweep, from every request the map made.
         observed = {
@@ -1268,6 +1392,7 @@ test.describe('brand-v2 market map states sweep', () => {
           }),
           renderedOptions,
         };
+        if(FINAL_RELEASE_PROFILES&&releaseStateIds.has(`map:${stateCase.id}`))await runKeyboardActions(page,[],stateCase.id);
       } else if (stateCase.id === 'reset') {
         const dirty = plan.cases.find(({ group: candidate }) => candidate === 'higher-order');
         const dirtyActions = dirty ? filterActions(dirty) : [];
@@ -1293,12 +1418,18 @@ test.describe('brand-v2 market map states sweep', () => {
           }),
           focusAfterReset: cleared.snapshot.focus,
         };
+        if(FINAL_RELEASE_PROFILES&&releaseStateIds.has(`map:${stateCase.id}`)){
+          const replay=await runKeyboardActions(page,[...dirtyActions,['clear','']],stateCase.id);
+          expect(replay.snapshot.countText).toBe(cleared.snapshot.countText);expect(replay.snapshot.params).toEqual(cleared.snapshot.params);
+          observed.focusAfterReset=replay.snapshot.focus;finalKeyboardSteps.set(stateCase.id,replay.steps);
+        }
       } else if (stateCase.group === 'selection') {
         observed = await runSelectionCase(
           page,
           stateCase,
           docToken,
-          axeCases.has(stateCase.id) ? () => runAxe(stateCase.id) : undefined,
+          async()=>{if(axeCases.has(stateCase.id))await runAxe(stateCase.id);await profile(`map:${stateCase.id}:opened`,[`execute ${stateCase.id}`,stateCase.dismissal?'pointer opens company for dismissal parity':'keyboard Enter opens company','observe open company detail']);},
+          ()=>profile(`map:${stateCase.id}:dismissed`,[`execute ${stateCase.id}`,`dismiss company via ${stateCase.dismissal}`,'observe dismissed detail and restored focus']),
         );
       } else if (stateCase.group === 'url-history') {
         observed = await runHistoryCase(page, staticBase, stateCase);
@@ -1312,7 +1443,7 @@ test.describe('brand-v2 market map states sweep', () => {
           );
           tooltipView = stateCase.view ?? null;
         }
-        observed = await runTooltipCase(page, stateCase);
+        observed = await runTooltipCase(page,stateCase,(phase,maintain)=>profile(`map:${stateCase.id}:${phase}`,[`execute ${stateCase.id}`,phase==='hover'?'actual pointer hover':'actual focused chart mark or equivalent timeline row','observe visible fact text'],maintain));
       } else if (stateCase.id === 'focus:each-filter-bar-control') {
         observed = await runFocusTrace(
           page,
@@ -1327,15 +1458,15 @@ test.describe('brand-v2 market map states sweep', () => {
           testInfo.outputPath('market-map-keyboard-ledger.png'),
         );
       } else {
-        const result = await runFilterCase(page, stateCase, { docToken, requests });
+        const result = await runFilterCase(page, stateCase, { docToken, requests },FINAL_RELEASE_PROFILES&&releaseStateIds.has(`map:${stateCase.id}`));
         observed = result.observation;
         missingControls.push(...result.missing.map((entry) => `${stateCase.id}: ${entry}`));
       }
       records.push({ id: stateCase.id, group: stateCase.group, observed });
-      if (FINAL_RELEASE_PROFILES && stateCase.kind !== 'exception' && releaseStateIds.has(`map:${stateCase.id}`)) {
-        releaseCases.push(await probeReleaseState(page, {
+      if (FINAL_RELEASE_PROFILES && stateCase.kind !== 'exception' && !['selection','tooltip-parity'].includes(stateCase.group) && releaseStateIds.has(`map:${stateCase.id}`)) {
+        releaseCases.push(await captureReleaseState(page, {
           id: `map:${stateCase.id}`, route: MARKET_MAP_ROUTE, state: stateCase.id,
-          steps: [`execute ${stateCase.group} ${stateCase.kind}`, `observe ${observed.kind} from live controls`, 'read source-derived expected state'],
+          steps: [`execute ${stateCase.group} ${stateCase.kind}`,...(finalKeyboardSteps.get(stateCase.id)??[]), `observe ${observed.kind} from live controls`, 'read source-derived expected state'],
         }));
       }
       if (axeCases.has(stateCase.id) && stateCase.group !== 'selection') {
@@ -1381,6 +1512,17 @@ test.describe('brand-v2 market map states sweep', () => {
       failures,
       [...missingControls, ...failures].slice(0, 40).join('\n'),
     ).toEqual([]);
+    if(FINAL_RELEASE_PROFILES){
+      const current=readReleaseBuildStamp(ROOT);if(!frozen||current.sourceAfter!==frozen.sourceAfter||current.exportFingerprint!==frozen.exportFingerprint)throw new Error('map keyboard sweep source/export changed');
+      const caseIds=releaseMapKeyboardCaseIds(plan).filter((id)=>releaseStateIds.has(`map:${id}`));
+      const keyboard:ReleaseMapKeyboardArtifact={version:1,sourceFingerprint:frozen.sourceAfter,exportFingerprint:frozen.exportFingerprint,caseIds,records:caseIds.map((id)=>{const row=finalKeyboardRecords.get(id);if(!row)throw new Error(`missing actual keyboard case ${id}`);return row;})};
+      validateReleaseMapKeyboard(keyboard,{source:frozen.sourceAfter,exported:frozen.exportFingerprint,caseIds});
+      const keyboardFailures=keyboard.records.flatMap((row)=>mapKeyboardRecordFailures(row,plan).map((failure)=>`${row.caseId}: ${failure}`));
+      const suffix=releaseShard.group==='market-map'?'':releaseShard.group.replace('market-map','');
+      const path=join(ROOT,'evidence/brand-v2/release',`map-keyboard${suffix}${keyboardFailures.length?'.failed':''}.json`);
+      mkdirSync(dirname(path),{recursive:true});writeFileSync(path,JSON.stringify(keyboard,null,2)+'\n');
+      expect(keyboardFailures,keyboardFailures.slice(0,40).join('\n')).toEqual([]);
+    }
     const counts = marketMapGroupCaseCounts(plan);
     for (const verdict of verdicts) {
       const groupId = verdict.observed.group as keyof typeof counts;

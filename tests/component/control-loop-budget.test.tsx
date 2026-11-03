@@ -31,16 +31,20 @@ describe('ControlLoopBudget', () => {
   it('leads with the takeaway, two computer presets and the beats', () => {
     const { container } = render(<ControlLoopBudget />);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      "The robot's brain thinks slower than the arm needs",
+      "Choosing a move takes 2.6 times the available time",
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Control-loop budget');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'the arm either waits or keeps going on stale orders',
+      "This computer takes 2.6 command intervals to choose a move; the arm must wait or reuse old orders.",
     );
     expect(screen.getByRole('button', { name: "Robot's own computer" })).toHaveAttribute(
       'aria-pressed',
       'true',
     );
+    expect(screen.getByTestId('control-time-comparison')).toHaveTextContent('Choosing a move takes 52.6 milliseconds; the arm has 20 milliseconds between commands. That is 2.6 times the available time.');
+    const timingBasis = screen.getByText(/Computer timings are predictions from VLA-Perf, a robot timing study/);
+    expect(timingBasis.closest('details')).toBeNull();
+    expect(timingBasis).toHaveTextContent('values for other model sizes are illustrative.');
     // 52.57 ms against 20 ms beats: the beats at 20 and 40 ms pass with no command.
     expect(container.querySelectorAll('[data-clb-beat="missed"]')).toHaveLength(2);
     expect(container.querySelectorAll('[data-clb-beat]')).toHaveLength(9);
@@ -57,6 +61,7 @@ describe('ControlLoopBudget', () => {
     await user.click(screen.getByRole('button', { name: 'Data-centre computer' }));
     expect(container.querySelectorAll('[data-clb-beat="missed"]')).toHaveLength(0);
     expect(verdict()).toHaveTextContent('closes at 50 Hz');
+    expect(screen.getByTestId('control-time-comparison')).toHaveTextContent('Choosing a move takes 6.2 milliseconds; the arm has 20 milliseconds between commands. That is 0.3 times the available time.');
     expect(screen.getByTestId('hz-readout')).toHaveTextContent('163 Hz');
     expect(container.querySelector('[data-figure-annotation]')?.textContent).toContain(
       'answers before',
@@ -86,6 +91,7 @@ describe('ControlLoopBudget', () => {
     render(<ControlLoopBudget />);
     fireEvent.change(slider(), { target: { value: '9.1' } });
     expect(screen.getByTestId('latency-readout')).toHaveTextContent('256.4 ms');
+    expect(screen.getByTestId('control-time-comparison')).toHaveTextContent('That is 12.8 times the available time.');
     expect(verdict()).toHaveTextContent(/does not close/i);
     expect(screen.getByTestId('missed-readout')).toHaveTextContent('12');
   });

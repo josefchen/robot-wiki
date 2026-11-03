@@ -513,6 +513,17 @@ article > hr {
   transform: none;
 }
 
+/* A focused bubble keeps its label in either input mode. Its custom ring
+   follows the browser's keyboard-focus state, including an arrow key on
+   an already pointer-focused mark that has no neighbour to move to. */
+[data-bubble-plot] [data-focus-ring] {
+  display: none;
+}
+
+[data-bubble-plot]:has([data-company-id]:focus-visible) [data-focus-ring] {
+  display: inline;
+}
+
 /*
  * The article sheet (Pantheon research page). One 960px reading column,
  * centred. From 1200px the sheet is a three-column grid: a sticky table of
@@ -786,6 +797,7 @@ article > hr {
   color: var(--ink);
   font-family: var(--font-display);
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .prose h1 {
@@ -1195,6 +1207,33 @@ article > hr {
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 359px) {
+  .prose [data-rehype-pretty-code-figure]:has(> [data-rehype-pretty-code-title]) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prose [data-rehype-pretty-code-figure] > [data-rehype-pretty-code-title] {
+    padding-inline: 16px;
+    order: 0;
+  }
+
+  .prose [data-rehype-pretty-code-figure]:has(> [data-rehype-pretty-code-title]) > [data-code-copy] {
+    position: static;
+    order: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 4px 16px 8px;
+    border-inline: 1px solid var(--line);
+    background: var(--paper-deep);
+  }
+
+  .prose [data-rehype-pretty-code-figure]:has(> [data-rehype-pretty-code-title]) > pre {
+    order: 2;
+  }
 }
 
 .prose [data-rehype-pretty-code-title] + figure pre,
@@ -1420,6 +1459,15 @@ span[data-thesis-source-placement] {
  * @layer base would lose to them.
  */
 @media (forced-colors: active) {
+  /* Filled foreground marks need the same system ink as their strokes. */
+  [data-figure-stage] {
+    --role-state-stage: CanvasText;
+    --role-measurement-stage: CanvasText;
+    --role-action-stage: CanvasText;
+    --role-value-stage: CanvasText;
+    --role-constraint-stage: CanvasText;
+  }
+
   [data-figure-stage],
   [data-figure-stage] * {
     background-color: Canvas;
@@ -1432,5 +1480,19 @@ span[data-thesis-source-placement] {
 
   [data-figure-stage] svg text {
     fill: CanvasText;
+  }
+
+  /* High-contrast grid lines must not run through labels or readouts. Keep
+     explicit foreground strokes; ordinary text clears its own background. */
+  [data-figure-stage] svg text:not([stroke]) {
+    stroke: Canvas;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    paint-order: stroke;
+  }
+
+  /* A background halo clears marks behind the glyph; it is not foreground ink. */
+  [data-figure-stage] svg text[stroke="var(--motion-stage)"][paint-order="stroke"] {
+    stroke: Canvas;
   }
 }

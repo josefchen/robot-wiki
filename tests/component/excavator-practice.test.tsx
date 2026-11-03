@@ -15,7 +15,7 @@ const reduceMotion = () =>
 describe('ExcavatorPractice', () => {
   it('draws the still pose: 20 minutes, five guesses ahead of the ink, the dial on 20, no words in the drawing', () => {
     render(<ExcavatorPractice />);
-    expect(screen.getByText('An excavator learned its own arm in 20 minutes')).toBeInTheDocument();
+    expect(screen.getByText('Learning its arm: 20 minutes matches 100–150 minutes’ practice')).toBeInTheDocument();
     const drawing = screen.getByTestId('excavator-drawing');
     expect(drawing).toHaveAttribute('data-minutes', '20');
     expect(drawing).toHaveAttribute('data-s', String(STILL_S));
@@ -60,6 +60,8 @@ describe('ExcavatorPractice', () => {
     expect(three).toHaveAttribute('aria-pressed', 'true');
     const drawing = screen.getByTestId('excavator-drawing');
     expect(drawing).toHaveAttribute('data-minutes', '3');
+    expect(screen.getByText('3 minutes: large misses')).toBeInTheDocument();
+    expect(screen.queryByText('Learning its arm: 20 minutes matches 100–150 minutes’ practice')).toBeNull();
     expect(screen.getByTestId('excavator-stage-frame').querySelector('[data-readout]')).toHaveTextContent('3 minutes · large misses');
     expect(drawing.querySelector('[data-needle]')!.getAttribute('d')).toBe(needleAt(3));
     expect(drawing.querySelector('[data-ink]')!.getAttribute('d')).toBe(boardMarks(practiceOf('three'), STILL_S).ink);
@@ -170,6 +172,6 @@ describe('ExcavatorPractice', () => {
     const html = renderToString(<ExcavatorPractice />);
     expect(html).toContain('data-figure-frame="excavator-practice"');
     expect(html).toContain('20 minutes · matches earlier controllers');
-    expect(html).toContain('Learning a model from its own moves');
+    expect(html).toContain('Learning an arm model from its own moves');
   });
 });

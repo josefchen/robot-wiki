@@ -1,4 +1,5 @@
 import { frameDataSchema } from './brand-v2-release-frame-data.ts';
+import { selectionTransitionSatisfied } from './brand-v2-selection-state.ts';
 import { focusPaintSchema, focusPaintFailures, focusPaintException } from './brand-v2-focus-paint.ts';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -838,6 +839,9 @@ export function interactiveLedgerVerdicts(
       }
       if (!transition.stateExposed) {
         fail('VAL-B2-VIZ-007', `${named(transition.control)} ${transition.keys.join('+')} exposes no state change`);
+      }
+      if (selectionTransitionSatisfied(control?.kind, transition.before.control, transition.after.control) === false) {
+        fail('VAL-B2-VIZ-007', `${named(transition.control)} ${transition.keys.join('+')} has no valid native selection state`);
       }
       if (!transition.returned.restored) {
         fail(

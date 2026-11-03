@@ -11,10 +11,13 @@ import {
 } from '../../lib/audit-parallel-local-continuity';
 import type { LocalCatalog, LocalPlan, LocalProof } from '../../lib/audit-local-basis';
 import { readerFirstPredecessor, readerFirstSuccessorPaths } from '../../lib/audit-reader-first-continuity';
+import { uiRepairPredecessor } from '../../lib/audit-ui-repair-continuity';
 import { RETIRED_LOCAL_BASIS_ARCHIVES, showAt } from './helpers/continuation-merge-ledger';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// This suite replays the October layer; exact later source successors hand it
+// the original inputs while their current bytes are checked by the newer suite.
+const read = (path: string) => uiRepairPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(join(root, path)));
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /parallel local continuity drift/;
 const checkerDrift = /parallel local checker continuity drift/;

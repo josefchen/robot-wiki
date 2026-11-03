@@ -134,9 +134,9 @@ const NOTE_FROM: [number, number] = [36, 133];
 const PLAIN_NAME: Record<RepresentationId, string> = {
   'point-cloud': 'Dots',
   'occupancy-grid': 'Grid of boxes',
-  tsdf: 'Distance map',
-  mesh: 'Triangle skin',
-  'gaussian-splat': 'Soft blobs',
+  tsdf: 'Small boxes: distance to seen surfaces',
+  mesh: 'Surface of triangles',
+  'gaussian-splat': 'Coloured shapes make camera pictures',
 };
 
 /** The slider's current spacing, in the words of the selected store. */
@@ -702,6 +702,9 @@ export function SceneRepresentationLadder({
       <span data-testid="scene-technical-name" className="font-sans text-sm text-text-dim">
         Engineers call this {selected.article} {selected.name}
       </span>
+      <span className="font-sans text-sm leading-snug text-text-dim">
+        Distance option: from each small box to a surface the camera sees, along its line of sight. Picture option: coloured shapes in 3D overlap to draw the room from a chosen camera position.
+      </span>
     </div>
   );
 
@@ -734,7 +737,7 @@ export function SceneRepresentationLadder({
       />
       <SliderEnds low="coarse" high="fine" />
       <span data-testid="scene-detail-note" className="font-sans text-sm text-text">
-        More detail: sharper picture, more storage, same answers.
+        Smaller spacing shows finer detail for the same kinds of questions.
       </span>
     </ControlField>
   );
@@ -757,6 +760,7 @@ export function SceneRepresentationLadder({
             data-testid={`scene-capability-${capability.id}`}
             data-state={graded.state}
             aria-label={`${QUESTION[capability.id]} ${ANSWER_TEXT[graded.state]}`}
+            aria-describedby={capability.id === 'contact-normal' ? `${uid}-surface-direction` : undefined}
             className="grid gap-0.5 border-b border-border py-2 font-sans text-sm leading-snug text-text first:border-t"
           >
             <span>{QUESTION[capability.id]}</span>
@@ -771,6 +775,11 @@ export function SceneRepresentationLadder({
                 {ANSWER_TEXT[graded.state]}
               </span>
             </span>
+            {capability.id === 'contact-normal' ? (
+              <span id={`${uid}-surface-direction`} data-testid="scene-surface-direction" className="text-xs text-text-dim">
+                At a wall or object face: the direction straight out from the surface, for planning contact.
+              </span>
+            ) : null}
           </div>
         );
       })}
@@ -783,9 +792,13 @@ export function SceneRepresentationLadder({
       data-testid="scene-ladder"
       className={className}
       kicker="Scene representations"
-      heading="Each way of storing a room answers different questions"
+      heading="Only storage format changes which questions can be answered"
       controls={
         <>
+          <p data-testid="scene-main-comparison" className="basis-full font-sans text-lg font-medium leading-snug text-text">
+            <span>Only the storage format changes which questions the robot can answer.</span>{' '}
+            Finer detail costs more memory but answers the same questions.
+          </p>
           {selector}
           {resolution}
         </>
@@ -844,14 +857,14 @@ export function SceneRepresentationLadder({
                 data-figure-stage-band="aside"
                 className="grid content-start gap-2 px-3 pb-1 @min-[34rem]:pl-0 @min-[34rem]:pt-3"
               >
-                <span className="font-sans text-sm text-text-dim">What it can answer</span>
+                <span className="font-sans text-sm font-medium text-text">Answers from this storage format</span>
                 {answers}
               </div>
             </div>
           </div>
         </FigureStage>
       }
-      caption="How a robot stores what it sees decides what it can ask: where it may move, where to touch, how things look."
+      caption="Storage determines the questions a robot can answer; finer resolution adds detail and storage cost without adding new kinds of answers."
       method={
         <>
           <p>

@@ -179,12 +179,25 @@ const comparisonPayloadSchema = z.union([
   pendingComparisonPayloadSchema,
 ]);
 
+export function orderedEvidenceSequenceProblems(payload: { steps?: Array<{order:number;id:string}>;captures?: Array<{order:number;id:string;afterStep:string}> }):string[]{
+  const failures:string[]=[];const {steps,captures}=payload;
+  if(!steps&&!captures)return failures;
+  if(!steps?.length||!captures?.length)return ['multi-phase evidence requires both ordered steps and captures'];
+  if(steps.some(({order},i)=>order!==i+1)||new Set(steps.map(({id})=>id)).size!==steps.length)failures.push('steps must have unique ids and sequential order');
+  if(captures.some(({order},i)=>order!==i+1)||new Set(captures.map(({id})=>id)).size!==captures.length)failures.push('captures must have unique ids and sequential order');
+  if(captures.some(({afterStep})=>!steps.some(({id})=>id===afterStep)))failures.push('capture has no executed owning step');
+  return failures;
+}
+
 export const evidencePayloadSchema = z.union([
   sourceBuildPayloadSchema,
   browserStatePayloadSchema,
   generatedImagePayloadSchema,
   comparisonPayloadSchema,
-]);
+]).superRefine((payload,context)=>{
+  if(payload.kind==='source-build')return;
+  for(const message of orderedEvidenceSequenceProblems(payload))context.addIssue({code:'custom',message});
+});
 
 const notApplicableReasonSchema = z.discriminatedUnion('code', [
   z

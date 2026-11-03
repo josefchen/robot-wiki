@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/classical/state-estimation/",
+  "mount": "mount:/classical/state-estimation/:LinearizationGap:1",
+  "screenshots": {
+    "375": "evidence/reader-first/classical--state-estimation--linearization-gap.375.png",
+    "1280": "evidence/reader-first/classical--state-estimation--linearization-gap.1280.png"
+  },
+  "takeaway": "A straight-line shortcut matches a curved motion only close to the robot's best guess; the less sure the robot is, the further the shortcut drifts from the truth.",
+  "sentence": "A straight-line estimate of a swinging arm becomes less accurate when the range of possible arm angles gets wider.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Matches the increasing error of a straight-line estimate as uncertainty about the arm's motion increases.",
+  "verdict": "pass",
+  "screenshotCommit": "524d32c818ed2a6e63b7e492af46b26cc1aa44fe",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r4-b-20261103",
+  "sourceDigest": "8612fc0ac57adb67705d3bff403788e8ade6f583713c48b2d1136bda059d5a11",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

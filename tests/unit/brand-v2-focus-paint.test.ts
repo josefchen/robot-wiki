@@ -44,6 +44,33 @@ describe('literal focus paint', () => {
     expect(focusPaintFailures({ ...native, widthPx: 3 }, true)).not.toEqual([]);
     expect(focusPaintFailures({ ...native, systemFocus: '' }, true)).not.toEqual([]);
   });
+  it('accepts a measured native summary while retaining every forced-colour ring constraint', () => {
+    const summary = ring({ target: '<summary data-brand-control-id="control:secondary-action">More</summary>', forcedColors: true, systemInk: 'rgb(0, 0, 0)', systemFocus: 'rgba(5, 0, 73, 0.8)', color: 'rgba(5, 0, 73, 0.8)' });
+    expect(focusPaintColorException(summary)).toBe('focus:forced-native-system-highlight');
+    expect(focusPaintFailures(summary, true)).toEqual([]);
+    for (const target of ['<input type="range">', '<select>', '<textarea>', '<button>', '<summary>']) {
+      expect(focusPaintFailures({ ...summary, target }, true), target).toEqual([]);
+    }
+    const invalid: Partial<FocusPaint>[] = [
+      { target: '<div role="button">' },
+      { target: '<span data-native="summary">' },
+      { target: '<summaryish>' },
+      { target: '<summary-panel tabindex="0">' },
+      { target: '<button-like role="button">' },
+      { forcedColors: false },
+      { systemFocus: '' },
+      { systemFocus: 'rgb(255, 0, 0)' },
+      { color: 'rgb(0, 128, 0)' },
+      { widthPx: 2 },
+      { offsetPx: 0 },
+      { style: 'dashed' },
+      { visible: false },
+      { matched: false },
+    ];
+    for (const mutation of invalid) {
+      expect(focusPaintFailures({ ...summary, ...mutation }, true).length, JSON.stringify(mutation)).toBeGreaterThan(0);
+    }
+  });
   it('requires raw full paint records and genuine keyboard reach for each instance', () => {
     expect(focusPaintSchema.safeParse({ style: 'solid', widthPx: 1, color: 'rgb(28, 28, 26)' }).success).toBe(false);
     const instance = { id: '/article/|1440x900|button:2', route: '/article/', viewport: '1440x900', selector: 'button:nth-child(2)', member: 'control:secondary-action', nativeDisabled: false, method: 'Tab' as const, keys: ['Tab'], state: '', pointerMethod: 'click' as const, keyboard: ring(), pointer: emptyFocusPaint('/article/') };

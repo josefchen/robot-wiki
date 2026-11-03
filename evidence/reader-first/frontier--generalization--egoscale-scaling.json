@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/frontier/generalization/",
+  "mount": "mount:/frontier/generalization/:EgoScaleScaling:1",
+  "screenshots": {
+    "375": "evidence/reader-first/frontier--generalization--egoscale-scaling.375.png",
+    "1280": "evidence/reader-first/frontier--generalization--egoscale-scaling.1280.png"
+  },
+  "takeaway": "Robots finished more tasks as they trained on more human video, but the study stopped at 20,000 hours, so anything beyond that is a guess.",
+  "sentence": "More training video improved the robot in the measured range, but predictions beyond twenty thousand hours are guesses and cannot keep rising forever.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It states that more video improved performance and correctly places the boundary between measurements and guesses at twenty thousand hours.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0001",
+  "sourceDigest": "9668ca22c37aac926453d51b5b6d87481844d7cd9b237ba5e0f843bc0593fb3b",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

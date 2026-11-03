@@ -80,20 +80,20 @@ const PLAY_MS = 4000;
 const STEP_LINES: Record<string, readonly string[]> = {
   reach: ['Reach'],
   grasp: ['Crooked', 'grip'],
-  tamp: ['Tamp'],
-  insert: ['Handle', "won't lock"],
+  tamp: ['Press', 'coffee'],
+  insert: ['Filter handle', "won't lock"],
   outcome: ['No', 'coffee'],
 };
 
 const STEP_NAME: Record<string, string> = {
   reach: 'Reach',
   grasp: 'Crooked grip',
-  tamp: 'Tamp',
-  insert: "Handle won't lock",
+  tamp: 'Press coffee',
+  insert: "Filter handle won't lock",
   outcome: 'No coffee',
 };
 
-const NOTE_LINES = ['The failure shows up here, but', 'the cause was this crooked grip'] as const;
+const NOTE_LINES = ['Tag each step: shaded hurts, clear helps;', 'crooked grip caused failure 20 seconds later'] as const;
 
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
@@ -693,7 +693,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
       figureId="advantage-scrubber"
       className={className}
       kicker="Advantage tags"
-      heading="The robot learns its real mistake came 20 seconds earlier"
+      heading="Helping and hurting tags reveal the earlier crooked grip"
       controls={controls}
       adjust={adjust}
       stage={
@@ -719,7 +719,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           </span>
         </FigureStage>
       }
-      caption="Tagging each step as helping or hurting lets the robot trace a failure to a cause long before it."
+      caption="Marking each step as helping or hurting traces failure to a crooked grip 20 seconds before the coffee-filter handle failed to lock."
       method={
         <>
           <div>
@@ -750,7 +750,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           {description}
         </>
       }
-      source="Teaching toy after the Recap portafilter example; timings, scores and tags are illustrative."
+      source="Illustration of Recap’s coffee-filter-handle example; timings, scores and helping/hurting tags are made up for this explanation."
     />
   );
 }

@@ -89,11 +89,11 @@ describe('MotInsulation', () => {
       `${LAYER_COUNT} / ${LAYER_COUNT}`,
     );
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Shield the language brain while teaching the robot to move',
+      'Protecting language also speeds up learning robot movements',
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Knowledge insulation');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'training needed 7.5 times fewer steps than π0',
+      'training used 7.5 times fewer steps than the earlier π0 robot model',
     );
     // The one note now leads the hint under the drawing, beside the shut valves it names.
     const notes = container.querySelectorAll('[data-figure-annotation]');
@@ -233,7 +233,7 @@ describe('MotInsulation', () => {
       expect(announcer().textContent).toBe('');
       fireEvent.click(passButton(/forward pass/i));
       await settle();
-      expect(stageReadout().textContent).toBe(`forward · ${LAYER_COUNT} of ${LAYER_COUNT} trays · ${LAYER_COUNT} valves open`);
+      expect(stageReadout().textContent).toBe(`Information flowing to the arm · ${LAYER_COUNT} of ${LAYER_COUNT} layers reached · ${LAYER_COUNT} valves open`);
       expect(announcer().textContent).toBe(stageReadout().textContent);
       act(() => {
         vi.advanceTimersByTime(READOUT_CLEAR_MS);
@@ -241,7 +241,7 @@ describe('MotInsulation', () => {
       fireEvent.click(stopGradientToggle());
       await settle();
       expect(announcer().textContent).toBe(stageReadout().textContent);
-      expect(announcer().textContent).toMatch(/^backward/);
+      expect(announcer().textContent).toMatch(/^Learning corrections/);
     });
 
     it('leaves a depth change to the slider value text, which says every number of the readout', async () => {
@@ -251,7 +251,7 @@ describe('MotInsulation', () => {
       slider.focus();
       fireEvent.change(slider, { target: { value: '0' } });
       await settle();
-      expect(stageReadout().textContent).toBe(`backward · 0 of ${LAYER_COUNT} trays · valves shut`);
+      expect(stageReadout().textContent).toBe(`Learning corrections · 0 of ${LAYER_COUNT} layers reached · valves shut`);
       expect(announcer().textContent).toBe('');
     });
   });

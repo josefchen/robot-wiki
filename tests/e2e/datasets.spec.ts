@@ -143,7 +143,7 @@ test.describe('data-hardware datasets module', () => {
     const figure = page.locator('[data-figure-frame="dataset-runs-hours"]');
     await figure.scrollIntoViewIfNeeded();
     await expect(figure.locator('[data-figure-title]')).toHaveText(
-      'Run counts and hours rank these datasets differently',
+      'AgiBot World: 25 times FineART’s runs, under twice its hours',
     );
     for (const [id, runs] of [
       ['fineart', '40543'], ['droid', '76000'], ['galaxea', '100000'],

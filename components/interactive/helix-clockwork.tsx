@@ -122,7 +122,7 @@ export function HelixClockwork({ className }: { className?: string }) {
       figureId="helix-clockwork"
       className={className}
       kicker="Hierarchical control"
-      heading="Helix 02's controller takes five steps for every joint target"
+      heading="Helix 02: 1,000 control steps, 200 joint targets per second"
       controls={
         <>
           <SliderRow
@@ -171,11 +171,19 @@ export function HelixClockwork({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? `Running ${SLOWDOWN} times slower than real time` : 'Lit: the joint-target hand, which moves once every five control steps'}
+          hint={running ? `Running ${SLOWDOWN} times slower than real time` : 'Figure’s Helix 02: 200 joint targets each second (lit hand), 1,000 whole-body control steps (other hand): five steps per target.'}
           readout={readoutFor(ms)}
-          status={`Schematic: Figure's two rates on one clockwork, run ${SLOWDOWN} times slower`}
+          status={`Each control step sends motor commands for balance and coordination. Schematic, ${SLOWDOWN} times slower`}
           data-testid="clockwork-stage-frame"
         >
+          <div className="grid gap-2 pb-4 font-sans text-[14px] leading-normal text-text" data-testid="clockwork-rate-comparison">
+            <p><strong className="text-[16px]">Helix 02</strong> is the company Figure&apos;s system for controlling robots.</p>
+            <p>
+              Dark hand: <strong className="font-mono text-[24px]">{S0_HZ.toLocaleString('en-US')}</strong> whole-body control steps each second;{' '}
+              blue hand: <strong className="font-mono text-[24px]">{S1_HZ}</strong> joint targets each second.
+            </p>
+            <p><strong>{STEPS_PER_TARGET} control steps for each new joint target.</strong> A joint target says where a joint should move.</p>
+          </div>
           <div data-testid="clockwork-drawing" data-ms={r2(ms)} data-steps={reading.steps} data-targets={reading.targets}>
             <IsoFigure
               width={WIDTH}

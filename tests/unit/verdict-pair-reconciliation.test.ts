@@ -5,6 +5,8 @@ import { committedText } from '../helpers/editorial-current-context';
 import { CITATIONS } from '../../data/citations.ts';
 import { committedSource } from '../helpers/continuation-integration';
 import { currentAuditContext } from '../helpers/residual-integration';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
+import { historicalGit } from '../helpers/historical-git';
 import {
   classifyVerdict,
   compoundPartDigest,
@@ -193,11 +195,13 @@ describe('two source-backed verdict reconciliations, not structural completions'
     expect(beforeClosure).toContain('- Complete evidence records: 177');
     expect(beforeClosure).toContain('- Incomplete evidence records: 10');
     const imported = new Set(['calibration', 'ros2-for-ml-engineers']);
-    expect(current.filter(section => !imported.has(section.slug))
-      .reduce((n, section) => n + section.claimRecords.filter(r => r.evidenceFailures.length === 0).length, 0)).toBe(187);
-    expect(current.find(section => section.slug === 'calibration')?.claimRows).toBe(8);
-    expect(current.find(section => section.slug === 'ros2-for-ml-engineers')?.claimRows).toBe(7);
-    expect(current.reduce((n, section) => n + section.claimRecords.filter(r => r.evidenceFailures.length === 0).length, 0)).toBe(202);
+    const accounting = current.map(section => ({ slug: section.slug, ...verifyLedgerAdditions(section) }));
+    expect(accounting.filter(section => !imported.has(section.slug)).reduce((n, section) => n + section.originalRows, 0)).toBe(187);
+    expect(accounting.find(section => section.slug === 'calibration')).toEqual({ slug: 'calibration', originalRows: 8, addedRows: 5, currentRows: 13 });
+    expect(accounting.find(section => section.slug === 'ros2-for-ml-engineers')).toEqual({ slug: 'ros2-for-ml-engineers', originalRows: 7, addedRows: 3, currentRows: 10 });
+    expect(accounting.reduce((n, section) => n + section.originalRows, 0)).toBe(202);
+    expect(accounting.reduce((n, section) => n + section.addedRows, 0)).toBe(68);
+    expect(current.reduce((n, section) => n + section.claimRecords.filter(r => r.evidenceFailures.length === 0).length, 0)).toBe(270);
     // Later checkpoints are prepended above this one, so find it by heading
     // rather than assuming it is still the first block.
     const checkpoint = readFileSync('audit/README.md', 'utf8')
@@ -209,7 +213,10 @@ describe('two source-backed verdict reconciliations, not structural completions'
     expect(historicalCheckpoint).toContain('- Unresolved or unrecognised verdicts: 0');
     expect(historicalCheckpoint).toContain('- Complete evidence records: 176');
     expect(historicalCheckpoint).toContain('- Incomplete evidence records: 11');
-    expect(ledger).toContain('- Complete evidence records: 202');
+    expect(historicalGit(['show', 'e10bba28c9088b3639e34032ba2b921849b4b4b4:audit/classical.md'], {
+      encoding: 'utf8', neutralVocabulary: true,
+    })).toContain('- Complete evidence records: 202');
+    expect(ledger).toContain('- Complete evidence records: 270');
     expect(committedText('e687718cd3c2d1c35d3f63b6e296712a5892a9f0', 'audit/README.md').split('\n---\n')[0])
       .toContain('zero new structural completions');
     expect(readFileSync('audit/README.md', 'utf8')).toContain('994 complete / 0 incomplete');

@@ -41,7 +41,7 @@ test('IFR retained science, chronology, disagreement and Stat values', async ({ 
   // retirement is recorded with its reason in
   // audit/evidence/length-cut-20261013-data-hardware/source-transition.json.
   const lead = prose.locator(':scope > p').first();
-  const current = prose.locator('p').filter({ hasText: "IFR's World Robotics 2026, released on" });
+  const current = prose.locator('p').filter({ hasText: "IFR's World Robotics 2026, released September 24, 2026" });
   const earlier = prose.locator('p').filter({ hasText: 'A year earlier, World Robotics 2025 counted' });
   for (const text of ['5 million', 'more than 600,000 installations', '59 percent']) {
     await expect(lead).toContainText(text, { useInnerText: true });

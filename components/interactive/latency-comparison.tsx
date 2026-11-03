@@ -394,7 +394,7 @@ export function LatencyComparison({
             data-testid="lc-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {running ? 'Stop the plotter' : 'Run the plotter'}
+            {running ? 'Stop' : 'Play'}
           </button>
         </>
       }
@@ -421,7 +421,7 @@ export function LatencyComparison({
           <InstrumentReset onClick={reset} />
         </>
       }
-      caption="When a new plan arrives late, averaging it with the old one can pick a path neither plan chose; real-time chunking keeps them consistent."
+      caption="Averaging a late plan with the old one can enter the obstacle; keeping already-committed moves avoids that unchosen path."
       method={
         <>
           <p>
@@ -453,13 +453,13 @@ export function LatencyComparison({
             plan arrives at tick {HANDOFF_TICK}, where the trip dog sits on the ruler. Running, it moves
             {' '}{TICKS_PER_SECOND} ticks a second.
           </p>
-          <PlotStage
+          <div data-inset-plot><PlotStage
             viewBox={`0 0 ${WIDTH} ${SCORE_H}`}
             aria-label={`Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls to zero while RTC is fixed at 100 percent by assumption. Current delay ${formatMs(delayMs)}.`}
             aria-describedby={`${delayId}-throughput-description`}
           >
             <ScoreChart delayMs={delayMs} />
-          </PlotStage>
+          </PlotStage></div>
           <ChartDescription
             id={`${delayId}-throughput-description`}
             form="table"
@@ -492,18 +492,26 @@ export function LatencyComparison({
       stage={
         <AnatomyStage
           viewWidth={PLOTTER_WIDTH}
-          hint={running ? 'Running at seven control ticks a second' : 'Each groove is a good plan. Run the plotter.'}
+          hint={<>Blue line: the movement the robot executes.{' '}{running ? 'Running at seven control ticks a second' : offMode ? 'Two grooves: two safe plans. Red mark: the averaged move hits the obstacle.' : 'Two grooves: two safe plans. With this delay, the averaged move clears the obstacle.'}</>}
           readout={
             <>
               <LiveReadoutText ref={phaseRef} data-lc-phase="" />
-              averaging <span data-testid="te-throughput-readout">{Math.round(te * 100)}%</span> (
-              <span data-testid="te-status-readout">{STATUS_WORDS[status]}</span>) · real-time chunking{' '}
+              Work rate: averaging <span data-testid="te-throughput-readout">{Math.round(te * 100)}%</span> (
+              <span data-testid="te-status-readout">{STATUS_WORDS[status]}</span>) · keep committed moves{' '}
               <span data-testid="rtc-throughput-readout">{Math.round(rtc * 100)}%</span>
             </>
           }
-          status="Illustrative: a toy scene, not measured robot data."
+          status="Illustrative work-rate scores: 100% is the no-delay output; 0% means stopped. Not measured robot data."
           data-testid="lc-stage-frame"
         >
+          <p className="mb-4 font-sans text-[14px] leading-normal text-text" data-testid="lc-combination">
+            {delayMs > 0 ? (
+              <>The old plan and a late replacement propose different moves. <strong>Averaging combines those proposals into a move neither plan chose.</strong>{' '}
+                {offMode ? 'That unchosen move hits the obstacle.' : 'At this delay, the combined move still clears the obstacle.'}</>
+            ) : (
+              <>With no delay, the robot stays on the old plan. Add a delay to see how combining it with a late replacement can create an unchosen move.</>
+            )}
+          </p>
           <IsoFigure width={PLOTTER_WIDTH} height={HEIGHT} label={plotterLabel} describedBy={`${delayId}-trace-description`}>
             <g key={running ? 'running' : 'rest'}>
               <g key="back">{partsOf(BACK_PARTS, slotOf)}</g>
@@ -539,7 +547,7 @@ export function LatencyComparison({
           </IsoFigure>
         </AnatomyStage>
       }
-      source="Deterministic toy after the real-time chunking experiment of Black, Galliker and Levine (2025, arXiv 2506.07339)."
+      source="Repeatable illustration of switching plans of future movement commands while moving, after Black, Galliker and Levine (2025, arXiv 2506.07339)."
     />
   );
 }

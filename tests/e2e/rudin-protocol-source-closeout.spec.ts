@@ -154,19 +154,19 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
         const beatState = async (text: RegExp, envs: number, name: string) => {
           await expect(caption, name).toHaveText(text);
           await expect(readout).toContainText(
-            `${envs.toLocaleString('en-US')} robots at once: ${trainingTime(oracle(envs, false).seconds)} of training`);
+            `${envs.toLocaleString('en-US')} robots on one graphics chip: ${trainingTime(oracle(envs, false).seconds)} of training`);
           await capture(chart, name);
         };
         // The poster is the recap beat: 16,384 robots.
-        await beatState(/16,384 virtual robots/i, 16384, 'chart-default');
+        await beatState(/Thousands of practice robots share one graphics chip, cutting hours to minutes/i, 16384, 'chart-default');
         await openAdjustMore(chart);
         const back = chart.getByRole('button', { name: 'Step back one beat' });
         const forward = chart.getByRole('button', { name: 'Step forward one beat' });
         await back.click(); await beatState(/dashed line flattens/i, 4096, 'chart-cpu');
         await back.click(); await beatState(/4,096 robots/i, 4096, 'chart-default-scale');
-        await back.click(); await beatState(/64 virtual robots/i, 64, 'chart-minimum');
+        await back.click(); await beatState(/64 robots sharing one graphics chip/i, 64, 'chart-minimum');
         for (let i = 0; i < 3; i++) await forward.click();
-        await beatState(/16,384 virtual robots/i, 16384, 'chart-maximum');
+        await beatState(/Thousands of practice robots share one graphics chip, cutting hours to minutes/i, 16384, 'chart-maximum');
         const method = await openHowThisWasMade(chart);
         const solid = [64, 4096, 16384].map(envs => trainingTime(oracle(envs, false).seconds));
         const dashed = [64, 4096, 16384].map(envs => trainingTime(oracle(envs, true).seconds));
@@ -176,7 +176,7 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
         await expect(caption).toHaveText(/dashed line flattens/i);
         await capture(back, 'chart-keyboard-focus');
         await chart.getByRole('button', { name: 'Reset the scene to its poster still' }).click();
-        await expect(caption).toHaveText(/16,384 virtual robots/i);
+        await expect(caption).toHaveText(/Thousands of practice robots share one graphics chip, cutting hours to minutes/i);
         await capture(chart, 'chart-reset');
         const term = prose.locator('[data-term-id="curriculum-learning"]').first();
         if (await term.count()) {

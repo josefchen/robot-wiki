@@ -236,9 +236,9 @@ const REPRESENTATION_OPTIONS: Array<{
 type OutputStyle = 'codes' | 'numbers' | 'noise' | 'undisclosed';
 
 const OUTPUT_STYLES: Array<{ id: OutputStyle; label: string }> = [
-  { id: 'codes', label: 'word-like codes' },
-  { id: 'numbers', label: 'plain numbers' },
-  { id: 'noise', label: 'refined from noise' },
+  { id: 'codes', label: 'numbered words' },
+  { id: 'numbers', label: 'movement amounts' },
+  { id: 'noise', label: 'refined move guesses' },
   { id: 'undisclosed', label: NOT_DISCLOSED_TEXT },
 ];
 
@@ -346,8 +346,9 @@ function YearStrip({ shown }: { shown: ReadonlySet<string> }) {
         const y = STRIP.rowY0 + row * STRIP.rowStep;
         const undisclosed = style.id === 'undisclosed';
         return (
-          <g key={style.id} data-output-style={style.id}>
+          <g key={style.id} data-output-style={style.id} data-series={style.id}>
             <text
+              data-series-label-for={style.id}
               x={STRIP.labelX}
               y={y + CHART_TYPE.labelPx * 0.35}
               fontSize={CHART_TYPE.labelPx}
@@ -474,7 +475,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
       figureId="comparison-matrix"
       className={className}
       kicker="Policy comparison"
-      heading="Most 2026 robot brains don't disclose how they move"
+      heading="All disclosed motion methods through 2025; most 2026 models don’t"
       controls={
         <button
           data-brand-control-id="control:selection"
@@ -572,10 +573,13 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
         >
           <div className="font-sans text-sm leading-snug">
             <div className="text-text-dim">
-              Each dot is one robot brain, placed by year and by how it outputs motion.
+              <span className="font-semibold text-text">Through 2025, every model disclosed its motion method.</span>{' '}Most 2026 models leave it undisclosed. Each dot is one model in the full catalogue.
             </div>
             <div className="@container mt-2 max-w-[520px]">
               <YearStrip shown={shown} />
+            </div>
+            <div className="mt-2 text-text-dim">
+              Numbered words select movement levels; movement amounts give values directly; refined move guesses repeatedly improve a random starting move.
             </div>
             {rows.length === 0 ? (
               <div role="status" data-state="empty" className="mt-4">
@@ -622,9 +626,9 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           <div>
             Compiled from the primary sources linked in each row of the full matrix under
             &ldquo;Adjust more&rdquo;. The cards and dots group the action representations into
-            plain words: discrete tokens are &ldquo;word-like codes&rdquo;, continuous outputs are
-            &ldquo;plain numbers&rdquo;, and diffusion and flow matching, which both refine random
-            noise into a move, are &ldquo;refined from noise&rdquo;.
+            plain words: discrete tokens are &ldquo;numbered words&rdquo;, continuous outputs are
+            &ldquo;movement amounts&rdquo;, and diffusion and flow matching, which both refine random
+            noise into a move, are &ldquo;refined move guesses&rdquo;.
           </div>
           <div>
             &ldquo;Plans ahead&rdquo; is the planned action horizon and &ldquo;speed&rdquo; the

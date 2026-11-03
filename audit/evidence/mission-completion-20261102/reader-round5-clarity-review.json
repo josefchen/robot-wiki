@@ -1,0 +1,314 @@
+{
+  "schemaVersion": "reader-round5-clarity-successor-review-v1",
+  "observedAt": "2026-11-03T13:52:31.182Z",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/av-safety-miles.tsx",
+      "sourcePath": "components/interactive/av-safety-miles.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "a28fb9cccd2a8c682dfb2fa51dffeda68f7dd1bcb9f2411335b6fd1b32296631",
+      "currentSourceSha256": "24cc7b4017f4ac4f90da8d415a7f6dd9f87cec102682cd4d748453f88e6cc2f6",
+      "oldMemberHash": "361c9be60dcde623f448dff761194194214b006fedd0ac6ea38a3001382ef494",
+      "newMemberHash": "6081478209f671e00000f2415c8bdecfd10ebcb29236ef1eac6e4822bb8ca2cb",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-av-safety-miles",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-av-safety-miles-tsx-6457090edf",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-av-safety-miles-tsx-e5db5ab71d",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-av-safety-miles-tsx-361c9be60d"
+      ],
+      "reason": "components/interactive/av-safety-miles.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/chunk-buffer.tsx",
+      "sourcePath": "components/interactive/chunk-buffer.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "60e9e832c94926305ee4816be18a85ac5091c6261870bb7062710a0623f190e1",
+      "currentSourceSha256": "6bc15c33f31a809160ccabddd5af261fa832929210ff3f21586e248193071911",
+      "oldMemberHash": "52f04e4ac794aa398a893adc2a4d2bebbce74a4d69f2b3bd33eb527743bc894f",
+      "newMemberHash": "896ae428579c3fffd4e5edd6bcfdf6d3caab46c644f5f20418bffd19109eba8a",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-chunk-buffer",
+        "polish-1019-interactive-sources-mounts-source-chunk-buffer-tsx",
+        "mount-evidence-20261024-interactive-sources-mounts-source-chunk-buffer",
+        "completion-figure-20261102-source-components-interactive-chunk-buffer-tsx-04e414b17b",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-chunk-buffer-tsx-32ddc5ac44",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-chunk-buffer-tsx-efe8431f36",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-chunk-buffer-tsx-52f04e4ac7"
+      ],
+      "reason": "components/interactive/chunk-buffer.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/control-loop-budget.tsx",
+      "sourcePath": "components/interactive/control-loop-budget.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "602b5358725ef27e22eacf73086ba049403043c27386896abf8871e78ad1faa8",
+      "currentSourceSha256": "d07d2580aaec8c42a527ff8340b27f55bdfc253cc74061b95c203bca3adc8812",
+      "oldMemberHash": "15636da47812aa2033ec171bd4045126838e95b1b7bcb74f55ce9c883169d3b6",
+      "newMemberHash": "d35ca854bd8815a273a945e00ef81433d5c6ecd03d962159f3c8111ae03fa04a",
+      "priorApprovalIds": [
+        "manipulation-rl-20260907-9",
+        "performance-worldmodels-20260908-12",
+        "completion-figure-20261102-source-components-interactive-control-loop-budget-tsx-097cd3b296",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-control-loop-budget-tsx-a2353970c8",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-control-loop-budget-tsx-e3d68d472b",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-control-loop-budget-tsx-15636da478"
+      ],
+      "reason": "components/interactive/control-loop-budget.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/execution-modes.tsx",
+      "sourcePath": "components/interactive/execution-modes.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "d96498e800c75ca4fdb5cca5ad097724e8c5957f6a9b510c3b8e49c3de1d64d8",
+      "currentSourceSha256": "5781ba7e3c6269e1e1b573e312e69abeab84f3369d1632bd413c39909e13e636",
+      "oldMemberHash": "21d319ebc6a8339212a9fe28f2ca1b6d50aac761cb028a4949d79d1ae549b3b1",
+      "newMemberHash": "8e22775af3934bc66387a135cd760e0ff4e80bcb73be01121f4c5c766c672793",
+      "priorApprovalIds": [
+        "performance-worldmodels-20260908-13",
+        "completion-figure-20261102-source-components-interactive-execution-modes-tsx-88346d732f",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-execution-modes-tsx-c11883c131",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-execution-modes-tsx-f3718e5024",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-execution-modes-tsx-21d319ebc6"
+      ],
+      "reason": "components/interactive/execution-modes.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/flow-matching-trajectory.tsx",
+      "sourcePath": "components/interactive/flow-matching-trajectory.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "da5b341acdc0e5dfdbdd8b9bf86d206245320c97b6b649cb238e76fb3fcab1c4",
+      "currentSourceSha256": "ac0f96cff2f8146ace860be0efe9ad3d73ed8fb2d77b100bca7ecc8ae95de443",
+      "oldMemberHash": "aed014e1c90408d417744f9e86ca12a8a58ee879783689aa50970326555e4d5e",
+      "newMemberHash": "b6fa30939f5babd937429670f64c71f5def5e8562f010d84f3f89da347bcff4d",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-84",
+        "round5-closeout2-src-interactive-flow-matching-trajectory-tsx",
+        "completion-figure-20261102-source-components-interactive-flow-matching-trajectory-tsx-03212afe65",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-flow-matching-trajectory-tsx-c1463d5c8c",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-flow-matching-trajectory-tsx-1ad55296f7",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-flow-matching-trajectory-tsx-aed014e1c9"
+      ],
+      "reason": "components/interactive/flow-matching-trajectory.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/helix-clockwork.tsx",
+      "sourcePath": "components/interactive/helix-clockwork.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "88f6ef1551045f6920c16fe17bf6a1e64518a76319823ab3ad15110e77dd801e",
+      "currentSourceSha256": "597f36d9615cbd660030a744f3d43f3f9dc4dffa46947295139414870f92268a",
+      "oldMemberHash": "8753eafe410620d335ea1726ad11b0d508c068470083022931e1e9602109676c",
+      "newMemberHash": "d1bbdfb8c1e4f31a1bd5faa96a1ba3cba3b7d96a4251f7a712a44e02c6f2ecf3",
+      "priorApprovalIds": [
+        "anatomy-2-figures-20261012-interactive-sources-mounts-source-helix-clockwork",
+        "a11y-gate-20261017-interactive-sources-mounts-source-helix-clockwork",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-helix-clockwork-tsx-bfbeaf7b01",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-helix-clockwork-tsx-a1d1330394",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-helix-clockwork-tsx-8753eafe41"
+      ],
+      "reason": "components/interactive/helix-clockwork.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "1d083cdf6e0bffbfcf6ce1440ae0e78e0e6620fe9bea14e89b21d1915ffff1b4",
+      "currentSourceSha256": "b3ac3be05ab10c2c5a85c3a4539ae102a4745292d0c74ccc8183cb279331492d",
+      "oldMemberHash": "e84294d903e6b2d0a343f376377c93c76ead16d8abd435e69869fb5b159b491b",
+      "newMemberHash": "c95600381ad3356de2b5a2b3c23b391c2a48f3fab04bc57db98478838d4cee90",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/latency-comparison.tsx",
+      "sourcePath": "components/interactive/latency-comparison.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "3a535d5411b2289673d5b6f2eb9f9a20fec8ce5389ea7cb8907738d43a93aa9c",
+      "currentSourceSha256": "b24c39a1de9543b2fbfd942030888a29c445df9131b822a00d9f8670ce18d14c",
+      "oldMemberHash": "61806e0f5e6b113330d9e0771329ba685fb13a7b649805942567d4e10066ef8e",
+      "newMemberHash": "6a397eedf5ca7e90a06e4daae41e1891973394311fb6bf3e3d872f687a3402a5",
+      "priorApprovalIds": [
+        "act-current-claims-20260907-4",
+        "completion-figure-20261102-source-components-interactive-latency-comparison-tsx-2198772726",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-latency-comparison-tsx-03deeab614",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-latency-comparison-tsx-be9e0622f7",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-latency-comparison-tsx-61806e0f5e"
+      ],
+      "reason": "components/interactive/latency-comparison.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/milestones-watchlist.tsx",
+      "sourcePath": "components/interactive/milestones-watchlist.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "a58a6c122544066083082170060d6f072bb0d475d37f938c7cf55a4f62c9b5ff",
+      "currentSourceSha256": "f5aa3580bfd6f604f69f8fe5099b22e5d562cee7779d7f9e272c697f535e035d",
+      "oldMemberHash": "2940b9eb5a3f13c624db8cfb7cc1dde6290af28e817b7884c99a75b8ac797e52",
+      "newMemberHash": "9278a129f385bfd0ab1d0489879920edda9cbb93d730ab770ad234f45cdc13b5",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-91",
+        "round5-closeout2-src-interactive-milestones-watchlist-tsx",
+        "perf-articles-20260923-src-milestones-watchlist",
+        "completion-figure-20261102-source-components-interactive-milestones-watchlist-tsx-6d6e1d775a",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-milestones-watchlist-tsx-c2cb7b8b06",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-milestones-watchlist-tsx-b59bb11b7a",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-milestones-watchlist-tsx-2940b9eb5a"
+      ],
+      "reason": "components/interactive/milestones-watchlist.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/replay-reuse.tsx",
+      "sourcePath": "components/interactive/replay-reuse.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "3ee34ea25328ad154af59b423868a03752adc4c7037957f614451d90d93f5866",
+      "currentSourceSha256": "8f730ab55d7b4ca490c432a5e9b90f24922fda5865a489989a3ee3682d6ecab5",
+      "oldMemberHash": "0b58a720d59a48cbefb96c34d6edc06751ea47304ac44f8bee24064ba94dc54f",
+      "newMemberHash": "42f16b7ab9a79dd8c238f9a95d1c2473d7b343dfd5d2fb434dd10ba1b131db97",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-replay-reuse-tsx-2e54a683b2",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-replay-reuse-tsx-d3ad0bb60d",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-replay-reuse-tsx-b95edbe56f",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-replay-reuse-tsx-0b58a720d5"
+      ],
+      "reason": "components/interactive/replay-reuse.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/retargeting-gap.tsx",
+      "sourcePath": "components/interactive/retargeting-gap.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "9dccca87ce8a67468a7e52426d7ba73cf041dc947dd0727a358edf6dd6367b96",
+      "currentSourceSha256": "a2e9fc4ef738c155bf40415632443086eac8a8a7b5bec74c02e277aef382c2e9",
+      "oldMemberHash": "f73a581a818952d9c7bf64225829bd244e87cd7b391bcf4a4a9e773970c2ef1f",
+      "newMemberHash": "5024f160a2fb265e0441186b2e667df082b032114780634bebdd32ae8ca7156a",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-retargeting-gap-tsx-6afed658e2",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-retargeting-gap-tsx-1e5c573931",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-retargeting-gap-tsx-3b72d03f70",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-retargeting-gap-tsx-f73a581a81"
+      ],
+      "reason": "components/interactive/retargeting-gap.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/safety-filter-fence.tsx",
+      "sourcePath": "components/interactive/safety-filter-fence.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "2cae56b58acc1c3607479004d262114ff74202da1aae9eecfe9a9130bd20cf8d",
+      "currentSourceSha256": "452d03b6907f9c58d5f4d1f4c0065adaff26ed33c86128b9f1a92dd0ad2ad510",
+      "oldMemberHash": "43e7c10e88211101dc679a98400c69e208e34ec0a6a65c32fef9652eaaee6255",
+      "newMemberHash": "335dedfe04e7e78f4c7349f9a9d1036ae5aace2fa217b9f63846f3ac605e58e2",
+      "priorApprovalIds": [
+        "anatomy-frontier-b02-figures-20261015-interactive-sources-mounts-source-safety-filter-fence",
+        "a11y-gate-20261017-interactive-sources-mounts-source-safety-filter-fence",
+        "mount-evidence-20261024-interactive-sources-mounts-source-safety-filter-fence",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-safety-filter-fence-tsx-8482c573b0",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-safety-filter-fence-tsx-5f25a3064e",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-safety-filter-fence-tsx-43e7c10e88"
+      ],
+      "reason": "components/interactive/safety-filter-fence.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/safety-rules-timeline.tsx",
+      "sourcePath": "components/interactive/safety-rules-timeline.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "cd781561582be271287b4192c2efa07be93db52a0469d8f98d51a7b5b10dcdc0",
+      "currentSourceSha256": "1ced2f49e844232b21278908823358eb5b4c718d12387ff740e9b0b5f211b77b",
+      "oldMemberHash": "7c5ad1fbbea898824495c8817928bef5fd3c714edf4ea9452c13d393094a0b69",
+      "newMemberHash": "225c934cf777e499925e097a5564274bdd62db7be3f58dab6777dd26cfc82733",
+      "priorApprovalIds": [
+        "owed-figures-frontier-20261027-source-safety-rules-timeline",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-safety-rules-timeline-tsx-ddf5ada1a3",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-safety-rules-timeline-tsx-480e394a49",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-safety-rules-timeline-tsx-7c5ad1fbbe"
+      ],
+      "reason": "components/interactive/safety-rules-timeline.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scene-representation-ladder.tsx",
+      "sourcePath": "components/interactive/scene-representation-ladder.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "a249aa4a6e485ce1f70b4f617ab3ed258fd3146c8e6d9bd838466c41a8bc1bc3",
+      "currentSourceSha256": "ff3932889dfb9dcf6acc0adab1b50f65a3461bc2d68da03af574214a6f26ace6",
+      "oldMemberHash": "986c291e02eb01b02f53453b7f7ec182132cf57a305f20ef103b48322b285d0e",
+      "newMemberHash": "bc60016de6f4a3c5c576ec21d181b5e36814c0fe8de7014ff2167872a1264d6e",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-100",
+        "round5-closeout2-src-interactive-scene-representation-ladder-tsx",
+        "perf-articles-20260923-src-scene-representation-ladder",
+        "domain-pass-20261008-sweep-source-scene-representation-ladder",
+        "completion-figure-20261102-source-components-interactive-scene-representation-ladder-tsx-698d581917",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-scene-representation-ladder-tsx-0b0071753d",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-scene-representation-ladder-tsx-6a3422390d",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-scene-representation-ladder-tsx-986c291e02"
+      ],
+      "reason": "components/interactive/scene-representation-ladder.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/space-latency-ladder.tsx",
+      "sourcePath": "components/interactive/space-latency-ladder.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "b20122a3877f4eae6f97022fd201186934a957d19b35545601303a7333851bb3",
+      "currentSourceSha256": "ca9c5db080fc27302baf976d99992bc7a7c5abc8d8ad00be6c6eb80badf19421",
+      "oldMemberHash": "b383861640d2b95d340ff5c3d8ac9e813b587cbb13b411f9e73d04c5ef41e4e2",
+      "newMemberHash": "9f95db94387c789b6523ec0078d4a752a2ba7d717dfd2330f4fb81b4b70bb3c4",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-space-latency-ladder",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-space-latency-ladder-tsx-b57bfa2b88",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-space-latency-ladder-tsx-58be90d512",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-space-latency-ladder-tsx-b383861640"
+      ],
+      "reason": "components/interactive/space-latency-ladder.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/surgical-autonomy-ladder.tsx",
+      "sourcePath": "components/interactive/surgical-autonomy-ladder.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "b2c9de491e1e8fd7aabbd0184424246ef0abf55f76300a39df05eec121129dd9",
+      "currentSourceSha256": "5baca884422b3a472b293ef09ecd5ec0180bd7171dfc15980e24a23a38b84c16",
+      "oldMemberHash": "5445a629c82e3e3cb037fc71c883fc06ba25796454cb548cf4b77db867b47dc3",
+      "newMemberHash": "7dd2990d6d298fa9ce869fd4e6431c51c68270dddcf48d217747e277554d1ed1",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-surgical-autonomy-ladder",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-surgical-autonomy-ladder-tsx-657da4692d",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-surgical-autonomy-ladder-tsx-8eb14d9147",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-surgical-autonomy-ladder-tsx-5445a629c8"
+      ],
+      "reason": "components/interactive/surgical-autonomy-ladder.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/world-model-output-times.tsx",
+      "sourcePath": "components/interactive/world-model-output-times.tsx",
+      "previousSourceCommit": "f5b2f255ffc73b5d3c3e466e1a85fe32fed6023b",
+      "previousSourceSha256": "e9519539bc893a988df0d189ef0648d5998c7ab51dd12bc824a3306f7536b78a",
+      "currentSourceSha256": "d1f854c3630354f69c69b48b0d01f46f4c084558d6154fa767a9c8521671d58c",
+      "oldMemberHash": "4ff1b8e13db91ba8bb7638701466734b2aa3dc527c4e96da224ad33d7f73983c",
+      "newMemberHash": "7d402258fd5f358187e0d274a7e58bbb1127e19501486c2d5c34d579feffda0f",
+      "priorApprovalIds": [
+        "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-world-model-output-times-tsx",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-world-model-output-times-tsx-fc5172facb",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-world-model-output-times-tsx-5201c45f76",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-world-model-output-times-tsx-4ff1b8e13d"
+      ],
+      "reason": "components/interactive/world-model-output-times.tsx: address the fourth sealed blind-reader observations with prominent comparisons, source-derived numbers and plain definitions for terms. Preserve scientific values, plotted geometry, defaults, controls and canonical source records; changed-state claims remain source-derived. Exact source/member hashes are in audit/evidence/mission-completion-20261102/reader-round5-clarity-review.json, with reversible predecessor edits in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    }
+  ]
+}

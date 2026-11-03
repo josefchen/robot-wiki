@@ -76,7 +76,7 @@ test('industrial52 actual default robot-cost endpoints and reset', async ({ page
       ['breakdown-downtime', 'downtime', 'downtime'],
     ] as const) await expect(mount.getByTestId(id)).toHaveText(`${label} ${o.timeBreakdown[key].toFixed(0)} s`);
     await expect(page.locator('p').filter({ hasText: /^This worked example has no measured deployment/ })).toContainText('each of its seven inputs is an assumption, labelled beside its control');
-    await expect(page.locator('p').filter({ hasText: 'The calculator above reports capital cost per modeled pick' })).toContainText('It does not include running costs.');
+    await expect(page.locator('p').filter({ hasText: 'The calculator reports capital cost per modeled pick' })).toContainText('It does not include running costs.');
     await mount.evaluate(el => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 100));
     observations.push({ name, input, mountId: 'mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1',
       caseId, prestate, action, poststate: `${o.summary} ${o.display.join('; ')}; all seven inputs, notes, verdict, time shares and seconds checked`,

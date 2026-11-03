@@ -12,6 +12,7 @@ import {
   parseLedger,
 } from '../../lib/audit-ledger';
 import { preDomainPassCitations } from '../helpers/domain-pass';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const plans = parseCompoundPlans(JSON.parse(read('audit/compound-evidence.json')));
@@ -65,7 +66,16 @@ describe('RL reader checkpoint accounting', () => {
     const current = read('audit/README.md')
       .match(/<!-- rl-reader-current:start -->([\s\S]*?)<!-- rl-reader-current:end -->/)?.[1];
     expect(current).toBeDefined();
-    expect(current).toContain(`${complete} complete / ${records.length - complete} incomplete / ${records.length} original identities`);
+    const counts = ledgers.flatMap(ledger => ledger.sections.map(section => verifyLedgerAdditions(section)));
+    expect(counts.reduce((sum, section) => sum + section.originalRows, 0)).toBe(1080);
+    expect(counts.reduce((sum, section) => sum + section.addedRows, 0)).toBe(174);
+    expect(current).toContain('1080 complete / 0 incomplete / 1080 original identities');
+    expect(complete).toBe(1254);
+    expect(records).toHaveLength(1254);
+    const latest = read('audit/README.md').split('<!-- rl-reader-current:start -->')[0];
+    expect(latest).toContain('1,254 claim rows and 1,545 citation identities');
+    expect(CITATIONS).toHaveLength(1545);
+    expect(latest).toContain('not source certification or final release acceptance');
     expect(current).toContain('not acceptance');
     expect(read('audit/README.md')).not.toMatch(/^## Current partial Isaac/m);
   });

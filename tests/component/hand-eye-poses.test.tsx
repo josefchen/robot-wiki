@@ -20,9 +20,9 @@ describe('HandEyePoses', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Hand-eye calibration');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Three poses solve it; twelve pin it down');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Camera calibration needs three poses; past twelve, little improves');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'More poses shrink the doubt about where the wrist camera sits, until about 12.',
+      'At least three poses locate the camera relative to the wrist. More poses improve the estimate, with little benefit beyond about twelve.',
     );
   });
 
@@ -34,15 +34,15 @@ describe('HandEyePoses', () => {
 
   it('opens at the minimum: three poses, just enough to solve, three pegs and the iris closing', () => {
     const { container } = renderFigure();
-    expect(screen.getByTestId('hand-eye-readout')).toHaveTextContent('3 poses: just enough to solve');
+    expect(screen.getByTestId('hand-eye-readout')).toHaveTextContent('3 poses: minimum to locate the camera on the wrist');
     expect(screen.getByTestId('hand-eye-ring')).not.toHaveAttribute('data-open');
     expect(screen.getByTestId('hand-eye-ring')).toHaveAttribute('data-gap', irisGap(3).toFixed(3));
     expect(container.querySelectorAll('[data-peg]')).toHaveLength(3);
-    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Iris: the doubt about where the camera sits');
-    // The minimum is a numeric 1.0 reference in both the table and readout.
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Opening: relative position uncertainty; 1.0 is the three-pose baseline, with no physical units');
+    // The minimum remains a numeric 1.0 reference, now explained as uncertainty.
     const row = [...container.querySelectorAll('details[data-chart-data] tbody tr')].find((tr) => tr.querySelector('th')?.textContent === '3');
     expect(row?.querySelector('td')).toHaveTextContent('1.0');
-    expect(screen.getByTestId('hand-eye-readout')).toHaveTextContent('1.0 baseline');
+    expect(screen.getByTestId('hand-eye-readout')).toHaveTextContent('relative uncertainty 1.0');
   });
 
   it('drives the pose count from the one slider: no iris below three poses, barely closing past twelve', () => {
@@ -55,7 +55,7 @@ describe('HandEyePoses', () => {
     fireEvent.change(slider, { target: { value: '15' } });
     expect(slider).toHaveAttribute('aria-valuetext', '15 poses: 3.6 times tighter than with 3');
     expect(container.querySelectorAll('[data-peg]')).toHaveLength(15);
-    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('the iris barely closes');
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('that opening barely shrinks');
     const drawing = screen.getByTestId('hand-eye-stage');
     expect(drawing.querySelector('text, title, desc, foreignObject')).toBeNull();
     expect(drawing.textContent).toBe('');

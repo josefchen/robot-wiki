@@ -49,7 +49,7 @@ import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
 import { LatencyComparison } from '@/components/interactive/latency-comparison';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 
-Action chunking is a policy design in which each inference predicts a sequence of future actions instead of one <Cite id="act-aloha-2023" />. The term comes from psychology, where actions grouped into one unit are cheaper to store and execute <Cite id="act-aloha-2023" /> <Cite id="lai-action-chunking-2022" />.
+Action chunking predicts a future action sequence per policy inference instead of one action <Cite id="act-aloha-2023" />. The term comes from psychology, where grouping actions into one unit makes storage and execution cheaper <Cite id="act-aloha-2023" /> <Cite id="lai-action-chunking-2022" />.
 
 <Image id="aloha-unleashed-tasks-2024" />
 
@@ -92,11 +92,11 @@ Action Chunking with Transformers (ACT), introduced with the ALOHA bimanual [tel
   />
 </Card>
 
-The 14 action coordinates are six joints and one gripper coordinate for each of two six-DoF ViperX arms; the paper's "7+7=14 DoF" counts the grippers. ACT's implementation description specifies L1 reconstruction, while the printed algorithm uses MSE; both add a weighted KL term <Cite id="act-aloha-2023" />.
+The 14 action coordinates are six joints and one gripper coordinate for each of two six-DoF ViperX arms; the paper's "7+7=14 DoF" includes grippers. ACT's implementation description specifies L1 reconstruction, while the printed algorithm uses MSE; both add a weighted KL term <Cite id="act-aloha-2023" />.
 
 ### The chunk-size dial
 
-In ACT's ablation, averaged over two simulated tasks with temporal ensembling off, success rises from 1% at k=1 to 44% at k=100 and dips at k=200 and k=400, near open-loop control; chunked BC-ConvMLP and VINN follow the same trend <Cite id="act-aloha-2023" />. A small k brings back <Term id="compounding-error">compounding error</Term>, and a large one reacts slowly to unexpected states <Cite id="bidirectional-decoding-2024" />. The best execution horizon is task-dependent: in flow-based VLAs success rises and then falls as it lengthens <Cite id="autohorizon-2026" />, and PACE, which picks it online, lifted real ALOHA and Franka success from 50.7% to 70.4% <Cite id="pace-2026" />. Mixture of Horizons processes several chunk lengths with one shared transformer and combines them through a learned gate <Cite id="moh-2025" />.
+In ACT's ablation, averaged over two simulated tasks with temporal ensembling off, success rises from 1% at k=1 to 44% at k=100 and dips at k=200 and k=400, near open-loop control; chunked BC-ConvMLP and VINN follow the same trend <Cite id="act-aloha-2023" />. A small k restores <Term id="compounding-error">compounding error</Term>, and a large one reacts slowly to unexpected states <Cite id="bidirectional-decoding-2024" />. The best execution horizon is task-dependent: in flow-based VLAs success rises and then falls as it lengthens <Cite id="autohorizon-2026" />, and PACE, which picks it online, lifted real ALOHA and Franka success from 50.7% to 70.4% <Cite id="pace-2026" />. Mixture of Horizons processes several chunk lengths with one shared transformer and combines them through a learned gate <Cite id="moh-2025" />.
 
 ## Temporal ensembling and its limits
 
@@ -121,13 +121,13 @@ When consecutive chunks diverge in strategy, say left versus right around an obs
 
 <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats [the hand-off between chunks](/manipulation/realtime-execution/) as inpainting: it freezes actions that will already have run and generates the rest. With π0.5 at five denoising steps, model latency was 76 ms for the baselines and 97 ms for RTC, plus 10 to 20 ms over LAN. At 100 or 200 ms of injected delay, temporal-ensembling variants triggered protective stops, while RTC held average task throughput through +200 ms without retraining <Cite id="real-time-chunking-2025" />, over six tasks, ten episodes each <Cite id="pi-real-time-chunking-blog-2025" />.
 
-A training-time variant matched inference-time RTC at lower compute <Cite id="training-time-rtc-2025" />. REMAC additionally trains corrective adjustments with masked chunks to handle mismatches between the actions executed and current perception <Cite id="remac-2026" />. LeRobot ships RTC for Pi0, Pi0.5 and SmolVLA <Cite id="lerobot-rtc-docs" />, and A2C2's per-step correction head beats RTC by 23 points on Kinetix <Cite id="a2c2-2025" />. In the toy below, press “None” to watch the two plans agree.
+A training-time variant matched inference-time RTC at lower compute <Cite id="training-time-rtc-2025" />. REMAC additionally trains corrective adjustments with masked chunks to handle mismatches between executed actions and current perception <Cite id="remac-2026" />. LeRobot ships RTC for Pi0, Pi0.5 and SmolVLA <Cite id="lerobot-rtc-docs" />, and A2C2's per-step correction head beats RTC by 23 points on Kinetix <Cite id="a2c2-2025" />. In the toy, press “None” to watch the two plans agree.
 
 <LatencyComparison className="my-6" />
 
 ## The lineage in numbers
 
-In the table, `not disclosed` means the source omits the value, and weights means download availability. Physical Intelligence's openpi README lists base checkpoints for π0, π0-FAST and π0.5 <Cite id="openpi-repo-2024" />.
+Here, `not disclosed` means the source omits the value, and weights means download availability. Physical Intelligence's openpi README lists base checkpoints for π0, π0-FAST and π0.5 <Cite id="openpi-repo-2024" />.
 
 <PolicyChunkingTable className="my-6" />
 

@@ -283,7 +283,7 @@ export default function Home() {
       >
         <div className="flex flex-wrap items-baseline gap-x-4 border-t border-border pt-4 text-[15px]">
           <span className="eyebrow">Tools</span>
-          <ul className="home-run">
+          <ul className="home-run leading-[1.65]">
             <li>
               <Link
                 data-brand-control-id="control:link-focus"

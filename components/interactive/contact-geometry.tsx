@@ -381,7 +381,7 @@ export function ContactGeometry({
           />
         </>
       }
-      source="Illustrative contact counts and patch radii, not one simulator's solver output; tolerances are representative physical scales."
+      source="Contact counts and touching-area sizes are illustrative, not simulation results; tolerances represent physical scales."
     />
   );
 }

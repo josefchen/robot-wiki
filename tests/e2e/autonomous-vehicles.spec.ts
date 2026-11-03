@@ -127,13 +127,13 @@ test.describe('adjacent autonomous-vehicles module', () => {
     const figure = page.locator('[data-figure-frame="av-safety-miles"]');
     await figure.scrollIntoViewIfNeeded();
     await expect(figure.locator('[data-figure-title]')).toHaveText(
-      '275 million failure-free miles to match the human death rate',
+      'No fatalities in 275 million miles: 95% confidence',
     );
     await expect(figure.getByTestId('av-safety-miles-fatalities').locator('[data-chart-role]').first()).toHaveAttribute(
       'data-chart-role',
       'highlight',
     );
-    await expect(figure.locator('[data-scene-readout]')).toHaveText(['275 million', '3.9 million', '1.6 million']);
+    await expect(figure.locator('[data-scene-readout]')).toHaveText(['275 million; no death', '3.9 million; no reported injury', '1.6 million; no reported crash']);
     await expect(figure.getByTestId('av-safety-miles-fleet-years')).toHaveText(
       'about 12.5 years for 100 cars driving nonstop',
     );

@@ -57,7 +57,7 @@ seeAlso:
 import { ExcavatorPractice } from '@/components/interactive/excavator-practice';
 import { ModelBasedLoop } from '@/components/interactive/model-based-loop';
 
-Model-based robot learning is the family of methods that learn how the world responds to actions and use that model to plan, to train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id="mbrl-survey-2020" />.
+Model-based robot learning comprises methods learning how the world responds to actions and using that model to plan, train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id="mbrl-survey-2020" />.
 
 <Image id="daydreamer-a1-rollover-2022" />
 
@@ -100,7 +100,7 @@ A <Term id="world-model">world model</Term> need not predict pixels: value-equiv
 <span id="two-ways-to-use-imagined-experience" />
 ## A model can plan each step or train a policy in imagination
 
-A planner rolls sampled action sequences through the model, executes the best first action and replans, so a new goal or cost needs no retraining, at the price of many rollouts per real step ([reward design and MPC](/rl-sim2real/reward-design-mpc/)). In 2016 Finn and Levine combined action-conditioned video prediction with MPC so a real robot could push novel objects <Cite id="deep-visual-foresight-2016" />. TD-MPC2 trained one 317M-parameter agent on 80 tasks <Cite id="tdmpc2-2023" />, and PointWorld, trained on about 2 million trajectories, plans with MPC at 0.1 s per inference on a real Franka without demonstrations <Cite id="pointworld-2026" />.
+A planner rolls sampled action sequences through the model, executes the best first action and replans, so new goals or costs need no retraining, at the price of many rollouts per real step ([reward design and MPC](/rl-sim2real/reward-design-mpc/)). In 2016 Finn and Levine combined action-conditioned video prediction with MPC so a real robot could push novel objects <Cite id="deep-visual-foresight-2016" />. TD-MPC2 trained one 317M-parameter agent on 80 tasks <Cite id="tdmpc2-2023" />, and PointWorld, trained on about 2 million trajectories, plans with MPC at 0.1 s per inference on a real Franka without demonstrations <Cite id="pointworld-2026" />.
 
 Dreamer instead trains a policy on trajectories imagined in a learned latent space <Cite id="dreamer-2019" />, and DreamerV3 covers more than 150 tasks with one configuration <Cite id="dreamerv3-2023" />. Dreamer 4 learns purely offline, a setting its authors tie to robotics, where interaction "can be unsafe and slow" <Cite id="dreamer4-2025" />. [Latent dynamics](/world-models/latent-dynamics/) covers these agents.
 
@@ -111,9 +111,9 @@ Stochastic Value Gradients provides an earlier route to differentiating through 
 
 A policy trained on a model "tends to exploit regions where insufficient data is available", which ME-TRPO counters with an ensemble <Cite id="me-trpo-2018" />. PETS, a probabilistic ensemble, matches model-free asymptotic performance with 8 and 125 times fewer samples than SAC and PPO on half-cheetah <Cite id="pets-2018" />.
 
-MBPO keeps rollouts short and "branched from real data" <Cite id="mbpo-2019" />. In [offline RL](/rl-sim2real/offline-rl/), MOPO penalizes reward by model uncertainty <Cite id="mopo-2020" />. MOReL learns a pessimistic decision process from offline data and trains its policy within that process <Cite id="morel-2020" />.
+MBPO keeps rollouts short and "branched from real data" <Cite id="mbpo-2019" />. In [offline RL](/rl-sim2real/offline-rl/), MOPO penalizes reward by model uncertainty <Cite id="mopo-2020" />. MOReL learns a pessimistic decision process from offline data and trains its policy within it <Cite id="morel-2020" />.
 
-MB-MPO meta-learns a policy that adapts to each member of a dynamics ensemble with one policy-gradient step, placing model disagreement inside the adaptation problem <Cite id="model-based-meta-policy-2018" />. CBOP weights model-based and model-free value estimates by their epistemic uncertainty and uses a lower bound on the posterior estimate for conservative offline learning <Cite id="bayesian-model-value-expansion-2022" />.
+MB-MPO meta-learns a policy adapting to each member of a dynamics ensemble with one policy-gradient step, placing model disagreement inside the adaptation problem <Cite id="model-based-meta-policy-2018" />. CBOP weights model-based and model-free value estimates by their epistemic uncertainty and uses a lower bound on the posterior estimate for conservative offline learning <Cite id="bayesian-model-value-expansion-2022" />.
 
 <span id="why-physical-robots-make-the-model-harder" />
 ## Robots see only part of the state, yet learn useful models in minutes to hours
@@ -144,6 +144,6 @@ Hybrids keep known physics and learn what it misses: TossingBot learns residuals
 <span id="when-to-choose-model-based-learning" />
 ## Model-based learning pays off when real interaction is expensive
 
-It fits when interaction is expensive, goals change faster than dynamics and planning fits the latency budget; it fits less well when observations omit contact state or resets are cheap. Plan only once predicted action rankings track real ones: in a 2026 agile-driving study, SAC won in simulation, yet "only TD-MPC2 consistently outperforms the MPPI baseline on the physical platform" <Cite id="reset-free-driving-2026" />.
+It fits when interaction is expensive, goals change faster than dynamics and planning fits the latency budget, and less well when observations omit contact state or resets are cheap. Plan only once predicted action rankings track real ones: in a 2026 agile-driving study, SAC won in simulation, yet "only TD-MPC2 consistently outperforms the MPPI baseline on the physical platform" <Cite id="reset-free-driving-2026" />.
 
 Adrian Remonda, Nicklas Hansen, Xiaolong Wang and colleagues at Toyota Research Institute and UC San Diego (October 2026) pretrain a racing world model in simulation and correct its mismatch on the real car <Cite id="pia-2026" />. On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety <Cite id="pia-2026" />.

@@ -66,8 +66,8 @@ const MOON = delayOf(MOON_ID);
 const MARS = delayOf(MARS_ID);
 
 const CAPTION =
-  'Round trips are twice the one-way light time. The camera row is a drone’s own perception delay, for scale.';
-const DESCRIPTION = `Three delays on a scale that steps by ten times. A drone's stereo camera needs ${CAMERA.readout} from an obstacle coming into view to the start of a dodge, by Falanga and colleagues' bounds. A signal to the Moon and back takes ${MOON.readout}, and to Mars and back ${MARS.readout}, twice JPL's one-way ${MARS_ONE_WAY_MINUTES[0]} to ${MARS_ONE_WAY_MINUTES[1]} minutes. JPL says the Mars delay rules out driving a rover from Earth and motivates autonomy.`;
+  'Drones use two camera views to sense in hundredths of a second; Mars takes 8–40 minutes round-trip, so robots there must act independently.';
+const DESCRIPTION = `Three delays on a compressed scale. The labeled ticks are one second, one minute and one hour: each is 60 times the previous one. A drone's stereo camera needs ${CAMERA.readout} from an obstacle coming into view to the start of a dodge, by Falanga and colleagues' bounds. A signal to the Moon and back takes ${MOON.readout}, and to Mars and back ${MARS.readout}, twice JPL's one-way ${MARS_ONE_WAY_MINUTES[0]} to ${MARS_ONE_WAY_MINUTES[1]} minutes. JPL says the Mars delay rules out driving a rover from Earth and motivates autonomy.`;
 
 export function SpaceLatencyLadder({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
@@ -78,9 +78,12 @@ export function SpaceLatencyLadder({ className }: { className?: string }) {
       figureId="space-latency-ladder"
       className={className}
       kicker="Delays a robot works within"
-      heading="A round trip to Mars takes 8 to 40 minutes"
+      heading="Camera: hundredths of seconds; Mars round trip: 8–40 minutes"
       stage={
         <FigureStage>
+          <p className="font-sans text-sm leading-snug text-text">
+            A drone’s camera reacts in hundredths of a second. <strong className="font-medium">Mars messages take 8–40 minutes there and back</strong>, so a rover must act on its own.
+          </p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Drone camera delay against round trips to the Moon and Mars"
@@ -112,7 +115,7 @@ export function SpaceLatencyLadder({ className }: { className?: string }) {
                   data-high-seconds={delay.highSeconds}
                 >
                   <DirectLabel x={lead ? PLOT.right : PLOT.left} y={top + NAME_BASELINE} anchor={lead ? 'end' : 'start'} seriesFor={delay.id}>
-                    <tspan fontWeight={lead ? 700 : 600}>{delay.label}</tspan>
+                    <tspan fontWeight={lead ? 700 : 600}>{delay.id === CAMERA_ID ? "Drone camera: hundredths of a second" : delay.label}</tspan>
                   </DirectLabel>
                   {range ? (
                     <Bar x={lo} y={f(track - BAR_THICKNESS / 2)} width={f(hi - lo)} height={BAR_THICKNESS} role={role} />
@@ -143,7 +146,7 @@ export function SpaceLatencyLadder({ className }: { className?: string }) {
               fontSize={CHART_TYPE.labelPx}
               fill={roleColour('highlight')}
             >
-              too slow to drive a rover live from Earth
+              8–40 minutes round trip: rover acts on its own
             </text>
             {TICKS.map((t) => (
               <text
@@ -166,7 +169,7 @@ export function SpaceLatencyLadder({ className }: { className?: string }) {
               fontSize={CHART_TYPE.axisPx}
               fill={CHART_STRUCTURE.labelSecondary}
             >
-              delay, log scale
+              Delay; each tick is 60 times longer
             </text>
           </PlotStage>
         </FigureStage>

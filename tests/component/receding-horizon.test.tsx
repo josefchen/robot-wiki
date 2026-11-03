@@ -30,7 +30,7 @@ describe('RecedingHorizon', () => {
     expect(screen.getByTestId('rh-replan-readout')).toBeInTheDocument();
     expect(screen.getByTestId('rh-commit-readout')).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /diffusion policy: rethink every 0.8 seconds/i }),
+      screen.getByRole('button', { name: /rethink every 0.8 seconds/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: /never rethink/i }),
@@ -125,18 +125,22 @@ describe('RecedingHorizon', () => {
 
   it('the presets load named configurations', async () => {
     const user = userEvent.setup();
-    render(<RecedingHorizon />);
+    const { container } = render(<RecedingHorizon />);
+    const heading = container.querySelector('[data-figure-title]');
+    expect(heading).toHaveTextContent('Plan 1.6 seconds ahead; act on 0.8 seconds, then rethink');
     await user.click(screen.getByRole('button', { name: /never rethink/i }));
     expect(predictedSlider()).toHaveValue('32');
     expect(executedSlider()).toHaveValue('32');
+    expect(heading).toHaveTextContent('Follow all 3.2 seconds without replanning');
     expect(screen.getByTestId('rh-replan-readout')).toHaveTextContent(
       '0.31 times a second',
     );
     await user.click(
-      screen.getByRole('button', { name: /diffusion policy: rethink every 0.8 seconds/i }),
+      screen.getByRole('button', { name: /rethink every 0.8 seconds/i }),
     );
     expect(predictedSlider()).toHaveValue('16');
     expect(executedSlider()).toHaveValue('8');
+    expect(heading).toHaveTextContent('Plan 1.6 seconds ahead; act on 0.8 seconds, then rethink');
     expect(screen.getByTestId('rh-replan-readout')).toHaveTextContent(
       '1.25 times a second',
     );

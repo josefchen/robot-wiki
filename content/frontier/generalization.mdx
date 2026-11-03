@@ -123,7 +123,7 @@ Spatial representations make different compromises. PerAct encodes RGB-D observa
 
 π0.7 (April 2026; see [The Pi Line](/manipulation/pi-line/)) adds compositional generalization, recombining trained skills into untrained tasks. Asked to load a sweet potato into an air fryer without robot demonstrations, the model "makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully" <Cite id="pi07-blog-2026" />. With step-by-step language coaching the robot completes it, and the coaching transcripts train a high-level policy that runs the task with no additional <Term id="teleoperation">teleoperation</Term> <Cite id="pi07-2026" />. Generalist reports a competing route: GEN-1.5 learns a new task in context from 3 to 12 seconds of one demonstration, with no training <Cite id="gen-1-5-2026" />.
 
-Physical Intelligence also reports <Term id="cross-embodiment">cross-embodiment</Term> transfer: π0.7 folds laundry on a bimanual UR5e that never had laundry data at 85.6% task progress and 80% success. Expert teleoperators averaging 375 hours reached 90.9% and 80.6% on their first try with that robot <Cite id="pi07-2026" />. Google DeepMind reports that Gemini Robotics On-Device 2 adapts to new bi-arm embodiments in a few hours, "typically with less than 200 examples" <Cite id="gemini-robotics-2-2026" />.
+Physical Intelligence also reports <Term id="cross-embodiment">cross-embodiment</Term> transfer: π0.7 folds laundry on a bimanual UR5e that never had laundry data at 85.6% task progress and 80% success. Expert teleoperators averaging 375 hours reached 90.9% and 80.6% on their first try with that robot <Cite id="pi07-2026" />. Google DeepMind reports Gemini Robotics On-Device 2 adapts to new bi-arm embodiments in a few hours, "typically with less than 200 examples" <Cite id="gemini-robotics-2-2026" />.
 
 <span id="what-these-results-do-not-demonstrate" />
 ## None of these results shows reliable, unaided success in unseen homes
@@ -151,7 +151,7 @@ The chart extends the fit past 20k hours, although the authors "do not extrapola
 
 ## No published law yet predicts real-world success in unseen settings
 
-Generalist fits a power law to GEN-0's 270,000 hours of real-world manipulation data, with "next-action prediction error" as its target <Cite id="generalist-gen0-2025" />. Figure's human-to-humanoid transfer law is also fit to robot-action prediction <Cite id="helix-2-5-2026" />. TRI's blind, randomized trials found that performance "predictably increases as pretraining scale and diversity grows", without fitting a law <Cite id="tri-lbm-2025" />.
+Generalist fits a power law to GEN-0's 270,000 hours of real-world manipulation data, with "next-action prediction error" as its target <Cite id="generalist-gen0-2025" />. Figure's human-to-humanoid transfer law is also fit to robot-action prediction <Cite id="helix-2-5-2026" />. TRI's blind, randomized trials found performance "predictably increases as pretraining scale and diversity grows", without fitting a law <Cite id="tri-lbm-2025" />.
 
 The scaling camp cites EgoScale's "no signs of saturation in the explored regime" <Cite id="egoscale-2026" />, AgiBot World's "predictable performance scaling with increased data volume" <Cite id="agibot-world-2025" /> and π0.7's compositional results <Cite id="pi07-2026" />. Investor analysis from Bessemer, arguing that scaling laws are beginning to show up in robotics data, says of robotics' ChatGPT moment: "We don't think that moment is years away. But it's not here yet." <Cite id="bessemer-robotics-2026" />.
 
@@ -164,7 +164,7 @@ The settling test is whether a 10x or 100x data increase, with no architectural 
 <span id="what-solved-would-look-like" />
 ## No system yet meets the solved bar of 90% across dozens of unseen homes
 
-Generalization is solved when a single policy achieves better than 90% success across many unseen homes, dozens of them, with no per-site data collection or fine-tuning, in a published, reproducible evaluation spanning many tasks and objects. No current system has been evaluated this way. Figure reports that Helix 2.5 reached 56% zero-shot success, against 9% without Index pretraining, on three whole-body tasks in 30 unseen Bay Area homes, graded blind with no published trial counts <Cite id="helix-2-5-2026" />.
+Generalization is solved when a single policy achieves better than 90% success across many unseen homes, dozens of them, with no per-site data collection or fine-tuning, in a published, reproducible evaluation spanning many tasks and objects. No current system has been evaluated this way. Figure reports Helix 2.5 reached 56% zero-shot success, against 9% without Index pretraining, on three whole-body tasks in 30 unseen Bay Area homes, graded blind with no published trial counts <Cite id="helix-2-5-2026" />.
 
 <HelixZeroShotSuccess className="my-6" />
 

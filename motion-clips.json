@@ -9,7 +9,7 @@
       "kicker": "Kalman filter, a whole run",
       "headline": "The filter keeps tracking, but grows less sure without readings",
       "route": "/classical/state-estimation",
-      "teaches": "Through noisy and missing readings the filter stays close to the object, and its band shows when a robot should trust it less.",
+      "teaches": "The filter mixes a motion prediction with sensor readings to track the object. When readings stop, its widening band shows growing uncertainty.",
       "status": "illustrative",
       "statusNote": "Illustrative: a simulated run, not measured on hardware.",
       "width": 1280,

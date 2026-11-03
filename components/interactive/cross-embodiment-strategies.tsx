@@ -132,7 +132,7 @@ function EmbodimentRow({
     state === 'latent' ? `url(#${hatchId})` : SLOT_FILL[state];
 
   return (
-    <div data-testid={`row-${embodimentId}`}>
+    <div data-inset-plot data-testid={`row-${embodimentId}`}>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 font-sans text-[13px] leading-snug">
         <span className="text-text">{body.label}</span>
         <span className="text-text-dim">{body.note}</span>
@@ -207,7 +207,7 @@ const STAGE_LINK = 'underline-offset-2';
 
 /** The presets and column heads in plain words; the strategy labels stay in the readouts. */
 const PLAIN_STRATEGY: Record<StrategyId, { label: string; head: readonly string[] }> = {
-  padded: { label: "Pad each robot's own list", head: ['Pad each', "robot's own", 'list'] },
+  padded: { label: 'Fill unused joint slots with zeros', head: ['Fill unused', 'joint slots', 'with zeros'] },
   'motion-transfer': { label: 'Translate between bodies', head: ['Translate', 'between', 'bodies'] },
   'relative-eef': { label: 'Describe where the hand goes', head: ['Describe', 'where the', 'hand goes'] },
 };
@@ -244,6 +244,7 @@ function MiniBar({
   y,
   width,
   hatchId,
+  muted,
 }: {
   strategy: StrategyId;
   embodimentId: EmbodimentId;
@@ -251,6 +252,7 @@ function MiniBar({
   y: number;
   width: number;
   hatchId: string;
+  muted: boolean;
 }) {
   const slots = slotRow(strategy, embodimentId);
   const unit = width / SHARED_WIDTH;
@@ -272,6 +274,7 @@ function MiniBar({
         stroke={CHART_STRUCTURE.axes}
         strokeOpacity={CHART_STRUCTURE.axesOpacity}
         strokeWidth={CHART_STROKE.structure}
+        opacity={muted ? 0.45 : 1}
       />
       {runs.map((run) =>
         run.state === 'blocked' ? null : (
@@ -287,6 +290,7 @@ function MiniBar({
             strokeOpacity={SLOT_STROKE_OPACITY[run.state]}
             strokeWidth={CHART_STROKE.structure}
             strokeDasharray={run.state === 'zeroed' ? '2 2' : undefined}
+            opacity={muted ? 0.45 : 1}
           />
         ),
       )}
@@ -343,7 +347,7 @@ function Overview({ selected, describedBy }: { selected: StrategyId; describedBy
                 </tspan>
               ))}
             </text>
-            <g opacity={on ? 1 : 0.45}>
+            <g>
               {EMBODIMENT_ORDER.map((body, r) => (
                 <MiniBar
                   key={body}
@@ -353,6 +357,7 @@ function Overview({ selected, describedBy }: { selected: StrategyId; describedBy
                   y={f(rowY(r) + (OVERVIEW.rowH - OVERVIEW.barH) / 2)}
                   width={barW}
                   hatchId={hatchId}
+                  muted={!on}
                 />
               ))}
             </g>
@@ -384,7 +389,7 @@ function Overview({ selected, describedBy }: { selected: StrategyId; describedBy
         x={OVERVIEW.width - 4}
         y={NOTE_Y}
         anchor="end"
-        lines={["Only this way can a person's", "video fill the robot's slots"]}
+        lines={["One model can learn from", "human videos and robot moves"]}
         target={target}
         from={[target[0], NOTE_Y - CHART_TYPE.labelPx]}
       />
@@ -447,7 +452,7 @@ export function CrossEmbodimentStrategies({
           <div className="font-sans text-sm text-text-dim">
             All 32 slots for: <span className="text-text">{strategy.label}</span>
           </div>
-          <div className="grid gap-2">
+          <div className="grid w-full basis-full gap-2">
             {EMBODIMENT_ORDER.map((id) => (
               <EmbodimentRow
                 key={id}
@@ -489,10 +494,10 @@ export function CrossEmbodimentStrategies({
                 driven by this source
               </LegendItem>
               <LegendItem series="zeroed" swatch={<SlotSwatch state="zeroed" />}>
-                zero-padding
+                zero means an unused slot, not a movement
               </LegendItem>
               <LegendItem series="latent" swatch={<SlotSwatch state="latent" hatchId={legendHatchId} />}>
-                hatched: illustrative link, not model dimensions
+                hatched: illustration of shared movement information; actual contents and size undisclosed
               </LegendItem>
               <LegendItem series="blocked" swatch={<SlotSwatch state="blocked" />}>
                 unused
@@ -549,7 +554,7 @@ export function CrossEmbodimentStrategies({
           />
         </>
       }
-      source="Original slot illustrations; strip widths and the 8-, 16- and 29-coordinate robot rows are toy choices."
+      source="Illustrative action lists: 8 movement values for one arm, 16 for two arms, 29 for a humanoid. These counts and strip widths are examples."
     />
   );
 }

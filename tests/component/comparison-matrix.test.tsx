@@ -231,7 +231,7 @@ describe('ComparisonMatrix', () => {
   it('opens on its takeaway: a card per method and a year strip by output style', () => {
     const { container } = render(<ComparisonMatrix />);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      "Most 2026 robot brains don't disclose how they move",
+      "All disclosed motion methods through 2025; most 2026 models don’t",
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Policy comparison');
     // The headline and caption claims, checked against the data.
@@ -247,11 +247,11 @@ describe('ComparisonMatrix', () => {
     expect(cards).toHaveLength(METHODS.length);
     expect(container.querySelectorAll('[data-method-dot]')).toHaveLength(METHODS.length);
     const rt1 = container.querySelector('[data-method-card="rt-1"]');
-    expect(rt1).toHaveTextContent('word-like codes');
+    expect(rt1).toHaveTextContent("numbered words");
     expect(rt1).toHaveTextContent('3 commands a second');
     expect(rt1).toHaveAttribute('id', 'method-rt-1');
     const pi0 = container.querySelector('[data-method-card="pi0"]');
-    expect(pi0).toHaveTextContent('refined from noise');
+    expect(pi0).toHaveTextContent("refined move guesses");
     expect(pi0).toHaveTextContent('50 moves');
     expect(pi0).toHaveTextContent(/Download\s*yes/);
     expect(container.querySelector('[data-method-card="skild"]')).toHaveTextContent(/Output\s*not disclosed/);

@@ -176,7 +176,7 @@ describe('SceneRepresentationLadder', () => {
   it('states the takeaway as a short headline under a kicker', () => {
     const { container } = render(<SceneRepresentationLadder />);
     const title = container.querySelector('[data-figure-title]');
-    expect(title).toHaveTextContent('Each way of storing a room answers different questions');
+    expect(title).toHaveTextContent('Only storage format changes which questions can be answered');
     expect(title?.textContent?.trim().split(/\s+/).length).toBeLessThanOrEqual(10);
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Scene representations');
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
@@ -189,20 +189,31 @@ describe('SceneRepresentationLadder', () => {
     const outside = (el: Element) => !el.closest('[data-figure-fold]');
     expect([...visible.querySelectorAll('[role="group"]')].filter(outside)).toHaveLength(1);
     expect([...visible.querySelectorAll('input[type="range"]')].filter(outside)).toHaveLength(1);
-    const plain = ['Dots', 'Grid of boxes', 'Distance map', 'Triangle skin', 'Soft blobs'];
+    const plain = ['Dots', 'Grid of boxes', 'Small boxes: distance to seen surfaces', 'Surface of triangles', 'Coloured shapes make camera pictures'];
     REPRESENTATIONS.forEach((rep, i) => {
       expect(selector(rep.id)).toHaveTextContent(plain[i]!);
       // The accessible name starts with the visible label and keeps the technical name.
       expect(selector(rep.id).getAttribute('aria-label')).toMatch(new RegExp(`^${plain[i]} \\(${rep.short}\\)`));
     });
     expect(screen.getByTestId('scene-technical-name')).toHaveTextContent('Engineers call this an occupancy grid');
+    expect(screen.getByText(/Distance option: from each small box/).closest('details')).toBeNull();
+    expect(screen.getByText(/Distance option: from each small box/)).toHaveTextContent('Picture option: coloured shapes in 3D overlap to draw the room from a chosen camera position.');
     expect(screen.getByLabelText(/^Detail/)).toBe(screen.getByTestId('scene-resolution-slider'));
     const ends = visible.querySelector('[data-slider-ends]');
     expect(ends).toHaveTextContent('coarse');
     expect(ends).toHaveTextContent('fine');
     expect(screen.getByTestId('scene-detail-note')).toHaveTextContent(
-      'More detail: sharper picture, more storage, same answers.',
+      'Smaller spacing shows finer detail for the same kinds of questions.',
     );
+    const costLead = screen.getByText('Only the storage format changes which questions the robot can answer.');
+    expect(screen.getByTestId('scene-main-comparison').compareDocumentPosition(selector(DEFAULT_REPRESENTATION)) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    const direction = screen.getByTestId('scene-surface-direction');
+    expect(direction).toHaveTextContent('At a wall or object face: the direction straight out from the surface, for planning contact.');
+    expect(direction.closest('details')).toBeNull();
+    expect(capability('contact-normal')).toHaveAttribute('aria-describedby', direction.id);
+    expect(costLead.closest('details')).toBeNull();
+    expect(costLead.parentElement).toHaveTextContent('Finer detail costs more memory');
+    expect(costLead.parentElement).toHaveTextContent('answers the same questions');
   });
 
   it('names the three questions in plain words, each answered', () => {

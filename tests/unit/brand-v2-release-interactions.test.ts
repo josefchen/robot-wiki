@@ -116,7 +116,9 @@ function detail(): ReleaseInteractionDetails {
     }],
     targets: {
       count: 1,
+      censusIds:['large'],
       large: {
+        ids:['large'],
         count: 1,
         minWidth: 40,
         minHeight: 24
@@ -191,7 +193,9 @@ describe('measured control details', () => {
     const d = detail();
     d.targets = {
       count: 1,
+      censusIds:['cite'],
       large: {
+        ids:[],
         count: 0,
         minWidth: null,
         minHeight: null
@@ -205,6 +209,7 @@ describe('measured control details', () => {
         height: 20,
         inlineText: 'The source supports this.',
         parentWidth: 600,
+        clipping:{context:'document',ancestors:[],visibleFragments:[{x:0,y:0,width:14,height:20}]},
         nearestTargetClearance: 3,
         nearestSmallCentre: 12,
         nativePointer: true

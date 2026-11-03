@@ -7,19 +7,14 @@
     "1280": "evidence/reader-first/classical--state-estimation--scene-kalman-predict-update.1280.png"
   },
   "takeaway": "Mixing the robot's own guess of where it is with a noisy sensor reading gives an estimate surer than either one alone.",
-  "sentence": "A robot has a rough guess of where it is and a rough sensor reading, and combining the two gives a sharper, more confident answer that lands partway between them.",
-  "unclearTerms": [
-    "what the height of the bell shapes means (only the width is explained)",
-    "the green horizontal bar with a dot in the middle and end caps under the robot",
-    "the grey horizontal line the robot sits on",
-    "the overlapping shaded areas under the curves, which mix into colours I could not match to a single curve",
-    "62% of the way from guess to sensor (I could not tell where 0% and 100% are on the picture)"
-  ],
+  "sentence": "Combining the robot's own position guess with an imperfect sensor reading gives a narrower and more certain estimate than either alone.",
+  "unclearTerms": [],
   "samePoint": "yes",
-  "reason": "My sentence says that combining the guess with the noisy sensor reading gives a sharper, more confident answer, which matches 'surer than either one alone', although I did not say 'than either' word for word.",
-  "verdict": "fail",
-  "screenshotCommit": "acaa223c0d88acc645afcff0b493f72f01984182",
-  "date": "2026-10-08",
-  "reviewerSession": "reader-session-72c5c167",
-  "sourceDigest": "7b600d0c18b5a0108a36be292346689890b0eb982ec4f3eec2e4bdf47ddec5d0"
+  "reason": "Both say combining the robot's position guess with an imperfect sensor reading yields a surer estimate than either alone.",
+  "verdict": "pass",
+  "screenshotCommit": "e9abd96b936d238ffce88e1ba58e16400e2bb7a2",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0003",
+  "sourceDigest": "1ff1b6fe1316b1d567e16a386276cde67dddb7b82191eceb80c6dd49b403ea9f",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

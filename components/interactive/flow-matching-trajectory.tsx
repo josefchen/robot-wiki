@@ -118,9 +118,9 @@ function regimeFor(steps: number): string {
 function landingNote(steps: number): string[] {
   if (steps === 1) return ['One big jump cuts the', 'corner and misses'];
   if (steps === 2) return ['Two jumps still', 'miss the good move'];
-  if (steps <= 4) return [`${steps} steps get close`, 'to the good move'];
+  if (steps <= 4) return [`${steps} steps land inside`, 'the good-move area'];
   if (steps >= MAX_STEPS) return [`${steps} steps land too, at`, 'five times the cost of ten'];
-  return [`${steps} small steps land`, 'on the good move'];
+  return [`${steps} small steps land;`, 'one big jump misses'];
 }
 
 function stepWords(steps: number): string {
@@ -471,16 +471,28 @@ export function FlowMatchingTrajectory({
       figureId="flow-matching-trajectory"
       className={className}
       kicker="Flow matching: refining steps"
-      heading="Five small steps land where one big jump misses"
+      heading="Small steps land where one jump misses, but cost time"
       controls={
         <>
-          <PresetGroup<StepPreset>
-            label="Refining steps per move"
-            presets={STEP_PRESETS.map(({ id, label }) => ({ id, label }))}
-            value={preset}
-            onChange={(id) => chooseSteps(STEP_PRESETS.find((p) => p.id === id)?.steps ?? defaultSteps)}
-            testId="fm-preset"
-          />
+          <p className="basis-full pb-2 font-sans text-[16px] font-semibold leading-normal text-text" data-testid="fm-area-result">
+            {landed ? (
+              <>{stepWords(hopCount)} reach a good move inside the outlined area; one big jump misses.</>
+            ) : hopCount === MIN_STEPS ? (
+              <>One big jump misses the good-move area. Small steps can reach it.</>
+            ) : (
+              <>{stepWords(hopCount)} miss the good-move area. More small steps can reach it.</>
+            )}{' '}
+            Each step takes time.
+          </p>
+          <div className="[&_.figure-tab-row]:gap-x-1">
+            <PresetGroup<StepPreset>
+              label="Refining steps (π0, π0.6 and π0.7 are robot models)"
+              presets={STEP_PRESETS.map(({ id, label }) => ({ id, label }))}
+              value={preset}
+              onChange={(id) => chooseSteps(STEP_PRESETS.find((p) => p.id === id)?.steps ?? defaultSteps)}
+              testId="fm-preset"
+            />
+          </div>
           <button
             type="button"
             data-brand-control-id="control:secondary-action"
@@ -488,7 +500,7 @@ export function FlowMatchingTrajectory({
             data-testid="fm-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
-            {running ? 'Stop the stylus' : 'Run the stylus'}
+            {running ? 'Stop' : 'Play'}
           </button>
         </>
       }
@@ -541,19 +553,19 @@ export function FlowMatchingTrajectory({
               'Each hop reads the field, then goes straight'
             ) : (
               <>
-                <span data-figure-annotation="">{landingNote(steps).join(' ')}</span>. Run the stylus.
+                <span data-figure-annotation="">{landingNote(steps).join(' ')}</span>. Press Play.
               </>
             )
           }
           readout={
             <>
               <LiveReadoutText ref={phaseRef} data-fm-phase="" />
-              <span data-testid="fm-step-readout">{stepWords(steps)}</span> · on average lands{' '}
-              <span data-testid="fm-dispersion-readout">{dispersion.toFixed(2)}</span> from a good move
-              {steps === 1 ? null : <> · one big jump misses by {oneJump.toFixed(2)}</>}
+              Exact target-dot distance: <span data-testid="fm-step-readout">{stepWords(steps)}</span> average{' '}
+              <span data-testid="fm-dispersion-readout">{dispersion.toFixed(2)}</span>
+              {steps === 1 ? null : <> · one big jump averages {oneJump.toFixed(2)}</>}
             </>
           }
-          status="Illustrative model, not measured."
+          status="Inside an outlined area counts as a good move. The small dot is its exact target; the readout measures distance to that dot. Grey paths: other guesses. Red crosses: missed moves. Distances are illustrative, with no physical unit."
         >
           <div ref={stageRef}>
             <IsoFigure
@@ -571,7 +583,7 @@ export function FlowMatchingTrajectory({
           </div>
         </AnatomyStage>
       }
-      caption="Getting a precise move takes several small refining steps, each costing time; π0 used ten, π0.6 and π0.7 use five."
+      caption="Several small refinements reach a good move where one big jump misses; each refinement takes time."
       method={
         <>
           <p>
@@ -611,7 +623,7 @@ export function FlowMatchingTrajectory({
           />
         </>
       }
-      source="Illustrative model; step counts from the π0, π0.6 and π0.7 papers."
+      source="Illustrative paths; step counts from papers about the π0, π0.6 and π0.7 robot models."
     />
   );
 }

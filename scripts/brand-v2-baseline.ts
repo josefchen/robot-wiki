@@ -400,6 +400,275 @@ function behavioralDefaults(): ManifestInput[] {
   return entries;
 }
 
+/** Exact validation statements and expected-value builders; none is a product renderer. */
+const internalValueStateStatements = [
+  {
+    "path": "lib/brand-v2-interactive-data.ts",
+    "state": "not-applicable",
+    "ordinal": 5,
+    "text": "'Level 5 has no system or study on the ladder, so no evidence category applies. The source-value oracle permits n/a on that empty rung only.',"
+  },
+  {
+    "path": "lib/brand-v2-release-interaction-evidence.ts",
+    "state": "not-applicable",
+    "ordinal": 1,
+    "text": "for (const cell of table.naCells) if (!NA_CELL_FAMILIES.some(family => family.sourceId === sourceId && family.column.toLowerCase() === cell.column.toLowerCase())) failures.push('unregistered n/a source state in ' + cell.column);"
+  },
+  {
+    "path": "lib/brand-v2-release-interaction-evidence.ts",
+    "state": "not-disclosed",
+    "ordinal": 1,
+    "text": "const values = cells.filter(cell => !/^(not disclosed|n\\/a)$/i.test(cell.text));"
+  },
+  {
+    "path": "lib/brand-v2-release-map-data.ts",
+    "state": "not-applicable",
+    "ordinal": 1,
+    "text": "const absent = (field: AbsentField) => absentState(company, field) === 'not-applicable' ? 'n/a' : 'not disclosed';"
+  },
+  {
+    "path": "lib/brand-v2-release-map-data.ts",
+    "state": "not-disclosed",
+    "ordinal": 1,
+    "text": "const absent = (field: AbsentField) => absentState(company, field) === 'not-applicable' ? 'n/a' : 'not disclosed';"
+  },
+  {
+    "path": "lib/brand-v2-release-map-data.ts",
+    "state": "not-applicable",
+    "ordinal": 2,
+    "text": "if (!list.text.includes(event.companyName) || !list.text.includes(formatShortDate(event.date)) || !list.text.includes(amount === null ? absentState(event.company, 'round.amountUsd') === 'not-applicable' ? 'n/a' : 'not disclosed' : formatUsd(amount))) errors.push(event.companyId + ': timeline list loses a plotted fact');"
+  },
+  {
+    "path": "lib/brand-v2-release-map-data.ts",
+    "state": "not-disclosed",
+    "ordinal": 2,
+    "text": "if (!list.text.includes(event.companyName) || !list.text.includes(formatShortDate(event.date)) || !list.text.includes(amount === null ? absentState(event.company, 'round.amountUsd') === 'not-applicable' ? 'n/a' : 'not disclosed' : formatUsd(amount))) errors.push(event.companyId + ': timeline list loses a plotted fact');"
+  }
+] as const;
+
+/** Exact source-oracle expected values; product render sites remain measured. */
+const internalExpectedValueBuilders: readonly { path: string; state: string; ordinals: readonly number[]; text: string }[] = [
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-applicable",
+    "ordinals": [
+      1,
+      2
+    ],
+    "text": "c.row(`Level ${level.level}, ${level.name.toLowerCase()}`, { 'system or study': entry?.systems ?? 'none', evidence: entry?.evidenceText ?? 'n/a', 'placed by': entry?.placedBy ?? 'n/a' });"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      1
+    ],
+    "text": "const count = (value: number | null, note?: string) => value === null ? 'not disclosed' : `${value.toLocaleString('en-US')}${note ?? ''}`;"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      2
+    ],
+    "text": "const available = (v: boolean | null) => v === null ? 'not disclosed' : v ? 'downloadable' : 'not downloadable';"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      3,
+      4
+    ],
+    "text": "c.row(`${row.name}${row.maker} · ${row.actuation}`, { DoF: row.dofDisplay, 'Tactile threshold': row.tactileDisplay === null ? 'not disclosed' : row.tactileDisplay + (row.tactileNote ?? ''), Cost: row.costDisplay === null ? 'not disclosed' : row.costDisplay + (row.costNote ?? ''), 'Training bet': TRAINING_BET_LABEL[row.bet], Source: row.sourceLabel + (row.secondarySourceLabel ?? '') + row.asOf });"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      5
+    ],
+    "text": "const touch = row.tactileDisplay === null ? 'not disclosed' : row.id === 'sanctuary-phoenix' ? 'about half a gram' : row.id === 'figure-02-03' ? '3 grams' : row.tactileDisplay;"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      7
+    ],
+    "text": "const price = row.costNote === 'whole robot' ? `not disclosedWhole robot: ${row.costDisplay}` : row.costDisplay ?? 'not disclosed';"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      8,
+      9
+    ],
+    "text": "c.row(row.name, { Dataset: row.name, Year: row.year ?? 'not disclosed', Episodes: count(row.episodes, row.episodesNote), Hours: count(row.hours, row.hoursNote), Tasks: count(row.tasks, row.tasksNote), Scenes: count(row.scenes), Embodiments: `${row.embodimentCount} ${row.embodimentCount === 1 ? 'platform' : 'platforms'}${row.embodiments.join(', ')}`, License: row.license ?? 'not disclosed', Source: new URL(row.url).host });"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      10
+    ],
+    "text": "? `not disclosed${row.id === 'aloha-2' && row.priceNote ? `${row.priceNote}ACT paper (2023)` : ''}`"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      11,
+      12,
+      13
+    ],
+    "text": "c.row(key, { Entry: key, Category: categories[row.category], 'Price (USD)': priceText, DoF: row.dof === null ? 'not disclosed' : `${row.dof}${row.dofNote ?? ''}`, Availability: `${row.availability === null ? 'not disclosed' : availabilityLabels[row.availability]}${row.availabilityNote ?? ''}`, Distinction: row.highlight ?? 'not disclosed', Source: new URL(row.url).host });"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      14
+    ],
+    "text": "c.row(key, { Rig: key, Cost: `${row.costUsd === null ? 'not disclosed' : dollars(row.costUsd)}${row.costNote ?? ''}`, 'Data quality': row.dataQuality + row.dataQualityNote, Throughput: row.throughput + row.throughputNote, 'Embodiment gap': row.embodimentGap + row.embodimentGapNote, Sources: row.links.map(link => link.label).join('') });"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      15
+    ],
+    "text": "const outputLabels: Record<string, string> = { codes: 'numbered words', numbers: 'movement amounts', noise: 'refined move guesses', undisclosed: 'not disclosed' };"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      16
+    ],
+    "text": "const horizon = planned === null && executed === null ? 'not disclosed' : `${planned ?? 'n.d.'} / ${executed !== null && typeof executed === 'object' ? `{${executed.choices.join(', ')}}` : executed ?? 'n.d.'}`;"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "text": "c.row(row.name, { Method: row.name, Year: row.year ?? 'not disclosed', 'Action repr.': row.actionRepresentation === null ? 'not disclosed' : [representationText[row.actionRepresentation], row.actionRepresentationNote].filter(Boolean).join('; '), 'Horizon H/Ĥ': horizon + (note ?? ''), 'Control Hz': `${row.controlFrequencyHz === null ? 'not disclosed' : `${row.controlFrequencyHz} Hz`}${row.controlFrequencyNote ?? ''}`, Backbone: row.backbone ?? 'not disclosed', Conditioning: row.conditioning.length ? row.conditioning.join(', ') : 'not disclosed', 'Cross-embodiment': row.crossEmbodiment ?? 'not disclosed', Hierarchy: row.hierarchy ?? 'not disclosed', Weights: `${row.openWeights === null ? 'not disclosed' : row.openWeights ? 'downloadable' : 'not released'}${row.weightsNote ?? ''}`, Sources: row.sources.map(id => { const record = source(id); c.sourceLink(record.url); return `${citationLabel(record)}: ${record.title}`; }).join('') });"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles-data.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "text": "const facts = `${row.name}${row.year ?? 'not disclosed'}Output${outputLabels[kind]}Plans ahead${planned === null ? 'not disclosed' : planned === 1 ? '1 move' : `${planned} moves`}Speed${row.controlFrequencyHz === null ? 'not disclosed' : `${row.controlFrequencyHz} commands a second`}Download${row.openWeights === null ? 'not disclosed' : row.openWeights ? 'yes' : 'no'}`;"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles.ts",
+    "state": "not-applicable",
+    "ordinals": [
+      1
+    ],
+    "text": "for(const hours of [100000,1000000])c.row(hours===100000?'100k h':'1M h',{'loss (MSE)':`${loss(hours).toFixed(4)} holds / ${loss(20000).toFixed(4)} plateau`,'reported completion':'n/a','completion fit':`${fit(hours).toFixed(2)} holds / 0.71 plateau`,region:hours===100000?'extrapolated, dashed':'extrapolated, dashed, fit past 100 percent, impossible'});"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles.ts",
+    "state": "not-applicable",
+    "ordinals": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "text": "ROBOT_POINTS.forEach(row=>c.row(row.label,{'demonstration hours':row.value,'pretraining tokens':'n/a'}));c.row('OXE',{'demonstration hours':'No hour estimate plotted','pretraining tokens':'n/a'});LLM_POINTS.forEach(row=>c.row(row.label,{'demonstration hours':'n/a','pretraining tokens':row.value}));c.row(`your hypothetical farm (${rigs} rigs)`,{'demonstration hours':`${annual.toLocaleString('en-US')} h/yr`,'pretraining tokens':'n/a'});"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      1
+    ],
+    "text": "basis: [{ id: 'assumption:WbcDecomposition:canonical-architecture-summary', kind: 'assumption', reference: 'The frozen architecture records summarize the disclosed Figure, NVIDIA and Google systems. Rates that the source does not report remain not disclosed; no inferred numerical rate replaces them. The authored glyph has eight hollow joint-motor rings and a matching key; its drawing dimensions carry no metric claim.' }], evidencePaths: ['lib/wbc-decomposition.ts', 'components/interactive/wbc-decomposition.tsx', 'components/motion/motion-tokens.css', 'app/globals.css'], seriesIds: ['motors'], nonQuantitative: 'The motor drawing and stack spacing are categorical. Representative identity, layer counts and the fastest disclosed rate are checked numerically/textually below.',"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      2
+    ],
+    "text": "const nvidia = c.selected(/^NVIDIA$/), google = c.selected(/^Google DeepMind$/), name = google ? 'Gemini Robotics 2' : nvidia ? 'GR00T N1.7 + GEAR-SONIC' : 'Figure Helix 02 S0', layers = google || nvidia ? 2 : 3, fastest = google ? 'not disclosed' : nvidia ? '50 Hz' : '1000 Hz';"
+  },
+  {
+    "path": "lib/brand-v2-source-oracles.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      3
+    ],
+    "text": "for (const stat of google ? ['< 200 examples', 'not disclosed'] : nvidia ? ['3B', '132', '20,000 h'] : ['10M', '1000+ h', '200,000+']) c.contains(stat);"
+  },
+  {
+    "path": "lib/brand-v2-table-source-parity.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      1
+    ],
+    "text": "add('RlMethodsTable', 'rl-methods-table', ['Method', 'Year', 'Mechanism', 'Headline result', 'Evidence', 'Openness'], rows('rl-methods-table').map(row => [row.method, row.year, row.mechanism, row.result, row.evidence, `${row.open === null ? 'not disclosed' : row.open ? 'code' : 'closed'}${row.opennessNote}`]), [], true, text(rl.componentProps('RlMethodsTable', 'Table').caption));"
+  },
+  {
+    "path": "lib/brand-v2-table-source-parity.ts",
+    "state": "not-disclosed",
+    "ordinals": [
+      2,
+      3,
+      4
+    ],
+    "text": "add('PolicyChunkingTable', 'policy-chunking-table', ['Policy', 'Year', 'Horizon H', 'Control Hz', 'Action representation', 'Weights'], rows('policy-chunking-table').map(row => [row.policy, row.year, `${row.horizon ?? 'not disclosed'}${row.horizonNote ?? ''}`, `${row.frequencyHz ?? 'not disclosed'}${row.frequencyNote ?? ''}`, row.representation, `${row.open === null ? 'not disclosed' : row.open ? 'downloadable' : 'not released'}${row.weightsNote ?? ''}`]), ['data/methods.ts'], true, text(policy.componentProps('PolicyChunkingTable', 'Table').caption));"
+  }
+];
+
+/** Exact proof/comment occurrences, retaining raw inventory and ordinals. */
+export function isInternalValueStateCheckerText(
+  path: string, state: ValueStateRecord['state'], ordinal: number, line: string,
+): boolean {
+  const text = line.trim();
+  return internalExpectedValueBuilders.some((site) => site.path === path && site.state === state &&
+    site.ordinals.includes(ordinal) && site.text === text) || internalValueStateStatements.some((site) => site.path === path && site.state === state &&
+    site.ordinal === ordinal && site.text === text) || (ordinal === 1 && (
+    (path === 'lib/brand-v2-source-oracle-core.ts' && state === 'not-disclosed' &&
+      text === "if (!this.cells.has(`${t}:${c}`) && (!this.oracle.nonQuantitative || printedNumbers(cell.text).length > 0 || /not disclosed|\\bn\\/a\\b/i.test(cell.text))) this.failures.push(`${this.state}: uncovered table binding ${cell.row}/${cell.column} = ${cell.text}`);") ||
+    (path === 'lib/audit-local-basis.ts' && state === 'not-applicable' &&
+      text === "goalReached ? `${rrt.formatLength(tree.pathLength)} units` : 'n/a'] };") ||
+    (path === 'lib/brand-v2-table-math-evidence.ts' &&
+      (state === 'not-applicable' || state === 'not-disclosed') &&
+      text === '/** Cells reading `not disclosed` and `n/a`, kept distinct on purpose. */') ||
+    (path === 'lib/no-slop.ts' && state === 'not-disclosed' &&
+      text === '*   ("not disclosed") are not contrast constructions and pass.') ||
+    (path === 'components/ui/badge.tsx' && state === 'not-disclosed' &&
+      text === '// No pill: a badge is a short lowercase table value, like "not disclosed",')
+  )) || (path === 'lib/brand-v2-interactive-data.ts' && (
+    (state === 'not-applicable' && [1, 2].includes(ordinal) &&
+      text === '* The honest `n/a` families (VAL-B2-COMP-010). "n/a" is reserved for a') ||
+    (state === 'not-applicable' && ordinal === 3 &&
+      text === '* `n/a` cell cannot appear without a recorded justification, and a') ||
+    (state === 'not-applicable' && ordinal === 4 &&
+      text === '/** Exact column header whose cells carry the `n/a`. */') ||
+    (state === 'not-disclosed' && ordinal === 1 &&
+      text === '// Buyer\'s-guide table; undisclosed figures render "not disclosed".')
+  ));
+}
+
 function collectValueStateRenderSites(): {
   raw: ValueStateRecord[];
   bounded: ValueStateRecord[];
@@ -424,26 +693,10 @@ function collectValueStateRenderSites(): {
     ['not-applicable', 'n/a'],
   ] as const;
 
-  // These three exact scanned occurrences describe proof/checker behavior,
+  // These exact scanned occurrences describe proof/checker behavior,
   // not values rendered by a reader. Keep the raw inventory (including its
   // ordinals) for legacy baseline reconciliation. Neither file nor directory
   // is broadly exempt: any other rendered-token occurrence remains measured.
-  const isInternalCheckerText = (
-    path: string,
-    state: ValueStateRecord['state'],
-    ordinal: number,
-    line: string,
-  ) =>
-    ordinal === 1 && (
-      (path === 'lib/audit-local-basis.ts' &&
-        state === 'not-applicable' &&
-        line.trim() ===
-          "goalReached ? `${rrt.formatLength(tree.pathLength)} units` : 'n/a'] };") ||
-      (path === 'lib/brand-v2-table-math-evidence.ts' &&
-        (state === 'not-applicable' || state === 'not-disclosed') &&
-        line.trim() ===
-          '/** Cells reading `not disclosed` and `n/a`, kept distinct on purpose. */')
-    );
 
   for (const path of paths) {
     const text = source(path);
@@ -463,7 +716,7 @@ function collectValueStateRenderSites(): {
         const line = text.slice(lineStart, lineEnd === -1 ? text.length : lineEnd);
         if (
           isRenderedValueStateTokenAt(text, rendered, offset) &&
-          !isInternalCheckerText(path, state, ordinal, line)
+          !isInternalValueStateCheckerText(path, state, ordinal, line)
         ) {
           bounded.push(record);
         }

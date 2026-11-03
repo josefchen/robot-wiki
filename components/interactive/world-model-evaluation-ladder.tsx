@@ -17,9 +17,12 @@ export function WorldModelEvaluationLadder({ className }: { className?: string }
       figureId="world-model-evaluation-ladder"
       className={className}
       kicker="Five separate evaluation questions"
-      heading="Policy rankings must agree with real robot trials"
+      heading="Match real rankings, then test repeated action and feedback"
       stage={
         <FigureStage>
+          <p className="font-sans text-sm leading-snug text-text">
+            To choose robot strategies, their ranking must match real trials. Good images and rankings alone do not prove useful repeated action and feedback.
+          </p>
           <PlotStage className="mx-auto max-w-xl" viewBox="0 0 340 282" aria-label="Five-rung world-model evaluation ladder" aria-describedby={descriptionId} data-testid="world-model-evaluation-ladder-stage">
             <line x1="12" x2="12" y1="24" y2="252" stroke={roleColour('reference')} strokeWidth={CHART_STROKE.reference} />
             {EVALUATION_RUNGS.map((rung, i) => (
@@ -27,19 +30,21 @@ export function WorldModelEvaluationLadder({ className }: { className?: string }
                 <PointMarker x={12} y={rung.y} role={i === 3 ? 'highlight' : 'measurement'} />
                 <line x1="15" x2="27" y1={rung.y} y2={rung.y} stroke={roleColour(i === 3 ? 'highlight' : 'reference')} strokeWidth={CHART_STROKE.structure} />
                 <DirectLabel x={36} y={rung.y + 4} seriesFor={rung.id} role={i === 3 ? 'highlight' : undefined}>
-                  <tspan fontWeight={600}>{i + 1}. {rung.label}</tspan>
+                  <tspan fontWeight={600}>{i + 1}. {rung.id === 'closed-loop-use' ? 'Act, observe, replan' : rung.id === 'policy-ranking' ? 'Robot strategy ranking' : rung.label}</tspan>
                 </DirectLabel>
-                <text x="36" y={rung.y + 22} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.labelSecondary}>{rung.question}</text>
+                <text x="36" y={rung.y + 22} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.labelSecondary}>{rung.id === 'closed-loop-use' ? 'Do repeated predictions improve real actions?' : rung.question}</text>
               </g>
             ))}
             <g data-figure-annotation="" fill={roleColour('highlight')} fontSize={CHART_TYPE.readoutPx}>
-              <text x="36" y="208" data-scene-readout="">SimFoundry: {SIMFOUNDRY_EVALUATION.pearson} correlation</text>
-              <text x="36" y="226" data-scene-readout="">{SIMFOUNDRY_EVALUATION.tasks} tasks, {SIMFOUNDRY_EVALUATION.architectures} policy architectures</text>
+              <text x="36" y="208" data-scene-readout="">SimFoundry study: {SIMFOUNDRY_EVALUATION.pearson} correlation</text>
+              <text x="36" y="226" data-scene-readout="">{SIMFOUNDRY_EVALUATION.tasks} tasks, {SIMFOUNDRY_EVALUATION.architectures} robot strategy designs</text>
             </g>
           </PlotStage>
+          <p className="font-sans text-sm leading-snug text-text-dim">A policy is a robot’s strategy. SimFoundry rebuilds scenes in a physics simulator. Correlation near one means simulated and real success rates rise together; zero means no straight-line trend.</p>
+
         </FigureStage>
       }
-      caption="Each rung tests a different failure; agreement with real policy rankings supports selection, while closed-loop use still needs its own experiment."
+      caption="Match robot-strategy rankings to real trials; good images and ranking scores alone cannot establish useful repeated action and feedback."
       method={
         <>
           <div>

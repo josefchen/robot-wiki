@@ -17,18 +17,22 @@ describe('content gate placement', () => {
     expect(postbuild).toContain('node scripts/build-search.ts');
   });
 
-  it('keeps the production entry point ungated while the content audit is red', () => {
-    // Owner decision 2026-09-24: production ships verified progress with only the
-    // content-audit gate skipped; every other gate stays in vercel-build.
+  it('restores the full gated production build and retains its additional content checks', () => {
+    // The completed mission retires the temporary audit bypass. npm runs
+    // prebuild/build/postbuild in order; additional production checks remain.
     const command = pkg.scripts['vercel-build'];
-    expect(command).not.toContain('npm run validate:content');
-    expect(command).not.toContain('scripts/check-audit-coverage.ts');
-    expect(command).toContain('&& next build && node scripts/measure-reading-times.ts && next build');
-    expect(command).toContain('&& node scripts/build-search.ts');
-    expect(command).toContain('&& node scripts/lint-no-slop.ts');
-    expect(command).toContain('&& npm run check:brand-v2-registries');
-    expect(command).toContain('&& npm run check:brand-v2-enforcement');
-    expect(command.indexOf('scripts/build-search.ts')).toBeGreaterThan(command.indexOf('next build'));
+    expect(command).toBe('npm run build && npm run check:teach-back && node scripts/check-article-boxes.ts && node scripts/check-article-sources.ts');
+    const expanded = command.replace('npm run build', [pkg.scripts.prebuild, pkg.scripts.build, pkg.scripts.postbuild].join(' && '));
+    expect(expanded).toContain('npm run validate:content');
+    expect(pkg.scripts['validate:content']).toContain('node scripts/check-audit-coverage.ts');
+    expect(expanded).toContain('&& next build && node scripts/measure-reading-times.ts && next build');
+    expect(expanded).toContain('&& node scripts/build-search.ts');
+    expect(expanded).toContain('&& node scripts/lint-no-slop.ts');
+    expect(expanded).toContain('&& npm run check:brand-v2-registries');
+    expect(expanded).toContain('&& npm run check:brand-v2-enforcement');
+    expect(expanded.indexOf('npm run validate:content')).toBeLessThan(expanded.indexOf('next build'));
+    expect(expanded.indexOf('scripts/build-search.ts')).toBeGreaterThan(expanded.lastIndexOf('next build'));
+    expect(expanded).not.toContain('--ignore-scripts');
     expect(command).not.toContain('--ignore-scripts');
   });
 });

@@ -1,0 +1,1122 @@
+{
+  "schemaVersion": "reader-clarity-successor-review-v1",
+  "observedAt": "2026-11-03T06:36:22.055Z",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/action-conditioning.tsx",
+      "sourcePath": "components/interactive/action-conditioning.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "0e993cf9ab375b81dbf6d0eb62953a3733e93846799238b433dfbc3282227984",
+      "currentSourceSha256": "7ba702c35a5d6c7bd5416bb646134bf12f0663da86e00021716a948e90a0f2a2",
+      "oldMemberHash": "c17fb38c0eca16d8a8e442ba3cc207032fef8223260b031956057cd3dfd06138",
+      "newMemberHash": "55e964d1b20cc3de3696c78aa3d802d57e9f6def74e55c4d99f2b28e0a61af81",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-72",
+        "round5-closeout2-src-interactive-action-conditioning-tsx",
+        "completion-figure-20261102-source-components-interactive-action-conditioning-tsx-084f33d251",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-action-conditioning-tsx-c17fb38c0e"
+      ],
+      "reason": "components/interactive/action-conditioning.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/action-tokenization.tsx",
+      "sourcePath": "components/interactive/action-tokenization.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "216d0c73d218592a2647ed271a777dacf94eafcf207842c43a7c288c7cf92bc1",
+      "currentSourceSha256": "28c42078632d9bbd83734d7971975f5f85d3f96b2897e782620436d221df315a",
+      "oldMemberHash": "f3349ceb85c9e04f2e089120ad7e54153faf15f0bc220ab0c5b30488e720ed09",
+      "newMemberHash": "99908bc816e392fa6d45cfc2b5b117bb7ac2a7ef16c1935cc64461f6d1d77a2f",
+      "priorApprovalIds": [
+        "vla-generalist-closeouts-20260908-7",
+        "completion-figure-20261102-source-components-interactive-action-tokenization-tsx-f3349ceb85"
+      ],
+      "reason": "components/interactive/action-tokenization.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/actuator-gap.tsx",
+      "sourcePath": "components/interactive/actuator-gap.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "23f6d76ed710aa6644bc54a6c7a70533eeee7bc038065d7585ffa3809f84f232",
+      "currentSourceSha256": "4a1d2da145c5bee380bbdb2effb3bc38ab785b462f88a10eb11365bfc7458502",
+      "oldMemberHash": "afc9da4c59cdaf50a2f153ed0d6f0bd9e10b35040220fbbf50444aacee93b702",
+      "newMemberHash": "58e2ab6b6e1683b6125f5ff4fcc2b0588cd60a066ecc7aa093404743d8a96bf3",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-actuator-gap-tsx-afc9da4c59"
+      ],
+      "reason": "components/interactive/actuator-gap.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/advantage-scrubber.tsx",
+      "sourcePath": "components/interactive/advantage-scrubber.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "f36df32ab7edafd6d328c16c4ea8623b68e88e386cb96e9ac16460b997ce3c7d",
+      "currentSourceSha256": "b3db154b148d2478c228b8cb069ae9c6dfff629853ff4d1e13a211f76a5076f1",
+      "oldMemberHash": "0effd18ef04cb8e8cfd552824c68746839e581cf047c12f5bd1e65458830f4a9",
+      "newMemberHash": "e79496ba927937017b1f778285b8b8572b7eac62661345c530edef0d2cf6bbfc",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-15",
+        "completion-figure-20261102-source-components-interactive-advantage-scrubber-tsx-0effd18ef0"
+      ],
+      "reason": "components/interactive/advantage-scrubber.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/av-safety-miles.tsx",
+      "sourcePath": "components/interactive/av-safety-miles.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "fb74979ae4c05cd9e8d163760f3ed3567192a5a91f0e1a829741f97084123994",
+      "currentSourceSha256": "95496336b74d6e40d52dd201b0641f1b936259bfdebc685ebba06ce9d35654a1",
+      "oldMemberHash": "08f98312eceef289062843592fa1238cb394702be129c4f132fa31b1ab46211b",
+      "newMemberHash": "6457090edf31f93d0971090f5e2ee306c1e5e0b3b5af9ba3fc643c36095ba7cf",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-av-safety-miles"
+      ],
+      "reason": "components/interactive/av-safety-miles.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/bear-case-lock.tsx",
+      "sourcePath": "components/interactive/bear-case-lock.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "9606d58dc0e2fff9ce9eaee5a4e2627bc450aab468a6ffe5b2989a5b0157796c",
+      "currentSourceSha256": "aa664673561dcaa228dcc073955fccedc2f89d98fbfbec2346cfcc414eca61a4",
+      "oldMemberHash": "6066f52777aec16c12807d84d80beddb70f4d6f9b03ca64a75c27f4476af6201",
+      "newMemberHash": "18027fecec885589d2e7e2bcf2b98875b642bd87021d6d09c7796498a2a659dc",
+      "priorApprovalIds": [
+        "anatomy-frontier-b02-figures-20261015-interactive-sources-mounts-source-bear-case-lock",
+        "a11y-gate-20261017-interactive-sources-mounts-source-bear-case-lock",
+        "completion-figure-20261102-source-components-interactive-bear-case-lock-tsx-6066f52777"
+      ],
+      "reason": "components/interactive/bear-case-lock.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/chunk-buffer.tsx",
+      "sourcePath": "components/interactive/chunk-buffer.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "8d8589ea7b5984b4813d34a3cee2cf2df23d709e3cdce5681f224fcfd8c2c5d9",
+      "currentSourceSha256": "21fd857b4865a1343aea2fa1cbb0a6d002ed6f09c8a533f036c0cd8606205efe",
+      "oldMemberHash": "04e414b17bf9178732b5e199490ad7b49a5fa8b70d2718b6ee89409b0624cf89",
+      "newMemberHash": "32ddc5ac44bd794c6dead5be34c6f0276f484faa9b75fe3b896d6ac9135bcfde",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-chunk-buffer",
+        "polish-1019-interactive-sources-mounts-source-chunk-buffer-tsx",
+        "mount-evidence-20261024-interactive-sources-mounts-source-chunk-buffer",
+        "completion-figure-20261102-source-components-interactive-chunk-buffer-tsx-04e414b17b"
+      ],
+      "reason": "components/interactive/chunk-buffer.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/collaborative-operation-modes.tsx",
+      "sourcePath": "components/interactive/collaborative-operation-modes.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "f98d5b197f060662115bfa9a62f0bf1c53cbabc737458d88cc61daad1d96a770",
+      "currentSourceSha256": "94f8c3cbd506232604e6c5d2de2d9c2e3a1e13ba0cce22f401177c85b478026b",
+      "oldMemberHash": "90c6edad845383291964ae2d2e051e071d040be2cbf1a5dd2ce3c27c8ef30e64",
+      "newMemberHash": "759d2fa78cac44be02b5cb0903547ba8fed4402b497d0a0c8544d40d10a3661b",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-75",
+        "round5-closeout2-src-interactive-collaborative-operation-modes-tsx",
+        "final-seven-closure-20260923-6",
+        "continuation-merge-2026-09-24-safety-range-interactive-sources-mounts",
+        "completion-figure-20261102-source-components-interactive-collaborative-operation-modes-tsx-b41dfaf3c0",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-collaborative-operation-modes-tsx-90c6edad84"
+      ],
+      "reason": "components/interactive/collaborative-operation-modes.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/comparison-matrix.tsx",
+      "sourcePath": "components/interactive/comparison-matrix.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "744a1284173dd04c24dcf91c20aadb76ad567fcd48e0745612d716fdec0a7903",
+      "currentSourceSha256": "044062c0fdf9eb0b981f4a477bc5a42b41e6198acda08b0cf01fa194e94f1ac3",
+      "oldMemberHash": "c887cd2fa4daf90b5063c5a3e9032737f8c6f66c089d8636fec450bd4dfc8d09",
+      "newMemberHash": "4bc201bce617a268782708b4a6a8480254479b60821487b5196d559d5c051de0",
+      "priorApprovalIds": [
+        "act-five-sources-20260907-6",
+        "comparison-current-20260907-3",
+        "perf-articles-20260923-src-comparison-matrix",
+        "completion-figure-20261102-source-components-interactive-comparison-matrix-tsx-d270c225d6",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-comparison-matrix-tsx-c887cd2fa4"
+      ],
+      "reason": "components/interactive/comparison-matrix.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/compounding-error.tsx",
+      "sourcePath": "components/interactive/compounding-error.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "86b204c95d0ba26cc69a010daeed8a3fdb10039606332e179081c7760a02020f",
+      "currentSourceSha256": "dd4df592bea6f9bef0f76f55e84df37aaa2f2f6e9fa79e1f2bbfb68dfe9e5ce7",
+      "oldMemberHash": "1fbe1aa4707600e74d0d75cc7a0cac9991f304bc3eb2330a90e5ed2e37ac105e",
+      "newMemberHash": "844cb8683293b2d5f316bf57b427bd306d5615bfe512c393ab2ed6efc07a16ee",
+      "priorApprovalIds": [
+        "bc-foundations-20260907-4",
+        "completion-figure-20261102-source-components-interactive-compounding-error-tsx-1fbe1aa470"
+      ],
+      "reason": "components/interactive/compounding-error.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/contact-geometry.tsx",
+      "sourcePath": "components/interactive/contact-geometry.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "6621fafdf9a31012613ddc8370b1c599b40126b7ea8f6c4854c627492b79a570",
+      "currentSourceSha256": "99f15c8e38839b89d674f07c2d79539075152f2285cb4e071158887b1b84f187",
+      "oldMemberHash": "c22a2a6a3ecf0e9644b5bca3649491c7967ed5519ea9ed415ee8a69ebc7fff75",
+      "newMemberHash": "4d90f634bb3195e2f332671099e7f526b014e89d772da51f833b93be0cb0de50",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-76",
+        "round5-closeout2-src-interactive-contact-geometry-tsx",
+        "completion-figure-20261102-source-components-interactive-contact-geometry-tsx-c22a2a6a3e"
+      ],
+      "reason": "components/interactive/contact-geometry.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/control-loop-budget.tsx",
+      "sourcePath": "components/interactive/control-loop-budget.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "24593e7e017b21f0232aa7f1c117a6460efe511722b508b9534f8ac2ace8d58a",
+      "currentSourceSha256": "3dad3a47388df05c657f039be23a93a1a79a1db2a5405efbb610549757d3c24c",
+      "oldMemberHash": "097cd3b2968641e50538d3a3a8cd8b692812b84c9819c006e8b20d659c6daef8",
+      "newMemberHash": "a2353970c87d58d2f2bdd7b39f12c204c612a6d1131012b08f7cf2255bff5183",
+      "priorApprovalIds": [
+        "manipulation-rl-20260907-9",
+        "performance-worldmodels-20260908-12",
+        "completion-figure-20261102-source-components-interactive-control-loop-budget-tsx-097cd3b296"
+      ],
+      "reason": "components/interactive/control-loop-budget.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/cross-embodiment-strategies.tsx",
+      "sourcePath": "components/interactive/cross-embodiment-strategies.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "12a45156f193f7061dab7f61aec8b59e476a03efe854bf43e6ff8d7151af4045",
+      "currentSourceSha256": "57b9c4a94cdeccb51d964f452952d613683262a3e9b257318d274a0e464e8da6",
+      "oldMemberHash": "7c59ff3087c141467c2c1d0b839ca8a6465ebab289f4f4e3c57227db1b51082c",
+      "newMemberHash": "8ad71cffb273fe7c247732e7404afb638d6b845d5f973760775c0f2fbd2db634",
+      "priorApprovalIds": [
+        "oft-gemini-oxe-20260908-12",
+        "go-helix-cross-transfer-20260908-12",
+        "perf-articles-20260923-src-cross-embodiment-strategies",
+        "completion-figure-20261102-source-components-interactive-cross-embodiment-strategies-tsx-2239a51025",
+        "completion-ui-20261102-interactive-sources-mounts-components-interactive-cross-embodiment-strategies-tsx-7c59ff3087"
+      ],
+      "reason": "components/interactive/cross-embodiment-strategies.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/cube-trials.tsx",
+      "sourcePath": "components/interactive/cube-trials.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "863999b1dda7af64a749a92c8451527c9f32d8ef0c6dbfa9ae24f8c50394f177",
+      "currentSourceSha256": "431bce36b8b80718978e73f432dd7978bfea56cab7a2abecc24d5dc3128fa565",
+      "oldMemberHash": "5cf3a5274ec7e9df7b1fa4cfe9e988e1e3fa52e9c1ca5b0f3096075d1d63083c",
+      "newMemberHash": "5bfb60da1bb8062ffb4dff75bcb7918361f8e6c95b55c2e9f6692cac460ea20e",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-cube-trials-tsx-5cf3a5274e"
+      ],
+      "reason": "components/interactive/cube-trials.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/data-scale-chart.tsx",
+      "sourcePath": "components/interactive/data-scale-chart.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "61f48f327aa91e2516270639b84e4903afefd460a2d4ad3bd964697e166dbd6d",
+      "currentSourceSha256": "3f5f6f325918d833cf5828cfa5f2a1c638ac59410fab111752b2d6f9831529c9",
+      "oldMemberHash": "b0824c5b9e842619a4ee549d49c586caacc11b10c26cb9d9384bc561054b66e5",
+      "newMemberHash": "623b16b106b8d02a7dc852bfd42ca9270b5407392dfc90df3be042c4017f0202",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-77",
+        "round5-closeout2-src-interactive-data-scale-chart-tsx",
+        "data-bottleneck-zero-credit-20260922-3",
+        "continuation-merge-2026-09-23-interactive-sources-mounts-source-components-interactive-data-scale-chart-tsx",
+        "release-oxe-link-safety-20260923-interactive-sources-mounts",
+        "final-seven-closure-20260923-5",
+        "continuation-merge-2026-09-24-0140-interactive-sources-mounts-source-components-interactive-data-scale-chart-tsx",
+        "completion-figure-20261102-source-components-interactive-data-scale-chart-tsx-b0824c5b9e"
+      ],
+      "reason": "components/interactive/data-scale-chart.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/dataset-runs-hours.tsx",
+      "sourcePath": "components/interactive/dataset-runs-hours.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "0ec8bbab15baeb3d031bbd8a553b8a67cad886f752f4a1c073d6ae0895325f74",
+      "currentSourceSha256": "11edd2d5fc33e920ed8af535e09062e0ca884ccb4a3f3a632ed678fb614ce2f5",
+      "oldMemberHash": "642277320ac795b7777898cb1228feec845d9dec91f2c92c698de982538d2ab2",
+      "newMemberHash": "069c5732811bf3dfca43cf8fa9f3b8920d715f9fb3314b8e49a7ae73402b91ed",
+      "priorApprovalIds": [
+        "owed-figures-dh-20261026-source-dataset-runs-hours"
+      ],
+      "reason": "components/interactive/dataset-runs-hours.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/delta-frame.tsx",
+      "sourcePath": "components/interactive/delta-frame.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "795141a960919289983bf1ce280f34a0385e45e7ea660321172b3caa855d1214",
+      "currentSourceSha256": "c21f4d99af1605b7390c31e28a0ea83c5b86da4a335767f789f306ffd979ea38",
+      "oldMemberHash": "e12a0440f42481e0b4e1313ee697b1ec86c3bcb5908ea18f194b2e205b758a0d",
+      "newMemberHash": "7608e054776e6ae9eff5a7af745990a3e3ccde3895ddb3f6b4a07943f5dee5c6",
+      "priorApprovalIds": [
+        "anatomy-mwf-b01-figures-20261020-interactive-sources-mounts-source-delta-frame"
+      ],
+      "reason": "components/interactive/delta-frame.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/demo-or-sim.tsx",
+      "sourcePath": "components/interactive/demo-or-sim.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "8edb833eec2fc6dc54530bf3fb17baee433a29738fa714935247fa4041320725",
+      "currentSourceSha256": "6b22dded28cc7f2da1bac7187c1c584d5d5dc89dfd67b3f988dcbdcbb5da32b8",
+      "oldMemberHash": "051e2ed0e61dd9843abc94a80a64b4cbfe76bba3830a33759aa61e84b49646eb",
+      "newMemberHash": "9b85662100571be6f41e7a89a708641531ad8b86ca450430adca669046369140",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-demo-or-sim-tsx-051e2ed0e6"
+      ],
+      "reason": "components/interactive/demo-or-sim.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/drone-champions-timeline.tsx",
+      "sourcePath": "components/interactive/drone-champions-timeline.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "3c845b84747d4ab25d963a6c0b4a7d6a21cee99cfa9539ae60bc5c5535950929",
+      "currentSourceSha256": "e7bd1780989bd681cb98f8c26b1bcdee8afa0bac8694a2ac3d12eae5514ee830",
+      "oldMemberHash": "61cba4679f63390e920aba771cfe7ca57bf870f219dd5a39c5fea62c4d48b981",
+      "newMemberHash": "545e9961db6b9eac184235ec7dc21d03e66f7c2207dfa361a15df9a5e3b39e96",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-drone-champions-timeline"
+      ],
+      "reason": "components/interactive/drone-champions-timeline.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/execution-modes.tsx",
+      "sourcePath": "components/interactive/execution-modes.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "62f591a0194e2506b0ab566cf14b0f82b204e24b40e6d465a33a08800abd4b33",
+      "currentSourceSha256": "967d4c516971a3130086c996eb4d9037d0b871022b20f7b57c53f128a2ad972f",
+      "oldMemberHash": "88346d732ffd2b3d1f040f9ae61049c7edd50eb1e291dae564a3db0e774f01f8",
+      "newMemberHash": "c11883c131561e5b444472dff84f2b69a11963405a8894506d58c4a74a4cfc4e",
+      "priorApprovalIds": [
+        "performance-worldmodels-20260908-13",
+        "completion-figure-20261102-source-components-interactive-execution-modes-tsx-88346d732f"
+      ],
+      "reason": "components/interactive/execution-modes.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/flow-matching-trajectory.tsx",
+      "sourcePath": "components/interactive/flow-matching-trajectory.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "067b744915196002c4308353ede79218d2b577393e915501982561d27d1a26c5",
+      "currentSourceSha256": "a8d86a6abbca57963899c6599d6bf410909230a78fc6189298d9e7332cee5485",
+      "oldMemberHash": "03212afe6596467fe0f7fc3798e3c7d53c6d8b418bc028643df801b9a0ea9342",
+      "newMemberHash": "c1463d5c8c4655b854da93cc609c4e033884211743ffeecdf9f91e46d6e8964a",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-84",
+        "round5-closeout2-src-interactive-flow-matching-trajectory-tsx",
+        "completion-figure-20261102-source-components-interactive-flow-matching-trajectory-tsx-03212afe65"
+      ],
+      "reason": "components/interactive/flow-matching-trajectory.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/generalist-release-timeline.tsx",
+      "sourcePath": "components/interactive/generalist-release-timeline.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "24f1db3c99f79a58006ee412691065b91130f39146db0c30d0a42a4d2fc19f79",
+      "currentSourceSha256": "fcf3e953a3fc08dfd7a9c98d6d22dfe4ac6547d6dfd9911c08d8db4b35cd4eb5",
+      "oldMemberHash": "2e31404bb0ed256179b5ba5330f84b24b06367e571ebda1cb25c993a0d39ff0d",
+      "newMemberHash": "7dc5b23ef68b601598388470b1087aaa007dc27df69837132881ea7d95d0f7eb",
+      "priorApprovalIds": [
+        "oft-gemini-oxe-20260908-13",
+        "perf-articles-20260923-src-generalist-release-timeline",
+        "crossdomain-closure-20260923-3",
+        "continuation-merge-2026-09-24-0140-interactive-sources-mounts-source-components-interactive-generalist-release-timeline-tsx",
+        "completion-figure-20261102-source-components-interactive-generalist-release-timeline-tsx-77037cd0a4",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-generalist-release-timeline-tsx-2e31404bb0"
+      ],
+      "reason": "components/interactive/generalist-release-timeline.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/grasp-wrench-lab.tsx",
+      "sourcePath": "components/interactive/grasp-wrench-lab.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "cddd944948eb362a3da81eebae9ca36378e3dca776f097ef254a3b8561a106a5",
+      "currentSourceSha256": "54776a701204a7347ff7e3731673f59ecaac3d70cf60856534e4640d79bf091e",
+      "oldMemberHash": "c439c3cff4a7eb7587d54f3453380e9913069fc899a9a3fe09aaa28cf623cf92",
+      "newMemberHash": "51cd5d7b73c6a5c02ef06704757e2d3deeeb5c72dea34a294904fc8b74aefcb8",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-86",
+        "round5-closeout2-src-interactive-grasp-wrench-lab-tsx",
+        "reader-first-20261008-retest-interactive-sources-mounts-source-grasp-wrench-lab",
+        "domain-pass-20261008-sweep-source-grasp-wrench-lab",
+        "completion-figure-20261102-source-components-interactive-grasp-wrench-lab-tsx-c439c3cff4"
+      ],
+      "reason": "components/interactive/grasp-wrench-lab.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hand-comparison.tsx",
+      "sourcePath": "components/interactive/hand-comparison.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "76aa514f6eeb3173b5911b50569dd61eb864ab94e68c1bc46d2af1da24008cab",
+      "currentSourceSha256": "3f188b70c5b406487954a7d7fea8a2e5b2a6a789e2de7f4823e972242c099f9a",
+      "oldMemberHash": "253e741a376460e9beb8f4b3ed051dbb19ace4eee62bc95ef26b4456f014897f",
+      "newMemberHash": "4824ccadd43e3a06d04db45d53a781e09ef86e614aa3109e682ddbf1336d8180",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-87",
+        "round5-closeout2-src-interactive-hand-comparison-tsx",
+        "perf-articles-20260923-src-hand-comparison",
+        "completion-figure-20261102-source-components-interactive-hand-comparison-tsx-253e741a37"
+      ],
+      "reason": "components/interactive/hand-comparison.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hand-eye-poses.tsx",
+      "sourcePath": "components/interactive/hand-eye-poses.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "9d2e2132bf161132147e16ed5b363fc0b5a77807087de1c09777cfe06ebe80e7",
+      "currentSourceSha256": "5028efa1861680f0b854877ebb460e49d5a791d0ff0d14453eb544347a69c27b",
+      "oldMemberHash": "3a8ad1364dc5b360bc8c3c6f7655ed8d6a161958123cf3e367bf2cc2c85027d8",
+      "newMemberHash": "6d4964715847bd0174b6fe43e1922992a6e1faeae8a4d56112c703a6f85ba71c",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-hand-eye-poses-tsx-3a8ad1364d"
+      ],
+      "reason": "components/interactive/hand-eye-poses.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hand-motion-share.tsx",
+      "sourcePath": "components/interactive/hand-motion-share.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "e21cfa067d6798554c462f7167807d7b8ec01f43b35c390ef6d555479fa21b97",
+      "currentSourceSha256": "16dd5d1fe39aaa7ab56fe76da8513383f4e64aed4e7c73e8a7a6ef78febbd235",
+      "oldMemberHash": "1072ac323c51dff4c0043aeebba851e698feba96f2e61734846bff7dc341f6c9",
+      "newMemberHash": "210745a0dc8be97ff8f5ae24163eb558f665fdcc3b0ab39592ad270d74001c13",
+      "priorApprovalIds": [
+        "anatomy-mwf-b01-figures-20261020-interactive-sources-mounts-source-hand-motion-share"
+      ],
+      "reason": "components/interactive/hand-motion-share.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hardware-price-ladder.tsx",
+      "sourcePath": "components/interactive/hardware-price-ladder.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "2ef765e03da260b0460bec587ca8e40e2037bb966ac69ae8638d3752ee2400fd",
+      "currentSourceSha256": "2225b5f0e62353be4c04a99428cb42d51adb1e380e3ab8083d88c1b550f9b3ad",
+      "oldMemberHash": "dacdbe543246e17d03c4b54448f7d9d9f9e50d637ed05686eae1ddde7c2de84b",
+      "newMemberHash": "5183b7a445387f4c9097166b6e8cc2e7ded36bfeb5e58566c842d1e32c83da8d",
+      "priorApprovalIds": [
+        "owed-figures-dh-20261026-source-hardware-price-ladder",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-hardware-price-ladder-tsx-dacdbe5432"
+      ],
+      "reason": "components/interactive/hardware-price-ladder.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/helix-clockwork.tsx",
+      "sourcePath": "components/interactive/helix-clockwork.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "dbb027e66d29729824c8c4f317ea4505de3a977b7acc95eb8daf35bf69f80461",
+      "currentSourceSha256": "aeb151eadbc332d24a513a6fa95bb8e853b3d2580f0833bf26407af16f34a183",
+      "oldMemberHash": "bbf71ae35ffe7caf00c82c2e96c872b3b719e214dbb184fbbb9564dbd444cb3a",
+      "newMemberHash": "bfbeaf7b01e1feb33e801a3effb9684c06b640a2caf7ecfb5039adca66d9c728",
+      "priorApprovalIds": [
+        "anatomy-2-figures-20261012-interactive-sources-mounts-source-helix-clockwork",
+        "a11y-gate-20261017-interactive-sources-mounts-source-helix-clockwork"
+      ],
+      "reason": "components/interactive/helix-clockwork.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/helix-zero-shot-success.tsx",
+      "sourcePath": "components/interactive/helix-zero-shot-success.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "4b7190cebe0cf3bf7f5cb59d295deed293fa5fdcbaae31a284155ae411b4c916",
+      "currentSourceSha256": "0ecaf49da68af6dfd8a0fda6c677f1da8801af4973c7ed6c6f36b33879fff973",
+      "oldMemberHash": "85138abd06e7f0f1494bb2bcf96d817c79c6885e7ab9b82314345b8fbfd5b6db",
+      "newMemberHash": "c6ab742905a4a5c7578e88cb20d36e8204a29eb63aee5bbd0e593d8ea825cc94",
+      "priorApprovalIds": [
+        "owed-figures-frontier-20261027-source-helix-zero-shot-success"
+      ],
+      "reason": "components/interactive/helix-zero-shot-success.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hierarchy-timescales.tsx",
+      "sourcePath": "components/interactive/hierarchy-timescales.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "d80505be32310cbd173ad3bd5c2802856072f22fb3eba5b335ed854b2dfb5bcf",
+      "currentSourceSha256": "e397bf6d991cc0b1acb27ac8c6e2fd9a40c22a15e27fd7fa0019b0c0b80c8238",
+      "oldMemberHash": "12dc2d3a6de521204c1b05c6f75180fcef4aed572403be253af1da2de90041dc",
+      "newMemberHash": "3a30ebb0a2e47506f331b6705c3b9045f47abcb2e128e4e49c0ca511b402b557",
+      "priorApprovalIds": [
+        "go-helix-cross-transfer-20260908-13",
+        "perf-articles-20260923-src-hierarchy-timescales",
+        "completion-figure-20261102-source-components-interactive-hierarchy-timescales-tsx-12dc2d3a6d"
+      ],
+      "reason": "components/interactive/hierarchy-timescales.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/humanoid-pick-height.tsx",
+      "sourcePath": "components/interactive/humanoid-pick-height.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "b159308d2990e492645fc64201b5372c02fd172dd84f4062ffe64c7d993d4b02",
+      "currentSourceSha256": "803a1c49eabd9217734365e8d866a4e609bc2b7f5e3cd42cfa4e33bbf02dc4d9",
+      "oldMemberHash": "cc944b56691d12b9df1ea1573d92809b511f4639abbf45e31f528f213c9f33cd",
+      "newMemberHash": "ad5776192e919880083f5ca5058403f4f73e6939e35c276e0fe3527d5d0809a2",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-humanoid-pick-height-tsx-bb76808e36",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-humanoid-pick-height-tsx-cc944b5669"
+      ],
+      "reason": "components/interactive/humanoid-pick-height.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-contact-lab.tsx",
+      "sourcePath": "components/interactive/impedance-contact-lab.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "7c185f6445dd05ff0b80ee7487c43d41610bab4571168682bef288d46a3f9235",
+      "currentSourceSha256": "d759f1492209c74d60336155f3d6b617477c888a8ae551df571bf5ca3dcbbd6f",
+      "oldMemberHash": "19e4d187bbc952e360cc2c0c37a67935322cdb7250bd89a189ab17c4241d2df1",
+      "newMemberHash": "cbf56476db7e12ab3a53d16f9da91e346a4d34ca9b33b6b6a78b0abb4fcd9630",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-88",
+        "round5-closeout2-src-interactive-impedance-contact-lab-tsx",
+        "perf-articles-20260923-src-impedance-contact-lab",
+        "reader-first-20261008-interactive-sources-mounts-source-impedance-contact-lab",
+        "domain-pass-20261008-source-impedance-contact-lab",
+        "domain-pass-20261008-sweep-source-impedance-contact-lab",
+        "completion-figure-20261102-source-components-interactive-impedance-contact-lab-tsx-19e4d187bb"
+      ],
+      "reason": "components/interactive/impedance-contact-lab.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "5f557b09c1b38491c30b1fa5131e71be9b728ae13f1605891d36bd9a7c4bb8d3",
+      "currentSourceSha256": "7b805d06bba627632cd2d6f1ceefed7abe58f966315fe1443261380a28f3c80f",
+      "oldMemberHash": "ea07e79e34787a4d02a04a26823a9af535608337887cc794de43b569957c2b1f",
+      "newMemberHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/jepa-planning.tsx",
+      "sourcePath": "components/interactive/jepa-planning.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "935ddfc46fa0564cbcff97e73eb4f4e68d15e85d4640a3f001284d1d2f620c64",
+      "currentSourceSha256": "386f21453b860d33b2005ac3a0585361ade967d09d19e4f97abe6ff17aa384fb",
+      "oldMemberHash": "475542b4a44dfced6e6cc3f677e980fcd33fe5bcd3d242ce98f3b521cc3250be",
+      "newMemberHash": "4bc01f1d04663dc6d56484df87f5716f4acd0d1f4d8bd0489c399ac84cf029f3",
+      "priorApprovalIds": [
+        "jepa-source-closeouts-20260908-5",
+        "completion-figure-20261102-source-components-interactive-jepa-planning-tsx-6f9db64d1e",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-jepa-planning-tsx-475542b4a4"
+      ],
+      "reason": "components/interactive/jepa-planning.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/keypoint-string.tsx",
+      "sourcePath": "components/interactive/keypoint-string.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "3550b6b9f844c8184b9ba55c24fc4142e53b216bbdf9da6e09740320eeb9b9b1",
+      "currentSourceSha256": "05dfaa9b25c4f330b7ff3e8ef4d5569a3af6382ba483fade08aa83a4dabf7aae",
+      "oldMemberHash": "2c05c118989bacebe15c12cf345a2ac6d9c7795d7af225ae7917bb37c076f553",
+      "newMemberHash": "119cd8f7245e2daaaec8c9510ae84aea10fd32f5be3462e37f51482a6f3a8638",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-keypoint-string",
+        "polish-1019-interactive-sources-mounts-source-keypoint-string-tsx",
+        "mount-evidence-20261024-interactive-sources-mounts-source-keypoint-string"
+      ],
+      "reason": "components/interactive/keypoint-string.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/kinematic-twin.tsx",
+      "sourcePath": "components/interactive/kinematic-twin.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "b1f2881f255d13d8441cfdb9991082cb9a169d40965bfccaff143dbd27e73eb0",
+      "currentSourceSha256": "1228128f294315957c73668edffb19b580db22f075d419616f4969f3d058042a",
+      "oldMemberHash": "93a3dd3741581c2cd1d4b999eba9187d1a5acba52db333fce5f20f5fbd3c667f",
+      "newMemberHash": "315a8c9839b87acab627de3e8a78a662545ea035982254ffb1866431cb86ddb3",
+      "priorApprovalIds": [
+        "anatomy-dh-new-figures-20261019-interactive-sources-mounts-source-kinematic-twin"
+      ],
+      "reason": "components/interactive/kinematic-twin.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/latency-comparison.tsx",
+      "sourcePath": "components/interactive/latency-comparison.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "ed9ff874ba0063a78eb5a67016574617e26896787fa15aa0312606ba873159f7",
+      "currentSourceSha256": "3283014f61a3c1676f50d07d76c6402eb8d79165e5c7d4f939aa954838f6e110",
+      "oldMemberHash": "21987727265411c99d5ba68e66d4636cd75b8d7d45dc97c473f637372bc73b8b",
+      "newMemberHash": "03deeab61473c718ed4203e6f6813f91366b9493b8cb98682534e3929ef179c1",
+      "priorApprovalIds": [
+        "act-current-claims-20260907-4",
+        "completion-figure-20261102-source-components-interactive-latency-comparison-tsx-2198772726"
+      ],
+      "reason": "components/interactive/latency-comparison.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/latent-imagination.tsx",
+      "sourcePath": "components/interactive/latent-imagination.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "3734cfa3bd2406930e41672dcf816d0ad1f505f14cf2dda5364b034e8ce3c1b0",
+      "currentSourceSha256": "15e8901a8e827a060ef2184f32494be27978f3855d5e827d8501fd345243d475",
+      "oldMemberHash": "3f8c9a231c4485e3d77360af06ef08d0550fb941d7ec1adbe0e782fbed624952",
+      "newMemberHash": "debc4707e97ab9fa8b75f819554f28ca98b0c573a2f4628b127be1fa389fc6cd",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-16",
+        "seo-merge-20260916-interactive-sources-mounts-90",
+        "completion-figure-20261102-source-components-interactive-latent-imagination-tsx-3f8c9a231c"
+      ],
+      "reason": "components/interactive/latent-imagination.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/linearization-gap.tsx",
+      "sourcePath": "components/interactive/linearization-gap.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "14b19863cdd2cf0cceb2eaba9d60a29e9feb1c3d390f1c6ffcb2553ffa369539",
+      "currentSourceSha256": "0b4a38fe397ba94165081e89b477cdf51a7ac74772d8fecba719d24183aa86f2",
+      "oldMemberHash": "b2e09a30c6029bd11766d63efe8046cb630dafd39531739c290c6a6d83e29ecf",
+      "newMemberHash": "71c7f32bb8ea173d0860c123e9fa1a030e57d254b2d7ecb62d6fc820143312d2",
+      "priorApprovalIds": [
+        "anatomy-crda-b01-figures-20261020-interactive-sources-mounts-source-linearization-gap"
+      ],
+      "reason": "components/interactive/linearization-gap.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/milestones-watchlist.tsx",
+      "sourcePath": "components/interactive/milestones-watchlist.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "9addb130b4a241c5dd36308397fca99d6219accc1dd44ee5a3ac981467ca68b5",
+      "currentSourceSha256": "899e4965d4acb96849f69e919120aeeee519804fa1a820a34f249d471d1521ed",
+      "oldMemberHash": "6d6e1d775a5f486254a339d1e84e60a54fa934927f59c9a6670af7a7c8beaa59",
+      "newMemberHash": "c2cb7b8b0648b11157ae8eea4e1b284124b731e32265f0498c4d15d59f3314b3",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-91",
+        "round5-closeout2-src-interactive-milestones-watchlist-tsx",
+        "perf-articles-20260923-src-milestones-watchlist",
+        "completion-figure-20261102-source-components-interactive-milestones-watchlist-tsx-6d6e1d775a"
+      ],
+      "reason": "components/interactive/milestones-watchlist.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/model-based-loop.tsx",
+      "sourcePath": "components/interactive/model-based-loop.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "550a32e647e7bcc2b78f6386a6accaf2161fab421c19efd66346b5719d99331b",
+      "currentSourceSha256": "96ced1d9f232ce6a520d9ce03c6f42c461eae2ea77003a3af88f7c6586b2ccf7",
+      "oldMemberHash": "8d7b50c040813515295aae06311b178ea0d769b03161a5a538a7b45aa07403b4",
+      "newMemberHash": "64d998485919a3199a75f81cacf76b8dbd9956d32641caa4523174e68a029a5c",
+      "priorApprovalIds": [
+        "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-model-based-loop-tsx"
+      ],
+      "reason": "components/interactive/model-based-loop.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/mot-insulation.tsx",
+      "sourcePath": "components/interactive/mot-insulation.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "d8c3a33344c24965e410729b573ab2cc625ea2e287061eeb112ff97edd9a4108",
+      "currentSourceSha256": "3e0a39e0a6022c1826cfadf7898c58eeb59b7213b578ae03b315abf251f34382",
+      "oldMemberHash": "056bc657868bd90d4bcd878c1e992cfc587bdd7829b7776d9a7ff6b3c1a69c14",
+      "newMemberHash": "c6837447a2229f3d8fbeceaf5599699896243f0b317ddc9b130b0694f9337144",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-17",
+        "perf-articles-20260923-src-mot-insulation",
+        "completion-figure-20261102-source-components-interactive-mot-insulation-tsx-056bc65786"
+      ],
+      "reason": "components/interactive/mot-insulation.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/motion-pantograph.tsx",
+      "sourcePath": "components/interactive/motion-pantograph.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "89a489d29fb1eb39af72a241ccccc5b297507769104b2eac6f973b9a498319fd",
+      "currentSourceSha256": "2f35a8e2ff782fd51ea83a57493d4719eb9aa1cbdfafe58c09772794e0e216f4",
+      "oldMemberHash": "d18ddbf9ebd34eef7c9b972c5ae727a0fca89e86cff502a905af917100a4a5e1",
+      "newMemberHash": "6fffcb90abcaf28953a0180162f6741bc9a77c74e8d97ca9d71bb70f19c6fc91",
+      "priorApprovalIds": [
+        "anatomy-2-figures-20261012-interactive-sources-mounts-source-motion-pantograph",
+        "a11y-gate-20261017-interactive-sources-mounts-source-motion-pantograph"
+      ],
+      "reason": "components/interactive/motion-pantograph.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/newton-solvers.tsx",
+      "sourcePath": "components/interactive/newton-solvers.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "24952cfbb081106ca98225f77246bfd826f2d7eaa5e15ccc030896ee199d79f7",
+      "currentSourceSha256": "0a0969b9b3ab052a9f6e149aa01bcd9a4be9eca38762434372d539e6a31446a0",
+      "oldMemberHash": "792a90d2b383d88a4a642fd9d66051a505c9c6b38d73f3331cfce35e369e43f3",
+      "newMemberHash": "08175b688b2c386bb92f0ca8bb4cc3d34ad087234fdc4721141c1eb04b08f661",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-newton-solvers-tsx-792a90d2b3"
+      ],
+      "reason": "components/interactive/newton-solvers.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/noise-or-edit.tsx",
+      "sourcePath": "components/interactive/noise-or-edit.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "3a4d484d3b20ff4010697e61d3fea05aba93444f7c97905c1d826576435f6b1b",
+      "currentSourceSha256": "dbae02eb9feda865ee959cbc6d199214406c724302409d39b2081b8217218e4b",
+      "oldMemberHash": "57df137be5a7f5cb9b3f14feac3758cc9e3c6b6662060725524962b2bf8ea493",
+      "newMemberHash": "a2ff6415c21c56f3b007df5c95d03f6da49722004f9b8bdc52f7c73e359b84b1",
+      "priorApprovalIds": [
+        "anatomy-mwf-b01-figures-20261020-interactive-sources-mounts-source-noise-or-edit"
+      ],
+      "reason": "components/interactive/noise-or-edit.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/offline-value-overreach.tsx",
+      "sourcePath": "components/interactive/offline-value-overreach.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "a1fa80bf0507a2fff0bc72b5b37595a24bbb519f69de14d102e42826e591a3aa",
+      "currentSourceSha256": "4968196196802ce16959a5a6f3fd45ca4f030d1a4bdbbf5fdaafba02263f61d8",
+      "oldMemberHash": "37b616cbdb64037458a19e1db92ac40d26cb05c49d70dfe9bf8ed47316ee9aea",
+      "newMemberHash": "dbdec7efb0e04816c3c75548c4508eb38fe78ab2d5dcc7c9165d55efba1e6e5d",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-offline-value-overreach-tsx-37b616cbdb"
+      ],
+      "reason": "components/interactive/offline-value-overreach.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pi-generation-timeline.tsx",
+      "sourcePath": "components/interactive/pi-generation-timeline.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "8b14c1da7bb29025463ca148a6f65f7122430a370d64c64edc3b048a059edd93",
+      "currentSourceSha256": "8c9c278623e893b5002958b3cf193f5bebe44b4c56b8576585619bdeedfc10aa",
+      "oldMemberHash": "9559e61afddab70f17c35c8d1beafc3ca1b62ec1b32aec4a058b4b04ba13e1f5",
+      "newMemberHash": "b13ccff11a61b91c52f64b1e1775c877f293e513e9f0969c2b9183e983c3404c",
+      "priorApprovalIds": [
+        "cross-article-closeouts-20260907-18",
+        "perf-articles-20260923-src-pi-generation-timeline",
+        "completion-figure-20261102-source-components-interactive-pi-generation-timeline-tsx-22927547a2",
+        "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-9559e61afd"
+      ],
+      "reason": "components/interactive/pi-generation-timeline.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/planar-fk-arm.tsx",
+      "sourcePath": "components/interactive/planar-fk-arm.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "bcf7f0a8d168e8ea9719590e4aa3240c78197c4314477b65efc33b648919ed79",
+      "currentSourceSha256": "779d50541ddf04715e20df3a2a37a5b283d03f382383a517979818e69934b24d",
+      "oldMemberHash": "b4b59eb34e8994fffeed0b8e8be41fb93be1fc94c68ebfcff53e09570536623d",
+      "newMemberHash": "a5ed41f18f09b89b1b902bde64ffb2d2804cc5734d09a2c1c46c50b1a41d4db7",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-95",
+        "round5-closeout2-src-interactive-planar-fk-arm-tsx",
+        "reader-first-20261008-interactive-sources-mounts-source-planar-fk-arm",
+        "domain-pass-20261008-sweep-source-planar-fk-arm",
+        "completion-figure-20261102-source-components-interactive-planar-fk-arm-tsx-b4b59eb34e"
+      ],
+      "reason": "components/interactive/planar-fk-arm.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/qos-queue-age.tsx",
+      "sourcePath": "components/interactive/qos-queue-age.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "bc7ec5fdbbc71a9df28cd510632c9e5200bc7b42eb15c884c11fb17efb4ad3bb",
+      "currentSourceSha256": "2aee16decc7382dd7a85981af8ffb53ddc4bcfc1f4269b659d77afeb9cd8a8fe",
+      "oldMemberHash": "af68ba9c5d360e24348ef139cd154c17c69b3bca8a763a224b6621ffca5f47b4",
+      "newMemberHash": "991e3daddd3238d17c2760f52761042fd694ea458e380e0f532ef812ab009d2d",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-qos-queue-age-tsx-af68ba9c5d"
+      ],
+      "reason": "components/interactive/qos-queue-age.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/real-robot-rl-gains.tsx",
+      "sourcePath": "components/interactive/real-robot-rl-gains.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "8704fcc4f5f231df3377a33617cfa7a9ff614e2c7bd7c8e84cc4725afd078fd3",
+      "currentSourceSha256": "b57b3de1634ae15b2c7a6b8131c027e80d6d8efb93fdd08516cdc483ccd2e2f4",
+      "oldMemberHash": "db9e59d2aa8cf0bea7c0286a21d41ebfff1305a6fe437d890975d76f19ee56b6",
+      "newMemberHash": "96654dd6f096b7a40aba5188ab5cbcda27afe6862822161c3167676628dcba70",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-real-robot-rl-gains-tsx-db9e59d2aa"
+      ],
+      "reason": "components/interactive/real-robot-rl-gains.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/receding-horizon.tsx",
+      "sourcePath": "components/interactive/receding-horizon.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "ec41f12cd441f1bea9d935a19255c6bf19950d85bc5b79b658e7502478ac87d3",
+      "currentSourceSha256": "d0d390435fea4dd2e1ead3f25ebeab5f996612e52855a41cc253494172efa004",
+      "oldMemberHash": "fc9a72b276f772454380eae821e74c76ee19efd8854f633efe7b25faf22291d4",
+      "newMemberHash": "2e8dcf5451d790d5df1c95e4d05a26c25e6e0388fd357e6a7cc7d961f2bb5d07",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-96",
+        "round5-closeout2-src-interactive-receding-horizon-tsx",
+        "completion-figure-20261102-source-components-interactive-receding-horizon-tsx-fc9a72b276"
+      ],
+      "reason": "components/interactive/receding-horizon.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/replay-reuse.tsx",
+      "sourcePath": "components/interactive/replay-reuse.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "ed3f0021b19f7b701fce457fe2e6f99495b086c7e6c9595fcde57cb49729e9cf",
+      "currentSourceSha256": "558b239e451a1e7efc6ab32b3ff1ec71c7467d5c1b0f2c119fdd369689e2595d",
+      "oldMemberHash": "2e54a683b2e0faf2b3511ec187b52637ecaa75daf1e7069b0beefd4729307ddb",
+      "newMemberHash": "d3ad0bb60d6eb06c29b21f49ea5e346a582071dc73d8828a9d6ba4a5bde598ab",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-replay-reuse-tsx-2e54a683b2"
+      ],
+      "reason": "components/interactive/replay-reuse.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/retargeting-gap.tsx",
+      "sourcePath": "components/interactive/retargeting-gap.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "4a603194287c7e54d8cf72f2fe2e58aab0f8f45bc9ff18ea087a7fdcfdc9345f",
+      "currentSourceSha256": "3637ce7a381c80262effd66cc38a4d44190e7c8231b1d1cf71429a8d38e543cd",
+      "oldMemberHash": "6afed658e2a4fd0a39977f42bbb7bafc93d16df86f480ceeaf747cdd125d0324",
+      "newMemberHash": "1e5c573931b11beb6d359a94c85c94ee00984f17d86b36776596d841ad47f42c",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-retargeting-gap-tsx-6afed658e2"
+      ],
+      "reason": "components/interactive/retargeting-gap.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/robots-per-gpu.tsx",
+      "sourcePath": "components/interactive/robots-per-gpu.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "fc5e972847080c5610c4b9b10196df3bcc69bc0a330e96d2f19d67c96bbd6dde",
+      "currentSourceSha256": "4f25ec5156e3f21faa9945c4cb2e9d823877bcdf49dc0ce9ce4544e1ad1cc9f7",
+      "oldMemberHash": "f52dcb50c85e08f18f94281c4f7d97d8bffbc5db0d2effbf4f0738b94fe66c74",
+      "newMemberHash": "e6a253d80c025177af3a04daa43905374bbdb4cfe3533edf79dfe31a815f9323",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-robots-per-gpu-tsx-f52dcb50c8"
+      ],
+      "reason": "components/interactive/robots-per-gpu.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/ros2-interfaces.tsx",
+      "sourcePath": "components/interactive/ros2-interfaces.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "0cd3f19002ecf84e207c89ca7c7cd6aaf25dfc9bcde056890a1257b98e7bff50",
+      "currentSourceSha256": "9a28902f38be1449880776e115f823110b6d128e9c101c11101041830c5d341c",
+      "oldMemberHash": "f7a85564b21847d4a537e34d87a864f2abc131905139a283e35a5aed781893cf",
+      "newMemberHash": "672900669f8943d47879130e1d7f1bb03650cf0afbede3d5cb4db9ea0f63bba6",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-ros2-interfaces-tsx-f7a85564b2"
+      ],
+      "reason": "components/interactive/ros2-interfaces.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/safety-filter-fence.tsx",
+      "sourcePath": "components/interactive/safety-filter-fence.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "f25205f98b2777cc1a19efd740cfa61a1dc5a52dc7c1ce74eb876dc77d27fd1b",
+      "currentSourceSha256": "727d585046ef5fbd72a867dcab3c4e832f325aae63632dc16596eaecf5ac2945",
+      "oldMemberHash": "20a9089f8e3c3f46740d5e9f92cc32791e548031a6b8dd3ccb2a5b966479d642",
+      "newMemberHash": "8482c573b03790a997e2a3c5bcd171ebdf542f86ce3c063925313efa9b50eb2d",
+      "priorApprovalIds": [
+        "anatomy-frontier-b02-figures-20261015-interactive-sources-mounts-source-safety-filter-fence",
+        "a11y-gate-20261017-interactive-sources-mounts-source-safety-filter-fence",
+        "mount-evidence-20261024-interactive-sources-mounts-source-safety-filter-fence"
+      ],
+      "reason": "components/interactive/safety-filter-fence.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/safety-rules-timeline.tsx",
+      "sourcePath": "components/interactive/safety-rules-timeline.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "8e87ddc11becd73f6ada14a646a082798c55cb92bea0af81d45e476ca8e36da7",
+      "currentSourceSha256": "a1850da1646b319270142e6546ae57616505ba99cd60d9b81826aea80c99edab",
+      "oldMemberHash": "2211ba50a0c83748d534a8156b28fbaed17636fd5cf38f3851817cc66cbdb6b2",
+      "newMemberHash": "ddf5ada1a3f681f3414ca0b48939452fd8578dc853692ac0df87a376485aeaa2",
+      "priorApprovalIds": [
+        "owed-figures-frontier-20261027-source-safety-rules-timeline"
+      ],
+      "reason": "components/interactive/safety-rules-timeline.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/sample-efficiency-ledger.tsx",
+      "sourcePath": "components/interactive/sample-efficiency-ledger.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "34782d11a7a48f00eade98ec0fc651c15f39c5c2503bfeee00fbf65614625838",
+      "currentSourceSha256": "c49ce14d02946d470f1feb545ebf6de4745635d7ca46a9fff313f19c3823113a",
+      "oldMemberHash": "cc0fd3ce838b85989b4c502f24c8afd3a341a560a0784d6bd10fee2befba9ebe",
+      "newMemberHash": "b34a2a835f4b78510c2053ebf61a312e0cc5aacbd1d4f780eae539fc3044f966",
+      "priorApprovalIds": [
+        "rl-source-closeouts-20260908-4",
+        "seo-merge-20260916-interactive-sources-mounts-99",
+        "perf-articles-20260923-src-sample-efficiency-ledger",
+        "completion-figure-20261102-source-components-interactive-sample-efficiency-ledger-tsx-cc0fd3ce83"
+      ],
+      "reason": "components/interactive/sample-efficiency-ledger.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scanned-twin-check.tsx",
+      "sourcePath": "components/interactive/scanned-twin-check.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "37cf0896f6ba987cc7aa144e078e852158ef8da73acd0617d04665b8b07fa33a",
+      "currentSourceSha256": "f9a7d0c36faf9448391b88a239107f8484285739562bf9c0ab372e7568773c19",
+      "oldMemberHash": "afbf825685ba22881a7cdbaaed1b8999daef082628be0fb6505fe79f052b8c39",
+      "newMemberHash": "cc945e128f5ca916100413f182ecf324c297947148c48abc70fb39b45bf05790",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-scanned-twin-check-tsx-afbf825685"
+      ],
+      "reason": "components/interactive/scanned-twin-check.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scene-representation-ladder.tsx",
+      "sourcePath": "components/interactive/scene-representation-ladder.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "f7840e0ea346fc44f74ad568e185c496bf35556530cc11545e0893076da94f34",
+      "currentSourceSha256": "2a55393b38e7db592b427610f6cb18095e0b71b4d14e21ec35c64b67128de160",
+      "oldMemberHash": "698d581917c026313ff5850da6592531734a67c67abeeabe7679fa1bfeeb5cb5",
+      "newMemberHash": "0b0071753db0f44970d23ae4e457207c56cc19a17eb4ee57b5ac99b760cac67d",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-100",
+        "round5-closeout2-src-interactive-scene-representation-ladder-tsx",
+        "perf-articles-20260923-src-scene-representation-ladder",
+        "domain-pass-20261008-sweep-source-scene-representation-ladder",
+        "completion-figure-20261102-source-components-interactive-scene-representation-ladder-tsx-698d581917"
+      ],
+      "reason": "components/interactive/scene-representation-ladder.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scene-split.tsx",
+      "sourcePath": "components/interactive/scene-split.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "ef3d6d480f9916cf6ece930de2b78871fc83af830d1cde616186a2cd2d1c5400",
+      "currentSourceSha256": "88523e11193ba3f2d29b574e27687b0403d40bff8ea769554926998739b8802e",
+      "oldMemberHash": "544c507879d2ecd43c9fe35445d99b4cdf6566b085f587213b46b6cda99af655",
+      "newMemberHash": "cdb2b80b452666af8155a72d04844f32ceb57160912578fd17fb7631f9284033",
+      "priorApprovalIds": [
+        "anatomy-2-figures-20261012-interactive-sources-mounts-source-scene-split",
+        "completion-figure-20261102-source-components-interactive-scene-split-tsx-544c507879"
+      ],
+      "reason": "components/interactive/scene-split.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/scope-follow.tsx",
+      "sourcePath": "components/interactive/scope-follow.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "5d42ec43751b299bcffea10947f987a5cb8f7c39b3c932e5ce2195712d68d006",
+      "currentSourceSha256": "d6d7df6ef525a42d6beda5623184dcf45285ab0cb4867584d9016540d2f199a3",
+      "oldMemberHash": "65ff1e230744a0feed04433c6aa1f845f4ba89e4767153ed8be61c37d269aa2b",
+      "newMemberHash": "d53c5c630843e17dc94d685b190d566ca6a3340d1ab4ca04e266a8d10ee46a3e",
+      "priorApprovalIds": [
+        "anatomy-adjacent-new-figures-20261019-interactive-sources-mounts-source-scope-follow",
+        "completion-figure-20261102-source-components-interactive-scope-follow-tsx-65ff1e2307"
+      ],
+      "reason": "components/interactive/scope-follow.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/space-latency-ladder.tsx",
+      "sourcePath": "components/interactive/space-latency-ladder.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "67dd91b6a8abe96e237fa31e10853d17bd8ce49b3aab6acd01a6a6ba6b7854f6",
+      "currentSourceSha256": "6df2d0ea52fa82bbed05d1594d38fa774bc5af69679cd271fdb6bd1d5bee8a1c",
+      "oldMemberHash": "bdbdd6424468169fa1922f5339779dae141389d87828cf2e357577c350976639",
+      "newMemberHash": "b57bfa2b88843410ac12c85ff278a293bb26a987abcae2ff7053a5edbad7bc0f",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-space-latency-ladder"
+      ],
+      "reason": "components/interactive/space-latency-ladder.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/surgical-autonomy-ladder.tsx",
+      "sourcePath": "components/interactive/surgical-autonomy-ladder.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "606f3bdf0dddbdba7fa15f9c5909c56bd960500a11d6540f3dd769b4c2b5edc2",
+      "currentSourceSha256": "25668b3d5e8b123e1a384bdfde4c28dbfd41ccb853c46426f72bc07e515ab7c4",
+      "oldMemberHash": "a6369c1b6a96548a02bc251cf5558b064bcfa497cc632b77185fe9ac2a652a32",
+      "newMemberHash": "657da4692dfb91f6cf260696ca21fcd0b9f0ca0c3e03d135e08826fd0546e0da",
+      "priorApprovalIds": [
+        "owed-figures-adjacent-20261027-source-surgical-autonomy-ladder"
+      ],
+      "reason": "components/interactive/surgical-autonomy-ladder.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/teacher-student.tsx",
+      "sourcePath": "components/interactive/teacher-student.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "c62b265dad273357207ae80e7ae6c4ab96c109a3297f057aabc1cb53b2703897",
+      "currentSourceSha256": "fab9f84a339f2df5d6d70386ddc4d3e49f25c6c9f91eda07b14d77f2e3e15f49",
+      "oldMemberHash": "70542789a88688730691b8eb1ef667981511870808b60d9a6681f61bd726e015",
+      "newMemberHash": "26f7f55c318f4ab4219aab8720f2ffada5b2e35fee3fc8e350c8008e58a2a27e",
+      "priorApprovalIds": [
+        "seo-merge-20260916-interactive-sources-mounts-101",
+        "round5-closeout2-src-interactive-teacher-student-tsx",
+        "sim2real-local-20260923-2",
+        "continuation-merge-2026-09-23-0740-interactive-sources-mounts-source-components-interactive-teacher-student-tsx",
+        "continuation-merge-2026-09-24-0305-interactive-sources-mounts-source-components-interactive-teacher-student-tsx",
+        "completion-figure-20261102-source-components-interactive-teacher-student-tsx-70542789a8"
+      ],
+      "reason": "components/interactive/teacher-student.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/thesis-explorer.tsx",
+      "sourcePath": "components/interactive/thesis-explorer.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "54279cd483fd09b3414a787c2862b7985adc217e0a1bcab8860b2aa2d87dc3c4",
+      "currentSourceSha256": "4a8ac523111e5a1be1408ecad805fc021a7fdebbf349897cec33e7aa1e84455d",
+      "oldMemberHash": "6b832988d3e72d29fefd9a3542f2f59bbf1c6b27f37fb52c31fd286c0975a8ed",
+      "newMemberHash": "1a19ae203482de68242e41783ac19dbbf4c0769db4873a113cc6f5c8aa32f1fd",
+      "priorApprovalIds": [
+        "cosmos-reader-closeout-20260908-6",
+        "seo-merge-20260916-thesis-explorer-cite-site",
+        "perf-articles-20260923-src-thesis-explorer",
+        "completion-figure-20261102-source-components-interactive-thesis-explorer-tsx-6b832988d3"
+      ],
+      "reason": "components/interactive/thesis-explorer.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/time-offset-miss.tsx",
+      "sourcePath": "components/interactive/time-offset-miss.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "cccc8aef221c805223907cbf4360c19417831358302e32b82622b79c8f2ec7e9",
+      "currentSourceSha256": "92de8f3b2d104fc54fc25852f501d669db71dc9fae30194ca7fd4caabe501bc7",
+      "oldMemberHash": "3367ff9ff91bb9274b8a0b7970be3b6d7b38668fae3edb1a8b6847120d7d9f17",
+      "newMemberHash": "9398df9e5f54d8ca8a1481f706ae096844344463f4ad97e991ed4c4cc722cbd4",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-time-offset-miss-tsx-3367ff9ff9"
+      ],
+      "reason": "components/interactive/time-offset-miss.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/trajectory-stitching.tsx",
+      "sourcePath": "components/interactive/trajectory-stitching.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "2568a90912c8b211934e4797206c31535e4a527fb4a0263b6434e1165c373040",
+      "currentSourceSha256": "1439df4d07e8447c61fe86414d972270c394a76aabaf91006ffb8b396a40a8b0",
+      "oldMemberHash": "65c07c1f9175aea6f185f495ed1b5017f93e6f2a35a9c24f00b613963c50c115",
+      "newMemberHash": "ce7428abe7418d871ceea7225e29f1d77037123b5c7f23460e83930d7b2992a8",
+      "priorApprovalIds": [
+        "completion-figure-20261102-source-components-interactive-trajectory-stitching-tsx-65c07c1f91"
+      ],
+      "reason": "components/interactive/trajectory-stitching.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/umi-collection-rates.tsx",
+      "sourcePath": "components/interactive/umi-collection-rates.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "23148ac6d1cbce36afad8ba5f2167cfb2b665923fb595b3612a5c05de88aa265",
+      "currentSourceSha256": "31cd85270cb19b16bd9fa0a17a6e9a4f100b0c8a762f21e4edb285106328e26f",
+      "oldMemberHash": "9da781fcbc474ed9df6aac09527b0f46240b220482b58c4aee155d4fb57efe37",
+      "newMemberHash": "572279d41670b7d6a5241362a2b5145ae2af673884e474b4acee62f86f904d4f",
+      "priorApprovalIds": [
+        "owed-figures-dh-20261026-source-umi-collection-rates"
+      ],
+      "reason": "components/interactive/umi-collection-rates.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/world-model-evaluation-ladder.tsx",
+      "sourcePath": "components/interactive/world-model-evaluation-ladder.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "3c5a0d0441a34664b93b4dde46bb2d43b9f5233739fc30f2686cd8e04e23a790",
+      "currentSourceSha256": "782316bdf06b74266c6a2017e2550518662d48b1a9acc80b6215ef52bc6a25e2",
+      "oldMemberHash": "a85b0f91e4969d20e34cb705ade6f3ff86987b77d3f6dfe1b0add115329dfac0",
+      "newMemberHash": "4409dd427858726f2777d17d031d2c1716b53434071b3f5e4f02c88a65ffa12f",
+      "priorApprovalIds": [
+        "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-world-model-evaluation-ladder-tsx"
+      ],
+      "reason": "components/interactive/world-model-evaluation-ladder.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/world-model-output-times.tsx",
+      "sourcePath": "components/interactive/world-model-output-times.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "2f28cdeca64d42f3e0a415603509bc2a1a3c373178b1de6a915697a585e4fae5",
+      "currentSourceSha256": "da7b1da01109fb853aef3786cedad537bc1e1fe3f496f3e44ed53535036865bd",
+      "oldMemberHash": "d35ac87e6ada7bcd63599799e62e442bcd4e46a88ec65200f39aedd46f17e711",
+      "newMemberHash": "fc5172facb3426eeaf26a7ae63472c7c55b09097e35128f2fed4646d6e456595",
+      "priorApprovalIds": [
+        "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-world-model-output-times-tsx"
+      ],
+      "reason": "components/interactive/world-model-output-times.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    },
+    {
+      "manifest": "value-states",
+      "memberId": "state-source:components/interactive/data-scale-chart.tsx",
+      "sourcePath": "components/interactive/data-scale-chart.tsx",
+      "previousSourceCommit": "8d058ea8",
+      "previousSourceSha256": "61f48f327aa91e2516270639b84e4903afefd460a2d4ad3bd964697e166dbd6d",
+      "currentSourceSha256": "3f5f6f325918d833cf5828cfa5f2a1c638ac59410fab111752b2d6f9831529c9",
+      "oldMemberHash": "b0824c5b9e842619a4ee549d49c586caacc11b10c26cb9d9384bc561054b66e5",
+      "newMemberHash": "623b16b106b8d02a7dc852bfd42ca9270b5407392dfc90df3be042c4017f0202",
+      "priorApprovalIds": [
+        "seo-merge-20260916-value-states-113",
+        "data-bottleneck-zero-credit-20260922-4",
+        "continuation-merge-2026-09-23-value-states-state-source-components-interactive-data-scale-chart-tsx",
+        "release-oxe-link-safety-20260923-value-states",
+        "final-seven-closure-20260923-11",
+        "continuation-merge-2026-09-24-0140-value-states-state-source-components-interactive-data-scale-chart-tsx",
+        "completion-value-state-20261102-state-source-components-interactive-data-scale-chart-tsx-b0824c5b"
+      ],
+      "reason": "components/interactive/data-scale-chart.tsx: clarify the preserved blind-reader findings with plain labels, explicit comparisons and labeled controls; retain scientific values, geometry, defaults and canonical source records. Independent review also corrects training versus evaluation wording and Stop versus Pause semantics where applicable. Exact before/after source and member hashes are recorded in audit/evidence/mission-completion-20261102/reader-clarity-review.json; final blind and release verification remain required."
+    }
+  ]
+}

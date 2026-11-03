@@ -163,7 +163,7 @@ const SCENE: SceneDefinition = {
     {
       id: 'recap',
       caption:
-        'A robot never knows exactly where it is, so it keeps mixing its own prediction with each new sensor reading.',
+        'Mixing the robot’s guess with the sensor reading narrows the possible position. The jaws show that spread: closer jaws mean a surer estimate.',
     },
   ],
 };
@@ -489,7 +489,7 @@ export function KalmanPredictUpdate({ className }: { className?: string }) {
             the blend
           </LegendItem>
           <LegendItem series="share" swatch={swatch({ backgroundColor: 'var(--role-highlight-graphic)' }, 'h-1 w-4')}>
-            its share of the way to the reading
+            blue: shift from guess to blended position
           </LegendItem>
         </>
       }

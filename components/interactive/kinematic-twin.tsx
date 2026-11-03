@@ -281,7 +281,7 @@ export function KinematicTwin({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A leader arm built as a smaller twin of the robot sends its joint readings straight through, so the robot copies every joint."
+      caption="The matching leader arm sends each joint angle straight to the robot. The recorded demonstration is already a set of the robot’s own joint commands."
       method={
         <>
           <p>

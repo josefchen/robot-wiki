@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/frontier/competing-theses/",
+  "mount": "mount:/frontier/competing-theses/:ThesisExplorer:1",
+  "screenshots": {
+    "375": "evidence/reader-first/frontier--competing-theses--thesis-explorer.375.png",
+    "1280": "evidence/reader-first/frontier--competing-theses--thesis-explorer.1280.png"
+  },
+  "takeaway": "Experts hold six competing bets on how robots will become generally capable, and each bet names the result that would prove it wrong.",
+  "sentence": "Six competing ideas for making robots broadly capable are paired with results that would show each idea is wrong.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "It describes the same six competing routes to broadly capable robots, each paired with a result that would disprove it.",
+  "verdict": "pass",
+  "screenshotCommit": "524d32c818ed2a6e63b7e492af46b26cc1aa44fe",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-r4-a-20261103",
+  "sourceDigest": "40a0b2e0672c7ee9738f9fb731b1e702f85890eb6c3252f3eba1002a54709933",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

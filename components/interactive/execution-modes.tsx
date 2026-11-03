@@ -433,10 +433,10 @@ export function ExecutionModes({ className }: { className?: string }) {
           readout={
             <>
               <LiveReadoutText ref={phaseRef} data-em-phase="" />
-              pause {waitWords(deadMs)} · lurch {naivePeak.toFixed(2)} · blend {rtcPeak.toFixed(2)} · limit {JERK_LIMIT.toFixed(2)}
+              pause {waitWords(deadMs)} · lurch {naivePeak.toFixed(2)} · blend {rtcPeak.toFixed(2)} · speed-change limit {JERK_LIMIT.toFixed(2)}
             </>
           }
-          status="Lanes, back to front: pause, lurch, blend. Each gauge swings with the speed step of every tick."
+          status="Lanes, back to front: pause, lurch, blend. Gauges: speed changes between commands, 0.02 second apart, on an illustrative scale. Red cross: limit exceeded."
           data-testid="em-stage-frame"
         >
           <IsoFigure width={TRACK_WIDTH} height={TRACK_HEIGHT} label={trackLabel} describedBy={descriptionId}>
@@ -507,7 +507,7 @@ export function ExecutionModes({ className }: { className?: string }) {
           />
         </>
       }
-      source="Illustrative traces in arbitrary units; method from the real-time chunking paper."
+      source="Illustrative movement traces; switching plans of future movement commands while the robot moves follows the cited paper."
     />
   );
 }

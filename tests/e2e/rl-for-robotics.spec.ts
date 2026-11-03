@@ -463,7 +463,7 @@ test.describe('rl-for-robotics module', () => {
 
     // The measured region and the modelled region are labelled apart.
     await expect(page.getByTestId('sample-measured-label')).toHaveText(
-      /paper-reported durations and bounds/i,
+      /reported times, including “under” limits/i,
     );
     const modelled = page.getByTestId('sample-modelled-label');
     await expect(modelled).toHaveText(/modelled/i);

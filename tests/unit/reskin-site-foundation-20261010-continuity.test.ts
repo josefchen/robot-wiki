@@ -8,7 +8,7 @@ import {
   reskinSuccessorPaths, verifyReskinSource,
 } from '../../lib/audit-reskin-site-foundation-continuity';
 import { seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
-import { preReskin } from '../helpers/seo-pass';
+import { preFrontierLengthCut, preReskin } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const read = (path: string) => readFileSync(join(root, path));
@@ -40,7 +40,9 @@ describe('site-foundation re-skin 2026-10-10 presentation successors', () => {
 
   it('rebuilds every reviewed successor into its recorded predecessor', () => {
     for (const source of review.sources) {
-      const live = read(source.after.path);
+      // Later reviewed source changes are reversed before this historical
+      // re-skin transaction is replayed; drift still passes through and fails.
+      const live = preFrontierLengthCut(source.after.path);
       const prior = reskinPredecessor(root, source.before, live);
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
       expect(preReskin(source.after.path)).toEqual(prior);

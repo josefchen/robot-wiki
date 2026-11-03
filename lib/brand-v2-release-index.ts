@@ -1,3 +1,4 @@
+import { readReleaseStateManifest,type ReleaseStateReference } from './brand-v2-release-state-store.ts';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { BRAND_V2_DEEP_ROWS, BRAND_V2_FLOW_SUITES, type BrandV2Registry } from './brand-v2-runners.ts';
@@ -7,11 +8,12 @@ import {
   interactiveLedgerPlan, interactiveLedgerEvidenceFingerprint, readInteractiveLedgerEvidence,
 } from './brand-v2-interactive-ledger.ts';
 import { readDeepReleaseArtifact } from './brand-v2-release-deep.ts';
-import { readReleaseBuildStamp, RELEASE_BUILD_STAMP } from './brand-v2-release-build.ts';
+import { readReleaseBuildStamp,withReleaseValidation, RELEASE_BUILD_STAMP } from './brand-v2-release-build.ts';
 import {
   RELEASE_EVIDENCE_DIRECTORY, RELEASE_PROFILES, ledgerReleaseStateIds,
-  readReleaseStateArtifact, releaseArtifactHash, releaseSourceFingerprint,
+  releaseArtifactHash,
   releaseMapShard,
+  mapReleaseStateIds,
 } from './brand-v2-release-evidence.ts';
 
 export const RELEASE_STATE_INDEX_PATH = `${RELEASE_EVIDENCE_DIRECTORY}/state-index.json`;
@@ -19,16 +21,16 @@ export const RELEASE_STATE_INDEX_PATH = `${RELEASE_EVIDENCE_DIRECTORY}/state-ind
 /** Re-read genuine observations; callers cannot supply statuses or a selected
  * subset. The canonical registry and validated keyboard ledger own the exact
  * populations. This command intentionally fails before final sweeps exist. */
-export function collectReleaseStateIndex(root: string) {
-  const fingerprint = releaseSourceFingerprint(root);
-  const build = readReleaseBuildStamp(root);
+function collectReleaseStateIndexWithinScope(root:string){
+  const build=readReleaseBuildStamp(root);
+  const fingerprint=build.sourceAfter;
   const registry = JSON.parse(readFileSync(join(root, 'contract/brand-v2-registries.json'), 'utf8')) as BrandV2Registry;
   if (registry.routes.public.length === 0 || registry.interactive.mounts.length === 0) throw new Error('release state index: empty canonical population');
-  const groups: Array<{ group: string; path: string; sha256: string; stateIds: string[]; profileCount: number }> = [];
+  const groups: Array<{ group: string; path: string; sha256: string; stateIds: string[]; stateFiles:ReleaseStateReference[]; profileCount: number }> = [];
   const add = (group: string, stateIds: string[]) => {
-    const artifact = readReleaseStateArtifact(root, group, stateIds, { source: fingerprint, exported: build.exportFingerprint });
+    const artifact = readReleaseStateManifest(root, group, stateIds, { source: fingerprint, exported: build.exportFingerprint });
     const path = `${RELEASE_EVIDENCE_DIRECTORY}/${group}.json`;
-    groups.push({ group, path, sha256: releaseArtifactHash(root, path), stateIds: artifact.cases.map(({ id }) => id), profileCount: artifact.cases.reduce((count, row) => count + row.profiles.length, 0) });
+    groups.push({ group, path, sha256: releaseArtifactHash(root, path), stateIds: artifact.states.map(({id})=>id),stateFiles:artifact.states,profileCount:artifact.states.reduce((count,reference)=>count+reference.profileCount,0) });
   };
   for (const route of registry.routes.public) add(`route-${route.path.replace(/^\/+|\/+$/g, '').replace(/\//g, '-') || 'home'}`, [route.id]);
   add('search', SEARCH_STATE_IDS.map((id) => `search:${id}`));
@@ -45,7 +47,7 @@ export function collectReleaseStateIndex(root: string) {
     add(`interactive-${observation.mountId.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`, ledgerReleaseStateIds(observation));
   }
   const mapPlan = marketMapStatePlan();
-  const mapIds = mapPlan.cases.filter(({ kind }) => kind !== 'exception').map(({ id }) => `map:${id}`);
+  const mapIds = mapReleaseStateIds(mapPlan.cases);
   const directory = join(root, RELEASE_EVIDENCE_DIRECTORY);
   if (existsSync(join(directory, 'market-map.json'))) add('market-map', mapIds);
   else {
@@ -68,18 +70,21 @@ export function collectReleaseStateIndex(root: string) {
     const payload = artifact.payload;
     return { id: row.id, path, sha256: releaseArtifactHash(root, path), renderedRoute: artifact.renderedRoute, screenshotPaths: expectedShotPaths, anchors: payload.anchors };
   });
-  if (releaseSourceFingerprint(root) !== fingerprint) throw new Error('release evidence source changed while the index was being checked');
-  return { version: 1, sourceFingerprint: fingerprint, exportFingerprint: build.exportFingerprint,
+  return { version: 2, sourceFingerprint: fingerprint, exportFingerprint: build.exportFingerprint,
     build: { path: RELEASE_BUILD_STAMP, sha256: releaseArtifactHash(root, RELEASE_BUILD_STAMP) }, profiles: RELEASE_PROFILES, groups, deep,
     keyboardLedger: { path: ledgerPath, sha256: releaseArtifactHash(root, ledgerPath) },
     counts: { routes: registry.routes.public.length, interactiveMounts: ledger.observations.length, mapCases: mapPlan.cases.filter(({ kind }) => kind !== 'exception').length,
-      deepRows: deep.length, states: groups.reduce((count, group) => count + group.stateIds.length, 0), profileReadings: groups.reduce((count, group) => count + group.profileCount, 0) } };
+      mapProfileStates:mapIds.length,deepRows: deep.length, states: groups.reduce((count, group) => count + group.stateIds.length, 0), profileReadings: groups.reduce((count, group) => count + group.profileCount, 0) } };
 }
 
+export function collectReleaseStateIndex(root:string){return withReleaseValidation(root,()=>collectReleaseStateIndexWithinScope(root));}
+
 export function readReleaseStateIndex(root: string) {
-  const expected = collectReleaseStateIndex(root);
+  return withReleaseValidation(root,()=>{
+  const expected = collectReleaseStateIndexWithinScope(root);
   const path = join(root, RELEASE_STATE_INDEX_PATH);
   if (!existsSync(path) || JSON.stringify(JSON.parse(readFileSync(path, 'utf8'))) !== JSON.stringify(expected)) throw new Error('release state index is missing or stale');
   return expected;
+  });
 }
 export type ReleaseStateIndex = ReturnType<typeof collectReleaseStateIndex>;

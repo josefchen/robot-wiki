@@ -43,13 +43,30 @@ describe('SafetyRulesTimeline', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Robot safety rules by date');
-    expect(heading).toBe('Industrial standards landed in 2025; EU law applies from 2027');
+    expect(heading).toBe('2025 standards; undated humanoid draft; learned-safety law in January 2027');
     expect(caption).toBe(
-      'Standards are dated by publication, the humanoid draft by the close of comments, and the two EU laws by the day they apply.',
+      'Industrial standards renewed in 2025; the humanoid draft has no next date; EU law covers safety components learning from data in January 2027.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
     expect(words(caption)).toBeLessThanOrEqual(25);
+    const draft = screen.getByText('no next date');
+    expect(draft.closest('details')).toBeNull();
+    expect(draft.parentElement).toHaveTextContent('The humanoid standard is still a draft');
+    expect(draft.compareDocumentPosition(screen.getByTestId('safety-rules-timeline-stage')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(screen.getByText(/ISO is the international standards organization/).closest('details')).toBeNull();
+    expect(screen.getByTestId('safety-summary-learning')).toHaveTextContent('January 2027');
+    expect(screen.getByTestId('safety-summary-learning')).toHaveTextContent('software or hardware designed to protect people, with behavior that can evolve');
+    expect(screen.getByTestId('safety-summary-learning')).toHaveTextContent('learn from data');
+    expect(screen.getByTestId('safety-summary-industrial')).toHaveTextContent('Industrial robot safety standards were renewed in 2025');
+    const main = screen.getByTestId('safety-main-comparison');
+    for (const id of ['industrial', 'humanoid', 'learning']) {
+      expect(screen.getByTestId(`safety-summary-${id}`).closest('p')).toBe(main);
+    }
+    expect(screen.getByText(/Regulated products include machinery, medical devices/).closest('details')).toBeNull();
+    expect(screen.getByText(/Separate 2028 AI Act rule/).closest('details')).toBeNull();
+    expect(screen.getByText(/Separate 2028 AI Act rule/)).toHaveTextContent('AI safety components or AI products requiring independent health or safety assessment under product laws.');
+    expect(container.querySelector('[data-figure-fold="method"]')).toHaveTextContent('the product must require a third-party assessment concerning health or safety');
   });
 
   it('places the dots in date order with the Machinery Regulation in the accent', () => {
@@ -69,7 +86,9 @@ describe('SafetyRulesTimeline', () => {
       );
     }
     expect(screen.getByTestId('safety-rule-eu-machinery-regulation')).toHaveTextContent('20 January 2027');
+    expect(screen.getByTestId('safety-rule-eu-machinery-regulation')).toHaveTextContent('EU law: safety systems that learn from data');
     expect(screen.getByTestId('safety-rule-eu-ai-act')).toHaveTextContent('2 August 2028');
+    expect(screen.getByTestId('safety-rule-eu-ai-act')).toHaveTextContent('EU AI Act: AI subject to product safety checks');
     expect(screen.getByTestId('safety-rule-undated-next-stage')).toHaveTextContent('next stage not dated');
     expect(document.querySelectorAll('[data-scene-readout]')).toHaveLength(2);
   });

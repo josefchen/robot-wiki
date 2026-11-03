@@ -26,7 +26,7 @@ import {
  * HardwarePriceLadder: the prices makers and sellers list for the guide's
  * arms, humanoids and robot computers, one strip per family on a ruler that
  * steps by ten times from $100 to $100,000. Only each strip's cheapest and
- * dearest product is named on the stage; the table names every dot. The
+ * dearest product is named beside a dot; the visible key names every dot. The
  * chart is static: no controls, no state, no motion.
  */
 
@@ -69,9 +69,8 @@ const COMPUTERS = rowPoints('compute');
 const range = (points: PricedPoint[]) =>
   `from ${usd(points[0].priceUsd)} (${points[0].label}) to ${usd(points[points.length - 1].priceUsd)} (${points[points.length - 1].label})`;
 
-const HEADING = `Listed prices run from ${usd(LADDER_POINTS[0].priceUsd)} to ${usd(LADDER_POINTS[LADDER_POINTS.length - 1].priceUsd)}`;
-const CAPTION =
-  'No maker price for EngineAI SE01, Fourier GR-3 or UBTECH Walker S2; Figure 03, Atlas and Optimus 3 are not on open sale.';
+const HEADING = `Arms ${usd(ARMS[0].priceUsd)}–${usd(ARMS[ARMS.length - 1].priceUsd)}; humanoids ${usd(HUMANOIDS[0].priceUsd)}–${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}; some prices unpublished`;
+const CAPTION = `Arms: ${usd(ARMS[0].priceUsd)} to ${usd(ARMS[ARMS.length - 1].priceUsd)}. Humanoids: ${usd(HUMANOIDS[0].priceUsd)} to ${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}. Several humanoid makers publish no price or do not offer open sales.`;
 const DESCRIPTION = `Listed prices of ${LADDER_POINTS.length} robot products on a ruler that steps by ten times: arms ${range(ARMS)}, humanoids ${range(HUMANOIDS)}, and robot computers ${range(COMPUTERS)}. EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.`;
 
 function Strip({ index, points }: { index: number; points: PricedPoint[] }) {
@@ -79,9 +78,9 @@ function Strip({ index, points }: { index: number; points: PricedPoint[] }) {
   const stripY = y0 + STRIP_DY;
   const ends = [points[0], points[points.length - 1]];
   return (
-    <g data-testid={`price-strip-${LADDER_ROWS[index].id}`}>
-      <DirectLabel x={PLOT_LEFT} y={y0}>
-        <tspan fontWeight={600}>{LADDER_ROWS[index].label}</tspan>
+    <g data-testid={`price-strip-${LADDER_ROWS[index].id}`} data-series={LADDER_ROWS[index].id}>
+      <DirectLabel x={PLOT_LEFT} y={y0} seriesFor={LADDER_ROWS[index].id}>
+        <tspan fontWeight={600}>{LADDER_ROWS[index].label}: {usd(points[0].priceUsd)}–{usd(points[points.length - 1].priceUsd)}</tspan>
       </DirectLabel>
       <line
         x1={PLOT_LEFT}
@@ -144,6 +143,9 @@ export function HardwarePriceLadder({ className }: { className?: string }) {
       heading={HEADING}
       stage={
         <FigureStage>
+          <p className="m-0 font-sans text-sm text-text-dim">
+            Each dot is one listed product; names beside dots mark each row’s cheapest and priciest. Several humanoid makers publish no price.
+          </p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Listed prices of arms, humanoids and robot computers"
@@ -186,6 +188,14 @@ export function HardwarePriceLadder({ className }: { className?: string }) {
               listed price, US dollars
             </text>
           </PlotStage>
+          <div className="font-sans text-sm text-text-dim" data-testid="hardware-price-dot-key">
+            {LADDER_ROWS.map((row) => (
+              <p key={row.id} className="m-0">
+                <span className="font-medium text-text">{row.label}, left to right: </span>
+                {rowPoints(row.id).map((point) => `${point.label} (${usd(point.priceUsd)})`).join('; ')}.
+              </p>
+            ))}
+          </div>
         </FigureStage>
       }
       caption={CAPTION}

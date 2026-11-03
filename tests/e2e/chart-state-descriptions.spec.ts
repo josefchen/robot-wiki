@@ -130,7 +130,7 @@ const CHARTS: Array<{
     route: '/manipulation/cross-embodiment',
     name: 'cross-embodiment',
     control: 'button',
-    moves: ["Pad each robot's own list", 'Translate between bodies'],
+    moves: ["Fill unused joint slots with zeros", 'Translate between bodies'],
     def: 'Describe where the hand goes',
   },
   {

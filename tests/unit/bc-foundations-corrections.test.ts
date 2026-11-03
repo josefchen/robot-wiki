@@ -5,6 +5,7 @@ import { CITATIONS } from '@/data/citations';
 import { parseLedger } from '@/lib/audit-ledger';
 import matter from 'gray-matter';
 import { preDomainPassCitations } from '../helpers/domain-pass';
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
 
 const article = readFileSync('content/manipulation/bc-foundations.mdx', 'utf8');
 const component = readFileSync('components/interactive/compounding-error.tsx', 'utf8');
@@ -18,7 +19,8 @@ describe('BC source-backed corrections', () => {
       new Set(CITATIONS.map((c) => c.id)),
       { compoundPlans: plans, articleCitations: { 'bc-foundations': [...preDomainPassCitations('manipulation', 'bc-foundations', matter(article).data.citations as string[])] } },
     ).find((s) => s.slug === 'bc-foundations')!;
-    expect(section.claimRecords).toHaveLength(14);
+    expect(verifyLedgerAdditions(section)).toEqual({ originalRows: 14, addedRows: 1, currentRows: 15 });
+    expect(section.claimRecords).toHaveLength(15);
     expect(section.unevidencedRows).toEqual([]);
     expect(section.unresolvedRows).toEqual([]);
     expect(section.claimRecords[13].compound?.evidence).toHaveLength(8);

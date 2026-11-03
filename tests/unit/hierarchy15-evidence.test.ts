@@ -295,7 +295,8 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
     expect(originalClaimDigest(section().claimRecords[13])).toBe(
       '71d65a99cee4fb164624759b14b1a41f46c1565a57663b317645cc1c769a5598',
     );
-    expect(section().claimRecords).toHaveLength(16);
+    expect(verifyLedgerAdditions(section())).toEqual({ originalRows: 16, addedRows: 6, currentRows: 22 });
+    expect(section().claimRecords).toHaveLength(22);
     expect(section().claimRecords[13].evidenceFailures).toEqual([]);
     expect(prose(before()).members[0].hash).toBe(oldHash);
   });
@@ -362,10 +363,12 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
     // manipulation isometric figures of 2026-10-15 mount KeypointString; the
     // KOL overdue triage of 2026-10-24 adds the RAX and CoEvolve paragraphs.
     expect(prose(readFileSync(articlePath, 'utf8')).members[0].hash)
-      .toBe(kolBatch20261024Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
+      .toBe(completionEndpoint(approvals, 'prose', 'article:manipulation/hierarchical', kolBatch20261024Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
         anatomyManipB0420261015Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
           imagesA20261013Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
             humanize20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
-              kolQueue20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical', previous.newHash))))));
+              kolQueue20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical', previous.newHash)))))));
   });
 });
+import { verifyLedgerAdditions } from '../helpers/ledger-additions';
+import { completionEndpoint } from '../helpers/completion-endpoint';

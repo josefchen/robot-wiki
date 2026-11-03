@@ -1,0 +1,279 @@
+{
+  "schemaVersion": "value-state-successor-review-v1",
+  "observedAt": "2026-11-02T20:17:00.663Z",
+  "records": [
+    {
+      "id": "completion-value-state-20261102-state-site-components-interactive-generalist-release-timeline-tsx-not-disclosed-1-317c11d9",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/generalist-release-timeline.tsx:not-disclosed:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "317c11d94366765c64b0342658800e12fe52593850f5422d8685198f2781c9e1",
+      "reason": "The release-timeline accessible description and method text explicitly distinguish an unavailable download from an applicable value the maker has not disclosed. The cards and table retain those separate cases; hollow markers do not imply a license restriction. These are two new visible explanatory render sites introduced by the owner-directed reader-first revision, with no conversion of missing data to zero.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-components-interactive-generalist-release-timeline-tsx-not-disclosed-2-4b7166a1",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/generalist-release-timeline.tsx:not-disclosed:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4b7166a1ab715074b5c4f4a48eb70de70554442c393dbfc0a75736b0be26654b",
+      "reason": "The release-timeline accessible description and method text explicitly distinguish an unavailable download from an applicable value the maker has not disclosed. The cards and table retain those separate cases; hollow markers do not imply a license restriction. These are two new visible explanatory render sites introduced by the owner-directed reader-first revision, with no conversion of missing data to zero.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-components-interactive-hand-comparison-tsx-not-disclosed-4-20ac4a83",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/hand-comparison.tsx:not-disclosed:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "20ac4a8323abfcc3043a7fe1c5f3d6b8db1ca22848f46079bc099d1ea0eeb54b",
+      "reason": "The hand-comparison method and table retain not disclosed for unpublished touch thresholds or hand prices. The whole-robot Unitree price is explicitly separated from the hand price, and unknown rows remain distinct from published values. This exact occurrence is part of that reader-first disclosure and table, not a numerical substitute or an exemption from current value-state checks.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-components-interactive-hand-comparison-tsx-not-disclosed-5-33cdd8cd",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/hand-comparison.tsx:not-disclosed:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "33cdd8cd97c59c443e7417ddacf03dfcc02a45c1c4b2702e12ad97ebc1a47b14",
+      "reason": "The hand-comparison method and table retain not disclosed for unpublished touch thresholds or hand prices. The whole-robot Unitree price is explicitly separated from the hand price, and unknown rows remain distinct from published values. This exact occurrence is part of that reader-first disclosure and table, not a numerical substitute or an exemption from current value-state checks.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-components-interactive-hand-comparison-tsx-not-disclosed-6-cd013e61",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/hand-comparison.tsx:not-disclosed:6",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "cd013e6129a5766b6ff2b5cdb9ae927c85bf11f4272446f6e2fde212052b2eb2",
+      "reason": "The hand-comparison method and table retain not disclosed for unpublished touch thresholds or hand prices. The whole-robot Unitree price is explicitly separated from the hand price, and unknown rows remain distinct from published values. This exact occurrence is part of that reader-first disclosure and table, not a numerical substitute or an exemption from current value-state checks.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-components-interactive-hand-comparison-tsx-not-disclosed-7-708ebd1f",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/hand-comparison.tsx:not-disclosed:7",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "708ebd1faf08686ddce544c2f4d739d738dc57296ed0e9b80098b2a6645da27c",
+      "reason": "The hand-comparison method and table retain not disclosed for unpublished touch thresholds or hand prices. The whole-robot Unitree price is explicitly separated from the hand price, and unknown rows remain distinct from published values. This exact occurrence is part of that reader-first disclosure and table, not a numerical substitute or an exemption from current value-state checks.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-components-interactive-surgical-autonomy-ladder-tsx-not-applicable-1-84255ac2",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/surgical-autonomy-ladder.tsx:not-applicable:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "84255ac2854a12ebb9ebfe1d9e0a3ef0e8b5e24ef313c60d5c3550e67302e011",
+      "reason": "The owed surgical ladder uses n/a only for evidence and classification attribution when a level contains no listed example. It does not use n/a for an undisclosed property of a listed system. The caption and method scope the figure to the listed research/clinical examples, and source-backed ladder/component tests preserve that distinction.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-components-interactive-surgical-autonomy-ladder-tsx-not-applicable-2-a92f3c05",
+      "manifest": "value-states",
+      "memberId": "state-site:components/interactive/surgical-autonomy-ladder.tsx:not-applicable:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a92f3c05ff3171401a7af4a26cec7783b40addba060929bfb796aa228b0820db",
+      "reason": "The owed surgical ladder uses n/a only for evidence and classification attribution when a level contains no listed example. It does not use n/a for an undisclosed property of a listed system. The caption and method scope the figure to the listed research/clinical examples, and source-backed ladder/component tests preserve that distinction.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-content-data-hardware-hardware-taxonomy-mdx-not-disclosed-1-ffa63583",
+      "manifest": "value-states",
+      "memberId": "state-site:content/data-hardware/hardware-taxonomy.mdx:not-disclosed:1",
+      "oldHash": "4678266011f5840509081636e13e0395e07d84912732585c6beefc5d99ab7e15",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "The domain brevity pass removed the old explanatory reading-rules paragraph from the article body. Its actual unknown-value behavior remains in HardwareGuide: the visible caption states that unpublished figures are marked not disclosed and sort last, and its NOT_DISCLOSED cell renderer retains the exact text. This removes only the redundant prose occurrence, not a table field or its value distinction.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-lib-world-model-figures-ts-not-disclosed-1-b8ccd89b",
+      "manifest": "value-states",
+      "memberId": "state-site:lib/world-model-figures.ts:not-disclosed:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b8ccd89bdeb5c802f77590ed756f7d3141d9d303eb736429e725355a0276280b",
+      "reason": "The owed world-model output-time figure explicitly states that the 1X report does not disclose its GPU model or count. The hardware field, method note and chart description preserve that unknown while keeping the reported 11-second video plus 1-second inverse-model timing. No hardware is invented and these unlike workloads are not presented as a common benchmark.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-lib-world-model-figures-ts-not-disclosed-2-831265e7",
+      "manifest": "value-states",
+      "memberId": "state-site:lib/world-model-figures.ts:not-disclosed:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "831265e7cc1c48d72644dd56ed49837f1dcf77f11f77a61415b60bb494f5f164",
+      "reason": "The owed world-model output-time figure explicitly states that the 1X report does not disclose its GPU model or count. The hardware field, method note and chart description preserve that unknown while keeping the reported 11-second video plus 1-second inverse-model timing. No hardware is invented and these unlike workloads are not presented as a common benchmark.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-site-lib-world-model-figures-ts-not-disclosed-3-c8a38375",
+      "manifest": "value-states",
+      "memberId": "state-site:lib/world-model-figures.ts:not-disclosed:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c8a38375dce8a30b683183b460c1a22153df72c2bbf08bd116718b108849d0d1",
+      "reason": "The owed world-model output-time figure explicitly states that the 1X report does not disclose its GPU model or count. The hardware field, method note and chart description preserve that unknown while keeping the reported 11-second video plus 1-second inverse-model timing. No hardware is invented and these unlike workloads are not presented as a common benchmark.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-value-state-20261102-state-source-components-interactive-data-scale-chart-tsx-b0824c5b",
+      "manifest": "value-states",
+      "memberId": "state-source:components/interactive/data-scale-chart.tsx",
+      "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+      "newHash": "b0824c5b9e842619a4ee549d49c586caacc11b10c26cb9d9384bc561054b66e5",
+      "reason": "The data-scaling figure was rewritten under the owner-directed figure and reader-first passes, retaining distinct source values and unknown states. Its exact current component contains the sourced model disclosures and the later non-colour series labels; the relevant local numerical proof remains checked by the full audit gate. This binds the named component successor rather than changing the meaning of not disclosed or n/a.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "seo-merge-20260916-value-states-113",
+          "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+          "newHash": "887418ac5ced7343826182e2f458cb69c7f107a0a9adbf5408591d15fcc6016d"
+        },
+        {
+          "id": "data-bottleneck-zero-credit-20260922-4",
+          "oldHash": "887418ac5ced7343826182e2f458cb69c7f107a0a9adbf5408591d15fcc6016d",
+          "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-value-states-state-source-components-interactive-data-scale-chart-tsx",
+          "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+          "newHash": "f9ad439702dbe4f1f52d6ddf42a250c8e17be8082f997eb6a6074a84ad3e9af9"
+        },
+        {
+          "id": "release-oxe-link-safety-20260923-value-states",
+          "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+          "newHash": "bd38089d9dd5363fec01c98a3aa402e5725db47f6ccc5966892f87195a7713d4"
+        },
+        {
+          "id": "final-seven-closure-20260923-11",
+          "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+          "newHash": "dfb290e04fd8c364f81d89fd966457f02116d74123a2565938d3f98f59eb2bec"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-value-states-state-source-components-interactive-data-scale-chart-tsx",
+          "oldHash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d",
+          "newHash": "b305cd8cfe18ae89221077bb0bf21f3aa7d0427cc449462d875333f558dbeaae"
+        }
+      ]
+    },
+    {
+      "id": "completion-value-state-20261102-state-source-components-mdx-policy-chunking-table-tsx-27fd5b7d",
+      "manifest": "value-states",
+      "memberId": "state-source:components/mdx/policy-chunking-table.tsx",
+      "oldHash": "cb201d7b1b91d6f8724d71b2b3d09d62c0f329d2933a38a98fa730ee3915fd2e",
+      "newHash": "27fd5b7d7b870004a8202d7979cf5f119c74725ed5af6aabf9837f7208e99f93",
+      "reason": "The exact policy table successor preserves applicable unpublished values as not disclosed and genuinely inapplicable values as n/a. Its current identity marker is nonvisual; shared numeral formatting preserves numeric signs, precision and unknown-value text, including React fragments. The source/data/component tests and actual chart/table agreement check validate the separate published, undisclosed and inapplicable cases.",
+      "ownerApproval": "Owner-authorized completion of the existing figure, source and convergence requirements on 2026-11-02; published, undisclosed and inapplicable values must remain distinct.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "act-octo-pi0-settings-20260907-7",
+          "oldHash": "cb201d7b1b91d6f8724d71b2b3d09d62c0f329d2933a38a98fa730ee3915fd2e",
+          "newHash": "9b293310f84b86d6525d5710f25ba8be2e20a8ae0ffc146dfa171f0d20df2b02"
+        },
+        {
+          "id": "act-five-sources-20260907-16",
+          "oldHash": "cb201d7b1b91d6f8724d71b2b3d09d62c0f329d2933a38a98fa730ee3915fd2e",
+          "newHash": "e74491de3633d119abee465f92153cc2b5a1d3e88ea29d7a73e8a423f87c228d"
+        },
+        {
+          "id": "act-final-model-papers-20260907-8",
+          "oldHash": "cb201d7b1b91d6f8724d71b2b3d09d62c0f329d2933a38a98fa730ee3915fd2e",
+          "newHash": "24e645ac857f9bd103bb1c7f5af40f0924d4926d83ed9c554f4210b7dda787e7"
+        }
+      ]
+    }
+  ]
+}

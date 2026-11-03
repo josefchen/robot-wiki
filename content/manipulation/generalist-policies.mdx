@@ -56,7 +56,7 @@ seeAlso:
 
 import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-release-timeline';
 
-A generalist robot policy is one learned model trained to perform many tasks, often on several robot bodies <Cite id="tri-lbm-2025" />.
+A generalist robot policy is one learned model trained for many tasks, often on several robot bodies <Cite id="tri-lbm-2025" />.
 
 <Image id="gemini-robotics-apollo-franka-2025" />
 
@@ -76,7 +76,7 @@ The intervening ER 1.6 release adds instrument reading: DeepMind describes zoomi
 
 On July 30, 2026, DeepMind announced Gemini Robotics 2 as three models: a VLA, the embodied-reasoning VLM ER 2, and On-Device 2 for local operation. Apollo 2 walks, crouches and stretches to manipulate objects, and one checkpoint runs Apollo 2 with 22-<Term id="degrees-of-freedom">DoF</Term> SharpaWave hands or Inspire hands and Franka Duo with the Robotiq gripper; DeepMind says On-Device 2 adapts to new bi-arm embodiments in a few hours, typically with fewer than 200 examples <Cite id="gemini-robotics-2-2026" />. The ER 2 post adds success detection on raw video feeds <Cite id="gemini-robotics-er-2-2026" />.
 
-DeepMind's image alt text reports whole-body averages on Apollo with Inspire hands of 76.3% for picking from a shelf, 68.4% from a table and 45.7% from the floor. Single-task results on Apollo with Sharpa hands are 92% for unscrewing a bulb, 36% for screwing one in, 44% for tying a trash bag, 40% for Ziplock and 32% for Dustpan. Trial counts and error bars are unexplained, and DeepMind concludes that "the multi-finger dexterous manipulation remains challenging" <Cite id="gemini-robotics-2-2026" />.
+DeepMind's image alt text reports whole-body averages on Apollo with Inspire hands of 76.3% for picking from a shelf, 68.4% from a table and 45.7% from the floor. Single-task results on Apollo with Sharpa hands are 92% for unscrewing a bulb, 36% for screwing one in, 44% for tying a trash bag, 40% for Ziplock and 32% for Dustpan. Trial counts and error bars are unexplained, and DeepMind concludes "the multi-finger dexterous manipulation remains challenging" <Cite id="gemini-robotics-2-2026" />.
 
 The 1.5 model card specifies continuous numerical actions but no action-head family, chunk lengths, command rate or parameter count <Cite id="gemini-robotics-15-2025" />. The Gemini Robotics 2 announcement also omits them, the VLA went only to early-access partners, and weight and licence terms are undisclosed <Cite id="gemini-robotics-2-2026" />. DeepMind validates its Veo-based [world-model](/world-models/) policy simulator against more than 1,600 real trials of eight Gemini Robotics checkpoints <Cite id="veo-world-simulator-2025" />.
 
@@ -92,7 +92,7 @@ Figure's February 20, 2025 Helix post pairs S2, an internet-pretrained VLM produ
 
 Figure's January 27, 2026 Helix 02 post adds S0, a 10M-parameter whole-body controller that outputs joint-level actuator commands at 1 kHz beneath S1's 200 Hz full-body joint targets. Figure says S0 trains entirely in simulation on over 1,000 hours of retargeted human motion and replaces 109,504 lines of hand-written C++, and describes its dishwasher demonstration as one continuous four-minute task with 61 loco-manipulation actions, no resets and no human intervention <Cite id="helix-02-2026" />. Neither Helix post gives repeated-trial success tables or release terms for the trained policies <Cite id="helix-2025" /> <Cite id="helix-02-2026" />.
 
-Figure's August 25, 2026 Index announcement counts over 16M uploaded videos and commits over \$1B over 12 months to data and compute <Cite id="figure-index-2026" />, and Figure reports that Index pretraining, all else fixed, lifted Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />.
+Figure's August 25, 2026 Index announcement counts over 16M uploaded videos and commits over \$1B over 12 months to data and compute <Cite id="figure-index-2026" />, and Figure reports Index pretraining, all else fixed, lifted Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />.
 
 ## AgiBot: GO-1 and GO-2
 
@@ -102,15 +102,15 @@ AgiBot reports 98.5% average success across the four LIBERO suites, 86.6% zero-s
 
 ## Skild AI
 
-Skild AI's January 14, 2026 [Series C](/market-map/) raised \$1.4 billion at a valuation of over \$14 billion. Skild calls its model "omni-bodied", names simulation and Internet video for pretraining and teleoperation and deployments for post-training, and says the model can control robots without prior knowledge of their body form. That announcement gives no architecture, parameter count, control rate, chunk horizon, benchmark protocol or weight terms <Cite id="skild-series-c-2026" />.
+Skild AI's January 14, 2026 [Series C](/market-map/) raised \$1.4 billion, valuing Skild above \$14 billion. Skild calls its model "omni-bodied", names simulation and Internet video for pretraining and teleoperation and deployments for post-training, and says the model can control robots without prior knowledge of their body form. That announcement gives no architecture, parameter count, control rate, chunk horizon, benchmark protocol or weight terms <Cite id="skild-series-c-2026" />.
 
-Skild's July 2025 technical note describes a hierarchy: a slower policy for manipulation and navigation feeds a faster policy that produces joint angles and motor torques <Cite id="skild-brain-2025" />.
+Skild's July 2025 technical note describes a hierarchy: a slower policy for manipulation and navigation feeds a faster policy producing joint angles and motor torques <Cite id="skild-brain-2025" />.
 
 A September 2025 post describes training on 100,000 simulated robots <Cite id="skild-omni-bodied-2025" />. Skild presents S1 (August 18, 2026) as an in-context learner: shown a video of a task, it executes it, and on unseen long-horizon tasks of 4 to 8 minutes Skild reports 66% cumulative per-step success, against 9% for language prompting <Cite id="skild-s1-2026" />. The company also reports passing \$100M in annual recurring revenue <Cite id="skild-arr-2026" />.
 
 ## Generalist AI
 
-Generalist AI says GEN-0 (November 2025) is pretrained on over 270,000 hours of [real-world manipulation data](/data-hardware/data-bottleneck/), growing by 10,000 hours a week <Cite id="generalist-gen0-2025" />. It reports that GEN-1 (April 2026), trained from scratch on half a million hours, reaches 99% average success on tasks where earlier models achieve 64%, with 1 hour of robot data per task <Cite id="generalist-gen1-2026" />, and that GEN-1.5 (August 2026) learns a task in context from one 3 to 12 second demonstration, with 59% average one-shot success across 10 tasks <Cite id="gen-1-5-2026" />.
+Generalist AI says GEN-0 (November 2025) is pretrained on over 270,000 hours of [real-world manipulation data](/data-hardware/data-bottleneck/), growing by 10,000 hours a week <Cite id="generalist-gen0-2025" />. It reports GEN-1 (April 2026), trained from scratch on half a million hours, reaches 99% average success on tasks where earlier models achieve 64%, with 1 hour of robot data per task <Cite id="generalist-gen1-2026" />, and that GEN-1.5 (August 2026) learns a task in context from one 3 to 12 second demonstration, with 59% average one-shot success across 10 tasks <Cite id="gen-1-5-2026" />.
 
 ## Independent evaluation
 

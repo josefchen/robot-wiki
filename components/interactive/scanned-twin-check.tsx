@@ -23,8 +23,8 @@ import { useEasedValue } from '@/components/motion/use-eased-value';
 
 type SimId = 'scanned' | 'tuned';
 export const SIMS: readonly (Preset<SimId> & { correlation: number; text: string; note: string })[] = [
-  { id: 'scanned', label: 'As scanned', correlation: 0.18, text: '0.18', note: 'because agents exploited its collision dynamics' },
-  { id: 'tuned', label: 'Parameters tuned', correlation: 0.844, text: '0.844', note: 'after the simulation parameters were tuned' },
+  { id: 'scanned', label: 'As scanned', correlation: 0.18, text: '0.18', note: 'robots learned to use unrealistic collisions' },
+  { id: 'tuned', label: 'Motion settings tuned', correlation: 0.844, text: '0.844', note: 'wall sliding off; movement noise removed' },
 ];
 export const DEFAULT_SIM: SimId = 'scanned';
 
@@ -47,7 +47,7 @@ const STATEMENT: Record<SimId, string> = {
 function describe(id: SimId): string {
   const sim = SIMS.find((s) => s.id === id)!;
   const other = SIMS.find((s) => s.id !== id)!;
-  return `In a 3D-scanned lab, success in simulation correlated with success on the real robot at ${sim.text}, ${sim.note}, against ${other.text} ${id === 'scanned' ? 'after the simulation parameters were tuned' : 'as first scanned'}; a correlation of 1 would mean simulation predicts the real result exactly.`;
+  return `In a 3D-scanned lab, success in simulation correlated with success on the real robot at ${sim.text}, ${sim.note}, against ${other.text} ${id === 'scanned' ? 'after the simulation parameters were tuned' : 'as first scanned'}; a correlation of 1 means a perfect positive straight-line relationship between the two score sets, which may still have different scales or offsets.`;
 }
 
 export function ScannedTwinCheck({ className }: { className?: string }) {
@@ -70,7 +70,7 @@ export function ScannedTwinCheck({ className }: { className?: string }) {
       heading="A scanned twin predicted the real robot only after tuning"
       controls={<PresetGroup label="The scanned lab's simulator" presets={SIMS} value={simId} onChange={setSimId} testId="twin-sim" />}
       stage={
-        <FigureStage footer={<StageStatus>Correlations as reported</StageStatus>}>
+        <FigureStage footer={<StageStatus>Tuning disabled unrealistic sliding along walls and random movement errors. Correlations as reported.</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`A bar from 0 to 1 showing how well simulated success predicts real success: ${sim.text} with the simulator ${sim.label.toLowerCase()}, against ${other.text} ${simId === 'scanned' ? 'once tuned' : 'as scanned'}.`}
@@ -115,13 +115,13 @@ export function ScannedTwinCheck({ className }: { className?: string }) {
               ))}
             </g>
             <text x={LEFT} y={AXIS_Y + 18} fontSize={CHART_TYPE.tickPx} fill={CHART_STRUCTURE.labelSecondary}>
-              0, no link
+              0, no linear link
             </text>
             <text x={RIGHT} y={AXIS_Y + 18} textAnchor="end" fontSize={CHART_TYPE.tickPx} fill={CHART_STRUCTURE.labelSecondary}>
-              1, predicts real exactly
+              1, perfect linear match
             </text>
             <text x={WIDTH / 2} y={HEIGHT - 6} textAnchor="middle" fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
-              correlation of simulated with real success
+              Correlation: strength of a straight-line relationship
             </text>
           </PlotStage>
         </FigureStage>

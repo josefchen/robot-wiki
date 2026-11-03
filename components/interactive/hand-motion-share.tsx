@@ -183,7 +183,7 @@ export function HandMotionShare({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Sent as joint angles, a person's stroke comes out skewed on a robot of other proportions; sent as the hand's motion, it matches."
+      caption="Relative hand motion preserves the same stroke across different arms, giving human and robot recordings a shared action description; copied joint angles distort it."
       method={
         <>
           <p>

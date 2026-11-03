@@ -90,7 +90,7 @@ export const TACTILE_SLIP_SCENE: SceneDefinition = {
     {
       id: 'recap',
       caption:
-        'When fingers hide an object from the camera, touch sensors can still notice it slipping and trigger a firmer grip.',
+        'When fingers block the camera, fingertip sensors still feel a slip and tighten the grip. Left dial: slip in millimetres. Right dial: grip in newtons.',
     },
   ],
 };
@@ -356,7 +356,7 @@ export function TactileSlip({ className }: { className?: string }) {
           style={{ backgroundColor: 'var(--role-measurement-graphic)' }} />}>fingertip sensor</LegendItem>
       </>}
       readout={({ beatIndex }) => READOUTS[beatIndex] ?? READOUTS[3]}
-      statusLine="schematic"
+      statusLine="Schematic. One newton is roughly the weight of 100 grams."
       method={<>
         <p>{TACTILE_SLIP_METHOD_NOTE}</p>
         <p>

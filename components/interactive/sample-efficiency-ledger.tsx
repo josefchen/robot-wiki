@@ -137,7 +137,7 @@ function LedgerPlot({ ledger, source, fleetSize }: { ledger: Ledger; source: Sou
       <StageAnnotation
         x={8}
         y={16}
-        lines={[`Same practice: about ${durationWords(sim.seconds)} in simulation,`, `about ${durationWords(robot.seconds)} on one robot`]}
+        lines={[`${stepWords(ledger.budgetSteps)} of trial and error:`, `${durationWords(sim.seconds)} simulated; ${durationWords(robot.seconds)} on one robot`]}
       />
       <g data-scene-structure="" stroke={CHART_STRUCTURE.label} strokeWidth={CHART_STROKE.structure} fill="none">
         <path d={`M ${f(bracketFrom)} ${BRACKET_Y + 5} V ${BRACKET_Y} H ${f(bracketTo)} V ${BRACKET_Y + 5}`} />
@@ -332,7 +332,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
       data-testid="sample-efficiency"
       className={className}
       kicker="Sample efficiency"
-      heading="A simulator does in minutes what takes a robot months"
+      heading="Millions of learning steps: months on robots, minutes in simulation"
       controls={
         <>
           <ControlField>
@@ -442,7 +442,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
                   swatch={<LegendSwatch role="measurement" mark="dot" />}
                 >
                   <span data-testid="sample-measured-label">
-                    paper-reported durations and bounds
+                    reported times, including “under” limits
                   </span>
                 </LegendItem>
               </InstrumentLegend>
@@ -487,7 +487,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
           />
         </>
       }
-      source="Lanes use constant illustrative rates; real examples keep each paper's own units and bounds."
+      source="Lanes use constant illustrative rates; dots retain each paper’s stated duration or time limit, such as “under 4 minutes”."
     />
   );
 }

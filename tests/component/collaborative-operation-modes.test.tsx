@@ -292,13 +292,13 @@ describe('CollaborativeOperationModes', () => {
     const user = userEvent.setup();
     render(<CollaborativeOperationModes />);
     const run = screen.getByTestId('cell-run');
-    expect(run).toHaveTextContent('Run the cell');
+    expect(run).toHaveTextContent('Play the run');
     expect(run).not.toHaveAttribute('aria-pressed');
     await user.click(run);
-    expect(run).toHaveTextContent('Stop the run');
+    expect(run).toHaveTextContent('Stop');
     expect(run).not.toHaveAttribute('aria-pressed');
     await user.click(run);
-    expect(run).toHaveTextContent('Run the cell');
+    expect(run).toHaveTextContent('Play the run');
   });
 
   it('under reduced motion jumps a separation run to its end: stopped with the margin left', async () => {

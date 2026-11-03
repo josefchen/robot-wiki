@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/bc-foundations/",
+  "mount": "image:covariate-shift",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--bc-foundations--covariate-shift.375.png",
+    "1280": "evidence/reader-first/manipulation--bc-foundations--covariate-shift.1280.png"
+  },
+  "takeaway": "After one small slip, a robot trained by copying lands where it has no examples to follow, and its mistakes grow.",
+  "sentence": "A robot that copies a person's paths can drift into unfamiliar situations after its first mistake and keep moving farther away.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both say that a copying robot's first mistake takes it into unfamiliar situations and leads to growing deviation.",
+  "verdict": "pass",
+  "screenshotCommit": "e2f480f67a91f2d9dbb98be2a4c84c786937b79f",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0002",
+  "sourceDigest": "55ee29a9b6bafe1f0f92c06352fc9054b75ef1959947ec750ccca44f870d3719",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

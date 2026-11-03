@@ -141,7 +141,7 @@ export function LinearizationGap({ className }: { className?: string }) {
       figureId="linearization-gap"
       className={className}
       kicker="Linearization"
-      heading="A straight line fits the curve only near the guess"
+      heading="Greater uncertainty makes the straight-line shortcut miss further"
       controls={
         <>
           <SliderRow htmlFor={spreadId} label="How uncertain the guess is" value={<span data-testid="lg-spread">{spread} degrees</span>}>
@@ -173,9 +173,9 @@ export function LinearizationGap({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="The dial on the cursor reads the miss: the lit plunger’s length"
+          hint="A straight line matches the curved path near the guess; greater uncertainty spreads possible positions farther away and increases the error."
           readout={readoutFor(spread)}
-          status="Illustrative arm and spread; the miss is that arm's exact geometry"
+          status="Blue rod below the dial: the prediction’s error against the curved path. Illustrative arm and spread; exact geometry."
           data-testid="lg-stage"
         >
           <div data-testid="lg-drawing" data-spread={tenth(stand.spread)} data-angle={tenth(stand.angle)}>
@@ -199,7 +199,7 @@ export function LinearizationGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="An extended Kalman filter swaps a robot's curved model for its tangent at the current guess; the wider the uncertainty, the further they part."
+      caption="The robot estimates position using a straight line touching the curve at its current guess. Greater uncertainty makes this shortcut miss further."
       method={
         <>
           <p>

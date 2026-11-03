@@ -53,7 +53,7 @@ import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Kinematics is the geometry of robot motion, studied without forces or torques. <Term id="forward-kinematics">Forward kinematics</Term> maps joint angles to the <Term id="end-effector">end-effector</Term> pose through a unique composition of transforms, and <Term id="inverse-kinematics">inverse kinematics</Term> maps a pose back to joint angles, with no solution, one, or many <Cite id="modern-robotics-2017" />.
+Kinematics is the geometry of robot motion without forces or torques. <Term id="forward-kinematics">Forward kinematics</Term> maps joint angles to the <Term id="end-effector">end-effector</Term> pose through a unique composition of transforms, and <Term id="inverse-kinematics">inverse kinematics</Term> maps a pose back to joint angles, with no solution, one, or many <Cite id="modern-robotics-2017" />.
 
 <Image id="ur16e-cobot-arm-2020" />
 
@@ -70,7 +70,7 @@ Try "Reach out", then move the "Turn the shoulder" slider <Cite id="modern-robot
 
 ## Forward kinematics
 
-[A serial arm is a chain](/how-robots-work/#arm) of rigid links and joints, with a coordinate frame on each link. A rigid transform packs a rotation $R$ and a translation $p$ into one matrix <Cite id="modern-robotics-2017" />:
+[A serial arm is a chain](/how-robots-work/#arm) of rigid links and joints, with each link's coordinate frame. A rigid transform packs a rotation $R$ and a translation $p$ into one matrix <Cite id="modern-robotics-2017" />:
 
 $$
 T = \begin{bmatrix} R & p \\ 0 & 1 \end{bmatrix}
@@ -82,7 +82,7 @@ $$
 T_0^{n}(q) = T_0^1(q_1)\,T_1^2(q_2)\,\cdots\,T_{n-1}^{n}(q_n)
 $$
 
-The map is smooth in the joint angles and cheap to evaluate <Cite id="modern-robotics-2017" />. In the plane, each link is a vector of length $l_i$ along the cumulative angle, and the end effector sits at their sum <Cite id="lavalle-2006" />:
+The map is smooth in joint angles and cheap to evaluate <Cite id="modern-robotics-2017" />. In the plane, each link is a vector of length $l_i$ along the cumulative angle, and the end effector sits at their sum <Cite id="lavalle-2006" />:
 
 $$
 x = \sum_{i=1}^{n} l_i \cos\left(q_1 + \cdots + q_i\right) \qquad y = \sum_{i=1}^{n} l_i \sin\left(q_1 + \cdots + q_i\right)
@@ -92,7 +92,7 @@ Moving one joint moves every later link, the dependence the <Term id="jacobian">
 
 ## Denavit-Hartenberg parameters
 
-Denavit and Hartenberg's 1955 matrix notation describes the kinematics of all lower-pair mechanisms <Cite id="denavit-hartenberg-1955" />. LaValle gives the <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term> four parameters per revolute joint: an offset along a rotation axis, an angle about it, the distance between successive axes, and the angle between them <Cite id="lavalle-2006" />. The example here writes the last two $a_i$ and $\alpha_i$.
+Denavit and Hartenberg's 1955 matrix notation describes all lower-pair mechanisms' kinematics <Cite id="denavit-hartenberg-1955" />. LaValle gives the <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term> four parameters per revolute joint: an offset along a rotation axis, an angle about it, the distance and angle between successive axes <Cite id="lavalle-2006" />. The example writes the last two $a_i$ and $\alpha_i$.
 
 Standard and modified variants coexist <Cite id="corke-dh-2007" />. The standard form is <Cite id="corke-dh-2007" />:
 
@@ -151,11 +151,11 @@ $$
 
 A redundant arm uses the pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$, whose spare freedom can serve goals such as avoiding joint limits <Cite id="modern-robotics-2017" />, ranked against the end-effector task in Siciliano and Slotine's task-priority framework <Cite id="siciliano-slotine-1991" />. Near singular points, Nakamura and Hanafusa's singularity-robust inverse returns a motion close to the desired path <Cite id="nakamura-hanafusa-1986" />.
 
-Wampler's damped least-squares formulation makes the tradeoff explicit: reduce pose error while penalizing the size of the corrective joint motion <Cite id="wampler-1986" />.
+Wampler's damped least-squares formulation makes the tradeoff explicit: reduce pose error while penalizing corrective joint motion magnitude <Cite id="wampler-1986" />.
 
 ## Inverse kinematics
 
-Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id="modern-robotics-2017" />. Move the shoulder slider in the figure below to trace the hand's path, then drag the cup and watch the arm work out an angle for every joint.
+Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id="modern-robotics-2017" />. Move the shoulder slider in the figure below to trace the hand's path, then drag the cup and watch the arm calculate an angle for every joint.
 
 <ExplainerFigure id="reaching" />
 

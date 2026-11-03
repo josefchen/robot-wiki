@@ -258,7 +258,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
       ? 'With the valves open, movement lessons seep into the language side'
       : 'Going forward, the arm side reads what the language side sees';
   const passed = states.filter((s) => s.sidewaysAttention || s.gradientCrosses).length;
-  const readout = `${pass} · ${step} of ${LAYER_COUNT} trays · ${barrier ? 'valves shut' : `${passed} valves open`}`;
+  const readout = `${pass === 'backward' ? 'Learning corrections' : 'Information flowing to the arm'} · ${step} of ${LAYER_COUNT} layers reached · ${barrier ? 'valves shut' : `${passed} valves open`}`;
 
   /** A geometry module's part list: its static art, built once, with the slots filled from the rest pose. */
   const partsOf = (art: readonly Art[]): ReactNode[] => art.map((node, index) => (typeof node === 'string' ? slotNode(node, index) : node));
@@ -338,7 +338,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
       figureId="mot-insulation"
       className={className}
       kicker="Knowledge insulation"
-      heading="Shield the language brain while teaching the robot to move"
+      heading="Protecting language also speeds up learning robot movements"
       controls={
         <button
           data-brand-control-id="control:selection"
@@ -420,6 +420,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
               <StageLegend className="basis-full text-text-dim" data-testid="mot-legend">
                 <span>Wide column: understands words and pictures</span>
                 <span>Slim column: moves the arm</span>
+                <span>Each tray is one layer: it processes information for the next</span>
               </StageLegend>
               <LanguageMeter score={score} />
             </>
@@ -478,7 +479,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           </div>
         </FigureStage>
       }
-      caption="Teaching movement can wear away an AI's grasp of language; walling it off keeps that grasp, and training needed 7.5 times fewer steps than π0."
+      caption="Shielding language knowledge keeps it intact; training used 7.5 times fewer steps than the earlier π0 robot model."
       method={
         <>
           <p>
@@ -546,7 +547,7 @@ function LanguageMeter({ score }: { score: number }) {
   return (
     <div className="basis-full">
       <div className="flex items-baseline justify-between gap-2 font-sans text-[13px]">
-        <span className="text-text-dim">Follows instructions (illustrative, not measured)</span>
+        <span className="text-text-dim">Dial and bar: follows instructions (illustrative, not measured)</span>
         <span className="whitespace-nowrap tabular-nums text-text">
           <span data-testid="language-score">{score}</span>
           <span className="text-text-dim"> / 100</span>

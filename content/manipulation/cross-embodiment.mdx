@@ -57,7 +57,7 @@ import { HandMotionShare } from '@/components/interactive/hand-motion-share';
 
 import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
 
-<Term id="cross-embodiment">Cross-embodiment transfer</Term> is training one policy on data from bodies with different joint counts, action dimensions and sensors, or moving a policy to an unseen body. Open X-Embodiment pools data from 22 robot embodiments <Cite id="open-x-embodiment-2023" />, and human video adds a body whose actions are estimated from images <Cite id="egoscale-2026" />.
+<Term id="cross-embodiment">Cross-embodiment transfer</Term> is training one policy on data from bodies with different joint counts, action dimensions and sensors, or moving a policy to an unseen body. Open X-Embodiment pools data from 22 robot embodiments <Cite id="open-x-embodiment-2023" />, and human video adds a body with actions estimated from images <Cite id="egoscale-2026" />.
 
 <Image id="open-x-embodiment-overview-2023" />
 
@@ -86,13 +86,13 @@ HPT maps each embodiment's proprioception and vision to a few tokens for a share
 
 ## Motion Transfer across robot embodiments
 
-Gemini Robotics 1.5 trains on ALOHA, bi-arm Franka and Apptronik Apollo data plus Internet text, images and video, with Motion Transfer, an architecture and training recipe that aligns embodiments. On tasks demonstrated only on another robot it helps, less so for Apollo, in ablations run interleaved on one work cell; one checkpoint drives all three robots, though the long-horizon agent adds bi-arm Franka post-training, and the report specifies an orchestrator over the <Term id="vision-language-action-model">VLA</Term> but not the alignment representation <Cite id="gemini-robotics-15-2025" />. DeepMind says tasks shown only to ALOHA 2 "just work" on Apollo and bi-arm Franka, and vice versa <Cite id="gemini-robotics-15-blog-2025" />.
+Gemini Robotics 1.5 trains on ALOHA, bi-arm Franka and Apptronik Apollo data plus Internet text, images and video, with Motion Transfer, an architecture and training recipe aligning embodiments. On tasks demonstrated only on another robot it helps, less so for Apollo, in ablations run interleaved on one work cell; one checkpoint drives all three robots, though the long-horizon agent adds bi-arm Franka post-training, and the report specifies an orchestrator over the <Term id="vision-language-action-model">VLA</Term> but not the alignment representation <Cite id="gemini-robotics-15-2025" />. DeepMind says tasks shown only to ALOHA 2 "just work" on Apollo and bi-arm Franka, and vice versa <Cite id="gemini-robotics-15-blog-2025" />.
 
 DeepMind says On-Device 2, natively multi-embodiment with Motion Transfer, adapts to new bi-arm robots in a few hours, typically from fewer than 200 examples <Cite id="gemini-robotics-2-2026" />.
 
 ## Relative end-effector actions for robots and humans
 
-GR00T N1 embedded state and action with embodiment-aware encoders <Cite id="gr00t-n1-2025" />; N1.6 moved most embodiments to state-relative action chunks, which NVIDIA found smoother and more accurate than absolute actions <Cite id="gr00t-n1-6-2025" />. N1.7 shares relative end-effector deltas between human and robot embodiments and calls this a key factor in cross-embodiment performance <Cite id="isaac-gr00t-repo-2026" />.
+GR00T N1 embedded state and action with embodiment-aware encoders <Cite id="gr00t-n1-2025" />; N1.6 moved most embodiments to state-relative action chunks, which NVIDIA found smoother and more accurate than absolute actions <Cite id="gr00t-n1-6-2025" />. N1.7 shares relative end-effector deltas between human and robot embodiments and calls this key to cross-embodiment performance <Cite id="isaac-gr00t-repo-2026" />.
 
 <HandMotionShare className="my-6" />
 
@@ -102,7 +102,7 @@ EgoScale uses relative wrist motion and <Term id="retargeting">retargets</Term> 
 
 ## Closing the visual embodiment gap
 
-Mirage masks out an unseen target robot and inpaints the source robot in real time <Cite id="mirage-2024" />. RoVi-Aug synthesizes training images with other robots and viewpoints and deploys zero-shot on an unseen robot, and co-training with it raises success by up to 30% <Cite id="rovi-aug-2024" />. Shadow replaces the robot image with a composite source-and-target segmentation mask during both training and evaluation <Cite id="shadow-2025" />.
+Mirage masks an unseen target robot and inpaints the source robot in real time <Cite id="mirage-2024" />. RoVi-Aug synthesizes training images with other robots and viewpoints and deploys zero-shot on an unseen robot, and co-training with it raises success by up to 30% <Cite id="rovi-aug-2024" />. Shadow replaces the robot image with a composite source-and-target segmentation mask during both training and evaluation <Cite id="shadow-2025" />.
 
 ## Latent actions as a shared interface
 
@@ -116,7 +116,7 @@ Simar Kareer's EgoMimic treated human and robot data equally and found an extra 
 
 EgoScale's Ruijie Zheng and coauthors instead pretrain on human video, mid-train on aligned human-robot data and post-train on task robot data, and find adding aligned mid-training best overall <Cite id="egoscale-2026" />. H-RDT pretrains on egocentric human video with hand poses, then adapts to robot data through modular action encoders and decoders <Cite id="h-rdt-2025" />. EgoBridge aligns human and robot policy latents with optimal transport and reports a 44% absolute success gain over human-augmented cross-embodiment baselines <Cite id="egobridge-2025" />. EgoLAP (Princeton, Toyota Research Institute and Physical Intelligence, October 2026) routes human and robot trajectories through a shared chain of language actions and reached 80.1% mean real-world task progress on bimanual YAM robots, 2.3 times the alternative action representations <Cite id="egolap-2026" />.
 
-Phantom needs no robot data: it inpaints the human arm, overlays a rendered robot and deploys zero-shot, with success up to 92% <Cite id="phantom-2025" />. Masquerade robotizes in-the-wild human video and fine-tunes on 50 [robot demonstrations](/data-hardware/teleop-rigs/) per task, beating baselines by 5 to 6 times <Cite id="masquerade-2026" />. Figure reports that Index human-video pretraining, all else fixed, raised Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />, and Generalist's GEN-1 base model pretrains on over half a million hours from wearable devices on humans, with no robot data <Cite id="generalist-gen1-2026" />.
+Phantom needs no robot data: it inpaints the human arm, overlays a rendered robot and deploys zero-shot, with success up to 92% <Cite id="phantom-2025" />. Masquerade robotizes in-the-wild human video and fine-tunes on 50 [robot demonstrations](/data-hardware/teleop-rigs/) per task, beating baselines by 5 to 6 times <Cite id="masquerade-2026" />. Figure reports Index human-video pretraining, all else fixed, raised Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />, and Generalist's GEN-1 base model pretrains on over half a million hours from wearable devices on humans, with no robot data <Cite id="generalist-gen1-2026" />.
 
 ## Scaling the number of embodiments
 

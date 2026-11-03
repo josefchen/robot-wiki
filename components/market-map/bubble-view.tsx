@@ -181,6 +181,7 @@ export function BubbleView({ companies, selectedId, onSelect }: BubbleViewProps)
       <div ref={frameRef} className="mt-4 w-full">
         {geometry ? (
           <svg
+            data-bubble-plot
             role="group"
             aria-label="Company bubble chart of founding year against valuation or total raised"
             aria-describedby={captionId}

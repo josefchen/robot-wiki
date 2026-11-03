@@ -1,3 +1,9 @@
+## Current structural coverage (2026-11-03)
+
+Current structural checks account for **1,254 claim rows and 1,545 citation identities**. All 1,080 earlier claim rows and their source evidence fields remain in order; 174 rows were appended. The exact original-row and addition accounting is recorded in [`ledger-additions-review.json`](../tests/fixtures/history/ledger-additions-review.json).
+
+These totals describe structural audit coverage, not source certification or final release acceptance. The dated checkpoint below is retained verbatim as historical evidence.
+
 <!-- rl-reader-current:start -->
 ## Current checkpoint: imported stack-classical and world-rl packets (2026-09-24)
 

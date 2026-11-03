@@ -26,8 +26,8 @@ import { MOTION_STAGE } from '@/lib/motion-tokens';
 
 type LearnerId = 'on' | 'off';
 const LEARNERS: readonly Preset<LearnerId>[] = [
-  { id: 'on', label: 'On-policy, like PPO' },
-  { id: 'off', label: 'Off-policy, like SAC' },
+  { id: 'on', label: 'Use fresh experience' },
+  { id: 'off', label: 'Reuse saved experience' },
 ];
 export const DEFAULT_LEARNER: LearnerId = 'on';
 export const ROUNDS = 6;
@@ -49,8 +49,8 @@ const slotX = (k: number) => ROW_LEFT + k * (SLOT + GAP);
 const f = (v: number) => Number(v.toFixed(2));
 
 const STATEMENT: Record<LearnerId, string> = {
-  on: 'Each batch is used, then thrown away',
-  off: 'Every batch stays in a replay buffer',
+  on: 'On-policy uses a batch, then discards it',
+  off: 'Off-policy keeps old batches for reuse',
 };
 const ROW_NOTE: Record<LearnerId, string> = {
   on: 'dashed batches are gone',
@@ -90,7 +90,7 @@ export function ReplayReuse({ className }: { className?: string }) {
       heading="Off-policy learners reuse experience; on-policy ones discard it"
       controls={<PresetGroup label="The learner" presets={LEARNERS} value={learner} onChange={choose} testId="replay-learner" />}
       stage={
-        <FigureStage footer={<StageStatus>Illustrative batches</StageStatus>}>
+        <FigureStage footer={<StageStatus>Fresh-only learning discards each batch after use; learning from saved experience can reuse earlier batches. Both learn movement rules from experience. The batches shown are illustrative.</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`${ROUNDS} batches of robot experience, collected one per round, above the policy update. ${learner === 'on' ? 'The update learns from the newest batch only; the older batches were thrown away.' : `The update can learn from all ${ROUNDS} batches, kept in a replay buffer.`}`}
@@ -166,7 +166,7 @@ export function ReplayReuse({ className }: { className?: string }) {
               strokeWidth={CHART_STROKE.structure}
             />
             <text x={updateX} y={UPDATE_TOP + UPDATE_HEIGHT / 2 + 4} textAnchor="middle" fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.label}>
-              policy update
+              learns how to act
             </text>
             <text data-testid="replay-count" x={updateX} y={HEIGHT - 6} textAnchor="middle" fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.label}>
               {`learns from ${usableBatches(learner, round)} of ${round} ${round === 1 ? 'batch' : 'batches'}`}
@@ -174,9 +174,12 @@ export function ReplayReuse({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="On-policy learners like PPO discard each batch after use; off-policy learners keep every batch for reuse."
+      caption="A policy is the robot’s learned movement rule. On-policy training discards used batches; off-policy training reuses them."
       method={
         <>
+          <p data-testid="replay-method-names">
+            The fresh-experience choice illustrates PPO (proximal policy optimization); the saved-experience choice illustrates SAC (soft actor-critic). These are names of methods for learning a robot&apos;s movement rule.
+          </p>
           <div>
             An on-policy update is valid only for data the current policy produced, so each batch is collected,
             consumed and discarded; PPO makes several passes over each batch where plain policy gradient makes one.

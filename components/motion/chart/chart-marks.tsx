@@ -178,7 +178,8 @@ export function UncertaintyBand({
 }
 
 /**
- * A label set beside the mark it names, in the mark's role colour. Leave the
+ * A label beside its mark. Reference geometry keeps its muted role colour,
+ * while reference text uses ink so it remains legible over shaded bands. Leave the
  * role out for a plain stage label. `seriesFor` names the `data-series` id(s)
  * the label names, which is what ties it to the series for VAL-B2-VIZ-004.
  */
@@ -206,7 +207,7 @@ export function DirectLabel({
       y={y}
       textAnchor={anchor}
       fontSize={CHART_TYPE.labelPx}
-      fill={role ? roleColour(role) : CHART_STRUCTURE.label}
+      fill={role === 'reference' ? CHART_STRUCTURE.label : role ? roleColour(role) : CHART_STRUCTURE.label}
     >
       {children}
     </text>

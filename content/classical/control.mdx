@@ -62,7 +62,7 @@ seeAlso:
 import { PendulumController } from '@/components/interactive/pendulum-controller';
 import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-lab';
 
-Control uses feedback to make a robot follow a reference, such as a [motion plan](/classical/motion-planning), despite model error and disturbances: measure the state, compare it with the reference, correct <Cite id="fbs-2020" />. Feedback loops run beneath any learned policy, from motor drivers to whole-body torque control.
+Control uses feedback to make a robot follow a reference, like a [motion plan](/classical/motion-planning), despite model error and disturbances: measure the state, compare it with the reference, correct <Cite id="fbs-2020" />. Feedback loops run beneath any learned policy, from motor drivers to whole-body torque control.
 
 <Image id="centrifugal-governor-queen-street-mill" />
 
@@ -112,7 +112,7 @@ $$
 
 Ziegler and Nichols called the three actions proportional response, automatic reset and pre-act. Their 1942 tuning rules drive the loop into oscillation with proportional gain alone, then back off from the critical gain and period by fixed fractions <Cite id="ziegler-nichols-1942" />.
 
-Integral action removes the steady-state offset that a constant disturbance leaves under proportional control, and it needs anti-windup when the actuator saturates. Åström and Murray quote a survey in which 97% of over eleven thousand regulatory controllers in refining, chemicals and pulp and paper used PID <Cite id="fbs-2020" />.
+Integral action removes a constant disturbance's steady-state offset under proportional control, and needs anti-windup when the actuator saturates. Åström and Murray quote a survey: 97% of over eleven thousand regulatory controllers in refining, chemicals and pulp and paper used PID <Cite id="fbs-2020" />.
 
 A torque-driven inverted pendulum, the canonical underactuated plant, obeys <Cite id="tedrake-underactuated" />
 
@@ -176,7 +176,7 @@ Its variables are joint accelerations, torques and contact forces; the rigid-bod
 
 <Image id="atlas-darpa-testing-2013" />
 
-Learned and model-based <Term id="whole-body-control">whole-body control</Term> both ship. Figure reports that Helix 02's System 0 runs at 1 kHz and handles balance, contact and coordination across the whole body <Cite id="helix-02-2026" />, while Boston Dynamics reports that the teleoperation system behind Atlas's large behavior models pairs Atlas's model-predictive controller with a VR interface <Cite id="bd-atlas-lbm-2025" />. [Humanoid whole-body control](/rl-sim2real/humanoid-wbc) covers how learned policies relate to the QP.
+Learned and model-based <Term id="whole-body-control">whole-body control</Term> both ship. Figure reports Helix 02's System 0 runs at 1 kHz and handles balance, contact and coordination across the whole body <Cite id="helix-02-2026" />, while Boston Dynamics reports the teleoperation system behind Atlas's large behavior models pairs Atlas's model-predictive controller with a VR interface <Cite id="bd-atlas-lbm-2025" />. [Humanoid whole-body control](/rl-sim2real/humanoid-wbc) covers how learned policies relate to the QP.
 
 ## Impedance control: making contact a design variable
 

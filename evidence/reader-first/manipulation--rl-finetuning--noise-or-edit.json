@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "reader-first-record-v1",
+  "route": "/manipulation/rl-finetuning/",
+  "mount": "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
+  "screenshots": {
+    "375": "evidence/reader-first/manipulation--rl-finetuning--noise-or-edit.375.png",
+    "1280": "evidence/reader-first/manipulation--rl-finetuning--noise-or-edit.1280.png"
+  },
+  "takeaway": "Steering a frozen policy's noise, as DSRL does, only ever lands on actions the policy already makes, so a skill it never learned stays out of reach; a small edit on the action, as in EXPO, can step past them.",
+  "sentence": "Changing only a robot's starting guess limits it to moves it already knows, while editing the movement can let it reach farther.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both contrast a starting-guess change restricted to learned moves with an action edit that can reach beyond them.",
+  "verdict": "pass",
+  "screenshotCommit": "e9abd96b936d238ffce88e1ba58e16400e2bb7a2",
+  "date": "2026-11-03",
+  "reviewerSession": "reader-session-automated-0004",
+  "sourceDigest": "cd1be1cbf4e7cff000b0f0a5e406c5bda2146f133aeb9e21b65d068971e4693d",
+  "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+}

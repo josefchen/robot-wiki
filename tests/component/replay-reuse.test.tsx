@@ -37,7 +37,7 @@ describe('ReplayReuse', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('On-policy and off-policy');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Off-policy learners reuse experience; on-policy ones discard it');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'On-policy learners like PPO discard each batch after use; off-policy learners keep every batch for reuse.',
+      "A policy is the robot’s learned movement rule. On-policy training discards used batches; off-policy training reuses them.",
     );
   });
 
@@ -58,7 +58,7 @@ describe('ReplayReuse', () => {
     fireEvent.click(off);
     expect(off).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('replay-stage')).toHaveAttribute('data-learner', 'off');
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('Every batch stays in a replay buffer');
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent("Off-policy keeps old batches for reuse");
     expect(container.querySelectorAll('[data-batch]').length).toBeLessThan(6);
   });
 

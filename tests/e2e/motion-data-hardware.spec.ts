@@ -6,7 +6,7 @@ const scenes = [
   {
     id: 'jam-overhead',
     route: '/data-hardware/industrial-deployment/',
-    captions: [/quick 15-second fixes/i, /each fix now takes 5 minutes/i, /months to pay back/i, /rarely fails/i],
+    captions: [/quick 15-second fixes/i, /each fix now takes 5 minutes/i, /months to pay back/i, /Even at 99% success, slow fixes use/i],
   },
 ] as const;
 

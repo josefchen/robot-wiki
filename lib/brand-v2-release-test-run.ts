@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { readReleaseBuildStamp } from './brand-v2-release-build.ts';
-import { releaseArtifactHash } from './brand-v2-release-evidence.ts';
+import { publicEvidenceReferenceSchema,readPublicEvidence } from './brand-v2-release-public-evidence.ts';
 import { modules } from '../data/modules.ts';
 import { buildBacklinkGraph } from './backlinks.ts';
 import matter from 'gray-matter';
@@ -57,7 +57,7 @@ export function releaseTestInapplicabilities(root: string): TestInapplicability[
 type ReportTest = { projectName: string; expectedStatus?: string; status?: string; annotations?: Array<{ type: string; description?: string }>; results?: Array<{ status: string; errors?: unknown[] }> };
 type ReportSpec = { id: string; title: string; file: string; line: number; column: number; tests: ReportTest[] };
 type ReportSuite = { title: string; specs?: ReportSpec[]; suites?: ReportSuite[] };
-export type PlaywrightJson = { suites: ReportSuite[]; errors?: unknown[]; stats?: { expected: number; unexpected: number; flaky: number; skipped: number }; config?: { configFile?: string; forbidOnly?: boolean; grep?: unknown } };
+export type PlaywrightJson = { suites: ReportSuite[]; errors?: unknown[]; stats?: { expected: number; unexpected: number; flaky: number; skipped: number }; config?: { configFile?: string; forbidOnly?: boolean; grep?: unknown;argv?:string[] } };
 export type ReportCase = { id: string; file: string; title: string; project: string; expectedStatus: string; status: string; results: Array<{ status: string; errors?: unknown[] }>; annotations: Array<{ type: string; description?: string }> };
 
 export function reportCases(report: PlaywrightJson): ReportCase[] {
@@ -100,9 +100,9 @@ export function testRunProblems(listed: PlaywrightJson, executed: PlaywrightJson
 
 const sha = z.string().regex(/^[a-f0-9]{64}$/);
 export const releaseTestRunSchema = z.object({
-  version: z.literal(1), scope: z.enum(['brand-v2', 'product', 'grasp', 'dexterity', 'rl']), sourceFingerprint: sha, exportFingerprint: sha,
+  version: z.literal(2), scope: z.enum(['brand-v2', 'product', 'grasp', 'dexterity', 'rl']), sourceFingerprint: sha, exportFingerprint: sha,
   command: z.array(z.string()).min(1), inventoryCommand: z.array(z.string()).min(1), exitCode: z.number().int(), inventoryExitCode: z.number().int(),
-  inventory: z.object({ path: z.string(), sha256: sha }).strict(), report: z.object({ path: z.string(), sha256: sha }).strict(),
+  inventory: publicEvidenceReferenceSchema, report: publicEvidenceReferenceSchema,inventoryLog:publicEvidenceReferenceSchema,log:publicEvidenceReferenceSchema,
   testCount: z.number().int().positive(), environment: z.object({ finalProfiles: z.literal('1'), pilot: z.literal('0'), mapShard: z.null() }).strict(),
   passedTestCount: z.number().int().nonnegative(), inapplicableTestCount: z.number().int().nonnegative(),
   inapplicable: z.array(z.object({ file:z.string(),title:z.string(),reason:z.string(),population:z.array(z.string()),derivation:z.string(),sourcePaths:z.array(z.string()).min(1) }).strict()),
@@ -112,6 +112,10 @@ export type ReleaseTestRun = z.infer<typeof releaseTestRunSchema>;
 export function releaseTestCommand(scope: ReleaseTestScope, list: boolean): string[] {
   return ['npx', 'playwright', 'test', '--config', RELEASE_TEST_SCOPES[scope], '--forbid-only', '--workers=1', '--reporter=list,json', ...(list ? ['--list'] : [])];
 }
+export function reportedTestCommandProblems(report:PlaywrightJson,command:readonly string[]):string[]{
+  const argv=report.config?.argv;
+  return !argv||argv.length<3||JSON.stringify(argv.slice(2))!==JSON.stringify(command.slice(2))?['reporter invocation differs from the unfiltered recorded command']:[];
+}
 
 export function readReleaseTestRun(root: string, scope: ReleaseTestScope): { run: ReleaseTestRun; cases: ReportCase[] } {
   const path = join(root, RELEASE_TEST_DIRECTORY, `${scope}.json`);
@@ -120,11 +124,12 @@ export function readReleaseTestRun(root: string, scope: ReleaseTestScope): { run
   const build = readReleaseBuildStamp(root);
   if (run.scope !== scope || run.sourceFingerprint !== build.sourceAfter || run.exportFingerprint !== build.exportFingerprint || run.inventoryExitCode !== 0) throw new Error('stale or failed final test-run identity');
   if (JSON.stringify(run.command) !== JSON.stringify(releaseTestCommand(scope, false)) || JSON.stringify(run.inventoryCommand) !== JSON.stringify(releaseTestCommand(scope, true))) throw new Error('final test command was filtered or changed');
-  for (const artifact of [run.inventory, run.report]) if (releaseArtifactHash(root, artifact.path) !== artifact.sha256) throw new Error(`changed final test report bytes: ${artifact.path}`);
-  const listed = JSON.parse(readFileSync(join(root, run.inventory.path), 'utf8')) as PlaywrightJson;
-  const report = JSON.parse(readFileSync(join(root, run.report.path), 'utf8')) as PlaywrightJson;
+  const context=(list:boolean)=>({sourceFingerprint:build.sourceAfter,exportFingerprint:build.exportFingerprint,producer:{name:`${scope}:${list?'inventory':'run'}`,argv:list?run.inventoryCommand:run.command,exitCode:list?run.inventoryExitCode:run.exitCode}});
+  const listed = JSON.parse(readPublicEvidence(root,run.inventory,'playwright-inventory',context(true)).toString('utf8')) as PlaywrightJson;
+  const report = JSON.parse(readPublicEvidence(root,run.report,'playwright-report',context(false)).toString('utf8')) as PlaywrightJson;
+  readPublicEvidence(root,run.inventoryLog,'command-log',context(true));readPublicEvidence(root,run.log,'command-log',context(false));
   const inapplicable=scope==='product'?releaseTestInapplicabilities(root):[];
-  const failures = testRunProblems(listed, report, run.exitCode,inapplicable);
+  const failures = [...testRunProblems(listed, report, run.exitCode,inapplicable),...reportedTestCommandProblems(listed,run.inventoryCommand),...reportedTestCommandProblems(report,run.command)];
   if(JSON.stringify(run.inapplicable)!==JSON.stringify(inapplicable))failures.push('fixture inapplicability is stale or narrowed');
   const cases = reportCases(report);
   const expectedFiles=releaseScopeFiles(root,scope);
