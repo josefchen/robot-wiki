@@ -7,14 +7,14 @@
     "1280": "evidence/reader-first/frontier--safety-and-assurance--safety-filter-fence.1280.png"
   },
   "takeaway": "A safety filter leaves a learned policy's proposal alone wherever it is safe and, where it is not, changes it by the least amount that keeps the robot out, so the simple filter is what gets checked.",
-  "sentence": "A robot proposes a drawing movement, then a checked safety filter makes the smallest necessary correction to stop the pen entering a forbidden area.",
+  "sentence": "A separately checked safety filter leaves safe robot moves alone and changes unsafe ones just enough to keep the pen outside a forbidden area.",
   "unclearTerms": [],
-  "samePoint": "no",
-  "reason": "My sentence captures the checked filter and smallest correction for an unsafe move but does not state that safe proposals pass through unchanged.",
-  "verdict": "fail",
-  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
-  "date": "2026-11-03",
-  "reviewerSession": "reader-session-automated-r9-a-20261103",
-  "sourceDigest": "7bda7cf4670495c88dae11bcb15d74e87e50c2586960665d0c5b70db97002a16",
+  "samePoint": "yes",
+  "reason": "The sentence identifies the checked safety filter and its unchanged safe moves and minimal corrections to unsafe moves.",
+  "verdict": "pass",
+  "screenshotCommit": "04bfaaef80cd37c9ae64f25344cf19156b2c72b6",
+  "date": "2026-11-04",
+  "reviewerSession": "reader-session-automated-r10-a-20261104",
+  "sourceDigest": "93eb6b31d85c82cbb259a88822864579f3df5db904f846780d3f9216b5c922d6",
   "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

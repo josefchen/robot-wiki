@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "reader-round20-clarity-successor-review-v1",
+  "status": "Scoped R20 implementation successor; no reader or full-release acceptance",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "63c23bed8168058b69d9e3ae13beec7b4a60e11c",
+      "previousSourceSha256": "c9a479b76515cccb21cec6f7dac91870ae212a715232f8430f0cfd886d6a9196",
+      "oldMemberHash": "979a82dd04b57cfc86161666927abd149c8151fd78aaaa3f5752d2fc4e1b6789",
+      "newMemberHash": "f524916ff37219fe6c26a6a543d9361b19538776d6848321f8f04d4becaa66cb",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+        "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+        "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+        "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+        "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+        "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+        "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+        "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+        "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+        "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+        "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+        "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+        "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+        "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+        "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: record the R20 five-string successor: the positive, free and zero titles identify the action sending target and stiffness; the existing preset group changes from Spring set by the movement controller to Action stiffness; the direct caption explicitly states the conditional stiffness-times-distance product. Reversing those five quoted string values restores the entire preceding source. Preserve the R19 layout, stage, model, numeric basis, six native action names and handlers, packet/settings, Controller, target gap and calculation names, guide, key and method/source suffix. The preset resolved name changes through its label prop while the four manifest-tracked name attributes remain identical. Exact semantic/title/caption successors and source/test epochs are recorded in audit/evidence/mission-completion-20261102/reader-round20-clarity-review.json; original before pins and every historical reason remain in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This source receipt grants no reader or release verdict.",
+      "currentSourceSha256": "d2a84a8aad0d10289a5e20ccdd4b0dbff49f1f37da0648cf852eec96dbbf17ae",
+      "currentSourceCommit": "9b022f0dc500d371be852334449eabdf45f68331"
+    }
+  ],
+  "semanticSuccessors": {
+    "copyValues": {
+      "positive": {
+        "old": "Surface stops the tool; stiffness times target gap sets push",
+        "new": "This action sends target and stiffness for contact"
+      },
+      "free": {
+        "old": "Before contact, the tool follows its target without pushing",
+        "new": "This action sends target and stiffness before contact"
+      },
+      "zero": {
+        "old": "At the surface, no target gap means no push",
+        "new": "This action sends target and stiffness at the surface"
+      },
+      "presetGroup": {
+        "old": "Spring set by the movement controller",
+        "new": "Action stiffness"
+      },
+      "caption": {
+        "old": "The action supplies a target and stiffness; once the surface stops the tool, push equals stiffness times the remaining gap.",
+        "new": "Once the surface stops the tool, push equals stiffness times how far the target sits past it."
+      }
+    },
+    "exactQuotedReplacements": 5,
+    "entireUiSourceReconstructedBothDirections": true,
+    "presetAccessibleName": {
+      "before": "Spring set by the movement controller",
+      "after": "Action stiffness",
+      "resolvesThrough": "PresetGroup.label -> visible span id -> role=group aria-labelledby",
+      "implementationPath": "components/ui/instrument.tsx",
+      "implementationSha256": "35f3a6164a761a711f841cd67bc5c2687877fe813973a0c872533874eb408bc1",
+      "exactCandidateNameAssertion": true
+    },
+    "existingSettingsControllerTargetGapAndCalculationNamesPreserved": true,
+    "individualNativeNamesAndHandlersPreserved": true,
+    "manifestTrackedNameAttributesUnchanged": true,
+    "manifestTrackedNameMembers": [
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:1",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-settings`}"
+        },
+        "hash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+      },
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:2",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-controller`}"
+        },
+        "hash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+      },
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:3",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-gap-label`}"
+        },
+        "hash": "2695fc01219bea34a8f48b43056c7ef57840c63e006059fa497b6ac656d003d9"
+      },
+      {
+        "id": "literal:components/interactive/impedance-press.tsx:aria-label:1",
+        "value": {
+          "attribute": "aria-label",
+          "text": "Stiffness times target gap equals push"
+        },
+        "hash": "e0e4c81f7aea9df0e4d216c14139d7fc55f2dc175f3b0566326a4286e4fd19de"
+      }
+    ],
+    "entireAccessibilityTreeUnchanged": false,
+    "directCaption": {
+      "before": "The action supplies a target and stiffness; once the surface stops the tool, push equals stiffness times the remaining gap.",
+      "after": "Once the surface stops the tool, push equals stiffness times how far the target sits past it.",
+      "exactActualFigcaptionAssertion": true
+    },
+    "qualification": "The preset resolved name and direct caption intentionally change. Four collected name attributes remain identical; the reviewed source receipt records those semantic successors without inventing a new manifest member.",
+    "independentFinalReviewPending": false,
+    "independentFinalReviewSha256": "815e73ca55d49c02e435eba2b0fc115d7f71a8b317768977671de7be3e641904"
+  },
+  "sourceAndTestEpochs": [
+    {
+      "path": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "63c23bed8168058b69d9e3ae13beec7b4a60e11c",
+      "previousSha256": "c9a479b76515cccb21cec6f7dac91870ae212a715232f8430f0cfd886d6a9196",
+      "currentSha256": "d2a84a8aad0d10289a5e20ccdd4b0dbff49f1f37da0648cf852eec96dbbf17ae",
+      "currentSourceCommit": "9b022f0dc500d371be852334449eabdf45f68331"
+    },
+    {
+      "path": "tests/component/impedance-press.test.tsx",
+      "previousSourceCommit": "63c23bed8168058b69d9e3ae13beec7b4a60e11c",
+      "previousSha256": "60502f3cbc17fb7cb19d02d3b18af37c74806f3317f0617b5ca2d28986538ad4",
+      "currentSha256": "7a6c4d36f21b72493fc5ab4b3fcc56a689f084a95e45c765592c2112f2a1550c",
+      "currentSourceCommit": "9b022f0dc500d371be852334449eabdf45f68331"
+    }
+  ],
+  "evidenceHashes": {
+    "reader-round20-design-20261104/PROPOSAL.md": "48fa332939e90e02ab5a9b5a6899bbaedc8f62e18ebdbe218595c780a4f7a511",
+    "reader-round20-design-20261104/manifest.json": "154e191a8b688487b0f2e599481969542738d884cbfa485dd0d3ccdb0627290e",
+    "reader-round20-design-20261104/test-successors.json": "f60fc7887550d042ac34784c3a6801d1fd2c4e28811bd7631e1bb767421c685e",
+    "reader-round20-design-20261104/copy-successors.json": "d500fb1442800dc94655a1baff5797931eacb4f3226365f31029fd9aaf8d457e"
+  },
+  "historicalProseReceiptsPreserved": {
+    "original840Sha256": "b7b618d7a5beeb16bb9feadecd08bef263adf302d350a36a1fc4f287235c3529",
+    "sixWordSha256": "cd7129f4d72ef1447c336d0f05d9205a4a6729b676db352d19cd6d9b3e5ced26",
+    "all27MdxUnchanged": true
+  },
+  "implementationCommit": "9b022f0dc500d371be852334449eabdf45f68331",
+  "independentFinalReviewSha256": "815e73ca55d49c02e435eba2b0fc115d7f71a8b317768977671de7be3e641904",
+  "actual30MetadataSha256": "8711762f3e9b5dbf25d97ed9f07a3a38f0e4101f93d4b0cf82ffb272066ab142",
+  "readerEvidence": {
+    "commit": "196a2c609194874a026e886214cc850bcf5f78fa",
+    "passed": 109,
+    "total": 110,
+    "r20PressResult": "fail",
+    "fixedRubricUnchanged": true,
+    "recordSha256": "e6b2558ab58add0aae2c369d0a56b3ee83ccbc8e6ad56251a8d9e345df51e657",
+    "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985",
+    "sourceDigest": "825bc74d6668b3dcb30e0008cc9bb6ff6e50606d62b40c17e035fa90301ce0a3"
+  },
+  "acceptanceGrantedByThisProof": {
+    "reader": false,
+    "release": false
+  },
+  "publicApplicationAuthorized": true,
+  "observedAt": "2026-11-04T10:50:40.433Z",
+  "independentCommitBindingSha256": "721627fa8d7f22ef79aa37d822a330d00a354258c3e8040445bb225a0eb3405e",
+  "technicalAcceptanceSha256": "ab9c1a59188148598f584cbbe14d6929ee83190a75f2bef8d287fa3000168d2c",
+  "actual30ReadingEvidence": {
+    "metadataSha256": "8711762f3e9b5dbf25d97ed9f07a3a38f0e4101f93d4b0cf82ffb272066ab142",
+    "records": 57,
+    "allOriginalCapsPass": true,
+    "actionSpacesWords": 1219,
+    "actionSpacesCap": 1228,
+    "rootVerificationSha256": "77625a84cfadbf638615fa096719cd863bbe4505884b3687d75a7c0c9aff75bd"
+  },
+  "componentSuccession": {
+    "originalCases": 10,
+    "assertionsBefore": 180,
+    "assertionsAfter": 190,
+    "exactFiveStringInverse": true,
+    "otherScientificAndNativeTestsPreserved": true
+  },
+  "actualTitlePlacement": "The FigureFrame title is in the caption area after the stage.",
+  "technicalReviewLimitations": {
+    "rawTasteFindingsRetained": true,
+    "developmentWarningEvidenceRetained": true,
+    "existingLongContextHomepageCssPrefetchLimitationRetained": true,
+    "noGlobalZeroWarningClaim": true
+  }
+}

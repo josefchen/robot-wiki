@@ -50,7 +50,7 @@ describe('PiGenerationTimeline', () => {
     const { container } = render(<PiGenerationTimeline />);
     expect(
       container.querySelector('[data-figure-title]'),
-    ).toHaveTextContent('Only the first three models have confirmed downloads');
+    ).toHaveTextContent('A new model every few months; only the first three have confirmed downloads');
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent(
       "Physical Intelligence's models",
     );
@@ -58,8 +58,11 @@ describe('PiGenerationTimeline', () => {
       'only the first three are confirmed downloadable',
     );
     const summary = screen.getByTestId('generation-download-summary');
-    expect(summary).toHaveTextContent("Physical Intelligence released a model every few months, but downloads are confirmed only for the first three. Later models' availability is unverified.");
+    expect(summary).toHaveTextContent("Physical Intelligence's releases A new model every few months Confirmed downloads Only the first three models Later models' availability is unverified.");
     expect(summary.closest('details')).toBeNull();
+    expect(summary.tagName).toBe('DL');
+    expect(within(summary).getAllByRole('term')).toHaveLength(2);
+    expect(within(summary).getAllByRole('definition')).toHaveLength(2);
     expect(summary.compareDocumentPosition(screen.getByTestId('generation-track')) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
   });
 

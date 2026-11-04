@@ -6,7 +6,7 @@ import { gunzipSync } from 'node:zlib';
 
 export const HISTORY_DIRECTORY = 'tests/fixtures/history';
 // BEGIN historical catalog pin
-export const HISTORY_CATALOG_PIN = {"bytes":1108902,"sha256":"c2bb75d7e4080c9edadd0f623842134c2f4e8418d6f84f549c02aca5b25c30c3"};
+export const HISTORY_CATALOG_PIN = {"bytes":1111896,"sha256":"66cfa7b431ab75275c79661aad8f31c01b6ad761040dc9dc3003861fdb66df8b"};
 // END historical catalog pin
 const repository = resolve(import.meta.dirname, '../..');
 const sha = (value: Buffer) => createHash('sha256').update(value).digest('hex');

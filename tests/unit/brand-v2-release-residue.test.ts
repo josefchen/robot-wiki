@@ -99,6 +99,19 @@ describe('release metadata agreement', () => {
   it('refuses duplicate title/canonical/description declarations', () => {
     for (const extra of ['<title>Hidden alternative</title>', '<link rel="canonical" href="https://elsewhere.test/">', '<meta name="description" content="duplicate">']) expect(() => parseExportedMetadata(html.replace('</head>', extra + '</head>'))).toThrow(/exactly one/);
   });
+  it('keeps SVG accessibility titles separate from the HTML document title', () => {
+    const graphics = '<svg><title>Chart description</title><rect><title>First measured dimension</title></rect></svg>';
+    expect(metadataDifferences(expected, parseExportedMetadata(html.replace('</body>', graphics + '</body>')))).toEqual([]);
+  });
+  it.each([
+    ['missing', html.replace('<title>Example | Robot Wiki</title>', '')],
+    ['SVG-only', html.replace('<title>Example | Robot Wiki</title>', '').replace('</body>', '<svg><title>Example | Robot Wiki</title></svg></body>')],
+    ['body-only', html.replace('<title>Example | Robot Wiki</title>', '').replace('</body>', '<title>Example | Robot Wiki</title></body>')],
+    ['duplicate in body', html.replace('</body>', '<title>Hidden alternative</title></body>')],
+    ['HTML title in SVG foreignObject', html.replace('</body>', '<svg><foreignObject><title>Hidden HTML alternative</title></foreignObject></svg></body>')],
+  ])('refuses a %s HTML document title', (_placement, input) => {
+    expect(() => parseExportedMetadata(input)).toThrow(/exactly one HTML title in head/);
+  });
   it('refuses missing or contradictory robots policies', () => {
     expect(() => parseExportedMetadata(html.replace('<meta name="robots" content="index, follow">', ''))).toThrow(/robots policy/);
     expect(() => parseExportedMetadata(html.replace('</head>', '<meta name="robots" content="noindex"></head>'))).toThrow(/robots policy/);

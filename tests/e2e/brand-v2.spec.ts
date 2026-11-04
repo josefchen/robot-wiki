@@ -1,7 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import {
-  archivedExpectedRed,
   brandV2Registry,
   expectedRedAssertionIds,
   test,
@@ -112,23 +111,31 @@ test.describe('brand-v2 core visual authority', () => {
     ).not.toContain('VAL-B2-ID-002');
   });
 
-  test('home display identity resolves to Tektur Variable', async ({
+  test('home display identity resolves to the DM Sans display family', async ({
     page,
     staticBase,
-  }) => {
-    test.fail(
-      true,
-      archivedExpectedRed(
-        'brand-v2 core visual authority',
-        'VAL-B2-TYPE-003',
-      ),
-    );
+  }, testInfo) => {
     await page.goto(`${staticBase}/`);
     await page.evaluate(() => document.fonts.ready);
-    const family = await page
+    const display = await page
       .getByRole('heading', { level: 1 })
-      .evaluate((node) => getComputedStyle(node).fontFamily);
-    expect(family).toContain('Tektur');
+      .evaluate((node) => ({
+        family: getComputedStyle(node).fontFamily,
+        weight: getComputedStyle(node).fontWeight,
+        role: node.getAttribute('data-tektur-role'),
+        fontStatus: document.fonts.status,
+      }));
+    const firstFamily = display.family.split(',')[0].trim().replace(/^["']|["']$/g, '');
+    // Owner-approved successor of 2026-10-10: DM Sans is the web display
+    // family; the Tektur face belongs only to the offline card renderer.
+    expect(firstFamily).toBe('DM Sans');
+    expect(
+      expectedRedAssertionIds('brand-v2 core visual authority'),
+    ).not.toContain('VAL-B2-TYPE-003');
+    await testInfo.attach('home-display-family', {
+      body: JSON.stringify({ ...display, firstFamily }),
+      contentType: 'application/json',
+    });
   });
 
   test('runtime signal token resolves to exact v2 blue', async ({

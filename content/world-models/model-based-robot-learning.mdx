@@ -57,7 +57,7 @@ seeAlso:
 import { ExcavatorPractice } from '@/components/interactive/excavator-practice';
 import { ModelBasedLoop } from '@/components/interactive/model-based-loop';
 
-Model-based robot learning comprises methods learning how the world responds to actions and using that model to plan, train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id="mbrl-survey-2020" />.
+Model-based robot learning learns how the world responds to actions and uses that model to plan, train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id="mbrl-survey-2020" />.
 
 <Image id="daydreamer-a1-rollover-2022" />
 
@@ -100,11 +100,11 @@ A <Term id="world-model">world model</Term> need not predict pixels: value-equiv
 <span id="two-ways-to-use-imagined-experience" />
 ## A model can plan each step or train a policy in imagination
 
-A planner rolls sampled action sequences through the model, executes the best first action and replans, so new goals or costs need no retraining, at the price of many rollouts per real step ([reward design and MPC](/rl-sim2real/reward-design-mpc/)). In 2016 Finn and Levine combined action-conditioned video prediction with MPC so a real robot could push novel objects <Cite id="deep-visual-foresight-2016" />. TD-MPC2 trained one 317M-parameter agent on 80 tasks <Cite id="tdmpc2-2023" />, and PointWorld, trained on about 2 million trajectories, plans with MPC at 0.1 s per inference on a real Franka without demonstrations <Cite id="pointworld-2026" />.
+A planner rolls sampled action sequences through the model, executes the best first action and replans, so new goals or costs need no retraining, at the price of many rollouts per real step ([reward design and MPC](/rl-sim2real/reward-design-mpc/)). In 2016 Finn and Levine combined action-conditioned video prediction with MPC so a real robot could push novel objects <Cite id="deep-visual-foresight-2016" />. TD-MPC2 trained one 317M-parameter agent on 80 tasks <Cite id="tdmpc2-2023" />; PointWorld, trained on about 2 million trajectories, plans with MPC at 0.1 s per inference on a real Franka without demonstrations <Cite id="pointworld-2026" />.
 
 Dreamer instead trains a policy on trajectories imagined in a learned latent space <Cite id="dreamer-2019" />, and DreamerV3 covers more than 150 tasks with one configuration <Cite id="dreamerv3-2023" />. Dreamer 4 learns purely offline, a setting its authors tie to robotics, where interaction "can be unsafe and slow" <Cite id="dreamer4-2025" />. [Latent dynamics](/world-models/latent-dynamics/) covers these agents.
 
-Stochastic Value Gradients provides an earlier route to differentiating through learned dynamics: it expresses randomness as external noise and uses real environment observations to limit compounded rollout error <Cite id="stochastic-value-gradients-2015" />.
+An earlier method, Stochastic Value Gradients, differentiates through learned dynamics: it expresses randomness as external noise and uses real environment observations to limit compounded rollout error <Cite id="stochastic-value-gradients-2015" />.
 
 <span id="uncertainty-aware-models" />
 ## Uncertainty estimates keep policies from exploiting model errors
@@ -118,9 +118,9 @@ MB-MPO meta-learns a policy adapting to each member of a dynamics ensemble with 
 <span id="why-physical-robots-make-the-model-harder" />
 ## Robots see only part of the state, yet learn useful models in minutes to hours
 
-A robot observation is partial: cameras miss forces, friction and compliance, and RGBD gave an 80% improvement in fabric-folding success over RGB <Cite id="visuospatial-foresight-2020" />. Data is narrow too: Hansen and Wang call world-model hallucination "inherently a data coverage issue" and adapt a model to unseen simulated environments with 50 trajectories <Cite id="wm-hallucination-2026" />.
+Robot observations are partial: cameras miss forces, friction and compliance, and RGBD gave an 80% improvement in fabric-folding success over RGB <Cite id="visuospatial-foresight-2020" />. Data is narrow too: Hansen and Wang call world-model hallucination "inherently a data coverage issue" and adapt a model to unseen simulated environments with 50 trajectories <Cite id="wm-hallucination-2026" />.
 
-Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen <Cite id="t2z-2026" />. Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent <Cite id="t2z-2026" />. Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts <Cite id="t2z-2026" />.
+Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions with the model frozen <Cite id="t2z-2026" />. Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent <Cite id="t2z-2026" />. Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper omits trial counts <Cite id="t2z-2026" />.
 
 PDDM learned contact-rich manipulation on a 24-DoF hand from 4 real hours <Cite id="pddm-2019" />. DayDreamer ran Dreamer online on 4 robots without simulators; a quadruped learned to stand up and walk in 1 hour <Cite id="daydreamer-2022" />. SSRL adds a learned force ensemble to known Lagrangian dynamics and learned Go1 gaits from a few minutes of data <Cite id="ssrl-2024" />.
 
@@ -130,7 +130,7 @@ In September 2026, Claudio Canales, Marco Hutter and colleagues learned a probab
 
 ## Model error is task-weighted
 
-A two-millimeter error is irrelevant in free space and decisive at a tight connector. One-step prediction likelihood "is not always correlated with control performance", and task-effective models "do not necessarily need to be globally accurate" <Cite id="objective-mismatch-2020" />. The 2026 robot world-model survey stresses action-conditioned consistency and functional-utility evaluation <Cite id="world-model-survey-2026" />; the [evaluation guide](/world-models/evaluation/) gives a protocol.
+A two-millimeter error is irrelevant in free space and decisive at tight connectors. One-step prediction likelihood "is not always correlated with control performance", and task-effective models "do not necessarily need to be globally accurate" <Cite id="objective-mismatch-2020" />. The 2026 robot world-model survey stresses action-conditioned consistency and functional-utility evaluation <Cite id="world-model-survey-2026" />; the [evaluation guide](/world-models/evaluation/) gives a protocol.
 
 <span id="neural-simulators-and-hybrid-models" />
 ## Neural and hybrid simulators now train real-robot policies

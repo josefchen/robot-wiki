@@ -102,7 +102,7 @@ Federation costs consistency: constituents differ in action spaces, control rate
 
 DROID's distinction is scene and site diversity: 76,000 trajectories totaling 350 hours, across 564 scenes and 86 tasks, gathered by 50 operators at 13 institutions over 12 months <Cite id="droid-2024" />. Every trajectory came from one rig, a Franka Panda with two ZED 2 cameras and a ZED Mini wrist camera, [teleoperated](/data-hardware/teleop-rigs) through a Meta Quest 2. One platform gives one action space and one camera geometry, with embodiment lock-in.
 
-Single-platform collections can be larger. RT-1's fleet of 13 robots gathered about 130k episodes over 17 months <Cite id="rt1-2022" />, and Language-Table released nearly 600,000 language-labelled trajectories <Cite id="language-table-2022" />. The Galaxea Open-World Dataset holds 500 hours across 50 scenes, all from one consistent robot embodiment <Cite id="galaxea-open-world-2025" />.
+Single-platform collections can be larger. RT-1's fleet of 13 robots gathered about 130k episodes over 17 months <Cite id="rt1-2022" />, and Language-Table released nearly 600,000 language-labelled trajectories <Cite id="language-table-2022" />. The Galaxea Open-World Dataset holds 500 hours across 50 scenes, all from one consistent embodiment <Cite id="galaxea-open-world-2025" />.
 
 <Term id="diffusion-policy">Diffusion policies</Term> trained on DROID beat policies trained on the next-best dataset by 22% in-distribution and 17% out-of-distribution <Cite id="droid-2024" />. The project added language annotations for 75,000 episodes in December 2024 and improved camera calibrations for 36,000 in April 2025 <Cite id="droid-project-page" />. The paper releases DROID under CC BY 4.0 <Cite id="droid-2024" />, whose deed allows commercial sharing and adaptation subject to attribution, a license link, change notices and the other license terms, and warns other rights may limit a particular use <Cite id="cc-by-4-0-deed" />.
 
@@ -112,7 +112,7 @@ BridgeData V2 holds 60,096 trajectories on a WidowX 250, a low-cost 6-DoF arm: 5
 
 <Image id="bridgedata-v2-sink-tasks-2023" />
 
-BridgeData V2's official project page states CC BY 4.0 for all data <Cite id="bridgedata-v2-project-page" />. The paper shipped baselines from goal-conditioned <Term id="behavior-cloning">behavior cloning</Term> to ACT and RT-1 <Cite id="bridgedata-v2-2023" />, and most of the data also ships inside OXE <Cite id="open-x-embodiment-2023" />.
+BridgeData V2's official project page states CC BY 4.0 for all data <Cite id="bridgedata-v2-project-page" />. The paper shipped baselines from goal-conditioned <Term id="behavior-cloning">behavior cloning</Term> to ACT and RT-1 <Cite id="bridgedata-v2-2023" />, and most data also ships inside OXE <Cite id="open-x-embodiment-2023" />.
 
 ## AgiBot World: the corporate fleet
 
@@ -122,7 +122,7 @@ At about 11 seconds per trajectory, the million-trajectory headline covers less 
 
 ## RoboMIND: multi-embodiment under one protocol
 
-RoboMIND's paper reports 107,000 successful trajectories totaling 305.5 interaction hours across 479 tasks and 96 object classes. The cohort mixes real-world and simulated demonstrations for four embodiments, a Franka Emika Panda, a UR5e, an AgileX dual-arm robot and a humanoid with dual dexterous hands, under one collection platform and standardized protocol. It also releases 5,000 real-world failure demonstrations with annotated causes and a digital twin of its tasks in Isaac Sim <Cite id="robomind-2024" />.
+RoboMIND's paper reports 107,000 successful trajectories totaling 305.5 interaction hours across 479 tasks and 96 object classes. The cohort mixes real-world and simulated demonstrations for four embodiments, a Franka Emika Panda, a UR5e, an AgileX dual-arm robot and a humanoid with dual dexterous hands, under one collection platform and standardized protocol. It releases 5,000 real-world failure demonstrations with annotated causes and a digital twin of its tasks in Isaac Sim <Cite id="robomind-2024" />.
 
 RoboMIND 2.0 (December 2025) reports over 310K dual-arm trajectories from six embodiments and 739 tasks, including 12K tactile-enhanced episodes and 20K mobile manipulation trajectories <Cite id="robomind-2-2025" />. The [public dataset card](https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND) shows an Apache-2.0 tag but makes users accept access conditions before downloading, so check the terms before commercial use <Cite id="robomind-dataset-card" />.
 
@@ -138,11 +138,11 @@ Hand-object datasets make contact supervision explicit. ContactDB uses thermal i
 
 HOI4D supplies egocentric RGB-D video with hand-pose, object-pose and action annotations <Cite id="hoi4d-2022" />. OakInk connects object affordances to recorded human interactions and transfers them to virtual counterparts <Cite id="oakink-2022" />.
 
-Object models supply another kind of supervision. ShapeNet organizes CAD models by semantic category and records attributes including alignment and size <Cite id="shapenet-2015" />. PartNet adds detailed hierarchical part labels <Cite id="partnet-2018" />; ABC retains explicitly parameterized curves and surfaces for geometric ground truth <Cite id="abc-models-2018" />. The YCB set pairs physical everyday objects with scans, physical properties, geometric models and example manipulation protocols <Cite id="ycb-models-2015" />.
+Object models supply other supervision. ShapeNet organizes CAD models by semantic category and records attributes including alignment and size <Cite id="shapenet-2015" />. PartNet adds detailed hierarchical part labels <Cite id="partnet-2018" />; ABC retains explicitly parameterized curves and surfaces for geometric ground truth <Cite id="abc-models-2018" />. The YCB set pairs physical everyday objects with scans, physical properties, geometric models and example manipulation protocols <Cite id="ycb-models-2015" />.
 
 ## Releases since 2025
 
-RoboCOIN offers over 180,000 bimanual demonstrations from 15 platforms and 421 tasks <Cite id="robocoin-2025" />. Scale AI and Hugging Face's FineART (September 2026) has 1,718 hours of bimanual teleoperation in 40,543 episodes, with 533,913 human-labelled subtasks across 151 tasks <Cite id="fineart-2026" />. SmolVLA trained on fewer than 30k episodes, all from community-contributed datasets <Cite id="smolvla-2025" />. The community-built AXIS holds 50K+ trajectories over 207 tasks, and continual pretraining on it raised π0.5's overall success rate by 5.8% <Cite id="axis-2026" />.
+RoboCOIN offers over 180,000 bimanual demonstrations from 15 platforms and 421 tasks <Cite id="robocoin-2025" />. Scale AI and Hugging Face's FineART (September 2026) has 1,718 hours of bimanual teleoperation in 40,543 episodes, with 533,913 human-labelled subtasks across 151 tasks <Cite id="fineart-2026" />. SmolVLA trained on fewer than 30k episodes, all from community-contributed datasets <Cite id="smolvla-2025" />. Community-built AXIS holds 50K+ trajectories over 207 tasks, and continual pretraining on it raised π0.5's overall success rate by 5.8% <Cite id="axis-2026" />.
 
 In simulation, RoboCasa365 offers 365 tasks across 2,500 kitchens, with over 600 hours of human and over 1,600 hours of synthetic demonstrations <Cite id="robocasa365-2026" />.
 

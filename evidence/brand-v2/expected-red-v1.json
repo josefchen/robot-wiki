@@ -5,13 +5,6 @@
   "policy": "Expected visual drift is archived here. Functional, accessibility, route, data, and interaction gates remain active and are not waived.",
   "failures": [
     {
-      "suite": "brand-v2 core visual authority",
-      "assertionId": "VAL-B2-TYPE-003",
-      "expected": "Tektur Variable",
-      "actual": "IBM Plex Sans",
-      "rolloutMilestone": "brand-v2-foundations"
-    },
-    {
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-015",
       "expected": "all eight home reference-feature anchors pass independently",

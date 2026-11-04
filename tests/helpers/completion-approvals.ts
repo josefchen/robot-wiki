@@ -4,7 +4,7 @@ import { isDeepStrictEqual } from 'node:util';
 import { sha256, stableJson, validateApprovedDeltas, type ApprovedDelta } from '../../lib/brand-v2-baseline';
 
 export const COMPLETION_APPROVAL_REVIEW = 'audit/evidence/mission-completion-20261102/approval-suffix.json';
-const pin = { bytes: 2550025, sha256: 'c756a3e8c15fe82b89d84e8319ccfcecde474dfdfdddb56a81ef4beb3b62ff4b' };
+const pin = { bytes: 2990571, sha256: 'f57ff5700460cc613a949869ced663b38041e64267d7078bf87790c7321c69f9' };
 export type CompletionApprovalReview = {
   schemaVersion: string;
   historicalRequest: string[];
@@ -18,7 +18,7 @@ export function completionApprovalReview(): CompletionApprovalReview {
   if (bytes.length !== pin.bytes || sha256(bytes) !== pin.sha256) throw new Error('Completion approval review drift');
   const review = JSON.parse(bytes.toString()) as CompletionApprovalReview;
   if (review.schemaVersion !== 'completion-approval-suffix-v1' || review.before.entries !== 4688 ||
-    review.added.length !== 840 || review.rationale.length < 100) throw new Error('Completion approval scope drift');
+    review.added.length !== 906 || review.rationale.length < 100) throw new Error('Completion approval scope drift');
   return review;
 }
 

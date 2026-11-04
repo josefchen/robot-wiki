@@ -465,3 +465,21 @@ describe('classifyReadingTimeGate', () => {
     expect(report.staleCommitFindings).toEqual([]);
   });
 });
+
+describe('quoted tag delimiters in rendered reading counts', () => {
+  it.each([
+    ['a child selector', '<div class="grid [&>span]:mr-2"><span>Safe</span><span>move</span></div>'],
+    ['a double-quoted comparison', '<p title="a > b">Safe move</p>'],
+    ['a single-quoted comparison', `<p title='a > "b"'>Safe move</p>`],
+    ['both angle brackets in an attribute', `<p data-note="a > b and '<c>'">Safe move</p>`],
+    ['a real hidden attribute after the comparison', '<p title="a > b" hidden>Never count this</p><p>Safe move</p>'],
+    ['a closed disclosure with the comparison', '<details data-note="a > b"><summary>Safe move</summary><p>Never count this</p></details>'],
+    ['visible accessibility-hidden text', '<span title=">" aria-hidden="true">Safe move</span>'],
+  ])('counts only visible words with %s', (_description, markup) => {
+    expect(countVisibleWords(markup)).toBe(2);
+  });
+
+  it('still counts a greater-than sign that is actually visible text', () => {
+    expect(countVisibleWords('<p title="not > prose">1 &gt; 0</p>')).toBe(3);
+  });
+});

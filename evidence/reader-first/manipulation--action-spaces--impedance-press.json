@@ -7,16 +7,14 @@
     "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
   },
   "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
-  "sentence": "A spring-like tool presses against a surface, with the push determined by the spring's stiffness and how far its target lies beyond that surface.",
-  "unclearTerms": [
-    "impedance action: I can see that it sets a target and stiffness, but I cannot tell what the word impedance means."
-  ],
-  "samePoint": "no",
-  "reason": "My sentence names stiffness and target distance as influences on push but omits their multiplication and the action sending both a target and a stiffness.",
-  "verdict": "fail",
-  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
-  "date": "2026-11-03",
-  "reviewerSession": "reader-session-automated-r9-a-20261103",
-  "sourceDigest": "c7d1f7dc11ce42b9e18b778c562548f94debddd5139580c317bcc9fa934f1203",
+  "sentence": "The tool stops at a surface, and setting its target two marks beyond the surface with a stiffness of two makes it push with a strength of four dial marks.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "Both describe a tool stopped by a surface whose push comes from its stiffness and target distance beyond the surface, with my sentence giving the two-times-two example.",
+  "verdict": "pass",
+  "screenshotCommit": "1b48e4f7033e190c59c043a4d350dee98db406b1",
+  "date": "2026-11-04",
+  "reviewerSession": "reader-session-automated-r31-a-20261104",
+  "sourceDigest": "e9e21046f74731f654a09804e4a6e83992e6c6acce4d53263324d8121fb276bb",
   "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

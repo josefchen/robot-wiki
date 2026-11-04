@@ -118,12 +118,12 @@ describe('world-model figure source semantics', () => {
     expect(explanation).toHaveTextContent('Predict2’s 14B means 14 billion internal settings adjusted using training examples.');
     expect(explanation).toHaveTextContent('1XWM predicts five seconds of actions before execution');
     expect(screen.getByText('Single images, groups of robot moves, a move chosen from several options, and video clips need different waits and different graphics chips.').closest('details')).toBeNull();
-    expect(screen.getByTestId('output-time-3dgs')).toHaveTextContent('Single image · 3DGS');
-    expect(screen.getByTestId('output-time-dreamzero')).toHaveTextContent('Group of robot moves · DreamZero-Flash');
-    expect(screen.getByTestId('output-time-vjepa2')).toHaveTextContent('One chosen move · V-JEPA 2-AC');
+    expect(screen.getByTestId('output-time-3dgs')).toHaveTextContent('Single image · method: 3DGS');
+    expect(screen.getByTestId('output-time-dreamzero')).toHaveTextContent('Group of robot moves · model: DreamZero-Flash');
+    expect(screen.getByTestId('output-time-vjepa2')).toHaveTextContent('One chosen move · model: V-JEPA 2-AC');
     expect(screen.getByTestId('output-time-cosmos-planner')).toHaveTextContent('One chosen move · Cosmos planner');
-    expect(screen.getByTestId('output-time-1xwm')).toHaveTextContent('Five seconds of predicted moves · 1XWM');
-    expect(screen.getByTestId('output-time-predict2')).toHaveTextContent('Video clip · Cosmos Predict2 14B');
+    expect(screen.getByTestId('output-time-1xwm')).toHaveTextContent('Five seconds of predicted moves · model: 1XWM');
+    expect(screen.getByTestId('output-time-predict2')).toHaveTextContent('Video clip · model: Cosmos Predict2 14B');
     for (const row of WORLD_MODEL_OUTPUT_TIMES) expect(screen.getByTestId(`output-time-${row.id}`)).toHaveTextContent(`Chips: ${row.hardware}`);
   });
 });

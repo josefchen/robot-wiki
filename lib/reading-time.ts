@@ -356,8 +356,22 @@ export function visibleTextInMarkup(markup: string): string {
       i = end === -1 ? n : end + 3;
       continue;
     }
-    const gt = markup.indexOf('>', lt);
-    if (gt === -1) {
+    // A quoted attribute can contain a literal > (for example a Tailwind
+    // child selector). Only an unquoted > terminates the tag; otherwise
+    // attribute text leaks into the prose and later attributes are lost.
+    let gt = lt + 1;
+    let quote: string | null = null;
+    for (; gt < n; gt += 1) {
+      const character = markup[gt];
+      if (quote !== null) {
+        if (character === quote) quote = null;
+      } else if (character === '"' || character === "'") {
+        quote = character;
+      } else if (character === '>') {
+        break;
+      }
+    }
+    if (gt === n) {
       // Malformed tail: treat the remainder as text.
       if (!obscured()) parts.push(markup.slice(lt));
       break;

@@ -141,7 +141,7 @@ J_i = \begin{bmatrix} \omega_i \\ -\omega_i \times p_i \end{bmatrix}
 J_i = \begin{bmatrix} 0 \\ v_i \end{bmatrix}
 $$
 
-The transpose maps an end-effector wrench to balancing joint torques, $\tau = J^{T}(q)\,F$ <Cite id="modern-robotics-2017" />. At singularities, such as a fully extended arm, the Jacobian loses rank, and nearby a modest end-effector speed demands unbounded joint speeds <Cite id="modern-robotics-2017" />; Yoshikawa's 1985 manipulability measure scores how well an arm can position and orient its end effector <Cite id="yoshikawa-1985" />.
+The transpose maps an end-effector wrench to balancing joint torques, $\tau = J^{T}(q)\,F$ <Cite id="modern-robotics-2017" />. At singularities, including a fully extended arm, the Jacobian loses rank, and nearby a modest end-effector speed demands unbounded joint speeds <Cite id="modern-robotics-2017" />; Yoshikawa's 1985 manipulability measure scores how well an arm can position and orient its end effector <Cite id="yoshikawa-1985" />.
 
 Whitney's resolved motion rate control (1969) let an operator command hand motion along task axes <Cite id="whitney-1969" />, with the inverse Jacobian giving joint rates:
 
@@ -149,7 +149,7 @@ $$
 \dot{q} = J^{-1}(q)\,\dot{x}
 $$
 
-A redundant arm uses the pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$, whose spare freedom can serve goals such as avoiding joint limits <Cite id="modern-robotics-2017" />, ranked against the end-effector task in Siciliano and Slotine's task-priority framework <Cite id="siciliano-slotine-1991" />. Near singular points, Nakamura and Hanafusa's singularity-robust inverse returns a motion close to the desired path <Cite id="nakamura-hanafusa-1986" />.
+A redundant arm uses the pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$, whose spare freedom can serve goals including avoiding joint limits <Cite id="modern-robotics-2017" />, ranked against the end-effector task in Siciliano and Slotine's task-priority framework <Cite id="siciliano-slotine-1991" />. Near singular points, Nakamura and Hanafusa's singularity-robust inverse returns a motion close to the desired path <Cite id="nakamura-hanafusa-1986" />.
 
 Wampler's damped least-squares formulation makes the tradeoff explicit: reduce pose error while penalizing corrective joint motion magnitude <Cite id="wampler-1986" />.
 
@@ -159,7 +159,7 @@ Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is no
 
 <ExplainerFigure id="reaching" />
 
-Closed forms exist for special geometries, such as six-revolute arms with intersecting wrist axes <Cite id="modern-robotics-2017" />. A general 6R arm reduces to one minimum-degree polynomial in a single joint variable <Cite id="raghavan-roth-1993" />, which Manocha and Canny's 1994 algorithm solved in 11 ms on average on an IBM RS/6000 workstation <Cite id="manocha-canny-1994" />, and Diankov's IKFast generates closed-form solvers that answer in about 6 microseconds, against about 10 milliseconds for most numerical solvers <Cite id="ikfast-diankov-2010" />. The general tool is iterative: linearize, step, repeat <Cite id="modern-robotics-2017" />:
+Closed forms exist for special geometries, including six-revolute arms with intersecting wrist axes <Cite id="modern-robotics-2017" />. A general 6R arm reduces to one minimum-degree polynomial in one joint variable <Cite id="raghavan-roth-1993" />, which Manocha and Canny's 1994 algorithm solved in 11 ms on average on an IBM RS/6000 workstation <Cite id="manocha-canny-1994" />, and Diankov's IKFast generates closed-form solvers that answer in about 6 microseconds, against about 10 milliseconds for most numerical solvers <Cite id="ikfast-diankov-2010" />. The general tool is iterative: linearize, step, repeat <Cite id="modern-robotics-2017" />:
 
 $$
 \Delta x = J(q)\,\Delta q \qquad \Delta q = J^{+}(q)\,\Delta x
@@ -179,7 +179,7 @@ GR00T N1 uses embodiment-specific action decoders: in its simulation benchmarks 
 
 Quaternions and Euler angles are discontinuous and hard for networks to learn, while 5D and 6D rotation representations are continuous <Cite id="rotation-continuity-2018" />.
 
-<Term id="teleoperation">Teleoperation</Term> runs through the same chain: a GELLO leader copies its target arm's kinematic structure <Cite id="gello-2023" />, and retargeting artifacts such as foot sliding reduce the robustness of humanoid tracking policies <Cite id="gmr-retargeting-2025" />.
+<Term id="teleoperation">Teleoperation</Term> runs through the same chain: a GELLO leader copies its target arm's kinematic structure <Cite id="gello-2023" />, and retargeting artifacts including foot sliding reduce the robustness of humanoid tracking policies <Cite id="gmr-retargeting-2025" />.
 
 ## Treat coordinate frames as an API
 

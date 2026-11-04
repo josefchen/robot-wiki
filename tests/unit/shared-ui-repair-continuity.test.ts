@@ -6,7 +6,7 @@ import { UI_REPAIR_REVIEW_FILE, uiRepairPredecessor, verifyUiRepairSource, type 
 
 describe('reviewed shared UI successor inputs', () => {
   const review = JSON.parse(readFileSync(UI_REPAIR_REVIEW_FILE, 'utf8')) as UiRepairReview;
-  it('reconstructs the 261 named predecessors and preserves exact current references', { timeout: 60_000 }, () => {
+  it('reconstructs the 264 named predecessors and preserves exact current references', { timeout: 60_000 }, () => {
     expect(review.sources.map((source) => source.after.path).sort()).toEqual([
       "app/globals.css",
       "app/page.tsx",
@@ -134,6 +134,7 @@ describe('reviewed shared UI successor inputs', () => {
       "content/classical/scene-representation.mdx",
       "content/classical/state-estimation.mdx",
       "content/data-hardware/datasets.mdx",
+      "content/data-hardware/hardware-taxonomy.mdx",
       "content/data-hardware/industrial-deployment.mdx",
       "content/data-hardware/robot-learning-stack.mdx",
       "content/data-hardware/teleop-rigs.mdx",
@@ -174,6 +175,7 @@ describe('reviewed shared UI successor inputs', () => {
       "lib/brand-v2-focus-paint.ts",
       "lib/chart-descriptions.ts",
       "lib/motion-clips.ts",
+      "lib/reading-time.ts",
       "mdx-components.tsx",
       "motion-clips.json",
       "scripts/capture-reader-first.ts",
@@ -268,7 +270,8 @@ describe('reviewed shared UI successor inputs', () => {
       "tests/e2e/wm-taxonomy.spec.ts",
       "tests/unit/brand-v2-focus-paint.test.ts",
       "tests/unit/classical-closure-evidence.test.ts",
-      "tests/unit/explainer-mounts.test.ts"
+      "tests/unit/explainer-mounts.test.ts",
+      "tests/unit/reading-time.test.ts"
 ]);
     for (const source of review.sources) {
       for (const check of source.checks) expect(existsSync(check), check).toBe(true);

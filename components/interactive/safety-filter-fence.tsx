@@ -104,9 +104,26 @@ export function SafetyFilterFence({ className }: { className?: string }) {
       heading="The simple filter gets checked; it guards each proposed move"
       controls={
         <>
-          <p data-testid="fence-main-point" className="basis-full font-sans text-lg font-medium leading-snug text-text">
-            The simple filter gets checked: it leaves the learned controller’s safe moves unchanged and corrects unsafe moves only enough to keep the robot outside the forbidden area.
-          </p>
+          <div data-testid="fence-rule-flow" className="grid basis-full gap-3 font-sans text-text">
+            <p data-testid="fence-main-point" className="font-sans text-lg font-medium leading-snug text-text">
+              The simple safety filter is what engineers check.
+            </p>
+            <p className="text-sm leading-snug text-text-dim">Learned controller proposes (trained from data) → Robot executes</p>
+            <dl className="grid gap-4">
+              <div data-testid="fence-safe-branch" className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">
+                <dt className="text-lg font-medium leading-snug">Safe move</dt>
+                <dd data-figure-gloss className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-2 text-lg font-medium leading-snug max-[320px]:block max-[320px]:[&>span:first-child]:mr-2">
+                  <span aria-hidden="true">=</span><span className="[overflow-wrap:anywhere]">The same move, unchanged</span>
+                </dd>
+              </div>
+              <div data-testid="fence-unsafe-branch" className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">
+                <dt className="text-lg font-medium leading-snug">Unsafe move</dt>
+                <dd className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-2 text-lg font-medium leading-snug max-[320px]:block max-[320px]:[&>span:first-child]:mr-2">
+                  <span aria-hidden="true">→</span><span className="[overflow-wrap:anywhere]">The smallest correction that stays outside the forbidden area</span>
+                </dd>
+              </div>
+            </dl>
+          </div>
           <SliderRow htmlFor={sliderId} label="Along the stroke" value={<span data-testid="fence-percent">{percent}%</span>}>
             <input
               id={sliderId}
@@ -150,28 +167,10 @@ export function SafetyFilterFence({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Safe proposals pass unchanged; unsafe ones move only enough to stay outside. The simple filter is what gets checked."
           readout={readoutFor(t)}
           status="Faint: the learned controller’s proposed path. Dark: what the pen drew. The ring represents the separately checked filter. Schematic."
           data-testid="fence-stage-frame"
         >
-          <div className="grid items-center gap-3 pb-4 font-sans text-sm leading-snug text-text sm:grid-cols-[1fr_auto_2fr_auto_1fr]" data-testid="fence-rule-flow">
-            <div>
-              <strong className="font-medium">Controller trained from data</strong>
-              <p>Proposes a move.</p>
-            </div>
-            <span aria-hidden="true"><span className="sm:hidden">↓</span><span className="hidden sm:inline">→</span></span>
-            <div className="grid gap-2">
-              <p className="text-lg font-medium">Simple safety filter: the part engineers check</p>
-              <p>Safe proposal → unchanged move.</p>
-              <p>Unsafe proposal → smallest change that keeps the robot outside.</p>
-            </div>
-            <span aria-hidden="true"><span className="sm:hidden">↓</span><span className="hidden sm:inline">→</span></span>
-            <div>
-              <strong className="font-medium">Robot executes the resulting move</strong>
-              <p>Unchanged if safe; minimally corrected otherwise.</p>
-            </div>
-          </div>
           <div
             className="mx-auto max-w-sm"
             data-testid="fence-drawing"

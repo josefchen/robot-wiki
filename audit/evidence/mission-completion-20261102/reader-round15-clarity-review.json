@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "reader-round15-clarity-successor-review-v1",
+  "observedAt": "2026-11-04T04:50:50.879Z",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "0fb41e7f9776269788d986794c18a18d23f9f7b1",
+      "previousSourceSha256": "905b32851c8db50df3883db0491efb54f9b4dd0c1f252d85722adc138bf99ff2",
+      "currentSourceSha256": "6ba2def6c66ae0a29a9993060ce40e775b747a50aab39bd3a226933f390c82f3",
+      "oldMemberHash": "9ce7b293fa2945abedf5abad03e4f29f74879d555f66f02d070c24c65cec9cbe",
+      "newMemberHash": "47d8f5c392aa56e1df1d750420804a9a17b0f05760d91c5f52d82cd4db9533b1",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+        "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+        "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+        "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+        "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+        "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+        "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+        "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+        "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+        "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: record the independently reviewed fifteenth source-projected target-gap guide, preserving canonical scientific values, model behavior, original physical drawing geometry, native actions and existing accessible names. The actual preceding approval source and current source hashes are in audit/evidence/mission-completion-20261102/reader-round15-clarity-review.json, with the original predecessor and full reasons retained in audit/evidence/shared-ui-repairs-20261102/source-transition.json. This implementation successor grants no reader or release verdict."
+    }
+  ],
+  "independentFinalReviewSha256": "a15f6498b867f5eaf2b66be0a0bba770dc1e814f18bb000d1755d1f4d0e9eb6c",
+  "implementationCommit": "63bf955b472001dee8de3d6da75b6f634edc178f",
+  "sourceAndTestEpochs": [
+    {
+      "path": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "0fb41e7f9776269788d986794c18a18d23f9f7b1",
+      "previousSha256": "905b32851c8db50df3883db0491efb54f9b4dd0c1f252d85722adc138bf99ff2",
+      "currentSha256": "6ba2def6c66ae0a29a9993060ce40e775b747a50aab39bd3a226933f390c82f3"
+    },
+    {
+      "path": "tests/component/impedance-press.test.tsx",
+      "previousSourceCommit": "0fb41e7f9776269788d986794c18a18d23f9f7b1",
+      "previousSha256": "8ff5b15f03f706a5ff454775147ae2bf8adb99a0d3df1609dd12295f306d477a",
+      "currentSha256": "22d61a67ed51ba98009f20c812fb7bbd7c2d0678edd5ef579f78a3c9a05638e4"
+    },
+    {
+      "path": "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+      "previousSourceCommit": "0fb41e7f9776269788d986794c18a18d23f9f7b1",
+      "previousSha256": "6da0fc4fc1457837f5b36bab12685a9dc801fca93cd39c77017734927a862376",
+      "currentSha256": "4e78e547aa92a4a8f5cfd9fe4874d543cdf73c93ea999008762c3e3a9bf08371"
+    }
+  ]
+}

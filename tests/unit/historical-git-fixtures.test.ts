@@ -17,7 +17,7 @@ describe('portable historical test inputs', () => {
       cpSync(join(root, 'lib/neutral-tooling.ts'), join(scratch, 'lib/neutral-tooling.ts'));
       expect(existsSync(join(scratch, '.git'))).toBe(false);
       const catalog = historicalCatalog(scratch);
-      expect(catalog.size).toBe(1118);
+      expect(catalog.size).toBe(1121);
       const expectedBlobs = new Set<string>();
       for (const entry of catalog.values()) {
         expectedBlobs.add(entry.blob.path.slice('blobs/'.length));

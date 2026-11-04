@@ -200,12 +200,21 @@ export function PiGenerationTimeline({
       figureId="pi-generation-timeline"
       className={className}
       kicker="Physical Intelligence's models"
-      heading="Only the first three models have confirmed downloads"
+      heading="A new model every few months; only the first three have confirmed downloads"
       controls={
-        <p className="basis-full font-sans text-[16px] font-semibold leading-normal text-text" data-testid="generation-download-summary">
-          Physical Intelligence released a model every few months, but downloads are confirmed only for the first three.
-          Later models&apos; availability is unverified.
-        </p>
+        <dl className="grid basis-full gap-y-3 font-sans leading-normal text-text" data-testid="generation-download-summary">
+          <div className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">
+            <dt><p className="text-[14px] text-text-dim">Physical Intelligence&apos;s releases</p></dt>{' '}
+            <dd><p className="text-[18px] font-semibold">A new model every few months</p></dd>{' '}
+          </div>{' '}
+          <div className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">
+            <dt><p className="text-[14px] text-text-dim">Confirmed downloads</p></dt>{' '}
+            <dd>
+              <p className="text-[18px] font-semibold">Only the first three models</p>{' '}
+              <p className="mt-1 text-[14px]">Later models&apos; availability is unverified.</p>
+            </dd>
+          </div>
+        </dl>
       }
       adjust={
         <InstrumentReset

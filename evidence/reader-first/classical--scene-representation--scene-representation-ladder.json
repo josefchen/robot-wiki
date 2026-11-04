@@ -7,14 +7,14 @@
     "1280": "evidence/reader-first/classical--scene-representation--scene-representation-ladder.1280.png"
   },
   "takeaway": "The way a robot stores a scene decides which questions it can answer; finer resolution only changes cost and detail.",
-  "sentence": "A robot's square-grid map marks occupied, empty and unseen parts of a room and can answer where it can move, while finer detail uses more memory without adding new kinds of answers.",
+  "sentence": "How a robot stores a map determines what it can work out about the room, while adding finer detail uses more memory without giving it new kinds of answers.",
   "unclearTerms": [],
-  "samePoint": "no",
-  "reason": "My sentence captures the limits of finer detail for a square-grid map but does not state that changing the storage format changes which questions the robot can answer.",
-  "verdict": "fail",
-  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
-  "date": "2026-11-03",
-  "reviewerSession": "reader-session-automated-r9-a-20261103",
-  "sourceDigest": "6e3f2904aa07da9a58c8ba299a987c90ba8df6dcf7407e9129c31fdbafdbd3b7",
+  "samePoint": "yes",
+  "reason": "The sentence says the storage choice determines possible answers, while finer detail adds memory cost without new kinds of answers.",
+  "verdict": "pass",
+  "screenshotCommit": "04bfaaef80cd37c9ae64f25344cf19156b2c72b6",
+  "date": "2026-11-04",
+  "reviewerSession": "reader-session-automated-r10-a-20261104",
+  "sourceDigest": "dc7cc0ad77308820b04b704e52e4ae889025551abbd635735b16c7bfdb8971ac",
   "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

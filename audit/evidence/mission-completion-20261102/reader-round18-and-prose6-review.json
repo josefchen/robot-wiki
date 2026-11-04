@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "reader-round18-and-prose6-successor-review-v1",
+  "observedAt": "2026-11-04T08:23:46.546Z",
+  "records": [
+    {
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-spaces",
+      "sourcePath": "content/manipulation/action-spaces.mdx",
+      "previousSourceCommit": "eb4f771c0265ec001be134ae5cd3b76e01d41e5a",
+      "currentSourceCommit": "1fe20e32b6af2d6ea469c8ed59c0f3d253344795",
+      "previousSourceSha256": "ff429286226a66ad27e9e3afc2c8108847e2761020fcb4f67712355686dde660",
+      "currentSourceSha256": "584545ac50070321f2449efcc93e9e1d4544d09298c84aa4a09215701fe22911",
+      "oldMemberHash": "e28780b71a7653d276388518a4de004f115fe1ba94e3f0a7466be864f66ef84c",
+      "newMemberHash": "597d3aa52920e1aaf470bbbc72c5b423ebbd97c1890a69ff3c2e20b42e145a89",
+      "priorApprovalIds": [
+        "seo-20260824-prose-e54360d3514d",
+        "seo-merge-20260916-prose-16",
+        "content-integration-20260923-action-spaces-prose",
+        "continuation-merge-2026-09-24-manipulation-import-prose-action-spaces",
+        "humanizer-manipulation-v3-20260925-prose-action-spaces",
+        "domain-pass-20261006-g1-prose-action-spaces",
+        "domain-pass-20261006-g5-prose-action-spaces",
+        "domain-pass-20261006-g6-prose-action-spaces",
+        "humanize-20261012-manipulation-prose-action-spaces",
+        "images-a-20261013-prose-manipulation-action-spaces",
+        "anatomy-manip-b04-figures-20261015-prose-action-spaces",
+        "kol-batch-20261021-manipulation-prose-action-spaces",
+        "source-floor-manipulation-20261102-prose-article-manipulation-action-spaces",
+        "completion-article-20261102-prose-manipulation-action-spaces-10b50fc321",
+        "completion-reader-round4-20261103-prose-article-manipulation-action-spaces-7d57a7b06a",
+        "completion-final-prose840-20261104-article-manipulation-action-spaces-e28780b71a"
+      ],
+      "reason": "content/manipulation/action-spaces.mdx: record only the independently reviewed six-word reserve selected after actual28 measured 1234 words against the unchanged 1228 cap, applied at 1fe20e32b6af2d6ea469c8ed59c0f3d253344795 from the real immediate predecessor eb4f771c0265ec001be134ae5cd3b76e01d41e5a. Preserve the preceding 840-edit receipt and every other article; six exact forward/reverse replacements, approval and application hashes are in audit/evidence/mission-completion-20261102/reader-round18-and-prose6-review.json. Facts, citations, numbers, code, JSX and eight glossary anchors retain the reviewed semantics and structure. This source successor grants no rendered cap, reader or release acceptance; the post-application build remains pending.",
+      "lastApprovedSourceCommit": "1d3e035be7fe107bd9b96acd41c54d34095b8617",
+      "lastApprovedSourceEqualsImmediatePredecessor": true,
+      "exactEdits": [
+        {
+          "id": "r17-reserve-1",
+          "path": "content/manipulation/action-spaces.mdx",
+          "before": "LAP writes end-effector motions as short natural-language phrases",
+          "after": "LAP's short natural-language phrases encode end-effector motions",
+          "rationale": "Change the grammatical subject from LAP to its phrases. Writing motions as short natural-language phrases and encoding those motions in such phrases state the same representation. LAP, shortness, natural language and the end-effector motion content remain explicit; the same LAP citation and LAP-3B result follow.",
+          "wordReduction": 1,
+          "sourceLine": 124
+        },
+        {
+          "id": "r17-reserve-2",
+          "path": "content/manipulation/action-spaces.mdx",
+          "before": "libfranka sends 1 kHz commands in five modes",
+          "after": "libfranka's five modes send 1 kHz commands",
+          "rationale": "Make the five modes belonging to libfranka the grammatical subject of the same command output. The library attribution, exactly five modes, 1 kHz rate and command output remain; the following gravity- and friction-compensated joint-torque example is unchanged. This does not change the ACT controller referent elsewhere.",
+          "wordReduction": 1,
+          "sourceLine": 106
+        },
+        {
+          "id": "r17-reserve-3",
+          "path": "content/manipulation/action-spaces.mdx",
+          "before": "continuous control, avoiding tokenization",
+          "after": "untokenized continuous control",
+          "rationale": "Express the same absence of tokenization as an adjective on the continuous control output. Figure still attributes the claim about Helix, and both continuity and lack of tokenization remain explicit. No tokenization/glossary anchor is removed from the rendered article.",
+          "wordReduction": 1,
+          "sourceLine": 126
+        },
+        {
+          "id": "r17-reserve-4",
+          "path": "content/manipulation/action-spaces.mdx",
+          "before": "predicting delta actions consistently helped",
+          "after": "delta-action prediction consistently helped",
+          "rationale": "Use a conventional action-type modifier with the noun prediction in place of the gerund phrase. Predicting delta actions and delta-action prediction name the same operation. Consistently, the 13,000+ real rollouts and 500+ models scope, both action-space tradeoffs and the citation remain explicit. The wording change preserves the claim rather than deleting a qualification.",
+          "wordReduction": 1,
+          "sourceLine": 132
+        },
+        {
+          "id": "r18-reserve-5",
+          "path": "content/manipulation/action-spaces.mdx",
+          "before": "An action space is a policy's robot interface",
+          "after": "Action spaces define a policy's robot interface",
+          "rationale": "The original indefinite singular defines a general class. Generic plural Action spaces with define retains that class-level definition, the same policy-to-robot interface, and the complete following explanation of predictions, controller-absorbed errors, frequency and shared labels. It does not assert that several action spaces jointly control one robot. No invented compound is introduced.",
+          "wordReduction": 1,
+          "sourceLine": 59
+        },
+        {
+          "id": "r18-reserve-6",
+          "path": "content/manipulation/action-spaces.mdx",
+          "before": "Layer rates differ:",
+          "after": "Rates differ:",
+          "rationale": "Remove the redundant layer label from the introductory summary. The same paragraph still states that Helix02 S0 operates beneath S1, with1kHz actuator commands and200Hz joint targets, and retains GEN-1.5's100Hz trajectory rate. The hierarchy and every rate remain explicit, as does the instruction to report predicted and executed horizons separately.",
+          "wordReduction": 1,
+          "sourceLine": 118
+        }
+      ]
+    },
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "1d3e035be7fe107bd9b96acd41c54d34095b8617",
+      "currentSourceCommit": "03f114a38b8bb8e10ee7c5eeb46ba9154768752c",
+      "previousSourceSha256": "838624d57ea6b4b9c87467dd5bf3aac6294a9f7346c071173449fb0acd50af76",
+      "currentSourceSha256": "12ead17c12637a2672d5989ff67328d2ac8e03688e64f0ce1b4517312576bdea",
+      "oldMemberHash": "7a8c3c020a3f496d763d256707a5d5308cd0fdae098ad88514ac7b1be9dae4e2",
+      "newMemberHash": "222f1c44e83e406d887fad20dda1f6aaa4bc9b107c65d14cb07b695622616e0b",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+        "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+        "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+        "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+        "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+        "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+        "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+        "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+        "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+        "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+        "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+        "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+        "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: record the independently reviewed R18 causal-story layout at 03f114a38b8bb8e10ee7c5eeb46ba9154768752c, with paired action settings, the conditional stopped-tool contact and the multiplication relation placed in one reading order. Preserve the R17 resolved settings name and direct caption, original SVG/model/target-gap guide and native controls. The 17 obsolete component layout assertions have 20 independently approved equal-or-stronger successors. Exact source epochs and semantic continuity are in audit/evidence/mission-completion-20261102/reader-round18-and-prose6-review.json, with the full original before pins and reasons in audit/evidence/shared-ui-repairs-20261102/source-transition.json. The fresh R18 reader failure remains a failure; this successor grants no acceptance verdict."
+    }
+  ],
+  "implementationCommit": "03f114a38b8bb8e10ee7c5eeb46ba9154768752c",
+  "independentImplementationReviewSha256": "6da7312cbda7d28adecde05818ef31958d344692d502d97124b87b8c1a59e314",
+  "semanticContinuity": {
+    "settingsAccessibleName": "An action sends two settings: target and stiffness",
+    "directFigureCaption": "The action supplies a target and stiffness; once the surface stops the tool, push equals stiffness times the remaining gap.",
+    "attributeMembersUnchanged": true,
+    "attributeMembers": [
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:1",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-settings`}"
+        },
+        "hash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+      },
+      {
+        "id": "literal:components/interactive/impedance-press.tsx:aria-label:1",
+        "value": {
+          "attribute": "aria-label",
+          "text": "Stiffness times target gap equals push"
+        },
+        "hash": "e0e4c81f7aea9df0e4d216c14139d7fc55f2dc175f3b0566326a4286e4fd19de"
+      }
+    ],
+    "exactComponentNameAndCaptionAssertionsPreserved": true,
+    "resolvedNameAndDescriptionContinuityIndependentlyReviewed": true,
+    "previousSemanticReceipt": "audit/evidence/mission-completion-20261102/reader-round17-clarity-review.json",
+    "previousSemanticReceiptSha256": "aa8dd56ce13057e74ec5f773d0721053c36988612444a79d9d57c81b484916e8"
+  },
+  "sourceAndTestEpochs": [
+    {
+      "path": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "1d3e035be7fe107bd9b96acd41c54d34095b8617",
+      "previousSha256": "838624d57ea6b4b9c87467dd5bf3aac6294a9f7346c071173449fb0acd50af76",
+      "currentSha256": "12ead17c12637a2672d5989ff67328d2ac8e03688e64f0ce1b4517312576bdea"
+    },
+    {
+      "path": "tests/component/impedance-press.test.tsx",
+      "previousSourceCommit": "1d3e035be7fe107bd9b96acd41c54d34095b8617",
+      "previousSha256": "31cacf97e515193d82940429b570073b7d1dcab8b467644ff5b7a6dedc5f004a",
+      "currentSha256": "58b73cf472fedf7d03c1a29cce2d5e69baef4b462d2cf31b11d4d11fc1129fc7"
+    },
+    {
+      "path": "content/manipulation/action-spaces.mdx",
+      "previousSourceCommit": "1d3e035be7fe107bd9b96acd41c54d34095b8617",
+      "previousSha256": "ff429286226a66ad27e9e3afc2c8108847e2761020fcb4f67712355686dde660",
+      "currentSha256": "584545ac50070321f2449efcc93e9e1d4544d09298c84aa4a09215701fe22911"
+    }
+  ],
+  "componentAssertionSuccession": {
+    "replacedObsoleteLayoutAssertions": 17,
+    "reviewedEqualOrStrongerSuccessors": 20,
+    "otherTestBytesPreserved": true
+  },
+  "proseSuccession": {
+    "prior840Receipt": "audit/evidence/mission-completion-20261102/reader-prose-final840-review.json",
+    "prior840ReceiptSha256": "b7b618d7a5beeb16bb9feadecd08bef263adf302d350a36a1fc4f287235c3529",
+    "original840EditsPreserved": true,
+    "other26ArticlesUnchanged": true,
+    "exactAdditionalEdits": 6,
+    "applicationCommit": "1fe20e32b6af2d6ea469c8ed59c0f3d253344795",
+    "actualImmediatePredecessorCommit": "eb4f771c0265ec001be134ae5cd3b76e01d41e5a",
+    "forwardReverseExact": true,
+    "actual28Words": 1234,
+    "unchangedCap": 1228,
+    "postApplicationCapAcceptance": "pending actual build"
+  },
+  "readerEvidence": {
+    "commit": "eb4f771c0265ec001be134ae5cd3b76e01d41e5a",
+    "passed": 109,
+    "total": 110,
+    "r18PressResult": "fail",
+    "fixedRubricUnchanged": true
+  },
+  "readerAcceptance": false,
+  "renderedCapAcceptance": false,
+  "releaseAcceptance": false,
+  "evidenceHashes": {
+    "reader-round18-independent-review-20261104/review.json": "6da7312cbda7d28adecde05818ef31958d344692d502d97124b87b8c1a59e314",
+    "reader-round18-clarity-20261104/production28/root-verification.json": "c79d54693f2b948b916b0a6c428a327205ec69b82549b7604245f180f4454a1e",
+    "prose-action-spaces-r18-reserve-20261104/SNAPSHOT-MANIFEST.json": "7166bda7d322eb762b313f9e87a30ab576ee54a416d1bf05e1792bd0cfd96749",
+    "prose-final-trim-plan-independent-review-20261103/r18-reserve-review.json": "a3e2bdca3d9e7b535c77e61ed5757ec99c9f266b32e9e0db8ba28c5f1ae52cbc",
+    "edits.json": "de7aa7f362311aa5b1996b5df2d42f5f1d293d3e3e697a27836f1e0256473772",
+    "application.json": "dba21545318a2ca16a056eb89a6613973b254701642eb2cb8e4d54ab102bba1d",
+    "integration.json": "5300db9a595fe57e8ed98439a1c32ba087d037b7d868a8d5b7e91801c1a4df99"
+  }
+}

@@ -53,6 +53,9 @@ if (!structuredOnly) {
     process.exit(1);
   }
 
+  // Next copies the previous public mirror into out/. Pagefind retains old
+  // hashed chunks, so start this generated directory fresh on every rebuild.
+  rmSync(join(outDir, 'pagefind'), { recursive: true, force: true });
   const bin = join(root, 'node_modules', '.bin', 'pagefind');
   const result = spawnSync(bin, ['--site', outDir], {
     stdio: 'inherit',

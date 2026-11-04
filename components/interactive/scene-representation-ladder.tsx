@@ -675,36 +675,44 @@ export function SceneRepresentationLadder({
     <div
       role="group"
       aria-label="How the robot stores the room"
-      className="grid justify-items-start gap-1"
+      className="grid basis-full gap-3"
     >
-      <span aria-hidden="true" className="font-sans text-sm text-text-dim">
-        How the robot stores the room
-      </span>
-      <div className="flex flex-wrap gap-1">
+      <div className="grid gap-3">
         {REPRESENTATIONS.map((rep) => {
           const active = rep.id === selectedId;
+          const direct = CAPABILITIES.filter((capability) => rep.capabilities[capability.id].state === 'yes');
           return (
-            <button
-              data-brand-control-id="control:selection"
+            <div
               key={rep.id}
-              type="button"
-              aria-pressed={active}
-              aria-label={`${PLAIN_NAME[rep.id]} (${rep.short}): stores ${rep.stores}`}
-              data-testid={`scene-select-${rep.id}`}
-              onClick={() => setSelectedId(rep.id)}
-              className={INSTRUMENT_TOGGLE_CLASS}
+              data-testid={`scene-format-row-${rep.id}`}
+              className="grid min-w-0 gap-1 sm:grid-cols-2 sm:gap-x-6"
             >
-              {PLAIN_NAME[rep.id]}
-            </button>
+              <div className="min-w-0 justify-self-start">
+                <button
+                  data-brand-control-id="control:selection"
+                  type="button"
+                  aria-pressed={active}
+                  aria-label={`${PLAIN_NAME[rep.id]} (${rep.short}): stores ${rep.stores}`}
+                  aria-describedby={`${uid}-direct-${rep.id}`}
+                  data-testid={`scene-select-${rep.id}`}
+                  onClick={() => setSelectedId(rep.id)}
+                  className={INSTRUMENT_TOGGLE_CLASS}
+                >
+                  {PLAIN_NAME[rep.id]}
+                </button>
+              </div>
+              <div id={`${uid}-direct-${rep.id}`} className="grid gap-1 font-sans text-base leading-snug text-text">
+                {direct.length ? direct.map((capability) => (
+                  <p key={capability.id}>{QUESTION[capability.id]}</p>
+                )) : <p>None of these three directly</p>}
+              </div>
+            </div>
           );
         })}
       </div>
-      <span data-testid="scene-technical-name" className="font-sans text-sm text-text-dim">
-        Engineers call this {selected.article} {selected.name}
-      </span>
-      <span className="font-sans text-sm leading-snug text-text-dim">
-        Distance option: from each small box to a surface the camera sees, along its line of sight. Picture option: coloured shapes in 3D overlap to draw the room from a chosen camera position.
-      </span>
+      <p className="font-sans text-sm leading-snug text-text-dim">
+        Other answers may need extra processing; the selected format’s details are shown below.
+      </p>
     </div>
   );
 
@@ -796,11 +804,23 @@ export function SceneRepresentationLadder({
       controls={
         <>
           <p data-testid="scene-main-comparison" className="basis-full font-sans text-lg font-medium leading-snug text-text">
-            <span>Only the storage format changes which questions the robot can answer.</span>{' '}
-            Finer detail costs more memory but answers the same questions.
+            Storage format → questions it answers directly
           </p>
           {selector}
-          {resolution}
+          <div className="grid basis-full gap-3 pt-3">
+            <p data-testid="scene-resolution-rule" className="font-sans text-lg font-medium leading-snug text-text">
+              Finer detail → more memory, the same questions
+            </p>
+            {resolution}
+            <div className="grid gap-1">
+              <span data-testid="scene-technical-name" className="font-sans text-sm text-text-dim">
+                Engineers call this {selected.article} {selected.name}
+              </span>
+              <span className="font-sans text-sm leading-snug text-text-dim">
+                Distance option: from each small box to a surface the camera sees, along its line of sight. Picture option: coloured shapes in 3D overlap to draw the room from a chosen camera position.
+              </span>
+            </div>
+          </div>
         </>
       }
       adjust={

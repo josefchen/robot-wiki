@@ -330,8 +330,8 @@
       "reviewSourceSha256": "0d834c847336dad4f872595663798c3b8df5562552f58d58d5e8df2ba8408d00",
       "current": {
         "path": "tests/e2e/safety-and-assurance.spec.ts",
-        "bytes": 28813,
-        "sha256": "426ba5768cf29bdaef92255fe76e1619fdbdc32229a8e71bd1e7ba80c5f8dea1"
+        "bytes": 28804,
+        "sha256": "5fc5166ee4cac928f68478c9ada17e3220bceec5813f94339ccd9e8eea88b734"
       },
       "reason": "The current spec keeps the route discovery population, source-backed standards and dated editions, collaboration modes, separation-model monotonicity/reset, shared force-limit equality and accessibility checks as the article presentation evolves. The current headline literal distinguishes industrial renewal, the undated humanoid draft and January 2027 law; an additional visible stage assertion preserves the explicit 2025 industrial-standard year. Every existing case, action, quantity, matcher and approval obligation remains. The visible 2025 assertion now binds the complete dated definition-list row, retaining the year and industrial-standard renewal rather than weakening it to undated text. All existing cases, actions, numeric literals and predicates remain. The seventh successor keeps the same summary visible and checks its full 2025 industrial-renewal statement exactly after splitting the date and description; all other case bytes remain unchanged.",
       "coverage": [
@@ -341,7 +341,7 @@
             "the separation readout rises strictly with robot speed and the mode switch swaps the readout",
             "the rendered force limit matches /classical/control character for character, with the same basis",
             "zero axe violations and zero console errors",
-            "toHaveText('Industrial robot safety standards were renewed in 2025')",
+            "toHaveText('2025Industrial robot safety standards renewed')",
             "getByTestId('safety-summary-industrial')).toBeVisible()"
           ]
         }
