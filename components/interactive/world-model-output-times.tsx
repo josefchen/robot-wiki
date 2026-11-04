@@ -54,7 +54,7 @@ export function WorldModelOutputTimes({ className }: { className?: string }) {
               return (
                 <g key={row.id} data-series={row.id} data-testid={`output-time-${row.id}`} data-seconds={row.seconds} data-time-kind={row.kind}>
                   <DirectLabel x={12} y={y} seriesFor={row.id}>
-                    <tspan fontWeight={600}>{OUTPUT_ROLE[row.id]}</tspan> · {row.label}
+                    <tspan fontWeight={600}>{OUTPUT_ROLE[row.id]}</tspan> · {row.id === 'cosmos-planner' ? '' : row.id === '3dgs' ? 'method: ' : 'model: '}{row.label}
                   </DirectLabel>
                   <text x="12" y={y + 17} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.labelSecondary}>Chips: {row.hardware}</text>
                   {row.kind === 'upper-bound' ? (

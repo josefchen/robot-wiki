@@ -73,15 +73,27 @@ export function AvSafetyMiles({ className }: { className?: string }) {
       figureId="av-safety-miles"
       className={className}
       kicker="Miles needed to prove safety"
-      heading="No fatalities in 275 million miles: 95% confidence"
+      heading="Fleet: 275 million miles without deaths, at 95% confidence"
       stage={
         <FigureStage>
-          <p className="pb-3 font-sans text-lg font-medium leading-snug text-text" data-testid="av-confidence-summary">
-            At 95% confidence, 275 million miles without a death supports a fatality rate no higher than the study’s US human-driver benchmark.
-          </p>
-          <p className="font-sans text-sm leading-snug text-text">
-            95% refers to upper limits calculated from repeated studies. In the long run, at least 95 out of 100 such limits would reach or exceed the true fatality rate. Here the upper limit is about 1.09 deaths per 100 million miles.
-          </p>
+          <div className="grid gap-2 pb-3 font-sans leading-snug text-text" data-testid="av-confidence-summary">
+            <dl className="grid gap-2">
+              <div data-testid="av-required-run" className="grid gap-1">
+                <dt className="text-lg font-medium">Required fleet run at <span className="font-mono text-2xl">95%</span> confidence</dt>
+                <dd className="flex flex-wrap gap-x-4 font-mono text-2xl font-medium"><span>275 million miles</span>{' '}<span className="whitespace-nowrap">0 deaths</span></dd>
+              </div>
+              <div data-testid="av-upper-limit" className="grid gap-1">
+                <dt className="text-base">Calculated upper bound for this hypothetical run</dt>
+                <dd className="grid gap-2">
+                  <p className="text-lg">About <strong className="font-mono text-2xl font-medium">1.09</strong> deaths per 100 million miles</p>
+                  <p className="text-lg font-medium">No higher than the study’s US human-driver benchmark</p>
+                  <p data-testid="av-confidence-coverage" className="text-sm">
+                    The true fatality rate remains unknown. In the long run, at least 95 out of 100 upper bounds from studies of the same design would reach or exceed it.
+                  </p>
+                </dd>
+              </div>
+            </dl>
+          </div>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Failure-free miles needed to match human death, injury and crash rates"
@@ -177,6 +189,13 @@ export function AvSafetyMiles({ className }: { className?: string }) {
       caption={CAPTION}
       method={
         <>
+          <p data-testid="av-model-assumptions">
+            This is a hypothetical test with a fixed distance and zero deaths. The model assumes independent miles
+            with the same failure probability on every mile. The study’s 2013 US benchmark includes all motor vehicles.
+          </p>
+          <p data-testid="av-rare-event-explanation" className="font-sans text-sm leading-snug text-text">
+            Under the study’s per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.
+          </p>
           <div>
             Kalra and Paddock treat each mile as a trial that either fails or does not. If the chance of no
             failure in a mile is R, the miles n that must pass without one to show the rate at confidence C are

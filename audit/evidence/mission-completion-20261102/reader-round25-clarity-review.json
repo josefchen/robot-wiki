@@ -1,0 +1,653 @@
+{
+  "schemaVersion": "reader-round25-clarity-successor-review-v1",
+  "status": "R25 source successor and actual36 early production checkpoint; fresh reader failed, full author/independent technical matrix not run",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "ce5e967e2ef7f61b6db560816927fb60047e0206",
+      "previousSourceSha256": "30a5adeb93de8ab26a25facbfe10f24dd733e33600c2dde98808da2af0aed6a1",
+      "oldMemberHash": "18524f34ff877936d654fe874459818b0ed63ab9402dc61161d9931f01916ebf",
+      "newMemberHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+        "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+        "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+        "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+        "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+        "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+        "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+        "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+        "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+        "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+        "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+        "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+        "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+        "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+        "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+        "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+        "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+        "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+        "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+        "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: record the independently source-approved R25 causal sequence in the one real AnatomyStage: the action sends target and stiffness, Controller/Shown response contains the retained state diagram and condition, then the explicit verbal product, original numerical calculation/descriptors and unit gloss; the sole native-control wrapper follows. Original model/scientific/method/caption source remains exact; native settings are recovered by reversing the one local SliderRow gap-y-1 class, and the flat diagram by the one condition class. Native callbacks, ranges, IDs and children remain exact. The local gap repair addresses retained actual35 focus overpaint and has its own four E2E successors plus eight added focus assertions. Four source-collected name members and six description references remain unchanged. The exact private SSR PresetGroup generated label ID/reference pair successor is explicit in audit/evidence/mission-completion-20261102/reader-round25-clarity-review.json; no generic ID normalization or unchanged-accessibility-tree claim is made. Seven source and seventeen component successors and eleven layered browser-test successors have exact inverses; all original cases/assertions remain. Source/early/public-case, actual35, committed reader and full remaining technical matrix statuses are separate and must remain truthful; this receipt grants no reader or full-release acceptance.",
+      "currentSourceSha256": "eeb0cb31adb9843f0eb3935cd52de971b4a1144ede42ebd78b3e52d729a4318e",
+      "currentSourceCommit": "1e3c51dee4f3f0a22670c6c794809b1d208cca4c"
+    }
+  ],
+  "semanticContinuity": {
+    "shortActionStatement": "An action sends two settings: target and stiffness.",
+    "separateVerbalLaw": "Stiffness times target gap equals push.",
+    "stateConditionSourcePreservedExceptClass": true,
+    "sourceOrder": [
+      {
+        "id": "press-primary-takeaway",
+        "start": 8295,
+        "tag": "p",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-controller-output",
+        "start": 9076,
+        "tag": "div",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-response-label",
+        "start": 10268,
+        "tag": "p",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-response-diagram",
+        "start": 10372,
+        "tag": "div",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-position-diagram",
+        "start": 10451,
+        "tag": "div",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-position-condition",
+        "start": 12165,
+        "tag": "p",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-general-rule",
+        "start": 13108,
+        "tag": "p",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-calculation",
+        "start": 13260,
+        "tag": "div",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-scale-definitions",
+        "start": 16953,
+        "tag": "p",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-native-controls",
+        "start": 17202,
+        "tag": "div",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-chosen-settings",
+        "start": 17311,
+        "tag": "p",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-settings",
+        "start": 17404,
+        "tag": "div",
+        "props": [
+          "stage"
+        ]
+      },
+      {
+        "id": "press-run",
+        "start": 18983,
+        "tag": "button",
+        "props": [
+          "stage"
+        ]
+      }
+    ],
+    "actualStageContainsFullCausalSequence": true,
+    "soleNativeControlsOwnerFollowsResponse": true,
+    "noRedundantInnerDrawingMarker": true,
+    "oldScientificSubtreesExact": [
+      "press-run",
+      "press-calculation",
+      "press-proof",
+      "press-drawing",
+      "press-gap-guide"
+    ],
+    "nativeSettingsExactAfterOneLocalGapClassInverse": {
+      "beforeSha256": "39d2f495b27117b6da5ae988f0825b1f2d9b23b322b66f1be9a7641e8dc76d8f",
+      "candidateSha256": "c9e0aa0350c090c61d172727725db20ec9a9d061f9f94c55c0e86c2634b06800",
+      "beforeBytes": 2413,
+      "candidateBytes": 2421,
+      "unchanged": false,
+      "changedOnlyOneSliderRowClass": true,
+      "oldClassAttribute": "className=\"max-[320px]:grid max-[320px]:grid-cols-1 max-[320px]:[&>div]:min-w-0 max-[320px]:[&_input]:min-w-0 max-[320px]:[&>span]:whitespace-normal\"",
+      "newClassAttribute": "className=\"gap-y-1 max-[320px]:grid max-[320px]:grid-cols-1 max-[320px]:[&>div]:min-w-0 max-[320px]:[&_input]:min-w-0 max-[320px]:[&>span]:whitespace-normal\"",
+      "candidateOccurrences": 1,
+      "inverseRestoresExactNativeBlock": true,
+      "callbacksRangesIdsAndNativeChildrenPreserved": true
+    },
+    "originalFlatDiagramAfterExactConditionClassInverse": true,
+    "sourceBlockPreservation": [
+      {
+        "name": "behaviorPrefix",
+        "bytes": 7617,
+        "sha256": "079f269f7fc4d45b2ccb4717f30ad86698b78a59ec56860e547c273dddc58088",
+        "beforeOffset": 0,
+        "afterOffset": 0,
+        "exactBeforeAfter": true
+      },
+      {
+        "name": "calculationAndDescriptors",
+        "bytes": 3686,
+        "sha256": "3680df4e27cb2f808aaf6beb8fbd5257aa4745bd474475077ef83002c1754748",
+        "beforeOffset": 10327,
+        "afterOffset": 13251,
+        "exactBeforeAfter": true
+      },
+      {
+        "name": "captionAndMethod",
+        "bytes": 7958,
+        "sha256": "601eafda88fbad19d1951100d98ab24833d58a1bde1a8ab824b335cf8da85b79",
+        "beforeOffset": 19891,
+        "afterOffset": 19892,
+        "exactBeforeAfter": true
+      }
+    ],
+    "collectedAccessibleNameMembersUnchanged": [
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:1",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-controller`}"
+        },
+        "hash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+      },
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:2",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-settings`}"
+        },
+        "hash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+      },
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:3",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-gap-label`}"
+        },
+        "hash": "2695fc01219bea34a8f48b43056c7ef57840c63e006059fa497b6ac656d003d9"
+      },
+      {
+        "id": "literal:components/interactive/impedance-press.tsx:aria-label:1",
+        "value": {
+          "attribute": "aria-label",
+          "text": "Stiffness times target gap equals push"
+        },
+        "hash": "e0e4c81f7aea9df0e4d216c14139d7fc55f2dc175f3b0566326a4286e4fd19de"
+      }
+    ],
+    "descriptionReferencesUnchanged": [
+      {
+        "node": "gap",
+        "reference": "{`${sliderId}-gap-description`}"
+      },
+      {
+        "node": "press-controller-output",
+        "reference": "{`${sliderId}-controller-role`}"
+      },
+      {
+        "node": "press-gap-operand",
+        "reference": "{`${sliderId}-gap-evidence`}"
+      },
+      {
+        "node": "press-settings",
+        "reference": "{`${sliderId}-definitions`}"
+      },
+      {
+        "node": "push",
+        "reference": "{`${sliderId}-push-description`}"
+      },
+      {
+        "node": "stiffness",
+        "reference": "{`${sliderId}-stiffness-description`}"
+      }
+    ],
+    "resolvedGroupNamesRetained": [
+      "Action stiffness",
+      "An action sends two settings: target and stiffness",
+      "Controller",
+      "Stiffness times target gap equals push",
+      "target gap"
+    ],
+    "sixNativeIdentitiesRetained": true,
+    "generatedIdSuccessor": {
+      "before": "_R_333_",
+      "after": "_R_1ml_",
+      "scope": "Exact generated pair plus one separately recorded local gap class in private SSR; actual36 selected public cases are verified, full matrix remains incomplete",
+      "allOtherIdsExact": true,
+      "allNativeIdsNamesAndStatesExact": true,
+      "allFiveResolvedGroupNamesExact": true,
+      "idsUniqueAndReferencesResolved": true,
+      "productionHydrationCheckPending": true
+    },
+    "defaultPhysicalProofDisclosureUnchanged": true,
+    "entireAccessibilityTreeUnchanged": false,
+    "readingOrderAndTextSuccessorsExplicit": true,
+    "semanticDom": [
+      {
+        "state": "default",
+        "beforeHtmlSha256": "0a993edc59f814ffb0a59cc2b38a9c812bbe0a9c54f476a2fe2990432ba2db8d",
+        "afterHtmlSha256": "426dac9f3255d467ec786bff8026985c9319a95871e3e7bcf2bd212f8ecf431c",
+        "resolvedGroupNames": [
+          "Action stiffness",
+          "An action sends two settings: target and stiffness",
+          "Controller",
+          "Stiffness times target gap equals push",
+          "target gap"
+        ],
+        "nativeIdentities": 6,
+        "sourceOrderMatchesDom": true,
+        "oneRealStage": true,
+        "oneStageDrawing": true,
+        "oneNativeControlsOwner": true,
+        "generatedPresetIdSuccessor": {
+          "before": "_R_333_",
+          "after": "_R_1ml_",
+          "onlyTwoGeneratedIdAttributesRemapped": true,
+          "oneExactLocalGapClassReversed": true
+        },
+        "allIdsUniqueAndReferencesResolved": true
+      },
+      {
+        "state": "free",
+        "beforeHtmlSha256": "64cc41780e72f5f76f82ca02eb9d808d7285ffa0169553180e999009f44086e6",
+        "afterHtmlSha256": "ad7330eb3d7b398b8a56af0903282465e7d30764b06c4fa13be973c3d55d1c76",
+        "resolvedGroupNames": [
+          "Action stiffness",
+          "An action sends two settings: target and stiffness",
+          "Controller",
+          "Stiffness times target gap equals push",
+          "target gap"
+        ],
+        "nativeIdentities": 6,
+        "sourceOrderMatchesDom": true,
+        "oneRealStage": true,
+        "oneStageDrawing": true,
+        "oneNativeControlsOwner": true,
+        "generatedPresetIdSuccessor": {
+          "before": "_R_333_",
+          "after": "_R_1ml_",
+          "onlyTwoGeneratedIdAttributesRemapped": true,
+          "oneExactLocalGapClassReversed": true
+        },
+        "allIdsUniqueAndReferencesResolved": true
+      },
+      {
+        "state": "zero",
+        "beforeHtmlSha256": "f3b465d4ce8e873244272ea1bb6e8c72e3641f8248dc0685f19fe55068e68d85",
+        "afterHtmlSha256": "bb4d20d04f319a6408672f287a1adbfe09c30a1b23f1901dc8e9f94e28c65110",
+        "resolvedGroupNames": [
+          "Action stiffness",
+          "An action sends two settings: target and stiffness",
+          "Controller",
+          "Stiffness times target gap equals push",
+          "target gap"
+        ],
+        "nativeIdentities": 6,
+        "sourceOrderMatchesDom": true,
+        "oneRealStage": true,
+        "oneStageDrawing": true,
+        "oneNativeControlsOwner": true,
+        "generatedPresetIdSuccessor": {
+          "before": "_R_333_",
+          "after": "_R_1ml_",
+          "onlyTwoGeneratedIdAttributesRemapped": true,
+          "oneExactLocalGapClassReversed": true
+        },
+        "allIdsUniqueAndReferencesResolved": true
+      }
+    ],
+    "productionHydrationAndFitPending": true,
+    "fullTechnicalMatrixPending": true,
+    "actual36SelectedPublicCasesVerified": true,
+    "nativeSettingsUnchangedClaim": false
+  },
+  "sourceAndTestEpochs": [
+    {
+      "path": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "ce5e967e2ef7f61b6db560816927fb60047e0206",
+      "previousSha256": "30a5adeb93de8ab26a25facbfe10f24dd733e33600c2dde98808da2af0aed6a1",
+      "currentSha256": "eeb0cb31adb9843f0eb3935cd52de971b4a1144ede42ebd78b3e52d729a4318e",
+      "currentSourceCommit": "1e3c51dee4f3f0a22670c6c794809b1d208cca4c"
+    },
+    {
+      "path": "tests/component/impedance-press.test.tsx",
+      "previousSourceCommit": "ce5e967e2ef7f61b6db560816927fb60047e0206",
+      "previousSha256": "8e772944bc7fee9ae8158725417fd918d00bce7006eb295a2954a060c2b934db",
+      "currentSha256": "942b6ea9ad7b870c76eaa6b0c9bf91913eb71928504879ae6f93d0f3b3f99f68",
+      "currentSourceCommit": "1e3c51dee4f3f0a22670c6c794809b1d208cca4c"
+    },
+    {
+      "path": "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+      "previousSourceCommit": "ce5e967e2ef7f61b6db560816927fb60047e0206",
+      "previousSha256": "552e2d7fceb86d4db7f896e8047f1be9b2a88eae0ac98bc2efa740eda38971fe",
+      "currentSha256": "c1797627cf46e7a22fb6ef0c55287f9884d6da6d2738d4302e5736a71f8033a4",
+      "currentSourceCommit": "1e3c51dee4f3f0a22670c6c794809b1d208cca4c"
+    }
+  ],
+  "evidenceHashes": {
+    "reader-round25-design-20261104/repair-focus-gap/HANDOFF.md": "0c41e17c7f33f71bfa0b1b92ff99240cd027defd32b51bfacc0b065a3acdbaab",
+    "reader-round25-design-20261104/repair-focus-gap/source-preservation.json": "229b0b495b2b8d568b3d5326241bd5fa1f690a958ac15272458506f0f6cbe569",
+    "reader-round25-design-20261104/repair-focus-gap/source-successors-cumulative.json": "ad4a782a23d425c7e70c81a77810402c68140335570b82a5a95607cd2fe00636",
+    "reader-round25-design-20261104/repair-focus-gap/test-successors-cumulative.json": "6f7570de0d15c11b8e0ffcf4d776446d0fd4db7b5620f4f010501361d8ad91c3",
+    "reader-round25-design-20261104/repair-focus-gap/cumulative.patch": "31993fd56c0b865edb065968c13013524370a43649a1acdebe2f63fb8deb7fc8",
+    "reader-round25-design-20261104/repair-focus-gap/cumulative-inverse.patch": "a006227cdf9e7968dba91303995d247b2ff18e860b8cf66c3284198a0980dcc0",
+    "reader-round25-design-20261104/repair-focus-gap/patch-application.json": "3bd5f04b2ba1eff456c07f9f2c37e19331346f6f6441d95a599740915b2bec94",
+    "reader-round25-design-20261104/repair-focus-gap/private-vitest-results.json": "d23ba2d8c38abe250ca258a713e56b5247fcf51a0961ed1354336e8b2966d0e9",
+    "reader-round25-design-20261104/repair-focus-gap/private-ssr-comparison.json": "cb6f7463877a674e91610b49823fe0a1cba71a011d2f4d03d3083a9726fa2139",
+    "reader-round25-design-20261104/repair-focus-gap/manifest.json": "ac3640899b4bbf30bb90da87c3fa604ab0aaf3fb67d5acda528a10b2527a57e9",
+    "press-r25-browser-regression-20261104/successors.json": "87ee05a6f22d7fcb070b7a37049df981630ec0c5d1ac1c53854d433d0fb8d1e2",
+    "reader-round25-independent-review-20261104/SOURCE-APPROVAL.json": "f4dba8934253f6b664d5aee54323aba7fa9a5a2c3f949a3ef886436d7ac61005",
+    "reader-round25-independent-review-20261104/E2E-SOURCE-APPROVAL.json": "cbda74f94265d56bfbe512c756545d3430ec77c38d8c2b845d461b4b3cb6661e",
+    "reader-round25-independent-review-20261104/AST-PRESERVATION.json": "6e03dd4460eee3415ae114d5c482c02298a8d9fc8a4e357ee70a12aee321096b",
+    "reader-round25-independent-review-20261104/SEMANTIC-STAGE-REVIEW.json": "82c200269566a1f3faa6ba9195dd7825e404684137855627fc820d302859c168",
+    "reader-round25-independent-review-20261104/STAGE-FINDING.json": "efb3185184babfdf4948a232b333f9edf29b60ba98189bb04a39f81a56b6e4f1",
+    "reader-round25-independent-review-20261104/STAGE-RESOLUTION.json": "5c91590faf2225f138f015f4e08dab0dd0169b2263d9e2d20702f2406674615f",
+    "reader-round25-independent-review-20261104/repair-focus-gap/SOURCE-APPROVAL.json": "577fc5f2e93fa6a5cbbbd4192d41a8f6b81e4ffeb0bbf5f124338af6d1e4d4cb",
+    "reader-round25-independent-review-20261104/repair-focus-gap/assertion-preservation.json": "39c4a30443b97d431db90619b20a7efa9d205eaab29f1937421fbd9fc6d754a9",
+    "reader-round25-independent-review-20261104/repair-focus-gap/diagnostic-review.json": "d5810b170c6d2418853bf1a8d16ea8e7d13e772a8780308ac8fd9f7b64b4f31f",
+    "reader-round25-independent-review-20261104/repair-focus-gap/preservation.json": "aa9974ef615051539c5aa74e83ad95574d7fe9de62d1a70a7cbe3ad965b9b15c",
+    "press-r25-browser-regression-20261104/repair-focus-gap/successors.json": "377d1c208a65fc492e86733fe15fecefa7e82888660507afc6eb145c34001d71",
+    "root-application/press-r25-regression-application.json": "6d117066ae7061418ac9fdf2b477108306f83ae86027e2fcb11a1ae056682223",
+    "root-application/reader-round25-focus-repair-application.json": "fe412f47b802ea94a8409eb25fb77a2afd3c66db82df6e4a811f74984b9e74d7"
+  },
+  "sourceSuccession": {
+    "replacementRows": 7,
+    "completeInverseExact": true
+  },
+  "componentSuccession": {
+    "originalCases": 13,
+    "currentCases": 13,
+    "replacementRows": 17,
+    "replacementOccurrences": 17,
+    "staticExpectCallsBefore": 357,
+    "staticExpectCallsAfter": 403,
+    "completeInverseExact": true
+  },
+  "e2eSuccession": {
+    "path": "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+    "beforeCommit": "ce5e967e2ef7f61b6db560816927fb60047e0206",
+    "beforeBytes": 89685,
+    "beforeSha256": "552e2d7fceb86d4db7f896e8047f1be9b2a88eae0ac98bc2efa740eda38971fe",
+    "afterBytes": 94563,
+    "afterSha256": "c1797627cf46e7a22fb6ef0c55287f9884d6da6d2738d4302e5736a71f8033a4",
+    "countedChanges": 11,
+    "completeForwardInverseExact": true,
+    "firstSevenCaseBytes": 65451,
+    "firstSevenCaseSha256": "fc98476650de40de20bd51f7f0fc567066c7a1d586519ee9669ca6f313ad5232",
+    "firstSevenCasesExact": true,
+    "caseTitles": [
+      "enforces route loading, zoom-equivalent, and text-only profiles for every route",
+      "all public routes reach zero 320px overflow",
+      "registered SliderRows fit the required narrow zoom profile and reject restored fixed minimums",
+      "narrow zoom keeps the four residual routes readable and rejects field-floor and stat-column regressions",
+      "figure comparison labels reflow at twice their original text size",
+      "press gap guide preserves measured endpoints and forced-colour visibility",
+      "press fractional equation stays readable during native Run at narrow text and zoom profiles",
+      "press default position diagram preserves native boundaries, labels and paint in every narrow and forced profile"
+    ],
+    "caseCountBefore": 8,
+    "caseCountAfter": 8,
+    "originalAssertionStatements": 149,
+    "all149OriginalAssertionsPreserved": true,
+    "guideAndActionsBytes": 8098,
+    "guideAndActionsSha256": "8e950c0af75eae048b90883cae3750d722ad3e8bc5cc5119b07a6b3003b92cc2",
+    "originalGuideNative": 30,
+    "originalGuideNegative": 16,
+    "firstFractionalProfiles": 2,
+    "positionProfiles": 8,
+    "positionDefaults": 8,
+    "positionNative": 120,
+    "positionNegative": 24,
+    "methodRoundTrips": 8,
+    "rootApplicationSha256": "6d117066ae7061418ac9fdf2b477108306f83ae86027e2fcb11a1ae056682223",
+    "e2eSourceApprovalSha256": "cbda74f94265d56bfbe512c756545d3430ec77c38d8c2b845d461b4b3cb6661e",
+    "candidateNowApplied": true,
+    "actual36RuntimeBindingPending": false,
+    "additionalAssertionStatements": 8,
+    "totalAssertionStatements": 157,
+    "focusEligibilityProfiles": 8,
+    "focusNegativeWitnesses": 5,
+    "supplementalSourceApprovalSha256": "577fc5f2e93fa6a5cbbbd4192d41a8f6b81e4ffeb0bbf5f124338af6d1e4d4cb",
+    "verifiedPublicCases": 4,
+    "observedFocusEligibilityProfiles": 8,
+    "observedFocusNegativeWitnesses": 5
+  },
+  "sourceApprovalSha256": "f4dba8934253f6b664d5aee54323aba7fa9a5a2c3f949a3ef886436d7ac61005",
+  "e2eSourceApprovalSha256": "cbda74f94265d56bfbe512c756545d3430ec77c38d8c2b845d461b4b3cb6661e",
+  "historicalProseReceiptsPreserved": {
+    "original840Sha256": "b7b618d7a5beeb16bb9feadecd08bef263adf302d350a36a1fc4f287235c3529",
+    "sixWordSha256": "cd7129f4d72ef1447c336d0f05d9205a4a6729b676db352d19cd6d9b3e5ced26",
+    "all27MdxUnchanged": true
+  },
+  "precedingR24ReviewPreserved": {
+    "path": "audit/evidence/mission-completion-20261102/reader-round24-clarity-review.json",
+    "sha256": "ceb40119c83cb53f4660885f2b9522733ffc24b92f1d10953c67257677020503"
+  },
+  "validationStages": {
+    "independentSourceReview": {
+      "status": "approved",
+      "remainingSourceFindings": []
+    },
+    "focusedSourceChecks": {
+      "reportedTests": 17,
+      "typesExit": 0,
+      "lintExits": [
+        0,
+        0
+      ],
+      "scope": "source/private SSR; no production assertion"
+    },
+    "earlyBrowser": {
+      "status": "early source and production checkpoints only",
+      "rootProductionReceiptSha256": "3cfd41b7e57be6b8cca77c4d2488cf061e9a70e4ccf59df09d8927d44111891a",
+      "actual36OpenedImages": [
+        {
+          "path": "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/impedance-press-1440-text-200-da5aa6836dd656327e5db81380c5336719dc1317.png",
+          "sha256": "7bce22061d3c420ed3626f7cc5c2923aabab5a56eb91bd0fccff253f8bfad9d7"
+        },
+        {
+          "path": "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/impedance-press-375-text-200-a583397146d73122d207ddbfe42696caf91b217d.png",
+          "sha256": "a8f40aedac21731af1ec9625e9bcca4240d838b25d1b6308f1b587ca4b1aa630"
+        },
+        {
+          "path": "public-results/brand-v2-reflow-320-200-pr-e3b89-nd-forced-colour-visibility/attachments/press-guide-1280-forced-dark-2fef983652d14d317724352059aafeaeaf194fb4.png",
+          "sha256": "72967f590e63a16674c89725769e2b3e6c4d8e6aa3f8184c78e8226846f01c92"
+        },
+        {
+          "path": "public-results/brand-v2-reflow-320-200-pr-e3b89-nd-forced-colour-visibility/attachments/press-guide-375-forced-dark-e7a55f1f591c26aca74e4855cfba4f5f6663ed3e.png",
+          "sha256": "ea2fbb36b7fff01a8514a349f7bbd1a8a4415d1e66f3bd32f0d97d1247ca36f2"
+        },
+        {
+          "path": "root-focus-final-light.png",
+          "sha256": "4949c27ae50887a4e7a0269772453d87424d72ce412ee82077d375dcd6b85680"
+        },
+        {
+          "path": "root-focus-final-dark.png",
+          "sha256": "0b5afdfcf96d4e3b14666a60984ec22227f85be1c5634ac6a1f3c82397452fec"
+        }
+      ],
+      "fullMatrixAcceptance": false
+    },
+    "committedImplementation": {
+      "status": "committed exact four-path implementation",
+      "commit": "1e3c51dee4f3f0a22670c6c794809b1d208cca4c"
+    },
+    "freshReader": {
+      "status": "honest failed result",
+      "commit": "aa88c4740dadd3c55e581d94954f645eafa5fa41",
+      "verdict": "fail",
+      "passed": 109,
+      "total": 110,
+      "recordSha256": "d87b379355d9cd20b115fbf727fd1a96b03c802f42d494974cd72b25309e1153"
+    },
+    "fullTechnicalMatrix": {
+      "status": "NOT RUN after failed reader",
+      "originalCoreRowsRequired": 112,
+      "completed": false,
+      "independentFullTechnicalApprovalExists": false,
+      "requiredForFinalAcceptance": true,
+      "order": "The early-reader checkpoint did not waive any unchanged full-matrix or release requirement."
+    },
+    "actual36ProductionAndPublicCases": {
+      "status": "selected four public cases passed; not the full technical matrix",
+      "metadataSha256": "1415a393d2700f008960fc37e8ce9dfc8b5eae02c2a576ccf4eaecb8348d046f",
+      "allCapsPass": true,
+      "actionSpacesWords": 1212,
+      "cap": 1228,
+      "rendererInputs": 238,
+      "exportFiles": 1195,
+      "exportBytes": 126661665,
+      "at": "2026-11-04T18:35:15.304061+00:00",
+      "passedPublicCases": 4,
+      "nativeObservations": 30,
+      "exactNativePopulation": true,
+      "nativeErrors": 0,
+      "negativeWitnesses": 16,
+      "allMutationsDetected": true,
+      "specUnchanged": true,
+      "rendererInputsStable": 238,
+      "exportFilesStable": 1195,
+      "observationSha256": "7870dff74e9c3b9a727cc07567a1feba175ea6131a63e2584003c0f5df33151e",
+      "fractionalProfiles": 2,
+      "positionDefaults": 8,
+      "positionNativeAnchors": 120,
+      "positionNegativeWitnesses": 24,
+      "positionObservationSha256": "ca1591527c6f32bbfe2f1ba2104a386ce27294db97c09fa14d39f57b3a417b8b",
+      "fractionalObservationSha256": "fada085116e0759f5a5b36fd6d38cf141424931e0d56f4a4e78827777891e801",
+      "focusClearanceProfiles": 8,
+      "focusClearanceNegativeWitnesses": 5,
+      "wrappedFocusProfiles": [
+        "canonical-text-200-375",
+        "phone",
+        "phone-forced-dark",
+        "phone-forced-light",
+        "zoom-equivalent-200-187"
+      ]
+    }
+  },
+  "implementationCommit": "1e3c51dee4f3f0a22670c6c794809b1d208cca4c",
+  "readerEvidence": {
+    "r25PressResult": "fail",
+    "passed": 109,
+    "total": 110,
+    "commit": "aa88c4740dadd3c55e581d94954f645eafa5fa41",
+    "recordPath": "evidence/reader-first/manipulation--action-spaces--impedance-press.json",
+    "recordSha256": "d87b379355d9cd20b115fbf727fd1a96b03c802f42d494974cd72b25309e1153",
+    "screenshotCommit": "1e3c51dee4f3f0a22670c6c794809b1d208cca4c",
+    "screenshotHashes": {
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png": "078763994f290c4de1b369dbdf1c339acd6e1e9b8cfdac9b9c6e861729a8d4f0",
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png": "158ad031bd3cd81069c2087efd4a51356f5ffea00139089cafc309c26c30e65d"
+    },
+    "phase1Sha256": "e9de37ba1396ee53d943871b9b15a29a24347412283595c0a7e070e5c28082df",
+    "phase2Sha256": "0fb3218dda1e36612c5d9ae6b59d0b605f0cea1071ab3672a0ad86e16d15b224",
+    "recordIntegrationSha256": "65047b864e6e640d0eb22cfe688582ee9e82a01301ad3c35f11d244dd4df6314",
+    "fullR25MatrixNotRun": true,
+    "unchangedProtocol": true,
+    "sentence": "The tool is given a target and a stiffness, which together determine how hard it pushes when a surface stops it.",
+    "reason": "My sentence identifies the settings and the stopped tool, but omits that push equals stiffness times how far the target lies past the surface.",
+    "samePoint": "no",
+    "unclearTerms": [],
+    "sourceDigest": "eaa22eb2e7f178d761ab64d8091af461c85039c857c86f8cae8e1eb7dc1fa989",
+    "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+  },
+  "independentFullTechnicalReviewSha256": null,
+  "fullTechnicalAcceptanceGranted": false,
+  "acceptanceGrantedByThisProof": {
+    "reader": false,
+    "release": false
+  },
+  "publicApplicationAuthorized": true,
+  "observedAt": "2026-11-04T18:50:40.476Z",
+  "actual36MetadataSha256": "1415a393d2700f008960fc37e8ce9dfc8b5eae02c2a576ccf4eaecb8348d046f",
+  "supplementalSourceApprovalSha256": "577fc5f2e93fa6a5cbbbd4192d41a8f6b81e4ffeb0bbf5f124338af6d1e4d4cb",
+  "rootEarlyProductionVerificationSha256": "3cfd41b7e57be6b8cca77c4d2488cf061e9a70e4ccf59df09d8927d44111891a",
+  "approvedImplementationPaths": {
+    "components/interactive/impedance-press.tsx": "eeb0cb31adb9843f0eb3935cd52de971b4a1144ede42ebd78b3e52d729a4318e",
+    "tests/component/impedance-press.test.tsx": "942b6ea9ad7b870c76eaa6b0c9bf91913eb71928504879ae6f93d0f3b3f99f68",
+    "tests/e2e/brand-v2-reflow-320-200.spec.ts": "c1797627cf46e7a22fb6ef0c55287f9884d6da6d2738d4302e5736a71f8033a4",
+    "data/reading-times.json": "1415a393d2700f008960fc37e8ce9dfc8b5eae02c2a576ccf4eaecb8348d046f"
+  },
+  "fullTechnicalMatrixComplete": false,
+  "retainedDiagnostics": {
+    "actual35FocusOverpaint": true,
+    "beforeClearancePx": 2,
+    "focusExtentPx": 3,
+    "cssOnlyTrialWasNotFinalEvidence": true,
+    "actual36FinalClearancePx": 4,
+    "sourceTasteRaw": {
+      "skills": [
+        "design-taste-frontend",
+        "redesign-existing-projects"
+      ],
+      "version": "2.0.0",
+      "commit": "f624f37a8c650b9cc550253104925efe4c8de246",
+      "mode": "Existing research-page component exception",
+      "rawSourceLintExit": 1,
+      "rawFAIL": 16,
+      "rawWARN": 0,
+      "classification": "Eight inherited scientific hairlines and eight numeric mono declarations required by owner conventions. No suppression or generic clean claim.",
+      "inspectorRunByReviewer": false
+    },
+    "fullMatrixAndAssociatedDiagnosticsNotRun": true,
+    "globalZeroWarningOrTastePassClaim": false
+  }
+}

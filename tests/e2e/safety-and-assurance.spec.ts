@@ -610,7 +610,7 @@ test.describe('safety-and-assurance module', () => {
       '2025 standards; undated humanoid draft; learned-safety law in January 2027',
     );
     await expect(figure.getByTestId('safety-summary-industrial')).toBeVisible();
-    await expect(figure.getByTestId('safety-summary-industrial')).toHaveText('Industrial robot safety standards were renewed in 2025');
+    await expect(figure.getByTestId('safety-summary-industrial')).toHaveText('2025Industrial robot safety standards renewed');
     const ids = ['iso-10218', 'r15-06', 'iso-25785-1', 'eu-machinery-regulation', 'eu-ai-act'];
     const xs: number[] = [];
     for (const id of ids) {

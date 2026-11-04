@@ -77,13 +77,23 @@ export function SafetyRulesTimeline({ className }: { className?: string }) {
       heading="2025 standards; undated humanoid draft; learned-safety law in January 2027"
       stage={
         <FigureStage footer={<StageStatus>ISO is the international standards organization. ANSI: American National Standards Institute. A3: Association for Advancing Automation. CD: committee draft.</StageStatus>}>
-          <p data-testid="safety-main-comparison" className="grid gap-2 pb-3 font-sans text-lg font-medium leading-snug text-text">
-            <span data-testid="safety-summary-industrial">Industrial robot safety standards were renewed in <strong className="font-medium">2025</strong></span>
-            <span data-testid="safety-summary-humanoid">The humanoid standard is still a draft, with <strong className="font-medium">no next date</strong>.</span>
-            <span data-testid="safety-summary-learning">EU law reaches safety components that learn from data in <strong className="font-medium">January 2027</strong>.
-              <span className="mt-2 block text-sm font-normal">These are software or hardware designed to protect people, with behavior that can evolve.</span>
-            </span>
-          </p>
+          <dl data-testid="safety-main-comparison" className="grid gap-4 pb-3 font-sans leading-snug text-text">
+            <div data-testid="safety-summary-industrial" className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">
+              <dt className="font-mono text-2xl font-medium">2025</dt>
+              <dd className="text-lg">Industrial robot safety standards renewed</dd>
+            </div>
+            <div data-testid="safety-summary-humanoid" className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">
+              <dt className="text-2xl font-medium">No next date</dt>
+              <dd className="text-lg">Humanoid safety standard remains a draft</dd>
+            </div>
+            <div data-testid="safety-summary-learning" className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">
+              <dt className="font-mono text-2xl font-medium">January 2027</dt>
+              <dd className="text-lg">
+                EU law covers safety components that learn from data
+                <p className="mt-2 text-sm">These are software or hardware designed to protect people, with behavior that can evolve.</p>
+              </dd>
+            </div>
+          </dl>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Timeline of robot safety standards and EU rules, 2025 to 2028"

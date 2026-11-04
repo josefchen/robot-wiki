@@ -1,0 +1,644 @@
+{
+  "schemaVersion": "reader-round26-clarity-successor-review-v1",
+  "status": "Scoped R26 source and actual37 early production checkpoint; fresh reader failed, full author/independent technical matrix not run",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "955e2650a9b8bda7cc2d6ef6baaed62b6090c7df",
+      "previousSourceSha256": "eeb0cb31adb9843f0eb3935cd52de971b4a1144ede42ebd78b3e52d729a4318e",
+      "currentSourceSha256": "5733a4a8fc24c38db1719c926a719f7eba40aa76b0f0330556dfe691538bdd35",
+      "currentSourceCommit": "26497c910ff81beaebaaf6a95e1e08e29991b623",
+      "oldMemberHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16",
+      "newMemberHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+        "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+        "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+        "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+        "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+        "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+        "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+        "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+        "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+        "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+        "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+        "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+        "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+        "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+        "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+        "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+        "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+        "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+        "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+        "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+        "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: record the independently source-approved R26 contact-product successor: the exact condition and Tool key precede the law, the three unchanged descriptor paragraphs form named multiplication with separate visible times/equals P siblings, followed by the unchanged intrinsic numerical row and retained diagram. All original IDs, four source-collected name members, six description references, six native identities, focus-gap source and scientific/native blocks remain exact. Source and component inverses and the thirteen-row case-scoped E2E successor are explicit in audit/evidence/mission-completion-20261102/reader-round26-clarity-review.json. First six browser cases are byte-exact; case seven is explicitly refreshed without losing original assertions or native sampling. Actual37 selected checks and the honest failed reader are recorded, with full112 technical matrix NOT RUN and no independent full technical approval. No reader, technical-completion or release acceptance is inferred."
+    }
+  ],
+  "sourceAndTestEpochs": [
+    {
+      "path": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "955e2650a9b8bda7cc2d6ef6baaed62b6090c7df",
+      "previousSha256": "eeb0cb31adb9843f0eb3935cd52de971b4a1144ede42ebd78b3e52d729a4318e",
+      "currentSourceCommit": "26497c910ff81beaebaaf6a95e1e08e29991b623",
+      "currentSha256": "5733a4a8fc24c38db1719c926a719f7eba40aa76b0f0330556dfe691538bdd35"
+    },
+    {
+      "path": "tests/component/impedance-press.test.tsx",
+      "previousSourceCommit": "955e2650a9b8bda7cc2d6ef6baaed62b6090c7df",
+      "previousSha256": "942b6ea9ad7b870c76eaa6b0c9bf91913eb71928504879ae6f93d0f3b3f99f68",
+      "currentSourceCommit": "26497c910ff81beaebaaf6a95e1e08e29991b623",
+      "currentSha256": "a83aa00e09ceba577e720d9f6f7cc535da001dae2aa631db309d9dbe457bd451"
+    },
+    {
+      "path": "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+      "previousSourceCommit": "955e2650a9b8bda7cc2d6ef6baaed62b6090c7df",
+      "previousSha256": "c1797627cf46e7a22fb6ef0c55287f9884d6da6d2738d4302e5736a71f8033a4",
+      "currentSourceCommit": "26497c910ff81beaebaaf6a95e1e08e29991b623",
+      "currentSha256": "eee66159379a276626e31c89416440e03f6d38199f91dd31162167d52e1c3836"
+    }
+  ],
+  "semanticContinuity": {
+    "sourceOrder": [
+      {
+        "id": "press-response-label",
+        "start": 10268
+      },
+      {
+        "id": "press-position-condition",
+        "start": 10374
+      },
+      {
+        "id": "press-general-rule",
+        "start": 10935
+      },
+      {
+        "id": "press-value-descriptions",
+        "start": 11342
+      },
+      {
+        "id": "press-equation",
+        "start": 13811
+      },
+      {
+        "id": "press-response-diagram",
+        "start": 15594
+      },
+      {
+        "id": "press-scale-definitions",
+        "start": 17767
+      },
+      {
+        "id": "press-native-controls",
+        "start": 18016
+      }
+    ],
+    "originalScientificNativeBlocksExact": [
+      {
+        "id": "press-settings",
+        "same": true,
+        "bytes": 1568,
+        "sha256": "0ba3c0ab40fce8d399413c8f596a1cea0dc325458b9a1452c947644b0114924a"
+      },
+      {
+        "id": "press-run",
+        "same": true,
+        "bytes": 832,
+        "sha256": "360c97047c3963c847ddf17dea6c1744d48a1d9e6b097c57be795766dae94b5c"
+      },
+      {
+        "id": "press-primary-takeaway",
+        "same": true,
+        "bytes": 761,
+        "sha256": "1438f83a1d4724e64cf87f3ceaa53977de72086e4160260e0a62e38281f046ee"
+      },
+      {
+        "id": "press-controller-heading",
+        "same": true,
+        "bytes": 790,
+        "sha256": "45b3aea2e5324094ff871647f83ded7271011d351ec7f32bb4955e5012391e4d"
+      },
+      {
+        "id": "press-position-condition",
+        "same": true,
+        "bytes": 537,
+        "sha256": "4051ca490b3e5d32143a80090c28a1af855aa60110ed1e09edf11d3437863be1"
+      },
+      {
+        "id": "press-position-marks",
+        "same": true,
+        "bytes": 991,
+        "sha256": "e315c1fb1741326a626f3d7ecd4dfdbf93389b26cef21a0c8160c022a376007e"
+      },
+      {
+        "id": "press-shown-target",
+        "same": true,
+        "bytes": 283,
+        "sha256": "8759c6a3f684670dc0cd1476b2ac408913c1a47442a01677423a286417bf392e"
+      },
+      {
+        "id": "press-equation",
+        "same": true,
+        "bytes": 1737,
+        "sha256": "5176d5b322a77cccd4cd1b884a03ed5bb004e6e75562e0f37f9b424ede158d46"
+      },
+      {
+        "id": "press-stiffness-description",
+        "same": true,
+        "bytes": 375,
+        "sha256": "d80944856e0f7d53dc56c149cae34b94390bd2c1901b06c7987402ff719057ce"
+      },
+      {
+        "id": "press-gap-description",
+        "same": true,
+        "bytes": 611,
+        "sha256": "d8cbb89c90b16e977e851beb781ebdecca6fb55cf27050ca3a8d6a1e8b032695"
+      },
+      {
+        "id": "press-push-description",
+        "same": true,
+        "bytes": 418,
+        "sha256": "90ccb7404c9ae4afd81531b0441192a9fc679aa2be08a3c3a8e98ee2121daba7"
+      },
+      {
+        "id": "press-proof",
+        "same": true,
+        "bytes": 6100,
+        "sha256": "aad576e8fa0b1d71132cb3617e4c330ea9b2bdbec1374a04afac521f9239eb01"
+      },
+      {
+        "id": "press-drawing",
+        "same": true,
+        "bytes": 5437,
+        "sha256": "c78c62f5c555ce803893e260a4463140b46e489d130eeda0f7b1b31f54595bb1"
+      },
+      {
+        "id": "press-gap-guide",
+        "same": true,
+        "bytes": 2019,
+        "sha256": "80ea57d6d828ac16f61709e70c32ca97874ed7fd2cf82876067208d755fa4fa1"
+      },
+      {
+        "id": "press-scale-definitions",
+        "same": true,
+        "bytes": 168,
+        "sha256": "c69c4ed9fd2404c2ea6cb9ae23ad762c86ce4740d6290be22117d47d7632ccee"
+      },
+      {
+        "id": "behavior-prefix",
+        "same": true
+      },
+      {
+        "id": "caption-method-source",
+        "same": true
+      }
+    ],
+    "sourceCompositeBoundary": {
+      "onlyCompositeReplacement": true,
+      "beforePrefixSha256": "b72c3003e087812958ca886533649a57e7ea2531fbc45ff0d9b015d385b58a22",
+      "beforeSuffixSha256": "98ffe00fcfbeaf3c1b3e1da38d91c1b4f1af6732233edf74c5611b458e50c158",
+      "prefixAndSuffixExact": true
+    },
+    "collectedAccessibleNameMembersUnchanged": [
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:1",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-controller`}"
+        },
+        "hash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+      },
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:2",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-settings`}"
+        },
+        "hash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+      },
+      {
+        "id": "expression:components/interactive/impedance-press.tsx:aria-labelledby:3",
+        "value": {
+          "attribute": "aria-labelledby",
+          "expression": "{`${sliderId}-gap-label`}"
+        },
+        "hash": "2695fc01219bea34a8f48b43056c7ef57840c63e006059fa497b6ac656d003d9"
+      },
+      {
+        "id": "literal:components/interactive/impedance-press.tsx:aria-label:1",
+        "value": {
+          "attribute": "aria-label",
+          "text": "Stiffness times target gap equals push"
+        },
+        "hash": "e0e4c81f7aea9df0e4d216c14139d7fc55f2dc175f3b0566326a4286e4fd19de"
+      }
+    ],
+    "descriptionReferencesUnchanged": [
+      {
+        "node": "gap",
+        "reference": "{`${sliderId}-gap-description`}"
+      },
+      {
+        "node": "press-controller-output",
+        "reference": "{`${sliderId}-controller-role`}"
+      },
+      {
+        "node": "press-gap-operand",
+        "reference": "{`${sliderId}-gap-evidence`}"
+      },
+      {
+        "node": "press-settings",
+        "reference": "{`${sliderId}-definitions`}"
+      },
+      {
+        "node": "push",
+        "reference": "{`${sliderId}-push-description`}"
+      },
+      {
+        "node": "stiffness",
+        "reference": "{`${sliderId}-stiffness-description`}"
+      }
+    ],
+    "allExistingIdsPreservedInThreeSsrStates": true,
+    "generatedIdSuccessors": [],
+    "resolvedGroupNamesRetained": [
+      "Action stiffness",
+      "An action sends two settings: target and stiffness",
+      "Controller",
+      "Stiffness times target gap equals push",
+      "target gap"
+    ],
+    "sixNativeIdentitiesRetained": true,
+    "singleRealStageAndNativeOwnershipPreserved": true,
+    "originalConditionAndToolKeyRelocatedTogether": true,
+    "namedProduct": {
+      "originalDescriptorParagraphs": 3,
+      "newOperatorParagraphs": 2,
+      "operators": [
+        "× times",
+        "= equals"
+      ],
+      "glyphOnlySpansAriaHidden": true,
+      "wordsRemainExposed": true,
+      "canonicalMainParagraphCensusStillApplies": true,
+      "numericRowFollowsUnchanged": true,
+      "diagramFollowsNumericRow": true
+    },
+    "entireAccessibilityTreeUnchanged": false,
+    "readingOrderAndNewVisibleOperationWordsExplicit": true,
+    "focusGapSourcePreserved": true,
+    "semanticDom": [
+      {
+        "state": "default",
+        "beforeHtmlSha256": "426dac9f3255d467ec786bff8026985c9319a95871e3e7bcf2bd212f8ecf431c",
+        "afterHtmlSha256": "40cc6463080ca247b93bdb0cb58746b22b377a857212467182bf8d4c3c4ad45c",
+        "allExistingIdsExact": true,
+        "generatedIdSuccessors": [],
+        "resolvedGroupNames": [
+          "Action stiffness",
+          "An action sends two settings: target and stiffness",
+          "Controller",
+          "Stiffness times target gap equals push",
+          "target gap"
+        ],
+        "nativeIdentities": 6,
+        "conditionKeySingleOwner": true,
+        "operatorParagraphs": 2,
+        "namedParagraphs": 5,
+        "oldDescriptorAndNumericMarkupExact": true,
+        "sourceOrderMatchesDom": true,
+        "oneRealStage": true,
+        "oneStageDrawing": true,
+        "oneNativeControlsOwner": true
+      },
+      {
+        "state": "free",
+        "beforeHtmlSha256": "ad7330eb3d7b398b8a56af0903282465e7d30764b06c4fa13be973c3d55d1c76",
+        "afterHtmlSha256": "2c09d4f05d79d468dff4aab81f1715e2069b6ce195f83cb06000ce296166672a",
+        "allExistingIdsExact": true,
+        "generatedIdSuccessors": [],
+        "resolvedGroupNames": [
+          "Action stiffness",
+          "An action sends two settings: target and stiffness",
+          "Controller",
+          "Stiffness times target gap equals push",
+          "target gap"
+        ],
+        "nativeIdentities": 6,
+        "conditionKeySingleOwner": true,
+        "operatorParagraphs": 2,
+        "namedParagraphs": 5,
+        "oldDescriptorAndNumericMarkupExact": true,
+        "sourceOrderMatchesDom": true,
+        "oneRealStage": true,
+        "oneStageDrawing": true,
+        "oneNativeControlsOwner": true
+      },
+      {
+        "state": "zero",
+        "beforeHtmlSha256": "bb4d20d04f319a6408672f287a1adbfe09c30a1b23f1901dc8e9f94e28c65110",
+        "afterHtmlSha256": "990018014eb59f8c7333e4e7cc5531796474080fbdb46558bd997a8a09dab27a",
+        "allExistingIdsExact": true,
+        "generatedIdSuccessors": [],
+        "resolvedGroupNames": [
+          "Action stiffness",
+          "An action sends two settings: target and stiffness",
+          "Controller",
+          "Stiffness times target gap equals push",
+          "target gap"
+        ],
+        "nativeIdentities": 6,
+        "conditionKeySingleOwner": true,
+        "operatorParagraphs": 2,
+        "namedParagraphs": 5,
+        "oldDescriptorAndNumericMarkupExact": true,
+        "sourceOrderMatchesDom": true,
+        "oneRealStage": true,
+        "oneStageDrawing": true,
+        "oneNativeControlsOwner": true
+      }
+    ],
+    "fullTechnicalMatrixComplete": false
+  },
+  "sourceSuccession": {
+    "compositeReplacements": 1,
+    "completeInverseExact": true
+  },
+  "componentSuccession": {
+    "replacementRows": 14,
+    "replacedOccurrences": 15,
+    "originalCases": 13,
+    "currentCases": 13,
+    "completeInverseExact": true
+  },
+  "e2eSuccession": {
+    "path": "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+    "beforeCommit": "955e2650a9b8bda7cc2d6ef6baaed62b6090c7df",
+    "beforeBytes": 94563,
+    "beforeSha256": "c1797627cf46e7a22fb6ef0c55287f9884d6da6d2738d4302e5736a71f8033a4",
+    "afterBytes": 113626,
+    "afterSha256": "eee66159379a276626e31c89416440e03f6d38199f91dd31162167d52e1c3836",
+    "caseScopedReplacementRows": 13,
+    "caseScopeRequired": true,
+    "completeForwardInverseExact": true,
+    "firstSixCaseBytes": 40422,
+    "firstSixCaseSha256": "1b9b67566a27ae6976a6ceec95efef43907c676ad65c5cd41fe74e32dfbfca75",
+    "firstSixCasesExact": true,
+    "firstSevenCasesExact": false,
+    "caseSevenHasExplicitSuccessor": true,
+    "caseTitles": [
+      "enforces route loading, zoom-equivalent, and text-only profiles for every route",
+      "all public routes reach zero 320px overflow",
+      "registered SliderRows fit the required narrow zoom profile and reject restored fixed minimums",
+      "narrow zoom keeps the four residual routes readable and rejects field-floor and stat-column regressions",
+      "figure comparison labels reflow at twice their original text size",
+      "press gap guide preserves measured endpoints and forced-colour visibility",
+      "press fractional equation stays readable during native Run at narrow text and zoom profiles",
+      "press default position diagram preserves native boundaries, labels and paint in every narrow and forced profile"
+    ],
+    "caseCountBefore": 8,
+    "caseCountAfter": 8,
+    "originalAssertionStatements": 157,
+    "totalAssertionStatements": 162,
+    "additionalAssertionStatements": 5,
+    "all157OriginalAssertionChainsPreserved": true,
+    "guideAndActionsBytes": 8098,
+    "guideAndActionsSha256": "8e950c0af75eae048b90883cae3750d722ad3e8bc5cc5119b07a6b3003b92cc2",
+    "originalGuideNative": 30,
+    "originalGuideNegative": 16,
+    "firstFractionalProfiles": 2,
+    "positionProfiles": 8,
+    "positionDefaults": 8,
+    "positionNative": 120,
+    "positionNegative": 24,
+    "focusEligibilityProfiles": 8,
+    "focusNegativeWitnesses": 5,
+    "namedProductNegativeWitnesses": 8,
+    "namedProductRestorations": 8,
+    "rootApplicationSha256": "df06e0b6408def3eb14d6cdcb3e8219f50f0e04a3030c9b75c41670b720325fb",
+    "e2eSourceApprovalSha256": "30f7129eccef670225c3f3a07a2497d326337b564de1093ed4c69d8db884633e",
+    "candidateNowApplied": true,
+    "rendererEpochContainsTests": false,
+    "actual37RuntimeBindingPending": false
+  },
+  "sourceApprovalSha256": "dbaca2018db019339af31d1b0fb055fb31a69aa2d9afdff75ffb826a728fb476",
+  "e2eSourceApprovalSha256": "30f7129eccef670225c3f3a07a2497d326337b564de1093ed4c69d8db884633e",
+  "rootEarlyProductionVerificationSha256": "941ceddbd1d157aa0c22be5e47c93eef2ef1805720c40d036f1c0f88a7a1ba5f",
+  "implementationCommit": "26497c910ff81beaebaaf6a95e1e08e29991b623",
+  "actual37MetadataSha256": "9352bf2d6973bfb40793a6b8703249ec94504239f83a91b46fdc833ccda21d49",
+  "readerEvidence": {
+    "r26PressResult": "fail",
+    "passed": 109,
+    "total": 110,
+    "commit": "bfba69436254499338e5e58dfec080ca71e7ba67",
+    "recordPath": "evidence/reader-first/manipulation--action-spaces--impedance-press.json",
+    "recordSha256": "3c895532548f820191ef7d11d3204eeb876097e1104c239fb4f71492f4d6e47a",
+    "screenshotCommit": "26497c910ff81beaebaaf6a95e1e08e29991b623",
+    "screenshotHashes": {
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png": "a8bf9e79741501de805b3c271d411ff754ec8a1af64704ee016215b6e82eb3b6",
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png": "11fda5d95da7d9652fde157350193a6e011cb6566227f10d316fb22d0c88fcad"
+    },
+    "phase1Sha256": "265d6ff4e51bec8946d86a8621898d173b9d92f9b214abacbe80d9e69c2fdc70",
+    "phase2Sha256": "cb0e29bf13393349f6434865462edab670bfaf1691bb15f5460b3f69f9366e11",
+    "recordCommitReceiptSha256": "145afa9ea4067c371560f6ce7aa1f0f2495ced116a1bed5a4f354378e0ef6466",
+    "recordValidationSha256": "40646e22ca87cbe6fb975455a04a0752cdd9ca109716ff48b90eaa822506772a",
+    "fullR26MatrixNotRun": true,
+    "unchangedProtocol": true,
+    "sentence": "A tool stopped by a surface pushes with a strength set by its stiffness multiplied by how far its target is past the surface.",
+    "reason": "My sentence explains the stopped tool and push calculation but omits that the action sends both a target and a stiffness.",
+    "samePoint": "no",
+    "unclearTerms": [],
+    "sourceDigest": "7fde4dc753dd96c1006bad0b559dca4967a2317cdda832b5a733d6fead10f169",
+    "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+  },
+  "validationStages": {
+    "sourceReview": {
+      "status": "approved exact UI/component and E2E source"
+    },
+    "actual37SelectedPublicCases": {
+      "status": "four selected cases passed; not full technical acceptance",
+      "all57CapsPass": true,
+      "actionSpacesWords": 1216,
+      "cap": 1228,
+      "at": "2026-11-04T19:29:26.301412+00:00",
+      "passedPublicCases": 4,
+      "nativeObservations": 30,
+      "exactNativePopulation": true,
+      "nativeErrors": 0,
+      "negativeWitnesses": 16,
+      "allMutationsDetected": true,
+      "specUnchanged": true,
+      "rendererInputsStable": 238,
+      "exportFilesStable": 1195,
+      "observationSha256": "7870dff74e9c3b9a727cc07567a1feba175ea6131a63e2584003c0f5df33151e",
+      "fractionalProfiles": 2,
+      "positionDefaults": 8,
+      "positionNativeAnchors": 120,
+      "positionNegativeWitnesses": 24,
+      "positionObservationSha256": "31a78ea711b478c435d8e8bc0f2805348bdd33510da4996a2696624ddfbd414f",
+      "fractionalObservationSha256": "7ba3098d7ac0fc595122fd92bd02ebdd0cea3121017f9a637238e19be6069f49",
+      "namedProductNegativeWitnesses": 8,
+      "namedProductRestorations": 8,
+      "focusClearanceProfiles": 8,
+      "focusClearanceNegativeWitnesses": 5,
+      "wrappedFocusProfiles": [
+        "canonical-text-200-375",
+        "phone",
+        "phone-forced-dark",
+        "phone-forced-light",
+        "zoom-equivalent-200-187"
+      ]
+    },
+    "rootOpenedProductionImages": [
+      {
+        "path": "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/impedance-press-1440-text-200-a4a4b4488a3d906291bb7ec35c06ded98cdddc2a.png",
+        "sha256": "af0b4fdb18a7aca30d37d543ba276089fb30a9e9e61e61cbdd32b6e6436d8c2f"
+      },
+      {
+        "path": "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/impedance-press-375-text-200-4968bb57b881476fa3d95fd1804f84e89993d427.png",
+        "sha256": "407d98c293e90e9c899407e4c0899c69156437971a1db2b1d36c354dec9c9051"
+      },
+      {
+        "path": "public-results/brand-v2-reflow-320-200-pr-e3b89-nd-forced-colour-visibility/attachments/press-guide-1280-forced-dark-864e67d68ee2def620e7de95aec64ac12499f80a.png",
+        "sha256": "00ddd9543061a292a059130beff024612fd8b2ab548efd413fdab02bf338f9dc"
+      },
+      {
+        "path": "public-results/brand-v2-reflow-320-200-pr-e3b89-nd-forced-colour-visibility/attachments/press-guide-375-forced-dark-066376fe445ffcba64e6bfbf45d5ce57ceba1176.png",
+        "sha256": "364cbb0977e72476a8aa7ffb2397aa2ba6350956c610bc3619787ad122b2bc45"
+      }
+    ],
+    "freshReader": {
+      "status": "honest fail",
+      "commit": "bfba69436254499338e5e58dfec080ca71e7ba67",
+      "passed": 109,
+      "total": 110
+    },
+    "fullTechnicalMatrix": {
+      "status": "NOT RUN after failed reader",
+      "originalCoreRowsRequired": 112,
+      "completed": false,
+      "independentFullTechnicalApprovalExists": false,
+      "requiredForFinalAcceptance": true
+    }
+  },
+  "fullTechnicalMatrixComplete": false,
+  "independentFullTechnicalReviewSha256": null,
+  "fullTechnicalAcceptanceGranted": false,
+  "retainedFailedAttempt": {
+    "directory": "reader-round26-clarity-20261104/production37/pre-r26-e2e-application-attempt1",
+    "files": {
+      "run-thirty-seventh-public-regression.py": "15d2f8f5aefacf88dcfa7aef875f34b9db983c7c75b2f779fa6f55ccc47dfc0e",
+      "public.command.json": "6f5c4c2bb3254662935517b05c081105d69baaccd14312ed0b828cbd62553808",
+      "thirty-seventh-export-files.json": "bd94923bf23e02f1ba46826e2c2a9609688493276726e8a96ea8b73007523c88",
+      "public.result.json": "781c6d08dd15ff03c80dfb272848cc68df2ddfb467260706e53020edd1ec4875",
+      "public.log": "8bbb1464c36aa9c8891f21fb00e742056e5205a0b7879d7a3b58015327f1607e",
+      "public.report.json": "a55c019db2340e68157848b0842183558d9aeaa746e12c2b3df0437707caf0b6",
+      "public-results/.last-run.json": "b6cb8126fefc9d0efd2c45019026579d4eac88a96f3dadcf604d031dcc9d1f30",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/world-model-output-times-1440-text-200.png": "cad9ef54e772db1946c563ca31fa0c134918bfc6777efd06b365431241ed4220",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/chunk-buffer-1440-text-200.png": "49fa8f55860649cc76bc0fa1c446a63f445f6a752218afb9124d705cedf8b5ed",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/av-safety-miles-375-text-200.png": "f18407aa1b64c59d9e1475ef91a3aaa22960c7d49c1d244ed8ef761945f6ecee",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/safety-rules-timeline-375-text-200.png": "d95188ed5c72ff5d8d5aa9a392c882199879697d09ae6422789734a11ffd43ea",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/pi-generation-timeline-1440-text-200.png": "9fe273174f96f335c5c9e3f7bee1a1268a22efac8c566a5db8e952c46285aea6",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/chunk-buffer-375-text-200.png": "e6f4c9e6b86ba08c8c73b39357a0ec30a3768dbb86d83223c0c059acd7464640",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/av-safety-miles-1440-text-200.png": "f6e1a7d2227d48cf8dcbcd2671209ad71340b4e4f29be24c8c038322b5bde6d9",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/pi-generation-timeline-375-text-200.png": "4eb3c6a725dae07b1ca866143ca69d9bcbedd2ef3e8482ecd52ed161abd21f02",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/scene-representation-ladder-375-text-200.png": "c02f26cad9fb2171a3b29f97db4d981fc45903b8ec992554a5a6ec6d30af26e2",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/world-model-output-times-375-text-200.png": "58efd16c94bc458c4e7db2af5f14ecc1125805b6ad7c4d42cbb516b91b2358f4",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/safety-filter-fence-375-text-200.png": "822205f41f8bc5aa446dd5b8b68792d90ed329a0f52b060c12c5afc645efb6fc",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/safety-rules-timeline-1440-text-200.png": "c02289fbf7201c8754dcd2c560f16b488a758529fb1acc432e325b4a44018c18",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/safety-filter-fence-1440-text-200.png": "771c388715e6d4efff78cc1b01718294968bf1f1417eae632b75922c167fdfc3",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/scene-representation-ladder-1440-text-200.png": "afe51c78f3404762469e7f510550b7c066f0e1113669c33bbbde9e11bb16c6bf",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/impedance-press-375-text-200.png": "407d98c293e90e9c899407e4c0899c69156437971a1db2b1d36c354dec9c9051",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/impedance-press-1440-text-200.png": "af0b4fdb18a7aca30d37d543ba276089fb30a9e9e61e61cbdd32b6e6436d8c2f",
+      "public-results/brand-v2-reflow-320-200-pr-ec292-y-narrow-and-forced-profile/error-context.md": "42377503dff9b31a9ef434a23ed67506fd08ab9dc608c0bc4e103402a3c74b13",
+      "public-results/brand-v2-reflow-320-200-pr-e3b89-nd-forced-colour-visibility/press-guide-375-forced-dark.png": "364cbb0977e72476a8aa7ffb2397aa2ba6350956c610bc3619787ad122b2bc45",
+      "public-results/brand-v2-reflow-320-200-pr-e3b89-nd-forced-colour-visibility/press-guide-1280-forced-dark.png": "00ddd9543061a292a059130beff024612fd8b2ab548efd413fdab02bf338f9dc",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/chunk-buffer-375-text-200-54e1f6dbb52c8ffbfac11693d508a652fb755e44.png": "e6f4c9e6b86ba08c8c73b39357a0ec30a3768dbb86d83223c0c059acd7464640",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/chunk-buffer-1440-text-200-68b03d0b4bf289292be53a994bcfb5c46f31b62f.png": "49fa8f55860649cc76bc0fa1c446a63f445f6a752218afb9124d705cedf8b5ed",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/impedance-press-1440-text-200-a4a4b4488a3d906291bb7ec35c06ded98cdddc2a.png": "af0b4fdb18a7aca30d37d543ba276089fb30a9e9e61e61cbdd32b6e6436d8c2f",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/pi-generation-timeline-375-text-200-59dcfc2aadf9e34ccf3da05ab6550d58bc0608bf.png": "4eb3c6a725dae07b1ca866143ca69d9bcbedd2ef3e8482ecd52ed161abd21f02",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/safety-rules-timeline-1440-text-200-f37a3a92577d8480c39c11c53d43e1d6e9a62b0c.png": "c02289fbf7201c8754dcd2c560f16b488a758529fb1acc432e325b4a44018c18",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/safety-filter-fence-1440-text-200-d466e01319f4a62690a527da9c9886d450f56331.png": "771c388715e6d4efff78cc1b01718294968bf1f1417eae632b75922c167fdfc3",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/pi-generation-timeline-1440-text-200-8343d0c811d7309fe92768c7f1e5d766bf9803f1.png": "9fe273174f96f335c5c9e3f7bee1a1268a22efac8c566a5db8e952c46285aea6",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/world-model-output-times-1440-text-200-f0d7e323aa74b537b11766239631123033233577.png": "cad9ef54e772db1946c563ca31fa0c134918bfc6777efd06b365431241ed4220",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/impedance-press-375-text-200-4968bb57b881476fa3d95fd1804f84e89993d427.png": "407d98c293e90e9c899407e4c0899c69156437971a1db2b1d36c354dec9c9051",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/av-safety-miles-375-text-200-4e6a1f7a3ae310bd1e7669629d8a01f0a7acaf47.png": "f18407aa1b64c59d9e1475ef91a3aaa22960c7d49c1d244ed8ef761945f6ecee",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/world-model-output-times-375-text-200-ec87c5a5583db32431a2f1aec205b2b6a39eb9ca.png": "58efd16c94bc458c4e7db2af5f14ecc1125805b6ad7c4d42cbb516b91b2358f4",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/safety-rules-timeline-375-text-200-622814a8ff1520cc0d3bd05a3fdbd5e8fe0d81e9.png": "d95188ed5c72ff5d8d5aa9a392c882199879697d09ae6422789734a11ffd43ea",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/scene-representation-ladder-375-text-200-41192be92f3bef0360c742199495f493659aa179.png": "c02f26cad9fb2171a3b29f97db4d981fc45903b8ec992554a5a6ec6d30af26e2",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/safety-filter-fence-375-text-200-49e708fb61a78b3049e5753e797a80061097ef64.png": "822205f41f8bc5aa446dd5b8b68792d90ed329a0f52b060c12c5afc645efb6fc",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/av-safety-miles-1440-text-200-afd45be92140527d0ce967e7d33147f76f61e417.png": "f6e1a7d2227d48cf8dcbcd2671209ad71340b4e4f29be24c8c038322b5bde6d9",
+      "public-results/brand-v2-reflow-320-200-fi-1531e-ce-their-original-text-size/attachments/scene-representation-ladder-1440-text-200-8c92b27ebdd5a38dfc365ba08c3a38727a29109e.png": "afe51c78f3404762469e7f510550b7c066f0e1113669c33bbbde9e11bb16c6bf",
+      "public-results/brand-v2-reflow-320-200-pr-e3b89-nd-forced-colour-visibility/attachments/press-guide-1280-forced-dark-864e67d68ee2def620e7de95aec64ac12499f80a.png": "00ddd9543061a292a059130beff024612fd8b2ab548efd413fdab02bf338f9dc",
+      "public-results/brand-v2-reflow-320-200-pr-e3b89-nd-forced-colour-visibility/attachments/press-guide-375-forced-dark-066376fe445ffcba64e6bfbf45d5ce57ceba1176.png": "364cbb0977e72476a8aa7ffb2397aa2ba6350956c610bc3619787ad122b2bc45"
+    },
+    "actualOldSpecRunRemainsFailed": true,
+    "rootUnscopedPreflightsRejectedBeforeWrites": true,
+    "diagnosticOnlyE2EOutsideRendererEpoch": true
+  },
+  "retainedDiagnostics": {
+    "rootPreflightMistakesPreserved": true,
+    "oldSpecDiagnosticRunRemainsFailed": true,
+    "caseScopedMapRequired": true,
+    "rendererEpochContainsTests": false,
+    "sourceTasteRaw": {
+      "skills": [
+        "design-taste-frontend",
+        "redesign-existing-projects"
+      ],
+      "version": "2.0.0",
+      "commit": "f624f37a8c650b9cc550253104925efe4c8de246",
+      "scope": "Research-page existing-component exception",
+      "rawSourceLintExit": 1,
+      "rawFAIL": 16,
+      "rawWARN": 0,
+      "classification": "Eight inherited numeric mono declarations and eight scientific hairlines; owner-required conventions retained without suppression",
+      "browserInspectorByReviewer": false
+    },
+    "fullMatrixAndAssociatedDiagnosticsNotRun": true,
+    "globalZeroWarningOrTastePassClaim": false
+  },
+  "historicalProseReceiptsPreserved": {
+    "original840Sha256": "b7b618d7a5beeb16bb9feadecd08bef263adf302d350a36a1fc4f287235c3529",
+    "sixWordSha256": "cd7129f4d72ef1447c336d0f05d9205a4a6729b676db352d19cd6d9b3e5ced26",
+    "all27MdxUnchanged": true
+  },
+  "precedingR25ReviewPreserved": {
+    "path": "audit/evidence/mission-completion-20261102/reader-round25-clarity-review.json",
+    "sha256": "e8cbaa834384d951585b723b6d23e401b9a8dac3c2b349c780d895cbaf76b418"
+  },
+  "evidenceHashes": {
+    "reader-round26-design-20261104/HANDOFF.txt": "df67af305e20aa4cb89e59caeff98204c09a922d1a03eb4f14fc6bf5e6096ae6",
+    "reader-round26-design-20261104/manifest.json": "dc91e5e7d9656492951c9f760a9102a38d5dbe050f8bd17b8849ed6f8e8bbe0a",
+    "reader-round26-design-20261104/source-preservation.json": "f368303e006f1626156aec638ed69b5f8fec31ae10798a835d2f154fe41b8185",
+    "reader-round26-design-20261104/source-successors.json": "a4444732bbb6812044505df0687e1f011e014a4eb5486aadc4ed7b9742f274ca",
+    "reader-round26-design-20261104/test-successors.json": "94bba6e47ede28b45b833fc88c20cb8bafccffe326f8f7ef87efec8803454670",
+    "reader-round26-design-20261104/candidate.patch": "06939cbe5649e3d840a5122b5db494593ed6c890e7f4ee5223ae5276e1b33e9a",
+    "reader-round26-design-20261104/candidate-inverse.patch": "94475177529e68018c29ce2cb6493ab8d38a49872d807caaa04abdacb0982efe",
+    "reader-round26-design-20261104/patch-application.json": "5c0d0a60952c1b4d46f34ee000121561ae739a370132963857cd4388a69e28ce",
+    "reader-round26-design-20261104/private-vitest-results.json": "88a08ef89acda3e3e0e234237d5f6d9462866169bab9da607ecf727ed0dc7d79",
+    "reader-round26-design-20261104/private-ssr-comparison.json": "8e5f414629e17b26a16dcb5b59cda0abd397289bf3dc9c42da575d07d602ac73",
+    "reader-round26-independent-review-20261104/SOURCE-APPROVAL.json": "dbaca2018db019339af31d1b0fb055fb31a69aa2d9afdff75ffb826a728fb476",
+    "reader-round26-independent-review-20261104/SCIENCE-AND-SEMANTICS.json": "2030fc3022992bbfd93e77bce50d668fa261deb85530724c87fcf7fca300da8c",
+    "reader-round26-independent-review-20261104/e2e-review/SOURCE-APPROVAL.json": "30f7129eccef670225c3f3a07a2497d326337b564de1093ed4c69d8db884633e",
+    "reader-round26-independent-review-20261104/e2e-review/PRESERVATION.json": "2ab89762b3d5674c80c656325a310204fc065b9ad94e22a95341a6c7329f74eb",
+    "press-r26-browser-regression-20261104/successors.json": "b51abe6cc2c675794a55dbe06f31625879b801f1cfba91accf68d71a1ff57053",
+    "press-r26-browser-regression-20261104/application-scope-audit.json": "d9cb2c0455ddd4e5b4f598753ef1c3dedc42200024ad15624e6019bba13289af",
+    "press-r26-browser-regression-20261104/preservation.json": "94de8f17fd36c525dff87ddec897207a98841f7a77ab33feb4dc1be164dc26b7",
+    "press-r26-browser-regression-20261104/manifest.json": "35230d49cb55c62f587f2119a26d450512d03f4bccd19c94e6c7210c5b27d946",
+    "press-r26-browser-regression-20261104/candidate.patch": "199f458aaa7e2efd0888a673af7ff100dcdd7dba56f8f82e403f13b5593b14aa",
+    "press-r26-browser-regression-20261104/candidate-inverse.patch": "8f4dfc1c4a5af7b8e1ee1268b9637b94206b2833fa6e280fe8b78c057f7311af",
+    "root-application/press-r26-regression-application.json": "df06e0b6408def3eb14d6cdcb3e8219f50f0e04a3030c9b75c41670b720325fb"
+  },
+  "acceptanceGrantedByThisProof": {
+    "reader": false,
+    "release": false
+  },
+  "publicApplicationAuthorized": true
+}

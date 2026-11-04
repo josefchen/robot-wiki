@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -40,7 +40,7 @@ describe('AvSafetyMiles', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Miles needed to prove safety');
-    expect(heading).toBe('No fatalities in 275 million miles: 95% confidence');
+    expect(heading).toBe('Fleet: 275 million miles without deaths, at 95% confidence');
     expect(caption).toBe(
       'At 95% confidence, 275 million miles without a fatality supports a rate no higher than the study’s US human-driver benchmark.',
     );
@@ -48,17 +48,33 @@ describe('AvSafetyMiles', () => {
     expect(words(heading)).toBeLessThanOrEqual(10);
     expect(words(caption)).toBeLessThanOrEqual(25);
     const confidence = screen.getByTestId('av-confidence-summary');
-    expect(confidence).toHaveTextContent('supports a fatality rate no higher than the study’s US human-driver benchmark.');
+    expect(confidence).toHaveTextContent('No higher than the study’s US human-driver benchmark');
     expect(confidence.closest('details')).toBeNull();
-    expect(screen.getByTestId('av-confidence-summary')).toHaveTextContent('275 million miles without a death');
-    expect(screen.getByTestId('av-confidence-summary')).toHaveTextContent('At 95% confidence');
+    expect(screen.getByTestId('av-confidence-summary')).toHaveTextContent('275 million miles 0 deaths');
+    expect(screen.getByTestId('av-confidence-summary')).toHaveTextContent('95% confidence');
     expect(screen.getByTestId('av-confidence-summary').closest('details')).toBeNull();
     expect(screen.getByTestId('av-confidence-summary').compareDocumentPosition(screen.getByTestId('av-safety-miles-stage')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(confidence.nextElementSibling).toHaveTextContent('95% refers to upper limits calculated from repeated studies. In the long run, at least 95 out of 100 such limits would reach or exceed the true fatality rate.');
-    expect(confidence.nextElementSibling).toHaveTextContent('about 1.09 deaths per 100 million miles');
+    expect(screen.getByTestId('av-confidence-coverage')).toHaveTextContent('The true fatality rate remains unknown. In the long run, at least 95 out of 100 upper bounds from studies of the same design would reach or exceed it.');
+    expect(screen.getByTestId('av-upper-limit')).toHaveTextContent('About 1.09 deaths per 100 million miles');
+    expect(screen.getByTestId('av-upper-limit').querySelector('dt')).toHaveTextContent('Calculated upper bound for this hypothetical run');
+    expect(screen.getByTestId('av-upper-limit')).toHaveTextContent('No higher than the study’s US human-driver benchmark');
+    expect(screen.getByTestId('av-confidence-coverage').previousElementSibling?.textContent).toBe('No higher than the study’s US human-driver benchmark');
+    expect(screen.getByTestId('av-required-run')).toHaveTextContent(/^Required fleet run at 95% confidence\s*275 million miles 0 deaths$/);
+    expect(screen.getByTestId('av-rare-event-explanation')).toHaveTextContent('Under the study’s per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.');
+    expect(screen.getByTestId('av-rare-event-explanation').closest('details')).toHaveAttribute('data-figure-fold', 'method');
+    expect(screen.getByTestId('av-model-assumptions')).toHaveTextContent('hypothetical test with a fixed distance and zero deaths');
+    expect(screen.getByTestId('av-model-assumptions')).toHaveTextContent('independent miles with the same failure probability on every mile');
+    expect(screen.getByTestId('av-model-assumptions')).toHaveTextContent('2013 US benchmark includes all motor vehicles');
+    expect(screen.getByTestId('av-confidence-coverage').closest('details')).toBeNull();
+    expect(screen.getByTestId('av-confidence-coverage')).toBeVisible();
+    expect(screen.getByTestId('av-upper-limit')).toContainElement(screen.getByTestId('av-confidence-coverage'));
     // One keyboard activation of the method fold reveals the complete table.
     expect(container.querySelector('details[data-figure-fold="method"]')).not.toHaveAttribute('open');
     expect(container.querySelector('details[data-chart-data]')).toHaveAttribute('open');
+    const method = container.querySelector('details[data-figure-fold="method"]')!;
+    fireEvent.click(method.querySelector('summary')!);
+    expect(method).toHaveAttribute('open');
+    expect(screen.getByTestId('av-rare-event-explanation')).toBeVisible();
   });
 
   it('places each benchmark on the ten-times ruler, deaths in the accent with the fleet note', () => {

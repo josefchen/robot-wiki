@@ -427,3 +427,1292 @@ test('narrow zoom keeps the four residual routes readable and rejects field-floo
     await context.close();
   }
 });
+
+// The historical seven-selector route sweep above is unchanged. These
+// comparisons also contain definition rows and explicitly sized text leaves;
+// resize those HTML labels together, including visible operator glyphs.
+test('figure comparison labels reflow at twice their original text size', async ({ browser, staticBase }, testInfo) => {
+  test.setTimeout(180_000);
+  const figures = [
+    { route: '/manipulation/pi-line/', figure: 'pi-generation-timeline', definitions: 2 },
+    { route: '/classical/scene-representation/', figure: 'scene-representation-ladder' },
+    { route: '/frontier/safety-and-assurance/', figure: 'safety-filter-fence' },
+    { route: '/manipulation/action-spaces/', figure: 'impedance-press' },
+    { route: '/manipulation/comparison-matrix/', figure: 'chunk-buffer' },
+    { route: '/frontier/safety-and-assurance/', figure: 'safety-rules-timeline', definitions: 3 },
+    { route: '/adjacent/autonomous-vehicles/', figure: 'av-safety-miles', definitions: 2 },
+    { route: '/world-models/world-models-vs-simulators/', figure: 'world-model-output-times' },
+  ];
+  for (const width of [1440, 375]) {
+    const context = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
+    try {
+      for (const entry of figures) {
+        const page = await context.newPage();
+        try {
+          await page.goto(`${staticBase}${entry.route}`);
+          await page.evaluate(() => document.fonts.ready);
+          const frame = page.locator(`[data-figure-frame="${entry.figure}"]`);
+          await expect(frame).toBeVisible();
+          await expect.poll(() => frame.evaluate((element) => Object.keys(element).some((key) => key.startsWith('__reactProps')))).toBe(true);
+          const handle = (await frame.elementHandle())!;
+          const timeOrigin = await page.evaluate(() => performance.timeOrigin);
+          // R23 keeps the complete original analogy in the existing method fold.
+          // Open it natively so its previous text population remains measured.
+          if (entry.figure === 'impedance-press') {
+            const method = frame.locator('details[data-figure-fold="method"]');
+            const summary = method.locator(':scope > summary');
+            await expect(method).toHaveJSProperty('open', false);
+            await expect(summary).toHaveText('How this was made');
+            await summary.focus(); await summary.press('Enter');
+            await expect(method).toHaveJSProperty('open', true);
+            await expect(frame.getByTestId('press-drawing')).toBeVisible();
+            await expect(frame.getByTestId('press-gap-key')).toBeVisible();
+          }
+          const sizes = await frame.evaluate((element, selectors) => {
+            const hasScreenReaderOnlyAncestor = (node: HTMLElement) => {
+              for (let current: HTMLElement | null = node; current; current = current.parentElement) {
+                const style = getComputedStyle(current);
+                const box = current.getBoundingClientRect();
+                if (style.clipPath === 'inset(50%)' && box.width <= 1 && box.height <= 1) return true;
+                if (current === element) break;
+              }
+              return false;
+            };
+            return [...element.querySelectorAll<HTMLElement>('*')]
+              .filter((node) => node instanceof HTMLElement &&
+                !node.closest('.sr-only,[hidden]') &&
+                !hasScreenReaderOnlyAncestor(node) &&
+                node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) &&
+                (node.matches([...selectors, 'dt', 'dd'].join(',')) || [...node.childNodes].some((child) =>
+                  child.nodeType === Node.TEXT_NODE && child.textContent?.trim())))
+              .map((node, index) => {
+                node.dataset.comparisonTextProbe = String(index);
+                return {
+                  index, baseline: Number.parseFloat(getComputedStyle(node).fontSize), tag: node.localName,
+                  definitionText: Boolean(node.closest('dt')) && [...node.childNodes].some((child) =>
+                    child.nodeType === Node.TEXT_NODE && child.textContent?.trim()),
+                };
+              });
+          }, [...RELEASE_TEXT_ONLY_SELECTORS]);
+          expect(sizes.length, `${entry.figure}:${width} visible HTML text`).toBeGreaterThan(0);
+          if (entry.definitions !== undefined) {
+            expect(sizes.filter(({ tag }) => tag === 'dt'), `${entry.figure} definition terms`).toHaveLength(entry.definitions);
+            expect(sizes.filter(({ tag }) => tag === 'dd'), `${entry.figure} definition values`).toHaveLength(entry.definitions);
+          }
+          // Snapshot every baseline before setting any size, so nested labels
+          // reach 200% rather than inheriting repeated multiplication.
+          await page.addStyleTag({ content: sizes.map(({ index, baseline }) =>
+            `[data-comparison-text-probe="${index}"]{font-size:${baseline * 2}px!important}`).join('\n') });
+          await settleFocusPaint(page);
+          const readings = async () => frame.evaluate((element, expected) => {
+            const bounds = element.getBoundingClientRect();
+            return expected.map(({ index, baseline, tag }) => {
+              const node = element.querySelector<HTMLElement>(`[data-comparison-text-probe="${index}"]`)!;
+              const rects = [...node.childNodes].filter((child) =>
+                child.nodeType === Node.TEXT_NODE && child.textContent?.trim()).flatMap((child) => {
+                const range = document.createRange();
+                range.selectNodeContents(child);
+                return [...range.getClientRects()].filter((rect) => rect.width > 0 && rect.height > 0).map((rect) => ({
+                  left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom,
+                }));
+              });
+              return {
+                index, tag, baseline, actual: Number.parseFloat(getComputedStyle(node).fontSize),
+                visible: node.checkVisibility({ opacityProperty: true, visibilityProperty: true }),
+                text: node.textContent?.trim(), rects,
+                fits: rects.every((rect) => rect.left >= bounds.left - 0.5 && rect.right <= bounds.right + 0.5 &&
+                  rect.top >= bounds.top - 0.5 && rect.bottom <= bounds.bottom + 0.5),
+              };
+            });
+          }, sizes);
+          const sizeFailures = (rows: Awaited<ReturnType<typeof readings>>) => rows.filter(({ actual, baseline }) =>
+            !Number.isFinite(actual) || Math.abs(actual - baseline * 2) > 0.5);
+          const resized = await readings();
+          const screenshot = testInfo.outputPath(`${entry.figure}-${width}-text-200.png`);
+          await frame.screenshot({
+            path: screenshot, animations: 'disabled',
+            // As in the reader captures, suppress only fixed page chrome
+            // while photographing the frame; layout assertions run unaltered.
+            style: 'header.sticky, .skip-link { visibility: hidden !important; }',
+          });
+          await testInfo.attach(`${entry.figure}-${width}-text-200`, { path: screenshot, contentType: 'image/png' });
+          expect.soft(sizeFailures(resized), `${entry.figure}:${width} resized labels`).toEqual([]);
+          expect.soft(resized.filter(({ visible, fits }) => !visible || !fits), `${entry.figure}:${width} text stays inside its frame`).toEqual([]);
+          expect.soft(await documentOverflow(page), `${entry.figure}:${width} document overflow`).toBe(0);
+
+          // An actual missed definition term must fail the same size predicate.
+          if (entry.definitions !== undefined) {
+            const term = sizes.find(({ definitionText }) => definitionText)!;
+            expect(term, `${entry.figure} visible definition text`).toBeDefined();
+            const mutant = await page.addStyleTag({ content:
+              `[data-comparison-text-probe="${term.index}"]{font-size:${term.baseline}px!important}` });
+            try {
+              const failed = sizeFailures(await readings());
+              expect(failed.map(({ index }) => index)).toEqual([term.index]);
+              expect(failed[0].actual).toBe(term.baseline);
+            } finally {
+              await mutant.evaluate((element) => element.parentNode?.removeChild(element));
+            }
+            await settleFocusPaint(page);
+            expect(sizeFailures(await readings())).toEqual([]);
+          }
+          expect(await handle.evaluate((element, origin) => element.isConnected &&
+            element === document.querySelector(`[data-figure-frame="${element.getAttribute('data-figure-frame')}"]`) &&
+            performance.timeOrigin === origin, timeOrigin)).toBe(true);
+          expect(await page.evaluate(() => ({ width: innerWidth, dpr: devicePixelRatio }))).toEqual({ width, dpr: 1 });
+        } finally {
+          await page.close();
+        }
+      }
+    } finally {
+      await context.close();
+    }
+  }
+});
+
+
+// The guide is HTML above an unchanged SVG. A nonzero SVG rectangle alone
+// cannot detect an opaque overlay or an untraceable white-on-white leader.
+test('press gap guide preserves measured endpoints and forced-colour visibility', async ({ browser, staticBase }, testInfo) => {
+  test.setTimeout(180_000);
+  const observations: unknown[] = [];
+  const modes = [
+    { id: 'normal', forcedColors: 'none', colorScheme: 'light' },
+    { id: 'forced-light', forcedColors: 'active', colorScheme: 'light' },
+    { id: 'forced-dark', forcedColors: 'active', colorScheme: 'dark' },
+  ] as const;
+  try {
+    for (const width of [1280, 375]) for (const mode of modes) {
+      const context = await browser.newContext({
+        viewport: { width, height: width === 375 ? 812 : 900 },
+        forcedColors: mode.forcedColors, colorScheme: mode.colorScheme, reducedMotion: 'reduce',
+      });
+      try {
+        const page = await context.newPage();
+        await page.goto(`${staticBase}/manipulation/action-spaces/`);
+        await page.evaluate(() => document.fonts.ready);
+        const frame = page.locator('[data-figure-frame="impedance-press"]');
+        await expect(frame.getByTestId('press-gap-guide')).toBeAttached();
+        await expect.poll(() => frame.evaluate(el => Object.keys(el).some(key => key.startsWith('__reactFiber$')))).toBe(true);
+        const original = await frame.elementHandle();
+        const timeOrigin = await page.evaluate(() => performance.timeOrigin);
+        // Measure the retained original scene only after its native disclosure opens.
+        const method = frame.locator('details[data-figure-fold="method"]');
+        const summary = method.locator(':scope > summary');
+        await expect(method).toHaveJSProperty('open', false);
+        await expect(summary).toHaveText('How this was made');
+        await summary.focus(); await summary.press('Enter');
+        await expect(method).toHaveJSProperty('open', true);
+        await expect(frame.getByTestId('press-drawing')).toBeVisible();
+        await expect(frame.getByTestId('press-gap-guide')).toBeVisible();
+        const probe = (target: number) => frame.evaluate((el, requested) => {
+          const required = <T extends Element>(selector: string) => {
+            const node = el.querySelector<T>(selector);
+            if (!node) throw new Error(`Missing measured guide member: ${selector}`);
+            return node;
+          };
+          const svg = required<SVGSVGElement>('[data-testid="press-drawing"] svg');
+          const guide = required<HTMLElement>('[data-testid="press-gap-guide"]');
+          const tool = required<HTMLElement>('[data-testid="press-gap-tool-line"]');
+          const targetLine = el.querySelector<HTMLElement>('[data-testid="press-gap-target-line"]');
+          const bracket = required<HTMLElement>('[data-testid="press-gap-bracket"]');
+          const stage = required<HTMLElement>('[data-figure-stage]');
+          const errors: string[] = [];
+          const close = (name: string, actual: number, expected: number, tolerance = 0.15) => {
+            if (!Number.isFinite(actual) || Math.abs(actual - expected) > tolerance) errors.push(name);
+          };
+          // Independently pinned from the original camera, pan and ruler; never
+          // derive expected positions from the new guide helper or its attributes.
+          const x = 362.8953269648107;
+          const toolY = 388.50778791731744 + Math.min(requested, 0) * 17.23930896091765;
+          const targetY = 388.50778791731744 + requested * 17.23930896091765;
+          const gap = Math.max(requested, 0);
+          const sb = svg.getBoundingClientRect(), gb = guide.getBoundingClientRect();
+          const tb = tool.getBoundingClientRect(), ab = targetLine?.getBoundingClientRect(), bb = bracket.getBoundingClientRect();
+          if (svg.getAttribute('viewBox') !== '0 0 600 666') errors.push('original viewBox');
+          for (const key of ['left', 'top', 'width', 'height'] as const) close(`overlay ${key}`, gb[key], sb[key]);
+          close('tool x', tb.left, sb.left + x / 600 * sb.width);
+          close('tool y', tb.top, sb.top + toolY / 666 * sb.height);
+          close('bracket x', bb.left, sb.left + 0.94 * sb.width);
+          close('bracket y', bb.top, sb.top + toolY / 666 * sb.height);
+          close('bracket span', bb.height, (targetY - toolY) / 666 * sb.height);
+          close('requested pose', Number(guide.dataset.guideTarget), requested, 1e-9);
+          close('marked gap', Number(guide.dataset.gap), gap, 1e-9);
+          const gs = getComputedStyle(guide), toolStyle = getComputedStyle(tool);
+          if (gs.backgroundImage !== 'none' || (gs.backgroundColor !== 'transparent' && !/^rgba\([^)]*,\s*0\)$/.test(gs.backgroundColor))) errors.push('opaque overlay');
+          if (gs.pointerEvents !== 'none' || guide.getAttribute('aria-hidden') !== 'true') errors.push('overlay interaction');
+          if (toolStyle.borderTopStyle !== 'solid') errors.push('tool identity');
+          if (gap > 0) {
+            if (!targetLine || !ab) errors.push('missing target level');
+            else {
+              close('target x', ab.left, sb.left + x / 600 * sb.width);
+              close('target y', ab.top, sb.top + targetY / 666 * sb.height);
+              if (getComputedStyle(targetLine).borderTopStyle !== 'dashed') errors.push('target identity');
+            }
+          } else if (targetLine || bb.height !== 0) errors.push('nonzero collapsed gap');
+          const forced = matchMedia('(forced-colors: active)').matches;
+          const canvas = getComputedStyle(stage).backgroundColor;
+          const paint = [tool, ...(targetLine ? [targetLine] : []), bracket].map(mark => {
+            const css = getComputedStyle(mark);
+            const id = mark.dataset.testid!;
+            if (forced) {
+              if (mark === bracket && gap === 0) {
+                if (parseFloat(css.outlineWidth) > 0 && css.outlineStyle !== 'none') errors.push('painted zero bracket');
+              } else if (css.outlineWidth !== '1px' || css.outlineStyle !== 'solid' || css.outlineColor !== canvas) errors.push(`clearing edge:${id}`);
+            }
+            return { id, outline: css.outline, border: css.borderTop, color: css.color };
+          });
+          return { requested, gap, errors, forced, canvas, paint, background: gs.backgroundColor, svg: sb.toJSON(), overlay: gb.toJSON(), tool: tb.toJSON(), target: ab?.toJSON(), bracket: bb.toJSON() };
+        }, target);
+        // The existing reduced-motion rule keeps a 0.01ms CSS transition.
+        // A committed React attribute can precede its painted style by a frame.
+        const settlePaint = () => page.evaluate(() => new Promise<void>(resolve => {
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+        }));
+        const slider = frame.getByRole('slider', { name: 'Target', exact: true });
+        for (const target of [-2, 0, 0.5, 3, 2]) {
+          await slider.focus(); await slider.press('Home');
+          for (let step = 0; step < (target + 2) / 0.5; step++) await slider.press('ArrowRight');
+          await expect(slider).toHaveValue(String(target));
+          await expect(frame.getByTestId('press-gap-guide')).toHaveAttribute('data-guide-target', String(target));
+          await settlePaint();
+          const result = await probe(target);
+          observations.push({ width, mode: mode.id, kind: 'native', ...result });
+          expect(result.errors, `${mode.id}/${width}/${target}`).toEqual([]);
+          if (target < 0) await expect(frame.getByTestId('press-gap-key')).not.toContainText(/stopped/i);
+        }
+        const guide = frame.getByTestId('press-gap-guide'), tool = frame.getByTestId('press-gap-tool-line');
+        for (const mutation of ['opaque', 'shifted', ...(mode.forcedColors === 'active' ? ['uncleared'] : [])]) {
+          const node = mutation === 'opaque' ? guide : tool;
+          const originalStyle = await node.getAttribute('style');
+          try {
+            await node.evaluate((element, kind) => {
+              element.style.setProperty(kind === 'opaque' ? 'background-color' : kind === 'shifted' ? 'top' : 'outline-style', kind === 'opaque' ? 'Canvas' : kind === 'shifted' ? '0px' : 'none', 'important');
+            }, mutation);
+            await settlePaint();
+            const result = await probe(2);
+            observations.push({ width, mode: mode.id, kind: 'negative witness', mutation, ...result });
+            expect(result.errors).toContain(mutation === 'opaque' ? 'opaque overlay' : mutation === 'shifted' ? 'tool y' : 'clearing edge:press-gap-tool-line');
+          } finally {
+            await node.evaluate((element, style) => style === null ? element.removeAttribute('style') : element.setAttribute('style', style), originalStyle);
+          }
+          await settlePaint();
+          expect((await probe(2)).errors, 'exact native recovery after the DOM mutant').toEqual([]);
+        }
+        expect(await page.evaluate(() => performance.timeOrigin)).toBe(timeOrigin);
+        expect(await original!.evaluate(el => el.isConnected && el === document.querySelector('[data-figure-frame="impedance-press"]'))).toBe(true);
+        if (mode.id === 'forced-dark') {
+          const path = testInfo.outputPath(`press-guide-${width}-forced-dark.png`);
+          await frame.screenshot({ path, animations: 'disabled', style: 'header.sticky,.skip-link{visibility:hidden!important}' });
+          await testInfo.attach(`press-guide-${width}-forced-dark`, { path, contentType: 'image/png' });
+        }
+      } finally { await context.close(); }
+    }
+    expect(observations.filter(row => (row as { kind: string }).kind === 'native')).toHaveLength(30);
+    expect(observations.filter(row => (row as { kind: string }).kind === 'negative witness')).toHaveLength(16);
+  } finally {
+    await testInfo.attach('press-gap-source-and-paint-observations', { body: Buffer.from(JSON.stringify(observations, null, 2)), contentType: 'application/json' });
+  }
+});
+
+
+// The settled maximum has only two digits. Native Run also exposes 10.4–11.6:
+// canonical text resizing doubles its p glyphs without doubling parent ch tracks.
+test('press fractional equation stays readable during native Run at narrow text and zoom profiles', async ({ browser, staticBase }, testInfo) => {
+  test.setTimeout(120_000);
+  const { captureTextPopulation } = await import('./helpers/release-text-profile');
+  const { installReleaseActivityObserver, takeReleaseActivity } = await import('./helpers/release-activity');
+  const sourcePaths = [
+    'components/interactive/impedance-press.tsx',
+    'lib/impedance-press.ts',
+    'components/iso/figures/spring-press.ts',
+    'components/iso/iso-kit.ts',
+    'components/iso/iso.css',
+    'lib/brand-v2-release-text.ts',
+    'tests/e2e/helpers/release-text-profile.ts',
+  ];
+  const sources = sourcePaths.map((path) => ({ path, bytes: readFileSync(join(process.cwd(), path)) }));
+  const observations: unknown[] = [];
+  const profiles = [
+    { id: 'canonical-text-200-375', width: 375, height: 812, dpr: 1, textScale: 2 },
+    { id: 'zoom-equivalent-200-187', width: 187, height: 406, dpr: 2, textScale: 1 },
+  ];
+  try {
+    for (const profile of profiles) {
+      const context = await browser.newContext({
+        viewport: { width: profile.width, height: profile.height },
+        deviceScaleFactor: profile.dpr, reducedMotion: 'no-preference',
+      });
+      try {
+        await context.addInitScript(installReleaseActivityObserver);
+        const page = await context.newPage();
+        await page.goto(`${staticBase}/manipulation/action-spaces/`);
+        await page.evaluate(() => document.fonts.ready);
+        const frame = page.locator('[data-figure-frame="impedance-press"]');
+        await expect(frame).toBeVisible();
+        await expect.poll(() => frame.evaluate((element) => Object.keys(element).some((key) => key.startsWith('__reactFiber$')))).toBe(true);
+        const original = (await frame.elementHandle())!;
+        const timeOrigin = await page.evaluate(() => performance.timeOrigin);
+        await expect(frame.locator('details[data-figure-fold="method"]')).toHaveJSProperty('open', false);
+        await expect(frame.getByTestId('press-drawing')).toBeHidden();
+        await expect(frame.getByTestId('press-position-diagram')).toBeVisible();
+        await expect(frame.getByTestId('press-equation')).toBeVisible();
+        await expect(frame.getByTestId('press-value-descriptions')).toBeVisible();
+        const parentFont = await frame.getByTestId('press-equation').evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
+        // The canonical census is deliberately unchanged: expanding it to divs
+        // would grow the old ch tracks and conceal this particular failure.
+        const census = await page.evaluate(captureTextPopulation, [...RELEASE_TEXT_ONLY_SELECTORS]);
+        if (profile.textScale === 2) {
+          await page.addStyleTag({ content: census.map(({ baselinePx }, index) =>
+            `[data-release-text-probe="${index}"]{font-size:${baselinePx * 2}px!important}`).join('\n') });
+        }
+        const stiff = frame.getByRole('button', { name: 'Stiff', exact: true });
+        const run = frame.getByTestId('press-run');
+        await stiff.focus();
+        await stiff.press('Enter');
+        await expect(stiff).toHaveAttribute('aria-pressed', 'true');
+        await expect(run).toHaveText('Run the press');
+
+        // Observe real animation frames from before Enter through completion.
+        // The first four-character fractional push is sampled, including failures;
+        // neither layout success nor a separately timed screenshot selects it.
+        const sampling = original.evaluate((element, input) => {
+          const required = <T extends HTMLElement>(selector: string) => {
+            const node = element.querySelector<T>(selector);
+            if (!node) throw new Error(`Missing fractional press member: ${selector}`);
+            return node;
+          };
+          const byId = (id: string) => required<HTMLElement>(`[data-testid="${id}"]`);
+          const calculation = byId('press-calculation'), equation = byId('press-equation');
+          const descriptions = byId('press-value-descriptions'), drawing = byId('press-drawing');
+          const guide = byId('press-gap-guide'), button = byId('press-run');
+          const position = byId('press-position-diagram'), marks = byId('press-position-marks'), positionLabels = byId('press-position-labels');
+          const actionPacket = byId('press-action-packet'), chosenLabel = byId('press-chosen-settings');
+          const contactProduct = byId('press-contact-product'), condition = byId('press-position-condition');
+          const chosenReadout = byId('press-target'), shownReadout = byId('press-shown-target');
+          const method = required<HTMLDetailsElement>('details[data-figure-fold="method"]');
+          const nativeSlider = required<HTMLInputElement>('input[type="range"]');
+          const kinds = ['stiffness', 'multiply', 'gap', 'equals', 'push'];
+          const leaves = [...equation.querySelectorAll<HTMLElement>('[data-operation-value],[data-operation-symbol]')];
+          const nativeDocument = element.ownerDocument;
+          const originalNodes = [calculation, equation, descriptions, drawing, guide, button, ...leaves];
+          originalNodes.push(position, marks, positionLabels, actionPacket, chosenLabel, chosenReadout, shownReadout);
+          originalNodes.push(contactProduct, condition, ...['press-stiffness-product-row', 'press-gap-product-row', 'press-push-product-row',
+            'press-gap-product-operator', 'press-push-product-operator', 'press-stiffness-description', 'press-gap-description', 'press-push-description'].map(byId));
+          originalNodes.push(...['press-primary-takeaway', 'press-action-clause', 'press-contact-clause', 'press-general-rule', 'press-send-path', 'press-send-connector', 'press-sent-rule'].map(byId));
+          originalNodes.push(...element.querySelectorAll<HTMLElement>('[data-action-value]'));
+          const originalSelectors = originalNodes.map((node) => node.dataset.testid
+            ? `[data-testid="${node.dataset.testid}"]`
+            : node.dataset.actionValue ? `[data-action-value="${node.dataset.actionValue}"]`
+              : `[data-operation-${node.dataset.operationValue ? 'value' : 'symbol'}="${node.dataset.operationValue ?? node.dataset.operationSymbol}"]`);
+          const state = () => ({
+            shown: Number(drawing.dataset.target), rawShown: Number(guide.dataset.guideTarget),
+            physicalPush: Number(drawing.dataset.push), spring: drawing.dataset.spring,
+            displayedGap: Math.max(Math.round(Number(drawing.dataset.target) * 10) / 10, 0),
+            runText: button.textContent?.trim(),
+            chosenTarget: Number(nativeSlider.value), chosenText: chosenReadout.textContent?.trim(), shownText: shownReadout.textContent?.trim(),
+          });
+          const measure = () => {
+            const before = state(), errors: string[] = [], tolerance = 0.3;
+            const box = (node: Element) => {
+              const rect = node.getBoundingClientRect();
+              return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, width: rect.width, height: rect.height };
+            };
+            type Bounds = ReturnType<typeof box>;
+            const insideX = (a: Bounds, b: Bounds) => a.left >= b.left - tolerance && a.right <= b.right + tolerance;
+            const inside = (a: Bounds, b: Bounds) => insideX(a, b) && a.top >= b.top - tolerance && a.bottom <= b.bottom + tolerance;
+            const overlaps = (a: Bounds, b: Bounds) => Math.min(a.right, b.right) - Math.max(a.left, b.left) > tolerance &&
+              Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > tolerance;
+            const rangeBoxes = (range: Range): Bounds[] => [...range.getClientRects()]
+              .filter((rect) => rect.width > 0 && rect.height > 0)
+              .map(({ left, right, top, bottom, width, height }) => ({ left, right, top, bottom, width, height }));
+            const frameBox = box(element), calculationBox = box(calculation), equationBox = box(equation), descriptionsBox = box(descriptions);
+            const expectedPush = Number((4 * before.displayedGap).toFixed(1));
+            const expected = ['4', '×', String(before.displayedGap), '=', String(expectedPush)];
+            const values = leaves.map((node, index) => {
+              const range = document.createRange(); range.selectNodeContents(node);
+              const css = getComputedStyle(node), rect = box(node), operand = box(node.parentElement!);
+              const probeIndex = Number(node.dataset.releaseTextProbe), baseline = input.census[probeIndex]?.baselinePx;
+              const glyphs = rangeBoxes(range), kind = node.dataset.operationValue ?? node.dataset.operationSymbol;
+              if (kind !== kinds[index] || node.textContent?.trim() !== expected[index]) errors.push(`equation value:${kind}`);
+              if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true })) errors.push(`hidden value:${kind}`);
+              if (!Number.isFinite(baseline) || Math.abs(parseFloat(css.fontSize) - baseline * input.profile.textScale) > 0.5) errors.push(`text size:${kind}`);
+              if (!inside(rect, equationBox) || !inside(rect, calculationBox) || !inside(rect, frameBox)) errors.push(`value containment:${kind}`);
+              if (glyphs.length !== 1) errors.push(`wrapped value:${kind}`);
+              for (const glyph of glyphs) {
+                for (const [name, bounds] of [['value', rect], ['operand', operand], ['equation', equationBox], ['calculation', calculationBox], ['frame', frameBox]] as const) {
+                  if (!insideX(glyph, bounds)) errors.push(`glyph containment:${kind}:${name}`);
+                }
+              }
+              return { kind, text: node.textContent?.trim(), box: rect, operand, glyphs, baseline, fontSize: parseFloat(css.fontSize), fontWeight: css.fontWeight };
+            });
+            if (values.length !== 5) errors.push('equation member count');
+            if (Math.max(...values.map((value) => value.box.top)) - Math.min(...values.map((value) => value.box.top)) > tolerance) errors.push('equation row alignment');
+            if (values.some((value) => value.fontSize !== values[0].fontSize || value.fontWeight !== values[0].fontWeight)) errors.push('equation typography agreement');
+            for (let i = 0; i < values.length; i++) for (let j = i + 1; j < values.length; j++) {
+              if (values[i].glyphs.some((a) => values[j].glyphs.some((b) => overlaps(a, b)))) errors.push(`glyph overlap:${values[i].kind}:${values[j].kind}`);
+            }
+            if (!inside(equationBox, calculationBox) || !inside(descriptionsBox, calculationBox) || !inside(calculationBox, frameBox)) errors.push('calculation containment');
+            if (overlaps(equationBox, descriptionsBox)) errors.push('equation/descriptor overlap');
+            if (Math.abs(parseFloat(getComputedStyle(equation).fontSize) - input.parentFont) > 0.5) errors.push('canonical profile changed parent font');
+            const primary = leaves.filter((node) => node.hasAttribute('data-operation-value'));
+            const repeated = [...descriptions.querySelectorAll<HTMLElement>('[data-description-value]')];
+            if (primary.length !== 3 || repeated.length !== 3) errors.push('primary/descriptor count');
+            const descriptorReadings = repeated.map((value, index) => {
+              const main = primary[index], description = value.parentElement!, kind = value.dataset.descriptionValue;
+              const text = description.textContent?.replace(/\s+/g, ' ').trim();
+              const words = kind === 'stiffness' ? `sent stiffness: ${main?.textContent}` : kind === 'gap'
+                ? `target gap: ${main?.textContent} ruler marks` : `push: ${main?.textContent} dial marks`;
+              if (!main || kind !== main.dataset.operationValue || value.textContent !== main.textContent || text !== words ||
+                document.getElementById(main.getAttribute('aria-describedby') ?? '') !== description) errors.push(`descriptor agreement:${kind}`);
+              if (!description.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(box(description), descriptionsBox)) errors.push(`descriptor containment:${kind}`);
+              const wordReadings: Array<{ word: string; rects: Bounds[] }> = [];
+              const walker = document.createTreeWalker(description, NodeFilter.SHOW_TEXT);
+              for (let node = walker.nextNode(); node; node = walker.nextNode()) for (const match of (node.textContent ?? '').matchAll(/\S+/g)) {
+                const range = document.createRange();
+                range.setStart(node, match.index); range.setEnd(node, match.index + match[0].length);
+                const rects = rangeBoxes(range);
+                if (rects.length !== 1 || rects.some((rect) => !insideX(rect, box(description)))) errors.push(`descriptor word:${kind}:${match[0]}`);
+                wordReadings.push({ word: match[0], rects });
+              }
+              return { kind, text, box: box(description), words: wordReadings };
+            });
+            for (let i = 0; i < descriptorReadings.length; i++) for (let j = i + 1; j < descriptorReadings.length; j++) {
+              if (overlaps(descriptorReadings[i].box, descriptorReadings[j].box)) errors.push('descriptor overlap');
+            }
+            const namedRowIds = ['press-stiffness-product-row', 'press-gap-product-row', 'press-push-product-row'];
+            const namedKinds = ['stiffness', 'gap', 'push'];
+            const namedValues = [String(4), String(before.displayedGap), String(expectedPush)];
+            const namedOperators = [null, 'press-gap-product-operator', 'press-push-product-operator'];
+            const namedOperatorTexts = [null, '× times', '= equals'];
+            const namedRows = namedRowIds.map((id) => byId(id));
+            const namedParagraphNodes = namedRows.flatMap((row) => [...row.querySelectorAll<HTMLElement>('p')]);
+            const positiveBounds = (rect: Bounds) => ['left', 'right', 'top', 'bottom', 'width', 'height']
+              .every((key) => Number.isFinite(rect[key as keyof Bounds])) && rect.width > 0 && rect.height > 0;
+            const productText = (node: HTMLElement, containers: Array<[string, Bounds]>, label: string) => {
+              const id = node.dataset.testid, rect = box(node), css = getComputedStyle(node);
+              const baseline = input.census[Number(node.dataset.releaseTextProbe)]?.baselinePx;
+              const visible = node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) &&
+                !node.closest('details:not([open]),[hidden],[aria-hidden="true"]');
+              if (!visible) errors.push(label + ' hidden:' + id);
+              if (node.tagName !== 'P' || node.querySelector('p')) errors.push(label + ' paragraph identity:' + id);
+              const expectedBase = label === 'named product' ? 16 : label === 'combined primary' ? 20 : 14;
+              const expectedWeight = label === 'combined primary' || id?.endsWith('-operator') ? '600' : '400';
+              if (!Number.isFinite(baseline) || Math.abs(baseline - expectedBase) > 0.5 || css.fontWeight !== expectedWeight) errors.push(label + ' source typography:' + id);
+              const leafTypography: Array<{ text: string; paragraph: string | undefined; baseline: number; fontSize: number; fontWeight: string; visible: boolean }> = [];
+              if (!Number.isFinite(baseline) || Math.abs(parseFloat(css.fontSize) - baseline * input.profile.textScale) > 0.5) errors.push(label + ' canonical text size:' + id);
+              if (!positiveBounds(rect) || containers.some(([, container]) => !inside(rect, container))) errors.push(label + ' paragraph containment:' + id);
+              const glyphs: Bounds[] = [], words: Array<{ word: string; rects: Bounds[] }> = [];
+              const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+              for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+                if (!(text.textContent ?? '').trim()) continue;
+                const leaf = text.parentElement!, leafCss = getComputedStyle(leaf), paragraph = leaf.closest('p');
+                const emphasized = label === 'combined primary' || leaf.closest('[data-operation-label],[data-testid="press-gap-product-operator"],[data-testid="press-push-product-operator"]');
+                const leafVisible = leaf.checkVisibility({ opacityProperty: true, visibilityProperty: true });
+                if (paragraph !== node || !leafVisible || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.textScale) > 0.5 ||
+                leafCss.fontWeight !== (emphasized ? '600' : '400')) errors.push(label + ' leaf inherited typography:' + id);
+                leafTypography.push({ text: text.textContent!.trim(), paragraph: (paragraph as HTMLElement | null)?.dataset.testid, baseline, fontSize: parseFloat(leafCss.fontSize), fontWeight: leafCss.fontWeight, visible: leafVisible });
+                const full = document.createRange(); full.selectNodeContents(text);
+                const rangeBoxes = (range: Range): Bounds[] => [...range.getClientRects()].filter((r) => r.width > 0 && r.height > 0)
+                  .map(({ left, right, top, bottom, width, height }) => ({ left, right, top, bottom, width, height }));
+                glyphs.push(...rangeBoxes(full));
+                for (const match of (text.textContent ?? '').matchAll(/\S+/g)) {
+                  const range = document.createRange(); range.setStart(text, match.index); range.setEnd(text, match.index + match[0].length);
+                  const rects = rangeBoxes(range);
+                  if (rects.length !== 1 || rects.some((r) => !inside(r, rect) || containers.some(([, container]) => !inside(r, container)))) errors.push(label + ' whole word:' + id + ':' + match[0]);
+                  words.push({ word: match[0], rects });
+                }
+              }
+              if (!glyphs.length || glyphs.some((r) => !positiveBounds(r) || !inside(r, rect) || containers.some(([, container]) => !inside(r, container)))) errors.push(label + ' glyph containment:' + id);
+              return { id, tag: node.tagName, text: node.textContent?.replace(/\s+/g, ' ').trim(), box: rect, baseline,
+                fontSize: parseFloat(css.fontSize), fontWeight: css.fontWeight, visible, leafTypography, glyphs, words };
+            };
+            if (JSON.stringify([...descriptions.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(namedRowIds) ||
+              namedParagraphNodes.length !== 5 || descriptions.parentElement !== calculation || equation.parentElement !== calculation ||
+              JSON.stringify([...calculation.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-value-descriptions', 'press-equation'])) errors.push('named product row/calculation identity');
+            if (box(descriptions).bottom > box(equation).top + tolerance) errors.push('named product before numeric equation');
+            const namedProduct = namedRows.map((row, index) => {
+              const kind = namedKinds[index], rowBox = box(row), description = byId('press-' + kind + '-description');
+              const operatorId = namedOperators[index], operator = operatorId ? byId(operatorId) : null;
+              const expectedChildren = operatorId ? [operatorId, 'press-' + kind + '-description'] : ['press-' + kind + '-description'];
+              if (row.parentElement !== descriptions || JSON.stringify([...row.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(expectedChildren) ||
+                description.parentElement !== row || operator && (operator.parentElement !== row || operator.nextElementSibling !== description)) errors.push('named product sibling identity:' + kind);
+              if (!row.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !positiveBounds(rowBox) ||
+                !inside(rowBox, box(descriptions)) || !inside(rowBox, box(calculation)) || !inside(rowBox, frameBox)) errors.push('named product row containment:' + kind);
+              const main = equation.querySelector<HTMLElement>('[data-operation-value="' + kind + '"]');
+              const copy = description.querySelector<HTMLElement>('[data-description-value="' + kind + '"]');
+              const expectedText = kind === 'stiffness' ? 'sent stiffness: ' + namedValues[index] : kind === 'gap'
+                ? 'target gap: ' + namedValues[index] + ' ruler marks' : 'push: ' + namedValues[index] + ' dial marks';
+              if (!main || main.textContent?.trim() !== namedValues[index] || copy?.textContent?.trim() !== namedValues[index] ||
+                description.textContent?.replace(/\s+/g, ' ').trim() !== expectedText ||
+                document.getElementById(main?.getAttribute('aria-describedby') ?? '') !== description) errors.push('named product value/description agreement:' + kind);
+              const containers: Array<[string, Bounds]> = [['row', rowBox], ['descriptions', box(descriptions)], ['calculation', box(calculation)], ['frame', frameBox]];
+              const descriptor = productText(description, containers, 'named product');
+              const operation = operator ? productText(operator, containers, 'named product') : null;
+              if (operation && operation.text !== namedOperatorTexts[index]) errors.push('named product operator text:' + kind);
+              if (operation && (overlaps(operation.box, descriptor.box) || operation.glyphs.some((a) => descriptor.glyphs.some((b) => overlaps(a, b))))) errors.push('named product operator/descriptor overlap:' + kind);
+              if (index && (box(namedRows[index - 1]).bottom > rowBox.top + tolerance || overlaps(box(namedRows[index - 1]), rowBox))) errors.push('named product vertical row order:' + kind);
+              return { kind, id: row.dataset.testid, box: rowBox, descriptor, operator: operation,
+                primaryValue: main?.textContent, descriptionValue: copy?.textContent, primaryDescriptionId: main?.getAttribute('aria-describedby'), descriptionId: description.id };
+            });
+            // The full original analogy is a hidden model reference here. Only
+            // the default visible position diagram supplies painted geometry.
+            const positionBox = box(position), marksBox = box(marks), labelsBox = box(positionLabels);
+            const surface = byId('press-position-surface'), toolMark = byId('press-position-tool');
+            const targetMark = byId('press-position-target'), gapMark = byId('press-position-gap');
+            const gapKey = byId('press-position-gap-key'), gapDescription = byId('press-gap-description');
+            const surfaceBox = box(surface), toolBox = box(toolMark), targetBox = box(targetMark), gapBox = box(gapMark);
+            const displayedTarget = Math.round(before.shown * 10) / 10;
+            const expectedTool = Math.min(displayedTarget, 0), expectedGap = Math.max(displayedTarget, 0);
+            const expectedY = (value: number) => marksBox.top + (value + 2) / 5 * marksBox.height;
+            const near = (actual: number, expected: number) => Number.isFinite(actual) && Math.abs(actual - expected) <= tolerance;
+            for (const [name, actual, expectedValue] of [
+              ['target', Number(position.dataset.target), displayedTarget], ['tool', Number(position.dataset.tool), expectedTool],
+              ['gap', Number(position.dataset.gap), expectedGap], ['push', Number(position.dataset.push), expectedPush],
+              ['surface y', surfaceBox.top, expectedY(0)], ['target y', targetBox.top, expectedY(displayedTarget)],
+              ['tool y', (toolBox.top + toolBox.bottom) / 2, expectedY(expectedTool)],
+              ['gap top', gapBox.top, expectedY(expectedTool)], ['gap span', gapBox.height, expectedGap / 5 * marksBox.height],
+            ] as const) if (!near(actual, expectedValue)) errors.push(`visible position:${name}`);
+            for (const node of [actionPacket, position, marks, positionLabels, calculation, equation, descriptions, surface, toolMark, targetMark, gapMark]) {
+              if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || node.closest('details:not([open]),[hidden]')) errors.push(`hidden primary:${node.dataset.testid}`);
+            }
+            if (method.open || drawing.closest('details') !== method || guide.closest('details') !== method) errors.push('method model reference is not closed');
+            if (!nativeSlider.isConnected || nativeSlider !== element.querySelector('input[type="range"]') || !actionPacket.contains(nativeSlider) || !actionPacket.contains(button)) errors.push('native chosen-setting identity');
+            if (chosenLabel.textContent?.trim() !== 'Chosen settings' ||
+              chosenReadout.textContent?.trim() !== `${before.chosenTarget} marks past surface` ||
+              shownReadout.textContent?.trim() !== `Shown target: ${displayedTarget} marks past surface`) errors.push('chosen/shown label agreement');
+            if (byId('press-position-condition').textContent?.trim() !== 'The surface stops the tool.') errors.push('visible contact condition');
+            if (getComputedStyle(surface).borderTopStyle !== 'solid' || getComputedStyle(targetMark).borderTopStyle !== 'dashed' ||
+              !(toolBox.width > 0 && toolBox.height > 0) || getComputedStyle(toolMark).backgroundColor !== getComputedStyle(marks).color) errors.push('visible position paint');
+            const gapKeyBox = box(gapKey), gapKeyStyle = getComputedStyle(gapKey);
+            if (gapKey.parentElement !== gapDescription || gapKey.nextElementSibling !== gapDescription.querySelector('[data-operation-label="gap"]') ||
+              gapKey.getAttribute('aria-hidden') !== 'true') errors.push('gap legend descriptor binding');
+            if (!gapKey.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(gapKeyBox, box(gapDescription)) ||
+              !near(gapKeyBox.width, gapBox.width) || !near(gapKeyBox.height, 12) ||
+              [gapKeyStyle.borderTopStyle, gapKeyStyle.borderRightStyle, gapKeyStyle.borderBottomStyle].some((style) => style !== 'solid') ||
+              [gapKeyStyle.borderTopWidth, gapKeyStyle.borderRightWidth, gapKeyStyle.borderBottomWidth].some((width) => parseFloat(width) !== 1) ||
+              parseFloat(gapKeyStyle.borderLeftWidth) !== 0 ||
+              [gapKeyStyle.borderTopColor, gapKeyStyle.borderRightColor, gapKeyStyle.borderBottomColor].some((color) => color !== getComputedStyle(marks).color)) errors.push('visible gap legend paint');
+            if (!(marksBox.width > 0 && marksBox.height > 0) || !inside(positionBox, frameBox) || !inside(labelsBox, positionBox)) errors.push('visible position containment');
+            for (const rect of [surfaceBox, toolBox, targetBox, gapBox]) if (!inside(rect, positionBox) || !inside(rect, frameBox)) errors.push('visible mark containment');
+            if (overlaps(marksBox, labelsBox)) errors.push('visible marks/labels overlap');
+            const positionWords: Array<{ word: string; rects: Bounds[] }> = [];
+            const positionWalker = document.createTreeWalker(positionLabels, NodeFilter.SHOW_TEXT);
+            for (let node = positionWalker.nextNode(); node; node = positionWalker.nextNode()) for (const match of (node.textContent ?? '').matchAll(/\S+/g)) {
+              const range = document.createRange(); range.setStart(node, match.index); range.setEnd(node, match.index + match[0].length);
+              const rects = rangeBoxes(range);
+              if (rects.length !== 1 || rects.some((rect) => !insideX(rect, labelsBox) || !insideX(rect, positionBox) || !insideX(rect, frameBox))) errors.push(`visible position word:${match[0]}`);
+              positionWords.push({ word: match[0], rects });
+            }
+            // The condition used to be traversed inside positionLabels. Its
+            // exact text remains checked above; preserve and strengthen its
+            // paint, font and whole-word geometry at its new actual owner.
+            const productBox = box(contactProduct), conditionBox = box(condition);
+            const conditionReading = productText(condition, [['contact product', productBox], ['frame', frameBox]], 'moved condition');
+            if (condition.parentElement !== contactProduct || byId('press-position-tool-key').parentElement !== condition ||
+              condition.previousElementSibling !== byId('press-calculation') || condition.nextElementSibling !== byId('press-response-diagram') ||
+              !inside(conditionBox, productBox) || overlaps(conditionBox, box(byId('press-general-rule'))) ||
+              [...positionLabels.querySelectorAll('p')].some((node) => overlaps(conditionBox, box(node)))) errors.push('moved condition owner/geometry');
+            const sentTarget = Math.round(before.shown * 10) / 10, sentRate = 4;
+            const sentTargetText = (sentTarget > 0 ? '+' : '') + String(sentTarget);
+            const sentActionText = `An action sends two settings: target ${sentTargetText} and stiffness ${sentRate};`;
+            const sentPrimaryText = `${sentActionText} ↓ when the surface stops the tool, push equals stiffness times target gap.`;
+            const primarySentence = byId('press-primary-takeaway'), action = byId('press-action-clause'), rule = byId('press-general-rule');
+            const primaryReading = productText(primarySentence, [['frame', frameBox]], 'combined primary');
+            const primaryCss = getComputedStyle(primarySentence);
+            if (primarySentence.textContent?.replace(/\s+/g, ' ').trim() !== sentPrimaryText ||
+              action.parentElement !== primarySentence || rule.parentElement !== byId('press-sent-rule') || rule.tagName !== 'SPAN' ||
+              !(action.compareDocumentPosition(rule) & Node.DOCUMENT_POSITION_FOLLOWING) ||
+              !rule.checkVisibility({ opacityProperty: true, visibilityProperty: true }) ||
+              !inside(box(rule), box(primarySentence)) || primaryCss.fontWeight !== '600') errors.push('combined primary ownership/copy/font');
+            const combinedPrimary = byId('press-primary-takeaway');
+            const combinedIds = ['press-action-clause', 'press-contact-clause', 'press-general-rule'];
+            const combinedTexts = [sentActionText, 'when the surface stops the tool,', 'push equals stiffness times target gap.'];
+            const combinedPrimaryBox = box(combinedPrimary), combinedBaseline = input.census[Number(combinedPrimary.dataset.releaseTextProbe)]?.baselinePx;
+            if (combinedPrimary.tagName !== 'P' || JSON.stringify([...combinedPrimary.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-action-clause', 'press-send-path']) ||
+              JSON.stringify([...byId('press-send-path').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-sent-rule']) ||
+              JSON.stringify([...byId('press-sent-rule').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-contact-clause', 'press-general-rule']) ||
+              byId('press-send-path').tagName !== 'SPAN' || byId('press-send-path').parentElement !== combinedPrimary || byId('press-send-path').previousElementSibling !== byId('press-action-clause') ||
+              byId('press-sent-rule').tagName !== 'SPAN' || byId('press-sent-rule').parentElement !== byId('press-send-path') ||
+              byId('press-response-label').parentElement !== byId('press-contact-product') || byId('press-response-label').previousElementSibling !== null || byId('press-response-label').nextElementSibling !== calculation ||
+              descriptions.parentElement !== calculation || descriptions.nextElementSibling !== equation ||
+              byId('press-send-connector').getAttribute('data-from') !== 'press-action-message' ||
+              byId('press-send-connector').getAttribute('data-to') !== 'press-controller-output' ||
+              !(combinedPrimary.compareDocumentPosition(byId('press-send-path')) & Node.DOCUMENT_POSITION_FOLLOWING)) errors.push('combined clause sibling order');
+            const sentMessage = byId('press-action-message'), sentLabel = byId('press-action-label');
+            const sentFields = [...sentMessage.querySelectorAll<HTMLElement>('[data-action-field]')];
+            const sentValues = [...sentMessage.querySelectorAll<HTMLElement>('[data-action-value]')];
+            if (sentMessage.parentElement !== sentLabel || sentLabel.parentElement !== byId('press-action-clause') ||
+              sentLabel.getAttribute('aria-label') !== 'An action sends two settings: target and stiffness' ||
+              document.getElementById(byId('press-settings').getAttribute('aria-labelledby') ?? '') !== sentLabel ||
+              JSON.stringify(sentFields.map((node) => node.dataset.actionField)) !== JSON.stringify(['target', 'stiffness']) ||
+              JSON.stringify(sentValues.map((node) => node.dataset.actionValue)) !== JSON.stringify(['target', 'stiffness']) ||
+              JSON.stringify(sentFields.map((node) => node.textContent?.replace(/\s+/g, ' ').trim())) !== JSON.stringify([`target ${sentTargetText}`, `stiffness ${sentRate};`]) ||
+              JSON.stringify(sentValues.map((node) => node.textContent?.trim())) !== JSON.stringify([sentTargetText, String(sentRate)]) ||
+              sentValues.some((node, index) => node.parentElement !== sentFields[index]) ||
+              byId('press-send-connector').textContent?.trim() !== '↓' || byId('press-send-connector').getAttribute('aria-hidden') !== 'true') errors.push('sent action values and accessible binding');
+            for (const node of [...sentFields, ...sentValues, byId('press-send-connector'), byId('press-sent-rule')]) {
+              const css = getComputedStyle(node), rect = box(node);
+              if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(rect, combinedPrimaryBox) || !inside(rect, frameBox) ||
+                Math.abs(parseFloat(css.fontSize) - combinedBaseline * input.profile.textScale) > 0.5 || css.fontWeight !== '600') errors.push('sent action value visibility/font/containment');
+            }
+            const combinedClauses = combinedIds.map((id, index) => {
+              const node = byId(id), rect = box(node), css = getComputedStyle(node), owner = index === 0 ? combinedPrimary : byId('press-sent-rule'), ownerBox = box(owner);
+              const finitePositive = (r: Bounds) => ['left', 'right', 'top', 'bottom', 'width', 'height']
+                .every((key) => Number.isFinite(r[key as keyof Bounds])) && r.width > 0 && r.height > 0;
+              const visible = node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) && !node.closest('details:not([open]),[hidden],[aria-hidden="true"]');
+              if (!visible) errors.push('combined clause hidden:' + id);
+              if (node.tagName !== 'SPAN' || node.parentElement !== owner || node.textContent?.replace(/\s+/g, ' ').trim() !== combinedTexts[index] || node.children.length !== (index === 0 ? 1 : 0)) errors.push('combined clause identity/copy:' + id);
+              if (!finitePositive(rect) || !finitePositive(ownerBox) || !inside(rect, ownerBox) || !inside(rect, frameBox)) errors.push('combined clause containment:' + id);
+              const paragraphs = [combinedPrimary].map((paragraph) => {
+                const paragraphCss = getComputedStyle(paragraph), paragraphBox = box(paragraph), baseline = combinedBaseline;
+                const paragraphVisible = paragraph.checkVisibility({ opacityProperty: true, visibilityProperty: true }) && !paragraph.closest('details:not([open]),[hidden],[aria-hidden="true"]');
+                if (paragraph.tagName !== 'P' || !Number.isFinite(baseline) || Math.abs(baseline - 20) > 0.5 ||
+                  Math.abs(parseFloat(paragraphCss.fontSize) - baseline * input.profile.textScale) > 0.5 || paragraphCss.fontWeight !== '600' ||
+                  Math.abs(parseFloat(css.fontSize) - baseline * input.profile.textScale) > 0.5 || css.fontWeight !== '600') errors.push('combined clause inherited font:' + id);
+                if (!paragraphVisible) errors.push('combined clause hidden:' + id);
+                if (!finitePositive(paragraphBox) || !inside(ownerBox, paragraphBox) || !inside(paragraphBox, frameBox)) errors.push('combined clause paragraph containment:' + id);
+                return { id: paragraph.dataset.testid, tag: paragraph.tagName, box: paragraphBox, baseline, fontSize: parseFloat(paragraphCss.fontSize), fontWeight: paragraphCss.fontWeight, visible: paragraphVisible };
+              });
+              if (paragraphs.length !== 1) errors.push('combined clause paragraph population:' + id);
+              const glyphs: Bounds[] = [], words: Array<{ word: string; rects: Bounds[] }> = [];
+              const leafTypography: Array<{ text: string; paragraph: string | undefined; baseline: number | undefined; fontSize: number; fontWeight: string; visible: boolean }> = [];
+              const ranges = (range: Range): Bounds[] => [...range.getClientRects()].filter((r) => r.width > 0 && r.height > 0)
+                .map(({ left, right, top, bottom, width, height }) => ({ left, right, top, bottom, width, height }));
+              const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+              for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+                if (!(text.textContent ?? '').trim()) continue;
+                const leaf = text.parentElement!, paragraph = leaf.closest('p'), leafCss = getComputedStyle(leaf), baseline = combinedBaseline;
+                const leafVisible = leaf.checkVisibility({ opacityProperty: true, visibilityProperty: true });
+                if (!leafVisible) errors.push('combined clause hidden:' + id);
+                if (paragraph !== combinedPrimary || !Number.isFinite(baseline) || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.textScale) > 0.5 ||
+                  leafCss.fontWeight !== '600') errors.push('combined clause inherited font:' + id);
+                const paragraphBox = paragraph ? box(paragraph) : ownerBox;
+                leafTypography.push({ text: text.textContent!.trim(), paragraph: (paragraph as HTMLElement | null)?.dataset.testid, baseline, fontSize: parseFloat(leafCss.fontSize), fontWeight: leafCss.fontWeight, visible: leafVisible });
+                const full = document.createRange(); full.selectNodeContents(text); glyphs.push(...ranges(full));
+                for (const match of (text.textContent ?? '').matchAll(/\S+/g)) {
+                  const range = document.createRange(); range.setStart(text, match.index); range.setEnd(text, match.index + match[0].length);
+                  const rects = ranges(range);
+                  if (rects.length !== 1 || rects.some((r) => !finitePositive(r) || !inside(r, rect) || !inside(r, ownerBox) || !inside(r, paragraphBox) || !inside(r, frameBox))) errors.push('combined clause whole word:' + id + ':' + match[0]);
+                  words.push({ word: match[0], rects });
+                }
+                if (ranges(full).some((r) => !inside(r, paragraphBox))) errors.push('combined clause glyph containment:' + id);
+              }
+              if (!glyphs.length || glyphs.some((r) => !finitePositive(r) || !inside(r, rect) || !inside(r, ownerBox) || !inside(r, frameBox))) errors.push('combined clause glyph containment:' + id);
+              return { id, tag: node.tagName, text: node.textContent?.replace(/\s+/g, ' ').trim(), box: rect, owner: { id: owner.dataset.testid, tag: owner.tagName, box: ownerBox }, visible,
+                opacity: css.opacity, visibility: css.visibility, fontSize: parseFloat(css.fontSize), fontWeight: css.fontWeight, paragraphs, leafTypography, glyphs, words };
+            });
+            for (let i = 0; i < combinedClauses.length; i++) for (let j = i + 1; j < combinedClauses.length; j++) {
+              if (combinedClauses[i].glyphs.some((a) => combinedClauses[j].glyphs.some((b) => overlaps(a, b)))) errors.push('combined clause glyph overlap');
+            }
+            if (before.spring !== 'stiff' || Math.round(before.rawShown * 100) / 100 !== before.shown ||
+              Math.abs(before.physicalPush - Math.round(4 * before.shown * 100) / 100) > 1e-9) errors.push('native model basis');
+            const identity = element.isConnected && element === document.querySelector('[data-figure-frame="impedance-press"]') &&
+              element.ownerDocument === nativeDocument && performance.timeOrigin === input.timeOrigin &&
+              originalNodes.every((node, index) => node.isConnected && node === element.querySelector(originalSelectors[index]));
+            if (!identity) errors.push('document/frame/native member identity');
+            if (innerWidth !== input.profile.width || devicePixelRatio !== input.profile.dpr || matchMedia('(prefers-reduced-motion: reduce)').matches) errors.push('native viewport or motion profile');
+            const overflow = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+            if (overflow !== 0) errors.push(`document overflow:${overflow}`);
+            const after = state();
+            if (JSON.stringify(before) !== JSON.stringify(after)) errors.push('state changed within atomic geometry sample');
+            return { before, after, expected, expectedPush, errors, identity, values, descriptors: descriptorReadings, namedProduct, condition: conditionReading, primary: primaryReading, combinedClauses,
+              frame: frameBox, calculation: calculationBox, equation: equationBox, descriptions: descriptionsBox, overflow,
+              position: { box: positionBox, marks: marksBox, labels: labelsBox, surface: surfaceBox, tool: toolBox, target: targetBox, gap: gapBox, words: positionWords } };
+          };
+          return new Promise<{
+            finishedBecause: string; trace: Array<ReturnType<typeof state> & { atMs: number }>;
+            fractional: ReturnType<typeof measure> | null; settled: ReturnType<typeof measure> | null;
+          }>((resolve) => {
+            const trace: Array<ReturnType<typeof state> & { atMs: number }> = [];
+            let fractional: ReturnType<typeof measure> | null = null, settled: ReturnType<typeof measure> | null = null;
+            let sawRunning = false, frameId = 0;
+            const started = performance.now();
+            const finish = (finishedBecause: string) => {
+              cancelAnimationFrame(frameId); clearTimeout(deadline);
+              resolve({ finishedBecause, trace, fractional, settled });
+            };
+            const deadline = setTimeout(() => finish('timed out observing native Run'), 12_000);
+            const observe = () => {
+              const current = state();
+              trace.push({ ...current, atMs: performance.now() - started });
+              if (current.runText === 'Stop the press') sawRunning = true;
+              // Eligibility uses the actual shown model basis and independent
+              // rate-four arithmetic, never rendered correctness or geometry.
+              const shownPush = Number((4 * current.displayedGap).toFixed(1));
+              const fourCharacterFraction = String(current.displayedGap).length === 3 && String(shownPush).length === 4 &&
+                !Number.isInteger(shownPush) && shownPush > 10 && shownPush < 12;
+              if (!fractional && current.spring === 'stiff' && current.runText === 'Stop the press' && fourCharacterFraction) fractional = measure();
+              if (sawRunning && current.runText === 'Run the press' && current.shown === 3) {
+                settled = measure(); finish('native Run completed'); return;
+              }
+              frameId = requestAnimationFrame(observe);
+            };
+            frameId = requestAnimationFrame(observe);
+          });
+        }, { census, profile, parentFont, timeOrigin });
+        await run.focus();
+        await run.press('Enter');
+        const result = await sampling;
+        const activity = await page.evaluate(takeReleaseActivity);
+        const nativeActions = activity.operations.filter((operation) => operation.kind === 'keydown' && operation.key === 'Enter');
+        observations.push({ profile, selectors: RELEASE_TEXT_ONLY_SELECTORS, parentFont, census, ...result, nativeActions });
+        expect(result.finishedBecause, profile.id).toBe('native Run completed');
+        expect(nativeActions.map(({ trusted, target }) => ({ trusted, id: target.testId })), profile.id).toEqual([
+          { trusted: true, id: 'press-spring-stiff' }, { trusted: true, id: 'press-run' },
+        ]);
+        expect(result.fractional, `${profile.id}: native Run must expose a four-character high fractional push; every observed frame is attached`).not.toBeNull();
+        const fractional = result.fractional!, shownGap = fractional.before.displayedGap;
+        const expectedPush = Number((4 * shownGap).toFixed(1));
+        expect(fractional.before.chosenTarget, 'Run preserves the original chosen target while the shown target moves').toBe(2);
+        expect(fractional.before.chosenTarget).not.toBe(shownGap);
+        expect(result.settled!.before.chosenTarget, 'natural completion commits the maximum chosen target').toBe(3);
+        expect(String(shownGap)).toHaveLength(3);
+        expect(String(expectedPush)).toHaveLength(4);
+        expect(Number.isInteger(expectedPush)).toBe(false);
+        expect(expectedPush).toBeGreaterThan(10);
+        expect(expectedPush).toBeLessThan(12);
+        expect(fractional.values.map(({ text }) => text)).toEqual(['4', '×', String(shownGap), '=', String(expectedPush)]);
+        expect(fractional.errors, `${profile.id}: first fractional sample`).toEqual([]);
+        expect(result.settled!.values.map(({ text }) => text)).toEqual(['4', '×', '3', '=', '12']);
+        expect(result.settled!.errors, `${profile.id}: native settled maximum`).toEqual([]);
+        expect(await original.evaluate((element, origin) => element.isConnected &&
+          element === document.querySelector('[data-figure-frame="impedance-press"]') && performance.timeOrigin === origin, timeOrigin)).toBe(true);
+      } finally { await context.close(); }
+    }
+  } finally {
+    const preserved = sources.map(({ path, bytes }) => ({ path, sameBytes: readFileSync(join(process.cwd(), path)).equals(bytes) }));
+    await testInfo.attach('press-fractional-native-geometry', {
+      body: Buffer.from(JSON.stringify({ observations, preserved }, null, 2)), contentType: 'application/json',
+    });
+    expect(preserved.filter(({ sameBytes }) => !sameBytes), 'press source and canonical text helpers stay unchanged during the regression').toEqual([]);
+  }
+});
+
+
+// The default controller diagram has its own independently pinned linear
+// [-2, 3] ruler. The retained isometric press is checked separately above.
+test('press default position diagram preserves native boundaries, labels and paint in every narrow and forced profile', async ({ browser, staticBase }, testInfo) => {
+  test.setTimeout(180_000);
+  const { captureTextPopulation } = await import('./helpers/release-text-profile');
+  const { installReleaseActivityObserver, takeReleaseActivity } = await import('./helpers/release-activity');
+  const sourcePaths = ['components/interactive/impedance-press.tsx', 'lib/impedance-press.ts', 'components/iso/figures/spring-press.ts', 'components/iso/iso-kit.ts', 'components/iso/iso.css', 'lib/brand-v2-release-text.ts', 'tests/e2e/helpers/release-text-profile.ts'];
+  const sources = sourcePaths.map((path) => ({ path, bytes: readFileSync(join(process.cwd(), path)) }));
+  const observations: unknown[] = [];
+  const profiles = [
+    { id: 'desktop', width: 1280, height: 900, dpr: 1, scale: 1, forcedColors: 'none', colorScheme: 'light' },
+    { id: 'phone', width: 375, height: 812, dpr: 1, scale: 1, forcedColors: 'none', colorScheme: 'light' },
+    { id: 'desktop-forced-light', width: 1280, height: 900, dpr: 1, scale: 1, forcedColors: 'active', colorScheme: 'light' },
+    { id: 'phone-forced-light', width: 375, height: 812, dpr: 1, scale: 1, forcedColors: 'active', colorScheme: 'light' },
+    { id: 'desktop-forced-dark', width: 1280, height: 900, dpr: 1, scale: 1, forcedColors: 'active', colorScheme: 'dark' },
+    { id: 'phone-forced-dark', width: 375, height: 812, dpr: 1, scale: 1, forcedColors: 'active', colorScheme: 'dark' },
+    { id: 'canonical-text-200-375', width: 375, height: 812, dpr: 1, scale: 2, forcedColors: 'none', colorScheme: 'light' },
+    { id: 'zoom-equivalent-200-187', width: 187, height: 406, dpr: 2, scale: 1, forcedColors: 'none', colorScheme: 'light' },
+  ] as const;
+  try {
+    for (const profile of profiles) {
+      const context = await browser.newContext({ viewport: { width: profile.width, height: profile.height },
+        deviceScaleFactor: profile.dpr, forcedColors: profile.forcedColors, colorScheme: profile.colorScheme, reducedMotion: 'reduce' });
+      try {
+        await context.addInitScript(installReleaseActivityObserver);
+        const page = await context.newPage();
+        await page.goto(`${staticBase}/manipulation/action-spaces/`);
+        await page.evaluate(() => document.fonts.ready);
+        const frame = page.locator('[data-figure-frame="impedance-press"]');
+        await expect(frame).toBeVisible();
+        await expect.poll(() => frame.evaluate((element) => Object.keys(element).some((key) => key.startsWith('__reactFiber$')))).toBe(true);
+        const original = (await frame.elementHandle())!, timeOrigin = await page.evaluate(() => performance.timeOrigin);
+        const census = await page.evaluate(captureTextPopulation, [...RELEASE_TEXT_ONLY_SELECTORS]);
+        if (profile.scale === 2) await page.addStyleTag({ content: census.map(({ baselinePx }, index) =>
+          `[data-release-text-probe="${index}"]{font-size:${baselinePx * 2}px!important}`).join('\n') });
+        const method = frame.locator('details[data-figure-fold="method"]'), summary = method.locator(':scope > summary');
+        await expect(frame.locator('details')).toHaveCount(1);
+        await expect(method).toHaveJSProperty('open', false);
+        await expect(summary).toHaveText('How this was made');
+        await expect(frame.getByTestId('press-drawing')).toBeHidden();
+        await expect(frame.getByTestId('press-chosen-settings')).toHaveText('Chosen settings');
+        const slider = frame.getByRole('slider', { name: 'Target', exact: true });
+        await expect(slider).toHaveAttribute('min', '-2');
+        await expect(slider).toHaveAttribute('max', '3');
+        await expect(slider).toHaveAttribute('step', '0.5');
+        await expect(slider).toHaveValue('2');
+        await expect(frame.getByTestId('press-spring-medium')).toHaveAttribute('aria-pressed', 'true');
+        const settle = () => page.evaluate(() => new Promise<void>((resolve) => {
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+        }));
+        const probe = (target: number, spring: string, rate: number) => original.evaluate((element, input) => {
+          const required = <T extends HTMLElement>(selector: string) => {
+            const node = element.querySelector<T>(selector);
+            if (!node) throw new Error(`Missing default position member: ${selector}`);
+            return node;
+          };
+          const q = (id: string) => required<HTMLElement>(`[data-testid="${id}"]`);
+          const packet = q('press-action-packet'), diagram = q('press-position-diagram'), marks = q('press-position-marks');
+          const labels = q('press-position-labels'), condition = q('press-position-condition'), shown = q('press-shown-target');
+          const surface = q('press-position-surface'), tool = q('press-position-tool'), targetLine = q('press-position-target'), gapMark = q('press-position-gap');
+          const toolKey = q('press-position-tool-key');
+          const gapKey = q('press-position-gap-key'), gapDescription = q('press-gap-description');
+          const fold = required<HTMLDetailsElement>('details[data-figure-fold="method"]');
+          const slider = required<HTMLInputElement>('input[type="range"]'), run = q('press-run');
+          const errors: string[] = [], tolerance = 0.3;
+          const bounds = (node: Element) => {
+            const { left, right, top, bottom, width, height } = node.getBoundingClientRect();
+            return { left, right, top, bottom, width, height };
+          };
+          type Bounds = ReturnType<typeof bounds>;
+          const insideX = (a: Bounds, b: Bounds) => a.left >= b.left - tolerance && a.right <= b.right + tolerance;
+          const inside = (a: Bounds, b: Bounds) => insideX(a, b) && a.top >= b.top - tolerance && a.bottom <= b.bottom + tolerance;
+          const overlaps = (a: Bounds, b: Bounds) => Math.min(a.right, b.right) - Math.max(a.left, b.left) > tolerance && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > tolerance;
+          const close = (name: string, actual: number, expected: number) => {
+            if (!Number.isFinite(actual) || Math.abs(actual - expected) > tolerance) errors.push(name);
+          };
+          const fb = bounds(element), db = bounds(diagram), mb = bounds(marks), lb = bounds(labels);
+          const sb = bounds(surface), tb = bounds(tool), ab = bounds(targetLine), gb = bounds(gapMark);
+          const expectedTool = Math.min(input.target, 0), expectedGap = Math.max(input.target, 0), expectedPush = Number((input.rate * expectedGap).toFixed(1));
+          // Independent coordinate convention: zero is two fifths down a ruler
+          // that runs from -2 to 3; positive targets cannot move the tool past 0.
+          const y = (value: number) => mb.top + (value + 2) / 5 * mb.height;
+          close('surface y', sb.top, y(0)); close('target y', ab.top, y(input.target));
+          close('tool y', (tb.top + tb.bottom) / 2, y(expectedTool));
+          close('gap top', gb.top, y(expectedTool)); close('gap span', gb.height, expectedGap / 5 * mb.height);
+          if (!(mb.width > 0 && mb.height > 0 && tb.width > 0 && tb.height > 0)) errors.push('empty visible geometry');
+          for (const [name, actual, expected] of [['target', Number(diagram.dataset.target), input.target], ['tool', Number(diagram.dataset.tool), expectedTool],
+            ['gap', Number(diagram.dataset.gap), expectedGap], ['push', Number(diagram.dataset.push), expectedPush]] as const) {
+            if (actual !== expected) errors.push(`model value:${name}`);
+          }
+          if (Number(slider.value) !== input.target || q('press-drawing').dataset.spring !== input.spring ||
+            q(`press-spring-${input.spring}`).getAttribute('aria-pressed') !== 'true') errors.push('native chosen settings');
+          const targetWords = input.target === 0 ? 'on the surface' : `${Math.abs(input.target)} ${Math.abs(input.target) === 1 ? 'mark' : 'marks'} ${input.target < 0 ? 'short of surface' : 'past surface'}`;
+          if (q('press-target').textContent?.trim() !== targetWords || shown.textContent?.trim() !== `Shown target: ${targetWords}`) errors.push('chosen/shown wording');
+          const expectedCondition = input.target > 0 ? 'The surface stops the tool.' : input.target < 0
+            ? 'Before contact, the tool follows its target without pushing.' : 'Tool and target meet the surface without pushing.';
+          if (condition.textContent?.trim() !== expectedCondition) errors.push('contact/free/zero semantics');
+          const sentTarget = input.target, sentRate = input.rate;
+          const sentTargetText = (sentTarget > 0 ? '+' : '') + String(sentTarget);
+          const sentActionText = `An action sends two settings: target ${sentTargetText} and stiffness ${sentRate};`;
+          const sentPrimaryText = `${sentActionText} ↓ when the surface stops the tool, push equals stiffness times target gap.`;
+          const primary = q('press-primary-takeaway'), controller = q('press-controller-output'), settings = q('press-settings');
+          const rule = q('press-general-rule'), responseDiagram = q('press-response-diagram');
+          const response = q('press-response-label'), calculation = q('press-calculation');
+          const product = q('press-contact-product'), descriptions = q('press-value-descriptions'), equation = q('press-equation');
+          const follows = (before: Element, after: Element) => Boolean(before.compareDocumentPosition(after) & Node.DOCUMENT_POSITION_FOLLOWING);
+          const sendPath = q('press-send-path'), contactClause = q('press-contact-clause'), connector = q('press-send-connector');
+          const controllerHeading = q('press-controller-heading');
+          if (q('press-chosen-settings').textContent?.trim() !== 'Chosen settings' || !packet.contains(slider) || !packet.contains(run) ||
+            !packet.contains(primary) || !packet.contains(controller) || !controller.contains(calculation) ||
+            !follows(primary, controller) || !follows(calculation, q('press-chosen-settings')) ||
+            !follows(q('press-chosen-settings'), settings) || !follows(settings, run) ||
+            !controller.contains(responseDiagram) || !responseDiagram.contains(diagram) ||
+            !primary.contains(rule) || !follows(primary, sendPath) || !follows(sendPath, response) || !follows(response, calculation) ||
+            !follows(rule, equation) || !follows(calculation, condition) || !follows(condition, responseDiagram) ||
+            !follows(responseDiagram, q('press-scale-definitions')) || !follows(q('press-scale-definitions'), controllerHeading)) errors.push('action packet and controller order');
+          if (JSON.stringify([...product.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify([
+            'press-response-label', 'press-calculation', 'press-position-condition', 'press-response-diagram', 'press-scale-definitions']) ||
+            condition.parentElement !== product || toolKey.parentElement !== condition ||
+            JSON.stringify([...controller.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-contact-product', 'press-controller-heading']) ||
+            JSON.stringify([...sendPath.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-sent-rule']) ||
+            contactClause.parentElement !== q('press-sent-rule') || response.parentElement !== product || sendPath.parentElement !== primary ||
+            connector.getAttribute('data-from') !== 'press-action-message' || connector.getAttribute('data-to') !== 'press-controller-output') errors.push('exact response condition/law/product/diagram order');
+          const action = q('press-action-clause');
+          if (primary.tagName !== 'P' || action.parentElement !== primary || rule.tagName !== 'SPAN' || rule.parentElement !== q('press-sent-rule') ||
+            !follows(action, rule) || primary.querySelector('button,input,details') || controller.querySelector('button,input,details') ||
+            !controller.contains(condition) || !follows(rule, condition)) errors.push('connected action and product statement');
+          if (primary.textContent?.replace(/\s+/g, ' ').trim() !== sentPrimaryText ||
+            rule.textContent?.trim() !== 'push equals stiffness times target gap.') errors.push('complete visible action mechanism');
+          if (!inside(bounds(action), bounds(primary)) || !inside(bounds(rule), bounds(primary)) ||
+            getComputedStyle(primary).fontWeight !== '600' || getComputedStyle(action).fontWeight !== getComputedStyle(primary).fontWeight) errors.push('combined primary containment/weight');
+          const stage = required<HTMLElement>('[data-figure-stage]'), drawingOwner = diagram.closest<HTMLElement>('[data-anatomy-drawing]');
+          const nativeControls = q('press-native-controls');
+          if (element.querySelectorAll('[data-figure-stage]').length !== 1 || !drawingOwner ||
+            drawingOwner.parentElement !== stage || !drawingOwner.classList.contains('iso') ||
+            stage.querySelectorAll('[data-anatomy-drawing]').length !== 1 ||
+            !drawingOwner.contains(primary) || !drawingOwner.contains(controller) || !drawingOwner.contains(nativeControls) ||
+            responseDiagram.hasAttribute('data-anatomy-drawing') || responseDiagram.classList.contains('iso')) errors.push('response diagram scientific drawing context');
+          if (element.querySelectorAll('[data-figure-controls]').length !== 1 || !nativeControls.hasAttribute('data-figure-controls') ||
+            !nativeControls.contains(q('press-chosen-settings')) || !nativeControls.contains(settings) || !nativeControls.contains(run) ||
+            nativeControls.querySelectorAll('button,input').length !== 5 || !follows(controller, nativeControls)) errors.push('stage native control ownership');
+          const nativeRow = slider.closest<HTMLElement>('[data-figure-control-row]')!;
+          const nativeValue = nativeRow.querySelector<HTMLElement>('[data-figure-control-value]')!;
+          const sliderBounds = bounds(slider), valueBounds = bounds(nativeValue);
+          const outlineStyle = getComputedStyle(slider);
+          // A wrapped value must leave room for the registered 1px keyboard
+          // outline and 2px offset; its forced Canvas must not overpaint it.
+          const wrappedValue = valueBounds.top >= sliderBounds.bottom - tolerance &&
+            Math.min(valueBounds.right, sliderBounds.right) > Math.max(valueBounds.left, sliderBounds.left);
+          const minimumFocusClearance = Math.max(3, parseFloat(outlineStyle.outlineWidth) + parseFloat(outlineStyle.outlineOffset));
+          const focusClearance = { wrappedValue, gap: valueBounds.top - sliderBounds.bottom, minimum: minimumFocusClearance,
+            focusVisible: slider.matches(':focus-visible'), outlineWidth: outlineStyle.outlineWidth, outlineOffset: outlineStyle.outlineOffset,
+            rowGap: getComputedStyle(nativeRow).rowGap, slider: sliderBounds, value: valueBounds };
+          if (wrappedValue && focusClearance.gap < minimumFocusClearance - tolerance) errors.push('native focus clearance');
+          const role = q('press-controller-role');
+          if (role.textContent?.trim() !== 'uses these settings to make the tool act like a spring.' ||
+            document.getElementById(controller.getAttribute('aria-describedby') ?? '') !== role ||
+            response.textContent?.trim() !== 'Shown response' || !follows(q('press-scale-definitions'), role) || !follows(response, calculation)) errors.push('controller role and shown response');
+          const scale = q('press-scale-definitions');
+          if (scale.textContent?.trim() !== 'Ruler marks measure the target gap; dial marks measure push.' ||
+            !controller.contains(scale) || !follows(calculation, scale) || !follows(scale, q('press-chosen-settings'))) errors.push('adjacent scale definitions');
+          for (const node of [primary, controller, role, response, responseDiagram, diagram, condition, rule, calculation, scale]) {
+            if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || node.closest('details:not([open]),[hidden]')) errors.push(`hidden connected explanation:${node.dataset.testid}`);
+          }
+          if (fold.open || q('press-drawing').closest('details') !== fold || q('press-gap-guide').closest('details') !== fold) errors.push('closed method reference');
+          if (marks.getAttribute('aria-hidden') !== 'true' || getComputedStyle(marks).pointerEvents !== 'none') errors.push('decorative marks interaction');
+          const labelParagraphs = [...labels.querySelectorAll<HTMLElement>('p')];
+          if (labelParagraphs.length !== 2 || labelParagraphs[0].textContent?.trim() !== 'Surface' || labelParagraphs[1] !== shown || labels.contains(condition)) errors.push('surface label');
+          if (getComputedStyle(labelParagraphs[0].querySelector('span')!).borderTopStyle !== 'solid' ||
+            getComputedStyle(shown.querySelector('span')!).borderTopStyle !== 'dashed') errors.push('legend stroke identity');
+          const surfaceCss = getComputedStyle(surface), targetCss = getComputedStyle(targetLine), toolCss = getComputedStyle(tool), gapCss = getComputedStyle(gapMark);
+          const ink = getComputedStyle(marks).color, canvas = getComputedStyle(required('[data-figure-stage]')).backgroundColor;
+          if (surfaceCss.borderTopStyle !== 'solid' || parseFloat(surfaceCss.borderTopWidth) <= 0 || surfaceCss.borderTopColor !== ink) errors.push('surface paint');
+          if (targetCss.borderTopStyle !== 'dashed' || parseFloat(targetCss.borderTopWidth) <= 0 || targetCss.borderTopColor !== ink) errors.push('target paint');
+          if (toolCss.backgroundColor !== ink) errors.push('tool paint');
+          if (toolKey.getAttribute('aria-hidden') !== 'true' || getComputedStyle(toolKey).backgroundColor !== toolCss.backgroundColor ||
+            bounds(toolKey).width !== tb.width || bounds(toolKey).height !== tb.height) errors.push('tool legend identity');
+          // A constant bracket key labels the existing gap descriptor even at
+          // zero; only the physical bracket collapses with the modelled gap.
+          const gapKeyBox = bounds(gapKey), gapKeyCss = getComputedStyle(gapKey);
+          const gapPrimary = q('press-equation').querySelector<HTMLElement>('[data-operation-value="gap"]')!;
+          if (gapKey.parentElement !== gapDescription || gapKey.nextElementSibling !== gapDescription.querySelector('[data-operation-label="gap"]') ||
+            gapKey.getAttribute('aria-hidden') !== 'true' || document.getElementById(gapPrimary.getAttribute('aria-describedby') ?? '') !== gapDescription ||
+            gapDescription.textContent?.replace(/\s+/g, ' ').trim() !== `target gap: ${expectedGap} ruler marks`) errors.push('gap legend descriptor binding');
+          close('gap legend width', gapKeyBox.width, gb.width); close('gap legend height', gapKeyBox.height, 12);
+          if (!gapKey.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(gapKeyBox, bounds(gapDescription)) ||
+            [gapKeyCss.borderTopStyle, gapKeyCss.borderRightStyle, gapKeyCss.borderBottomStyle].some((style) => style !== 'solid') ||
+            [gapKeyCss.borderTopWidth, gapKeyCss.borderRightWidth, gapKeyCss.borderBottomWidth].some((width) => parseFloat(width) !== 1) ||
+            parseFloat(gapKeyCss.borderLeftWidth) !== 0 ||
+            [gapKeyCss.borderTopColor, gapKeyCss.borderRightColor, gapKeyCss.borderBottomColor].some((color) => color !== ink)) errors.push('gap legend paint');
+          if (expectedGap === 0) {
+            if (gb.height !== 0 || ['borderTopWidth', 'borderBottomWidth', 'borderRightWidth'].some((key) => parseFloat(gapCss[key as 'borderTopWidth']) !== 0)) errors.push('painted zero gap');
+          } else if (gapCss.borderRightStyle !== 'solid' || parseFloat(gapCss.borderRightWidth) <= 0 || gapCss.borderRightColor !== ink) errors.push('gap paint');
+          const forced = matchMedia('(forced-colors: active)').matches;
+          if (forced !== (input.profile.forcedColors === 'active') || forced && (ink === canvas || toolCss.backgroundColor === canvas)) errors.push('forced-colour contrast');
+          for (const node of [packet, diagram, labels, marks, surface, targetLine, tool, condition, shown, q('press-calculation')]) {
+            if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || node.closest('details:not([open]),[hidden]')) errors.push(`hidden default member:${node.dataset.testid}`);
+          }
+          // At the standard phone profile the complete annotated diagram,
+          // connected claim and every native control fit in the first frame.
+          if (input.profile.width === 375 && input.profile.scale === 1) {
+            for (const node of [primary, controller, settings, run, diagram]) {
+              const rect = bounds(node);
+              if (rect.top < fb.top - tolerance || rect.bottom - fb.top > input.profile.height + tolerance) errors.push(`phone first-screen member:${node.dataset.testid}`);
+            }
+          }
+          for (const node of [primary, controller, responseDiagram, diagram, rule, calculation, scale, nativeControls]) {
+            if (!inside(bounds(node), bounds(stage)) || !drawingOwner || !inside(bounds(node), bounds(drawingOwner))) errors.push(`stage containment:${node.dataset.testid}`);
+          }
+          for (const rect of [db, sb, tb, ab, gb, lb]) if (!inside(rect, fb)) errors.push('frame containment');
+          for (const rect of [sb, tb, ab, gb, lb]) if (!inside(rect, db)) errors.push('diagram containment');
+          if (overlaps(mb, lb)) errors.push('marks/labels overlap');
+          for (let i = 0; i < labelParagraphs.length; i++) for (let j = i + 1; j < labelParagraphs.length; j++) {
+            if (overlaps(bounds(labelParagraphs[i]), bounds(labelParagraphs[j]))) errors.push('label paragraph overlap');
+          }
+          const namedRowIds = ['press-stiffness-product-row', 'press-gap-product-row', 'press-push-product-row'];
+          const namedKinds = ['stiffness', 'gap', 'push'];
+          const namedValues = [String(input.rate), String(expectedGap), String(expectedPush)];
+          const namedOperators = [null, 'press-gap-product-operator', 'press-push-product-operator'];
+          const namedOperatorTexts = [null, '× times', '= equals'];
+          const namedRows = namedRowIds.map((id) => q(id));
+          const namedParagraphNodes = namedRows.flatMap((row) => [...row.querySelectorAll<HTMLElement>('p')]);
+          const positiveBounds = (rect: Bounds) => ['left', 'right', 'top', 'bottom', 'width', 'height']
+            .every((key) => Number.isFinite(rect[key as keyof Bounds])) && rect.width > 0 && rect.height > 0;
+          const productText = (node: HTMLElement, containers: Array<[string, Bounds]>, label: string) => {
+            const id = node.dataset.testid, rect = bounds(node), css = getComputedStyle(node);
+            const baseline = input.census[Number(node.dataset.releaseTextProbe)]?.baselinePx;
+            const visible = node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) &&
+              !node.closest('details:not([open]),[hidden],[aria-hidden="true"]');
+            if (!visible) errors.push(label + ' hidden:' + id);
+            if (node.tagName !== 'P' || node.querySelector('p')) errors.push(label + ' paragraph identity:' + id);
+            const expectedBase = label === 'named product' ? 16 : label === 'combined primary' ? 20 : 14;
+            const expectedWeight = label === 'combined primary' || id?.endsWith('-operator') ? '600' : '400';
+            if (!Number.isFinite(baseline) || Math.abs(baseline - expectedBase) > 0.5 || css.fontWeight !== expectedWeight) errors.push(label + ' source typography:' + id);
+            const leafTypography: Array<{ text: string; paragraph: string | undefined; baseline: number; fontSize: number; fontWeight: string; visible: boolean }> = [];
+            if (!Number.isFinite(baseline) || Math.abs(parseFloat(css.fontSize) - baseline * input.profile.scale) > 0.5) errors.push(label + ' canonical text size:' + id);
+            if (!positiveBounds(rect) || containers.some(([, container]) => !inside(rect, container))) errors.push(label + ' paragraph containment:' + id);
+            const glyphs: Bounds[] = [], words: Array<{ word: string; rects: Bounds[] }> = [];
+            const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+            for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+              if (!(text.textContent ?? '').trim()) continue;
+              const leaf = text.parentElement!, leafCss = getComputedStyle(leaf), paragraph = leaf.closest('p');
+              const emphasized = label === 'combined primary' || leaf.closest('[data-operation-label],[data-testid="press-gap-product-operator"],[data-testid="press-push-product-operator"]');
+              const leafVisible = leaf.checkVisibility({ opacityProperty: true, visibilityProperty: true });
+              if (paragraph !== node || !leafVisible || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.scale) > 0.5 ||
+              leafCss.fontWeight !== (emphasized ? '600' : '400')) errors.push(label + ' leaf inherited typography:' + id);
+              leafTypography.push({ text: text.textContent!.trim(), paragraph: (paragraph as HTMLElement | null)?.dataset.testid, baseline, fontSize: parseFloat(leafCss.fontSize), fontWeight: leafCss.fontWeight, visible: leafVisible });
+              const full = document.createRange(); full.selectNodeContents(text);
+              const rangeBoxes = (range: Range): Bounds[] => [...range.getClientRects()].filter((r) => r.width > 0 && r.height > 0)
+                .map(({ left, right, top, bottom, width, height }) => ({ left, right, top, bottom, width, height }));
+              glyphs.push(...rangeBoxes(full));
+              for (const match of (text.textContent ?? '').matchAll(/\S+/g)) {
+                const range = document.createRange(); range.setStart(text, match.index); range.setEnd(text, match.index + match[0].length);
+                const rects = rangeBoxes(range);
+                if (rects.length !== 1 || rects.some((r) => !inside(r, rect) || containers.some(([, container]) => !inside(r, container)))) errors.push(label + ' whole word:' + id + ':' + match[0]);
+                words.push({ word: match[0], rects });
+              }
+            }
+            if (!glyphs.length || glyphs.some((r) => !positiveBounds(r) || !inside(r, rect) || containers.some(([, container]) => !inside(r, container)))) errors.push(label + ' glyph containment:' + id);
+            return { id, tag: node.tagName, text: node.textContent?.replace(/\s+/g, ' ').trim(), box: rect, baseline,
+              fontSize: parseFloat(css.fontSize), fontWeight: css.fontWeight, visible, leafTypography, glyphs, words };
+          };
+          if (JSON.stringify([...descriptions.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(namedRowIds) ||
+            namedParagraphNodes.length !== 5 || descriptions.parentElement !== calculation || equation.parentElement !== calculation ||
+            JSON.stringify([...calculation.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-value-descriptions', 'press-equation'])) errors.push('named product row/calculation identity');
+          if (bounds(descriptions).bottom > bounds(equation).top + tolerance) errors.push('named product before numeric equation');
+          const namedProduct = namedRows.map((row, index) => {
+            const kind = namedKinds[index], rowBox = bounds(row), description = q('press-' + kind + '-description');
+            const operatorId = namedOperators[index], operator = operatorId ? q(operatorId) : null;
+            const expectedChildren = operatorId ? [operatorId, 'press-' + kind + '-description'] : ['press-' + kind + '-description'];
+            if (row.parentElement !== descriptions || JSON.stringify([...row.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(expectedChildren) ||
+              description.parentElement !== row || operator && (operator.parentElement !== row || operator.nextElementSibling !== description)) errors.push('named product sibling identity:' + kind);
+            if (!row.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !positiveBounds(rowBox) ||
+              !inside(rowBox, bounds(descriptions)) || !inside(rowBox, bounds(calculation)) || !inside(rowBox, fb)) errors.push('named product row containment:' + kind);
+            const main = equation.querySelector<HTMLElement>('[data-operation-value="' + kind + '"]');
+            const copy = description.querySelector<HTMLElement>('[data-description-value="' + kind + '"]');
+            const expectedText = kind === 'stiffness' ? 'sent stiffness: ' + namedValues[index] : kind === 'gap'
+              ? 'target gap: ' + namedValues[index] + ' ruler marks' : 'push: ' + namedValues[index] + ' dial marks';
+            if (!main || main.textContent?.trim() !== namedValues[index] || copy?.textContent?.trim() !== namedValues[index] ||
+              description.textContent?.replace(/\s+/g, ' ').trim() !== expectedText ||
+              document.getElementById(main?.getAttribute('aria-describedby') ?? '') !== description) errors.push('named product value/description agreement:' + kind);
+            const containers: Array<[string, Bounds]> = [['row', rowBox], ['descriptions', bounds(descriptions)], ['calculation', bounds(calculation)], ['frame', fb]];
+            const descriptor = productText(description, containers, 'named product');
+            const operation = operator ? productText(operator, containers, 'named product') : null;
+            if (operation && operation.text !== namedOperatorTexts[index]) errors.push('named product operator text:' + kind);
+            if (operation && (overlaps(operation.box, descriptor.box) || operation.glyphs.some((a) => descriptor.glyphs.some((b) => overlaps(a, b))))) errors.push('named product operator/descriptor overlap:' + kind);
+            if (index && (bounds(namedRows[index - 1]).bottom > rowBox.top + tolerance || overlaps(bounds(namedRows[index - 1]), rowBox))) errors.push('named product vertical row order:' + kind);
+            return { kind, id: row.dataset.testid, box: rowBox, descriptor, operator: operation,
+              primaryValue: main?.textContent, descriptionValue: copy?.textContent, primaryDescriptionId: main?.getAttribute('aria-describedby'), descriptionId: description.id };
+          });
+          const conditionBox = bounds(condition), productBox = bounds(product);
+          const conditionReading = productText(condition, [['contact product', productBox], ['frame', fb]], 'moved condition');
+          const primaryReading = productText(primary, [['stage', bounds(stage)], ['frame', fb]], 'combined primary');
+          if (!inside(conditionBox, productBox) || !inside(conditionBox, bounds(stage)) ||
+            overlaps(conditionBox, bounds(rule)) || overlaps(conditionBox, bounds(response)) ||
+            labelParagraphs.some((node) => overlaps(conditionBox, bounds(node)))) errors.push('moved condition owner/geometry');
+          const combinedPrimary = q('press-primary-takeaway');
+          const combinedIds = ['press-action-clause', 'press-contact-clause', 'press-general-rule'];
+          const combinedTexts = [sentActionText, 'when the surface stops the tool,', 'push equals stiffness times target gap.'];
+          const combinedPrimaryBox = bounds(combinedPrimary), combinedBaseline = input.census[Number(combinedPrimary.dataset.releaseTextProbe)]?.baselinePx;
+          if (combinedPrimary.tagName !== 'P' || JSON.stringify([...combinedPrimary.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-action-clause', 'press-send-path']) ||
+            JSON.stringify([...q('press-send-path').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-sent-rule']) ||
+            JSON.stringify([...q('press-sent-rule').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-contact-clause', 'press-general-rule']) ||
+            q('press-send-path').tagName !== 'SPAN' || q('press-send-path').parentElement !== combinedPrimary || q('press-send-path').previousElementSibling !== q('press-action-clause') ||
+            q('press-sent-rule').tagName !== 'SPAN' || q('press-sent-rule').parentElement !== q('press-send-path') ||
+            q('press-response-label').parentElement !== q('press-contact-product') || q('press-response-label').previousElementSibling !== null || q('press-response-label').nextElementSibling !== calculation ||
+            descriptions.parentElement !== calculation || descriptions.nextElementSibling !== equation ||
+            q('press-send-connector').getAttribute('data-from') !== 'press-action-message' ||
+            q('press-send-connector').getAttribute('data-to') !== 'press-controller-output' ||
+            !(combinedPrimary.compareDocumentPosition(q('press-send-path')) & Node.DOCUMENT_POSITION_FOLLOWING)) errors.push('combined clause sibling order');
+          const sentMessage = q('press-action-message'), sentLabel = q('press-action-label');
+          const sentFields = [...sentMessage.querySelectorAll<HTMLElement>('[data-action-field]')];
+          const sentValues = [...sentMessage.querySelectorAll<HTMLElement>('[data-action-value]')];
+          if (sentMessage.parentElement !== sentLabel || sentLabel.parentElement !== q('press-action-clause') ||
+            sentLabel.getAttribute('aria-label') !== 'An action sends two settings: target and stiffness' ||
+            document.getElementById(q('press-settings').getAttribute('aria-labelledby') ?? '') !== sentLabel ||
+            JSON.stringify(sentFields.map((node) => node.dataset.actionField)) !== JSON.stringify(['target', 'stiffness']) ||
+            JSON.stringify(sentValues.map((node) => node.dataset.actionValue)) !== JSON.stringify(['target', 'stiffness']) ||
+            JSON.stringify(sentFields.map((node) => node.textContent?.replace(/\s+/g, ' ').trim())) !== JSON.stringify([`target ${sentTargetText}`, `stiffness ${sentRate};`]) ||
+            JSON.stringify(sentValues.map((node) => node.textContent?.trim())) !== JSON.stringify([sentTargetText, String(sentRate)]) ||
+            sentValues.some((node, index) => node.parentElement !== sentFields[index]) ||
+            q('press-send-connector').textContent?.trim() !== '↓' || q('press-send-connector').getAttribute('aria-hidden') !== 'true') errors.push('sent action values and accessible binding');
+          for (const node of [...sentFields, ...sentValues, q('press-send-connector'), q('press-sent-rule')]) {
+            const css = getComputedStyle(node), rect = bounds(node);
+            if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(rect, combinedPrimaryBox) || !inside(rect, fb) ||
+              Math.abs(parseFloat(css.fontSize) - combinedBaseline * input.profile.scale) > 0.5 || css.fontWeight !== '600') errors.push('sent action value visibility/font/containment');
+          }
+          const combinedClauses = combinedIds.map((id, index) => {
+            const node = q(id), rect = bounds(node), css = getComputedStyle(node), owner = index === 0 ? combinedPrimary : q('press-sent-rule'), ownerBox = bounds(owner);
+            const finitePositive = (r: Bounds) => ['left', 'right', 'top', 'bottom', 'width', 'height']
+              .every((key) => Number.isFinite(r[key as keyof Bounds])) && r.width > 0 && r.height > 0;
+            const visible = node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) && !node.closest('details:not([open]),[hidden],[aria-hidden="true"]');
+            if (!visible) errors.push('combined clause hidden:' + id);
+            if (node.tagName !== 'SPAN' || node.parentElement !== owner || node.textContent?.replace(/\s+/g, ' ').trim() !== combinedTexts[index] || node.children.length !== (index === 0 ? 1 : 0)) errors.push('combined clause identity/copy:' + id);
+            if (!finitePositive(rect) || !finitePositive(ownerBox) || !inside(rect, ownerBox) || !inside(rect, fb)) errors.push('combined clause containment:' + id);
+            const paragraphs = [combinedPrimary].map((paragraph) => {
+              const paragraphCss = getComputedStyle(paragraph), paragraphBox = bounds(paragraph), baseline = combinedBaseline;
+              const paragraphVisible = paragraph.checkVisibility({ opacityProperty: true, visibilityProperty: true }) && !paragraph.closest('details:not([open]),[hidden],[aria-hidden="true"]');
+              if (paragraph.tagName !== 'P' || !Number.isFinite(baseline) || Math.abs(baseline - 20) > 0.5 ||
+                Math.abs(parseFloat(paragraphCss.fontSize) - baseline * input.profile.scale) > 0.5 || paragraphCss.fontWeight !== '600' ||
+                Math.abs(parseFloat(css.fontSize) - baseline * input.profile.scale) > 0.5 || css.fontWeight !== '600') errors.push('combined clause inherited font:' + id);
+              if (!paragraphVisible) errors.push('combined clause hidden:' + id);
+              if (!finitePositive(paragraphBox) || !inside(ownerBox, paragraphBox) || !inside(paragraphBox, fb)) errors.push('combined clause paragraph containment:' + id);
+              return { id: paragraph.dataset.testid, tag: paragraph.tagName, box: paragraphBox, baseline, fontSize: parseFloat(paragraphCss.fontSize), fontWeight: paragraphCss.fontWeight, visible: paragraphVisible };
+            });
+            if (paragraphs.length !== 1) errors.push('combined clause paragraph population:' + id);
+            const glyphs: Bounds[] = [], words: Array<{ word: string; rects: Bounds[] }> = [];
+            const leafTypography: Array<{ text: string; paragraph: string | undefined; baseline: number | undefined; fontSize: number; fontWeight: string; visible: boolean }> = [];
+            const ranges = (range: Range): Bounds[] => [...range.getClientRects()].filter((r) => r.width > 0 && r.height > 0)
+              .map(({ left, right, top, bottom, width, height }) => ({ left, right, top, bottom, width, height }));
+            const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+            for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+              if (!(text.textContent ?? '').trim()) continue;
+              const leaf = text.parentElement!, paragraph = leaf.closest('p'), leafCss = getComputedStyle(leaf), baseline = combinedBaseline;
+              const leafVisible = leaf.checkVisibility({ opacityProperty: true, visibilityProperty: true });
+              if (!leafVisible) errors.push('combined clause hidden:' + id);
+              if (paragraph !== combinedPrimary || !Number.isFinite(baseline) || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.scale) > 0.5 ||
+                leafCss.fontWeight !== '600') errors.push('combined clause inherited font:' + id);
+              const paragraphBox = paragraph ? bounds(paragraph) : ownerBox;
+              leafTypography.push({ text: text.textContent!.trim(), paragraph: (paragraph as HTMLElement | null)?.dataset.testid, baseline, fontSize: parseFloat(leafCss.fontSize), fontWeight: leafCss.fontWeight, visible: leafVisible });
+              const full = document.createRange(); full.selectNodeContents(text); glyphs.push(...ranges(full));
+              for (const match of (text.textContent ?? '').matchAll(/\S+/g)) {
+                const range = document.createRange(); range.setStart(text, match.index); range.setEnd(text, match.index + match[0].length);
+                const rects = ranges(range);
+                if (rects.length !== 1 || rects.some((r) => !finitePositive(r) || !inside(r, rect) || !inside(r, ownerBox) || !inside(r, paragraphBox) || !inside(r, fb))) errors.push('combined clause whole word:' + id + ':' + match[0]);
+                words.push({ word: match[0], rects });
+              }
+              if (ranges(full).some((r) => !inside(r, paragraphBox))) errors.push('combined clause glyph containment:' + id);
+            }
+            if (!glyphs.length || glyphs.some((r) => !finitePositive(r) || !inside(r, rect) || !inside(r, ownerBox) || !inside(r, fb))) errors.push('combined clause glyph containment:' + id);
+            return { id, tag: node.tagName, text: node.textContent?.replace(/\s+/g, ' ').trim(), box: rect, owner: { id: owner.dataset.testid, tag: owner.tagName, box: ownerBox }, visible,
+              opacity: css.opacity, visibility: css.visibility, fontSize: parseFloat(css.fontSize), fontWeight: css.fontWeight, paragraphs, leafTypography, glyphs, words };
+          });
+          for (let i = 0; i < combinedClauses.length; i++) for (let j = i + 1; j < combinedClauses.length; j++) {
+            if (combinedClauses[i].glyphs.some((a) => combinedClauses[j].glyphs.some((b) => overlaps(a, b)))) errors.push('combined clause glyph overlap');
+          }
+          const textReadings = [q('press-primary-takeaway'), q('press-contact-clause'), q('press-response-label'), q('press-scale-definitions'), q('press-chosen-settings'), ...labelParagraphs, condition, ...namedParagraphNodes].map((node) => {
+            const censusNode = node === contactClause ? primary : node;
+            const baseline = input.census[Number(censusNode.dataset.releaseTextProbe)]?.baselinePx, fontSize = parseFloat(getComputedStyle(node).fontSize);
+            if (!Number.isFinite(baseline) || Math.abs(fontSize - baseline * input.profile.scale) > 0.5) errors.push(`text size:${node.dataset.testid ?? 'Surface'}`);
+            const words: Array<{ word: string; rects: Bounds[] }> = [], walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+            for (let text = walker.nextNode(); text; text = walker.nextNode()) for (const match of (text.textContent ?? '').matchAll(/\S+/g)) {
+              const range = document.createRange(); range.setStart(text, match.index); range.setEnd(text, match.index + match[0].length);
+              const rects = [...range.getClientRects()].filter((rect) => rect.width > 0 && rect.height > 0)
+                .map(({ left, right, top, bottom, width, height }) => ({ left, right, top, bottom, width, height }));
+              if (rects.length !== 1 || rects.some((rect) => !insideX(rect, bounds(node)) || !insideX(rect, fb))) errors.push(`whole label word:${match[0]}`);
+              words.push({ word: match[0], rects });
+            }
+            return { text: node.textContent?.trim(), baseline, fontSize, box: bounds(node), words };
+          });
+          const actualEquation = [...q('press-equation').querySelectorAll('[data-operation-value],[data-operation-symbol]')].map((node) => node.textContent?.trim());
+          if (JSON.stringify(actualEquation) !== JSON.stringify([String(input.rate), '×', String(expectedGap), '=', String(expectedPush)])) errors.push('visible equation basis');
+          const identity = element.isConnected && element === document.querySelector('[data-figure-frame="impedance-press"]') && performance.timeOrigin === input.timeOrigin;
+          if (!identity || innerWidth !== input.profile.width || devicePixelRatio !== input.profile.dpr) errors.push('document/frame/profile identity');
+          const overflow = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+          if (overflow !== 0) errors.push(`document overflow:${overflow}`);
+          return { target: input.target, spring: input.spring, rate: input.rate, expectedTool, expectedGap, expectedPush, actualEquation, errors,
+            identity, forced, ink, canvas, overflow, focusClearance, bounds: { frame: fb, diagram: db, marks: mb, labels: lb, surface: sb, tool: tb, target: ab, gap: gb },
+            text: textReadings, combinedClauses, namedProduct, condition: conditionReading, primary: primaryReading, paint: { surface: surfaceCss.borderTop, target: targetCss.borderTop, tool: toolCss.backgroundColor, gap: gapCss.borderRight } };
+        }, { target, spring, rate, profile, census, timeOrigin });
+        await settle();
+        const initial = await probe(2, 'medium', 2);
+        observations.push({ profile: profile.id, kind: 'default', ...initial });
+        expect(initial.errors, `${profile.id}: default`).toEqual([]);
+        for (const [spring, rate] of [['soft', 1], ['medium', 2], ['stiff', 4]] as const) {
+          const preset = frame.getByTestId(`press-spring-${spring}`);
+          await preset.focus(); await preset.press('Enter');
+          await expect(preset).toHaveAttribute('aria-pressed', 'true');
+          for (const target of [-2, 0, 0.5, 3, 2]) {
+            await slider.focus(); await slider.press('Home');
+            for (let step = 0; step < (target + 2) / 0.5; step++) await slider.press('ArrowRight');
+            await expect(slider).toHaveValue(String(target));
+            await expect(frame.getByTestId('press-position-diagram')).toHaveAttribute('data-target', String(target));
+            await settle();
+            const result = await probe(target, spring, rate);
+            observations.push({ profile: profile.id, kind: 'native', ...result });
+            expect(result.errors, `${profile.id}/${spring}/${target}`).toEqual([]);
+          }
+        }
+        // Real CSS faults must trip the same geometry/paint observer; the
+        // native model and controls are never assigned or substituted.
+        for (const mutation of [
+          { id: 'press-position-target', property: 'top', value: '0px', expected: 'target y' },
+          { id: 'press-position-surface', property: 'border-top-style', value: 'none', expected: 'surface paint' },
+          { id: 'press-position-gap', property: 'height', value: '0px', expected: 'gap span' },
+        ]) {
+          const node = frame.getByTestId(mutation.id), saved = await node.getAttribute('style');
+          try {
+            await node.evaluate((element, change) => element.style.setProperty(change.property, change.value, 'important'), mutation);
+            await settle();
+            const result = await probe(2, 'stiff', 4);
+            observations.push({ profile: profile.id, kind: 'negative witness', mutation, ...result });
+            expect(result.errors).toContain(mutation.expected);
+          } finally {
+            await node.evaluate((element, originalStyle) => originalStyle === null ? element.removeAttribute('style') : element.setAttribute('style', originalStyle), saved);
+          }
+          await settle();
+          expect((await probe(2, 'stiff', 4)).errors, `${profile.id}: restored original style`).toEqual([]);
+        }
+        // Additional named-product fault, separate from the original three
+        // diagram faults and the conditional native-focus clearance witness.
+        const namedOperator = frame.getByTestId('press-push-product-operator'), namedOperatorStyle = await namedOperator.getAttribute('style');
+        try {
+          await namedOperator.evaluate((node) => node.style.setProperty('display', 'none', 'important'));
+          await settle();
+          const brokenNamedProduct = await probe(2, 'stiff', 4);
+          observations.push({ profile: profile.id, kind: 'named product negative witness', mutation: { id: 'press-push-product-operator', property: 'display', value: 'none' }, ...brokenNamedProduct });
+          expect(brokenNamedProduct.errors).toContain('named product hidden:press-push-product-operator');
+        } finally {
+          await namedOperator.evaluate((node, saved) => saved === null ? node.removeAttribute('style') : node.setAttribute('style', saved), namedOperatorStyle);
+        }
+        await settle();
+        expect(await namedOperator.getAttribute('style'), 'exact named operator style restoration').toBe(namedOperatorStyle);
+        const restoredNamedProduct = await probe(2, 'stiff', 4);
+        observations.push({ profile: profile.id, kind: 'named product restoration', ...restoredNamedProduct });
+        expect(restoredNamedProduct.errors, 'restored original named-product paint').toEqual([]);
+        // The stopped-contact qualification must remain painted even when its
+        // textContent and range geometry are unchanged by an opacity fault.
+        const contactClause = frame.getByTestId('press-contact-clause'), contactStyle = await contactClause.getAttribute('style');
+        try {
+          await contactClause.evaluate((node) => node.style.setProperty('opacity', '0', 'important'));
+          await settle();
+          const hiddenContact = await probe(2, 'stiff', 4);
+          observations.push({ profile: profile.id, kind: 'contact clause negative witness', ...hiddenContact });
+          expect(hiddenContact.errors).toContain('combined clause hidden:press-contact-clause');
+        } finally {
+          await contactClause.evaluate((node, saved) => saved === null ? node.removeAttribute('style') : node.setAttribute('style', saved), contactStyle);
+        }
+        await settle();
+        expect(await contactClause.getAttribute('style'), 'exact contact clause style restoration').toBe(contactStyle);
+        const restoredContact = await probe(2, 'stiff', 4);
+        observations.push({ profile: profile.id, kind: 'contact clause restoration', ...restoredContact });
+        expect(restoredContact.errors, 'restored original contact clause paint').toEqual([]);
+        const focusBaseline = await probe(2, 'stiff', 4);
+        observations.push({ profile: profile.id, kind: 'focus clearance eligibility', ...focusBaseline.focusClearance });
+        if (focusBaseline.focusClearance.wrappedValue) {
+          await expect(slider).toBeFocused();
+          expect(focusBaseline.focusClearance.focusVisible).toBe(true);
+          const nativeRow = frame.locator('[data-figure-control-row]');
+          await expect(nativeRow).toHaveCount(1);
+          const savedStyle = await nativeRow.getAttribute('style');
+          try {
+            await nativeRow.evaluate((node) => node.style.setProperty('row-gap', '2px', 'important'));
+            await settle();
+            const broken = await probe(2, 'stiff', 4);
+            observations.push({ profile: profile.id, kind: 'focus clearance negative witness', ...broken });
+            expect(broken.errors).toContain('native focus clearance');
+          } finally {
+            await nativeRow.evaluate((node, saved) => saved === null ? node.removeAttribute('style') : node.setAttribute('style', saved), savedStyle);
+          }
+          await settle();
+          expect((await probe(2, 'stiff', 4)).errors, `${profile.id}: restored focus clearance`).toEqual([]);
+        }
+        await summary.focus(); await summary.press('Enter');
+        await expect(method).toHaveJSProperty('open', true);
+        await expect(frame.getByTestId('press-drawing')).toBeVisible();
+        await expect(frame.getByTestId('press-position-diagram')).toBeVisible();
+        await expect(frame.getByTestId('press-equation')).toBeVisible();
+        await summary.press('Enter');
+        await expect(method).toHaveJSProperty('open', false);
+        await expect(frame.getByTestId('press-drawing')).toBeHidden();
+        await settle();
+        expect((await probe(2, 'stiff', 4)).errors, `${profile.id}: native fold round trip`).toEqual([]);
+        const activity = await page.evaluate(takeReleaseActivity);
+        observations.push({ profile: profile.id, kind: 'native actions', operations: activity.operations });
+        expect(activity.operations.filter(({ kind }) => kind === 'keydown').every(({ trusted }) => trusted), `${profile.id}: trusted keyboard actions`).toBe(true);
+        expect(await original.evaluate((element, origin) => element.isConnected && element === document.querySelector('[data-figure-frame="impedance-press"]') && performance.timeOrigin === origin, timeOrigin)).toBe(true);
+      } finally { await context.close(); }
+    }
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'default')).toHaveLength(8);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'native')).toHaveLength(120);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'negative witness')).toHaveLength(24);
+    const focusRows = observations.filter((row) => (row as { kind: string }).kind === 'focus clearance eligibility') as Array<{ wrappedValue: boolean }>;
+    expect(focusRows).toHaveLength(8);
+    expect(focusRows.some((row) => row.wrappedValue)).toBe(true);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'focus clearance negative witness')).toHaveLength(focusRows.filter((row) => row.wrappedValue).length);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'named product negative witness')).toHaveLength(8);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'named product restoration')).toHaveLength(8);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'contact clause negative witness')).toHaveLength(8);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'contact clause restoration')).toHaveLength(8);
+  } finally {
+    const preserved = sources.map(({ path, bytes }) => ({ path, sameBytes: readFileSync(join(process.cwd(), path)).equals(bytes) }));
+    await testInfo.attach('press-default-position-native-geometry', { body: Buffer.from(JSON.stringify({ observations, preserved }, null, 2)), contentType: 'application/json' });
+    expect(preserved.filter(({ sameBytes }) => !sameBytes), 'press geometry sources and canonical text helper stay unchanged').toEqual([]);
+  }
+});

@@ -176,7 +176,11 @@ export function parseExportedMetadata(html: string): ReleaseMetadata {
   }
   const canonicals = values('link[rel="canonical"]', 'href');
   const descriptions = values('meta[name="description"]', 'content');
-  if (d.querySelectorAll('title').length !== 1 || canonicals.length !== 1 || descriptions.length !== 1) throw new Error('Export must contain exactly one title, canonical and description');
+  // SVG titles describe graphics; only the HTML title names the document.
+  // Count all HTML titles before checking placement so a body title cannot
+  // substitute for, or hide beside, the one required title in the head.
+  const titles = [...d.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'title')];
+  if (titles.length !== 1 || titles[0].parentElement !== d.head || canonicals.length !== 1 || descriptions.length !== 1) throw new Error('Export must contain exactly one HTML title in head, canonical and description');
   const robotValues = values('meta[name="robots"]', 'content');
   if (!robotValues.length || robotValues.some(v => /\bindex\b/i.test(v)) && robotValues.some(v => /\bnoindex\b/i.test(v))) throw new Error('Missing or contradictory robots policy');
   const parsed: ReleaseMetadata = {

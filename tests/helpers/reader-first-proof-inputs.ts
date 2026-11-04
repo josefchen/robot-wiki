@@ -13,7 +13,7 @@ import { historicalGit } from './historical-git';
 
 export const READER_FIRST_PROOF_REVIEW = 'tests/fixtures/history/reader-first-proof-review.json';
 // BEGIN reader-first proof review pin
-const reviewPin = {"bytes": 33942, "sha256": "49a4e298a370fff984413be4aab53c64a1bf8eaa800ccd47f6a0203e06c7295c"};
+const reviewPin = {"bytes": 33933, "sha256": "575e7104a26a7af71482c71ba8952eafbbee1ad2b2ebe021a771d0070a74ff41"};
 // END reader-first proof review pin
 export const READER_FIRST_PROOF_PATHS = [
   'lib/chart-descriptions.ts',

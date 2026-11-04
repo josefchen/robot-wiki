@@ -205,15 +205,32 @@ describe('SceneRepresentationLadder', () => {
     expect(screen.getByTestId('scene-detail-note')).toHaveTextContent(
       'Smaller spacing shows finer detail for the same kinds of questions.',
     );
-    const costLead = screen.getByText('Only the storage format changes which questions the robot can answer.');
+    const costLead = screen.getByText('Storage format → questions it answers directly');
     expect(screen.getByTestId('scene-main-comparison').compareDocumentPosition(selector(DEFAULT_REPRESENTATION)) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     const direction = screen.getByTestId('scene-surface-direction');
     expect(direction).toHaveTextContent('At a wall or object face: the direction straight out from the surface, for planning contact.');
     expect(direction.closest('details')).toBeNull();
     expect(capability('contact-normal')).toHaveAttribute('aria-describedby', direction.id);
     expect(costLead.closest('details')).toBeNull();
-    expect(costLead.parentElement).toHaveTextContent('Finer detail costs more memory');
-    expect(costLead.parentElement).toHaveTextContent('answers the same questions');
+    expect(costLead.parentElement).toHaveTextContent('Finer detail → more memory');
+    expect(costLead.parentElement).toHaveTextContent('the same questions');
+    const directQuestions = [
+      ['point-cloud', ['None of these three directly']],
+      ['occupancy-grid', ['Can the robot move here?']],
+      ['tsdf', ['Can the robot move here?', 'Which way does the surface face?']],
+      ['mesh', ['Which way does the surface face?']],
+      ['gaussian-splat', ['What does it look like from here?']],
+    ] as const;
+    for (const [id, questions] of directQuestions) {
+      const button = selector(id);
+      const description = document.getElementById(button.getAttribute('aria-describedby')!);
+      expect([...description!.querySelectorAll('p')].map((p) => p.textContent)).toEqual(questions);
+      expect(screen.getByTestId(`scene-format-row-${id}`)).toContainElement(button);
+      expect(screen.getByTestId(`scene-format-row-${id}`)).toContainElement(description);
+      expect(description!.closest('details')).toBeNull();
+    }
+    expect(screen.getByText('Other answers may need extra processing; the selected format’s details are shown below.').closest('details')).toBeNull();
+    expect(screen.getByTestId('scene-resolution-rule').compareDocumentPosition(screen.getByTestId('scene-resolution-slider')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   it('names the three questions in plain words, each answered', () => {

@@ -7,16 +7,14 @@
     "1280": "evidence/reader-first/adjacent--autonomous-vehicles--av-safety-miles.1280.png"
   },
   "takeaway": "A fleet would need 275 million miles with no fatality to show, at 95% confidence, a fatality rate no higher than the study's US human-driver benchmark.",
-  "sentence": "The figure shows how an enormous distance without any deaths is needed to support a claim that cars match human drivers' fatality rate.",
-  "unclearTerms": [
-    "95% confidence: The explanation about repeated studies and upper limits does not make it clear what the 95% says about these particular miles."
-  ],
-  "samePoint": "no",
-  "reason": "It captures the need for many miles without deaths, but omits 275 million miles, 95% confidence and the study's US benchmark.",
-  "verdict": "fail",
-  "screenshotCommit": "c5afaca91171dae4d673e2861c502562b418f894",
-  "date": "2026-11-03",
-  "reviewerSession": "reader-session-automated-r9-b-20261103",
-  "sourceDigest": "9c0be4da0a9ee5ff1b2688ff9fb1eb6771f51a6d963356d14847b7ded4b236eb",
+  "sentence": "A fleet needs 275 million miles with no deaths to support a death rate no higher than the study's human-driver benchmark at 95% confidence.",
+  "unclearTerms": [],
+  "samePoint": "yes",
+  "reason": "My sentence states the same 275-million-mile, zero-death requirement, 95% confidence level and comparison with the study's human-driver benchmark.",
+  "verdict": "pass",
+  "screenshotCommit": "68cbc16672569f1d1db28e53cec62d90123c633a",
+  "date": "2026-11-04",
+  "reviewerSession": "reader-session-automated-r12-20261104",
+  "sourceDigest": "2f61d4e896c40181c886267fb9845571d56c2bf57348d56e2e08d7d11bcefa3d",
   "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
 }

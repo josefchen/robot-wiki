@@ -11,8 +11,10 @@ import {
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
 import { Dots, IsoFigure, Line, Solid } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
-import { HEIGHT, PARTS, WIDTH, movingAt, type Part } from '@/components/iso/figures/spring-press';
+import { HEIGHT, P, PARTS, TOOL, WIDTH, movingAt, needleAngle, tipFor, type Part } from '@/components/iso/figures/spring-press';
+import { iso } from '@/components/iso/iso-kit';
 import {
+  PUSH_MAX,
   SPRINGS,
   STILL_SPRING,
   STILL_TARGET,
@@ -80,6 +82,15 @@ export function displayHintFor(spring: SpringId, target: number): string {
   const push = pushFor(spring, displayedTarget);
   const pushWords = Number.isInteger(push) ? String(push) : push.toFixed(1);
   return `The surface stops the tool. Stiffness ${springOf(spring).rate} times a target gap of ${displayedTarget} ruler marks gives ${pushWords} dial marks of push.`;
+}
+
+/** The target's height is a virtual reference on the tool's line, not another physical part. */
+export function targetGapGuide(target: number) {
+  return {
+    tool: iso([...TOOL, tipFor(toolFor(target))], P),
+    target: iso([...TOOL, tipFor(target)], P),
+    gap: gapFor(target),
+  };
 }
 
 function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNode {
@@ -155,56 +166,224 @@ export function ImpedancePress({ className }: { className?: string }) {
   const push = pushFor(spring, now);
   const displayedTarget = Math.round(now * 10) / 10;
   // The readout's words and numbers come from one value, rounded once, so the push always equals rate × gap shown.
+  const gapGuide = targetGapGuide(shown);
 
   return (
     <InstrumentFigure
       figureId="impedance-press"
       className={className}
       kicker="Impedance action"
-      heading={displayedTarget > 0 ? "Surface stops the tool; stiffness times target gap sets push" : displayedTarget < 0 ? "Before contact, the tool follows its target without pushing" : "At the surface, no target gap means no push"}
-      controls={
-        <>
-          <p className="basis-full pb-2 font-sans text-[16px] font-semibold leading-normal text-text" data-testid="press-mechanism">
-            An impedance action sends a target and stiffness.{' '}
-            {displayedTarget > 0 ? (
-              <>Past a surface the tool stops, and push equals stiffness times how far the target sits past it.</>
-            ) : displayedTarget < 0 ? (
-              <>The tool follows its target before contact. No contact means no push.</>
-            ) : (
-              <>The target meets the surface. Zero target gap means zero push.</>
-            )}
-          </p>
-          <div className="[&_.figure-tab-row]:gap-x-1">
-            <PresetGroup
-              label="Spring set by the movement controller"
-              presets={SPRINGS.map(({ id, label }) => ({ id, label }))}
-              value={spring}
-              onChange={(id) => setSpring(id)}
-              testId="press-spring"
-            />
-          </div>
-          <SliderRow
-            htmlFor={sliderId}
-            label="Target"
-            value={<span data-testid="press-target">{targetValue(target)}</span>}
-            className="max-[320px]:grid max-[320px]:grid-cols-1 max-[320px]:[&>div]:min-w-0 max-[320px]:[&_input]:min-w-0 max-[320px]:[&>span]:whitespace-normal"
+      heading={displayedTarget > 0 ? "This action sends target and stiffness for contact" : displayedTarget < 0 ? "This action sends target and stiffness before contact" : "This action sends target and stiffness at the surface"}
+      stage={
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={displayHintFor(spring, displayedTarget)}
+          readout={displayReadoutFor(spring, displayedTarget)}
+          status="Schematic ruler and dial marks, with no physical units: springs give 1, 2 or 4 dial marks per ruler mark."
+          className="@container/press"
+          data-testid="press-stage-frame"
+        >
+          <div className="grid min-w-0 basis-full gap-1 font-sans leading-normal text-text" data-testid="press-action-packet">
+            <div className="@container/press-primary grid min-w-0 gap-2 font-sans leading-normal text-text" data-testid="press-relationship">
+              <p className="grid min-w-0 gap-1 text-[20px] font-semibold leading-[1.3]" data-testid="press-primary-takeaway">
+                <span className="block" data-testid="press-action-clause">
+                  <span id={`${sliderId}-settings`} aria-label="An action sends two settings: target and stiffness" data-testid="press-action-label">
+                    An action sends two settings:{' '}
+                    <span className="flex w-fit max-w-full min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-current pb-2" data-testid="press-action-message">
+                      <span data-action-field="target" className="inline-block min-w-min">target{' '}<span className="font-mono" data-action-value="target">{displayedTarget > 0 ? '+' : ''}{displayedTarget}</span></span>{' '}
+                      and{' '}
+                      <span data-action-field="stiffness" className="inline-block min-w-min">stiffness{' '}<span className="font-mono" data-action-value="stiffness">{springOf(spring).rate}</span>;</span>
+                    </span>
+                  </span>
+                </span>
+              </p>{' '}
+              <div
+                role="group"
+                aria-labelledby={`${sliderId}-controller`}
+                aria-describedby={`${sliderId}-controller-role`}
+                className="grid min-w-0 gap-2"
+                data-testid="press-controller-output"
+              >
+                <div className="flex min-w-0 items-start gap-2" data-testid="press-send-path">
+                  <svg aria-hidden="true" className="pointer-events-none h-8 w-5 shrink-0 text-text forced-colors:text-[CanvasText]!" viewBox="0 0 20 32" fill="none" stroke="currentColor" data-testid="press-send-connector" data-from="press-action-message" data-to="press-controller-output">
+                    <path d="M10 0V28m-5-5 5 5 5-5" />
+                  </svg>
+                <div className="flex min-w-0 items-start gap-2" data-testid="press-controller-heading">
+                  <p className="min-w-0 text-[14px]">
+                    <span id={`${sliderId}-controller`} className="font-semibold">Controller</span>:{' '}
+                    <span id={`${sliderId}-controller-role`} data-testid="press-controller-role">uses these settings to make the tool act like a spring.</span>
+                  </p>
+                </div>
+                </div>{' '}
+                <div className="grid min-w-0 gap-2" data-testid="press-contact-product">
+                  <p className="text-[14px]" data-testid="press-response-label">Shown response</p>{' '}
+                    <p className="text-[14px]" data-testid="press-position-condition">
+                      <span aria-hidden="true" className="mr-2 inline-block h-3 w-3 align-middle bg-current forced-colors:bg-[CanvasText]!" data-testid="press-position-tool-key" />
+                      <span data-testid="press-contact-clause">{displayedTarget > 0 ? 'The surface stops the tool.' : displayedTarget < 0
+                        ? 'Before contact, the tool follows its target without pushing.'
+                        : 'Tool and target meet the surface without pushing.'}</span>
+                    </p>{' '}
+                  <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-2" data-testid="press-response-diagram">
+                <div
+                  className="flex min-w-[min(100%,10rem)] flex-1 items-center gap-x-2 gap-y-2"
+                  data-testid="press-position-diagram"
+                  data-target={displayedTarget}
+                  data-tool={toolFor(displayedTarget)}
+                  data-gap={gapFor(displayedTarget)}
+                  data-push={Number(pushFor(spring, displayedTarget).toFixed(1))}
+                >
+                  <div aria-hidden="true" className="pointer-events-none relative my-3 h-28 w-16 shrink-0" data-testid="press-position-marks">
+                    <span className="absolute inset-y-0 left-0 border-l border-current" data-testid="press-ruler" />
+                    {Array.from({ length: TARGET_MAX - TARGET_MIN + 1 }, (_, index) => TARGET_MIN + index).map(mark => <span key={mark} className="absolute left-0 w-1 border-t border-current" style={{ top: `${40 + mark * 20}%` }} data-ruler-mark={mark} />)}
+                    <span className="absolute inset-x-0 border-t border-current" style={{ top: '40%' }} data-testid="press-position-surface" />
+                    <span className="absolute left-2 w-6 border-t border-dashed border-current" style={{ top: `${40 + displayedTarget * 20}%` }} data-testid="press-position-target" />
+                    <span className="absolute left-5 h-3 w-3 -translate-x-1/2 -translate-y-1/2 bg-current forced-colors:bg-[CanvasText]!" style={{ top: `${40 + toolFor(displayedTarget) * 20}%` }} data-testid="press-position-tool" />
+                    <span className={`absolute left-12 w-2 border-current${gapFor(displayedTarget) > 0 ? ' border-y border-r' : ' border-0'}`} style={{ top: `${40 + toolFor(displayedTarget) * 20}%`, height: `${gapFor(displayedTarget) * 20}%` }} data-testid="press-position-gap" />
+                  </div>
+                  <div className="grid min-w-0 flex-1 gap-2 text-[14px]" data-testid="press-position-labels">
+                    <p className="flex min-w-0 items-center gap-2"><span aria-hidden="true" className="w-4 shrink-0 border-t border-current" />Surface</p>{' '}
+                    <p className="min-w-0" data-testid="press-shown-target">
+                      <span aria-hidden="true" className="mr-2 inline-block w-4 align-middle border-t border-dashed border-current" />
+                      Shown target: {targetValue(displayedTarget)}
+                    </p>
+                  </div>
+                </div>
+                    <svg
+                      role="img"
+                      aria-label="Push dial"
+                      aria-describedby={`${sliderId}-push-description ${sliderId}-dial-scale`}
+                      style={{ ['--motion-stage-view-width' as string]: '112px', ['--motion-stage-type-min-width' as string]: '112px', ['--motion-stage-max-scale' as string]: 1, ['--motion-stage-readout-size' as string]: '14px' } as CSSProperties}
+                      className="motion-stage-svg h-28 w-28 shrink-0 overflow-visible text-text forced-colors:text-[CanvasText]!"
+                      viewBox="0 0 112 112"
+                      data-testid="press-push-dial"
+                      data-push={Number(pushFor(spring, displayedTarget).toFixed(1))}
+                      data-min="0"
+                      data-max={PUSH_MAX}
+                    >
+                      <desc id={`${sliderId}-dial-scale`}>Schematic push scale from 0 to {PUSH_MAX} dial marks, without physical units.</desc>
+                      <circle cx="56" cy="50" r="34" fill="none" stroke="currentColor" />
+                      {Array.from({ length: PUSH_MAX + 1 }, (_, mark) => {
+                        const angle = needleAngle(mark);
+                        const major = mark % 4 === 0;
+                        return <g key={mark} data-dial-mark={mark}>
+                          <line x1={56 + Math.sin(angle) * (major ? 27 : 30)} y1={50 - Math.cos(angle) * (major ? 27 : 30)} x2={56 + Math.sin(angle) * 34} y2={50 - Math.cos(angle) * 34} stroke="currentColor" />
+                          {major ? <text x={56 + Math.sin(angle) * 46} y={50 - Math.cos(angle) * 46} textAnchor="middle" dominantBaseline="central" fill="currentColor" className="font-mono text-[14px]" data-scene-readout="" data-dial-label={mark}>{mark}</text> : null}
+                        </g>;
+                      })}
+                      <line x1="56" y1="50" x2={56 + Math.sin(needleAngle(Number(pushFor(spring, displayedTarget).toFixed(1)))) * 25} y2={50 - Math.cos(needleAngle(Number(pushFor(spring, displayedTarget).toFixed(1)))) * 25} stroke="currentColor" strokeWidth="2" data-testid="press-dial-needle" />
+                      <circle cx="56" cy="50" r="2" fill="currentColor" />
+                    </svg>
+                  </div>{' '}
+                  <p className="flex min-w-0 items-start gap-2 text-[20px] font-semibold leading-[1.3]" data-testid="press-sent-rule">
+                    <span aria-hidden="true" className="pointer-events-none shrink-0" data-testid="press-gap-output-connector" data-from="press-position-gap" data-to="press-calculation">↓</span>{' '}
+                    <span className="min-w-0" data-testid="press-product-rule">
+                      <span className="inline" data-testid="press-general-rule">push equals stiffness times target gap.</span>
+                    </span>
+                  </p>{' '}
+                  <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2" data-testid="press-result-with-dial">
+                <div
+                  role="group"
+                  aria-label="Stiffness times target gap equals push"
+                  className="grid min-w-0 max-w-[36rem] gap-1"
+                  data-testid="press-calculation"
+                >
+                  <div className="grid min-w-0 gap-1 font-sans text-[16px] leading-normal" data-testid="press-value-descriptions">
+                    <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1" data-testid="press-stiffness-product-row">
+                    <p id={`${sliderId}-stiffness-description`} className="min-w-0" data-testid="press-stiffness-description">
+                      <span className="font-semibold" data-operation-label="stiffness">sent stiffness</span>:{' '}
+                      <span className="whitespace-nowrap font-mono" data-description-value="stiffness">{springOf(spring).rate}</span>
+                    </p>
+                    </div>{' '}
+                    <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1" data-testid="press-gap-product-row">
+                      <p className="inline-flex shrink-0 items-baseline gap-1 font-semibold" data-testid="press-gap-product-operator"><span aria-hidden="true">×</span>{' '}<span>times</span></p>{' '}
+                    <p id={`${sliderId}-gap-description`} className="min-w-0" data-testid="press-gap-description">
+                      <span aria-hidden="true" className="mr-2 inline-block h-3 w-2 align-middle border-y border-r border-current" data-testid="press-position-gap-key" />
+                      <span id={`${sliderId}-gap-label`} className="whitespace-nowrap font-semibold" data-operation-label="gap">target gap</span>:{' '}
+                      <span className="whitespace-nowrap font-mono" data-description-value="gap">{gapFor(displayedTarget)}</span>{' '}
+                      ruler marks
+                    </p>
+                    </div>{' '}
+                    <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1" data-testid="press-push-product-row">
+                      <p className="inline-flex shrink-0 items-baseline gap-1 font-semibold" data-testid="press-push-product-operator"><span aria-hidden="true">=</span>{' '}<span>equals</span></p>{' '}
+                    <p id={`${sliderId}-push-description`} className="min-w-0" data-testid="press-push-description">
+                      <span className="font-semibold" data-operation-label="push">push</span>:{' '}
+                      <span className="whitespace-nowrap font-mono" data-description-value="push">{Number(pushFor(spring, displayedTarget).toFixed(1))}</span>{' '}
+                      dial marks
+                    </p>
+                    </div>
+                  </div>{' '}
+                  <div
+                    className="flex min-w-0 flex-nowrap items-baseline gap-0.5 font-mono text-[clamp(1rem,8cqi,1.5rem)] font-semibold"
+                    data-testid="press-equation"
+                  >
+                    <div className="shrink-0" data-testid="press-stiffness-operand">
+                      <p className="whitespace-nowrap font-mono" data-operation-value="stiffness" aria-describedby={`${sliderId}-stiffness-description`}>{springOf(spring).rate}</p>
+                    </div>{' '}
+                    <div className="flex shrink-0 items-baseline gap-0.5" data-testid="press-gap-term">
+                      <p className="shrink-0 font-sans" data-operation-symbol="multiply">×</p>{' '}
+                      <div
+                        className="shrink-0"
+                        data-testid="press-gap-operand"
+                        aria-describedby={`${sliderId}-gap-evidence`}
+                      >
+                        <p className="whitespace-nowrap font-mono" data-operation-value="gap" aria-describedby={`${sliderId}-gap-description`}>{gapFor(displayedTarget)}</p>
+                      </div>
+                    </div>{' '}
+                    <div className="flex shrink-0 items-baseline gap-0.5" data-testid="press-result-term">
+                      <p className="shrink-0 font-sans" data-operation-symbol="equals">=</p>{' '}
+                      <div className="shrink-0" data-testid="press-push-result">
+                        <p className="whitespace-nowrap font-mono" data-operation-value="push" aria-describedby={`${sliderId}-push-description`}>{Number(pushFor(spring, displayedTarget).toFixed(1))}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>{' '}
+
+                  </div>{' '}
+                  <p className="font-sans text-[14px] leading-normal text-text-dim" data-testid="press-scale-definitions">Ruler: target gap. Dial: push.</p>
+                </div>
+              </div>
+            </div>{' '}
+            <div data-figure-controls="" data-testid="press-native-controls" className="grid min-w-0 gap-1">
+            <p className="text-[14px]" data-testid="press-chosen-settings">Chosen settings</p>
+          <div
+            role="group"
+            aria-labelledby={`${sliderId}-settings`}
+            aria-describedby={`${sliderId}-definitions`}
+            data-testid="press-settings"
+            className="flex min-w-0 basis-full flex-wrap items-end gap-x-3 gap-y-2"
           >
-            <input
-              id={sliderId}
-              type="range"
-              data-brand-control-id="control:input"
-              min={TARGET_MIN}
-              max={TARGET_MAX}
-              step={TARGET_STEP}
-              value={target}
-              onChange={(e) => {
-                setRunning(false);
-                setTarget(Number(e.target.value));
-              }}
-              aria-valuetext={valueTextFor(spring, target)}
-              className={INSTRUMENT_SLIDER_CLASS}
-            />
-          </SliderRow>
+            <div className="[&_.figure-tab-row]:gap-x-1">
+              <PresetGroup
+                label="Action stiffness"
+                presets={SPRINGS.map(({ id, label }) => ({ id, label }))}
+                value={spring}
+                onChange={(id) => setSpring(id)}
+                testId="press-spring"
+              />
+            </div>
+            <SliderRow
+              htmlFor={sliderId}
+              label="Target"
+              value={<span data-testid="press-target">{targetValue(target)}</span>}
+              className="gap-y-1 max-[320px]:grid max-[320px]:grid-cols-1 max-[320px]:[&>div]:min-w-0 max-[320px]:[&_input]:min-w-0 max-[320px]:[&>span]:whitespace-normal"
+            >
+              <input
+                id={sliderId}
+                type="range"
+                data-brand-control-id="control:input"
+                min={TARGET_MIN}
+                max={TARGET_MAX}
+                step={TARGET_STEP}
+                value={target}
+                onChange={(e) => {
+                  setRunning(false);
+                  setTarget(Number(e.target.value));
+                }}
+                aria-valuetext={valueTextFor(spring, target)}
+                className={INSTRUMENT_SLIDER_CLASS}
+              />
+            </SliderRow>
+          </div>
           <button
             type="button"
             data-brand-control-id="control:secondary-action"
@@ -226,35 +405,40 @@ export function ImpedancePress({ className }: { className?: string }) {
           >
             {running ? 'Stop the press' : 'Run the press'}
           </button>
-        </>
-      }
-      stage={
-        <AnatomyStage
-          viewWidth={WIDTH}
-          hint={displayHintFor(spring, displayedTarget)}
-          readout={displayReadoutFor(spring, displayedTarget)}
-          status="Schematic ruler and dial marks, with no physical units: springs give 1, 2 or 4 dial marks per ruler mark."
-          data-testid="press-stage-frame"
-        >
-          <div className="grid items-center gap-4 sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-            <div className="grid gap-3 font-sans text-[14px] leading-normal text-text">
-              <p className="grid grid-cols-1 items-baseline gap-x-3 gap-y-2 min-[320px]:grid-cols-[max-content_1fr]" data-testid="press-calculation">
-                <span className="font-semibold">Target gap</span>{' '}
-                <span><strong className="font-mono text-[24px]">{gapFor(displayedTarget)}</strong> ruler marks</span>{' '}
-                <span className="font-semibold">times stiffness</span>{' '}
-                <strong className="font-mono text-[24px]">{springOf(spring).rate}</strong>{' '}
-                <span className="font-semibold">equals push</span>{' '}
-                <span><strong className="font-mono text-[24px]">{Number(pushFor(spring, displayedTarget).toFixed(1))}</strong> dial marks.</span>
-              </p>
             </div>
+          </div>
+        </AnatomyStage>
+      }
+      caption="Once the surface stops the tool, push equals stiffness times how far the target sits past it."
+      method={
+        <>
+          <div className="iso @container/press" style={{ ['--anatomy-view-width' as string]: `${WIDTH}px` } as CSSProperties} data-testid="press-method-analogy" data-anatomy-drawing="">
+          <div
+            className="grid min-w-0 gap-6 font-sans leading-normal text-text @min-[38em]/press:grid-cols-2 @min-[38em]/press:items-start"
+            data-testid="press-proof"
+          >
+              <p id={`${sliderId}-definitions`} className="font-sans text-[14px] leading-normal text-text">
+                Target is where to aim. Stiffness sets how strongly the tool behaves like a spring.
+              </p>
+            <div className="grid min-w-0 gap-3" data-testid="press-analogy">
+              <p className="text-center text-[14px]" data-testid="press-analogy-label">Spring analogy: target gap</p>
             <div
-              className="mx-auto w-2/3 sm:w-full"
+              className="grid min-w-0 gap-3"
               data-testid="press-drawing"
+              role="group"
+              id={`${sliderId}-gap-evidence`}
+              aria-labelledby={`${sliderId}-gap-label`}
               data-spring={spring}
               data-target={now}
               data-tool={r2(toolFor(now))}
               data-push={r2(push)}
             >
+              <p className="text-[18px]" data-testid="press-mechanism">
+                {displayedTarget > 0 ? 'The surface stops the tool.' : displayedTarget < 0
+                  ? 'Before contact, the tool follows its target without pushing.'
+                  : 'No target gap means no push.'}
+              </p>
+              <div className="relative mx-auto w-3/5 max-w-[14rem] @min-[38em]/press:w-full" data-testid="press-gap-canvas">
               <IsoFigure
                 width={WIDTH}
                 height={HEIGHT}
@@ -276,13 +460,61 @@ export function ImpedancePress({ className }: { className?: string }) {
                   );
                 })}
               </IsoFigure>
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-y-0 inset-x-0 text-text max-sm:-inset-x-[12px]"
+                  style={{ backgroundColor: 'transparent' }}
+                  data-testid="press-gap-guide"
+                  data-target-reference="virtual"
+                  data-guide-target={shown}
+                  data-gap={gapGuide.gap}
+                  data-tool-x={gapGuide.tool[0]}
+                  data-tool-y={gapGuide.tool[1]}
+                  data-target-x={gapGuide.target[0]}
+                  data-target-y={gapGuide.target[1]}
+                >
+                  <span
+                    data-testid="press-gap-tool-line"
+                    className="absolute h-0 border-t border-current forced-colors:outline forced-colors:outline-1 forced-colors:outline-[Canvas]"
+                    style={{ left: `${(gapGuide.tool[0] / WIDTH) * 100}%`, top: `${(gapGuide.tool[1] / HEIGHT) * 100}%`, width: `${94 - (gapGuide.tool[0] / WIDTH) * 100}%` }}
+                  />
+                  {gapGuide.gap > 0 ? (
+                    <span
+                      data-testid="press-gap-target-line"
+                      className="absolute h-0 border-t border-dashed border-current forced-colors:outline forced-colors:outline-1 forced-colors:outline-[Canvas]"
+                      style={{ left: `${(gapGuide.target[0] / WIDTH) * 100}%`, top: `${(gapGuide.target[1] / HEIGHT) * 100}%`, width: `${94 - (gapGuide.target[0] / WIDTH) * 100}%` }}
+                    />
+                  ) : null}
+                  <span
+                    data-testid="press-gap-bracket"
+                    className={`absolute w-0 border-l border-current${gapGuide.gap > 0 ? ' forced-colors:outline forced-colors:outline-1 forced-colors:outline-[Canvas]' : ''}`}
+                    style={{ left: '94%', top: `${(gapGuide.tool[1] / HEIGHT) * 100}%`, height: `${((gapGuide.target[1] - gapGuide.tool[1]) / HEIGHT) * 100}%` }}
+                  />
+                </div>
+              </div>
+              <div className="grid min-w-0 gap-2 text-[14px]" data-testid="press-gap-key">
+                <div className="flex min-w-0 flex-wrap gap-x-4 gap-y-1">
+                  <p className="flex min-w-0 items-center gap-2">
+                    <span aria-hidden="true" className="w-4 shrink-0 border-t border-current" />
+                    {gapGuide.gap > 0 ? 'Stopped tool' : 'Tool and target'}
+                  </p>{' '}
+                  {gapGuide.gap > 0 ? (
+                    <p className="flex min-w-0 items-center gap-2">
+                      <span aria-hidden="true" className="w-4 shrink-0 border-t border-dashed border-current" />
+                      Target level
+                    </p>
+                  ) : null}
+                </div>{' '}
+                <p data-testid="press-gap-statement">
+                  {shown < 0 ? 'Tool follows target. Marked target gap: 0 ruler marks.' : shown === 0
+                    ? 'Tool and target meet at the surface. Marked target gap: 0 ruler marks.'
+                    : <>Marked target gap: <span className="font-mono">{gapFor(displayedTarget)}</span> ruler {gapFor(displayedTarget) === 1 ? 'mark' : 'marks'} from the stopped tool to the target level.</>}
+                </p>
+              </div>
+            </div>
             </div>
           </div>
-        </AnatomyStage>
-      }
-      caption="The movement controller sends a target and stiffness; once the surface stops the tool, push equals stiffness times the remaining gap."
-      method={
-        <>
+          </div>
           <p>
             An impedance action is a target pose plus a stiffness and a damping, and a controller under the policy
             turns the gap between the target and the tool into a push. Hogan&apos;s impedance law says exactly that:

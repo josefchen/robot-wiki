@@ -136,11 +136,11 @@ $$
 A^{\top} P + P A - P B R^{-1} B^{\top} P + Q = 0
 $$
 
-A heavier angle penalty in $Q$ stiffens the controller and a heavier torque penalty in $R$ softens it; for the linearized pendulum, the LQR gain is a PD controller. The guarantee is local: swinging the pole up from hanging takes an energy-shaping controller, with LQR catching it at the top <Cite id="tedrake-underactuated" />.
+A heavier angle penalty in $Q$ stiffens the controller and a heavier torque penalty in $R$ softens it; for the linearized pendulum, the LQR gain is a PD controller. The guarantee is local: swinging the pole up from hanging needs energy-shaping control, with LQR catching it at the top <Cite id="tedrake-underactuated" />.
 
 ## MPC: re-solve the plan at every step
 
-<Term id="mpc">Model-predictive control</Term> solves a short-horizon optimal control problem at every control step, from the measured state and subject to the constraints <Cite id="mayne-2000" />:
+<Term id="mpc">Model-predictive control</Term> solves a short-horizon optimal control problem each control step, from the measured state under the constraints <Cite id="mayne-2000" />:
 
 $$
 \min_{u_0, \dots, u_{N-1}} \; \sum_{k=0}^{N-1} \left( x_k^{\top} Q x_k + u_k^{\top} R u_k \right) \quad \text{s.t.} \quad x_{k+1} = f(x_k, u_k), \; u_k \in \mathcal{U}, \; x_k \in \mathcal{X}
@@ -180,19 +180,19 @@ Learned and model-based <Term id="whole-body-control">whole-body control</Term> 
 
 ## Impedance control: making contact a design variable
 
-A stiff position-controlled arm driven into a surface 2 mm nearer than modeled turns that error into stored collision energy. Hogan's 1985 <Term id="impedance-control">impedance control</Term> instead commands the relationship between force and motion, so the arm presents a programmable mass-spring-damper: at a contact, a controller commands force or velocity, and the environment fixes the other <Cite id="hogan-1985" />.
+A stiff position-controlled arm driven into a surface 2 mm nearer than modeled turns that error into stored collision energy. Hogan's 1985 <Term id="impedance-control">impedance control</Term> instead commands the relationship between force and motion, so the arm presents a programmable mass-spring-damper: at contact, a controller commands force or velocity, and the environment fixes the other <Cite id="hogan-1985" />.
 
 Salisbury's earlier Cartesian stiffness controller programmed apparent stiffness along three translation and three rotation axes, transforming the Cartesian relation into joint-servo commands <Cite id="salisbury-1980" />.
 
 <Term id="admittance-control">Admittance control</Term> is the dual: measure force with a wrist sensor and command motion. A backdrivable direct-drive arm realizes an impedance directly, while a stiff geared arm with a force-torque sensor runs admittance in software. Ott, Mukherjee and Nakamura construct a hybrid family between impedance and admittance control, analyzing a one-dimensional interaction before experiments on a KUKA-DLR lightweight robot <Cite id="ott-2010" />.
 
-Mason's and Raibert and Craig's <Term id="hybrid-force-position-control">hybrid force/position control</Term> builds a task frame from the contact geometry and controls force along the constrained axes and position along the free ones, never both on one axis <Cite id="mason-1981" /> <Cite id="raibert-craig-1981" />. Polishing, for instance, controls force normal to the surface and position along it, which needs the contact geometry in advance.
+Mason's and Raibert and Craig's <Term id="hybrid-force-position-control">hybrid force/position control</Term> builds a task frame from the contact geometry and controls force along the constrained axes and position along the free ones, never both on one axis <Cite id="mason-1981" /> <Cite id="raibert-craig-1981" />. Polishing controls force normal to the surface and position along it, which needs the contact geometry in advance.
 
-Learned policies now set impedance: Adaptive Compliance Policy learns spatially and temporally varying compliance from human demonstrations and reports over 50% improvement over state-of-the-art visuomotor policies <Cite id="acp-2024" />. A diffusion-based impedance learner co-authored by Hogan adapts stiffness and damping online on a torque-controlled KUKA LBR iiwa <Cite id="geiger-impedance-2025" />. Intrinsic, which ran the 2026 AI for Industry Challenge, reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines, such as spiral searches, and force-torque feedback <Cite id="intrinsic-ai-for-industry-challenge-2026" />.
+Learned policies now set impedance: Adaptive Compliance Policy learns spatially and temporally varying compliance from human demonstrations and reports over 50% improvement over state-of-the-art visuomotor policies <Cite id="acp-2024" />. A diffusion-based impedance learner co-authored by Hogan adapts stiffness and damping online on a torque-controlled KUKA LBR iiwa <Cite id="geiger-impedance-2025" />. Intrinsic, which ran the 2026 AI for Industry Challenge, reports 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines, including spiral searches, and force-torque feedback <Cite id="intrinsic-ai-for-industry-challenge-2026" />.
 
-ForceTwin, from Marco Hutter (ETH Zurich) and colleagues (September 2026), fits an articulated object's inertia, friction, damping and spring or door-closer forces from a person probing it with a handheld force-sensing gripper. As the feedforward model for impedance control on a Spot and a Franka FR3, it completed 87% of goals across nine object-robot pairs, against 60% with vision-language-model priors and 57% with kinematics-only twins <Cite id="forcetwin-2026" />.
+ForceTwin, from Marco Hutter (ETH Zurich) and colleagues (September 2026), fits an articulated object's inertia, friction, damping and spring or door-closer forces from human probing with a handheld force-sensing gripper. As the feedforward model for impedance control on a Spot and a Franka FR3, it completed 87% of goals across nine object-robot pairs, against 60% with vision-language-model priors and 57% with kinematics-only twins <Cite id="forcetwin-2026" />.
 
-A non-backdrivable, position-controlled geared arm without a force sensor has no force channel: position error, gear ratio and the surface set the contact force, so a joint-position policy on it cannot regulate force in the contact-rich tasks of [dexterity](/frontier/dexterity). <Term id="series-elastic-actuator">Series elastic actuation</Term> adds a deliberate spring for shock tolerance and more accurate, stable force control <Cite id="pratt-williamson-1995" />.
+A non-backdrivable, position-controlled geared arm without a force sensor has no force channel: position error, gear ratio and the surface set the contact force, so its joint-position policy cannot regulate force in the contact-rich tasks of [dexterity](/frontier/dexterity). <Term id="series-elastic-actuator">Series elastic actuation</Term> adds a deliberate spring for shock tolerance and more accurate, stable force control <Cite id="pratt-williamson-1995" />.
 
 For flexible joints, Ott and colleagues decouple torque dynamics from link dynamics in an impedance controller, with a stability analysis and a preliminary single-joint experiment <Cite id="albu-schaffer-2003" />.
 
@@ -200,19 +200,19 @@ For flexible joints, Ott and colleagues decouple torque dynamics from link dynam
 
 Franka's interface exposes a 1 kHz torque-level layer with Cartesian impedance controllers <Cite id="franka-fci-docs" />, while Universal Robots' URScript force mode takes a task frame, compliant axes, target forces and position-deviation limits <Cite id="ur-force-mode-docs" />. <Term id="backdrivability">Backdrivability</Term> is an actuator decision that fixes which of these schemes the hardware can attempt.
 
-The contact lab's transient force limit comes from published biomechanical measurements <Cite id="han-force-pain-2024" />. ISO/TS 15066:2016 holds the original collaborative-robot tables <Cite id="iso-ts-15066" />. ISO republished ISO 10218-1 and ISO 10218-2 in February 2025, withdrawing the 2011 editions <Cite id="iso-10218-1-2025" /><Cite id="iso-10218-2-2025" />, and a 2026 comparison describes the 2025 series as fully absorbing ISO/TS 15066 <Cite id="hartmann-iso-2026" />.
+The contact lab's transient force limit comes from published biomechanical measurements <Cite id="han-force-pain-2024" />. ISO/TS 15066:2016 holds the original collaborative-robot tables <Cite id="iso-ts-15066" />. ISO republished ISO 10218-1 and ISO 10218-2 in February 2025, withdrawing the 2011 editions <Cite id="iso-10218-1-2025" /><Cite id="iso-10218-2-2025" />, and a 2026 comparison says the 2025 series fully absorbs ISO/TS 15066 <Cite id="hartmann-iso-2026" />.
 
 <ImpedanceContactLab className="my-6" />
 
 ## The policy-to-controller contract
 
-A learned action reaches the motors through a lower controller, so request type, rate, horizon, frame and saturation behavior belong to the interface. Peng and van de Panne showed that the action parameterization, from torques to target joint angles, affects learning, robustness and motion quality <Cite id="peng-action-space-2016" />, and the same Cartesian delta behaves differently in contact under a position controller and under an impedance controller.
+A learned action reaches the motors through a lower controller, so request type, rate, horizon, frame and saturation behavior belong to the interface. Peng and van de Panne showed the action parameterization, from torques to target joint angles, affects learning, robustness and motion quality <Cite id="peng-action-space-2016" />, and the same Cartesian delta behaves differently in contact under position and impedance controllers.
 
 The VICES study makes impedance itself part of the RL action: the policy selects end-effector motion and compliance, evaluated on tasks including door opening and surface wiping <Cite id="martin-martin-2019" />.
 
 Deployed stacks are multi-rate: Berkeley Humanoid runs its RL policy at 50 Hz, its state estimator at 1 kHz and its PD controller at 25 kHz <Cite id="berkeley-humanoid-2024" />.
 
-Model latency is part of the loop: a 3-billion-parameter VLA spends 46 ms on KV-cache prefill alone on an RTX 4090 <Cite id="real-time-chunking-2025" />. Deadline handling and hard bounds therefore sit outside the model, holding or stopping the robot when inference is late or an action is out of bounds. Data-driven controllers often lack well-understood guarantees, which motivates separate safety filters <Cite id="safety-filter-2023" />. The [action-space guide](/manipulation/action-spaces) covers interface choice.
+Model latency is part of the loop: a 3-billion-parameter VLA spends 46 ms on KV-cache prefill alone on an RTX 4090 <Cite id="real-time-chunking-2025" />. Deadline handling and hard bounds therefore sit outside the model, holding or stopping the robot when inference is late or an action is out of bounds. Data-driven controllers often lack well-understood guarantees, motivating separate safety filters <Cite id="safety-filter-2023" />. The [action-space guide](/manipulation/action-spaces) covers interface choice.
 
 ## Where this meets the learned stack
 

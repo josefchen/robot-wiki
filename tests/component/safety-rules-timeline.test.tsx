@@ -50,18 +50,21 @@ describe('SafetyRulesTimeline', () => {
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
     expect(words(caption)).toBeLessThanOrEqual(25);
-    const draft = screen.getByText('no next date');
+    const draft = screen.getByText('No next date');
     expect(draft.closest('details')).toBeNull();
-    expect(draft.parentElement).toHaveTextContent('The humanoid standard is still a draft');
+    expect(draft.parentElement).toHaveTextContent('Humanoid safety standard remains a draft');
     expect(draft.compareDocumentPosition(screen.getByTestId('safety-rules-timeline-stage')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(screen.getByText(/ISO is the international standards organization/).closest('details')).toBeNull();
     expect(screen.getByTestId('safety-summary-learning')).toHaveTextContent('January 2027');
     expect(screen.getByTestId('safety-summary-learning')).toHaveTextContent('software or hardware designed to protect people, with behavior that can evolve');
     expect(screen.getByTestId('safety-summary-learning')).toHaveTextContent('learn from data');
-    expect(screen.getByTestId('safety-summary-industrial')).toHaveTextContent('Industrial robot safety standards were renewed in 2025');
+    expect(screen.getByTestId('safety-summary-industrial')).toHaveTextContent('2025Industrial robot safety standards renewed');
     const main = screen.getByTestId('safety-main-comparison');
+    expect([...main.querySelectorAll('dt')].map((el) => el.textContent)).toEqual(['2025', 'No next date', 'January 2027']);
+    expect(screen.getByTestId('safety-summary-industrial').querySelector('dd')).toHaveTextContent('Industrial robot safety standards renewed');
+    expect(screen.getByTestId('safety-summary-learning').querySelector('dd')).toHaveTextContent('EU law covers safety components that learn from data');
     for (const id of ['industrial', 'humanoid', 'learning']) {
-      expect(screen.getByTestId(`safety-summary-${id}`).closest('p')).toBe(main);
+      expect(screen.getByTestId(`safety-summary-${id}`).closest('dl')).toBe(main);
     }
     expect(screen.getByText(/Regulated products include machinery, medical devices/).closest('details')).toBeNull();
     expect(screen.getByText(/Separate 2028 AI Act rule/).closest('details')).toBeNull();
