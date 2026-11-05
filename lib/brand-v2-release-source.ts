@@ -6,7 +6,7 @@ export const RELEASE_SOURCE_ROOTS = ['app', 'components', 'content', 'data', 'li
 const GENERATED_INPUTS = new Set(['contract/brand-v2-enforcement-map.json']);
 export const RELEASE_GENERATED_SEARCH_MIRRORS=[{source:'public/search-index.json',exported:'out/search-index.json',kind:'file'},{source:'public/pagefind',exported:'out/pagefind',kind:'directory'}] as const;
 const generatedMirror=(path:string)=>RELEASE_GENERATED_SEARCH_MIRRORS.some(mirror=>path===mirror.source||mirror.kind==='directory'&&path.startsWith(mirror.source+'/'));
-const ROOT_INPUTS = ['PANTHEON-SPEC.md', 'README.md', 'CONTRIBUTING.md', 'AGENTS.md', 'CLAUDE.md', '.gitignore', 'package.json', 'package-lock.json', 'next.config.ts', 'postcss.config.mjs', 'motion-tokens.json', 'motion-clips.json', 'playwright.config.ts', 'playwright.brand-v2.config.ts', 'playwright.release.config.ts', 'tsconfig.json', 'next-env.d.ts', 'eslint.config.mjs'];
+const ROOT_INPUTS = ['PANTHEON-SPEC.md', 'README.md', 'CONTRIBUTING.md', 'AGENTS.md', 'CLAUDE.md', '.gitignore', 'package.json', 'package-lock.json', 'next.config.ts', 'postcss.config.mjs', 'motion-tokens.json', 'motion-clips.json', 'playwright.config.ts', 'playwright.brand-v2.config.ts', 'playwright.release.config.ts', 'tsconfig.json', 'next-env.d.ts', 'eslint.config.mjs', 'vitest.config.mts', 'vitest.setup.ts'];
 const RELEASE_TOOLING_INSTRUCTION_HASHES:Readonly<Record<string,readonly string[]>>={
   // Exact reviewed project instructions and the pinned Next16.3 scaffold.
   'AGENTS.md':['e5b0e885f1c6ae9fd1997240328b750cbcbcee1b87393660b639c73e0ea005f9','63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb'],

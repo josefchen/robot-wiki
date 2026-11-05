@@ -1474,6 +1474,12 @@ span[data-thesis-source-placement] {
     color: CanvasText;
   }
 
+  /* Keep the Action input rule visible beneath its inline value fields. */
+  [data-figure-frame="impedance-press"] [data-action-field],
+  [data-figure-frame="impedance-press"] [data-action-value] {
+    background-color: transparent;
+  }
+
   [data-figure-stage] svg [stroke] {
     stroke: CanvasText;
   }

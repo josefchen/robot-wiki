@@ -799,12 +799,15 @@ test('press fractional equation stays readable during native Run at narrow text 
           originalNodes.push(position, marks, positionLabels, actionPacket, chosenLabel, chosenReadout, shownReadout);
           originalNodes.push(contactProduct, condition, ...['press-stiffness-product-row', 'press-gap-product-row', 'press-push-product-row',
             'press-gap-product-operator', 'press-push-product-operator', 'press-stiffness-description', 'press-gap-description', 'press-push-description'].map(byId));
-          originalNodes.push(...['press-primary-takeaway', 'press-action-clause', 'press-contact-clause', 'press-general-rule', 'press-send-path', 'press-send-connector', 'press-sent-rule'].map(byId));
-          originalNodes.push(...element.querySelectorAll<HTMLElement>('[data-action-value]'));
+          originalNodes.push(...['press-primary-takeaway', 'press-action-clause', 'press-contact-clause', 'press-general-rule', 'press-send-path', 'press-send-connector', 'press-sent-rule', 'press-product-rule', 'press-gap-output-connector', 'press-result-with-dial', 'press-ruler', 'press-push-dial', 'press-dial-needle'].map(byId));
+          originalNodes.push(...element.querySelectorAll<HTMLElement>('[data-action-value]'), ...element.querySelectorAll<HTMLElement>('[data-dial-mark],[data-dial-label],[data-ruler-mark]'));
           const originalSelectors = originalNodes.map((node) => node.dataset.testid
             ? `[data-testid="${node.dataset.testid}"]`
             : node.dataset.actionValue ? `[data-action-value="${node.dataset.actionValue}"]`
-              : `[data-operation-${node.dataset.operationValue ? 'value' : 'symbol'}="${node.dataset.operationValue ?? node.dataset.operationSymbol}"]`);
+              : node.dataset.dialMark !== undefined ? `[data-dial-mark="${node.dataset.dialMark}"]`
+                : node.dataset.dialLabel !== undefined ? `[data-dial-label="${node.dataset.dialLabel}"]`
+                  : node.dataset.rulerMark !== undefined ? `[data-ruler-mark="${node.dataset.rulerMark}"]`
+                    : `[data-operation-${node.dataset.operationValue ? 'value' : 'symbol'}="${node.dataset.operationValue ?? node.dataset.operationSymbol}"]`);
           const state = () => ({
             shown: Number(drawing.dataset.target), rawShown: Number(guide.dataset.guideTarget),
             physicalPush: Number(drawing.dataset.push), spring: drawing.dataset.spring,
@@ -896,8 +899,8 @@ test('press fractional equation stays readable during native Run at narrow text 
                 !node.closest('details:not([open]),[hidden],[aria-hidden="true"]');
               if (!visible) errors.push(label + ' hidden:' + id);
               if (node.tagName !== 'P' || node.querySelector('p')) errors.push(label + ' paragraph identity:' + id);
-              const expectedBase = label === 'named product' ? 16 : label === 'combined primary' ? 20 : 14;
-              const expectedWeight = label === 'combined primary' || id?.endsWith('-operator') ? '600' : '400';
+              const expectedBase = id === 'press-sent-rule' || id === 'press-chosen-settings' ? 16 : label === 'named product' ? 16 : label === 'combined primary' ? 20 : 14;
+              const expectedWeight = id === 'press-sent-rule' ? '400' : label === 'combined primary' || id?.endsWith('-operator') ? '600' : '400';
               if (!Number.isFinite(baseline) || Math.abs(baseline - expectedBase) > 0.5 || css.fontWeight !== expectedWeight) errors.push(label + ' source typography:' + id);
               const leafTypography: Array<{ text: string; paragraph: string | undefined; baseline: number; fontSize: number; fontWeight: string; visible: boolean }> = [];
               if (!Number.isFinite(baseline) || Math.abs(parseFloat(css.fontSize) - baseline * input.profile.textScale) > 0.5) errors.push(label + ' canonical text size:' + id);
@@ -907,7 +910,7 @@ test('press fractional equation stays readable during native Run at narrow text 
               for (let text = walker.nextNode(); text; text = walker.nextNode()) {
                 if (!(text.textContent ?? '').trim()) continue;
                 const leaf = text.parentElement!, leafCss = getComputedStyle(leaf), paragraph = leaf.closest('p');
-                const emphasized = label === 'combined primary' || leaf.closest('[data-operation-label],[data-testid="press-gap-product-operator"],[data-testid="press-push-product-operator"]');
+                const emphasized = id !== 'press-sent-rule' && (label === 'combined primary' || leaf.closest('[data-operation-label],[data-testid="press-gap-product-operator"],[data-testid="press-push-product-operator"]'));
                 const leafVisible = leaf.checkVisibility({ opacityProperty: true, visibilityProperty: true });
                 if (paragraph !== node || !leafVisible || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.textScale) > 0.5 ||
                 leafCss.fontWeight !== (emphasized ? '600' : '400')) errors.push(label + ' leaf inherited typography:' + id);
@@ -978,7 +981,7 @@ test('press fractional equation stays readable during native Run at narrow text 
             }
             if (method.open || drawing.closest('details') !== method || guide.closest('details') !== method) errors.push('method model reference is not closed');
             if (!nativeSlider.isConnected || nativeSlider !== element.querySelector('input[type="range"]') || !actionPacket.contains(nativeSlider) || !actionPacket.contains(button)) errors.push('native chosen-setting identity');
-            if (chosenLabel.textContent?.trim() !== 'Chosen settings' ||
+            if (chosenLabel.textContent?.trim() !== `Action: target ${displayedTarget > 0 ? '+' : ''}${displayedTarget} and stiffness 4.` ||
               chosenReadout.textContent?.trim() !== `${before.chosenTarget} marks past surface` ||
               shownReadout.textContent?.trim() !== `Shown target: ${displayedTarget} marks past surface`) errors.push('chosen/shown label agreement');
             if (byId('press-position-condition').textContent?.trim() !== 'The surface stops the tool.') errors.push('visible contact condition');
@@ -1010,66 +1013,246 @@ test('press fractional equation stays readable during native Run at narrow text 
             const productBox = box(contactProduct), conditionBox = box(condition);
             const conditionReading = productText(condition, [['contact product', productBox], ['frame', frameBox]], 'moved condition');
             if (condition.parentElement !== contactProduct || byId('press-position-tool-key').parentElement !== condition ||
-              condition.previousElementSibling !== byId('press-calculation') || condition.nextElementSibling !== byId('press-response-diagram') ||
+              condition.previousElementSibling !== byId('press-response-label') || condition.nextElementSibling !== byId('press-response-diagram') ||
               !inside(conditionBox, productBox) || overlaps(conditionBox, box(byId('press-general-rule'))) ||
               [...positionLabels.querySelectorAll('p')].some((node) => overlaps(conditionBox, box(node)))) errors.push('moved condition owner/geometry');
             const sentTarget = Math.round(before.shown * 10) / 10, sentRate = 4;
             const sentTargetText = (sentTarget > 0 ? '+' : '') + String(sentTarget);
-            const sentActionText = `An action sends two settings: target ${sentTargetText} and stiffness ${sentRate};`;
-            const sentPrimaryText = `${sentActionText} ↓ when the surface stops the tool, push equals stiffness times target gap.`;
+            const sentActionText = 'An action sends target and stiffness;';
+            const sentPrimaryText = `${sentActionText} once the surface stops the tool, push equals stiffness times target gap.`;
             const primarySentence = byId('press-primary-takeaway'), action = byId('press-action-clause'), rule = byId('press-general-rule');
             const primaryReading = productText(primarySentence, [['frame', frameBox]], 'combined primary');
             const primaryCss = getComputedStyle(primarySentence);
             if (primarySentence.textContent?.replace(/\s+/g, ' ').trim() !== sentPrimaryText ||
-              action.parentElement !== primarySentence || rule.parentElement !== byId('press-sent-rule') || rule.tagName !== 'SPAN' ||
+              action.parentElement !== primarySentence || rule.parentElement !== byId('press-product-rule') || rule.tagName !== 'SPAN' ||
+              getComputedStyle(action).display !== 'inline' || getComputedStyle(rule.parentElement!).display !== 'inline' ||
               !(action.compareDocumentPosition(rule) & Node.DOCUMENT_POSITION_FOLLOWING) ||
               !rule.checkVisibility({ opacityProperty: true, visibilityProperty: true }) ||
-              !inside(box(rule), box(primarySentence)) || primaryCss.fontWeight !== '600') errors.push('combined primary ownership/copy/font');
+              !inside(box(rule), box(byId('press-primary-takeaway'))) || primaryCss.fontWeight !== '600') errors.push('combined primary ownership/copy/font');
+            /** Browser observer template for the new R31 dial. It is injected unchanged into
+             * both existing native probes after the designer freezes the source contract.
+             * Its expectation is derived from each probe's original independent model. */
+            function readPushDial(frame: Element, expectedPush: number, expectedInk: string, tolerance: number) {
+              type DialBox = { left: number; right: number; top: number; bottom: number; width: number; height: number };
+              const errors: string[] = [];
+              const dial = frame.querySelector<SVGSVGElement>('[data-testid="press-push-dial"]');
+              if (!dial) return { errors: ['dial missing'], expectedPush, missing: true };
+              const bounds = (node: Element): DialBox => {
+                const { left, right, top, bottom, width, height } = node.getBoundingClientRect();
+                return { left, right, top, bottom, width, height };
+              };
+              const positive = (r: DialBox) => Object.values(r).every(Number.isFinite) && r.width > 0 && r.height > 0;
+              const inside = (a: DialBox, b: DialBox) => a.left >= b.left - tolerance && a.right <= b.right + tolerance && a.top >= b.top - tolerance && a.bottom <= b.bottom + tolerance;
+              const near = (a: number, b: number) => Number.isFinite(a) && Number.isFinite(b) && Math.abs(a - b) <= tolerance;
+              const visible = (node: Element) => node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) &&
+                !node.closest('details:not([open]),[hidden]') && getComputedStyle(node).opacity === '1';
+              const number = (node: Element, name: string) => Number(node.getAttribute(name));
+              const point = (node: SVGGraphicsElement, x: number, y: number) => {
+                const matrix = node.getScreenCTM();
+                if (!matrix) { errors.push('dial missing screen transform'); return { x: Number.NaN, y: Number.NaN }; }
+                const result = new DOMPoint(x, y).matrixTransform(matrix);
+                return { x: result.x, y: result.y };
+              };
+              const angle = (push: number) => (-135 + 270 * Math.max(0, Math.min(push, 12)) / 12) * Math.PI / 180;
+              const polar = (push: number, radius: number) => ({ x: 56 + Math.sin(angle(push)) * radius, y: 50 - Math.cos(angle(push)) * radius });
+              const samePoint = (a: { x: number; y: number }, b: { x: number; y: number }) => near(a.x, b.x) && near(a.y, b.y);
+              const stroke = (node: Element, width: number) => {
+                const css = getComputedStyle(node);
+                return visible(node) && css.stroke === expectedInk && css.strokeOpacity === '1' && near(parseFloat(css.strokeWidth), width);
+              };
+              const dialBox = bounds(dial), frameBox = bounds(frame), css = getComputedStyle(dial);
+              if (!visible(dial)) errors.push('dial hidden');
+              if (!positive(dialBox) || !inside(dialBox, frameBox)) errors.push('dial containment');
+              if (dial.getAttribute('viewBox') !== '0 0 112 112' || dial.getAttribute('data-min') !== '0' || dial.getAttribute('data-max') !== '12') errors.push('dial scale identity');
+              if (dial.getAttribute('data-push') !== String(expectedPush) || css.color !== expectedInk) errors.push('dial model/ink basis');
+              const description = frame.querySelector<HTMLElement>('[data-testid="press-push-description"]');
+              const references = (dial.getAttribute('aria-describedby') ?? '').split(/\s+/).filter(Boolean);
+              const scaleDescription = dial.querySelector('desc');
+              if (dial.getAttribute('role') !== 'img' || dial.getAttribute('aria-label') !== 'Push dial' ||
+                references.length !== 2 || !description || !scaleDescription || scaleDescription.textContent?.replace(/\s+/g, ' ').trim() !== 'Schematic push scale from 0 to 12 dial marks, without physical units.' || !references.includes(description.id) || !references.includes(scaleDescription.id) ||
+                references.some(id => document.getElementById(id) !== (id === description?.id ? description : scaleDescription)) ||
+                description.querySelector('[data-description-value="push"]')?.textContent?.trim() !== String(expectedPush)) errors.push('dial accessible/value binding');
+              const face = dial.querySelectorAll<SVGCircleElement>(':scope > circle');
+              if (face.length !== 2 || number(face[0], 'cx') !== 56 || number(face[0], 'cy') !== 50 || number(face[0], 'r') !== 34 ||
+                !stroke(face[0], 1) || getComputedStyle(face[0]).fill !== 'none' ||
+                !samePoint(point(face[0], 56, 50), point(dial, 56, 50)) || !samePoint(point(face[0], 90, 50), point(dial, 90, 50)) || !samePoint(point(face[0], 56, 84), point(dial, 56, 84)) ||
+                number(face[1], 'cx') !== 56 || number(face[1], 'cy') !== 50 || number(face[1], 'r') !== 2 ||
+                !visible(face[1]) || getComputedStyle(face[1]).fill !== expectedInk) errors.push('dial face/pivot geometry or paint');
+              const marks = [...dial.querySelectorAll<SVGGElement>('[data-dial-mark]')];
+              if (JSON.stringify(marks.map(node => node.getAttribute('data-dial-mark'))) !== JSON.stringify(Array.from({ length: 13 }, (_, index) => String(index)))) errors.push('dial tick population');
+              const tickReadings = marks.map((mark, index) => {
+                const line = mark.querySelector<SVGLineElement>('line'), label = mark.querySelector<SVGTextElement>('text'), major = index % 4 === 0;
+                const inner = polar(index, major ? 27 : 30), outer = polar(index, 34), labelPoint = polar(index, 46);
+                if (!line || mark.querySelectorAll('line').length !== 1) { errors.push('dial tick identity:' + index); return { index, missing: true }; }
+                const start = point(line, number(line, 'x1'), number(line, 'y1')), end = point(line, number(line, 'x2'), number(line, 'y2'));
+                if (!near(number(line, 'x1'), inner.x) || !near(number(line, 'y1'), inner.y) || !near(number(line, 'x2'), outer.x) || !near(number(line, 'y2'), outer.y) ||
+                  !samePoint(start, point(dial, inner.x, inner.y)) || !samePoint(end, point(dial, outer.x, outer.y))) errors.push('dial tick geometry:' + index);
+                if (!stroke(line, 1)) errors.push('dial tick paint:' + index);
+                let labelReading: Record<string, unknown> | null = null;
+                if (major) {
+                  if (!label || mark.querySelectorAll('text').length !== 1) errors.push('dial label missing:' + index);
+                  else {
+                    const labelCss = getComputedStyle(label), labelBox = bounds(label), range = document.createRange();
+                    range.selectNodeContents(label);
+                    const glyphs = [...range.getClientRects()].filter(r => r.width > 0 && r.height > 0)
+                      .map(({ left, right, top, bottom, width, height }) => ({ left, right, top, bottom, width, height }));
+                    if (label.textContent?.trim() !== String(index) || label.getAttribute('data-dial-label') !== String(index)) errors.push('dial label text:' + index);
+                    if (label.childNodes.length !== 1 || label.firstChild?.nodeType !== Node.TEXT_NODE || label.firstChild?.textContent !== String(index)) errors.push('dial label leaf identity:' + index);
+                    // SVG labels are outside the unchanged canonical P/text selector.
+                    // Their declared 14px scene readout remains explicitly measured.
+                    if (!near(parseFloat(labelCss.fontSize), 14) || !label.hasAttribute('data-scene-readout')) errors.push('dial label font:' + index);
+                    if (!visible(label) || labelCss.fill !== expectedInk || labelCss.fillOpacity !== '1') errors.push('dial label paint:' + index);
+                    if (!near(number(label, 'x'), labelPoint.x) || !near(number(label, 'y'), labelPoint.y) ||
+                      label.getAttribute('text-anchor') !== 'middle' || label.getAttribute('dominant-baseline') !== 'central' ||
+                      !samePoint(point(label, number(label, 'x'), number(label, 'y')), point(dial, labelPoint.x, labelPoint.y))) errors.push('dial label position:' + index);
+                    if (!positive(labelBox) || !inside(labelBox, dialBox) || !inside(labelBox, frameBox) || glyphs.length !== 1 ||
+                      glyphs.some(glyph => !positive(glyph) || !inside(glyph, dialBox) || !inside(glyph, frameBox))) errors.push('dial label glyph containment:' + index);
+                    labelReading = { text: label.textContent?.trim(), box: labelBox, glyphs, fontSize: parseFloat(labelCss.fontSize), fill: labelCss.fill,
+                      childNodes: [...label.childNodes].map(child => ({ nodeType: child.nodeType, nodeName: child.nodeName, text: child.textContent })) };
+                  }
+                } else if (label) errors.push('dial unexpected minor label:' + index);
+                return { index, major, start, end, label: labelReading };
+              });
+              const needle = dial.querySelector<SVGLineElement>('[data-testid="press-dial-needle"]'), tip = polar(expectedPush, 25);
+              let needleReading: Record<string, unknown> | null = null;
+              if (!needle) errors.push('dial needle missing');
+              else {
+                const start = point(needle, number(needle, 'x1'), number(needle, 'y1')), end = point(needle, number(needle, 'x2'), number(needle, 'y2'));
+                if (number(needle, 'x1') !== 56 || number(needle, 'y1') !== 50 || !near(number(needle, 'x2'), tip.x) || !near(number(needle, 'y2'), tip.y) ||
+                  !samePoint(start, point(dial, 56, 50)) || !samePoint(end, point(dial, tip.x, tip.y))) errors.push('dial needle geometry');
+                if (!stroke(needle, 2)) errors.push('dial needle paint');
+                needleReading = { expectedPush, start, end, expectedStart: point(dial, 56, 50), expectedEnd: point(dial, tip.x, tip.y), stroke: getComputedStyle(needle).stroke };
+              }
+              return { expectedPush, modelPush: number(dial, 'data-push'), errors, box: dialBox, viewBox: dial.getAttribute('viewBox'),
+                role: dial.getAttribute('role'), name: dial.getAttribute('aria-label'), references, ink: css.color, ticks: tickReadings, needle: needleReading };
+            }
+
+
+            /** Pure browser measurements for the new causal arrow, input line and ruler. */
+            function readCausalMarks(frame: Element, expectedInk: string, tolerance: number) {
+              const errors: string[] = [];
+              const q = (id: string) => frame.querySelector<HTMLElement>('[data-testid="' + id + '"]')!;
+              const box = (node: Element) => {
+                const { left, right, top, bottom, width, height } = node.getBoundingClientRect();
+                return { left, right, top, bottom, width, height };
+              };
+              type MarkBox = ReturnType<typeof box>;
+              const inside = (a: MarkBox, b: MarkBox) => a.left >= b.left - tolerance && a.right <= b.right + tolerance && a.top >= b.top - tolerance && a.bottom <= b.bottom + tolerance;
+              const near = (a: number, b: number) => Number.isFinite(a) && Number.isFinite(b) && Math.abs(a - b) <= tolerance;
+              const positive = (r: MarkBox) => Object.values(r).every(Number.isFinite) && r.width > 0 && r.height > 0;
+              const visible = (node: Element) => node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) &&
+                !node.closest('details:not([open]),[hidden]') && getComputedStyle(node).opacity === '1';
+              const frameBox = box(frame), sent = q('press-chosen-settings'), message = q('press-action-message'), inputCss = getComputedStyle(message);
+              if (!visible(message) || !positive(box(message)) || !inside(box(message), box(sent)) ||
+                inputCss.borderBottomStyle !== 'solid' || parseFloat(inputCss.borderBottomWidth) !== 1 || inputCss.borderBottomColor !== expectedInk) errors.push('sent action input-rule paint');
+              const arrow = frame.querySelector<SVGSVGElement>('[data-testid="press-send-connector"]')!, path = arrow.querySelector<SVGPathElement>('path');
+              const arrowBox = box(arrow), arrowCss = getComputedStyle(arrow);
+              if (arrow.tagName.toLowerCase() !== 'svg' || arrow.getAttribute('viewBox') !== '0 0 20 32' || arrow.getAttribute('aria-hidden') !== 'true' ||
+                arrow.getAttribute('data-from') !== 'press-action-message' || arrow.getAttribute('data-to') !== 'press-controller-output' ||
+                arrow.querySelectorAll('path').length !== 1 || !path || path.getAttribute('d') !== 'M10 0V28m-5-5 5 5 5-5') errors.push('sent SVG arrow identity');
+              if (!visible(arrow) || !positive(arrowBox) || !inside(arrowBox, box(q('press-send-path'))) || !inside(arrowBox, frameBox) || arrowCss.color !== expectedInk) errors.push('sent SVG arrow containment/paint');
+              if (path) {
+                const css = getComputedStyle(path), pathBox = box(path);
+                if (!visible(path) || !positive(pathBox) || !inside(pathBox, arrowBox) || !inside(pathBox, frameBox) ||
+                  css.stroke !== expectedInk || css.strokeOpacity !== '1' || parseFloat(css.strokeWidth) !== 1 || css.fill !== 'none') errors.push('sent SVG arrow path paint');
+              }
+              const marks = q('press-position-marks'), ruler = q('press-ruler'), diagram = q('press-position-diagram');
+              const marksBox = box(marks), rulerBox = box(ruler), rulerCss = getComputedStyle(ruler);
+              if (ruler.parentElement !== marks || marks.firstElementChild !== ruler || marks.getAttribute('aria-hidden') !== 'true' ||
+                !visible(ruler) || !near(rulerBox.left, marksBox.left) || !near(rulerBox.top, marksBox.top) || !near(rulerBox.height, marksBox.height) ||
+                rulerCss.borderLeftStyle !== 'solid' || parseFloat(rulerCss.borderLeftWidth) !== 1 || rulerCss.borderLeftColor !== expectedInk ||
+                !inside(rulerBox, box(diagram)) || !inside(rulerBox, frameBox)) errors.push('linear ruler geometry/paint');
+              const ticks = [...marks.querySelectorAll<HTMLElement>('[data-ruler-mark]')];
+              if (JSON.stringify(ticks.map(node => node.dataset.rulerMark)) !== JSON.stringify(['-2', '-1', '0', '1', '2', '3'])) errors.push('linear ruler tick population');
+              const tickReadings = ticks.map((node, index) => {
+                const value = index - 2, rect = box(node), css = getComputedStyle(node), expectedY = marksBox.top + (value + 2) / 5 * marksBox.height;
+                if (node.parentElement !== marks || !visible(node) || !near(rect.left, marksBox.left) || !near(rect.top, expectedY) || !near(rect.width, 4) ||
+                  css.borderTopStyle !== 'solid' || parseFloat(css.borderTopWidth) !== 1 || css.borderTopColor !== expectedInk ||
+                  !inside(rect, box(diagram)) || !inside(rect, frameBox)) errors.push('linear ruler tick geometry/paint:' + value);
+                return { value, box: rect, expectedY, ink: css.borderTopColor };
+              });
+              return { errors, inputRule: { box: box(message), ink: inputCss.borderBottomColor }, arrow: { box: arrowBox, path: path?.getAttribute('d'), ink: arrowCss.color }, ruler: { box: rulerBox, ticks: tickReadings } };
+            }
+
+            const dialReading = readPushDial(element, expectedPush, getComputedStyle(marks).color, tolerance);
+            const causalMarks = readCausalMarks(element, getComputedStyle(marks).color, tolerance);
+            errors.push(...dialReading.errors, ...causalMarks.errors);
             const combinedPrimary = byId('press-primary-takeaway');
             const combinedIds = ['press-action-clause', 'press-contact-clause', 'press-general-rule'];
-            const combinedTexts = [sentActionText, 'when the surface stops the tool,', 'push equals stiffness times target gap.'];
-            const combinedPrimaryBox = box(combinedPrimary), combinedBaseline = input.census[Number(combinedPrimary.dataset.releaseTextProbe)]?.baselinePx;
-            if (combinedPrimary.tagName !== 'P' || JSON.stringify([...combinedPrimary.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-action-clause', 'press-send-path']) ||
-              JSON.stringify([...byId('press-send-path').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-sent-rule']) ||
-              JSON.stringify([...byId('press-sent-rule').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-contact-clause', 'press-general-rule']) ||
-              byId('press-send-path').tagName !== 'SPAN' || byId('press-send-path').parentElement !== combinedPrimary || byId('press-send-path').previousElementSibling !== byId('press-action-clause') ||
-              byId('press-sent-rule').tagName !== 'SPAN' || byId('press-sent-rule').parentElement !== byId('press-send-path') ||
-              byId('press-response-label').parentElement !== byId('press-contact-product') || byId('press-response-label').previousElementSibling !== null || byId('press-response-label').nextElementSibling !== calculation ||
+            const combinedTexts = [sentActionText, 'The surface stops the tool.', 'once the surface stops the tool, push equals stiffness times target gap.'];
+            const sentOwner = byId('press-chosen-settings');
+            const sentReading = productText(sentOwner, [['native controls', box(byId('press-native-controls'))], ['frame', frameBox]], 'sent pair');
+            const clauseParagraphs = [combinedPrimary, byId('press-position-condition'), combinedPrimary];
+            const clauseOwners = [combinedPrimary, byId('press-position-condition'), byId('press-product-rule')];
+            const clauseBases = [20, 14, 20], clauseWeights = ['600', '400', '600'];
+            const lawReading = productText(byId('press-sent-rule'), [['contact product', box(byId('press-contact-product'))], ['frame', frameBox]], 'combined primary');
+            if (lawReading.text !== '↓ Shown calculation') errors.push('separated law paragraph copy');
+            if (combinedPrimary.tagName !== 'P' || JSON.stringify([...combinedPrimary.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-action-clause', 'press-product-rule']) ||
+              combinedPrimary.parentElement !== byId('press-relationship') ||
+              combinedPrimary.nextElementSibling !== byId('press-native-controls') ||
+              byId('press-native-controls').parentElement !== byId('press-relationship') ||
+              byId('press-native-controls').nextElementSibling !== byId('press-controller-output') ||
+              byId('press-controller-output').parentElement !== byId('press-relationship') ||
+              JSON.stringify([...byId('press-relationship').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-primary-takeaway', 'press-native-controls', 'press-controller-output']) ||
+              byId('press-relationship').parentElement !== byId('press-action-packet') ||
+              JSON.stringify([...byId('press-action-packet').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-relationship']) ||
+              JSON.stringify([...byId('press-controller-output').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-path', 'press-contact-product']) ||
+              JSON.stringify([...byId('press-send-path').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-controller-heading']) ||
+              byId('press-send-path').tagName !== 'DIV' || byId('press-send-path').parentElement !== byId('press-controller-output') ||
+              JSON.stringify([...byId('press-contact-product').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-response-label', 'press-position-condition', 'press-response-diagram', 'press-sent-rule', 'press-result-with-dial', 'press-scale-definitions']) ||
+              byId('press-response-label').parentElement !== byId('press-contact-product') || byId('press-response-label').previousElementSibling !== null || byId('press-response-label').nextElementSibling !== byId('press-position-condition') ||
+              JSON.stringify([...byId('press-position-condition').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-position-tool-key', 'press-contact-clause']) ||
+              JSON.stringify([...byId('press-response-diagram').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-position-diagram', 'press-push-dial']) ||
+              byId('press-sent-rule').tagName !== 'P' || byId('press-sent-rule').parentElement !== byId('press-contact-product') ||
+              JSON.stringify([...byId('press-sent-rule').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-gap-output-connector', null]) ||
+              byId('press-sent-rule').lastElementChild?.tagName !== 'SPAN' || byId('press-sent-rule').lastElementChild?.textContent?.trim() !== 'Shown calculation' ||
+              byId('press-product-rule').tagName !== 'SPAN' || JSON.stringify([...byId('press-product-rule').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-general-rule']) ||
+              byId('press-product-rule').parentElement !== combinedPrimary ||
+              byId('press-result-with-dial').parentElement !== byId('press-contact-product') || byId('press-result-with-dial').children.length !== 1 || byId('press-result-with-dial').firstElementChild !== calculation ||
               descriptions.parentElement !== calculation || descriptions.nextElementSibling !== equation ||
               byId('press-send-connector').getAttribute('data-from') !== 'press-action-message' ||
               byId('press-send-connector').getAttribute('data-to') !== 'press-controller-output' ||
               !(combinedPrimary.compareDocumentPosition(byId('press-send-path')) & Node.DOCUMENT_POSITION_FOLLOWING)) errors.push('combined clause sibling order');
+            const gapArrow = byId('press-gap-output-connector');
+            if (gapArrow.textContent?.trim() !== '↓' || gapArrow.getAttribute('aria-hidden') !== 'true' || gapArrow.getAttribute('data-from') !== 'press-position-gap' ||
+              gapArrow.getAttribute('data-to') !== 'press-calculation' || gapArrow.parentElement !== byId('press-sent-rule')) errors.push('gap-to-product arrow binding');
             const sentMessage = byId('press-action-message'), sentLabel = byId('press-action-label');
             const sentFields = [...sentMessage.querySelectorAll<HTMLElement>('[data-action-field]')];
             const sentValues = [...sentMessage.querySelectorAll<HTMLElement>('[data-action-value]')];
-            if (sentMessage.parentElement !== sentLabel || sentLabel.parentElement !== byId('press-action-clause') ||
-              sentLabel.getAttribute('aria-label') !== 'An action sends two settings: target and stiffness' ||
-              document.getElementById(byId('press-settings').getAttribute('aria-labelledby') ?? '') !== sentLabel ||
+            if (sentMessage.parentElement !== sentOwner || sentLabel.parentElement !== byId('press-action-clause') ||
+              sentOwner.parentElement !== byId('press-native-controls') || sentOwner.nextElementSibling !== byId('press-settings') ||
+              sentOwner.firstElementChild !== sentMessage || sentOwner.children.length !== 1 ||
+              sentReading.text !== `Action: target ${sentTargetText} and stiffness ${sentRate}.` ||
+              sentLabel.tagName !== 'SPAN' || sentLabel.hasAttribute('aria-label') || sentLabel.hasAttribute('role') ||
+              byId('press-settings').getAttribute('role') !== 'group' ||
+              byId('press-settings').getAttribute('aria-label') !== 'An action sends two settings: target and stiffness' ||
+              byId('press-settings').hasAttribute('aria-labelledby') ||
+              sentLabel.id !== `${nativeSlider.id}-settings` ||
               JSON.stringify(sentFields.map((node) => node.dataset.actionField)) !== JSON.stringify(['target', 'stiffness']) ||
               JSON.stringify(sentValues.map((node) => node.dataset.actionValue)) !== JSON.stringify(['target', 'stiffness']) ||
-              JSON.stringify(sentFields.map((node) => node.textContent?.replace(/\s+/g, ' ').trim())) !== JSON.stringify([`target ${sentTargetText}`, `stiffness ${sentRate};`]) ||
+              JSON.stringify(sentFields.map((node) => node.textContent?.replace(/\s+/g, ' ').trim())) !== JSON.stringify([`target ${sentTargetText}`, `stiffness ${sentRate}.`]) ||
               JSON.stringify(sentValues.map((node) => node.textContent?.trim())) !== JSON.stringify([sentTargetText, String(sentRate)]) ||
               sentValues.some((node, index) => node.parentElement !== sentFields[index]) ||
-              byId('press-send-connector').textContent?.trim() !== '↓' || byId('press-send-connector').getAttribute('aria-hidden') !== 'true') errors.push('sent action values and accessible binding');
-            for (const node of [...sentFields, ...sentValues, byId('press-send-connector'), byId('press-sent-rule')]) {
+              byId('press-send-connector').tagName.toLowerCase() !== 'svg' || byId('press-send-connector').getAttribute('aria-hidden') !== 'true') errors.push('sent action values and accessible binding');
+            for (const node of [...sentFields, ...sentValues]) {
               const css = getComputedStyle(node), rect = box(node);
-              if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(rect, combinedPrimaryBox) || !inside(rect, frameBox) ||
-                Math.abs(parseFloat(css.fontSize) - combinedBaseline * input.profile.textScale) > 0.5 || css.fontWeight !== '600') errors.push('sent action value visibility/font/containment');
+              if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(rect, sentReading.box) || !inside(rect, frameBox) ||
+                Math.abs(parseFloat(css.fontSize) - sentReading.baseline * input.profile.textScale) > 0.5 || css.fontWeight !== '400') errors.push('sent action value visibility/font/containment');
             }
             const combinedClauses = combinedIds.map((id, index) => {
-              const node = byId(id), rect = box(node), css = getComputedStyle(node), owner = index === 0 ? combinedPrimary : byId('press-sent-rule'), ownerBox = box(owner);
+              const node = byId(id), rect = box(node), css = getComputedStyle(node), owner = clauseOwners[index], ownerBox = box(owner), paragraphNode = clauseParagraphs[index], clauseBaseline = input.census[Number(paragraphNode.dataset.releaseTextProbe)]?.baselinePx;
               const finitePositive = (r: Bounds) => ['left', 'right', 'top', 'bottom', 'width', 'height']
                 .every((key) => Number.isFinite(r[key as keyof Bounds])) && r.width > 0 && r.height > 0;
               const visible = node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) && !node.closest('details:not([open]),[hidden],[aria-hidden="true"]');
               if (!visible) errors.push('combined clause hidden:' + id);
               if (node.tagName !== 'SPAN' || node.parentElement !== owner || node.textContent?.replace(/\s+/g, ' ').trim() !== combinedTexts[index] || node.children.length !== (index === 0 ? 1 : 0)) errors.push('combined clause identity/copy:' + id);
               if (!finitePositive(rect) || !finitePositive(ownerBox) || !inside(rect, ownerBox) || !inside(rect, frameBox)) errors.push('combined clause containment:' + id);
-              const paragraphs = [combinedPrimary].map((paragraph) => {
-                const paragraphCss = getComputedStyle(paragraph), paragraphBox = box(paragraph), baseline = combinedBaseline;
+              const paragraphs = [paragraphNode].map((paragraph) => {
+                const paragraphCss = getComputedStyle(paragraph), paragraphBox = box(paragraph), baseline = clauseBaseline;
                 const paragraphVisible = paragraph.checkVisibility({ opacityProperty: true, visibilityProperty: true }) && !paragraph.closest('details:not([open]),[hidden],[aria-hidden="true"]');
-                if (paragraph.tagName !== 'P' || !Number.isFinite(baseline) || Math.abs(baseline - 20) > 0.5 ||
-                  Math.abs(parseFloat(paragraphCss.fontSize) - baseline * input.profile.textScale) > 0.5 || paragraphCss.fontWeight !== '600' ||
-                  Math.abs(parseFloat(css.fontSize) - baseline * input.profile.textScale) > 0.5 || css.fontWeight !== '600') errors.push('combined clause inherited font:' + id);
+                if (paragraph.tagName !== 'P' || !Number.isFinite(baseline) || Math.abs(baseline - clauseBases[index]) > 0.5 ||
+                  Math.abs(parseFloat(paragraphCss.fontSize) - baseline * input.profile.textScale) > 0.5 || paragraphCss.fontWeight !== clauseWeights[index] ||
+                  Math.abs(parseFloat(css.fontSize) - baseline * input.profile.textScale) > 0.5 || css.fontWeight !== clauseWeights[index]) errors.push('combined clause inherited font:' + id);
                 if (!paragraphVisible) errors.push('combined clause hidden:' + id);
                 if (!finitePositive(paragraphBox) || !inside(ownerBox, paragraphBox) || !inside(paragraphBox, frameBox)) errors.push('combined clause paragraph containment:' + id);
                 return { id: paragraph.dataset.testid, tag: paragraph.tagName, box: paragraphBox, baseline, fontSize: parseFloat(paragraphCss.fontSize), fontWeight: paragraphCss.fontWeight, visible: paragraphVisible };
@@ -1082,11 +1265,11 @@ test('press fractional equation stays readable during native Run at narrow text 
               const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
               for (let text = walker.nextNode(); text; text = walker.nextNode()) {
                 if (!(text.textContent ?? '').trim()) continue;
-                const leaf = text.parentElement!, paragraph = leaf.closest('p'), leafCss = getComputedStyle(leaf), baseline = combinedBaseline;
+                const leaf = text.parentElement!, paragraph = leaf.closest('p'), leafCss = getComputedStyle(leaf), baseline = clauseBaseline;
                 const leafVisible = leaf.checkVisibility({ opacityProperty: true, visibilityProperty: true });
                 if (!leafVisible) errors.push('combined clause hidden:' + id);
-                if (paragraph !== combinedPrimary || !Number.isFinite(baseline) || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.textScale) > 0.5 ||
-                  leafCss.fontWeight !== '600') errors.push('combined clause inherited font:' + id);
+                if (paragraph !== paragraphNode || !Number.isFinite(baseline) || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.textScale) > 0.5 ||
+                  leafCss.fontWeight !== clauseWeights[index]) errors.push('combined clause inherited font:' + id);
                 const paragraphBox = paragraph ? box(paragraph) : ownerBox;
                 leafTypography.push({ text: text.textContent!.trim(), paragraph: (paragraph as HTMLElement | null)?.dataset.testid, baseline, fontSize: parseFloat(leafCss.fontSize), fontWeight: leafCss.fontWeight, visible: leafVisible });
                 const full = document.createRange(); full.selectNodeContents(text); glyphs.push(...ranges(full));
@@ -1116,7 +1299,7 @@ test('press fractional equation stays readable during native Run at narrow text 
             if (overflow !== 0) errors.push(`document overflow:${overflow}`);
             const after = state();
             if (JSON.stringify(before) !== JSON.stringify(after)) errors.push('state changed within atomic geometry sample');
-            return { before, after, expected, expectedPush, errors, identity, values, descriptors: descriptorReadings, namedProduct, condition: conditionReading, primary: primaryReading, combinedClauses,
+            return { before, after, expected, expectedPush, errors, identity, values, descriptors: descriptorReadings, namedProduct, condition: conditionReading, primary: primaryReading, law: lawReading, dial: dialReading, causalMarks, combinedClauses,
               frame: frameBox, calculation: calculationBox, equation: equationBox, descriptions: descriptionsBox, overflow,
               position: { box: positionBox, marks: marksBox, labels: labelsBox, surface: surfaceBox, tool: toolBox, target: targetBox, gap: gapBox, words: positionWords } };
           };
@@ -1230,7 +1413,7 @@ test('press default position diagram preserves native boundaries, labels and pai
         await expect(method).toHaveJSProperty('open', false);
         await expect(summary).toHaveText('How this was made');
         await expect(frame.getByTestId('press-drawing')).toBeHidden();
-        await expect(frame.getByTestId('press-chosen-settings')).toHaveText('Chosen settings');
+        await expect(frame.getByTestId('press-chosen-settings')).toHaveText('Action: target +2 and stiffness 2.');
         const slider = frame.getByRole('slider', { name: 'Target', exact: true });
         await expect(slider).toHaveAttribute('min', '-2');
         await expect(slider).toHaveAttribute('max', '3');
@@ -1289,8 +1472,8 @@ test('press default position diagram preserves native boundaries, labels and pai
           if (condition.textContent?.trim() !== expectedCondition) errors.push('contact/free/zero semantics');
           const sentTarget = input.target, sentRate = input.rate;
           const sentTargetText = (sentTarget > 0 ? '+' : '') + String(sentTarget);
-          const sentActionText = `An action sends two settings: target ${sentTargetText} and stiffness ${sentRate};`;
-          const sentPrimaryText = `${sentActionText} ↓ when the surface stops the tool, push equals stiffness times target gap.`;
+          const sentActionText = 'An action sends target and stiffness;';
+          const sentPrimaryText = `${sentActionText} once the surface stops the tool, push equals stiffness times target gap.`;
           const primary = q('press-primary-takeaway'), controller = q('press-controller-output'), settings = q('press-settings');
           const rule = q('press-general-rule'), responseDiagram = q('press-response-diagram');
           const response = q('press-response-label'), calculation = q('press-calculation');
@@ -1298,28 +1481,29 @@ test('press default position diagram preserves native boundaries, labels and pai
           const follows = (before: Element, after: Element) => Boolean(before.compareDocumentPosition(after) & Node.DOCUMENT_POSITION_FOLLOWING);
           const sendPath = q('press-send-path'), contactClause = q('press-contact-clause'), connector = q('press-send-connector');
           const controllerHeading = q('press-controller-heading');
-          if (q('press-chosen-settings').textContent?.trim() !== 'Chosen settings' || !packet.contains(slider) || !packet.contains(run) ||
+          if (q('press-chosen-settings').textContent?.trim() !== `Action: target ${sentTargetText} and stiffness ${sentRate}.` || !packet.contains(slider) || !packet.contains(run) ||
             !packet.contains(primary) || !packet.contains(controller) || !controller.contains(calculation) ||
-            !follows(primary, controller) || !follows(calculation, q('press-chosen-settings')) ||
+            !follows(primary, controller) || !follows(q('press-chosen-settings'), controller) ||
             !follows(q('press-chosen-settings'), settings) || !follows(settings, run) ||
             !controller.contains(responseDiagram) || !responseDiagram.contains(diagram) ||
-            !primary.contains(rule) || !follows(primary, sendPath) || !follows(sendPath, response) || !follows(response, calculation) ||
-            !follows(rule, equation) || !follows(calculation, condition) || !follows(condition, responseDiagram) ||
-            !follows(responseDiagram, q('press-scale-definitions')) || !follows(q('press-scale-definitions'), controllerHeading)) errors.push('action packet and controller order');
+            !primary.contains(rule) || !follows(primary, sendPath) || !follows(sendPath, response) || !follows(response, condition) ||
+            !follows(rule, equation) || !follows(condition, responseDiagram) || !follows(responseDiagram, q('press-sent-rule')) || !follows(q('press-sent-rule'), calculation) ||
+            !follows(calculation, q('press-scale-definitions')) || !follows(controllerHeading, response)) errors.push('action packet and controller order');
           if (JSON.stringify([...product.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify([
-            'press-response-label', 'press-calculation', 'press-position-condition', 'press-response-diagram', 'press-scale-definitions']) ||
+            'press-response-label', 'press-position-condition', 'press-response-diagram', 'press-sent-rule', 'press-result-with-dial', 'press-scale-definitions']) ||
             condition.parentElement !== product || toolKey.parentElement !== condition ||
-            JSON.stringify([...controller.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-contact-product', 'press-controller-heading']) ||
-            JSON.stringify([...sendPath.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-sent-rule']) ||
-            contactClause.parentElement !== q('press-sent-rule') || response.parentElement !== product || sendPath.parentElement !== primary ||
+            JSON.stringify([...controller.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-path', 'press-contact-product']) ||
+            JSON.stringify([...sendPath.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-controller-heading']) ||
+            contactClause.parentElement !== condition || response.parentElement !== product || sendPath.parentElement !== controller ||
             connector.getAttribute('data-from') !== 'press-action-message' || connector.getAttribute('data-to') !== 'press-controller-output') errors.push('exact response condition/law/product/diagram order');
           const action = q('press-action-clause');
-          if (primary.tagName !== 'P' || action.parentElement !== primary || rule.tagName !== 'SPAN' || rule.parentElement !== q('press-sent-rule') ||
+          if (primary.tagName !== 'P' || action.parentElement !== primary || rule.tagName !== 'SPAN' || rule.parentElement !== q('press-product-rule') ||
+            getComputedStyle(action).display !== 'inline' || getComputedStyle(rule.parentElement!).display !== 'inline' ||
             !follows(action, rule) || primary.querySelector('button,input,details') || controller.querySelector('button,input,details') ||
             !controller.contains(condition) || !follows(rule, condition)) errors.push('connected action and product statement');
           if (primary.textContent?.replace(/\s+/g, ' ').trim() !== sentPrimaryText ||
-            rule.textContent?.trim() !== 'push equals stiffness times target gap.') errors.push('complete visible action mechanism');
-          if (!inside(bounds(action), bounds(primary)) || !inside(bounds(rule), bounds(primary)) ||
+            rule.textContent?.trim() !== 'once the surface stops the tool, push equals stiffness times target gap.') errors.push('complete visible action mechanism');
+          if (!inside(bounds(action), bounds(primary)) || !inside(bounds(rule), bounds(q('press-primary-takeaway'))) ||
             getComputedStyle(primary).fontWeight !== '600' || getComputedStyle(action).fontWeight !== getComputedStyle(primary).fontWeight) errors.push('combined primary containment/weight');
           const stage = required<HTMLElement>('[data-figure-stage]'), drawingOwner = diagram.closest<HTMLElement>('[data-anatomy-drawing]');
           const nativeControls = q('press-native-controls');
@@ -1330,7 +1514,7 @@ test('press default position diagram preserves native boundaries, labels and pai
             responseDiagram.hasAttribute('data-anatomy-drawing') || responseDiagram.classList.contains('iso')) errors.push('response diagram scientific drawing context');
           if (element.querySelectorAll('[data-figure-controls]').length !== 1 || !nativeControls.hasAttribute('data-figure-controls') ||
             !nativeControls.contains(q('press-chosen-settings')) || !nativeControls.contains(settings) || !nativeControls.contains(run) ||
-            nativeControls.querySelectorAll('button,input').length !== 5 || !follows(controller, nativeControls)) errors.push('stage native control ownership');
+            nativeControls.querySelectorAll('button,input').length !== 5 || !follows(primary, nativeControls) || !follows(nativeControls, controller)) errors.push('stage native control ownership');
           const nativeRow = slider.closest<HTMLElement>('[data-figure-control-row]')!;
           const nativeValue = nativeRow.querySelector<HTMLElement>('[data-figure-control-value]')!;
           const sliderBounds = bounds(slider), valueBounds = bounds(nativeValue);
@@ -1347,17 +1531,17 @@ test('press default position diagram preserves native boundaries, labels and pai
           const role = q('press-controller-role');
           if (role.textContent?.trim() !== 'uses these settings to make the tool act like a spring.' ||
             document.getElementById(controller.getAttribute('aria-describedby') ?? '') !== role ||
-            response.textContent?.trim() !== 'Shown response' || !follows(q('press-scale-definitions'), role) || !follows(response, calculation)) errors.push('controller role and shown response');
+            response.textContent?.trim() !== 'Shown response' || !follows(role, response) || !follows(response, calculation)) errors.push('controller role and shown response');
           const scale = q('press-scale-definitions');
-          if (scale.textContent?.trim() !== 'Ruler marks measure the target gap; dial marks measure push.' ||
-            !controller.contains(scale) || !follows(calculation, scale) || !follows(scale, q('press-chosen-settings'))) errors.push('adjacent scale definitions');
+          if (scale.textContent?.trim() !== 'Ruler: target gap. Dial: push.' ||
+            !controller.contains(scale) || !follows(calculation, scale) || !follows(q('press-chosen-settings'), scale)) errors.push('adjacent scale definitions');
           for (const node of [primary, controller, role, response, responseDiagram, diagram, condition, rule, calculation, scale]) {
             if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || node.closest('details:not([open]),[hidden]')) errors.push(`hidden connected explanation:${node.dataset.testid}`);
           }
           if (fold.open || q('press-drawing').closest('details') !== fold || q('press-gap-guide').closest('details') !== fold) errors.push('closed method reference');
           if (marks.getAttribute('aria-hidden') !== 'true' || getComputedStyle(marks).pointerEvents !== 'none') errors.push('decorative marks interaction');
           const labelParagraphs = [...labels.querySelectorAll<HTMLElement>('p')];
-          if (labelParagraphs.length !== 2 || labelParagraphs[0].textContent?.trim() !== 'Surface' || labelParagraphs[1] !== shown || labels.contains(condition)) errors.push('surface label');
+          if (labelParagraphs.length !== 2 || labelParagraphs[0].textContent?.trim() !== 'Surface stops tool' || labelParagraphs[1] !== shown || labels.contains(condition)) errors.push('surface label');
           if (getComputedStyle(labelParagraphs[0].querySelector('span')!).borderTopStyle !== 'solid' ||
             getComputedStyle(shown.querySelector('span')!).borderTopStyle !== 'dashed') errors.push('legend stroke identity');
           const surfaceCss = getComputedStyle(surface), targetCss = getComputedStyle(targetLine), toolCss = getComputedStyle(tool), gapCss = getComputedStyle(gapMark);
@@ -1421,8 +1605,8 @@ test('press default position diagram preserves native boundaries, labels and pai
               !node.closest('details:not([open]),[hidden],[aria-hidden="true"]');
             if (!visible) errors.push(label + ' hidden:' + id);
             if (node.tagName !== 'P' || node.querySelector('p')) errors.push(label + ' paragraph identity:' + id);
-            const expectedBase = label === 'named product' ? 16 : label === 'combined primary' ? 20 : 14;
-            const expectedWeight = label === 'combined primary' || id?.endsWith('-operator') ? '600' : '400';
+            const expectedBase = id === 'press-sent-rule' || id === 'press-chosen-settings' ? 16 : label === 'named product' ? 16 : label === 'combined primary' ? 20 : 14;
+            const expectedWeight = id === 'press-sent-rule' ? '400' : label === 'combined primary' || id?.endsWith('-operator') ? '600' : '400';
             if (!Number.isFinite(baseline) || Math.abs(baseline - expectedBase) > 0.5 || css.fontWeight !== expectedWeight) errors.push(label + ' source typography:' + id);
             const leafTypography: Array<{ text: string; paragraph: string | undefined; baseline: number; fontSize: number; fontWeight: string; visible: boolean }> = [];
             if (!Number.isFinite(baseline) || Math.abs(parseFloat(css.fontSize) - baseline * input.profile.scale) > 0.5) errors.push(label + ' canonical text size:' + id);
@@ -1432,7 +1616,7 @@ test('press default position diagram preserves native boundaries, labels and pai
             for (let text = walker.nextNode(); text; text = walker.nextNode()) {
               if (!(text.textContent ?? '').trim()) continue;
               const leaf = text.parentElement!, leafCss = getComputedStyle(leaf), paragraph = leaf.closest('p');
-              const emphasized = label === 'combined primary' || leaf.closest('[data-operation-label],[data-testid="press-gap-product-operator"],[data-testid="press-push-product-operator"]');
+              const emphasized = id !== 'press-sent-rule' && (label === 'combined primary' || leaf.closest('[data-operation-label],[data-testid="press-gap-product-operator"],[data-testid="press-push-product-operator"]'));
               const leafVisible = leaf.checkVisibility({ opacityProperty: true, visibilityProperty: true });
               if (paragraph !== node || !leafVisible || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.scale) > 0.5 ||
               leafCss.fontWeight !== (emphasized ? '600' : '400')) errors.push(label + ' leaf inherited typography:' + id);
@@ -1486,51 +1670,230 @@ test('press default position diagram preserves native boundaries, labels and pai
           if (!inside(conditionBox, productBox) || !inside(conditionBox, bounds(stage)) ||
             overlaps(conditionBox, bounds(rule)) || overlaps(conditionBox, bounds(response)) ||
             labelParagraphs.some((node) => overlaps(conditionBox, bounds(node)))) errors.push('moved condition owner/geometry');
+          /** Browser observer template for the new R31 dial. It is injected unchanged into
+           * both existing native probes after the designer freezes the source contract.
+           * Its expectation is derived from each probe's original independent model. */
+          function readPushDial(frame: Element, expectedPush: number, expectedInk: string, tolerance: number) {
+            type DialBox = { left: number; right: number; top: number; bottom: number; width: number; height: number };
+            const errors: string[] = [];
+            const dial = frame.querySelector<SVGSVGElement>('[data-testid="press-push-dial"]');
+            if (!dial) return { errors: ['dial missing'], expectedPush, missing: true };
+            const bounds = (node: Element): DialBox => {
+              const { left, right, top, bottom, width, height } = node.getBoundingClientRect();
+              return { left, right, top, bottom, width, height };
+            };
+            const positive = (r: DialBox) => Object.values(r).every(Number.isFinite) && r.width > 0 && r.height > 0;
+            const inside = (a: DialBox, b: DialBox) => a.left >= b.left - tolerance && a.right <= b.right + tolerance && a.top >= b.top - tolerance && a.bottom <= b.bottom + tolerance;
+            const near = (a: number, b: number) => Number.isFinite(a) && Number.isFinite(b) && Math.abs(a - b) <= tolerance;
+            const visible = (node: Element) => node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) &&
+              !node.closest('details:not([open]),[hidden]') && getComputedStyle(node).opacity === '1';
+            const number = (node: Element, name: string) => Number(node.getAttribute(name));
+            const point = (node: SVGGraphicsElement, x: number, y: number) => {
+              const matrix = node.getScreenCTM();
+              if (!matrix) { errors.push('dial missing screen transform'); return { x: Number.NaN, y: Number.NaN }; }
+              const result = new DOMPoint(x, y).matrixTransform(matrix);
+              return { x: result.x, y: result.y };
+            };
+            const angle = (push: number) => (-135 + 270 * Math.max(0, Math.min(push, 12)) / 12) * Math.PI / 180;
+            const polar = (push: number, radius: number) => ({ x: 56 + Math.sin(angle(push)) * radius, y: 50 - Math.cos(angle(push)) * radius });
+            const samePoint = (a: { x: number; y: number }, b: { x: number; y: number }) => near(a.x, b.x) && near(a.y, b.y);
+            const stroke = (node: Element, width: number) => {
+              const css = getComputedStyle(node);
+              return visible(node) && css.stroke === expectedInk && css.strokeOpacity === '1' && near(parseFloat(css.strokeWidth), width);
+            };
+            const dialBox = bounds(dial), frameBox = bounds(frame), css = getComputedStyle(dial);
+            if (!visible(dial)) errors.push('dial hidden');
+            if (!positive(dialBox) || !inside(dialBox, frameBox)) errors.push('dial containment');
+            if (dial.getAttribute('viewBox') !== '0 0 112 112' || dial.getAttribute('data-min') !== '0' || dial.getAttribute('data-max') !== '12') errors.push('dial scale identity');
+            if (dial.getAttribute('data-push') !== String(expectedPush) || css.color !== expectedInk) errors.push('dial model/ink basis');
+            const description = frame.querySelector<HTMLElement>('[data-testid="press-push-description"]');
+            const references = (dial.getAttribute('aria-describedby') ?? '').split(/\s+/).filter(Boolean);
+            const scaleDescription = dial.querySelector('desc');
+            if (dial.getAttribute('role') !== 'img' || dial.getAttribute('aria-label') !== 'Push dial' ||
+              references.length !== 2 || !description || !scaleDescription || scaleDescription.textContent?.replace(/\s+/g, ' ').trim() !== 'Schematic push scale from 0 to 12 dial marks, without physical units.' || !references.includes(description.id) || !references.includes(scaleDescription.id) ||
+              references.some(id => document.getElementById(id) !== (id === description?.id ? description : scaleDescription)) ||
+              description.querySelector('[data-description-value="push"]')?.textContent?.trim() !== String(expectedPush)) errors.push('dial accessible/value binding');
+            const face = dial.querySelectorAll<SVGCircleElement>(':scope > circle');
+            if (face.length !== 2 || number(face[0], 'cx') !== 56 || number(face[0], 'cy') !== 50 || number(face[0], 'r') !== 34 ||
+              !stroke(face[0], 1) || getComputedStyle(face[0]).fill !== 'none' ||
+              !samePoint(point(face[0], 56, 50), point(dial, 56, 50)) || !samePoint(point(face[0], 90, 50), point(dial, 90, 50)) || !samePoint(point(face[0], 56, 84), point(dial, 56, 84)) ||
+              number(face[1], 'cx') !== 56 || number(face[1], 'cy') !== 50 || number(face[1], 'r') !== 2 ||
+              !visible(face[1]) || getComputedStyle(face[1]).fill !== expectedInk) errors.push('dial face/pivot geometry or paint');
+            const marks = [...dial.querySelectorAll<SVGGElement>('[data-dial-mark]')];
+            if (JSON.stringify(marks.map(node => node.getAttribute('data-dial-mark'))) !== JSON.stringify(Array.from({ length: 13 }, (_, index) => String(index)))) errors.push('dial tick population');
+            const tickReadings = marks.map((mark, index) => {
+              const line = mark.querySelector<SVGLineElement>('line'), label = mark.querySelector<SVGTextElement>('text'), major = index % 4 === 0;
+              const inner = polar(index, major ? 27 : 30), outer = polar(index, 34), labelPoint = polar(index, 46);
+              if (!line || mark.querySelectorAll('line').length !== 1) { errors.push('dial tick identity:' + index); return { index, missing: true }; }
+              const start = point(line, number(line, 'x1'), number(line, 'y1')), end = point(line, number(line, 'x2'), number(line, 'y2'));
+              if (!near(number(line, 'x1'), inner.x) || !near(number(line, 'y1'), inner.y) || !near(number(line, 'x2'), outer.x) || !near(number(line, 'y2'), outer.y) ||
+                !samePoint(start, point(dial, inner.x, inner.y)) || !samePoint(end, point(dial, outer.x, outer.y))) errors.push('dial tick geometry:' + index);
+              if (!stroke(line, 1)) errors.push('dial tick paint:' + index);
+              let labelReading: Record<string, unknown> | null = null;
+              if (major) {
+                if (!label || mark.querySelectorAll('text').length !== 1) errors.push('dial label missing:' + index);
+                else {
+                  const labelCss = getComputedStyle(label), labelBox = bounds(label), range = document.createRange();
+                  range.selectNodeContents(label);
+                  const glyphs = [...range.getClientRects()].filter(r => r.width > 0 && r.height > 0)
+                    .map(({ left, right, top, bottom, width, height }) => ({ left, right, top, bottom, width, height }));
+                  if (label.textContent?.trim() !== String(index) || label.getAttribute('data-dial-label') !== String(index)) errors.push('dial label text:' + index);
+                  if (label.childNodes.length !== 1 || label.firstChild?.nodeType !== Node.TEXT_NODE || label.firstChild?.textContent !== String(index)) errors.push('dial label leaf identity:' + index);
+                  // SVG labels are outside the unchanged canonical P/text selector.
+                  // Their declared 14px scene readout remains explicitly measured.
+                  if (!near(parseFloat(labelCss.fontSize), 14) || !label.hasAttribute('data-scene-readout')) errors.push('dial label font:' + index);
+                  if (!visible(label) || labelCss.fill !== expectedInk || labelCss.fillOpacity !== '1') errors.push('dial label paint:' + index);
+                  if (!near(number(label, 'x'), labelPoint.x) || !near(number(label, 'y'), labelPoint.y) ||
+                    label.getAttribute('text-anchor') !== 'middle' || label.getAttribute('dominant-baseline') !== 'central' ||
+                    !samePoint(point(label, number(label, 'x'), number(label, 'y')), point(dial, labelPoint.x, labelPoint.y))) errors.push('dial label position:' + index);
+                  if (!positive(labelBox) || !inside(labelBox, dialBox) || !inside(labelBox, frameBox) || glyphs.length !== 1 ||
+                    glyphs.some(glyph => !positive(glyph) || !inside(glyph, dialBox) || !inside(glyph, frameBox))) errors.push('dial label glyph containment:' + index);
+                  labelReading = { text: label.textContent?.trim(), box: labelBox, glyphs, fontSize: parseFloat(labelCss.fontSize), fill: labelCss.fill,
+                    childNodes: [...label.childNodes].map(child => ({ nodeType: child.nodeType, nodeName: child.nodeName, text: child.textContent })) };
+                }
+              } else if (label) errors.push('dial unexpected minor label:' + index);
+              return { index, major, start, end, label: labelReading };
+            });
+            const needle = dial.querySelector<SVGLineElement>('[data-testid="press-dial-needle"]'), tip = polar(expectedPush, 25);
+            let needleReading: Record<string, unknown> | null = null;
+            if (!needle) errors.push('dial needle missing');
+            else {
+              const start = point(needle, number(needle, 'x1'), number(needle, 'y1')), end = point(needle, number(needle, 'x2'), number(needle, 'y2'));
+              if (number(needle, 'x1') !== 56 || number(needle, 'y1') !== 50 || !near(number(needle, 'x2'), tip.x) || !near(number(needle, 'y2'), tip.y) ||
+                !samePoint(start, point(dial, 56, 50)) || !samePoint(end, point(dial, tip.x, tip.y))) errors.push('dial needle geometry');
+              if (!stroke(needle, 2)) errors.push('dial needle paint');
+              needleReading = { expectedPush, start, end, expectedStart: point(dial, 56, 50), expectedEnd: point(dial, tip.x, tip.y), stroke: getComputedStyle(needle).stroke };
+            }
+            return { expectedPush, modelPush: number(dial, 'data-push'), errors, box: dialBox, viewBox: dial.getAttribute('viewBox'),
+              role: dial.getAttribute('role'), name: dial.getAttribute('aria-label'), references, ink: css.color, ticks: tickReadings, needle: needleReading };
+          }
+
+
+          /** Pure browser measurements for the new causal arrow, input line and ruler. */
+          function readCausalMarks(frame: Element, expectedInk: string, tolerance: number) {
+            const errors: string[] = [];
+            const q = (id: string) => frame.querySelector<HTMLElement>('[data-testid="' + id + '"]')!;
+            const box = (node: Element) => {
+              const { left, right, top, bottom, width, height } = node.getBoundingClientRect();
+              return { left, right, top, bottom, width, height };
+            };
+            type MarkBox = ReturnType<typeof box>;
+            const inside = (a: MarkBox, b: MarkBox) => a.left >= b.left - tolerance && a.right <= b.right + tolerance && a.top >= b.top - tolerance && a.bottom <= b.bottom + tolerance;
+            const near = (a: number, b: number) => Number.isFinite(a) && Number.isFinite(b) && Math.abs(a - b) <= tolerance;
+            const positive = (r: MarkBox) => Object.values(r).every(Number.isFinite) && r.width > 0 && r.height > 0;
+            const visible = (node: Element) => node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) &&
+              !node.closest('details:not([open]),[hidden]') && getComputedStyle(node).opacity === '1';
+            const frameBox = box(frame), sent = q('press-chosen-settings'), message = q('press-action-message'), inputCss = getComputedStyle(message);
+            if (!visible(message) || !positive(box(message)) || !inside(box(message), box(sent)) ||
+              inputCss.borderBottomStyle !== 'solid' || parseFloat(inputCss.borderBottomWidth) !== 1 || inputCss.borderBottomColor !== expectedInk) errors.push('sent action input-rule paint');
+            const arrow = frame.querySelector<SVGSVGElement>('[data-testid="press-send-connector"]')!, path = arrow.querySelector<SVGPathElement>('path');
+            const arrowBox = box(arrow), arrowCss = getComputedStyle(arrow);
+            if (arrow.tagName.toLowerCase() !== 'svg' || arrow.getAttribute('viewBox') !== '0 0 20 32' || arrow.getAttribute('aria-hidden') !== 'true' ||
+              arrow.getAttribute('data-from') !== 'press-action-message' || arrow.getAttribute('data-to') !== 'press-controller-output' ||
+              arrow.querySelectorAll('path').length !== 1 || !path || path.getAttribute('d') !== 'M10 0V28m-5-5 5 5 5-5') errors.push('sent SVG arrow identity');
+            if (!visible(arrow) || !positive(arrowBox) || !inside(arrowBox, box(q('press-send-path'))) || !inside(arrowBox, frameBox) || arrowCss.color !== expectedInk) errors.push('sent SVG arrow containment/paint');
+            if (path) {
+              const css = getComputedStyle(path), pathBox = box(path);
+              if (!visible(path) || !positive(pathBox) || !inside(pathBox, arrowBox) || !inside(pathBox, frameBox) ||
+                css.stroke !== expectedInk || css.strokeOpacity !== '1' || parseFloat(css.strokeWidth) !== 1 || css.fill !== 'none') errors.push('sent SVG arrow path paint');
+            }
+            const marks = q('press-position-marks'), ruler = q('press-ruler'), diagram = q('press-position-diagram');
+            const marksBox = box(marks), rulerBox = box(ruler), rulerCss = getComputedStyle(ruler);
+            if (ruler.parentElement !== marks || marks.firstElementChild !== ruler || marks.getAttribute('aria-hidden') !== 'true' ||
+              !visible(ruler) || !near(rulerBox.left, marksBox.left) || !near(rulerBox.top, marksBox.top) || !near(rulerBox.height, marksBox.height) ||
+              rulerCss.borderLeftStyle !== 'solid' || parseFloat(rulerCss.borderLeftWidth) !== 1 || rulerCss.borderLeftColor !== expectedInk ||
+              !inside(rulerBox, box(diagram)) || !inside(rulerBox, frameBox)) errors.push('linear ruler geometry/paint');
+            const ticks = [...marks.querySelectorAll<HTMLElement>('[data-ruler-mark]')];
+            if (JSON.stringify(ticks.map(node => node.dataset.rulerMark)) !== JSON.stringify(['-2', '-1', '0', '1', '2', '3'])) errors.push('linear ruler tick population');
+            const tickReadings = ticks.map((node, index) => {
+              const value = index - 2, rect = box(node), css = getComputedStyle(node), expectedY = marksBox.top + (value + 2) / 5 * marksBox.height;
+              if (node.parentElement !== marks || !visible(node) || !near(rect.left, marksBox.left) || !near(rect.top, expectedY) || !near(rect.width, 4) ||
+                css.borderTopStyle !== 'solid' || parseFloat(css.borderTopWidth) !== 1 || css.borderTopColor !== expectedInk ||
+                !inside(rect, box(diagram)) || !inside(rect, frameBox)) errors.push('linear ruler tick geometry/paint:' + value);
+              return { value, box: rect, expectedY, ink: css.borderTopColor };
+            });
+            return { errors, inputRule: { box: box(message), ink: inputCss.borderBottomColor }, arrow: { box: arrowBox, path: path?.getAttribute('d'), ink: arrowCss.color }, ruler: { box: rulerBox, ticks: tickReadings } };
+          }
+
+          const dialReading = readPushDial(element, expectedPush, ink, tolerance);
+          const causalMarks = readCausalMarks(element, ink, tolerance);
+          errors.push(...dialReading.errors, ...causalMarks.errors);
           const combinedPrimary = q('press-primary-takeaway');
           const combinedIds = ['press-action-clause', 'press-contact-clause', 'press-general-rule'];
-          const combinedTexts = [sentActionText, 'when the surface stops the tool,', 'push equals stiffness times target gap.'];
-          const combinedPrimaryBox = bounds(combinedPrimary), combinedBaseline = input.census[Number(combinedPrimary.dataset.releaseTextProbe)]?.baselinePx;
-          if (combinedPrimary.tagName !== 'P' || JSON.stringify([...combinedPrimary.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-action-clause', 'press-send-path']) ||
-            JSON.stringify([...q('press-send-path').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-sent-rule']) ||
-            JSON.stringify([...q('press-sent-rule').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-contact-clause', 'press-general-rule']) ||
-            q('press-send-path').tagName !== 'SPAN' || q('press-send-path').parentElement !== combinedPrimary || q('press-send-path').previousElementSibling !== q('press-action-clause') ||
-            q('press-sent-rule').tagName !== 'SPAN' || q('press-sent-rule').parentElement !== q('press-send-path') ||
-            q('press-response-label').parentElement !== q('press-contact-product') || q('press-response-label').previousElementSibling !== null || q('press-response-label').nextElementSibling !== calculation ||
+          const combinedTexts = [sentActionText, expectedCondition, 'once the surface stops the tool, push equals stiffness times target gap.'];
+          const sentOwner = q('press-chosen-settings');
+          const sentReading = productText(sentOwner, [['native controls', bounds(q('press-native-controls'))], ['frame', fb]], 'sent pair');
+          const clauseParagraphs = [combinedPrimary, q('press-position-condition'), combinedPrimary];
+          const clauseOwners = [combinedPrimary, q('press-position-condition'), q('press-product-rule')];
+          const clauseBases = [20, 14, 20], clauseWeights = ['600', '400', '600'];
+          const lawReading = productText(q('press-sent-rule'), [['contact product', bounds(q('press-contact-product'))], ['frame', fb]], 'combined primary');
+          if (lawReading.text !== '↓ Shown calculation') errors.push('separated law paragraph copy');
+          if (combinedPrimary.tagName !== 'P' || JSON.stringify([...combinedPrimary.children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-action-clause', 'press-product-rule']) ||
+            combinedPrimary.parentElement !== q('press-relationship') ||
+            combinedPrimary.nextElementSibling !== q('press-native-controls') ||
+            q('press-native-controls').parentElement !== q('press-relationship') ||
+            q('press-native-controls').nextElementSibling !== q('press-controller-output') ||
+            q('press-controller-output').parentElement !== q('press-relationship') ||
+            JSON.stringify([...q('press-relationship').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-primary-takeaway', 'press-native-controls', 'press-controller-output']) ||
+            q('press-relationship').parentElement !== q('press-action-packet') ||
+            JSON.stringify([...q('press-action-packet').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-relationship']) ||
+            JSON.stringify([...q('press-controller-output').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-path', 'press-contact-product']) ||
+            JSON.stringify([...q('press-send-path').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-send-connector', 'press-controller-heading']) ||
+            q('press-send-path').tagName !== 'DIV' || q('press-send-path').parentElement !== q('press-controller-output') ||
+            JSON.stringify([...q('press-contact-product').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-response-label', 'press-position-condition', 'press-response-diagram', 'press-sent-rule', 'press-result-with-dial', 'press-scale-definitions']) ||
+            q('press-response-label').parentElement !== q('press-contact-product') || q('press-response-label').previousElementSibling !== null || q('press-response-label').nextElementSibling !== q('press-position-condition') ||
+            JSON.stringify([...q('press-position-condition').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-position-tool-key', 'press-contact-clause']) ||
+            JSON.stringify([...q('press-response-diagram').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-position-diagram', 'press-push-dial']) ||
+            q('press-sent-rule').tagName !== 'P' || q('press-sent-rule').parentElement !== q('press-contact-product') ||
+            JSON.stringify([...q('press-sent-rule').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-gap-output-connector', null]) ||
+            q('press-sent-rule').lastElementChild?.tagName !== 'SPAN' || q('press-sent-rule').lastElementChild?.textContent?.trim() !== 'Shown calculation' ||
+            q('press-product-rule').tagName !== 'SPAN' || JSON.stringify([...q('press-product-rule').children].map((node) => (node as HTMLElement).dataset.testid)) !== JSON.stringify(['press-general-rule']) ||
+            q('press-product-rule').parentElement !== combinedPrimary ||
+            q('press-result-with-dial').parentElement !== q('press-contact-product') || q('press-result-with-dial').children.length !== 1 || q('press-result-with-dial').firstElementChild !== calculation ||
             descriptions.parentElement !== calculation || descriptions.nextElementSibling !== equation ||
             q('press-send-connector').getAttribute('data-from') !== 'press-action-message' ||
             q('press-send-connector').getAttribute('data-to') !== 'press-controller-output' ||
             !(combinedPrimary.compareDocumentPosition(q('press-send-path')) & Node.DOCUMENT_POSITION_FOLLOWING)) errors.push('combined clause sibling order');
+          const gapArrow = q('press-gap-output-connector');
+          if (gapArrow.textContent?.trim() !== '↓' || gapArrow.getAttribute('aria-hidden') !== 'true' || gapArrow.getAttribute('data-from') !== 'press-position-gap' ||
+            gapArrow.getAttribute('data-to') !== 'press-calculation' || gapArrow.parentElement !== q('press-sent-rule')) errors.push('gap-to-product arrow binding');
           const sentMessage = q('press-action-message'), sentLabel = q('press-action-label');
           const sentFields = [...sentMessage.querySelectorAll<HTMLElement>('[data-action-field]')];
           const sentValues = [...sentMessage.querySelectorAll<HTMLElement>('[data-action-value]')];
-          if (sentMessage.parentElement !== sentLabel || sentLabel.parentElement !== q('press-action-clause') ||
-            sentLabel.getAttribute('aria-label') !== 'An action sends two settings: target and stiffness' ||
-            document.getElementById(q('press-settings').getAttribute('aria-labelledby') ?? '') !== sentLabel ||
+          if (sentMessage.parentElement !== sentOwner || sentLabel.parentElement !== q('press-action-clause') ||
+            sentOwner.parentElement !== q('press-native-controls') || sentOwner.nextElementSibling !== q('press-settings') ||
+            sentOwner.firstElementChild !== sentMessage || sentOwner.children.length !== 1 ||
+            sentReading.text !== `Action: target ${sentTargetText} and stiffness ${sentRate}.` ||
+            sentLabel.tagName !== 'SPAN' || sentLabel.hasAttribute('aria-label') || sentLabel.hasAttribute('role') ||
+            q('press-settings').getAttribute('role') !== 'group' ||
+            q('press-settings').getAttribute('aria-label') !== 'An action sends two settings: target and stiffness' ||
+            q('press-settings').hasAttribute('aria-labelledby') ||
+            sentLabel.id !== `${slider.id}-settings` ||
             JSON.stringify(sentFields.map((node) => node.dataset.actionField)) !== JSON.stringify(['target', 'stiffness']) ||
             JSON.stringify(sentValues.map((node) => node.dataset.actionValue)) !== JSON.stringify(['target', 'stiffness']) ||
-            JSON.stringify(sentFields.map((node) => node.textContent?.replace(/\s+/g, ' ').trim())) !== JSON.stringify([`target ${sentTargetText}`, `stiffness ${sentRate};`]) ||
+            JSON.stringify(sentFields.map((node) => node.textContent?.replace(/\s+/g, ' ').trim())) !== JSON.stringify([`target ${sentTargetText}`, `stiffness ${sentRate}.`]) ||
             JSON.stringify(sentValues.map((node) => node.textContent?.trim())) !== JSON.stringify([sentTargetText, String(sentRate)]) ||
             sentValues.some((node, index) => node.parentElement !== sentFields[index]) ||
-            q('press-send-connector').textContent?.trim() !== '↓' || q('press-send-connector').getAttribute('aria-hidden') !== 'true') errors.push('sent action values and accessible binding');
-          for (const node of [...sentFields, ...sentValues, q('press-send-connector'), q('press-sent-rule')]) {
+            q('press-send-connector').tagName.toLowerCase() !== 'svg' || q('press-send-connector').getAttribute('aria-hidden') !== 'true') errors.push('sent action values and accessible binding');
+          for (const node of [...sentFields, ...sentValues]) {
             const css = getComputedStyle(node), rect = bounds(node);
-            if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(rect, combinedPrimaryBox) || !inside(rect, fb) ||
-              Math.abs(parseFloat(css.fontSize) - combinedBaseline * input.profile.scale) > 0.5 || css.fontWeight !== '600') errors.push('sent action value visibility/font/containment');
+            if (!node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) || !inside(rect, sentReading.box) || !inside(rect, fb) ||
+              Math.abs(parseFloat(css.fontSize) - sentReading.baseline * input.profile.scale) > 0.5 || css.fontWeight !== '400') errors.push('sent action value visibility/font/containment');
           }
           const combinedClauses = combinedIds.map((id, index) => {
-            const node = q(id), rect = bounds(node), css = getComputedStyle(node), owner = index === 0 ? combinedPrimary : q('press-sent-rule'), ownerBox = bounds(owner);
+            const node = q(id), rect = bounds(node), css = getComputedStyle(node), owner = clauseOwners[index], ownerBox = bounds(owner), paragraphNode = clauseParagraphs[index], clauseBaseline = input.census[Number(paragraphNode.dataset.releaseTextProbe)]?.baselinePx;
             const finitePositive = (r: Bounds) => ['left', 'right', 'top', 'bottom', 'width', 'height']
               .every((key) => Number.isFinite(r[key as keyof Bounds])) && r.width > 0 && r.height > 0;
             const visible = node.checkVisibility({ opacityProperty: true, visibilityProperty: true }) && !node.closest('details:not([open]),[hidden],[aria-hidden="true"]');
             if (!visible) errors.push('combined clause hidden:' + id);
             if (node.tagName !== 'SPAN' || node.parentElement !== owner || node.textContent?.replace(/\s+/g, ' ').trim() !== combinedTexts[index] || node.children.length !== (index === 0 ? 1 : 0)) errors.push('combined clause identity/copy:' + id);
             if (!finitePositive(rect) || !finitePositive(ownerBox) || !inside(rect, ownerBox) || !inside(rect, fb)) errors.push('combined clause containment:' + id);
-            const paragraphs = [combinedPrimary].map((paragraph) => {
-              const paragraphCss = getComputedStyle(paragraph), paragraphBox = bounds(paragraph), baseline = combinedBaseline;
+            const paragraphs = [paragraphNode].map((paragraph) => {
+              const paragraphCss = getComputedStyle(paragraph), paragraphBox = bounds(paragraph), baseline = clauseBaseline;
               const paragraphVisible = paragraph.checkVisibility({ opacityProperty: true, visibilityProperty: true }) && !paragraph.closest('details:not([open]),[hidden],[aria-hidden="true"]');
-              if (paragraph.tagName !== 'P' || !Number.isFinite(baseline) || Math.abs(baseline - 20) > 0.5 ||
-                Math.abs(parseFloat(paragraphCss.fontSize) - baseline * input.profile.scale) > 0.5 || paragraphCss.fontWeight !== '600' ||
-                Math.abs(parseFloat(css.fontSize) - baseline * input.profile.scale) > 0.5 || css.fontWeight !== '600') errors.push('combined clause inherited font:' + id);
+              if (paragraph.tagName !== 'P' || !Number.isFinite(baseline) || Math.abs(baseline - clauseBases[index]) > 0.5 ||
+                Math.abs(parseFloat(paragraphCss.fontSize) - baseline * input.profile.scale) > 0.5 || paragraphCss.fontWeight !== clauseWeights[index] ||
+                Math.abs(parseFloat(css.fontSize) - baseline * input.profile.scale) > 0.5 || css.fontWeight !== clauseWeights[index]) errors.push('combined clause inherited font:' + id);
               if (!paragraphVisible) errors.push('combined clause hidden:' + id);
               if (!finitePositive(paragraphBox) || !inside(ownerBox, paragraphBox) || !inside(paragraphBox, fb)) errors.push('combined clause paragraph containment:' + id);
               return { id: paragraph.dataset.testid, tag: paragraph.tagName, box: paragraphBox, baseline, fontSize: parseFloat(paragraphCss.fontSize), fontWeight: paragraphCss.fontWeight, visible: paragraphVisible };
@@ -1543,11 +1906,11 @@ test('press default position diagram preserves native boundaries, labels and pai
             const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
             for (let text = walker.nextNode(); text; text = walker.nextNode()) {
               if (!(text.textContent ?? '').trim()) continue;
-              const leaf = text.parentElement!, paragraph = leaf.closest('p'), leafCss = getComputedStyle(leaf), baseline = combinedBaseline;
+              const leaf = text.parentElement!, paragraph = leaf.closest('p'), leafCss = getComputedStyle(leaf), baseline = clauseBaseline;
               const leafVisible = leaf.checkVisibility({ opacityProperty: true, visibilityProperty: true });
               if (!leafVisible) errors.push('combined clause hidden:' + id);
-              if (paragraph !== combinedPrimary || !Number.isFinite(baseline) || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.scale) > 0.5 ||
-                leafCss.fontWeight !== '600') errors.push('combined clause inherited font:' + id);
+              if (paragraph !== paragraphNode || !Number.isFinite(baseline) || Math.abs(parseFloat(leafCss.fontSize) - baseline * input.profile.scale) > 0.5 ||
+                leafCss.fontWeight !== clauseWeights[index]) errors.push('combined clause inherited font:' + id);
               const paragraphBox = paragraph ? bounds(paragraph) : ownerBox;
               leafTypography.push({ text: text.textContent!.trim(), paragraph: (paragraph as HTMLElement | null)?.dataset.testid, baseline, fontSize: parseFloat(leafCss.fontSize), fontWeight: leafCss.fontWeight, visible: leafVisible });
               const full = document.createRange(); full.selectNodeContents(text); glyphs.push(...ranges(full));
@@ -1567,7 +1930,7 @@ test('press default position diagram preserves native boundaries, labels and pai
             if (combinedClauses[i].glyphs.some((a) => combinedClauses[j].glyphs.some((b) => overlaps(a, b)))) errors.push('combined clause glyph overlap');
           }
           const textReadings = [q('press-primary-takeaway'), q('press-contact-clause'), q('press-response-label'), q('press-scale-definitions'), q('press-chosen-settings'), ...labelParagraphs, condition, ...namedParagraphNodes].map((node) => {
-            const censusNode = node === contactClause ? primary : node;
+            const censusNode = node === contactClause ? condition : node;
             const baseline = input.census[Number(censusNode.dataset.releaseTextProbe)]?.baselinePx, fontSize = parseFloat(getComputedStyle(node).fontSize);
             if (!Number.isFinite(baseline) || Math.abs(fontSize - baseline * input.profile.scale) > 0.5) errors.push(`text size:${node.dataset.testid ?? 'Surface'}`);
             const words: Array<{ word: string; rects: Bounds[] }> = [], walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
@@ -1588,7 +1951,7 @@ test('press default position diagram preserves native boundaries, labels and pai
           if (overflow !== 0) errors.push(`document overflow:${overflow}`);
           return { target: input.target, spring: input.spring, rate: input.rate, expectedTool, expectedGap, expectedPush, actualEquation, errors,
             identity, forced, ink, canvas, overflow, focusClearance, bounds: { frame: fb, diagram: db, marks: mb, labels: lb, surface: sb, tool: tb, target: ab, gap: gb },
-            text: textReadings, combinedClauses, namedProduct, condition: conditionReading, primary: primaryReading, paint: { surface: surfaceCss.borderTop, target: targetCss.borderTop, tool: toolCss.backgroundColor, gap: gapCss.borderRight } };
+            text: textReadings, combinedClauses, namedProduct, condition: conditionReading, primary: primaryReading, law: lawReading, dial: dialReading, causalMarks, paint: { surface: surfaceCss.borderTop, target: targetCss.borderTop, tool: toolCss.backgroundColor, gap: gapCss.borderRight } };
         }, { target, spring, rate, profile, census, timeOrigin });
         await settle();
         const initial = await probe(2, 'medium', 2);
@@ -1697,6 +2060,80 @@ test('press default position diagram preserves native boundaries, labels and pai
         observations.push({ profile: profile.id, kind: 'native actions', operations: activity.operations });
         expect(activity.operations.filter(({ kind }) => kind === 'keydown').every(({ trusted }) => trusted), `${profile.id}: trusted keyboard actions`).toBe(true);
         expect(await original.evaluate((element, origin) => element.isConnected && element === document.querySelector('[data-figure-frame="impedance-press"]') && performance.timeOrigin === origin, timeOrigin)).toBe(true);
+        // Additive dial faults change only the rendered instrument and restore
+        // its exact original text/attributes/style. Native/model state is untouched.
+        for (const mutation of [
+          { selector: '[data-testid="press-push-dial"]', mode: 'attribute', property: 'aria-label', value: 'Push dial: 7 dial marks', expected: 'dial accessible/value binding' },
+          { selector: '[data-testid="press-dial-needle"]', mode: 'attribute', property: 'x2', value: '56', expected: 'dial needle geometry' },
+          { selector: '[data-testid="press-push-dial"] [data-dial-label="12"]', mode: 'style', property: 'font-size', value: '8px', expected: 'dial label font:12' },
+          { selector: '[data-testid="press-push-dial"]', mode: 'style', property: 'opacity', value: '0', expected: 'dial hidden' },
+          { selector: '[data-testid="press-push-dial"] [data-dial-label="12"]', mode: 'text', property: 'textContent', value: '11', expected: 'dial label text:12' },
+        ] as const) {
+          const node = frame.locator(mutation.selector);
+          const saved = await node.evaluate((element, change) => ({
+            style: element.getAttribute('style'), text: element.textContent,
+            attribute: change.mode === 'attribute' ? element.getAttribute(change.property) : null,
+          }), mutation);
+          try {
+            await node.evaluate((element, change) => {
+              if (change.mode === 'style') (element as HTMLElement | SVGElement).style.setProperty(change.property, change.value, 'important');
+              else if (change.mode === 'attribute') element.setAttribute(change.property, change.value);
+              else element.textContent = change.value;
+            }, mutation);
+            await settle();
+            const brokenDial = await probe(2, 'stiff', 4);
+            observations.push({ profile: profile.id, kind: 'dial negative witness', mutation, ...brokenDial });
+            expect(brokenDial.errors, profile.id + ': dial ' + mutation.expected).toContain(mutation.expected);
+          } finally {
+            await node.evaluate((element, input) => {
+              if (input.change.mode === 'style') {
+                if (input.saved.style === null) element.removeAttribute('style');
+                else element.setAttribute('style', input.saved.style);
+              } else if (input.change.mode === 'attribute') {
+                if (input.saved.attribute === null) element.removeAttribute(input.change.property);
+                else element.setAttribute(input.change.property, input.saved.attribute);
+              } else element.textContent = input.saved.text;
+            }, { change: mutation, saved });
+          }
+          await settle();
+          expect(await node.evaluate((element, change) => ({
+            style: element.getAttribute('style'), text: element.textContent,
+            attribute: change.mode === 'attribute' ? element.getAttribute(change.property) : null,
+          }), mutation), 'exact dial mutation restoration').toEqual(saved);
+          const restoredDial = await probe(2, 'stiff', 4);
+          observations.push({ profile: profile.id, kind: 'dial restoration', mutation, ...restoredDial });
+          expect(restoredDial.errors, profile.id + ': restored dial ' + mutation.expected).toEqual([]);
+        }
+
+        // Separate additive leaf faults retain the original five dial faults.
+        for (const mutation of [
+          { kind: 'tiny tspan', fontSize: '8px', dx: null },
+          { kind: 'shifted tspan', fontSize: null, dx: '4' },
+        ] as const) {
+          const label = frame.locator('[data-testid="press-push-dial"] [data-dial-label="12"]');
+          const originalMarkup = await label.innerHTML();
+          try {
+            await label.evaluate((element, change) => {
+              const leaf = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+              leaf.textContent = element.textContent;
+              if (change.fontSize !== null) leaf.style.fontSize = change.fontSize;
+              if (change.dx !== null) leaf.setAttribute('dx', change.dx);
+              element.replaceChildren(leaf);
+            }, mutation);
+            await settle();
+            const brokenLeaf = await probe(2, 'stiff', 4);
+            observations.push({ profile: profile.id, kind: 'dial leaf negative witness', mutation, ...brokenLeaf });
+            expect(brokenLeaf.errors, profile.id + ': ' + mutation.kind).toContain('dial label leaf identity:12');
+          } finally {
+            await label.evaluate((element, markup) => { element.innerHTML = markup; }, originalMarkup);
+          }
+          await settle();
+          expect(await label.innerHTML(), 'exact dial leaf markup restoration').toBe(originalMarkup);
+          const restoredLeaf = await probe(2, 'stiff', 4);
+          observations.push({ profile: profile.id, kind: 'dial leaf restoration', mutation, ...restoredLeaf });
+          expect(restoredLeaf.errors, profile.id + ': restored ' + mutation.kind).toEqual([]);
+        }
+
       } finally { await context.close(); }
     }
     expect(observations.filter((row) => (row as { kind: string }).kind === 'default')).toHaveLength(8);
@@ -1710,6 +2147,10 @@ test('press default position diagram preserves native boundaries, labels and pai
     expect(observations.filter((row) => (row as { kind: string }).kind === 'named product restoration')).toHaveLength(8);
     expect(observations.filter((row) => (row as { kind: string }).kind === 'contact clause negative witness')).toHaveLength(8);
     expect(observations.filter((row) => (row as { kind: string }).kind === 'contact clause restoration')).toHaveLength(8);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'dial negative witness')).toHaveLength(40);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'dial restoration')).toHaveLength(40);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'dial leaf negative witness')).toHaveLength(16);
+    expect(observations.filter((row) => (row as { kind: string }).kind === 'dial leaf restoration')).toHaveLength(16);
   } finally {
     const preserved = sources.map(({ path, bytes }) => ({ path, sameBytes: readFileSync(join(process.cwd(), path)).equals(bytes) }));
     await testInfo.attach('press-default-position-native-geometry', { body: Buffer.from(JSON.stringify({ observations, preserved }, null, 2)), contentType: 'application/json' });

@@ -91,7 +91,7 @@ The build runs the content validator first, then `next build` with a reading-tim
 
 ## Deployment
 
-The `main` branch deploys to Vercel at <https://robot-wiki.com>. Vercel runs `npm run vercel-build`, which performs the same export and post-export checks but not the content validator. Cache headers live in `vercel.json`. Because `out/` is plain files, any static host works.
+The `main` branch deploys to Vercel at <https://robot-wiki.com>. Vercel runs `npm run vercel-build`, which includes content validation, the export and post-export checks, then the teach-back and article box/source checks. Cache headers live in `vercel.json`. Because `out/` is plain files, any static host works.
 
 ## Contributing
 

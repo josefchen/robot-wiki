@@ -1,0 +1,346 @@
+{
+  "schemaVersion": "reader-round37-source-continuity-review-v1",
+  "status": "Applied independently reviewed R37 historical source continuity; readerFAIL109/110 and actual51 public paintFAIL remain recorded without acceptance.",
+  "previousPublicContinuityCommit": "a9c1222ecb5b478115de99f26f6430d3e56df9ff",
+  "sourceCommit": "f68cca0e3345144377485f99c8886aed831a99cc",
+  "readerCommit": "6e68aa3ea24d3d2c7284e0dd7384059c9221349a",
+  "beforeUISha256": "7d54d7ec765eb221c80a72c541d94a544bea89879df40330b90f50b94ab9a02a",
+  "candidateUISha256": "d63f9db93476e30c90c51fea638cb1478b20da3a7703e2d99f7032cdbfbd23a7",
+  "rootSourceApproval": {
+    "path": "reader-round37-independent-review-20261105/SOURCE-APPROVAL.json",
+    "sha256": "11dc11f3af166a316a4d1dd840ec9c174cf47b1375cb080b7da0c6730297a23b",
+    "candidateHashes": {
+      "components/interactive/impedance-press.tsx": "d63f9db93476e30c90c51fea638cb1478b20da3a7703e2d99f7032cdbfbd23a7",
+      "tests/component/impedance-press.test.tsx": "401b04ecc38cab4313638040a37419ad07c162af7b0438c70d3b340e69a9228a",
+      "tests/e2e/brand-v2-reflow-320-200.spec.ts": "3357259af7dda13b3b86150b35fde2fef30e0e00dece27986d0610988617d182"
+    },
+    "checks": {
+      "tests": 17,
+      "typesExit": 0,
+      "actualStdinLints": 3,
+      "exactMapRows": 28,
+      "exactMapOccurrences": 28,
+      "gitForwardInverseFiles": 3,
+      "componentNativeTimingCalls": 40,
+      "componentCases": 13,
+      "e2eNativeTimingCalls": 29,
+      "e2eAssertionCallExpressions": 186,
+      "e2eErrorEmissions": 219,
+      "unchangedNamedJsxSubtrees": 61,
+      "privateLayoutImagesActuallyOpened": 10
+    },
+    "allEvidencePinsVerified": true,
+    "preservation": {
+      "namedSubtrees": 61,
+      "modelStatePrefixExact": true,
+      "physicalMethodCaptionSuffixExact": true,
+      "componentCases": 13,
+      "componentNativeTimingCalls": 40,
+      "e2eNativeCalls": 29,
+      "e2eErrorEmissions": 219,
+      "inputPaintToleranceUnchanged": true
+    },
+    "sourceApproved": true,
+    "runtimeOrReaderApprovalGranted": false
+  },
+  "sourceChanges": {
+    "paths": [
+      "components/interactive/impedance-press.tsx",
+      "tests/component/impedance-press.test.tsx",
+      "tests/e2e/brand-v2-reflow-320-200.spec.ts"
+    ],
+    "uiMaps": 1,
+    "allRootMapRows": 28,
+    "allRootMapOccurrences": 28,
+    "uiScope": "The existing primary P only: conditional law first, valued action second, block spans, capitalization and final period. Existing values and scientific/control code remain exact.",
+    "testScope": "Exact component/E2E copy/order/ownership successors; native actions/assertion emissions and the0.3px input-mark tolerance remain."
+  },
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "previousMemberHash": "08a85ab84344bb881190a70a9706a90ff53d84bd2d70729184c07782191dbad7",
+      "newMemberHash": "0ec1ad419d2f6c4107b7690df22b99b79aa0955734c1842da5ee058d8c9acef6",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+        "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+        "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+        "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+        "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+        "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+        "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+        "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+        "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+        "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+        "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+        "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+        "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+        "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+        "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+        "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+        "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+        "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+        "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+        "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+        "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+        "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+        "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+        "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+        "completion-reader-round34-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d1d2dd66",
+        "completion-reader-round35-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-6f29cce04a",
+        "completion-reader-round36-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-08a85ab843"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: exact R37 historical source continuity for the root-reviewed law-first primary paragraph, followed by the existing valued action sentence. The change is bounded to one primary block; all model/state/native/geometry/method code and the existing0.3px input-mark containment remain. Exact component and E2E text/order expectations are independently preserved in the shared source succession. The fresh R37 reader is sealed FAIL109/110. Actual51 public regression is two passes and two genuine input-paint failures: the sent-input border extends one pixel beyond the primary. The43 raw artifacts and measured failure remain preserved. This source-proof edge grants no reader, technical, mission or release acceptance. See audit/evidence/mission-completion-20261102/reader-round37-source-continuity-review.json."
+    }
+  ],
+  "sourceSuccession": {
+    "sharedRows": 264,
+    "changedRows": [
+      "components/interactive/impedance-press.tsx",
+      "tests/component/impedance-press.test.tsx",
+      "tests/e2e/brand-v2-reflow-320-200.spec.ts"
+    ],
+    "addedRootMaps": 28,
+    "allOldEditsReasonsChecksAndArchivePinsPreserved": true,
+    "allExisting264VerifiersPassed": true,
+    "all30PriorTransitionsPreserved": true,
+    "cumulativeTransitions": 33,
+    "allCumulativeTransitionsExactBothDirections": true
+  },
+  "scientificAndRuntimeFilesUnchanged": [
+    {
+      "path": "lib/impedance-press.ts",
+      "sha256": "3e4237597ca0829f6676daf81d0ce2cf74861136751dae7ac5f86c222c7aa5ce",
+      "bytes": 3686
+    },
+    {
+      "path": "components/iso/figures/spring-press.ts",
+      "sha256": "a1410a94c113aecd0a2a8214ef88180f3d56f7347b752087dbbe18ba62e4a458",
+      "bytes": 22228
+    },
+    {
+      "path": "components/iso/iso-kit.ts",
+      "sha256": "1cd9320dafbae53003b4bf1447489c8dd91fede98d49cb3671b63701b6d5ef93",
+      "bytes": 36061
+    },
+    {
+      "path": "components/iso/anatomy-stage.tsx",
+      "sha256": "36b1a43ee07b0dc9af554483d9ea4796a5f865aa867a7c2f8ed576820167a461",
+      "bytes": 6974
+    },
+    {
+      "path": "components/motion/figure-frame.tsx",
+      "sha256": "fece57de710e48577af3679adb74db52342a77c8f7d7d4e33d85a23075a475f3",
+      "bytes": 13373
+    },
+    {
+      "path": "components/iso/iso.css",
+      "sha256": "929356cf702ee815d6ed038e3e9e0e9ca8f007ab34ff8b6c74b6c12e4da7191a",
+      "bytes": 7964
+    },
+    {
+      "path": "components/motion/stage.css",
+      "sha256": "b494d31a5e0e02b1a33a5a328e8a245719ed2ced8e963fb12f2e71eefa92b97f",
+      "bytes": 18960
+    },
+    {
+      "path": "data/reading-times.json",
+      "sha256": "6152b4778414098b9b0f2e9a5e95b8ccf325b8ac8b8495730e09bc8d21562d2b",
+      "bytes": 4321
+    },
+    {
+      "path": "data/word-budgets.json",
+      "sha256": "7d355d304dc5f54ff7c9fa1ff167a748c53eaf2650a68867201916ec4f567806",
+      "bytes": 2182
+    },
+    {
+      "path": "lib/reading-time.ts",
+      "sha256": "949d7b0d3323b9568bc28f115b57a897b891798cab2286b90ec6f4f0ceeedda8",
+      "bytes": 25319
+    }
+  ],
+  "currentR37Reader": {
+    "round": 37,
+    "sourceCommit": "f68cca0e3345144377485f99c8886aed831a99cc",
+    "readerCommit": "6e68aa3ea24d3d2c7284e0dd7384059c9221349a",
+    "reader": {
+      "schemaVersion": "reader-first-record-v1",
+      "route": "/manipulation/action-spaces/",
+      "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+      "screenshots": {
+        "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+        "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+      },
+      "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+      "sentence": "The tool stops at a surface, and its stiffness of two multiplied by a target two marks beyond that surface gives a push of four.",
+      "unclearTerms": [],
+      "samePoint": "no",
+      "reason": "My sentence describes the stopped tool and the push calculation, but does not say that the action sends both the target and the stiffness.",
+      "verdict": "fail",
+      "screenshotCommit": "f68cca0e3345144377485f99c8886aed831a99cc",
+      "date": "2026-11-05",
+      "reviewerSession": "reader-session-automated-r37-a-20261105",
+      "sourceDigest": "24b0f1633fd860f2fcbab7670165b144be25d740254f1f197ac077a356618f41",
+      "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+    },
+    "readerRecordSha256": "dbe6fd27de43a9da585862e805416551233dc61f8c0ade800318297dd052d0d7",
+    "artifacts": {
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.json": "dbe6fd27de43a9da585862e805416551233dc61f8c0ade800318297dd052d0d7",
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png": "70eae557512e0957a7866661a8623d064653894fb7342e09f664f71393d96ff8",
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png": "55d94f8e76d845a61167aa74d7cfe4e79f7af45d8723e49cbbf35ecd6239b46c"
+    },
+    "acceptedReaders": 109,
+    "totalReaders": 110,
+    "protectedOtherPaths": 556,
+    "protectedManifestSha256": "7d10b8bf381b87ac7724adeac59a503c8d2c928d79b7a08b78fdd275b86805fd",
+    "protocolAndRecordReceipts": {
+      "all-phase1-sealed.json": "657acd6b046181d597f22f593ba2a7d122502eede65d2e06f896afb7be69935c",
+      "phase2-sealed.json": "4f7424540373f085779cba085cfc3bf6d8509e7e81d9f72cc2e7f76d9e407b01",
+      "phase1-returned-hash-verification.json": "e415f2dd571d2503ee7127c0d92aacabb24e801a36b962eb33f8c74f77bd953c",
+      "record-commit.json": "d9190f2d514af14d6b64c0baabf45e7aaac4d44186faa960ca595bef932396dd",
+      "record-validation.json": "40646e22ca87cbe6fb975455a04a0752cdd9ca109716ff48b90eaa822506772a",
+      "current-protocol-verification.json": "9fa30b3ae9f0d3b85052927a82fc46c9c593905ce53ad1e9855a1f4663274aa3"
+    },
+    "actualSourceCommitPaths": [
+      "components/interactive/impedance-press.tsx",
+      "tests/component/impedance-press.test.tsx",
+      "tests/e2e/brand-v2-reflow-320-200.spec.ts"
+    ],
+    "actualReaderCommitPaths": [
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png",
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+      "evidence/reader-first/manipulation--action-spaces--impedance-press.json"
+    ],
+    "gateProblemsRetained": [
+      "/manipulation/action-spaces/ [impedance-press]: reader-test verdict is fail",
+      "/manipulation/action-spaces/ [impedance-press]: reader-test record does not support a pass (missed point)"
+    ],
+    "regraded": false,
+    "readerAccepted": false,
+    "fullTechnicalAccepted": false,
+    "releaseAccepted": false
+  },
+  "currentR37PublicRegression": {
+    "actualBuild": 51,
+    "sourceSha256": "d63f9db93476e30c90c51fea638cb1478b20da3a7703e2d99f7032cdbfbd23a7",
+    "specSha256": "3357259af7dda13b3b86150b35fde2fef30e0e00dece27986d0610988617d182",
+    "passed": 2,
+    "failed": 2,
+    "skipped": 0,
+    "flaky": 0,
+    "cases": [
+      {
+        "title": "figure comparison labels reflow at twice their original text size",
+        "status": "passed",
+        "errors": []
+      },
+      {
+        "title": "press gap guide preserves measured endpoints and forced-colour visibility",
+        "status": "passed",
+        "errors": []
+      },
+      {
+        "title": "press fractional equation stays readable during native Run at narrow text and zoom profiles",
+        "status": "failed",
+        "errors": [
+          "Error: canonical-text-200-375: first fractional sample\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"sent action input-rule paint\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  1353 |         expect(expectedPush).toBeLessThan(12);\n  1354 |         expect(fractional.values.map(({ text }) => text)).toEqual(['4', '\u00d7', String(shownGap), '=', String(expectedPush)]);\n> 1355 |         expect(fractional.errors, `${profile.id}: first fractional sample`).toEqual([]);\n       |                                                                             ^\n  1356 |         expect(result.settled!.values.map(({ text }) => text)).toEqual(['4', '\u00d7', '3', '=', '12']);\n  1357 |         expect(result.settled!.errors, `${profile.id}: native settled maximum`).toEqual([]);\n  1358 |         expect(await original.evaluate((element, origin) => element.isConnected &&\n    at <repo>/tests/e2e/brand-v2-reflow-320-200.spec.ts:1355:77"
+        ]
+      },
+      {
+        "title": "press default position diagram preserves native boundaries, labels and paint in every narrow and forced profile",
+        "status": "failed",
+        "errors": [
+          "Error: desktop: default\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"sent action input-rule paint\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  1949 |         const initial = await probe(2, 'medium', 2);\n  1950 |         observations.push({ profile: profile.id, kind: 'default', ...initial });\n> 1951 |         expect(initial.errors, `${profile.id}: default`).toEqual([]);\n       |                                                          ^\n  1952 |         for (const [spring, rate] of [['soft', 1], ['medium', 2], ['stiff', 4]] as const) {\n  1953 |           const preset = frame.getByTestId(`press-spring-${spring}`);\n  1954 |           await preset.focus(); await preset.press('Enter');\n    at <repo>/tests/e2e/brand-v2-reflow-320-200.spec.ts:1951:58"
+        ]
+      }
+    ],
+    "failureManifest": {
+      "path": "reader-round37-clarity-20261105/PUBLIC4-FAILURE-PRESERVED.json",
+      "sha256": "739f7f286b86139394776d8f891d4ae049fed79d4853722ddba6dfe8145cd52a",
+      "rawFiles": 43,
+      "allRawHashesVerified": true
+    },
+    "diagnosis": {
+      "path": "reader-round37-independent-review-20261105/ACTUAL51-INPUT-PAINT-DIAGNOSIS.json",
+      "sha256": "281c14464d460ed8683d64a6fb40f91d0fbb048b22a0ca9c0714a03995ce638e",
+      "sourceDOMUnmodified": true,
+      "measurements": [
+        {
+          "width": 1280,
+          "primaryBottom": 3226.625,
+          "inputBottom": 3227.625,
+          "excessPixels": 1,
+          "unchangedAllowedTolerance": 0.3,
+          "rejectedCorrectly": true
+        },
+        {
+          "width": 375,
+          "primaryBottom": 4354.734375,
+          "inputBottom": 4355.734375,
+          "excessPixels": 1,
+          "unchangedAllowedTolerance": 0.3,
+          "rejectedCorrectly": true
+        }
+      ]
+    },
+    "rerun": false,
+    "toleranceRelaxed": false,
+    "fullTechnicalAccepted": false,
+    "readerAccepted": false,
+    "releaseAccepted": false
+  },
+  "historicalFailureContinuity": {
+    "priorR36PublicReview": {
+      "path": "audit/evidence/mission-completion-20261102/reader-round36-source-continuity-review.json",
+      "sha256": "f37cca3a6c1a8ae0c990cdc0ab7429220b4c7e3770e9fde471c78bc6a6a2cca0",
+      "readerVerdict": "fail",
+      "allEarlierNestedHistoriesPreserved": true
+    },
+    "historicalR35FocusFailure": {
+      "path": "reader-round35-full112-technical-execution-20261105-attempt2/diagnostic-metadata/ROOT-CONSOLIDATED-VISUAL-REVIEW.json",
+      "sha256": "d4039ecc5a3b9f34317df680bc0c0c661cc01d75f9d7f6b4d84abaf5b0717480",
+      "rawCommandsPassed": 12,
+      "imagesReviewed": 144,
+      "cleanVisualPass": false,
+      "fullTechnicalAccepted": false,
+      "findings": [
+        {
+          "id": "press-focus-outline-clipped",
+          "status": "unresolved-in-actual49",
+          "description": "The left focus stroke of Soft and Run is clipped by the Press AnatomyStage overflow:hidden at desktop/tablet widths. Native and canonical visual reviews document affected images.",
+          "evidence": [
+            "reader-round35-full112-technical-execution-20261105-attempt2/diagnostic-metadata/visual-native-review.json",
+            "reader-round35-full112-technical-execution-20261105-attempt2/diagnostic-metadata/visual-canonical-review.json"
+          ]
+        }
+      ]
+    },
+    "currentR37ReaderFailureRetained": true,
+    "currentR37InputPaintFailureRetained": true,
+    "noAcceptanceTransfer": true
+  },
+  "privatePreparationReceipts": {
+    "base-binding.json": "187c5b6071bf79dee00e0ab6fc8bd5d3bf86a9abd525ad430b8641bc38fcb9cb",
+    "source-test-successors.json": "2000629f8bf7692b88d7e3e16cd8052dc5200f103b7171185e57ca4846297415",
+    "shared-preservation.json": "958cd2bf168579cc33ea22ae013ba5eb0f2da5ba5b731ece8eeccabd54848a98",
+    "transitions-through-r37-proposal.json": "126314c9e9910b3fcacfc5a10d98d40c2be49b697b037ed1eb5d17bec9be9a74",
+    "composed-transitions-through-r37-proposal.json": "dc0b3bbc5fec3779a3511461d89ee37758e638a9272fd332b4ed3068b23795b4",
+    "current-reader-boundary.json": "8f4f8610ad93a4aa570b83964c35869df174b0ee5f528e013a65cf72785bd61c",
+    "actual51-failure-binding.json": "16d354a3df389b1b9f736773c499b1e28915a3949f118e116c2f72a7cd0563dc",
+    "failure-history.json": "5dec1add129d5eea054c1c0cccb285a244ac29b975bdb221506a59655e3c6544",
+    "root-source-approval-binding.json": "b70dd11433030b5d673d348e8acaa3bc933145775489b319ecb7f33af61fb019",
+    "untouched-scientific-inputs.json": "6f7f639b76ebb6cea64719bcab2c8d35bfe92d26a24c30a18df912609d20d019",
+    "retained-author-attempts.json": "198123f1936d1246c99104224ed85d69ee3fddd460cfec46d097f3fedeb23efa",
+    "existing-verifier-results.json": "86b82fc421ad8f103102146b10cc578e86e2491fa627e65cc9abdd6304cba165",
+    "public-path-projection.json": "b3fef39dfcaf15286f3c7c1d6d9f72afc5defeb67dd6fd27b10437ec41a16b47"
+  },
+  "browserGo": false,
+  "publicApplicationAuthorized": true,
+  "readerAcceptanceGranted": false,
+  "fullTechnicalAcceptanceGranted": false,
+  "fullMissionAccepted": false,
+  "releaseAcceptanceGranted": false
+}

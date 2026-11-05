@@ -97,7 +97,7 @@ export type FrameEvidence = {
   sourceBindings: Array<{ citationId: string | null; href: string; label: string }>;
   controls: Array<{index:number;tag:string;type:string;id:string;testId:string;label:string;group?:string;value:string|null;min:string|null;max:string|null;step:string|null;checked:boolean|null;pressed:string|null;selected:string|null;disabled:boolean}>;
   readouts: Array<{key:string;text:string;visible:boolean}>;
-  svgMarks: Array<{tag:string;seriesId:string|null;testId:string;id:string;ownerTestId?:string;overviewCell?:string;effectiveOpacity?:number;displayed?:boolean;attrs:Record<string,string>;viewBox:string}>;
+  svgMarks: Array<{tag:string;seriesId:string|null;testId:string;id:string;ownerTestId?:string;overviewCell?:string;effectiveOpacity?:number;displayed?:boolean;plotTransform?:{a:number;b:number;c:number;d:number;e:number;f:number}|null;attrs:Record<string,string>;viewBox:string}>;
   svgTexts: Array<{seriesId:string|null;text:string;x:number|null;y:number|null;testId:string;ownerTestId?:string;overviewCell?:string;dy?:string|null;painted?:boolean;paintFailures?:string[]}>;
   htmlMarks?: Array<{seriesId:string|null;ownerTestId:string;tag:string;box:{x:number;y:number;width:number;height:number};parentBox:{x:number;y:number;width:number;height:number};widthStyle:string;opacity:number}>;
   methodCards?: Array<{id:string;text:string;visible:boolean;paintFailures?:string[]}>;
@@ -311,21 +311,29 @@ export function observeFrame(
     // put back before the paints are read.
     const shapes = Array.from(frameElement.querySelectorAll<SVGElement>(`svg :is(${SHAPES})`));
     const SENTINEL = 'rgb(1, 2, 3)';
-    const planted: Array<[HTMLElement | SVGElement, string]> = [];
-    for (const el of [frameElement, ...frameElement.querySelectorAll('*')] as Array<
-      HTMLElement | SVGElement
-    >) {
-      for (const name of accentRoles) {
-        if (el.style.getPropertyValue(name)) continue;
-        el.style.setProperty(name, SENTINEL);
-        planted.push([el, name]);
+    const planted = new Map<HTMLElement | SVGElement, string | null>();
+    let onRole: Array<{ stroke: boolean; fill: boolean }>;
+    try {
+      for (const el of [frameElement, ...frameElement.querySelectorAll('*')] as Array<
+        HTMLElement | SVGElement
+      >) {
+        for (const name of accentRoles) {
+          if (el.style.getPropertyValue(name)) continue;
+          if (!planted.has(el)) planted.set(el, el.getAttribute('style'));
+          el.style.setProperty(name, SENTINEL);
+        }
+      }
+      onRole = shapes.map((el) => {
+        const cs = getComputedStyle(el);
+        return { stroke: cs.stroke === SENTINEL, fill: cs.fill === SENTINEL };
+      });
+    } finally {
+      for (const [el, style] of planted) {
+        // Materialize pending CSSOM writes before removing an originally absent attribute.
+        el.setAttribute('style', style ?? '');
+        if (style === null) el.removeAttribute('style');
       }
     }
-    const onRole = shapes.map((el) => {
-      const cs = getComputedStyle(el);
-      return { stroke: cs.stroke === SENTINEL, fill: cs.fill === SENTINEL };
-    });
-    for (const [el, name] of planted) el.style.removeProperty(name);
     // A mark belongs to its outermost holder, as the series rows count it.
     const seriesOf = (el: Element) => {
       let holder: Element | null = null;
@@ -598,6 +606,16 @@ export function observeFrame(
       return [...new Set(failures)];
     };
 
+    // This source-bound chart's local attributes alone cannot reveal transforms.
+    const outputTimesPlot = frameElement.querySelector<SVGSVGElement>('svg[data-testid="world-model-output-times-stage"]');
+    const outputTimesTransform = (node: Element) => {
+      const plot = outputTimesPlot?.getScreenCTM(), mark = (node as SVGGraphicsElement).getScreenCTM();
+      if (!plot || !mark || plot.a * plot.d - plot.b * plot.c === 0) return null;
+      const matrix = plot.inverse().multiply(mark);
+      const values = { a: matrix.a, b: matrix.b, c: matrix.c, d: matrix.d, e: matrix.e, f: matrix.f };
+      return Object.values(values).every(Number.isFinite) ? values : null;
+    };
+
     return {
       labels,
       legend: legend.map((entry, index) => ({
@@ -635,7 +653,7 @@ export function observeFrame(
         return {index,tag:node.tagName.toLowerCase(),type:node.getAttribute('type')??'',id:node.id,testId:node.getAttribute('data-testid')??'',label:label.replace(/\s+/g,' ').trim(),...(group?{group:group.replace(/\s+/g,' ').trim()}:{}),value:native?node.value:node.getAttribute('aria-valuenow'),min:node.getAttribute('min')??node.getAttribute('aria-valuemin'),max:node.getAttribute('max')??node.getAttribute('aria-valuemax'),step:node.getAttribute('step'),checked:node instanceof HTMLInputElement?node.checked:node.getAttribute('aria-checked')==='true'?true:node.getAttribute('aria-checked')==='false'?false:null,pressed:node.getAttribute('aria-pressed'),selected:node.getAttribute('aria-selected'),disabled:node.matches(':disabled')||node.getAttribute('aria-disabled')==='true'};
       }),
       readouts:[...frameElement.querySelectorAll('[data-readout],[data-figure-readout],[data-scene-readout],[data-chart-readout],[data-figure-control-value],[data-testid$="-readout"],[data-testid^="term-"],[data-testid="force-limited-speed"]')].map((node,index)=>({key:node.getAttribute('data-readout')||node.getAttribute('data-testid')||node.id||String(index),text:(node.textContent??'').replace(/\s+/g,' ').trim(),visible:node.checkVisibility({visibilityProperty:true,opacityProperty:true})&&node.getClientRects().length>0})),
-      svgMarks:[...frameElement.querySelectorAll('svg path,svg line,svg rect,svg circle,svg ellipse,svg polyline,svg polygon')].filter(node=>(node.closest('[data-series]')||node.hasAttribute('data-chart-mark'))&&!node.closest('defs,clipPath,mask,pattern')).map(node=>({displayed:node.checkVisibility({visibilityProperty:true,opacityProperty:true}),effectiveOpacity:(()=>{let opacity=1;for(let parent:Element|null=node;parent;parent=parent.parentElement){opacity*=Number(getComputedStyle(parent).opacity);if(parent===frameElement)break;}return opacity;})(),tag:node.tagName.toLowerCase(),seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,testId:node.getAttribute('data-testid')??'',id:node.id,...(node.parentElement?.closest('[data-testid]')?{ownerTestId:node.parentElement.closest('[data-testid]')!.getAttribute('data-testid')!}:{}),...(node.closest('[data-overview-cell]')?{overviewCell:node.closest('[data-overview-cell]')!.getAttribute('data-overview-cell')!}:{}),attrs:Object.fromEntries(['x','y','x1','y1','x2','y2','cx','cy','r','rx','ry','width','height','d','points','transform','class','opacity','fill-opacity','fill','stroke','data-chart-role','data-chart-mark','data-lit-tile','data-method-dot'].flatMap(attribute=>node.hasAttribute(attribute)?[[attribute,node.getAttribute(attribute)!]]:[])),viewBox:node.closest('svg')?.getAttribute('viewBox')??''})),
+      svgMarks:[...frameElement.querySelectorAll('svg path,svg line,svg rect,svg circle,svg ellipse,svg polyline,svg polygon')].filter(node=>(node.closest('[data-series]')||node.hasAttribute('data-chart-mark'))&&!node.closest('defs,clipPath,mask,pattern')).map(node=>({...((outputTimesPlot?.contains(node))?{plotTransform:outputTimesTransform(node)}:{}),displayed:node.checkVisibility({visibilityProperty:true,opacityProperty:true}),effectiveOpacity:(()=>{let opacity=1;for(let parent:Element|null=node;parent;parent=parent.parentElement){opacity*=Number(getComputedStyle(parent).opacity);if(parent===frameElement)break;}return opacity;})(),tag:node.tagName.toLowerCase(),seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,testId:node.getAttribute('data-testid')??'',id:node.id,...(node.parentElement?.closest('[data-testid]')?{ownerTestId:node.parentElement.closest('[data-testid]')!.getAttribute('data-testid')!}:{}),...(node.closest('[data-overview-cell]')?{overviewCell:node.closest('[data-overview-cell]')!.getAttribute('data-overview-cell')!}:{}),attrs:Object.fromEntries(['x','y','x1','y1','x2','y2','cx','cy','r','rx','ry','width','height','d','points','transform','class','opacity','fill-opacity','fill','stroke','data-chart-role','data-chart-mark','data-lit-tile','data-method-dot'].flatMap(attribute=>node.hasAttribute(attribute)?[[attribute,node.getAttribute(attribute)!]]:[])),viewBox:node.closest('svg')?.getAttribute('viewBox')??''})),
       svgTexts:[...frameElement.querySelectorAll('svg text')].filter(node=>!node.closest('defs,clipPath,mask,pattern')).map(node=>{const coordinate=(name:string)=>{const value=node.getAttribute(name);return value!==null&&Number.isFinite(Number(value))?Number(value):null;};const paintFailures=textPaintFailures(node);return {painted:paintFailures.length===0,paintFailures,seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,dy:node.getAttribute('dy'),...(node.parentElement?.closest('[data-testid]')?{ownerTestId:node.parentElement.closest('[data-testid]')!.getAttribute('data-testid')!}:{}),...(node.closest('[data-overview-cell]')?{overviewCell:node.closest('[data-overview-cell]')!.getAttribute('data-overview-cell')!}:{}),text:(node.textContent??'').replace(/\s+/g,' ').trim(),x:coordinate('x'),y:coordinate('y'),testId:node.getAttribute('data-testid')??''};}),
       htmlMarks:[...frameElement.querySelectorAll<HTMLElement>('[data-chart-mark]')].filter(node=>!node.closest('svg')).map(node=>{const rect=(element:Element)=>{const r=element.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};};return {seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,ownerTestId:node.closest('[data-testid]')?.getAttribute('data-testid')??'',tag:node.getAttribute('data-chart-mark')??'',box:rect(node),parentBox:rect(node.parentElement!),widthStyle:node.style.width,opacity:Number(getComputedStyle(node).opacity)};}),
       methodCards:[...frameElement.querySelectorAll('[data-method-card]')].map(node=>{const paintFailures=textPaintFailures(node);return {id:node.getAttribute('data-method-card')!,text:(node.textContent??'').replace(/\s+/g,' ').trim(),paintFailures,visible:paintFailures.length===0&&node.checkVisibility({visibilityProperty:true,opacityProperty:true})&&node.getClientRects().length>0&&!node.closest('[aria-hidden=true],[inert]')};}),

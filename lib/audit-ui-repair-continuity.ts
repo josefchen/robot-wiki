@@ -19,13 +19,13 @@ export type UiRepairReview = { schemaVersion: 'shared-ui-repair-continuity-v1'; 
 const sha = (bytes: Buffer | string) => createHash('sha256').update(bytes).digest('hex');
 const drift = 'shared UI repair continuity drift';
 // BEGIN shared UI repair pins
-const reviewPin = {"bytes":2059536,"sha256":"d3954302feb49c05a73e06bbf627a98e81449dec52db626eba9de6940b8ba08f"};
+const reviewPin = {"bytes":2241447,"sha256":"1cc11b93fbeb44a3d6bf7eb38b6e535db99ff3fe645570acc456243784d5eb23"};
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ["components/ui/cite.tsx", [5891, "b9fbeaff3405eb0df51c10e79702cd5714b343f32997f5ee07e8afe5dce376e4"]],
   ["components/article/references.tsx", [4543, "63e17ab383c0a949d95d33e1379db46521be04f6e3ba5e8fc609c82d486b74e7"]],
   ["components/interactive/eureka-loop.tsx", [22019, "5bf12a308f4f2fb85ad93c5ca5ba4d51841580a270fcd9866a0972281186d936"]],
   ["components/interactive/reward-shaping.tsx", [25306, "9f6c76ef04149f77123d9fe27e4fba67cd194032d351f8f0b8aa184ca8086c01"]],
-  ["app/globals.css", [36839, "0fe019917974354beee40b34ce977f70f49e061b5d77add5bdeb53686b4f572a"]],
+  ["app/globals.css", [37078, "922b763fbf58cbe02baffbb7a55caf706874ae92d011da5868895a1ceaa7db0d"]],
   ["tests/e2e/brand-v2-static-fixture.ts", [3630, "fd2d396b16ced76b675100c89cc709b3a8470c461d30c79683683992e9812fe1"]],
   ["components/interactive/action-tokenization.tsx", [24312, "2a24e2cc6cb9bccd5e67963a63cd8fc5b0d2fb392f76cd80a49ec2b0526f3959"]],
   ["components/interactive/appearance-physics-push.tsx", [23842, "2451c99798e02d9270010b98da30c6adca0bafa90c00553393585ae2101fa198"]],
@@ -86,7 +86,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ["components/interactive/helix-zero-shot-success.tsx", [8705, "0ecaf49da68af6dfd8a0fda6c677f1da8801af4973c7ed6c6f36b33879fff973"]],
   ["components/interactive/hierarchy-timescales.tsx", [18624, "e397bf6d991cc0b1acb27ac8c6e2fd9a40c22a15e27fd7fa0019b0c0b80c8238"]],
   ["components/interactive/impedance-contact-lab.tsx", [28981, "03101b103eb5aaf275928b5c355a23933edd63fbda7f56c197d35da8d9f59a20"]],
-  ["components/interactive/impedance-press.tsx", [28735, "fcfbd6067c76bf2068bb3f6b7ee99f5bfd406644142bebad6e1c0133b17dbc7c"]],
+  ["components/interactive/impedance-press.tsx", [32636, "84c39205aed7dabefb87da60885a37c08acadb4181ac007b4a575242b22e48c4"]],
   ["components/interactive/keypoint-string.tsx", [9596, "05dfaa9b25c4f330b7ff3e8ef4d5569a3af6382ba483fade08aa83a4dabf7aae"]],
   ["components/interactive/kinematic-twin.tsx", [13545, "1228128f294315957c73668edffb19b580db22f075d419616f4969f3d058042a"]],
   ["components/interactive/linearization-gap.tsx", [10230, "4d25073049efaadb8dc443b9a0d2800ced671801a09832011cc9e0c4dc1e3e45"]],
@@ -217,7 +217,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ["tests/component/hardware-price-ladder.test.tsx", [6591, "12401c49973d8167761d79c4c6d64827daae2391ba7520d9086ebc4a840c21f6"]],
   ["tests/component/humanoid-pick-height.test.tsx", [3909, "b41219b2f5a508acc9748308299d6876ffa7ce02f4d4ebb72f486aed9efb8d48"]],
   ["tests/component/impedance-contact-lab.test.tsx", [19099, "91798e8cf58903839626be7474190659363ad5817a61ce29c1d3a4f5f81dd030"]],
-  ["tests/component/impedance-press.test.tsx", [52335, "f340dbbd88adb167fafe3a21cad6f5193d26f660ffd43d998f3fc3263f7e1aa1"]],
+  ["tests/component/impedance-press.test.tsx", [60586, "265d25a5e43f57acd15277eb67071366d809722c738b7e20b827e49bfec8bcb9"]],
   ["tests/component/jepa-planning.test.tsx", [12328, "ee72bcaaab18e12d189899d5c34342f7c492c7bb607f76ea5a41a59cf6c32d5c"]],
   ["tests/component/loop-closure.test.tsx", [6312, "3a58bfa7290a71eec80bc8923ec08baaef8012cd4fda8e3db718f558a7f2083d"]],
   ["tests/component/mot-insulation.test.tsx", [17564, "b20e25660c8d5bc9fa43d523d1ebf58795470adb72e367289c85c7de517ac757"]],
@@ -281,7 +281,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ["tests/e2e/brand-v2-focus-paint.spec.ts", [28833, "b8f043c5bbefbe824ecc787a2b658a1a847948e00bafa679e067adcf1608d7c0"]],
   ["components/ui/stat.tsx", [2898, "f2e70ec89084e8f7e3896e9f7475ccec7da07000fe14675ac350b1438caffee4"]],
   ["tests/component/pi-generation-timeline.test.tsx", [8548, "3a6aedc8e151023c07e2b231370329fdda461a4cc518a45a7ca2e30dc101c4c1"]],
-  ["tests/e2e/brand-v2-reflow-320-200.spec.ts", [124914, "6deab75556e21a36c135baf1ba16c17559a638acd76efcfd5c879c97fd78123f"]],
+  ["tests/e2e/brand-v2-reflow-320-200.spec.ts", [188095, "f64942854cd40e492f6722ce399a8daef7f216d2d75bba2b5be0ea2a17bf4508"]],
   ["lib/reading-time.ts", [25319, "949d7b0d3323b9568bc28f115b57a897b891798cab2286b90ec6f4f0ceeedda8"]],
   ["tests/unit/reading-time.test.ts", [19766, "040b00ec5195b8ecf19aa2d53a270f1258ccd644f1cc5ec3cd6015a91a7e209e"]],
   ["content/data-hardware/hardware-taxonomy.mdx", [13198, "dd5573e04a5c35bc0bc23924e055b988c658eabec9059f2b2cf7770b16b19b31"]],

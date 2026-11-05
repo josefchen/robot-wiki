@@ -171957,6 +171957,1364 @@
           "newHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897"
         }
       ]
+    },
+    {
+      "id": "completion-reader-round33-20261105-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-fb8d36c26d",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/impedance-press.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b",
+      "reason": "components/interactive/impedance-press.tsx: exact source continuity through independently reviewed R28–R33 changes. R31 adds the model-derived ruler and schematic dial; R32 adds three wrapping classes; R33 moves the original native controls between the sent action and Controller/output. Models, quantitative values, native controls and original assertions remain preserved through exact inverses. All earlier failed source/reader epochs remain. Actual47 focused four browser cases pass, but the current R33 reader is FAIL (109/110); full112, source parity and release acceptance remain withheld. This source/name approval does not waive that reader gate. See audit/evidence/mission-completion-20261102/reader-round33-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed implementation/test successors. Source continuity only; current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "completion-reader-round10-20261103-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        },
+        {
+          "id": "completion-reader-round22-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        },
+        {
+          "id": "completion-reader-round23-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        },
+        {
+          "id": "completion-reader-round24-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round33-20261105-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-83aa8b7d77",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/impedance-press.tsx:aria-labelledby:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5",
+      "reason": "components/interactive/impedance-press.tsx: exact source continuity through independently reviewed R28–R33 changes. R31 adds the model-derived ruler and schematic dial; R32 adds three wrapping classes; R33 moves the original native controls between the sent action and Controller/output. Models, quantitative values, native controls and original assertions remain preserved through exact inverses. All earlier failed source/reader epochs remain. Actual47 focused four browser cases pass, but the current R33 reader is FAIL (109/110); full112, source parity and release acceptance remain withheld. This source/name approval does not waive that reader gate. See audit/evidence/mission-completion-20261102/reader-round33-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed implementation/test successors. Source continuity only; current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "completion-reader-round19-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        },
+        {
+          "id": "completion-reader-round22-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        },
+        {
+          "id": "completion-reader-round23-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        },
+        {
+          "id": "completion-reader-round24-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round33-20261105-accessible-names-literal-components-interactive-impedance-press-tsx-aria-label-1-cd21780289",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/impedance-press.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "cd217802898bd27aa0893e8817bcddec47a5f78088d7eb9b61bd3930fb485840",
+      "reason": "components/interactive/impedance-press.tsx: exact source continuity through independently reviewed R28–R33 changes. R31 adds the model-derived ruler and schematic dial; R32 adds three wrapping classes; R33 moves the original native controls between the sent action and Controller/output. Models, quantitative values, native controls and original assertions remain preserved through exact inverses. All earlier failed source/reader epochs remain. Actual47 focused four browser cases pass, but the current R33 reader is FAIL (109/110); full112, source parity and release acceptance remain withheld. This source/name approval does not waive that reader gate. See audit/evidence/mission-completion-20261102/reader-round33-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed implementation/test successors. Source continuity only; current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "completion-reader-round10-20261103-accessible-names-literal-components-interactive-impedance-press-tsx-aria-label-1-e0e4c81f7a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e0e4c81f7aea9df0e4d216c14139d7fc55f2dc175f3b0566326a4286e4fd19de"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round33-20261105-accessible-names-literal-components-interactive-impedance-press-tsx-aria-label-2-67c30e4365",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/impedance-press.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "67c30e43659dee0c1a5f49bffc3b7504b16913864ae4176e505ddd09fa81f0b6",
+      "reason": "components/interactive/impedance-press.tsx: exact source continuity through independently reviewed R28–R33 changes. R31 adds the model-derived ruler and schematic dial; R32 adds three wrapping classes; R33 moves the original native controls between the sent action and Controller/output. Models, quantitative values, native controls and original assertions remain preserved through exact inverses. All earlier failed source/reader epochs remain. Actual47 focused four browser cases pass, but the current R33 reader is FAIL (109/110); full112, source parity and release acceptance remain withheld. This source/name approval does not waive that reader gate. See audit/evidence/mission-completion-20261102/reader-round33-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed implementation/test successors. Source continuity only; current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-reader-round33-20261105-accessible-names-literal-components-interactive-impedance-press-tsx-aria-label-3-e0e4c81f7a",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/impedance-press.tsx:aria-label:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e0e4c81f7aea9df0e4d216c14139d7fc55f2dc175f3b0566326a4286e4fd19de",
+      "reason": "components/interactive/impedance-press.tsx: exact source continuity through independently reviewed R28–R33 changes. R31 adds the model-derived ruler and schematic dial; R32 adds three wrapping classes; R33 moves the original native controls between the sent action and Controller/output. Models, quantitative values, native controls and original assertions remain preserved through exact inverses. All earlier failed source/reader epochs remain. Actual47 focused four browser cases pass, but the current R33 reader is FAIL (109/110); full112, source parity and release acceptance remain withheld. This source/name approval does not waive that reader gate. See audit/evidence/mission-completion-20261102/reader-round33-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed implementation/test successors. Source continuity only; current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "af5b607142764a4adef7870d53b14d54f615d7ef3ac9bd53c2c1bd71672ee536",
+      "reason": "components/interactive/impedance-press.tsx: exact source continuity through independently reviewed R28–R33 changes. R31 adds the model-derived ruler and schematic dial; R32 adds three wrapping classes; R33 moves the original native controls between the sent action and Controller/output. Models, quantitative values, native controls and original assertions remain preserved through exact inverses. All earlier failed source/reader epochs remain. Actual47 focused four browser cases pass, but the current R33 reader is FAIL (109/110); full112, source parity and release acceptance remain withheld. This source/name approval does not waive that reader gate. See audit/evidence/mission-completion-20261102/reader-round33-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed implementation/test successors. Source continuity only; current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ea07e79e34787a4d02a04a26823a9af535608337887cc794de43b569957c2b1f"
+        },
+        {
+          "id": "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943"
+        },
+        {
+          "id": "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4f8b327b007c0110a3436baa61c2a6d7da9e3460b2034639f6a86371a2bb95f8"
+        },
+        {
+          "id": "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e84294d903e6b2d0a343f376377c93c76ead16d8abd435e69869fb5b159b491b"
+        },
+        {
+          "id": "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c95600381ad3356de2b5a2b3c23b391c2a48f3fab04bc57db98478838d4cee90"
+        },
+        {
+          "id": "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "801977158d0636daefb59e319ad0b19d20ee6804ca8b4e53216b196d94ce7510"
+        },
+        {
+          "id": "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "876f5a0b444e3ffb95e6802490d62be3861fcc073a1b5766da96bbeb516a1db1"
+        },
+        {
+          "id": "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "01d567a0bd279d1f895c791ad9acb17a629214ba5fab74fa2f94d4761c225946"
+        },
+        {
+          "id": "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d8483bebc43cff67af920df0919c563ebe45ed51c5821e1ba0385ce4e06f77a0"
+        },
+        {
+          "id": "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb12b110f0aa0d2558f1a334fc290ed53d50a1db9cce6680a135fbfabf6aa127"
+        },
+        {
+          "id": "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "785ca06f18e7a0b259b9e2d10b9b41d8c56cf4e0808b1703857d891dbd8da7f7"
+        },
+        {
+          "id": "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ccdc29e542a0e07c2f35c9730358a17746322f2636cac272a5614e3c89b5e23d"
+        },
+        {
+          "id": "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ce7b293fa2945abedf5abad03e4f29f74879d555f66f02d070c24c65cec9cbe"
+        },
+        {
+          "id": "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d8f5c392aa56e1df1d750420804a9a17b0f05760d91c5f52d82cd4db9533b1"
+        },
+        {
+          "id": "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e451dea81f625e41d4b3bbc85a79d321d09a1102c7ad0e5352c7c83c62bc71e2"
+        },
+        {
+          "id": "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7a8c3c020a3f496d763d256707a5d5308cd0fdae098ad88514ac7b1be9dae4e2"
+        },
+        {
+          "id": "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "222f1c44e83e406d887fad20dda1f6aaa4bc9b107c65d14cb07b695622616e0b"
+        },
+        {
+          "id": "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "979a82dd04b57cfc86161666927abd149c8151fd78aaaa3f5752d2fc4e1b6789"
+        },
+        {
+          "id": "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "f524916ff37219fe6c26a6a543d9361b19538776d6848321f8f04d4becaa66cb"
+        },
+        {
+          "id": "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "975843ca44b75e512029ed81cc195e15df91e4bff994672993a10b5b42ec8deb"
+        },
+        {
+          "id": "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03dc60b3477b399470a2fea155f2ff95760fbf8bdcab9fa29cd7e399de24d3d6"
+        },
+        {
+          "id": "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "faf3ab54a0745018b6dc0d43076d78e31d749e96144c2f24804b7a441bae28f4"
+        },
+        {
+          "id": "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "18524f34ff877936d654fe874459818b0ed63ab9402dc61161d9931f01916ebf"
+        },
+        {
+          "id": "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16"
+        },
+        {
+          "id": "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897"
+        },
+        {
+          "id": "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d9edbfb52c292e9f7c8329def345650963eb90a7e2a62edc9993a0cda09e8109"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round34-20261105-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-83aa8b7d77",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/impedance-press.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5",
+      "reason": "components/interactive/impedance-press.tsx: exact R34 source continuity for the supported accessible-name host correction. Remove aria-label from the unchanged plain action-label SPAN and place the identical short name directly on the existing settings group, retaining IDs, visible text, all five group names, descriptions, scientific geometry, model math and native behavior. The component and public E2E checks have exact same-strength host successors. Historical R33 full112 attempt2 captured112 passing core rows and20 live samples before AX stopped on one aria-prohibited-attr incomplete result. Actual48 focused4 public cases and4 AX states pass after this repair. The sealed R34 reader remains FAIL109/110; current full112, source parity and release acceptance remain withheld. See audit/evidence/mission-completion-20261102/reader-round34-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed accessibility/source/test successor. Source continuity only; the current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "completion-reader-round10-20261103-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        },
+        {
+          "id": "completion-reader-round22-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        },
+        {
+          "id": "completion-reader-round23-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        },
+        {
+          "id": "completion-reader-round24-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        },
+        {
+          "id": "completion-reader-round33-20261105-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-1-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round34-20261105-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-2695fc0121",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/impedance-press.tsx:aria-labelledby:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2695fc01219bea34a8f48b43056c7ef57840c63e006059fa497b6ac656d003d9",
+      "reason": "components/interactive/impedance-press.tsx: exact R34 source continuity for the supported accessible-name host correction. Remove aria-label from the unchanged plain action-label SPAN and place the identical short name directly on the existing settings group, retaining IDs, visible text, all five group names, descriptions, scientific geometry, model math and native behavior. The component and public E2E checks have exact same-strength host successors. Historical R33 full112 attempt2 captured112 passing core rows and20 live samples before AX stopped on one aria-prohibited-attr incomplete result. Actual48 focused4 public cases and4 AX states pass after this repair. The sealed R34 reader remains FAIL109/110; current full112, source parity and release acceptance remain withheld. See audit/evidence/mission-completion-20261102/reader-round34-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed accessibility/source/test successor. Source continuity only; the current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "completion-reader-round19-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        },
+        {
+          "id": "completion-reader-round22-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        },
+        {
+          "id": "completion-reader-round23-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        },
+        {
+          "id": "completion-reader-round24-20261104-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-fb8d36c26d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb8d36c26dd207f225a51f52b9dca3fe407c0a384d4d7335152f045fb80ee43b"
+        },
+        {
+          "id": "completion-reader-round33-20261105-accessible-names-expression-components-interactive-impedance-press-tsx-aria-labelledby-2-83aa8b7d77",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "83aa8b7d7716be2f1b40dbe3eb35a4a4ff337a9d813ec9b7701f2e45f525f4e5"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round34-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d1d2dd66",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "47d1d2dd66322684b5f858cb55bbc09aab200edd74fedf07042e1a5a4eeb14ab",
+      "reason": "components/interactive/impedance-press.tsx: exact R34 source continuity for the supported accessible-name host correction. Remove aria-label from the unchanged plain action-label SPAN and place the identical short name directly on the existing settings group, retaining IDs, visible text, all five group names, descriptions, scientific geometry, model math and native behavior. The component and public E2E checks have exact same-strength host successors. Historical R33 full112 attempt2 captured112 passing core rows and20 live samples before AX stopped on one aria-prohibited-attr incomplete result. Actual48 focused4 public cases and4 AX states pass after this repair. The sealed R34 reader remains FAIL109/110; current full112, source parity and release acceptance remain withheld. See audit/evidence/mission-completion-20261102/reader-round34-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed accessibility/source/test successor. Source continuity only; the current reader remains failed and all technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ea07e79e34787a4d02a04a26823a9af535608337887cc794de43b569957c2b1f"
+        },
+        {
+          "id": "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943"
+        },
+        {
+          "id": "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4f8b327b007c0110a3436baa61c2a6d7da9e3460b2034639f6a86371a2bb95f8"
+        },
+        {
+          "id": "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e84294d903e6b2d0a343f376377c93c76ead16d8abd435e69869fb5b159b491b"
+        },
+        {
+          "id": "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c95600381ad3356de2b5a2b3c23b391c2a48f3fab04bc57db98478838d4cee90"
+        },
+        {
+          "id": "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "801977158d0636daefb59e319ad0b19d20ee6804ca8b4e53216b196d94ce7510"
+        },
+        {
+          "id": "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "876f5a0b444e3ffb95e6802490d62be3861fcc073a1b5766da96bbeb516a1db1"
+        },
+        {
+          "id": "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "01d567a0bd279d1f895c791ad9acb17a629214ba5fab74fa2f94d4761c225946"
+        },
+        {
+          "id": "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d8483bebc43cff67af920df0919c563ebe45ed51c5821e1ba0385ce4e06f77a0"
+        },
+        {
+          "id": "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb12b110f0aa0d2558f1a334fc290ed53d50a1db9cce6680a135fbfabf6aa127"
+        },
+        {
+          "id": "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "785ca06f18e7a0b259b9e2d10b9b41d8c56cf4e0808b1703857d891dbd8da7f7"
+        },
+        {
+          "id": "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ccdc29e542a0e07c2f35c9730358a17746322f2636cac272a5614e3c89b5e23d"
+        },
+        {
+          "id": "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ce7b293fa2945abedf5abad03e4f29f74879d555f66f02d070c24c65cec9cbe"
+        },
+        {
+          "id": "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d8f5c392aa56e1df1d750420804a9a17b0f05760d91c5f52d82cd4db9533b1"
+        },
+        {
+          "id": "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e451dea81f625e41d4b3bbc85a79d321d09a1102c7ad0e5352c7c83c62bc71e2"
+        },
+        {
+          "id": "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7a8c3c020a3f496d763d256707a5d5308cd0fdae098ad88514ac7b1be9dae4e2"
+        },
+        {
+          "id": "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "222f1c44e83e406d887fad20dda1f6aaa4bc9b107c65d14cb07b695622616e0b"
+        },
+        {
+          "id": "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "979a82dd04b57cfc86161666927abd149c8151fd78aaaa3f5752d2fc4e1b6789"
+        },
+        {
+          "id": "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "f524916ff37219fe6c26a6a543d9361b19538776d6848321f8f04d4becaa66cb"
+        },
+        {
+          "id": "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "975843ca44b75e512029ed81cc195e15df91e4bff994672993a10b5b42ec8deb"
+        },
+        {
+          "id": "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03dc60b3477b399470a2fea155f2ff95760fbf8bdcab9fa29cd7e399de24d3d6"
+        },
+        {
+          "id": "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "faf3ab54a0745018b6dc0d43076d78e31d749e96144c2f24804b7a441bae28f4"
+        },
+        {
+          "id": "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "18524f34ff877936d654fe874459818b0ed63ab9402dc61161d9931f01916ebf"
+        },
+        {
+          "id": "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16"
+        },
+        {
+          "id": "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897"
+        },
+        {
+          "id": "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d9edbfb52c292e9f7c8329def345650963eb90a7e2a62edc9993a0cda09e8109"
+        },
+        {
+          "id": "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "af5b607142764a4adef7870d53b14d54f615d7ef3ac9bd53c2c1bd71672ee536"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round35-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-6f29cce04a",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6f29cce04a6cdb0926af9bf04e3079545fab42a714403b58f93b22a920d05592",
+      "reason": "components/interactive/impedance-press.tsx: exact R35 source continuity for the independently approved complete opening invariant and narrow dial-parent containment repair. The same primary paragraph now states that an action sends target and stiffness and that, once the surface stops the tool, push equals stiffness times target gap. The live operands and model remain unchanged; the lower worked-calculation label is 16px normal text. Component-local narrow padding gives the unchanged 112px dial an actual 113px response parent without shrinking the 14px dial labels or relaxing containment. Actual49 focused four public cases and four AX states pass. The fresh sealed R35 reader passes, giving 110/110; the source continuity records that separate result and does not grant it. Historical R33 AX failure, four real 187px parent overflows and all failed fixture attempts remain retained. Current full112, final source parity and release gates remain pending. See audit/evidence/mission-completion-20261102/reader-round35-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized mission continuation and exact independently reviewed source/test successors. Source continuity only; existing technical, final source parity and release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ea07e79e34787a4d02a04a26823a9af535608337887cc794de43b569957c2b1f"
+        },
+        {
+          "id": "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943"
+        },
+        {
+          "id": "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4f8b327b007c0110a3436baa61c2a6d7da9e3460b2034639f6a86371a2bb95f8"
+        },
+        {
+          "id": "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e84294d903e6b2d0a343f376377c93c76ead16d8abd435e69869fb5b159b491b"
+        },
+        {
+          "id": "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c95600381ad3356de2b5a2b3c23b391c2a48f3fab04bc57db98478838d4cee90"
+        },
+        {
+          "id": "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "801977158d0636daefb59e319ad0b19d20ee6804ca8b4e53216b196d94ce7510"
+        },
+        {
+          "id": "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "876f5a0b444e3ffb95e6802490d62be3861fcc073a1b5766da96bbeb516a1db1"
+        },
+        {
+          "id": "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "01d567a0bd279d1f895c791ad9acb17a629214ba5fab74fa2f94d4761c225946"
+        },
+        {
+          "id": "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d8483bebc43cff67af920df0919c563ebe45ed51c5821e1ba0385ce4e06f77a0"
+        },
+        {
+          "id": "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb12b110f0aa0d2558f1a334fc290ed53d50a1db9cce6680a135fbfabf6aa127"
+        },
+        {
+          "id": "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "785ca06f18e7a0b259b9e2d10b9b41d8c56cf4e0808b1703857d891dbd8da7f7"
+        },
+        {
+          "id": "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ccdc29e542a0e07c2f35c9730358a17746322f2636cac272a5614e3c89b5e23d"
+        },
+        {
+          "id": "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ce7b293fa2945abedf5abad03e4f29f74879d555f66f02d070c24c65cec9cbe"
+        },
+        {
+          "id": "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d8f5c392aa56e1df1d750420804a9a17b0f05760d91c5f52d82cd4db9533b1"
+        },
+        {
+          "id": "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e451dea81f625e41d4b3bbc85a79d321d09a1102c7ad0e5352c7c83c62bc71e2"
+        },
+        {
+          "id": "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7a8c3c020a3f496d763d256707a5d5308cd0fdae098ad88514ac7b1be9dae4e2"
+        },
+        {
+          "id": "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "222f1c44e83e406d887fad20dda1f6aaa4bc9b107c65d14cb07b695622616e0b"
+        },
+        {
+          "id": "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "979a82dd04b57cfc86161666927abd149c8151fd78aaaa3f5752d2fc4e1b6789"
+        },
+        {
+          "id": "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "f524916ff37219fe6c26a6a543d9361b19538776d6848321f8f04d4becaa66cb"
+        },
+        {
+          "id": "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "975843ca44b75e512029ed81cc195e15df91e4bff994672993a10b5b42ec8deb"
+        },
+        {
+          "id": "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03dc60b3477b399470a2fea155f2ff95760fbf8bdcab9fa29cd7e399de24d3d6"
+        },
+        {
+          "id": "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "faf3ab54a0745018b6dc0d43076d78e31d749e96144c2f24804b7a441bae28f4"
+        },
+        {
+          "id": "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "18524f34ff877936d654fe874459818b0ed63ab9402dc61161d9931f01916ebf"
+        },
+        {
+          "id": "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16"
+        },
+        {
+          "id": "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897"
+        },
+        {
+          "id": "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d9edbfb52c292e9f7c8329def345650963eb90a7e2a62edc9993a0cda09e8109"
+        },
+        {
+          "id": "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "af5b607142764a4adef7870d53b14d54f615d7ef3ac9bd53c2c1bd71672ee536"
+        },
+        {
+          "id": "completion-reader-round34-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d1d2dd66",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d1d2dd66322684b5f858cb55bbc09aab200edd74fedf07042e1a5a4eeb14ab"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round36-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-08a85ab843",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "08a85ab84344bb881190a70a9706a90ff53d84bd2d70729184c07782191dbad7",
+      "reason": "components/interactive/impedance-press.tsx: exact R36 source continuity for the one-property local focus-containment repair approved for actual built validation. The existing Press AnatomyStage receives only style={{ overflow: 'visible' }}, allowing the existing outline to paint beyond the local stage edge. All other UI bytes, controls, callbacks, copy, names, numerical state, ruler/dial geometry and physical method remain exact. The R35 raw producers completed twelve commands, but the preserved native and canonical reviews found clipped left focus strokes; that historical failure is not converted into a pass. The fresh R36 reader is sealed FAIL on the changed source, leaving109/110. This private historical source-continuity proposal does not change that verdict; current full technical, mission and release acceptance remain false. See audit/evidence/mission-completion-20261102/reader-round36-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized necessary local accessibility repair and root-approved one-property source implementation. Private continuity proposal only; actual build, fresh reader and technical/release gates remain mandatory.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ea07e79e34787a4d02a04a26823a9af535608337887cc794de43b569957c2b1f"
+        },
+        {
+          "id": "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943"
+        },
+        {
+          "id": "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4f8b327b007c0110a3436baa61c2a6d7da9e3460b2034639f6a86371a2bb95f8"
+        },
+        {
+          "id": "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e84294d903e6b2d0a343f376377c93c76ead16d8abd435e69869fb5b159b491b"
+        },
+        {
+          "id": "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c95600381ad3356de2b5a2b3c23b391c2a48f3fab04bc57db98478838d4cee90"
+        },
+        {
+          "id": "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "801977158d0636daefb59e319ad0b19d20ee6804ca8b4e53216b196d94ce7510"
+        },
+        {
+          "id": "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "876f5a0b444e3ffb95e6802490d62be3861fcc073a1b5766da96bbeb516a1db1"
+        },
+        {
+          "id": "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "01d567a0bd279d1f895c791ad9acb17a629214ba5fab74fa2f94d4761c225946"
+        },
+        {
+          "id": "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d8483bebc43cff67af920df0919c563ebe45ed51c5821e1ba0385ce4e06f77a0"
+        },
+        {
+          "id": "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb12b110f0aa0d2558f1a334fc290ed53d50a1db9cce6680a135fbfabf6aa127"
+        },
+        {
+          "id": "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "785ca06f18e7a0b259b9e2d10b9b41d8c56cf4e0808b1703857d891dbd8da7f7"
+        },
+        {
+          "id": "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ccdc29e542a0e07c2f35c9730358a17746322f2636cac272a5614e3c89b5e23d"
+        },
+        {
+          "id": "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ce7b293fa2945abedf5abad03e4f29f74879d555f66f02d070c24c65cec9cbe"
+        },
+        {
+          "id": "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d8f5c392aa56e1df1d750420804a9a17b0f05760d91c5f52d82cd4db9533b1"
+        },
+        {
+          "id": "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e451dea81f625e41d4b3bbc85a79d321d09a1102c7ad0e5352c7c83c62bc71e2"
+        },
+        {
+          "id": "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7a8c3c020a3f496d763d256707a5d5308cd0fdae098ad88514ac7b1be9dae4e2"
+        },
+        {
+          "id": "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "222f1c44e83e406d887fad20dda1f6aaa4bc9b107c65d14cb07b695622616e0b"
+        },
+        {
+          "id": "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "979a82dd04b57cfc86161666927abd149c8151fd78aaaa3f5752d2fc4e1b6789"
+        },
+        {
+          "id": "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "f524916ff37219fe6c26a6a543d9361b19538776d6848321f8f04d4becaa66cb"
+        },
+        {
+          "id": "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "975843ca44b75e512029ed81cc195e15df91e4bff994672993a10b5b42ec8deb"
+        },
+        {
+          "id": "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03dc60b3477b399470a2fea155f2ff95760fbf8bdcab9fa29cd7e399de24d3d6"
+        },
+        {
+          "id": "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "faf3ab54a0745018b6dc0d43076d78e31d749e96144c2f24804b7a441bae28f4"
+        },
+        {
+          "id": "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "18524f34ff877936d654fe874459818b0ed63ab9402dc61161d9931f01916ebf"
+        },
+        {
+          "id": "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16"
+        },
+        {
+          "id": "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897"
+        },
+        {
+          "id": "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d9edbfb52c292e9f7c8329def345650963eb90a7e2a62edc9993a0cda09e8109"
+        },
+        {
+          "id": "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "af5b607142764a4adef7870d53b14d54f615d7ef3ac9bd53c2c1bd71672ee536"
+        },
+        {
+          "id": "completion-reader-round34-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d1d2dd66",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d1d2dd66322684b5f858cb55bbc09aab200edd74fedf07042e1a5a4eeb14ab"
+        },
+        {
+          "id": "completion-reader-round35-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-6f29cce04a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6f29cce04a6cdb0926af9bf04e3079545fab42a714403b58f93b22a920d05592"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round37-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-0ec1ad419d",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0ec1ad419d2f6c4107b7690df22b99b79aa0955734c1842da5ee058d8c9acef6",
+      "reason": "components/interactive/impedance-press.tsx: exact R37 historical source continuity for the root-reviewed law-first primary paragraph, followed by the existing valued action sentence. The change is bounded to one primary block; all model/state/native/geometry/method code and the existing0.3px input-mark containment remain. Exact component and E2E text/order expectations are independently preserved in the shared source succession. The fresh R37 reader is sealed FAIL109/110. Actual51 public regression is two passes and two genuine input-paint failures: the sent-input border extends one pixel beyond the primary. The43 raw artifacts and measured failure remain preserved. This source-proof edge grants no reader, technical, mission or release acceptance. See audit/evidence/mission-completion-20261102/reader-round37-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized meaningful hierarchy correction, root source review and exact historical proof continuation only. The genuine failed reader and failed public paint checks remain binding; no acceptance or waiver is granted.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ea07e79e34787a4d02a04a26823a9af535608337887cc794de43b569957c2b1f"
+        },
+        {
+          "id": "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943"
+        },
+        {
+          "id": "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4f8b327b007c0110a3436baa61c2a6d7da9e3460b2034639f6a86371a2bb95f8"
+        },
+        {
+          "id": "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e84294d903e6b2d0a343f376377c93c76ead16d8abd435e69869fb5b159b491b"
+        },
+        {
+          "id": "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c95600381ad3356de2b5a2b3c23b391c2a48f3fab04bc57db98478838d4cee90"
+        },
+        {
+          "id": "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "801977158d0636daefb59e319ad0b19d20ee6804ca8b4e53216b196d94ce7510"
+        },
+        {
+          "id": "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "876f5a0b444e3ffb95e6802490d62be3861fcc073a1b5766da96bbeb516a1db1"
+        },
+        {
+          "id": "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "01d567a0bd279d1f895c791ad9acb17a629214ba5fab74fa2f94d4761c225946"
+        },
+        {
+          "id": "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d8483bebc43cff67af920df0919c563ebe45ed51c5821e1ba0385ce4e06f77a0"
+        },
+        {
+          "id": "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb12b110f0aa0d2558f1a334fc290ed53d50a1db9cce6680a135fbfabf6aa127"
+        },
+        {
+          "id": "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "785ca06f18e7a0b259b9e2d10b9b41d8c56cf4e0808b1703857d891dbd8da7f7"
+        },
+        {
+          "id": "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ccdc29e542a0e07c2f35c9730358a17746322f2636cac272a5614e3c89b5e23d"
+        },
+        {
+          "id": "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ce7b293fa2945abedf5abad03e4f29f74879d555f66f02d070c24c65cec9cbe"
+        },
+        {
+          "id": "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d8f5c392aa56e1df1d750420804a9a17b0f05760d91c5f52d82cd4db9533b1"
+        },
+        {
+          "id": "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e451dea81f625e41d4b3bbc85a79d321d09a1102c7ad0e5352c7c83c62bc71e2"
+        },
+        {
+          "id": "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7a8c3c020a3f496d763d256707a5d5308cd0fdae098ad88514ac7b1be9dae4e2"
+        },
+        {
+          "id": "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "222f1c44e83e406d887fad20dda1f6aaa4bc9b107c65d14cb07b695622616e0b"
+        },
+        {
+          "id": "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "979a82dd04b57cfc86161666927abd149c8151fd78aaaa3f5752d2fc4e1b6789"
+        },
+        {
+          "id": "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "f524916ff37219fe6c26a6a543d9361b19538776d6848321f8f04d4becaa66cb"
+        },
+        {
+          "id": "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "975843ca44b75e512029ed81cc195e15df91e4bff994672993a10b5b42ec8deb"
+        },
+        {
+          "id": "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03dc60b3477b399470a2fea155f2ff95760fbf8bdcab9fa29cd7e399de24d3d6"
+        },
+        {
+          "id": "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "faf3ab54a0745018b6dc0d43076d78e31d749e96144c2f24804b7a441bae28f4"
+        },
+        {
+          "id": "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "18524f34ff877936d654fe874459818b0ed63ab9402dc61161d9931f01916ebf"
+        },
+        {
+          "id": "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16"
+        },
+        {
+          "id": "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897"
+        },
+        {
+          "id": "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d9edbfb52c292e9f7c8329def345650963eb90a7e2a62edc9993a0cda09e8109"
+        },
+        {
+          "id": "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "af5b607142764a4adef7870d53b14d54f615d7ef3ac9bd53c2c1bd71672ee536"
+        },
+        {
+          "id": "completion-reader-round34-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d1d2dd66",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d1d2dd66322684b5f858cb55bbc09aab200edd74fedf07042e1a5a4eeb14ab"
+        },
+        {
+          "id": "completion-reader-round35-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-6f29cce04a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6f29cce04a6cdb0926af9bf04e3079545fab42a714403b58f93b22a920d05592"
+        },
+        {
+          "id": "completion-reader-round36-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-08a85ab843",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "08a85ab84344bb881190a70a9706a90ff53d84bd2d70729184c07782191dbad7"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round38-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d1ab9523a5",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d1ab9523a548496c218e4b1a3b53690cc96452b9292228e724a19668c4846831",
+      "reason": "components/interactive/impedance-press.tsx: exact R38 historical source continuity for the root-reviewed complete generic primary and separate native-derived Sent paragraph. Two bounded UI maps preserve all model/state/native/geometry/method code and the0.3px input-mark containment. Exact component and E2E successors retain185 byte-exact assertions plus one mapped full Sent-text assertion, all29 native operations and219 errors. Actual52 public4 and four-state AX pass, while the sealed fresh R38 reader genuinely FAILS109/110. The source/reader/technical epochs are recorded separately; prior R37 input-paint and R35 focus failures remain intact. R39 is pending exact source and reader facts. This source-proof edge grants no reader, full technical, mission or release acceptance. See audit/evidence/mission-completion-20261102/reader-round38-39-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized complete-rule and valued-Sent presentation, root source review and exact historical proof continuation only. The current failed reader and all earlier failed reader/paint epochs remain binding; no acceptance or waiver is granted.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ea07e79e34787a4d02a04a26823a9af535608337887cc794de43b569957c2b1f"
+        },
+        {
+          "id": "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943"
+        },
+        {
+          "id": "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4f8b327b007c0110a3436baa61c2a6d7da9e3460b2034639f6a86371a2bb95f8"
+        },
+        {
+          "id": "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e84294d903e6b2d0a343f376377c93c76ead16d8abd435e69869fb5b159b491b"
+        },
+        {
+          "id": "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c95600381ad3356de2b5a2b3c23b391c2a48f3fab04bc57db98478838d4cee90"
+        },
+        {
+          "id": "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "801977158d0636daefb59e319ad0b19d20ee6804ca8b4e53216b196d94ce7510"
+        },
+        {
+          "id": "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "876f5a0b444e3ffb95e6802490d62be3861fcc073a1b5766da96bbeb516a1db1"
+        },
+        {
+          "id": "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "01d567a0bd279d1f895c791ad9acb17a629214ba5fab74fa2f94d4761c225946"
+        },
+        {
+          "id": "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d8483bebc43cff67af920df0919c563ebe45ed51c5821e1ba0385ce4e06f77a0"
+        },
+        {
+          "id": "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb12b110f0aa0d2558f1a334fc290ed53d50a1db9cce6680a135fbfabf6aa127"
+        },
+        {
+          "id": "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "785ca06f18e7a0b259b9e2d10b9b41d8c56cf4e0808b1703857d891dbd8da7f7"
+        },
+        {
+          "id": "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ccdc29e542a0e07c2f35c9730358a17746322f2636cac272a5614e3c89b5e23d"
+        },
+        {
+          "id": "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ce7b293fa2945abedf5abad03e4f29f74879d555f66f02d070c24c65cec9cbe"
+        },
+        {
+          "id": "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d8f5c392aa56e1df1d750420804a9a17b0f05760d91c5f52d82cd4db9533b1"
+        },
+        {
+          "id": "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e451dea81f625e41d4b3bbc85a79d321d09a1102c7ad0e5352c7c83c62bc71e2"
+        },
+        {
+          "id": "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7a8c3c020a3f496d763d256707a5d5308cd0fdae098ad88514ac7b1be9dae4e2"
+        },
+        {
+          "id": "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "222f1c44e83e406d887fad20dda1f6aaa4bc9b107c65d14cb07b695622616e0b"
+        },
+        {
+          "id": "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "979a82dd04b57cfc86161666927abd149c8151fd78aaaa3f5752d2fc4e1b6789"
+        },
+        {
+          "id": "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "f524916ff37219fe6c26a6a543d9361b19538776d6848321f8f04d4becaa66cb"
+        },
+        {
+          "id": "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "975843ca44b75e512029ed81cc195e15df91e4bff994672993a10b5b42ec8deb"
+        },
+        {
+          "id": "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03dc60b3477b399470a2fea155f2ff95760fbf8bdcab9fa29cd7e399de24d3d6"
+        },
+        {
+          "id": "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "faf3ab54a0745018b6dc0d43076d78e31d749e96144c2f24804b7a441bae28f4"
+        },
+        {
+          "id": "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "18524f34ff877936d654fe874459818b0ed63ab9402dc61161d9931f01916ebf"
+        },
+        {
+          "id": "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16"
+        },
+        {
+          "id": "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897"
+        },
+        {
+          "id": "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d9edbfb52c292e9f7c8329def345650963eb90a7e2a62edc9993a0cda09e8109"
+        },
+        {
+          "id": "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "af5b607142764a4adef7870d53b14d54f615d7ef3ac9bd53c2c1bd71672ee536"
+        },
+        {
+          "id": "completion-reader-round34-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d1d2dd66",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d1d2dd66322684b5f858cb55bbc09aab200edd74fedf07042e1a5a4eeb14ab"
+        },
+        {
+          "id": "completion-reader-round35-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-6f29cce04a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6f29cce04a6cdb0926af9bf04e3079545fab42a714403b58f93b22a920d05592"
+        },
+        {
+          "id": "completion-reader-round36-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-08a85ab843",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "08a85ab84344bb881190a70a9706a90ff53d84bd2d70729184c07782191dbad7"
+        },
+        {
+          "id": "completion-reader-round37-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-0ec1ad419d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0ec1ad419d2f6c4107b7690df22b99b79aa0955734c1842da5ee058d8c9acef6"
+        }
+      ]
+    },
+    {
+      "id": "completion-reader-round39-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-0c6a28c8d0",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0c6a28c8d0f70c3f43d6b187045f5fbd3c9c32e6637110b58112ae97f56b17cd",
+      "reason": "components/interactive/impedance-press.tsx: exact R39 source continuity after the preserved R38 source and failed-reader epoch. Two reviewed UI maps identify the numeric packet as Action and the boundary as Surface stops tool, retaining the same calculation, controls, model, geometry and0.3px paint tolerance. Exact component/E2E label successors preserve29 native operations,219 error emissions and185 byte-exact plus one mapped assertion. Actual53 public4 and focused AX pass; the separately sealed fresh R39 reader passes all110 with current562 protected paths. R38 readerFAIL and all earlier failures remain historically exact. Full112, final source-parity and release acceptance are still outstanding. See audit/evidence/mission-completion-20261102/reader-round38-39-source-continuity-review.json.",
+      "ownerApproval": "Owner-authorized explicit action/surface labels, root source review and exact sequential proof continuation only. Fresh R39 reader acceptance is recorded from its own sealed observation; no earlier failure is regraded and no full technical or release waiver is granted.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ea07e79e34787a4d02a04a26823a9af535608337887cc794de43b569957c2b1f"
+        },
+        {
+          "id": "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cb868604ba06c0f7b56c07402f51858027c21fc3f48840586966adf888460943"
+        },
+        {
+          "id": "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4f8b327b007c0110a3436baa61c2a6d7da9e3460b2034639f6a86371a2bb95f8"
+        },
+        {
+          "id": "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e84294d903e6b2d0a343f376377c93c76ead16d8abd435e69869fb5b159b491b"
+        },
+        {
+          "id": "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c95600381ad3356de2b5a2b3c23b391c2a48f3fab04bc57db98478838d4cee90"
+        },
+        {
+          "id": "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "801977158d0636daefb59e319ad0b19d20ee6804ca8b4e53216b196d94ce7510"
+        },
+        {
+          "id": "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "876f5a0b444e3ffb95e6802490d62be3861fcc073a1b5766da96bbeb516a1db1"
+        },
+        {
+          "id": "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "01d567a0bd279d1f895c791ad9acb17a629214ba5fab74fa2f94d4761c225946"
+        },
+        {
+          "id": "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d8483bebc43cff67af920df0919c563ebe45ed51c5821e1ba0385ce4e06f77a0"
+        },
+        {
+          "id": "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb12b110f0aa0d2558f1a334fc290ed53d50a1db9cce6680a135fbfabf6aa127"
+        },
+        {
+          "id": "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "785ca06f18e7a0b259b9e2d10b9b41d8c56cf4e0808b1703857d891dbd8da7f7"
+        },
+        {
+          "id": "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ccdc29e542a0e07c2f35c9730358a17746322f2636cac272a5614e3c89b5e23d"
+        },
+        {
+          "id": "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ce7b293fa2945abedf5abad03e4f29f74879d555f66f02d070c24c65cec9cbe"
+        },
+        {
+          "id": "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d8f5c392aa56e1df1d750420804a9a17b0f05760d91c5f52d82cd4db9533b1"
+        },
+        {
+          "id": "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e451dea81f625e41d4b3bbc85a79d321d09a1102c7ad0e5352c7c83c62bc71e2"
+        },
+        {
+          "id": "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7a8c3c020a3f496d763d256707a5d5308cd0fdae098ad88514ac7b1be9dae4e2"
+        },
+        {
+          "id": "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "222f1c44e83e406d887fad20dda1f6aaa4bc9b107c65d14cb07b695622616e0b"
+        },
+        {
+          "id": "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "979a82dd04b57cfc86161666927abd149c8151fd78aaaa3f5752d2fc4e1b6789"
+        },
+        {
+          "id": "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "f524916ff37219fe6c26a6a543d9361b19538776d6848321f8f04d4becaa66cb"
+        },
+        {
+          "id": "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "975843ca44b75e512029ed81cc195e15df91e4bff994672993a10b5b42ec8deb"
+        },
+        {
+          "id": "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03dc60b3477b399470a2fea155f2ff95760fbf8bdcab9fa29cd7e399de24d3d6"
+        },
+        {
+          "id": "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "faf3ab54a0745018b6dc0d43076d78e31d749e96144c2f24804b7a441bae28f4"
+        },
+        {
+          "id": "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "18524f34ff877936d654fe874459818b0ed63ab9402dc61161d9931f01916ebf"
+        },
+        {
+          "id": "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "773be90c069cc9b5c3702c882de9ac204fe5fde75c5e970f2853dd11666c2b16"
+        },
+        {
+          "id": "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "58b15ce4e18e1a83fb05840c1bc1a63b21b8979677abe2665de9ea438df6b897"
+        },
+        {
+          "id": "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d9edbfb52c292e9f7c8329def345650963eb90a7e2a62edc9993a0cda09e8109"
+        },
+        {
+          "id": "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "af5b607142764a4adef7870d53b14d54f615d7ef3ac9bd53c2c1bd71672ee536"
+        },
+        {
+          "id": "completion-reader-round34-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d1d2dd66",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "47d1d2dd66322684b5f858cb55bbc09aab200edd74fedf07042e1a5a4eeb14ab"
+        },
+        {
+          "id": "completion-reader-round35-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-6f29cce04a",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6f29cce04a6cdb0926af9bf04e3079545fab42a714403b58f93b22a920d05592"
+        },
+        {
+          "id": "completion-reader-round36-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-08a85ab843",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "08a85ab84344bb881190a70a9706a90ff53d84bd2d70729184c07782191dbad7"
+        },
+        {
+          "id": "completion-reader-round37-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-0ec1ad419d",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0ec1ad419d2f6c4107b7690df22b99b79aa0955734c1842da5ee058d8c9acef6"
+        },
+        {
+          "id": "completion-reader-round38-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d1ab9523a5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d1ab9523a548496c218e4b1a3b53690cc96452b9292228e724a19668c4846831"
+        }
+      ]
     }
   ]
 }

@@ -38,7 +38,21 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   'interactive:SceneRepresentationLadder': {
     basis:[{id:'assumption:SceneRepresentationLadder:metric-room-and-storage',kind:'assumption',reference:'The same authored18m³room/14m²surface uses cell widths30/20/15/10cm. Storage models:16bytes per surface point;1per volume voxel;8per3surface-band voxels;24per2surface triangles;236per Gaussian. The plan view is300×200cm with an exact occlusion trapezoid and16cm transparent-surface depth bias; none is measured sensor accuracy.'}],evidencePaths:['lib/scene-representation.ts','lib/brand-v2-source-oracle-models.ts'],
     check(c){
-      const choices=[/^Dots /,/^Grid of boxes /,/^Distance map /,/^Surface of triangles /,/^Overlapping colour blobs /].map(label=>c.selected(label));if(choices.filter(Boolean).length!==1)throw new Error('expected one representation');const mode=choices.indexOf(true),index=c.input(/^Detail, currently/),cm=[30,20,15,10][index];if(cm===undefined)throw new Error('invalid resolution index');
+      const choices=[/^Dots /,/^Grid of boxes /,/^Small boxes: distance to seen surfaces /,/^Surface of triangles /,/^Coloured shapes make camera pictures /].map(label=>c.selected(label));if(choices.filter(Boolean).length!==1)throw new Error('expected one representation');const mode=choices.indexOf(true),index=c.input(/^Detail, currently/),cm=[30,20,15,10][index];if(cm===undefined)throw new Error('invalid resolution index');
+      c.contains('Scene representationsOnly storage format changes which questions can be answered');
+      c.contains('Storage format → questions it answers directly');
+      c.contains('Finer detail → more memory, the same questions');
+      c.contains('Smaller spacing shows finer detail for the same kinds of questions.');
+      for (const [format, questions] of [
+        ['Dots', 'None of these three directly'],
+        ['Grid of boxes', 'Can the robot move here?'],
+        ['Small boxes: distance to seen surfaces', 'Can the robot move here?Which way does the surface face?'],
+        ['Surface of triangles', 'Which way does the surface face?'],
+        ['Coloured shapes make camera pictures', 'What does it look like from here?'],
+      ]) c.contains(format + questions);
+      c.contains('Other answers may need extra processing; the selected format’s details are shown below.');
+      c.contains('Distance option: from each small box to a surface the camera sees, along its line of sight. Picture option: coloured shapes in 3D overlap to draw the room from a chosen camera position.');
+      c.contains('At a wall or object face: the direction straight out from the surface, for planning contact.');
       const elements=Math.round((mode===1?18/(cm/100)**3:14/(cm/100)**2)*[1,1,3,2,1][mode]),bytes=elements*[16,1,8,24,236][mode],byteText=bytes<1024?`${Math.round(bytes)} B`:bytes<1048576?`${(bytes/1024).toFixed(bytes/1024<10?1:0)} KB`:bytes<1073741824?`${(bytes/1048576).toFixed(bytes/1048576<10?1:0)} MB`:`${(bytes/1073741824).toFixed(1)} GB`,name=['points','voxels','band voxels','triangles','Gaussians'][mode];
       c.readoutNumbers(0,[cm]);c.readoutNumbers(1,[Number.parseFloat(byteText),elements,cm]);c.readoutText(2,byteText);c.readoutText(3,`${elements.toLocaleString('en-US')} ${name}`);
       const g=representationExpected(cm),series=(kind:string)=>kind==='thin'||kind==='transparent'?'uncertain':'surface';c.requireSeries(mode===1?['occupied','unknown','free','room']:mode===4?['surface','uncertain','room']:['surface','uncertain','unobserved','room']);
@@ -201,7 +215,12 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   },
   'interactive:FlowMatchingTrajectory': {
     basis: [{ id: 'assumption:FlowMatchingTrajectory:seeded-bezier-transport', kind: 'assumption', reference: '48 authored noise-to-target pairs, seed 20241031 and 0.22 chord-relative bend. For a quadratic Bezier field, the Euler endpoint error is exactly 2*absolute lateral control-point offset/step count. No trained-policy error measurement is claimed.' }], evidencePaths: ['lib/flow-matching.ts', 'lib/brand-v2-source-oracle-models.ts'],
-    check(c) { const steps = c.input(/^Refining steps, any number/), error = round(flowEndpointError(steps), 2); c.readoutNumbers(0, [steps]); c.readoutNumbers(1, steps === 1 ? [steps, error] : [steps, error, round(flowEndpointError(1), 2)]); c.readoutNumbers(2, [steps]); c.readoutNumbers(3, [error]); },
+    check(c) {
+      const steps = c.input(/^Refining steps, any number/), error = round(flowEndpointError(steps), 2);
+      c.readoutNumbers(0, [steps]); c.readoutNumbers(1, steps === 1 ? [steps, error] : [steps, error, round(flowEndpointError(1), 2)]); c.readoutNumbers(2, [steps]); c.readoutNumbers(3, [error]);
+      c.readoutText(1, `Exact target-dot distance: ${steps} ${steps === 1 ? 'step' : 'steps'} average ${error.toFixed(2)}${steps === 1 ? '' : ` · one big jump averages ${flowEndpointError(1).toFixed(2)}`}`);
+      c.contains('Inside an outlined area counts as a good move. The small dot is its exact target; the readout measures distance to that dot.');
+    },
   },
   'interactive:GraspWrenchLab': {
     basis: [{ id: 'assumption:GraspWrenchLab:unit-square-wrenches', kind: 'assumption', reference: 'Authored unit square, point contacts, unit normal force and friction-cone edges n±mu*t. Torque is px*fy-py*fx. Epsilon is the origin-to-nearest supporting-facet distance of the wrench hull; eight central pulls are checked by positive conical combinations of at most three generators.' }], evidencePaths: ['lib/grasp.ts', 'lib/brand-v2-source-oracle-models.ts'],
@@ -275,7 +294,19 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   },
   'interactive:ChunkBuffer': {
     basis: [{ id: 'gemini-robotics-2025', kind: 'citation', reference: 'Approximately 250 ms response latency and 50 Hz effective control.' }, { id: 'assumption:ChunkBuffer:replace-latest-buffer', kind: 'assumption', reference: 'The reader chooses the chunk length. At 50 Hz and four answers/second, 13 actions covers every tick; shorter chunks fill four times their length of the 50 ticks.' }], citationText: { 'gemini-robotics-2025': 'Gemini Robotics' }, evidencePaths: ['lib/chunk-buffer.ts'],
-    check(c) { const k = c.input(/^Actions per chunk$/), enough = Math.ceil(250 * 50 / 1000); c.readoutNumbers(0, [k]); c.readoutNumbers(1, k >= enough ? [k, enough] : [k, 50 - 4 * k, 50, enough]); c.contains(`Action chunks${enough} actions bridge 250 milliseconds at 50 commands a second`); },
+    check(c) {
+      const k = c.input(/^Actions per chunk$/), enough = Math.ceil(250 * 50 / 1000);
+      c.readoutNumbers(0, [k]); c.readoutNumbers(1, k >= enough ? [k, enough] : [k, 50 - 4 * k, 50, enough]);
+      c.contains(`Action chunks${enough} actions bridge 250 milliseconds at 50 commands a second`);
+      c.contains('Gemini Robotics replies About 250 milliseconds per reply Each reply carries a chunk of actions.');
+      c.contains('Robot’s control clock Needs 50 commands each second.');
+      c.contains(`${enough} or more actions per reply cover the wait. Fewer leave the arm idle.`);
+      c.contains('Illustrative chunk size');
+      c.contains('This card feeder represents the action queue. The robot arm is not drawn: empty belt slots show moments when it waits.');
+      c.contains('One action every 20 ms');
+      c.contains(`250 ms ÷ 20 ms = 12.5 action intervals Round up → ${enough} actions per reply cover the wait`);
+      c.contains("Assumed: one request at a time, the next sent when an answer lands. Gemini Robotics does not publish its chunk length, so the deck size is the reader's; 16 is the chunk GR00T N1 samples.");
+    },
   },
   'interactive:RecedingHorizon': {
     basis: [{ id: 'assumption:RecedingHorizon:ten-hertz', kind: 'assumption', reference: 'The Diffusion Policy configuration is 16 predicted and 8 executed actions at 10 commands/second. For any authored horizon, duration is steps/10 and replans/second is 10/executed steps.' }], evidencePaths: ['lib/receding-horizon.ts'],
@@ -335,6 +366,8 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     basis: [{ id: 'assumption:LatencyComparison:qualified-staleness-model', kind: 'assumption', reference: 'Authored throughput, not measured paper data: action=0.8/(1+(delay/125)^3); score clamps (action-0.55)/0.20 to [0,1]. The 24-tick trace blends to that action over ticks 8–10; RTC stays at 0.8 and score 1.' }], evidencePaths: ['lib/latency-chunking.ts'], seriesIds: ['lc-score-rtc', 'lc-score'],
     check(c) {
       const delay = c.input(/^Thinking delay, any value/), action = (d: number) => 0.8 / (1 + (d / 125) ** 3), score = (d: number) => Math.min(1, Math.max(0, (action(d) - 0.55) / 0.2)), status = (d: number) => score(d) >= 0.95 ? 'nominal' : score(d) > 0 ? 'degraded' : 'failed';
+      c.contains('Blue line: the movement the robot executes.');
+      c.contains(delay === 0 ? 'With no delay, the robot stays on the old plan. Add a delay to see how combining it with a late replacement can create an unchosen move.' : `The old plan and a late replacement propose different moves. Averaging combines those proposals into a move neither plan chose. ${Math.abs(Math.abs(action(delay)) - 0.8) > 0.25 ? 'That unchosen move hits the obstacle.' : 'At this delay, the combined move still clears the obstacle.'}`);
       c.readoutNumbers(0, delay === 0 ? [] : [delay / 1000]); c.readoutNumbers(1, [Math.round(score(delay) * 100), 100]); c.readoutNumbers(2, [Math.round(score(delay) * 100)]); c.readoutNumbers(4, [100]);
       const summary = { tableHeaders: ['delay (ms)', 'ensembling', 'chunking', 'ensembling status', 'playhead'] }, trace = { tableHeaders: ['tick', 'ensembling', 'chunking', 'ensembling validity'] };
       for (const d of [...new Set([0, 60, 100, 140, 200, 240, delay])]) c.row(String(d), { ensembling: `${Math.round(score(d) * 100)}%`, chunking: '100%', 'ensembling status': status(d), playhead: d === delay ? 'playhead' : 'off' }, summary);
@@ -403,7 +436,12 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   'interactive:HelixClockwork': {
     basis: [{ id: 'helix-02-2026', kind: 'citation', reference: 'Figure reports S0 at 1000 Hz and S1 at 200 Hz, hence five control steps per joint target.' }, { id: 'assumption:HelixClockwork:elapsed-clock', kind: 'assumption', reference: 'The authored demonstration counts completed ticks from zero at the native elapsed-millisecond setting.' }],
     citationText: { 'helix-02-2026': "Rates from Figure's Helix 02 announcement (January 2026)." }, evidencePaths: ['components/iso/figures/helix-clockwork.ts'],
-    check(c) { const ms = Math.floor(c.input(/^Time on the clock$/) + 1e-9); c.readoutNumbers(0, [ms]); c.readoutNumbers(1, [ms, ms, Math.floor(ms / 5)]); },
+    check(c) {
+      const ms = Math.floor(c.input(/^Time on the clock$/) + 1e-9); c.readoutNumbers(0, [ms]); c.readoutNumbers(1, [ms, ms, Math.floor(ms / 5)]);
+      c.contains("Helix 02 is the company Figure's system for controlling robots.");
+      c.contains('Dark hand: 1,000 whole-body control steps each second; blue hand: 200 joint targets each second.');
+      c.contains('5 control steps for each new joint target.');
+    },
   },
   'interactive:Ros2Interfaces': {
     basis: [{ id: 'ros2-interfaces-2026', kind: 'citation', reference: 'Topics stream, services request/reply, actions provide feedback and result with cancellation.' }, { id: 'assumption:Ros2Interfaces:example-messages', kind: 'assumption', reference: 'The four pictures, one gripper query and 30/60-percent action updates are illustrative message contents, not throughput measurements.' }],
@@ -432,7 +470,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   },
   'interactive:ReplayReuse': {
     basis: [{ id: 'ppo-2017', kind: 'citation', reference: 'PPO updates from the current on-policy batch.' }, { id: 'sutton-barto-2018', kind: 'citation', reference: 'Off-policy learners can reuse behavior-policy experience.' }, { id: 'assumption:ReplayReuse:six-batches', kind: 'assumption', reference: 'Six authored collection rounds produce one current on-policy batch or six retained off-policy batches, without a sample-efficiency claim.' }], evidencePaths: ['components/interactive/replay-reuse.tsx'],
-    check(c) { c.row('On-policy, like PPO', { 'batches usable after 6 rounds': '1', 'older batches': 'thrown away' }); c.row('Off-policy, like SAC', { 'batches usable after 6 rounds': '6', 'older batches': 'kept in the replay buffer' }); },
+    check(c) { c.row('Use fresh experience', { 'batches usable after 6 rounds': '1', 'older batches': 'thrown away' }); c.row('Reuse saved experience', { 'batches usable after 6 rounds': '6', 'older batches': 'kept in the replay buffer' }); },
   },
   'interactive:DemoOrSim': {
     basis: [{ id: 'reality-gap-survey-2026', kind: 'citation', reference: 'Contact-model fidelity differs between walking and manipulation.' }, { id: 'rudin-2021', kind: 'citation', reference: 'ANYmal flat-ground policy in under four minutes of training.' }, { id: 'act-aloha-2023', kind: 'citation', reference: 'Battery insertion success 80–90% after ten minutes of demonstrations.' }], evidencePaths: ['components/interactive/demo-or-sim.tsx'],
@@ -479,10 +517,41 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       const name = soft ? 'Soft' : stiff ? 'Stiff' : 'Medium', magnitude = Math.abs(target), words = `${Number.isInteger(magnitude) ? magnitude : magnitude.toFixed(1)} ${magnitude === 1 ? 'mark' : 'marks'}`;
       const targetText = target === 0 ? 'on the surface' : `${words} ${target < 0 ? 'short of surface' : 'past surface'}`;
       c.readoutText(0, targetText);
+      // Current DOM collector: native Target first, then four visible dial labels.
+      [0, 4, 8, 12].forEach((mark, index) => c.readoutNumbers(index + 1, [mark]));
       const push = rate * Math.max(0, target);
-      c.readoutText(1, `${name} · ${targetText} · ${target <= 0 ? 'no push' : `push ${Number.isInteger(push) ? push : push.toFixed(1)} dial marks`}`);
-      c.contains(`Impedance action${target > 0 ? 'Surface stops the tool; stiffness times target gap sets push' : target < 0 ? 'Before contact, the tool follows its target without pushing' : 'At the surface, no target gap means no push'}`);
+      c.readoutText(5, `${name} · ${targetText} · ${target <= 0 ? 'no push' : `push ${Number.isInteger(push) ? push : push.toFixed(1)} dial marks`}`);
+      c.contains(`Impedance action${target > 0 ? 'This action sends target and stiffness for contact' : target < 0 ? 'This action sends target and stiffness before contact' : 'This action sends target and stiffness at the surface'}`);
       c.contains(target > 0 ? `The surface stops the tool. Stiffness ${rate} times a target gap of ${target} ruler marks gives ${Number.isInteger(push) ? push : push.toFixed(1)} dial marks of push.` : target < 0 ? 'Before contact, the tool follows the target and pushes on nothing.' : 'Target and tool meet the surface with no gap, so there is no push.');
+      c.contains('Action stiffness');
+      c.contains('An action sends target and stiffness; once the surface stops the tool, push equals stiffness times target gap.');
+      c.contains(`An action sends target and stiffness; once the surface stops the tool, push equals stiffness times target gap. Action: target ${target > 0 ? '+' : ''}${target} and stiffness ${rate}.Action stiffnessSoftMediumStiffTarget${targetText}Run the press Controller: uses these settings to make the tool act like a spring.`);
+      c.contains('Controller: uses these settings to make the tool act like a spring.');
+      c.contains(`Surface stops tool Shown target: ${targetText}`);
+      c.contains('Target is where to aim. Stiffness sets how strongly the tool behaves like a spring.');
+      c.contains(target > 0
+        ? `Stopped tool Target level Marked target gap: ${target} ruler ${target === 1 ? 'mark' : 'marks'} from the stopped tool to the target level.`
+        : `Tool and target ${target < 0 ? 'Tool follows target.' : 'Tool and target meet at the surface.'} Marked target gap: 0 ruler marks.`);
+      // Retained method content is source-bound even while its native fold is
+      // closed. Physical paint/geometry is measured only after native opening.
+      c.contains(`${target > 0 ? 'The surface stops the tool.' : target < 0 ? 'Before contact, the tool follows its target without pushing.' : 'No target gap means no push.'}${target > 0 ? 'Stopped tool Target level' : 'Tool and target'}`);
+      // Bind both the equation and each labelled copy to the same independent
+      // values; a correct readout cannot hide a wrong operand description.
+      c.contains(`Shown response ${target > 0 ? 'The surface stops the tool.' : target < 0 ? 'Before contact, the tool follows its target without pushing.' : 'Tool and target meet the surface without pushing.'} Surface stops tool Shown target: ${targetText}Schematic push scale from 0 to 12 dial marks, without physical units.04812 ↓ Shown calculation sent stiffness: ${rate} × times target gap: ${Math.max(0, target)} ruler marks = equals push: ${Number(push.toFixed(1))} dial marks ${rate} × ${Math.max(0, target)} = ${Number(push.toFixed(1))}`);
+      c.contains('Ruler: target gap. Dial: push.');
+      [0, 4, 8, 12].forEach(mark => {
+        const angle = (-135 + 270 * mark / 12) * Math.PI / 180;
+        c.svgText(null, String(mark), 56 + 46 * Math.sin(angle), 50 - 46 * Math.cos(angle), 0.05, { ownerTestId: 'press-push-dial', dy: null, requirePaint: true });
+      });
+      c.contains('Spring analogy: target gap');
+      c.contains('Schematic ruler and dial marks, with no physical units: springs give 1, 2 or 4 dial marks per ruler mark.');
+      c.contains('Once the surface stops the tool, push equals stiffness times how far the target sits past it.');
+      c.contains('An impedance action is a target pose plus a stiffness and a damping, and a controller under the policy turns the gap between the target and the tool into a push.');
+      c.contains('at rest the push is the stiffness times the gap, and the damping only acts while the tool moves.');
+      c.contains('In free space nothing stops the tool, so it rides on the target and the scale reads nothing.');
+      c.contains('The same target pushes four times as hard through the stiff spring as through the soft one.');
+      c.contains('Illustrative: the three springs push 1, 2 and 4 dial marks per ruler mark of gap, and no force in newtons is claimed.');
+      c.contains('Target-and-stiffness control from Hogan (1985): the controller makes the tool behave like a spring.');
     },
   },
   'interactive:ScopeFollow': {
@@ -517,7 +586,14 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     basis: [{ id: 'ames-cbf-2019', kind: 'citation', reference: 'Control barrier functions preserve an admissible safe set.' }, { id: 'wabersich-safety-filters-2023', kind: 'citation', reference: 'Least-change filtering of proposed controls.' }, { id: 'assumption:SafetyFilterFence:illustrative-stroke', kind: 'assumption', reference: 'The authored playhead is a percentage of an illustrative stroke; no quantitative safety margin or robot-performance value is claimed.' }],
     citationText: { 'ames-cbf-2019': 'Ames and colleagues (2019)', 'wabersich-safety-filters-2023': 'Wabersich and colleagues (2023)' }, evidencePaths: ['components/interactive/safety-filter-fence.tsx'],
     nonQuantitative: 'The fence is a qualitative least-change-rule schematic, with no metric safety margin. Only its authored progress percentage is numerical.',
-    check(c) { const percent = c.input(/^Along the stroke$/); c.readoutNumbers(0, [percent]); c.readoutNumbers(1, percent >= 100 ? [100] : []); c.contains('no number is claimed'); },
+    check(c) {
+      const percent = c.input(/^Along the stroke$/); c.readoutNumbers(0, [percent]); c.readoutNumbers(1, percent >= 100 ? [100] : []); c.contains('no number is claimed');
+      c.contains('Safety filterThe simple filter gets checked; it guards each proposed move');
+      c.contains('The simple safety filter is what engineers check.');
+      c.contains('Learned controller proposes (trained from data) → Robot executes');
+      c.contains('Safe move=The same move, unchanged');
+      c.contains('Unsafe move→The smallest correction that stays outside the forbidden area');
+    },
   },
   'interactive:NoiseOrEdit': {
     basis: [{ id: 'expo-ft-2026', kind: 'citation', reference: 'Reported EXPO-FT versus DSRL trial counts in the comparison; the cam/peg illustration is not a measured reward landscape.' }, { id: 'assumption:NoiseOrEdit:cam-and-edit', kind: 'assumption', reference: 'One authored action, cam, hole and residual edit demonstrate restricted search support qualitatively.' }],
@@ -552,6 +628,8 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       const curve = (size: number) => size <= 3 ? 52.57 * size / 3 : 52.57 * Math.exp(Math.log(size / 3) * Math.log((1000 / 3.9) / 52.57) / Math.log(9.1 / 3));
       const toy = curve(params), milliseconds = server ? 1000 / 162.5 : toy, hz = Math.round(1000 / milliseconds), missed = Math.max(0, Math.ceil(milliseconds / 20) - 1);
       c.contains(`Control-loop budgetChoosing a move takes ${(milliseconds/20).toFixed(1)} times the available time`);
+      c.contains(`Choosing a move takes ${milliseconds.toFixed(1)} milliseconds; the arm has 20 milliseconds between commands. That is ${(milliseconds / 20).toFixed(1)} times the available time.`);
+      c.contains('Computer timings are predictions from VLA-Perf, a robot timing study; values for other model sizes are illustrative.');
       c.readoutNumbers(0, [params, Number(toy.toFixed(1))]); c.readoutNumbers(1, [params]); c.readoutNumbers(2, [Number(toy.toFixed(1))]);
       c.readoutNumbers(3, [50, hz, missed]); c.readoutText(4, `${milliseconds <= 20 ? 'closes' : 'does not close'} at 50 Hz`);
       c.readoutNumbers(5, [hz]); c.readoutNumbers(6, [missed]);
@@ -733,12 +811,16 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       ] as const;
       for (const [index, [row, printed, miles, y]] of rows.entries()) {
         c.cell(row, 'failure-free miles at 95% confidence', printed);
-        c.readoutText(index, printed);
+        c.readoutText(index, `${printed}; no ${['death', 'reported injury', 'reported crash'][index]}`);
         c.point(row, 10 + (Math.log10(miles) - 6) * 320 / 3, y);
       }
       c.contains('12.5 years');
-      c.svgText(null, 'Miles; each tick is ten times farther', 330, 182);
-      c.contains('Miles needed to prove safetyNo fatalities in 275 million miles: 95% confidence');
+      c.svgText(null, 'Required miles; each tick is ten times farther', 330, 182);
+      c.contains('Miles needed to prove safetyFleet: 275 million miles without deaths, at 95% confidence');
+      c.contains('Required fleet run at 95% confidence275 million miles 0 deaths');
+      c.contains('Calculated upper bound for this hypothetical runAbout 1.09 deaths per 100 million milesNo higher than the study’s US human-driver benchmarkThe true fatality rate remains unknown. In the long run, at least 95 out of 100 upper bounds from studies of the same design would reach or exceed it.');
+      c.contains('This is a hypothetical test with a fixed distance and zero deaths. The model assumes independent miles with the same failure probability on every mile. The study’s 2013 US benchmark includes all motor vehicles.');
+      c.contains('Under the study’s per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.');
     },
   },
   'interactive:DatasetRunsHours': {
