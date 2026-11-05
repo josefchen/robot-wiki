@@ -100,6 +100,7 @@ export const frameDataSchema = z.object({
     overviewCell: text.optional(),
     effectiveOpacity: number.optional(),
     displayed: z.boolean().optional(),
+    plotTransform: z.object({ a: number, b: number, c: number, d: number, e: number, f: number }).strict().nullable().optional(),
     attrs: z.record(text, text),
     viewBox: text
   }).strict()),

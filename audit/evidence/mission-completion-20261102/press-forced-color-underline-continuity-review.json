@@ -1,0 +1,650 @@
+{
+  "schemaVersion": "press-forced-color-underline-source-continuity-v1",
+  "status": "Root-applied independently reviewed CSS paint source continuity; actual53 visual failure remains historical; current compiled and full-matrix validation are separate.",
+  "basePublicContinuityCommit": "f05031ab39e4013a983219f02413bf07dd5968d8",
+  "sourceFile": "app/globals.css",
+  "beforeSha256": "0fe019917974354beee40b34ce977f70f49e061b5d77add5bdeb53686b4f572a",
+  "afterSha256": "922b763fbf58cbe02baffbb7a55caf706874ae92d011da5868895a1ceaa7db0d",
+  "exactInsertion": "  /* Keep the Action input rule visible beneath its inline value fields. */\n  [data-figure-frame=\"impedance-press\"] [data-action-field],\n  [data-figure-frame=\"impedance-press\"] [data-action-value] {\n    background-color: transparent;\n  }\n\n",
+  "allOtherCssBytesExact": true,
+  "sourceReady": {
+    "path": "press-forced-color-underline-repair-20261105/SOURCE-READY.json",
+    "sha256": "ee776b447bebf8643a070c9582e9f8498ef1cded7874b17666e7b0215da66039"
+  },
+  "independentSourceApproval": {
+    "path": "press-forced-color-underline-independent-review-20261105/SOURCE-APPROVAL.json",
+    "sha256": "a2d0a787616ec320cc31b35570e1748eab99181577f9afda1ed48a1f4e41323a",
+    "schemaApprovalField": "approved",
+    "approved": true,
+    "scope": "The exact one-file private CSS candidate only. This approval permits proceeding to the intended compiled validation; it does not declare the original full-matrix finding closed or accept the mission/release."
+  },
+  "sourceSuccessor": {
+    "file": "app/globals.css",
+    "beforeSha256": "0fe019917974354beee40b34ce977f70f49e061b5d77add5bdeb53686b4f572a",
+    "afterSha256": "922b763fbf58cbe02baffbb7a55caf706874ae92d011da5868895a1ceaa7db0d",
+    "old": "  [data-figure-stage] svg [stroke] {\n",
+    "new": "  /* Keep the Action input rule visible beneath its inline value fields. */\n  [data-figure-frame=\"impedance-press\"] [data-action-field],\n  [data-figure-frame=\"impedance-press\"] [data-action-value] {\n    background-color: transparent;\n  }\n\n  [data-figure-stage] svg [stroke] {\n",
+    "count": 1,
+    "allOtherBytesExact": true,
+    "scope": "Only forced-color backgrounds for four Press Action field/value spans; all other stage backgrounds and CanvasText remain."
+  },
+  "prototypeOnly": {
+    "cases": 6,
+    "normalChangedPixelsEach": 0,
+    "forcedChangedPixelsEach": 147,
+    "forcedChangedRowsEach": 1,
+    "textGeometryFontsColorsAndNativeForcedAdjustmentExact": true,
+    "compiledValidationPendingAtSourceApproval": true
+  },
+  "sharedContinuity": {
+    "sources": 264,
+    "changedSourceRows": [
+      "app/globals.css"
+    ],
+    "oldCssEdits": 7,
+    "addedCssEdits": 1,
+    "allExistingPreservedNeedlesAndChecksExact": true,
+    "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+    "archivedBeforeSha256": "0881cfff7752e81df621165821cc378b4f17818bc179f540dfb664bb02590701",
+    "forwardAndReverseExact": true
+  },
+  "baselineConsequence": {
+    "actualCollectorOK": true,
+    "failures": [],
+    "ledgerEntries": 5608,
+    "suffixEntries": 920,
+    "newApprovalEdges": 0,
+    "ledgerSuffixAndCompletionHelperUnchanged": true
+  },
+  "readerHandling": {
+    "acceptedReaders": 110,
+    "protectedPaths": 562,
+    "acceptedManifest": {
+      "path": "all110-accepted-readers-r39.json",
+      "sha256": "d531b2597794bb8ad010b26cb79b10cc26267e0b5930704a7dc29296efdeef29"
+    },
+    "allExistingPathHashesExact": true,
+    "cssIsAbsentFromAllRegisteredReaderInputs": true,
+    "recordEdits": 0,
+    "regrades": 0,
+    "prototypeNormalPixelsChanged": 0,
+    "compiledNormalImageValidationPending": true
+  },
+  "historicalR38R39Proof": {
+    "path": "audit/evidence/mission-completion-20261102/reader-round38-39-source-continuity-review.json",
+    "sha256": "554010f970ea3871d5d6b7e4845754acda3a826c6957f5832225613a5f5330f3",
+    "allHistoriesUnchanged": true
+  },
+  "actual53FailurePreserved": {
+    "executionDirectory": "reader-round39-full112-technical-execution-20261105-attempt2",
+    "actualBuild": 53,
+    "recordedCssSha256": "0fe019917974354beee40b34ce977f70f49e061b5d77add5bdeb53686b4f572a",
+    "producerCommandsPassed": 12,
+    "invocations": [
+      {
+        "commandOrder": 1,
+        "producer": "author-capture-learning.mjs",
+        "arguments": [
+          "impedance-press"
+        ],
+        "defaultsOnly": "1",
+        "captureName": "matrix-defaults-attempt1",
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 2,
+        "producer": "author-capture-learning.mjs",
+        "arguments": [
+          "impedance-press"
+        ],
+        "defaultsOnly": null,
+        "captureName": "matrix-native-attempt1",
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 3,
+        "producer": "author-profiles-canonical-expanded.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 4,
+        "producer": "author-profiles-all-html.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 5,
+        "producer": "author-profiles-forced.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 6,
+        "producer": "author-profiles-forced-boundaries.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 7,
+        "producer": "author-live-open.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 8,
+        "producer": "author-live-closed.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 9,
+        "producer": "author-axe-aria.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 10,
+        "producer": "author-profiles-early-narrow.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 11,
+        "producer": "author-fractional-early.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      },
+      {
+        "commandOrder": 12,
+        "producer": "author-fold-early.mjs",
+        "arguments": [],
+        "defaultsOnly": null,
+        "captureName": null,
+        "complete": true,
+        "exitCode": 0
+      }
+    ],
+    "artifactManifest": {
+      "path": "reader-round39-full112-technical-execution-20261105-attempt2/diagnostic-metadata/artifacts.json",
+      "sha256": "d73d6a4ad4466f5ef05e14d4e99aadc3721fc10a071b7745a2e067ea8b9ac4d1",
+      "artifacts": 176,
+      "allRawBytesVerified": true
+    },
+    "independentMarks": {
+      "path": "reader-round39-full112-technical-execution-20261105-attempt2/diagnostic-metadata/independent-mark-postread.json",
+      "sha256": "a41329b6b18f9ae3508c7526d5e4a3cfdd37661f4613dd861e943136f6464587",
+      "passed": true,
+      "stories": 167,
+      "failures": []
+    },
+    "rootVisualFinding": {
+      "path": "reader-round39-full112-root-visual-review-20261105/VISUAL-FINDING.json",
+      "sha256": "5175ffa39cfc84b223c0028c4c440c606638f7f0a7426ff3e0a027055a016caa",
+      "fullTechnicalAccepted": false,
+      "imagesRemainingAtReceipt": 22
+    },
+    "stressReceipt": {
+      "path": "reader-round39-full112-stress-visual-review-20261105/REVIEW.json",
+      "sha256": "cfc1ed7e51187adbea1d7bf8044f0ce84b85399b7be132354fa4d73722d4650f",
+      "actuallyOpenedByIndependentReviewer": 44,
+      "affectedForcedImages": 32
+    },
+    "finding": {
+      "id": "R39-STRESS-01",
+      "status": "observed",
+      "category": "Action-field underline visibility in forced colors",
+      "severity": "Limited visual defect; no missing value or numeric mismatch observed.",
+      "observation": "Across all 32 forced-light and forced-dark screenshots, the Action sentence retains a short underline only beneath the word and. The target field and stiffness field are visibly not underlined. The full phrase is underlined in the 12 doubled-HTML-text captures and the previously reviewed native captures.",
+      "impact": "The intended underline no longer groups the target and stiffness values; it instead emphasizes the conjunction. The full Action text and numeric values remain legible.",
+      "scope": {
+        "families": [
+          "matrix-forced-attempt1",
+          "matrix-forced-boundaries-attempt1"
+        ],
+        "states": [
+          "default",
+          "changed",
+          "contact",
+          "half-mark"
+        ],
+        "palettes": [
+          "forced-light",
+          "forced-dark"
+        ],
+        "viewport_widths": [
+          1280,
+          375
+        ],
+        "method_disclosures": [
+          "open",
+          "closed"
+        ],
+        "affected_capture_count": 32
+      },
+      "representative_paths": [
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-375.open.png"
+      ],
+      "affected_paths": [
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-dark-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-dark-1280.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-dark-375.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-dark-375.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-light-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-light-1280.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-light-375.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-light-375.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-1280.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-375.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-375.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-1280.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-375.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-375.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-dark-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-dark-1280.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-dark-375.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-dark-375.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-light-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-light-1280.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-light-375.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-light-375.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-dark-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-dark-1280.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-dark-375.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-dark-375.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-1280.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-1280.open.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-375.closed.png",
+        "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-375.open.png"
+      ],
+      "root_notification": "Parent agent was notified after confirming the first desktop forced-light/dark examples and again after all 44 images were examined.",
+      "root_cause": "Not established by this read-only screenshot review.",
+      "fix_status": "No source or capture change made by this reviewer."
+    },
+    "affectedImageHashes": [
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-dark-1280.closed.png",
+        "sha256": "d94a4ebe560fd8b8977dac3f8446c5a194a8d40ec12dcaad2ee22d1c9b2bc3fa"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-dark-1280.open.png",
+        "sha256": "2edd27406ddd075edafeb3c4a99f7f763febf972572fbb8fa0d12415e8719f1b"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-dark-375.closed.png",
+        "sha256": "65d8bd56fd68c1852769deb8eb4a2391c820932e290e9e893236fe4c832d6338"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-dark-375.open.png",
+        "sha256": "47311eff44c04b49ea8ba42a188be70659a903d1192f5369b02c34c09183f39e"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-light-1280.closed.png",
+        "sha256": "a000b0caf62bbfa4143cdc1da0cd19be345729c5730aece166f5d9d9b272b4f2"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-light-1280.open.png",
+        "sha256": "fc84263ef83de8c2913b1e9c3738e4f8c5bd58e522a34752eeb58e62b7d918dd"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-light-375.closed.png",
+        "sha256": "3c033b8b799307416ffe8be8086078c62f4fa2f66614c49e3cd0409d2e731b5f"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.changed.forced-light-375.open.png",
+        "sha256": "ba060d0544798b1b0e48c6e7c0b677ea3325411b7eb8d0c7da28e9d3ddf93184"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-1280.closed.png",
+        "sha256": "1d1e0037afbee63ad67976deab98bb80e12cee0806c98e5e285b31dd9c0864da"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-1280.open.png",
+        "sha256": "222505fea6dffacd9a5a8f38f6cb0ed2e31b611ce1fef14808e1a5dcf33d8f53"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-375.closed.png",
+        "sha256": "9050f0dfdd23871e64baa4799038ca97e8f978c0a734310e2ce6aea3d2550314"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-dark-375.open.png",
+        "sha256": "e7e92619cfdcd9c2e3d4d4f21802c10032f924927750f9d68acd031386557bb1"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-1280.closed.png",
+        "sha256": "8145e61d3c262e1101a10f97ca1b051267c39d1eb00c44816b4a542e40254bf6"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-1280.open.png",
+        "sha256": "fb6b658c03a3a08bae619b19854b93d2fd9ce81f26870ca34f9ea8c5545073fe"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-375.closed.png",
+        "sha256": "6acdca32a8020a9a778af46f7e23af36c47cbb543670c03b7d0cbf342a2a391e"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-attempt1/impedance-press.default.forced-light-375.open.png",
+        "sha256": "4aa73143bcfd66e867524532de93856897e3fb1ed02a2cffed1f829be64de9b9"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-dark-1280.closed.png",
+        "sha256": "25fd576b639772aecbea9bb3c6d75a29370daef59389bf30260a8d0d914ed435"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-dark-1280.open.png",
+        "sha256": "65116f66728a00d6cf3ae7fe5bd032834687119689a7be3b92275000a6e3564f"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-dark-375.closed.png",
+        "sha256": "99df1526710d658c6867bcb2896e65f68498a3a7ab77d375a498965f199f8596"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-dark-375.open.png",
+        "sha256": "9c3e214671cda567dfc1204456ef36a4112a4840d1b5db6ed8ea33837bb29c15"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-light-1280.closed.png",
+        "sha256": "a2315e3f66f5adbca21ea82efb119c4835282be89952ce9fca8fa3521cf3d427"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-light-1280.open.png",
+        "sha256": "19968f2ed1c7b6017b777308e4676e3165abedf9a2b8336b3a70a14b744f1396"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-light-375.closed.png",
+        "sha256": "53e8aa75894c6ef2e5370469737776ae569c90206c050afffb122286bb4b57f5"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.contact.forced-light-375.open.png",
+        "sha256": "c087091bf2385ebeaabe7a795bc4752112cbc595414161cbf588ef23c248bc6d"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-dark-1280.closed.png",
+        "sha256": "16dac0d3c3fc84fc53d54bbcdc69659044a315f99d0355b1d0d2cbbb24b9bcb4"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-dark-1280.open.png",
+        "sha256": "ea045a3f6e30a0e21861bda260aa7c522785fea1dbb110d94b3c580891268c18"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-dark-375.closed.png",
+        "sha256": "bfd2262de6420bb59f8526101572cbfcf9fea73c469c2b3bf9ecd5e89bb58f82"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-dark-375.open.png",
+        "sha256": "542822f8f298218ae4210499628dc0a09bad6a8957f72a12c1c63cfee1147e98"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-1280.closed.png",
+        "sha256": "e740d0e962835b6dec445dba813a50c2066120c081bcb49b472d45f802cfd77b"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-1280.open.png",
+        "sha256": "c54eee09e1a1535a12ea79488f112d7a31103d1a93be8da3f1f10c48f22e4134"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-375.closed.png",
+        "sha256": "7b3883c191f3728fcaed14a6e62a419f8ecefb82bf6765c9339f24c3277dacc5"
+      },
+      {
+        "path": "reader-round39-full112-technical-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/impedance-press.half-mark.forced-light-375.open.png",
+        "sha256": "0565fa8d9a66b7ecf537e405f1f800bd4977d2e1e1b575eded68ee72ae155f0a"
+      }
+    ],
+    "pathProjection": [
+      {
+        "field": "representative_paths[0]",
+        "rawSha256": "e16392000e29fd11db0c5ade8770aedb247f3d6cee01b1c1fb9bfd56842b4a7c",
+        "projectedSha256": "e1d452f809bbedb844b2b4ba5f5147dfb057d62258262f164b430344bf545c1b",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "representative_paths[1]",
+        "rawSha256": "2231c67afc33bf869530fcd9143ffc4c52a185a9573f333425f48262c5f1dfb6",
+        "projectedSha256": "6ae3017bf739f6ef3ce6feab797e3ba2c71e788b3fc91a652efa460ed31233b7",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "representative_paths[2]",
+        "rawSha256": "dffe8ec1756ac3159666ec49c4140cf7650d60e276f174793875f08eb95b2824",
+        "projectedSha256": "9ebf0ec69d311fc897cfbf14aa77004c3efd23522f9d3a86a1c2a2364b4f40d3",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[0]",
+        "rawSha256": "8aadc0b74fbbecca2adaef44131fc9467ece46578e3460c67eee5ca8fd883a7e",
+        "projectedSha256": "51e2495694d259e20847c29978f887f9ab92cd1fbed7e9fcee9371355673f361",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[1]",
+        "rawSha256": "6b7fc10087bcc27c5646160fd2f0b971206a6e0b77332b9dcda2169e8e932d8b",
+        "projectedSha256": "d63a2efe37f72c08b33b41e0e6d924368540bad3ad176da89d4ef621368f2cab",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[2]",
+        "rawSha256": "95a39ce5f9d4f0697e7fc1cd3c8eeae7cbd2530e9163a9e52ef4a5bdbeb50660",
+        "projectedSha256": "7c95a5b18ce3564b009335e3f56a9cd422443a53628399a6888cee75f1e4f3c1",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[3]",
+        "rawSha256": "4bfd00c712babc15f4ce3b33902a80cab42f47b81b6f926bb96aa951c37f9517",
+        "projectedSha256": "4d8aeaa0a4a855fef9c04f57ca533b25a57d05fa8797d5cb6a5eaa903a310e9b",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[4]",
+        "rawSha256": "2b7b0ec51df93a89364382afa0331919683a9eb598d86ff0b89100b53c98e871",
+        "projectedSha256": "e349afaac263fe511c0c151cd10434a0cfa0e3ac17583a2e59eba5b638823beb",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[5]",
+        "rawSha256": "11a4f3b005f9acbe2899d87a5b26ad51f80046a1078ae5f6d3d4ed3e219cdc8e",
+        "projectedSha256": "1147622b3625bd152e1d57c0a0f25e6b094766b675ba792e007835ef78298c2a",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[6]",
+        "rawSha256": "a773e10afc048a61714272bc491ea01154861ecd10f062f7f2ad7312d741ded0",
+        "projectedSha256": "82d1df50db1d0af21c673630774f9b8fa68a9542258fe1e9138111c02ba55676",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[7]",
+        "rawSha256": "aa34d970666e2c9cb6324c93a89a7aba4813d75ce3a4bb9bdcf91ec7c5b4087c",
+        "projectedSha256": "905e563a527faa04e8f26d601237b78222a88cab69bb201e7f7fec0910f59fa5",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[8]",
+        "rawSha256": "2231c67afc33bf869530fcd9143ffc4c52a185a9573f333425f48262c5f1dfb6",
+        "projectedSha256": "6ae3017bf739f6ef3ce6feab797e3ba2c71e788b3fc91a652efa460ed31233b7",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[9]",
+        "rawSha256": "4ba448176437a5262f20286ebd7ba496459fc265783f2f42716fe890ce8b70f9",
+        "projectedSha256": "f628070b3374fcb0a8cf2403bed809155dc28ad6d19f07ee77c31969e683b4c0",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[10]",
+        "rawSha256": "0e44421ace8379fadb86d85343a0bed239e0093107aa17cfc2f6c8d95ce86f75",
+        "projectedSha256": "fe96607cbafba5888a0b7b8733fae56244ee829f321684037187ce2a969d1166",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[11]",
+        "rawSha256": "9580aa48d9d291de573d796aaecd18d650a43c964a368813760763256040c22f",
+        "projectedSha256": "cfc224a6187ca9b165fd2c73f1f5aead92099c3838efb585e6aa514975b51071",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[12]",
+        "rawSha256": "e16392000e29fd11db0c5ade8770aedb247f3d6cee01b1c1fb9bfd56842b4a7c",
+        "projectedSha256": "e1d452f809bbedb844b2b4ba5f5147dfb057d62258262f164b430344bf545c1b",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[13]",
+        "rawSha256": "a1354f9b72646b8ef3567836347cd12df6c1f258db6b24452630a5b4744539ea",
+        "projectedSha256": "6971ef88a80463436a1eaf9fe4c3c0b1773263b2c61d875a688b88b4a56230bf",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[14]",
+        "rawSha256": "d1c87947146c03e1fff5f8835c6d29a73265ca637efd8eb6a0e057bc416325a3",
+        "projectedSha256": "6c5f8fdd978a5a9315d24ffba4e1799894259ee82df81f6eae11344dfa516d69",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[15]",
+        "rawSha256": "f7021e149181f188d4930329730d620e8cd869a8f52052d76837f4fa0ccc2f42",
+        "projectedSha256": "6b3629f84f6309943b6835163b682a10c3f6c69130ff53dcd3fc71653adcff02",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[16]",
+        "rawSha256": "946d5327c62c47a9566a83c3d2661c5cfbee23f460788571697d10c3c90e1c51",
+        "projectedSha256": "aaf1a591eec5172135e04c64081bb717417f7108bbb69c164a639625a15a3f8d",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[17]",
+        "rawSha256": "23b6096f677ab577cd7b42935d746fa8f6bfe169daab161c821040265dc40a8d",
+        "projectedSha256": "9be82e9ef43d9fc3f831cc6d294d480f43d556634c652a98a90e039fefb86067",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[18]",
+        "rawSha256": "acaa61c14196350da4cc27586e8636f6d37e8ec5364bf20c4c0b9afccf251339",
+        "projectedSha256": "f6237e62b1cd9ef811e42e4f07b1586f09ee2c8668fff8a1cf5c05b17079a02d",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[19]",
+        "rawSha256": "ef81de063fc5c0918e407774aa4921f32785f87182a726f6b453dcf1ef7656aa",
+        "projectedSha256": "7d46d7a723e08539fb14a206dc6d2e460f7bfc779009c9a2653b3805fdf92c83",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[20]",
+        "rawSha256": "f0578d18d8150527cabcac863f505932449f626cd8990725141dab4aa644be0c",
+        "projectedSha256": "35f5fc693e62a140fa2e0964172bbf9fb9d090e1cf624e3bc9f77aaa73f004b1",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[21]",
+        "rawSha256": "6325fa7028f93ee4cf45c02a6ff900f4553462caf2d8158477f2fc9780b69109",
+        "projectedSha256": "35e4e34cb622c84acbbf665941241ed54a2b4052a0946d76f2f8a9aae56ccca2",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[22]",
+        "rawSha256": "971ffdd7b33685917b1355671177557c5b98079629fd28590270b22fc7e44385",
+        "projectedSha256": "ca32d7538a5bafaa90721d4724873be98fc8180a32e8abc397f8007b75d58a56",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[23]",
+        "rawSha256": "571330b8cf2f0a1e40d58b41c41c37031fcf1a4d855015b3ba6f44750292d60e",
+        "projectedSha256": "6e3f978ff899be058613c0ef8c9783376124ad045e5920e145e5284464fdd99e",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[24]",
+        "rawSha256": "e2d6e3010ac791163c99cf07d6846b33ec4cb622937bb85ab4854209b054aafc",
+        "projectedSha256": "65f03009c53608373067b798d831c5d0154288fb300a47ecb6b82e637f777baf",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[25]",
+        "rawSha256": "3177cad74cd3822ed315398ed05a465a3311a5e446c57d6903c00fa9e364722b",
+        "projectedSha256": "39c45d0eae11b1026d8cc3ad1d53bd246d8a8c4e36a9eaa6331e6b08a54fdff1",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[26]",
+        "rawSha256": "40a1723d6903361cef3fceb85d6191031576b034d0ceded38266e382895c982d",
+        "projectedSha256": "b8bc2472b1d7cf3d5c056c8f65130c060e1a3d0e8d010ad7c869c62d08233204",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[27]",
+        "rawSha256": "3472214694780385c4cca2242c487c3309984414c90b03f01d119e17cf0c32ee",
+        "projectedSha256": "1a2342527413d261523d9f6f8ac0293d8cab0bf9def10e83606a6d9e9cb90846",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[28]",
+        "rawSha256": "1755a0110286a4f6997f424914c1b3d0c6c1e05b56f150dcad6104f3d6a1d0e7",
+        "projectedSha256": "327c3dc3019a2cd0242f53b04e2582a6bdbd835017f098d9fe4ac065d4750095",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[29]",
+        "rawSha256": "27aa9b538deaf99af8c67f9b6e499ec4166b10a6117a1893165fed871de9ebfa",
+        "projectedSha256": "5f8b499101a11ae78fdcb81284502086b67a5e1b15a03d94df18578a7ec7461c",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[30]",
+        "rawSha256": "bd9449be0b4ae8f48ee1b2e214d2fc52642a2a7a089d14a2713ae226c241e6ed",
+        "projectedSha256": "86c1d22a7ada473b259afb6d408642f10e1a3da9524960a0be2b952aa3613ff4",
+        "exactLibraryPrefixOnly": true
+      },
+      {
+        "field": "affected_paths[31]",
+        "rawSha256": "dffe8ec1756ac3159666ec49c4140cf7650d60e276f174793875f08eb95b2824",
+        "projectedSha256": "9ebf0ec69d311fc897cfbf14aa77004c3efd23522f9d3a86a1c2a2364b4f40d3",
+        "exactLibraryPrefixOnly": true
+      }
+    ],
+    "finalizerAcceptanceClaimed": false,
+    "fullTechnicalAccepted": false,
+    "releaseAccepted": false
+  },
+  "browserGo": false,
+  "publicApplicationAuthorized": true,
+  "readerRecordsChanged": false,
+  "readerRegraded": false,
+  "fullTechnicalAccepted": false,
+  "fullMissionAccepted": false,
+  "releaseAccepted": false
+}

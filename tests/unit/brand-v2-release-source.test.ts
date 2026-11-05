@@ -5,6 +5,7 @@ import {join}from 'node:path';
 import {tmpdir}from 'node:os';
 import {describe,expect,it}from 'vitest';
 import {releaseSourceFingerprint,RELEASE_TOOLING_IGNORE_NOTE}from '../../lib/brand-v2-release-evidence';
+import {RELEASE_BUILD_COMMANDS,releaseBuildProblems,type ReleaseBuildStamp}from '../../lib/brand-v2-release-build';
 const {writeAgentFiles}=createRequire(import.meta.url)('next/dist/server/lib/generate-agent-files.js') as {writeAgentFiles:(root:string)=>unknown};
 describe('public release source identity',()=>{
   it('uses the same source identity despite distinct provider and framework deployment environments',()=>{
@@ -15,6 +16,31 @@ describe('public release source identity',()=>{
     });
     expect(rows[0].source).toBe(rows[1].source);
   },45_000);
+  it.each(['vitest.config.mts','vitest.setup.ts'])(
+    'invalidates retained build evidence when %s changes',file=>{
+      const root=mkdtempSync(join(tmpdir(),'release-vitest-input-'));
+      try{
+        mkdirSync(join(root,'lib'));writeFileSync(join(root,'lib/actual.ts'),'export const value=7;');
+        const files={
+          'vitest.config.mts':'export default { test: { include: ["tests/**/*.test.ts"], setupFiles: ["./vitest.setup.ts"] } };\n',
+          'vitest.setup.ts':'import "@testing-library/jest-dom/vitest";\n',
+        };
+        for(const [name,bytes]of Object.entries(files))writeFileSync(join(root,name),bytes);
+        const before=releaseSourceFingerprint(root),exported='a'.repeat(64);
+        const stamp:ReleaseBuildStamp={version:1,sourceBefore:before,sourceAfter:before,exportFingerprint:exported,commands:RELEASE_BUILD_COMMANDS.map(argv=>({argv:[...argv],exitCode:0}))};
+        expect(releaseBuildProblems(stamp,{source:before,exported})).toEqual([]);
+        const original=readFileSync(join(root,file),'utf8');
+        const changed=file==='vitest.config.mts'?original.replace('tests/**/*.test.ts','tests/unit/one.test.ts'):original+'beforeEach(() => { Math.random = () => 0; });\n';
+        writeFileSync(join(root,file),changed);
+        expect(releaseSourceFingerprint(root)).not.toBe(before);
+        expect(releaseBuildProblems(stamp,{source:releaseSourceFingerprint(root),exported})).toContain('production build has a stale source fingerprint');
+        writeFileSync(join(root,file),original);expect(releaseSourceFingerprint(root)).toBe(before);
+        expect(releaseBuildProblems(stamp,{source:releaseSourceFingerprint(root),exported})).toEqual([]);
+        rmSync(join(root,file));expect(releaseSourceFingerprint(root)).not.toBe(before);
+        expect(releaseBuildProblems(stamp,{source:releaseSourceFingerprint(root),exported})).toContain('production build has a stale source fingerprint');
+      }finally{rmSync(root,{recursive:true,force:true});}
+    },
+  );
   it('accepts only the documented exact tooling transformations',()=>{
     const root=mkdtempSync(join(tmpdir(),'release-source-'));
     try{

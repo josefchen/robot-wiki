@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import type { Locator } from '@playwright/test';
+import { collectFrame } from '../e2e/helpers/interactive-frame-evidence';
 import {
   classifyLegendText,
   classifyResolvedPaint,
@@ -230,5 +232,82 @@ describe('brand-v2 interactive data: sortable-table census', () => {
       'interactive:HardwareGuide': 'header-sort',
       'interactive:TeleopRigMatrix': 'header-sort',
     });
+  });
+});
+
+describe('interactive frame collector: reversible accent ownership probe', () => {
+  const accent = 'rgb(59, 110, 168)', sentinel = 'rgb(1, 2, 3)';
+  const role = '--role-highlight-graphic';
+
+  const fixture = (style: string | null, failDuringProbe = false) => {
+    const frame = document.createElement('figure');
+    frame.innerHTML = '<div><svg><path data-series="role" data-probe-kind="role" d="M0 0L1 1"/><path data-series="literal" data-probe-kind="literal" d="M0 0L1 1"/>' +
+      [0, 4, 8, 12].map(n => `<text data-dial-label="${n}" data-scene-readout="">${n}</text>`).join('') + '</svg></div>';
+    const nodes = [frame, ...frame.querySelectorAll('*')] as Array<HTMLElement | SVGElement>;
+    for (const node of nodes) if (style !== null) node.setAttribute('style', style);
+    document.body.append(frame);
+    const originalComputedStyle = window.getComputedStyle.bind(window);
+    const visibility = Object.getOwnPropertyDescriptor(Element.prototype, 'checkVisibility');
+    Object.defineProperty(Element.prototype, 'checkVisibility', { configurable: true, value: () => true });
+    const bounds = vi.spyOn(Element.prototype, 'getBoundingClientRect').mockReturnValue(new DOMRect(0, 0, 300, 200));
+    const rectangles = vi.spyOn(Element.prototype, 'getClientRects').mockReturnValue([new DOMRect(0, 0, 300, 200)] as unknown as DOMRectList);
+    const computed = vi.spyOn(window, 'getComputedStyle').mockImplementation(element => {
+      const css = originalComputedStyle(element), node = element as HTMLElement | SVGElement;
+      const kind = element.getAttribute('data-probe-kind');
+      if (failDuringProbe && kind === 'role' && node.style.getPropertyValue(role) === sentinel) throw new Error('synthetic paint-read failure');
+      return new Proxy(css, {
+        get(target, property) {
+          if (property === 'color' && node.style.color === 'var(--color-signal)') return accent;
+          if (property === 'stroke') return kind === 'role' ? node.style.getPropertyValue(role) || accent : kind === 'literal' ? accent : 'none';
+          if (property === 'fill') return element.tagName.toLowerCase() === 'text' ? 'rgb(28, 28, 26)' : 'none';
+          if (['opacity', 'fillOpacity', 'strokeOpacity'].includes(String(property))) return '1';
+          if (property === 'strokeWidth') return '1px';
+          if (property === 'visibility') return 'visible';
+          return Reflect.get(target, property, target);
+        },
+      });
+    });
+    const locator = {
+      evaluate: async (callback: (node: HTMLElement, options: { accentRoles: string[]; retired: string[] }) => unknown, options: { accentRoles: string[]; retired: string[] }) => callback(frame, options),
+    } as unknown as Locator;
+    return {
+      frame, nodes, locator,
+      restore() {
+        computed.mockRestore(); bounds.mockRestore(); rectangles.mockRestore();
+        if (visibility) Object.defineProperty(Element.prototype, 'checkVisibility', visibility);
+        else delete (Element.prototype as { checkVisibility?: () => boolean }).checkVisibility;
+        frame.remove();
+      },
+    };
+  };
+
+  it.each([
+    { name: 'absent attribute', style: null, onRole: true },
+    { name: 'intentionally empty attribute', style: '', onRole: true },
+    { name: 'existing declarations, formatting and priority', style: 'stroke-width: 3 !important;  --kept-note: "a;b"; opacity: .75;', onRole: true },
+    { name: 'preexisting important role declaration', style: '--role-highlight-graphic: rgb(59, 110, 168) !important;  color: rgb(28, 28, 26);', onRole: false },
+  ])('restores exact $name while preserving role and literal paint ownership', async ({ style, onRole }) => {
+    const test = fixture(style), before = test.nodes.map(node => node.getAttribute('style')), html = test.frame.outerHTML;
+    try {
+      const result = await collectFrame(test.locator);
+      expect(result.accentMarks.map(({ seriesId, onRole }) => ({ seriesId, onRole }))).toEqual([
+        { seriesId: 'role', onRole }, { seriesId: 'literal', onRole: false },
+      ]);
+      expect(result.retiredMarks).toEqual([]);
+      expect(result.series.role.paints).toEqual(['rgb(59,110,168)']);
+      expect(result.series.literal.paints).toEqual(['rgb(59,110,168)']);
+      expect(test.nodes.map(node => node.getAttribute('style'))).toEqual(before);
+      expect(test.frame.outerHTML).toBe(html);
+      if (style?.includes(role)) expect(test.nodes.map(node => node.style.getPropertyPriority(role))).toEqual(test.nodes.map(() => 'important'));
+    } finally { test.restore(); }
+  });
+
+  it('restores every touched style attribute when the sentinel paint read throws', async () => {
+    const test = fixture(null, true), before = test.frame.outerHTML;
+    try {
+      await expect(collectFrame(test.locator)).rejects.toThrow('synthetic paint-read failure');
+      expect(test.frame.outerHTML).toBe(before);
+      expect(test.nodes.every(node => !node.hasAttribute('style'))).toBe(true);
+    } finally { test.restore(); }
   });
 });

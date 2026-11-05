@@ -181,22 +181,89 @@ export function ImpedancePress({ className }: { className?: string }) {
           readout={displayReadoutFor(spring, displayedTarget)}
           status="Schematic ruler and dial marks, with no physical units: springs give 1, 2 or 4 dial marks per ruler mark."
           className="@container/press"
+          style={{ overflow: 'visible' }}
           data-testid="press-stage-frame"
         >
-          <div className="grid min-w-0 basis-full gap-1 font-sans leading-normal text-text" data-testid="press-action-packet">
+          <div className="grid min-w-0 basis-full gap-1 font-sans leading-normal text-text max-[320px]:px-2!" data-testid="press-action-packet">
             <div className="@container/press-primary grid min-w-0 gap-2 font-sans leading-normal text-text" data-testid="press-relationship">
-              <p className="grid min-w-0 gap-1 text-[20px] font-semibold leading-[1.3]" data-testid="press-primary-takeaway">
-                <span className="block" data-testid="press-action-clause">
-                  <span id={`${sliderId}-settings`} aria-label="An action sends two settings: target and stiffness" data-testid="press-action-label">
-                    An action sends two settings:{' '}
-                    <span className="flex w-fit max-w-full min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-current pb-2" data-testid="press-action-message">
-                      <span data-action-field="target" className="inline-block min-w-min">target{' '}<span className="font-mono" data-action-value="target">{displayedTarget > 0 ? '+' : ''}{displayedTarget}</span></span>{' '}
-                      and{' '}
-                      <span data-action-field="stiffness" className="inline-block min-w-min">stiffness{' '}<span className="font-mono" data-action-value="stiffness">{springOf(spring).rate}</span>;</span>
-                    </span>
-                  </span>
+              <p className="min-w-0 text-[20px] font-semibold leading-[1.3]" data-testid="press-primary-takeaway">
+                <span className="inline" data-testid="press-action-clause">
+                  <span id={`${sliderId}-settings`} data-testid="press-action-label">An action sends target and stiffness;</span>
+                </span>{' '}
+                <span className="inline" data-testid="press-product-rule">
+                  <span className="inline" data-testid="press-general-rule">once the surface stops the tool, push equals stiffness times target gap.</span>
                 </span>
               </p>{' '}
+            <div data-figure-controls="" data-testid="press-native-controls" className="grid min-w-0 gap-1">
+            <p className="text-[16px] font-normal leading-normal" data-testid="press-chosen-settings">
+                Action:{' '}
+                    <span className="inline border-b border-current" data-testid="press-action-message">
+                      <span data-action-field="target" className="inline-block min-w-min">target{' '}<span className="font-mono" data-action-value="target">{displayedTarget > 0 ? '+' : ''}{displayedTarget}</span></span>{' '}
+                      and{' '}
+                      <span data-action-field="stiffness" className="inline-block min-w-min">stiffness{' '}<span className="font-mono" data-action-value="stiffness">{springOf(spring).rate}</span>.</span>
+                    </span>
+            </p>
+          <div
+            role="group"
+            aria-label="An action sends two settings: target and stiffness"
+            aria-describedby={`${sliderId}-definitions`}
+            data-testid="press-settings"
+            className="flex min-w-0 basis-full flex-wrap items-end gap-x-3 gap-y-2"
+          >
+            <div className="[&_.figure-tab-row]:gap-x-1">
+              <PresetGroup
+                label="Action stiffness"
+                presets={SPRINGS.map(({ id, label }) => ({ id, label }))}
+                value={spring}
+                onChange={(id) => setSpring(id)}
+                testId="press-spring"
+              />
+            </div>
+            <SliderRow
+              htmlFor={sliderId}
+              label="Target"
+              value={<span data-testid="press-target">{targetValue(target)}</span>}
+              className="gap-y-1 max-[320px]:grid max-[320px]:grid-cols-1 max-[320px]:[&>div]:min-w-0 max-[320px]:[&_input]:min-w-0 max-[320px]:[&>span]:whitespace-normal"
+            >
+              <input
+                id={sliderId}
+                type="range"
+                data-brand-control-id="control:input"
+                min={TARGET_MIN}
+                max={TARGET_MAX}
+                step={TARGET_STEP}
+                value={target}
+                onChange={(e) => {
+                  setRunning(false);
+                  setTarget(Number(e.target.value));
+                }}
+                aria-valuetext={valueTextFor(spring, target)}
+                className={INSTRUMENT_SLIDER_CLASS}
+              />
+            </SliderRow>
+          </div>
+          <button
+            type="button"
+            data-brand-control-id="control:secondary-action"
+            data-pagefind-ignore
+            onClick={() => {
+              if (running) {
+                setTarget(r2(Math.round(shownRef.current / TARGET_STEP) * TARGET_STEP));
+                setRunning(false);
+                return;
+              }
+              // Reduced motion jumps to the deepest press instead of playing the run.
+              if (typeof window.matchMedia === 'function' && asksForStillness()) {
+                setTarget(TARGET_MAX);
+                show(TARGET_MAX);
+              } else setRunning(true);
+            }}
+            data-testid="press-run"
+            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
+          >
+            {running ? 'Stop the press' : 'Run the press'}
+          </button>
+            </div>{' '}
               <div
                 role="group"
                 aria-labelledby={`${sliderId}-controller`}
@@ -215,7 +282,7 @@ export function ImpedancePress({ className }: { className?: string }) {
                   </p>
                 </div>
                 </div>{' '}
-                <div className="grid min-w-0 gap-2" data-testid="press-contact-product">
+                <div className="grid min-w-0 gap-1" data-testid="press-contact-product">
                   <p className="text-[14px]" data-testid="press-response-label">Shown response</p>{' '}
                     <p className="text-[14px]" data-testid="press-position-condition">
                       <span aria-hidden="true" className="mr-2 inline-block h-3 w-3 align-middle bg-current forced-colors:bg-[CanvasText]!" data-testid="press-position-tool-key" />
@@ -225,7 +292,7 @@ export function ImpedancePress({ className }: { className?: string }) {
                     </p>{' '}
                   <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-2" data-testid="press-response-diagram">
                 <div
-                  className="flex min-w-[min(100%,10rem)] flex-1 items-center gap-x-2 gap-y-2"
+                  className="flex min-w-[min(100%,10rem)] flex-1 flex-wrap items-center gap-x-2 gap-y-2"
                   data-testid="press-position-diagram"
                   data-target={displayedTarget}
                   data-tool={toolFor(displayedTarget)}
@@ -240,8 +307,8 @@ export function ImpedancePress({ className }: { className?: string }) {
                     <span className="absolute left-5 h-3 w-3 -translate-x-1/2 -translate-y-1/2 bg-current forced-colors:bg-[CanvasText]!" style={{ top: `${40 + toolFor(displayedTarget) * 20}%` }} data-testid="press-position-tool" />
                     <span className={`absolute left-12 w-2 border-current${gapFor(displayedTarget) > 0 ? ' border-y border-r' : ' border-0'}`} style={{ top: `${40 + toolFor(displayedTarget) * 20}%`, height: `${gapFor(displayedTarget) * 20}%` }} data-testid="press-position-gap" />
                   </div>
-                  <div className="grid min-w-0 flex-1 gap-2 text-[14px]" data-testid="press-position-labels">
-                    <p className="flex min-w-0 items-center gap-2"><span aria-hidden="true" className="w-4 shrink-0 border-t border-current" />Surface</p>{' '}
+                  <div className="grid min-w-min flex-1 gap-2 text-[14px]" data-testid="press-position-labels">
+                    <p className="flex min-w-min items-center gap-2"><span aria-hidden="true" className="w-4 shrink-0 border-t border-current" />Surface stops tool</p>{' '}
                     <p className="min-w-0" data-testid="press-shown-target">
                       <span aria-hidden="true" className="mr-2 inline-block w-4 align-middle border-t border-dashed border-current" />
                       Shown target: {targetValue(displayedTarget)}
@@ -274,11 +341,9 @@ export function ImpedancePress({ className }: { className?: string }) {
                       <circle cx="56" cy="50" r="2" fill="currentColor" />
                     </svg>
                   </div>{' '}
-                  <p className="flex min-w-0 items-start gap-2 text-[20px] font-semibold leading-[1.3]" data-testid="press-sent-rule">
+                  <p className="flex min-w-0 items-start gap-2 text-[16px] leading-normal" data-testid="press-sent-rule">
                     <span aria-hidden="true" className="pointer-events-none shrink-0" data-testid="press-gap-output-connector" data-from="press-position-gap" data-to="press-calculation">↓</span>{' '}
-                    <span className="min-w-0" data-testid="press-product-rule">
-                      <span className="inline" data-testid="press-general-rule">push equals stiffness times target gap.</span>
-                    </span>
+                    <span className="min-w-0">Shown calculation</span>
                   </p>{' '}
                   <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2" data-testid="press-result-with-dial">
                 <div
@@ -343,69 +408,6 @@ export function ImpedancePress({ className }: { className?: string }) {
                 </div>
               </div>
             </div>{' '}
-            <div data-figure-controls="" data-testid="press-native-controls" className="grid min-w-0 gap-1">
-            <p className="text-[14px]" data-testid="press-chosen-settings">Chosen settings</p>
-          <div
-            role="group"
-            aria-labelledby={`${sliderId}-settings`}
-            aria-describedby={`${sliderId}-definitions`}
-            data-testid="press-settings"
-            className="flex min-w-0 basis-full flex-wrap items-end gap-x-3 gap-y-2"
-          >
-            <div className="[&_.figure-tab-row]:gap-x-1">
-              <PresetGroup
-                label="Action stiffness"
-                presets={SPRINGS.map(({ id, label }) => ({ id, label }))}
-                value={spring}
-                onChange={(id) => setSpring(id)}
-                testId="press-spring"
-              />
-            </div>
-            <SliderRow
-              htmlFor={sliderId}
-              label="Target"
-              value={<span data-testid="press-target">{targetValue(target)}</span>}
-              className="gap-y-1 max-[320px]:grid max-[320px]:grid-cols-1 max-[320px]:[&>div]:min-w-0 max-[320px]:[&_input]:min-w-0 max-[320px]:[&>span]:whitespace-normal"
-            >
-              <input
-                id={sliderId}
-                type="range"
-                data-brand-control-id="control:input"
-                min={TARGET_MIN}
-                max={TARGET_MAX}
-                step={TARGET_STEP}
-                value={target}
-                onChange={(e) => {
-                  setRunning(false);
-                  setTarget(Number(e.target.value));
-                }}
-                aria-valuetext={valueTextFor(spring, target)}
-                className={INSTRUMENT_SLIDER_CLASS}
-              />
-            </SliderRow>
-          </div>
-          <button
-            type="button"
-            data-brand-control-id="control:secondary-action"
-            data-pagefind-ignore
-            onClick={() => {
-              if (running) {
-                setTarget(r2(Math.round(shownRef.current / TARGET_STEP) * TARGET_STEP));
-                setRunning(false);
-                return;
-              }
-              // Reduced motion jumps to the deepest press instead of playing the run.
-              if (typeof window.matchMedia === 'function' && asksForStillness()) {
-                setTarget(TARGET_MAX);
-                show(TARGET_MAX);
-              } else setRunning(true);
-            }}
-            data-testid="press-run"
-            className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
-          >
-            {running ? 'Stop the press' : 'Run the press'}
-          </button>
-            </div>
           </div>
         </AnatomyStage>
       }

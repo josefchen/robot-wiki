@@ -1,0 +1,901 @@
+{
+  "schemaVersion": "reader-round35-source-continuity-review-v1",
+  "status": "Root-approved and applied R34/R35 source continuity. Separate current reader PASS110/110 is observed; full112, final source parity and release approval remain separate.",
+  "records": [
+    {
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/impedance-press.tsx",
+      "sourcePath": "components/interactive/impedance-press.tsx",
+      "previousSourceCommit": "72ec4b63e7d14ed1b07c47ac899a865fdd0263c8",
+      "currentSourceCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+      "previousSourceSha256": "4ce6db64f4749ead17d796a2e8fad7c0f86baad833fed3587a880287601d2b5d",
+      "currentSourceSha256": "9f5666b8615373a8131e44da90ec176d948f328529b52703c28e21608b873b64",
+      "oldMemberHash": "47d1d2dd66322684b5f858cb55bbc09aab200edd74fedf07042e1a5a4eeb14ab",
+      "newMemberHash": "6f29cce04a6cdb0926af9bf04e3079545fab42a714403b58f93b22a920d05592",
+      "priorApprovalIds": [
+        "anatomy-manip-b04-figures-20261015-interactive-sources-mounts-source-impedance-press",
+        "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-cb868604ba",
+        "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-4f8b327b00",
+        "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e84294d903",
+        "completion-reader-round5-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-c95600381a",
+        "completion-reader-round6-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-801977158d",
+        "completion-reader-round7-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-876f5a0b44",
+        "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-01d567a0bd",
+        "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d8483bebc4",
+        "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-fb12b110f0",
+        "completion-reader-round12-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-785ca06f18",
+        "completion-reader-round13-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-ccdc29e542",
+        "completion-reader-round14-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-9ce7b293fa",
+        "completion-reader-round15-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d8f5c392",
+        "completion-reader-round16-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-e451dea81f",
+        "completion-reader-round17-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-7a8c3c020a",
+        "completion-reader-round18-prose6-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-222f1c44e8",
+        "completion-reader-round19-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-979a82dd04",
+        "completion-reader-round20-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-f524916ff3",
+        "completion-reader-round21-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-975843ca44",
+        "completion-reader-round22-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-03dc60b347",
+        "completion-reader-round23-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-faf3ab54a0",
+        "completion-reader-round24-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-18524f34ff",
+        "completion-reader-round25-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-773be90c06",
+        "completion-reader-round26-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-58b15ce4e1",
+        "completion-reader-round27-20261104-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-d9edbfb52c",
+        "completion-reader-round33-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-af5b607142",
+        "completion-reader-round34-20261105-interactive-sources-mounts-source-components-interactive-impedance-press-tsx-47d1d2dd66"
+      ],
+      "reason": "components/interactive/impedance-press.tsx: exact R35 source continuity for the independently approved complete opening invariant and narrow dial-parent containment repair. The same primary paragraph now states that an action sends target and stiffness and that, once the surface stops the tool, push equals stiffness times target gap. The live operands and model remain unchanged; the lower worked-calculation label is 16px normal text. Component-local narrow padding gives the unchanged 112px dial an actual 113px response parent without shrinking the 14px dial labels or relaxing containment. Actual49 focused four public cases and four AX states pass. The fresh sealed R35 reader passes, giving 110/110; the source continuity records that separate result and does not grant it. Historical R33 AX failure, four real 187px parent overflows and all failed fixture attempts remain retained. Current full112, final source parity and release gates remain pending. See audit/evidence/mission-completion-20261102/reader-round35-source-continuity-review.json."
+    }
+  ],
+  "sourceAndTestEpochs": [
+    {
+      "path": "components/interactive/impedance-press.tsx",
+      "baseCommit": "ae778fe55b245e638a4d13fe615389e72470bc8b",
+      "endpointCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+      "beforeSha256": "fcfbd6067c76bf2068bb3f6b7ee99f5bfd406644142bebad6e1c0133b17dbc7c",
+      "afterSha256": "9f5666b8615373a8131e44da90ec176d948f328529b52703c28e21608b873b64",
+      "orderedTransitions": [
+        "R28 initial design",
+        "R28 spacing-repair",
+        "R29 initial design",
+        "R29 named-leading-repair",
+        "R30 initial valued action design",
+        "R30 punctuation-only field class repair",
+        "R31 independently reviewed causal ruler/dial source",
+        "R32 independently reviewed three-class surface wrapping repair",
+        "R33 exact native-controls block relocation",
+        "R34 supported action-name host repair",
+        "R35 independently approved complete-primary/local-containment UI successor"
+      ],
+      "rows": 31,
+      "occurrences": 32,
+      "forwardExact": true,
+      "reverseExact": true
+    },
+    {
+      "path": "tests/component/impedance-press.test.tsx",
+      "baseCommit": "ae778fe55b245e638a4d13fe615389e72470bc8b",
+      "endpointCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+      "beforeSha256": "f340dbbd88adb167fafe3a21cad6f5193d26f660ffd43d998f3fc3263f7e1aa1",
+      "afterSha256": "4a8d977e9f14837e47fcdf0146144ccfe9a2b87816a6eb8f79a048d7690f0e7a",
+      "orderedTransitions": [
+        "R28 initial design",
+        "R28 spacing-repair",
+        "R29 initial design",
+        "R29 named-leading-repair",
+        "R30 initial valued action design",
+        "R30 punctuation-only field class repair",
+        "R31 independently reviewed causal ruler/dial test",
+        "R33 component ownership and order successor",
+        "R34 same-strength component accessible-host successor",
+        "R35 independently approved complete-primary/local-containment component successor"
+      ],
+      "rows": 149,
+      "occurrences": 164,
+      "forwardExact": true,
+      "reverseExact": true
+    },
+    {
+      "path": "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+      "baseCommit": "ae778fe55b245e638a4d13fe615389e72470bc8b",
+      "endpointCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+      "beforeSha256": "6deab75556e21a36c135baf1ba16c17559a638acd76efcfd5c879c97fd78123f",
+      "afterSha256": "41f3af07a9b174a94be5b9913292c87c2a2df3135ba5dfe23a7832152da4c598",
+      "orderedTransitions": [
+        "R28 E2E owner/semantic successor",
+        "R29 E2E owner/semantic successor",
+        "R30 initial E2E bytes with uniquely refined original25 map",
+        "R30 case8 whole-primary leaf and glyph repair",
+        "R31 root-approved E2E causal/dial successor including strict SVG leaf repair",
+        "R33 case-scoped E2E ownership and order successor",
+        "R34 same-strength public E2E accessible-host successor",
+        "R35 independently approved complete-primary/local-containment E2E successor"
+      ],
+      "rows": 121,
+      "occurrences": 130,
+      "forwardExact": true,
+      "reverseExact": true
+    }
+  ],
+  "sourceReviewBindings": [
+    {
+      "path": "reader-round35-independent-review-20261105/SOURCE-APPROVAL.json",
+      "sha256": "34c6b665e6431faf1df4959d20a29e7260aeff7d4892484632ae5dc6d6db52eb"
+    },
+    {
+      "path": "reader-round35-component-test-independent-review-20261105/COMPONENT-TEST-SUCCESSOR-APPROVAL.json",
+      "sha256": "9de1bfd7cc02214ef0461b9927fb799e2576cfb374cf11a17599305d4164e4a8"
+    },
+    {
+      "path": "reader-round35-public-postread-independent-review-20261105/POSTREAD-SUCCESSOR-APPROVAL.json",
+      "sha256": "39e8810a7f1b3c9513189753cb205419686b575d39935069a40768c664290284"
+    }
+  ],
+  "sourceSuccession": {
+    "allPriorCountedTransitionsPreserved": true,
+    "allThreeArchivedReconstructionsExact": true,
+    "allPriorSharedEditsAndReasonsExactPrefixes": true,
+    "sharedRows": 264,
+    "addedSourceMaps": {
+      "ui": {
+        "rows": 8,
+        "occurrences": 8
+      },
+      "component": {
+        "rows": 18,
+        "occurrences": 21
+      },
+      "e2e": {
+        "rows": 19,
+        "occurrences": 28
+      },
+      "totalRows": 45,
+      "totalOccurrences": 57
+    },
+    "uniqueSharedContextMaps": [
+      {
+        "path": "components/interactive/impedance-press.tsx",
+        "rootMapRows": 8,
+        "rootMapOccurrences": 8,
+        "uniqueSharedSuffixRows": 3,
+        "sameExactBeforeAfterAsRootMaps": true
+      },
+      {
+        "path": "tests/component/impedance-press.test.tsx",
+        "rootMapRows": 18,
+        "rootMapOccurrences": 21,
+        "uniqueSharedSuffixRows": 12,
+        "sameExactBeforeAfterAsRootMaps": true
+      },
+      {
+        "path": "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+        "rootMapRows": 19,
+        "rootMapOccurrences": 28,
+        "uniqueSharedSuffixRows": 13,
+        "sameExactBeforeAfterAsRootMaps": true
+      }
+    ],
+    "accessibleNameManifestUnchangedFromR34": true
+  },
+  "implementationCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+  "readerCommit": "6689f8ef50d976eb90f75ff29e030560a4b3a803",
+  "readerEvidence": {
+    "round": 35,
+    "sourceCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+    "readerCommit": "6689f8ef50d976eb90f75ff29e030560a4b3a803",
+    "reader": {
+      "schemaVersion": "reader-first-record-v1",
+      "route": "/manipulation/action-spaces/",
+      "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+      "screenshots": {
+        "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+        "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+      },
+      "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+      "sentence": "The tool stops at a surface, and setting its target two marks beyond the surface with stiffness two produces a push of four dial marks.",
+      "unclearTerms": [],
+      "samePoint": "yes",
+      "reason": "My sentence describes the surface stopping the tool and a target gap of two with stiffness two producing four dial marks of push, matching the takeaway.",
+      "verdict": "pass",
+      "screenshotCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+      "date": "2026-11-05",
+      "reviewerSession": "reader-session-automated-r35-a-20261105",
+      "sourceDigest": "17d2402582e96bed1d9ffb641b9cd6df91bea54925bbb67df8fbba1b2798be36",
+      "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+    },
+    "readerRecordSha256": "a3ac208c4735ff495e953a880ccd9a4ef5115762bf57ec82e995c7f4ff755374",
+    "phase1Sha256": "acba395cba5edf0ef86392fffb477e8b3496b522e92775446113f8375fe9366c",
+    "phase2Sha256": "d7bd1731fe6596e44da9201ad75db433f5382fd9422cdb9a260ba1a7eaf3d62d",
+    "recordCommitReceiptSha256": "95bcc71dc5afaee318ef1c254aa36abe380a23e30cd402690204dd247d3c34f8",
+    "recordValidationSha256": "a8326ed1631263a8bf3842510d4c8e983b4c460a89e8bbb5118ec65bec241a10",
+    "protected110ManifestSha256": "42033e3e9fac443e2f9a31e3f83db473f5465ebb88546acc42049289fba6876a",
+    "acceptedReaders": 110,
+    "totalReaders": 110,
+    "protectedPaths": 562,
+    "rubricAndProtocolUnchanged": true,
+    "readerAcceptanceObserved": true,
+    "readerAcceptanceGrantedByContinuity": false,
+    "full112AcceptanceGranted": false,
+    "releaseAcceptance": false
+  },
+  "priorRoundReaderHistory": [
+    {
+      "round": 28,
+      "sourceCommit": "463db155d3acdd4ed2473699403038a3bf8eb392",
+      "readerCommit": "f2b4c135abe588ec7e02cb7d14f9a0b1610adfcb",
+      "reader": {
+        "schemaVersion": "reader-first-record-v1",
+        "route": "/manipulation/action-spaces/",
+        "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "screenshots": {
+          "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+          "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+        },
+        "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+        "sentence": "The figure shows how a tool\u2019s stiffness and the distance of its target past a surface combine to determine how hard it pushes against that surface.",
+        "unclearTerms": [],
+        "samePoint": "no",
+        "reason": "My sentence links stiffness and target distance to push, but does not state that the action sends both settings or that push equals their product once the tool stops.",
+        "verdict": "fail",
+        "screenshotCommit": "463db155d3acdd4ed2473699403038a3bf8eb392",
+        "date": "2026-11-04",
+        "reviewerSession": "reader-session-automated-r28-a-20261104",
+        "sourceDigest": "1a6f9ba483dc1634917551b556a1c8098da17323a0176b0631698529616dbb37",
+        "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+      },
+      "readerRecordSha256": "ce5a652ac5acfc3089894263561d6162d728bd501aede8aa68efa7f61d360219",
+      "phase1Sha256": "1dcfbcd273cd31213741b4526621244ac8c39028e6f89b200f7b64c598231d37",
+      "phase2Sha256": "d46d597d74100d196f8bd59e9be2f2622d817eb31c594a871c037b5a1d5e79f7"
+    },
+    {
+      "round": 29,
+      "sourceCommit": "0141bc9b7c24023c25cd4319033a1ca8c8e1ab94",
+      "readerCommit": "0fc0a7eed1fc1c09c7a0652c6629c78ef4b39517",
+      "reader": {
+        "schemaVersion": "reader-first-record-v1",
+        "route": "/manipulation/action-spaces/",
+        "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "screenshots": {
+          "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+          "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+        },
+        "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+        "sentence": "The figure shows how a tool's stiffness and the distance of its target beyond a surface determine how hard it pushes against that surface.",
+        "unclearTerms": [],
+        "samePoint": "no",
+        "reason": "My sentence identifies the two factors affecting push but omits that the action sends both settings and that push equals their product.",
+        "verdict": "fail",
+        "screenshotCommit": "0141bc9b7c24023c25cd4319033a1ca8c8e1ab94",
+        "date": "2026-11-04",
+        "reviewerSession": "reader-session-automated-r29-a-20261104",
+        "sourceDigest": "a05e753c498da9144fe68592b47f10a4d55dc8a02f7daefb455c5f5aeff1e7bf",
+        "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+      },
+      "readerRecordSha256": "0973b47cda9d4de0d2a72cdbecbf08d7365993e68ed7bbf1939d7020e6bb9ab7",
+      "phase1Sha256": "1901ecf754c06d59f917239db41f84b7174bdbf38a171b0f3a570c356638d3d1",
+      "phase2Sha256": "6cb69a9758a94fdc8a3f8ca21f6208eceaebb78facc7deb47415ad7dc553ce6e"
+    },
+    {
+      "round": 30,
+      "sourceCommit": "051217e374cc7162a27fbe229b3601a2b354bfa8",
+      "readerCommit": "d040987256653b1570af6775c83ed73be6b0ef96",
+      "reader": {
+        "schemaVersion": "reader-first-record-v1",
+        "route": "/manipulation/action-spaces/",
+        "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "screenshots": {
+          "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+          "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+        },
+        "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+        "sentence": "The tool pushes against a surface with a strength determined by its stiffness and how far its target sits beyond the surface.",
+        "unclearTerms": [
+          "dial marks: Push is measured in these, but there is no dial shown to make clear what a mark represents."
+        ],
+        "samePoint": "no",
+        "reason": "My sentence says stiffness and target distance determine push, but omits that the action sends both settings and that push equals their product after the tool stops at the surface.",
+        "verdict": "fail",
+        "screenshotCommit": "051217e374cc7162a27fbe229b3601a2b354bfa8",
+        "date": "2026-11-04",
+        "reviewerSession": "reader-session-automated-r30-a-20261104",
+        "sourceDigest": "bdd4347b8581e533ab559ef748758027f86f0dbbc71d495e7894af74fb05c30c",
+        "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+      },
+      "readerRecordSha256": "435ffb2df10fd81c1535855a12d0fcf303a17ac0ec48dbc4308bfe3684d542ea",
+      "phase1Sha256": "fc0755392a87ea28d2872831c113338e984f8aaf92f79c3a62ff39c383e0024e",
+      "phase2Sha256": "09bbf43017057d5989dc4b2128ba6efd6a76fc62c502f5a2a7d8686cca118b14"
+    },
+    {
+      "round": 31,
+      "sourceCommit": "1b48e4f7033e190c59c043a4d350dee98db406b1",
+      "readerCommit": "7891493d5937dab4735ae485d08cb874680d13a8",
+      "reader": {
+        "schemaVersion": "reader-first-record-v1",
+        "route": "/manipulation/action-spaces/",
+        "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "screenshots": {
+          "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+          "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+        },
+        "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+        "sentence": "The tool stops at a surface, and setting its target two marks beyond the surface with a stiffness of two makes it push with a strength of four dial marks.",
+        "unclearTerms": [],
+        "samePoint": "yes",
+        "reason": "Both describe a tool stopped by a surface whose push comes from its stiffness and target distance beyond the surface, with my sentence giving the two-times-two example.",
+        "verdict": "pass",
+        "screenshotCommit": "1b48e4f7033e190c59c043a4d350dee98db406b1",
+        "date": "2026-11-04",
+        "reviewerSession": "reader-session-automated-r31-a-20261104",
+        "sourceDigest": "e9e21046f74731f654a09804e4a6e83992e6c6acce4d53263324d8121fb276bb",
+        "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+      },
+      "readerRecordSha256": "d5cc7814b143c5ad33dc72e1b9b9fbf28f2b5b92c79acd7f296e6535e1fb5e01",
+      "phase1Sha256": "39f0f089eaebf094ee93a5448176fa2ea6874a85c07c44b38b3242571681c81e",
+      "phase2Sha256": "8f694937724be5f0e1b0ccee47ac25c31887995399c097501e1630cf4b84853a"
+    },
+    {
+      "round": 32,
+      "sourceCommit": "745a6ac89e819769dd96a833a929f04afacf980d",
+      "readerCommit": "c4281a35fc50759317c874a89037808689008939",
+      "reader": {
+        "schemaVersion": "reader-first-record-v1",
+        "route": "/manipulation/action-spaces/",
+        "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "screenshots": {
+          "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+          "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+        },
+        "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+        "sentence": "The tool stops at a surface but keeps pushing, with the amount of push found by multiplying its stiffness setting by how far beyond the surface its target lies.",
+        "unclearTerms": [],
+        "samePoint": "no",
+        "reason": "My sentence explains the stopped tool and push calculation but does not state that the action sends both a target and a stiffness.",
+        "verdict": "fail",
+        "screenshotCommit": "745a6ac89e819769dd96a833a929f04afacf980d",
+        "date": "2026-11-05",
+        "reviewerSession": "reader-session-automated-r32-a-20261105",
+        "sourceDigest": "da27dd577465fe372f6422898ad180bb06ef82ef9bd335c0e0ffdd18ec48b94a",
+        "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+      },
+      "readerRecordSha256": "1a37531ca34707a9e110b231b1fed3fa5269d5688bab604461a0a430d105a845",
+      "phase1Sha256": "3aa31b14d139859b726b4bc4a438d3d6108a0eb3cbeba4be6a72312a1aef69d6",
+      "phase2Sha256": "cf173029d1011d274499c6693478c5ba816c8b0cb191267ddd854b53eadc7c81"
+    },
+    {
+      "round": 33,
+      "sourceCommit": "9485ecbc84bb0032045b7ebec910626b7b45c880",
+      "readerCommit": "8ca59c348104448e3eaee5bb21ed532a199aafe3",
+      "reader": {
+        "schemaVersion": "reader-first-record-v1",
+        "route": "/manipulation/action-spaces/",
+        "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "screenshots": {
+          "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+          "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+        },
+        "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+        "sentence": "The tool stops at the surface, and aiming two marks beyond it with stiffness 2 produces a push of 4 dial marks.",
+        "unclearTerms": [],
+        "samePoint": "no",
+        "reason": "My sentence gives one numerical outcome but does not state that push equals stiffness multiplied by the target's distance past the surface.",
+        "verdict": "fail",
+        "screenshotCommit": "9485ecbc84bb0032045b7ebec910626b7b45c880",
+        "date": "2026-11-05",
+        "reviewerSession": "reader-session-automated-r33-a-20261105",
+        "sourceDigest": "5e786dfbe93daf015e7d3a53fc14477f0dc4479a5b96189690c32782b4dd3780",
+        "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+      },
+      "readerRecordSha256": "5538f98b1a7e8a6f0720004c253292eb584bff0a65fbb84709c223a0eec86960",
+      "phase1Sha256": "adf1f95aa23d7acaba316d2760306e17a2f8f8a68b0cb9f3f2f269e3bbcdb638",
+      "phase2Sha256": "1da8d2770572b623f82321e2883af0e19f14255a66fb6d550d6301eb04ac72cb"
+    },
+    {
+      "round": 34,
+      "sourceCommit": "72ec4b63e7d14ed1b07c47ac899a865fdd0263c8",
+      "readerCommit": "c2e8d2ac2de1bb5ab10173908b9f8ab377761337",
+      "reader": {
+        "schemaVersion": "reader-first-record-v1",
+        "route": "/manipulation/action-spaces/",
+        "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "screenshots": {
+          "375": "evidence/reader-first/manipulation--action-spaces--impedance-press.375.png",
+          "1280": "evidence/reader-first/manipulation--action-spaces--impedance-press.1280.png"
+        },
+        "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it.",
+        "sentence": "The tool stops at a surface, and a stiffness of 2 with a target 2 marks past the surface produces a push of 4 marks.",
+        "unclearTerms": [],
+        "samePoint": "no",
+        "reason": "My sentence gives the numerical push result after the tool stops, but does not state that the action sends both settings or explicitly state the multiplication rule.",
+        "verdict": "fail",
+        "screenshotCommit": "72ec4b63e7d14ed1b07c47ac899a865fdd0263c8",
+        "date": "2026-11-05",
+        "reviewerSession": "reader-session-automated-r34-a-20261105",
+        "sourceDigest": "b34b6187697cebee84db8d65f7f7991c7218b0d28b5f34daa61cbfa90a542bad",
+        "rubricDigest": "862e9028f11289647001d854acd178c3caba3aae20dab422c4c802d9e81a1985"
+      },
+      "readerRecordSha256": "7903068ca6177bdf93efb96937ecf8a5baf8fa0456ea46932f6ad173eca432f3",
+      "phase1Sha256": "255f263a96aaf197c04a0fa40c35ed92ea04e387f233602c7afd438a2e85dd93",
+      "phase2Sha256": "9ef852292048108f81ae6de95804f687159f01087f584025213fafff1a7823ec"
+    }
+  ],
+  "derivedReadingMetadata": {
+    "sourceCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+    "path": "data/reading-times.json",
+    "beforeSha256": "67c8bf6d19c448e2bfab4492518fc0e416991b78cd3c299502de0a87127e8220",
+    "afterSha256": "6152b4778414098b9b0f2e9a5e95b8ccf325b8ac8b8495730e09bc8d21562d2b",
+    "entries": 57,
+    "onlyChangedEntry": "manipulation/action-spaces",
+    "before": {
+      "words": 1218,
+      "minutes": 6
+    },
+    "after": {
+      "words": 1224,
+      "minutes": 6
+    },
+    "wordDelta": 6,
+    "originalCap": 1228,
+    "other56EntriesExact": true,
+    "counterSha256": "949d7b0d3323b9568bc28f115b57a897b891798cab2286b90ec6f4f0ceeedda8",
+    "budgetsSha256": "7d355d304dc5f54ff7c9fa1ff167a748c53eaf2650a68867201916ec4f567806"
+  },
+  "validationStages": {
+    "historicalR33ProbeFailure": {
+      "status": "failed before first capture; preserved",
+      "failureSha256": "1139cc5c39b8e6bff1ae25d780b440ec0a97af3f6a8121ab8ce004b5f7b2d7a2",
+      "failure": "ReferenceError: n is not defined in private probe",
+      "captures": 0,
+      "historicalOnly": true
+    },
+    "historicalR33Full112": {
+      "sourceCommit": "9485ecbc84bb0032045b7ebec910626b7b45c880",
+      "status": "commands1through8 pass; command9 AX incomplete stops matrix",
+      "coreRows": 112,
+      "groups": [
+        {
+          "group": "defaults",
+          "open": 3,
+          "closed": 3,
+          "raw": [
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-defaults-attempt1/captures.json",
+              "sha256": "8ab307281e97755f790b8cf0214df577a0bfdb930f89529b60dc8247382f9692",
+              "rows": 3,
+              "mode": "open"
+            },
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-defaults-attempt1/closed-captures.json",
+              "sha256": "ac7bb48a76f85e36630fcca4afdae0844a56b6987cea04e19111e18c2c28cb37",
+              "rows": 3,
+              "mode": "closed"
+            }
+          ]
+        },
+        {
+          "group": "native",
+          "open": 23,
+          "closed": 23,
+          "raw": [
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-native-attempt1/captures.json",
+              "sha256": "b0bc93bdcf78510c578d0e283a40fd64d47e0ec66c0fc725b01d5c32f626b6c3",
+              "rows": 23,
+              "mode": "open"
+            },
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-native-attempt1/closed-captures.json",
+              "sha256": "1a8b520499a233c9918d9a0ca11e37a0a41f49b0bb11dcb115431fa304489459",
+              "rows": 23,
+              "mode": "closed"
+            }
+          ]
+        },
+        {
+          "group": "canonical",
+          "open": 8,
+          "closed": 8,
+          "raw": [
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-canonical-attempt1/profiles.json",
+              "sha256": "0c995cd58ed7aad489c4128efa45e37a988b966676633d0e3e4ec26752b6e90e",
+              "rows": 8,
+              "mode": "open"
+            },
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-canonical-attempt1/closed-profiles.json",
+              "sha256": "0cfa60249841cc43188b5e3ba48bd896d82698c5f72cccdb442e122f03a80d4a",
+              "rows": 8,
+              "mode": "closed"
+            }
+          ]
+        },
+        {
+          "group": "all-html",
+          "open": 6,
+          "closed": 6,
+          "raw": [
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-all-html-attempt1/profiles.json",
+              "sha256": "fbfcdbdc8484ee974f90b428a5ac9e289fcde15b55d5e3bec71e1ddb04ed3689",
+              "rows": 6,
+              "mode": "open"
+            },
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-all-html-attempt1/closed-profiles.json",
+              "sha256": "0e1f10aba9a424c7b377eb106f984248a7d17afa5412ff90e4c6e7a7645778c6",
+              "rows": 6,
+              "mode": "closed"
+            }
+          ]
+        },
+        {
+          "group": "forced",
+          "open": 8,
+          "closed": 8,
+          "raw": [
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-forced-attempt1/profiles.json",
+              "sha256": "fda3899bcea44464b7ef5ccafcc883bab70aacd88ec217e6e014683875a8043a",
+              "rows": 8,
+              "mode": "open"
+            },
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-forced-attempt1/closed-profiles.json",
+              "sha256": "67bde17c482dc7ce2b7412d191121ef28144816f83e62f09cabf872d039d0c34",
+              "rows": 8,
+              "mode": "closed"
+            }
+          ]
+        },
+        {
+          "group": "forced-boundaries",
+          "open": 8,
+          "closed": 8,
+          "raw": [
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/profiles.json",
+              "sha256": "5e79a08979df80bcc781440754bbd53a8b20ceeede9a4f481c8fef2b00218a99",
+              "rows": 8,
+              "mode": "open"
+            },
+            {
+              "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-forced-boundaries-attempt1/closed-profiles.json",
+              "sha256": "f9367921873d57495f6ce098c903a5fa916fb4a22da8cf0191454963f1cb9848",
+              "rows": 8,
+              "mode": "closed"
+            }
+          ]
+        }
+      ],
+      "live": [
+        {
+          "mode": "open",
+          "samples": 10,
+          "stopRecorded": true,
+          "rootFontPx": 32,
+          "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/author-live-open-result.json",
+          "sha256": "d7c3982aee93fee3a7509e21d04e981cefea52393a99009953297672b2f05ce2"
+        },
+        {
+          "mode": "closed",
+          "samples": 10,
+          "stopRecorded": true,
+          "rootFontPx": 32,
+          "path": "reader-round33-full112-diagnostic-execution-20261105-attempt2/author-live-closed-result.json",
+          "sha256": "b4fd38815d7e1bc0011df597a9ed14bd56ed2e0d72d01965b15e090e7bc5c7ab"
+        }
+      ],
+      "liveSamples": 20,
+      "AX": {
+        "commandExit": 1,
+        "modesMeasured": 1,
+        "violations": 0,
+        "incomplete": 1,
+        "rule": "aria-prohibited-attr",
+        "unsupportedHost": "press-action-label SPAN aria-label",
+        "resultPath": "reader-round33-full112-diagnostic-execution-20261105-attempt2/author-axe-aria-result.json",
+        "resultSha256": "c86f133e54b980200716d2605993b883d72a513961d7b508c716b6a9cc574983"
+      },
+      "executionStatusSha256": "1962a95999861b6554234fd5b0b6a122fd85a0ccb367c1a8d0f81ee4ab6a2279",
+      "completeMatrixAccepted": false,
+      "allVisualReviewsCompleted": false,
+      "historicalOnly": true,
+      "clarification": "Producer commands1through8 completed with112core rows and20live samples. Subsequent independent strict raw-mark post-read found four real187px parent-containment failures; therefore this was never full technical acceptance. AX command9 also failed with0violations/1incomplete.",
+      "independent187ParentFailures": [
+        {
+          "rawPath": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-canonical-attempt1/profiles.json",
+          "rawSha256": "0c995cd58ed7aad489c4128efa45e37a988b966676633d0e3e4ec26752b6e90e",
+          "rowIndex": 0,
+          "mode": "open",
+          "state": "default",
+          "sourceHash": "846186bc1d8431765cad6003f9d38fa43efb2cde0db23680bfaf12a6c77dd99c",
+          "response": {
+            "x": 41,
+            "y": 841.984375,
+            "width": 105,
+            "height": 356,
+            "top": 841.984375,
+            "right": 146,
+            "bottom": 1197.984375,
+            "left": 41
+          },
+          "dial": {
+            "x": 41,
+            "y": 1085.984375,
+            "width": 112,
+            "height": 112,
+            "top": 1085.984375,
+            "right": 153,
+            "bottom": 1197.984375,
+            "left": 41
+          },
+          "rightOverflowPx": 7,
+          "originalProducerFindings": [],
+          "strictParentContainmentSatisfied": false
+        },
+        {
+          "rawPath": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-canonical-attempt1/profiles.json",
+          "rawSha256": "0c995cd58ed7aad489c4128efa45e37a988b966676633d0e3e4ec26752b6e90e",
+          "rowIndex": 1,
+          "mode": "open",
+          "state": "changed",
+          "sourceHash": "846186bc1d8431765cad6003f9d38fa43efb2cde0db23680bfaf12a6c77dd99c",
+          "response": {
+            "x": 41,
+            "y": 904.984375,
+            "width": 105,
+            "height": 356,
+            "top": 904.984375,
+            "right": 146,
+            "bottom": 1260.984375,
+            "left": 41
+          },
+          "dial": {
+            "x": 41,
+            "y": 1148.984375,
+            "width": 112,
+            "height": 112,
+            "top": 1148.984375,
+            "right": 153,
+            "bottom": 1260.984375,
+            "left": 41
+          },
+          "rightOverflowPx": 7,
+          "originalProducerFindings": [],
+          "strictParentContainmentSatisfied": false
+        },
+        {
+          "rawPath": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-canonical-attempt1/closed-profiles.json",
+          "rawSha256": "0cfa60249841cc43188b5e3ba48bd896d82698c5f72cccdb442e122f03a80d4a",
+          "rowIndex": 0,
+          "mode": "closed",
+          "state": "default",
+          "sourceHash": "846186bc1d8431765cad6003f9d38fa43efb2cde0db23680bfaf12a6c77dd99c",
+          "response": {
+            "x": 41,
+            "y": 841.984375,
+            "width": 105,
+            "height": 356,
+            "top": 841.984375,
+            "right": 146,
+            "bottom": 1197.984375,
+            "left": 41
+          },
+          "dial": {
+            "x": 41,
+            "y": 1085.984375,
+            "width": 112,
+            "height": 112,
+            "top": 1085.984375,
+            "right": 153,
+            "bottom": 1197.984375,
+            "left": 41
+          },
+          "rightOverflowPx": 7,
+          "originalProducerFindings": [],
+          "strictParentContainmentSatisfied": false
+        },
+        {
+          "rawPath": "reader-round33-full112-diagnostic-execution-20261105-attempt2/matrix-canonical-attempt1/closed-profiles.json",
+          "rawSha256": "0cfa60249841cc43188b5e3ba48bd896d82698c5f72cccdb442e122f03a80d4a",
+          "rowIndex": 1,
+          "mode": "closed",
+          "state": "changed",
+          "sourceHash": "846186bc1d8431765cad6003f9d38fa43efb2cde0db23680bfaf12a6c77dd99c",
+          "response": {
+            "x": 41,
+            "y": 904.984375,
+            "width": 105,
+            "height": 356,
+            "top": 904.984375,
+            "right": 146,
+            "bottom": 1260.984375,
+            "left": 41
+          },
+          "dial": {
+            "x": 41,
+            "y": 1148.984375,
+            "width": 112,
+            "height": 112,
+            "top": 1148.984375,
+            "right": 153,
+            "bottom": 1260.984375,
+            "left": 41
+          },
+          "rightOverflowPx": 7,
+          "originalProducerFindings": [],
+          "strictParentContainmentSatisfied": false
+        }
+      ],
+      "signedZeroPostreadCorrection": {
+        "path": "reader-round35-signed-zero-independent-review-20261105/SOURCE-APPROVAL.json",
+        "sha256": "4db8ae09102ca1218d9c60d2a74ae4dbf7b8cd0f7c914c616ff2aaeb8a4fbe24",
+        "onlyNumericallyEquivalent0AndNegative0ComparisonCorrected": true,
+        "realParentFailuresPreserved": 4,
+        "missingFamiliesPreserved": 4
+      }
+    },
+    "historicalR34Actual48": {
+      "sourceCommit": "72ec4b63e7d14ed1b07c47ac899a865fdd0263c8",
+      "integrationReceiptPath": "reader-round34-implementation-integration.json",
+      "integrationReceiptSha256": "d46eed59508cb14dfe96aad0e7d5acb6cdb2943657368ecaa9a31a9a443d69f4",
+      "earlyProductionReceiptSha256": "0c321f2da96201cd2c1ebd217f52d79285a24c3043272c03be87536af2bc24cb",
+      "focusedPublic": {
+        "at": "2026-11-05T01:59:05.700289+00:00",
+        "passedPublicCases": 4,
+        "nativeObservations": 30,
+        "exactNativePopulation": true,
+        "nativeErrors": 0,
+        "negativeWitnesses": 16,
+        "allMutationsDetected": true,
+        "specUnchanged": true,
+        "rendererInputsStable": 238,
+        "exportFilesStable": 1195,
+        "observationSha256": "f0af69fa1ca3fe92d2ae6c56a03aeed73307a64daa2d54aa75f4ebfdc49b80aa",
+        "fractionalProfiles": 2,
+        "positionDefaults": 8,
+        "positionNativeAnchors": 120,
+        "positionNegativeWitnesses": 24,
+        "positionObservationSha256": "1e4d9d45c55f36b52e9c5b7fb579ef7d43b2fb877b1991d14b6c41255be89f49",
+        "fractionalObservationSha256": "c55bb3e204436d78c4b2af0613053781eccd24fc64046280b72875c5e0cf40d0",
+        "contactClauseOpacityNegativeWitnesses": 8,
+        "contactClauseRestorations": 8,
+        "namedProductNegativeWitnesses": 8,
+        "namedProductRestorations": 8,
+        "focusClearanceProfiles": 8,
+        "focusClearanceNegativeWitnesses": 5,
+        "wrappedFocusProfiles": [
+          "canonical-text-200-375",
+          "phone",
+          "phone-forced-dark",
+          "phone-forced-light",
+          "zoom-equivalent-200-187"
+        ],
+        "dialFaults": 40,
+        "dialRestorations": 40,
+        "nestedLabelFaults": 16,
+        "nestedLabelRestorations": 16,
+        "visibleDialAndRulerCheckedOnAll128DefaultNativeStates": true
+      },
+      "focusedAX": {
+        "states": 4,
+        "violations": 0,
+        "incomplete": 0,
+        "sameGroupNamesAndCounts": true,
+        "reportSha256": "4410d4da221ef07f3b1597720af8656751b81f79a247f48cd60783a5f6497a8d"
+      },
+      "all57CapsPass": true,
+      "actionWords": 1218,
+      "cap": 1228,
+      "rootOpenedActualImages": 8,
+      "full112CurrentSourcePending": true,
+      "releaseAccepted": false
+    },
+    "actual49Focused": {
+      "sourceCommit": "bbdccd85835618d2fa882c5469feb58cf1adfa65",
+      "buildCommands": 4,
+      "buildAllExitZero": true,
+      "buildStatusSha256": "4cee989ffb4dbf6d82c9419b6b4aa04467faef6b9349c4b64df07c3bf3f4a03e",
+      "focusedPublic": {
+        "at": "2026-11-05T03:07:19.530635+00:00",
+        "passedPublicCases": 4,
+        "nativeObservations": 30,
+        "exactNativePopulation": true,
+        "nativeErrors": 0,
+        "negativeWitnesses": 16,
+        "allMutationsDetected": true,
+        "specUnchanged": true,
+        "rendererInputsStable": 238,
+        "exportFilesStable": 1195,
+        "observationSha256": "d454eb8297823a09bb702bec49c499b98b1a8646a9d72f7bc8a248b43b36528c",
+        "fractionalProfiles": 2,
+        "positionDefaults": 8,
+        "positionNativeAnchors": 120,
+        "positionNegativeWitnesses": 24,
+        "positionObservationSha256": "b4b23281c5cff1169a7e9146c06dc1f52b505e46155af1c95d1dfca0926e4742",
+        "fractionalObservationSha256": "b55a689aa29485c291b94df4b035f3efb02f1f67af6061f213b72d0bc1d17523",
+        "contactClauseOpacityNegativeWitnesses": 8,
+        "contactClauseRestorations": 8,
+        "namedProductNegativeWitnesses": 8,
+        "namedProductRestorations": 8,
+        "focusClearanceProfiles": 8,
+        "focusClearanceNegativeWitnesses": 5,
+        "wrappedFocusProfiles": [
+          "canonical-text-200-375",
+          "phone",
+          "phone-forced-dark",
+          "phone-forced-light",
+          "zoom-equivalent-200-187"
+        ],
+        "dialFaults": 40,
+        "dialRestorations": 40,
+        "nestedLabelFaults": 16,
+        "nestedLabelRestorations": 16,
+        "visibleDialAndRulerCheckedOnAll128DefaultNativeStates": true
+      },
+      "publicVerificationSha256": "3322eb0528dced8cc705f56e5b21f5e0e622616278393332c5b8878c78093316",
+      "postreadCorrectionApproval": {
+        "path": "reader-round35-public-postread-independent-review-20261105/POSTREAD-SUCCESSOR-APPROVAL.json",
+        "sha256": "39e8810a7f1b3c9513189753cb205419686b575d39935069a40768c664290284",
+        "all44RawArtifactsUnchanged": true,
+        "browserReruns": 0,
+        "originalFailedBoundaryRetained": true
+      },
+      "focusedAX": {
+        "states": 4,
+        "violations": 0,
+        "incomplete": 0,
+        "reportSha256": "15d7a8a175ef70c318972053efca764b637c74224c32ddd7d670e44a289e20dc"
+      },
+      "qualitativeCheckpointSha256": "41b18eaedabe218aa9dda3b7e2aa880d99119e1a4ccf8ade73c5eb296401f2d0",
+      "tasteReviewSha256": "eca8205dbffbe1f28a9c34686762191a56b07468a286596523c08dfdd6561df5",
+      "actionWords": 1224,
+      "originalCap": 1228,
+      "all57CapsPass": true,
+      "currentFull112Pending": true,
+      "currentSourceParityPending": true,
+      "fullTechnicalAcceptanceGranted": false,
+      "releaseAccepted": false
+    },
+    "reader": {
+      "status": "pass",
+      "passed": 110,
+      "total": 110,
+      "protectedPaths": 562,
+      "commit": "6689f8ef50d976eb90f75ff29e030560a4b3a803"
+    },
+    "currentR35FullTechnicalMatrix": {
+      "status": "Not executed for current source",
+      "originalCoreRowsRequired": 112,
+      "requiredForFinalAcceptance": true
+    },
+    "sourceParity": {
+      "status": "Exact current-source capture remains required"
+    }
+  },
+  "readerAcceptanceObserved": true,
+  "readerAcceptanceGrantedByThisContinuity": false,
+  "fullTechnicalAcceptanceGranted": false,
+  "releaseAcceptanceGranted": false,
+  "publicApplicationAuthorized": true,
+  "precedingR34ReviewPreserved": {
+    "path": "audit/evidence/mission-completion-20261102/reader-round34-source-continuity-review.json",
+    "sha256": "1957f0a010db52a631ecb42cd62b5527b9562d5f24e41873fa998eb2a0eede4f",
+    "independentApprovalSha256": "24ffa4d5580f43f3de61fb6d78c6a1da8a2a95cbbb792658a9f3a571846ab934",
+    "previouslyPubliclyApplied": false
+  },
+  "precedingR33ReviewPreserved": {
+    "path": "audit/evidence/mission-completion-20261102/reader-round33-source-continuity-review.json",
+    "sha256": "2bdd37ac27220903d5e2460e5b11922ab904413f27b559cc967c948aee616417"
+  },
+  "historicalProseReceiptsPreserved": {
+    "original840Sha256": "b7b618d7a5beeb16bb9feadecd08bef263adf302d350a36a1fc4f287235c3529",
+    "sixWordSha256": "cd7129f4d72ef1447c336d0f05d9205a4a6729b676db352d19cd6d9b3e5ced26"
+  },
+  "continuityPreparationReceipts": {
+    "parent-binding.json": "45ed1abddcb882ad548eeec33937591297f9d58e58fc8db2150ece85ec27393b",
+    "transitions-through-r35.json": "03fe0e66cd3f40396a6e38bfae090fc6edc1d97d49dfc0aaf6cb6d687920e0eb",
+    "historical-chain-through-r35.json": "c4cc86df4e9380cf0080c75880c372d7582b19b2896054a6e92b1f17239ef09d",
+    "preserved-attempts-through-r35.json": "0c9cf2151f5ba97e61799aa4b462116481eaee727c54f24738349cbefa1cc412",
+    "runtime-stage-bindings.json": "0ab18c517f7e9ab50bd362eb8a0f3376ff40ffdddd170133f91794d4342ca224",
+    "existing-verifier-reconstruction.json": "47f4a1fd0e5243524c3257a210d4cf5d0665c648794c5f333fd5338da957395e"
+  }
+}

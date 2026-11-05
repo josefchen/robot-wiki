@@ -186,6 +186,18 @@ export class SourceOracleContext {
     this.compare(`point ${binding}`, { x, y, radius }, matches, matches.length === 1);
   }
 
+  svgPlotPoints(seriesId: string, tag: string, ownerTestId: string, viewBox: string, points: readonly (readonly [number, number])[], tolerance = 0.05): void {
+    const marks = this.frame.svgMarks.filter(mark => mark.seriesId === seriesId && mark.tag === tag && mark.ownerTestId === ownerTestId);
+    const mark = marks[0], matrix = mark?.plotTransform;
+    const projected = matrix && Object.values(matrix).every(Number.isFinite)
+      ? points.map(([x, y]) => [matrix.a * x + matrix.c * y + matrix.e, matrix.b * x + matrix.d * y + matrix.f])
+      : null;
+    const valid = marks.length === 1 && mark.displayed === true && mark.effectiveOpacity !== undefined && mark.effectiveOpacity > 0 &&
+      normalized(mark.viewBox) === normalized(viewBox) && mark.attrs.transform === undefined && projected !== null && points.length >= 3 &&
+      projected.every((point, index) => point.every((value, axis) => Number.isFinite(value) && Math.abs(value - points[index][axis]) <= tolerance));
+    this.compare(`SVG plot coordinates ${seriesId}`, { ownerTestId, viewBox, points }, { marks, projected }, valid);
+  }
+
   rect(series: string, x: number, y: number, width: number, height: number, tolerance = 0.05): void {
     const matches = this.frame.seriesRects.filter((mark) => mark.seriesId === series && Math.abs(mark.x - x) <= tolerance && Math.abs(mark.y - y) <= tolerance);
     this.compare(`rectangle ${series}@${x},${y}`, { x, y, width, height }, matches, matches.length === 1 && Math.abs(matches[0].width - width) <= tolerance && Math.abs(matches[0].height - height) <= tolerance);
