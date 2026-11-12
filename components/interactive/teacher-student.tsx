@@ -113,8 +113,8 @@ function StandingDog() {
 }
 
 function annotationLines(degradation: number): string[] {
-  if (degradation === 0) return ['No ground view: clean leg readings', 'match the ground’s shape'];
-  if (degradation <= 0.2) return ['No ground view: its leg readings', 'nearly reveal the ground’s shape'];
+  if (degradation === 0) return ['No ground view: clean leg readings', "match the ground's shape"];
+  if (degradation <= 0.2) return ['No ground view: its leg readings', "nearly reveal the ground's shape"];
   return ['No ground view: noisy leg readings', 'give a poorer ground-shape guess'];
 }
 
@@ -188,7 +188,7 @@ export function TeacherStudent({
                   real ground
                 </LegendItem>
                 <LegendItem series="reconstruction" swatch={<LegendSwatch role="state" mark="dash" />}>
-                  student’s guess
+                  student&apos;s guess
                 </LegendItem>
                 <LegendItem series="readings" swatch={<LegendSwatch role="measurement" mark="bar" />}>
                   what its legs feel
@@ -301,11 +301,11 @@ export function TeacherStudent({
             terrain heightfield under the robot. A student policy then learns to act like the teacher from
             proprioception alone, the joint angles and motor efforts its legs report, and has to rebuild the ground
             from them. Proprioceptive degradation adds noise to those readings and drops channels; a dropped
-            channel is a grey stub in the strip and a gap in the dashed guess.
+            channel is a gray stub in the strip and a gap in the dashed guess.
           </p>
           <p>
             Reconstruction error and action divergence rise by construction as degradation increases. The ground is chosen terrain, the leg readings are that terrain normalized plus seeded noise,
-            and the guess is the terrain plus an authored error field; it is not inferred from the strip. Higher
+            and the guess is the terrain plus an invented error field; it is not inferred from the strip. Higher
             ground is drawn higher, with its height exaggerated. Darker cells are higher terrain: each of the 24
             cells under the profile is shaded by its height, so the shade and the height agree.
           </p>

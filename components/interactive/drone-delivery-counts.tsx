@@ -17,7 +17,7 @@ import {
 import {
   DELIVERY_COUNTS,
   DELIVERY_SOURCES,
-  WALMART_MAY_2026,
+  WALMART_NOVEMBER_2026,
   WING_ID,
   ZIPLINE_ID,
   ZIPLINE_JANUARY_2026,
@@ -54,8 +54,8 @@ const ZIPLINE = deliveryOf(ZIPLINE_ID);
 const WING = deliveryOf(WING_ID);
 
 const CAPTION =
-  'Company-reported lower bounds, on different dates. Walmart’s million is left out: providers including Wing and Zipline flew them.';
-const DESCRIPTION = `Cumulative drone deliveries as the companies report them. Zipline reports ${ZIPLINE.readout} deliveries since its first commercial delivery in 2016, on a fact sheet read in October 2026. Wing reported ${WING.readout} commercial deliveries in June 2026. Both are lower bounds. Walmart's million drone deliveries are not added, because its providers include Wing and Zipline.`;
+  "Each bar is a company's own lower bound on its own date; Walmart's 2 million are not added because they overlap Wing's and Zipline's counts.";
+const DESCRIPTION = `Cumulative drone deliveries as the companies report them. Zipline reports ${ZIPLINE.readout} deliveries since its first commercial delivery in 2016, on a fact sheet read in October 2026. Wing reported ${WING.readout} commercial deliveries in June 2026. Both are lower bounds. Walmart's more than 2 million drone deliveries, reported in November 2026, are not added, because its providers include Wing and Zipline.`;
 
 export function DroneDeliveryCounts({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
@@ -154,9 +154,9 @@ export function DroneDeliveryCounts({ className }: { className?: string }) {
             Each bar is the operator&apos;s own count, drawn to the lower bound it states. Zipline&apos;s safety fact
             sheet, a page it keeps current, said more than {ZIPLINE.atLeast / 1e6} million when read on 27 October
             2026; its January 2026 release had reported passing {ZIPLINE_JANUARY_2026 / 1e6} million. Wing&apos;s
-            figure is from its 8 June 2026 post on its Walmart expansion. Walmart reported{' '}
-            {WALMART_MAY_2026 / 1e6} million drone deliveries in May 2026, made with providers including Wing and
-            Zipline, so it overlaps both bars and is not drawn.
+            figure is from its 8 June 2026 post on its Walmart expansion. Walmart reported more
+            than {WALMART_NOVEMBER_2026 / 1e6} million drone deliveries on 5 November 2026, made with providers
+            including Wing and Zipline, so it overlaps both bars and is not drawn.
           </div>
           <ChartDescription
             open

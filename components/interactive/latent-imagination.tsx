@@ -109,9 +109,9 @@ function path(points: readonly ChartPoint[]): string {
 
 /** The note under the bench: how far the imagined head is from the real route. */
 function noteLines(horizon: number, gap: number, stopped: boolean): readonly [string, string] {
-  if (gap < VISIBLE_GAP) return [`${stepsWord(horizon)} ahead:`, 'ruler shows a small gap to the real route'];
+  if (gap < VISIBLE_GAP) return [`${stepsWord(horizon)} ahead:`, 'the ruler shows a small gap to the real route'];
   if (stopped) return [`${stepsWord(horizon)} ahead: so far off,`, 'the blue tip has run into the central hub'];
-  return [`${stepsWord(horizon)} ahead:`, 'ruler measures the gap from blue tip to real route'];
+  return [`${stepsWord(horizon)} ahead:`, 'the ruler measures the gap from the blue tip to the real route'];
 }
 
 /** The imagined steps Dreamer decodes into pictures: a quarter, a half and three quarters of the way. */
@@ -411,12 +411,12 @@ export function LatentImagination({
             and {stepsWord(horizon)} it reaches{' '}
             <span data-testid="deviation-readout">{formatUnits(deviationNow)}</span> units of toy
             latent deviation. The bench draws each unit as the same inward step off the template, read on
-            the radius arm, and stops the track at the hub&rsquo;s flange; the number keeps growing.
+            the radius arm, and stops the track at the hub&apos;s flange; the number keeps growing.
           </p>
           <p>
             Dreamer learns with a decoder that turns imagined states back into pictures, drawn here as
             picture cards on flags along the track. TD-MPC2 has no decoder: it never draws a picture, and its drift shows up as
-            error in the reward it predicts (&ldquo;Adjust more&rdquo; switches between the two). TD-MPC
+            error in the reward it predicts (&quot;Adjust more&quot; switches between the two). TD-MPC
             and TD-MPC2 are also trained to keep imagined and encoded states consistent, so a single
             toy number is not a complete account of either training loss.
           </p>

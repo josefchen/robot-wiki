@@ -509,7 +509,7 @@ export function RewardShaping({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Lit fader: the scoring rule in charge of the walk"
+          hint="Pick a scoring rule to see the walk change; the lit fader is the rule in charge"
           readout={<span data-testid="walk-readout"><ReadoutText>{WALK[behaviorId]}</ReadoutText></span>}
           status="Illustrative teaching model. No policy is trained here."
           data-walk={behaviorId}
@@ -580,13 +580,13 @@ export function RewardShaping({ className }: { className?: string }) {
             The drawing is a mixing desk wired to a treadmill bay. Each of its twelve faders is one weight, in the
             order of the sliders, from 0 at the front of its slot to {formatWeight(WEIGHT_MAX)} at the back; a dot
             beside each slot marks the balanced score. The lit fader is the one in charge of the walk: velocity
-            tracking while the trot holds, otherwise the weight that tipped it. The robot&rsquo;s feet and body follow
+            tracking while the trot holds, otherwise the weight that tipped it. The robot&apos;s feet and body follow
             the same drawn poses, and the belt runs only while it walks.
           </p>
           <p>
-            The four scoring rules each change one weight of the balanced score: &ldquo;Too strict on effort&rdquo;
-            sets the torque penalty to {formatWeight(WEIGHT_MAX)}, &ldquo;Loves high steps&rdquo; sets foot air time
-            to {formatWeight(WEIGHT_MAX)}, and &ldquo;Ignores jerky moves&rdquo; sets the action-rate penalty to{' '}
+            The four scoring rules each change one weight of the balanced score: &quot;Too strict on effort&quot;
+            sets the torque penalty to {formatWeight(WEIGHT_MAX)}, &quot;Loves high steps&quot; sets foot air time
+            to {formatWeight(WEIGHT_MAX)}, and &quot;Ignores jerky moves&quot; sets the action-rate penalty to{' '}
             {formatWeight(WEIGHT_MIN)}.
           </p>
           <ul className="m-0! grid list-none gap-0.5 p-0!">

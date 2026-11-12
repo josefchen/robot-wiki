@@ -470,7 +470,7 @@ function DiffusionReadout() {
 }
 
 /** What the scene is and is not: the method note under "How this was made". */
-export const DIFFUSION_METHOD_NOTE = `The pin heights come from an illustrative model with fixed random seeds. Each move is ${PIN_COUNT} planned positions, the prediction horizon of the Diffusion Policy paper (Chi et al., 2023, arXiv 2303.04137); training mixes in noise on improved DDPM's square-cosine schedule, and acting runs the ${DENOISING_STEPS} deterministic DDIM steps the paper uses on real robots. The denoiser is the ideal one for a training set of just the two demonstrations, not a trained network’s output.`;
+export const DIFFUSION_METHOD_NOTE = `The pin heights come from an illustrative model with fixed random seeds. Each move is ${PIN_COUNT} planned positions, the prediction horizon of the Diffusion Policy paper (Chi et al., 2023, arXiv 2303.04137); training mixes in noise on improved DDPM's square-cosine schedule, and acting runs the ${DENOISING_STEPS} deterministic DDIM steps the paper uses on real robots. The denoiser is the ideal one for a training set of just the two demonstrations, not a trained network's output.`;
 
 const swatch = (style: Record<string, string>, className: string) => (
   <span aria-hidden className={`inline-block ${className}`} style={style} />
@@ -497,14 +497,14 @@ export function DiffusionDenoising({ className }: { className?: string }) {
         </>
       }
       readout={() => <DiffusionReadout />}
-      statusLine="Illustrative: a drawn model of the idea, not a trained robot’s output."
+      statusLine="Illustrative: a drawn model of the idea, not a trained robot's output."
       method={
         <>
           <p>
             In symbols, the policy samples{' '}
             <span data-scene-equation="diffusion" dangerouslySetInnerHTML={{ __html: html }} />
             : an action a is drawn from a distribution of actions conditioned on what the robot
-            observes, o. Over the {DENOISING_STEPS} clean-up steps the two guesses&rsquo; average
+            observes, o. Over the {DENOISING_STEPS} clean-up steps the two guesses&apos; average
             distance from the move each lands on falls from{' '}
             <span data-testid="diffusion-dispersion">
               {fixed(GUESS_DISTANCES.start)} {'→'} {fixed(GUESS_DISTANCES.end)}
@@ -517,7 +517,7 @@ export function DiffusionDenoising({ className }: { className?: string }) {
           </p>
           <p>{DIFFUSION_METHOD_NOTE}</p>
           <p>
-            The drawing is a pin gauge, two of them side by side. Each pin&rsquo;s height is one planned
+            The drawing is a pin gauge, two of them side by side. Each pin&apos;s height is one planned
             position, and the thread through the pins is the move. The bar is what the camera sees.
             A demonstration arches the thread over the bar or sags it under; a thread pulled straight,
             the average of the two, would run into it. The gauge, the bar and the camera are an

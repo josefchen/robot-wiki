@@ -437,7 +437,7 @@ export function CrossEmbodimentStrategies({
       figureId="cross-embodiment-strategies"
       className={className}
       kicker="Cross-embodiment"
-      heading="Describe hand motion, not joints, and human videos become usable"
+      heading="Describing hand motion, not joints, lets robots learn from video"
       controls={
         <PresetGroup<StrategyId>
           label="Way to share one action list"
@@ -537,7 +537,7 @@ export function CrossEmbodimentStrategies({
             summary="Current cross-embodiment mapping"
             description={
               strategyId === 'padded'
-                ? `Padded shared vector is an illustrative ${SHARED_WIDTH}-slot layout across ${EMBODIMENT_ORDER.length} rows. Robot rows zero-pad unused coordinates; the human row has no adapter modelled in this toy.`
+                ? `Padded shared vector is an illustrative ${SHARED_WIDTH}-slot layout across ${EMBODIMENT_ORDER.length} rows. Robot rows zero-pad unused coordinates; the human row has no adapter modeled in this toy.`
                 : strategyId === 'motion-transfer'
                   ? `Motion Transfer is described as alignment and shared knowledge across robots. These ${SHARED_WIDTH}-slot strips add ${LATENT_DIMS} hatched link slots as an illustration, not a model latent. The empty hand row leaves its mapping unspecified; it does not establish that human video is unusable.`
                   : `Shared relative end-effector space is illustrated with ${EEF_SPACE_DIMS} shared slots. N1.7 reports 20K hours of EgoScale human video; EgoScale separately uses wrist deltas, hand joint targets and aligned mid-training. These operations are not implemented by the strips.`

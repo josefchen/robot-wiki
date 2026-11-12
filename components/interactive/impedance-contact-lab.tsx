@@ -422,12 +422,12 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
       {/* On the stiff arm softness and damping are natively
           disabled: not tab-reachable, visibly greyed, honestly unavailable. */}
       <ControlField>
-        <ControlLabel htmlFor={`${uid}-stiffness`}>Softness</ControlLabel>
+        <ControlLabel htmlFor={`${uid}-stiffness`}>How stiff it is</ControlLabel>
         <input
           type="range"
           data-brand-control-id="control:input"
           {...sliderProps('stiffnessKNPerM', SLIDER_SPECS.stiffness, 'stiffness', positionMode)}
-          aria-label={`Softness: desired stiffness in newtons per metre, currently ${params.stiffnessKNPerM.toFixed(0)}`}
+          aria-label={`How stiff it is: desired stiffness in newtons per meter, currently ${params.stiffnessKNPerM.toFixed(0)}`}
         />
         <SliderEnds low="soft" high="stiff" />
       </ControlField>
@@ -444,7 +444,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           type="range"
           data-brand-control-id="control:input"
           {...sliderProps('depthM', SLIDER_SPECS.depth, 'depth')}
-          aria-label={`How far it presses in: commanded press depth in millimetres, currently ${depthMm}`}
+          aria-label={`How far it presses in: commanded press depth in millimeters, currently ${depthMm}`}
         />
       </ControlField>
       <ControlField>
@@ -458,7 +458,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           type="range"
           data-brand-control-id="control:input"
           {...sliderProps('dampingNPerM', SLIDER_SPECS.damping, 'damping', positionMode)}
-          aria-label={`Calm the bounce: desired damping in newton-seconds per metre, currently ${params.dampingNPerM.toFixed(0)}`}
+          aria-label={`Calm the bounce: desired damping in newton-seconds per meter, currently ${params.dampingNPerM.toFixed(0)}`}
         />
       </ControlField>
       <InstrumentReset onClick={reset} aria-label="Reset the lab to the arm that controls its own push" />
@@ -551,15 +551,15 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
       data-testid="impedance-lab"
       className={className}
       kicker="Impedance control"
-      heading={positionMode ? "The stiff position-following arm crushes the glass" : outcome === 'success' ? "Force control keeps contact below the glass’s crushing force" : "This force-control setting still crushes the glass"}
+      heading={positionMode ? "The stiff position-following arm crushes the glass" : outcome === 'success' ? "Force control keeps contact below the glass's crushing force" : "This force-control setting still crushes the glass"}
       controls={controls}
       adjust={adjust}
       stage={
         <AnatomyStage
           viewWidth={STAGE_WIDTH}
-          hint={pressing ? 'Pressing, slowed for the eye' : 'Force control can be set soft enough to spare the glass; the stiff arm only follows position and crushes it.'}
+          hint={pressing ? 'Pressing, slowed for the eye' : 'Pick an arm and how stiff it is, then press: a force-controlled arm set soft enough spares the glass.'}
           readout={stillReadout(hardware, run)}
-          status="The pointer records peak push; glass cracks above 25 newtons, the shaded arc’s end. Illustrative model, not measured. One newton is roughly the weight of 100 grams on Earth."
+          status="The pointer records the peak push; the glass cracks above 25 newtons, the end of the shaded arc. Illustrative model, not measured. One newton is roughly the weight of 100 grams on Earth."
           data-testid="impedance-press"
           data-arm={hardware}
         >
@@ -596,7 +596,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Force control can keep the push below the glass’s 25-newton limit. The stiff arm follows position and crushes it."
+      caption="Force control can keep the push under the glass's 25-newton crushing force, while the stiff position-following arm crushes it."
       method={
         <>
           <p>
@@ -604,7 +604,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
             object and is commanded {depthMm} mm into it. The object is a stiff{' '}
             {ENVIRONMENT_STIFFNESS_N_PER_M / 1000} kN/m contact spring that crushes at {CRUSH_LIMIT_N} N, at the
             first bump or once settled. The arm that controls its own push runs an impedance law with stiffness K
-            (Softness, {params.stiffnessKNPerM.toFixed(0)} N/m) and damping D (Calm the bounce,{' '}
+            (How stiff it is, {params.stiffnessKNPerM.toFixed(0)} N/m) and damping D (Calm the bounce,{' '}
             {params.dampingNPerM.toFixed(0)} N·s/m). The arm with a built-in spring adds an{' '}
             {SEA_SPRING_STIFFNESS_N_PER_M} N/m spring in series with the contact. The stiff arm, a geared arm
             under position control, only follows its commanded position, so the force is whatever the position
@@ -623,7 +623,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
             description={
               positionMode
                 ? 'With the stiff arm selected, softness and damping are unavailable and the contact force is unbounded by construction: the position loop has no force channel.'
-                : `On the ${armLabel.toLowerCase()} at press depth ${depthMm} mm, stiffness ${params.stiffnessKNPerM.toFixed(0)} N/m and damping ${params.dampingNPerM.toFixed(0)} N·s/m, the contact peaks at ${run.peakForceN.toFixed(1)} N, ${run.peakForceN > CRUSH_LIMIT_N ? 'over' : 'under'} the ${CRUSH_LIMIT_N} N crush force, and settles at ${run.steadyForceN.toFixed(1)} N; the ${TRANSIENT_CONTACT_LIMIT_N} N research-basis transient limit is ${run.peakForceN > TRANSIENT_CONTACT_LIMIT_N ? 'exceeded' : 'not reached'}: ${OUTCOME_TEXT[outcome]}.`
+                : `On the ${armLabel.toLowerCase()} at press depth ${depthMm} mm, stiffness ${params.stiffnessKNPerM.toFixed(0)} N/m and damping ${params.dampingNPerM.toFixed(0)} N·s/m, the contact peaks at ${run.peakForceN.toFixed(1)} N, ${run.peakForceN > CRUSH_LIMIT_N ? 'over' : 'under'} the ${CRUSH_LIMIT_N} N crush force, and settles at ${run.steadyForceN.toFixed(1)} N; the ${TRANSIENT_CONTACT_LIMIT_N} N pain limit for a brief knock to a person is ${run.peakForceN > TRANSIENT_CONTACT_LIMIT_N ? 'exceeded' : 'not reached'}: ${OUTCOME_TEXT[outcome]}.`
             }
             states={[
               { label: 'depth', value: `${depthMm} mm` },

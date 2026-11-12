@@ -174,7 +174,7 @@ export function ReplayReuse({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="A policy is the robot’s learned movement rule. On-policy training discards used batches; off-policy training reuses them."
+      caption="A policy is the robot's learned rule for acting; on-policy training discards each batch after use, off-policy training keeps and reuses it."
       method={
         <>
           <p data-testid="replay-method-names">

@@ -48,7 +48,7 @@ const UMI = rateOf(UMI_RATE_ID);
 const HAND = rateOf('bare-hand');
 const TELEOP = rateOf('spacemouse');
 
-const CAPTION = `The handheld gripper records ${UMI} demonstrations hourly: about three times robot control (${TELEOP}), and half bare-hand speed (${HAND}).`;
+const CAPTION = `Arranging cups, the UMI gripper recorded ${UMI} demonstrations an hour, about three times the spacemouse rate (${TELEOP}) and half the bare-hand rate (${HAND}).`;
 const DESCRIPTION = `Demonstrations recorded per hour on UMI's cup-arrangement task: ${HAND} by bare hand with no robot, ${UMI} with the UMI handheld gripper and ${TELEOP} by spacemouse teleoperation of a robot. The UMI gripper ran at ${Math.round((UMI / HAND) * 100)} percent of bare-hand speed and ${(UMI / TELEOP).toFixed(1)} times the teleoperation rate.`;
 
 export function UmiCollectionRates({ className }: { className?: string }) {
@@ -61,7 +61,7 @@ export function UmiCollectionRates({ className }: { className?: string }) {
       figureId="umi-collection-rates"
       className={className}
       kicker="Demonstrations per hour"
-      heading="Handheld recording: triple robot control, half bare-hand speed"
+      heading="A handheld gripper records three times faster than teleoperation"
       stage={
         <FigureStage>
           <p className="m-0 font-sans text-sm text-text-dim">UMI means Universal Manipulation Interface: a handheld gripper that records demonstrations.</p>

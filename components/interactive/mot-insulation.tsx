@@ -479,11 +479,11 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           </div>
         </FigureStage>
       }
-      caption="Shielding language knowledge keeps it intact; training used 7.5 times fewer steps than the earlier π0 robot model."
+      caption="Blocking the action expert's training signal protects what the backbone knew, and π0.5 + KI matched π0 at table bussing in 7.5 times fewer steps."
       method={
         <>
           <p>
-            The model is a pi0-style vision-language-action model laid out as a mixture of
+            The model is a π0-style vision-language-action model laid out as a mixture of
             transformers: a 2B language-model backbone and a 300M flow-matching action expert.
             The drawing makes each a column of {LAYER_COUNT} trays, a schematic layer count, with
             cross-sections in the ratio of their sizes, and joins them at every tray through a
@@ -497,7 +497,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
             layer they reach.
           </p>
           <p>
-            The 0 to 100 &ldquo;follows instructions&rdquo; score is illustrative: it stands in
+            The 0 to 100 &quot;follows instructions&quot; score is illustrative: it stands in
             for the paper&apos;s spoon-and-trash example, where a model trained without
             insulation stops following the instruction, and is not a published curve. The
             measured result is separate:{' '}

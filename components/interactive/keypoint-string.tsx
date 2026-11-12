@@ -179,15 +179,15 @@ export function KeypointString({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A pixel fixes only a line from the camera; the depth reading picks the point on it. Read short, the target hangs in the air."
+      caption="A picked pixel fixes only a line from the camera, so the robot needs a depth reading to know which point on it to reach."
       method={
         <>
           <p>
             A vision-language model that points answers in the image: MOKA has it pick marked grasp and target
             points, and RoboPoint predicts image points directly. A point in an image is not yet a place in the room.
-            Every point on the line from the camera&apos;s centre through that pixel shows up at the same pixel, so the
+            Every point on the line from the camera&apos;s center through that pixel shows up at the same pixel, so the
             pixel alone fixes only the line. A calibrated depth reading picks the point on it: the target is the
-            camera&apos;s centre plus the depth times the line&apos;s direction.
+            camera&apos;s center plus the depth times the line&apos;s direction.
           </p>
           <p id={drawingId}>
             The frame is that geometry made of parts, after Dürer&apos;s drawing machine. The grid is the image; the

@@ -23,7 +23,7 @@ const OUTPUT_ROLE: Record<string, string> = {
   'cosmos-planner': 'One chosen move',
 };
 
-/** Different output units are labelled on every row; the axis measures elapsed seconds only. */
+/** Different output units are labeled on every row; the axis measures elapsed seconds only. */
 export function WorldModelOutputTimes({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
   const citationFor = useCitationLookup();
@@ -36,7 +36,7 @@ export function WorldModelOutputTimes({ className }: { className?: string }) {
       stage={
         <FigureStage footer={
           <p className="font-sans text-sm leading-snug text-text-dim">
-            3DGS blends overlapping 3D colour blobs into a frame. Action chunks group upcoming moves. 1XWM predicts five seconds of actions before execution. Predict2’s 14B means 14 billion internal settings adjusted using training examples. V-JEPA 2-AC is a prediction model; a planner uses its forecasts after proposed moves to choose a robot move.
+            3DGS blends overlapping 3D color blobs into a frame. An action chunk is a group of upcoming moves. 1XWM predicts five seconds of actions before the robot carries them out. The 14B in Predict2 means 14 billion parameters, the numbers set during training. V-JEPA 2-AC only predicts; a planner tries proposed moves through it and picks one.
           </p>
         }>
           <p className="font-sans text-lg leading-snug text-text" data-testid="output-times-main-comparison">
@@ -76,7 +76,7 @@ export function WorldModelOutputTimes({ className }: { className?: string }) {
 
         </FigureStage>
       }
-      caption="Frames, grouped moves, planned actions and clips need different waits and graphics processors (GPUs). The two RTX 4090 planning rows share hardware."
+      caption="On one RTX 4090 the latent planner chooses a move in 16 seconds, the video planner in 4 minutes; other rows are not comparable."
       method={
         <>
           <div>
@@ -85,7 +85,7 @@ export function WorldModelOutputTimes({ className }: { className?: string }) {
             DreamZero uses its reported 150-millisecond inference latency; its robot executes commands faster than it refreshes an action chunk.
             The 1XWM total adds 11 seconds of video generation and one second of inverse dynamics.
             V-JEPA 2-AC and the Cosmos Predict1 planning baseline share a GPU, ten refinement iterations and a one-step horizon, but use 800 and 80 samples respectively.
-            The separate Predict2 row measures clip generation at 480p and 16 frames per second in NVIDIA’s archived repository.
+            The separate Predict2 row measures clip generation at 480p and 16 frames per second in NVIDIA&apos;s archived repository.
             These workloads have different outputs and quality requirements, so the chart cannot rank simulator efficiency.
           </div>
           <ChartDescription

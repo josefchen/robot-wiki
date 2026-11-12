@@ -45,11 +45,11 @@ export const SENSE_AVOID_SCENE: SceneDefinition = {
   kicker: 'Camera delay',
   headline: 'Slower camera: safe speed falls from 69 to 53 km/h',
   beats: [
-    { id: 'obstacle', caption: 'A drone’s camera spots a wall 8 metres ahead.' },
+    { id: 'obstacle', caption: "A drone's camera spots a wall 8 meters ahead." },
     {
       id: 'camera',
       linear: true,
-      caption: 'With a quick camera, the drone flies about 1.3 metres before the wall is reported, then swerves in time at about 69 km/h.',
+      caption: 'With an ordinary camera, the drone flies about 1.3 meters before the wall is reported, then swerves in time at about 69 km/h.',
     },
     {
       id: 'delay',
@@ -59,7 +59,7 @@ export const SENSE_AVOID_SCENE: SceneDefinition = {
     },
     {
       id: 'recap',
-      caption: 'The slower camera cuts the drone’s safe speed from about 69 to 53 km/h, even with the same swerving skill.',
+      caption: "The slower camera cuts the drone's safe speed from about 69 to 53 km/h, even with the same swerving skill.",
     },
   ],
 };
@@ -329,7 +329,7 @@ function SenseAvoidReadout() {
   const text = (t: number) => {
     const frame = senseAvoidFrame(t);
     const d = senseAvoidDistances(frame.latency);
-    return `A slower camera cuts safe speed from about ${kmh(QUICK.maxSpeedMs)} to ${kmh(SLOW.maxSpeedMs)} km/h. Shown: ${d.speedKmh} km/h; ${d.blindM.toFixed(1)} metres flown before the wall is reported.`;
+    return `A slower camera cuts safe speed from about ${kmh(QUICK.maxSpeedMs)} to ${kmh(SLOW.maxSpeedMs)} km/h. Shown: ${d.speedKmh} km/h; ${d.blindM.toFixed(1)} meters flown before the wall is reported.`;
   };
   useLayoutEffect(() => {
     if (!time) return;
@@ -366,14 +366,14 @@ export function SenseAvoid({ className }: { className?: string }) {
           style={{ backgroundColor: 'var(--role-constraint-graphic)' }} />}>flown before the camera reports</LegendItem>
         <LegendItem series="avoidance-time" swatch={<span aria-hidden className="inline-block h-1.5 w-3 border"
           style={{ borderColor: 'var(--role-action-graphic)' }} />}>swerving</LegendItem>
-        <LegendItem swatch={<LaneSwatch />}>back lane: quick camera; front: slow camera; dials: safe speed in km/h</LegendItem>
+        <LegendItem swatch={<LaneSwatch />}>back lane: ordinary camera; front: slow camera; dials: safe speed in km/h</LegendItem>
       </>}
       readout={() => <SenseAvoidReadout />}
       statusLine="illustrative"
       method={<>
         <p data-testid="sense-avoid-method">{SENSE_AVOID_METHOD_NOTE}</p>
         <p>
-          Quick camera: {formatSeconds(STEREO.latencyS)} delay, {formatSpeed(QUICK.maxSpeedMs)}, about{' '}
+          Ordinary camera: {formatSeconds(STEREO.latencyS)} delay, {formatSpeed(QUICK.maxSpeedMs)}, about{' '}
           {QUICK_DIST.blindM.toFixed(1)} m flown before the report. Slow camera:{' '}
           {INTERACTIVE_MAX_LATENCY_MS} ms delay, {formatSpeed(SLOW.maxSpeedMs)}, about{' '}
           {senseAvoidDistances(SLOW_LATENCY_S).blindM.toFixed(1)} m. Speeds on the dials are the same values in km/h.

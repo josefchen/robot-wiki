@@ -84,7 +84,7 @@ const THOR = LATENCY_REFERENCES.find((ref) => ref.id === 'pi0-thor')!;
 
 type Computer = 'server' | 'robot';
 const COMPUTER_PRESETS: ReadonlyArray<{ id: Computer; label: string }> = [
-  { id: 'server', label: 'Data-centre computer' },
+  { id: 'server', label: 'Data-center computer' },
   { id: 'robot', label: "Robot's own computer" },
 ];
 
@@ -440,7 +440,7 @@ export function ControlLoopBudget({
               <>
                 {onServer ? (
                   <>
-                    On the data-centre computer, pi0 is predicted at {formatMs(inferenceMs)}, inside
+                    On the data-center computer, pi0 is predicted at {formatMs(inferenceMs)}, inside
                     the {Math.round(CONTROL_PERIOD_MS)} ms budget of a {CONTROL_HZ} Hz loop. On the
                     robot&apos;s own computer, the
                   </>
@@ -462,7 +462,7 @@ export function ControlLoopBudget({
           />
         </>
       }
-      source="Computer timings are predictions from VLA-Perf, a robot timing study; values for other model sizes are illustrative. Other references cover the π0.6 and π0.7 robot-control software models and switching movement plans."
+      source="Computer timings are predictions from VLA-Perf, a robot timing study; values for other model sizes are illustrative. The other cited times come from the π0.6 model card, the π0.7 paper and the Real-Time Chunking paper."
     />
   );
 }

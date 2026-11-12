@@ -29,7 +29,7 @@ import {
  * leaves its key pin standing above the shear line, partial evidence leaves
  * it closer, and the result itself sets it on the line. The plug, the one
  * lit part, turns only when all four sit on the line. Each pin starts where
- * the bear-case watchlist's August 2026 call puts it; the toggles suppose a
+ * the bear-case watchlist's November 2026 call puts it; the toggles suppose a
  * result arrives. Nothing moves until a toggle is pressed; reduced motion
  * jumps to the end state.
  */
@@ -52,7 +52,7 @@ export function readoutFor(supposed: Supposed, turn: number) {
   const count = countSupposed(supposed);
   if (count === 0) {
     const partial = countPartial(supposed);
-    return `None of 4 in${partial ? `, ${partial} partly` : ''} · locked`;
+    return `None of 4 shown yet${partial ? `, ${partial} partly` : ''} · locked`;
   }
   if (count < PREMISES.length) return `Supposing ${count} of 4 · still locked`;
   return turn >= TURN - 1e-3 ? 'All 4 supposed · the plug turns' : 'All 4 supposed · pins reach the line';
@@ -154,7 +154,7 @@ export function BearCaseLock({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint="The plug turns only when all four pins sit on the lit line"
           readout={readoutFor(supposed, pose.turn)}
-          status="Pin status from the watchlist, September 2026; pin heights illustrative"
+          status="Pin status from the watchlist, November 2026; pin heights illustrative"
           data-testid="bear-lock-stage-frame"
         >
           <div
@@ -182,7 +182,7 @@ export function BearCaseLock({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Each result answers one doubt: scale, new homes, cost or improvement. All four must arrive to overturn robotics skepticism; none had by September 2026."
+      caption="Each result answers one doubt (scale, new homes, cost or improvement), and all four must arrive to overturn skepticism; none had by November 2026."
       method={
         <>
           <p>
@@ -190,7 +190,7 @@ export function BearCaseLock({ className }: { className?: string }) {
             verified deployment of 10,000 humanoids doing documented work (commercial viability), one policy above
             90% across more than ten unseen homes (generalization), a cost-per-task parity analysis (form factor),
             and a real-world success-rate scaling law across tasks (the plateau). Each pin starts where the
-            bear-case watchlist above puts that result in September 2026: not met for the deployment and the cost
+            bear-case watchlist above puts that result in November 2026: not met for the deployment and the cost
             analysis, partial for the unseen homes and the scaling law. None is met.
           </p>
           <p id={drawingId}>
@@ -207,7 +207,7 @@ export function BearCaseLock({ className }: { className?: string }) {
           </p>
         </>
       }
-      source="Results from the article's final section; status calls from the bear-case watchlist (September 2026)."
+      source="Results from the article's final section; status calls from the bear-case watchlist (November 2026)."
     />
   );
 }

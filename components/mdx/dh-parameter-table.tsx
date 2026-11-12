@@ -8,7 +8,7 @@ import { cx } from '@/lib/utils';
  */
 
 const ROWS = [
-  { joint: '1 (base)', theta: 'θ1', d: '0', a: '1.00', alpha: '0' },
+  { joint: '1 (shoulder)', theta: 'θ1', d: '0', a: '1.00', alpha: '0' },
   { joint: '2 (elbow)', theta: 'θ2', d: '0', a: '0.75', alpha: '0' },
   { joint: '3 (wrist)', theta: 'θ3', d: '0', a: '0.55', alpha: '0' },
 ];

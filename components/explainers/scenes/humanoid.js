@@ -145,7 +145,7 @@ export default {
       steps: [
         { text: STEP_TEXT[0],
           enter: async () => { const my = ++epoch; reset(); ctx.visible = true; labels('g1'); stage.focus(H.root, ctx);
-            ui.readout('The G1, made by the company Unitree: <b>1.32 metres</b> tall, about <b>35 kilograms</b>.');
+            ui.readout('The G1, made by the company Unitree: <b>1.32 meters</b> tall, about <b>35 kilograms</b>.');
             // Frame the robot as it will stand once put back together, with its doorway and stairs.
             const was = model.explode; model.setExplode(0);
             const framing = stage.fit([H.root, ctx], [0.5, 0.3, 1], { margin: 0.86, duration: 1.2 });

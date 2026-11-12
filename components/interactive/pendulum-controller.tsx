@@ -525,9 +525,9 @@ export function PendulumController({
         <>
           <p>
             A deterministic simulation: a 1 kg point mass on a massless 1 m rod, released 12 degrees off upright,
-            with the motor&apos;s torque applied at the pivot and capped at 40 N·m. A small off-centre load adds a
+            with the motor&apos;s torque applied at the pivot and capped at 40 N·m. A small off-center load adds a
             constant 0.8 N·m that tips the pole right. The motor pushes back with u = −(Kp·θ + Ki·∫θ + Kd·θ̇): P
-            reacts to the lean, I removes the steady lean the load leaves, and D damps the swing. Linearised about
+            reacts to the lean, I removes the steady lean the load leaves, and D damps the swing. Linearized about
             upright, the pole can only be held upright when Kp exceeds m·g·l = {PENDULUM_PARAMS.gravity.toFixed(2)}{' '}
             N·m per radian, so below it no I or D setting helps. Too gentle sets Kp to 9.5: the pole sags until the
             motor&apos;s push matches gravity&apos;s pull, about 50 degrees off upright. Strong enough sets the stock

@@ -71,7 +71,7 @@ export const TACTILE_SLIP_SCENE: SceneDefinition = {
   id: 'tactile-slip',
   title: 'Touch catches a slipping glass',
   kicker: 'Tactile sensing',
-  headline: 'Fingertips can feel a slip the camera can’t see',
+  headline: "Fingertips can feel a slip the camera can't see",
   beats: [
     {
       id: 'grasp',
@@ -90,7 +90,7 @@ export const TACTILE_SLIP_SCENE: SceneDefinition = {
     {
       id: 'recap',
       caption:
-        'When fingers block the camera, fingertip sensors still feel a slip and tighten the grip. Left dial: slip in millimetres. Right dial: grip in newtons.',
+        'When fingers block the camera, fingertip sensors still feel a slip and tighten the grip. Left dial: slip in millimeters. Right dial: grip in newtons.',
     },
   ],
 };
@@ -335,7 +335,7 @@ function TactileSlipStage() {
 
 const READOUTS = [
   `Holding · each pad presses ${GRIP_HOLD_N} newtons · the camera sees the finger`,
-  'Slipping · the camera’s view does not change',
+  "Slipping · the camera's view does not change",
   `Slip ${SLIP_MM} mm · felt at the fingertips · grip raised from ${GRIP_HOLD_N} to ${GRIP_REGRIP_N} newtons`,
   `Slip ${SLIP_MM} mm · felt at the fingertips · grip raised from ${GRIP_HOLD_N} to ${GRIP_REGRIP_N} newtons`,
 ];

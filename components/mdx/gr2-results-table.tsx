@@ -96,9 +96,9 @@ export function Gr2ResultsTable({ className }: { className?: string }) {
         data-testid="gr2-caveat"
         className="px-4 py-3 font-sans text-xs leading-relaxed text-text-dim"
       >
-        All figures are vendor-reported by Google DeepMind (2026-07-30) with
+        All figures are vendor-reported by Google DeepMind (30 July 2026) with
         no external replication and no standardized real-world humanoid
-        benchmark. DeepMind&apos;s own gloss: whole-body and gripper-based
+        benchmark. DeepMind&apos;s own summary: whole-body and gripper-based
         dexterous tasks reach medium to high success; multi-finger dexterous
         manipulation remains challenging.
       </p>

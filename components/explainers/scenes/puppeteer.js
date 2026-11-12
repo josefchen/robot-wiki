@@ -361,7 +361,7 @@ export default {
             await ui.predict({ question: 'A 2023 robot learned delicate tasks this way, such as fitting a battery into its slot. How much demonstrating did each task take?', answer: 'min',
               options: [{ id: 'min', label: 'About 10 minutes' }, { id: 'hour', label: 'About 10 hours' }, { id: 'day', label: 'About 10 days' }],
               explain: 'About 10 minutes: 50 demonstrations of 8 to 14 seconds each. On its own, the robot then got tasks like these right 80 to 90% of the time.' });
-            ui.readout('In 2023, a robot learned tasks like fitting a battery into its slot, working <b>80 to 90%</b> of the time, from about <b>10 minutes</b> of demonstrations. Grey dots: the demonstration it copies.');
+            ui.readout('In 2023, a robot learned tasks like fitting a battery into its slot, working <b>80 to 90%</b> of the time, from about <b>10 minutes</b> of demonstrations. Gray dots: the demonstration it copies.');
             leaderLabel.set('The demonstration').show(true);
             followerLabel.set('Moving alone').tone('focus').show(true);
             playBtn.show(true);

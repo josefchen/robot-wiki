@@ -474,7 +474,7 @@ export function CompoundingError({
             testId="task-length-preset"
           />
           <PresetGroup<RunPreset>
-            label="How it’s run"
+            label="How it's run"
             presets={[
               { id: 'one', label: 'One move at a time' },
               { id: 'plan', label: `${chunkSize} moves per plan` },
@@ -596,8 +596,8 @@ export function CompoundingError({
             drift.
           </p>
           <p>
-            “{chunkSize} moves per plan” makes one decision every {chunkSize} moves (action
-            chunking), so errors enter less often. “A teacher corrects it” is DAgger-style
+            &quot;{chunkSize} moves per plan&quot; makes one decision every {chunkSize} moves (action
+            chunking), so errors enter less often. &quot;A teacher corrects it&quot; is DAgger-style
             relabeling: every {DAGGER_INTERVAL} moves an expert removes{' '}
             {Math.round(DAGGER_CORRECTION * 100)}% of the drift. Both are chosen illustration rules,
             not implementations of either method.

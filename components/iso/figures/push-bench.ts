@@ -578,7 +578,7 @@ export function pushTimeline(start: Pose, push: Push, slide: Slide): Script {
     const held = reach + slid(Math.min(u, hold));
     pose.s = u < hold ? held : held + (cock - held) * smooth((u - hold) / back);
     const phase = push.moves
-      ? `sliding · ${(pose.x / 10).toFixed(1)} centimetres from the start`
+      ? `sliding · ${(pose.x / 10).toFixed(1)} centimeters from the start`
       : push.body
         ? 'struck, and nothing works out the motion'
         : 'the plunger passes through the picture';

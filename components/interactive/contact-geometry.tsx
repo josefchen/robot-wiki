@@ -70,8 +70,8 @@ type PresetId = 'thin' | 'coin' | 'thumb';
 
 const PRESETS: { id: PresetId; label: string; errorMm: number }[] = [
   { id: 'thin', label: 'Thinner than a card (0.5 mm)', errorMm: 0.5 },
-  { id: 'coin', label: 'A coin’s thickness (2 mm)', errorMm: 2 },
-  { id: 'thumb', label: 'A thumb’s width (25 mm)', errorMm: 25 },
+  { id: 'coin', label: "A coin's thickness (2 mm)", errorMm: 2 },
+  { id: 'thumb', label: "A thumb's width (25 mm)", errorMm: 25 },
 ];
 
 const presetFor = (errorMm: number): PresetId | null =>
@@ -159,7 +159,7 @@ export function ContactGeometry({
     : `Locomotion at ${error} of contact-model error loses support: the gap to the real floor exceeds the ${formatMm(loco.toleranceMm)} a gait absorbs, so its ${nLoco} near-point contacts have left the recoverable region.`;
   const manipClause = manipOk
     ? `The peg at the same error still seats inside the ${formatMm(manip.toleranceMm)} clearance of the real hole, with all ${nManip} distributed contacts holding.`
-    : `The peg at the same error jams on the edge of the real hole, past its ${formatMm(manip.toleranceMm)} clearance, so its ${nManip} distributed contacts cannot absorb millimetres the way a gait can.`;
+    : `The peg at the same error jams on the edge of the real hole, past its ${formatMm(manip.toleranceMm)} clearance, so its ${nManip} distributed contacts cannot absorb millimeters the way a gait can.`;
   const takeaway = `${locoClause} ${manipClause}`;
 
   // The bench as drawn: a test runs from wherever it stands to the chosen error's rest pose.
@@ -225,7 +225,7 @@ export function ContactGeometry({
       heading="Legs forgive tiny surface errors; precise hand work does not"
       controls={
         <PresetGroup<PresetId>
-          label="How wrong the simulator’s surface is"
+          label="How wrong the simulator's surface is"
           presets={PRESETS}
           value={presetFor(errorMm)}
           onChange={(id) => setErrorMm(PRESETS.find((p) => p.id === id)!.errorMm)}
@@ -273,7 +273,7 @@ export function ContactGeometry({
               viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
               role="img"
               focusable="false"
-              aria-label={`Contact-model error of ${errorMm.toFixed(1)} millimetres, side by side. Left, a four-legged robot stands on the simulated floor: ${locoOutcome}. Right, a gripper lowers a peg toward the real hole: ${manipOutcome}.`}
+              aria-label={`Contact-model error of ${errorMm.toFixed(1)} millimeters, side by side. Left, a four-legged robot stands on the simulated floor: ${locoOutcome}. Right, a gripper lowers a peg toward the real hole: ${manipOutcome}.`}
               aria-describedby={descriptionId}
               data-testid="cg-bench"
               data-drop={tenth(pose.drop)}
@@ -328,7 +328,7 @@ export function ContactGeometry({
       method={
         <>
           <p>
-            Both fixtures take the same contact-model error, epsilon: how far the simulator&rsquo;s idea of a
+            Both fixtures take the same contact-model error, epsilon: how far the simulator&apos;s idea of a
             surface is from the real one. The drawing is a test bench. One knob at its front sets the error: its
             shaft runs along the bench to a gearbox at each fixture, so the same turn lowers the floor and moves the
             hole. At the left a four-legged robot stands with
@@ -337,9 +337,9 @@ export function ContactGeometry({
             the {formatMm(loco.toleranceMm)} a gait absorbs, and past that the robot pitches forward onto the
             plate. At the right a gripper lowers the lit peg where the simulator puts the hole, and a cross-slide
             moves the real hole by the same error. A ruler at each station reads its gap, the tolerance marked by
-            the longest tick. Gaps are drawn larger than real so a couple of millimetres shows at all: the floor
-            at {FLOOR_UNITS} drawing units a millimetre, the hole at {HOLE_UNITS}, whose shift stops growing at
-            four clearances. The slider under &ldquo;Adjust more&rdquo; sets any error from {MIN_ERROR_MM} to{' '}
+            the longest tick. Gaps are drawn larger than real so a couple of millimeters shows at all: the floor
+            at {FLOOR_UNITS} drawing units a millimeter, the hole at {HOLE_UNITS}, whose shift stops growing at
+            four clearances. The slider under &quot;Adjust more&quot; sets any error from {MIN_ERROR_MM} to{' '}
             {MAX_ERROR_MM} mm, and each change runs the test again.
           </p>
           <InstrumentReadout>
@@ -362,7 +362,7 @@ export function ContactGeometry({
             ))}
           </ul>
           <p>
-            The contact counts and patch radii are illustrative, not one simulator&rsquo;s solver output; the 20 mm
+            The contact counts and patch radii are illustrative, not one simulator&apos;s solver output; the 20 mm
             walking tolerance and the 0.5 mm insertion clearance are representative physical scales.
           </p>
           <ChartDescription

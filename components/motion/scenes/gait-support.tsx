@@ -57,7 +57,7 @@ export const GAIT_SUPPORT_SCENE: SceneDefinition = {
     { id: 'pronk', duration: 'long', linear: true, caption: 'Hopping: all four feet push off and land together, so at times none touch the ground.' },
     {
       id: 'recap',
-      caption: 'A four-legged robot trades steadiness for bounce as fewer feet stay down. The dial counts feet on the ground.',
+      caption: 'A four-legged robot trades steadiness for bounce as fewer feet stay down, and the dial counts the feet on the ground.',
     },
   ],
 };
@@ -349,7 +349,7 @@ const pct = (phase: number) => `${Math.round(phase * 100)}%`;
 const footList = (legs: LegId[]) => (legs.length ? legs.map((leg) => FOOT_WORDS[leg]).join(', ') : 'none');
 const feetDownAtSettle = (id: GaitId) => stanceLegs(GAITS[id], SETTLE_PHASE[id]).length;
 
-const GAIT_METHOD_NOTE = `Each gait is an authored timing pattern, not measured robot footfalls. A foot stays on the ground for a fixed share of the stride, its duty factor: walk ${GAITS.walk.dutyFactor}, trot ${GAITS.trot.dutyFactor}, bound ${GAITS.bound.dutyFactor} and hop ${GAITS.pronk.dutyFactor}. Each foot lands at its own point in the stride, its phase offset: the walk lands back left, front left, back right, front right a quarter stride apart; the trot pairs front left with back right and front right with back left half a stride apart; the bound lands the front pair, then the back pair half a stride later; the hop, which robotics papers call a pronk, lands all four together.`;
+const GAIT_METHOD_NOTE = `Each gait is a chosen timing pattern, not measured robot footfalls. A foot stays on the ground for a fixed share of the stride, its duty factor: walk ${GAITS.walk.dutyFactor}, trot ${GAITS.trot.dutyFactor}, bound ${GAITS.bound.dutyFactor} and hop ${GAITS.pronk.dutyFactor}. Each foot lands at its own point in the stride, its phase offset: the walk lands back left, front left, back right, front right a quarter stride apart; the trot pairs front left with back right and front right with back left half a stride apart; the bound lands the front pair, then the back pair half a stride later; the hop, which robotics papers call a pronk, lands all four together.`;
 
 export function GaitSupport({ className }: { className?: string }) {
   return (
@@ -364,7 +364,7 @@ export function GaitSupport({ className }: { className?: string }) {
         </LegendItem>
       }
       readout={({ beatIndex }) => (beatIndex >= RECAP_INDEX ? recapWords() : supportWords(LINE_UP[beatIndex] ?? DEFAULT_GAIT))}
-      statusLine="Schematic, not measured: authored gait timings."
+      statusLine="Schematic, not measured: chosen gait timings."
       method={<>
         <p data-testid="gait-method">{GAIT_METHOD_NOTE}</p>
         <p>

@@ -486,7 +486,7 @@ export function FlowMatchingTrajectory({
           </p>
           <div className="[&_.figure-tab-row]:gap-x-1">
             <PresetGroup<StepPreset>
-              label="Refining steps (π0, π0.6 and π0.7 are robot models)"
+              label="Refining steps"
               presets={STEP_PRESETS.map(({ id, label }) => ({ id, label }))}
               value={preset}
               onChange={(id) => chooseSteps(STEP_PRESETS.find((p) => p.id === id)?.steps ?? defaultSteps)}
@@ -565,7 +565,7 @@ export function FlowMatchingTrajectory({
               {steps === 1 ? null : <> · one big jump averages {oneJump.toFixed(2)}</>}
             </>
           }
-          status="Inside an outlined area counts as a good move. The small dot is its exact target; the readout measures distance to that dot. Grey paths: other guesses. Red crosses: missed moves. Distances are illustrative, with no physical unit."
+          status="Inside an outlined area counts as a good move. The small dot is its exact target; the readout measures distance to that dot. Gray paths: other guesses. Red crosses: missed moves. Distances are illustrative, with no physical unit."
         >
           <div ref={stageRef}>
             <IsoFigure
@@ -593,7 +593,7 @@ export function FlowMatchingTrajectory({
             with five to ten it lands on it. On the field table a vane beside the stylus turns to
             the field before every hop and the hop runs straight along it; the groove is the path
             the field itself would trace, and each pocket is two spreads of the good moves wide.
-            The vanes in &ldquo;Adjust more&rdquo; show the learned field at τ = {FIELD_TAU},
+            The vanes in &quot;Adjust more&quot; show the learned field at τ = {FIELD_TAU},
             halfway through the trip. Every
             step costs one forward pass through the action expert, one bead on the counter, which
             is why more steps are not free at a 50 Hz control rate.

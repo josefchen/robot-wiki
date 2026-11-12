@@ -63,7 +63,7 @@ export function readoutFor(mode: SplitMode): string {
   const { testScenes, leaked } = leakOf(testSetOf(mode));
   return mode === 'random'
     ? `Random episodes · test cards from ${scenesWord(testScenes.length)} · ${leaked.length === testScenes.length ? `all ${leaked.length}` : leaked.length} also in training`
-    : `Scene 4 held out · test cards from ${scenesWord(testScenes.length)} · ${leaked.length === 0 ? 'none of it' : leaked.length} in training`;
+    : `Scene 4 held out · test cards from ${scenesWord(testScenes.length)} · ${leaked.length === 0 ? 'none' : leaked.length} in training`;
 }
 
 /** How long the run takes to drop every card, then the gap before and between each test card's lift, in seconds. */
@@ -245,7 +245,7 @@ export function SceneSplit({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="Each card is one recorded run, an episode. Hold out whole scenes: randomly splitting runs leaves every test scene in training."
+      caption="Each card is one recorded run; holding out whole scenes keeps the test honest, while a random split leaves every test scene in training."
       method={
         <>
           <p>

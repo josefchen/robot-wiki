@@ -402,7 +402,7 @@ export function ActionTokenization({
             ))}
           </div>
           <div className="basis-full font-sans text-sm text-text-dim">
-            All {BIN_COUNT} slots for {gloss}, from -1 to 1; the lit slot is this moment’s.
+            All {BIN_COUNT} slots for {gloss}, from -1 to 1; the lit slot is this moment&apos;s.
           </div>
           <svg
             data-testid="tok-bin-strip"
@@ -528,7 +528,7 @@ export function ActionTokenization({
           </div>
         </AnatomyStage>
       }
-      caption="At each moment, seven numbered words each describe one motion direction, allowing a language model to produce the arm’s movement."
+      caption={`Rounding each of a move's seven numbers to one of ${BIN_COUNT} levels turns the move into seven words a language model can write.`}
       method={
         <>
           <p>
@@ -549,7 +549,7 @@ export function ActionTokenization({
           <p>
             A toy chunk with fixed [{VALUE_MIN}, {VALUE_MAX}] bounds and synthetic token labels, after
             the action tokenization of RT-1, RT-2 and OpenVLA; the token names are stand-ins, not any
-            model’s real vocabulary. The racks are a schematic: one notch is one bin, and the close-up
+            model&apos;s real vocabulary. The racks are a schematic: one notch is one bin, and the close-up
             magnifies the {ZOOM_BINS} bins around the chosen one.
           </p>
           <ChartDescription
@@ -580,7 +580,7 @@ export function ActionTokenization({
           />
         </>
       }
-      source={`Made-up movement with every nudge kept between ${VALUE_MIN} and ${VALUE_MAX}, and made-up word labels.`}
+      source={`Made-up movement kept between ${VALUE_MIN} and ${VALUE_MAX}, binned as in RT-2 and OpenVLA; the word labels are stand-ins.`}
     />
   );
 }

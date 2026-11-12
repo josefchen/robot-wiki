@@ -163,7 +163,7 @@ const SCENE: SceneDefinition = {
     {
       id: 'recap',
       caption:
-        'Mixing the robot’s guess with the sensor reading narrows the possible position. The jaws show that spread: closer jaws mean a surer estimate.',
+        "Mixing the robot's guess with the sensor reading narrows where the robot might be, and closer jaws mean a surer estimate.",
     },
   ],
 };
@@ -480,10 +480,10 @@ export function KalmanPredictUpdate({ className }: { className?: string }) {
       legend={
         <>
           <LegendItem series="guess" swatch={swatch({ borderColor: 'var(--role-state-graphic)' }, 'h-2.5 w-4 border')}>
-            the cart&rsquo;s guess
+            the cart&apos;s guess
           </LegendItem>
           <LegendItem series="reading" swatch={swatch({ borderColor: 'var(--role-measurement-graphic)' }, 'h-2.5 w-4 border')}>
-            the sensor&rsquo;s reading
+            the sensor&apos;s reading
           </LegendItem>
           <LegendItem series="blend" swatch={swatch({ borderColor: 'var(--role-state-graphic)' }, 'h-2.5 w-4 border-2')}>
             the blend
@@ -510,12 +510,12 @@ export function KalmanPredictUpdate({ className }: { className?: string }) {
             {KALMAN_WORKED_NUMBERS.gain} &times; ({KALMAN_WORKED_NUMBERS.reading} &minus; {KALMAN_WORKED_NUMBERS.guess}). The
             spread of the position estimate (one standard deviation) goes from {fixed(PRIOR.sigma)} to{' '}
             {fixed(GUESS.sigma)} in the predict step and to {fixed(BLEND.sigma)} after the update; the
-            reading&rsquo;s spread is {fixed(READING.sigma)}.
+            reading&apos;s spread is {fixed(READING.sigma)}.
           </p>
           <p>
-            The drawing is an estimating rail. The cart tows the guess&rsquo;s caliper while its odometer
-            counts the roll, a rangefinder drives the reading&rsquo;s caliper, and the blend&rsquo;s caliper
-            runs along a share rule from the guess to the reading. Each caliper&rsquo;s jaws stand one
+            The drawing is an estimating rail. The cart tows the guess&apos;s caliper while its odometer
+            counts the roll, a rangefinder drives the reading&apos;s caliper, and the blend&apos;s caliper
+            runs along a share rule from the guess to the reading. Each caliper&apos;s jaws stand one
             spread either side of its estimate, so closer jaws mean surer. The numbers are step {STEP} of
             the seeded constant-velocity filter (seed {DEFAULT_SEED}, process noise{' '}
             {fixed(DEFAULT_SETTINGS.sigmaQ)}, reading noise {fixed(DEFAULT_SETTINGS.sigmaR)}, beliefs

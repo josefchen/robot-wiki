@@ -171,7 +171,7 @@ export function HelixClockwork({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? `Running ${SLOWDOWN} times slower than real time` : 'Figure’s Helix 02: 200 joint targets each second (lit hand), 1,000 whole-body control steps (other hand): five steps per target.'}
+          hint={running ? `Running ${SLOWDOWN} times slower than real time` : "Figure's Helix 02: 200 joint targets each second (lit hand), 1,000 whole-body control steps (other hand): five steps per target."}
           readout={readoutFor(ms)}
           status={`Each control step sends motor commands for balance and coordination. Schematic, ${SLOWDOWN} times slower`}
           data-testid="clockwork-stage-frame"
@@ -224,7 +224,7 @@ export function HelixClockwork({ className }: { className?: string }) {
         <>
           <p>
             Figure describes Helix 02 as three learned layers. S2 interprets the scene and the instruction and
-            sequences behaviours; S1 turns what the robot senses into full-body joint targets at {S1_HZ} Hz; S0, the
+            sequences behaviors; S1 turns what the robot senses into full-body joint targets at {S1_HZ} Hz; S0, the
             whole-body controller, runs at 1 kHz. A joint target therefore lasts 5 milliseconds, and in that time the
             controller acts {STEPS_PER_TARGET} times. Figure gives no rate for S2, so it is not drawn.
           </p>

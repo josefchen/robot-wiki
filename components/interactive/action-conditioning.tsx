@@ -408,7 +408,7 @@ export function ActionConditioning({
   const stage = (
     <AnatomyStage
       viewWidth={WIDTH}
-      story={<p className="font-sans text-sm leading-snug text-text-dim">The upper dial measures average future difference in toy units; zero means identical. The lower dial rates picture realism from zero to one; one looks most realistic.</p>}
+      story={<p className="font-sans text-sm leading-snug text-text-dim">The upper dial shows how far apart the two futures are, in toy units; 0 means identical. The lower dial rates how realistic the pictures look, from 0 to 1.</p>}
       // The drawing holds no words, so the screens are named here, under it.
       hint={
         <>
@@ -424,7 +424,7 @@ export function ActionConditioning({
         </>
       }
       readout={readout}
-      status="Illustrative: hand-set futures and realism scores; one distance unit is the block or gripper’s full travel."
+      status="Illustrative: hand-set futures and realism scores; one distance unit is the full travel of the block or gripper."
       data-testid="action-conditioning-stage"
       data-source-frame={playing ?? 'rest'}
     >
@@ -498,7 +498,7 @@ export function ActionConditioning({
         </>
       }
       stage={stage}
-      caption="AI video can look realistic yet ignore what the robot does; for planning, the imagined future must change when the action changes."
+      caption="A video model can look realistic and still ignore what the robot does; for planning, the imagined future must change when the action does."
       method={
         <>
           <p>
@@ -515,11 +515,11 @@ export function ActionConditioning({
             most successful task videos show.
           </p>
           <p>
-            What tells the two models apart is action sensitivity, the upper meter between the screens: the
+            What tells the two models apart is action sensitivity, the upper dial between the screens: the
             average distance between the two imagined futures, frame by frame, with block position and gripper
             height each measured from 0 to 1. Above {threshold}, the long mark at the top of its scale, the
             futures genuinely differ. For the current pair it is{' '}
-            <span data-testid="sensitivity-readout">{score}</span>. Visual realism, the lower meter, is held at{' '}
+            <span data-testid="sensitivity-readout">{score}</span>. Visual realism, the lower dial, is held at{' '}
             <span data-testid="realism-readout">{realism}</span> for both models on purpose: both draw equally
             sharp video, so realism alone cannot show whether a model follows the action.
           </p>

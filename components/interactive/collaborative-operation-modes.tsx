@@ -100,17 +100,17 @@ const MODE_PRESETS: ReadonlyArray<{ id: ModeId; label: string }> = [
   { id: 'power-force', label: 'Gentle enough to bump' },
 ];
 
-/** "1.4 metres" style: the main view's rounded distance in words. */
+/** "1.4 meters" style: the main view's rounded distance in words. */
 function metresWords(m: number): string {
   const rounded = Number(m.toFixed(1));
-  return `${rounded} ${rounded === 1 ? 'metre' : 'metres'}`;
+  return `${rounded} ${rounded === 1 ? 'meter' : 'meters'}`;
 }
 
 /** A speed in words, with the two defaults glossed as walking paces. */
 function speedWords(v: number, defaultGloss?: { at: number; gloss: string }): string {
   if (v === 0) return 'standing still';
   const value = Number(v.toFixed(2));
-  const words = `${value} ${value === 1 ? 'metre' : 'metres'} a second`;
+  const words = `${value} ${value === 1 ? 'meter' : 'meters'} a second`;
   return defaultGloss && v === defaultGloss.at ? `${words}, ${defaultGloss.gloss}` : words;
 }
 
@@ -151,7 +151,7 @@ function GapBar({ terms, shown }: { terms: ReturnType<typeof separationTerms>; s
         {GAP_PARTS.map((part) => (
           <li key={part.key} className="m-0! flex items-center gap-1.5 text-text-dim">
             <span aria-hidden="true" className={`inline-block h-1.5 w-3 shrink-0 ${SWATCH_CLASS[part.swatch]}`} />
-            {part.label}: <span className="text-text">{terms[part.key].toFixed(2)} metres</span>
+            {part.label}: <span className="text-text">{terms[part.key].toFixed(2)} meters</span>
           </li>
         ))}
       </ul>
@@ -169,7 +169,7 @@ function ForceBar({ force, shown }: { force: number; shown: boolean }) {
     >
       <p className="m-0 text-text-dim">
         Bump: <span className="text-text">about {Math.round(force)} newtons</span>. Safe limit
-        (the gauge&rsquo;s long mark): <span className="text-text">{CONTACT_LIMIT_N} newtons</span>.
+        (the gauge&apos;s long mark): <span className="text-text">{CONTACT_LIMIT_N} newtons</span>.
       </p>
     </div>
   );
@@ -301,10 +301,10 @@ function stageReadout(mode: ModeId, phase: Phase, pose: CellPose, robotSpeed: nu
 }
 
 const HINTS: Record<ModeId, string> = {
-  'monitored-stop': 'Lit: the scanner’s zone, the whole cell',
-  'hand-guiding': 'Lit: the handle on the robot’s wrist',
-  'speed-separation': 'Lit: the scanner’s zone',
-  'power-force': 'Lit: the bump gauge’s needle',
+  'monitored-stop': "Lit: the scanner's zone, the whole cell",
+  'hand-guiding': "Lit: the handle on the robot's wrist",
+  'speed-separation': "Lit: the scanner's zone",
+  'power-force': "Lit: the bump gauge's needle",
 };
 
 type RunState = 'idle' | 'running' | 'done';
@@ -686,7 +686,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           </div>
         </AnatomyStage>
       }
-      caption="A faster robot needs more room to stop. The cabinet dial shows robot speed; the dial beside the person shows contact force."
+      caption="A faster robot needs more room to stop; the cabinet dial shows its speed, and the dial beside the person shows contact force."
       method={
         <>
           <p data-testid="mode-constraint">
@@ -724,17 +724,17 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             </p>
           )}
           <p>
-            &ldquo;Stops when you step in&rdquo; is a safety-rated monitored stop; &ldquo;You guide
-            it by hand&rdquo; is hand guiding; &ldquo;Keeps its distance&rdquo; is speed and
-            separation monitoring; &ldquo;Gentle enough to bump&rdquo; is power and force limiting.
+            &quot;Stops when you step in&quot; is a safety-rated monitored stop; &quot;You guide
+            it by hand&quot; is hand guiding; &quot;Keeps its distance&quot; is speed and
+            separation monitoring; &quot;Gentle enough to bump&quot; is power and force limiting.
             In the drawing, a floor scanner guards a zone: the whole cell for a monitored stop, and
             for separation monitoring a zone as long as the protective separation distance, its four
             terms laid on the ruler from the tool. A run walks the mannequin in; when it crosses the
-            zone&rsquo;s edge the arm keeps moving for the reaction time, brakes, and stops with the
-            margin left between them. The bump gauge&rsquo;s pad stands in for a thigh, and its needle
-            holds the peak force of a bump at the robot&rsquo;s speed. Runs play {SLOW} times slower
+            zone&apos;s edge the arm keeps moving for the reaction time, brakes, and stops with the
+            margin left between them. The bump gauge&apos;s pad stands in for a thigh, and its needle
+            holds the peak force of a bump at the robot&apos;s speed. Runs play {SLOW} times slower
             than real time; where the walk starts, the tray and the fixture, and the guiding push
-            (0.15 m at 0.4 m/s) are the drawing&rsquo;s own choices.
+            (0.15 m at 0.4 m/s) are the drawing&apos;s own choices.
           </p>
           <ModelAssumptions />
           <ChartDescription

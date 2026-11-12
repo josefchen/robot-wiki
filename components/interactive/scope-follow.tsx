@@ -184,7 +184,7 @@ export function ScopeFollow({ className }: { className?: string }) {
       figureId="scope-follow"
       className={className}
       kicker="Camera following"
-      heading="At Level 1 the robot takes over only the camera"
+      heading="At level 1 the robot takes over only the camera"
       controls={
         <>
           <PresetGroup label="Camera" presets={CAMERA_MODES} value={mode} onChange={chooseMode} testId="scope-mode" />
@@ -255,11 +255,11 @@ export function ScopeFollow({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="At Level 1, ScoPilot handles one supervised task: aiming the camera at the instrument tip while the surgeon still moves every instrument."
+      caption="At level 1, ScoPilot handles one supervised task: aiming the camera at the instrument tip while the surgeon still moves every instrument."
       method={
         <>
           <p>
-            Yang and colleagues place a robot that assists under the surgeon&apos;s continuous control at Level 1, one
+            Yang and colleagues place a robot that assists under the surgeon&apos;s continuous control at level 1, one
             step above a teleoperated system that only follows the surgeon&apos;s hands. Moon Surgical&apos;s ScoPilot,
             cleared in March 2025, is such a step: on demand, the laparoscope held by its Maestro arm follows a chosen
             instrument tip, and the surgeon steers the view without letting go of the instruments.

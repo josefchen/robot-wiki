@@ -124,7 +124,7 @@ export const EXPLAINER_WORDS = {
     takeaway:
       'A robot stays up while its balance point is over the patch between its feet; four feet make a big patch, two make a tiny one.',
     steps: [
-      'Every body has a balance point, where its weight is centred. The dot marks it on a robot dog and a humanoid.',
+      'Every body has a balance point, where its weight is centered. The dot marks it on a robot dog and a humanoid.',
       'The shaded patch spans the feet on the ground. While the spot straight below the dot stays inside it, the robot stays up.',
       'Both robots get the same push, and both balance points move the same distance forward.',
       'When walking, only some feet touch the ground. The patch shrinks, the spot often falls outside it, and each new step catches the fall.',
@@ -220,7 +220,7 @@ export const EXPLAINER_WORDS = {
       'A depth camera also measures how far away each point is. Each point becomes a dot, but only on the side it sees.',
       'Cubes split space into a grid. Each box is either part of the mug or empty. Blocky, but simple.',
       'A skin joins points on the surface into small flat triangles, giving the smooth, exact shape a robot needs to plan its grip.',
-      'Soft blobs overlap into one surface. Each blob can also carry colour, so together they can look like a photo.',
+      'Soft blobs overlap into one surface. Each blob can also carry color, so together they can look like a photo.',
       'Same mug, four ways to store it. Each trades detail against speed and memory. These are scene representations.',
     ],
     concept: {
@@ -253,7 +253,7 @@ export const EXPLAINER_WORDS = {
     },
     selfCheck: {
       q: 'Why can\'t it simply trust the GPS?',
-      a: 'GPS alone is only good to a few metres: a phone is typically within 4.9 metres under open sky, and worse near buildings and trees. Blending it with the robot\'s own motion gives a better guess than either one alone.',
+      a: 'GPS alone is only good to a few meters: a phone is typically within 4.9 meters under open sky, and worse near buildings and trees. Blending it with the robot\'s own motion gives a better guess than either one alone.',
     },
   },
   puppeteer: {
@@ -282,12 +282,12 @@ export const EXPLAINER_WORDS = {
     kicker: 'Robot learning · simulation',
     question: 'How do robots learn to walk without breaking?',
     takeaway:
-      'They practise in thousands of slightly different simulated worlds at once, so the real world is just one more variation.',
+      'They practice in thousands of slightly different simulated worlds at once, so the real world is just one more variation.',
     steps: [
       'This robot exists only inside a computer. It tries to walk, falls, starts over and does a little better each time.',
       'Now run 4,096 copies at once on one computer. All their tries train one shared brain, so every fall teaches it.',
       'Make every world a little different: slippery or grippy ground, heavier bodies, random shoves. Shuffle to deal new worlds.',
-      'One tile is the real world. Two robots step onto it: one practised in just one world, the other in all 4,096.',
+      'One tile is the real world. Two robots step onto it: one practiced in just one world, the other in all 4,096.',
       'After thousands of different worlds, the real world is just one more. This is massively parallel simulation with domain randomization.',
     ],
     concept: {

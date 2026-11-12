@@ -60,7 +60,7 @@ const DEATHS = benchmarkOf(FATALITY_ID);
 const INJURIES = benchmarkOf('injuries');
 const CRASHES = benchmarkOf('crashes');
 
-const CAPTION = 'At 95% confidence, 275 million miles without a fatality supports a rate no higher than the study’s US human-driver benchmark.';
+const CAPTION = "Driving 275 million miles without a death would show, at 95% confidence, that a fleet's death rate is no higher than US human drivers'.";
 const DESCRIPTION = `Miles a driverless fleet must drive with no failure to show, with 95% confidence, that its failure rate is no higher than human drivers', from Kalra and Paddock's RAND study: ${DEATHS.printedText} miles against ${DEATHS.per100MillionMiles} deaths per 100 million miles, ${INJURIES.printedText} against ${INJURIES.per100MillionMiles} reported injuries and ${CRASHES.printedText} against ${CRASHES.per100MillionMiles} reported crashes. The deaths test would take a fleet of 100 cars driving around the clock about ${FLEET_YEARS} years. These are lower bounds that assume perfect driving.`;
 
 export function AvSafetyMiles({ className }: { className?: string }) {
@@ -73,7 +73,7 @@ export function AvSafetyMiles({ className }: { className?: string }) {
       figureId="av-safety-miles"
       className={className}
       kicker="Miles needed to prove safety"
-      heading="Fleet: 275 million miles without deaths, at 95% confidence"
+      heading="Matching human drivers takes 275 million miles without a death"
       stage={
         <FigureStage>
           <div className="grid gap-2 pb-3 font-sans leading-snug text-text" data-testid="av-confidence-summary">
@@ -86,7 +86,7 @@ export function AvSafetyMiles({ className }: { className?: string }) {
                 <dt className="text-base">Calculated upper bound for this hypothetical run</dt>
                 <dd className="grid gap-2">
                   <p className="text-lg">About <strong className="font-mono text-2xl font-medium">1.09</strong> deaths per 100 million miles</p>
-                  <p className="text-lg font-medium">No higher than the study’s US human-driver benchmark</p>
+                  <p className="text-lg font-medium">No higher than the study&apos;s US human-driver benchmark</p>
                   <p data-testid="av-confidence-coverage" className="text-sm">
                     The true fatality rate remains unknown. In the long run, at least 95 out of 100 upper bounds from studies of the same design would reach or exceed it.
                   </p>
@@ -191,10 +191,10 @@ export function AvSafetyMiles({ className }: { className?: string }) {
         <>
           <p data-testid="av-model-assumptions">
             This is a hypothetical test with a fixed distance and zero deaths. The model assumes independent miles
-            with the same failure probability on every mile. The study’s 2013 US benchmark includes all motor vehicles.
+            with the same failure probability on every mile. The study&apos;s 2013 US benchmark includes all motor vehicles.
           </p>
           <p data-testid="av-rare-event-explanation" className="font-sans text-sm leading-snug text-text">
-            Under the study’s per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.
+            Under the study&apos;s per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.
           </p>
           <div>
             Kalra and Paddock treat each mile as a trial that either fails or does not. If the chance of no

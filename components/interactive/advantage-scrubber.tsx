@@ -263,7 +263,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
     view === 'episode'
       ? `At t = ${playhead.toFixed(1)} s this teaching toy shows an arbitrary value score of ${value.toFixed(1)} in the ${current.label} segment, tagged ${current.tag} advantage because its score changes by ${formatDelta(current.delta)}. The dashed arc links a fictional insertion failure at ${CREDIT_ASSIGNMENT.failureAtS} s to a grasp ${CREDIT_ASSIGNMENT.failureAtS - CREDIT_ASSIGNMENT.blamedAtS} s earlier. The tinted stage blocks are the steps tagged low advantage. Its timings, values and stage-difference tags are illustrative, not a measured Recap episode or its reward-inclusive, task-thresholded advantage estimator.`
       : view === 'training'
-        ? `The toy training-data view keeps all ${tagged.length} transitions between fictional stage endpoints, ${highCount} tagged high advantage and ${lowCount} low advantage; every stage stays in the dataset with a tag derived from endpoint scores, not Recap’s reward-inclusive, task-thresholded estimator.`
+        ? `The toy training-data view keeps all ${tagged.length} transitions between fictional stage endpoints, ${highCount} tagged high advantage and ${lowCount} low advantage; every stage stays in the dataset with a tag derived from endpoint scores, not Recap's reward-inclusive, task-thresholded estimator.`
         : `At execution the policy is asked for the high-advantage tag: this toy displays ${highCount} high-tag examples and ${lowCount} low-tag examples among ${tagged.length} stages. These labels show requested conditioning, not predicted outcomes or guaranteed failure removal.`;
 
   const viewTable =
@@ -750,7 +750,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           {description}
         </>
       }
-      source="Illustration of Recap’s coffee-filter-handle example; timings, scores and helping/hurting tags are made up for this explanation."
+      source="Illustration of Recap's coffee-filter-handle example; timings, scores and helping/hurting tags are made up for this explanation."
     />
   );
 }

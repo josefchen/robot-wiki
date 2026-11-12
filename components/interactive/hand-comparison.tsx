@@ -270,7 +270,7 @@ export function HandComparison({ className }: { className?: string }) {
         >
           <div className="px-3 pt-3 pb-2 font-sans text-sm leading-snug">
             <StageCallout data-testid="hand-gap-note">
-              Grey means the maker hasn&rsquo;t published it. No hand shows both.
+              Gray means the maker hasn&apos;t published it. No hand shows both.
             </StageCallout>
             <ul
               data-testid="hand-cards"
@@ -287,18 +287,18 @@ export function HandComparison({ className }: { className?: string }) {
       method={
         <>
           <p>
-            &ldquo;Joint motions&rdquo; is the hand&rsquo;s degrees of freedom (DoF), the number
-            of independent joint motions, including passive ones. &ldquo;Lightest touch felt&rdquo; is the tactile
+            &quot;Joint motions&quot; is the hand&apos;s degrees of freedom (DoF), the number
+            of independent joint motions, including passive ones. &quot;Lightest touch felt&quot; is the tactile
             threshold, the smallest force a fingertip sensor registers: Sanctuary reports about
             5 mN for the Phoenix fingerpads (about 0.5 gram-force), Figure reports 3 g (about
             29 mN) for its fingertips. Every other value is one the maker has not published, shown
             as not disclosed; no number is guessed.
           </p>
           <p>
-            Unitree&rsquo;s $29,900 is the list price of the whole H2 robot; the base model ships
+            Unitree&apos;s $29,900 is the list price of the whole H2 robot; the base model ships
             with placeholder hands and the five-finger Dex5-1 hand is a paid option with no
             published price, so the card shows the hand price as not disclosed and the
-            &ldquo;Lowest price&rdquo; order leaves the whole robot out. Shadow&rsquo;s
+            &quot;Lowest price&quot; order leaves the whole robot out. Shadow&apos;s
             &euro;110,000 is its 2022 price including support.
           </p>
           <TableScroll labelledBy={captionId} className="pt-1">

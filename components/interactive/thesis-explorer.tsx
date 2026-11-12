@@ -40,27 +40,27 @@ const PLAIN: Record<string, { name: string; bet: string; wrongIf: string }> = {
   'end-to-end-vla': {
     name: 'Just make it bigger',
     bet: 'More training examples and larger systems that learn patterns from them will bring general capability, as for chatbots.',
-    wrongIf: 'We’d know it’s wrong if 10 times more data brings no improvement.',
+    wrongIf: "We'd know it's wrong if 10 times more data brings no improvement.",
   },
   'hierarchical-planner': {
     name: 'A planner directs simple skills',
     bet: 'A reasoning model breaks a goal into steps; learned skills carry each one out.',
-    wrongIf: 'We’d know it’s wrong if one single model beats the planner-plus-skills setup.',
+    wrongIf: "We'd know it's wrong if one single model beats the planner-plus-skills setup.",
   },
   'world-model-training': {
     name: 'Let the robot imagine first',
-    bet: 'A model that predicts what happens next lets robots practise in imagination.',
-    wrongIf: 'We’d know it’s wrong if it adds nothing beyond simply scaling up.',
+    bet: 'A model that predicts what happens next lets robots practice in imagination.',
+    wrongIf: "We'd know it's wrong if it adds nothing beyond simply scaling up.",
   },
   'rl-finetuning': {
-    name: 'Copy first, then practise',
-    bet: 'Robots copy people first, then practise on the real robot until they are reliable.',
-    wrongIf: 'We’d know it’s wrong if practice only ever produces one-task specialists.',
+    name: 'Copy first, then practice',
+    bet: 'Robots copy people first, then practice on the real robot until they are reliable.',
+    wrongIf: "We'd know it's wrong if practice only ever produces one-task specialists.",
   },
   'teleop-bridge': {
     name: 'Humans steer while robots learn',
     bet: 'People remote-control robots doing real work now, and step back as the robots learn.',
-    wrongIf: 'We’d know it’s wrong if robots succeed at 99% of tasks without any human-steered training data.',
+    wrongIf: "We'd know it's wrong if robots succeed at 99% of tasks without any human-steered training data.",
   },
   'form-factor': {
     name: 'Human-shaped or built for the job',
@@ -140,7 +140,7 @@ function ThesisDetail({ thesis }: { thesis: Thesis }) {
         </ul>
       </div>
       <div className="mt-3">
-        <div className={SECTION_LABEL}>We&rsquo;d know it&rsquo;s wrong if</div>
+        <div className={SECTION_LABEL}>We&apos;d know it&apos;s wrong if</div>
         <div className="mt-1 max-w-[65ch] leading-relaxed text-text">{thesis.falsification}</div>
       </div>
     </div>
@@ -253,10 +253,10 @@ export function ThesisExplorer({ className }: { className?: string }) {
       method={
         <>
           <div>
-            The grouping into six theses is Robot Wiki&rsquo;s editorial reading of the field, not
-            a published taxonomy. Each card&rsquo;s plain name stands for the technical thesis in
+            The grouping into six theses is Robot Wiki&apos;s editorial reading of the field, not
+            a published taxonomy. Each card&apos;s plain name stands for the technical thesis in
             the table below; the evidence for and against, with its citations, opens when you tap a
-            card. The table gives the original short &ldquo;Falsified if&rdquo; signal and the full
+            card. The table gives the original short &quot;Falsified if&quot; signal and the full
             falsification criterion.
           </div>
           <TableScroll labelledBy={captionId} className="pt-1">

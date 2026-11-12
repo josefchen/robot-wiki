@@ -27,8 +27,8 @@ import { cx } from '@/lib/utils';
  * timeline. Each name sits above the month its source was published; the
  * models listed in the pinned openpi checkpoint catalogue have filled dots
  * and a "downloadable" bracket. Tapping a name shows one plain sentence on
- * what changed below the timeline. The undated MEM report is selectable
- * beside the timeline but never plotted at an invented month. Architecture,
+ * what changed below the timeline. MEM, an add-on to π0.6, is selectable
+ * beside the timeline rather than plotted as a new model. Architecture,
  * the catalogue pin and every source sit in "How this was made".
  *
  * Interactive contract: deterministic render, names are buttons with arrow
@@ -51,6 +51,10 @@ const BRACKET_Y = YEAR_Y + 12;
 const BRACKET_LABEL_Y = BRACKET_Y + 18;
 const HEIGHT = BRACKET_LABEL_Y + 6;
 const NODE_R = 3.5;
+
+/** Plotted entries: every model except an add-on to an earlier one. */
+const isPlotted = (g: PiGeneration): g is PiGeneration & { released: string } =>
+  g.released !== null && g.addOnTo === undefined;
 
 /** Time axis bounds (month precision), one month past the data each side. */
 const AXIS_MIN = '2024-09';
@@ -89,7 +93,7 @@ type Column = { released: string; members: PiGeneration[] };
 
 /** One column per dated month; π0.6 and π*0.6 share November 2025. */
 const COLUMNS: Column[] = PI_GENERATIONS.reduce<Column[]>((columns, g) => {
-  if (g.released === null) return columns;
+  if (!isPlotted(g)) return columns;
   const existing = columns.find((c) => c.released === g.released);
   if (existing) existing.members.push(g);
   else columns.push({ released: g.released, members: [g] });
@@ -146,8 +150,11 @@ export function PiGenerationTimeline({
   const citation = citationFor(selected.citationId);
   const frontier = openWeightsFrontier();
   const behind = generationsBehind();
-  const dated = PI_GENERATIONS.filter((g) => g.released !== null);
-  const undated = PI_GENERATIONS.filter((g) => g.released === null);
+  const plotted = PI_GENERATIONS.filter(isPlotted);
+  const beside = PI_GENERATIONS.filter((g) => !isPlotted(g));
+  const besideWords = beside
+    .map((g) => (g.addOnTo ? `${g.name}, a ${g.dateLabel} add-on to ${g.addOnTo},` : `${g.name}, whose month is not established,`))
+    .join(' and ');
   const openColumns = COLUMNS.filter((c) => c.members.some((g) => g.openWeights === true));
   const bracket = {
     from: dateToX(openColumns[0].released),
@@ -200,7 +207,7 @@ export function PiGenerationTimeline({
       figureId="pi-generation-timeline"
       className={className}
       kicker="Physical Intelligence's models"
-      heading="New model every few months; downloads confirmed for first three"
+      heading="A new model every few months; three can be downloaded"
       controls={
         <dl className="grid basis-full gap-y-3 font-sans leading-normal text-text" data-testid="generation-download-summary">
           <div className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">
@@ -211,7 +218,7 @@ export function PiGenerationTimeline({
             <dt><p className="text-[14px] text-text-dim">Confirmed downloads</p></dt>{' '}
             <dd>
               <p className="text-[18px] font-semibold">Only the first three models</p>{' '}
-              <p className="mt-1 text-[14px]">Later models&apos; availability is unverified.</p>
+              <p className="mt-1 text-[14px]">No later model is listed for download; the newest are offered through a hosted API.</p>
             </dd>
           </div>
         </dl>
@@ -274,7 +281,7 @@ export function PiGenerationTimeline({
             </div>
             <PlotStage
               viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-              aria-label={`Timeline of dated Physical Intelligence sources from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}. The pinned checkpoint catalogue ends at ${frontier.name}; ${behind} other model entries have unverified weight availability. MEM has no established month and is not plotted.`}
+              aria-label={`Timeline of dated Physical Intelligence sources from ${plotted[0].dateLabel} to ${plotted[plotted.length - 1].dateLabel}. The pinned checkpoint catalog ends at ${frontier.name}; ${behind} other model entries have unverified weight availability. ${besideWords} is listed beside the timeline, not plotted.`}
               aria-describedby={descriptionId}
             >
               {YEARS.map((year, index) => {
@@ -381,8 +388,8 @@ export function PiGenerationTimeline({
               </g>
             </PlotStage>
             <div className="mt-1 flex flex-wrap items-center gap-x-2 font-sans text-sm text-text-dim">
-              <span>Month not known:</span>
-              {undated.map(nameButton)}
+              <span>{beside[0]?.addOnTo ? `Add-on to ${beside[0].addOnTo}, ${beside[0].dateLabel}:` : 'Month not known:'}</span>
+              {beside.map(nameButton)}
               <p className="m-0 basis-full text-text" data-testid="generation-memory-gloss">
                 MEM adds memory: recent video plus notes the model writes for itself.
               </p>
@@ -390,29 +397,30 @@ export function PiGenerationTimeline({
           </div>
         </FigureStage>
       }
-      caption={`Physical Intelligence released a new robot model every few months; only the first three are confirmed downloadable.`}
+      caption="Physical Intelligence released a new model every few months, but only the first three are listed for download; the newest are offered through its API."
       method={
         <>
           <div>
             Each name sits above the month its source was published, which is not always the month
-            a checkpoint was released. The {undated[0]?.name} report does not establish its month,
-            so it is listed beside the timeline and not plotted. Shaded bands mark calendar years
-            and change at January.
+            a checkpoint was released. {besideWords} is listed beside the timeline rather than
+            plotted as a new model. Shaded bands mark calendar years and change at January.
           </div>
           <div>
-            &ldquo;Downloadable&rdquo; means listed in the openpi checkpoint catalogue as pinned at
-            commit 215abfb; it says nothing about the licence. The pinned catalogue ends at{' '}
+            &quot;Downloadable&quot; means listed in the openpi checkpoint catalog as pinned at
+            commit 215abfb; it says nothing about the license. The pinned catalog ends at{' '}
             {frontier.name}.
           </div>
           <div>
-            {behind} model entries not in the pinned catalogue have unverified weight availability:
-            missing from that list is not evidence of closed weights.
+            {behind} model entries not in the pinned catalog have unverified weight availability:
+            missing from that list is not evidence of closed weights. Since October 13, 2026,
+            Physical Intelligence has offered its latest models for fine-tuning and hosted
+            inference through the Pi API beta.
           </div>
           <TableScroll labelledBy={tableCaptionId} className="pt-1">
             <table className="w-full min-w-[640px] border-collapse text-left font-sans text-sm text-text">
               <caption id={tableCaptionId} className="text-left text-text-dim">
-                The {PI_GENERATIONS.length} Physical Intelligence model entries, {dated.length} with
-                a source month, with architecture, contribution and source.
+                The {PI_GENERATIONS.length} Physical Intelligence model entries with source month,
+                architecture, contribution and source.
               </caption>
               <thead>
                 <tr className="border-b border-border-strong">
@@ -448,13 +456,13 @@ export function PiGenerationTimeline({
             id={descriptionId}
             form="state"
             summary="Current π generation"
-            description={`The π line contains ${PI_GENERATIONS.length} generations, with established source months from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}. MEM has no established month and is not plotted. The downloadable bracket ends at ${frontier.name} and marks the pinned checkpoint catalogue, not licensing; selected now is ${selected.name} (${selected.backbone}, weights ${weightsLabel(selected)}) and ${behind} other entries have unverified availability.`}
+            description={`The π line contains ${PI_GENERATIONS.length} generations, with source months from ${plotted[0].dateLabel} to ${plotted[plotted.length - 1].dateLabel}. ${besideWords} is listed beside the timeline, not plotted. The downloadable bracket ends at ${frontier.name} and marks the pinned checkpoint catalog, not licensing; selected now is ${selected.name} (${selected.backbone}, weights ${weightsLabel(selected)}) and ${behind} other entries have unverified availability.`}
             states={[
               { label: 'selected', value: selected.name },
               { label: 'source month', value: selected.dateLabel },
               { label: 'weights', value: weightsLabel(selected) },
               { label: 'generations', value: String(PI_GENERATIONS.length) },
-              { label: 'not in pinned catalogue', value: String(behind) },
+              { label: 'not in pinned catalog', value: String(behind) },
             ]}
           />
         </>
@@ -472,10 +480,10 @@ export function PiGenerationTimeline({
             >
               {citation.label}
             </a>
-            ; download status from the openpi catalogue of downloadable trained models.
+            ; download status from the openpi catalog of downloadable trained models.
           </span>
         ) : (
-          'Download status from the openpi catalogue of downloadable trained models.'
+          'Download status from the openpi catalog of downloadable trained models.'
         )
       }
     />

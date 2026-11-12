@@ -228,7 +228,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Faint circles: joints before the turn. Curved line: the pen’s path as shoulder, elbow and wrist swing together"
+          hint="Turn a joint and everything beyond it swings along. Faint lines: the pose before the turn. Curved line: the pen's path during it"
           readout={readoutFor(shown)}
           status="Schematic: one grid square is half the upper-arm length, from shoulder to elbow"
           data-testid="fk-stage-frame"
@@ -275,7 +275,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
         <>
           <p>
             Computed on chosen link lengths of 1.00, 0.75 and 0.55 link units, so the hand reaches at most{' '}
-            {REACH.toFixed(2)} from the shoulder. Each angle is measured from the link before it, anticlockwise
+            {REACH.toFixed(2)} from the shoulder. Each angle is measured from the link before it, counterclockwise
             positive, and the hand&apos;s position is the running sum of the three link vectors. The shoulder turns
             from 0 degrees (pointing right) to 180 (pointing left); the elbow and wrist turn up to 180 degrees either
             way. In the drawing each joint&apos;s dial rides on the link before it and the next link is its pointer;

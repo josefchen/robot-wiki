@@ -85,7 +85,7 @@ const PLAIN: readonly {
     outcome: 'falls',
     note: ['Points only for speed:', 'it runs too fast and falls'],
     rules: 'Speed only',
-    practice: 'Sprints at 2.8 metres a second, then falls',
+    practice: 'Sprints at 2.8 meters a second, then falls',
     fix: 'Reward staying up, and make a fall cost points',
   },
   {
@@ -99,7 +99,7 @@ const PLAIN: readonly {
     outcome: 'walks',
     note: ['Points for the right speed:', 'it walks at the target speed'],
     rules: 'Target speed, staying up, smooth moves; a fall costs 5 points',
-    practice: 'Walks, off the target by 0.12 metres a second on average',
+    practice: 'Walks, off the target by 0.12 meters a second on average',
     fix: 'Only fine tuning left, no new rules',
   },
 ];
@@ -441,7 +441,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           <div className="text-text-dim">Eureka loop, scripted replay</div>
           <p>
             Scripted replay of the Eureka loop (propose reward code, train, select on fitness, reflect, mutate)
-            with authored teaching data, not a recording of a real Eureka run.
+            with made-up teaching data, not a recording of a real Eureka run.
             In Eureka a language model writes reward code for the task, a policy trains on each candidate, a
             task-fitness score picks the best, and the model reflects on per-term training statistics before writing
             the next generation. Task: {EUREKA_TASK}.
@@ -451,7 +451,7 @@ export function EurekaLoop({ className }: { className?: string }) {
             edge for each rule the reward code pays or charges for: raw speed, being near the target speed, staying
             up, a fall, jerky moves. The reader&apos;s pins drop into the notches, the robot runs, and the logger writes
             its speed on a ribbon that feeds back into the writer: a spike that ends in a fall within half a second,
-            a flat line at almost zero for the full 20 seconds, then a line along the 1.0 metres a second target.
+            a flat line at almost zero for the full 20 seconds, then a line along the 1.0 meters a second target.
           </p>
           <InstrumentReadout className="flex flex-wrap gap-x-4 gap-y-1">
             <span data-testid="generation-readout">
@@ -464,7 +464,7 @@ export function EurekaLoop({ className }: { className?: string }) {
               </span>
             </span>
           </InstrumentReadout>
-          <p>Fitness is the task score after training with this reward, from 0 to 1; the scores here are authored.</p>
+          <p>Fitness is the task score after training with this reward, from 0 to 1; the scores here are illustrative.</p>
           <div className="text-text-dim">Scripted reward statistics</div>
           {/* Capped below the column width: wider, its dividers count as full-width
               rules against the article's two-rule bound (VAL-EDU-031). */}

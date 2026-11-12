@@ -42,9 +42,9 @@ const ROWS: MethodRow[] = [
     method: 'ConRFT',
     year: 2025,
     mechanism:
-      'Frozen Octo-small encoders/backbone; consistency action head with BC and Q objectives offline and online, plus human takeovers',
+      'Frozen Octo-small encoders and backbone; consistency action head with BC and Q objectives offline and online, plus human takeovers',
     result:
-      'Table I: 96.3% mean on 8 Franka tasks, 20 trials/task; 15-90 min online (prose says 45-90); rounded 144% relative gain over offline Cal-ConRFT',
+      'Table I: 96.3% mean on 8 Franka tasks, 20 trials per task; 15 to 90 min online (the text says 45 to 90); rounded 144% relative gain over offline Cal-ConRFT',
     evidence: 'preprint',
     // Code is announced by the paper; weights, license and repository contents are not audited here.
     open: true,
@@ -52,12 +52,12 @@ const ROWS: MethodRow[] = [
     opennessNote: "ConRFT v2 states that videos and code are available on its project site; weights and license terms are not established by the inspected paper.",
   },
   {
-    method: 'Recap (pi*0.6)',
+    method: 'Recap (π*0.6)',
     year: 2025,
     mechanism:
       'Negative remaining-step values with a failure penalty; reward-inclusive advantage is thresholded into a conditioning token. Supervised-style extraction still trains the action expert',
     result:
-      'Double-espresso throughput >2x versus offline RL + SFT; the paper’s 90%+ summary excludes diverse laundry, and its box chart reports subtask success',
+      'Double-espresso throughput more than 2x versus offline RL + SFT; the paper\'s 90%+ summary excludes diverse laundry, and its box chart reports subtask success',
     evidence: 'vendor-reported',
     open: null,
     sourceIds: ["pistar06-2025","pistar06-blog-2025","pi06-model-card-2025"],
@@ -69,7 +69,7 @@ const ROWS: MethodRow[] = [
     mechanism:
       'Online PPO: Flow-Noise uses learned Gaussian transition noise and joint denoising-path likelihood; Flow-SDE uses transition likelihoods in a two-layer MDP',
     result:
-      'ID gains for pi0/pi0.5 across four simulation benchmarks; OOD gains do not consistently extend to unseen MetaWorld tasks. Separate Franka transfer test; paper-reported code release, not a weight/license claim',
+      'In-distribution gains for π0 and π0.5 across four simulation benchmarks; out-of-distribution gains do not consistently extend to unseen MetaWorld tasks. Separate Franka transfer test; paper-reported code release, not a weight or license claim',
     evidence: 'preprint',
     open: true,
     sourceIds: ["pi-rl-2026"],
@@ -81,7 +81,7 @@ const ROWS: MethodRow[] = [
     mechanism:
       'Frozen VLA prior, off-policy residual specialists, hybrid recovery-data collection, then SFT of the generalist',
     result:
-      'OpenVLA-labelled model: 99.2% across 3 LIBERO suites, 50 trials/task; Octo: 96.6% across 4 Simpler tasks; Franka: 30/30 on each of 2 tasks; YAM: at least 1 h with recovery, not 100% one-shot success',
+      'OpenVLA-labeled model: 99.2% across 3 LIBERO suites, 50 trials per task; Octo: 96.6% across 4 Simpler tasks; Franka: 30/30 on each of 2 tasks; YAM: at least 1 h with recovery, not 100% one-shot success',
     evidence: 'preprint',
     open: null,
     sourceIds: ["pld-2026"],
@@ -93,7 +93,7 @@ const ROWS: MethodRow[] = [
     mechanism:
       'RLPD with demonstration and online buffers plus human corrections; Jenga whipping uses demonstrations without online corrections',
     result:
-      'Table 1a: 100% observed success (100 trials/task; IKEA whole assembly 10 trials); 1-2.5 h for nearly all tasks, 6 h for timing belt. Imitation comparison: 49.7% vs 100%, 9.6 s vs 5.4 s',
+      'Table 1a: 100% observed success (100 trials per task; IKEA whole assembly 10 trials); 1 to 2.5 h for nearly all tasks, 6 h for timing belt. Imitation comparison: 49.7% vs 100%, 9.6 s vs 5.4 s',
     evidence: 'preprint',
     open: true,
     sourceIds: ["hil-serl-2024"],
@@ -105,7 +105,7 @@ const ROWS: MethodRow[] = [
     mechanism:
       'On-the-fly selection of the value-maximizing candidate between π0.5 action chunks and lightweight Gaussian edits, with human teleoperation corrections during online training',
     result:
-      '30/30 successes on every evaluated task, average 19.1 minutes of online robot data (eight task variants); on the four-task comparison, baselines average 5.5-20.5/30',
+      '30/30 successes on every evaluated task, average 19.1 minutes of online robot data (eight task variants); on the four-task comparison, baselines average 5.5 to 20.5 of 30',
     evidence: 'preprint',
     // The paper's abstract states an open-source codebase release;
     // repository contents, weights and license terms were not inspected.
@@ -169,7 +169,7 @@ export function RlMethodsTable({ className }: { className?: string }) {
     <Table
       interactiveId="RlMethodsTable"
       className={className}
-      caption="Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row."
+      caption="Each of these eight RL fine-tuning results comes from its own source under its own protocol, so the table compares methods and does not rank them."
       columns={COLUMNS}
       rows={ROWS}
       initialSort={{ key: 'year', direction: 'asc' }}

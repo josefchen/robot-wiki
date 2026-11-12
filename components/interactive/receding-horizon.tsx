@@ -509,7 +509,7 @@ export function RecedingHorizon({
           </IsoFigure>
         </AnatomyStage>
       }
-      caption={tailSteps > 0 ? `The robot plans ${secondsWords(commitDurationS(clamped.tp))} ahead, acts on ${secondsWords(commitDurationS(clamped.ta))}, then replans and replaces the unused moves.` : `The robot acts on all ${secondsWords(commitDurationS(clamped.tp))} of this plan without replanning.`}
+      caption={tailSteps > 0 ? `Acting on only the first ${secondsWords(commitDurationS(clamped.ta))} of each plan lets the robot correct course often while its motion stays smooth.` : `Without replanning, the robot follows all ${secondsWords(commitDurationS(clamped.tp))} of each plan blind and cannot react to surprises.`}
       method={
         <>
           <p>
@@ -517,7 +517,7 @@ export function RecedingHorizon({
             first T_a before it plans again; the rest of each plan is replaced by the next plan and never
             executed. The presets use the Diffusion Policy setting, T_p = {defaults.tp} and T_a ={' '}
             {defaults.ta} at {CONTROL_HZ} Hz: 1.25 replans a second and 0.8 s committed per plan.
-            “Never rethink” sets both to {MAX_TP}, so the robot runs each plan open-loop. Now T_p ={' '}
+            &quot;Never rethink&quot; sets both to {MAX_TP}, so the robot runs each plan open-loop. Now T_p ={' '}
             {clamped.tp}, T_a = {clamped.ta}: {replanRate} replan rate, {committed} committed per plan.
           </p>
           <p>
@@ -540,7 +540,7 @@ export function RecedingHorizon({
           />
         </>
       }
-      source="Replanning schematic. Diffusion Policy refines random movement guesses; its preset plans 16 steps, acts on 8, at ten steps a second."
+      source="Replanning schematic; the preset uses the Diffusion Policy setting of 16 planned steps and 8 executed, at 10 steps a second (Chi et al., 2023)."
     />
   );
 }

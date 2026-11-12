@@ -194,7 +194,7 @@ export function ChunkSizeCurve({
       figureId="chunk-size-curve"
       className={className}
       kicker="Action chunking"
-      heading="Batching 100 moves lifts success from 1% to 44%"
+      heading="Chunks of 100 moves lift success from 1% to 44%"
       controls={
         <PresetGroup<ChunkPreset>
           label="How the robot plans"
@@ -242,7 +242,7 @@ export function ChunkSizeCurve({
                 success, <span data-testid="chunk-decisions-readout">{decisions}</span>{' '}
                 {decisions === 1 ? 'decision' : 'decisions'} per {episodeSteps}-move task
               </StageReadout>
-              <StageStatus>Only the two dots have published numbers; the line and dashed taper are authored estimates.</StageStatus>
+              <StageStatus>Only the two dots have published numbers; the line and dashed taper are illustrative estimates.</StageStatus>
             </>
           }
         >
@@ -344,7 +344,7 @@ export function ChunkSizeCurve({
             own ablation (Zhao et al., 2023): 1% success at k = 1 and 44% at k = 100, the mean of two
             simulated tasks, Cube Transfer and Bimanual Insertion, each trained on scripted and on human
             demonstrations with temporal ensembling disabled. The paper plots the other chunk sizes it
-            trained but gives numbers only for these two. The line between them is a log-linear
+            trained but gives numbers only for these two. The line between them is an
             interpolation drawn for reading, and the dashed line past k = 100 is an estimate: the paper
             reports a slight decline at k = 200 and k = 400 without exact numbers.
           </p>

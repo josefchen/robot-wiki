@@ -101,7 +101,7 @@ export function SafetyFilterFence({ className }: { className?: string }) {
       figureId="safety-filter-fence"
       className={className}
       kicker="Safety filter"
-      heading="The simple filter gets checked; it guards each proposed move"
+      heading="A checked safety filter guards each move the controller proposes"
       controls={
         <>
           <div data-testid="fence-rule-flow" className="grid basis-full gap-3 font-sans text-text">
@@ -168,7 +168,7 @@ export function SafetyFilterFence({ className }: { className?: string }) {
         <AnatomyStage
           viewWidth={WIDTH}
           readout={readoutFor(t)}
-          status="Faint: the learned controller’s proposed path. Dark: what the pen drew. The ring represents the separately checked filter. Schematic."
+          status="Faint: the learned controller's proposed path. Dark: what the pen drew. The ring represents the separately checked filter. Schematic."
           data-testid="fence-stage-frame"
         >
           <div

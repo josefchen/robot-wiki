@@ -31,8 +31,8 @@ const ROWS: TeleopRig[] = [
     name: 'ALOHA-class workstation',
     family: 'Bimanual leader-follower workstation',
     representatives: ['ALOHA 2 (Stanford)', 'Trossen AI Stationary and Mobile AI'],
-    costUsd: null,
-    costNote: 'ACT paper (2023): the original ALOHA bimanual setup cost $18k, $20k with optional add-ons such as cameras; a build cost for one configuration, not a vendor quote',
+    costUsd: 23995.95,
+    costNote: 'Trossen AI Stationary AI list price, two arms; the ACT paper (2023) put the original ALOHA at $18k, or $20k with add-ons such as cameras',
     dataQuality: 'high',
     dataQualityNote:
       'Leader and follower arms share kinematics; demonstrations land directly in the robot joint space at 500 Hz',
@@ -44,9 +44,9 @@ const ROWS: TeleopRig[] = [
       'The operator drives a kinematically identical arm, so recorded motion is the robot motion',
     details: {
       cost:
-        'The 2023 ACT paper put the original bimanual ALOHA at $18k, or $20k after optional add-ons such as cameras. That is the authors\' build cost for one configuration, not a current vendor quote. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
+        'The 2023 ACT paper put the original bimanual ALOHA at $18k, or $20k after optional add-ons such as cameras. That is the authors\' build cost for one configuration, not a current vendor quote. Trossen Robotics, which renamed its ALOHA line Trossen AI, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
       dataQuality:
-        'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. On the original low-cost ALOHA hardware, ACT learned six bimanual tasks, each from about 10 minutes of demonstrations, and reached 84-96% final success on four of them, 64% on taping and 20% on threading a velcro tie.',
+        'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. On the original low-cost ALOHA hardware, ACT learned six bimanual tasks, each from about 10 minutes of demonstrations, and reached 84 to 96% final success on four of them, 64% on taping and 20% on threading a velcro tie.',
       throughput:
         'Scaling an ALOHA-class fleet requires another workstation and operator; the paper\'s build cost does not establish a complete per-station budget. Mobile ALOHA collected 50 demonstrations per task for its whole-body mobile skills. No fleet-scale collection numbers are published for the family; the throughput story here is per-rig quality, not volume.',
       embodimentGap:
@@ -66,7 +66,7 @@ const ROWS: TeleopRig[] = [
     id: 'gello',
     name: 'GELLO',
     family: 'Kinematically matched exoskeleton',
-    representatives: ['GELLO for Franka, UR5, and xArm'],
+    representatives: ['GELLO for Franka, UR5 and xArm'],
     costUsd: 300,
     costNote: 'Parts BOM under $300; excludes the target robot arm',
     dataQuality: 'high',
@@ -84,7 +84,7 @@ const ROWS: TeleopRig[] = [
       dataQuality:
         'The device is constructed with the same kinematic structure as the target arm, so joint readings map directly onto robot commands with no inverse-kinematics remapping. In the paper user study with 12 participants and 5 tasks on a bimanual pair of UR5 arms, GELLO produced more reliable and more efficient demonstration collection than VR controllers or a 3D spacemouse.',
       throughput:
-        'The paper describes assembly as straightforward and requiring minimal technical expertise, and neither the paper nor the project site publishes a build time. Parts are printed or off the catalog, so duplicating a station is cheap. The constraint is universality: every new robot model needs its own kinematically matched design, and the published builds cover Franka, UR5, and xArm.',
+        'The paper describes assembly as straightforward and requiring minimal technical expertise, and neither the paper nor the project site publishes a build time. Parts are printed or off the catalog, so duplicating a station is cheap. The constraint is universality: every new robot model needs its own kinematically matched design, and the published builds cover Franka, UR5 and xArm.',
       embodimentGap:
         'Because the replica is a small-scale, kinematically equivalent version of the target arm, the operator controls it directly in joint space and can feel joint limits and singularities through the linkage, which the paper credits with more reliable teleoperation.',
     },
@@ -106,7 +106,7 @@ const ROWS: TeleopRig[] = [
       '155-degree fisheye wrist camera with SLAM-recovered gripper pose; no force channel',
     throughput: 'high',
     throughputNote:
-      '111/h on the cup-arrangement benchmark, over 3x faster than spacemouse teleoperation',
+      '111 demonstrations an hour arranging cups, over 3 times the rate of spacemouse teleoperation',
     embodimentGap: 'medium',
     embodimentGapNote:
       'A handheld gripper stands in for the robot gripper; latency matching and relative-trajectory actions close the gap at deployment',
@@ -116,7 +116,7 @@ const ROWS: TeleopRig[] = [
       dataQuality:
         'A wrist-mounted GoPro with a 155-degree fisheye lens and side mirrors supplies the visual context, and SLAM recovers the gripper pose at high frequency. There is no force or tactile channel, and the recorded motion comes from a human hand holding a gripper, not from a robot. UMI answers the deployability problem with inference-time latency matching and a camera-relative trajectory action representation.',
       throughput:
-        'The paper measures throughput in 15-minute collection windows and reports the gripper more than 3x faster than spacemouse teleoperation at 48% of human hand speed; the project site lists the rates as 111 demonstrations per hour on the cup arrangement task, against 35 per hour for teleoperation and 231 per hour for the unassisted hand. Because no robot is present, collection can start in any home or restaurant within 2 minutes.',
+        'The paper measures throughput in 15-minute collection windows and reports the gripper more than 3 times faster than spacemouse teleoperation at 48% of human hand speed; the project site lists the rates as 111 demonstrations per hour on the cup arrangement task, against 35 per hour for teleoperation and 231 per hour for the unassisted hand. Because no robot is present, collection can start in any home or restaurant within 2 minutes.',
       embodimentGap:
         'The handheld gripper approximates a robot parallel jaw but is not one, and the human hand moves unlike any arm. UMI policies deploy zero-shot only because the interface aligns observation and action latency and represents actions relative to the camera frame; the same policy then runs on any arm with a compatible gripper and camera setup.',
     },
@@ -144,23 +144,23 @@ const ROWS: TeleopRig[] = [
       'DROID: 50 operators across 13 institutions collected 76,000 trajectories (350 hours) in 12 months',
     embodimentGap: 'high',
     embodimentGapNote:
-      'Human hand and controller poses must be remapped through IK onto robot joints; calibration and avoidance layers exist because the mapping drifts',
+      'Human hand and controller poses must be remapped through inverse kinematics onto robot joints; calibration and avoidance layers exist because the mapping drifts',
     details: {
       cost:
-        'No system cost is published. The family spans commodity headsets (DROID used Meta Quest 2 with Franka Panda rigs) up to an Apple Vision Pro, launched at $3,499, driving dexterous hands in Bunny-VisionPro, and the robot hardware dominates the total either way.',
+        'No system cost is published. The family spans commodity headsets (DROID used Meta Quest 2 with Franka Panda rigs; a Meta Quest 3S now lists from $349.99) up to an Apple Vision Pro, launched at $3,499, driving dexterous hands in Bunny-VisionPro, and the robot hardware dominates the total either way.',
       dataQuality:
-        'The operator sees the robot world in stereo and their motion is mirrored onto the robot. Fidelity rides on the retargeting layer: DROID data trained diffusion policies that beat the next-best dataset by 22% in-distribution, while Open-TeleVision adds active stereoscopic rendering and Bunny-VisionPro adds low-cost haptic feedback plus collision and singularity avoidance.',
+        'The operator sees the robot world in stereo and their motion is mirrored onto the robot. Fidelity rides on the retargeting layer: DROID data trained diffusion policies that beat the next-best dataset by 22% in conditions like their training data, while Open-TeleVision adds active stereoscopic rendering and Bunny-VisionPro adds low-cost haptic feedback plus collision and singularity avoidance.',
       throughput:
         'DROID is the fleet proof: 50 operators at 13 institutions collected 76,000 trajectories totaling 350 hours over 12 months on standardized rigs. Headsets are commodity hardware and the robot stays fixed, so adding operators does not require rebuilding the station.',
       embodimentGap:
-        'Human hands and VR controllers share no kinematics with robot arms, so every action passes through a retargeting layer with IK and calibration. DROID maintains calibration protocols for exactly this reason, and Bunny-VisionPro builds collision and singularity avoidance into the mapping. The retargeting is where demonstration quality is kept or lost.',
+        'Human hands and VR controllers share no kinematics with robot arms, so every action passes through a retargeting layer with inverse kinematics and calibration. DROID maintains calibration protocols for exactly this reason, and Bunny-VisionPro builds collision and singularity avoidance into the mapping. The retargeting is where demonstration quality is kept or lost.',
     },
     links: [
       { label: 'DROID', url: 'https://droid-dataset.github.io/' },
       { label: 'Open-TeleVision', url: 'https://arxiv.org/abs/2407.01512' },
       { label: 'Bunny-VisionPro', url: 'https://arxiv.org/abs/2407.03162' },
     ],
-    sources: ['droid-2024', 'open-television-2024', 'bunny-visionpro-2024', 'apple-visionpro-price-2024'],
+    sources: ['droid-2024', 'open-television-2024', 'bunny-visionpro-2024', 'apple-visionpro-price-2024', 'meta-quest-3s-page-2026'],
   },
 ];
 

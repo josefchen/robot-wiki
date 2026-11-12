@@ -64,7 +64,7 @@ const CARRY_TO = boxX(2) + BOX / 2;
 const f = (v: number) => Number(v.toFixed(2));
 
 const STATEMENT: Record<RecipeId, string> = {
-  sim: 'The simulator’s contact errors carry over',
+  sim: "The simulator's contact errors carry over",
   demo: 'Real demonstrations need no contact model',
 };
 
@@ -165,7 +165,7 @@ export function DemoOrSim({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="Simulation teaches its mistakes about surfaces touching and pushing to the robot; copying real demonstrations needs no contact model."
+      caption="A simulator passes its contact mistakes on to the robot it trains, while copying real demonstrations needs no contact model."
       method={
         <>
           <div>

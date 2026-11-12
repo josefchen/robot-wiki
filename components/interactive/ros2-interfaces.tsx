@@ -95,8 +95,8 @@ export const CHANNELS: readonly Channel[] = [
       { to: 'left', label: 'Progress: 60%' },
       { to: 'left', label: 'Done: cup fetched' },
     ],
-    note: ['Progress updates;', 'it can be cancelled'],
-    plain: 'a goal, progress updates and a result, and it can be cancelled',
+    note: ['Progress updates;', 'it can be canceled'],
+    plain: 'a goal, progress updates and a result, and it can be canceled',
   },
 ];
 
@@ -388,7 +388,7 @@ export function Ros2Interfaces({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="Nodes are robot programs. Topics stream readings; services exchange a question and answer; actions run long jobs that can be cancelled."
+      caption="Robot programs, called nodes, talk three ways: topics stream readings, services trade a question for an answer, actions run long cancelable jobs."
       method={
         <>
           <div>

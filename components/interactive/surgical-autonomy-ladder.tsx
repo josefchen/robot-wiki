@@ -59,7 +59,7 @@ const RESEARCH_WORDS: Record<string, string> = {
 };
 
 const CAPTION =
-  'In this comparison’s six levels, FDA-authorized platforms reach level 1; SRT-H’s authors claim level 4 for research on tissue outside a body.';
+  'Every FDA-authorized surgical robot sits at level 0 or 1; everything higher is research on animals or on tissue removed from the body.';
 const DESCRIPTION = `Yang and colleagues' six levels of surgical autonomy, with the systems this article covers placed on them. The teleoperated platforms the FDA has authorized, from Intuitive, CMR, Medtronic and J&J, sit at level 0, and Moon Surgical's Maestro with ScoPilot at level 1. Research demonstrations sit higher: STAR suturing live pigs in 2016 at level 2, Yang's own example; Saeidi and colleagues' 2022 laparoscopic anastomosis in live pigs at level 3, because the operator picks among plans the robot generates; and SRT-H's 2025 clipping-and-cutting experiments on excised gallbladders at level 4, as its authors place it. No system in this comparison is at level 5.`;
 
 export function SurgicalAutonomyLadder({ className }: { className?: string }) {
@@ -71,11 +71,11 @@ export function SurgicalAutonomyLadder({ className }: { className?: string }) {
       figureId="surgical-autonomy-ladder"
       className={className}
       kicker="Six levels of surgical autonomy"
-      heading={`Authorized: level ${HIGHEST_AUTHORIZED_LEVEL}; research on removed tissue: level ${HIGHEST_CLAIMED_LEVEL}`}
+      heading={`Authorized surgical robots reach level ${HIGHEST_AUTHORIZED_LEVEL}; research claims level ${HIGHEST_CLAIMED_LEVEL}`}
       stage={
         <FigureStage>
           <p className="font-sans text-sm leading-snug text-text">
-            Six levels, numbered 0 to 5. <strong className="font-medium">Authorized platforms here reach level 1; SRT-H’s authors claim level 4</strong> for research on tissue outside a body.
+            Six levels, numbered 0 to 5. <strong className="font-medium">Authorized platforms here reach level 1; SRT-H&apos;s authors claim level 4</strong> for research on tissue outside a body.
           </p>
           <p className="font-sans text-sm leading-snug text-text">
             Dots: platforms authorized by the US Food and Drug Administration (FDA). Crosses: research demonstrations.
@@ -147,7 +147,7 @@ export function SurgicalAutonomyLadder({ className }: { className?: string }) {
               );
             })}
           </PlotStage>
-          <p className="font-sans text-sm leading-snug text-text-dim">SRT-H plans surgery and guides arm movements; STAR stitches tissue; CMR Surgical makes robots.</p>
+          <p className="font-sans text-sm leading-snug text-text-dim">STAR: Smart Tissue Autonomous Robot. SRT-H: a learned system that plans each step in language and guides the arm. CMR: CMR Surgical, maker of Versius.</p>
 
         </FigureStage>
       }

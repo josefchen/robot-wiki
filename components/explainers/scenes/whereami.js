@@ -177,7 +177,7 @@ export default {
     const report = { last: '' };
     const say = (html) => { report.last = html; ui.readout(html + (gpsLine ? `<br>${gpsLine}` : '')); };
     let gpsLine = '';
-    const moveText = () => `Driven <b>${st.driven.toFixed(1)} metres</b> by counting wheel turns. Every turn adds a little error, so the cloud keeps growing.`;
+    const moveText = () => `Driven <b>${st.driven.toFixed(1)} meters</b> by counting wheel turns. Every turn adds a little error, so the cloud keeps growing.`;
     const lookText = (res, prefix = '') => `${prefix}${prefix ? 'its' : 'Its'} guess moved <b>${res.pct}%</b> of the way to where the landmark says it is. The cloud is now <b>${times(res.shrink)} times</b> smaller.`;
     const doMove = async () => {
       if (busy) return; busy = true;
@@ -282,7 +282,7 @@ export default {
           enter: async () => {
             const my = reset(); await driveTo(3, false); if (my !== epoch) return;
             await look('good', { animate: false }); await move(false); if (my !== epoch) return;
-            gpsLine = `A phone's GPS alone is typically within <b>${GPS_M} metres</b> under open sky, and worse near buildings and trees.`;
+            gpsLine = `A phone's GPS alone is typically within <b>${GPS_M} meters</b> under open sky, and worse near buildings and trees.`;
             say('Each Move grows the cloud. Each Look shrinks it.'); stage.focus(dot, ghost.root, cloud);
             L.cloud.show(true); L.truth.show(true);
             moveBtn.show(true); lookBtn.show(true); ui.hint('Move, then Look');

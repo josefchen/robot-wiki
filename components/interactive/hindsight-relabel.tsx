@@ -50,8 +50,8 @@ const STATEMENT: Record<GoalId, string> = {
 
 function describe(goal: GoalId): string {
   return goal === 'given'
-    ? `Judged against the goal it was given, the recorded push misses and earns a reward of ${reward('given')}; relabelled with the spot where the puck ended, the same push earns ${reward('reached')}, so 1 missed push also yields 1 success to learn from.`
-    : `Relabelled with the spot where the puck ended, the recorded push earns a reward of ${reward('reached')}; against the goal it was given it earned ${reward('given')}, and hindsight experience replay stores it both ways.`;
+    ? `Judged against the goal it was given, the recorded push misses and earns a reward of ${reward('given')}; relabeled with the spot where the puck ended, the same push earns ${reward('reached')}, so 1 missed push also yields 1 success to learn from.`
+    : `Relabeled with the spot where the puck ended, the recorded push earns a reward of ${reward('reached')}; against the goal it was given it earned ${reward('given')}, and hindsight experience replay stores it both ways.`;
 }
 
 /** How long the gantry takes to carry the ring between the two goals, and the flag to swing, seconds. */
@@ -128,7 +128,7 @@ export function HindsightRelabel({ className }: { className?: string }) {
       figureId="hindsight-relabel"
       className={className}
       kicker="Hindsight experience replay"
-      heading="Relabelled with where it ended, a miss still teaches"
+      heading="Relabeled with where it ended, a miss still teaches"
       controls={<PresetGroup label="Judge the push against" presets={GOALS} value={goal} onChange={setGoal} testId="her-goal" />}
       stage={
         <AnatomyStage

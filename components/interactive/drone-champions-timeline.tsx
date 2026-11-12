@@ -56,8 +56,8 @@ const READOUT_SIDE: Record<string, 'start' | 'end'> = {
 const SWIFT = contestOf(SWIFT_ID);
 
 const CAPTION =
-  'Dots mark drone wins over human champions in 2023 and 2025; the cross marks the 2026 loss after hitting a gate in the decider.';
-const DESCRIPTION = `Three contests between autonomous racing drones and human champions. Swift, from the University of Zurich, ${SWIFT.readout} against three champions in its own lab, reported in Nature in August 2023. In April 2025 TU Delft's MonoRace won the A2RL race in Abu Dhabi, beating three human world champions in a knockout on hardware and a track the organisers set. In January 2026 world FPV champion Minchan Kim beat TII Racing's drone in a best-of-nine final: at four wins each, the drone struck a gate in the deciding race and could not recover.`;
+  'Dots mark drone wins over human champions in 2023 and 2025; the cross marks the 2026 final, lost when the drone struck a gate.';
+const DESCRIPTION = `Three contests between autonomous racing drones and human champions. Swift, from the University of Zurich, ${SWIFT.readout} against three champions in its own lab, reported in Nature in August 2023. In April 2025 TU Delft's MonoRace won the A2RL race in Abu Dhabi, beating three human world champions in a knockout on hardware and a track the organizers set. In January 2026 world FPV champion Minchan Kim beat TII Racing's drone in a best-of-nine final: at four wins each, the drone struck a gate in the deciding race and could not recover.`;
 
 export function DroneChampionsTimeline({ className }: { className?: string }) {
   const descriptionId = `${useId()}-description`;
@@ -148,7 +148,7 @@ export function DroneChampionsTimeline({ className }: { className?: string }) {
             </text>
           </PlotStage>
           <p className="font-sans text-sm leading-snug text-text-dim">
-            A2RL: Abu Dhabi Autonomous Racing League. TII Racing: Technology Innovation Institute’s team.
+            A2RL: Abu Dhabi Autonomous Racing League. TII Racing: Technology Innovation Institute&apos;s team.
           </p>
         </FigureStage>
       }
@@ -161,7 +161,7 @@ export function DroneChampionsTimeline({ className }: { className?: string }) {
             Thomas Bitmatta and 6 of 9 against Marvin Schaepper. It does not date the races, which came before Nature
             received the paper in January 2023. MonoRace&apos;s competition ran on 11 and 12 April 2025, and TU
             Delft notes that Swift&apos;s lab conditions, hardware and track were the researchers&apos;, while the
-            A2RL organisers set MonoRace&apos;s. At the January 2026 final every drone flew on one forward camera
+            A2RL organizers set MonoRace&apos;s. At the January 2026 final every drone flew on one forward camera
             and an inertial sensor.
           </div>
           <ChartDescription

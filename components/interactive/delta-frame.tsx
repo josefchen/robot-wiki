@@ -203,8 +203,8 @@ export function DeltaFrame({ className }: { className?: string }) {
               width={WIDTH}
               height={HEIGHT}
               describedBy={drawingId}
-              label={`A pen plotter whose tool is turned ${degrees} degrees on its turret. A dark stroke on the squared paper is the demonstration, 5 centimetres along the tool. The blue ink is the replay of the same move read in the ${
-                frame === 'tool' ? "tool's frame, running down the stroke" : `table's frame, running along the rails and ending ${gap === 0 ? 'on the stroke' : `${gap} centimetres off it`}`
+              label={`A pen plotter whose tool is turned ${degrees} degrees on its turret. A dark stroke on the squared paper is the demonstration, 5 centimeters along the tool. The blue ink is the replay of the same move read in the ${
+                frame === 'tool' ? "tool's frame, running down the stroke" : `table's frame, running along the rails and ending ${gap === 0 ? 'on the stroke' : `${gap} centimeters off it`}`
               }.`}
             >
               {RUNS.map((run) => ('slot' in run ? slots[run.slot] : run.parts))}
@@ -212,7 +212,7 @@ export function DeltaFrame({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A demonstration recorded 5 cm forward in the tool's frame. Read in the table's frame, the replay misses once the tool is turned."
+      caption="A move recorded in the tool's frame replays correctly only in that frame; read in the table's, it misses once the tool turns."
       method={
         <>
           <p>

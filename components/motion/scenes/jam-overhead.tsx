@@ -71,9 +71,9 @@ const months = (value: number | null) => (value === null ? 'never' : value.toFix
 
 export const JAM_OVERHEAD_SCENE: SceneDefinition = {
   id: 'jam-overhead',
-  title: 'Clearing time takes capacity from an authored picking cell',
+  title: "Slow jam fixes eat into a picking cell's hours",
   kicker: 'Picking-cell economics',
-  headline: `99% successful picks still lose ${SLOW_JAM_MINUTES} minutes an hour`,
+  headline: `At 99% success, slow fixes cost ${SLOW_JAM_MINUTES} minutes an hour`,
   beats: [
     {
       id: 'quick',

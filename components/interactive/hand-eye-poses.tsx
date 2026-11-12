@@ -63,9 +63,9 @@ export const irisGap = (poses: number) => (poses < MIN_POSES ? IRIS_OPEN_GAP : 3
 
 /** What the stage says under the drawing, by how far the count has come. */
 export function hintFor(poses: number): string {
-  if (poses < MIN_POSES) return 'Too few poses: it needs turns about two axes';
-  if (poses < 12) return 'Opening: relative position uncertainty; 1.0 is the three-pose baseline, with no physical units';
-  return 'Past about 12 poses that opening barely shrinks';
+  if (poses < MIN_POSES) return 'Too few poses: it needs turns about two different axes';
+  if (poses < 12) return 'Add poses and the iris closes as the doubt about where the camera sits shrinks; 1.0 is its size at three poses';
+  return 'Past about 12 poses the iris barely closes further';
 }
 
 /** Seconds the arm takes to swing from one pose to the next. */
@@ -228,7 +228,7 @@ export function HandEyePoses({ className }: { className?: string }) {
               viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
               role="img"
               focusable="false"
-              aria-label={`A robot arm shows a checkerboard on the bench to its wrist camera from ${poses} ${poses === 1 ? 'pose' : 'poses'}, one peg in the rack for each. ${solvable ? 'An iris round the camera closes on it as the doubt about where it sits on the wrist shrinks.' : 'Too few poses to solve where the camera sits: its iris stays wide open.'}`}
+              aria-label={`A robot arm shows a checkerboard on the bench to its wrist camera from ${poses} ${poses === 1 ? 'pose' : 'poses'}, one peg in the rack for each. ${solvable ? 'An iris around the camera closes on it as the doubt about where it sits on the wrist shrinks.' : 'Too few poses to solve where the camera sits: its iris stays wide open.'}`}
               aria-describedby={descriptionId}
               data-testid="hand-eye-stage"
             >
@@ -257,7 +257,7 @@ export function HandEyePoses({ className }: { className?: string }) {
           </Stage>
         </AnatomyStage>
       }
-      caption="At least three poses locate the camera relative to the wrist. More poses improve the estimate, with little benefit beyond about twelve."
+      caption="Three poses are the minimum to locate the camera on the wrist, and past about twelve more poses add little."
       method={
         <>
           <div>
@@ -267,8 +267,8 @@ export function HandEyePoses({ className }: { className?: string }) {
             improves significantly with a few more samples and typically plateaus after about 12 or 15.
           </div>
           <div>
-            The iris is illustrative: its gap round the camera shrinks with the square root of the number of motions
-            beyond the minimum, the usual behaviour of a least-squares fit, drawn relative to its gap at three
+            The iris is illustrative: its gap around the camera shrinks with the square root of the number of motions
+            beyond the minimum, the usual behavior of a least-squares fit, drawn relative to its gap at three
             poses. The rack&apos;s groove after the third hole marks the minimum, and its sunken strip under holes 12 to
             15 marks where MoveIt reports the calibration levels off. Real accuracy also depends on how widely the poses spread and on noise. Validate the result
             in robot coordinates, because image reprojection error alone does not close that loop.
