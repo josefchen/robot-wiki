@@ -7,12 +7,12 @@
  * renderer, or registered under a scoped exception family such as
  * KaTeX_Typewriter, fails here rather than shipping inside 48 cards.
  */
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { isAbsolute, join } from 'node:path';
 import { openSync, type Font } from 'fontkit';
 import { publishedModules } from '../data/modules.ts';
 import { FIRST_PARTY_TYPE_ROLES } from '../data/type-roles.ts';
-import { sha256 } from './brand-v2-baseline.ts';
 import { cardTextRuns, type CardTextRun } from './og-card-artwork.ts';
 import {
   ogCardCorpus,
@@ -24,6 +24,8 @@ import {
   primaryFamily,
   type OgRendererFace,
 } from './og-renderer-fonts.ts';
+
+const sha256 = (bytes: Uint8Array | string): string => createHash('sha256').update(bytes).digest('hex');
 
 export type OgRendererFontReport = {
   ok: boolean;

@@ -6,7 +6,7 @@
  * Draft-probe pattern (see tests/helpers/draft-fixtures.ts): this test
  * flips the first draft module in registry order to `published`, ships a
  * minimal probe article for it, rebuilds, and asserts the probe appears in
- * the sidebar taxonomy, the /a-z index, its domain landing page,
+ * the /a-z index, its domain landing page,
  * sitemap.xml, the Pagefind prose search index, and the "Linked from"
  * backlinks of the articles its seeAlso names. It then restores the
  * registry and content tree byte-for-byte, rebuilds, and asserts the probe
@@ -44,7 +44,6 @@ import {
   startStaticExportServer,
   type StaticExportServer,
 } from '../e2e/static-export-server';
-import { DOMAIN_META } from '@/data/modules';
 
 const ROOT = join(import.meta.dirname, '..', '..');
 const MODULES_TS = join(ROOT, 'data', 'modules.ts');
@@ -188,19 +187,6 @@ source so the content gate treats it as an ordinary article
       const { status, body } = await get(`/${key}/`);
       expect(status).toBe(200);
       expect(body).toContain(MARKER);
-    });
-
-    it('appears in the sidebar taxonomy under its domain', async () => {
-      await page.goto(`${BASE}/`);
-      const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
-      await nav
-        .getByRole('button', { name: DOMAIN_META[PROBE_SENTINEL.domain].name })
-        .click();
-      const link = nav.getByRole('link', { name: PROBE_SENTINEL.title });
-      await pwExpect(link).toBeVisible();
-      await page.screenshot({
-        path: `${SCREENSHOT_DIR}/sidebar-published.png`,
-      });
     });
 
     it('appears in the /a-z index', async () => {

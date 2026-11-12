@@ -589,7 +589,6 @@ Both folds are closed at settle and keep their content in the served HTML. Nothi
 - Photographs use one 3:2 cover crop, one width per viewport, the figure caption style and the figure source line for credit.
 - A concept has one canonical visual. Another page links to it, or reuses it with a caption that names a different purpose.
 - `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale, figures outside the frame, a stage that is not the flat page surface or a dark, raised or floating plate inside a frame, a headline over 10 words, a kicker over 6, a caption over 25, a fold with another label and a symbol in the main view. It runs in `postbuild` and `vercel-build`. Every exported figure must pass. `--allowlist <file>` takes a temporary list of figures not yet migrated, one entry per figure; an entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
-- `npm run capture:visuals` screenshots every visual on every Sitemap URL of the export and writes the manifest and contact sheets.
 
 ## 14. Discovery: search, A–Z, glossary, and indexes
 
