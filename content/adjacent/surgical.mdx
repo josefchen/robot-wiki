@@ -5,7 +5,7 @@ domain: adjacent
 slug: surgical
 order: 3
 status: published
-lastReviewed: "2026-08-18"
+lastReviewed: "2026-11-12"
 citations:
   - yang-autonomy-2017
   - star-suturing-2016
@@ -17,7 +17,11 @@ citations:
   - maestro-commercial-510k-2024
   - scopilot-clearance-2025
   - agro-suvide-2026
-  - intuitive-q2-2026
+  - intuitive-q3-2026
+  - stryker-cmr-2026
+  - liang-humanoid-surgery-2026
+  - ucsd-humanoid-surgery-2026
+  - imitatecholec-2026
   - attanasio-autonomy-2021
   - kwoh-ct-robot-1988
   - marescaux-telesurgery-2001
@@ -57,72 +61,75 @@ import { SurgicalAutonomyLadder } from '@/components/interactive/surgical-autono
 
 import { SurgicalSystemsTable } from '@/components/mdx/surgical-systems-table';
 
-Surgical robotics positions or moves surgical instruments, today mostly with teleoperated systems for <Term id="minimally-invasive-surgery">minimally invasive surgery</Term> that scale and filter a surgeon's hand motion. Intuitive had 11,710 da Vinci systems installed by June 30, 2026 <Cite id="intuitive-q2-2026" />, and most commercial platforms sit at level 0, with no decision autonomy <Cite id="attanasio-autonomy-2021" />.
+Surgical robots hold and move instruments inside the patient, today mostly as teleoperated systems for <Term id="minimally-invasive-surgery">minimally invasive surgery</Term> that scale and steady a surgeon's hand motion. Intuitive had 12,094 da Vinci systems installed by September 30, 2026 <Cite id="intuitive-q3-2026" />, yet most commercial platforms make no decisions of their own <Cite id="attanasio-autonomy-2021" />.
 
 <Image id="da-vinci-xi-patient-cart-2018" />
 
 ## The teleoperation baseline
 
-Move the "Motion scale" slider to compare the hand and instrument strokes <Cite id="yang-autonomy-2017" />.
+A da Vinci surgeon sits at a console moving hand controllers, while arms at the patient carry wristed instruments and a camera. The robot scales hand movements down, filters out tremor and adds wrists that bend inside the body.
 
 <MotionPantograph className="my-6" />
 
-A da Vinci surgeon sits at a console away from the table, moving hand controllers, while patient-side arms carry wristed instruments and an endoscope. The robot adds motion scaling, tremor filtering and wrists articulating inside the body. Yang and colleagues place this system at Level 0, no autonomy, because even scaled output represents the surgeon's desired motion <Cite id="yang-autonomy-2017" />. At level 1 a robot gives cognitive and physical assistance, and at level 2 it performs a surgical task autonomously <Cite id="attanasio-autonomy-2021" />.
+Yang and colleagues place this at level 0 of six levels of autonomy, since even scaled output is the surgeon's desired motion <Cite id="yang-autonomy-2017" />. At level 1 a robot gives cognitive or physical assistance, and at level 2 it performs a surgical task on its own <Cite id="attanasio-autonomy-2021" />.
 
 <Image id="da-vinci-xi-surgeon-console-vesoul-2023" />
 
-The field began with positioning. In 1988 Kwoh and colleagues reported a robot with improved absolute positioning accuracy for CT-guided stereotactic brain surgery <Cite id="kwoh-ct-robot-1988" />. Marescaux and colleagues reported transatlantic robot-assisted telesurgery in 2001 <Cite id="marescaux-telesurgery-2001" />. Intuitive says cardiac surgery was the original da Vinci's first cleared specialty, in 2002 <Cite id="davinci5-cardiac-2026" />.
+The field began with positioning: in 1988 Kwoh and colleagues reported a robot with improved positioning accuracy for CT-guided brain surgery <Cite id="kwoh-ct-robot-1988" />. In 2001 Marescaux and colleagues operated across the Atlantic by robot <Cite id="marescaux-telesurgery-2001" />. Intuitive says cardiac surgery was the original da Vinci's first cleared specialty, in 2002 <Cite id="davinci5-cardiac-2026" />.
 
-Da Vinci 5, cleared in March 2024, has more than 150 enhancements over Xi and more than 10,000 times its computing power <Cite id="davinci5-clearance-2024" />. Its optional Force Feedback instruments let the surgeon feel instrument-tip forces, and Intuitive reported up to 43 percent less force on tissue in preclinical trials <Cite id="davinci5-clearance-2024" />. In a preclinical study by 28 surgeons, the feature's high setting cut maximal force by 36, 41 and 55 percent in retraction, dissection and suturing <Cite id="awad-force-feedback-2024" />.
+## Da Vinci 5 lets the surgeon feel force
 
-Logs from 444 thoracic procedures by 73 surgeons show median tip force falling from 1.79 N with feedback off to 1.32 N at the high setting <Cite id="kneuertz-dv5-force-2025" />. A pilot of 68 colorectal operations found less applied force without significant changes in bowel function or length of stay <Cite id="chang-dv5-colorectal-2025" />. In January 2026 the FDA cleared da Vinci 5 for selected cardiac procedures using instruments without force feedback <Cite id="davinci5-cardiac-2026" />.
+Da Vinci 5, cleared in March 2024, offers Force Feedback instruments that let the surgeon feel forces at the tips <Cite id="davinci5-clearance-2024" />. In three studies, surgeons pressed less hard with it on:
 
-Intuitive reports its installed base grew 12 percent in 2025 to 11,106 systems, and da Vinci procedures grew roughly 18 percent worldwide in 2025 <Cite id="intuitive-q4-2025" />. Of 532 fourth-quarter placements, 303 were da Vinci 5s <Cite id="intuitive-q4-2025" />. In 2026's second quarter, procedures grew about 15 percent and 246 of 468 placements were da Vinci 5s <Cite id="intuitive-q2-2026" />.
+| Study | Scope | Finding |
+| --- | --- | --- |
+| Awad et al. (2024) | Preclinical, 28 surgeons | Maximal force down 36, 41 and 55 percent in retraction, dissection and suturing at the high setting <Cite id="awad-force-feedback-2024" /> |
+| Kneuertz et al. (2025) | 444 thoracic procedures, 73 surgeons | Median tip force 1.79 N with feedback off, 1.32 N at the high setting <Cite id="kneuertz-dv5-force-2025" /> |
+| Chang et al. (2025) | Pilot, 68 colorectal operations | Less applied force, without significant changes in bowel function or length of stay <Cite id="chang-dv5-colorectal-2025" /> |
+
+In January 2026 the FDA cleared da Vinci 5 for selected cardiac procedures using instruments without force feedback <Cite id="davinci5-cardiac-2026" />. Intuitive's installed base grew 12 percent in 2025 to 11,106 systems, and da Vinci procedures grew roughly 18 percent worldwide <Cite id="intuitive-q4-2025" />. In the third quarter of 2026 procedures rose about 14 percent, and 315 of 546 new placements were da Vinci 5s <Cite id="intuitive-q3-2026" />.
 
 <SurgicalSystemsTable className="my-6 wide-measure" />
 
-Every tabulated system is Level 0 or Level 1 on the Yang scale <Cite id="yang-autonomy-2017" />.
+All of these commercial systems sit at level 0 or level 1 on the Yang scale <Cite id="yang-autonomy-2017" />.
 
-## The challengers and what they compete on
+## The challengers compete on fit
 
-CMR Surgical's Versius is a modular multiport system with separate bedside arms movable between operating rooms, driven from an open console <Cite id="cmr-versius-authorization-2024" />. In October 2024 the FDA authorized it through De Novo for adult cholecystectomy, the first multiport soft-tissue general surgical system authorized that way <Cite id="cmr-versius-authorization-2024" />. CMR put robot-assisted surgery at about 2.5 percent of nearly 10 million annual US major operating-room procedures <Cite id="cmr-versius-authorization-2024" />. Versius Plus was cleared in December 2025, and by March 2026 CMR reported more than 45,000 Versius patients in more than 30 countries <Cite id="versius-plus-510k-2025" /><Cite id="cmr-45000-patients-2026" />.
+Rivals differ mostly in how they fit the operating room. CMR Surgical's Versius has separate bedside arms that move between operating rooms. In October 2024 the FDA authorized it through the De Novo pathway for novel devices, for adult gallbladder removal (cholecystectomy), the first multiport soft-tissue general surgical system authorized that way; CMR put robot-assisted surgery at about 2.5 percent of nearly 10 million annual US major operating-room procedures <Cite id="cmr-versius-authorization-2024" />. Versius Plus was cleared in December 2025, and by March 2026 CMR reported more than 45,000 Versius patients in more than 30 countries <Cite id="versius-plus-510k-2025" /><Cite id="cmr-45000-patients-2026" />. In October 2026 Stryker agreed to invest about \$400 million in CMR and sell Versius exclusively in the US, with an option to buy the company <Cite id="stryker-cmr-2026" />.
 
-Medtronic's Hugo was cleared on December 3, 2025 for urologic procedures including prostatectomy, nephrectomy and cystectomy <Cite id="medtronic-hugo-clearance-2025" />. Medtronic reports prior use in over 30 countries <Cite id="medtronic-hugo-clearance-2025" />. Its first US case followed at Cleveland Clinic in February 2026 <Cite id="medtronic-hugo-first-us-2026" />.
+Medtronic's Hugo, used in over 30 countries, was cleared in the US on December 3, 2025 for urologic procedures including prostate, kidney and bladder removal <Cite id="medtronic-hugo-clearance-2025" />. After its first US case, at Cleveland Clinic in February 2026, Medtronic said about 80 percent of US abdominal urologic surgery is already robot-assisted <Cite id="medtronic-hugo-first-us-2026" />. In June 2026 it filed for clearance in general and gynecologic surgery <Cite id="medtronic-hugo-510k-2026" />. Johnson & Johnson's OTTAVA, built into the operating table and, J&J says, taking 30 to 50 percent less space than boom- and cart-mounted systems, received De Novo authorization in July 2026 for general surgery including gastric bypass and cholecystectomy <Cite id="jnj-ottava-2026" />. In a Michigan registry of 169,404 patients, robotic use in common general-surgery procedures rose from 1.8 percent in 2012 to 15.1 percent in 2018 <Cite id="sheetz-adoption-2020" />.
 
-Medtronic says about 80 percent of US abdominal urologic surgery is already robot-assisted <Cite id="medtronic-hugo-first-us-2026" />. In June 2026 it filed 510(k)s for general and gynecologic surgery <Cite id="medtronic-hugo-510k-2026" />.
-
-Johnson & Johnson's OTTAVA, a table-integrated soft-tissue robot, received De Novo authorization in July 2026 for general-surgery procedures including gastric bypass, cholecystectomy and hiatal hernia repair <Cite id="jnj-ottava-2026" />. J&J says it occupies 30 to 50 percent less space than boom- and cart-mounted systems <Cite id="jnj-ottava-2026" />. In a Michigan registry of 169,404 patients, robotic use in common general-surgery procedures rose from 1.8 percent in 2012 to 15.1 percent in 2018 <Cite id="sheetz-adoption-2020" />.
-
-Moon Surgical's Maestro, a two-armed assistant, holds and positions the laparoscopic camera and instruments, using the hospital's existing cameras and graspers. Its first 510(k), in December 2022, rested on substantial equivalence to a 1990s endoscope positioner <Cite id="maestro-tavac-2023" />. One surgeon used it without an assistant in a 30-patient series <Cite id="maestro-tavac-2023" />.
-
-The commercial system was cleared in June 2024 <Cite id="maestro-commercial-510k-2024" />. ScoPilot, cleared in March 2025, runs on onboard NVIDIA Holoscan and lets the laparoscope follow the instrument tip on demand <Cite id="scopilot-clearance-2025" />, Level 1 assistance on the Yang scale <Cite id="yang-autonomy-2017" />.
+Moon Surgical's Maestro is a two-armed assistant that holds the hospital's existing laparoscopic camera and instruments. Its first 510(k) clearance, in December 2022, rested on equivalence to a 1990s endoscope positioner, and one surgeon used it with no human assistant in a 30-patient series <Cite id="maestro-tavac-2023" />. The commercial system was cleared in June 2024 <Cite id="maestro-commercial-510k-2024" />. ScoPilot, cleared in March 2025, lets the laparoscope follow the instrument tip on demand <Cite id="scopilot-clearance-2025" />, level 1 assistance on the Yang scale <Cite id="yang-autonomy-2017" />.
 
 <ScopeFollow className="my-6" />
 
 ## The precision and reliability bar
 
-A policy with 95 percent per-step success compounds to 21.5 percent over 30 steps, the arithmetic of the [reliability gap](/frontier/reliability-gap/). FDA reports on robotic surgery from 2000 to 2013 included 144 deaths (1.4 percent of 10,624 reports), 1,391 patient injuries and 8,061 device malfunctions <Cite id="alemzadeh-adverse-events-2016" />. At clearance, Intuitive said da Vinci 5 would first go to a few US customers to gather data on real use <Cite id="davinci5-clearance-2024" />. In the ROLARR trial of 471 rectal-cancer patients, robotic assistance did not significantly reduce conversion to open surgery: 8.1 percent against 12.2 percent for conventional laparoscopy (P = .16) <Cite id="rolarr-2017" />.
+A policy with 95 percent per-step success compounds to 21.5 percent over 30 steps, the arithmetic of the [reliability gap](/frontier/reliability-gap/). FDA reports on robotic surgery from 2000 to 2013 included 144 deaths (1.4 percent of 10,624 reports), 1,391 patient injuries and 8,061 device malfunctions <Cite id="alemzadeh-adverse-events-2016" />. Even teleoperation's benefits are hard to prove: in the ROLARR trial of 471 rectal-cancer patients, robotic assistance did not significantly reduce conversion to open surgery, 8.1 percent against 12.2 percent for conventional laparoscopy (P = .16) <Cite id="rolarr-2017" />.
 
-In 2016 STAR, the Smart Tissue Autonomous Robot, performed supervised autonomous soft-tissue anastomosis in vivo in pigs <Cite id="star-suturing-2016" />. Its suture spacing and leak pressure matched or exceeded both expert surgeons and robot-assisted technique <Cite id="star-suturing-2016" />. In 2022 a robot performed laparoscopic small-bowel anastomosis in pigs over a one-week survival period, with the operator choosing among autonomously generated plans <Cite id="saeidi-laparoscopic-2022" />. It outperformed expert manual and robot-assisted technique on consistency and accuracy <Cite id="saeidi-laparoscopic-2022" />.
+## Autonomy so far: animals and the bench
 
-In 2025 SRT-H, whose high-level language policy guides a low-level policy through long-horizon steps and error recovery, ran ex vivo cholecystectomy experiments <Cite id="srt-h-2025" />. It succeeded on all eight gallbladders tested without human intervention <Cite id="srt-h-2025" />. [Hierarchical policies](/manipulation/hierarchical/) covers that design.
+Research robots have done whole surgical tasks alone, but only in animals or on tissue outside the body, often supervised. In SRT-H a high-level policy plans in language and guides a low-level policy through long steps and error recovery <Cite id="srt-h-2025" /> ([hierarchical policies](/manipulation/hierarchical/)).
+
+| System | Setting | Result |
+| --- | --- | --- |
+| STAR (2016) | Supervised bowel anastomosis (joining two ends) in live pigs | Suture spacing and leak pressure matched or exceeded expert surgeons and robot-assisted technique <Cite id="star-suturing-2016" /> |
+| Saeidi et al. (2022) | Laparoscopic small-bowel anastomosis in pigs, one-week survival; operator picked among robot-made plans | Beat expert manual and robot-assisted technique on consistency and accuracy <Cite id="saeidi-laparoscopic-2022" /> |
+| SRT-H (2025) | Gallbladder removal, ex vivo | 8 of 8 unseen gallbladders with no human intervention <Cite id="srt-h-2025" /> |
+| UC San Diego humanoids (2026) | Gallbladder removal in live pigs, fully teleoperated | Worked, but needed several recalibrations and took much longer than dedicated systems <Cite id="liang-humanoid-surgery-2026" /><Cite id="ucsd-humanoid-surgery-2026" /> |
+| AGRO-SUVIDE (2026) | Coding agent retrying failed skills; debridement on the da Vinci Research Kit, 340 trials, one demonstration | 85 percent single-fragment success; 60 percent for three in a row, 95 percent with one intervention <Cite id="agro-suvide-2026" /> |
+| GR00T-H (2026) | Ex vivo suturing | 64 percent average across a 29-step sequence <Cite id="open-h-embodiment-2026" /> |
 
 <SurgicalAutonomyLadder className="my-6" />
 
-Authorization covers an indication, a named procedure in a named population; expansion needs a new clearance. Yang and colleagues argue a highly autonomous robot starts practicing medicine, which in the US falls to medical societies <Cite id="yang-autonomy-2017" />. They propose licensing robotic surgeons through the medical establishment, like human surgeons <Cite id="yang-autonomy-2017" />.
+## Regulators clear one procedure at a time
 
-Yang and colleagues put the gap between the 510(k) and premarket-approval pathways at tens of millions of dollars and years of review, and expect risk tolerance to autonomous robots to change as autonomous machines including self-driving cars become commonplace <Cite id="yang-autonomy-2017" />. Haidegger calls absent autonomy benchmarks and standards a major barrier to commercialising autonomous surgical robots <Cite id="haidegger-autonomy-2019" />, and [safety and assurance](/frontier/safety-and-assurance/) covers the general case.
+Surgery has what manipulation lacks: a regulator that decides, procedure by procedure, what a robot may do. An authorization covers an indication, a named procedure in a named population, and expanding it needs a new clearance. Yang and colleagues argue that a highly autonomous robot is practicing medicine, which in the US falls to medical societies, and propose licensing robot surgeons as human ones are. They put the gap between the 510(k) route, which needs only equivalence to an existing device, and full premarket approval at tens of millions of dollars and years of review <Cite id="yang-autonomy-2017" />. Haidegger calls missing autonomy benchmarks and standards a major barrier to commercial autonomous surgical robots <Cite id="haidegger-autonomy-2019" /> ([safety and assurance](/frontier/safety-and-assurance/)).
 
-## What robot learning takes from it
+## What robot learning takes from surgery
 
-The da Vinci Research Kit exposes all control layers through open electronics and software built around retired first-generation da Vinci mechanics <Cite id="dvrk-research-kit-2014" />.
+Surgery offers an open research platform and an archive of recorded operations. The da Vinci Research Kit exposes every control layer through open electronics and software on retired first-generation da Vinci arms <Cite id="dvrk-research-kit-2014" />. SRT showed that imitation learning works on the da Vinci despite its approximate joint readings if the policy predicts relative moves, so the large archive of clinical da Vinci data may serve robot learning without corrections <Cite id="srt-2024" />. The same Johns Hopkins group released ImitateCholec, about 20 hours of video and kinematics with more than 18,000 demonstrations, recoveries included, from 34 ex vivo cholecystectomies <Cite id="imitatecholec-2026" />.
 
-Clinical recordings could become training data. SRT showed imitation learning works on the da Vinci despite its approximate kinematics, using a relative action formulation, so the large clinical data repository may support robot learning without further corrections <Cite id="srt-2024" />. Open-H-Embodiment pools synchronized video and kinematics from more than 50 institutions and platforms including Versius, da Vinci, the da Vinci Research Kit and Maestro <Cite id="open-h-embodiment-2026" />.
+Open-H-Embodiment pools video and kinematics from more than 50 institutions and platforms including Versius, da Vinci, the research kit and Maestro. Its model GR00T-H was the only one evaluated to finish a structured suturing benchmark end to end, in 25 percent of trials against 0 percent for all others <Cite id="open-h-embodiment-2026" /> ([major datasets](/data-hardware/datasets/)). Older surgical datasets label surgical gestures with kinematics <Cite id="jigsaws-benchmark-2017" />, operation phases and tool presence <Cite id="endonet-2016" />, or instrument, action and target <Cite id="cholect50-benchmarking-2022" />.
 
-Its GR00T-H was the only evaluated model to finish a structured suturing benchmark end to end, in 25 percent of trials against 0 percent for all others <Cite id="open-h-embodiment-2026" />. It reached a 64 percent average <Term id="success-rate">success rate</Term> across a 29-step ex vivo suturing sequence <Cite id="open-h-embodiment-2026" />. [Major datasets](/data-hardware/datasets/) lists its general-robotics peers.
-
-Data labels serve different purposes. JIGSAWS synchronizes video and robot kinematics with surgical-gesture annotations <Cite id="jigsaws-benchmark-2017" />. EndoNet jointly learns operation-phase recognition and tool-presence detection from laparoscopic video <Cite id="endonet-2016" />. CholecT50 describes actions as instrument, verb and target triplets <Cite id="cholect50-benchmarking-2022" />.
-
-In September 2026, Shutong Jin, Ken Goldberg and colleagues reported AGRO-SUVIDE, a coding-agent framework that builds debridement skills from one expert demonstration and retries a skill when its checks fail. In 340 physical trials on the da Vinci Research Kit, it removed single fragments from a viscoelastic substrate with 85% average success and completed three consecutive removals 60% of the time, or 95% with one human intervention <Cite id="agro-suvide-2026" />.
-
-Intuitive says da Vinci 5's <Term id="force-feedback">Force Feedback</Term> measurements add a new data stream to surgical data science <Cite id="davinci5-clearance-2024" />, and Moon Surgical frames Maestro's sensing and onboard compute as the substrate for next-generation physical AI <Cite id="scopilot-clearance-2025" />. A 2022 review found surgical data science still lacking translational success stories, and its roadmap covers data acquisition under regulatory constraints, annotation and sharing <Cite id="maier-hein-sds-2022" />. The same question of how much evidence earns autonomy runs through [autonomous vehicles](/adjacent/autonomous-vehicles/), [drones](/adjacent/drones/) and [space robotics](/adjacent/space/).
+Intuitive says Force Feedback adds a new data stream for surgical data science <Cite id="davinci5-clearance-2024" />. A 2022 review found that field still short of clinical success stories and set out a roadmap for collecting, annotating and sharing data under regulatory constraints <Cite id="maier-hein-sds-2022" />. How much evidence earns autonomy is the same question in [autonomous vehicles](/adjacent/autonomous-vehicles/), [drones](/adjacent/drones/) and [space robotics](/adjacent/space/).
