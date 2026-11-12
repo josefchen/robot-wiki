@@ -6,7 +6,7 @@ import { forEachInOwnContext } from './helpers/per-route-context';
 
 /**
  * Structural contract for the home front page. Encodes the measurable
- * bounds from contract/design-integrity.md and
+ * bounds from library/design-integrity.md and
  * contract/foundation-navigation.md: a dense contents index instead of a
  * card grid, the humanoid scene beside the name in the first screen, the
  * three explore entries, bounded bordered boxes and micro-labels, no
@@ -156,7 +156,7 @@ test.describe('home page', () => {
   test('the wordmark holds its locked type scale at both stated viewports (VAL-B2-TYPE-006)', async ({
     page,
   }) => {
-    // contract/design-integrity.md VAL-B2-TYPE-006, as the owner decision
+    // library/design-integrity.md VAL-B2-TYPE-006, as the owner decision
     // of 10 October 2026 (the research-page standard) restated it: the
     // shared DM Sans 400 display h1, 40-48px at 375 and 84-92px at 1440,
     // line height 0.90-0.96, at the registered home-wordmark instance

@@ -4,14 +4,14 @@ import { join } from 'node:path';
 /**
  * The sealed OG/X matrix, read from the contract itself.
  *
- * `contract/design-integrity.md` §20 lists every exported card and the
+ * `library/design-integrity.md` §20 lists every exported card and the
  * route that owns it, and the destinations that share the site card. The
  * generator has to fail when registry truth stops equalling that list
  * (§20: "A future publish requires an owner-approved contract update"), so
  * the list is parsed from the sealed document rather than restated in code
  * where it could be edited to agree with whatever the registry says.
  */
-export const OG_MATRIX_SOURCE = 'contract/design-integrity.md';
+export const OG_MATRIX_SOURCE = 'library/design-integrity.md';
 
 export type OgMatrixRow = {
   row: number;

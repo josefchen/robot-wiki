@@ -416,7 +416,7 @@ test.describe('home front page', () => {
     const room = 5 * UPDATE_NOTE_MAX_WORDS - counted.notes;
     expect(counted.prose + room, `${counted.prose} words of prose, room for ${room} more in notes`).toBeLessThanOrEqual(250);
 
-    const registered = Object.keys(DEVICE_REGISTRATION);
+    const registered = Object.keys(DEVICE_REGISTRATION).map((id) => `device:${id}`);
     const graphics = await page.evaluate((deviceIds) => {
       const mainElement = document.querySelector('main');
       if (!mainElement) return [];

@@ -2,12 +2,13 @@
  * Runs the figure-system check over every Sitemap URL of the static export.
  *
  *   node scripts/check-figure-system.ts [--root out] [--allowlist <file>]
- *   node scripts/check-figure-system.ts --write-allowlist
+ *   node scripts/check-figure-system.ts --allowlist <file> --write-allowlist
  *
  * Exits 1 on any violation that is not allowlisted, on an allowlist entry
  * that no longer matches a violation, and on a Sitemap URL with no page.
- * --write-allowlist records the current violations for a domain pass to
- * work down; it keeps each existing entry's pass.
+ * Without --allowlist every figure must pass. --write-allowlist records the
+ * current violations in the named file for a domain pass to work down; it
+ * keeps each existing entry's pass.
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -27,7 +28,7 @@ const option = (name: string, fallback: string) => {
   return at >= 0 && args[at + 1] ? args[at + 1] : fallback;
 };
 const root = option('--root', 'out');
-const allowlistPath = option('--allowlist', 'contract/figure-system-allowlist.json');
+const allowlistPath = option('--allowlist', '');
 
 const DOMAINS = ['manipulation', 'classical', 'rl-sim2real', 'world-models', 'frontier', 'data-hardware', 'adjacent'];
 
@@ -61,11 +62,15 @@ for (const route of sitemapRoutes()) {
   violations.push(...page.violations);
 }
 
-const allowlist: Allowlist = existsSync(allowlistPath)
+const allowlist: Allowlist = allowlistPath && existsSync(allowlistPath)
   ? (JSON.parse(readFileSync(allowlistPath, 'utf8')) as Allowlist)
   : { schemaVersion: 'figure-system-allowlist-v1', entries: [] };
 
 if (args.includes('--write-allowlist')) {
+  if (!allowlistPath) {
+    console.error('figure-system: --write-allowlist needs --allowlist <file>');
+    process.exit(1);
+  }
   const passes = new Map(allowlist.entries.map((e) => [`${e.route}\u0000${e.figure}`, e.pass]));
   const grouped = new Map<string, AllowlistEntry>();
   for (const v of violations) {

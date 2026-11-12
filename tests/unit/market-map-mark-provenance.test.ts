@@ -21,25 +21,18 @@ import {
   withheldMark,
   type MarkPreset,
 } from '@/lib/market-map-marks';
-import registries from '@/contract/brand-v2-registries.json';
 
 /**
  * The provenance of every company mark the market map can draw
  * (VAL-B2-MAP-010), joined record by record from each company's `logo`:
  * the registry entry that credits it (data/logo-images.ts), the slim lookup
  * the map reads (data/logos.ts), its measured placement and any withholding
- * (lib/market-map-marks.ts), the contract's byte hash of the file
- * (contract/brand-v2-registries.json), and the bytes on disk.
+ * (lib/market-map-marks.ts), and the bytes on disk.
  */
 
 const repoRoot = join(import.meta.dirname, '../..');
 const bytesOf = (file: string) => readFileSync(join(repoRoot, 'public', file));
 const sha256 = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
-
-type RegistryAsset = { path: string; category: string; sourceRegistryId?: string; byteHash: string };
-const markAssets = (registries.assets as RegistryAsset[]).filter(
-  (asset) => asset.category === 'official-mark',
-);
 
 /** The day this test runs, as an ISO date: no file can have been retrieved later. */
 const today = new Date().toISOString().slice(0, 10);
@@ -91,24 +84,20 @@ const marks = COMPANIES.filter((company) => company.logo !== null).map((company)
     record: LOGO_IMAGES.find((image) => image.id === id),
     asset: getCompanyLogo(id),
     placement: MARK_PLACEMENT[id],
-    registered: markAssets.find((asset) => asset.sourceRegistryId === id),
   };
 });
 
 describe('market-map mark provenance, mark by mark (VAL-B2-MAP-010)', () => {
-  it('joins every company mark to one registry record, lookup, placement and contract hash', () => {
+  it('joins every company mark to one registry record, lookup and placement', () => {
     expect(marks.length).toBeGreaterThan(0);
     // One mark per company, and every registered mark belongs to a company.
     expect(new Set(marks.map((mark) => mark.id)).size).toBe(marks.length);
     expect(marks.map((mark) => mark.id).sort()).toEqual(LOGO_IMAGES.map((image) => image.id).sort());
-    expect(markAssets).toHaveLength(marks.length);
     for (const mark of marks) {
       expect(mark.record, `${mark.company.id}: registry record for ${mark.id}`).toBeDefined();
       expect(mark.asset, `${mark.company.id}: lookup entry for ${mark.id}`).toBeDefined();
       expect(mark.placement, `${mark.company.id}: measured placement for ${mark.id}`).toBeDefined();
-      expect(mark.registered, `${mark.company.id}: contract asset for ${mark.id}`).toBeDefined();
       expect(mark.asset!.file, mark.id).toBe(mark.record!.file);
-      expect(`/${mark.registered!.path}`, mark.id).toBe(mark.record!.file);
     }
   });
 

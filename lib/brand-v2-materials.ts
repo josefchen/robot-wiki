@@ -10,9 +10,7 @@ import { BRAND_COLORS } from './brand-v2-tokens.ts';
  * flat token fill with no image, pattern or noise, so it is deterministic by
  * construction, owned, and carries no external provenance record.
  *
- * The rows mirror `contract/brand-v2-registries.json#materials` (written by
- * scripts/brand-v2-census.ts); tests/unit/brand-v2-materials.test.ts keeps
- * the two equal. The contrast verdict is computed here from the token pair
+ * The contrast verdict is computed here from the token pair
  * the material grounds (ink on paper) rather than typed as a literal, so a
  * token change that broke the text floor would flip the rendered verdict.
  */

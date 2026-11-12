@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { openSync, type LayoutFont } from 'fontkit';
 import { describe, expect, it } from 'vitest';
+import { DEVICE_REGISTRATION } from '@/components/ui/brand-device';
 import { DOMAIN_META, publishedModules } from '@/data/modules';
 import { BRAND_SPACING } from '@/lib/brand-v2-tokens';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
@@ -104,10 +105,7 @@ describe('registered grid devices', () => {
   // plain paper, so the card follows it with no lattice, and the geometry
   // pin moves from the lattice pitch to the spacing ladder.
   it('uses only device IDs the website registers, and no lattice, as the website paints none', () => {
-    const registries = JSON.parse(
-      readFileSync(join(ROOT, 'contract/brand-v2-registries.json'), 'utf8'),
-    ) as { gridDevices: Array<{ id: string; anchorGeometry: { pitchPx?: number } }> };
-    const ids = new Map(registries.gridDevices.map((device) => [device.id, device]));
+    const ids = new Set(Object.keys(DEVICE_REGISTRATION).map((id) => `device:${id}`));
     for (const { device } of OG_CARD_DEVICES) expect(ids.has(device), device).toBe(true);
     expect(OG_CARD_DEVICES.map(({ device }) => device)).not.toContain('device:dot-grid');
     // The stylesheet keeps the class name and paints it as plain paper.

@@ -3,8 +3,8 @@
  *
  * For every card the manifest records each painted string with the card
  * field it carries, the canonical source it was derived from and that
- * source's raw value; the article facts; the routes that own the card in
- * the metadata ledger; the grid devices and colour tokens it paints; and
+ * source's raw value; the article facts; the grid devices and colour
+ * tokens it paints; and
  * the hash, size and dimensions of every file the generator wrote. At the
  * corpus level it records the registered faces with their checksums and
  * the static instance each maps to, the resolved style tokens beside their
@@ -41,7 +41,6 @@ import {
   ARTICLE_IMAGE_VARIANTS,
   OG_CARD_HEIGHT,
   OG_CARD_WIDTH,
-  SITE_URL_ORIGIN,
   articleCardPath,
   ogImageAltForTitle,
   sanitizeCardText,
@@ -53,7 +52,6 @@ import {
 } from './og-renderer-fonts.ts';
 import { pngDimensions } from './png-decode.ts';
 
-const REGISTRIES_PATH = 'contract/brand-v2-registries.json';
 const RUNTIME_TOKENS_PATH = 'app/globals.css';
 
 /** Colours a card may paint; the highlight tone never appears on a card. */
@@ -91,7 +89,6 @@ export type ManifestCard = {
   kind: OgCardKind;
   matrixRow: number;
   assetPath: string;
-  routeOwners: string[];
   alt: string;
   treeDigest: string;
   strings: ManifestString[];
@@ -131,8 +128,6 @@ export type OgCardManifest = {
     siteDestinations: string[];
     structuredImageCount: number;
   };
-  /** Registry-ledger route owners outside the public population, e.g. the 404. */
-  separateOwners: Array<{ route: string; assetPath: string }>;
   fonts: ManifestFont[];
   styleTokens: Array<{ token: string; renderer: string; runtime: string }>;
   toolchain: OgToolchain;
@@ -284,56 +279,6 @@ function inspectFonts(root: string, failures: string[]): ManifestFont[] {
   });
 }
 
-type LedgerEntry = {
-  routeId: string;
-  openGraph?: { image?: string; width?: number; height?: number } | null;
-  twitter?: { card?: string; image?: string } | null;
-};
-
-/**
- * The routes that own each card, from the metadata ledger. Every public
- * route must own exactly one card with a large-image twitter block whose
- * image equals its Open Graph image.
- */
-function routeOwnership(
-  root: string,
-  failures: string[],
-): { ownersByPath: Map<string, string[]>; separate: Array<{ route: string; assetPath: string }> } {
-  const registries = readJson(join(root, REGISTRIES_PATH)) as {
-    routes: { public: Array<{ path: string; publicContent: boolean }> };
-    metadata: LedgerEntry[];
-  };
-  const publicRoutes = new Set(registries.routes.public.filter((route) => route.publicContent).map(({ path }) => path));
-  const ownersByPath = new Map<string, string[]>();
-  const separate: Array<{ route: string; assetPath: string }> = [];
-  const seen = new Set<string>();
-  for (const entry of registries.metadata) {
-    const route = entry.routeId.replace(/^route:/, '');
-    const image = entry.openGraph?.image ?? '';
-    if (!image.startsWith(`${SITE_URL_ORIGIN}/og/`)) {
-      failures.push(`${route}: og:image ${image || '(none)'} is not an absolute apex card URL`);
-      continue;
-    }
-    if (entry.openGraph?.width !== OG_CARD_WIDTH || entry.openGraph?.height !== OG_CARD_HEIGHT) {
-      failures.push(`${route}: declares ${String(entry.openGraph?.width)}x${String(entry.openGraph?.height)}, not 1200x630`);
-    }
-    if (entry.twitter?.card !== 'summary_large_image' || entry.twitter?.image !== image) {
-      failures.push(`${route}: twitter block is not summary_large_image on the og:image`);
-    }
-    const assetPath = image.slice(SITE_URL_ORIGIN.length);
-    if (!publicRoutes.has(route)) {
-      separate.push({ route, assetPath });
-      continue;
-    }
-    seen.add(route);
-    ownersByPath.set(assetPath, [...(ownersByPath.get(assetPath) ?? []), route].sort());
-  }
-  for (const route of publicRoutes) {
-    if (!seen.has(route)) failures.push(`${route}: the metadata ledger records no card for this public route`);
-  }
-  return { ownersByPath, separate: separate.sort((a, b) => a.route.localeCompare(b.route)) };
-}
-
 function expectedStrings(
   root: string,
   entry: OgCardCorpusEntry,
@@ -447,10 +392,6 @@ export function buildOgCardManifest(input: BuildManifestInput): {
     failures.push(`the corpus holds ${corpus.length} cards; the registry publishes ${published.length} articles plus the site card`);
   }
 
-  const registryDevices = new Set(
-    ((readJson(join(root, REGISTRIES_PATH))?.gridDevices ?? []) as Array<{ id: string }>).map(({ id }) => id),
-  );
-  const { ownersByPath, separate } = routeOwnership(root, failures);
   const authored = deriveAuthoredColorTokens(readFileSync(join(root, RUNTIME_TOKENS_PATH), 'utf8'));
   const tokenByHex = new Map(
     CARD_PALETTE.map((token) => [BRAND_COLORS[token].toUpperCase(), token as string]),
@@ -487,11 +428,6 @@ export function buildOgCardManifest(input: BuildManifestInput): {
     if ([...devices].sort().join('|') !== expectedDevices.join('|')) {
       failures.push(`${entry.cardId}: paints devices [${devices.join(', ')}]; the device table registers [${expectedDevices.join(', ')}]`);
     }
-    for (const device of new Set(devices.map((id) => id.split('#')[0]))) {
-      if (!registryDevices.has(device)) {
-        failures.push(`${entry.cardId}: ${device} is not a website grid device in ${REGISTRIES_PATH}`);
-      }
-    }
 
     const paintedTokens = new Set<string>();
     for (const colour of cardPaintedColors(tree)) {
@@ -505,15 +441,6 @@ export function buildOgCardManifest(input: BuildManifestInput): {
     paintedTokens.forEach((token) => usedTokens.add(token));
 
     const assetPath = entry.cardPath;
-    const routeOwners = ownersByPath.get(assetPath) ?? [];
-    if (kind === 'site') {
-      const sealed = [...matrix.siteDestinations].sort();
-      if (routeOwners.join('|') !== sealed.join('|')) {
-        failures.push(`site card is owned by [${routeOwners.join(', ')}]; the matrix seals [${sealed.join(', ')}]`);
-      }
-    } else if (routeOwners.join('|') !== `/${entry.cardId}/`) {
-      failures.push(`${entry.cardId}: owned by [${routeOwners.join(', ')}], not by /${entry.cardId}/ alone`);
-    }
 
     const alt = kind === 'site' ? siteOgImageAlt() : ogImageAltForTitle((facts as { title: string }).title);
     if (alt.length < 15 || /[\u2013\u2014]/.test(alt)) failures.push(`${entry.cardId}: og:image:alt "${alt}" is too short or carries a dash`);
@@ -540,7 +467,6 @@ export function buildOgCardManifest(input: BuildManifestInput): {
       kind,
       matrixRow: row?.row ?? 0,
       assetPath,
-      routeOwners,
       alt,
       treeDigest: entry.card.cardTreeDigest,
       strings,
@@ -551,11 +477,6 @@ export function buildOgCardManifest(input: BuildManifestInput): {
       structuredVariants,
     };
   });
-
-  const ownedPaths = new Set(cards.map(({ assetPath }) => assetPath));
-  for (const path of ownersByPath.keys()) {
-    if (!ownedPaths.has(path)) failures.push(`the metadata ledger points routes at ${path}, which the corpus does not ship`);
-  }
 
   // Every file is at least 5KB and no two files share bytes.
   const allAssets = cards.flatMap(({ asset, structuredVariants }) => [asset, ...structuredVariants]);
@@ -595,13 +516,12 @@ export function buildOgCardManifest(input: BuildManifestInput): {
   const manifest: OgCardManifest = {
     schemaVersion: 1,
     contract: {
-      source: `${'contract/design-integrity.md'}#20`,
+      source: 'library/design-integrity.md#20',
       ogCardCount: matrix.rows.length,
       articleCount: matrix.rows.length - 1,
       siteDestinations: matrix.siteDestinations,
       structuredImageCount: matrix.structuredImageCount,
     },
-    separateOwners: separate,
     fonts,
     styleTokens,
     toolchain: ogToolchain(root),

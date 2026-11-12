@@ -37,7 +37,7 @@ export const IMAGE_LICENCES = [
 export const imageLicenceSchema = z.enum(IMAGE_LICENCES);
 
 /**
- * The closed legal-basis enum of `contract/design-integrity.md` §1.13.
+ * The closed legal-basis enum of `library/design-integrity.md` §1.13.
  *
  * It is deliberately not the same list as `IMAGE_LICENCES`. A licence names
  * the instrument ("CC BY-SA 4.0", with a deed to link); a legal basis names
@@ -292,7 +292,7 @@ export const imageSchema = z
         if (image[field] === undefined) {
           ctx.addIssue({
             code: z.ZodIssueCode.custom,
-            message: `editorial image "${image.id}" must record ${field} (contract/design-integrity.md §1.13)`,
+            message: `editorial image "${image.id}" must record ${field} (library/design-integrity.md §1.13)`,
           });
         }
       }

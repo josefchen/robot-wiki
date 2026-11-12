@@ -2,12 +2,12 @@
 
 Status: **sealed against brand and design system v2.0**
 
-Canonical intent: [`library/design-system.md`](../library/design-system.md)
+Canonical intent: [`library/design-system.md`](design-system.md)
 
 Literal references:
 
-- [`library/brand-reference-board.jpeg`](../library/brand-reference-board.jpeg)
-- [`library/brand-reference-article.png`](../library/brand-reference-article.png)
+- [`library/brand-reference-board.jpeg`](brand-reference-board.jpeg)
+- [`library/brand-reference-article.png`](brand-reference-article.png)
 
 This contract turns brand-v2 into measurable repository acceptance criteria. Every ID is collision-free within the `VAL-B2*` namespace. Tests may be stricter, but they MUST NOT weaken these definitions. A failure blocks a brand-v2 release.
 

@@ -7,7 +7,7 @@ import { OG_MATRIX_SOURCE, ogMatrixDrift, parseOgMatrix, readOgMatrix } from '@/
 
 /**
  * VAL-B2-OG-001 and VAL-B2-OG-006: the sealed OG/X matrix in
- * contract/design-integrity.md §20 is the corpus population, and registry
+ * library/design-integrity.md §20 is the corpus population, and registry
  * truth has to keep equalling it until an owner-approved contract update.
  */
 const ROOT = process.cwd();

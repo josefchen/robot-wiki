@@ -47,7 +47,7 @@ research/     research notes behind the articles
 
 References, "See also" lists, backlinks, breadcrumbs, reading times and citation counts are generated at build time. Draft articles are left out of the export, navigation, search and sitemap.
 
-The visual and interaction specification is [`library/design-system.md`](library/design-system.md), with measurable acceptance criteria in [`contract/design-integrity.md`](contract/design-integrity.md). Read both before changing UI, figures, typography, colour or social cards. The public name is `Robot Wiki`, with the descriptor "Citation-first encyclopedia of modern robot learning." There is no separate logo or symbol.
+The visual and interaction specification is [`library/design-system.md`](library/design-system.md), with measurable acceptance criteria in [`library/design-integrity.md`](library/design-integrity.md). Read both before changing UI, figures, typography, colour or social cards. The public name is `Robot Wiki`, with the descriptor "Citation-first encyclopedia of modern robot learning." There is no separate logo or symbol.
 
 ## Setup
 

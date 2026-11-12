@@ -18,7 +18,7 @@ Approved visual references:
 When a reference, this specification, and an implementation detail appear to disagree, use this order:
 
 1. explicit owner decisions recorded in this file;
-2. measurable requirements in [`contract/design-integrity.md`](../contract/design-integrity.md);
+2. measurable requirements in [`library/design-integrity.md`](design-integrity.md);
 3. the two approved references;
 4. current implementation.
 
@@ -28,8 +28,8 @@ Current implementation is never evidence that drift is acceptable.
 
 Josef replaced the brand-v2 visual identity on every page and every figure with the research-page standard in `PANTHEON-SPEC.md`: paper and ink, hairline 1 px rules, grayscale chart tones and one muted blue accent; DM Sans 400 for the display H1 and DM Sans 600 for section heads and the wordmark; Geist 16/1.62 for body and interface text; Geist Mono for numerals, code and readouts; a single top bar, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables. Wherever a brand-v2 section below disagrees, this decision governs.
 
-- The executable palette in section 5, its renderer mirror in `lib/brand-v2-tokens.ts` and the colour rows of `contract/design-integrity.md` carry the new values.
-- Web pages load DM Sans, Geist and Geist Mono through `next/font/google`, self-hosted under `/_next/static/media/`. The Tektur binaries stay checked in for the offline Open Graph renderer only: no stylesheet declares Tektur and no runtime route requests either binary. The Tektur sections below describe that renderer. The type-role registry (`data/type-roles.json`) keeps its role ids and instances; each display instance now computes DM Sans at its registered weight with no variation-axis override, and the interface and reading roles share Geist. The type rows of `contract/design-integrity.md` carry these values.
+- The executable palette in section 5, its renderer mirror in `lib/brand-v2-tokens.ts` and the colour rows of `library/design-integrity.md` carry the new values.
+- Web pages load DM Sans, Geist and Geist Mono through `next/font/google`, self-hosted under `/_next/static/media/`. The Tektur binaries stay checked in for the offline Open Graph renderer only: no stylesheet declares Tektur and no runtime route requests either binary. The Tektur sections below describe that renderer. The type-role registry (`data/type-roles.json`) keeps its role ids and instances; each display instance now computes DM Sans at its registered weight with no variation-axis override, and the interface and reading roles share Geist. The type rows of `library/design-integrity.md` carry these values.
 - Surfaces are plain paper. The concrete micro-texture and the halftone dot field are retired from the material registry, and `material:paper` is the one material the site paints. The texture rules in section 9 no longer have a web surface to apply to. Each named representative surface (the home masthead, the article title sheet, the domain hub header, the A-Z and glossary headers, the search sheet, and the market-map and playground headers) declares that material through `materialAttributes()` in `lib/brand-v2-materials.ts`, whose contrast verdict is computed from the ink and paper tokens; no declaration sits on or inside the prose column.
 - Corners are square: every radius token is 0px and the code block's `--code-radius` (7px) is the one exception. No surface casts a shadow at any level; the radius ladder of section 8.1 and the raised and floating shadows of section 8.3 describe brand-v2 and are not used. The `/how-robots-work/` explainers keep their approved geometry (Josef, 12 October 2026).
 - Every rail and rule is a 1 px `--line` hairline; a current or active-interval rail is a 1 px ink rule, never an accent bar. Registered devices carry their registry purpose and owner on the element, and the site footer's top rule is the shared registered rail on every route.
@@ -38,7 +38,7 @@ Josef replaced the brand-v2 visual identity on every page and every figure with 
 
 ## 0. Worker execution contract
 
-Before changing any page, component, visualization, navigation surface, social card, font, colour, texture, illustration, photograph, or generated visual asset, a worker MUST read this file and `contract/design-integrity.md` completely and inspect both approved references.
+Before changing any page, component, visualization, navigation surface, social card, font, colour, texture, illustration, photograph, or generated visual asset, a worker MUST read this file and `library/design-integrity.md` completely and inspect both approved references.
 
 - `MUST`, `MUST NOT`, and sealed `VAL-B2*` criteria are release requirements.
 - Apply this direction literally across the whole product. Do not propose or preserve a parallel paper-system direction.
@@ -98,7 +98,7 @@ These are a system, not a menu of optional effects. Each product surface MUST ca
 | Owner-approved visual reference | `library/brand-reference-board.jpeg` |
 | Owner-approved article reference | `library/brand-reference-article.png` |
 | Brand, component, and interaction intent | `library/design-system.md` |
-| Measurable repository acceptance | `contract/design-integrity.md` |
+| Measurable repository acceptance | `library/design-integrity.md` |
 | Runtime colour, type, spacing, shape, grid, and elevation tokens | `app/globals.css` |
 | Font loading and site metadata | `app/layout.tsx` |
 | Shared behavior and primitives | `components/ui/`, `components/nav/`, `components/article/` |
@@ -588,7 +588,7 @@ Both folds are closed at settle and keep their content in the served HTML. Nothi
 - Company marks sit on no plate: each is a single-ink silhouette of its official file, its alpha (or a reviewed luminance-derived mask) filled with the secondary ink token, so white and dark marks read alike and clear 3:1. No filter is registered (`VAL-B2-MAP-007`, owner decision of 19 October 2026). On `/credits/` the ink layer is the credited file's own `<img>`, with its registry alt and intrinsic width and height, drawn through the mask of itself and cropped to the artwork box, so the page fetches and names exactly the file it credits (`VAL-B2-IMG-005`).
 - Photographs use one 3:2 cover crop, one width per viewport, the figure caption style and the figure source line for credit.
 - A concept has one canonical visual. Another page links to it, or reuses it with a caption that names a different purpose.
-- `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale, figures outside the frame, a stage that is not the flat page surface or a dark, raised or floating plate inside a frame, a headline over 10 words, a kicker over 6, a caption over 25, a fold with another label and a symbol in the main view. It runs in `postbuild` and `vercel-build`. Figures not yet migrated sit on `contract/figure-system-allowlist.json`, one entry per figure with the pass that owns it. An entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
+- `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale, figures outside the frame, a stage that is not the flat page surface or a dark, raised or floating plate inside a frame, a headline over 10 words, a kicker over 6, a caption over 25, a fold with another label and a symbol in the main view. It runs in `postbuild` and `vercel-build`. Every exported figure must pass. `--allowlist <file>` takes a temporary list of figures not yet migrated, one entry per figure; an entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
 - `npm run capture:visuals` screenshots every visual on every Sitemap URL of the export and writes the manifest and contact sheets.
 
 ## 14. Discovery: search, A–Z, glossary, and indexes
@@ -684,7 +684,7 @@ Every external image or texture uses the owner-approved closed legal-basis enum 
 - Article cards remain byte-distinct through factual text and deterministic composition, never random ornament.
 - The title remains legible in a small X timeline preview.
 - Cards may use paper or a bounded dark instrument region, but no generic screenshot collage, fake chart, tiny UI, or unlicensed image.
-- The required OG/X corpus is exactly 58 PNGs for the current 57 published articles plus the site card; the exact matrix is sealed in `contract/design-integrity.md`. The separate search structured-image corpus contains the registered 4:3 and square variants and is not part of this OG/X count.
+- The required OG/X corpus is exactly 58 PNGs for the current 57 published articles plus the site card; the exact matrix is sealed in `library/design-integrity.md`. The separate search structured-image corpus contains the registered 4:3 and square variants and is not part of this OG/X count.
 - Non-article destinations use the site card unless the contract is deliberately revised after owner approval.
 - Regenerate the complete corpus after font, palette, identity, grid, or artwork changes.
 
@@ -825,7 +825,7 @@ A brand-v2 release is complete only when the worker:
 9. compares home, article, market map, playground, discovery, and social cards with both references;
 10. records pass/fail evidence and resolves every failure autonomously.
 
-The exact 27-row matrix remains the mandatory deep screenshot matrix. It supplements rather than limits the registry-derived exhaustive sweeps. The five-route home/article/search/market-map/playground set is an iterative smoke set only and is never acceptable as final release evidence. The exact matrix, named suites, assertion-to-evidence mapping, and pass conditions live in `contract/design-integrity.md`.
+The exact 27-row matrix remains the mandatory deep screenshot matrix. It supplements rather than limits the registry-derived exhaustive sweeps. The five-route home/article/search/market-map/playground set is an iterative smoke set only and is never acceptable as final release evidence. The exact matrix, named suites, assertion-to-evidence mapping, and pass conditions live in `library/design-integrity.md`.
 
 ## 28. Eight-milestone rollout
 

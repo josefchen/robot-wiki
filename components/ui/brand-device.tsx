@@ -21,13 +21,10 @@ type BrandDeviceProps = {
 };
 
 /**
- * The registry half of each device: its structural purpose and owner
- * surface, exactly as `contract/brand-v2-registries.json#gridDevices`
- * records them (scripts/brand-v2-census.ts writes that row set;
- * tests/unit/brand-device-registration.test.ts keeps the two equal). Every
- * rendered instance carries both, so the reference rubric's purposeful-device
- * anchor (contract/design-integrity.md §1.12) reads a purpose and an owner
- * off the device itself instead of finding a bare mark.
+ * Each device's structural purpose and owner surface. Every rendered
+ * instance carries both, so the purposeful-device anchor
+ * (library/design-integrity.md §1.12) reads a purpose and an owner off the
+ * device itself instead of finding a bare mark.
  */
 export const DEVICE_REGISTRATION: Readonly<
   Record<Device, { structuralPurpose: string; ownerSurface: string }>

@@ -169,7 +169,5 @@ describe('figure-system check', () => {
     // npm runs postbuild after `npm run build`, which vercel-build starts with.
     expect(pkg.scripts['vercel-build']).toMatch(/^npm run build && /);
     expect(pkg.scripts.postbuild).toContain('&& npm run check:figure-system &&');
-    const allowlist = JSON.parse(readFileSync('contract/figure-system-allowlist.json', 'utf8')) as Allowlist;
-    expect(allowlist.schemaVersion).toBe('figure-system-allowlist-v1');
   });
 });
