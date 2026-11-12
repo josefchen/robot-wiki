@@ -45,8 +45,8 @@ export interface WorldModelOutputTime {
 export const WORLD_MODEL_OUTPUT_TIMES: readonly WorldModelOutputTime[] = [
   {
     id: '3dgs', label: '3DGS', output: 'rendered frame', hardware: 'A6000',
-    seconds: 0.01, displayedTime: 'at most 0.01 second', kind: 'upper-bound', citationId: '3dgs-2023',
-    note: "Reciprocal upper bound from the paper's at least 100 frames per second at 1080p; section 7 reports A6000 hardware. This renders a captured scene and predicts no action dynamics.",
+    seconds: 0.01, displayedTime: 'under 0.01 second', kind: 'upper-bound', citationId: '3dgs-2023',
+    note: 'Fully trained scenes averaged 134 to 154 frames per second across three real-world test sets on an A6000, about 7 milliseconds per frame, so the mark sits at the axis floor and points left. This renders a captured scene and predicts no action dynamics.',
   },
   {
     id: 'dreamzero', label: 'DreamZero-Flash', output: 'action chunk', hardware: 'Two GB200 GPUs',
@@ -76,7 +76,7 @@ export const WORLD_MODEL_OUTPUT_TIMES: readonly WorldModelOutputTime[] = [
 ];
 export const WORLD_MODEL_OUTPUT_SOURCES = [...new Set(WORLD_MODEL_OUTPUT_TIMES.map(row => row.citationId))];
 export const WORLD_MODEL_OUTPUT_DESCRIPTION =
-  "Time to each system's stated output on a logarithmic axis: 3D Gaussian Splatting at most 0.01 second per rendered frame on an A6000; DreamZero-Flash about 0.15 second per action chunk on 2 GB200s; 1XWM 12 seconds to generate a five-second action rollout on multiple GPUs whose model is not disclosed; V-JEPA 2-AC 16 seconds per planned action on one RTX 4090; Cosmos Predict2 14B 85.26 seconds per generated clip on a GB200; and the Cosmos planning baseline 4 minutes per planned action on one RTX 4090. The workloads and hardware differ, so this is not a common speed benchmark.";
+  "Time to each system's stated output on a logarithmic axis: 3D Gaussian Splatting under 0.01 second, about 7 milliseconds, per rendered frame on an A6000; DreamZero-Flash about 0.15 second per action chunk on 2 GB200s; 1XWM 12 seconds to generate a five-second action rollout on multiple GPUs whose model is not disclosed; V-JEPA 2-AC 16 seconds per planned action on one RTX 4090; Cosmos Predict2 14B 85.26 seconds per generated clip on a GB200; and the Cosmos planning baseline 4 minutes per planned action on one RTX 4090. The workloads and hardware differ, so this is not a common speed benchmark.";
 
 /** Logarithmic coordinate in the shared 340-wide stage; no zero is plotted. */
 export function outputTimeX(seconds: number): number {

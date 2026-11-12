@@ -286,7 +286,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
           'Limited by how fast the weights can be read from memory for each token (estimate; no benchmark cited)',
           'About 16 s per planned action (800 candidates, refined 10 times)',
           'Predict2: about 26 s (2B on a GB200) to over 30 min (14B on a DGX Spark) per 480p clip at 16 frames per second; Predict1 14B: about 10 min per 5 s clip on one H100 with parts of the model moved off the GPU',
-          'Under 30 ms per frame',
+          'About 7 ms per frame (134 to 154 frames per second on average, on an A6000)',
         ],
         // Order-of-magnitude estimate by the lead editor, not a measurement.
         // 8B decode token: 2 x 8e9 = 1.6e10 FLOP. V-JEPA 2-AC (vjepa2-2025):
