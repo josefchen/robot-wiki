@@ -1,11 +1,11 @@
 ---
 title: "Grasp Planning"
-description: "Contact mechanics, friction cones, and the grasp wrench space: how to tell, from geometry alone, whether a set of finger placements can hold an object against any disturbance. Includes a live wrench-space lab where you slide contacts around an object and watch force closure break and recover."
+description: "How to tell from geometry whether finger placements can hold an object against any push: friction cones, the grasp wrench space, force closure and learned grasping."
 domain: classical
 slug: grasp-planning
 order: 5
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-11-12"
 citations:
   - murray-li-sastry-1994
   - nguyen-1988
@@ -49,6 +49,11 @@ citations:
   - graspgen-x-2026
   - genesis-handover-2026
   - bicchi-1995
+  - anygrasp-2022
+  - contact-graspnet-2021
+  - pose-shape-grasp-2026
+  - tro-grasp-plus-2026
+  - omnidex-2026
 seeAlso:
   - "data-hardware/datasets"
   - "manipulation/cross-embodiment"
@@ -59,107 +64,81 @@ import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Grasp planning is the choice of contact locations and forces that let a hand hold an object against disturbances <Cite id="bicchi-kumar-2000" />. Its central test, force closure, asks whether the origin lies inside the convex hull of the contact wrenches <Cite id="murray-li-sastry-1994" />; the distance to that hull's boundary is the standard quality metric <Cite id="ferrari-canny-1992" />.
+Grasp planning chooses where a hand touches an object and how hard it pushes, so that the object stays held when something knocks it <Cite id="bicchi-kumar-2000" />. Its central test, force closure, asks whether the contacts together can resist a push or twist from any direction <Cite id="murray-li-sastry-1994" />, and the standard quality score is the size of the smallest disturbance that breaks the grasp <Cite id="ferrari-canny-1992" />.
 
 <Image id="care-o-bot-grasping-2010" />
 
 ## The wrench space, live
 
-Move the "Contact 1 position" slider to test how contact placement changes the grasp <Cite id="ferrari-canny-1992" />.
-
 <GraspWrenchLab className="my-6" />
 
-## Contact models
+## Contact models: what a fingertip can push
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Planar contacts, frictional" value="3" note="minimum for a generic object (Murray, Li, Sastry)" accent />
   <Stat label="Spatial contacts, frictional" value="4" note="same bound in three dimensions" />
-  <Stat label="Frictionless spatial" value="7-12" note="Somoff's lower bound, Markenscoff's upper" />
-  <Stat label="Dex-Net 2.0 training datapoints" value="6.7M" note="synthetic depth/grasp examples with analytic binary labels; not robot trials" />
+  <Stat label="Frictionless spatial" value="7 to 12" note="Somoff's lower bound, Markenscoff's upper" />
+  <Stat label="Dex-Net 2.0 training examples" value="6.7M" note="synthetic depth images with computed grasp labels, not robot trials" />
 </div>
 
-A contact model says which forces a fingertip can transmit; Salisbury and Roth modeled several finger-contact types for three-fingered hands <Cite id="salisbury-roth-1983" />. A frictionless point contact pushes only along the surface normal. A point contact with friction obeys Coulomb's law: the tangential force can reach $\mu$ times the normal force before the contact slides <Cite id="murray-li-sastry-1994" />.
+Picture two fingers pinching a book. Each fingertip presses into the cover, and friction lets it push sideways a little before it slides. A contact model says which forces a fingertip can transmit; Salisbury and Roth modeled several such contact types for three-fingered hands <Cite id="salisbury-roth-1983" />. A frictionless contact pushes only straight in, along the surface normal. A contact with friction obeys Coulomb's law: the sideways force $f^t$ can reach $\mu$ times the pressing force $f^n$, where $\mu$ is the friction coefficient, before the finger slips <Cite id="murray-li-sastry-1994" />:
 
 $$
 \lVert f^t \rVert \le \mu \, f^n
 $$
 
-The admissible forces form the <Term id="friction-cone">friction cone</Term> around the inward normal, with half-angle $\alpha = \arctan \mu$. In the plane the cone is a wedge; in space it is a quadratic cone, and approximating it by a polyhedral one keeps the analysis linear <Cite id="murray-li-sastry-1994" /> <Cite id="prattichizzo-trinkle-2016" />. A soft-finger contact adds a torsional moment about the normal, bounded by a torsional coefficient times the normal load <Cite id="murray-li-sastry-1994" />.
-
-Kao, Lynch and Burdick extend contact analysis to pressure distributions and friction limit surfaces, which also describe soft contacts and nonprehensile manipulation such as pushing <Cite id="kao-lynch-burdick-2016" />. Tilt the grip in the figure below and pick a surface to find where the pinch lets go.
+The allowed forces form a <Term id="friction-cone">friction cone</Term> around the inward normal, with half-angle $\arctan \mu$: a wedge in the plane, a round cone in space, often approximated by a pyramid to keep the analysis linear <Cite id="murray-li-sastry-1994" /> <Cite id="prattichizzo-trinkle-2016" />. A soft fingertip can also twist about the normal, up to a limit proportional to how hard it presses <Cite id="murray-li-sastry-1994" />. Kao, Lynch and Burdick extend the analysis to pressure spread over a patch, which also describes pushing an object without grasping it <Cite id="kao-lynch-burdick-2016" />.
 
 <ExplainerFigure id="grip" />
 
-Cutkosky's taxonomy separates power grasps, which wrap the object for stability, from precision grasps, which hold it in the fingertips for dexterity <Cite id="cutkosky-1989" />. GraspQP reports simplified force-closure analysis favors power grasps <Cite id="graspqp-2025" />.
+Cutkosky's taxonomy separates power grasps, which wrap the object for stability, from precision grasps, which hold it in the fingertips for dexterity <Cite id="cutkosky-1989" />. GraspQP reports that simplified force-closure analysis favors power grasps <Cite id="graspqp-2025" />.
 
 <Image id="schunk-svh-five-finger-hand" />
 
 ## The grasp wrench space
 
-[Perception](/classical/perception) supplies the object pose. A contact force both pushes and twists the object, so its wrench stacks the force over its moment about the object's reference frame <Cite id="murray-li-sastry-1994" />:
+A wrench is a force and a torque stacked into one vector. Given the object's pose from [perception](/classical/perception), each contact force $f_i$ at position $r_i$ both pushes the object and twists it about its center <Cite id="murray-li-sastry-1994" />:
 
 $$
 w_i = \begin{bmatrix} f_i \\ r_i \times f_i \end{bmatrix}
 $$
 
-In the plane this is $(f_x, f_y, \tau)$ with $\tau = r_x f_y - r_y f_x$ <Cite id="murray-li-sastry-1994" />. The primitive wrenches lie along the cone edges at unit normal force. If each contact's force is limited separately, the <Term id="grasp-wrench-space">grasp wrench space</Term> is the convex hull of the Minkowski sum of the contacts' primitive wrenches <Cite id="roa-suarez-2015" />. If the total force is limited, it is the convex hull of their union <Cite id="roa-suarez-2015" />:
-
-$$
-\mathcal{W} = \operatorname{conv}\left\{ w_{ij} \right\}, \qquad w_{ij} = \begin{bmatrix} n_i \pm \mu \, t_i \\ r_i \times (n_i \pm \mu \, t_i) \end{bmatrix}
-$$
-
-Testing whether the origin lies inside this polytope is a ray-shooting problem dual to a linear program <Cite id="liu-closure-lp-1999" />. Han, Trinkle and Li formulate friction-cone constraints as linear matrix inequalities, giving convex optimization problems for closure, wrench feasibility under joint-effort limits and contact-force optimization <Cite id="han-trinkle-li-2000" />.
+In the plane this is three numbers: two force components and one torque <Cite id="murray-li-sastry-1994" />. The set of all wrenches the grasp can produce is built from the edges of every contact's friction cone, at unit pressing force. If each finger's force is limited separately, the <Term id="grasp-wrench-space">grasp wrench space</Term> is the convex hull of the sum of the contacts' edge wrenches; if only the total force is limited, it is the convex hull of all the edge wrenches together <Cite id="roa-suarez-2015" />. Testing whether that hull contains the origin is a ray-shooting problem dual to a linear program <Cite id="liu-closure-lp-1999" />, and Han, Trinkle and Li write friction cones as linear matrix inequalities, which makes closure tests and contact-force optimization convex <Cite id="han-trinkle-li-2000" />.
 
 ## Force closure
 
-A grasp has <Term id="force-closure">force closure</Term> when the contacts can resist any external wrench, so the object's motion is fully constrained <Cite id="nguyen-1988" />. That holds exactly when the hull contains a neighborhood of the origin <Cite id="murray-li-sastry-1994" />:
+A grasp has <Term id="force-closure">force closure</Term> when its contacts can resist any external wrench, so the object cannot move <Cite id="nguyen-1988" />. In terms of the hull, it must contain a small ball $B_\varepsilon(0)$ around the origin, some radius $\varepsilon > 0$ of push or twist in every direction <Cite id="murray-li-sastry-1994" />. An origin on the boundary leaves one disturbance the grasp cannot resist, and uncertainty in friction or contact position can break closure entirely <Cite id="zheng-qian-2005" />. Bicchi separates form closure, a matter of geometry, from force closure, which depends on the forces the hand can apply <Cite id="bicchi-1995" />.
 
-$$
-\exists \, \varepsilon > 0 : \quad B_\varepsilon(0) \subset \mathcal{W}
-$$
+How many fingers does it take? Without friction, <Term id="form-closure">form closure</Term> needs at least four contacts in the plane and seven in space, as Reuleaux noted in 1875 and Somoff in 1897. Markenscoff, Ni and Papadimitriou showed that four suffice for any planar object with a piecewise smooth boundary except a circle, twelve for any spatial object without rotational symmetry, and seven under very general conditions <Cite id="markenscoff-1990" />; Mishra, Schwartz and Sharir gave algorithms to place them <Cite id="mishra-1987" />. With friction, three fingers are necessary and sufficient for any planar object and four in space, under the most relaxed assumptions, though a particular object can need fewer <Cite id="markenscoff-1990" /> <Cite id="murray-li-sastry-1994" />.
 
-An origin on the boundary leaves a disturbance the grasp cannot resist. Uncertainty in friction and contact position can be disastrous for closure <Cite id="zheng-qian-2005" />.
-
-Bicchi separates form closure, a geometric property, from force closure involving the grasping device, and connects the latter to equilibrium and stability <Cite id="bicchi-1995" />.
-
-Without friction the cone collapses to the normal ray, and <Term id="form-closure">form closure</Term>, closure by geometry alone, needs at least four wrenches in the plane and seven in space, as Reuleaux noted in 1875 and Somoff in 1897 <Cite id="markenscoff-1990" />. Markenscoff, Ni and Papadimitriou showed that four fingers suffice for any planar object with a piecewise smooth boundary except a circle, twelve for any spatial object without rotational symmetry, and seven under very general conditions <Cite id="markenscoff-1990" />.
-
-Mishra, Schwartz and Sharir analyze frictionless positive grips under equilibrium, constant external wrenches and varying external wrenches, and give synthesis algorithms for polyhedral and polygonal objects <Cite id="mishra-1987" />.
-
-With Coulomb friction, three fingers are necessary and sufficient to grasp any planar object, and four in space, under the most relaxed assumptions; a particular object can need fewer <Cite id="markenscoff-1990" /> <Cite id="murray-li-sastry-1994" />. Nguyen's <Term id="antipodal-grasp">antipodal grasp</Term> theorem settles the two-finger planar case: such a grasp with friction is force closure if and only if the line between the contacts lies inside both friction cones <Cite id="nguyen-1988" />. A differentiable estimator later made force closure an optimization objective that tests closure within milliseconds for arbitrary hands <Cite id="differentiable-force-closure-2021" />.
+For two fingers there is an exact test. Nguyen's <Term id="antipodal-grasp">antipodal grasp</Term> theorem says a two-finger planar grasp with friction is force closure if and only if the line between the contacts lies inside both friction cones <Cite id="nguyen-1988" />: the book pinch works when the fingers face each other squarely enough. A differentiable estimator later made force closure an optimization objective, testing it within milliseconds for arbitrary hands <Cite id="differentiable-force-closure-2021" />.
 
 ## Grasp quality: the epsilon metric
 
-Ferrari and Canny turned the binary test into a number: the quality $\varepsilon$ is the radius of the largest origin-centered ball inside the grasp wrench space <Cite id="ferrari-canny-1992" />.
+Ferrari and Canny turned the yes-or-no test into a number: the quality $\varepsilon$ is the radius of the largest ball around the origin that fits inside the grasp wrench space <Cite id="ferrari-canny-1992" />, which for a polytope is the distance to its nearest face <Cite id="roa-suarez-2015" />. With unit pressing forces, it is the worst-case disturbance the grasp absorbs per unit of finger force. A pyramid in place of the round cone makes it an approximation <Cite id="pokorny-kragic-2013" />, and Kirkpatrick, Mishra and Yap bound how much of the ball a limited subset of wrenches can keep <Cite id="kirkpatrick-mishra-yap-1992" />. The number depends on modeling choices: Roa and Suárez show that it changes with the point torques are measured about and with how force and torque are weighted, and a grasp best under a total-force limit need not be best under per-finger limits, in a mostly quasi-static analysis <Cite id="roa-suarez-2015" />.
 
-$$
-\varepsilon = \min_{F_k \in \partial \mathcal{W}} \; \operatorname{dist}\!\left( 0, F_k \right)
-$$
-
-Because the hull is a polytope, $\varepsilon$ is the distance from the origin to its nearest facet <Cite id="roa-suarez-2015" />, and with an $l$-edge polyhedral cone it is an approximation <Cite id="pokorny-kragic-2013" />. Kirkpatrick, Mishra and Yap connect grasp efficiency to a quantitative Steinitz theorem, bounding how much of the origin-centered ball a limited subset of wrenches can retain <Cite id="kirkpatrick-mishra-yap-1992" />.
-
-With unit normal forces, $\varepsilon$ is the worst-case disturbance the grasp absorbs per unit of contact force, at the nominal friction. In FIRMGrasp's tests, 53% of nominally force-closed grasps lost closure in the adverse friction tail <Cite id="firmgrasp-2026" />, and in a shake test the nominal margin ranked a successful grasp above a failed one with probability only 0.53 <Cite id="firmgrasp-2026" />. In most cases the grasp most robust to pose error is not the one with the highest $\varepsilon$ <Cite id="weisz-allen-2012" />. Predicting grasp stability well required a combination of metrics <Cite id="rubert-grasp-metrics-2017" />.
-
-Roa and Suárez review measures based on contact locations and hand configuration and show that the largest-minimum resisted wrench depends on the torque origin and on the force-torque metric. A grasp optimal under a shared total-force limit need not be optimal under per-finger limits, and most of their analysis is quasi-static <Cite id="roa-suarez-2015" />. FRoGGeR's min-weight metric approximates $\varepsilon$ differentiably and synthesizes grasps in a median 0.834 s <Cite id="frogger-2023" />.
-
-Li and Sastry's task-oriented metric instead represents the required task as an ellipsoid in wrench space, so the grasp is judged against expected loading directions <Cite id="li-sastry-1988" />.
+On its own, the nominal score predicts real outcomes poorly. In FIRMGrasp's tests, 53% of nominally force-closed grasps lost closure in the unlucky range of friction, and in a shake test the nominal margin ranked a successful grasp above a failed one with probability only 0.53, barely better than a coin flip <Cite id="firmgrasp-2026" />. In most cases the grasp most robust to pose error is not the one with the highest $\varepsilon$ <Cite id="weisz-allen-2012" />, and predicting stability well took a combination of metrics <Cite id="rubert-grasp-metrics-2017" />. Li and Sastry's task-oriented metric instead judges a grasp against the loads the task will actually apply, drawn as an ellipsoid in wrench space <Cite id="li-sastry-1988" />, and FRoGGeR approximates $\varepsilon$ differentiably to synthesize grasps in a median 0.834 s <Cite id="frogger-2023" />.
 
 ## Reading the hull
 
-The lab draws the object and each contact's friction cone beside the grasp wrench space projected from $(f_x, f_y, \tau)$, turns the origin ring green under force closure and reports $\varepsilon$. The default tripod of top, right and bottom contacts is force closure at $\mu = 0.7$. Without the bottom contact, the top-right pair's connecting line sits 45 degrees from each normal, outside cones of half-angle $\arctan 0.7 \approx 35$ degrees, so it fails Nguyen's test <Cite id="nguyen-1988" />. Sliding contact 2 onto the bottom edge makes the pair antipodal and restores closure for any positive friction, and lowering $\mu$ lowers $\varepsilon$.
+A worked planar example shows the tests at work. A tripod of top, right and bottom contacts on a square is force closure at $\mu = 0.7$. Remove the bottom contact and the top-right pair's connecting line sits 45 degrees from each normal, outside friction cones of half-angle $\arctan 0.7 \approx 35$ degrees, so it fails Nguyen's test <Cite id="nguyen-1988" />. Moving the right contact onto the bottom edge makes the pair antipodal and restores closure for any positive friction. Lowering $\mu$ then shrinks the hull and lowers $\varepsilon$.
 
-## Where this meets the learned stack
+## Learned grasping is trained on these tests
 
-Dex-Net 2.0 labels synthetic data with analytic metrics: 6.7 million datapoints from 1,500 object models, positive when expected $\varepsilon$ under object-pose, gripper-pose and friction uncertainty exceeds 0.002 and no collision is modeled. Its GQ-CNN takes a grasp-aligned depth crop and the gripper depth, and predicts robustness without regressing $\varepsilon$ <Cite id="dexnet-2-2017" />.
+Learned grasp detectors train on labels from the analytic tests. Dex-Net 2.0 generated 6.7 million synthetic examples from 1,500 object models, labeled good when the expected $\varepsilon$ under pose and friction uncertainty exceeded 0.002, and trained a network to predict that robustness from a depth image around a candidate grasp <Cite id="dexnet-2-2017" />. Its planner executes the most robust [reachable](/classical/kinematics), [collision-free](/classical/motion-planning) candidate, assuming isolated rigid objects on a flat surface and one calibrated depth camera, and counts a success only if the object stays held through lifting, transport and shaking. One sampling variant reported 94% over 100 trials on 40 novel household objects; missing depth on thin parts and collisions with objects remained failure modes <Cite id="dexnet-2-2017" />.
 
-The planner samples antipodal parallel-jaw candidates from depth gradients and executes the most robust [reachable](/classical/kinematics), [collision-free](/classical/motion-planning) one. It assumes isolated rigid objects on a planar worksurface and one depth camera with known intrinsics. On an ABB YuMi with silicone fingertips and a Primesense Carmine 1.08, a success meant the object stayed held through lifting, transport and shaking <Cite id="dexnet-2-2017" />.
+| System | Reported result |
+| --- | --- |
+| Dex-Net 4.0 (2019) | Cleared bins of up to 25 novel objects with over 95% reliability, over 300 mean picks per hour <Cite id="dexnet-4-2019" /> |
+| Contact-GraspNet (2021) | Trained on 17 million simulated grasps; over 90% success on unseen objects in clutter <Cite id="contact-graspnet-2021" /> |
+| AnyGrasp (2022) | Cleared bins of over 300 unseen objects, 93.3% success, over 900 mean picks per hour <Cite id="anygrasp-2022" /> |
+| DexGraspNet 2.0 (2024) | 427 million dexterous grasps; 90.7% zero-shot in real clutter <Cite id="dexgraspnet-2-2024" /> |
+| GraspGen-X (2026) | 2 billion grasps on procedural grippers; zero-shot to novel real grippers <Cite id="graspgen-x-2026" /> |
+| OmniDex (2026) | Benchmark of about half a billion dexterous grasps over 2.6 million scenes <Cite id="omnidex-2026" /> |
+| T(R,O) Grasp++ (2026) | Benchmark of about half a billion grasps, eight hands, about 50,000 objects <Cite id="tro-grasp-plus-2026" /> |
 
-On eight 3D-printed adversarial objects, GQ-L-Adv, fine-tuned on synthetic examples of them, succeeded in 93% of 80 trials. A separate CEM-augmented run of 100 trials on 40 novel household objects, including articulated and deformable ones, reported 94% success and 99% precision: 68 of 69 grasps rated above 50% robustness succeeded. The two evaluations cannot be pooled, and missing depth on thin parts and object collisions remained failure modes <Cite id="dexnet-2-2017" />.
+The analytic checks still catch what end-to-end models get wrong. In a May 2026 simulation study, pipelines that first estimated object pose and shape and then sampled antipodal grasps reached 1.6 to 2 times the grasp success of AnyGrasp, whose grasps failed force closure 61.3% of the time <Cite id="pose-shape-grasp-2026" />. Even learned [diffusion policies](/manipulation/diffusion-policy), which take contacts from data, depend on data pipelines that solve contact mechanics: BODex synthesizes over 49 grasps per second on one RTX 3090 GPU <Cite id="bodex-2024" />, though DexEvolve's authors note that such synthesis rests on simplifying assumptions that yield infeasible grasps, which high-fidelity simulation must filter out <Cite id="dexevolve-2026" />. A 2026 [controller](/classical/control) enforces the quality margin during execution, keeping a median 94% of it at 0.09 ms per solve <Cite id="grasp-distance-fields-2026" />.
 
-Dex-Net 4.0 cleared bins of up to 25 novel objects with over 95% reliability at more than 300 mean picks per hour <Cite id="dexnet-4-2019" />. DexGraspNet 2.0 holds 427 million grasps <Cite id="dexgraspnet-2-2024" />, and GraspGen-X, a diffusion grasp generator trained on procedural grippers and 2 billion grasps, generalized zero-shot to novel real grippers <Cite id="graspgen-x-2026" />.
+## Multi-finger hands still struggle on hardware
 
-Learned [diffusion policies](/manipulation/diffusion-policy) take contacts from data, but dexterous data pipelines still solve contact mechanics: BODex synthesizes over 49 grasps per second on one RTX 3090 GPU <Cite id="bodex-2024" />, and DexEvolve's authors note that analytic synthesis rests on simplifying assumptions that yield infeasible grasps, which high-fidelity simulation must filter out <Cite id="dexevolve-2026" />. A 2026 [controller](/classical/control) enforces the quality margin during execution, keeping a median 94% of it at 0.09 ms per solve <Cite id="grasp-distance-fields-2026" />.
-
-[Sim-to-real transfer](/rl-sim2real/why-rl-locomotion) remained hard for dexterous grasping: Get a Grip found most multi-finger methods degrading on hardware <Cite id="get-a-grip-2024" />. DexGraspNet 2.0 transferred zero-shot to real clutter at 90.7% success <Cite id="dexgraspnet-2-2024" />, and RobustDexGrasp, trained in simulation, reached 94.6% on 512 real objects <Cite id="robustdexgrasp-2025" />. DexGraspVLA reports over 90% success in thousands of unseen cluttered scenes <Cite id="dexgraspvla-2025" />. Adding wrench and tactile feedback to vision raised one policy from 14 to 24 successes in 25 real trials <Cite id="touch-dexterous-grasping-2026" />.
-
-GENESIS-Handover, from Marco Hutter (ETH Zurich) and colleagues (October 2026), chooses how a robot presents an object by matching generated task-specific grips to the person's live hand <Cite id="genesis-handover-2026" />. On a legged manipulator, handovers needing no adjustment rose from 6 to 16 of 60 against AFT-Handover <Cite id="genesis-handover-2026" />.
+[Sim-to-real transfer](/rl-sim2real/why-rl-locomotion) remains hard for dexterous grasping: Get a Grip found most multi-finger methods degrading on real hardware <Cite id="get-a-grip-2024" />. Recent systems narrow the gap. RobustDexGrasp, trained in simulation, reached 94.6% on 512 real objects <Cite id="robustdexgrasp-2025" />, DexGraspVLA reports over 90% success in thousands of unseen cluttered scenes <Cite id="dexgraspvla-2025" />, and adding wrench and touch feedback to vision raised one policy from 14 to 24 successes in 25 real trials <Cite id="touch-dexterous-grasping-2026" />. For handing objects to people, GENESIS-Handover (October 2026) chooses how a legged manipulator presents an object by matching generated grips to the person's live hand, raising handovers that needed no adjustment from 6 to 16 of 60 against the AFT-Handover baseline <Cite id="genesis-handover-2026" />.
