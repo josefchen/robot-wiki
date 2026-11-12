@@ -1,11 +1,11 @@
 ---
 title: "Sim-to-Real Transfer"
-description: "Domain randomization, teacher-student privileged distillation, system identification, and real-to-sim reconstruction: the four method families that get a simulated policy onto hardware."
+description: "How robots trained in simulation are made to work in the real world: randomize the simulator, distill a teacher, measure the robot, rebuild the scene."
 domain: rl-sim2real
 slug: sim2real-transfer
 order: 4
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-11-12"
 citations:
   - tobin-2017
   - peng-2018
@@ -51,6 +51,13 @@ citations:
   - robosimstudio-2026
   - fey-athletic-2025
   - bjelonic-sim2real-2025
+  - cue-dynamics-2026
+  - humanoid-ndm-2026
+  - zerobot-2026
+  - autorsr-2026
+  - smm-ac-2026
+  - rl-co-2026
+  - nvidia-corl-gr00t-2-2026
 seeAlso:
   - "classical/calibration"
   - "classical/state-estimation"
@@ -62,84 +69,83 @@ import { TeacherStudent } from '@/components/interactive/teacher-student';
 
 import { ScannedTwinCheck } from '@/components/interactive/scanned-twin-check';
 
-Sim-to-real transfer gets a simulation-trained policy working on the physical robot, through four method families: <Term id="domain-randomization">domain randomization</Term>, <Term id="teacher-student-distillation">teacher-student distillation</Term>, <Term id="system-identification">system identification</Term> and real-to-sim reconstruction. Aljalbout and colleagues' survey covers all four, splitting methods that reduce the gap from those that overcome it <Cite id="reality-gap-survey-2026" />.
+Sim-to-real transfer is the work of making a policy trained in simulation behave the same way on a physical robot. Simulators are cheap and fast but never exact, so behavior learned there can fail on hardware. Four method families close or work around that gap <Cite id="reality-gap-survey-2026" />.
 
 <Image id="isaac-gym-anymal-real-stairs-2021" />
-
-Move the "Real floor" slider to compare it with the range of practice floors <Cite id="reality-gap-survey-2026" />.
 
 <FrictionTransfer className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="DR parameter writes" value="CPU API" note="Isaac Lab v1: mass and friction; runtime changes supported" accent />
-  <Stat label="RMA reported adaptation" value="< 1 s" note="A1: latent ~10 Hz; base policy 100 Hz" />
+  <Stat label="Changed during training" value="mass, friction" note="Isaac Lab randomization" accent />
+  <Stat label="RMA adapts in" value="< 1 s" note="A1 quadruped, no fine-tuning" />
   <div data-testid="splatsim-transfer-stat">
-    <Stat label="SplatSim zero-shot (UR5)" value="86.25%" note="vs 97.5% real-data; 4 tasks, 40 trials/task" />
+    <Stat label="SplatSim, simulated data only" value="86.25%" note="vs 97.5% with real data; 4 tasks, 40 trials each" />
     <Cite id="splatsim-2024" />
   </div>
-  <Stat label="ASAP correction" value="delta action" note="learned residual, sim to real to sim" />
+  <Stat label="ASAP learns" value="a correction" note="added before each simulator step" />
 </div>
 
 ## Domain randomization: train on a distribution of simulators
 
-Jakobi and colleagues found in 1995 that sim-to-real correspondence depended on the simulation's noise level <Cite id="jakobi-1995" />. Tobin and colleagues randomized textures, lighting and camera pose for tabletop object localization; their best network localized objects to about 1.5 cm over 480 webcam images of eight geometric objects, though most runs used ImageNet initialization (random initialization nearly matched it given enough simulated data), and their abstract frames the real world as "just another variation" once the simulator varies enough <Cite id="tobin-2017" />.
+<Term id="domain-randomization">Domain randomization</Term> trains on many perturbed simulators so that the real world looks like one more variation. The idea is old: in 1995 Jakobi and colleagues found that how well simulated behavior carried over depended on the simulation's noise level <Cite id="jakobi-1995" />. Tobin and colleagues randomized textures, lighting and camera pose, and a network trained only on those images located eight objects to about 1.5 cm in 480 real webcam images; the real world became "just another variation" <Cite id="tobin-2017" />.
 
-Peng and colleagues randomized link mass, joint damping, friction, controller gains, action timing and observation noise, maximizing expected return over [that dynamics distribution](/how-robots-work/#worlds). A recurrent policy trained only in simulation pushed a puck with a seven-DoF Fetch arm, with start and target positions randomized within a 30 cm square <Cite id="peng-2018" />. Chen and colleagues' analysis bounds the sim-to-real gap and highlights history-dependent policies' importance <Cite id="chen-dr-theory-2021" />.
+Peng and colleagues randomized the physics instead: link mass, joint damping, friction, controller gains, action timing and sensor noise, over [that range of worlds](/how-robots-work/#worlds). A recurrent policy trained only in simulation then pushed a puck to targets with a real Fetch arm <Cite id="peng-2018" />, and later theory showed why policies with memory of recent history matter <Cite id="chen-dr-theory-2021" />. OpenAI's 2018 robot hand randomized friction and appearance and transferred to the physical hand <Cite id="openai-dactyl-2018" />; its Rubik's-cube successor widened the ranges automatically as the policy succeeded, a form of <Term id="curriculum-learning">curriculum</Term> <Cite id="openai-rubiks-cube-2019" />.
 
 <Image id="mujoco-playground-franka-block-2025" />
 
-OpenAI's 2018 hand policy randomized friction coefficients and object appearance and transferred to the physical robot <Cite id="openai-dactyl-2018" />. Its Rubik's-cube successor added a <Term id="curriculum-learning">curriculum</Term> version, automatic domain randomization, which widens ranges as the policy succeeds <Cite id="openai-rubiks-cube-2019" />.
+Isaac Lab, the [GPU-parallel training framework](/rl-sim2real/parallel-sim-rl), ships randomization as a configurable curriculum, with mass and friction changeable during training and mesh scale only before it starts <Cite id="isaac-lab-2025" />. Too much randomization has a cost: poorly tuned ranges "can lead to overly conservative policies" <Cite id="spi-active-2025" />.
 
-Isaac Lab, the [GPU-parallel training framework](/rl-sim2real/parallel-sim-rl), ships ADR as a configurable curriculum, but mass, friction, contact offsets and joint armature change through PhysX CPU APIs. Most parameters randomize at runtime, mesh scale and collider type only before simulation <Cite id="isaac-lab-2025" />. SPI-Active notes that poorly tuned randomization "can lead to overly conservative policies" <Cite id="spi-active-2025" />.
+<span id="teacher-student-distillation-privilege-in-proprioception-out" />
+## Teacher-student distillation: train with privileges, deploy without
 
-## Teacher-student distillation: privilege in, proprioception out
+<Term id="teacher-student-distillation">Teacher-student distillation</Term> splits learning in two. A teacher policy learns with privileged simulator information, such as exact terrain and contact forces; a student that sees only what the real robot can sense learns to imitate it. Learning by Cheating used this form for driving <Cite id="learning-by-cheating-2019" />, after asymmetric actor-critic had given full state only to the critic <Cite id="asymmetric-ac-2017" />.
 
-Teacher-student training splits sensing from control: a teacher learns from privileged simulator state, then a student with deployable sensing imitates it. Learning by Cheating used this two-stage driving form <Cite id="learning-by-cheating-2019" />, after asymmetric actor-critic had given only the critic full state <Cite id="asymmetric-ac-2017" />.
+Lee and colleagues' student read two seconds of <Term id="proprioception">proprioceptive</Term> history and took ANYmal quadrupeds through mud, snow, rubble and vegetation without tuning for each environment <Cite id="lee-2020" />. The same pattern distills a depth-camera walking policy for stairs and stepping stones <Cite id="agarwal-vision-2022" />, a stereo-camera grasping network for a KUKA arm and Allegro hand <Cite id="isaac-lab-2025" />, a camera-only rebar-insertion policy that seated factory rebars at 1.4 mm clearance in 91.3% of real rollouts <Cite id="rebarsim-2026" />, and a camera-based humanoid that ran up to 54 loco-manipulation cycles, though only with up to 64 GPUs <Cite id="viral-2025" />.
 
-Lee and colleagues distilled a privileged RL teacher seeing simulator-only terrain and contact information into a temporal convolutional student via its actions and latent features. The student uses two seconds of <Term id="proprioception">proprioceptive</Term> history, plus the command and current state, and one controller per robot generation took ANYmal-B and ANYmal-C robots through mud, snow, rubble and vegetation without environment-specific tuning <Cite id="lee-2020" />. Isaac Lab's DextrAH-RGB example distills a privileged KUKA and Allegro teacher into a stereo-RGB network <Cite id="isaac-lab-2025" />, and VIRAL's authors report that scaling to tens of GPUs, up to 64, made teacher and student training reliable for an RGB humanoid running up to 54 loco-manipulation cycles <Cite id="viral-2025" />.
-
-RMA trains a base policy and an environment-factor encoder jointly with RL, then regresses an adaptation module on simulated state-action histories to predict the latent extrinsics. The module reads 50 state-action steps (0.5 seconds) and updates asynchronously at about 10 Hz on the A1, while the base policy runs at 100 Hz on the latest estimate, with no online gradient updates. The paper reports adaptation in fractions of a second without real-world fine-tuning, and failures after large perturbations or multiple leg obstructions; its latent encodes behavior-relevant conditions without guaranteeing each physical parameter <Cite id="rma-2021" />. UP-OSI earlier fed dynamics parameters predicted from recent history into a universal policy <Cite id="up-osi-2017" />.
-
-Isaac Lab calls the failure mode an information gap due to input mismatch: the student must reconstruct unobserved states from partial observations including images, hardest under heavy camera occlusion <Cite id="isaac-lab-2025" />. The teacher-student panel illustrates this with authored terrain and noise, so its errors rise by construction.
+RMA adds a module that estimates the current conditions. On the A1 it reads half a second of recent states and actions and updates an estimate of the surroundings about 10 times a second, while the walking policy runs at 100 times a second on the latest estimate. It adapts in fractions of a second without real-world fine-tuning, but fails after large perturbations or several blocked legs, and its estimate captures what matters for behavior without guaranteeing each physical parameter <Cite id="rma-2021" />. UP-OSI had earlier fed dynamics parameters predicted from recent history into one universal policy <Cite id="up-osi-2017" />. The limit is an information gap: a student cannot rebuild what its sensors never see, which is hardest under heavy camera occlusion <Cite id="isaac-lab-2025" />.
 
 <TeacherStudent className="my-6" />
 
 ## System identification: measure the gap instead
 
-Randomization averages over model error, and system identification measures it. Hwangbo and colleagues fitted an actuator network for ANYmal's series-elastic actuators to real excitation data, predicting torque from joint-position errors and velocities now and 0.01 and 0.02 seconds earlier; policies trained with ideal or analytical actuator models failed to take a single step without falling <Cite id="hwangbo-2019" />.
+Randomization averages over model error; <Term id="system-identification">system identification</Term> measures it. Hwangbo and colleagues fitted a neural network to real data from ANYmal's elastic actuators. Policies trained with ideal or analytical actuator models could not take a single step without falling <Cite id="hwangbo-2019" />. Others pair an identified actuator model with randomization <Cite id="tan-quadruped-2018" />, choose test motions that reveal parameters fastest, beating baselines by 42 to 63% on locomotion tasks <Cite id="spi-active-2025" />, tune Spot's simulator against hardware data <Cite id="miller-spot-2025" />, learn complex actuation without torque sensors <Cite id="fey-athletic-2025" /> or identify an unknown payload's mass <Cite id="halo-payload-2026" />.
 
-Tan and colleagues paired an identified actuator model and simulated latency with randomization <Cite id="tan-quadruped-2018" />. SPI-Active samples parameters in parallel with Fisher-information-driven excitation and beats baselines by 42 to 63% in locomotion tasks <Cite id="spi-active-2025" />, and Miller and colleagues tune Spot simulation against hardware with CMA-ES <Cite id="miller-spot-2025" />. An Unsupervised Actuator Net fits complex actuation from real data without torque sensing, supporting athletic loco-manipulation transfer <Cite id="fey-athletic-2025" />.
+Friction and bounce show up only on contact. CUE, from Marco Pavone's group (November 2026), probes where its simulation is least accurate; it cut held-out billiard-ball position error by 72% against the strongest baseline in simulation and ran on a real pool table <Cite id="cue-dynamics-2026" />.
 
-ASAP pretrains phase-conditioned tracking policies in IsaacGym on <Term id="retargeting">retargeted</Term> human motions, runs them on a Unitree G1, and records trajectories with motion capture and onboard sensors. A second PPO policy learns a delta action added before the simulator step, the tracking policy is fine-tuned with the frozen delta model in simulation, and only the tracking policy is deployed. The hardware study's delta covers only four ankle DoFs of the 23-DoF model <Cite id="asap-2025" />. HALO calibrates the unloaded robot first, then identifies an unknown payload's mass distribution with differentiable simulation <Cite id="halo-payload-2026" />.
-
-Evaluation separates IsaacGym-to-IsaacSim and IsaacGym-to-Genesis tests, with open-loop replay and closed-loop tracking over 43 motion sequences, and ASAP does not win every metric: in the easy IsaacSim closed-loop group its mean global joint-position error is 106 mm against SysID's 105 mm. On hardware, compared only with Vanilla, the error falls from 61.2 to 50.2 mm on kicking and from 159 to 112 mm on LeBron James's "Silencer" <Cite id="asap-2025" />. ASAP reports better tracking on the held-out "Silencer" motion without establishing coverage of arbitrary unseen skills, and its stated hardware limits are motor overheating and damage, motion-capture dependence and data needed for a full 23-DoF delta model <Cite id="asap-2025" />. Swift's champion-level drone racing likewise combined simulation RL with physical-world data <Cite id="swift-drone-racing-2023" />.
+ASAP corrects the simulator with what the robot did. It runs motion-tracking policies trained on <Term id="retargeting">retargeted</Term> human motion on a Unitree G1, records the result with motion capture, and trains a second network to output a correction added before each simulator step. The tracking policy is fine-tuned against the corrected simulator and only it is deployed. On hardware, against the uncorrected policy, tracking error fell from 61.2 to 50.2 mm on a kick and from 159 to 112 mm on LeBron James's "Silencer" celebration. It did not win everywhere: in one simulated test plain system identification slightly beat it, 105 against 106 mm, and its limits include motor overheating, dependence on motion capture and the data a full-body correction would need <Cite id="asap-2025" />. HumanoidNDM (October 2026) fine-tunes G1 tracking online without motion capture, through a dynamics model learned from the robot's own sensing <Cite id="humanoid-ndm-2026" />. Swift's champion-level drone racing also combined simulated RL with real data <Cite id="swift-drone-racing-2023" />.
 
 ## Real-to-sim: rebuild the scene, keep the physics
 
-SplatSim replaces mesh rendering with Gaussian splats reconstructed from the deployment scene, while PyBullet supplies physics. Across four UR5 tasks with 40 trials each, diffusion policies trained on its simulated demonstrations reached 86.25% zero-shot real success, against 97.5% for real-data policies, with training augmentations included <Cite id="splatsim-2024" />.
+Real-to-sim methods rebuild the deployment scene in simulation, usually with photo-realistic 3D reconstructions called Gaussian splats, and keep a standard physics engine. The results can come close to real data. Diffusion policies trained only on SplatSim's simulated demonstrations reached 86.25% real success across four UR5 tasks of 40 trials each, against 97.5% for policies trained on real data, though preparing the splats took manual segmentation and alignment <Cite id="splatsim-2024" />.
 
-The setup uses a Robotiq 2F-85 gripper and two RealSense D455 cameras, and splat preparation needs manual robot segmentation, CAD-derived link bounds and ICP alignment. The setup figure lists RGB plus <Term id="end-effector">end-effector</Term> pose as inputs, while the problem statement says the policy uses only RGB at test time <Cite id="splatsim-2024" />.
+| System | What it builds | Reported result |
+| --- | --- | --- |
+| RialTo (2024) | Digital twins from small amounts of real data, for RL | Over 67% more robust imitation policies <Cite id="rialto-2024" /> |
+| PolaRiS (2025) | Test environments from short video scans | Tracks real generalist-policy performance better than benchmarks <Cite id="polaris-2025" /> |
+| Soft-body splats (2025) | Deformable twins from real videos | Simulated rollouts correlate strongly with real ones <Cite id="softbody-splat-eval-2025" /> |
+| SimFoundry (2026) | Automated scene generation | 0.911 mean correlation with real results, 7 tasks, 5 policy types <Cite id="simfoundry-2026" /> |
+| ZeroBot (2026) | Meshes from a single image | 87% real success after 119 seconds of training on average <Cite id="zerobot-2026" /> |
+| AutoRSR (2026) | Assets from scanned workspaces | 73.3 to 86.7% real success, comparable to π0.5 on 150 demonstrations <Cite id="autorsr-2026" /> |
+| RoboRender (2026) | Photorealistic video from simulated trajectories | 71% average, about 3.6 times plain visual randomization <Cite id="roborender-2026" /> |
+| ForceTwin (2026) | Friction and springs of doors and other articulated objects, probed by a person with a force-sensing gripper | 87% goal completion on nine object and robot pairs <Cite id="forcetwin-2026" /> |
+| GRAIL (2026) | Generated scenes for humanoids; a CoRL 2026 best-paper finalist <Cite id="nvidia-corl-gr00t-2-2026" /> | 84% real pick-up success on a Unitree G1 <Cite id="grail-2026" /> |
 
-RoboGSim's August 2025 revision chains a Gaussian Reconstructor, Digital Twins Builder, Scene Composer and Interactive Engine, where mesh assets and measured layout connect it to Isaac Sim. Novel-pose rendering and trajectory replay are evaluated separately. Closed-loop policies act on splat renders while Isaac Sim handles kinematics and collisions. On UR5 ring-toss, ten trials with up to three grasps each, the real-data model placed 90% on the real robot but 30% in RoboGSim, so its scores cannot replace real-robot tests <Cite id="robogsim-2024" />.
+NVIDIA's Newton 1.0 renders both meshes and splats in one camera <Cite id="newton-manipulation-blog-2026" />. A rebuilt twin can still mislead. On a UR5 ring toss, a model trained on real data placed 90% of rings on the real robot but 30% in RoboGSim, so its scores cannot replace real tests <Cite id="robogsim-2024" />. In a 3D-scanned lab, navigation agents' simulated and real success correlated at only 0.18 because they exploited collision dynamics; tuning simulation parameters raised it to 0.844 <Cite id="kadian-2019" />.
 
-Newer twins go beyond static appearance: RialTo runs RL in digital twins built from small amounts of real data, raising imitation-policy robustness by over 67% <Cite id="rialto-2024" />, and PolaRiS turns short video scans into environments that track real generalist-policy performance better than existing benchmarks <Cite id="polaris-2025" />. SimFoundry's simulated evaluations correlated with real results at a mean Pearson coefficient of 0.911 across 7 tasks and 5 policy architectures <Cite id="simfoundry-2026" />, and NVIDIA's Newton 1.0 post describes a tiled camera sensor ray-tracing both triangle meshes and Gaussian splats <Cite id="newton-manipulation-blog-2026" />.
-
-A rebuilt twin can still mislead. Kadian and colleagues measured a 0.18 sim-versus-real success correlation in a 3D-scanned lab because agents exploited collision dynamics, and tuning simulation parameters raised it to 0.844 <Cite id="kadian-2019" />.
-
-Kaiyuan Chen, Ken Goldberg and colleagues at UC Berkeley and NVIDIA (October 2026) built RoboSimStudio, which lets people and coding agents edit the solver, contact model and physical parameters of a Newton simulation <Cite id="robosimstudio-2026" />. In a pilot, coding agents built a bimanual sponge-wiping simulation from a smartphone video in about an hour, and a policy improved there completed the wipe on the real robot <Cite id="robosimstudio-2026" />. One real rollout then displaced a bar support that the simulation held fixed, and the authors judged sim and real agreement on this single task mainly qualitatively <Cite id="robosimstudio-2026" />.
+RoboSimStudio, from Ken Goldberg's group at UC Berkeley and NVIDIA (October 2026), lets people and coding agents edit a simulation's solver, contact model and physical parameters. Agents built a two-armed sponge-wiping simulation from a smartphone video in about an hour, and a policy improved there completed the wipe on the real robot. One real rollout displaced a bar support the simulation held fixed, and the authors judged agreement on this single task mainly qualitatively <Cite id="robosimstudio-2026" />.
 
 <ScannedTwinCheck className="my-6" />
 
 <span id="the-levers-nobody-demos" />
 ## Levers behind successful transfer
 
-The survey says the action space "plays a crucial role in reducing the sim-to-real gap", citing joint-velocity control for manipulation, and that co-training with real-world data benefits robotic foundation models like GR00T N1 <Cite id="reality-gap-survey-2026" />. Maddukuri and colleagues report simulation data raises real-world performance by 38% on average <Cite id="sim-real-cotraining-2025" />, and Lei and colleagues identify structured representation alignment as its primary effect <Cite id="lei-cotraining-2026" />. A motor-energy model plus identified parameters has also supported legged transfer without dynamics randomization <Cite id="bjelonic-sim2real-2025" />.
+Choices outside the four families also decide whether transfer works. The survey says the action space "plays a crucial role in reducing the sim-to-real gap", and that co-training with real data benefits robot foundation models <Cite id="reality-gap-survey-2026" />. Mixing simulated with real data raised real-world performance by 38% on average <Cite id="sim-real-cotraining-2025" />, mainly by aligning how the policy represents both <Cite id="lei-cotraining-2026" />, and RL in simulation anchored on real data raised real success by 24% for OpenVLA and 20% for π0.5 on four tabletop tasks <Cite id="rl-co-2026" />. A more strongly regularized actor-critic transferred more robustly than PPO, the usual default <Cite id="smm-ac-2026" />. IndustReal transferred assembly with simulation-aware policy updates and an action integrator at deployment <Cite id="industreal-2023" />, and a motor-energy model with identified parameters supported transfer on three main and ten further legged robots without randomizing dynamics <Cite id="bjelonic-sim2real-2025" />.
 
-Deployed systems lean on such levers: Haarnoja and colleagues' soccer humanoid transferred through high-frequency control, targeted dynamics randomization and training perturbations <Cite id="haarnoja-soccer-2023" />. Actuator reality shaping makes physical actuators match the simulator's idealized dynamics <Cite id="actuator-reality-shaping-2026" />, and Boston Dynamics reports fewer fidelity issues because Atlas's model and hardware are extremely close <Cite id="bd-atlas-hard-work-2026" />.
+Hardware can also meet the simulator halfway. DeepMind's soccer humanoid transferred through high-frequency control, targeted randomization and training perturbations <Cite id="haarnoja-soccer-2023" />. Actuator reality shaping makes physical actuators behave like the simulator's idealized ones <Cite id="actuator-reality-shaping-2026" />, ZEST picks joint gains from actuator models to move skills onto Atlas zero-shot <Cite id="zest-2026" />, and Boston Dynamics reports fewer fidelity issues because Atlas's model and hardware are extremely close <Cite id="bd-atlas-hard-work-2026" />.
 
 ## Where each family breaks
 
-The two interactives construct their costs; measured costs come from the sources. ASAP's broader skill coverage and affordable real-robot data collection remain open <span className="max-sm:[&_[role=tooltip]]:-left-28"><Cite id="asap-2025" /></span>.
+Poorly tuned randomization yields overly conservative policies <Cite id="spi-active-2025" />. A student cannot recover state its sensors never observe <Cite id="isaac-lab-2025" />. Identified models miss what was never excited, such as friction the robot has not yet touched <Cite id="cue-dynamics-2026" />, and a scanned twin can rank policies differently from reality <Cite id="kadian-2019" />. Broader skill coverage and affordable real-robot data collection remain open for correction methods like ASAP <span className="max-sm:[&_[role=tooltip]]:-left-28"><Cite id="asap-2025" /></span>.
 
 <SelfCheck
   prompt="Which RMA component estimates behavior-relevant latent extrinsics from recent state-action history, while the deployed base policy uses the latest estimate?"
