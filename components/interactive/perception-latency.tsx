@@ -107,10 +107,13 @@ const AGILITY_PRESETS = AGILITY_STEPS.map((u) => ({
   label: AGILITY_NAMES[String(u) as AgilityId],
 }));
 
+/** Preset delays in milliseconds, kept to a tenth so the event camera's 12.9 ms survives. */
+const presetMs = (latencyS: number) => Math.round(latencyS * 10000) / 10;
+
 const cameraFor = (latencyMs: number): CameraId =>
-  latencyMs === Math.round(STEREO.latencyS * 1000)
+  latencyMs === presetMs(STEREO.latencyS)
     ? 'stereo'
-    : latencyMs === Math.round(EVENT.latencyS * 1000)
+    : latencyMs === presetMs(EVENT.latencyS)
       ? 'event'
       : 'custom';
 
@@ -402,8 +405,8 @@ export function PerceptionLatency({ className }: { className?: string }) {
             value={camera}
             onChange={(id) =>
               choose(() => {
-                if (id === 'stereo') setLatencyMs(Math.round(STEREO.latencyS * 1000));
-                if (id === 'event') setLatencyMs(Math.round(EVENT.latencyS * 1000));
+                if (id === 'stereo') setLatencyMs(presetMs(STEREO.latencyS));
+                if (id === 'event') setLatencyMs(presetMs(EVENT.latencyS));
               })
             }
             testId="camera"
@@ -507,10 +510,12 @@ export function PerceptionLatency({ className }: { className?: string }) {
             {SENSORS.map((s, i) => (
               <span key={s.id}>
                 {i > 0 && '; '}
-                {s.name} {formatSeconds(s.latencyS)}
+                {s.name} {presetMs(s.latencyS)} ms
               </span>
             ))}
-            . &quot;Ordinary camera&quot; is the stereo frame camera and &quot;Faster camera&quot; is the event camera; the camera-delay slider under
+            . The event-camera delay is the one at which the study&apos;s formula gives its reported 31.03 m/s
+            on a hard swerve; the study&apos;s table prints it as 0.012 s. &quot;Ordinary camera&quot; is the stereo
+            frame camera and &quot;Faster camera&quot; is the event camera; the camera-delay slider under
             &quot;Adjust more&quot; sets any latency from 0 to {INTERACTIVE_MAX_LATENCY_MS} ms.
           </p>
           <p>

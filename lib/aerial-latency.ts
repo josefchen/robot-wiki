@@ -47,14 +47,18 @@ export interface SensorSpec {
 /**
  * The paper's Table I stereo frame camera upper-bound row and its
  * event-camera counterpart at the same sensing range. The stereo
- * latency 0.070 s is the Bumblebee XB3 datasheet value the paper cites;
- * the event camera's latency at this operating point (8 m range,
- * u = 50 m/s^2) is the Table I value 0.012 s, because the event camera
- * fires the instant brightness changes rather than waiting out a frame.
+ * latency 0.070 s is the Bumblebee XB3 datasheet value the paper cites.
+ * At the event camera's operating point (8 m range, u = 50 m/s^2) the paper
+ * solves for the speed first and reports 31.03 m/s, then derives the
+ * latency from it. Its own formula gives 8 / 31.03 - 2 sqrt(0.75 / 50) =
+ * 0.0129 s, which the table prints as 0.012 s; every other event row
+ * reproduces to the printed digit. 0.0129 s is used so the figure shows
+ * the paper's reported 31.03 m/s rather than 31.14 m/s from the rounded
+ * print.
  */
 export const SENSORS: SensorSpec[] = [
   { id: 'stereo', name: 'Stereo frame camera', rangeM: 8, latencyS: 0.07 },
-  { id: 'event', name: 'Event camera', rangeM: 8, latencyS: 0.012 },
+  { id: 'event', name: 'Event camera', rangeM: 8, latencyS: 0.0129 },
 ];
 
 export const DEFAULT_SENSOR_ID = 'stereo';
