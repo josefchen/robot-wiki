@@ -85,6 +85,27 @@ describe('banned vocabulary (VAL-BUILD-007)', () => {
       findBannedVocabulary('The policy executes at 50 Hz with a chunk size of 100.'),
     ).toEqual([]);
   });
+
+  it('allows a banned word written as an all-capitals proper name', () => {
+    expect(findBannedVocabulary("Toyota Research Institute's TAPESTRY system was tested on hardware.")).toEqual([]);
+  });
+
+  it('still flags the same word in ordinary prose, capitalized or not', () => {
+    expect(findBannedVocabulary('The results weave a rich tapestry.').map((f) => f.word)).toEqual(['tapestry']);
+    expect(findBannedVocabulary('Tapestry is the wrong word here.').map((f) => f.word)).toEqual(['tapestry']);
+    // A name on the line does not excuse an ordinary use beside it.
+    expect(findBannedVocabulary('TAPESTRY adds to a tapestry of methods.').map((f) => f.word)).toEqual(['tapestry']);
+  });
+
+  it('allows a banned word inside a registered exception', () => {
+    const exception: SlopQuotationException = {
+      ...registeredQuote,
+      quote: 'a tapestry of contact-rich skills',
+    };
+    const body = 'The authors describe "a tapestry of contact-rich skills" in their abstract.';
+    expect(findBannedVocabulary(body, [exception])).toEqual([]);
+    expect(findBannedVocabulary(body, []).map((f) => f.word)).toEqual(['tapestry']);
+  });
 });
 
 describe('dash ban in prose (VAL-BUILD-007)', () => {
