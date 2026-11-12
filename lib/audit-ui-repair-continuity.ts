@@ -19,7 +19,7 @@ export type UiRepairReview = { schemaVersion: 'shared-ui-repair-continuity-v1'; 
 const sha = (bytes: Buffer | string) => createHash('sha256').update(bytes).digest('hex');
 const drift = 'shared UI repair continuity drift';
 // BEGIN shared UI repair pins
-const reviewPin = {"bytes":2241447,"sha256":"1cc11b93fbeb44a3d6bf7eb38b6e535db99ff3fe645570acc456243784d5eb23"};
+const reviewPin = {"bytes":2244093,"sha256":"0b92fdfd95cd9664c11a03c317dd48361f3070bfb3f1135984427930d850cff2"};
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ["components/ui/cite.tsx", [5891, "b9fbeaff3405eb0df51c10e79702cd5714b343f32997f5ee07e8afe5dce376e4"]],
   ["components/article/references.tsx", [4543, "63e17ab383c0a949d95d33e1379db46521be04f6e3ba5e8fc609c82d486b74e7"]],
@@ -63,7 +63,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ["components/interactive/comparison-matrix.tsx", [23225, "c104c85f6392f6119d5ab3e8452af5f823fa55b7464acdef1f9ff2d04d873a5e"]],
   ["components/interactive/hardware-price-ladder.tsx", [10125, "b489cc583f0d2e5e440b4ff1af5a219ec34ed8229e61157366d5fd826507c697"]],
   ["components/interactive/humanoid-pick-height.tsx", [13848, "8365b9cbe1a9737d9464bd1a6cdb093ee0a9f23c0fd93c2f36076e50ebc15340"]],
-  ["components/interactive/pi-generation-timeline.tsx", [20321, "572aabf886a09117e969168a75e6257aa56d7d6267318a5b3702145b1c57dcb2"]],
+  ["components/interactive/pi-generation-timeline.tsx", [20330, "7d77a5fde8281d30d0d97e0ce373cddc09a2a6b2c05680a732ceef6ab56b3671"]],
   ["components/interactive/terrain-curriculum.tsx", [12628, "eb46fa31bae4afb669dea21d40b4ca6f6209ab5afa704ae58a6b04a57e3b253f"]],
   ["components/three/robot-scene.tsx", [35462, "1bb4ccb1bc66dd90d360e7e6f1f45b9f01c5a42cec6d76dedb7699eea34dcc41"]],
   ["components/three/playground-canvas.tsx", [10457, "51ba3f2a3b6c18c1974714e41d12f2226040b3d2e963704d9e2a234afa35be28"]],
@@ -280,7 +280,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ["tests/unit/brand-v2-focus-paint.test.ts", [5893, "f95a4ea68df434396602f2356ac0c7e185da923a74cafab3337dc768d5e9d1ee"]],
   ["tests/e2e/brand-v2-focus-paint.spec.ts", [28833, "b8f043c5bbefbe824ecc787a2b658a1a847948e00bafa679e067adcf1608d7c0"]],
   ["components/ui/stat.tsx", [2898, "f2e70ec89084e8f7e3896e9f7475ccec7da07000fe14675ac350b1438caffee4"]],
-  ["tests/component/pi-generation-timeline.test.tsx", [8548, "3a6aedc8e151023c07e2b231370329fdda461a4cc518a45a7ca2e30dc101c4c1"]],
+  ["tests/component/pi-generation-timeline.test.tsx", [8756, "38e404b509c8a3c4676c1b4b83b9378ed385698e9b80904d9b641622cc37198a"]],
   ["tests/e2e/brand-v2-reflow-320-200.spec.ts", [188095, "f64942854cd40e492f6722ce399a8daef7f216d2d75bba2b5be0ea2a17bf4508"]],
   ["lib/reading-time.ts", [25319, "949d7b0d3323b9568bc28f115b57a897b891798cab2286b90ec6f4f0ceeedda8"]],
   ["tests/unit/reading-time.test.ts", [19766, "040b00ec5195b8ecf19aa2d53a270f1258ccd644f1cc5ec3cd6015a91a7e209e"]],

@@ -187,7 +187,7 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     await page.goto(ROUTE);
     const figure = page.locator('[data-figure-frame="hardware-price-ladder"]');
     await figure.scrollIntoViewIfNeeded();
-    await expect(figure.locator('[data-figure-title]')).toHaveText('Arms $295–$70,000; humanoids $4,900–$29,900; some prices unpublished');
+    await expect(figure.locator('[data-figure-title]')).toHaveText('Arms $295 to $70,000; humanoids $4,900 to $29,900; some unpriced');
     await expect(figure.locator('[data-figure-caption]')).toHaveText(
       'Arms: $295 to $70,000. Humanoids: $4,900 to $29,900. Several humanoid makers publish no price or do not offer open sales.',
     );

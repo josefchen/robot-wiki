@@ -45,14 +45,14 @@ describe('SpaceLatencyLadder', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Delays a robot works within');
-    expect(heading).toBe('Camera: hundredths of seconds; Mars round trip: 8–40 minutes');
+    expect(heading).toBe('Camera: hundredths of seconds; Mars replies: 8 to 40 minutes');
     expect(caption).toBe(
-      'Drones use two camera views to sense in hundredths of a second; Mars takes 8–40 minutes round-trip, so robots there must act independently.',
+      'Drones use two camera views to sense in hundredths of a second; Mars takes 8 to 40 minutes round-trip, so robots there must act independently.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
     expect(words(caption)).toBeLessThanOrEqual(25);
-    const delay = screen.getByText('Mars messages take 8–40 minutes there and back');
+    const delay = screen.getByText('Mars messages take 8 to 40 minutes there and back');
     expect(delay.closest('details')).toBeNull();
     expect(delay.parentElement).toHaveTextContent('A drone’s camera reacts in hundredths of a second.');
     expect(delay.parentElement).toHaveTextContent('a rover must act on its own');
@@ -76,7 +76,7 @@ describe('SpaceLatencyLadder', () => {
     // On a log ruler a bar's width is the log of its range: Mars spans log10(5), the camera log10(70/17).
     const width = (el: Element) => Number(el.getAttribute('width'));
     expect(width(mars) / width(camera)).toBeCloseTo(Math.log10(5) / Math.log10(70 / 17), 2);
-    expect(screen.getByTestId('space-latency-mars-note')).toHaveTextContent('8–40 minutes round trip: rover acts on its own');
+    expect(screen.getByTestId('space-latency-mars-note')).toHaveTextContent('8 to 40 minutes round trip: rover acts on its own');
     expect([...document.querySelectorAll('[data-scene-readout]')].map((r) => r.textContent)).toEqual([
       '17 to 70 milliseconds',
       '2.5 seconds',

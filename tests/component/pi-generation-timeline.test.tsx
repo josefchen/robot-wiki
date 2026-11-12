@@ -41,9 +41,11 @@ describe('PiGenerationTimeline', () => {
   it('distinguishes downloadable and unknown availability', () => {
     render(<PiGenerationTimeline />);
     const list = screen.getByTestId('generation-track');
-    expect(list.querySelectorAll('[data-status="open"]').length).toBe(3);
-    expect(list.querySelectorAll('[data-status="unknown"]').length).toBe(4);
-    expect(list.querySelectorAll('[data-status="closed"]').length).toBe(0);
+    expect(list.querySelectorAll('[data-download-status="open"]').length).toBe(3);
+    expect(list.querySelectorAll('[data-download-status="unknown"]').length).toBe(4);
+    expect(list.querySelectorAll('[data-download-status="closed"]').length).toBe(0);
+    expect(list.querySelectorAll('[data-download-status="unavailable"]').length).toBe(0);
+    expect(list.querySelector('[data-status], [data-state], [data-ui-state]')).toBeNull();
   });
 
   it('opens on its takeaway with no symbols in the headline', () => {

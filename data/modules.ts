@@ -79,7 +79,7 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
       article: 'rl-sim2real/why-rl-locomotion',
       text: 'In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU',
       citationId: 'rudin-2021',
-      passage: 'In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes',
+      passage: 'In 2021 an ANYmal quadruped learned flat-ground walking in under four minutes',
     },
     readingOrder: 'Basics first, then locomotion and the methods behind it.',
     related: [
@@ -123,7 +123,7 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
       text: "In Intrinsic's 2026 AI for Industry Challenge, 90% of the top teams in the real-workcell phase inserted the connector with rules-based routines and force-torque feedback",
       citationId: 'intrinsic-ai-for-industry-challenge-2026',
       passage:
-        'reports that 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines, such as spiral searches, and force-torque feedback',
+        'reports 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines, including spiral searches, and force-torque feedback',
     },
     readingOrder: 'Each article builds on the ones before it.',
     related: [

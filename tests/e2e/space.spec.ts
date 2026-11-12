@@ -165,7 +165,7 @@ test.describe('adjacent space module', () => {
     await page.goto(ROUTE);
     const figure = page.locator('[data-figure-frame="space-latency-ladder"]');
     await figure.scrollIntoViewIfNeeded();
-    await expect(figure.locator('[data-figure-title]')).toHaveText('Camera: hundredths of seconds; Mars round trip: 8–40 minutes');
+    await expect(figure.locator('[data-figure-title]')).toHaveText('Camera: hundredths of seconds; Mars replies: 8 to 40 minutes');
     await expect(figure.getByTestId('space-latency-mars-round-trip').locator('rect')).toHaveAttribute(
       'data-chart-role',
       'highlight',
@@ -175,7 +175,7 @@ test.describe('adjacent space module', () => {
       '2.5 seconds',
       '8 to 40 minutes',
     ]);
-    await expect(figure.getByTestId('space-latency-mars-note')).toHaveText('8–40 minutes round trip: rover acts on its own');
+    await expect(figure.getByTestId('space-latency-mars-note')).toHaveText('8 to 40 minutes round trip: rover acts on its own');
     const stage = figure.getByRole('img', { name: /Drone camera delay against round trips/ });
     const name = (await stage.getAttribute('aria-label')) ?? '';
     const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';

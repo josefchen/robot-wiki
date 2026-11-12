@@ -85,7 +85,7 @@ describe('motion scene mount', () => {
       'the cart’s guess',
       'the sensor’s reading',
       'the blend',
-      'its share of the way to the reading',
+      'blue: shift from guess to blended position',
     ]);
     expect(screen.getByTestId('motion-readout')).toHaveTextContent('Jaws either side: guess 1.27 · reading 1.00 · blend 0.79');
     // Every band is solid; the cart, the three calipers and the share rule are drawn once each.

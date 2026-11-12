@@ -231,7 +231,7 @@ describe('state-form chart descriptions', () => {
     const { text } = assertDescribed(imgs[0], container);
     expect(container.querySelectorAll('[data-chart-description]')).toHaveLength(1);
     expect(text).toMatch(/relative end-effector|human video/i);
-    fireEvent.click(screen.getByRole('button', { name: "Pad each robot's own list" }));
+    fireEvent.click(screen.getByRole('button', { name: 'Fill unused joint slots with zeros' }));
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
   });

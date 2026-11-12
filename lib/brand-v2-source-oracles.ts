@@ -745,7 +745,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       c.rectCount('drone-camera', 1); c.rect('drone-camera', x(0.017), 30, x(0.070) - x(0.017), 8);
       c.rectCount('mars-round-trip', 1); c.rect('mars-round-trip', x(480), 110, x(2400) - x(480), 8);
       c.svgText(null, 'Delay; each tick is 60 times longer', 330, 190);
-      c.contains('Delays a robot works withinCamera: hundredths of seconds; Mars round trip: 8–40 minutes');
+      c.contains('Delays a robot works withinCamera: hundredths of seconds; Mars replies: 8 to 40 minutes');
     },
   },
   'interactive:UmiCollectionRates': {
