@@ -2,7 +2,7 @@
  * Data for the adjacent/surgical module's comparison table, next to the
  * prose that cites the same sources. Row content mirrors the primary
  * sources: Intuitive's da Vinci 5 clearance release, its cardiac clearance
- * and its second-quarter 2026 report, CMR's Versius De Novo authorization
+ * and its third-quarter 2026 report, CMR's Versius De Novo authorization
  * and the FDA's Versius Plus 510(k) summary (K252111), Medtronic's Hugo
  * clearance, J&J's OTTAVA De Novo authorization, Moon Surgical's Maestro
  * clearances, and the Yang et al. six-level autonomy framework.
@@ -33,10 +33,10 @@ export const SURGICAL_SYSTEM_ROWS: readonly SurgicalSystemRow[] = [
       'Multiport and single-port teleoperated soft-tissue surgery; the incumbent platform',
     edge: 'da Vinci 5 ships 150+ enhancements over Xi, including Force Feedback instruments and 10,000x the computing power',
     regulatory:
-      'da Vinci 5 via 510(k) in March 2024, cleared for selected cardiac procedures in January 2026; 11,710 systems installed by June 30, 2026',
+      'da Vinci 5 via 510(k) in March 2024, cleared for selected cardiac procedures in January 2026; 12,094 systems installed by September 30, 2026',
     autonomyLevel: 0,
     autonomyNote:
-      'Level 0: every motion is the surgeon\u2019s command, scaled and tremor-filtered',
+      'Level 0: every motion is the surgeon\'s command, scaled and tremor-filtered',
   },
   {
     key: 'cmr-versius',
@@ -102,7 +102,7 @@ export const AUTONOMY_LEVELS: readonly AutonomyLevel[] = [
   {
     level: 0,
     name: 'No autonomy',
-    meaning: 'Teleoperated: the robot follows the surgeon\u2019s commands; motion scaling and tremor filtering still count as Level 0',
+    meaning: 'Teleoperated: the robot follows the surgeon\'s commands; motion scaling and tremor filtering still count as level 0',
   },
   {
     level: 1,
@@ -122,7 +122,7 @@ export const AUTONOMY_LEVELS: readonly AutonomyLevel[] = [
   {
     level: 4,
     name: 'High autonomy',
-    meaning: 'A robotic resident performs surgery under a qualified doctor\u2019s supervision',
+    meaning: 'A robotic resident performs surgery under a qualified doctor\'s supervision',
   },
   {
     level: 5,

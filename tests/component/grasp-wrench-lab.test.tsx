@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { EPSILON_FULL, GraspWrenchLab, NUDGE, PULL_S, TEST_S, TRAVEL_S, testAt } from '@/components/interactive/grasp-wrench-lab';
+import { EPSILON_FULL, GraspWrenchLab, NUDGE, PULL_S, TEST_S, TRAVEL_S, edgeName, testAt } from '@/components/interactive/grasp-wrench-lab';
 import { iso } from '@/components/iso/iso-kit';
 import { CONTACT_Z, HEIGHT, P, SCALE, WEDGE_LEN, WIDTH, cordStart, eyeOf, needleDegrees, pullDirection, restStationFor, toWorld, wedgeOf } from '@/components/iso/figures/grasp-test-table';
 import {
@@ -393,5 +393,15 @@ describe('GraspWrenchLab main view', () => {
     const [fx, fy] = iso([...toWorld(0, 1.5), CONTACT_Z] as [number, number, number], P);
     fireEvent.pointerMove(stage, { pointerId: 1, clientX: fx, clientY: fy });
     expect(readout('grasp-contact-1-value')).toBe('0.375');
+  });
+});
+
+describe('GraspWrenchLab contact names', () => {
+  it('names the default tripod top, right and bottom, as the article does', () => {
+    render(<GraspWrenchLab />);
+    for (const [n, edge] of [[1, 'top'], [2, 'right'], [3, 'bottom']] as const) {
+      expect(screen.getByRole('slider', { name: new RegExp(`contact ${n} position`, 'i') })).toHaveAccessibleName(new RegExp(`on the ${edge} edge`));
+    }
+    expect([0, 0.125, 0.25, 0.375, 0.625, 0.875].map(edgeName)).toEqual(['corner', 'top', 'corner', 'left', 'bottom', 'right']);
   });
 });

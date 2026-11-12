@@ -23,7 +23,7 @@ test('PI and Helix qualifications survive interactive selection and reset', asyn
   for (const [name, qualification] of [
     ['Let the robot imagine first', 'the images condition the action policy'],
     ['A planner directs simple skills', 'Figure reports a continuous four-minute Helix 02 dishwasher unloading-and-reloading'],
-    ['Copy first, then practise', 'successful episodes per hour, not inference speed'],
+    ['Copy first, then practice', 'successful episodes per hour, not inference speed'],
   ]) {
     const button = explorer.getByRole('button', { name, exact: true });
     // Enter on the server-rendered button before React attaches its click

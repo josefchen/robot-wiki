@@ -74,7 +74,7 @@ describe('CollaborativeOperationModes', () => {
     ]) {
       expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
     }
-    expect(screen.getByText('1 metre a second, a slow walk')).toBeInTheDocument();
+    expect(screen.getByText('1 meter a second, a slow walk')).toBeInTheDocument();
     expect(screen.getByText('slow')).toBeInTheDocument();
     expect(screen.getByText('fast')).toBeInTheDocument();
     expect(screen.getByText('illustrative')).toHaveAttribute('data-figure-status');
@@ -83,15 +83,15 @@ describe('CollaborativeOperationModes', () => {
   it('splits the gap into its four parts in words and draws the zone to its edge', () => {
     const { container } = render(<CollaborativeOperationModes />);
     const bar = screen.getByTestId('gap-bar');
-    expect(bar).toHaveTextContent('You walk in while it reacts: 0.32 metres');
-    expect(bar).toHaveTextContent('It keeps moving: 0.10 metres');
-    expect(bar).toHaveTextContent('Braking: 0.05 metres');
-    expect(bar).toHaveTextContent('Safety margin: 0.95 metres');
+    expect(bar).toHaveTextContent('You walk in while it reacts: 0.32 meters');
+    expect(bar).toHaveTextContent('It keeps moving: 0.10 meters');
+    expect(bar).toHaveTextContent('Braking: 0.05 meters');
+    expect(bar).toHaveTextContent('Safety margin: 0.95 meters');
     expect(screen.getByTestId('scanner-zone')).toHaveAttribute('data-metres', '1.42');
     expect(screen.getByTestId('gap-riders')).toHaveAttribute('data-terms', '0.10 0.05 0.95 0.32');
     expect(stageReadout(container)).toBe('needs 1.42 m, you stand at 1.60 m');
     expect(screen.getByTestId('safety-plain-readout')).toHaveTextContent(
-      'At this speed the robot needs a gap of about 1.4 metres; you are 1.6 metres away, so it keeps working.',
+      'At this speed the robot needs a gap of about 1.4 meters; you are 1.6 meters away, so it keeps working.',
     );
   });
 
@@ -100,7 +100,7 @@ describe('CollaborativeOperationModes', () => {
     render(<CollaborativeOperationModes />);
     await user.click(screen.getByRole('button', { name: 'Gentle enough to bump' }));
     expect(screen.getByTestId('force-bar')).toHaveTextContent(
-      'Bump: about 316 newtons. Safe limit (the gauge’s long mark): 255 newtons.',
+      "Bump: about 316 newtons. Safe limit (the gauge's long mark): 255 newtons.",
     );
     expect(readout('force-limited-speed')).toBe('0.81 m/s');
     fireEvent.change(robotSlider(), { target: { value: '0.5' } });

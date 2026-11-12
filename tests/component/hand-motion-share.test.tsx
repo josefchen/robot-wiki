@@ -31,7 +31,7 @@ describe('HandMotionShare', () => {
     const lit = [...svg.querySelectorAll('[data-lit], [data-tone="lit"]')];
     expect(lit).toHaveLength(1);
     expect(lit[0]!.closest('[data-part]')).toHaveAttribute('data-part', 'strokes');
-    expect(svg.getAttribute('aria-label')).toMatch(/straying up to 6.8 centimetres/);
+    expect(svg.getAttribute('aria-label')).toMatch(/straying up to 6.8 centimeters/);
     expect(screen.getByTestId('hand-motion-share-joints')).toHaveAttribute('aria-pressed', 'true');
   });
 

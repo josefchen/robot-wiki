@@ -38,7 +38,7 @@ describe('DroneChampionsTimeline', () => {
     expect(kicker).toBe('AI against human racing champions');
     expect(heading).toBe('Drones won twice; a gate collision decided the 2026 final');
     expect(caption).toBe(
-      'Dots mark drone wins over human champions in 2023 and 2025; the cross marks the 2026 loss after hitting a gate in the decider.',
+      'Dots mark drone wins over human champions in 2023 and 2025; the cross marks the 2026 final, lost when the drone struck a gate.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);

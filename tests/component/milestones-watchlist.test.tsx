@@ -28,7 +28,7 @@ describe('MilestonesWatchlist', () => {
   it('draws a scoreboard tile for each of the eight milestones with its status', () => {
     render(<MilestonesWatchlist />);
     expect(
-      screen.getByText('September 2026: eight tests, none complete, five partly achieved'),
+      screen.getByText('As of November 2026, none of eight milestones is met'),
     ).toBeInTheDocument();
     expect(screen.getAllByTestId(/^milestone-tile-/)).toHaveLength(8);
     for (const milestone of MILESTONES) {
@@ -82,7 +82,7 @@ describe('MilestonesWatchlist', () => {
     expect(scope.getByText(first.howWeKnow)).toBeInTheDocument();
     expect(scope.getByText(/why it matters/i)).toBeInTheDocument();
     expect(scope.getByText(/current status/i)).toBeInTheDocument();
-    expect(scope.getByText(/how we’d know/i)).toBeInTheDocument();
+    expect(scope.getByText(/how we'd know/i)).toBeInTheDocument();
   });
 
   it('switches the detail view when another tile is tapped', async () => {

@@ -4,13 +4,9 @@ import { join } from 'node:path';
 import { EXPLAINER_ORDER } from '../../components/explainers/catalog';
 import { HOME_FEATURED_PICKS, HOME_FEATURED_SCENE } from '../../data/home-featured';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '../../data/modules';
-import { recentlyUpdated } from '../../lib/content-dates';
-import {
-  FEATURED_DEK_MAX_WORDS,
-  HOME_ROTATING_WORDS,
-  longestRecentListWords,
-} from '../../lib/featured-article';
+import { FEATURED_DEK_MAX_WORDS } from '../../lib/featured-article';
 import { homeCounts } from '../../lib/home-counts';
+import { UPDATE_NOTE_MAX_WORDS, latestChanges } from '../../lib/home-updates';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { forEachInOwnContext } from './helpers/per-route-context';
 import {
@@ -24,9 +20,12 @@ import {
  * (VAL-WIKI-028). Served from the static export, because the counts, the
  * featured pick and the dates are fixed when the page is built.
  *
- * The featured scene's interaction and the tools line are measured by
- * brand-v2-home-tools.spec.ts (VAL-OPUS-017, VAL-OPUS-020); this file holds
- * the scene's served poster, its lazy load and its links.
+ * Owner-approved successor (Josef, 12 November 2026, the home redesign):
+ * the humanoid scene moved into the first screen beside the name, the one
+ * featured article became four "Start here" entries with pictures, "Recently
+ * updated" became "Latest" with readable dates and editor notes, and the
+ * tools line became "Explore" with a picture each. Every pin below moved to
+ * the new block at the same strength.
  */
 
 let BASE: string;
@@ -50,15 +49,14 @@ const words = (value: string) => value.split(/\s+/).filter(Boolean);
 const squash = (value: string) => value.replace(/\s+/g, ' ').trim();
 const trimSlash = (href: string) => href.replace(/\/$/, '');
 
-/** The seven blocks VAL-OPUS-022 permits in <main>, in order. */
+/** The six blocks VAL-OPUS-022 permits in <main>, in order. */
 const HOME_BLOCKS = [
   'Introduction',
+  'Start here',
+  'Latest',
   'Contents',
-  'Featured article',
-  'Featured scene',
   'Did you know',
-  'Recently updated',
-  'Tools',
+  'Explore',
 ];
 
 /** Texts the 01:25 addendum removed from home. */
@@ -188,31 +186,39 @@ test.describe('home front page', () => {
       }
     }
   });
-  test("features the editor's first pick with its home dek of 25 words or fewer (VAL-OPUS-016)", async ({
+  test("starts the reader at the editor's four picks, each with its picture and a dek of 14 words or fewer (VAL-OPUS-016)", async ({
     page,
   }) => {
-    const pick = HOME_FEATURED_PICKS[0];
-    expect(`${pick.domain}/${pick.slug}`).toBe('world-models/taxonomy');
+    expect(`${HOME_FEATURED_PICKS[0].domain}/${HOME_FEATURED_PICKS[0].slug}`).toBe('world-models/taxonomy');
     const main = await home(page);
-    const featured = main.getByRole('region', { name: 'Featured article' });
-    const links = featured.getByRole('link');
-    await expect(links).toHaveCount(1);
-    const href = (await links.first().getAttribute('href')) ?? '';
-    expect(href).toBe(`/${pick.domain}/${pick.slug}/`);
-    const title = getModule(pick.domain, pick.slug)?.title ?? '';
-    expect(squash(await links.first().innerText())).toBe(title);
-    const dek = squash(await featured.locator('[data-featured-dek]').innerText());
-    expect(dek).toBe(pick.dek);
-    expect(words(dek).length).toBeGreaterThan(5);
-    expect(words(dek).length).toBeLessThanOrEqual(FEATURED_DEK_MAX_WORDS);
-    expect(FEATURED_DEK_MAX_WORDS).toBeLessThanOrEqual(50);
-    expect(dek).not.toMatch(/\d/);
+    const start = main.getByRole('region', { name: 'Start here' });
+    const entries = start.locator('[data-start-here]');
+    await expect(entries).toHaveCount(4);
+    for (const [index, pick] of HOME_FEATURED_PICKS.slice(0, 4).entries()) {
+      const entry = entries.nth(index);
+      const title = getModule(pick.domain, pick.slug)?.title ?? '';
+      const link = entry.getByRole('heading', { level: 3 }).getByRole('link');
+      await expect(link).toHaveText(title);
+      await expect(link).toHaveAttribute('href', `/${pick.domain}/${pick.slug}/`);
+      const dek = squash(await entry.locator('[data-featured-dek]').innerText());
+      expect(dek).toBe(pick.dek);
+      expect(words(dek).length).toBeLessThanOrEqual(FEATURED_DEK_MAX_WORDS);
+      expect(FEATURED_DEK_MAX_WORDS).toBeLessThanOrEqual(14);
+      expect(dek).not.toMatch(/\d/);
+      // A real picture, sized before it loads, so nothing shifts.
+      const img = entry.getByRole('img');
+      await img.scrollIntoViewIfNeeded();
+      await expect(img).toHaveAttribute('width', /\d+/);
+      await expect(img).toHaveAttribute('height', /\d+/);
+      await expect.poll(() => img.evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+      await expect(entry.locator('[data-image-credit] a')).toHaveCount(2);
+    }
+    const href = `/${HOME_FEATURED_PICKS[0].domain}/${HOME_FEATURED_PICKS[0].slug}/`;
     const response = await page.goto(`${BASE}${href}`);
     expect(response?.status(), href).toBe(200);
-    await expect(page.locator('main h1').first()).toHaveText(title);
   });
 
-  test('features the humanoid explainer on its poster and loads no 3D kit until the reader starts it (VAL-OPUS-017)', async ({
+  test('sets the humanoid explainer beside the name on its poster and loads no 3D kit until the reader starts it (VAL-OPUS-017)', async ({
     page,
   }) => {
     const scripts: string[] = [];
@@ -228,15 +234,16 @@ test.describe('home front page', () => {
     ] as const) {
       const main = await home(page, width, height);
       await page.waitForLoadState('networkidle');
-      const scene = main.getByRole('region', { name: 'Featured scene' });
-      const frame = scene.getByRole('group', { name: '3D explainer: Inside a humanoid' });
+      const intro = main.getByRole('region', { name: 'Introduction' });
+      const frame = intro.getByRole('group', { name: '3D explainer: Inside a humanoid' });
       await expect(frame).toHaveAttribute('data-explainer-scene', HOME_FEATURED_SCENE.explainer);
-      await expect(scene.locator('#featured-scene-caption')).toHaveText(HOME_FEATURED_SCENE.caption);
-      expect(words(HOME_FEATURED_SCENE.caption).length).toBeLessThanOrEqual(25);
       const poster = frame.locator('[data-x="poster"]');
       await expect(poster).toBeVisible();
       await expect(poster).toHaveAttribute('src', '/explainers/posters/humanoid.webp');
       expect(await poster.evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+      // The poster shows in the first screen at both widths.
+      const box = await poster.boundingBox();
+      expect(box!.y, `poster in the first screen at ${width}px`).toBeLessThan(height - 150);
       await expect(frame.locator('canvas')).toHaveCount(0);
       const start = frame.getByRole('button', { name: HOME_FEATURED_SCENE.startLabel });
       await expect(start).toBeVisible();
@@ -256,20 +263,13 @@ test.describe('home front page', () => {
     await expect(frame.locator('[data-x="poster"]')).toBeHidden();
     expect(scripts.length, 'three.js once the reader starts the scene').toBeGreaterThan(0);
 
-    const links = page.getByRole('region', { name: 'Featured scene' }).getByRole('link');
-    await expect(links).toHaveCount(2);
+    const links = frame.getByRole('link');
+    await expect(links).toHaveCount(1);
     await expect(links.nth(0)).toHaveText(`All ${EXPLAINER_ORDER.length} explainers in How robots work`);
     await expect(links.nth(0)).toHaveAttribute('href', '/how-robots-work/');
-    await expect(links.nth(1)).toHaveText(
-      getModule(HOME_FEATURED_SCENE.related.domain, HOME_FEATURED_SCENE.related.slug)?.title ?? '',
-    );
-    await expect(links.nth(1)).toHaveAttribute(
-      'href',
-      `/${HOME_FEATURED_SCENE.related.domain}/${HOME_FEATURED_SCENE.related.slug}/`,
-    );
   });
 
-  test('keeps the featured scene still under reduced motion until the reader starts it', async ({
+  test('keeps the scene still under reduced motion until the reader starts it', async ({
     page,
   }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -283,6 +283,8 @@ test.describe('home front page', () => {
     expect(
       await page.evaluate(() => (window as unknown as { __explainer?: { live: boolean } }).__explainer?.live),
     ).toBe(false);
+    // And the page itself runs no animation.
+    expect(await page.evaluate(() => document.getAnimations().filter((a) => a.playState === 'running').length)).toBe(0);
   });
 
   test('"Did you know" holds three short facts, each cited and linked to the article that states it (VAL-OPUS-018)', async ({
@@ -344,26 +346,32 @@ test.describe('home front page', () => {
     expect(alone).toEqual([]);
   });
 
-  test('"Recently updated" lists the five latest dated changes, each dated as its JSON-LD states (VAL-OPUS-019)', async ({
+  test('"Latest" lists the five latest changes, each dated as its JSON-LD states or as its editor note (VAL-OPUS-019)', async ({
     page,
     browser,
   }) => {
     const main = await home(page);
-    const block = main.getByRole('region', { name: 'Recently updated' });
+    const block = main.getByRole('region', { name: 'Latest' });
     const rows = await block.getByRole('listitem').evaluateAll((items) =>
       items.map((item) => ({
         date: item.querySelector('time')?.getAttribute('datetime') ?? '',
+        printed: (item.querySelector('time')?.textContent ?? '').trim(),
         href: item.querySelector('a')?.getAttribute('href') ?? '',
+        note: item.querySelector('[data-latest-note]')?.textContent ?? undefined,
       })),
     );
-    const expected = recentlyUpdated(publishedModules(), 5).map((entry) => ({
-      date: entry.dateModified,
-      href: `/${entry.domain}/${entry.slug}/`,
-    }));
-    expect(rows).toEqual(expected);
+    const expected = latestChanges(5);
+    expect(rows.map(({ date, href, note }) => ({ date, href, note }))).toEqual(
+      expected.map((change) => ({ date: change.date, href: change.href, note: change.note })),
+    );
+    for (const row of rows) {
+      expect(row.printed).toMatch(/^\d{1,2} [A-Z][a-z]{2} \d{4}$/);
+      if (row.note) expect(words(row.note).length).toBeLessThanOrEqual(UPDATE_NOTE_MAX_WORDS);
+    }
     const dates = rows.map(({ date }) => date);
     expect([...dates].sort().reverse()).toEqual(dates);
-    await forEachInOwnContext(browser, rows, async (articlePage, row) => {
+    // A row without a note is dated by git, as the article's JSON-LD is.
+    await forEachInOwnContext(browser, rows.filter(({ note }) => !note), async (articlePage, row) => {
       await articlePage.goto(`${BASE}${row.href}`);
       const modified = await articlePage
         .locator('script[type="application/ld+json"]')
@@ -378,39 +386,34 @@ test.describe('home front page', () => {
     });
   });
 
-  test('<main> holds 250 words or fewer beside the contents titles, and no ornament (VAL-OPUS-021)', async ({
+  // Owner-approved successor (Josef, 12 November 2026, the home redesign):
+  // home prose is everything but article titles, the three facts and
+  // navigation labels, and it holds 250 words or fewer even with a full
+  // ten-word note on every "Latest" row.
+  test('<main> holds 250 words of prose or fewer beside article titles, facts and navigation, and no ornament (VAL-OPUS-021)', async ({
     page,
   }) => {
     const main = await home(page);
-    const total = words(await main.innerText()).length;
-    const runs = main
-      .getByRole('region', { name: 'Contents' })
-      .locator('ul[aria-label$=" articles"]');
-    const titles = await runs.locator('a').allInnerTexts();
-    const titleWords = titles.reduce((sum, title) => sum + words(title).length, 0);
-    expect(titles).toHaveLength(publishedModules().length);
-    // Subtracting the titles is exact only while each title stays a run of
-    // its own words; two titles set flush read as one word to innerText.
-    expect((await runs.allInnerTexts()).flatMap(words)).toEqual(titles.flatMap(words));
-    const counted = total - titleWords;
-    expect(counted, `${total} words, ${titleWords} of them contents titles`).toBeLessThanOrEqual(250);
-
-    // "Recently updated" changes with each content commit and the featured
-    // pick with an edit to its list. They share HOME_ROTATING_WORDS, which
-    // holds every pick beside the five longest titles an update could print,
-    // and the rest of <main> leaves that share free, so no content commit
-    // breaks the budget.
-    const featured = main.getByRole('region', { name: 'Featured article' });
-    const recentList = words(
-      await main.getByRole('region', { name: 'Recently updated' }).getByRole('list').innerText(),
-    ).length;
-    const rotating =
-      words(await featured.getByRole('link').innerText()).length +
-      words(await featured.locator('[data-featured-dek]').innerText()).length +
-      recentList;
-    expect(rotating).toBeLessThanOrEqual(HOME_ROTATING_WORDS);
-    expect(rotating - recentList + longestRecentListWords()).toBeLessThanOrEqual(HOME_ROTATING_WORDS);
-    expect(counted - rotating + HOME_ROTATING_WORDS, 'the fixed blocks with the rotating share').toBeLessThanOrEqual(250);
+    const counted = await main.evaluate((el) => {
+      const count = (text: string) => text.split(/\s+/).filter(Boolean).length;
+      let titles = 0;
+      let facts = 0;
+      let navigation = 0;
+      for (const a of el.querySelectorAll('a')) {
+        if (a.closest('[data-did-you-know]')) continue;
+        const href = a.getAttribute('href') ?? '';
+        if (/^\/[a-z0-9-]+\/[a-z0-9-]+\/?$/.test(href)) titles += count((a as HTMLElement).innerText);
+        else if (/^\/[a-z0-9-]+\/?$/.test(href)) navigation += count((a as HTMLElement).innerText);
+      }
+      for (const fact of el.querySelectorAll('[data-did-you-know]')) facts += count((fact as HTMLElement).innerText);
+      const notes = [...el.querySelectorAll('[data-latest-note]')].reduce(
+        (sum, note) => sum + count((note as HTMLElement).innerText),
+        0,
+      );
+      return { prose: count((el as HTMLElement).innerText) - titles - facts - navigation, notes };
+    });
+    const room = 5 * UPDATE_NOTE_MAX_WORDS - counted.notes;
+    expect(counted.prose + room, `${counted.prose} words of prose, room for ${room} more in notes`).toBeLessThanOrEqual(250);
 
     const registered = (
       JSON.parse(
@@ -431,6 +434,8 @@ test.describe('home front page', () => {
           const control = el.closest('form');
           let kind = 'ornament';
           if (el.closest('[data-motion-scene], [data-explainer-scene]')) kind = 'featured-scene';
+          else if (el.matches('img[data-image-id]') && el.closest('[data-start-here]')) kind = 'article-picture';
+          else if (el.matches('img') && el.closest('[data-explore]')) kind = 'explore-picture';
           else if (control && control.getAttribute('aria-label')) kind = 'form-control-icon';
           else if (
             device &&
@@ -444,6 +449,7 @@ test.describe('home front page', () => {
     }, registered);
     expect(graphics.filter(({ kind }) => kind === 'ornament')).toEqual([]);
     expect(graphics.some(({ kind }) => kind === 'featured-scene')).toBe(true);
+    expect(graphics.filter(({ kind }) => kind === 'article-picture')).toHaveLength(4);
     // Owner-approved successor (Josef, 2026-10-10, the research-page
     // standard): the one brand highlight is still the masthead's source
     // count, now set on the meta line in the page's own type instead of a
@@ -456,7 +462,7 @@ test.describe('home front page', () => {
     expect(await highlight.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe('rgba(0, 0, 0, 0)');
   });
 
-  test('home holds only the seven front-page blocks and none of the removed texts (VAL-OPUS-022)', async ({
+  test('home holds only the six front-page blocks and none of the removed texts (VAL-OPUS-022)', async ({
     page,
   }) => {
     const main = await home(page);

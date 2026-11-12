@@ -13,7 +13,7 @@
  * The camera row is Falanga, Kim and Scaramuzza's bound on the sensing
  * latency of a quadrotor's stereo frame camera (RA-L 2019, read
  * 2026-10-27), which they define as the interval from an obstacle
- * entering the sensing area to the start of the avoidance manoeuvre: a
+ * entering the sensing area to the start of the avoidance maneuver: a
  * lower bound of 0.017 s, the frame period of the fastest
  * sensor they found (Intel RealSense R200), and an upper bound of
  * 0.070 s, the latency the Bumblebee XB3 datasheet reports. Their
@@ -51,7 +51,7 @@ export const MONOCULAR_SECONDS: readonly [number, number] = [0.026, 0.04];
 export const DELAY_ROWS: readonly DelayRow[] = [
   {
     id: CAMERA_ID,
-    label: 'A drone’s stereo camera, sensing delay',
+    label: "A drone's stereo camera, sensing delay",
     row: 'Sensing delay, drone stereo camera',
     lowSeconds: 0.017,
     highSeconds: 0.07,

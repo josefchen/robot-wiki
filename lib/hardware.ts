@@ -107,10 +107,10 @@ export function filterHardware(
   );
 }
 
-/** "$17,000" or "$17,000-$32,000" when the source gives a range. */
+/** "$17,000" or "$17,000 to $32,000" when the source gives a range. */
 export function formatPrice(entry: HardwareEntry): string | null {
   if (entry.priceUsd === null) return null;
   const low = entry.priceUsd.toLocaleString('en-US');
   if (entry.priceMaxUsd === null) return `$${low}`;
-  return `$${low}-$${entry.priceMaxUsd.toLocaleString('en-US')}`;
+  return `$${low} to $${entry.priceMaxUsd.toLocaleString('en-US')}`;
 }

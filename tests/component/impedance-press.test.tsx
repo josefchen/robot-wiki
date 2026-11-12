@@ -115,8 +115,8 @@ describe('the spring press drawing', () => {
 describe('ImpedancePress', () => {
   it('draws the still pose: the medium spring two marks past the surface, no words in the drawing', () => {
     render(<ImpedancePress />);
-    expect(screen.getByText('This action sends target and stiffness for contact')).toBeInTheDocument();
-    expect(screen.getByText('This action sends target and stiffness for contact')).toHaveAttribute('data-figure-title');
+    expect(screen.getByText('Stiffness sets how hard the tool pushes on contact')).toBeInTheDocument();
+    expect(screen.getByText('Stiffness sets how hard the tool pushes on contact')).toHaveAttribute('data-figure-title');
     const relationship = screen.getByTestId('press-relationship');
     expect(relationship.textContent?.replace(/\s+/g, ' ').trim()).toBe('An action sends target and stiffness; once the surface stops the tool, push equals stiffness times target gap. Action: target +2 and stiffness 2.Action stiffnessSoftMediumStiffTarget2 marks past surfaceRun the press Controller: uses these settings to make the tool act like a spring. Shown response The surface stops the tool. Surface stops tool Shown target: 2 marks past surfaceSchematic push scale from 0 to 12 dial marks, without physical units.04812 ↓ Shown calculation sent stiffness: 2 × times target gap: 2 ruler marks = equals push: 4 dial marks 2 × 2 = 4 Ruler: target gap. Dial: push.');
     expect(relationship).toBeVisible();
@@ -588,8 +588,8 @@ describe('ImpedancePress', () => {
     expect(screen.getByTestId('press-general-rule').parentElement).toBe(screen.getByTestId('press-product-rule'));
     expect(screen.getByTestId('press-contact-clause')).toHaveTextContent(screen.getByTestId('press-position-condition').textContent!.trim());
     expect(screen.getByTestId('press-stage-frame').querySelector('[data-readout]')).toHaveTextContent('Medium · 1.5 marks short of surface · no push');
-    expect(screen.getByText('This action sends target and stiffness before contact')).toBeInTheDocument();
-    expect(screen.getByText('This action sends target and stiffness before contact')).toHaveAttribute('data-figure-title');
+    expect(screen.getByText('Before contact, stiffness has nothing to push against')).toBeInTheDocument();
+    expect(screen.getByText('Before contact, stiffness has nothing to push against')).toHaveAttribute('data-figure-title');
     expect(screen.getByTestId('press-stage-frame')).toHaveTextContent('Before contact, the tool follows the target and pushes on nothing.');
     expect(targetValue(0)).toBe('on the surface');
     expect(targetValue(1)).toBe('1 mark past surface');
@@ -635,7 +635,7 @@ describe('ImpedancePress', () => {
       expect(nearSurface).toBeLessThan(0.05);
       expect(screen.getByTestId('press-stage-frame').querySelector('[data-readout]')).toHaveTextContent('Medium · on the surface · no push');
       expect(screen.getByTestId('press-mechanism')).toHaveTextContent('No target gap means no push.');
-      expect(screen.getByText('This action sends target and stiffness at the surface')).toHaveAttribute('data-figure-title');
+      expect(screen.getByText('At the surface, the tool touches without pushing')).toHaveAttribute('data-figure-title');
       expect(screen.getByTestId('press-position-condition')).toHaveTextContent('Tool and target meet the surface without pushing.');
       expect(screen.getByTestId('press-general-rule')).toHaveTextContent(/^once the surface stops the tool, push equals stiffness times target gap\.$/);
     expect(screen.getByTestId('press-general-rule').parentElement).toBe(screen.getByTestId('press-product-rule'));
@@ -647,7 +647,7 @@ describe('ImpedancePress', () => {
       expect(drawing).toHaveAttribute('data-target', '0');
       expect(screen.getByTestId('press-action-message').textContent).toBe('target 0 and stiffness 2.');
       expect(screen.getByTestId('press-settings')).toHaveAccessibleName('An action sends two settings: target and stiffness');
-      expect(screen.getByText('This action sends target and stiffness at the surface')).toHaveAttribute('data-figure-title');
+      expect(screen.getByText('At the surface, the tool touches without pushing')).toHaveAttribute('data-figure-title');
       expect(screen.getByTestId('press-gap-guide')).toHaveAttribute('data-gap', '0');
       expect(screen.queryByTestId('press-gap-target-line')).not.toBeInTheDocument();
       expect(screen.getByTestId('press-gap-statement')).toHaveTextContent('Tool and target meet at the surface. Marked target gap: 0 ruler marks.');

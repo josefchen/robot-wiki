@@ -176,7 +176,7 @@ export const MPC_RL_COMPARISON_ROWS: ComparisonRow[] = [
     key: 'model-error',
     dimension: 'model error',
     mpc: 'Corrected online: every control step re-solves against the measured state, so model bias is rejected by feedback.',
-    rl: 'Must be anticipated at training time with domain randomization or system ID; the residual error is baked into the weights.',
+    rl: 'Must be anticipated at training time with domain randomization or system identification; the residual error is baked into the weights.',
   },
   {
     key: 'constraints',
@@ -199,8 +199,8 @@ export const MPC_RL_COMPARISON_ROWS: ComparisonRow[] = [
   {
     key: 'perception',
     dimension: 'rich perception',
-    mpc: 'Indirect: perceptive MPC plans against constraints extracted from elevation maps; there is no clean way to put an RGB image into a QP.',
-    rl: 'Natural: end-to-end from images or heightscans.',
+    mpc: 'Indirect: perceptive MPC plans against constraints extracted from elevation maps; there is no clean way to feed a camera image into the optimization.',
+    rl: 'Natural: end-to-end from images or height scans.',
   },
   {
     key: 'task-data',

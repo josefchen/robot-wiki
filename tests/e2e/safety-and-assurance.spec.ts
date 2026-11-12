@@ -607,7 +607,7 @@ test.describe('safety-and-assurance module', () => {
     const figure = page.locator('[data-figure-frame="safety-rules-timeline"]');
     await figure.scrollIntoViewIfNeeded();
     await expect(figure.locator('[data-figure-title]')).toHaveText(
-      '2025 standards; undated humanoid draft; learned-safety law in January 2027',
+      'Learned safety parts come under EU law in January 2027',
     );
     await expect(figure.getByTestId('safety-summary-industrial')).toBeVisible();
     await expect(figure.getByTestId('safety-summary-industrial')).toHaveText('2025Industrial robot safety standards renewed');

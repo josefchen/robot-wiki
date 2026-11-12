@@ -10,13 +10,27 @@ import { describe, expect, it } from 'vitest';
 import { GLOSSARY } from '@/data/glossary';
 import rehypeGlossaryLinks, { glossaryNames } from '@/lib/rehype-glossary-links.mjs';
 
-const terms = GLOSSARY.map(({ id, term }) => ({ id, term }));
+// The linking rules are tested on a fixed set of terms, so the cases do not
+// change meaning whenever the glossary gains or renames an entry; the real
+// registry is checked separately below.
+const terms = [
+  { id: 'behavior-cloning', term: 'behavior cloning' },
+  { id: 'world-model', term: 'world model' },
+  { id: 'teleoperation', term: 'teleoperation' },
+  { id: 'imitation-learning', term: 'imitation learning' },
+  { id: 'dagger', term: 'DAgger' },
+  { id: 'ppo', term: 'PPO' },
+  { id: 'end-effector', term: 'end effector' },
+  { id: 'point-cloud', term: 'point cloud' },
+  { id: 'operational-design-domain', term: 'operational design domain (ODD)' },
+];
+const registry = GLOSSARY.map(({ id, term }) => ({ id, term }));
 
-async function html(source: string): Promise<string> {
+async function html(source: string, glossary = terms): Promise<string> {
   const { default: Content } = await evaluate(source, {
     ...runtime,
     remarkPlugins: [remarkGfm, remarkMath],
-    rehypePlugins: [[rehypeKatex, { strict: false }], [rehypeGlossaryLinks, { terms }]],
+    rehypePlugins: [[rehypeKatex, { strict: false }], [rehypeGlossaryLinks, { terms: glossary }]],
   });
   return renderToStaticMarkup(
     createElement(Content, {
@@ -88,6 +102,15 @@ describe('rehype-glossary-links', () => {
     expect(glossaryNames('operational design domain (ODD)')).toEqual([
       'operational design domain (ODD)', 'operational design domain', 'ODD',
     ]);
+  });
+
+  it('links every registry term from a plain mention of its own name', async () => {
+    const misses: string[] = [];
+    for (const { id, term } of registry) {
+      const first = links(await html(`Here ${term} is mentioned.`, registry))[0];
+      if (!first?.startsWith(`${id}:`)) misses.push(`${id} ("${term}") -> ${first ?? 'no link'}`);
+    }
+    expect(misses).toEqual([]);
   });
 
   it('is wired into the MDX pipeline with the whole glossary registry', () => {

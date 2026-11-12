@@ -293,10 +293,10 @@ export function mapGeometryProblems(row: MapDataView): string[] {
       paint(mark, kind === 'totalRaised', selected, 1.5);
       if (!mark.label.includes(point.company.name) || !mark.label.includes(String(point.founded)) || !mark.label.includes(formatUsd(point.value))) errors.push(point.company.id + ': bubble lacks equivalent named year/value');
     }
-    if (!/Latest valuation/.test(row.legendText) || !/Total raised, where no valuation is disclosed/.test(row.legendText) || !/Open company/.test(row.legendText) || !/US\$, log scale/.test(row.plotText) || !/Founding year/.test(row.plotText)) errors.push('bubble legend omits an encoding');
+    if (!/Latest valuation/.test(row.legendText) || !/Total raised, where no valuation is disclosed/.test(row.legendText) || !/Selected company/.test(row.legendText) || !/US\$, log scale/.test(row.plotText) || !/Founding year/.test(row.plotText)) errors.push('bubble legend omits an encoding');
     swatch('Latest valuation', false, 4.5, 0);
     swatch('Total raised, where no valuation is disclosed', true, 3.75, 1.5);
-    swatch('Open company', false, 6, 0, true);
+    swatch('Selected company', false, 6, 0, true);
   } else {
     const events = expectedTimelineEvents(filtered).map(event => ({
       ...event,
@@ -322,10 +322,10 @@ export function mapGeometryProblems(row: MapDataView): string[] {
       paint(mark, amount === null, row.state === 'selected' && event.companyId === MAP_DATA_SELECTED, 1.25);
       if (!list.text.includes(event.companyName) || !list.text.includes(formatShortDate(event.date)) || !list.text.includes(amount === null ? absentState(event.company, 'round.amountUsd') === 'not-applicable' ? 'n/a' : 'not disclosed' : formatUsd(amount))) errors.push(event.companyId + ': timeline list loses a plotted fact');
     }
-    if (!/Disclosed amount/.test(row.legendText) || !/Amount undisclosed/.test(row.legendText) || !/Open company/.test(row.legendText) || !/Undisclosed/.test(row.plotText)) errors.push('timeline legend omits a value/unknown/highlight encoding');
+    if (!/Disclosed amount/.test(row.legendText) || !/Amount undisclosed/.test(row.legendText) || !/Selected company/.test(row.legendText) || !/Undisclosed/.test(row.plotText)) errors.push('timeline legend omits a value/unknown/highlight encoding');
     swatch('Disclosed amount', false, 3.5, 0);
     swatch('Amount undisclosed', true, 3, 1.25);
-    swatch('Open company', false, 5.5, 0, true);
+    swatch('Selected company', false, 5.5, 0, true);
   }
   return errors;
 }

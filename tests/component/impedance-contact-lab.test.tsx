@@ -34,7 +34,7 @@ describe('ImpedanceContactLab served HTML', () => {
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
     expect(lines).toContain(
-      'Force control can be set soft enough to spare the glass; the stiff arm only follows position and crushes it.Peak push 23.7 newtons · just under the crushing force',
+      'Pick an arm and how stiff it is, then press: a force-controlled arm set soft enough spares the glass.Peak push 23.7 newtons · just under the crushing force',
     );
     // The pain limit is off the gauge's scale; it is stated, with its citation, in the method fold.
     expect(lines.some((line) => /pain limit|Han et al/i.test(line))).toBe(false);
@@ -179,7 +179,7 @@ describe('ImpedanceContactLab', () => {
     const run = simulateContact(DEFAULT_PARAMS);
     expect(screen.getByTestId('impedance-press')).toHaveAttribute('data-arm', 'torque');
     expect(container.querySelector('[data-readout]')).toHaveTextContent('Peak push 23.7 newtons · just under the crushing force');
-    expect(screen.getByText('Force control keeps contact below the glass’s crushing force')).toBeInTheDocument();
+    expect(screen.getByText("Force control keeps contact below the glass's crushing force")).toBeInTheDocument();
     expect(screen.getByTestId('impedance-needle')).toHaveAttribute('data-newtons', run.steadyForceN.toFixed(1));
     expect(screen.getByTestId('impedance-needle').getAttribute('d')).toBe(needleAt(run.steadyForceN));
     expect(screen.getByTestId('impedance-peak-pointer')).toHaveAttribute('data-newtons', run.peakForceN.toFixed(1));
@@ -202,7 +202,7 @@ describe('ImpedanceContactLab', () => {
   it('starts each slider name with the label it prints', () => {
     render(<ImpedanceContactLab />);
     for (const [label, id] of [
-      ['Softness', 'stiffness'],
+      ['How stiff it is', 'stiffness'],
       ['How far it presses in', 'depth'],
       ['Calm the bounce', 'damping'],
     ] as const) {
@@ -262,7 +262,7 @@ describe('ImpedanceContactLab pressing again', () => {
     await waitFor(() => expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Pressing, slowed for the eye'), { timeout: 2000 });
     expect(readout()).toMatch(/^Pressing · /);
     await waitFor(() => expect(readout()).toBe('Peak push 34.7 newtons · past the crushing force'), { timeout: (PRESS_SECONDS + 2) * 1000 });
-    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Force control can be set soft enough to spare the glass; the stiff arm only follows position and crushes it.');
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Pick an arm and how stiff it is, then press: a force-controlled arm set soft enough spares the glass.');
     expect(screen.getByTestId('impedance-crack').style.opacity).toBe('1');
   }, 30_000);
 });

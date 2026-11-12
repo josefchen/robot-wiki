@@ -45,16 +45,16 @@ describe('SpaceLatencyLadder', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Delays a robot works within');
-    expect(heading).toBe('Camera: hundredths of seconds; Mars replies: 8 to 40 minutes');
+    expect(heading).toBe('Signals to Mars and back take 8 to 40 minutes');
     expect(caption).toBe(
-      'Drones use two camera views to sense in hundredths of a second; Mars takes 8 to 40 minutes round-trip, so robots there must act independently.',
+      'A Mars rover waits thousands of times longer for Earth than a drone waits for its camera, so it must act alone.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
     expect(words(caption)).toBeLessThanOrEqual(25);
-    const delay = screen.getByText('Mars messages take 8 to 40 minutes there and back');
+    const delay = screen.getByText('A signal to Mars and back takes 8 to 40 minutes');
     expect(delay.closest('details')).toBeNull();
-    expect(delay.parentElement).toHaveTextContent('A drone’s camera reacts in hundredths of a second.');
+    expect(delay.parentElement).toHaveTextContent("A drone's camera reacts in hundredths of a second.");
     expect(delay.parentElement).toHaveTextContent('a rover must act on its own');
     // One keyboard activation of the method fold reveals the complete table.
     expect(container.querySelector('details[data-figure-fold="method"]')).not.toHaveAttribute('open');

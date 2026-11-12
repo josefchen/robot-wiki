@@ -53,6 +53,8 @@ export interface WbcApproach {
   interfaceNote: string;
   /** Openness of code and weights. */
   openness: string;
+  /** A later system that keeps the same split, as the article reports it. */
+  later?: string;
 }
 
 export const WBC_APPROACHES: WbcApproach[] = [
@@ -83,10 +85,10 @@ export const WBC_APPROACHES: WbcApproach[] = [
       },
     ],
     stats: [
-      { label: 'S0 params', value: '10M' },
-      { label: 'S0 loop rate', value: '1000 Hz' },
-      { label: 'Motion data', value: '1000+ h' },
-      { label: 'Sim envs', value: '200,000+' },
+      { label: 'S0 size', value: '10M parameters' },
+      { label: 'S0 updates', value: '1,000 a second' },
+      { label: 'Human motion', value: '1,000+ hours' },
+      { label: 'Simulated worlds', value: '200,000+' },
     ],
     interfaceNote:
       'the retargeted human motion is the interface: layers above the tracking policy speak motion, never torque',
@@ -113,14 +115,16 @@ export const WBC_APPROACHES: WbcApproach[] = [
       },
     ],
     stats: [
-      { label: 'VLA params', value: '3B' },
-      { label: 'Action horizon', value: '40' },
-      { label: 'State/action', value: '132' },
-      { label: 'Human video', value: '20,000 h' },
+      { label: 'VLA size', value: '3B parameters' },
+      { label: 'Steps planned ahead', value: '40' },
+      { label: 'State and action size', value: '132 numbers' },
+      { label: 'Human video', value: '20,000 hours' },
     ],
     interfaceNote:
       'latent tokens are the interface: the VLA never names a joint, the controller never sees pixels',
     openness: 'code Apache-2.0, weights under the NVIDIA Open Model License',
+    later:
+      "GR00T 2 (November 2026) keeps the split: its 2-billion-parameter Turbo version steers SONIC from the G1's onboard computer at 124 milliseconds per prediction.",
   },
   {
     id: 'end-to-end-vla',
@@ -143,9 +147,9 @@ export const WBC_APPROACHES: WbcApproach[] = [
       },
     ],
     stats: [
-      { label: 'Embodiments', value: '3' },
-      { label: 'Hand DoF', value: '22' },
-      { label: 'Adaptation', value: '< 200 examples' },
+      { label: 'Robot bodies', value: '3' },
+      { label: 'Hand degrees of freedom', value: '22' },
+      { label: 'New robot adapts from', value: 'under 200 examples' },
       { label: 'Architecture', value: 'not disclosed' },
     ],
     interfaceNote:

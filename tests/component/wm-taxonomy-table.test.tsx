@@ -19,7 +19,7 @@ describe('WmTaxonomyTable', () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/joint-embedding/)).toBeInTheDocument();
     expect(screen.getByText(/Unified world-action/)).toBeInTheDocument();
-    expect(screen.getByText(/Symbolic/)).toBeInTheDocument();
+    expect(screen.getByText(/Structured world model/)).toBeInTheDocument();
   });
 
   it('populates the required cells for every row', () => {

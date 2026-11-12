@@ -12,7 +12,7 @@ const PLAIN_NAME: Record<string, string> = {
   'end-to-end-vla': 'Just make it bigger',
   'hierarchical-planner': 'A planner directs simple skills',
   'world-model-training': 'Let the robot imagine first',
-  'rl-finetuning': 'Copy first, then practise',
+  'rl-finetuning': 'Copy first, then practice',
   'teleop-bridge': 'Humans steer while robots learn',
   'form-factor': 'Human-shaped or built for the job',
 };

@@ -14,10 +14,13 @@ describe('PI_GENERATIONS registry', () => {
     }
   });
 
-  it('orders established dates without inventing a MEM month', () => {
+  it('orders source months and dates MEM by its March 2026 research post', () => {
     const dates = PI_GENERATIONS.map((g) => g.released).filter((date) => date !== null);
     expect([...dates].sort()).toEqual(dates);
-    expect(PI_GENERATIONS.find((g) => g.id === 'pi06-mem')?.released).toBeNull();
+    const mem = PI_GENERATIONS.find((g) => g.id === 'pi06-mem');
+    expect(mem?.released).toBe('2026-03');
+    expect(mem?.citationId).toBe('mem-blog-2026');
+    expect(mem?.addOnTo).toBe('π0.6');
   });
 
   it('marks exactly pi0, pi0-FAST, and pi0.5 as open weights', () => {

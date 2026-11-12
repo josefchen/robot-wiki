@@ -16,9 +16,17 @@
  * - AI Act: the Commission's policy page, "rules for high-risk AI systems
  *   embedded into regulated products (Annex I) have an extended transition
  *   period until 2 August 2028".
+ * - Regulation (EU) 2026/1744, the Digital Omnibus on AI (read 2026-11-12):
+ *   in force 27 July 2026; high-risk rules apply from 2 December 2027 for
+ *   Annex III systems and 2 August 2028 for Annex I systems, and the
+ *   Commission's delegated acts amending the Machinery Regulation's
+ *   essential requirements "should apply by 2 August 2028".
+ * - ISO 13482 second edition: ISO catalogue (read 2026-11-12), final-draft
+ *   ballot closed 2026-11-11 (50.60), now 60.00 under publication.
  *
  * Standards are dated by publication, the humanoid draft by the close of
- * its comment period, and the two EU laws by the day they apply.
+ * its comment period, the ISO 13482 revision by its final-draft vote, and
+ * the EU laws by the day they enter into force or apply.
  */
 
 export interface SafetyRule {
@@ -39,6 +47,9 @@ export interface SafetyRule {
 export const MACHINERY_RULE_ID = 'eu-machinery-regulation';
 export const HUMANOID_DRAFT_ID = 'iso-25785-1';
 export const AI_ACT_ID = 'eu-ai-act';
+export const OMNIBUS_ID = 'eu-ai-omnibus';
+export const SERVICE_ROBOT_ID = 'iso-13482';
+export const STANDALONE_AI_ID = 'eu-ai-act-standalone';
 
 export const SAFETY_RULES: readonly SafetyRule[] = [
   {
@@ -69,6 +80,24 @@ export const SAFETY_RULES: readonly SafetyRule[] = [
     citationIds: ['iso-cd-25785-1'],
   },
   {
+    id: OMNIBUS_ID,
+    label: 'EU Digital Omnibus on AI, Regulation 2026/1744',
+    row: 'Regulation (EU) 2026/1744, the Digital Omnibus on AI',
+    event: 'in force; moves machinery onto the AI Act\'s product track',
+    date: '2026-07-27',
+    dateText: '27 July 2026',
+    citationIds: ['eu-ai-omnibus-2026'],
+  },
+  {
+    id: SERVICE_ROBOT_ID,
+    label: 'ISO 13482 service-robot standard, second edition',
+    row: 'ISO 13482, second edition',
+    event: 'final-draft ballot passed; under publication',
+    date: '2026-11-11',
+    dateText: '11 November 2026',
+    citationIds: ['iso-13482-revision-2026'],
+  },
+  {
     id: MACHINERY_RULE_ID,
     label: 'EU Machinery Regulation, learned safety parts',
     row: 'EU Machinery Regulation 2023/1230',
@@ -78,13 +107,22 @@ export const SAFETY_RULES: readonly SafetyRule[] = [
     citationIds: ['eu-machinery-regulation-2023'],
   },
   {
+    id: STANDALONE_AI_ID,
+    label: 'EU AI Act, stand-alone high-risk AI',
+    row: 'EU AI Act, high-risk AI listed in Annex III',
+    event: 'applies',
+    date: '2027-12-02',
+    dateText: '2 December 2027',
+    citationIds: ['eu-ai-omnibus-2026'],
+  },
+  {
     id: AI_ACT_ID,
     label: 'EU AI Act, high-risk AI in regulated products',
     row: 'EU AI Act, high-risk AI in Annex I products',
-    event: 'applies',
+    event: 'applies, with the machinery delegated acts',
     date: '2028-08-02',
     dateText: '2 August 2028',
-    citationIds: ['eu-ai-act-framework-2026'],
+    citationIds: ['eu-ai-act-framework-2026', 'eu-ai-omnibus-2026'],
   },
 ];
 

@@ -173,5 +173,5 @@ export function formatCm(meters: number): string {
 /** A distance in meters as centimetres in words: one decimal, none when whole. */
 export function formatCentimetres(meters: number): string {
   const cm = (meters * 100).toFixed(1);
-  return `${cm.endsWith('.0') ? cm.slice(0, -2) : cm} centimetres`;
+  return `${cm.endsWith('.0') ? cm.slice(0, -2) : cm} centimeters`;
 }

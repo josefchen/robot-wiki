@@ -1,6 +1,9 @@
 import { act, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CompanyLogo } from '@/components/market-map/company-logo';
+import { CompanyDetail } from '@/components/market-map/company-card';
+import { GridView } from '@/components/market-map/grid-view';
+import { companyShortName } from '@/lib/market-map';
 import { COMPANIES } from '@/data/companies';
 import type { Company } from '@/data/schemas/company.ts';
 import { getCompanyLogo } from '@/data/logos';
@@ -226,5 +229,28 @@ describe('CompanyLogo', () => {
     expect(second).toHaveAttribute('data-logo-state', 'image');
     expect(second).toHaveAttribute('data-logo-src', '/images/logos/figure-ai.svg');
     expect(probes.some((entry) => entry.src === '/images/logos/figure-ai.svg')).toBe(true);
+  });
+});
+
+describe('a company without a registered logo', () => {
+  const figure = COMPANIES.find((company) => company.id === 'figure-ai')!;
+  const logoless: Company = { ...figure, logo: null };
+
+  it('keeps its map tile: no drawn mark, and the name printed in its place', () => {
+    const { container } = render(<GridView companies={[logoless]} selectedId={null} besideSheet={false} onSelect={() => {}} />);
+    const mark = container.querySelector('[data-company-logo="figure-ai"]');
+    expect(mark).toHaveAttribute('data-logo-state', 'none');
+    expect(mark).toHaveAttribute('data-logo-reason', 'missing');
+    expect(container.querySelector('[data-logo-state="image"]')).toBeNull();
+    expect(container.querySelector('[data-tile-name]')).toHaveTextContent(companyShortName(figure.name));
+  });
+
+  it('opens a card with no logo credit line and no link to a credit', () => {
+    const { container } = render(
+      <CompanyDetail company={logoless} headingId="logoless-heading" onClose={() => {}} />,
+    );
+    expect(screen.getByRole('heading', { name: figure.name })).toBeInTheDocument();
+    expect(container.querySelector('[data-logo-credit]')).toBeNull();
+    expect(container.querySelector('a[href^="/credits/"]')).toBeNull();
   });
 });

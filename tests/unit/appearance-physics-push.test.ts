@@ -137,8 +137,8 @@ describe('formatCm', () => {
 
 describe('formatCentimetres', () => {
   it('spells the unit and drops a whole number’s decimal', () => {
-    expect(formatCentimetres(displacementForForce(DEFAULT_FORCE_N))).toBe('18.1 centimetres');
-    expect(formatCentimetres(0)).toBe('0 centimetres');
-    expect(formatCentimetres(TRACK_MAX_M)).toBe('50 centimetres');
+    expect(formatCentimetres(displacementForForce(DEFAULT_FORCE_N))).toBe('18.1 centimeters');
+    expect(formatCentimetres(0)).toBe('0 centimeters');
+    expect(formatCentimetres(TRACK_MAX_M)).toBe('50 centimeters');
   });
 });

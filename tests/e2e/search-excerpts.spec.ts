@@ -594,7 +594,7 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
     // "Adjust more", is transport.
     await page.goto(`${BASE}/rl-sim2real/why-rl-locomotion/`);
     const contact = page.locator('main [data-figure-frame="contact-geometry"]');
-    const preset = contact.getByRole('button', { name: /coin’s thickness/ });
+    const preset = contact.getByRole('button', { name: /coin's thickness/ });
     await expect(preset).toBeVisible();
     expect(await preset.getAttribute('data-pagefind-ignore')).toBeNull();
     await openAdjustMore(contact);

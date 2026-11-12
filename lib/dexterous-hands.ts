@@ -79,12 +79,12 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     costSort: null,
     bet: 'vision-only',
     tradeoff:
-      'Most degrees of freedom here and a mass-production plan behind it, but the tendon design is unproven: Musk says the patented V3 hand "didn\'t actually work" and was redesigned.',
+      'Most degrees of freedom here and a mass-production plan behind it, but the tendon design is unproven: Musk says the patented V3 hand "didn\'t actually work" and was redesigned, and on the October 2026 earnings call Tesla named the hand one of its hardest hardware problems.',
     sourceId: 'droids-optimus-v3-hand-2026',
     sourceLabel: 'DROIDS',
-    secondarySourceId: 'teslarati-optimus-hand-2026',
-    secondarySourceLabel: 'Teslarati',
-    asOf: 'Apr 2026',
+    secondarySourceId: 'tesla-q3-2026-call',
+    secondarySourceLabel: 'Tesla Q3 2026 call',
+    asOf: 'Oct 2026',
   },
   {
     id: 'figure-02-03',

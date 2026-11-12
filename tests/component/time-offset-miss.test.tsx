@@ -64,10 +64,10 @@ describe('TimeOffsetMiss', () => {
   it('drives the gap from the one labelled speed slider', () => {
     const { container } = renderFigure();
     const slider = screen.getByRole('slider', { name: /Hand speed/ });
-    expect(slider).toHaveAttribute('aria-valuetext', expect.stringContaining('27.5 millimetres behind'));
+    expect(slider).toHaveAttribute('aria-valuetext', expect.stringContaining('27.5 millimeters behind'));
     fireEvent.change(slider, { target: { value: '100' } });
     expect(screen.getByTestId('time-offset-speed')).toHaveTextContent('100 cm a second');
-    expect(slider).toHaveAttribute('aria-valuetext', expect.stringContaining('55 millimetres behind'));
+    expect(slider).toHaveAttribute('aria-valuetext', expect.stringContaining('55 millimeters behind'));
     expect(container.querySelector('[data-readout]')).toHaveTextContent('photo 55 mm behind');
     fireEvent.change(slider, { target: { value: '0' } });
     expect(container.querySelector('[data-readout]')).toHaveTextContent('Standing still: no gap');

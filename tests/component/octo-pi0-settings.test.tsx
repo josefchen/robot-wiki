@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs';
 import { screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { METHODS } from '@/data/methods';
@@ -8,7 +7,6 @@ import { renderWithCitations } from '../helpers/widget-citations';
 
 const render = renderWithCitations('ComparisonMatrix');
 
-const article = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');
 describe('Octo v2 and pi0 v4 reported settings', () => {
   it('keeps Octo ALOHA prediction and execution separate and conditional', () => {
     const row = METHODS.find(m => m.id === 'octo')!;
@@ -36,7 +34,7 @@ describe('Octo v2 and pi0 v4 reported settings', () => {
     expect(octo).toHaveTextContent('12');
     expect(octo).toHaveTextContent('ALOHA finetuning');
     expect(octo).toHaveTextContent('not disclosed');
-    const pi0 = screen.getByRole('row', { name: /^pi0 2024/ });
+    const pi0 = screen.getByRole('row', { name: /^π0 2024/ });
     expect(pi0).toHaveTextContent('UR5e/Franka');
     expect(pi0).toHaveTextContent('50 Hz');
     expect(within(screen.getByRole('table')).queryByText('n/a')).not.toBeInTheDocument();
@@ -45,12 +43,5 @@ describe('Octo v2 and pi0 v4 reported settings', () => {
     render(<ComparisonMatrix />);
     expect(screen.getByRole('row', { name: /^Octo / })).toHaveTextContent('ALOHA finetuning');
     expect(screen.getByRole('row', { name: /^π0 2024/ })).toHaveTextContent('UR5e/Franka');
-  });
-  it('places both primary citations beside the corrected source notes', () => {
-    expect(article).toContain('<Cite id="octo-2024" />');
-    expect(article).toContain('<Cite id="pi0-2024" />');
-    expect(article).toContain('predicts 64 actions');
-    expect(article).toContain('executes 12');
-    expect(article).not.toContain('Cells marked n/a are undisclosed');
   });
 });

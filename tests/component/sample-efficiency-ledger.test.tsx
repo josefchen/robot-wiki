@@ -41,10 +41,10 @@ describe('SampleEfficiencyLedger', () => {
   it('labels the measured region and the modelled region separately', () => {
     render(<SampleEfficiencyLedger />);
     expect(screen.getByTestId('sample-measured-label')).toHaveTextContent(
-      /reported times, including “under” limits/i,
+      /reported times, including "under" limits/i,
     );
     expect(screen.getByTestId('sample-modelled-label')).toHaveTextContent(
-      /modelled/i,
+      /modeled/i,
     );
     expect(screen.getByTestId('sample-modelled-label')).toHaveTextContent(
       /not measured/i,

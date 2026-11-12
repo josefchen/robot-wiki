@@ -26,14 +26,14 @@ describe('deployment-reality data', () => {
     expect(figure.status).toBe('verified');
     expect(figure.asOf).toBe('Nov 19, 2025');
     expect(figure.sourceId).toBe('figure-bmw-production-2025');
-    expect(figure.detail).toContain('targets, not achieved KPIs');
-    // Tesla: construction stage from its own Q2 update, never a build count.
+    expect(figure.detail).toContain('targets, not achieved results');
+    // Tesla: the production stage its own Q3 update prints, never a build count.
     const tesla = byId.get('tesla-optimus')!;
-    expect(tesla.value).toBe('Construction');
+    expect(tesla.value).toBe('Early ramp');
     expect(tesla.status).toBe('verified');
-    expect(tesla.asOf).toBe('Q2 2026');
-    expect(tesla.sourceId).toBe('tesla-q2-2026-update');
-    expect(tesla.detail).toContain('installed capacity is not output');
+    expect(tesla.asOf).toBe('Q3 2026');
+    expect(tesla.sourceId).toBe('tesla-q3-2026-update');
+    expect(tesla.detail).toContain('with no production rate');
   });
 
   it('keeps three verified rows and one claimed row', () => {
@@ -54,7 +54,7 @@ describe('deployment-reality data', () => {
 
   it('gives every row an as-of label, a source label, and a non-empty figure', () => {
     const dated =
-      /^(?:Nov 19, 2025|Q2 2026|Sep 15, 2026|Sep 17, 2026)$/;
+      /^(?:Nov 19, 2025|Q3 2026|Sep 15, 2026|Sep 17, 2026)$/;
     for (const row of DEPLOYMENT_ROWS) {
       expect(row.asOf, `row ${row.id} asOf`).toMatch(dated);
       expect(row.sourceLabel.length, `row ${row.id} sourceLabel`).toBeGreaterThan(0);

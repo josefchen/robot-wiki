@@ -51,14 +51,14 @@ describe('SurgicalAutonomyLadder', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Six levels of surgical autonomy');
-    expect(heading).toBe('Authorized: level 1; research on removed tissue: level 4');
+    expect(heading).toBe('Authorized surgical robots reach level 1; research claims level 4');
     expect(caption).toBe(
-      'In this comparison’s six levels, FDA-authorized platforms reach level 1; SRT-H’s authors claim level 4 for research on tissue outside a body.',
+      'Every FDA-authorized surgical robot sits at level 0 or 1; everything higher is research on animals or on tissue removed from the body.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
     expect(words(caption)).toBeLessThanOrEqual(25);
-    const comparison = screen.getByText('Authorized platforms here reach level 1; SRT-H’s authors claim level 4');
+    const comparison = screen.getByText("Authorized platforms here reach level 1; SRT-H's authors claim level 4");
     expect(comparison.closest('details')).toBeNull();
     expect(comparison.parentElement).toHaveTextContent('Six levels, numbered 0 to 5.');
     expect(comparison.parentElement).toHaveTextContent('for research on tissue outside a body.');

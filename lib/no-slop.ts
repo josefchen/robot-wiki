@@ -483,7 +483,7 @@ export type StructuralTellFinding = SlopFinding & {
 /**
  * Blank a leading MDX frontmatter block, keeping line numbers intact.
  * Frontmatter is YAML metadata (title, citation ids like
- * "diffusion-policy-2023-v1", seeAlso slugs), never reader prose, so the
+ * "iso-10218-1-2025", seeAlso slugs), never reader prose, so the
  * structural-tell floor must not count it.
  */
 function maskMdxFrontmatter(body: string): string {

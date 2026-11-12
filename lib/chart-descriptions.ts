@@ -77,7 +77,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/data-scale-chart.tsx',
     route: '/data-hardware/data-bottleneck/',
     quantityNames: ['hours', 'tokens'],
-    text: 'Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 6 robot and human datasets, and companies report unreleased totals of 100,000+ h (Xiaomi), 270,000+ h (GEN-0) and 500,000+ h (GEN-1), while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), on separate rulers with no honest hour-to-token exchange rate between them; your 10-rig farm at the low-rate hypothetical rate projects 70 h per year, reaching the authored 10,000-hour target in 143 yr and the authored 1,000,000-hour target in 14,286 yr. No OXE hour estimate is supplied or plotted here.',
+    text: 'Demonstration hours span 350 h (DROID) to 402,730 h (GR00T 2) across 7 robot and human-video collections, and companies report unreleased totals of 100,000+ h (Xiaomi), 270,000+ h (GEN-0) and 500,000+ h (GEN-1), while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), on separate rulers with no honest hour-to-token exchange rate between them; your 10-rig farm at the low-rate hypothetical rate projects 70 h per year, reaching the authored 10,000-hour target in 143 yr and the authored 1,000,000-hour target in 14,286 yr. No OXE hour estimate is supplied or plotted here.',
   },
   {
     component: 'GaitDiagram',
@@ -191,14 +191,14 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/impedance-contact-lab.tsx',
     route: '/classical/control/',
     quantityNames: ['contact', 'limit'],
-    text: 'On the arm that controls its own push at press depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, the contact peaks at 23.7 N, under the 25 N crush force, and settles at 1.6 N; the 255 N research-basis transient limit is not reached: object intact.',
+    text: 'On the arm that controls its own push at press depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, the contact peaks at 23.7 N, under the 25 N crush force, and settles at 1.6 N; the 255 N pain limit for a brief knock to a person is not reached: object intact.',
   },
   {
     component: 'PerceptionErrorBudget',
     file: 'components/interactive/perception-error-budget.tsx',
     route: '/classical/perception/',
     quantityNames: ['root-sum-of-squares magnitude', 'model band'],
-    text: 'At an authored angle of 0.5 degrees and axial distance 0.50 m, the model\'s root-sum-of-squares magnitude is 11.32 mm against its 15 mm comparison band. depth sensing contributes 78% of the sum of squared inputs. Model band: within model band.',
+    text: 'At a tilt of 0.5 degrees and a distance of 0.50 m, the model\'s root-sum-of-squares magnitude is 11.32 mm against its 15 mm teaching band. Depth sensing contributes 78% of the sum of squared inputs. Model band: under 15 mm.',
   },
   {
     component: 'PerceptionErrorBudgetSightLine',
@@ -296,7 +296,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/hardware-price-ladder.tsx',
     route: '/data-hardware/hardware-taxonomy/',
     quantityNames: ['prices', 'arms'],
-    text: 'Listed prices of 15 robot products on a ruler that steps by ten times: arms from $295 (SO-ARM101 Pro kit) to $70,000 (Reachy 2), humanoids from $4,900 (Unitree R1 Air) to $29,900 (Unitree H2), and robot computers from $2,999 (Jetson Thor T4000) to $4,999 (Jetson Thor T5000). EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.',
+    text: 'Listed prices of 16 robot products on a ruler that steps by ten times: arms from $295 (SO-ARM101 Pro kit) to $70,000 (Reachy 2), humanoids from $2,490 (FF Nova) to $29,900 (Unitree H2), and robot computers from $2,999 (Jetson Thor T4000) to $4,999 (Jetson Thor T5000). EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.',
   },
   {
     component: 'UmiCollectionRates',
@@ -317,7 +317,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/safety-rules-timeline.tsx',
     route: '/frontier/safety-and-assurance/',
     quantityNames: ['published', 'applies'],
-    text: "Five robot safety rules by date: ISO 10218 parts 1 and 2 were published on 5 February 2025; the US adoption, ANSI/A3 R15.06-2025, was published with all three parts on 29 October 2025; the humanoid committee draft ISO/CD 25785-1 closed its comment period on 8 July 2026, with no date yet for its next stage; the EU Machinery Regulation, which lists machine-learning safety components, applies from 20 January 2027; and the AI Act's rules for high-risk AI in regulated products apply from 2 August 2028.",
+    text: "Eight robot safety rules by date: ISO 10218 parts 1 and 2 were published on 5 February 2025; the US adoption, ANSI/A3 R15.06-2025, was published with all three parts on 29 October 2025; the humanoid committee draft ISO/CD 25785-1 closed its comment period on 8 July 2026, with no date yet for its next stage; the EU's Digital Omnibus on AI entered into force on 27 July 2026; the second edition of ISO 13482, for service robots, passed its final-draft ballot on 11 November 2026; the EU Machinery Regulation, which lists machine-learning safety components, applies from 20 January 2027; the AI Act's rules for stand-alone high-risk AI apply from 2 December 2027; and its rules for high-risk AI in regulated products apply from 2 August 2028, the date by which the machinery delegated acts must apply.",
   },
   {
     component: 'HelixZeroShotSuccess',
@@ -338,7 +338,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/space-latency-ladder.tsx',
     route: '/adjacent/space/',
     quantityNames: ['milliseconds', 'minutes'],
-    text: "Three delays on a scale that steps by ten times. A drone's stereo camera needs 17 to 70 milliseconds from an obstacle coming into view to the start of a dodge, by Falanga and colleagues' bounds. A signal to the Moon and back takes 2.5 seconds, and to Mars and back 8 to 40 minutes, twice JPL's one-way 4 to 20 minutes. JPL says the Mars delay rules out driving a rover from Earth and motivates autonomy.",
+    text: "Three delays on a compressed scale. The labeled ticks are one second, one minute and one hour: each is 60 times the previous one. A drone's stereo camera needs 17 to 70 milliseconds from an obstacle coming into view to the start of a dodge, by Falanga and colleagues' bounds. A signal to the Moon and back takes 2.5 seconds, and to Mars and back 8 to 40 minutes, twice JPL's one-way 4 to 20 minutes. JPL says the Mars delay rules out driving a rover from Earth and motivates autonomy.",
   },
   {
     component: 'SurgicalAutonomyLadder',
@@ -352,14 +352,14 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/drone-champions-timeline.tsx',
     route: '/adjacent/drones/',
     quantityNames: ['races', 'champions'],
-    text: "Three contests between autonomous racing drones and human champions. Swift, from the University of Zurich, won 15 of 25 races against three champions in its own lab, reported in Nature in August 2023. In April 2025 TU Delft's MonoRace won the A2RL race in Abu Dhabi, beating three human world champions in a knockout on hardware and a track the organisers set. In January 2026 world FPV champion Minchan Kim beat TII Racing's drone in a best-of-nine final: at four wins each, the drone struck a gate in the deciding race and could not recover.",
+    text: "Three contests between autonomous racing drones and human champions. Swift, from the University of Zurich, won 15 of 25 races against three champions in its own lab, reported in Nature in August 2023. In April 2025 TU Delft's MonoRace won the A2RL race in Abu Dhabi, beating three human world champions in a knockout on hardware and a track the organizers set. In January 2026 world FPV champion Minchan Kim beat TII Racing's drone in a best-of-nine final: at four wins each, the drone struck a gate in the deciding race and could not recover.",
   },
   {
     component: 'DroneDeliveryCounts',
     file: 'components/interactive/drone-delivery-counts.tsx',
     route: '/adjacent/drones/',
     quantityNames: ['deliveries', 'companies'],
-    text: "Cumulative drone deliveries as the companies report them. Zipline reports more than 3 million deliveries since its first commercial delivery in 2016, on a fact sheet read in October 2026. Wing reported well over 1 million commercial deliveries in June 2026. Both are lower bounds. Walmart's million drone deliveries are not added, because its providers include Wing and Zipline.",
+    text: "Cumulative drone deliveries as the companies report them. Zipline reports more than 3 million deliveries since its first commercial delivery in 2016, on a fact sheet read in October 2026. Wing reported well over 1 million commercial deliveries in June 2026. Both are lower bounds. Walmart's more than 2 million drone deliveries, reported in November 2026, are not added, because its providers include Wing and Zipline.",
   },
   {
     component: 'HumanoidPickHeight',
@@ -394,7 +394,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/robots-per-gpu.tsx',
     route: '/rl-sim2real/parallel-sim-rl/',
     quantityNames: ['robots', 'GPU'],
-    text: '16,384 simulated robots practise at once, the most on one workstation GPU, which is 128 times the 128 typical of CPU simulators; each square in the grid stands for 128 robots.',
+    text: '16,384 simulated robots practice at once, the most on one workstation GPU, which is 128 times the 128 typical of CPU simulators; each square in the grid stands for 128 robots.',
   },
   {
     component: 'NewtonSolvers',
@@ -415,7 +415,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/hindsight-relabel.tsx',
     route: '/rl-sim2real/rl-for-robotics/',
     quantityNames: ['reward'],
-    text: 'Judged against the goal it was given, the recorded push misses and earns a reward of 0; relabelled with the spot where the puck ended, the same push earns 1, so 1 missed push also yields 1 success to learn from.',
+    text: 'Judged against the goal it was given, the recorded push misses and earns a reward of 0; relabeled with the spot where the puck ended, the same push earns 1, so 1 missed push also yields 1 success to learn from.',
   },
   {
     component: 'ScannedTwinCheck',
@@ -527,7 +527,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/contact-geometry.tsx',
     route: '/rl-sim2real/why-rl-locomotion/',
     quantityNames: ['error', 'clearance'],
-    text: 'Locomotion at 2.0 mm of contact-model error stays stable: all 4 paws stay loaded as the front pair steps down to the real floor, inside the 20 mm a gait absorbs, with 18.0 mm of margin left. The peg at the same error jams on the edge of the real hole, past its 0.5 mm clearance, so its 14 distributed contacts cannot absorb millimetres the way a gait can.',
+    text: 'Locomotion at 2.0 mm of contact-model error stays stable: all 4 paws stay loaded as the front pair steps down to the real floor, inside the 20 mm a gait absorbs, with 18.0 mm of margin left. The peg at the same error jams on the edge of the real hole, past its 0.5 mm clearance, so its 14 distributed contacts cannot absorb millimeters the way a gait can.',
   },
   {
     component: 'TeacherStudent',
@@ -555,7 +555,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/appearance-physics-push.tsx',
     route: '/world-models/generative-sim/',
     quantityNames: ['picture', 'push'],
-    text: 'With only the picture, a push of 4 newtons leaves the mug at 0 centimetres: a picture has no shape, weight or friction for a solver to push against.',
+    text: 'With only the picture, a push of 4 newtons leaves the mug at 0 centimeters: a picture has no shape, weight or friction for a solver to push against.',
   },
   {
     component: 'PiGenerationTimeline',
@@ -597,7 +597,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/wm-disambiguator.tsx',
     route: '/world-models/taxonomy/',
     quantityNames: ['latent', 'reward'],
-    text: 'Latent dynamics (Dreamer-style), one of 3 groups out of 6 that imagine a compressed summary, predicts the next latent, a reward and a continue signal, and draws pictures only during training; of the 4 uses, it serves policy learning.',
+    text: 'Latent dynamics (Dreamer-style), one of 3 families out of 6 that imagine a compressed summary, predicts the next latent, a reward and a continue signal, and draws pictures only during training; of the 4 uses, it serves policy learning.',
   },
   {
     component: 'DeploymentEconomics',

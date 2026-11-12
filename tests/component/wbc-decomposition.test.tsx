@@ -10,9 +10,9 @@ function approachButton(name: RegExp) {
 describe('WbcDecomposition', () => {
   it('renders the three approach buttons, the stack diagram, stats, and reset', () => {
     render(<WbcDecomposition />);
-    expect(approachButton(/^figure ai$/i)).toBeInTheDocument();
-    expect(approachButton(/^nvidia$/i)).toBeInTheDocument();
-    expect(approachButton(/^google deepmind$/i)).toBeInTheDocument();
+    expect(approachButton(/^figure helix 02$/i)).toBeInTheDocument();
+    expect(approachButton(/^nvidia gr00t and sonic$/i)).toBeInTheDocument();
+    expect(approachButton(/^gemini robotics 2$/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     expect(screen.getByTestId('wbc-diagram')).toBeInTheDocument();
     expect(screen.getByTestId('representative-readout')).toBeInTheDocument();
@@ -23,9 +23,9 @@ describe('WbcDecomposition', () => {
 
   it('names whose robot brain each design is and keeps the technical names one click away', () => {
     const { container } = render(<WbcDecomposition />);
-    expect(screen.getByRole('group', { name: 'Robot brain by' })).toBeInTheDocument();
+    expect(screen.getByRole('group', { name: 'Whole-body system' })).toBeInTheDocument();
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Robot brains are layered: slow thinking above, fast reflexes below',
+      'Three 2026 systems split deciding from balancing differently',
     );
     expect(screen.getByTestId('humanoid')).toBeInTheDocument();
     const diagram = screen.getByTestId('wbc-diagram');
@@ -69,7 +69,7 @@ describe('WbcDecomposition', () => {
 
   it('defaults to the Helix 02 S0 motion-tracking stack with sourced figures', () => {
     render(<WbcDecomposition />);
-    expect(approachButton(/^figure ai$/i)).toHaveAttribute(
+    expect(approachButton(/^figure helix 02$/i)).toHaveAttribute(
       'aria-pressed',
       'true',
     );
@@ -90,8 +90,8 @@ describe('WbcDecomposition', () => {
     const user = userEvent.setup();
     render(<WbcDecomposition />);
     const before = screen.getByTestId('wbc-diagram').innerHTML;
-    await user.click(approachButton(/^nvidia$/i));
-    expect(approachButton(/^nvidia$/i)).toHaveAttribute(
+    await user.click(approachButton(/^nvidia gr00t and sonic$/i));
+    expect(approachButton(/^nvidia gr00t and sonic$/i)).toHaveAttribute(
       'aria-pressed',
       'true',
     );
@@ -112,7 +112,7 @@ describe('WbcDecomposition', () => {
   it('switching to the end-to-end VLA shows one policy feet to fingertips', async () => {
     const user = userEvent.setup();
     render(<WbcDecomposition />);
-    await user.click(approachButton(/^google deepmind$/i));
+    await user.click(approachButton(/^gemini robotics 2$/i));
     expect(screen.getByTestId('representative-readout')).toHaveTextContent(
       /Gemini Robotics 2/,
     );
@@ -122,7 +122,7 @@ describe('WbcDecomposition', () => {
     );
     expect(screen.getByTestId('wbc-stats')).toHaveTextContent('22');
     expect(screen.getByTestId('wbc-stats')).toHaveTextContent(
-      '< 200 examples',
+      'under 200 examples',
     );
     expect(screen.getByTestId('wbc-layers')).toHaveTextContent(
       /feet to fingertips/i,
@@ -135,9 +135,9 @@ describe('WbcDecomposition', () => {
   it('reset restores the default approach after interaction', async () => {
     const user = userEvent.setup();
     render(<WbcDecomposition />);
-    await user.click(approachButton(/^google deepmind$/i));
+    await user.click(approachButton(/^gemini robotics 2$/i));
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(approachButton(/^figure ai$/i)).toHaveAttribute(
+    expect(approachButton(/^figure helix 02$/i)).toHaveAttribute(
       'aria-pressed',
       'true',
     );
@@ -157,7 +157,7 @@ describe('WbcDecomposition', () => {
     const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
     expect(desc?.textContent).toMatch(/Motion-tracking RL/);
     expect(desc?.textContent).toMatch(/1000 Hz/);
-    fireEvent.click(approachButton(/^nvidia$/i));
+    fireEvent.click(approachButton(/^nvidia gr00t and sonic$/i));
     const moved = container.querySelector('[data-chart-description]')
       ?.textContent ?? '';
     expect(moved).toMatch(/Latent-action hierarchy/);
@@ -169,7 +169,7 @@ describe('WbcDecomposition', () => {
     render(<WbcDecomposition />);
     const diagram = screen.getByRole('img');
     expect(diagram).toHaveAccessibleName(/motion-tracking/i);
-    await user.click(approachButton(/^nvidia$/i));
+    await user.click(approachButton(/^nvidia gr00t and sonic$/i));
     expect(screen.getByRole('img')).toHaveAccessibleName(/latent/i);
   });
 });

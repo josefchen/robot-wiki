@@ -29,7 +29,7 @@ const SCENES = [
       /Measure: a sensor/,
       /Blend: the robot mixes/,
       /in numbers, then in symbols/,
-      /Mixing the robot’s guess with the sensor reading narrows the possible position/,
+      /Mixing the robot's guess with the sensor reading narrows where the robot might be/,
     ],
   },
   {

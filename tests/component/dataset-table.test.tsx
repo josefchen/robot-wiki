@@ -158,7 +158,7 @@ describe('DatasetTable', () => {
     const user = userEvent.setup();
     render(<DatasetTable />);
     // RoboMIND is the only 100k-1M dataset, and it is multi-platform.
-    await user.click(screen.getByRole('button', { name: /100k-1M episodes/i }));
+    await user.click(screen.getByRole('button', { name: /100k to 1M episodes/i }));
     await user.click(
       screen.getByRole('button', { name: /^single platform$/i }),
     );

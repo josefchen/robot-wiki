@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs';
 import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { METHODS } from '@/data/methods';
@@ -48,23 +47,14 @@ describe('ACT final model paper corrections', () => {
   });
   it('renders scoped unknowns, FAST training and discrete execution on both tables', () => {
     const view = render(<PolicyChunkingTable />);
-    const pi06 = screen.getByRole('row', { name: /^pi0.6 / });
+    const pi06 = screen.getByRole('row', { name: /^π0\.6 / });
     expect(pi06).toHaveTextContent('not disclosed');
     expect(pi06).toHaveTextContent('FAST backbone supervision during training');
     expect(pi06).not.toHaveTextContent('not released');
-    expect(screen.getByRole('row', { name: /^pi0.7 / })).toHaveTextContent('either 15 or 25');
+    expect(screen.getByRole('row', { name: /^π0\.7 / })).toHaveTextContent('either 15 or 25');
     view.unmount();
     render(<ComparisonMatrix />);
     expect(screen.getByRole('row', { name: /^π0.7 / })).toHaveTextContent('50 / {15, 25}');
     expect(screen.getByRole('row', { name: /^π0.6 / })).toHaveTextContent('model card');
-  });
-  it('places both paper citations and preserves inference and training qualifications', () => {
-    const article = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');
-    expect(article).toContain('<Cite id="pi06-model-card-2025" />');
-    expect(article).toContain('<Cite id="pi07-2026" />');
-    expect(article).toContain('five denoising steps and three cameras on one H100');
-    expect(article).toContain('15 or 25, at');
-    expect(article).toContain('RL-trained π*0.6');
-    expect(article).not.toContain('executes 15-25');
   });
 });

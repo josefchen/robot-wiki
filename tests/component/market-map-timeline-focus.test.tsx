@@ -64,39 +64,14 @@ describe('FundingTimeline roving keyboard access', () => {
   it('is a single tab stop: one row tabbable, the rest not', () => {
     render(<Timeline />);
     const all = rows();
-    // 71 of the 111 companies have a 2023-2026 dated round; all render.
-    // 73 -> 72 when the 2026-08-18 figure-corrections pass nulled the
-    // clone-robotics and hanson-robotics rounds (aggregator conflicts).
-    // 72 -> 71 when the batch-3 re-verification pass (2026-08-18) nulled
-    // robot-era's round date: every fetched body says "over $200 million
-    // led by SF Group" with no day stated, so the bound-shaped round lost
-    // its aggregator-only 2026-04-01 date and its timeline row.
-    // 71 -> 72 when the 2026-10-19 data pass recorded Farm-ng's acquisition
-    // by Bonsai Robotics (24 July 2025, terms undisclosed, first-party
-    // release), which is a dated 2023-2026 event.
-    // 72 -> 71 when the 2026-10-19 field audit cut Physical Intelligence's
-    // round date: The Robot Report says only that it raised "last week".
-    // 71 -> 72 when the 2026-10-20 field audit gave Symbotic its latest
-    // raise, the public offering it priced on 4 December 2025.
-    // 72 -> 73 when the same audit gave Locus Robotics its latest raise, the
-    // still-open Series G reported on 1 September 2026.
-    // 73 -> 75 when the same audit gave CMR Surgical Stryker's investment
-    // of 12 October 2026 and Moon Surgical its Series B of 17 May 2023.
-    // 75 -> 76 when the same audit gave XELA Robotics Plug and Play's
-    // strategic investment of 29 April 2026.
-    // 76 -> 77 when the same audit moved Formic's latest round to its
-    // Series A extension of 25 June 2024.
-    // 77 -> 76 when the same audit cut the round dates of Leju Robotics and
-    // Coco Robotics ("this week" in The Robot Report) and gave Starship
-    // Technologies its Series C of 15 October 2025.
-    // 76 -> 77 when the same audit gave Pollen Robotics its acquisition by
-    // Hugging Face of 14 April 2025 and Anduril its Series H of 13 May 2026,
-    // and cut the undated day of Symbotic's purchase of Fox Robotics.
-    expect(all.length).toBe(77); // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
+    // One row per company with a 2023-2026 dated round; all render.
+    const dated = timelineEvents(COMPANIES).length;
+    expect(dated).toBeGreaterThan(1);
+    expect(all.length).toBe(dated);
     const tabbable = all.filter((el) => el.tabIndex === 0);
     const roving = all.filter((el) => el.tabIndex === -1);
     expect(tabbable).toHaveLength(1);
-    expect(roving).toHaveLength(76); // 77 dated rows minus the one tabbable
+    expect(roving).toHaveLength(dated - 1);
   }, TIMEOUT);
 
   it('moves down to the next event chronologically with ArrowDown', () => {

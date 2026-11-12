@@ -41,7 +41,7 @@ test('crossdomain selected counts and removal at desktop and mobile', async ({ p
         await expect(page.getByTestId('release-track')).toContainText('13 of 13 shown');
         await page.getByTestId('release-track').scrollIntoViewIfNeeded();
       } else {
-        await expect(main).toContainText('example groups');
+        await expect(main).toContainText('ways to build one');
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       const name = `${slug.split('/')[1]}-${viewport.width}`;

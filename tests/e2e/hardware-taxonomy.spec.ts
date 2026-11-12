@@ -126,7 +126,7 @@ test.describe('data-hardware hardware-taxonomy module', () => {
 
     // Compose with price: G1 ($13,500), NEO ($20,000) and Oli ($21,800) are
     // the $10k-$25k humanoids (maker pages read 2026-10-26).
-    await page.getByRole('button', { name: '$10k-$25k' }).click();
+    await page.getByRole('button', { name: '$10k to $25k' }).click();
     await expect(page.getByText('3 of 40 entries')).toBeVisible();
     await expect(
       page.getByRole('cell', { name: /LimX Oli/ }),
@@ -187,18 +187,18 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     await page.goto(ROUTE);
     const figure = page.locator('[data-figure-frame="hardware-price-ladder"]');
     await figure.scrollIntoViewIfNeeded();
-    await expect(figure.locator('[data-figure-title]')).toHaveText('Arms $295 to $70,000; humanoids $4,900 to $29,900; some unpriced');
+    await expect(figure.locator('[data-figure-title]')).toHaveText('Listed prices: arms $295 to $70,000, humanoids $2,490 to $29,900');
     await expect(figure.locator('[data-figure-caption]')).toHaveText(
-      'Arms: $295 to $70,000. Humanoids: $4,900 to $29,900. Several humanoid makers publish no price or do not offer open sales.',
+      'The cheapest listed humanoid costs less than a WidowX AI research arm, and several humanoid makers publish no price or do not sell openly.',
     );
-    await expect(figure.getByTestId('price-strip-humanoid').locator('circle')).toHaveCount(6);
+    await expect(figure.getByTestId('price-strip-humanoid').locator('circle')).toHaveCount(7);
     await expect(figure.getByTestId('price-strip-compute').locator('circle')).toHaveCount(2);
     await expect(figure.getByTestId('price-label-so-arm101-pro-unassembled-low')).toHaveText('SO-ARM101 Pro kit$295');
     await expect(figure.getByTestId('price-label-reachy-2-low')).toHaveText('Reachy 2$70,000');
     const stage = figure.getByRole('img', { name: /Listed prices of arms, humanoids and robot computers/ });
     const name = (await stage.getAttribute('aria-label')) ?? '';
     const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
-    expect(description).toContain('humanoids from $4,900 (Unitree R1 Air) to $29,900 (Unitree H2)');
+    expect(description).toContain('humanoids from $2,490 (FF Nova) to $29,900 (Unitree H2)');
     expect(name.length).toBeLessThan(description.length);
     // The review blog left the article with the maker-page pass; its rows cite makers.
     await expect(page.locator('#main-content a[href*="robozaps"]')).toHaveCount(0);

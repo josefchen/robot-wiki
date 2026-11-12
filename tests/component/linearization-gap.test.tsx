@@ -19,7 +19,7 @@ const slider = () => screen.getByRole('slider', { name: 'How uncertain the guess
 describe('LinearizationGap', () => {
   it('draws the still pose: the arm at the edge of the spread, the groove fallen away below the rule', () => {
     render(<LinearizationGap />);
-    expect(screen.getByText('Greater uncertainty makes the straight-line shortcut miss further')).toBeInTheDocument();
+    expect(screen.getByText('Greater uncertainty makes the straight-line shortcut miss farther')).toBeInTheDocument();
     const drawing = screen.getByTestId('lg-drawing');
     expect(drawing).toHaveAttribute('data-spread', String(OPENING_SPREAD));
     expect(drawing).toHaveAttribute('data-angle', String(OPENING_SPREAD));
@@ -31,7 +31,7 @@ describe('LinearizationGap', () => {
     const lit = [...svg.querySelectorAll('[data-lit], [data-tone="lit"]')];
     expect(lit.length).toBeGreaterThan(0);
     for (const part of lit) expect(part.closest('[data-part]')).toHaveAttribute('data-part', 'cursor');
-    expect(svg.getAttribute('aria-label')).toMatch(/At 30 degrees either side of the guess, a dial gauge on the rule reads 6\.8 centimetres between the rule and the arc/);
+    expect(svg.getAttribute('aria-label')).toMatch(/At 30 degrees either side of the guess, a dial gauge on the rule reads 6\.8 centimeters between the rule and the arc/);
   });
 
   it('describes the drawing with the method paragraph that explains the stand', () => {

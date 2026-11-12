@@ -60,9 +60,9 @@ describe('ChunkBuffer', () => {
   it('draws the still pose: a deck of 16 just after an answer landed, every slot full, no words in the drawing', () => {
     render(<ChunkBuffer />);
     expect(screen.getByText('13 actions bridge 250 milliseconds at 50 commands a second')).toBeInTheDocument();
-    expect(screen.getByTestId('chunk-rate-comparison')).toHaveTextContent('Gemini Robotics replies About 250 milliseconds per reply Each reply carries a chunk of actions. Robot’s control clock Needs 50 commands each second. 13 or more actions per reply cover the wait. Fewer leave the arm idle.');
+    expect(screen.getByTestId('chunk-rate-comparison')).toHaveTextContent('Gemini Robotics replies About 250 milliseconds per reply Each reply carries a chunk of actions. Robot\'s control clock Needs 50 commands each second. 13 or more actions per reply cover the wait. Fewer leave the arm idle.');
     expect(screen.getByTestId('chunk-minimum')).toHaveTextContent('13 or more actions per reply cover the wait. Fewer leave the arm idle.');
-    expect(screen.getByTestId('chunk-timing')).toHaveTextContent('Gemini Robotics replies About 250 milliseconds per reply Each reply carries a chunk of actions. Robot’s control clock Needs 50 commands each second.');
+    expect(screen.getByTestId('chunk-timing')).toHaveTextContent('Gemini Robotics replies About 250 milliseconds per reply Each reply carries a chunk of actions. Robot\'s control clock Needs 50 commands each second.');
     expect(screen.getByTestId('chunk-reply')).toBeVisible();
     expect(screen.getByTestId('chunk-control-clock')).toBeVisible();
     expect(screen.getByTestId('chunk-reply').nextElementSibling).toContainElement(screen.getByTestId('chunk-drawing'));

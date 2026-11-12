@@ -1,4 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
+import { COMPANIES } from '../../data/companies';
+
+const COMPANY_COUNT = COMPANIES.length;
+const countWhere = (keep: (company: (typeof COMPANIES)[number]) => boolean) => COMPANIES.filter(keep).length;
 
 /**
  * The accent census of the market map (VAL-B2-MAP-004): the muted blue
@@ -10,7 +14,7 @@ import { expect, test, type Page } from '@playwright/test';
  * - the bubble chart's focus ring (circle[data-focus-ring]);
  * - the open company's bubble mark;
  * - the open company's timeline round;
- * - the "Open company" legend key ([data-legend-key="open-company"]).
+ * - the "Selected company" legend key ([data-legend-key="open-company"]).
  *
  * No element anywhere on the page paints the retired brand-v2 lime
  * (#C6FF19) or signal blues (#245FFF, #245EDB). The open sheet's links are
@@ -174,7 +178,7 @@ for (const viewport of VIEWPORTS) {
           page,
         }) => {
           await page.goto(url(view, state));
-          await expect(page.getByText(/^\d+ of 111 companies$/)).toBeVisible();
+          await expect(page.getByText(new RegExp(`^\\d+ of ${COMPANY_COUNT} companies$`))).toBeVisible();
           if (view === 'bubble') {
             await expect(page.locator('circle[data-company-id]').first()).toBeVisible();
           }
@@ -182,7 +186,7 @@ for (const viewport of VIEWPORTS) {
             await expect(page.locator('[data-timeline-id] > button').first()).toBeVisible();
           }
           if (state === 'filtered') {
-            await expect(page.getByText('34 of 111 companies')).toBeVisible();
+            await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids')} of ${COMPANY_COUNT} companies`)).toBeVisible();
           }
           const openId = state === 'selected' ? OPEN : null;
           if (state === 'selected') {

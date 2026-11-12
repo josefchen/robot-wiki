@@ -1,5 +1,8 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { COMPANIES } from '../../data/companies';
+
+const COMPANY_COUNT = COMPANIES.length;
 
 /**
  * Hover, focus, and roving-keyboard affordances on the bubble view, proven
@@ -391,7 +394,7 @@ test.describe('bubble view hover/focus affordances', () => {
     await expect(page.getByRole('dialog', { name: 'Figure AI' })).toBeVisible();
     await expect(label(page)).toContainText('Figure AI');
     // The filter was relaxed so the mark is plotted at all.
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -409,7 +412,7 @@ test.describe('bubble view hover/focus affordances', () => {
     await expect(row).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
     await expect(row).toHaveCSS('box-shadow', 'none');
     await expect(row.locator('[data-timeline-name]')).toHaveCSS('font-weight', '600');
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
   });
 
   test('no axe violations on the bubble view with focus inside the chart', async ({

@@ -312,7 +312,7 @@ function installMarketMapProbe(config: ProbeConfig) {
       timelineEmptyNote:
         view === 'timeline' &&
         [...document.querySelectorAll('p')].some(
-          (note) => clean(note) === 'No 2023-2026 rounds in the current set.',
+          (note) => clean(note) === 'No rounds dated 2023 to 2026 in the current set.',
         ),
       pressedSegment: pressedSegment ? segmentIdOf(pressedSegment) : null,
       selectValues,

@@ -4,6 +4,9 @@ import { join } from 'node:path';
 import { COMPANIES } from '../../data/companies';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
+const COMPANY_COUNT = COMPANIES.length;
+const countWhere = (keep: (company: (typeof COMPANIES)[number]) => boolean) => COMPANIES.filter(keep).length;
+
 /**
  * Deep-link robustness on the shipped artifact: filter params the dataset
  * does not know are dropped rather than applied, and a #company-<id> hash
@@ -80,7 +83,7 @@ test.describe('market-map deep links on the static export', () => {
     expect(await page.evaluate(() => document.activeElement === document.body)).toBe(true);
     // Filters relaxed to the defaults; the explicit hash request survives.
     await expect(page).toHaveURL(/\/market-map\/#company-figure-ai$/);
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -96,7 +99,7 @@ test.describe('market-map deep links on the static export', () => {
     await expectSelectedTile(card);
     await expect(card).toHaveAttribute('aria-expanded', 'true');
     await expect(card).toBeInViewport({ ratio: 0.5 });
-    await expect(page.getByText('34 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids')} of ${COMPANY_COUNT} companies`)).toBeVisible();
     await expect(page).toHaveURL(
       /\/market-map\/\?segment=humanoids#company-figure-ai$/,
     );
@@ -115,8 +118,8 @@ test.describe('market-map deep links on the static export', () => {
     // HQ back to Shenzhen per fetched reporting (2026-08-18), CN 20 -> 21,
     // and the market-map field audit moved Astribot from Munich to Shenzhen
     // per its own site and Pandaily (2026-10-20), CN 21 -> 22.
-    await expect(page.getByText('22 of 111 companies')).toBeVisible();
-    expect(await page.locator('button[data-map-tile]').count()).toBe(22);
+    await expect(page.getByText(`${countWhere((c) => c.hq.country === 'CN')} of ${COMPANY_COUNT} companies`)).toBeVisible();
+    expect(await page.locator('button[data-map-tile]').count()).toBe(countWhere((c) => c.hq.country === 'CN'));
     await expect(page.locator('#company-ghost')).toHaveCount(0);
     await expect(page.getByRole('dialog')).toHaveCount(0);
     expect(errors).toEqual([]);
@@ -150,7 +153,7 @@ test.describe('market-map deep links on the static export', () => {
           .length,
     );
     expect(tabbables).toBe(1);
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -164,8 +167,8 @@ test.describe('market-map deep links on the static export', () => {
     // 63 -> 64 on 2026-10-20: the field audit moved Starship Technologies'
     // headquarters from London to San Francisco (Wikipedia and its Business
     // Wire release).
-    await expect(page.getByText('64 of 111 companies')).toBeVisible();
-    expect(await page.locator('button[data-map-tile]').count()).toBe(64);
+    await expect(page.getByText(`${countWhere((c) => c.hq.country === 'US')} of ${COMPANY_COUNT} companies`)).toBeVisible();
+    expect(await page.locator('button[data-map-tile]').count()).toBe(countWhere((c) => c.hq.country === 'US'));
     await expect(page.locator('#filter-subsegment')).toHaveValue('');
     await expect(page.locator('#filter-approach')).toHaveValue('');
     await expect(page.locator('#filter-country')).toHaveValue('US');
@@ -228,6 +231,6 @@ test.describe('market-map deep links on the static export', () => {
     await expect(page.locator('#filter-approach')).toHaveValue('vla');
     const shown = await page.locator('button[data-map-tile]').count();
     expect(shown).toBeGreaterThan(0);
-    expect(shown).toBeLessThan(111);
+    expect(shown).toBeLessThan(COMPANY_COUNT);
   });
 });

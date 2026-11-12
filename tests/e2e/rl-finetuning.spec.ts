@@ -138,7 +138,7 @@ test.describe('rl-finetuning module', () => {
     const dppo = table.getByRole('row').filter({ has: page.getByRole('cell', { name: 'DPPO', exact: true }) });
     const conrft = table.getByRole('row').filter({ has: page.getByRole('cell', { name: 'ConRFT', exact: true }) });
     await expect(dppo).toContainText('Not a universal sample-efficiency or wall-clock winner');
-    await expect(conrft).toContainText('15-90 min online (prose says 45-90)');
+    await expect(conrft).toContainText('15 to 90 min online (the text says 45 to 90)');
     for (const [id, href] of [
       ['dppo-2024', 'https://arxiv.org/abs/2409.00588'],
       ['conrft-2025', 'https://arxiv.org/abs/2502.05450'],

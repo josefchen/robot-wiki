@@ -30,9 +30,9 @@ describe('distinct sources per article', () => {
       (id) => byId.get(id));
     const source = readFileSync('content/manipulation/diffusion-policy.mdx', 'utf8');
     for (const id of row.cited) expect(source).toContain(`<Cite id="${id}"`);
-    // diffusion-policy-2023 and -v1 are one arXiv paper.
-    expect(row.cited).toEqual(expect.arrayContaining(['diffusion-policy-2023', 'diffusion-policy-2023-v1']));
-    expect(row.sources.length).toBe(row.cited.length - 1);
+    // Ids that name one real source count once.
+    const distinct = new Set(row.cited.map((id) => sourceKey(byId.get(id)!)));
+    expect(row.sources.length).toBe(distinct.size);
   });
 
   it(`finds at least ${MIN_DISTINCT_SOURCES} distinct cited sources on every published article`, () => {

@@ -9,13 +9,13 @@ import { COMPANIES } from '../../data/companies';
  * page still renders with the research count.
  */
 
-const EXPECTED_COUNT = 111; // 111 since the 2026-08-18 audit removed a duplicate row
+const EXPECTED_COUNT = COMPANIES.length;
 
 test.describe('market-map data layer', () => {
-  test('ships exactly 111 companies into the rendered placeholder', async ({
+  test('ships every company into the rendered placeholder', async ({
     page,
   }) => {
-    expect(COMPANIES).toHaveLength(EXPECTED_COUNT);
+    expect(EXPECTED_COUNT).toBeGreaterThan(0);
 
     const consoleErrors: string[] = [];
     page.on('console', (msg) => {

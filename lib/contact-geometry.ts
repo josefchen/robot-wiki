@@ -139,7 +139,7 @@ export const MDP_ROWS: MdpRow[] = [
     key: 'observation-sufficiency',
     property: 'Observation sufficiency',
     locomotion:
-      'Proprioception (joint positions and velocities, IMU) plus an optional terrain heightscan is nearly sufficient; body state is directly measured.',
+      'Body sensing (joint positions and velocities, an inertial sensor) plus an optional terrain height scan is nearly sufficient; body state is directly measured.',
     manipulation:
       'Object pose, geometry, mass, friction, and deformability are not measured; they must be inferred from pixels.',
   },
@@ -155,9 +155,9 @@ export const MDP_ROWS: MdpRow[] = [
     key: 'contact-error-sensitivity',
     property: 'Sensitivity to contact-model error',
     locomotion:
-      'High-bandwidth feedback (50-1000 Hz) and a stable gait attractor absorb modeling error.',
+      'Fast feedback (50 to 1,000 Hz) and a stable gait absorb modeling error.',
     manipulation:
-      'Insertion and assembly failures are irreversible on a millimeter scale; the policy cannot recover into an attractor.',
+      'Insertion and assembly failures are irreversible on a millimeter scale; the policy cannot settle back into a stable pattern.',
   },
   {
     key: 'reward-density',
@@ -169,7 +169,7 @@ export const MDP_ROWS: MdpRow[] = [
     key: 'environment-authoring',
     property: 'Environment authoring cost',
     locomotion:
-      'Terrain is procedurally generated heightfields, essentially free.',
+      'Terrain is generated height maps, essentially free.',
     manipulation:
       'Every task needs new assets with correct physics parameters; "SimReady asset" pipelines exist as a commercial category for this reason.',
   },

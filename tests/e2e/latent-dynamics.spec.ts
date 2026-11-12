@@ -82,7 +82,7 @@ test.describe('world-models latent-dynamics module', () => {
     // Default: the Dreamer view with its imagined pictures, and the
     // insight on the first frame.
     await expect(figure.getByTestId('decoded-frames')).toBeVisible();
-    await expect(figure.getByTestId('drift-note')).toContainText('ruler measures the gap from blue tip to real route');
+    await expect(figure.getByTestId('drift-note')).toContainText('ruler measures the gap from the blue tip to the real route');
     const initial = await deviationReadout(page);
 
     // Extending the horizon increases the deviation readout monotonically.

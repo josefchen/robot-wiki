@@ -8,6 +8,9 @@ import {
   type StaticExportServer,
 } from './static-export-server';
 
+const COMPANY_COUNT = COMPANIES.length;
+const countWhere = (keep: (company: (typeof COMPANIES)[number]) => boolean) => COMPANIES.filter(keep).length;
+
 /**
  * Static-export contract for /market-map (VAL-MKT-001, VAL-MKT-007, VAL-MKT-021).
  * Filtering, view switching, and the company details must work on the
@@ -33,7 +36,7 @@ test.afterAll(async () => {
   await server?.stop();
 });
 
-test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, VAL-MKT-021)', async ({
+test('static export prerenders every company tile and filters client-side (VAL-MKT-001, VAL-MKT-021)', async ({
   page,
 }) => {
   const apiRequests: string[] = [];
@@ -46,7 +49,7 @@ test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, V
 
   // The served HTML already holds every tile, before any script runs.
   const html = await (await page.request.get(`${BASE}/market-map/`)).text();
-  expect(html.match(/data-map-tile="/g)).toHaveLength(111);
+  expect(html.match(/data-map-tile="/g)).toHaveLength(COMPANY_COUNT);
   // The count above is the dataset tripwire; the ids must also be exactly
   // the registry's (tests/unit/company-population.test.ts plants each miss).
   const prerendered = [...html.matchAll(/data-map-tile="([^"]+)"/g)].map(([, id]) => id);
@@ -58,8 +61,8 @@ test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, V
   ).toEqual([]);
 
   await page.goto(`${BASE}/market-map/`);
-  await expect(page.getByText('111 of 111 companies')).toBeVisible();
-  await expect(page.locator('button[data-map-tile]')).toHaveCount(111);
+  await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
+  await expect(page.locator('button[data-map-tile]')).toHaveCount(COMPANY_COUNT);
   const hydrated = await page
     .locator('button[data-map-tile]')
     .evaluateAll((tiles) => tiles.map((tile) => tile.getAttribute('data-map-tile') ?? ''));
@@ -74,7 +77,7 @@ test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, V
     .getByRole('group', { name: 'Segment' })
     .getByRole('button', { name: /^Humanoids/ })
     .click();
-  await expect(page.getByText('34 of 111 companies')).toBeVisible();
+  await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids')} of ${COMPANY_COUNT} companies`)).toBeVisible();
   // 34 tiles for the 34-row humanoids segment (the duplicate
   // galaxea-ai-robot removal took the segment 35 -> 34).
   await expect(page.locator('button[data-map-tile]')).toHaveCount(34);
@@ -85,7 +88,7 @@ test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, V
 
   await page.getByRole('button', { name: 'Grid' }).click();
   await page.getByRole('button', { name: 'Clear filters' }).click();
-  await expect(page.getByText('111 of 111 companies')).toBeVisible();
+  await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
   await page.locator('button[data-map-tile="physical-intelligence"]').click();
   const pi = page.getByRole('dialog', { name: 'Physical Intelligence' });
   // "openpi" until the 2026-10-19 field audit: no fetched source names that
@@ -110,6 +113,6 @@ test('deep links apply on the static export (VAL-MKT-007)', async ({ page }) => 
   await page.goto(`${BASE}/market-map/?segment=humanoids&country=US`);
   // 6 -> 7 on 2026-10-19: 1X Technologies' headquarters is Palo Alto, as
   // its Wikipedia body states, not Oslo.
-  await expect(page.getByText('7 of 111 companies')).toBeVisible();
-  await expect(page.locator('button[data-map-tile]')).toHaveCount(7);
+  await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US')} of ${COMPANY_COUNT} companies`)).toBeVisible();
+  await expect(page.locator('button[data-map-tile]')).toHaveCount(countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US'));
 });

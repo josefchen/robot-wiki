@@ -90,7 +90,7 @@ describe('SceneSplit', () => {
     expect(screen.getByTestId('split-run')).not.toHaveAttribute('aria-pressed');
     fireEvent.click(screen.getByTestId('split-run'));
     expect(screen.getByTestId('split-run')).not.toHaveAttribute('aria-pressed');
-    expect(container.querySelector('[data-readout]')).toHaveTextContent('Scene 4 held out · test cards from 1 scene · none of it in training');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('Scene 4 held out · test cards from 1 scene · none in training');
     const raised = [...container.querySelectorAll('[data-episode][data-test]')].map((node) => Number(node.getAttribute('data-scene')));
     expect(raised).toEqual([4, 4, 4, 4, 4]);
     expect(screen.getByTestId('split-summary')).toHaveTextContent('also in training: none');

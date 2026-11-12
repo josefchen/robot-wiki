@@ -120,7 +120,7 @@ export function buildTextAlternative(clip: MotionClipManifestEntry): string {
     clip.beats.reduce((sum, beat) => sum + beat.durationMs, 0) / 1000,
   );
   return [
-    `${clip.title} — ${clip.status} clip, ${durationSeconds} seconds.`,
+    `${clip.title}: ${clip.status} clip, ${durationSeconds} seconds.`,
     clip.teaches,
     'Transcript:',
     ...clip.beats.map((beat) => `- ${beat.caption}`),

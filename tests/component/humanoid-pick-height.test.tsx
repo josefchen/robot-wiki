@@ -23,7 +23,7 @@ describe('HumanoidPickHeight', () => {
       'Lower picks succeed less often; the floor is worst',
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "One model controls the humanoid’s whole body: success falls from 76% shelf to 68% table to 46% floor, the least reliable height.",
+      "Gemini Robotics 2's whole-body picks succeed 76.3% of the time from a shelf, 68.4% from a table and 45.7% from the floor.",
     );
   });
 

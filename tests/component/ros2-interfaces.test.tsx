@@ -54,7 +54,7 @@ describe('Ros2Interfaces', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('ROS 2 interfaces');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Robot programs stream, ask, or run a job');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Nodes are robot programs. Topics stream readings; services exchange a question and answer; actions run long jobs that can be cancelled.',
+      'Robot programs, called nodes, talk three ways: topics stream readings, services trade a question for an answer, actions run long cancelable jobs.',
     );
   });
 
@@ -63,7 +63,7 @@ describe('Ros2Interfaces', () => {
     expect(screen.getByTestId('ros2-channel-action')).toHaveAttribute('aria-pressed', 'true');
     expect(messages(container)).toEqual(['Goal: fetch the cup', 'Progress: 30%', 'Progress: 60%', 'Done: cup fetched']);
     expect(directions(container)).toEqual(['right', 'left', 'left', 'left']);
-    expect(container.querySelector('[data-readout]')).toHaveTextContent('it can be cancelled');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('it can be canceled');
     // The goal rides the shuttle; progress and the result come back as the sender's three flags.
     expect(tokens(container).map((t) => t.closest('[data-testid]')?.getAttribute('data-testid'))).toEqual([
       'ros2-shuttle',

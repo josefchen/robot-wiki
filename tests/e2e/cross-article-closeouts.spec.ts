@@ -104,7 +104,7 @@ for (const width of [375, 1440]) {
       }
       if (route.slug === 'pi-line') {
         await page.getByRole('button', { name: 'π0.6-MEM', exact: true }).click();
-        await expect(page.getByTestId('generation-detail')).toContainText('Date unverified');
+        await expect(page.getByTestId('generation-detail')).toContainText('Mar 2026');
         await expect(page.getByTestId('generation-detail')).toContainText('trained model unverified');
         await expect(page.getByRole('img', { name: /Timeline of dated/ })).toHaveAccessibleDescription(/not plotted/);
         await page.getByTestId('generation-track').scrollIntoViewIfNeeded();

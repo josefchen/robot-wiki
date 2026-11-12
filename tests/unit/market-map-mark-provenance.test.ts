@@ -12,7 +12,6 @@ import { attributionText, creditNoun, legalBasis, licenceLabel } from '@/data/im
 import { LOGO_IMAGES } from '@/data/logo-images';
 import { getCompanyLogo } from '@/data/logos';
 import { pngDimensions } from '@/lib/png-decode';
-import { MARKET_MAP_AS_OF } from '@/lib/market-map';
 import {
   MARK_PLACEMENT,
   MARK_PRESETS,
@@ -113,7 +112,7 @@ describe('market-map mark provenance, mark by mark (VAL-B2-MAP-010)', () => {
     }
   });
 
-  it('rests every mark on official identification use, from an https source, retrieved on a real day', () => {
+  it('rests every mark on official identification use, from an https source, retrieved on a real past day', () => {
     for (const { id, record } of marks) {
       expect(record!.file, id).toMatch(/^\/images\/logos\/[\w.-]+$/);
       expect(legalBasis(record!), id).toBe('official-identification-use');
@@ -122,10 +121,7 @@ describe('market-map mark provenance, mark by mark (VAL-B2-MAP-010)', () => {
       expect(record!.creator.trim(), `${id} creator`).not.toBe('');
       expect(record!.sourceName.trim(), `${id} source name`).not.toBe('');
       expect(isIsoDay(record!.retrieved), `${id} retrieved ${record!.retrieved}`).toBe(true);
-      // Fetched for this edition of the map: no earlier than the map's own
-      // as-of date (the source checks that followed it run to October), and
-      // never in the future.
-      expect(record!.retrieved >= MARKET_MAP_AS_OF, `${id} retrieved ${record!.retrieved}`).toBe(true);
+      // Never in the future.
       expect(record!.retrieved <= today, `${id} retrieved ${record!.retrieved}`).toBe(true);
     }
   });

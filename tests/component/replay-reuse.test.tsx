@@ -37,7 +37,7 @@ describe('ReplayReuse', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('On-policy and off-policy');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Off-policy learners reuse experience; on-policy ones discard it');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "A policy is the robot’s learned movement rule. On-policy training discards used batches; off-policy training reuses them.",
+      "A policy is the robot's learned rule for acting; on-policy training discards each batch after use, off-policy training keeps and reuses it.",
     );
   });
 

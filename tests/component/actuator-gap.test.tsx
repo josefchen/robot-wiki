@@ -32,7 +32,7 @@ describe('ActuatorGap', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Actuator network');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Simulated motors must respond like the real ones');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "A movement controller trained with ideal simulated motors fell at ANYmal’s first step; modelling the real motors’ response let it walk.",
+      "A walking policy trained with ideal simulated motors fell at ANYmal's first step; modeling the real motors' response let it walk.",
     );
   });
 

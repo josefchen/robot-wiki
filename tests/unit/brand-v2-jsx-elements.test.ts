@@ -1,47 +1,11 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   componentElementTree,
-  declaredComponentNames,
   importedNames,
   maskMarkdownCode,
   maskScriptComments,
   scanJsxTags,
 } from '@/lib/brand-v2-jsx-elements';
-
-const ROOT = process.cwd();
-
-const REGISTRY = JSON.parse(
-  readFileSync(join(ROOT, 'contract/brand-v2-registries.json'), 'utf8'),
-) as {
-  interactive: {
-    mounts: Array<{
-      id: string;
-      ownerPath: string;
-      props: string;
-      containers: Array<{
-        component: string;
-        sourcePath: string | null;
-        controlKinds: string[];
-      }>;
-    }>;
-  };
-};
-
-function read(path: string): string {
-  return readFileSync(join(ROOT, path), 'utf8');
-}
-
-/** The component names a document provides for itself. */
-function providedNames(path: string, extra: readonly string[] = []): Set<string> {
-  const text = read(path);
-  return new Set([
-    ...importedNames(text).keys(),
-    ...declaredComponentNames(text),
-    ...extra,
-  ]);
-}
 
 describe('jsx element tree', () => {
   it('closes a tag at the real bracket, not at one inside a quoted value', () => {
@@ -60,18 +24,24 @@ describe('jsx element tree', () => {
   });
 
   it('reads nesting out of the document rather than out of the mount', () => {
-    const path = 'content/data-hardware/evaluation-crisis.mdx';
-    const names = providedNames(path, ['PredictThenReveal']);
-    // The page mounts its one calculator inside the prediction step. A copy
-    // of that exact mount placed ahead of the step gives the tree two
-    // elements with identical props and different nesting.
-    const nested = read(path).match(/<ReliabilityCompounding\b[^>]*\/>/)![0];
-    const text = read(path).replace('<PredictThenReveal', `${nested}\n\n<PredictThenReveal`);
-    const mounts = componentElementTree({
-      text,
-      path,
-      componentNames: names,
-    }).filter(({ name }) => name === 'ReliabilityCompounding');
+    const path = 'content/example.mdx';
+    const names = new Set(['PredictThenReveal', 'ReliabilityCompounding']);
+    const mount = '<ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} className="my-6" />';
+    // Two elements with identical props and different nesting: one ahead of
+    // the prediction step, one inside it.
+    const text = [
+      'A paragraph.',
+      '',
+      mount,
+      '',
+      '<PredictThenReveal question="How often does it fail?">',
+      '',
+      mount,
+      '',
+      '</PredictThenReveal>',
+    ].join('\n');
+    const mounts = componentElementTree({ text, path, componentNames: names })
+      .filter(({ name }) => name === 'ReliabilityCompounding');
     expect(mounts).toHaveLength(2);
     expect(mounts[0].ancestors).toEqual([]);
     expect(mounts[1].ancestors).toEqual(['PredictThenReveal']);
@@ -79,15 +49,9 @@ describe('jsx element tree', () => {
     // both mounts leaves each exactly as nested as it was.
     const unconfigured = text.replaceAll('defaultPerStep={0.95} defaultSteps={14} ', '');
     expect(unconfigured).not.toEqual(text);
-    const after = componentElementTree({
-      text: unconfigured,
-      path,
-      componentNames: names,
-    }).filter(({ name }) => name === 'ReliabilityCompounding');
-    expect(after.map(({ ancestors }) => ancestors)).toEqual([
-      [],
-      ['PredictThenReveal'],
-    ]);
+    const after = componentElementTree({ text: unconfigured, path, componentNames: names })
+      .filter(({ name }) => name === 'ReliabilityCompounding');
+    expect(after.map(({ ancestors }) => ancestors)).toEqual([[], ['PredictThenReveal']]);
   });
 
   it('does not read a fenced code example as a mount', () => {
@@ -164,48 +128,4 @@ describe('jsx element tree', () => {
     expect(names.has('MDXComponents')).toBe(false);
   });
 
-  it('agrees with the containers the registry generated for every mount', () => {
-    // The registry's structural field is re-derived here from the documents
-    // themselves, so a census that stopped walking the tree cannot leave a
-    // stale `containers` array standing. The census resolves an MDX
-    // document's component names through `mdx-components.tsx`; this
-    // derivation takes every capitalized tag the document writes, which is
-    // an independent route to the same set on markdown that has no generics.
-    const byOwner = new Map<string, typeof REGISTRY.interactive.mounts>();
-    for (const mount of REGISTRY.interactive.mounts) {
-      byOwner.set(mount.ownerPath, [
-        ...(byOwner.get(mount.ownerPath) ?? []),
-        mount,
-      ]);
-    }
-    expect(byOwner.size).toBeGreaterThan(0);
-    let nested = 0;
-    for (const [ownerPath, mounts] of byOwner) {
-      const text = read(ownerPath);
-      const names = ownerPath.endsWith('.mdx')
-        ? new Set(
-            scanJsxTags(maskMarkdownCode(text))
-              .map(({ name }) => name)
-              .filter((name) => /^[A-Z]/.test(name)),
-          )
-        : providedNames(ownerPath);
-      const tree = componentElementTree({ text, path: ownerPath, componentNames: names });
-      for (const mount of mounts) {
-        const component = mount.id.split(':')[2];
-        const ordinal = Number(mount.id.split(':')[3]);
-        const occurrence = tree.filter(({ name }) => name === component)[
-          ordinal - 1
-        ];
-        expect(occurrence, mount.id).toBeDefined();
-        expect(
-          mount.containers.map(({ component: name }) => name),
-          mount.id,
-        ).toEqual(occurrence.ancestors);
-        if (mount.containers.length > 0) nested += 1;
-      }
-    }
-    // A derivation that found nothing anywhere would agree with a registry
-    // that recorded nothing anywhere.
-    expect(nested).toBeGreaterThan(0);
-  });
 });

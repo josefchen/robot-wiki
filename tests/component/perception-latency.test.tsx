@@ -17,7 +17,7 @@ import {
 } from '@/components/iso/figures/latency-corridor';
 import { AGILITY_STEPS, LATENCY_STEPS_MS, SENSORS, latencyOutcome } from '@/lib/aerial-latency';
 
-const SWERVES = ['Gentle', 'Standard (the study’s)', 'Hard', 'Extreme'];
+const SWERVES = ['Gentle', "Standard (the study's)", 'Hard', 'Extreme'];
 
 function speedText() {
   return screen.getByTestId('max-speed-readout').textContent ?? '';
@@ -55,7 +55,7 @@ describe('PerceptionLatency', () => {
     expect(speedText()).toBe('19.21 m/s');
     expect(screen.getByTestId('latency-readout').textContent).toBe('70 ms');
     expect(screen.getByTestId('speedometer-reading').textContent).toBe('about 69 km/h');
-    expect(screen.getByTestId('latency-plain-readout').textContent).toMatch(/about 1\.3 metres before its camera/);
+    expect(screen.getByTestId('latency-plain-readout').textContent).toMatch(/about 1\.3 meters before its camera/);
     expect(
       screen.getByRole('button', { name: 'Ordinary camera (7 hundredths of a second)' }),
     ).toHaveAttribute('aria-pressed', 'true');
@@ -105,7 +105,7 @@ describe('PerceptionLatency', () => {
     fireEvent.click(screen.getByRole('button', { name: /reset/i, hidden: true }));
     expect(speedText()).toBe('19.21 m/s');
     expect(
-      screen.getByRole('button', { name: 'Standard (the study’s)' }),
+      screen.getByRole('button', { name: "Standard (the study's)" }),
     ).toHaveAttribute('aria-pressed', 'true');
   });
 
@@ -140,7 +140,7 @@ describe('PerceptionLatency', () => {
     expect(live).toHaveAttribute('aria-live', 'polite');
     expect(live).not.toHaveAttribute('aria-live', 'assertive');
     fireEvent.click(screen.getByRole('button', { name: 'Gentle' }));
-    expect(readout.textContent).toMatch(/about 47 kilometres an hour/);
+    expect(readout.textContent).toMatch(/about 47 kilometers an hour/);
   });
 
   it('draws the corridor: drone, wall, timer wheel, speed dial and the two gauge riders, with no words', () => {
@@ -154,7 +154,7 @@ describe('PerceptionLatency', () => {
     const lit = container.querySelectorAll('.iso-solid[data-lit]');
     expect(lit).toHaveLength(1);
     expect(lit[0].closest('[data-testid="latency-band"]')).not.toBeNull();
-    expect(svg.getAttribute('aria-label')).toMatch(/about 69 kilometres an hour/);
+    expect(svg.getAttribute('aria-label')).toMatch(/about 69 kilometers an hour/);
   });
 
   it('sets the riders to the model: speed times delay blind, the rest of the 8 metres swerving', () => {

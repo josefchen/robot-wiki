@@ -18,16 +18,16 @@ export type { CoreDomain, Domain } from './domains.ts';
 export type { ModuleRegistryEntry } from './schemas/module.ts';
 
 /**
- * A sentence a hub restates from one of its articles. `passage` is the
- * article's own wording, in a paragraph that carries `<Cite id={citationId} />`;
- * tests/unit/domain-hubs.test.ts holds each one to its article.
+ * A sentence a hub restates from one of its articles, cited to a source that
+ * article cites inline. scripts/validate-content.ts checks the article and
+ * the citation (lib/cited-facts.ts); the wording is free to differ, so an
+ * article can be rewritten without touching the hub.
  */
 export type DomainCitedText = {
   /** The article that states it, as `domain/slug`. */
   article: string;
   text: string;
   citationId: string;
-  passage: string;
 };
 
 /** One row of the adjacent hub's table: how each field shows it is safe enough. */
@@ -79,7 +79,6 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
       article: 'rl-sim2real/why-rl-locomotion',
       text: 'In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes on one GPU',
       citationId: 'rudin-2021',
-      passage: 'In 2021 an ANYmal quadruped learned flat-ground walking in under four minutes',
     },
     readingOrder: 'Basics first, then locomotion and the methods behind it.',
     related: [
@@ -109,7 +108,6 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
       article: 'data-hardware/industrial-deployment',
       text: 'In 2025, 5 million industrial robots were in operation',
       citationId: 'ifr-world-robotics-2026-release',
-      passage: 'counts a record operational stock of 5 million industrial robots in 2025',
     },
     readingOrder: 'Data first, then hardware, evaluation and deployment.',
     related: ['/market-map/', '/manipulation/robot-learning-roadmap/', '/frontier/reliability-gap/'],
@@ -122,8 +120,6 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
       article: 'classical/control',
       text: "In Intrinsic's 2026 AI for Industry Challenge, 90% of the top teams in the real-workcell phase inserted the connector with rules-based routines and force-torque feedback",
       citationId: 'intrinsic-ai-for-industry-challenge-2026',
-      passage:
-        'reports 90% of the top teams in its real-workcell phase inserted the connector with rules-based routines, including spiral searches, and force-torque feedback',
     },
     readingOrder: 'Each article builds on the ones before it.',
     related: [
@@ -140,7 +136,6 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
       article: 'data-hardware/industrial-deployment',
       text: 'About 7,000 full-size humanoids were sold in 2025',
       citationId: 'ifr-service-robots-2026',
-      passage: 'IFR counts about 7,000 full-size humanoids sold in 2025',
     },
     readingOrder: 'The reliability gap comes first, then ways to close it.',
     related: [
@@ -165,16 +160,14 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
         field: 'Autonomous vehicles',
         scale: {
           article: 'adjacent/autonomous-vehicles',
-          text: 'Waymo gave more than 500,000 fully autonomous rides a week in April 2026',
-          citationId: 'alphabet-q1-2026',
-          passage: 'more than 500,000 fully autonomous rides a week in April 2026',
+          text: 'Waymo passed 300 million fully autonomous miles by October 2026',
+          citationId: 'alphabet-q3-2026',
         },
         bar: 'Crash rates against human drivers',
         record: {
           article: 'adjacent/autonomous-vehicles',
           text: '95 percent fewer serious-injury-or-worse crashes over 271.3 million rider-only miles',
           citationId: 'waymo-safety-hub-2026',
-          passage: '95 percent fewer serious-injury-or-worse crashes',
         },
       },
       {
@@ -184,14 +177,12 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
           article: 'adjacent/drones',
           text: 'Zipline reports more than 3 million deliveries since 2016',
           citationId: 'zipline-safety-facts',
-          passage: 'Zipline reports more than 3 million deliveries',
         },
         bar: 'Wins against named champions',
         record: {
           article: 'adjacent/drones',
           text: 'Swift won races against each of three human champions',
           citationId: 'swift-drone-racing-2023',
-          passage: 'raced three human champions',
         },
       },
       {
@@ -199,16 +190,14 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
         field: 'Surgical robots',
         scale: {
           article: 'adjacent/surgical',
-          text: '11,710 da Vinci systems installed by June 30, 2026',
-          citationId: 'intuitive-q2-2026',
-          passage: 'Intuitive had 11,710 da Vinci systems installed by June 30, 2026',
+          text: '12,094 da Vinci systems installed by September 30, 2026',
+          citationId: 'intuitive-q3-2026',
         },
         bar: 'Clearance for each indication',
         record: {
           article: 'adjacent/surgical',
           text: 'Hugo cleared for urologic procedures on December 3, 2025',
           citationId: 'medtronic-hugo-clearance-2025',
-          passage: "Medtronic's Hugo was cleared on December 3, 2025 for urologic procedures",
         },
       },
       {
@@ -218,14 +207,12 @@ export const DOMAIN_META: Record<Domain, DomainMeta> = {
           article: 'adjacent/space',
           text: "AutoNav evaluated 88 percent of the 17.7 km Perseverance drove in its first Mars year",
           citationId: 'perseverance-autonomy-2023',
-          passage: 'AutoNav evaluated 88 percent of the 17.7 km driven',
         },
         bar: 'Autonomy added in bounded, verified steps',
         record: {
           article: 'adjacent/space',
           text: 'A digital twin verified over 500,000 telemetry variables before AI-planned drives',
           citationId: 'perseverance-ai-drive-2026',
-          passage: 'After a digital twin verified over 500,000 telemetry variables',
         },
       },
     ],

@@ -137,16 +137,16 @@ describe('JepaPlanning', () => {
   it('the stage note names the options count, and the lit feeler is the kept move', () => {
     const { container } = render(<JepaPlanning />);
     const note = container.querySelector('[data-figure-annotation]');
-    expect(note?.textContent).toContain('In the number code: try 24 moves;');
-    expect(note?.textContent).toContain('keep the closest to the goal');
+    expect(note?.textContent).toContain('Each step tries 24 moves and keeps');
+    expect(note?.textContent).toContain('closest to the goal');
     expect(container.querySelectorAll('[data-figure-annotation]')).toHaveLength(1);
-    expect(screen.getByTestId('plan-note')).toHaveTextContent('In the number code: try 24 moves; keep the closest to the goal');
+    expect(screen.getByTestId('plan-note')).toHaveTextContent('Each step tries 24 moves and keeps the one that lands closest to the goal; more options make a straighter path');
     const kept = container.querySelectorAll('[data-candidate="kept"]');
     expect(kept).toHaveLength(1);
     expect(kept[0]!.querySelector('[data-lit]')).not.toBeNull();
     expect(screen.getByTestId('candidate-fan').querySelector('.iso-line[data-tone="lit"]')).not.toBeNull();
     fireEvent.change(slider(), { target: { value: '8' } });
-    expect(screen.getByTestId('plan-note')).toHaveTextContent('In the number code: try 8 moves;');
+    expect(screen.getByTestId('plan-note')).toHaveTextContent('Each step tries 8 moves and keeps');
     expect(container.querySelectorAll('[data-candidate="kept"]')).toHaveLength(1);
   });
 

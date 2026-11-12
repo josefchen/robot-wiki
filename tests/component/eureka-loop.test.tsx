@@ -15,7 +15,7 @@ describe('EurekaLoop', () => {
     expect(screen.getByTestId('round-readout').textContent).toBe('Round 1 of 3');
     expect(outcome(container)).toBe('falls');
     expect(screen.getByTestId('eureka-rules').textContent).toBe('Speed only');
-    expect(screen.getByTestId('eureka-results').textContent).toContain('2.8 metres a second');
+    expect(screen.getByTestId('eureka-results').textContent).toContain('2.8 meters a second');
     // The loop's score step: the task score of the round, the generation's own fitness.
     expect(screen.getByTestId('eureka-score').textContent).toBe(`${EUREKA_GENERATIONS[0].fitness.toFixed(2)} of 1`);
     expect(screen.getByTestId('eureka-note').textContent).toBe('Reward staying up, and make a fall cost points');

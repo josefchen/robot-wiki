@@ -261,7 +261,7 @@ describe('state-form chart descriptions', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Pictures' }));
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
-    expect(moved).toMatch(/one of 2 groups out of 6 that imagine the next picture/);
+    expect(moved).toMatch(/one of 2 families out of 6 that imagine the next picture/);
     fireEvent.click(screen.getByRole('button', { name: /^JEPA/i }));
     expect(container.querySelector('[data-chart-description]')?.textContent).toMatch(/never pixels/);
   });
@@ -376,7 +376,7 @@ describe('state-form chart descriptions', () => {
     const { container } = render(<WbcDecomposition />);
     const { text } = assertDescribed(screen.getByTestId('wbc-diagram'), container);
     expect(text).toMatch(/Motion-tracking RL/);
-    fireEvent.click(screen.getByRole('button', { name: /^nvidia$/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^nvidia gr00t and sonic$/i }));
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
     expect(moved).toMatch(/Latent-action hierarchy/);

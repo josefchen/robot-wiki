@@ -44,7 +44,7 @@ describe('GeneralistReleaseTimeline', () => {
   it('leads with the plain headline, one toggle and one note, with everything else in Adjust more', () => {
     const { container } = render(<GeneralistReleaseTimeline />);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Thirteen robot brains since 2025; four you can download',
+      'Seventeen robot brains since 2025; four you can download',
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Generalist policies');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
@@ -98,7 +98,7 @@ describe('GeneralistReleaseTimeline', () => {
     expect(plot.getAttribute('viewBox')).toBe(viewBox);
     expect(screen.getByTestId('release-detail')).toHaveTextContent('Helix');
     expect(container.querySelector('[data-chart-description]')?.textContent).toMatch(
-      /13 of 13 selected generalist policy records are shown, 4 in full and the other 9 faint/,
+      /17 of 17 selected generalist policy records are shown, 4 in full and the other 13 faint/,
     );
     await user.click(toggle);
     expect(container.querySelectorAll('[data-release]')).toHaveLength(GENERALIST_RELEASES.length);
@@ -243,7 +243,7 @@ describe('GeneralistReleaseTimeline', () => {
     render(<GeneralistReleaseTimeline />);
     await user.click(screen.getByRole('button', { name: /^GR00T N1\.7$/i }));
     const detail = screen.getByTestId('release-detail');
-    expect(detail).toHaveTextContent('relative-EEF');
+    expect(detail).toHaveTextContent('relative hand motion');
     const source = screen.getByRole('link', { name: /source/i });
     expect(source).toHaveAttribute(
       'href',
@@ -286,7 +286,7 @@ describe('GeneralistReleaseTimeline', () => {
     const id = img.getAttribute('aria-describedby');
     expect(id).toBeTruthy();
     const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
-    expect(desc?.textContent).toMatch(/13 of 13 selected generalist policy records/);
+    expect(desc?.textContent).toMatch(/17 of 17 selected generalist policy records/);
     expect(desc?.textContent).toMatch(/selected is Helix/);
     fireEvent.click(screen.getByRole('button', { name: /^GR00T N1$/i }));
     const moved = container.querySelector('[data-chart-description]')

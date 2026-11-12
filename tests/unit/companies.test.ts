@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 import { COMPANIES } from '@/data/companies';
-import { companySchema } from '@/data/schemas/company';
+import { companySchema, companySegmentSchema } from '@/data/schemas/company';
 
 /**
  * Market-map data contract (VAL-MKT-014, plus the integrity gates
@@ -12,6 +12,10 @@ import { companySchema } from '@/data/schemas/company';
  * research/04-market-map-companies.json. Count, segment distribution,
  * sources, confidence, and null-not-zero funding must match the research
  * snapshot. Unknown figures stay null; nothing is invented.
+ *
+ * No total is remembered here: the map grows as companies are added, so
+ * every count is derived from the research file and compared with the
+ * generated registry.
  */
 
 const RESEARCH_PATH = join(
@@ -20,17 +24,17 @@ const RESEARCH_PATH = join(
   '04-market-map-companies.json',
 );
 
-const EXPECTED_SEGMENT_COUNTS = {
-  'foundation-models': 12,
-  humanoids: 34,
-  'industrial-logistics': 15,
-  'vertical-applications': 32,
-  'simulation-tooling': 10,
-  'components-hardware': 8,
-} as const;
-
 function loadResearch(): unknown[] {
   return JSON.parse(readFileSync(RESEARCH_PATH, 'utf8')) as unknown[];
+}
+
+function segmentCounts(rows: ReadonlyArray<{ segment: string }>): Record<string, number> {
+  return Object.fromEntries(
+    companySegmentSchema.options.map((segment) => [
+      segment,
+      rows.filter((row) => row.segment === segment).length,
+    ]),
+  );
 }
 
 describe('COMPANIES data', () => {
@@ -42,27 +46,25 @@ describe('COMPANIES data', () => {
     }
   });
 
-  it('contains exactly 111 companies', () => {
-    // 111 since the 2026-08-18 market-map audit removed the duplicate
-    // galaxea-ai-robot row (same company as galaxea-ai).
-    expect(COMPANIES).toHaveLength(111);
+  it('is a non-empty population that validates against the schema in the research file too', () => {
+    const research = loadResearch();
+    expect(research.length).toBeGreaterThan(0);
+    expect(z.array(companySchema).safeParse(research).success).toBe(true);
   });
 
   it('matches the research source count and segment distribution', () => {
-    const research = loadResearch();
-    expect(research).toHaveLength(111);
+    const research = loadResearch() as Array<{ segment: string }>;
     expect(COMPANIES).toHaveLength(research.length);
 
-    const counts = Object.fromEntries(
-      Object.keys(EXPECTED_SEGMENT_COUNTS).map((segment) => [
-        segment,
-        COMPANIES.filter((c) => c.segment === segment).length,
-      ]),
-    );
-    expect(counts).toEqual(EXPECTED_SEGMENT_COUNTS);
-
+    const counts = segmentCounts(COMPANIES);
+    expect(counts).toEqual(segmentCounts(research));
+    // Every segment the map draws holds at least one company, and every
+    // company sits in one of them.
+    for (const [segment, count] of Object.entries(counts)) {
+      expect(count, `segment ${segment} is empty`).toBeGreaterThan(0);
+    }
     const sum = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(sum).toBe(111);
+    expect(sum).toBe(COMPANIES.length);
   });
 
   it('gives every row at least one https source URL and a confidence level', () => {
@@ -111,36 +113,11 @@ describe('COMPANIES data', () => {
   });
 
   it('carries aka through from the research source', () => {
-    const withAka = COMPANIES.filter((c) => c.aka.length > 0);
-    // 26 -> 27 on 2026-08-18: the batch-3 re-verification confirmed
-    // SwitchBot's HK listing under the registered name "OneRobotics
-    // (Shenzhen) Co." (Caixin, fetched), so the brand-name record now
-    // carries its listed entity as an aka.
-    // 27 -> 32 on 2026-10-20: the field audit added the names fetched bodies
-    // give Sanctuary AI, Neura Robotics, Humanoid, Spirit AI and EngineAI
-    // (a legal, former or registered Chinese name each).
-    // 32 -> 39 on 2026-10-20: the registered Chinese or Korean names of Deep
-    // Robotics, Kepler Robot, LimX Dynamics and Rainbow Robotics, Symbotic's
-    // former name CasePick Systems, and "Mentee by Mobileye" and
-    // "Dexterity AI", each from a fetched body.
-    // 39 -> 41 on 2026-10-20: Amazon Robotics' former name Kiva Systems
-    // (Wikipedia) and Ambi Robotics' founding name Ambidextrous Laboratories
-    // (its own about page).
-    // 41 -> 45 on 2026-10-20: the names Intuitive Surgical and Collaborative
-    // Robotics use for themselves, Intuitive and Cobot (their own release
-    // and letter), CMR Surgical's former name Cambridge Medical Robotics
-    // (Wikipedia) and Moon Surgical's founding name MastOR (its own page).
-    // 45 -> 46 on 2026-10-20: Automata's registered name, Automata
-    // Technologies (Companies House).
-    // 46 -> 47 on 2026-10-20: Astribot's Chinese name 星尘智能 (its own
-    // site).
-    // 47 -> 49 on 2026-10-20: Leju Robotics' registered name, Leju
-    // (Shenzhen) Robotics Co., Ltd. (its own site), and the names PaXini Tech
-    // and 帕西尼感知科技 (CnEVPost and EqualOcean).
-    // 49 -> 50 on 2026-10-20: Robotphoenix's legal names, Robotphoenix
-    // Intelligent Technology Co., Ltd. (Baker McKenzie) and 浙江翼菲智能科技股份有限公司
-    // (PEdaily).
-    expect(withAka.length).toBe(50);
+    const research = loadResearch() as Array<{ id: string; aka: string[] }>;
+    const researchAka = new Map(research.map((row) => [row.id, row.aka]));
+    for (const company of COMPANIES) {
+      expect(company.aka, `${company.id} aka`).toEqual(researchAka.get(company.id));
+    }
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
     // ['Pi', 'π'] -> ['π'] on 2026-10-19: the field audit
     // (audit/market-map-ledger.json) found its sources use "Pi" only for the
@@ -228,17 +205,18 @@ describe('COMPANIES data', () => {
   });
 
   it('carries website and logo through from the research source', () => {
-    const withLogo = COMPANIES.filter((company) => company.logo !== null);
-    const withSite = COMPANIES.filter((company) => company.website !== null);
-    expect(withLogo.length).toBe(111);
-    // 110 -> 108 on 2026-10-19: ari.bot and tars.bot are a domain for sale
-    // and a parked lander, never the companies' sites, so both websites are
-    // null; two more records moved to the domains their companies use
-    // (audit/market-map.md, "Market-map marks and company status, sourced").
-    // 108 -> 107 on 2026-10-20: monarchtractor.com now serves only "This
-    // page is unavailable" since Caterpillar bought Monarch's assets, so the
-    // website is cut and recorded n/a.
-    expect(withSite.length).toBe(107);
+    // A company added before its mark is fetched carries logo null; the
+    // card then falls back to its name. Website and logo are carried through
+    // from the research rows unchanged.
+    const research = loadResearch() as Array<{ id: string; website: string | null; logo: string | null }>;
+    const researchRow = new Map(research.map((row) => [row.id, row]));
+    for (const company of COMPANIES) {
+      expect(company.logo, `${company.id} logo`).toBe(researchRow.get(company.id)?.logo);
+      expect(company.website, `${company.id} website`).toBe(researchRow.get(company.id)?.website);
+    }
+    // ari.bot and tars.bot are a domain for sale and a parked lander, never
+    // the companies' sites, and monarchtractor.com stopped serving after
+    // Caterpillar bought Monarch's assets, so those websites stay null.
     const site = (id: string) => COMPANIES.find((company) => company.id === id)?.website;
     expect(site('assured-robot-intelligence')).toBeNull();
     expect(site('tars-robotics')).toBeNull();

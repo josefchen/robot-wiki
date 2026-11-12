@@ -35,7 +35,7 @@ describe('HelixZeroShotSuccess', () => {
     expect(kicker).toBe('Zero-shot success in 30 homes');
     expect(heading).toBe('Helix 2.5 reached 56% in unseen homes, short of 90%');
     expect(caption).toBe(
-      "Figure tested three tasks in homes absent from training, with no partial credit. This article sets 90% as the bar for solved.",
+      "Figure graded three tasks in 30 homes absent from training with no partial credit; this article sets 90% as the bar for solved.",
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);

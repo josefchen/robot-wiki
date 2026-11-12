@@ -74,7 +74,7 @@ describe('FrictionTransfer', () => {
     // One legend entry names the many-floor robot's line and its shaded range together.
     expect(screen.getByTestId('dr-band')).toHaveAttribute('data-series', 'dr-policy');
     expect(container.querySelector('[data-legend-series="dr-policy"]')).toHaveTextContent(
-      'many-floor robot, practised on the shaded floors',
+      'many-floor robot, practiced on the shaded floors',
     );
     expect(container.querySelector('[data-legend-series="training-range"]')).toBeNull();
   });
@@ -87,7 +87,7 @@ describe('FrictionTransfer', () => {
     expect(values()).toEqual([readout('point-readout'), readout('dr-readout')]);
     // The authored-formula note lives in "How this was made", not on a source line under the caption.
     expect(container.querySelector('[data-figure-source]')).toBeNull();
-    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('authored formulas');
+    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('made-up formulas');
   });
 
   it('on the training friction itself the point policy is ahead', () => {
@@ -158,7 +158,7 @@ describe('FrictionTransfer', () => {
 
   it('discloses authored formulas and restores the prediction mount defaults', () => {
     render(<FrictionTransfer defaultRange={0.65} />);
-    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('authored');
+    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('made-up formulas');
     expect(readout('dr-readout')).toBe('57%');
     fireEvent.change(realMuSlider(), { target: { value: '20' } });
     fireEvent.change(rangeSlider(), { target: { value: '10' } });

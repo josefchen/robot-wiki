@@ -52,7 +52,7 @@ describe('AppearancePhysicsPush', () => {
       .toHaveAttribute('aria-pressed', 'false');
     expect(within(fold).getByRole('button', { name: /^physics solver$/i })).toHaveAttribute('aria-pressed', 'true');
     expect(within(fold).getByRole('button', { name: /^reset$/i })).toBeInTheDocument();
-    expect(screen.getByTestId('displacement-readout')).toHaveTextContent('0 centimetres');
+    expect(screen.getByTestId('displacement-readout')).toHaveTextContent('0 centimeters');
     expect(screen.getByTestId('push-note')).toHaveTextContent(/only a picture/i);
   });
 
@@ -73,7 +73,7 @@ describe('AppearancePhysicsPush', () => {
     const user = userEvent.setup();
     render(<AppearancePhysicsPush />);
     await user.click(scene(/^picture plus physics$/i));
-    expect(screen.getByTestId('displacement-readout')).toHaveTextContent('18.1 centimetres');
+    expect(screen.getByTestId('displacement-readout')).toHaveTextContent('18.1 centimeters');
     const mug = screen.getByTestId('mug');
     expect(mug).toHaveAttribute('data-on-plate');
     expect(mug).toHaveAttribute('data-position-mm', '181');
@@ -82,7 +82,7 @@ describe('AppearancePhysicsPush', () => {
     expect(screen.getByTestId('push-note')).toHaveTextContent(/same push slides the mug/i);
     // A second push accumulates more displacement.
     await user.click(push());
-    expect(screen.getByTestId('displacement-readout')).toHaveTextContent('36.2 centimetres');
+    expect(screen.getByTestId('displacement-readout')).toHaveTextContent('36.2 centimeters');
     expect(mug).toHaveAttribute('data-position-mm', '362');
     expect(screen.getAllByTestId('motion-ghost')).toHaveLength(2);
   });
@@ -177,7 +177,7 @@ describe('AppearancePhysicsPush', () => {
     expect(id).toBeTruthy();
     const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
     expect(desc?.textContent).toMatch(/a push of 4 newtons/);
-    expect(desc?.textContent).toMatch(/leaves the mug at 0 centimetres/);
+    expect(desc?.textContent).toMatch(/leaves the mug at 0 centimeters/);
     fireEvent.change(strength(), { target: { value: '8' } });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).toMatch(/a push of 8 newtons/);
@@ -212,7 +212,7 @@ describe('the push bench model', () => {
     expect(run.duration).toBeCloseTo(0.16 + sliding, 6);
     // Halfway through the slide the mug has covered three quarters of its distance: friction slows it evenly.
     expect(run.at(0.16 + sliding / 2).pose.x).toBeCloseTo(0.75 * slide.free, 6);
-    expect(run.at(0.16 + sliding / 2).phase).toMatch(/^sliding · 13\.6 centimetres from the start$/);
+    expect(run.at(0.16 + sliding / 2).phase).toMatch(/^sliding · 13\.6 centimeters from the start$/);
   });
 
   it('stops the mug at the end stop when the model clamps it, and fires from behind it on a later push', () => {

@@ -18,14 +18,14 @@ const readout = () => screen.getByTestId('noise-or-edit-stage-frame').querySelec
 describe('NoiseOrEdit', () => {
   it('draws the still pose: the best noise only, the peg down on the strip short of the hole', () => {
     render(<NoiseOrEdit />);
-    expect(screen.getByText("Choosing starting guesses stays within the robot’s learned moves")).toBeInTheDocument();
+    expect(screen.getByText("Noise steering stays inside the moves the robot learned")).toBeInTheDocument();
     const drawing = screen.getByTestId('noise-or-edit-drawing');
     expect(drawing).toHaveAttribute('data-mode', 'noise');
     expect(drawing).toHaveAttribute('data-deg', '0');
     expect(drawing).toHaveAttribute('data-edit', '0');
     expect(drawing).toHaveAttribute('data-landed', 'short');
     expect(readout()).toHaveTextContent('Steered noise only · peg lands short');
-    expect(screen.getByTestId('noise-or-edit-stage-frame')).toHaveTextContent("Noise is a random starting guess for a move. An edit shifts the final movement beyond the wheel’s range. Illustrative mechanism.");
+    expect(screen.getByTestId('noise-or-edit-stage-frame')).toHaveTextContent("Noise is a random starting guess for a move. An edit shifts the final movement beyond the wheel's range. Illustrative mechanism.");
     const svg = drawing.querySelector('svg')!;
     expect(svg.querySelectorAll('text, title, desc, foreignObject, tspan')).toHaveLength(0);
     expect(svg.textContent).toBe('');

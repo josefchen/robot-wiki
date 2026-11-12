@@ -22,7 +22,7 @@ describe('ScopeFollow', () => {
 
   it('draws the still pose: following on, the lit pool round the tip, no words in the drawing', () => {
     render(<ScopeFollow />);
-    expect(screen.getByText('At Level 1 the robot takes over only the camera')).toBeInTheDocument();
+    expect(screen.getByText('At level 1 the robot takes over only the camera')).toBeInTheDocument();
     const drawing = screen.getByTestId('scope-drawing');
     expect(drawing).toHaveAttribute('data-mode', 'follow');
     expect(drawing).toHaveAttribute('data-seen', 'yes');
