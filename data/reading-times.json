@@ -120,8 +120,8 @@
     "minutes": 7
   },
   "world-models/world-models-vs-simulators": {
-    "words": 2206,
-    "minutes": 11
+    "words": 2426,
+    "minutes": 12
   },
   "data-hardware/data-bottleneck": {
     "words": 2049,
@@ -184,7 +184,7 @@
     "minutes": 6
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1283,
+    "words": 1282,
     "minutes": 6
   },
   "frontier/reliability-gap": {
