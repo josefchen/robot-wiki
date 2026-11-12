@@ -1,11 +1,11 @@
 ---
 title: "State Estimation"
-description: "The Kalman filter, the extended Kalman filter, and factor-graph smoothing: how a robot turns noisy, intermittent sensor readings into a state estimate with an honest uncertainty attached. Includes a step-through motion scene of one predict-and-update cycle."
+description: "How a robot turns noisy, intermittent sensor readings into an estimate of where it is, with honest uncertainty: Bayes and Kalman filters, the EKF and factor graphs."
 domain: classical
 slug: state-estimation
 order: 4
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-11-12"
 citations:
   - kalman-1960-filter
   - mcgee-schmidt-1985
@@ -48,6 +48,11 @@ citations:
   - grandtour-2026
   - ssio-2026
   - humanoidpose-2026
+  - fast-lio2-2021
+  - lio-sam-2020
+  - matos-lio-benchmark-2026
+  - lag-io-2026
+  - contact-flow-filter-2026
 seeAlso:
   - "rl-sim2real/legged-locomotion"
   - "adjacent/autonomous-vehicles"
@@ -60,137 +65,107 @@ import { LinearizationGap } from '@/components/interactive/linearization-gap';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-State estimation computes a robot's state, including its [configuration](/classical/kinematics) or velocity over ground, from noisy, biased and intermittent sensor readings, and [planning](/classical/motion-planning) and [control](/classical/control) assume that state is known. Probabilistic estimators report a belief, so each estimate carries its uncertainty <Cite id="thrun-2005" />.
+State estimation works out a robot's state, such as its [configuration](/classical/kinematics) or its speed over the ground, from noisy, biased and intermittent sensor readings. [Planning](/classical/motion-planning) and [control](/classical/control) assume that state is known. Probabilistic estimators report a belief, so every estimate carries its uncertainty <Cite id="thrun-2005" />.
 
 <Image id="apollo-imu-draper-2019" />
-
-Try "Step forward one beat" to follow the Kalman prediction-and-update cycle <Cite id="thrun-2005" />.
 
 <KalmanPredictUpdate className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Kalman filter" value="1960" note="Kalman's recursive linear estimator" />
-  <Stat label="EKF" value="1960s" note="Ames nonlinear navigation studies" />
+  <Stat label="EKF" value="1960s" note="NASA Ames lunar navigation studies" />
   <Stat label="factor graphs" value="2001" note="Kschischang, Frey, Loeliger unify the algebra" />
-  <Stat label="iSAM2" value="2012" note="incremental smoothing on the Bayes tree" />
+  <Stat label="iSAM2" value="2012" note="incremental smoothing" />
 </div>
 
-## The Bayes filter
+## The Bayes filter: predict, then correct
 
-A belief $bel(x_t)$ is a probability distribution over the state, updated by two alternating steps. The predict step pushes the belief through the process model, given the control $u_t$ <Cite id="thrun-2005" />:
+Picture a robot rolling down a corridor. Its wheels say it has gone 10 meters, but wheels slip, so its belief about where it is spreads out as it drives. Then its laser sees a doorway it knows is at 9.6 meters, and the belief snaps tighter. Every probabilistic estimator repeats these two steps. The belief $bel(x_t)$ is a probability distribution over the state $x_t$. The predict step pushes it through a motion model, given the command $u_t$ <Cite id="thrun-2005" />:
 
 $$
 \overline{bel}(x_t) = \int p(x_t \mid u_t, x_{t-1}) \, bel(x_{t-1}) \, dx_{t-1}
 $$
 
-The update step folds in the measurement $z_t$ through the sensor model $p(z_t \mid x_t)$ and sharpens the belief where the measurement points <Cite id="thrun-2005" />:
+The update step weighs the prediction by how well it explains the measurement $z_t$, using a sensor model $p(z_t \mid x_t)$, with $\eta$ rescaling the result to a probability <Cite id="thrun-2005" />:
 
 $$
 bel(x_t) = \eta \, p(z_t \mid x_t) \, \overline{bel}(x_t)
 $$
 
-with normalizer $\eta$. This recursion is the Bayes filter, which Thrun, Burgard and Fox call the basis of virtually every technique in their book, and each tractable filter adds assumptions or approximations that make the integral computable <Cite id="thrun-2005" />. The bootstrap filter of Gordon, Salmond and Smith drops the linearity and Gaussian-noise assumptions and applies to any state transition or measurement model <Cite id="gordon-salmond-smith-1993" />. Drive the robot in the figure below: its cloud of doubt grows as it moves and shrinks when it spots a landmark.
+Thrun, Burgard and Fox call this Bayes filter the basis of virtually every technique in their book. The integral is rarely computable, so each practical filter adds assumptions or approximations <Cite id="thrun-2005" />. The bootstrap particle filter of Gordon, Salmond and Smith carries the belief as a cloud of samples and works with any motion or sensor model <Cite id="gordon-salmond-smith-1993" />.
 
 <ExplainerFigure id="whereami" />
 
 ## The Kalman filter
 
-The 1960 <Term id="kalman-filter">Kalman filter</Term> reduces the recursion to matrix algebra by assuming linear process and measurement models and Gaussian noise <Cite id="kalman-1960-filter" />:
+The filter's early history is tied to spaceflight. A 1985 NASA history credits Schmidt's group at Ames with adapting Kalman's 1960 filter to circumlunar navigation in the early 1960s; Potter's square-root version flew in Apollo, whose primary navigation used ground radar with an onboard backup <Cite id="mcgee-schmidt-1985" />.
+
+<Image id="apollo-guidance-computer-dsky" />
+
+The 1960 <Term id="kalman-filter">Kalman filter</Term> assumes the motion and sensor models are linear and the noise is Gaussian <Cite id="kalman-1960-filter" />:
 
 $$
 x_t = A_t x_{t-1} + B_t u_t + w_t, \qquad z_t = C_t x_t + v_t
 $$
 
-with $w_t \sim \mathcal{N}(0, Q_t)$ and $v_t \sim \mathcal{N}(0, R_t)$; Probabilistic Robotics swaps the two symbols. A Gaussian belief then stays Gaussian, so the recursion tracks only a mean and covariance. Predict <Cite id="thrun-2005" />:
+Here $A_t$ and $B_t$ say how the state evolves under the command, $C_t$ what the sensor would read, and $w_t$ and $v_t$ are random noise with covariances $Q_t$ and $R_t$. A Gaussian belief then stays Gaussian, so the filter tracks only a best guess $\mu$ and its covariance $\Sigma$. Prediction moves $\mu$ through the model and widens $\Sigma$ by $Q_t$. The update then blends prediction and measurement through the Kalman gain $K_t$ <Cite id="thrun-2005" />:
 
 $$
-\bar{\mu}_t = A_t \mu_{t-1} + B_t u_t, \qquad \bar{\Sigma}_t = A_t \Sigma_{t-1} A_t^{\top} + Q_t
+K_t = \bar{\Sigma}_t C_t^{\top} \left( C_t \bar{\Sigma}_t C_t^{\top} + R_t \right)^{-1}, \qquad \mu_t = \bar{\mu}_t + K_t \left( z_t - C_t \bar{\mu}_t \right)
 $$
 
-Update, through the Kalman gain $K_t$ <Cite id="thrun-2005" />:
-
-$$
-K_t = \bar{\Sigma}_t C_t^{\top} \left( C_t \bar{\Sigma}_t C_t^{\top} + R_t \right)^{-1}
-$$
-
-$$
-\mu_t = \bar{\mu}_t + K_t \left( z_t - C_t \bar{\mu}_t \right), \qquad \Sigma_t = \left( I - K_t C_t \right) \bar{\Sigma}_t
-$$
-
-The gain is prior uncertainty over prior-plus-sensor uncertainty: a filter that trusts its model gets a small gain and mostly ignores the sensor, and one that trusts its sensor gets a gain near one. Under linear-Gaussian assumptions the recursion is the minimum-variance estimator, and Kalman's projection-based derivation makes it the best linear estimator with white noise even without Gaussian noise <Cite id="kalman-1960-filter" />.
-
-Kalman and Bucy's continuous-time formulation evolves the error covariance through a Riccati differential equation, whose solution determines the optimal filter <Cite id="kalman-bucy-1961" />.
-
-McGee and Schmidt's 1985 NASA history credits Schmidt's Ames group with adapting the filter to nonlinear circumlunar navigation in the early 1960s. By early 1961 simulations supported the approach, though operation on available flight computers was unverified. The report separates this work from Battin's Apollo studies at MIT and Potter's square-root implementation used in Apollo. Primary Apollo navigation used ground radar, with an onboard backup <Cite id="mcgee-schmidt-1985" />.
-
-<Image id="apollo-guidance-computer-dsky" />
+The gain is the prediction's uncertainty divided by the total uncertainty of prediction plus sensor. A filter sure of its model gets a small gain and mostly ignores the sensor; one with a precise sensor gets a gain near one. Under linear-Gaussian assumptions this is the minimum-variance estimator, and Kalman's derivation also makes it the best linear estimator when the noise is white but not Gaussian <Cite id="kalman-1960-filter" />. Kalman and Bucy's 1961 continuous-time version evolves the error covariance through a Riccati differential equation <Cite id="kalman-bucy-1961" />.
 
 <Clip id="kalman-episode" className="my-6" />
 
 ## The extended Kalman filter
 
-Real robots are nonlinear: joint angles enter through sines and cosines, so the models become $x_t = g(x_{t-1}, u_t) + w_t$ and $z_t = h(x_t) + v_t$. The extended Kalman filter keeps the Gaussian belief, linearizes both models about the current estimate with their <Term id="jacobian">Jacobians</Term> $G_t = \partial g / \partial x$ and $H_t = \partial h / \partial x$, and propagates the covariance through the tangent system <Cite id="thrun-2005" />:
+Real robots are nonlinear: joint angles enter through sines and cosines, so the models become $x_t = g(x_{t-1}, u_t) + w_t$ and $z_t = h(x_t) + v_t$. The extended Kalman filter (EKF) keeps the Gaussian belief and, at each step, replaces $g$ and $h$ by straight-line approximations around the current estimate, their <Term id="jacobian">Jacobians</Term>. The best guess moves through the true models; only the uncertainty takes the approximated route <Cite id="thrun-2005" />. Schmidt's group got there by relinearizing about the current estimate instead of a planned trajectory, after an accidentally off-course simulation still converged <Cite id="mcgee-schmidt-1985" />.
 
-$$
-\bar{\Sigma}_t = G_t \Sigma_{t-1} G_t^{\top} + Q_t, \qquad K_t = \bar{\Sigma}_t H_t^{\top} \left( H_t \bar{\Sigma}_t H_t^{\top} + R_t \right)^{-1}
-$$
-
-The mean moves through the true maps $g$ and $h$; only the covariance takes the linearized route <Cite id="thrun-2005" />. The Ames group moved from linearizing about a nominal reference trajectory to relinearizing about the *current estimated state*, which they hoped would bring "substantial advantages". An accidentally off-nominal simulation converged after initial overshoots, and the report names this modification the extended Kalman filter. It also discusses instability from round-off, inadequate statistical models and nonlinearities <Cite id="mcgee-schmidt-1985" />.
-
-Linearization holds near the uncertain estimate, so where the nonlinearity is strong over the region the covariance covers, $\Sigma$ stops describing the true error, and the filter grows overconfident and can diverge <Cite id="mcgee-schmidt-1985" /><Cite id="dellaert-kaess-2006" />. Julier and Uhlmann summarize 35 years of experience: the EKF is difficult to implement and tune, and reliable only for systems almost linear on the update time scale <Cite id="julier-uhlmann-2004" />. Li and Mourikis proved standard EKF visual-inertial odometry is inconsistent because of how its Jacobians are computed, so it underestimates its uncertainty <Cite id="li-mourikis-2013" />.
+The approximation holds only near the estimate. Where the model curves sharply over the range the uncertainty covers, $\Sigma$ stops describing the true error, and the filter grows overconfident and can diverge <Cite id="mcgee-schmidt-1985" /><Cite id="dellaert-kaess-2006" />. Julier and Uhlmann, summarizing 35 years of experience, found the EKF hard to implement and tune and reliable only for systems almost linear over one update <Cite id="julier-uhlmann-2004" />. Li and Mourikis proved that standard EKF visual-inertial odometry is inconsistent because of how its Jacobians are computed, so it underestimates its uncertainty <Cite id="li-mourikis-2013" />.
 
 <LinearizationGap className="my-6" />
 
-The unscented Kalman filter of Julier and Uhlmann keeps the Gaussian and pushes deterministically chosen sample points through the true nonlinearity <Cite id="julier-uhlmann-1997" />. Particle filters drop the Gaussian assumption and carry the belief as particles <Cite id="thrun-2005" />.
-
-Invariant filters on Lie groups remove the dependence on the estimate: in the contact-aided invariant EKF, neither the linearized error dynamics nor the linearized observation model depends on the current state estimate <Cite id="hartley-inekf-2019" />. EqVIO applies an equivariant filter to visual-inertial odometry, using the system's symmetries to reduce linearization error and improve consistency <Cite id="eqvio-2022" />.
+Several designs reduce the problem. The unscented Kalman filter pushes a few chosen sample points through the true model instead of a straight-line approximation <Cite id="julier-uhlmann-1997" />, and particle filters drop the Gaussian altogether <Cite id="thrun-2005" />. Invariant filters exploit symmetry: in the contact-aided invariant EKF for legged robots, the linearized error and observation models do not depend on the current estimate at all <Cite id="hartley-inekf-2019" />, and EqVIO uses the same idea for visual-inertial odometry <Cite id="eqvio-2022" />. The iterated EKF, which relinearizes several times per update, runs FAST-LIO2, a LiDAR-inertial odometry system with odometry and mapping at up to 100 Hz outdoors <Cite id="fast-lio2-2021" />.
 
 ## Factor graphs: keep the whole trajectory
 
-Rauch, Tung and Striebel related filtered and smoothed estimates in 1965 and showed numerically that smoothing reduces errors <Cite id="rauch-tung-striebel-1965" />. In EKF-based SLAM, marginalizing old poses commits their linearized information to a Gaussian approximation that cannot be relinearized later. Full smoothing keeps the trajectory and can relinearize, though nonlinear optimization is not guaranteed to reach the global minimum <Cite id="dellaert-kaess-2006" /><Cite id="cadena-2016" />. The posterior over the trajectory $X = \{x_0, \dots, x_T\}$ is a product of factors, one per measurement or motion constraint <Cite id="dellaert-kaess-2006" />:
+A filter forgets. Once it moves past a pose, that pose's information is frozen into a Gaussian that cannot be revisited, so if the corridor robot later recognizes a place it saw a minute ago, a filter cannot fix the path it took in between. Smoothing can: it uses later measurements to improve earlier estimates. Rauch, Tung and Striebel related filtered and smoothed estimates in 1965 and showed numerically that smoothing reduces errors <Cite id="rauch-tung-striebel-1965" />. Full smoothing keeps the trajectory and can relinearize, though nonlinear optimization is not guaranteed to find the global minimum <Cite id="dellaert-kaess-2006" /><Cite id="cadena-2016" />.
 
-$$
-p(X \mid Z) \propto \prod_i \phi_i(X_i)
-$$
-
-Drawn as a bipartite graph of variable and factor nodes, this is a <Term id="factor-graph">factor graph</Term>. Kschischang, Frey, and Loeliger's 2001 paper unified inference on such graphs under the sum-product algorithm <Cite id="kschischang-2001" />. With Gaussian factors, the most probable trajectory solves one sparse nonlinear least-squares problem <Cite id="dellaert-kaess-2006" />:
+The posterior over the trajectory $X = \{x_0, \dots, x_T\}$ factors into one term $\phi_i$ per measurement or motion constraint, $p(X \mid Z) \propto \prod_i \phi_i(X_i)$; drawn as a graph linking states to the measurements that touch them, this is a <Term id="factor-graph">factor graph</Term>. Kschischang, Frey and Loeliger's 2001 paper unified inference on such graphs <Cite id="kschischang-2001" />. With Gaussian noise, the most probable trajectory is the one that best fits every measurement $z_i$, each weighted by its uncertainty $\Sigma_i$, a sparse least-squares problem <Cite id="dellaert-kaess-2006" />:
 
 $$
 X^{\star} = \arg\min_X \sum_i \left\lVert h_i(X_i) - z_i \right\rVert_{\Sigma_i}^2
 $$
 
-Dellaert and Kaess's 2006 Square Root SAM jointly estimates the <Term id="slam">SLAM</Term> trajectory and landmark map, assuming known data associations, Gaussian models, a uniform landmark prior and a fixed initial frame. It solves successive linearized systems, by QR on the measurement Jacobian or Cholesky on the information matrix, and variable ordering sets fill-in and cost <Cite id="dellaert-kaess-2006" />. The iSAM method updates only the part of the factorization a new measurement touches <Cite id="kaess-2008" />.
+Dellaert and Kaess's 2006 Square Root SAM solves it for the <Term id="slam">SLAM</Term> trajectory and landmark map together, assuming known data associations, and the order in which variables are eliminated sets its cost <Cite id="dellaert-kaess-2006" />. iSAM updates only the part of the solution a new measurement touches <Cite id="kaess-2008" />, and iSAM2 does so on a tree structure that also reorders and relinearizes incrementally, though a large loop closure can cost as much as a full solve <Cite id="kaess-2012" />.
 
-iSAM2 adds a Bayes tree with incremental reordering and relinearization: an update re-eliminates the affected cliques and their ancestors, then reattaches unaffected subtrees. Thresholds trade accuracy for computation, and a large loop closure can cost as much as a batch solve <Cite id="kaess-2012" />.
+The open GTSAM library implements this <Cite id="gtsam-2026" />, adding experimental GPU optimization and legged-robot estimators in version 4.3 (September 2026) <Cite id="gtsam-4-3-2026" />. Forster and colleagues' on-manifold preintegration collapses anywhere from a few to hundreds of IMU readings between two keyframes into one factor <Cite id="forster-2017" />. LIO-SAM puts LiDAR odometry, IMU preintegration and loop closures into one iSAM2 graph <Cite id="lio-sam-2020" />, and LAG-IO (October 2026) fuses body and leg IMUs with joint encoders in a sliding window for quadrupeds <Cite id="lag-io-2026" />.
 
-GTSAM is a BSD-licensed C++ library that implements sensor fusion for robotics and computer vision using factor graphs <Cite id="gtsam-2026" />. Version 4.3 moved to C++17 and added experimental CUDA nonlinear optimization and several legged-state-estimation implementations <Cite id="gtsam-4-3-2026" />. Building on Lupton and Sukkarieh's preintegration, Forster and colleagues' on-manifold version collapses anywhere from a few to hundreds of IMU readings between two keyframes into one factor <Cite id="forster-2017" />.
+## Filters and smoothers today
 
-Cadena and colleagues describe a classical SLAM period from 1986 to 2004, with EKF, Rao-Blackwellised particle-filter and maximum-likelihood approaches, and an algorithmic-analysis period from 2004 to 2015 <Cite id="cadena-2016" />. In Rao-Blackwellized grid mapping, each particle carries its own map <Cite id="grisetti-gmapping-2007" />.
+SLAM began with filters. Smith, Self and Cheeseman's stochastic map stored spatial relationships with their uncertainties <Cite id="smith-1990" />; Cadena and colleagues call 1986 to 2004 the classical SLAM period, built on EKFs, Rao-Blackwellized particle filters and maximum-likelihood methods <Cite id="cadena-2016" />, and in Rao-Blackwellized grid mapping each particle carries its own map <Cite id="grisetti-gmapping-2007" />.
 
-Smith, Self and Cheeseman's stochastic map stores estimated spatial relationships with their uncertainties and updates them incrementally as measurements arrive <Cite id="smith-1990" />.
+The two now compete closely. The same survey treats factor-graph optimization as the de facto standard, but notes EKF systems with state-of-the-art performance when linearization is accurate, sliding windows are used and inconsistency is addressed; graphs still grow without bound or lose information when pruned <Cite id="cadena-2016" />. The MSCKF sliding-window filter keeps 3D feature positions out of the state and is optimal up to linearization errors <Cite id="msckf-2007" />, while OKVIS argues that nonlinear optimization is more accurate and stays tractable through sparsity <Cite id="okvis-2014" />. [Scene representation and mapping](/classical/scene-representation) covers what a robot keeps from the estimate.
 
-The survey treats MAP estimation, often over factor graphs, as the de facto standard but notes EKF systems with state-of-the-art performance. The gap shrinks when EKF linearization is accurate, sliding windows are used and inconsistency is addressed, and graphs still face unbounded growth and information loss under sparsification <Cite id="cadena-2016" />. The MSCKF sliding-window filter keeps 3D feature positions out of the state and is optimal up to linearization errors <Cite id="msckf-2007" />, while OKVIS argues nonlinear optimization offers superior accuracy and stays tractable through sparsity <Cite id="okvis-2014" />. [Scene representation and mapping](/classical/scene-representation) covers what a robot keeps from the estimate.
+## Learned parts enter as measurements
 
-## Where this meets the learned stack
+Learning mostly enters these estimators as a measurement that comes with its own uncertainty, so the filter or graph can weigh it like any other sensor. TLIO regresses displacement and its uncertainty from IMU data and fuses both in an EKF <Cite id="tlio-2020" />, MAC-VO learns per-keypoint uncertainty to weight pose optimization <Cite id="mac-vo-2024" />, and AirIO pairs learned IMU correction with an uncertainty-aware EKF on aerial robots <Cite id="airio-2025" />. Backprop KF goes further, making the whole filter differentiable and trainable from raw observations <Cite id="backprop-kf-2016" />. Newer systems replace one piece:
 
-Learned components mostly enter classical estimators as measurements with uncertainty. TLIO regresses 3D displacement and its uncertainty from IMU data and fuses both into a stochastic cloning EKF <Cite id="tlio-2020" />, and MAC-VO learns a metrics-aware keypoint covariance and uses it to weight pose graph optimization <Cite id="mac-vo-2024" />.
+| System | What is learned | Reported result |
+| --- | --- | --- |
+| Mesh MCL (2026) | Particle-filter observation model matching LiDAR scans to a building mesh, trained on simulated scans | Beat diffusion-based and ScanContext++ baselines on real construction sites, 18 ms per call <Cite id="mesh-mcl-construction-2026" /> |
+| ContactFlowFilter (2026) | Flow-matching proposal for contact estimation | 0.36 cm real-world error for one contact, 0.69 ms per step <Cite id="contact-flow-filter-2026" /> |
+| GAIT (2026) | Legged-robot state without an explicit contact estimator | Beat contact-aided model-based methods on a Unitree Go1 <Cite id="gait-2026" /> |
 
-Backprop KF makes the filter itself differentiable, representing its belief-parameter updates as a computation graph trainable from raw observations <Cite id="backprop-kf-2016" />.
+Learned estimators can also train without ground truth. Yuheng Qiu, Pieter Abbeel, Guanya Shi and colleagues (October 2026) trained inertial odometry with no velocity or position labels, refining its targets with a pose graph. On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same design, though trajectory error on EuRoC drone flights was 10.23 m against 3.72 m, and it needs a reference attitude and calibrated IMU bias <Cite id="ssio-2026" />. An ETH Zurich group (October 2026) estimated humanoid joint angles from ordinary video with a pose decoder trained only on 128,000 synthetic images of sixteen humanoids; on three real humanoids its joint-angle error was 18 to 32% below the best baseline on each <Cite id="humanoidpose-2026" />.
 
-AirIO preserves body-frame IMU measurements and encodes attitude, combining learned IMU correction with an uncertainty-aware EKF for aerial robots <Cite id="airio-2025" />.
-
-A September 2026 paper from Linus Kramer, William Talbot, Olga Vysotska and Marco Hutter is an example. For robots on construction sites, they replace the observation model of a Monte Carlo localization particle filter with a network that matches LiDAR scans against the building mesh, trained only on scans simulated inside that mesh. On real-world datasets it outperformed diffusion-based and ScanContext++ baselines at 18 ms per call <Cite id="mesh-mcl-construction-2026" />.
-
-GAIT estimates legged-robot state without an explicit contact estimator and outperforms contact-aided model-based methods on a Unitree Go1 <Cite id="gait-2026" />.
-
-Yuheng Qiu, Pieter Abbeel, Guanya Shi and colleagues at Amazon FAR, Carnegie Mellon and three other universities (October 2026) train inertial odometry from scratch without velocity or position labels: a teacher integrates the IMU over each short window, and a pose graph over many windows refines the targets <Cite id="ssio-2026" />. On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same architecture, though its trajectory error on the EuRoC drone flights was 10.23 m against the supervised network's 3.72 m <Cite id="ssio-2026" />. The teacher used a reference attitude to remove gravity, and the IMU bias must be calibrated <Cite id="ssio-2026" />.
-
-Jiaxi Jiang, Marco Hutter, Christian Holz and colleagues at ETH Zurich (October 2026) estimate a humanoid's joint angles and world-space motion from ordinary video, training the pose decoder only on 128,000 synthetic images of sixteen humanoids <Cite id="humanoidpose-2026" />. With no real pose labels, joint-angle error on three real humanoids was 18 to 32% below the best baseline on each <Cite id="humanoidpose-2026" />.
-
-[Latent-dynamics world models](/world-models/latent-dynamics) act as learned belief states. PlaNet's latent dynamics model has deterministic and stochastic transition components trained with variational inference <Cite id="planet-2018" />. DreamerV3 learns a model of the environment and improves its behaviour by imagining future scenarios <Cite id="dreamerv3-nature-2025" />.
+[Latent-dynamics world models](/world-models/latent-dynamics) act as learned belief states. PlaNet's latent model mixes deterministic and random transitions trained with variational inference <Cite id="planet-2018" />, and DreamerV3 improves its behavior by imagining future scenarios in its learned model <Cite id="dreamerv3-nature-2025" />.
 
 ## Timing is part of the state
 
-Fusing visual and inertial measurements requires each measurement's precise sampling time <Cite id="li-mourikis-temporal-2014" />, and most consumer cameras use rolling shutters that capture each pixel row at a slightly different time <Cite id="li-rolling-shutter-2013" />. The camera-IMU offset can be a state variable, locally identifiable except in a few degenerate motions <Cite id="li-mourikis-temporal-2014" />; OpenVINS calibrates it in its sliding-window filter <Cite id="openvins-2020" />, and Kalibr estimates time offsets to a fraction of the smallest measurement period <Cite id="kalibr-2013" />.
+Visual-inertial fusion needs each measurement's precise sampling time <Cite id="li-mourikis-temporal-2014" />, and most consumer cameras have rolling shutters that capture each pixel row at a slightly different moment <Cite id="li-rolling-shutter-2013" />. The camera-IMU time offset can itself be a state to estimate, identifiable except in a few degenerate motions <Cite id="li-mourikis-temporal-2014" />. OpenVINS calibrates it inside its filter <Cite id="openvins-2020" />, and Kalibr estimates time offsets to a fraction of the smallest measurement period <Cite id="kalibr-2013" />.
 
-Persistent directional residuals in per-sensor innovations point to calibration or timing bias instead of random noise. GrandTour, which its authors call the largest open-access legged-robotics dataset, supplies RTK-GNSS and total-station ground truth <Cite id="grandtour-2026" />. The [calibration guide](/classical/calibration) covers temporal residuals, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers timestamped interfaces.
+Compute is part of the timing too. In an October 2026 benchmark of six LiDAR odometry systems on a drone's onboard computer, the system most accurate on a workstation silently discarded up to two-thirds of its input on the drone while its latency, coverage and memory readings looked normal <Cite id="matos-lio-benchmark-2026" />.
+
+If the gaps between predicted and measured readings keep pointing the same way, they signal calibration or timing bias, since random noise would average out. Confirming it needs ground truth, such as the RTK-GNSS and total-station references of GrandTour, which its authors call the largest open-access legged-robotics dataset <Cite id="grandtour-2026" />. The [calibration guide](/classical/calibration) covers temporal residuals, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers timestamped interfaces.
