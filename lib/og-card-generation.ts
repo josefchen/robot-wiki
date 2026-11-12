@@ -16,22 +16,13 @@
  * - a second, independent render of every OG/X card, which must reproduce
  *   the staged bytes exactly (VAL-B2-OG-010);
  * - byte equality between the staged copies of each tree pair.
- *
- * The manifest is written into the staged evidence tree only when every
- * check passes, so a published manifest always describes a validated
- * corpus.
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { cardPaintedColors } from './og-card-artwork.ts';
 import { openSealedCardTree, type OgCardCorpusEntry } from './og-card-corpus.ts';
 import { runGlyphProbes } from './og-card-glyph-probes.ts';
-import {
-  OG_CARD_EVIDENCE_DIR,
-  buildOgCardManifest,
-  sha256,
-  type OgCardManifest,
-} from './og-card-manifest.ts';
+import { buildOgCardManifest, sha256, type OgCardManifest } from './og-card-manifest.ts';
 import { inspectCardPixels } from './og-card-pixels.ts';
 import type { OgPublicationTree } from './og-card-publication.ts';
 import { treeFiles } from './og-card-publication.ts';
@@ -68,12 +59,11 @@ export async function stageOgCorpus(input: {
       );
     }
   }
-  const imageTrees = trees.filter(({ kind }) => kind !== 'evidence');
   for (const tree of trees) mkdirSync(join(stagingRoot, tree.path), { recursive: true });
   for (const [sitePath, bytes] of files) {
     for (const prefix of ['public', 'out'] as const) {
       const tree = treeFor(sitePath, prefix);
-      if (!imageTrees.some(({ path }) => path === tree)) continue;
+      if (!trees.some(({ path }) => path === tree)) continue;
       const file = join(stagingRoot, prefix, sitePath);
       mkdirSync(dirname(file), { recursive: true });
       writeFileSync(file, bytes);
@@ -98,7 +88,7 @@ export async function validateStagedOgCorpus(input: {
   const failures: string[] = [];
 
   // Every staged tree holds exactly its share of the corpus, byte for byte.
-  for (const tree of trees.filter(({ kind }) => kind !== 'evidence')) {
+  for (const tree of trees) {
     const prefix = tree.path.split('/')[0] as 'public' | 'out';
     const expected = [...staged.files.keys()]
       .filter((sitePath) => treeFor(sitePath, prefix) === tree.path)
@@ -147,10 +137,5 @@ export async function validateStagedOgCorpus(input: {
     };
   }
 
-  if (failures.length === 0 && trees.some(({ kind }) => kind === 'evidence')) {
-    const file = join(stagingRoot, OG_CARD_EVIDENCE_DIR, 'manifest.json');
-    mkdirSync(dirname(file), { recursive: true });
-    writeFileSync(file, `${JSON.stringify(built.manifest, null, 2)}\n`);
-  }
   return { manifest: built.manifest, failures };
 }

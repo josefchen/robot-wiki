@@ -1,8 +1,0 @@
-{
-  "command": "NODE_DISABLE_COMPILE_CACHE=1 node row-dispatch-preflight.mjs validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923/selection.json",
-  "startedAt": "2026-09-23T20:36:07.553021+00:00",
-  "endedAt": "2026-09-23T20:36:07.878254+00:00",
-  "exitCode": 0,
-  "stdoutPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923/preflight.json",
-  "stderrPath": "validation/brand-v2-editorial/source-recovery-20260906/closure-crossdomain-integration-20260923/preflight.stderr.log"
-}

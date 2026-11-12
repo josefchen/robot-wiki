@@ -55,4 +55,4 @@ By contributing code, you agree it will be licensed under the MIT license ([LICE
 
 ## Reporting a problem
 
-Open an issue with the URL of the page and, for factual claims, a primary source that contradicts what the page says. Reports that come with a source get fixed faster.
+Every number and claim on the site cites its primary source, so an error can be checked against it. Open an issue with the URL of the page and, for factual claims, a primary source that contradicts what the page says. Reports that come with a source get fixed faster.

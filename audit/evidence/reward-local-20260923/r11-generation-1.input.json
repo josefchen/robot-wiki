@@ -1,8 +1,0 @@
-{
-  "id": "eureka",
-  "mode": "derive",
-  "inputs": {
-    "previous": 0,
-    "next": 1
-  }
-}

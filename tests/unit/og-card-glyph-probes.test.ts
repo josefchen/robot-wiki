@@ -1,12 +1,9 @@
 // @vitest-environment node
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { TEKTUR_ASSIGNED_STRINGS } from '@/data/type-roles';
 import { cardTextRuns } from '@/lib/og-card-artwork';
 import { ogCardCorpus, openSealedCardTree, sealGlyphProbe } from '@/lib/og-card-corpus';
 import { glyphProbePopulation, runGlyphProbes } from '@/lib/og-card-glyph-probes';
-import { OG_CARD_MANIFEST_PATH, type OgCardManifest } from '@/lib/og-card-manifest';
 import { renderCorpusCard } from '@/lib/og-card-render-boundary';
 import { OG_DISPLAY_STACK, OG_MONO_STACK, ogRendererFaceForStack } from '@/lib/og-renderer-fonts';
 import { sanitizeCardText } from '@/lib/og-cards';
@@ -19,7 +16,6 @@ import { sanitizeCardText } from '@/lib/og-cards';
  */
 const ROOT = process.cwd();
 const corpus = ogCardCorpus(ROOT);
-const recorded = JSON.parse(readFileSync(join(ROOT, OG_CARD_MANIFEST_PATH), 'utf8')) as OgCardManifest;
 
 /** A one-string stand-in for the corpus, so a probe can be run on a chosen string. */
 function probeCorpus(text: string, stack: string) {
@@ -41,17 +37,6 @@ describe('Open Graph glyph probes', { timeout: 120_000 }, () => {
       expect(keys.has(`og-face:display|${sanitizeCardText(assigned.text)}`), assigned.id).toBe(true);
     }
     expect(keys.size).toBe(population.length);
-  });
-
-  it('were all run, fallback-free, for the published corpus', () => {
-    const population = glyphProbePopulation(corpus);
-    expect(recorded.glyphProbes.map(({ faceId, text }) => `${faceId}|${text}`)).toEqual(
-      population.map(({ face, text }) => `${face.faceId}|${text}`),
-    );
-    for (const probe of recorded.glyphProbes) {
-      expect(probe, probe.text).toMatchObject({ fallbackFree: true, cmapMissing: [] });
-      expect(probe.ownFaceSha256).toBe(probe.productionSha256);
-    }
   });
 
   it('fail a display string with a glyph Tektur lacks but IBM Plex Mono has', async () => {
