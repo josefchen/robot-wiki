@@ -1,7 +1,6 @@
 /**
  * Source-backed inputs for the three world-model figures owed by VAL-OPUS-073.
- * Sources were read on 2026-11-02; the source passages and URL/version record
- * are in audit/evidence/world-model-figures-20261102/sources.json.
+ * Sources were read on 2026-11-02.
  * The loop and ladder are authored explanatory arrangements, not measurements
  * or a published universal evaluation standard.
  */

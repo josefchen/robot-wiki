@@ -14,9 +14,9 @@
  * the registered OG face of the data role (data/type-roles.json), sets the
  * registration metadata and the site descriptor.
  *
- * Every rail, cross and rule is one of the website's registered grid
- * devices (`device:*` in contract/brand-v2-registries.json) and carries
- * that ID in `props.ogMeta.device`, so the card population and the registry
+ * Every rail, cross and rule is one of the website's grid devices
+ * (`device:*`, components/ui/brand-device.tsx) and carries that ID in
+ * `props.ogMeta.device`, so the card population and the website's devices
  * can be reconciled. Text nodes carry the card field they paint in
  * `props.ogMeta.field`, so the renderer-input manifest records which
  * canonical fact each string came from. Satori ignores `ogMeta`.

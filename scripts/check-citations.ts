@@ -22,7 +22,7 @@
  *   npm run check:citations                       # audit every citation
  *   npm run check:citations -- --id act-aloha-2023  # re-audit one entry
  *   npm run check:citations -- --json             # machine-readable report
- *   npm run check:citations -- --markdown         # audit/citations.md table
+ *   npm run check:citations -- --markdown         # markdown results table
  *
  * Output is deterministic (registry order, no timings), so consecutive runs
  * on an unchanged registry and unchanged web diff cleanly. Exit code is 1 on
@@ -494,7 +494,7 @@ function escapeTableCell(value: string): string {
   return value.replace(/\|/g, '\\|');
 }
 
-/** Emit the audit/citations.md results table: id, url, verdict, title, note. */
+/** Emit a markdown results table: id, url, verdict, title, note. */
 function reportMarkdown(results: readonly CitationAuditResult[]): void {
   console.log('| id | url checked | verdict | title check | note |');
   console.log('|---|---|---|---|---|');
