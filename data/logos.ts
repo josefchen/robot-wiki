@@ -125,6 +125,14 @@ const COMPANY_LOGOS: Record<string, CompanyLogoAsset> = {
   'fox-robotics-logo': { file: '/images/logos/fox-robotics.png', width: 3167, height: 1342 },
   'zebra-robotics-automation-logo': { file: '/images/logos/zebra-robotics-automation.svg', width: 127, height: 42 },
   'robotphoenix-logo': { file: '/images/logos/robotphoenix.webp', width: 250, height: 100 },
+  'agile-robots-logo': { file: '/images/logos/agile-robots.svg', width: 641, height: 101 },
+  'd-robotics-logo': { file: '/images/logos/d-robotics.png', width: 373, height: 78 },
+  'walden-robotics-logo': { file: '/images/logos/walden-robotics.svg', width: 650, height: 145 },
+  'tutor-intelligence-logo': { file: '/images/logos/tutor-intelligence.svg', width: 160, height: 47 },
+  'noetix-robotics-logo': { file: '/images/logos/noetix-robotics.svg', width: 1250, height: 226 },
+  'zipline-logo': { file: '/images/logos/zipline.svg', width: 117, height: 24 },
+  'geek-plus-logo': { file: '/images/logos/geek-plus.png', width: 2492, height: 946 },
+  'robco-logo': { file: '/images/logos/robco.svg', width: 955, height: 260 },
 };
 
 /** Look up the plotted mark; undefined for an unregistered logo id. */

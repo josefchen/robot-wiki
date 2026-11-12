@@ -185,8 +185,13 @@ if (!parsed.success) {
 }
 
 const companies = parsed.data;
-if (companies.length !== 111) {
-  fail(`expected 111 companies, got ${companies.length}`); // 111 since the 2026-08-18 audit removed the duplicate galaxea-ai-robot row
+// The population is whatever the research file holds: no remembered total.
+// An empty file or a repeated id is still a broken source.
+if (companies.length === 0) fail('research source has no companies');
+const seenIds = new Set<string>();
+for (const company of companies) {
+  if (seenIds.has(company.id)) fail(`duplicate company id "${company.id}"`);
+  seenIds.add(company.id);
 }
 
 const body = companies

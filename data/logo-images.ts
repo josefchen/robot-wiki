@@ -1865,4 +1865,148 @@ export const LOGO_IMAGES: SiteImage[] = [
     height: 100,
     // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
+  {
+    id: 'agile-robots-logo',
+    file: '/images/logos/agile-robots.svg',
+    alt: 'Agile Robots mark and wordmark from the official website',
+    caption: 'Agile Robots logo from the official website, used on the market map.',
+    sourceName: 'Agile Robots official website',
+    sourceUrl: 'https://www.agile-robots.com/en/',
+    creator: 'Agile Robots',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.agile-robots.com/en/',
+    retrieved: '2026-11-12',
+    width: 641,
+    height: 101,
+    // Official mark: the header logo of https://www.agile-robots.com/en/ (an inline SVG, white on the site's dark
+    // header), saved as a standalone file with its viewBox attribute restored to SVG case. File SHA-256
+    // dedf35cd7294a7b644426fd35561b5cb65cb40e7392b06ad2ccf62b99d29b8c3, retrieved 2026-11-12. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'd-robotics-logo',
+    file: '/images/logos/d-robotics.png',
+    alt: 'D-Robotics mark and wordmark from the official website',
+    caption: 'D-Robotics logo from the official website, used on the market map.',
+    sourceName: 'D-Robotics official website',
+    sourceUrl: 'https://en.d-robotics.cc/',
+    creator: 'D-Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://en.d-robotics.cc/',
+    retrieved: '2026-11-12',
+    width: 373,
+    height: 78,
+    // Official mark: the header logo of https://en.d-robotics.cc/, served as
+    // https://en.d-robotics.cc/_next/static/media/logo.07c01094.png and saved unchanged. File SHA-256
+    // 4f199d5f434a0fb8a947948ceee506505d3f71667eb5030d7431cdda657cc66d, retrieved 2026-11-12. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'walden-robotics-logo',
+    file: '/images/logos/walden-robotics.svg',
+    alt: 'Walden Robotics wordmark from the official website',
+    caption: 'Walden Robotics logo from the official website, used on the market map.',
+    sourceName: 'Walden Robotics official website',
+    sourceUrl: 'https://www.waldenrobotics.com/',
+    creator: 'Walden Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.waldenrobotics.com/',
+    retrieved: '2026-11-12',
+    width: 650,
+    height: 145,
+    // Official mark: the "walden" wordmark of https://www.waldenrobotics.com/ (the inline SVG in the footer's home
+    // link), saved as a standalone file with an xmlns and its viewBox size added; the header's stacked mark sets the
+    // same word too small to read on a map tile. File SHA-256
+    // 0611c0b6c40160284eed349523e09f04fe6f8bb4b786efe333128be2beb161a1, retrieved 2026-11-12. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'tutor-intelligence-logo',
+    file: '/images/logos/tutor-intelligence.svg',
+    alt: 'Tutor Intelligence wordmark from the official website',
+    caption: 'Tutor Intelligence logo from the official website, used on the market map.',
+    sourceName: 'Tutor Intelligence official website',
+    sourceUrl: 'https://tutorintelligence.com/',
+    creator: 'Tutor Intelligence',
+    licence: 'unlicensed',
+    licenceUrl: 'https://tutorintelligence.com/',
+    retrieved: '2026-11-12',
+    width: 160,
+    height: 47,
+    // Official mark: the "tutor" wordmark of https://tutorintelligence.com/ (the inline SVG in the footer's home
+    // link, beside the round knob icon, which the site draws as a separate file), saved as a standalone file
+    // unchanged. File SHA-256 be7d267a532ad18a6cf4c773d6b8edfe086a43be804923965ac50ec00e49e20f, retrieved 2026-11-12.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'noetix-robotics-logo',
+    file: '/images/logos/noetix-robotics.svg',
+    alt: 'Noetix Robotics mark and NOETIX wordmark from the official website',
+    caption: 'Noetix Robotics logo from the official website, used on the market map.',
+    sourceName: 'Noetix Robotics official website',
+    sourceUrl: 'https://www.noetixrobotics.com/',
+    creator: 'Noetix Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.noetixrobotics.com/',
+    retrieved: '2026-11-12',
+    width: 1250,
+    height: 226,
+    // Official mark: the organisation logo https://www.noetixrobotics.com/ declares in its structured data,
+    // https://image.noetixrobotics.com/pc/logo_one.svg (the N mark, NOETIX and 松延), saved unchanged. File SHA-256
+    // 3435ab75b272cb6a9dc2bc2c61323758ad418cac45839ab165eda507f28f77a0, retrieved 2026-11-12. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'zipline-logo',
+    file: '/images/logos/zipline.svg',
+    alt: 'Zipline mark and wordmark from the official website',
+    caption: 'Zipline logo from the official website, used on the market map.',
+    sourceName: 'Zipline official website',
+    sourceUrl: 'https://www.zipline.com/',
+    creator: 'Zipline',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.zipline.com/',
+    retrieved: '2026-11-12',
+    width: 117,
+    height: 24,
+    // Official mark: the header logo of https://www.zipline.com/ (an inline SVG), saved as a standalone file with
+    // its viewBox size added. File SHA-256 698a08cb53abf10d886177d0796c299706ae621f6ae07f80a6b998f98a4d6e5b,
+    // retrieved 2026-11-12. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'geek-plus-logo',
+    file: '/images/logos/geek-plus.png',
+    alt: 'Geek+ wordmark from the official website',
+    caption: 'Geek+ logo from the official website, used on the market map.',
+    sourceName: 'Geek+ official website',
+    sourceUrl: 'https://www.geekplus.com/en',
+    creator: 'Geek+',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.geekplus.com/en',
+    retrieved: '2026-11-12',
+    width: 2492,
+    height: 946,
+    // Official mark: the header logo of https://www.geekplus.com/en, the transparent file
+    // https://www.geekplus.com/hubfs/geek+%20logo%20transparent-1.png saved unchanged. File SHA-256
+    // e7c67ccf575f93123e8844912ee9b85f2314da05775ff4840315bad4edb1dee8, retrieved 2026-11-12. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'robco-logo',
+    file: '/images/logos/robco.svg',
+    alt: 'RobCo mark and wordmark from the official website',
+    caption: 'RobCo logo from the official website, used on the market map.',
+    sourceName: 'RobCo official website',
+    sourceUrl: 'https://www.rob.co/',
+    creator: 'RobCo',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.rob.co/',
+    retrieved: '2026-11-12',
+    width: 955,
+    height: 260,
+    // Official mark: the header logo of https://www.rob.co/, served as
+    // https://cdn.prod.website-files.com/68f2341d705f07db40d6f962/68f2341d705f07db40d6ffad_RobCo%20Logo.svg and saved
+    // unchanged. File SHA-256 54fd5266460a605667c52d74654763e4d58463d1d401e8b9210bc88a5883a7cc, retrieved
+    // 2026-11-12. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
 ];

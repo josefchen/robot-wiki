@@ -362,7 +362,7 @@ function EmptyState({
 }) {
   const scope = filters.segment ? ` in ${SEGMENT_LABELS[filters.segment]}` : '';
   const hint = filters.query
-    ? `No company name${scope} starts with “${filters.query}”.`
+    ? `No company name${scope} starts with "${filters.query}".`
     : `Nothing${scope} matches every filter at once.`;
   return (
     <div role="status" data-market-map-empty className="border-t border-border-strong pt-8 pb-16">

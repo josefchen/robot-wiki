@@ -308,23 +308,25 @@ export function CompanyDetail({
         </ol>
       </section>
 
-      <p data-logo-credit className="mt-6 font-sans text-[13px] leading-5 text-text-dim">
-        {withheld ? (
-          <>Logo not shown. {withheld.reason}</>
-        ) : company.logo ? (
-          <>
-            Logo: official company mark,{' '}
-            <a
-              data-brand-control-id="control:link-focus"
-              href={`/credits/#${company.logo}`}
-              className={linkClass}
-            >
-              source and licence
-            </a>
-            .
-          </>
-        ) : null}
-      </p>
+      {withheld || company.logo ? (
+        <p data-logo-credit className="mt-6 font-sans text-[13px] leading-5 text-text-dim">
+          {withheld ? (
+            <>Logo not shown. {withheld.reason}</>
+          ) : (
+            <>
+              Logo: official company mark,{' '}
+              <a
+                data-brand-control-id="control:link-focus"
+                href={`/credits/#${company.logo}`}
+                className={linkClass}
+              >
+                source and licence
+              </a>
+              .
+            </>
+          )}
+        </p>
+      ) : null}
     </article>
   );
 }

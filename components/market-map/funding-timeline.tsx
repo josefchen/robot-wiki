@@ -57,7 +57,7 @@ export function FundingTimeline({ companies, selectedId, onSelect }: FundingTime
   if (events.length === 0) {
     return (
       <p className="font-sans text-[14px] text-text-dim">
-        No 2023-2026 rounds in the current set.
+        No rounds dated 2023 to 2026 in the current set.
       </p>
     );
   }
@@ -233,7 +233,7 @@ function TimelinePlot({
           <svg aria-hidden="true" width="11" height="11" viewBox="0 0 11 11">
             <circle data-legend-key="open-company" cx="5.5" cy="5.5" r="5.5" className="fill-accent" />
           </svg>
-          Open company
+          Selected company
         </span>
       </div>
       <svg
@@ -245,7 +245,7 @@ function TimelinePlot({
         className="mt-4 block h-auto w-full overflow-visible"
       >
         <text x={PLOT_PAD.left} y={10} className="fill-text-dim font-sans text-[12px]">
-          Amount, US$, log scale
+          Amount in US$, log scale
         </text>
         {plot.decades.map((value) => (
           <g key={value}>
