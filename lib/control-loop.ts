@@ -1,7 +1,7 @@
 /**
  * Deterministic teaching curve, not the VLA-Perf performance model.
- * VLA-Perf v1 predicts 52.57 ms for 2.7B pi0 and 3.9 Hz for hypothetical
- * 9.1B pi0-L on its Thor configuration (BF16/FP16, three cameras, ten
+ * VLA-Perf v1 predicts 52.57 ms for 2.7B π0 and 3.9 Hz for hypothetical
+ * 9.1B π0-L on its Thor configuration (BF16/FP16, three cameras, ten
  * steps, chunk 50, batch one, network excluded). The curve deliberately
  * assigns the first latency to a 3.0B TOY coordinate to preserve existing
  * defaults. Below it the curve is linear; above it a power law connects
@@ -18,7 +18,7 @@ export const CONTROL_PERIOD_MS = 1000 / CONTROL_HZ;
 export const MIN_PARAMS_B = 0.5;
 export const MAX_PARAMS_B = 9.1;
 
-/** Teaching coordinates using VLA-Perf predicted latencies; pi0 is 2.7B in the paper, not 3.0B. */
+/** Teaching coordinates using VLA-Perf predicted latencies; π0 is 2.7B in the paper, not 3.0B. */
 export const PI0_ANCHOR = { paramsB: 3.0, inferenceMs: 52.57 } as const;
 export const PI0L_ANCHOR = { paramsB: 9.1, inferenceMs: 1000 / 3.9 } as const;
 
@@ -79,21 +79,21 @@ export type LatencyReference = {
 export const LATENCY_REFERENCES: LatencyReference[] = [
   {
     id: 'pi0-h100',
-    label: 'pi0, H100 server',
+    label: 'π0, H100 server',
     ms: 1000 / 162.5,
     detail: 'VLA-Perf roofline: 1000/162.5 ms; BF16/FP16, 3 cameras, 10 steps, chunk 50, no network',
     citationId: 'vla-perf-2026',
   },
   {
     id: 'pi0-thor',
-    label: 'pi0, Jetson Thor',
+    label: 'π0, Jetson Thor',
     ms: 52.57,
     detail: 'VLA-Perf roofline: 19.0 inference Hz; BF16/FP16, 3 cameras, 10 steps, chunk 50, no network',
     citationId: 'vla-perf-2026',
   },
   {
     id: 'pi06-h100',
-    label: 'pi0.6, H100 server',
+    label: 'π0.6, H100 server',
     ms: 63,
     detail: '5 denoising steps, 3 cameras, per chunk',
     citationId: 'pi06-model-card-2025',
@@ -114,7 +114,7 @@ export const LATENCY_REFERENCES: LatencyReference[] = [
   },
   {
     id: 'pi07-tolerance',
-    label: 'pi0.7 training-delay setting',
+    label: 'π0.7 training-delay setting',
     ms: 240,
     detail: 'paper: maximum 12 simulated ticks at 50 Hz, not a measured guarantee',
     citationId: 'pi07-2026',

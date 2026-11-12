@@ -100,7 +100,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/control-loop-budget.tsx',
     route: '/manipulation/realtime-execution/',
     quantityNames: ['inference', 'ms'],
-    text: 'In this toy, the 3.0B coordinate gives 52.6 ms of inference against the 20 ms budget of a 50 Hz loop, missing 2 deadlines and running at 19 Hz; inference stays under budget only below about 1.1B toy parameters. The 3.0B coordinate is deliberately chosen; VLA-Perf models pi0 at 2.7B and pi0-L as hypothetical. All displayed rates are reciprocal toy inference rates, not robot/controller frequencies.',
+    text: 'In this toy, the 3.0B coordinate gives 52.6 ms of inference against the 20 ms budget of a 50 Hz loop, missing 2 deadlines and running at 19 Hz; inference stays under budget only below about 1.1B toy parameters. The 3.0B coordinate is deliberately chosen; VLA-Perf models π0 at 2.7B and π0-L as hypothetical. All displayed rates are reciprocal toy inference rates, not robot/controller frequencies.',
   },
   {
     component: 'ChunkSizeCurve',
