@@ -21,7 +21,7 @@ describe('DemoOrSim', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Two training recipes');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Simulated contact errors transfer; demonstrations need no contact model");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "Simulation teaches its mistakes about surfaces touching and pushing to the robot; copying real demonstrations needs no contact model.",
+      "A simulator passes its contact mistakes on to the robot it trains, while copying real demonstrations needs no contact model.",
     );
   });
 
@@ -39,7 +39,7 @@ describe('DemoOrSim', () => {
     expect(screen.getByTestId('recipe-stage')).toHaveAttribute('data-contact-model', 'yes');
     expect(screen.getByTestId('recipe-contact')).toHaveTextContent('contact: approximate');
     expect(screen.getByTestId('recipe-carry')).toHaveTextContent('its errors reach the robot');
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent('The simulator’s contact errors carry over');
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent("The simulator's contact errors carry over");
     const demo = screen.getByTestId('recipe-demo');
     fireEvent.click(demo);
     expect(demo).toHaveAttribute('aria-pressed', 'true');

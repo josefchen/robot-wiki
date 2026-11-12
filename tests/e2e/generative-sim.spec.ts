@@ -136,7 +136,7 @@ test.describe('world-models generative-sim module', () => {
     await expect(pictureOnly).toHaveAttribute('aria-pressed', 'true');
     await expect(withPhysics).toHaveAttribute('aria-pressed', 'false');
     await expect(figure.getByTestId('push-note')).toContainText('only a picture');
-    await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimetres');
+    await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimeters');
 
     // Push the picture: nothing moves.
     const push = figure.getByRole('button', { name: /push the mug/i });

@@ -112,7 +112,7 @@ export const STRATEGIES: Record<StrategyId, Strategy> = {
       'The toy does not define a human hand-to-action adapter. Its empty hand row is not a claim that padded models cannot learn from human data.',
     citationId: 'octo-2024',
     underSpecified: false,
-    humanVideoVerdict: 'human video: no adapter modelled in this toy',
+    humanVideoVerdict: 'human video: no adapter modeled in this toy',
   },
   'motion-transfer': {
     id: 'motion-transfer',
@@ -229,7 +229,7 @@ export function rowSummary(
       sharesSpace: false,
       note:
         embodiment === 'human-hand'
-          ? 'no adapter modelled for human data (toy)'
+          ? 'no adapter modeled for human data (toy)'
           : `${active} active, ${zeroed} zero-padded`,
     };
   }
@@ -250,6 +250,6 @@ export function rowSummary(
     zeroed,
     sharedDims: active,
     sharesSpace: true,
-    note: `${active} shared dims (toy); wrist and hand actions not separately modelled`,
+    note: `${active} shared dims (toy); wrist and hand actions not separately modeled`,
   };
 }

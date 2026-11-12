@@ -14,9 +14,11 @@ import { findProseCitationYearDisagreements } from '../lib/prose-citation-years.
 import { GLOSSARY } from '../data/glossary.ts';
 import { IMAGES } from '../data/images.ts';
 import { COMPANIES } from '../data/companies.ts';
+import { companySegmentSchema } from '../data/schemas/company.ts';
 import { companyPopulationIssues } from '../lib/company-population.ts';
 import { roundSourceMembershipIssues } from '../lib/company-source-provenance.ts';
 import { validateClientRegistries } from '../lib/registry-validation.ts';
+import { citedFactFindings, siteCitedFacts } from '../lib/cited-facts.ts';
 
 const root = join(import.meta.dirname, '..');
 
@@ -72,27 +74,14 @@ for (const domain of readdirSync(join(root, 'content'), { withFileTypes: true })
   }
 }
 
-const EXPECTED_SEGMENT_COUNTS: Record<string, number> = {
-  'foundation-models': 12,
-  humanoids: 34, // 34 since the 2026-08-18 audit removed the duplicate galaxea-ai-robot row
-  'industrial-logistics': 15,
-  'vertical-applications': 32,
-  'simulation-tooling': 10,
-  'components-hardware': 8,
-};
-
-if (COMPANIES.length !== 111) {
-  issues.push({
-    file: 'data/companies.ts',
-    message: `expected 111 companies, got ${COMPANIES.length}`, // 111 since the 2026-08-18 audit removed a duplicate row
-  });
-}
-for (const [segment, expected] of Object.entries(EXPECTED_SEGMENT_COUNTS)) {
-  const actual = COMPANIES.filter((c) => c.segment === segment).length;
-  if (actual !== expected) {
+// Company and segment counts are derived from the data, never remembered:
+// the map grows as companies are added. Every segment the map draws must
+// still hold at least one company, or the page renders an empty column.
+for (const segment of companySegmentSchema.options) {
+  if (!COMPANIES.some((c) => c.segment === segment)) {
     issues.push({
       file: 'data/companies.ts',
-      message: `segment ${segment}: expected ${expected}, got ${actual}`,
+      message: `segment ${segment}: no companies`,
     });
   }
 }
@@ -127,16 +116,27 @@ for (const message of roundSourceMembershipIssues(COMPANIES)) {
   });
 }
 
-// The counts above are remembered tripwires. This derives the population
-// from the research file the registry is generated from, so an omitted,
-// extra, repeated or re-segmented company, or an empty population on either
-// side, fails by name even if a count happened to come out right.
+// This derives the population from the research file the registry is
+// generated from, so an omitted, extra, repeated or re-segmented company, or
+// an empty population on either side, fails by name.
 const companyManifest = JSON.parse(
   readFileSync(join(root, 'research', '04-market-map-companies.json'), 'utf8'),
 ) as Array<{ id: string; segment: string }>;
 for (const message of companyPopulationIssues(COMPANIES, companyManifest)) {
   issues.push({ file: 'data/companies.ts', message });
 }
+
+// Home's "Did you know" facts and the hub facts link an article and render
+// one of its citations: the article must cite that source inline. Their
+// wording may differ from the article's, so a rewrite never fails here; a
+// number the fact states that its article no longer mentions is a warning.
+const citedFacts = citedFactFindings(siteCitedFacts(), {
+  published: new Set(modules.filter((m) => m.status === 'published').map((m) => `${m.domain}/${m.slug}`)),
+  citationIds: new Set(CITATIONS.map((c) => c.id)),
+  readArticle: (article) => readFileSync(join(root, 'content', `${article}.mdx`), 'utf8'),
+});
+for (const message of citedFacts.errors) issues.push({ file: null, message });
+for (const message of citedFacts.warnings) console.warn(`validate:content: warning: ${message}`);
 
 // The registries client widgets import are plain typed rows, so zod stays
 // out of the browser; their schemas run here and in the article template's

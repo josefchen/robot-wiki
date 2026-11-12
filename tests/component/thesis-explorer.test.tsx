@@ -26,7 +26,7 @@ describe('ThesisExplorer', () => {
         'Just make it bigger',
         'A planner directs simple skills',
         'Let the robot imagine first',
-        'Copy first, then practise',
+        'Copy first, then practice',
         'Humans steer while robots learn',
         'Human-shaped or built for the job',
       ],

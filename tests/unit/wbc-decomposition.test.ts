@@ -49,19 +49,19 @@ describe('WBC decomposition model', () => {
   it('carries the sourced Helix 02 S0 figures', () => {
     const stats = approachById('tracking-rl').stats;
     const byLabel = Object.fromEntries(stats.map((s) => [s.label, s.value]));
-    expect(byLabel['S0 params']).toBe('10M');
-    expect(byLabel['S0 loop rate']).toBe('1000 Hz');
-    expect(byLabel['Motion data']).toBe('1000+ h');
-    expect(byLabel['Sim envs']).toBe('200,000+');
+    expect(byLabel['S0 size']).toBe('10M parameters');
+    expect(byLabel['S0 updates']).toBe('1,000 a second');
+    expect(byLabel['Human motion']).toBe('1,000+ hours');
+    expect(byLabel['Simulated worlds']).toBe('200,000+');
   });
 
   it('carries the sourced GR00T N1.7 figures', () => {
     const stats = approachById('latent-action').stats;
     const byLabel = Object.fromEntries(stats.map((s) => [s.label, s.value]));
-    expect(byLabel['VLA params']).toBe('3B');
-    expect(byLabel['Action horizon']).toBe('40');
-    expect(byLabel['State/action']).toBe('132');
-    expect(byLabel['Human video']).toBe('20,000 h');
+    expect(byLabel['VLA size']).toBe('3B parameters');
+    expect(byLabel['Steps planned ahead']).toBe('40');
+    expect(byLabel['State and action size']).toBe('132 numbers');
+    expect(byLabel['Human video']).toBe('20,000 hours');
   });
 
   it('carries the sourced Gemini Robotics 2 figures without inventing architecture', () => {
@@ -69,9 +69,9 @@ describe('WBC decomposition model', () => {
     const byLabel = Object.fromEntries(
       approach.stats.map((s) => [s.label, s.value]),
     );
-    expect(byLabel['Embodiments']).toBe('3');
-    expect(byLabel['Hand DoF']).toBe('22');
-    expect(byLabel['Adaptation']).toBe('< 200 examples');
+    expect(byLabel['Robot bodies']).toBe('3');
+    expect(byLabel['Hand degrees of freedom']).toBe('22');
+    expect(byLabel['New robot adapts from']).toBe('under 200 examples');
     expect(byLabel['Architecture']).toBe('not disclosed');
   });
 

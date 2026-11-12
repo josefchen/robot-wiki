@@ -27,6 +27,7 @@ describe('hardware price ladder data', () => {
     expect(LADDER_POINTS.map((p) => [p.label, p.priceUsd])).toEqual([
       ['SO-ARM101 Pro kit', 295],
       ['SO-ARM101 Pro, assembled', 299],
+      ['FF Nova', 2490],
       ['Jetson Thor T4000', 2999],
       ['WidowX AI', 4545],
       ['Unitree R1 Air', 4900],
@@ -71,10 +72,10 @@ describe('HardwarePriceLadder', () => {
   it('leads with both price ranges and retains the named unpriced-product disclosures', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Maker list prices');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Arms $295 to $70,000; humanoids $4,900 to $29,900; some unpriced');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Listed prices: arms $295 to $70,000, humanoids $2,490 to $29,900');
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(caption).toBe(
-      'Arms: $295 to $70,000. Humanoids: $4,900 to $29,900. Several humanoid makers publish no price or do not offer open sales.',
+      'The cheapest listed humanoid costs less than a WidowX AI research arm, and several humanoid makers publish no price or do not sell openly.',
     );
     expect(caption.split(/\s+/).length).toBeLessThanOrEqual(25);
     expect(container).toHaveTextContent('EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.');
@@ -83,11 +84,12 @@ describe('HardwarePriceLadder', () => {
   it('draws one strip per family and names only each strip’s ends', () => {
     renderFigure();
     expect(screen.getByTestId('price-strip-arm').querySelectorAll('circle')).toHaveLength(rowPoints('arm').length);
-    expect(screen.getByTestId('price-strip-humanoid').querySelectorAll('circle')).toHaveLength(6);
+    expect(screen.getByTestId('price-strip-humanoid').querySelectorAll('circle')).toHaveLength(7);
     expect(screen.getByTestId('price-strip-compute').querySelectorAll('circle')).toHaveLength(2);
     expect(screen.getByTestId('price-label-so-arm101-pro-unassembled-low')).toHaveTextContent('SO-ARM101 Pro kit$295');
     expect(screen.getByTestId('price-label-reachy-2-low')).toHaveTextContent('Reachy 2$70,000');
-    expect(screen.getByTestId('price-label-unitree-r1-low')).toHaveTextContent('Unitree R1 Air$4,900');
+    expect(screen.getByTestId('price-label-ff-nova-low')).toHaveTextContent('FF Nova$2,490');
+    expect(screen.queryByTestId('price-label-unitree-r1-low')).toBeNull();
     expect(screen.getByTestId('price-label-unitree-h2-low')).toHaveTextContent('Unitree H2$29,900');
     expect(screen.queryByTestId('price-label-1x-neo-low')).toBeNull();
     expect(screen.getAllByTestId(/^price-tick-/).map((el) => el.textContent)).toEqual(['$100', '$1,000', '$10,000', '$100,000']);
@@ -97,7 +99,7 @@ describe('HardwarePriceLadder', () => {
     renderFigure();
     const stage = screen.getByRole('img', { name: /Listed prices of arms, humanoids and robot computers/ });
     const described = document.getElementById(stage.getAttribute('aria-describedby') ?? '');
-    expect(described).toHaveTextContent('humanoids from $4,900 (Unitree R1 Air) to $29,900 (Unitree H2)');
+    expect(described).toHaveTextContent('humanoids from $2,490 (FF Nova) to $29,900 (Unitree H2)');
     expect((stage.getAttribute('aria-label') ?? '').length).toBeLessThan(described?.textContent?.length ?? 0);
     const links = [...screen.getByTestId('hardware-price-ladder-source').querySelectorAll('a')].map((a) => a.getAttribute('href'));
     expect(links).toEqual(records.map((r) => r.url));

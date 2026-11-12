@@ -466,7 +466,7 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     kind: 'source-data',
   },
   'interactive:DroneChampionsTimeline': {
-    // Swift, MonoRace and the A2RL 2026 final against human champions, dated and scored from each team's or organiser's own report.
+    // Swift, MonoRace and the A2RL 2026 final against human champions, dated and scored from each team's or organizer's own report.
     kind: 'source-data',
   },
   'interactive:DroneDeliveryCounts': {

@@ -162,8 +162,8 @@ const CHARTS: Array<{
     control: 'button',
     // The design presets name whose robot brain each stack is; the takeaway
     // still names the technical approach.
-    moves: ['NVIDIA', 'Google DeepMind'],
-    def: 'Figure AI',
+    moves: ['NVIDIA GR00T and SONIC', 'Gemini Robotics 2'],
+    def: 'Figure Helix 02',
     match: 'Motion-tracking RL',
   },
   {

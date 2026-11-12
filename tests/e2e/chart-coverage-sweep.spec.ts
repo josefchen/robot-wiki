@@ -442,7 +442,7 @@ test.describe('VAL-EDU-037 WmDisambiguator predictions are available as text', (
     const figure = page.locator('[data-figure-frame="wm-disambiguator"]');
     await openAdjustMore(figure);
     await openHowThisWasMade(figure);
-    const group = page.getByRole('group', { name: 'World-model paradigms' });
+    const group = page.getByRole('group', { name: 'World-model families' });
     const buttons = group.getByRole('button');
     const count = await buttons.count();
     expect(count).toBe(6);

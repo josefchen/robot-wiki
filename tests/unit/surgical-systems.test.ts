@@ -26,7 +26,7 @@ describe('SURGICAL_SYSTEM_ROWS', () => {
 
   it('states the da Vinci installed base and cardiac clearance from Intuitive\'s 2026 releases', () => {
     const row = SURGICAL_SYSTEM_ROWS.find((r) => r.system === 'Intuitive da Vinci');
-    expect(row?.regulatory).toMatch(/11,710 systems installed by June 30, 2026/);
+    expect(row?.regulatory).toMatch(/12,094 systems installed by September 30, 2026/);
     expect(row?.regulatory).toMatch(/cardiac procedures in January 2026/);
   });
 

@@ -1,4 +1,7 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
+import { COMPANIES } from '../../data/companies';
+
+const COMPANY_COUNT = COMPANIES.length;
 
 /**
  * Focus return when a company's details close (VAL-B2-MAP-006,
@@ -107,7 +110,7 @@ for (const viewport of VIEWPORTS) {
           page,
         }) => {
           await page.goto(opener.view === 'grid' ? ROUTE : `${ROUTE}?view=${opener.view}`);
-          await expect(page.getByText(/^\d+ of 111 companies$/)).toBeVisible();
+          await expect(page.getByText(new RegExp(`^\\d+ of ${COMPANY_COUNT} companies$`))).toBeVisible();
           const control = opener.locate(page);
           await expect(control).toHaveCount(1);
 

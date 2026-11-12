@@ -21,7 +21,7 @@ describe('ComparisonMatrix', () => {
   it('renders every method row across the eight axes', () => {
     render(<ComparisonMatrix />);
     expect(
-      screen.getByRole('table', { name: /architectural axes/i }),
+      screen.getByRole('table', { name: /eight design choices/i }),
     ).toBeInTheDocument();
     expect(bodyRows()).toHaveLength(METHODS.length);
     for (const header of [
@@ -152,13 +152,14 @@ describe('ComparisonMatrix', () => {
     expect(rowNamed('ACT')).toBeDefined();
     expect(rowNamed('Diffusion Policy')).toBeDefined();
     await user.click(screen.getByRole('button', { name: /^not released$/i }));
-    // The audit corrected every method to downloadable or not-disclosed
-    // weights, so Not released legitimately shows the empty state.
-    expect(screen.queryByRole('table')).toBeNull();
-    expect(METHODS.every((method) => method.openWeights !== false)).toBe(true);
+    // Only a method whose source says its weights are not out yet counts as
+    // not released; unknown rows never do.
+    const closed = METHODS.filter((method) => method.openWeights === false);
+    expect(closed.map((method) => method.id)).toEqual(['agibot-go3-preview']);
+    expect(bodyRows()).toHaveLength(closed.length);
+    expect(rowNamed('AgiBot GO-3 Preview')).toBeDefined();
     expect(rowNamed('ACT')).toBeUndefined();
     expect(rowNamed('Diffusion Policy')).toBeUndefined();
-    expect(screen.getByRole('status')).toHaveTextContent(/no methods match/i);
     await user.click(screen.getByRole('button', { name: /all weights/i }));
     expect(bodyRows()).toHaveLength(METHODS.length);
   });
@@ -184,9 +185,9 @@ describe('ComparisonMatrix', () => {
   it('shows an empty state with a clear affordance on zero results (VAL-MAN-066)', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
-    // The current registry has no method proven not released; its unknown
-    // rows must not be silently counted as closed even under a second filter.
-    expect(METHODS.every((method) => method.openWeights !== false)).toBe(true);
+    // No not-released method uses diffusion; unknown rows must not be
+    // silently counted as closed even under a second filter.
+    expect(METHODS.some((method) => method.openWeights === false && method.actionRepresentation === 'diffusion')).toBe(false);
     await user.click(screen.getByRole('button', { name: /^not released$/i }));
     await user.click(screen.getByRole('button', { name: /^diffusion$/i }));
 
@@ -231,7 +232,7 @@ describe('ComparisonMatrix', () => {
   it('opens on its takeaway: a card per method and a year strip by output style', () => {
     const { container } = render(<ComparisonMatrix />);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      "All disclosed motion methods through 2025; most 2026 models don’t",
+      'Until 2026, every model said how it outputs motion',
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Policy comparison');
     // The headline and caption claims, checked against the data.
@@ -239,8 +240,8 @@ describe('ComparisonMatrix', () => {
     const latestRows = METHODS.filter((m) => m.year === latest);
     const undisclosed = METHODS.filter((m) => m.actionRepresentation === null);
     expect(latest).toBe(2026);
-    expect(latestRows).toHaveLength(6);
-    expect(undisclosed).toHaveLength(4);
+    expect(latestRows).toHaveLength(11);
+    expect(undisclosed).toHaveLength(6);
     expect(undisclosed.every((m) => m.year === latest)).toBe(true);
     expect(screen.getByTestId('method-strip-note')).toHaveTextContent('none before 2026');
     const cards = screen.getByTestId('method-cards').querySelectorAll('[data-method-card]');

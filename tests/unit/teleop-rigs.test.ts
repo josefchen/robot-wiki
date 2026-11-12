@@ -82,12 +82,12 @@ describe('TELEOP_RIGS data', () => {
     expect(TELEOP_RIGS.find((r) => r.id === 'gello')?.costUsd).toBe(300);
     // UMI: $73 printed gripper + $298 GoPro and accessories (paper, Sec. III).
     expect(TELEOP_RIGS.find((r) => r.id === 'umi')?.costUsd).toBe(371);
-    // The ACT paper's build cost for the original ALOHA does not establish a
-    // configuration-specific USD cost for the family.
+    // ALOHA-class: Trossen lists the two-armed Stationary AI at $23,995.95
+    // (trossen-ai-2026); the note keeps the ACT paper's build cost.
     const aloha = TELEOP_RIGS.find((r) => r.id === 'aloha-workstation');
-    expect(aloha?.costUsd).toBeNull();
+    expect(aloha?.costUsd).toBe(23995.95);
+    expect(aloha?.costNote).toContain('Stationary AI');
     expect(aloha?.costNote).toContain('ACT paper (2023)');
-    expect(aloha?.costNote).toContain('not a vendor quote');
   });
 });
 

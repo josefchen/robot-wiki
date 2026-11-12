@@ -11,9 +11,9 @@ const MILESTONE_NAMES = [
   '10,000 humanoids doing documented work',
   'Labs agree on one shared public test',
   'Practice gets robots to 99% on many tasks',
-  'Touch sensing built into the robot’s brain',
+  "Touch sensing built into the robot's brain",
   'Hand skills learned only in simulation work for real',
-  'A humanoid matches a specialist machine’s cost per job',
+  "A humanoid matches a specialist machine's cost per job",
   '100 times more data; measure the gain in task success (required gain not specified)',
 ];
 
@@ -160,7 +160,7 @@ test.describe('frontier bear-case module', () => {
     const panel = page.getByTestId('milestones-watchlist');
     await expect(panel).toBeVisible();
     await expect(
-      panel.getByText('September 2026: eight tests, none complete, five partly achieved'),
+      panel.getByText('As of November 2026, none of eight milestones is met'),
     ).toBeVisible();
     await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(8);
     for (const name of MILESTONE_NAMES) {
@@ -169,7 +169,7 @@ test.describe('frontier bear-case module', () => {
         `milestone tile: ${name}`,
       ).toBeVisible();
     }
-    await expect(page.getByTestId('watchlist-score')).toHaveText('September 2026: 0 of 8 done');
+    await expect(page.getByTestId('watchlist-score')).toHaveText('November 2026: 0 of 8 done');
     await expect(page.getByTestId('watchlist-tally')).toHaveText(
       '5 partly there, 3 not yet, 0 done',
     );
@@ -202,12 +202,12 @@ test.describe('frontier bear-case module', () => {
     // Open two milestones and verify the three contract fields on each.
     for (const name of [
       '10,000 humanoids doing documented work',
-      'Touch sensing built into the robot’s brain',
+      "Touch sensing built into the robot's brain",
     ]) {
       await panel.getByRole('button', { name, exact: true }).click();
       await expect(detail.getByText('Why it matters')).toBeVisible();
       await expect(detail.getByText('Current status')).toBeVisible();
-      await expect(detail.getByText(/How we’d know/)).toBeVisible();
+      await expect(detail.getByText(/How we'd know/)).toBeVisible();
       const detailText = (await detail.textContent()) ?? '';
       expect(detailText.length).toBeGreaterThan(300);
       expect(
@@ -222,7 +222,7 @@ test.describe('frontier bear-case module', () => {
     await panel.getByRole('button', { name: 'Partly', exact: true }).click();
     await expect(page.getByTestId(/^milestone-tile-/)).toHaveCount(5);
     await expect(readout).toHaveText(
-      'Showing 5 of 8: partly there, open: Touch sensing built into the robot’s brain',
+      "Showing 5 of 8: partly there, open: Touch sensing built into the robot's brain",
     );
 
     // The Done filter renders the explicit empty state.

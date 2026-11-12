@@ -83,7 +83,7 @@ test.describe('world-models taxonomy module', () => {
     await page.goto(ROUTE);
     const figure = page.locator('[data-figure-frame="wm-disambiguator"]');
     await expect(figure.locator('[data-figure-title]')).toHaveText(
-      'Robot imaginations: pictures, number codes, or plain facts',
+      'A world model imagines pictures, number summaries or facts',
     );
 
     // Default: latent dynamics, whose compressed summary is the marked form.

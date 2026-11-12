@@ -65,8 +65,9 @@ describe('TeleopRigMatrix', () => {
     const costs = bodyRows().map(
       (row) => within(row).getAllByRole('cell')[1].textContent ?? '',
     );
-    // Known GELLO/UMI costs precede the two undisclosed numeric totals.
-    expect(costs.slice(-2).every((value) => value.includes('not disclosed'))).toBe(true);
+    // Known costs precede the one undisclosed total, VR teleoperation.
+    expect(costs.at(-1)).toContain('not disclosed');
+    expect(costs.at(-2)).toContain('$23,995.95');
     expect(costs.some((value) => value.includes('ACT paper (2023)'))).toBe(true);
     expect(costs[0]).toContain('$300');
   });

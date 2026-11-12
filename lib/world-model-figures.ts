@@ -9,7 +9,7 @@ export const MODEL_BASED_LOOP_SOURCES = ['tdmpc2-2023'] as const;
 export const MODEL_BASED_LOOP = [
   { id: 'encode', label: 'Encode', detail: ['represent', 'what is seen'], x: 52, y: 58 },
   { id: 'predict', label: 'Predict', detail: ['try actions', 'in the model'], x: 170, y: 58 },
-  { id: 'score', label: 'Score', detail: ['compare', 'future returns'], x: 288, y: 58 },
+  { id: 'score', label: 'Score', detail: ['compare', 'future rewards'], x: 288, y: 58 },
   { id: 'act', label: 'Act', detail: ['execute the', 'first action'], x: 288, y: 184 },
   { id: 'observe', label: 'Observe', detail: ['record what', 'really happened'], x: 170, y: 184 },
   { id: 'update', label: 'Update', detail: ['learn from', 'past outcomes'], x: 52, y: 184 },
@@ -21,15 +21,15 @@ export const EVALUATION_LADDER_SOURCES = [
   'worldeval-2025', 'worldmodelbench-2025', 'worldgym-2025', 'simfoundry-2026', 'vjepa2-2025',
 ] as const;
 export const EVALUATION_RUNGS = [
-  { id: 'action-sensitivity', label: 'Action sensitivity', question: 'Do different actions change the future?', y: 24 },
-  { id: 'consistency', label: 'Consistency', question: 'Do objects and motion stay plausible?', y: 70 },
-  { id: 'task-progress', label: 'Task progress', question: 'Does the score reflect task completion?', y: 116 },
-  { id: 'policy-ranking', label: 'Policy ranking', question: 'Do real trials agree on the ordering?', y: 162 },
-  { id: 'closed-loop-use', label: 'Closed-loop use', question: 'Does using the model help the robot?', y: 252 },
+  { id: 'action-sensitivity', label: 'Action response', question: 'Do different actions change the prediction?', y: 24 },
+  { id: 'consistency', label: 'Physical consistency', question: 'Do objects and motion stay plausible?', y: 70 },
+  { id: 'task-progress', label: 'Progress scoring', question: 'Does the score match real task progress?', y: 116 },
+  { id: 'policy-ranking', label: 'Policy ranking', question: 'Do policies rank as they do in real trials?', y: 162 },
+  { id: 'closed-loop-use', label: 'Real use', question: 'Does using the model help the real robot?', y: 252 },
 ] as const;
 export const SIMFOUNDRY_EVALUATION = { pearson: 0.911, mmrv: 0.018, tasks: 7, architectures: 5 } as const;
 export const EVALUATION_LADDER_DESCRIPTION =
-  'Five separate evaluation questions, from action sensitivity through consistency, task progress, policy ranking and closed-loop use. The fourth rung includes a physics-simulation reference: SimFoundry reports mean Pearson correlation 0.911 and mean maximum rank violation 0.018 between simulated and real policy results across 7 tasks and 5 policy architectures. These are correlation and ranking measures, not success percentages; the fifth rung still needs a downstream robot experiment.';
+  'Five separate evaluation questions: action response, physical consistency, progress scoring, policy ranking and real use. The fourth rung includes a physics-simulation reference: SimFoundry reports mean Pearson correlation 0.911 and mean maximum rank violation 0.018 between simulated and real policy results across 7 tasks and 5 policy architectures. These are correlation and ranking measures, not success percentages; the fifth rung still needs a downstream robot experiment.';
 
 export interface WorldModelOutputTime {
   id: string;
@@ -47,7 +47,7 @@ export const WORLD_MODEL_OUTPUT_TIMES: readonly WorldModelOutputTime[] = [
   {
     id: '3dgs', label: '3DGS', output: 'rendered frame', hardware: 'A6000',
     seconds: 0.01, displayedTime: 'at most 0.01 second', kind: 'upper-bound', citationId: '3dgs-2023',
-    note: 'Reciprocal upper bound from the paper’s at least 100 frames per second at 1080p; section 7 reports A6000 hardware. This renders a captured scene and predicts no action dynamics.',
+    note: "Reciprocal upper bound from the paper's at least 100 frames per second at 1080p; section 7 reports A6000 hardware. This renders a captured scene and predicts no action dynamics.",
   },
   {
     id: 'dreamzero', label: 'DreamZero-Flash', output: 'action chunk', hardware: 'Two GB200 GPUs',
@@ -67,7 +67,7 @@ export const WORLD_MODEL_OUTPUT_TIMES: readonly WorldModelOutputTime[] = [
   {
     id: 'predict2', label: 'Cosmos Predict2 14B', output: 'generated clip', hardware: 'GB200',
     seconds: 85.26, displayedTime: '85.26 seconds', kind: 'reported', citationId: 'cosmos-predict2-perf-2025',
-    note: 'NVIDIA’s archived Predict2 repository reports 85.26 seconds for 14B Video2World, at 480p and 16 frames per second, on a GB200. This is clip generation, not the Cosmos planning baseline.',
+    note: "NVIDIA's archived Predict2 repository reports 85.26 seconds for 14B Video2World, at 480p and 16 frames per second, on a GB200. This is clip generation, not the Cosmos planning baseline.",
   },
   {
     id: 'cosmos-planner', label: 'Cosmos planner', output: 'planned action', hardware: '1 RTX 4090',
@@ -77,7 +77,7 @@ export const WORLD_MODEL_OUTPUT_TIMES: readonly WorldModelOutputTime[] = [
 ];
 export const WORLD_MODEL_OUTPUT_SOURCES = [...new Set(WORLD_MODEL_OUTPUT_TIMES.map(row => row.citationId))];
 export const WORLD_MODEL_OUTPUT_DESCRIPTION =
-  'Time to each system’s stated output on a logarithmic axis: 3D Gaussian Splatting at most 0.01 second per rendered frame on an A6000; DreamZero-Flash about 0.15 second per action chunk on 2 GB200s; 1XWM 12 seconds to generate a five-second action rollout on multiple GPUs whose model is not disclosed; V-JEPA 2-AC 16 seconds per planned action on one RTX 4090; Cosmos Predict2 14B 85.26 seconds per generated clip on a GB200; and the Cosmos planning baseline 4 minutes per planned action on one RTX 4090. The workloads and hardware differ, so this is not a common speed benchmark.';
+  "Time to each system's stated output on a logarithmic axis: 3D Gaussian Splatting at most 0.01 second per rendered frame on an A6000; DreamZero-Flash about 0.15 second per action chunk on 2 GB200s; 1XWM 12 seconds to generate a five-second action rollout on multiple GPUs whose model is not disclosed; V-JEPA 2-AC 16 seconds per planned action on one RTX 4090; Cosmos Predict2 14B 85.26 seconds per generated clip on a GB200; and the Cosmos planning baseline 4 minutes per planned action on one RTX 4090. The workloads and hardware differ, so this is not a common speed benchmark.";
 
 /** Logarithmic coordinate in the shared 340-wide stage; no zero is plotted. */
 export function outputTimeX(seconds: number): number {

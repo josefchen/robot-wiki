@@ -103,6 +103,18 @@ export const ROBOT_POINTS: DataScalePoint[] = [
     estimated: false,
     cite: 'egoscale-2026',
   },
+  {
+    // NVIDIA's GR00T 2 report (November 2026): 402,730 hours of egocentric
+    // video of people at work in its pretraining mix, 100,000 of them
+    // released as Human-1M-100K.
+    id: 'gr00t-2-video',
+    label: 'GR00T 2',
+    magnitude: 402_730,
+    value: '402,730 h',
+    kind: 'human-video',
+    estimated: false,
+    cite: 'gr00t-2-2026',
+  },
 ];
 
 /** Source-scoped unknown, deliberately outside numeric plotting/ranking. */
@@ -245,7 +257,7 @@ export const SCALING_LAW_ROWS: ScalingLawRow[] = [
     key: 'environments',
     dimension: 'Environments',
     effect: 'strong positive, power law',
-    saturation: 'none found up to 32 envs',
+    saturation: 'none found up to 32 environments',
     source: 'Lin et al. 2024',
   },
   {
@@ -259,7 +271,7 @@ export const SCALING_LAW_ROWS: ScalingLawRow[] = [
     key: 'demos',
     dimension: 'Demos per environment',
     effect: 'positive, saturating',
-    saturation: 'about 50 per env',
+    saturation: 'about 50 per environment',
     source: 'Lin et al. 2024',
   },
   {

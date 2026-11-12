@@ -2,6 +2,12 @@ import { expect, test, type Locator, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { publishedModules } from '../../data/modules';
 import { forEachInOwnContext } from './helpers/per-route-context';
+import { COMPANIES } from '../../data/companies';
+import { formatLongDate } from '../../lib/dates';
+import { MARKET_MAP_AS_OF } from '../../lib/market-map';
+
+const COMPANY_COUNT = COMPANIES.length;
+const countWhere = (keep: (company: (typeof COMPANIES)[number]) => boolean) => COMPANIES.filter(keep).length;
 
 const ROUTE = '/market-map/';
 
@@ -75,7 +81,7 @@ async function openMoreFilters(page: Page) {
 }
 
 test.describe('market map visualization', () => {
-  test('maps 111 companies in six segments (VAL-MKT-001, VAL-MKT-002)', async ({
+  test('maps every company in six segments (VAL-MKT-001, VAL-MKT-002)', async ({
     page,
   }) => {
     const response = await page.goto(ROUTE);
@@ -83,29 +89,27 @@ test.describe('market map visualization', () => {
     await expect(
       page.getByRole('heading', { level: 1, name: 'Market Map' }),
     ).toBeVisible();
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
-    await expect(tiles(page)).toHaveCount(111);
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
+    await expect(tiles(page)).toHaveCount(COMPANY_COUNT);
     await expect(
       page.getByRole('heading', { name: /Foundation models/ }),
-    ).toContainText('12');
-    // 34 humanoids since the 2026-08-18 audit removed the duplicate
-    // galaxea-ai-robot row (a humanoids row): 35 -> 34.
+    ).toContainText(String(countWhere((c) => c.segment === 'foundation-models')));
     await expect(page.getByRole('heading', { name: /^Humanoids/ })).toContainText(
-      '34',
+      String(countWhere((c) => c.segment === 'humanoids')),
     );
     await expect(
       page.getByRole('heading', { name: /Industrial \/ logistics/ }),
-    ).toContainText('15');
+    ).toContainText(String(countWhere((c) => c.segment === 'industrial-logistics')));
     await expect(
       page.getByRole('heading', { name: /Vertical applications/ }),
-    ).toContainText('32');
+    ).toContainText(String(countWhere((c) => c.segment === 'vertical-applications')));
     await expect(
       page.getByRole('heading', { name: /Simulation \/ tooling/ }),
-    ).toContainText('10');
+    ).toContainText(String(countWhere((c) => c.segment === 'simulation-tooling')));
     await expect(page.getByRole('heading', { name: /^Components/ })).toContainText(
-      '8',
+      String(countWhere((c) => c.segment === 'components-hardware')),
     );
-    await expect(page.getByText(/as of 6 August 2026/i)).toBeVisible();
+    await expect(page.getByText(`as of ${formatLongDate(MARKET_MAP_AS_OF)}`, { exact: false })).toBeVisible();
     // At desktop width the six segments sit side by side: every segment
     // heading starts on the same line, so the whole landscape reads at once.
     const tops = await page.locator('[data-segment] > h2').evaluateAll((headings) =>
@@ -122,10 +126,10 @@ test.describe('market map visualization', () => {
   }) => {
     await page.goto(ROUTE);
     await segmentTab(page, /^Humanoids/).click();
-    await expect(page.getByText('34 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids')} of ${COMPANY_COUNT} companies`)).toBeVisible();
     // 34 tiles for the 34-row humanoids segment (see the heading count
     // above; both oracles must agree).
-    await expect(tiles(page)).toHaveCount(34);
+    await expect(tiles(page)).toHaveCount(countWhere((c) => c.segment === 'humanoids'));
     expect(page.url()).toContain('segment=humanoids');
 
     await openMoreFilters(page);
@@ -134,38 +138,38 @@ test.describe('market map visualization', () => {
     // headquarters moved Oslo -> Palo Alto, as its Wikipedia body states
     // ("headquartered in Palo Alto, California"), so it joins the US
     // humanoids. Its confidence is medium, so the high count stays 4.
-    await expect(page.getByText('7 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US')} of ${COMPANY_COUNT} companies`)).toBeVisible();
 
     await page.getByLabel('Confidence', { exact: true }).selectOption('high');
     // 4 -> 5 on 2026-10-20 (market-map field audit): Persona AI's confidence
     // rose to high (its own site, its October 2026 PR Times release and The
     // AI Insider's POSCO report agree).
-    await expect(page.getByText('5 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US' && c.confidence === 'high')} of ${COMPANY_COUNT} companies`)).toBeVisible();
 
     const filteredUrl = page.url();
     await page.goto(filteredUrl);
-    await expect(page.getByText('5 of 111 companies')).toBeVisible();
-    await expect(tiles(page)).toHaveCount(5);
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US' && c.confidence === 'high')} of ${COMPANY_COUNT} companies`)).toBeVisible();
+    await expect(tiles(page)).toHaveCount(countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US' && c.confidence === 'high'));
     // Filters arriving with the URL open the fold that holds them.
     await expect(page.locator('#filter-country')).toHaveValue('US');
 
     await page.getByRole('button', { name: 'Bubble' }).click();
     await expect(page.getByRole('group', { name: /bubble chart/i })).toBeVisible();
-    await expect(page.getByText('5 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US' && c.confidence === 'high')} of ${COMPANY_COUNT} companies`)).toBeVisible();
 
     await page.getByRole('button', { name: 'Timeline' }).click();
-    await expect(page.getByText('5 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US' && c.confidence === 'high')} of ${COMPANY_COUNT} companies`)).toBeVisible();
 
     await page.getByRole('button', { name: 'Grid' }).click();
     await page.getByRole('button', { name: 'Clear filters' }).click();
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     expect(new URL(page.url()).search).toBe('');
   });
 
   test('name search narrows the map and lives in the URL', async ({ page }) => {
     await page.goto(ROUTE);
     await page.getByRole('searchbox', { name: 'Search companies by name' }).fill('dyn');
-    await expect(page.getByText('3 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`3 of ${COMPANY_COUNT} companies`)).toBeVisible();
     await expect(tiles(page)).toHaveCount(3);
     expect(new URL(page.url()).searchParams.get('q')).toBe('dyn');
     await page.reload();
@@ -181,7 +185,7 @@ test.describe('market map visualization', () => {
       if (msg.type() === 'error') errors.push(msg.text());
     });
     await page.goto(`${ROUTE}?segment=bogus&confidence=999`);
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -302,7 +306,7 @@ test.describe('market map visualization', () => {
     const marks = page.locator('circle[data-company-id]');
     const markCount = await marks.count();
     expect(markCount).toBeGreaterThan(0);
-    expect(markCount).toBeLessThan(111);
+    expect(markCount).toBeLessThan(COMPANY_COUNT);
     await expect(page.getByText('Founding year', { exact: true })).toBeVisible();
     await expect(page.getByText(/left off, not drawn at zero/)).toBeVisible();
     await expect(page.locator('circle[data-company-id="covariant"]')).toHaveCount(
@@ -322,7 +326,7 @@ test.describe('market map visualization', () => {
       page.getByText('No companies match these filters.'),
     ).toBeVisible();
     await page.getByRole('button', { name: 'Clear filters' }).first().click();
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
   });
 
   test('acquired and shut-down statuses are truthful (VAL-MKT-022)', async ({
@@ -369,7 +373,7 @@ test.describe('market map visualization', () => {
     expect(await noOverflow(page)).toBe(true);
 
     await segmentTab(page, /^Humanoids/).click();
-    await expect(page.getByText('34 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids')} of ${COMPANY_COUNT} companies`)).toBeVisible();
     await openMoreFilters(page);
     await page.getByRole('button', { name: /More filters/ }).click();
     await expect(page.locator('#filter-country')).toBeHidden();
@@ -418,11 +422,11 @@ test.describe('market map visualization', () => {
     await page.goto(ROUTE);
     await segmentTab(page, /^Humanoids/).focus();
     await page.keyboard.press('Enter');
-    await expect(page.getByText('34 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids')} of ${COMPANY_COUNT} companies`)).toBeVisible();
     await page.getByRole('button', { name: 'Timeline' }).press('Enter');
     await expect(page.getByText('Figure AI')).toBeVisible();
     await page.getByRole('button', { name: 'Clear filters' }).press('Enter');
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     // The cleared button is gone; focus moves to the tab the reset selects,
     // never to the body, and the count is a polite status region.
     await expect(segmentTab(page, /^All/)).toBeFocused();
@@ -430,12 +434,12 @@ test.describe('market map visualization', () => {
     await expect(page.locator('[data-result-count]')).toHaveAttribute('aria-live', 'polite');
     // The empty state's own Clear filters keeps focus the same way.
     await page.getByRole('searchbox', { name: 'Search companies by name' }).fill('zzz');
-    await expect(page.getByText('0 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`0 of ${COMPANY_COUNT} companies`)).toBeVisible();
     await page
       .locator('[data-market-map-empty]')
       .getByRole('button', { name: 'Clear filters' })
       .press('Enter');
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     await expect(segmentTab(page, /^All/)).toBeFocused();
   });
 

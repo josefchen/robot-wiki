@@ -7,7 +7,7 @@ import {
 } from '@/lib/world-model-taxonomy';
 
 describe('world-model taxonomy model', () => {
-  it('preserves the six editorial example groups in their local display order', () => {
+  it('preserves the six families in their display order', () => {
     expect(WM_PARADIGMS.map((p) => p.id)).toEqual([
       'latent-dynamics',
       'decoder-free-latent',
@@ -52,7 +52,7 @@ describe('world-model taxonomy model', () => {
     expect(p.predicts).toMatch(/no decoder/i);
     expect(p.systems).toMatch(/TD-MPC2/);
     expect(p.systems).toMatch(/Dream-MPC/);
-    expect(p.primaryUse).toMatch(/MPPI or policy-seeded gradient ascent/);
+    expect(p.primaryUse).toMatch(/sampled action sequences/);
     expect(p.panelNote).not.toMatch(/MPPI/);
   });
 

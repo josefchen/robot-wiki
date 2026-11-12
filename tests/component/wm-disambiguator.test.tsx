@@ -6,7 +6,7 @@ import { WM_PARADIGMS } from '@/lib/world-model-taxonomy';
 import { symbolHits } from '@/lib/figure-main-view';
 
 function panelButton(name: RegExp) {
-  return within(screen.getByRole('group', { name: 'World-model paradigms' })).getByRole('button', { name });
+  return within(screen.getByRole('group', { name: 'World-model families' })).getByRole('button', { name });
 }
 
 const formButton = (name: string) => screen.getByRole('button', { name });
@@ -26,7 +26,7 @@ describe('WmDisambiguator', () => {
     }
     const adjust = container.querySelector('details[data-figure-fold="adjust"]') as HTMLElement;
     expect(adjust).not.toBeNull();
-    for (const name of [/latent dynamics/i, /decoder-free/i, /generative video/i, /jepa/i, /world-action/i, /symbolic/i]) {
+    for (const name of [/latent dynamics/i, /decoder-free/i, /generative video/i, /jepa/i, /world-action/i, /structured/i]) {
       expect(adjust).toContainElement(panelButton(name));
     }
     expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
@@ -62,7 +62,7 @@ describe('WmDisambiguator', () => {
     for (const p of WM_PARADIGMS) {
       const art = screen.getByTestId(`panel-art-${p.id}`);
       expect(art, p.id).toHaveAttribute('data-form', forms[p.id]);
-      for (const label of ['Now', 'The next picture', 'A learned number code', 'Plain facts', 'pick up the cup']) {
+      for (const label of ['Now', 'The next picture', 'A number summary', 'Plain facts', 'pick up the cup']) {
         expect(art, `${p.id} ${label}`).toHaveTextContent(label);
       }
     }
@@ -85,7 +85,7 @@ describe('WmDisambiguator', () => {
     await user.click(formButton('Summary'));
     expect(screen.getByTestId('selected-readout')).toHaveTextContent('JEPA');
     await user.click(formButton('Plain facts'));
-    expect(screen.getByTestId('selected-readout')).toHaveTextContent('Symbolic');
+    expect(screen.getByTestId('selected-readout')).toHaveTextContent('Structured');
     expect(chipFor('planning')).toHaveAttribute('data-active', 'true');
   });
 
@@ -113,7 +113,7 @@ describe('WmDisambiguator', () => {
   it('reset restores the default selection', async () => {
     const user = userEvent.setup();
     render(<WmDisambiguator />);
-    await user.click(panelButton(/symbolic/i));
+    await user.click(panelButton(/structured/i));
     expect(formButton('Plain facts')).toHaveAttribute('aria-pressed', 'true');
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(panelButton(/latent dynamics/i)).toHaveAttribute('aria-pressed', 'true');
@@ -142,12 +142,12 @@ describe('WmDisambiguator', () => {
     const id = selected.getAttribute('aria-describedby');
     const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
     expect(desc?.textContent).toMatch(/Dreamer-style/);
-    expect(desc?.textContent).toMatch(/one of 3 groups out of 6 that imagine a compressed summary/);
+    expect(desc?.textContent).toMatch(/one of 3 families out of 6 that imagine a compressed summary/);
     await user.click(panelButton(/jepa/i));
     expect(describedText(container)).toMatch(/never pixels/);
     expect(describedText(container)).toMatch(/it serves planning\./);
-    await user.click(panelButton(/symbolic/i));
-    expect(describedText(container)).toMatch(/the only group of the 6 that imagines plain facts/);
+    await user.click(panelButton(/structured/i));
+    expect(describedText(container)).toMatch(/the only family of the 6 that imagines plain facts/);
     expect(screen.getByTestId('panel-art-symbolic')).not.toHaveAttribute('aria-hidden');
     expect(screen.getByTestId('panel-art-latent-dynamics')).toHaveAttribute('aria-hidden', 'true');
   });

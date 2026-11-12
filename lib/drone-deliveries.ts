@@ -10,9 +10,10 @@
  * - Wing's post of 8 June 2026 on its Walmart expansion: "well over one
  *   million commercial deliveries completed".
  *
- * Walmart's "more than one million drone deliveries" (29 May 2026) is not a
- * third bar: Walmart works "with drone delivery providers including Wing
- * and Zipline", so its count overlaps theirs.
+ * Walmart's "more than 2 million drone deliveries" (5 November 2026, when it
+ * agreed to add 300 Zipline sites) is not a third bar: Walmart works with
+ * drone delivery providers including Wing and Zipline, so its count
+ * overlaps theirs.
  */
 
 export interface DeliveryCount {
@@ -29,9 +30,9 @@ export interface DeliveryCount {
 export const ZIPLINE_ID = 'zipline';
 export const WING_ID = 'wing';
 export const ZIPLINE_JANUARY_2026 = 2e6;
-export const WALMART_MAY_2026 = 1e6;
+export const WALMART_NOVEMBER_2026 = 2e6;
 
-export const DELIVERY_SOURCES: readonly string[] = ['zipline-safety-facts', 'wing-walmart-2026', 'walmart-drone-1m-2026'];
+export const DELIVERY_SOURCES: readonly string[] = ['zipline-safety-facts', 'wing-walmart-2026', 'walmart-zipline-300-2026'];
 
 export const DELIVERY_COUNTS: readonly DeliveryCount[] = [
   {

@@ -99,7 +99,7 @@ describe('HardwareGuide', () => {
     const user = userEvent.setup();
     render(<HardwareGuide />);
     await user.click(screen.getByRole('button', { name: /^humanoids$/i }));
-    expect(bodyRows()).toHaveLength(14);
+    expect(bodyRows()).toHaveLength(15);
     expect(
       bodyRows().every(
         (row) => within(row).getAllByRole('cell')[1].textContent === 'Humanoid',
@@ -137,15 +137,18 @@ describe('HardwareGuide', () => {
   it('composes price and availability filters conjunctively (VAL-DATA-016)', async () => {
     const user = userEvent.setup();
     render(<HardwareGuide />);
-    await user.click(screen.getByRole('button', { name: /^\$1k-\$10k$/i }));
+    await user.click(screen.getByRole('button', { name: /^\$1k to \$10k$/i }));
     await user.click(screen.getByRole('button', { name: /^contact sales$/i }));
 
     // Bumi ($1,400 at launch) is the only contact-sales row in the $1k-$10k
     // band; Noetix's page gives no delivery terms, so it is no preorder.
     expect(bodyRows()).toHaveLength(1);
     expect(rowNamed(/Noetix Bumi/)).toBeDefined();
+    // FF Nova ($2,490) is the only preorder row in the band: its first 100
+    // units go to invited developers and schools.
     await user.click(screen.getByRole('button', { name: /^preorder$/i }));
-    expect(screen.queryByRole('table')).toBeNull();
+    expect(bodyRows()).toHaveLength(1);
+    expect(rowNamed(/FF Nova/)).toBeDefined();
   });
 
   it('composes three filters and reports the visible count', async () => {

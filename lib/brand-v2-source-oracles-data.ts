@@ -37,14 +37,14 @@ const milestoneNames: Readonly<Record<string, string>> = {
   'ten-thousand-unit-deployment': '10,000 humanoids doing documented work',
   'open-benchmark': 'Labs agree on one shared public test',
   'broad-rl-reliability': 'Practice gets robots to 99% on many tasks',
-  'tactile-foundation-model': 'Touch sensing built into the robot’s brain',
+  'tactile-foundation-model': "Touch sensing built into the robot's brain",
   'sim-to-real-contact': 'Hand skills learned only in simulation work for real',
-  'cost-per-task-parity': 'A humanoid matches a specialist machine’s cost per job',
+  'cost-per-task-parity': "A humanoid matches a specialist machine's cost per job",
   'data-scaling-law': '100 times more data; measure the gain in task success (required gain not specified)',
 };
 const thesisNames: Readonly<Record<string, string>> = {
   'end-to-end-vla': 'Just make it bigger', 'hierarchical-planner': 'A planner directs simple skills',
-  'world-model-training': 'Let the robot imagine first', 'rl-finetuning': 'Copy first, then practise',
+  'world-model-training': 'Let the robot imagine first', 'rl-finetuning': 'Copy first, then practice',
   'teleop-bridge': 'Humans steer while robots learn', 'form-factor': 'Human-shaped or built for the job',
 };
 function choice<T extends string>(c: SourceOracleContext, options: Readonly<Record<T, string>>, group?: string): T {
@@ -125,7 +125,7 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     evidencePaths: ['lib/aerial-latency.ts', componentPath('perception-latency'), 'components/iso/figures/latency-corridor.ts'],
     seriesIds: ['perception-latency', 'avoidance-maneuver'],
     check(c) {
-      const ms = c.input(/^Camera delay/), agility = Number(choice(c, { '10': 'Gentle', '25': 'Standard (the study’s)', '50': 'Hard', '200': 'Extreme' }));
+      const ms = c.input(/^Camera delay/), agility = Number(choice(c, { '10': 'Gentle', '25': "Standard (the study's)", '50': 'Hard', '200': 'Extreme' }));
       const avoid = 2 * Math.sqrt(0.75 / agility), ttc = ms / 1000 + avoid, v = 8 / ttc, blind = v * ms / 1000, swerve = 8 - blind;
       c.readoutNumbers(0, [Math.round(v * 3.6), rounded(blind, 1), rounded(swerve, 1)]);
       c.readoutNumbers(1, [ms]); c.readoutNumbers(2, ms === 70 || ms === 12 ? [Math.round(v * 3.6)] : [ms, Math.round(v * 3.6)]);
@@ -145,12 +145,12 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       const mode = choice(c, { stop: 'Stops when you step in', guide: 'You guide it by hand', separation: 'Keeps its distance', force: 'Gentle enough to bump' });
       const v = c.input(/^Robot speed,/), human = c.input(/^Your walking speed/), phase = c.sourceState('data-source-phase');
       const terms = [human * (0.1 + v / 10), v * 0.1, v * v / 20, 0.95], separation = terms.reduce((a, b) => a + b, 0), force = v * Math.sqrt(100000);
-      const words = (value: number, digits: number, suffix: string) => `${rounded(value, digits)} ${rounded(value, digits) === 1 ? 'metre' : 'metres'}${suffix}`;
+      const words = (value: number, digits: number, suffix: string) => `${rounded(value, digits)} ${rounded(value, digits) === 1 ? 'meter' : 'meters'}${suffix}`;
       const speed = (value: number, at: number, gloss: string) => value === 0 ? 'standing still' : words(value, 2, ` a second${value === at ? `, ${gloss}` : ''}`);
       c.readoutText(0, speed(v, 1, 'a slow walk')); c.readoutText(2, speed(human, 1.6, 'a brisk walk'));
       let stage = '';
       if (mode === 'separation') {
-        c.readoutText(1, separation <= 1.6 ? `At this speed the robot needs a gap of about ${words(separation, 1, '')}; you are 1.6 metres away, so it keeps working.` : `At this speed the robot needs a gap of about ${words(separation, 1, '')}, more than the 1.6 metres to you, so it stops.`);
+        c.readoutText(1, separation <= 1.6 ? `At this speed the robot needs a gap of about ${words(separation, 1, '')}; you are 1.6 meters away, so it keeps working.` : `At this speed the robot needs a gap of about ${words(separation, 1, '')}, more than the 1.6 meters to you, so it stops.`);
         const phases: Record<string, string> = { rest: `needs ${separation.toFixed(2)} m, you stand at 1.60 m`, setup: 'you step back out of its zone', walk: human > 0 ? 'you walk in, it keeps working' : 'you stand still, it keeps working', work: 'you stand still, it keeps working', react: 'you cross the edge, it reacts', brake: 'it brakes, you keep walking', stopped: human > 0 ? 'stopped, 0.95 m left between you' : 'it stays stopped while you stand in its zone' };
         stage = phases[phase] ?? '';
         c.readoutWhere({ key: /^separation-readout$/ }, [rounded(separation)]);
@@ -184,7 +184,7 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     },
   },
   'interactive:GeneralistReleaseTimeline': {
-    basis: [assumption('GeneralistReleaseTimeline', 'canonical-release-records', 'Canonical source months, provenance and weight availability are independently projected on a January 2025–August 2026 axis; filtering fades excluded records and retains all rows. The selected card retains its original source.')],
+    basis: [assumption('GeneralistReleaseTimeline', 'canonical-release-records', 'Canonical source months, provenance and weight availability are independently projected on a January 2025 to December 2026 axis; filtering fades excluded records and retains all rows. The selected card retains its original source.')],
     evidencePaths: ['lib/generalist-policies.ts', componentPath('generalist-release-timeline')],
     seriesIds: GENERALIST_RELEASES.map(row => row.id),
     check(c) {
@@ -197,7 +197,7 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       // Independently spelled reader glosses preserve the Helix announcement's limited download scope.
       if (selected.citationId === 'helix-2025') {
         c.contains('Figure reports two connected parts: S2 represents the task; S1 uses that information, images and robot measurements, including joint positions, to control wrists, fingers, torso and head and report task completion.');
-        c.contains('The February 20, 2025 announcement identifies a downloadable picture-and-language model; it does not establish a download or licence for Helix’s trained movement controller.');
+        c.contains('The February 20, 2025 announcement identifies a downloadable picture-and-language model; it does not establish a download or license for Helix\'s trained movement controller.');
       } else {
         c.contains(selected.capability);
         if (selected.weightsNote) c.contains(selected.weightsNote);
@@ -229,19 +229,19 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     },
   },
   'interactive:PiGenerationTimeline': {
-    basis: citations(PI_GENERATIONS.map(row => row.citationId), 'Canonical source-publication months and pinned openpi catalogue status. An unverified MEM month stays unplotted; missing catalogue entries do not establish closed licensing.'),
+    basis: citations(PI_GENERATIONS.map(row => row.citationId), 'Canonical source-publication months and pinned openpi catalog status. The MEM add-on to π0.6 is listed beside the axis, not plotted; missing catalog entries do not establish closed licensing.'),
     evidencePaths: ['lib/pi-generations.ts', componentPath('pi-generation-timeline')],
     check(c) {
       const selected = PI_GENERATIONS.filter(row => c.selected(exact(row.name)));
       if (selected.length !== 1) throw new Error('Expected one selected PI model');
       c.contains(selected[0].plain);
       c.contains('MEM adds memory: recent video plus notes the model writes for itself.');
-      c.contains("Physical Intelligence's modelsNew model every few months; downloads confirmed for first three");
-      c.contains("Physical Intelligence's releases A new model every few months Confirmed downloads Only the first three models Later models' availability is unverified.");
-      const dated = PI_GENERATIONS.filter(row => row.released !== null), months = [...new Set(dated.map(row => row.released!))];
+      c.contains("Physical Intelligence's modelsA new model every few months; three can be downloaded");
+      c.contains("Physical Intelligence's releases A new model every few months Confirmed downloads Only the first three models No later model is listed for download; the newest are offered through a hosted API.");
+      const dated = PI_GENERATIONS.filter(row => row.released !== null && row.addOnTo === undefined), months = [...new Set(dated.map(row => row.released!))];
       const xAt = (ym: string) => { const [year, month] = ym.split('-').map(Number); return rounded(12 + ((year - 2024) * 12 + month - 1 - 8) * 316 / 21); };
       c.requireSeries([...months, 'downloadable']);
-      c.circleCount(months.length + (selected[0].released === null ? 0 : 1));
+      c.circleCount(months.length + (selected[0].released === null || selected[0].addOnTo !== undefined ? 0 : 1));
       months.forEach(month => {
         const x = xAt(month), picked = month === selected[0].released;
         c.svgMarkCount(month, 'circle', picked ? 2 : 1);
@@ -275,7 +275,7 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
         if (hours.includes(row)) {
           c.htmlBar(`deployment-bar-${row.id}`, rounded(Math.log10(Number.parseFloat(row.value.replace(/,/g, ''))) * 20) / 100, 0.0005);
           c.contains(`${row.id === 'figure-8hr-shift' ? 'Figure Helix 02: one task streamed live' : row.program}${/hours?$/.test(row.value) ? row.value : `${row.value} hours`}`);
-        } else c.contains(`${row.program}No work hours; robot production lines being built`);
+        } else c.contains(`${row.program}No work hours; production began on Fremont lines, rate not given`);
       }
     },
   },
@@ -311,10 +311,10 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       const status = { 'not-met': 'Not yet', partial: 'Partly there', met: 'Done' };
       const shown = filter === 'all' ? `Showing all ${MILESTONES.length}` : `Showing ${rows.length} of ${MILESTONES.length}: ${status[filter].toLowerCase()}`;
       c.readoutText(0, shown + (selected[0] ? `, open: ${milestoneNames[selected[0].id]}` : ''));
-      c.contains(`September 2026: ${done} of ${MILESTONES.length} done`);
+      c.contains(`November 2026: ${done} of ${MILESTONES.length} done`);
       c.contains(`${MILESTONES.filter(row => row.status === 'partial').length} partly there, ${MILESTONES.filter(row => row.status === 'not-met').length} not yet, ${done} done`);
-      c.tablePopulation([{ headers: ['Milestone', 'Why it matters', 'Status', 'Evidence', 'How we’d know'], rows: MILESTONES.map(row => row.name + milestoneNames[row.id]) }]);
-      for (const row of MILESTONES) c.row(row.name + milestoneNames[row.id], { 'Why it matters': row.whyItMatters, Status: status[row.status], Evidence: row.statusDetail, 'How we’d know': row.howWeKnow });
+      c.tablePopulation([{ headers: ['Milestone', 'Why it matters', 'Status', 'Evidence', "How we'd know"], rows: MILESTONES.map(row => row.name + milestoneNames[row.id]) }]);
+      for (const row of MILESTONES) c.row(row.name + milestoneNames[row.id], { 'Why it matters': row.whyItMatters, Status: status[row.status], Evidence: row.statusDetail, "How we'd know": row.howWeKnow });
       if (!rows.length) c.contains('None of the eight milestones has reached this status yet.');
     },
   },
@@ -336,9 +336,9 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     basis: [assumption('DatasetTable', 'canonical-catalog', 'The audited data/datasets.ts records are the canonical source inputs. Exact source URLs, notes, unknown values and conjunctive numeric filter buckets are checked for each visible record.')],
     evidencePaths: ['data/datasets.ts', componentPath('dataset-table')],
     check(c) {
-      const size = choice(c, { all: 'All sizes', small: 'Under 100k episodes', medium: '100k-1M episodes', large: '1M+ episodes', unknown: 'Unknown size' });
+      const size = choice(c, { all: 'All sizes', small: 'Under 100k episodes', medium: '100k to 1M episodes', large: '1M+ episodes', unknown: 'Unknown size' });
       const body = choice(c, { all: 'All platforms', single: 'Single platform', multi: 'Multi-platform' });
-      const tasks = choice(c, { all: 'All task counts', small: 'Under 100 tasks', medium: '100-1,000 tasks', large: '1,000+ tasks', unknown: 'Unknown count' });
+      const tasks = choice(c, { all: 'All task counts', small: 'Under 100 tasks', medium: '100 to 1,000 tasks', large: '1,000+ tasks', unknown: 'Unknown count' });
       const bucket = (n: number | null, selected: string, low: number, high: number) => selected === 'all' || (selected === 'unknown' ? n === null : n !== null && (selected === 'small' ? n < low : selected === 'medium' ? n >= low && n < high : n >= high));
       const rows = DATASETS.filter(row => bucket(row.episodes, size, 100000, 1000000) && bucket(row.tasks, tasks, 100, 1000) && (body === 'all' || (body === 'single' ? row.embodimentCount === 1 : row.embodimentCount > 1)));
       const headers = ['Dataset', 'Year', 'Episodes', 'Hours', 'Tasks', 'Scenes', 'Embodiments', 'License', 'Source'];
@@ -356,8 +356,8 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     evidencePaths: ['data/hardware.ts', componentPath('hardware-guide')],
     check(c) {
       const category = choice(c, { all: 'All categories', arm: 'Arms', humanoid: 'Humanoids', hand: 'Hands', sensor: 'Sensors', compute: 'Compute' });
-      const price = choice(c, { all: 'All prices', small: 'Under $1k', medium: '$1k-$10k', high: '$10k-$25k', large: '$25k and up', unknown: 'No listed price' });
-      const dof = choice(c, { all: 'Any DoF', small: 'Under 10', medium: '10-30', large: '30+', unknown: 'Not disclosed' });
+      const price = choice(c, { all: 'All prices', small: 'Under $1k', medium: '$1k to $10k', high: '$10k to $25k', large: '$25k and up', unknown: 'No listed price' });
+      const dof = choice(c, { all: 'Any DoF', small: 'Under 10', medium: '10 to 30', large: '30+', unknown: 'Not disclosed' });
       const availability = choice(c, { all: 'Any availability', buy: 'Orderable', preorder: 'Preorder', contact: 'Contact sales', closed: 'Not for sale', unknown: 'Not listed' });
       const rows = HARDWARE.filter(row => (category === 'all' || row.category === category)
         && (price === 'all' || (price === 'unknown' ? row.priceUsd === null : row.priceUsd !== null && (price === 'small' ? row.priceUsd < 1000 : price === 'medium' ? row.priceUsd >= 1000 && row.priceUsd < 10000 : price === 'high' ? row.priceUsd >= 10000 && row.priceUsd < 25000 : row.priceUsd >= 25000)))
@@ -429,7 +429,8 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
         for (let year = first; year < first + span; year += 1) {
           const group = members.filter(row => row.year === year);
           group.forEach((row, j) => {
-            const x = rounded(rounded(132 + (year - first + 0.5) * 208 / span) + (j - (group.length - 1) / 2) * 10), y = 36 + 22 * i;
+            const step = group.length > 1 ? Math.min(10, (208 / span - 8) / (group.length - 1)) : 10;
+            const x = rounded(rounded(132 + (year - first + 0.5) * 208 / span) + (j - (group.length - 1) / 2) * step), y = 36 + 22 * i;
             c.point(row.id, x, y, 3); c.svgMark(kind, 'circle', { cx: x, cy: y, r: 3, opacity: rows.includes(row) ? 1 : 0.2 });
           });
         }
@@ -473,7 +474,7 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     seriesIds: LADDER_ROWS.map(row => row.id),
     check(c) {
       const arms=LADDER_POINTS.filter(row=>row.row==='arm'),humanoids=LADDER_POINTS.filter(row=>row.row==='humanoid');
-      c.contains(`Maker list pricesArms ${dollars(Math.min(...arms.map(row=>row.priceUsd)))}–${dollars(Math.max(...arms.map(row=>row.priceUsd)))}; humanoids ${dollars(Math.min(...humanoids.map(row=>row.priceUsd)))}–${dollars(Math.max(...humanoids.map(row=>row.priceUsd)))}; some prices unpublished`);
+      c.contains(`Maker list pricesListed prices: arms ${dollars(Math.min(...arms.map(row=>row.priceUsd)))} to ${dollars(Math.max(...arms.map(row=>row.priceUsd)))}, humanoids ${dollars(Math.min(...humanoids.map(row=>row.priceUsd)))} to ${dollars(Math.max(...humanoids.map(row=>row.priceUsd)))}`);
       c.circleCount(LADDER_POINTS.length);
       for (const point of LADDER_POINTS) {
         const family = LADDER_ROWS.find(row => row.id === point.row)!;
@@ -591,13 +592,13 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
           c.contains('next stage not dated');
         }
       });
-      c.readoutText(0, SAFETY_RULES[3].dateText); c.readoutText(1, SAFETY_RULES[4].dateText);
-      c.contains('Robot safety rules by date2025 standards; undated humanoid draft; learned-safety law in January 2027');
+      c.readoutText(0, SAFETY_RULES.find(rule => rule.id === 'eu-machinery-regulation')!.dateText); c.readoutText(1, SAFETY_RULES.find(rule => rule.id === 'eu-ai-act')!.dateText);
+      c.contains('Robot safety rules by dateLearned safety parts come under EU law in January 2027');
       c.contains('2025Industrial robot safety standards renewed');
       c.contains('No next dateHumanoid safety standard remains a draft');
       c.contains('January 2027EU law covers safety components that learn from data');
       c.contains('Separate 2028 AI Act rule: AI safety components or AI products requiring independent health or safety assessment under product laws.');
-      for (const year of [2025, 2026, 2027, 2028, 2029]) c.svgText(null, String(year), 10 + (year - 2025) * 80, 222);
+      for (const year of [2025, 2026, 2027, 2028, 2029]) c.svgText(null, String(year), 10 + (year - 2025) * 80, 4 + SAFETY_RULES.length * 40 + 18);
     },
   },
   'interactive:SurgicalAutonomyLadder': {

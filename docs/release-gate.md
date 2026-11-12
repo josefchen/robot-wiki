@@ -5,7 +5,8 @@ The gate protects readers, not records of earlier work.
 ## What runs
 `npm run vercel-build` (what Vercel runs) does, in order:
 1. Before the export: content validation (schemas, citations, glossary,
-   images, author years), the slop and dash lint over article source, chart
+   images, author years, and that each home and hub fact's article cites
+   its source inline), the slop and dash lint over article source, chart
    description wiring and rules, motion colour tokens, and font glyph
    coverage for the display and card fonts.
 2. `next build` writes the static export. Reading times are measured from
@@ -22,8 +23,7 @@ The gate protects readers, not records of earlier work.
 Playwright on demand.
 
 `npm run refresh` regenerates every committed derived file (motion tokens,
-equations, companies, content dates, reading times, Open Graph cards, the
-nav fixture). Run it before committing; the build never fails because a
+equations, companies, content dates, reading times, Open Graph cards). Run it before committing; the build never fails because a
 committed derived file is out of date.
 
 ## Keep or retire

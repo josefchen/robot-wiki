@@ -36,7 +36,7 @@ describe('LatentImagination', () => {
   it('opens on the insight: the imagined track head is already off the real route 15 steps ahead', () => {
     render(<LatentImagination />);
     expect(screen.getByTestId('drift-note')).toHaveTextContent('15 steps ahead:');
-    expect(screen.getByTestId('drift-note')).toHaveTextContent('ruler measures the gap from blue tip to real route');
+    expect(screen.getByTestId('drift-note')).toHaveTextContent('ruler measures the gap from the blue tip to the real route');
     expect(screen.getByTestId('drift-bracket')).toBeInTheDocument();
     expect(Number(screen.getByTestId('drift-bracket').getAttribute('data-offset'))).toBeCloseTo(0.301 * SPREAD, 0);
     expect(Number(screen.getByTestId('imagined-head').getAttribute('data-offset'))).toBeCloseTo(0.301 * SPREAD, 0);

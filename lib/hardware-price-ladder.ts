@@ -42,6 +42,7 @@ const POINTS: readonly LadderPoint[] = [
   { rowId: 'stationary-ai', label: 'Stationary AI', row: 'arm', end: 'low', citationId: 'trossen-ai-2026' },
   { rowId: 'mobile-ai', label: 'Mobile AI', row: 'arm', end: 'low', citationId: 'trossen-ai-2026' },
   { rowId: 'reachy-2', label: 'Reachy 2', row: 'arm', end: 'low', citationId: 'hf-pollen-acquisition-2025' },
+  { rowId: 'ff-nova', label: 'FF Nova', row: 'humanoid', end: 'low', citationId: 'ff-nova-2026' },
   { rowId: 'unitree-r1', label: 'Unitree R1 Air', row: 'humanoid', end: 'low', citationId: 'unitree-r1-2026' },
   { rowId: 'unitree-r1', label: 'Unitree R1', row: 'humanoid', end: 'high', citationId: 'unitree-r1-2026' },
   { rowId: 'unitree-g1', label: 'Unitree G1', row: 'humanoid', end: 'low', citationId: 'unitree-g1-2026' },

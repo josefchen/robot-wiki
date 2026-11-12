@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
 import { DroneDeliveryCounts } from '@/components/interactive/drone-delivery-counts';
-import { DELIVERY_COUNTS, WALMART_MAY_2026, ZIPLINE_JANUARY_2026 } from '@/lib/drone-deliveries';
+import { DELIVERY_COUNTS, WALMART_NOVEMBER_2026, ZIPLINE_JANUARY_2026 } from '@/lib/drone-deliveries';
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
 import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import { widgetCitationRecords } from '@/lib/widget-citations';
@@ -25,7 +25,7 @@ describe('DroneDeliveryCounts', () => {
       ['wing', 1e6, 'well over 1 million', 'wing-walmart-2026'],
     ]);
     expect(ZIPLINE_JANUARY_2026).toBe(2e6);
-    expect(WALMART_MAY_2026).toBe(1e6);
+    expect(WALMART_NOVEMBER_2026).toBe(2e6);
   });
 
   it('leads with the kicker, the takeaway headline and a caption under 25 words', () => {
@@ -36,7 +36,7 @@ describe('DroneDeliveryCounts', () => {
     expect(kicker).toBe('Deliveries, as the companies report them');
     expect(heading).toBe('Zipline passed 3 million drone deliveries; Wing passed 1 million');
     expect(caption).toBe(
-      'Company-reported lower bounds, on different dates. Walmart’s million is left out: providers including Wing and Zipline flew them.',
+      "Each bar is a company's own lower bound on its own date; Walmart's 2 million are not added because they overlap Wing's and Zipline's counts.",
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
@@ -70,7 +70,7 @@ describe('DroneDeliveryCounts', () => {
       a.getAttribute('href'),
     );
     expect(links).toEqual(records.map((r) => r.url));
-    expect(records.map((r) => r.id)).toEqual(['zipline-safety-facts', 'wing-walmart-2026', 'walmart-drone-1m-2026']);
+    expect(records.map((r) => r.id)).toEqual(['zipline-safety-facts', 'wing-walmart-2026', 'walmart-zipline-300-2026']);
   });
 });
 

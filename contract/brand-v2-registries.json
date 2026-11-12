@@ -29710,6 +29710,16 @@
       "fingerprint": "4818e26b0120d5d59ff808b87cafa174b7a299fe838fabe2d878e9ace757f0b8"
     },
     {
+      "id": "asset:images/logos/agile-robots.svg",
+      "path": "images/logos/agile-robots.svg",
+      "category": "official-mark",
+      "ownershipId": "image:agile-robots-logo",
+      "sourceRegistryId": "agile-robots-logo",
+      "byteHash": "dedf35cd7294a7b644426fd35561b5cb65cb40e7392b06ad2ccf62b99d29b8c3",
+      "semanticHash": "7c525fc11164fb65545bc7cece96101747243bb219f00fd0db2d4e0f88d1ba80",
+      "fingerprint": "823b9055ae2f41e75698871e96ad1480e1e87fec4ea728ac52995229c3859267"
+    },
+    {
       "id": "asset:images/logos/agility-robotics.svg",
       "path": "images/logos/agility-robotics.svg",
       "category": "official-mark",
@@ -29930,6 +29940,16 @@
       "fingerprint": "5d148450a4bc1fd40037dce842ca59b7e4e741fb0b36a057a1796c8b6515a8d9"
     },
     {
+      "id": "asset:images/logos/d-robotics.png",
+      "path": "images/logos/d-robotics.png",
+      "category": "official-mark",
+      "ownershipId": "image:d-robotics-logo",
+      "sourceRegistryId": "d-robotics-logo",
+      "byteHash": "4f199d5f434a0fb8a947948ceee506505d3f71667eb5030d7431cdda657cc66d",
+      "semanticHash": null,
+      "fingerprint": "4ffb7ab0dd57a75811f1d8a894e08ae1e10fabecb6f322fdd440eee5ff5bf3fd"
+    },
+    {
       "id": "asset:images/logos/deep-robotics.png",
       "path": "images/logos/deep-robotics.png",
       "category": "official-mark",
@@ -30098,6 +30118,16 @@
       "byteHash": "7f3c4d161eba675803ff47bc6cd8a523e541fbc84ca167dfd0037c70272e7e57",
       "semanticHash": "9fde3a6551b384d70eac88f94b710da043760ff3adfe3f359291629b2503a409",
       "fingerprint": "7d6d4a1bfc806b2f0091979130344f68ca23594ea90e35d3ab2527e168d901ca"
+    },
+    {
+      "id": "asset:images/logos/geek-plus.png",
+      "path": "images/logos/geek-plus.png",
+      "category": "official-mark",
+      "ownershipId": "image:geek-plus-logo",
+      "sourceRegistryId": "geek-plus-logo",
+      "byteHash": "e7c67ccf575f93123e8844912ee9b85f2314da05775ff4840315bad4edb1dee8",
+      "semanticHash": null,
+      "fingerprint": "94a613728a7ea6af19bee0d354f2ef6a182bfe23ecf47a7ed83130f675414107"
     },
     {
       "id": "asset:images/logos/generalist-ai.svg",
@@ -30400,6 +30430,16 @@
       "fingerprint": "d1d7e152658bac8ce2bfff3f775d2160c3cb8b4adbfc4bc367333fa14f0b9e63"
     },
     {
+      "id": "asset:images/logos/noetix-robotics.svg",
+      "path": "images/logos/noetix-robotics.svg",
+      "category": "official-mark",
+      "ownershipId": "image:noetix-robotics-logo",
+      "sourceRegistryId": "noetix-robotics-logo",
+      "byteHash": "3435ab75b272cb6a9dc2bc2c61323758ad418cac45839ab165eda507f28f77a0",
+      "semanticHash": "a24e4a25368db59cde33fdb8c0fbc2de1aa65085edb94bd8582e8831c9931579",
+      "fingerprint": "a0f6122857ae0aafe42538131bba92d0b6ac896078872be04d84bfa16e134a65"
+    },
+    {
       "id": "asset:images/logos/nuro.svg",
       "path": "images/logos/nuro.svg",
       "category": "official-mark",
@@ -30508,6 +30548,16 @@
       "byteHash": "5113850e9b0c22ce5835c6780d643d910574660f3413ce11f34e9e8cffc1c355",
       "semanticHash": "d0cd62a9fa66afbd51e9556aa09646e7a26741889f5b4a1a0c6862252927d400",
       "fingerprint": "1d727379e3e94233264898011cba6d8b22dde4823c3916ab9210eaa49ea34f31"
+    },
+    {
+      "id": "asset:images/logos/robco.svg",
+      "path": "images/logos/robco.svg",
+      "category": "official-mark",
+      "ownershipId": "image:robco-logo",
+      "sourceRegistryId": "robco-logo",
+      "byteHash": "54fd5266460a605667c52d74654763e4d58463d1d401e8b9210bc88a5883a7cc",
+      "semanticHash": "ea66a2d1f48b7001700f19322bcbdcef9403f3d67833d7a91ee59b19692f5151",
+      "fingerprint": "d766c6c24ad057d9ecdfcc50e48be3ee507bc34e4ce0e9bb1164d167bcf86287"
     },
     {
       "id": "asset:images/logos/robot-era.png",
@@ -30700,6 +30750,16 @@
       "fingerprint": "5eb91c3d64df7d159c5a37b23e05053b3206d268bc21c7539bd11b77d5e573d0"
     },
     {
+      "id": "asset:images/logos/tutor-intelligence.svg",
+      "path": "images/logos/tutor-intelligence.svg",
+      "category": "official-mark",
+      "ownershipId": "image:tutor-intelligence-logo",
+      "sourceRegistryId": "tutor-intelligence-logo",
+      "byteHash": "be7d267a532ad18a6cf4c773d6b8edfe086a43be804923965ac50ec00e49e20f",
+      "semanticHash": "d78e04d96cc14aa1cf74efe9c1bc1404cf1653b6f772ed0c728301cd7a6a99ce",
+      "fingerprint": "d4c5a598d30e6a796df6f35fb0a822a539dee9efcc657c3ebcd1a6cf0dd63808"
+    },
+    {
       "id": "asset:images/logos/ubtech.svg",
       "path": "images/logos/ubtech.svg",
       "category": "official-mark",
@@ -30718,6 +30778,16 @@
       "byteHash": "f2ace736d962af69eea6eb5b692c623388b7de7e041a68a2cb2d663261ec13be",
       "semanticHash": "d358923e362589b9823bfd68f09bd9d346ddf330d1aeb9f5a506fac7005e9d03",
       "fingerprint": "e8db760bf477a8cdbb5cb0e1b3ebaaf62c4909b6e12350734a24e38e60847964"
+    },
+    {
+      "id": "asset:images/logos/walden-robotics.svg",
+      "path": "images/logos/walden-robotics.svg",
+      "category": "official-mark",
+      "ownershipId": "image:walden-robotics-logo",
+      "sourceRegistryId": "walden-robotics-logo",
+      "byteHash": "0611c0b6c40160284eed349523e09f04fe6f8bb4b786efe333128be2beb161a1",
+      "semanticHash": "c83c65b06a0b06815c6613273e6acd8c85d1d98a71e36031c21558f9e7c7b6a3",
+      "fingerprint": "e8867c7b4d0105a7adc2deec54f3be0ae20d90c35300f2f978e4e58f103fab7f"
     },
     {
       "id": "asset:images/logos/wandercraft.svg",
@@ -30788,6 +30858,16 @@
       "byteHash": "ce8b05726abeb220efb95434d5a4ba24f547bcb1e2d83cd4c627de633d887796",
       "semanticHash": "5fbb3932a7f4181dcab88b92896f2d568b2e4dae7a8a060b6acd4724ed55337a",
       "fingerprint": "6d2c4be21e6fc2fb704f9803319be6b9d1f08327bd64ec181d40ef8edf9209f1"
+    },
+    {
+      "id": "asset:images/logos/zipline.svg",
+      "path": "images/logos/zipline.svg",
+      "category": "official-mark",
+      "ownershipId": "image:zipline-logo",
+      "sourceRegistryId": "zipline-logo",
+      "byteHash": "698a08cb53abf10d886177d0796c299706ae621f6ae07f80a6b998f98a4d6e5b",
+      "semanticHash": "32b292d509d32cbd042ae45337b1eb14f77c6fd70c16d2f1e5b58415142a2063",
+      "fingerprint": "3308568419f07b1beda69c0739adbe43dccb1101b4145d6009362ae5858e3698"
     },
     {
       "id": "asset:images/mini-cheetah-spin-rapid-locomotion-2022.jpg",
@@ -31590,6 +31670,7 @@
     "asset:images/logos/1x-technologies.svg",
     "asset:images/logos/abb.svg",
     "asset:images/logos/agibot.png",
+    "asset:images/logos/agile-robots.svg",
     "asset:images/logos/agility-robotics.svg",
     "asset:images/logos/amazon-robotics.svg",
     "asset:images/logos/ambirobotics.svg",
@@ -31612,6 +31693,7 @@
     "asset:images/logos/coco-robotics.png",
     "asset:images/logos/collaborative-robotics.svg",
     "asset:images/logos/covariant.svg",
+    "asset:images/logos/d-robotics.png",
     "asset:images/logos/deep-robotics.png",
     "asset:images/logos/dexterity.svg",
     "asset:images/logos/diligent-robotics.png",
@@ -31629,6 +31711,7 @@
     "asset:images/logos/galaxea-ai.png",
     "asset:images/logos/galbot.svg",
     "asset:images/logos/gecko-robotics.svg",
+    "asset:images/logos/geek-plus.png",
     "asset:images/logos/generalist-ai.svg",
     "asset:images/logos/genesis-ai.svg",
     "asset:images/logos/google-deepmind-robotics.svg",
@@ -31659,6 +31742,7 @@
     "asset:images/logos/nabtesco.svg",
     "asset:images/logos/neura-robotics.svg",
     "asset:images/logos/nimble-robotics.svg",
+    "asset:images/logos/noetix-robotics.svg",
     "asset:images/logos/nuro.svg",
     "asset:images/logos/nvidia.svg",
     "asset:images/logos/openai.svg",
@@ -31670,6 +31754,7 @@
     "asset:images/logos/rainbow-robotics.png",
     "asset:images/logos/rhoda-ai.svg",
     "asset:images/logos/righthand-robotics.svg",
+    "asset:images/logos/robco.svg",
     "asset:images/logos/robot-era.png",
     "asset:images/logos/robotphoenix.webp",
     "asset:images/logos/sanctuary-ai.png",
@@ -31689,8 +31774,10 @@
     "asset:images/logos/tars-robotics.svg",
     "asset:images/logos/tesla.svg",
     "asset:images/logos/the-bot-company.png",
+    "asset:images/logos/tutor-intelligence.svg",
     "asset:images/logos/ubtech.svg",
     "asset:images/logos/unitree.svg",
+    "asset:images/logos/walden-robotics.svg",
     "asset:images/logos/wandercraft.svg",
     "asset:images/logos/weave-robotics.svg",
     "asset:images/logos/wonik-robotics.svg",
@@ -31698,6 +31785,7 @@
     "asset:images/logos/xdof.svg",
     "asset:images/logos/xela-robotics.png",
     "asset:images/logos/zebra-robotics-automation.svg",
+    "asset:images/logos/zipline.svg",
     "asset:images/mini-cheetah-spin-rapid-locomotion-2022.jpg",
     "asset:images/motion-capture-session-hyderabad-2026.jpg",
     "asset:images/moxie-installation-perseverance-2020.jpg",
@@ -44676,5 +44764,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "a02df9353351a0ab3a5a8ecf9d87a6e26abb932486d1b764115e6665105114d3"
+  "rootFingerprint": "34a296fda18f735e350ad65dad0780e53ebd698150c251843e1f35bc4cc3fc6e"
 }

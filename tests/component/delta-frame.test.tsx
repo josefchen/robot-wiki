@@ -31,7 +31,7 @@ describe('DeltaFrame', () => {
     const lit = [...svg.querySelectorAll('[data-lit], [data-tone="lit"]')];
     expect(lit).toHaveLength(1);
     expect(lit[0]!.closest('[data-part]')).toHaveAttribute('data-part', 'ink');
-    expect(svg.getAttribute('aria-label')).toMatch(/read in the table's frame, running along the rails and ending 5 centimetres off it/);
+    expect(svg.getAttribute('aria-label')).toMatch(/read in the table's frame, running along the rails and ending 5 centimeters off it/);
     expect(screen.getByTestId('delta-frame-table')).toHaveAttribute('aria-pressed', 'true');
   });
 

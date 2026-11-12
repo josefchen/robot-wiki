@@ -165,7 +165,7 @@ test.describe('adjacent space module', () => {
     await page.goto(ROUTE);
     const figure = page.locator('[data-figure-frame="space-latency-ladder"]');
     await figure.scrollIntoViewIfNeeded();
-    await expect(figure.locator('[data-figure-title]')).toHaveText('Camera: hundredths of seconds; Mars replies: 8 to 40 minutes');
+    await expect(figure.locator('[data-figure-title]')).toHaveText('Signals to Mars and back take 8 to 40 minutes');
     await expect(figure.getByTestId('space-latency-mars-round-trip').locator('rect')).toHaveAttribute(
       'data-chart-role',
       'highlight',

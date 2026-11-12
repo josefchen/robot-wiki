@@ -33,7 +33,7 @@ describe('SurgicalSystemsTable', () => {
     const accessibleName =
       name || (tables[0].querySelector('caption')?.textContent ?? '');
     expect(accessibleName).toMatch(
-      /system\u2019s position on the six-level autonomy scale of Yang et al\./,
+      /system's position on the six-level autonomy scale of Yang et al\./,
     );
   });
 

@@ -73,7 +73,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     basis:[{id:'assumption:CrossEmbodimentStrategies:explicit-slot-allocation',kind:'assumption',reference:'The32-slot illustration allocates native widths8,16,29 and an unspecified human row. Padding fills the remainder with zeros; Motion Transfer adds3hatched illustrative slots; relative-EEF allocates8shared slots to every body. These widths are toy choices, not source robot DoF or model dimensions.'}],evidencePaths:['lib/cross-embodiment.ts'],seriesIds:['active','blocked','zeroed','latent'],
     check(c){
       const selected=c.selected(/^Fill unused joint slots with zeros$/)?0:c.selected(/^Translate between bodies$/)?1:2;
-      const names=['Padded shared vector','Motion transfer','Shared relative EEF space'],verdicts=['human video: no adapter modelled in this toy','human-hand mapping not specified in this illustration','N1.7 README: 20K hours of EgoScale human video'];
+      const names=['Padded shared vector','Motion transfer','Shared relative EEF space'],verdicts=['human video: no adapter modeled in this toy','human-hand mapping not specified in this illustration','N1.7 README: 20K hours of EgoScale human video'];
       c.readoutText(0,`${names[selected]}: ${verdicts[selected]}`);c.readoutText(1,verdicts[selected]);
       const bodyIds=['arm','bimanual','humanoid','human-hand'],strategies=['padded','motion-transfer','relative-eef'],dims=[8,16,29,0],counts:Record<string,number>={active:0,blocked:0,zeroed:0,latent:0};
       const slots=(mode:number,body:number)=>Array.from({length:32},(_,i)=>mode===2?i<8?'active':'blocked':body===3?'blocked':i<dims[body]?'active':mode===0?'zeroed':i<dims[body]+3?'latent':'blocked');
@@ -299,7 +299,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       c.readoutNumbers(0, [k]); c.readoutNumbers(1, k >= enough ? [k, enough] : [k, 50 - 4 * k, 50, enough]);
       c.contains(`Action chunks${enough} actions bridge 250 milliseconds at 50 commands a second`);
       c.contains('Gemini Robotics replies About 250 milliseconds per reply Each reply carries a chunk of actions.');
-      c.contains('Robot’s control clock Needs 50 commands each second.');
+      c.contains('Robot\'s control clock Needs 50 commands each second.');
       c.contains(`${enough} or more actions per reply cover the wait. Fewer leave the arm idle.`);
       c.contains('Illustrative chunk size');
       c.contains('This card feeder represents the action queue. The robot arm is not drawn: empty belt slots show moments when it waits.');
@@ -310,7 +310,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   },
   'interactive:RecedingHorizon': {
     basis: [{ id: 'assumption:RecedingHorizon:ten-hertz', kind: 'assumption', reference: 'The Diffusion Policy configuration is 16 predicted and 8 executed actions at 10 commands/second. For any authored horizon, duration is steps/10 and replans/second is 10/executed steps.' }], evidencePaths: ['lib/receding-horizon.ts'],
-    check(c) { const tp = c.input(/^Steps planned,/), ta = c.input(/^Steps acted on,/), rate = Number((10 / ta).toFixed(2)); c.readoutNumbers(0, [tp]); c.readoutNumbers(1, [ta]); c.readoutNumbers(2, [tp / 10, ta / 10, rate]); c.readoutNumbers(3, [ta / 10]); c.readoutNumbers(4, [rate]); c.contains(`Receding horizon${tp>ta?`Plan ${(tp/10).toFixed(1)} seconds ahead; act on ${(ta/10).toFixed(1)} seconds, then rethink`:`Follow all ${(tp/10).toFixed(1)} seconds without replanning`}`); c.contains(tp>ta?`The robot plans ${(tp/10).toFixed(1)} seconds ahead, acts on ${(ta/10).toFixed(1)} seconds, then replans and replaces the unused moves.`:`The robot acts on all ${(tp/10).toFixed(1)} seconds of this plan without replanning.`); },
+    check(c) { const tp = c.input(/^Steps planned,/), ta = c.input(/^Steps acted on,/), rate = Number((10 / ta).toFixed(2)); c.readoutNumbers(0, [tp]); c.readoutNumbers(1, [ta]); c.readoutNumbers(2, [tp / 10, ta / 10, rate]); c.readoutNumbers(3, [ta / 10]); c.readoutNumbers(4, [rate]); c.contains(`Receding horizon${tp>ta?`Plan ${(tp/10).toFixed(1)} seconds ahead; act on ${(ta/10).toFixed(1)} seconds, then rethink`:`Follow all ${(tp/10).toFixed(1)} seconds without replanning`}`); c.contains(tp>ta?`Acting on only the first ${(ta/10).toFixed(1)} seconds of each plan lets the robot correct course often while its motion stays smooth.`:`Without replanning, the robot follows all ${(tp/10).toFixed(1)} seconds of each plan blind and cannot react to surprises.`); },
   },
   'interactive:MotInsulation': {
     basis: [{ id: 'knowledge-insulation-paper-2025', kind: 'citation', reference: 'The source reports 7.5 times fewer training steps for the stated table-bussing comparison.' }, { id: 'assumption:MotInsulation:eight-trays', kind: 'assumption', reference: 'Eight trays are an authored abstraction of layers; the language score declines linearly from 92 to 34 only when an uninsulated backward pass crosses them.' }], evidencePaths: ['lib/knowledge-insulation.ts'],
@@ -426,7 +426,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
   'interactive:SceneSplit': {
     basis: [{ id: 'assumption:SceneSplit:twenty-episodes', kind: 'assumption', reference: 'Four scenes with five episodes each. The authored seed-7 random draw has five test cards in three scenes, each also represented in training; holding out scene four leaves one test scene with no training overlap.' }],
     evidencePaths: ['components/iso/figures/split-card-rack.ts'],
-    check(c) { c.readoutText(0, c.selected(/^Hold out scene 4$/) ? 'Scene 4 held out · test cards from 1 scene · none of it in training' : 'Random episodes · test cards from 3 scenes · all 3 also in training'); },
+    check(c) { c.readoutText(0, c.selected(/^Hold out scene 4$/) ? 'Scene 4 held out · test cards from 1 scene · none in training' : 'Random episodes · test cards from 3 scenes · all 3 also in training'); },
   },
   'interactive:BearCaseLock': {
     basis: [{ id: 'assumption:BearCaseLock:four-premises', kind: 'assumption', reference: 'The four article watchlist premises are an AND condition; two start partial and none met. Reader toggles are suppositions, not new research results.' }],
@@ -521,7 +521,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       [0, 4, 8, 12].forEach((mark, index) => c.readoutNumbers(index + 1, [mark]));
       const push = rate * Math.max(0, target);
       c.readoutText(5, `${name} · ${targetText} · ${target <= 0 ? 'no push' : `push ${Number.isInteger(push) ? push : push.toFixed(1)} dial marks`}`);
-      c.contains(`Impedance action${target > 0 ? 'This action sends target and stiffness for contact' : target < 0 ? 'This action sends target and stiffness before contact' : 'This action sends target and stiffness at the surface'}`);
+      c.contains(`Impedance action${target > 0 ? 'Stiffness sets how hard the tool pushes on contact' : target < 0 ? 'Before contact, stiffness has nothing to push against' : 'At the surface, the tool touches without pushing'}`);
       c.contains(target > 0 ? `The surface stops the tool. Stiffness ${rate} times a target gap of ${target} ruler marks gives ${Number.isInteger(push) ? push : push.toFixed(1)} dial marks of push.` : target < 0 ? 'Before contact, the tool follows the target and pushes on nothing.' : 'Target and tool meet the surface with no gap, so there is no push.');
       c.contains('Action stiffness');
       c.contains('An action sends target and stiffness; once the surface stops the tool, push equals stiffness times target gap.');
@@ -588,7 +588,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     nonQuantitative: 'The fence is a qualitative least-change-rule schematic, with no metric safety margin. Only its authored progress percentage is numerical.',
     check(c) {
       const percent = c.input(/^Along the stroke$/); c.readoutNumbers(0, [percent]); c.readoutNumbers(1, percent >= 100 ? [100] : []); c.contains('no number is claimed');
-      c.contains('Safety filterThe simple filter gets checked; it guards each proposed move');
+      c.contains('Safety filterA checked safety filter guards each move the controller proposes');
       c.contains('The simple safety filter is what engineers check.');
       c.contains('Learned controller proposes (trained from data) → Robot executes');
       c.contains('Safe move=The same move, unchanged');
@@ -624,7 +624,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     citationText: { 'vla-perf-2026': 'VLA-Perf', 'pi06-model-card-2025': 'π0.6 model card', 'real-time-chunking-2025': 'real-time chunking paper', 'pi07-2026': 'π0.7 paper' },
     evidencePaths: ['lib/control-loop.ts'],
     check(c) {
-      const params = c.input(/^Model size on/), server = c.selected(/^Data-centre computer$/);
+      const params = c.input(/^Model size on/), server = c.selected(/^Data-center computer$/);
       const curve = (size: number) => size <= 3 ? 52.57 * size / 3 : 52.57 * Math.exp(Math.log(size / 3) * Math.log((1000 / 3.9) / 52.57) / Math.log(9.1 / 3));
       const toy = curve(params), milliseconds = server ? 1000 / 162.5 : toy, hz = Math.round(1000 / milliseconds), missed = Math.max(0, Math.ceil(milliseconds / 20) - 1);
       c.contains(`Control-loop budgetChoosing a move takes ${(milliseconds/20).toFixed(1)} times the available time`);
@@ -745,7 +745,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       c.rectCount('drone-camera', 1); c.rect('drone-camera', x(0.017), 30, x(0.070) - x(0.017), 8);
       c.rectCount('mars-round-trip', 1); c.rect('mars-round-trip', x(480), 110, x(2400) - x(480), 8);
       c.svgText(null, 'Delay; each tick is 60 times longer', 330, 190);
-      c.contains('Delays a robot works withinCamera: hundredths of seconds; Mars replies: 8 to 40 minutes');
+      c.contains('Delays a robot works withinSignals to Mars and back take 8 to 40 minutes');
     },
   },
   'interactive:UmiCollectionRates': {
@@ -769,7 +769,7 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     },
   },
   'interactive:DroneDeliveryCounts': {
-    basis: [{ id: 'zipline-safety-facts', kind: 'citation', reference: 'Safety fact sheet read October 2026: more than 3 million cumulative deliveries.' }, { id: 'wing-walmart-2026', kind: 'citation', reference: '8 June 2026: well over 1 million commercial deliveries.' }, { id: 'walmart-drone-1m-2026', kind: 'citation', reference: 'Walmart total overlaps providers; it is not a third additive operator bar.' }],
+    basis: [{ id: 'zipline-safety-facts', kind: 'citation', reference: 'Safety fact sheet read October 2026: more than 3 million cumulative deliveries.' }, { id: 'wing-walmart-2026', kind: 'citation', reference: '8 June 2026: well over 1 million commercial deliveries.' }, { id: 'walmart-zipline-300-2026', kind: 'citation', reference: '5 November 2026: more than 2 million Walmart drone deliveries; the total overlaps its providers, so it is not a third additive operator bar.' }],
     evidencePaths: ['lib/drone-deliveries.ts'], seriesIds: ['zipline', 'wing'],
     check(c) {
       c.row('Zipline', { 'deliveries, as reported': 'more than 3 million', 'as of': 'fact sheet read October 2026' });
@@ -816,11 +816,11 @@ const MODEL_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       }
       c.contains('12.5 years');
       c.svgText(null, 'Required miles; each tick is ten times farther', 330, 182);
-      c.contains('Miles needed to prove safetyFleet: 275 million miles without deaths, at 95% confidence');
+      c.contains('Miles needed to prove safetyMatching human drivers takes 275 million miles without a death');
       c.contains('Required fleet run at 95% confidence275 million miles 0 deaths');
-      c.contains('Calculated upper bound for this hypothetical runAbout 1.09 deaths per 100 million milesNo higher than the study’s US human-driver benchmarkThe true fatality rate remains unknown. In the long run, at least 95 out of 100 upper bounds from studies of the same design would reach or exceed it.');
-      c.contains('This is a hypothetical test with a fixed distance and zero deaths. The model assumes independent miles with the same failure probability on every mile. The study’s 2013 US benchmark includes all motor vehicles.');
-      c.contains('Under the study’s per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.');
+      c.contains("Calculated upper bound for this hypothetical runAbout 1.09 deaths per 100 million milesNo higher than the study's US human-driver benchmarkThe true fatality rate remains unknown. In the long run, at least 95 out of 100 upper bounds from studies of the same design would reach or exceed it.");
+      c.contains("This is a hypothetical test with a fixed distance and zero deaths. The model assumes independent miles with the same failure probability on every mile. The study's 2013 US benchmark includes all motor vehicles.");
+      c.contains("Under the study's per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.");
     },
   },
   'interactive:DatasetRunsHours': {

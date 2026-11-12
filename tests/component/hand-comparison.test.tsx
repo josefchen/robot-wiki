@@ -34,7 +34,7 @@ describe('HandComparison', () => {
       expect(within(sort).getByRole('button', { name: label })).toBeInTheDocument();
     }
     expect(screen.getByTestId('hand-gap-note')).toHaveTextContent(
-      'Grey means the maker hasn’t published it. No hand shows both.',
+      "Gray means the maker hasn't published it. No hand shows both.",
     );
   });
 

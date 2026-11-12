@@ -38,7 +38,7 @@ describe('collectStructuredDocuments', () => {
     expect(docs.filter((doc) => doc.type === 'method')).toHaveLength(
       METHODS.length,
     );
-    expect(docs.filter((doc) => doc.type === 'company')).toHaveLength(111);
+    expect(docs.filter((doc) => doc.type === 'company')).toHaveLength(COMPANIES.length);
     expect(docs.filter((doc) => doc.type === 'dataset')).toHaveLength(
       DATASETS.length,
     );

@@ -191,7 +191,7 @@ test.describe('classical state-estimation module', () => {
     await expect(scene.getByTestId('motion-scrubber')).toHaveCount(0);
     await expect(scene.locator('[data-motion-stage] svg').first()).toBeVisible();
     // The poster caption is the recap beat's caption.
-    await expect(scene.getByTestId('motion-caption')).toHaveText(/Mixing the robot’s guess with the sensor reading narrows the possible position/);
+    await expect(scene.getByTestId('motion-caption')).toHaveText(/Mixing the robot's guess with the sensor reading narrows where the robot might be/);
   });
 
   test('activation steps the five guess, measure, blend, symbols and recap beats with honest numbers (VAL-CLASS-025)', async ({
@@ -242,7 +242,7 @@ test.describe('classical state-estimation module', () => {
       [2, /Measure: a sensor/, 'Reading 0.82 · jaws 1.00 either side'],
       [3, /Blend: the robot mixes/, 'Blend 0.52 · jaws 0.79 either side, closer than both'],
       [4, /in numbers, then in symbols/, '0.03 plus 62% of the way to 0.82 is 0.52'],
-      [5, /Mixing the robot’s guess with the sensor reading narrows the possible position/, 'Jaws either side: guess 1.27 · reading 1.00 · blend 0.79'],
+      [5, /Mixing the robot's guess with the sensor reading narrows where the robot might be/, 'Jaws either side: guess 1.27 · reading 1.00 · blend 0.79'],
     ] as const) {
       await page.keyboard.press('ArrowRight');
       await expect(caption).toHaveText(pattern);
@@ -277,7 +277,7 @@ test.describe('classical state-estimation module', () => {
     await scene
       .getByRole('button', { name: /reset the scene to its poster still/i })
       .click();
-    await expect(caption).toHaveText(/Mixing the robot’s guess with the sensor reading narrows the possible position/);
+    await expect(caption).toHaveText(/Mixing the robot's guess with the sensor reading narrows where the robot might be/);
   });
 
   test('runs are reproducible: reload lands on the identical poster still (VAL-CLASS-032)', async ({
@@ -318,7 +318,7 @@ test.describe('classical state-estimation module', () => {
     await expect(
       scene.getByRole('button', { name: /play the scene/i }),
     ).toBeVisible();
-    await expect(caption).toHaveText(/Mixing the robot’s guess with the sensor reading narrows the possible position/);
+    await expect(caption).toHaveText(/Mixing the robot's guess with the sensor reading narrows where the robot might be/);
     // Stepping jumps between beat end-states with no tweening.
     await openAdjustMore(scene);
     await scene

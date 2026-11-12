@@ -27,7 +27,7 @@ describe('CrossEmbodimentStrategies', () => {
   it('leads with the takeaway and a grid where only the hand-motion way fills the person row', () => {
     const { container } = render(<CrossEmbodimentStrategies />);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Describe hand motion, not joints, and human videos become usable',
+      'Describing hand motion, not joints, lets robots learn from video',
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Cross-embodiment');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
@@ -97,9 +97,9 @@ describe('CrossEmbodimentStrategies', () => {
     render(<CrossEmbodimentStrategies />);
     fireEvent.click(strategyButton("Fill unused joint slots with zeros"));
     const hand = screen.getByTestId('row-human-hand');
-    expect(hand).toHaveTextContent(/no adapter modelled/i);
+    expect(hand).toHaveTextContent(/no adapter modeled/i);
     expect(screen.getByTestId('human-video-readout')).toHaveTextContent(
-      /no adapter modelled in this toy/i,
+      /no adapter modeled in this toy/i,
     );
   });
 

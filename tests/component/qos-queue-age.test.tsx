@@ -28,9 +28,9 @@ describe('QosQueueAge', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Quality of Service');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Ten queued pictures make the robot’s view ⅓ second old');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Ten queued pictures make the robot's view ⅓ second old");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "At 30 pictures per second, a queue of ten makes the robot’s decision program act on a view one-third of a second old.",
+      "At 30 pictures a second, a queue of ten leaves the policy acting on a view a third of a second old.",
     );
   });
 

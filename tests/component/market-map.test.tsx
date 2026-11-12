@@ -4,13 +4,25 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { COMPANIES } from '@/data/companies';
 import {
   DEFAULT_MARKET_MAP_FILTERS,
+  absentFigure,
+  bubblePoints,
+  companyStatusLabel,
   filterCompanies,
   formatShortDate,
+  formatUsd,
   roundSource,
 } from '@/lib/market-map';
 import type { Company } from '@/data/schemas/company';
 import { CompanyDetail } from '@/components/market-map/company-card';
 import { MarketMap } from '@/components/market-map/market-map';
+
+const COMPANY_COUNT = COMPANIES.length;
+const countWhere = (keep: (company: Company) => boolean) => COMPANIES.filter(keep).length;
+const HUMANOIDS = countWhere((c) => c.segment === 'humanoids');
+const US_HUMANOIDS = countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US');
+const US_HUMANOIDS_HIGH = countWhere((c) => c.segment === 'humanoids' && c.hq.country === 'US' && c.confidence === 'high');
+const of = (shown: number) => `${shown} of ${COMPANY_COUNT} companies`;
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 afterEach(() => {
   window.history.replaceState(null, '', '/');
@@ -109,24 +121,25 @@ async function openMoreFilters(user: ReturnType<typeof userEvent.setup>) {
   if (toggle.getAttribute('aria-expanded') !== 'true') await user.click(toggle);
 }
 
-// MarketMap renders 111 company tiles. Under full-suite jsdom load a render
-// can exceed the 5 s default timeout, so every test here gets 15 s.
+// MarketMap renders one tile per company. Under full-suite jsdom load a render
+// can exceed the 5 s default timeout, so every test here gets 30 s.
 const TIMEOUT = 30_000;
 
 describe('MarketMap', () => {
-  it('maps all 111 companies in the six segments (VAL-MKT-001, VAL-MKT-002)', () => {
+  it('maps every company in the six segments (VAL-MKT-001, VAL-MKT-002)', () => {
     render(<MarketMap companies={COMPANIES} />);
-    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
-    expect(tiles()).toHaveLength(111);
-    const segments: Array<[RegExp, string]> = [
-      [/Foundation models/, '12'],
-      [/^Humanoids/, '34'],
-      [/Industrial \/ logistics/, '15'],
-      [/Vertical applications/, '32'],
-      [/Simulation \/ tooling/, '10'],
-      [/^Components/, '8'],
+    expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
+    expect(tiles()).toHaveLength(COMPANY_COUNT);
+    const segments: Array<[RegExp, Company['segment']]> = [
+      [/Foundation models/, 'foundation-models'],
+      [/^Humanoids/, 'humanoids'],
+      [/Industrial \/ logistics/, 'industrial-logistics'],
+      [/Vertical applications/, 'vertical-applications'],
+      [/Simulation \/ tooling/, 'simulation-tooling'],
+      [/^Components/, 'components-hardware'],
     ];
-    for (const [name, count] of segments) {
+    for (const [name, segment] of segments) {
+      const count = String(countWhere((c) => c.segment === segment));
       const heading = screen.getByRole('heading', { level: 2, name });
       expect(heading).toHaveTextContent(count);
       // The heading's own segment holds exactly that many tiles.
@@ -191,20 +204,18 @@ describe('MarketMap', () => {
     render(<MarketMap companies={COMPANIES} />);
     await user.click(segmentTab(/^Humanoids/));
     expect(segmentTab(/^Humanoids/)).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
-    expect(tiles()).toHaveLength(34);
+    expect(screen.getByText(of(HUMANOIDS))).toBeInTheDocument();
+    expect(tiles()).toHaveLength(HUMANOIDS);
     expect(window.location.search).toBe('?segment=humanoids');
     await openMoreFilters(user);
     await user.selectOptions(screen.getByLabelText('Country'), 'US');
-    // 6 -> 7 when the 2026-10-19 field audit moved 1X to Palo Alto, US.
-    expect(screen.getByText('7 of 111 companies')).toBeInTheDocument();
-    expect(tiles()).toHaveLength(7);
+    expect(screen.getByText(of(US_HUMANOIDS))).toBeInTheDocument();
+    expect(tiles()).toHaveLength(US_HUMANOIDS);
     await user.selectOptions(screen.getByLabelText('Confidence'), 'high');
-    // 4 -> 5 when the 2026-10-20 field audit raised Persona AI to high.
-    expect(screen.getByText('5 of 111 companies')).toBeInTheDocument();
-    // Segment counts follow the other filters: five US humanoids at high
+    expect(screen.getByText(of(US_HUMANOIDS_HIGH))).toBeInTheDocument();
+    // Segment counts follow the other filters: the US humanoids at high
     // confidence, and the tab says so before it is chosen.
-    expect(segmentTab(/^Humanoids/)).toHaveTextContent('5');
+    expect(segmentTab(/^Humanoids/)).toHaveTextContent(String(US_HUMANOIDS_HIGH));
     // Choosing the active segment again returns to all segments.
     await user.click(segmentTab(/^Humanoids/));
     expect(segmentTab(/^All/)).toHaveAttribute('aria-pressed', 'true');
@@ -215,7 +226,7 @@ describe('MarketMap', () => {
     render(<MarketMap companies={COMPANIES} />);
     const search = screen.getByRole('searchbox', { name: 'Search companies by name' });
     await user.type(search, 'dyn');
-    expect(screen.getByText('3 of 111 companies')).toBeInTheDocument();
+    expect(screen.getByText(of(3))).toBeInTheDocument();
     expect(tiles().map((el) => el.dataset.mapTile).sort()).toEqual([
       'boston-dynamics',
       'dyna-robotics',
@@ -223,7 +234,7 @@ describe('MarketMap', () => {
     ]);
     expect(window.location.search).toBe('?q=dyn');
     await user.clear(search);
-    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+    expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
     expect(window.location.search).toBe('');
   }, TIMEOUT);
 
@@ -252,28 +263,33 @@ describe('MarketMap', () => {
     expect(tile('physical-intelligence')).toHaveAttribute('aria-expanded', 'true');
     expect(tile('physical-intelligence')).toHaveAttribute('aria-controls', pi.id);
     expectSelectedTile('physical-intelligence');
-    expect(pi).toHaveTextContent(/vision-language-action/);
-    expect(pi).toHaveTextContent('flow matching action expert');
-    expect(pi.querySelector('[data-field="amount"]')).toHaveTextContent('$600M');
-    // "20 Nov 2025" until the 2026-10-19 field audit: The Robot Report says
-    // only that the round closed "last week", so the day is not disclosed.
-    expect(pi.querySelector('[data-field="date"]')).toHaveTextContent('not disclosed');
-    expect(pi.querySelector('[data-field="valuation"]')).toHaveTextContent('$5.6B');
-    expect(pi.querySelector('[data-field="status"]')).toHaveTextContent('Private');
-    expect(pi.querySelector('[data-field="confidence"]')).toHaveTextContent('high');
+    // Every field shows what the record holds, and an empty one says so.
+    const record = COMPANIES.find((company) => company.id === 'physical-intelligence')!;
+    const round = record.latestRound!;
+    const field = (name: string) => pi.querySelector(`[data-field="${name}"]`);
+    expect(pi).toHaveTextContent(record.description.split(/[.;]/)[0]!.trim());
+    expect(field('amount')).toHaveTextContent(
+      round.amountUsd === null ? absentFigure(record, 'round.amountUsd') : formatUsd(round.amountUsd),
+    );
+    expect(field('date')).toHaveTextContent(
+      round.date === null ? absentFigure(record, 'round.date') : formatShortDate(round.date),
+    );
+    expect(field('valuation')).toHaveTextContent(
+      round.valuationUsd === null ? absentFigure(record, 'round.valuationUsd') : formatUsd(round.valuationUsd),
+    );
+    expect(field('status')).toHaveTextContent(companyStatusLabel(record));
+    expect(field('confidence')).toHaveTextContent(record.confidence);
     // The sheet links each source once, in its Sources list.
-    expect(
-      within(pi).getByRole('link', {
-        name: /Physical Intelligence raises \$600M to advance robot foundation models/,
-      }),
-    ).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
-    // The 2026-10-19 field audit cut "Pi" (its sources use it only for the
-    // Pi0 model and the API) and named the open release as PI's own pages do.
-    expect(within(pi).getByText('π')).toBeInTheDocument();
-    expect(within(pi).getByText('San Francisco, US')).toBeInTheDocument();
-    // TRR (fetched 2026-08-18): CapitalG led the Series B with Lux Capital.
-    expect(within(pi).getByText('CapitalG, Lux Capital')).toBeInTheDocument();
-    expect(within(pi).getByText('π0 and π0-FAST (weights and code)')).toBeInTheDocument();
+    for (const source of record.sources) {
+      expect(within(pi).getAllByRole('link', { name: new RegExp(escapeRegExp(source.title)) }), source.url)
+        .toHaveLength(1);
+    }
+    for (const name of record.aka) expect(within(pi).getByText(name)).toBeInTheDocument();
+    expect(within(pi).getByText([record.hq.city, record.hq.country].filter(Boolean).join(', '))).toBeInTheDocument();
+    if (round.leadInvestors.length > 0) {
+      expect(within(pi).getByText(round.leadInvestors.join(', '))).toBeInTheDocument();
+    }
+    for (const release of record.openSource) expect(within(pi).getByText(release)).toBeInTheDocument();
     // The round's figures carry the date their source was read.
     expect(pi.querySelector('[data-round-source] [data-field="as-of"]')).toHaveTextContent(
       /\d{1,2} [A-Z][a-z]{2} 2026/,
@@ -312,7 +328,9 @@ describe('MarketMap', () => {
     expect(low?.previousElementSibling).toHaveTextContent(/^Confidence$/);
     expect(low).toHaveTextContent(/^low$/);
     await user.click(tile('physical-intelligence'));
-    expect(sheet('Physical Intelligence').querySelector('[data-field="confidence"]')).toHaveTextContent(/^high$/);
+    expect(sheet('Physical Intelligence').querySelector('[data-field="confidence"]')).toHaveTextContent(
+      new RegExp(`^${COMPANIES.find((x) => x.id === 'physical-intelligence')!.confidence}$`),
+    );
     await user.click(tile('1x-technologies'));
     expect(sheet('1X Technologies').querySelector('[data-field="confidence"]')).toHaveTextContent(
       new RegExp(`^${COMPANIES.find((x) => x.id === '1x-technologies')!.confidence}$`),
@@ -564,7 +582,7 @@ describe('MarketMap', () => {
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
     expect(window.location.search).toBe('?segment=humanoids');
     expect(window.location.hash).toBe('');
-    expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
+    expect(screen.getByText(of(HUMANOIDS))).toBeInTheDocument();
   }, TIMEOUT);
 
   it('closes on Escape and hands focus back to the tile, but not from the search field', async () => {
@@ -614,15 +632,12 @@ describe('MarketMap', () => {
     expect(screen.getByText('Founding year')).toBeInTheDocument();
     expect(screen.getByText('Latest valuation')).toBeInTheDocument();
     expect(screen.getByText('Total raised, where no valuation is disclosed')).toBeInTheDocument();
-    // 83 -> 84 with the 2026-10-19 field audit (27 plotted, see
-    // market-map-bubble-view.test.tsx for the members that moved).
-    // 84 -> 82 with the 2026-10-20 field audit (29 plotted).
-    // 82 -> 83 the same day: Standard Bots' founding year was cut (28 plotted).
-    // 83 -> 81 the same day: Lila Sciences and K-Scale Labs joined (30 plotted).
-    // 81 -> 80 the same day: Mytra joined by its total raised (31 plotted).
-    // 80 -> 81 the same day: PaXini's valuation was cut (30 plotted).
+    // Every company without a founding year or a positive figure is left
+    // off and counted, never drawn at zero.
+    const plotted = bubblePoints(COMPANIES).length;
+    expect(plotted).toBeGreaterThan(0);
     expect(document.querySelector('[data-bubble-excluded]')).toHaveTextContent(
-      /81 are left off, not drawn at zero/,
+      `${COMPANY_COUNT - plotted} are left off, not drawn at zero`,
     );
     expect(tiles()).toHaveLength(0);
     expect(window.location.search).toBe('?view=bubble');
@@ -644,7 +659,7 @@ describe('MarketMap', () => {
     expect(sheet('Unitree Robotics').querySelector('[data-field="status"]')).toHaveTextContent('IPO');
 
     await user.click(screen.getByRole('button', { name: 'Grid' }));
-    expect(tiles()).toHaveLength(111);
+    expect(tiles()).toHaveLength(COMPANY_COUNT);
     // The open company survives the view change.
     expect(tile('unitree-robotics')).toHaveAttribute('aria-expanded', 'true');
   }, TIMEOUT);
@@ -658,27 +673,27 @@ describe('MarketMap', () => {
     const empty = emptyState();
     expect(empty).toHaveTextContent('No companies match these filters.');
     expect(empty).toHaveTextContent('Nothing in Components matches every filter at once.');
-    expect(screen.getByText('0 of 111 companies')).toBeInTheDocument();
+    expect(screen.getByText(of(0))).toBeInTheDocument();
     await user.click(within(empty).getByRole('button', { name: 'Clear filters' }));
-    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
-    expect(tiles()).toHaveLength(111);
+    expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
+    expect(tiles()).toHaveLength(COMPANY_COUNT);
   }, TIMEOUT);
 
   it('names the search in the empty state', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.type(screen.getByRole('searchbox', { name: 'Search companies by name' }), 'zzz');
-    expect(emptyState()).toHaveTextContent('No company name starts with “zzz”.');
+    expect(emptyState()).toHaveTextContent('No company name starts with "zzz".');
   }, TIMEOUT);
 
   it('hands focus to the All tab when Clear filters removes itself (VAL-MKT-026)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(segmentTab(/^Humanoids/));
-    expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
+    expect(screen.getByText(of(HUMANOIDS))).toBeInTheDocument();
     screen.getByRole('button', { name: 'Clear filters' }).focus();
     await user.keyboard('{Enter}');
-    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+    expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
     // Nothing is filtered, so the button is gone; focus must not fall to the body.
     expect(screen.queryByRole('button', { name: 'Clear filters' })).not.toBeInTheDocument();
     expect(segmentTab(/^All/)).toHaveFocus();
@@ -691,7 +706,7 @@ describe('MarketMap', () => {
     await user.type(screen.getByRole('searchbox', { name: 'Search companies by name' }), 'zzz');
     within(emptyState()).getByRole('button', { name: 'Clear filters' }).focus();
     await user.keyboard('{Enter}');
-    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+    expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
     expect(document.querySelector('[data-market-map-empty]')).toBeNull();
     expect(screen.getByRole('searchbox', { name: 'Search companies by name' })).toHaveValue('');
     expect(segmentTab(/^All/)).toHaveFocus();
@@ -701,8 +716,7 @@ describe('MarketMap', () => {
     window.history.replaceState(null, '', '/market-map/?segment=humanoids&country=US');
     const { unmount } = render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      // 6 -> 7 when the 2026-10-19 field audit moved 1X to Palo Alto, US.
-      expect(screen.getByText('7 of 111 companies')).toBeInTheDocument();
+        expect(screen.getByText(of(US_HUMANOIDS))).toBeInTheDocument();
     });
     // A folded filter set from the URL opens the fold, so the reader can
     // see what narrowed the map.
@@ -713,7 +727,7 @@ describe('MarketMap', () => {
     window.history.replaceState(null, '', '/market-map/?segment=bogus&confidence=999');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
     });
   }, TIMEOUT);
 
@@ -732,7 +746,7 @@ describe('MarketMap', () => {
     // The valid sibling filter still narrows the map: the bogus values
     // must not silently empty it.
     expect(tiles().length).toBeGreaterThan(0);
-    expect(tiles().length).toBeLessThan(111);
+    expect(tiles().length).toBeLessThan(COMPANY_COUNT);
   }, TIMEOUT);
 
   it('relaxes filters that exclude the company named in the hash', async () => {
@@ -746,7 +760,7 @@ describe('MarketMap', () => {
     // passes), the country filter is dropped (it fails), and the named
     // company's tile is marked and its details are open.
     await waitFor(() => {
-      expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText(of(HUMANOIDS))).toBeInTheDocument();
     });
     expectSelectedTile('figure-ai');
     expect(tile('figure-ai')).toHaveAttribute('aria-expanded', 'true');
@@ -761,7 +775,7 @@ describe('MarketMap', () => {
     window.history.replaceState(null, '', '/market-map/?country=CN&status=ipo#company-figure-ai');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
     });
     expectSelectedTile('figure-ai');
     expect(tile('figure-ai')).toHaveAttribute('aria-expanded', 'true');
@@ -778,16 +792,14 @@ describe('MarketMap', () => {
     window.history.replaceState(null, '', '/market-map/#company-figure-ai');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
     });
     // The user explicitly re-excludes the hashed company; the arrival
     // relax must not fight that choice.
     await openMoreFilters(user);
     await user.selectOptions(screen.getByLabelText('Country'), 'CN');
-    // 21 -> 22 on 2026-10-20: the field audit moved Astribot from Munich to
-    // Shenzhen, where its own site and Pandaily place it.
     await waitFor(() => {
-      expect(screen.getByText('22 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText(of(countWhere((c) => c.hq.country === 'CN')))).toBeInTheDocument();
     });
     expect(document.querySelector('button[data-map-tile="figure-ai"]')).toBeNull();
     // The details stay open: the selection is explicit.
@@ -799,7 +811,7 @@ describe('MarketMap', () => {
     window.history.replaceState(null, '', '/market-map/?country=CN#company-ghost');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('22 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText(of(countWhere((c) => c.hq.country === 'CN')))).toBeInTheDocument();
     });
     expect(document.getElementById('company-ghost')).toBeNull();
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
@@ -807,10 +819,10 @@ describe('MarketMap', () => {
 
   it('announces the result count in an aria-live region (VAL-MKT-026)', () => {
     render(<MarketMap companies={COMPANIES} />);
-    const count = screen.getByText('111 of 111 companies');
+    const count = screen.getByText(of(COMPANY_COUNT));
     expect(count).toHaveAttribute('aria-live', 'polite');
     // The registered live-region pattern (the search page's): a polite
-    // status, which is atomic, so the whole "N of 111 companies" is read
+    // status, which is atomic, so the whole "N of M companies" is read
     // rather than only the number that changed.
     expect(count).toHaveAttribute('role', 'status');
   }, TIMEOUT);

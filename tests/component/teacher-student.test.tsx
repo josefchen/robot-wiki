@@ -86,7 +86,7 @@ describe('TeacherStudent', () => {
     expect(screen.getByTestId('robot-dog')).toBeInTheDocument();
     const note = container.querySelectorAll('[data-figure-annotation]');
     expect(note).toHaveLength(1);
-    expect(note[0]).toHaveTextContent(/No ground view: its leg readings.*nearly reveal the ground’s shape/);
+    expect(note[0]).toHaveTextContent(/No ground view: its leg readings.*nearly reveal the ground's shape/);
     // The slider and Reset sit in Adjust more; the readouts in How this was made.
     expect(container.querySelector('details[data-figure-fold="adjust"]')).toContainElement(slider());
     expect(container.querySelector('details[data-figure-fold="method"]')).toContainElement(
@@ -109,7 +109,7 @@ describe('TeacherStudent', () => {
     expect(Math.max(...cells.map(shade))).toBe(shade(highest));
     await user.click(screen.getByRole('button', { name: 'Clean' }));
     expect(num('mae-readout')).toBe(0);
-    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/No ground view: clean leg readings.*match the ground’s shape/);
+    expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/No ground view: clean leg readings.*match the ground's shape/);
     await user.click(screen.getByRole('button', { name: 'Very noisy' }));
     expect(slider()).toHaveValue('60');
     expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/No ground view: noisy leg readings.*give a poorer ground-shape guess/);

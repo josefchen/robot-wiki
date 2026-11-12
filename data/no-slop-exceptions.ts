@@ -246,4 +246,44 @@ export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
       'Fetched arxiv.org/abs/2610.17746 on 2026-10-21 (HTTP 200): its citation_title meta reads "The Human--VLA Communication Gap: ...", the LaTeX en dash that this entry stores as U+2013.',
     verifiedOn: '2026-10-21',
   },
+  /* ------------------------------------------------------------------ *
+   * Verbatim source titles added with the November editorial review
+   * (2026-11-12).
+   * ------------------------------------------------------------------ */
+  {
+    id: 'ucsd-humanoid-surgery-2026',
+    quote: 'Surgeons Use Teleoperated Humanoid Robots to Perform Live Surgery – a World First',
+    reason:
+      "Headline of UC San Diego's news release, rendered verbatim in the surgical module's References entry. The en dash is the university's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'Fetched today.ucsd.edu/story/surgeons-use-teleoperated-humanoid-robots-to-perform-live-surgery-a-world-first on 2026-11-12 (HTTP 200): its <title> carries U+2013 where the registry entry has it.',
+    verifiedOn: '2026-11-12',
+  },
+  {
+    id: 'dlr-idefix-2026',
+    quote: 'MMX mission successfully launched – Idefix® rover on its way to Martian moon Phobos',
+    reason:
+      "Headline of DLR's news item, rendered verbatim in the space module's References entry. The en dash is DLR's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'Fetched the DLR news page on 2026-11-12 (HTTP 200): the headline prints U+2013 between "launched" and "Idefix".',
+    verifiedOn: '2026-11-12',
+  },
+  {
+    id: 'iso-13482-revision-2026',
+    quote: 'ISO 13482, Robotics — Safety requirements for service robots',
+    reason:
+      "The second edition's title as ISO's public catalogue prints it, rendered verbatim in the safety module's References entry. The em dash is ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'iso.org bot-walls curl (HTTP 403); the catalogue page iso.org/standard/83498.html, read through a rendering browser service on 2026-11-12, gives "ISO 13482" and "Robotics — Safety requirements for service robots" with U+2014.',
+    verifiedOn: '2026-11-12',
+  },
+  {
+    id: 'iso-13482-2014',
+    quote: 'ISO 13482:2014, Robots and robotic devices — Safety requirements for personal care robots',
+    reason:
+      "The 2014 edition's title as ISO's public catalogue prints it, rendered verbatim in the safety module's References entry. The em dash is ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'iso.org bot-walls curl (HTTP 403); the catalogue page iso.org/standard/53820.html, read through a rendering browser service on 2026-11-12, gives "ISO 13482:2014" and "Robots and robotic devices — Safety requirements for personal care robots" with U+2014.',
+    verifiedOn: '2026-11-12',
+  },
 ];

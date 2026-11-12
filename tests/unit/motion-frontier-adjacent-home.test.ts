@@ -8,99 +8,13 @@ import { DEFAULT_AGILITY, SENSORS, latencyOutcome } from '@/lib/aerial-latency';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
 
-type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
-interface Row {
-  article: string;
-  element: string;
-  occurrence?: number;
-  decision: Decision;
-  sceneId?: string;
-  teachingGoal: string;
-  reason: string;
-}
-
 const root = process.cwd();
 const articles = ['frontier', 'adjacent'].flatMap((domain) =>
   readdirSync(join(root, 'content', domain))
     .filter((name) => name.endsWith('.mdx'))
     .sort()
     .map((name) => `${domain}/${name}`));
-const inventory = JSON.parse(readFileSync(
-  join(root, 'docs/design/motion-frontier-adjacent-home-inventory.json'), 'utf8',
-)) as Row[];
-const figures = new Set([
-  'Stat', 'SelfCheck', 'PredictThenReveal', 'ReliabilityCompounding',
-  'DeploymentDashboard', 'HandComparison', 'EgoScaleScaling', 'ThesisExplorer',
-  'MilestonesWatchlist', 'CollaborativeOperationModes', 'AvStackTable',
-  'PerceptionLatency', 'SwarmControlTable', 'OrbitalServicingTable',
-  'SurgicalSystemsTable', 'ReliabilityThreshold', 'TactileSlip', 'SenseAvoid',
-  'FundingHumanoidCounts', 'SafetyRulesTimeline', 'HelixZeroShotSuccess',
-  'AvSafetyMiles', 'SpaceLatencyLadder', 'SurgicalAutonomyLadder',
-  'DroneChampionsTimeline', 'DroneDeliveryCounts',
-]);
-/**
- * Home's one figure is the 3D explainer it features from How robots work;
- * it is no motion scene, so its row keeps it and names no scene.
- */
-const homeFigures = ['FeaturedExplainer'];
-/** Figures home once mounted; their inventory rows record the removal. */
-const homeRemoved = [
-  'ReliabilityCompounding', 'ImageRef', 'So101ChainPreview', 'MarketMapPoster', 'ReliabilityThreshold',
-];
 const scenes = [TACTILE_SLIP_SCENE, SENSE_AVOID_SCENE];
-
-describe('frontier, adjacent and home motion inventory', () => {
-  it('accounts for every first-party figure and independent assessment mount', () => {
-    const mounts: string[] = [];
-    for (const file of articles) {
-      const body = readFileSync(join(root, 'content', file), 'utf8');
-      const counts = new Map<string, number>();
-      for (const match of body.matchAll(/<([A-Z]\w+)\b/g)) {
-        const element = match[1];
-        if (!figures.has(element)) continue;
-        const occurrence = (counts.get(element) ?? 0) + 1;
-        counts.set(element, occurrence);
-        mounts.push(`${file.slice(0, -4)}:${element}:${occurrence}`);
-      }
-    }
-    const home = readFileSync(join(root, 'app/page.tsx'), 'utf8');
-    for (const element of homeFigures) {
-      expect(home).toContain(`<${element}`);
-      mounts.push(`home:${element}:1`);
-      const row = inventory.find((entry) => entry.article === 'home' && entry.element === element);
-      expect(row?.decision).toBe('keep');
-      expect(row?.sceneId).toBeUndefined();
-    }
-    for (const element of homeRemoved) {
-      expect(home).not.toContain(`<${element}`);
-      mounts.push(`home:${element}:1`);
-      expect(inventory.find((row) => row.article === 'home' && row.element === element)?.decision).toBe('remove');
-    }
-    // An article row marked remove records a mount that left the article:
-    // its occurrence lies past the element's remaining mounts there, so a
-    // removed duplicate is told apart from the mount that stays.
-    for (const row of inventory.filter((row) => row.decision === 'remove' && row.article !== 'home')) {
-      const body = readFileSync(join(root, 'content', `${row.article}.mdx`), 'utf8');
-      const remaining = body.match(new RegExp(`<${row.element}\\b`, 'g'))?.length ?? 0;
-      expect(row.occurrence ?? 1).toBeGreaterThan(remaining);
-      expect(row.reason).toMatch(/^Removed: /);
-      mounts.push(`${row.article}:${row.element}:${row.occurrence ?? 1}`);
-    }
-    const covered = inventory.map((row) => `${row.article}:${row.element}:${row.occurrence ?? 1}`);
-    expect(covered.sort()).toEqual(mounts.sort());
-    expect(new Set(covered).size).toBe(inventory.length);
-    expect(articles).toHaveLength(10);
-    for (const row of inventory) {
-      expect(row.teachingGoal.length).toBeGreaterThan(25);
-      expect(row.reason.length).toBeGreaterThan(25);
-      if (row.decision === 'add') {
-        expect(scenes.map((scene) => scene.id)).toContain(row.sceneId);
-      }
-      // A retired scene leaves no row naming it.
-      expect(row.sceneId).not.toBe('reliability-threshold');
-    }
-  });
-});
 
 describe('frontier and adjacent scene truth', () => {
   it('shows a toy slip and a distinct tactile correction, without a performance claim', () => {

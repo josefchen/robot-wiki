@@ -28,13 +28,13 @@ describe('PiGenerationTimeline', () => {
 
   it('marks the pinned catalogue boundary', () => {
     render(<PiGenerationTimeline />);
-    expect(screen.getByText(/pinned catalogue ends at π0\.5/i)).toBeInTheDocument();
+    expect(screen.getByText(/pinned catalog ends at π0\.5/i)).toBeInTheDocument();
   });
 
   it('reports non-listing without inferring closed licensing', () => {
     render(<PiGenerationTimeline />);
     expect(
-      screen.getByText(/4 model entries not in the pinned catalogue/i),
+      screen.getByText(/4 model entries not in the pinned catalog/i),
     ).toBeInTheDocument();
   });
 
@@ -52,15 +52,15 @@ describe('PiGenerationTimeline', () => {
     const { container } = render(<PiGenerationTimeline />);
     expect(
       container.querySelector('[data-figure-title]'),
-    ).toHaveTextContent('New model every few months; downloads confirmed for first three');
+    ).toHaveTextContent('A new model every few months; three can be downloaded');
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent(
       "Physical Intelligence's models",
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'only the first three are confirmed downloadable',
+      'only the first three are listed for download',
     );
     const summary = screen.getByTestId('generation-download-summary');
-    expect(summary).toHaveTextContent("Physical Intelligence's releases A new model every few months Confirmed downloads Only the first three models Later models' availability is unverified.");
+    expect(summary).toHaveTextContent("Physical Intelligence's releases A new model every few months Confirmed downloads Only the first three models No later model is listed for download; the newest are offered through a hosted API.");
     expect(summary.closest('details')).toBeNull();
     expect(summary.tagName).toBe('DL');
     expect(within(summary).getAllByRole('term')).toHaveLength(2);
@@ -124,15 +124,16 @@ describe('PiGenerationTimeline', () => {
     );
   });
 
-  it('keeps undated MEM selectable without placing it on the time axis', async () => {
+  it('keeps the MEM add-on selectable beside the time axis without plotting it', async () => {
     const user = userEvent.setup();
-    render(<PiGenerationTimeline />);
+    const { container } = render(<PiGenerationTimeline />);
     expect(screen.getByRole('img').querySelector('text')?.parentElement?.textContent)
       .not.toContain('π0.6-MEM');
+    expect(container.querySelector('[data-generation-dot="2026-03"]')).toBeNull();
+    expect(screen.getByText('Add-on to π0.6, Mar 2026:')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'π0.6-MEM' }));
-    expect(screen.getByTestId('generation-detail')).toHaveTextContent('Date unverified');
-    expect(screen.getByRole('img')).toHaveAccessibleDescription(/MEM has no established month and is not plotted/);
-    expect(screen.queryByText('Mar 2026')).not.toBeInTheDocument();
+    expect(screen.getByTestId('generation-detail')).toHaveTextContent('Mar 2026');
+    expect(screen.getByRole('img')).toHaveAccessibleDescription(/π0\.6-MEM, a Mar 2026 add-on to π0\.6, is listed beside the timeline, not plotted/);
   });
 
   it('arrow keys move the selection between generations', async () => {

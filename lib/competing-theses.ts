@@ -28,13 +28,17 @@ const ROWS: Thesis[] = [
       'More data and bigger models produce generalist robot intelligence, the way scaling produced generalist language models.',
     proponents: [
       'Physical Intelligence (π0 to π0.7)',
-      'NVIDIA EgoScale team',
+      'NVIDIA (EgoScale, GR00T 2)',
       'Bessemer Venture Partners',
     ],
     evidenceFor: [
       {
         text: 'EgoScale fit a log-linear scaling law (R² = 0.9983) between human-video pretraining hours and validation loss, which it reports correlates strongly with downstream robot performance; its full recipe lifts average success by 54% on a 22-DoF hand.',
         citationIds: ['egoscale-2026'],
+      },
+      {
+        text: 'With robot data held fixed, NVIDIA\'s GR00T 2 (November 2026) raised real-robot success from 18% to 41% by adding its full human-video set, with no leveling off at the largest scale tested.',
+        citationIds: ['gr00t-2-2026'],
       },
       {
         text: 'π0.7 shows compositional generalization and cross-embodiment transfer emerging from a deliberately diverse data mixture rather than new architecture.',
@@ -75,7 +79,7 @@ const ROWS: Thesis[] = [
     proponents: [
       'Google DeepMind (Gemini Robotics ER 2)',
       'Figure (Helix 02 S2/S1/S0)',
-      'NVIDIA (GR00T dual-system)',
+      'Apptronik (Gemini Robotics 2.5 pilot)',
     ],
     evidenceFor: [
       {
@@ -85,6 +89,10 @@ const ROWS: Thesis[] = [
       {
         text: 'Figure reports a continuous four-minute Helix 02 dishwasher unloading-and-reloading task without resets or human intervention, with 61 loco-manipulation actions described as ordered correctly with implicit error recovery.',
         citationIds: ['helix-02-2026'],
+      },
+      {
+        text: 'In a November 2026 Mercedes-Benz pilot, DeepMind\'s reasoning model tracked the workflow while Gemini Robotics 2.5 controlled an Apptronik humanoid kitting parts at 96% success.',
+        citationIds: ['gemini-robotics-2-5-2026'],
       },
       {
         text: 'π0.7 absorbs new tasks through its hierarchy: language coaching fine-tunes the high-level policy, which then runs the task autonomously.',
@@ -110,11 +118,15 @@ const ROWS: Thesis[] = [
     name: 'World-model-based training',
     claim:
       'Learn a model that predicts how the world evolves, then plan in it or train the policy inside it, instead of scaling real-robot data.',
-    proponents: ['NVIDIA (Cosmos 3)', 'Meta (V-JEPA 2)'],
+    proponents: ['NVIDIA (Cosmos 3, GR00T 2)', 'Meta (V-JEPA 2)'],
     evidenceFor: [
       {
         text: 'V-JEPA 2 plans zero-shot reaching, grasping, and pick-and-place on Franka arms in unseen labs after action-conditioned post-training on less than 62 hours of unlabeled robot video.',
         citationIds: ['vjepa2-2025'],
+      },
+      {
+        text: 'DreamZero, a world action model that predicts video and actions together, reports over 2x better generalization to new tasks and environments than leading VLAs.',
+        citationIds: ['dreamzero-2026'],
       },
       {
         text: 'π0.7 can receive optional visual subgoals from a separate BAGEL-initialized world model, described as lightweight in the paper; the images condition the action policy.',
@@ -189,11 +201,11 @@ const ROWS: Thesis[] = [
         citationIds: ['pistar06-2025'],
       },
       {
-        text: 'Nucleus describes human-supervised operations as a route to useful work while autonomy improves. This is its proposed operating model, not evidence that Agility’s or Figure’s reported hours were teleoperated.',
+        text: 'Nucleus describes human-supervised operations as a route to useful work while autonomy improves. This is its proposed operating model, not evidence that Agility\'s or Figure\'s reported hours were teleoperated.',
         citationIds: ['nucleus-supervised-2026'],
       },
       {
-        text: "Bessemer’s investor outlook quotes Voxel51’s Brian Moore and Foxglove’s Adrian Macneil on a data flywheel: “better decisions, better model improvements, and better deployments faster than everyone else.” Both are disclosed portfolio companies. This is an attributed investment thesis, not evidence that deployment revenue funds collection or guarantees autonomy.",
+        text: "Bessemer's investor outlook quotes Voxel51's Brian Moore and Foxglove's Adrian Macneil on a data flywheel: \"better decisions, better model improvements, and better deployments faster than everyone else.\" Both are disclosed portfolio companies. This is an attributed investment thesis, not evidence that deployment revenue funds collection or guarantees autonomy.",
         citationIds: ['bessemer-robotics-2026'],
       },
     ],

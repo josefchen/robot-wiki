@@ -149,7 +149,7 @@ describe('HARDWARE data', () => {
 
   it('cites every humanoid row to its maker, not the review blog (2026-10-26)', () => {
     const humanoids = HARDWARE.filter((e) => e.category === 'humanoid');
-    expect(humanoids).toHaveLength(14);
+    expect(humanoids).toHaveLength(15);
     for (const row of humanoids) {
       expect(row.sources, row.id).not.toContain('robozaps-humanoids-2026');
       expect(row.url, row.id).not.toContain('robozaps');
@@ -191,7 +191,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       category: 'humanoid',
     });
-    expect(humanoids.length).toBe(14);
+    expect(humanoids.length).toBe(15);
 
     const hands = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
@@ -231,6 +231,7 @@ describe('filterHardware', () => {
       price: '1k-10k',
     });
     expect(mid.map((e) => e.id).sort()).toEqual([
+      'ff-nova',
       'jetson-thor-t4000',
       'jetson-thor-t5000',
       'leap-hand',
@@ -330,7 +331,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       dof: 'unknown',
     });
-    expect(unknown).toHaveLength(20);
+    expect(unknown).toHaveLength(21);
     expect(unknown.map((e) => e.id)).toContain('ubtech-walker-s2');
     expect(unknown.every((e) => e.dof === null)).toBe(true);
   });
@@ -351,6 +352,7 @@ describe('filterHardware', () => {
     // to sales, so the row is contact, not preorder.
     expect(preorders.map((e) => e.id).sort()).toEqual([
       '1x-neo',
+      'ff-nova',
       'neo-hand',
     ]);
 
@@ -403,6 +405,7 @@ describe('filterHardware', () => {
       availability: 'all',
     });
     expect(humanoidMid.map((e) => e.id).sort()).toEqual([
+      'ff-nova',
       'noetix-bumi',
       'unitree-r1',
     ]);

@@ -1,11 +1,11 @@
 /**
  * The three "Did you know" facts on the home page.
  *
- * Each fact restates one cited sentence of a published article and links
- * to that article. `passage` is the article's own wording, and the
- * paragraph holding it carries `<Cite id={citationId} />`; the fact renders
- * that same citation. tests/unit/did-you-know.test.ts holds every fact to
- * its article, and to 20 words or fewer with the citation label counted.
+ * Each fact restates a cited point of a published article and links to
+ * that article; it renders a citation the article itself cites inline.
+ * scripts/validate-content.ts checks the article and the citation
+ * (lib/cited-facts.ts), and tests/unit/did-you-know.test.ts holds every fact
+ * to 20 words or fewer with the citation label counted.
  */
 export type DidYouKnowFact = {
   id: string;
@@ -16,7 +16,6 @@ export type DidYouKnowFact = {
   before: string;
   linked: string;
   after: string;
-  passage: string;
 };
 
 export const DID_YOU_KNOW: readonly DidYouKnowFact[] = [
@@ -28,8 +27,6 @@ export const DID_YOU_KNOW: readonly DidYouKnowFact[] = [
     before: 'An ANYmal quadruped ',
     linked: 'learned to walk',
     after: ' on flat ground in under four minutes on one GPU',
-    passage:
-      'learned flat-ground walking in under four minutes, and on uneven terrain in twenty, on one workstation GPU',
   },
   {
     id: 'act-ten-minutes',
@@ -39,8 +36,6 @@ export const DID_YOU_KNOW: readonly DidYouKnowFact[] = [
     before: 'ACT learned six bimanual tasks, each from about ',
     linked: '10 minutes of demonstrations',
     after: '',
-    passage:
-      'learned six bimanual tasks, each from about 10 minutes of demonstrations',
   },
   {
     id: 'ernst-1961',
@@ -50,8 +45,6 @@ export const DID_YOU_KNOW: readonly DidYouKnowFact[] = [
     before: 'By 1961, Heinrich Ernst had a ',
     linked: 'computer-controlled arm and hand',
     after: ' stacking blocks at MIT',
-    passage:
-      'Ernst had connected a computer-controlled arm and hand to MIT',
   },
 ];
 

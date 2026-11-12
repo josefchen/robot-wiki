@@ -156,7 +156,7 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
         reach: (figure) => press(figure.getByRole('slider', { name: /how far ahead to imagine/i }), 'ArrowRight', 13),
         expectState: async (figure) => {
           await expect(figure.getByRole('slider', { name: /how far ahead to imagine/i })).toHaveValue('15');
-          await expect(figure.getByTestId('drift-note')).toContainText('ruler measures the gap from blue tip to real route');
+          await expect(figure.getByTestId('drift-note')).toContainText('ruler measures the gap from the blue tip to the real route');
         },
         describes: /imagines 15 steps ahead/,
       },
@@ -222,7 +222,7 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
     route: '/world-models/generative-sim/',
     lab: 'AppearancePhysicsPush',
     afterReset: async (figure) => {
-      await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimetres');
+      await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimeters');
       await expect(figure.getByRole('button', { name: 'Picture only', exact: true })).toHaveAttribute('aria-pressed', 'true');
     },
     beats: [
@@ -236,25 +236,25 @@ const figures: Array<{ id: string; route: string; lab: string; beats: Beat[]; af
         name: 'unanswered push',
         reach: (figure) => press(figure.getByRole('button', { name: /push the mug/i }), 'Enter'),
         expectState: async (figure) => {
-          await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimetres');
+          await expect(figure.getByTestId('displacement-readout')).toHaveText('0 centimeters');
           await expect(figure.getByTestId('mug')).toHaveAttribute('transform', mugTransform(mugOffset(0, 0, 1)));
         },
-        describes: /leaves the mug at 0 centimetres/,
+        describes: /leaves the mug at 0 centimeters/,
       },
       {
         name: 'integrated push',
         reach: (figure) => press(figure.getByRole('button', { name: 'Picture plus physics', exact: true }), 'Enter'),
         expectState: async (figure) => {
-          await expect(figure.getByTestId('displacement-readout')).toHaveText('18.1 centimetres');
+          await expect(figure.getByTestId('displacement-readout')).toHaveText('18.1 centimeters');
           await expect(figure.getByTestId('mug')).toHaveAttribute('data-on-plate', '');
         },
-        describes: /the mug has moved 18\.1 centimetres after 1 push\b/,
+        describes: /the mug has moved 18\.1 centimeters after 1 push\b/,
       },
       {
         name: 'second push',
         reach: (figure) => press(figure.getByRole('button', { name: /push the mug/i }), 'Enter'),
-        expectState: async (figure) => expect(figure.getByTestId('displacement-readout')).toHaveText('36.2 centimetres'),
-        describes: /moved 36\.2 centimetres after 2 pushes/,
+        expectState: async (figure) => expect(figure.getByTestId('displacement-readout')).toHaveText('36.2 centimeters'),
+        describes: /moved 36\.2 centimeters after 2 pushes/,
       },
     ],
   },

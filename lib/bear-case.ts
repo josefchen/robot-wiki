@@ -86,10 +86,10 @@ const ROWS: Milestone[] = [
       "The direct test of Brooks's argument that vision-only training cannot produce dexterity: if touch is the missing channel, integrating it should move contact-rich performance.",
     status: 'partial',
     statusDetail:
-      'Sparsh-X (roughly a million contact-rich interactions) and TouchWorld are tactile foundation models, and Figure\'s Helix 02 takes fingertip tactile input. T-Rex, a VLA that reads high-frequency touch, beats its strongest baseline by over 30% on 12 contact-rich tasks, and removing touch drops its six-task average from 65% to 42%; TouchWorld reports that removing touch causes its largest drop. Both are single research benchmarks from mid-2026.',
+      'Sparsh-X (roughly a million contact-rich interactions) and TouchWorld are tactile foundation models, and Figure\'s Helix 02 takes fingertip tactile input. T-Rex, a VLA that reads high-frequency touch, beats its strongest baseline by over 30% on 12 contact-rich tasks, and removing touch drops its six-task average from 65% to 42%; TouchWorld reports that removing touch causes its largest drop. Robbyant\'s open LingBot-Touch (November 2026) feeds touch readings into VLAs such as π0.5. These are single research benchmarks from 2026.',
     howWeKnow:
       'A VLA trained with tactile input outperforming its vision-only counterpart on contact-rich tasks, published with ablations.',
-    citationIds: ['sparsh-x-2025', 'touchworld-2026', 'helix-02-2026', 't-rex-2026'],
+    citationIds: ['sparsh-x-2025', 'touchworld-2026', 'helix-02-2026', 't-rex-2026', 'lingbot-touch-2026'],
   },
   {
     id: 'sim-to-real-contact',
@@ -110,7 +110,7 @@ const ROWS: Milestone[] = [
       "The form-factor question in one number: if a humanoid's total cost per task matches a purpose-built system in the same application, the general-purpose thesis survives contact with accounting.",
     status: 'not-met',
     statusDetail:
-      'The inspected palletising-cell cost guide supplies budget and payback context for a task-specific application, not a head-to-head humanoid comparison. These materials cannot establish humanoid cost-per-task parity; absence from them is not proof that no comparison exists elsewhere.',
+      'The inspected palletizing-cell cost guide supplies budget and payback context for a task-specific application, not a head-to-head humanoid comparison. These materials cannot establish humanoid cost-per-task parity; absence from them is not proof that no comparison exists elsewhere.',
     howWeKnow:
       'A published total-cost-of-ownership analysis showing humanoid cost per task at or below a purpose-built system for a specific application.',
     citationIds: ['evst-cell-cost-2026'],

@@ -29,11 +29,11 @@ describe('UmiCollectionRates', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Demonstrations per hour');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'Handheld recording: triple robot control, half bare-hand speed',
+      'A handheld gripper records three times faster than teleoperation',
     );
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(caption).toBe(
-      "The handheld gripper records 111 demonstrations hourly: about three times robot control (35), and half bare-hand speed (231).",
+      "Arranging cups, the UMI gripper recorded 111 demonstrations an hour, about three times the spacemouse rate (35) and half the bare-hand rate (231).",
     );
     expect(caption.split(/\s+/).length).toBeLessThanOrEqual(25);
   });

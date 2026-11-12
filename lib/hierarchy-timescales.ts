@@ -154,7 +154,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     pattern:
       'A three-layer learned hierarchy: S2 sequences behaviors, S1 maps all sensors to all joints at 200 Hz, and S0, a 10M-parameter whole-body controller, runs at 1 kHz. Vendor-reported in the January 27, 2026 announcement; S2 frequency is not numerically specified.',
     plainPattern:
-      'Three stacked networks: one picks the next behaviour, one turns vision into joint moves, one steers the whole body.',
+      'Three stacked networks: one picks the next behavior, one turns vision into joint moves, one steers the whole body.',
     citationId: 'helix-02-2026',
     lanes: [
       {
@@ -169,7 +169,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       {
         id: 's2',
         label: 'S2 behavior sequencing',
-        plain: 'Next behaviour',
+        plain: 'Next behavior',
         rate: '~1 Hz',
         periodMs: 1000,
         note: 'The VLM reasons over scene and instruction and emits latent goals. Update rate not disclosed, shown schematically.',

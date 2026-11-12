@@ -77,7 +77,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: true,
     provenance: 'paper',
     capability:
-      'The N1 v2 paper describes a VLM with a cross-attention-conditioned flow-matching DiT action head and links a public GR00T-N1-2B checkpoint.',
+      'The N1 paper pairs a vision-language model with a flow-matching action head and links a public 2-billion-parameter checkpoint.',
     citationId: 'gr00t-n1-2025',
   },
   {
@@ -89,7 +89,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: true,
     provenance: 'paper',
     capability:
-      'March 2025 is the report date, not a checkpoint release date. The inspected v4 paper describes a ViLLA latent action model, VLM-conditioned latent planner, and low-level action expert, trained using human video without action labels and robot data.',
+      'March 2025 is the report date, not the checkpoint release. GO-1 learns latent actions from consecutive video frames, so it trains on robot data and on human video without action labels.',
     citationId: 'agibot-world-2025',
   },
   {
@@ -101,7 +101,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: true,
     provenance: 'paper',
     capability:
-      'The open-weights frontier of the pi line: open-world generalization from heterogeneous co-training. Covered in The Pi Line.',
+      'The last downloadable model of the π line, which generalizes to new homes after co-training on varied data. Covered in The Pi Line.',
     context: true,
     citationId: 'pi05-2025',
   },
@@ -127,7 +127,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: false,
     provenance: 'blog',
     capability:
-      'Knowledge Insulation at 5B scale; a dated model card, no arXiv paper. The pi line goes closed here.',
+      'Knowledge insulation at 5B scale; a dated model card, no arXiv paper. The π line stops offering downloads here.',
     context: true,
     citationId: 'pi06-model-card-2025',
   },
@@ -158,6 +158,19 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     citationId: 'skild-series-c-2026',
   },
   {
+    id: 'gen-1',
+    name: 'GEN-1',
+    org: 'Generalist AI',
+    released: '2026-04',
+    dateLabel: 'Apr 2026',
+    openWeights: null,
+    weightsNote: 'The April 2, 2026 post gives no weight download or licensing terms.',
+    provenance: 'blog',
+    capability:
+      'Trained from scratch on half a million hours of real-world data with no robot data in pretraining; Generalist reports 99% average success where earlier models reach 64%, with about 1 hour of robot data per task.',
+    citationId: 'generalist-gen1-2026',
+  },
+  {
     id: 'gr00t-n17',
     name: 'GR00T N1.7',
     org: 'NVIDIA',
@@ -166,7 +179,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: true,
     provenance: 'docs',
     capability:
-      'N1.7 README: Cosmos-Reason2-2B backbone, relative-EEF actions, and 20K hours of EgoScale human video in pretraining. Its license declarations require checkpoint-specific review.',
+      'N1.7 README: a Cosmos-Reason2-2B backbone, actions written as relative hand motion, and 20K hours of EgoScale human video in pretraining. Code is Apache 2.0; weights carry the NVIDIA Open Model License.',
     citationId: 'isaac-gr00t-repo-2026',
   },
   {
@@ -174,12 +187,12 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     name: 'AgiBot GO-2',
     org: 'AgiBot',
     released: '2026-04',
-    dateLabel: 'Apr 2026 HTML date',
+    dateLabel: 'Apr 2026 announcement',
     openWeights: null,
     weightsNote: "Trained GO-2 weight availability and licensing are not established by the inspected announcement; no closed-weight conclusion is drawn.",
     provenance: 'press',
     capability:
-      "AgiBot describes System 2 semantic planning and System 1 action following with relative, not numerical, frequencies; teacher forcing is used during training.",
+      "A slower System 2 writes structured action sequences and a faster System 1 follows them using live observations; AgiBot gives no numerical rates.",
     citationId: 'agibot-go2-2026',
   },
   {
@@ -207,6 +220,45 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     capability:
       "July 30, 2026 announcement: VLA whole-body control; one checkpoint on Apollo 2 with SharpaWave, Apollo 2 with Inspire, and Franka Duo with Robotiq. Separate ER 2 and On-Device 2 roles.",
     citationId: 'gemini-robotics-2-2026',
+  },
+  {
+    id: 'agibot-go3-preview',
+    name: 'AgiBot GO-3 Preview',
+    org: 'AgiBot',
+    released: '2026-11',
+    dateLabel: 'Nov 2026 press release',
+    openWeights: false,
+    weightsNote: 'AgiBot says GO-3 will be fully open-sourced by the end of 2026; no download is offered yet.',
+    provenance: 'press',
+    capability:
+      'AgiBot says GO-3 Preview joins task understanding, future-state prediction and action generation in one architecture, WRAM, and ranks first on the RoboDojo, RoboTwin and RoboColiseum benchmarks.',
+    citationId: 'agibot-go3-preview-2026',
+  },
+  {
+    id: 'gr00t-2',
+    name: 'GR00T 2',
+    org: 'NVIDIA',
+    released: '2026-11',
+    dateLabel: 'Nov 2026',
+    openWeights: null,
+    weightsNote: 'The project page lists code as available in December; checkpoint downloads and license terms are not yet stated.',
+    provenance: 'blog',
+    capability:
+      'A world action model: one diffusion transformer predicts future video and actions together. NVIDIA reports 40% zero-shot success on 50 tasks new to the target robot, and 95% after five demonstrations each.',
+    citationId: 'gr00t-2-2026',
+  },
+  {
+    id: 'gemini-robotics-2-5',
+    name: 'Gemini Robotics 2.5',
+    org: 'Google DeepMind',
+    released: '2026-11',
+    dateLabel: 'Nov 2026',
+    openWeights: null,
+    weightsNote: 'Rolling out to robotics partners from November 10, 2026; weight downloads and licensing terms are not disclosed.',
+    provenance: 'blog',
+    capability:
+      'DeepMind reports 30% to 100% higher success than earlier baselines, depending on the task, and 96% success kitting parts with Apollo 2 humanoids on Mercedes-Benz lines.',
+    citationId: 'gemini-robotics-2-5-2026',
   },
 ];
 

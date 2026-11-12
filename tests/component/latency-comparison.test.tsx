@@ -164,7 +164,7 @@ describe('LatencyComparison', () => {
     expect(descs[0].textContent).toMatch(/protective stops at its \+100 and \+200 ms settings/i);
     expect(descs[0].textContent).toMatch(/not a universal latency threshold/i);
     expect(descs[1].textContent).toMatch(/post between the two plan grooves is drawn for illustration/i);
-    expect(descs[1].textContent).toMatch(/modelled modes rather than measured actions/i);
+    expect(descs[1].textContent).toMatch(/modeled modes rather than measured actions/i);
     const tables = container.querySelectorAll('details[data-chart-data][data-chart-form="table"]');
     expect(tables).toHaveLength(2);
     for (const table of tables) {

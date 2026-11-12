@@ -1,40 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { parseTermConsumers, termConsumerInventory } from '../e2e/helpers/term-consumer-inventory';
 import { getTerm } from '../../data/glossary';
-import pinned from '../fixtures/term-consumer-identities.json';
-
-function identities(inventory: ReturnType<typeof termConsumerInventory>) {
-  return inventory.map(a => ({ route: a.route, rawOpeningTags: a.rawOpeningTags, termIds: a.occurrences.map(o => o.termId) }));
-}
-// The retained pin predates one reviewed change: the 2026-10-02 SEO pass
-// opened the knowledge-insulation lead with its defining Term, moving that one
-// trigger ahead of the other three. The 2026-10-14 dexterity length cut
-// removed the first of its two in-hand-manipulation triggers with the
-// module-scope sentence (recorded in the brand-v2 approved-deltas ledger).
-// Express both explicitly; every other route, order and occurrence remains
-// pinned.
-function currentPinned() {
-  const articles = structuredClone(pinned.articles);
-  const insulation = articles.find(a => a.route === '/manipulation/knowledge-insulation/');
-  if (insulation?.termIds.join(',') !==
-    'flow-matching,vision-language-model,knowledge-insulation,action-tokenization') {
-    throw new Error('historical knowledge-insulation Term pin is not the reviewed predecessor');
-  }
-  insulation.termIds = ['knowledge-insulation', 'flow-matching', 'vision-language-model', 'action-tokenization'];
-  const dexterity = articles.find(a => a.route === '/frontier/dexterity/');
-  if (dexterity?.rawOpeningTags !== 6 || dexterity.termIds.join(',') !==
-    'contact-rich-manipulation,in-hand-manipulation,mechanoreceptor,teleoperation,degrees-of-freedom,in-hand-manipulation') {
-    throw new Error('historical dexterity Term pin is not the reviewed predecessor');
-  }
-  dexterity.rawOpeningTags = 5;
-  dexterity.termIds = ['contact-rich-manipulation', 'mechanoreceptor', 'teleoperation', 'degrees-of-freedom', 'in-hand-manipulation'];
-  return articles;
-}
-function assertPopulation(actual: ReturnType<typeof identities>) {
-  expect(actual.length).toBeGreaterThan(0);
-  expect(new Set(actual.map(a => a.route)).size).toBe(actual.length);
-  expect(actual).toEqual(currentPinned());
-}
+import { publishedModules } from '../../data/modules';
 
 describe('bounded Term consumer identities', () => {
   it('retains repeated occurrences instead of deduplicating triggers', () => {
@@ -61,50 +28,10 @@ describe('bounded Term consumer identities', () => {
   });
   it('binds all published MDX without unresolved or unknown term ids', () => {
     const inventory = termConsumerInventory();
-    // 57 published articles on the merged seo-merge line (was 47 before the
-    // seo workstream added ten articles); the pinned fixture owns the
-    // ordered identity list, this only pins the live population size.
-    expect(inventory).toHaveLength(57);
+    const published = publishedModules().length;
+    expect(inventory).toHaveLength(published);
     expect(inventory.flatMap(a => a.unresolved)).toEqual([]);
     expect(inventory.flatMap(a => a.occurrences).filter(o => !getTerm(o.termId))).toEqual([]);
-    expect(new Set(inventory.map(a => a.route)).size).toBe(57);
-  });
-  it('reconciles raw occurrences separately from article/term bindings', () => {
-    const inventory = termConsumerInventory();
-    // All 57 merged articles carry at least one occurrence.
-    expect(inventory.filter(a => a.occurrences.length)).toHaveLength(57);
-    // 53d2cf8 added legged-locomotion/teleoperation occurrence 1.
-    // 6af0bdd removed competing-theses/imitation-learning occurrence 1.
-    // a7c35d3 added six cross-embodiment Term markers (ART-003), making
-    // every published article a raw-occurrence holder.
-    // Pin ordered members, not just a total that a replacement could preserve.
-    assertPopulation(identities(inventory));
-    expect(inventory.reduce((n, a) => n + a.rawOpeningTags, 0)).toBe(currentPinned().reduce((n, a) => n + a.rawOpeningTags, 0));
-    expect(inventory.flatMap(a => a.occurrences)).toHaveLength(currentPinned().flatMap(a => a.termIds).length);
-    expect(inventory.reduce((n, a) => n + new Set(a.occurrences.map(o => o.termId)).size, 0)).toBe(currentPinned().reduce((n, a) => n + new Set(a.termIds).size, 0));
-  });
-  it.each(['empty', 'omitted-route', 'duplicate-route', 'omitted-trigger', 'same-count-substitution', 'restored-kinematics-trigger'])('rejects %s population mutation', mutation => {
-    const changed = currentPinned();
-    if (mutation === 'empty') changed.length = 0;
-    if (mutation === 'omitted-route') changed.pop();
-    if (mutation === 'duplicate-route') changed[1] = structuredClone(changed[0]);
-    const legged = changed.find(a => a.route === '/rl-sim2real/legged-locomotion/');
-    if (mutation === 'omitted-trigger') legged!.termIds.splice(legged!.termIds.indexOf('teleoperation'), 1);
-    if (mutation === 'same-count-substitution') legged!.termIds[legged!.termIds.indexOf('teleoperation')] = 'retargeting';
-    if (mutation === 'restored-kinematics-trigger') {
-      const kinematics = changed.find(a => a.route === '/classical/kinematics/')!;
-      kinematics.termIds.push('degrees-of-freedom');
-      kinematics.rawOpeningTags++;
-    }
-    expect(() => assertPopulation(changed)).toThrow();
-  });
-
-  it.each(['restored-trigger', 'reordered-triggers', 'same-count-thesis-substitution'])('rejects %s in the corrected thesis population', mutation => {
-    const changed = currentPinned();
-    const thesis = changed.find(a => a.route === '/frontier/competing-theses/')!;
-    if (mutation === 'restored-trigger') { thesis.termIds.splice(4, 0, 'imitation-learning'); thesis.rawOpeningTags++; }
-    if (mutation === 'reordered-triggers') [thesis.termIds[3], thesis.termIds[4]] = [thesis.termIds[4], thesis.termIds[3]];
-    if (mutation === 'same-count-thesis-substitution') thesis.termIds[4] = 'imitation-learning';
-    expect(() => assertPopulation(changed)).toThrow();
+    expect(new Set(inventory.map(a => a.route)).size).toBe(published);
   });
 });

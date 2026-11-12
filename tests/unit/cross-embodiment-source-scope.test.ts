@@ -13,7 +13,7 @@ describe('cross-embodiment source scope', () => {
   });
   it('does not equate an empty toy row with an architectural impossibility', () => {
     expect(STRATEGIES.padded.proponent).toBe('Original slot-layout example');
-    expect(STRATEGIES.padded.humanVideoVerdict).toContain('no adapter modelled');
+    expect(STRATEGIES.padded.humanVideoVerdict).toContain('no adapter modeled');
     expect(STRATEGIES.padded.mechanism).toContain('performs no normalization');
     expect(STRATEGIES.padded.caveat).toContain('not a claim');
   });

@@ -151,7 +151,7 @@ test.describe('adjacent drones module', () => {
     await frame.getByRole('button', { name: 'Reset', exact: true }).click();
     await expect(page.getByTestId('max-speed-readout')).toHaveText('19.21 m/s');
     await expect(
-      frame.getByRole('button', { name: 'Standard (the study’s)', exact: true }),
+      frame.getByRole('button', { name: "Standard (the study's)", exact: true }),
     ).toHaveAttribute('aria-pressed', 'true');
   });
 

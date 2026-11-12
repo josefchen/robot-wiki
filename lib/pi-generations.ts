@@ -3,8 +3,8 @@
  * Tests: tests/unit/pi-generations.test.ts.
  *
  * Dated entries use source publication months, not checkpoint release dates.
- * The retained MEM report does not establish its publication month: null is
- * deliberately unplotted. Weight availability is bounded to the inspected
+ * MEM is dated by its March 3, 2026 research post; as an add-on to π0.6 it
+ * is listed beside the timeline rather than plotted as a new model. Weight availability is bounded to the inspected
  * openpi README at 215abfb217dbac7d5f1273282331b9b1866c0479. Non-listing is
  * not evidence of closed licensing or unavailable weights.
  */
@@ -28,6 +28,8 @@ export interface PiGeneration {
   plain: string;
   /** Citation registry id (data/citations.ts) backing this entry. */
   citationId: string;
+  /** Set for an add-on to an earlier model: listed beside the timeline, not plotted. */
+  addOnTo?: string;
 }
 
 export const PI_GENERATIONS: readonly PiGeneration[] = [
@@ -99,15 +101,16 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
   {
     id: 'pi06-mem',
     name: 'π0.6-MEM',
-    released: null,
-    dateLabel: 'Date unverified',
+    released: '2026-03',
+    dateLabel: 'Mar 2026',
     openWeights: null,
     backbone: 'π0.6 + two-scale memory',
     contribution:
-      'Short-term video history plus long-term model-authored notes; 15-minute tasks.',
+      'Short-term video history plus long-term model-authored notes; tasks needing up to 15 minutes of memory.',
     plain:
-      'Adds memory: recent video plus notes the model writes for itself, enough for tasks that take 15 minutes.',
-    citationId: 'mem-2026',
+      'Adds memory: recent video plus notes the model writes for itself, enough for tasks that need up to 15 minutes of memory.',
+    citationId: 'mem-blog-2026',
+    addOnTo: 'π0.6',
   },
   {
     id: 'pi07',

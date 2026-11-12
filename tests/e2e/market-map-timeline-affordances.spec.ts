@@ -1,5 +1,9 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { COMPANIES } from '../../data/companies';
+
+const COMPANY_COUNT = COMPANIES.length;
+const countWhere = (keep: (company: (typeof COMPANIES)[number]) => boolean) => COMPANIES.filter(keep).length;
 
 /**
  * Roving-tabindex keyboard affordances on the funding timeline (tab-stop
@@ -333,7 +337,7 @@ test.describe('timeline view roving keyboard affordances', () => {
     await expect(
       page.locator('[data-company-id="figure-ai"] > button'),
     ).toHaveAttribute('tabindex', '0');
-    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -345,7 +349,7 @@ test.describe('timeline view roving keyboard affordances', () => {
       .getByRole('group', { name: 'Segment' })
       .getByRole('button', { name: /^Humanoids/ })
       .click();
-    await expect(page.getByText('34 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'humanoids')} of ${COMPANY_COUNT} companies`)).toBeVisible();
     const rows = rowButtons(page);
     expect(await rows.count()).toBeGreaterThan(1);
     const tabbables = await page.evaluate(
@@ -380,7 +384,7 @@ test.describe('timeline view roving keyboard affordances', () => {
       .getByRole('group', { name: 'Segment' })
       .getByRole('button', { name: /^Foundation models/ })
       .click();
-    await expect(page.getByText('12 of 111 companies')).toBeVisible();
+    await expect(page.getByText(`${countWhere((c) => c.segment === 'foundation-models')} of ${COMPANY_COUNT} companies`)).toBeVisible();
     await expect(
       page.locator('[data-company-id="figure-ai"]'),
     ).toHaveCount(0);

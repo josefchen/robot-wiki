@@ -26,7 +26,7 @@ describe('PerceptionErrorBudget main view', () => {
       'A tiny camera tilt becomes a bigger miss farther away',
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Robots reach for what their camera sees, so a camera angle off by a fraction of a degree puts the hand beside the object.',
+      'A camera tilted a fraction of a degree puts the hand beside the object; the 15 and 30 mm bands are teaching thresholds, not limits.',
     );
     expect(container.querySelector('[data-figure-status]')).toHaveTextContent(
       'Schematic: the tilt and the miss are drawn far larger than they are',
@@ -43,11 +43,11 @@ describe('PerceptionErrorBudget main view', () => {
       'perception-distance-slider',
     ]);
     expect(controls).toHaveTextContent('How far the camera is tilted0.5 degrees');
-    expect(controls).toHaveTextContent('Distance to the object0.50 metres');
+    expect(controls).toHaveTextContent('Distance to the object0.50 meters');
     const ends = Array.from(controls.querySelectorAll('[data-slider-ends]'))
       .filter((el) => !adjust.contains(el))
       .map((el) => Array.from(el.children).map((end) => end.textContent));
-    expect(ends).toEqual([['not at all', '3 degrees'], ['15 centimetres', '1.5 metres']]);
+    expect(ends).toEqual([['not at all', '3 degrees'], ['15 centimeters', '1.5 meters']]);
     expect(slider(/^How far the camera is tilted: /)).toBe(screen.getByTestId('perception-handeye-slider'));
     expect(slider(/^Distance to the object: /)).toBe(screen.getByTestId('perception-distance-slider'));
     for (const id of ['perception-target-opaque', 'perception-depth-slider', 'perception-pose-slider',
@@ -71,22 +71,22 @@ describe('PerceptionErrorBudget main view', () => {
       expect(spot()[0]).toBeCloseTo(x, 0);
       expect(spot()[1]).toBeCloseTo(y, 0);
     };
-    expect(readout()).toBe('0.5 degrees at 0.50 metres · misses by 4.4 millimetres');
+    expect(readout()).toBe('0.5 degrees at 0.50 meters · misses by 4.4 millimeters');
     expect(screen.getByTestId('perception-beam')).toHaveAttribute('data-miss', handEyeErrorMm(0.5, 0.5).toFixed(2));
     await frame();
     expectSpot(0.5, 0.5);
     fireEvent.change(slider(/working distance/i), { target: { value: '1.5' } });
     await frame();
-    expect(readout()).toBe('0.5 degrees at 1.50 metres · misses by 13.1 millimetres');
+    expect(readout()).toBe('0.5 degrees at 1.50 meters · misses by 13.1 millimeters');
     expectSpot(0.5, 1.5);
     expect(screen.getByTestId('perception-staff').getAttribute('transform')).toBe(carriageAt(1.5));
     fireEvent.change(slider(/hand-eye rotation error/i), { target: { value: '3' } });
     await frame();
-    expect(readout()).toBe('3.0 degrees at 1.50 metres · misses by 78.6 millimetres, past the scale');
+    expect(readout()).toBe('3.0 degrees at 1.50 meters · misses by 78.6 millimeters, past the scale');
     expect(screen.getByTestId('perception-spot').style.display).toBe('none');
     fireEvent.change(slider(/hand-eye rotation error/i), { target: { value: '0' } });
     await frame();
-    expect(readout()).toBe('0.0 degrees at 1.50 metres · the beam lands on the peg');
+    expect(readout()).toBe('0.0 degrees at 1.50 meters · the beam lands on the peg');
     expectSpot(0, 1.5);
     const drawing = screen.getByTestId('perception-sight-view');
     expect(drawing.querySelector('text, title, desc, foreignObject')).toBeNull();
@@ -112,7 +112,7 @@ describe('PerceptionErrorBudget served HTML', () => {
     const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
-    expect(lines).toContain('Slide the target away: the same tilt misses by more0.5 degrees at 0.50 metres · misses by 4.4 millimetres');
+    expect(lines).toContain('Slide the target away: the same tilt misses by more0.5 degrees at 0.50 meters · misses by 4.4 millimeters');
     expect(lines.some((line) => line.includes('root-sum-of-squares'))).toBe(false);
   });
 });
@@ -155,7 +155,7 @@ describe('PerceptionErrorBudget', () => {
     expect(slider(/hand-eye rotation error/i)).toBeInTheDocument();
     expect(slider(/working distance/i)).toBeInTheDocument();
     expect(slider(/depth error/i)).toBeInTheDocument();
-    expect(slider(/^object pose \(mm\): the translation error in millimetres/i)).toBeInTheDocument();
+    expect(slider(/^object pose \(mm\): the translation error in millimeters/i)).toBeInTheDocument();
     for (const id of ['opaque', 'specular', 'transparent']) {
       expect(screen.getByTestId(`perception-target-${id}`)).toBeInTheDocument();
     }
@@ -170,7 +170,7 @@ describe('PerceptionErrorBudget', () => {
     const label = screen.getByTestId('perception-simplification-label');
     expect(label).toHaveTextContent(/range-independent/i);
     expect(label).toHaveTextContent(/chosen ray-to-plane term/i);
-    expect(label).toHaveTextContent(/Root-sum-of-squares is an authored rule/i);
+    expect(label).toHaveTextContent(/Root-sum-of-squares is a teaching rule/i);
     expect(label).toHaveTextContent(/not established standard deviations/i);
     expect(label).toHaveTextContent(/does not establish independence or a real-system error bound/i);
   });
@@ -229,10 +229,10 @@ describe('PerceptionErrorBudget', () => {
       /specular metal part/i,
     );
     expect(screen.getByTestId('perception-target-note')).toHaveTextContent(
-      /authored depth floor of 6%/i,
+      /chosen depth floor of 6%/i,
     );
     expect(screen.getByTestId('perception-target-note')).not.toHaveTextContent(/saturates/i);
-    expect(screen.getByTestId('perception-verdict-readout')).toHaveTextContent('above model band');
+    expect(screen.getByTestId('perception-verdict-readout')).toHaveTextContent('over 30 mm');
   });
 
   it('exposes native range inputs whose bounds match the shared specs', () => {
@@ -241,7 +241,7 @@ describe('PerceptionErrorBudget', () => {
       [/hand-eye rotation error/i, SLIDER_SPECS.handEye],
       [/working distance/i, SLIDER_SPECS.distance],
       [/depth error/i, SLIDER_SPECS.depth],
-      [/^object pose \(mm\): the translation error in millimetres/i, SLIDER_SPECS.pose],
+      [/^object pose \(mm\): the translation error in millimeters/i, SLIDER_SPECS.pose],
     ];
     for (const [name, spec] of pairs) {
       const el = slider(name);
@@ -259,14 +259,14 @@ describe('PerceptionErrorBudget', () => {
       handEye: (slider(/hand-eye rotation error/i) as HTMLInputElement).value,
       distance: (slider(/working distance/i) as HTMLInputElement).value,
       depth: (slider(/depth error/i) as HTMLInputElement).value,
-      pose: (slider(/^object pose \(mm\): the translation error in millimetres/i) as HTMLInputElement).value,
+      pose: (slider(/^object pose \(mm\): the translation error in millimeters/i) as HTMLInputElement).value,
     };
     fireEvent.change(slider(/hand-eye rotation error/i), {
       target: { value: '2.5' },
     });
     fireEvent.change(slider(/working distance/i), { target: { value: '1.5' } });
     fireEvent.change(slider(/depth error/i), { target: { value: '12' } });
-    fireEvent.change(slider(/^object pose \(mm\): the translation error in millimetres/i), {
+    fireEvent.change(slider(/^object pose \(mm\): the translation error in millimeters/i), {
       target: { value: '15' },
     });
     await user.click(screen.getByTestId('perception-target-transparent'));
@@ -283,7 +283,7 @@ describe('PerceptionErrorBudget', () => {
       opening.depth,
     );
     expect(
-      (slider(/^object pose \(mm\): the translation error in millimetres/i) as HTMLInputElement).value,
+      (slider(/^object pose \(mm\): the translation error in millimeters/i) as HTMLInputElement).value,
     ).toBe(opening.pose);
     expect(screen.getByTestId('perception-target-opaque')).toBeChecked();
   });

@@ -8,9 +8,18 @@ import { forEachInOwnContext } from './helpers/per-route-context';
  * Structural contract for the home front page. Encodes the measurable
  * bounds from contract/design-integrity.md and
  * contract/foundation-navigation.md: a dense contents index instead of a
- * card grid, the featured scene inside the first 1200px, the playground as a
- * plain link in the tools line, bounded bordered boxes and micro-labels, no
+ * card grid, the humanoid scene beside the name in the first screen, the
+ * three explore entries, bounded bordered boxes and micro-labels, no
  * overview paragraph, and the reading guide on /about/.
+ *
+ * Owner-approved successor (Josef, 12 November 2026, the home redesign:
+ * "don't be afraid to make radical changes"): the robot is now the first
+ * screen and the contents its index below, so the pins that held all seven
+ * domain links above the fold (VAL-HOME-001) and the scene below them
+ * within 1200px (VAL-HOME-003) move to the new first screen at the same
+ * strength: the identity, descriptor, counts, search, the scene's poster
+ * and its start button all sit inside 1440x900, and the poster shows in
+ * the first screen of a 390x844 phone.
  */
 
 const DOMAIN_ENTRIES = [
@@ -92,7 +101,7 @@ test.describe('home page', () => {
     expect(results.violations).toEqual([]);
   });
 
-  test('first viewport carries the identity line, counts, search and all seven domain links', async ({
+  test('first viewport carries the identity line, counts, search and the humanoid scene', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
@@ -108,34 +117,40 @@ test.describe('home page', () => {
     const search = page
       .getByRole('search', { name: 'Search the wiki' })
       .getByRole('searchbox');
+    const scene = page.getByRole('group', { name: '3D explainer: Inside a humanoid' });
+    const poster = scene.locator('[data-x="poster"]');
+    const start = scene.getByRole('button', { name: 'Turn it in 3D' });
     // The full box must sit inside the first viewport (VAL-HOME-001/
     // VAL-DSHOME-001): a top edge above y=900 with the body hanging below
     // it is a clipped premise, and checking y alone would pass it.
     const insideFirstViewport = async (
       locator: ReturnType<Page['locator']>,
       label: string,
+      height = 900,
     ) => {
       const box = await locator.boundingBox();
       expect(box, `${label} visible in first viewport`).not.toBeNull();
       expect(box!.y, `${label} top above fold`).toBeGreaterThanOrEqual(0);
       expect(
         box!.y + box!.height,
-        `${label} bottom edge must be at or before y=900`,
-      ).toBeLessThanOrEqual(900);
+        `${label} bottom edge must be at or before y=${height}`,
+      ).toBeLessThanOrEqual(height);
     };
     await insideFirstViewport(wordmark, 'hero wordmark');
     await insideFirstViewport(descriptor, 'descriptor');
     await insideFirstViewport(counts, 'registry counts');
     await insideFirstViewport(search, 'search box');
-    const main = page.locator('#main-content');
-    for (const [name, href] of DOMAIN_ENTRIES) {
-      const link = main.getByRole('link', { name, exact: true }).first();
-      // next/link normalizes trailing slashes between dev and export; the
-      // domain segment is what matters.
-      const hrefValue = await link.getAttribute('href');
-      expect(hrefValue).toMatch(new RegExp(`^${href}/?$`));
-      await insideFirstViewport(link, `${name} link`);
-    }
+    await insideFirstViewport(poster, 'scene poster');
+    await insideFirstViewport(start, 'scene start button');
+    // The robot is the dominant image of the first screen: its stage is the
+    // widest thing in it, more than half the width.
+    const stage = await scene.locator('[data-x="stage"]').boundingBox();
+    expect(stage!.width).toBeGreaterThan(720);
+    // On a phone the poster already shows in the first screen.
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    const phonePoster = await poster.boundingBox();
+    expect(phonePoster!.y, 'poster begins inside the first phone screen').toBeLessThan(844 - 200);
   });
 
   test('the wordmark holds its locked type scale at both stated viewports (VAL-B2-TYPE-006)', async ({
@@ -194,19 +209,15 @@ test.describe('home page', () => {
     }
 
     // The scale and the fold are one constraint: a wordmark inside its band
-    // that pushed the seventh domain link past y=900 would trade
+    // that pushed the scene's start button past y=900 would trade
     // VAL-B2-TYPE-006 for VAL-HOME-001. Asserted here as well as in the
     // first-viewport test so a type change cannot pass this test alone.
-    const seventh = page
-      .locator('#main-content')
-      .getByRole('link', { name: 'Adjacent Domains', exact: true })
-      .first();
-    const box = await seventh.boundingBox();
-    expect(box, 'seventh domain link measured at 1440x900').not.toBeNull();
-    expect(
-      box!.y + box!.height,
-      'seventh domain link bottom edge at 1440x900',
-    ).toBeLessThanOrEqual(900);
+    const start = page
+      .getByRole('group', { name: '3D explainer: Inside a humanoid' })
+      .getByRole('button', { name: 'Turn it in 3D' });
+    const box = await start.boundingBox();
+    expect(box, 'scene start button measured at 1440x900').not.toBeNull();
+    expect(box!.y + box!.height, 'scene start button bottom edge at 1440x900').toBeLessThanOrEqual(900);
   });
 
   test('the contents index is a dense list, not a grid of bordered cards', async ({
@@ -265,43 +276,62 @@ test.describe('home page', () => {
     }
   });
 
-  test('featured scene stage top edge is within the first 1200px', async ({
+  test('the scene stage starts inside the first screen, in the introduction', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const featured = page.getByRole('region', { name: 'Featured scene' });
-    // Strictly below 1200px (VAL-HOME-003/VAL-DSHOME-003): the bound is
-    // "begins before y=1200", so exactly 1200 does not satisfy it. The
-    // explainer's stage holds its poster, then its canvas, in one box.
-    const stage = featured.locator('[data-explainer-scene] [data-x="stage"]');
+    const intro = page.getByRole('region', { name: 'Introduction' });
+    // The explainer's stage holds its poster, then its canvas, in one box.
+    const stage = intro.locator('[data-explainer-scene] [data-x="stage"]');
     await expect(stage).toHaveCount(1);
     await expect(stage.locator('[data-x="poster"]')).toBeVisible();
     const top = await stage.evaluate((el) => {
       return el.getBoundingClientRect().top + window.scrollY;
     });
-    expect(top).toBeLessThan(1200);
+    expect(top).toBeLessThan(900);
   });
 
-  test('the playground entry point is a plain link in the tools line (VAL-DESIGN-013)', async ({
+  test('explore links the explainers, the market map and the playground, each with a picture of itself', async ({
     page,
   }) => {
     await page.goto('/');
-    const tools = page.getByRole('region', { name: 'Tools' });
-    const playground = tools.getByRole('link', { name: 'Playground', exact: true });
-    await expect(playground).toBeVisible();
-    expect(await playground.getAttribute('href')).toMatch(/^\/playground\/?$/);
-    // No preview, card, skeleton or drawing beside it.
-    expect(
-      await tools.locator('img, svg, canvas, figure, picture, video').count(),
-    ).toBe(0);
-    const linkBoxes = await tools.getByRole('link').evaluateAll((links) =>
-      links.map((link) => link.getBoundingClientRect().top),
-    );
-    expect(linkBoxes).toHaveLength(3);
-    for (const top of linkBoxes.slice(1)) {
-      expect(Math.abs(linkBoxes[0] - top)).toBeLessThanOrEqual(4);
+    const explore = page.getByRole('region', { name: 'Explore' });
+    for (const [name, href] of [
+      ['How robots work', /^\/how-robots-work\/?$/],
+      ['Market map', /^\/market-map\/?$/],
+      ['Playground', /^\/playground\/?$/],
+    ] as const) {
+      const link = explore.getByRole('heading', { level: 3, name }).getByRole('link', { name, exact: true });
+      await expect(link).toBeVisible();
+      expect(await link.getAttribute('href')).toMatch(href);
     }
+    // One picture each, and every one has a text alternative.
+    expect(await explore.getByRole('img').count()).toBe(3);
+    for (const img of await explore.getByRole('img').all()) {
+      const name = (await img.getAttribute('alt')) ?? (await img.getAttribute('aria-label')) ?? '';
+      expect(name.split(/\s+/).length).toBeGreaterThan(5);
+    }
+  });
+
+  test('the footer lines up with the sections above it on home, and keeps its column elsewhere', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/');
+    const edges = async () =>
+      page.evaluate(() => {
+        const footer = document.querySelector('[data-site-footer] > div:last-child')!.getBoundingClientRect();
+        const section = document.querySelector('main > section:last-of-type h2')?.getBoundingClientRect();
+        return { footerLeft: footer.left, footerWidth: footer.width, sectionLeft: section?.left ?? null };
+      });
+    const home = await edges();
+    expect(home.footerLeft).toBeCloseTo(0, 0);
+    expect(home.footerWidth).toBeCloseTo(1440, 0);
+    await page.goto('/about/');
+    const about = await edges();
+    expect(about.footerWidth).toBeCloseTo(960 + 2 * 48, 0);
+    expect(home.sectionLeft).toBeCloseTo(48, 0);
   });
 
   test('market map and playground entries navigate to their routes', async ({
@@ -315,7 +345,7 @@ test.describe('home page', () => {
       page.getByRole('heading', { level: 1 }),
     ).toBeVisible();
     await page.goto('/');
-    await main.getByRole('link', { name: 'Market Map', exact: true }).click();
+    await main.getByRole('link', { name: 'Market map', exact: true }).click();
     await expect(page).toHaveURL(/\/market-map\/?$/);
     await expect(
       page.getByRole('heading', { level: 1 }),
@@ -424,62 +454,54 @@ test.describe('home page', () => {
     await expect(index.locator('[data-contents-domain]')).toHaveCount(7);
   });
 
-  // Owner-approved successor (Josef, 2026-10-10, the research-page
-  // standard; the dot grid was removed in 9154d672): the old pin read the
-  // .engineering-grid field as an exact 80px band starting at the lockup's
-  // bottom and closing the bordered hero sheet. The masthead is now plain
-  // paper with no band: the lockup (h1 and descriptor) is followed by the
-  // counts line 12px below and the search 32px below that, the search
-  // closes the masthead, and the Contents section opens 48px below it on
-  // its 1px hairline rule, 16px under its heading. Each relation is pinned
-  // at the old band's one-decimal precision.
-  test('at 375px the masthead closes on its search and the first hairline follows at the locked rhythm (VAL-DSHOME-009)', async ({
+  // Owner-approved successor (Josef, 2026-11-12, the home redesign): the
+  // 375px masthead is the lockup, then the search and its counts, then the
+  // scene; the first section after it opens on its 1px hairline rule with
+  // its heading under it. Each relation is pinned at one-decimal precision.
+  test('at 375px the masthead runs lockup, search, scene, and the first hairline follows (VAL-DSHOME-009)', async ({
     page,
   }) => {
+    // Geometry is measured at rest: the first screen's entrance moves it.
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
     const boxes = await page.evaluate(() => {
       const hero = document.querySelector('main section[aria-label="Introduction"]');
       const lockup = hero?.querySelector(':scope > .home-lockup');
-      const counts = hero?.querySelector(':scope > [data-home-counts]');
-      const search = hero?.querySelector(':scope > form');
-      const contents = document.querySelector('main section[aria-labelledby="contents-heading"]');
-      const heading = contents?.querySelector(':scope > h2');
-      const rule = heading?.nextElementSibling;
-      if (!hero || !lockup || !counts || !search || !contents || !heading || !rule) return null;
+      const find = hero?.querySelector(':scope > .home-find');
+      const scene = hero?.querySelector(':scope > [data-explainer-scene]');
+      const next = hero?.nextElementSibling;
+      const heading = next?.querySelector(':scope > h2');
+      if (!hero || !lockup || !find || !scene || !next || !heading) return null;
       const r = (el: Element) => {
         const b = el.getBoundingClientRect();
         return { top: b.top, bottom: b.bottom, height: b.height };
       };
-      const rcs = getComputedStyle(rule);
+      const ncs = getComputedStyle(next);
       return {
         hero: r(hero),
         lockup: r(lockup),
-        counts: r(counts),
-        search: r(search),
-        contents: r(contents),
+        find: r(find),
+        scene: r(scene),
+        next: { ...r(next), width: ncs.borderTopWidth, colour: ncs.borderTopColor },
         heading: r(heading),
-        rule: { ...r(rule), width: rcs.borderTopWidth, colour: rcs.borderTopColor },
         children: [...hero.children]
           .filter((el) => el.tagName !== 'SCRIPT')
           .map((el) => el.tagName.toLowerCase()),
       };
     });
-    expect(boxes, 'masthead lockup, counts, search, and the Contents rule present').not.toBeNull();
-    const { hero, lockup, counts, search, contents, heading, rule, children } = boxes!;
-    // No band between the lockup and the masthead's end: exactly the
-    // lockup, the counts line and the search form.
-    expect(children).toEqual(['div', 'p', 'form']);
+    expect(boxes, 'masthead lockup, search, scene and the next section present').not.toBeNull();
+    const { hero, lockup, find, scene, next, heading, children } = boxes!;
+    expect(children).toEqual(['div', 'div', 'div']);
     expect(lockup.top).toBeGreaterThanOrEqual(hero.top);
-    expect(counts.top - lockup.bottom).toBeCloseTo(12, 1);
-    expect(search.top - counts.bottom).toBeCloseTo(32, 1);
-    expect(search.bottom).toBeCloseTo(hero.bottom, 1);
-    expect(contents.top - hero.bottom).toBeCloseTo(48, 1);
-    expect(heading.top).toBeCloseTo(contents.top, 1);
-    expect(rule.top - heading.bottom).toBeCloseTo(16, 1);
-    expect(rule.width).toBe('1px');
-    expect(rule.colour).toBe('rgba(28, 28, 26, 0.14)');
+    expect(find.top - lockup.bottom).toBeCloseTo(28, 1);
+    expect(scene.top - find.bottom).toBeCloseTo(28, 1);
+    expect(scene.bottom).toBeCloseTo(hero.bottom, 1);
+    expect(next.top - hero.bottom).toBeCloseTo(80, 1);
+    expect(heading.top - next.top).toBeCloseTo(19, 1);
+    expect(next.width).toBe('1px');
+    expect(next.colour).toBe('rgba(28, 28, 26, 0.22)');
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth,
     );
@@ -492,13 +514,17 @@ test.describe('home page', () => {
   // on white, a 208px column, two 1px axes and an 8px signal-blue point
   // sharing one centre). The locked title sheet is now plain paper: no grid
   // node or registered dot-grid device, the exact paper ground #FAFAF8 with
-  // no image, texture or frame on the sheet or anything in it, the declared
-  // `material:paper`, and the column that held the field is the counts and
-  // search column, exactly 22rem wide, 48px from the lockup, its search
-  // ending on the descriptor's last line.
+  // no texture or frame on the sheet, the declared `material:paper`.
+  // Owner-approved successor (Josef, 2026-11-12, the home redesign): the
+  // one image the sheet paints is the scene's own poster, inside the
+  // explainer; the lockup and the search hold the four columns left of the
+  // axis, the search below the descriptor, and the scene the eight to its
+  // right, its stage starting level with the wordmark.
   test('the hero title sheet is the locked plain-paper masthead with no grid device (VAL-DSBRAND-004)', async ({
     page,
   }) => {
+    // Geometry is measured at rest: the first screen's entrance moves it.
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
@@ -515,15 +541,18 @@ test.describe('home page', () => {
         const b = node.getBoundingClientRect();
         return { left: b.left, right: b.right, top: b.top, bottom: b.bottom, w: b.width };
       };
-      const painted = [el, ...el.querySelectorAll('*')].flatMap((node) =>
-        ['', '::before', '::after']
-          .map((pseudo) => getComputedStyle(node, pseudo).backgroundImage)
-          .filter((value) => value !== 'none'),
-      );
+      const painted = [el, ...el.querySelectorAll('*')]
+        .filter((node) => !node.closest('[data-explainer-scene]'))
+        .flatMap((node) =>
+          ['', '::before', '::after']
+            .map((pseudo) => getComputedStyle(node, pseudo).backgroundImage)
+            .filter((value) => value !== 'none'),
+        );
       const lockup = el.querySelector(':scope > .home-lockup');
-      const lead = lockup?.querySelector('.page-lead');
-      const counts = el.querySelector(':scope > [data-home-counts]');
-      const search = el.querySelector(':scope > form');
+      const lead = lockup?.querySelector('.home-descriptor');
+      const search = el.querySelector(':scope > .home-find form');
+      const scene = el.querySelector(':scope > [data-explainer-scene]');
+      const stage = scene?.querySelector('[data-x="stage"]');
       return {
         bg: cs.backgroundColor,
         body: getComputedStyle(document.body).backgroundColor,
@@ -533,8 +562,10 @@ test.describe('home page', () => {
         painted,
         lockup: lockup ? box(lockup) : null,
         lead: lead ? box(lead) : null,
-        counts: counts ? box(counts) : null,
         search: search ? box(search) : null,
+        scene: scene ? box(scene) : null,
+        stage: stage ? box(stage) : null,
+        h1: box(el.querySelector('h1')!),
       };
     });
     expect(metrics.bg).toBe('rgb(250, 250, 248)');
@@ -543,23 +574,24 @@ test.describe('home page', () => {
     expect(metrics.painted).toEqual([]);
     expect(metrics.borders).toEqual(['0px', '0px', '0px', '0px']);
     expect(metrics.shadow).toBe('none');
-    expect(metrics.lockup).not.toBeNull();
-    expect(metrics.lead).not.toBeNull();
-    expect(metrics.counts).not.toBeNull();
-    expect(metrics.search).not.toBeNull();
+    for (const key of ['lockup', 'lead', 'search', 'scene', 'stage'] as const) {
+      expect(metrics[key], key).not.toBeNull();
+    }
     const lockup = metrics.lockup!;
     const lead = metrics.lead!;
-    const counts = metrics.counts!;
     const search = metrics.search!;
-    // The right column is exactly 22rem (352px), 48px from the lockup.
-    expect(search.w).toBeCloseTo(352, 0);
-    expect(counts.w).toBeCloseTo(352, 0);
-    expect(search.left - lockup.right).toBeCloseTo(48, 1);
-    expect(counts.left).toBeCloseTo(search.left, 1);
-    // Counts sit 12px above the search, and the search's bottom edge lines
-    // up with the descriptor's.
-    expect(search.top - counts.bottom).toBeCloseTo(12, 1);
-    expect(search.bottom).toBeCloseTo(lead.bottom, 1);
+    const scene = metrics.scene!;
+    const stage = metrics.stage!;
+    const h1 = metrics.h1;
+    // Four columns of a 12-column, 32px-gutter frame, 1344px wide: 427px.
+    expect(lockup.w).toBeCloseTo(426.7, 0);
+    expect(search.left).toBeCloseTo(lockup.left, 1);
+    expect(search.top).toBeGreaterThan(lead.bottom);
+    // The scene starts on the axis, one gutter right of the lockup column,
+    // and runs to the frame's right edge.
+    expect(scene.left - lockup.right).toBeCloseTo(32, 1);
+    expect(scene.right).toBeCloseTo(1392, 1);
+    expect(Math.abs(stage.top - h1.top)).toBeLessThanOrEqual(12);
   });
 
   // Owner-approved successor (Josef, 2026-10-10, the research-page

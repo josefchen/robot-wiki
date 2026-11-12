@@ -22,7 +22,7 @@ describe('TerrainCurriculum', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Terrain curriculum');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Robots that cope get harder ground; strugglers get easier');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Robots that cross their patch move to harder ground; those covering under half move back.',
+      'Robots that cross their patch move to harder ground, and those that cover less than half of it move back.',
     );
   });
 

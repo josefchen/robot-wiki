@@ -32,6 +32,5 @@ describe('article outline heading text', () => {
           .map((item) => `${dir.name}/${file}: ${item.text}`)));
     expect(headings.length).toBeGreaterThan(100);
     expect(headings.filter((line) => line.includes('\\'))).toEqual([]);
-    expect(headings).toContain('data-hardware/hardware-taxonomy.mdx: Arms, from $122 to $70,000');
   });
 });

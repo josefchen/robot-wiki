@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { COMPANIES } from '@/data/companies';
-import { bubblePoints } from '@/lib/market-map';
+import { bubblePoints, formatUsd } from '@/lib/market-map';
 import { BubbleView } from '@/components/market-map/bubble-view';
 
 /**
@@ -67,7 +67,7 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const label = labelEl();
     expect(label).not.toBeNull();
     expect(label).toHaveTextContent('Figure AI');
-    expect(label).toHaveTextContent('$39B');
+    expect(label).toHaveTextContent(formatUsd(bubblePointsById().get('figure-ai')!.yUsd));
     await user.unhover(figure);
     expect(labelEl()).toBeNull();
   }, TIMEOUT);
@@ -79,7 +79,7 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const label = labelEl();
     expect(label).not.toBeNull();
     expect(label).toHaveTextContent('Physical Intelligence');
-    expect(label).toHaveTextContent('$5.6B');
+    expect(label).toHaveTextContent(formatUsd(bubblePointsById().get('physical-intelligence')!.yUsd));
     fireEvent.blur(mark('physical-intelligence'));
     expect(labelEl()).toBeNull();
   }, TIMEOUT);
@@ -90,49 +90,10 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const focusable = COMPANIES.filter((company) =>
       points.has(company.id),
     ).map((company) => mark(company.id));
-    // 36 of the 111 companies have both a founding year and a disclosed
-    // valuation or total raised; all of them are plotted.
-    // 38 -> 37 when the 2026-08-18 audit nulled unverifiable
-    // amounts/valuations that previously plotted; 37 -> 36 when the
-    // reconciliation sweep the same day nulled the-bot-company's founded
-    // year (no fetched source states it; dyna-robotics precedent), which
-    // removes the record from the founded-vs-funding plot. 36 -> 32 when
-    // the 2026-08-18 figure-corrections pass nulled clone-robotics,
-    // booster-robotics (totals; rounds carry no plottable figure),
-    // leju-robotics and hanson-robotics (aggregator conflicts).
-    // 32 -> 31 when the 2026-08-18 Mentee acquisition-status correction
-    // nulled totalRaisedUsd (the $900M acquisition is not a funding
-    // total; the March ~$21M round is snippet-grade only), so the row no
-    // longer plots on founded-vs-totalRaised.
-    // 31 -> 28 when the 2026-08-18 batch-3 re-verification nulled the
-    // aggregator-only valuations on spirit-ai ($1.5B rests on no fetched
-    // source; the company's own Feb 2026 release states $280M raised
-    // across two rounds at >¥10B, no USD valuation), tars-robotics
-    // ($1.9B appears in no fetched body; the real round is a $455M
-    // Pre-A), galaxea-ai (Yicai's "$29B" is uncorroborated and the
-    // $1.4B belonged to the February round) and agibot (the $1B/Series
-    // B figure is humanoidindex-derived; the fetched round record is an
-    // Aug 2025 strategic round with terms undisclosed). mind-robotics
-    // entered the plotted set the same day (founded 2025 confirmed by
-    // TechCrunch/TRR, so its fetched $3.4B valuation now plots).
-    // 28 -> 27 with the 2026-10-19 field audit: skild-ai left (its source
-    // says "more than $14 billion", a floor, not a valuation), 1x left (no
-    // fetched source states its $500M valuation), and boston-dynamics
-    // joined (its own release says Hyundai's deal valued it at $1.1B).
-    // 27 -> 29 with the 2026-10-20 field audit: LimX Dynamics ($2.21B,
-    // CNBC), Mentee Robotics ($900M, Mobileye's 8-K) and Berkshire Grey
-    // ($375M, its merger release) joined, each a valuation a fetched source
-    // states; Kepler Robot left (its $106.3M valuation was an aggregator's
-    // own conversion).
-    // 29 -> 28 the same day: Standard Bots left, because no fetched source
-    // states its founding year, which places a mark on the x axis.
-    // 28 -> 30 the same day, both by total raised: Lila Sciences (founded
-    // 2023, its own about page) and K-Scale Labs ($6.25M in total, 36Kr).
-    // 30 -> 31 the same day, by total raised: Mytra ($200M in total, its
-    // own company page).
-    // 31 -> 30 the same day: PaXini left, because its sources state its
-    // August 2026 round only in yuan and give no valuation.
-    expect(focusable.length).toBe(30);
+    // Every company with a founding year and a disclosed valuation or
+    // total raised is plotted, and each plotted mark is focusable.
+    expect(focusable.length).toBe(points.size);
+    expect(focusable.length).toBeGreaterThan(1);
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);
     const roving = focusable.filter((el) => el.tabIndex === -1);
@@ -195,12 +156,13 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const inks = Array.from(document.querySelectorAll('[data-mark-ink]'));
     const filled = inks.filter((el) => el.getAttribute('data-mark-kind') === 'valuation');
     const open = inks.filter((el) => el.getAttribute('data-mark-kind') === 'totalRaised');
-    expect(filled.length + open.length).toBe(30);
+    const plotted = bubblePoints(COMPANIES).length;
+    expect(filled.length + open.length).toBe(plotted);
     expect(open.length).toBeGreaterThan(0);
     expect(filled.every((el) => el.getAttribute('class') === 'fill-graphite')).toBe(true);
     expect(open.every((el) => el.getAttribute('class') === 'fill-paper stroke-graphite')).toBe(true);
     expect(document.querySelector('figcaption')).toHaveTextContent(
-      `30 of 111 companies plotted, ${filled.length} by valuation and ${open.length} by total raised.`,
+      `${plotted} of ${COMPANIES.length} companies plotted, ${filled.length} by valuation and ${open.length} by total raised.`,
     );
   }, TIMEOUT);
 });

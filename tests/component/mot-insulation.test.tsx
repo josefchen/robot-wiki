@@ -93,7 +93,7 @@ describe('MotInsulation', () => {
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Knowledge insulation');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'training used 7.5 times fewer steps than the earlier π0 robot model',
+      'matched π0 at table bussing in 7.5 times fewer steps',
     );
     // The one note now leads the hint under the drawing, beside the shut valves it names.
     const notes = container.querySelectorAll('[data-figure-annotation]');

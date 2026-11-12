@@ -169,7 +169,17 @@ describe('citation registry', () => {
     expect(citationLabel(getCitation('iso-iec-tr-5469-2024')!)).toBe('ISO/IEC JTC 1/SC 42 2024');
   });
 
-  it('gives every distinct registry source an unambiguous label without splitting aliases', () => {
+  it('registers each real source under one id, so no reference list prints it twice', () => {
+    const idsPerSource = new Map<string, string[]>();
+    for (const citation of CITATIONS) {
+      const key = sourceKey(citation);
+      idsPerSource.set(key, [...(idsPerSource.get(key) ?? []), citation.id]);
+    }
+    const repeated = [...idsPerSource].filter(([, ids]) => ids.length > 1);
+    expect(repeated).toEqual([]);
+  });
+
+  it('gives every distinct registry source an unambiguous label', () => {
     const sourcesPerLabel = new Map<string, Set<string>>();
     for (const citation of CITATIONS) {
       const label = citationLabel(citation);
@@ -178,9 +188,6 @@ describe('citation registry', () => {
       sourcesPerLabel.set(label, sources);
     }
     for (const [label, sources] of sourcesPerLabel) expect(sources.size, label).toBe(1);
-    expect(citationLabel(getCitation('diffusion-policy-2023')!)).toBe(
-      citationLabel(getCitation('diffusion-policy-2023-v1')!),
-    );
   });
 
   it('citationLabel keeps multi-word surnames via override, without breaking lookalikes', () => {

@@ -12,7 +12,7 @@ const scenes = [
   {
     id: 'sense-avoid',
     route: '/adjacent/drones/',
-    captions: [/spots a wall/i, /quick camera/i, /slower camera/i, /same swerving skill/i],
+    captions: [/spots a wall/i, /ordinary camera/i, /slower camera/i, /same swerving skill/i],
   },
 ] as const;
 
@@ -123,7 +123,7 @@ test('the home explainer labels its motors inside the stage, at both widths and 
           { timeout: 60_000 },
         );
         await expect(stage.locator('canvas')).toBeVisible();
-        await expect(frame.locator('[data-readout]')).toContainText('1.32 metres tall, about 35 kilograms');
+        await expect(frame.locator('[data-readout]')).toContainText('1.32 meters tall, about 35 kilograms');
         await frame.getByRole('button', { name: 'Next', exact: true }).click();
         const predict = frame.locator('[data-predict]');
         await expect(predict).toContainText('Where do most of its 23 motors go?');

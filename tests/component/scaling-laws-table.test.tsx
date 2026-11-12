@@ -23,7 +23,7 @@ describe('ScalingLawsTable', () => {
     render(<ScalingLawsTable />);
     expect(screen.getByText('Environments')).toBeInTheDocument();
     expect(screen.getAllByText('strong positive, power law')).toHaveLength(2);
-    expect(screen.getByText('about 50 per env')).toBeInTheDocument();
+    expect(screen.getByText('about 50 per environment')).toBeInTheDocument();
     expect(screen.getByText('negative unless debiased')).toBeInTheDocument();
     expect(screen.getByText('single-embodiment suffices')).toBeInTheDocument();
   });

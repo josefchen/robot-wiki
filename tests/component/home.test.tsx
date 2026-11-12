@@ -17,15 +17,19 @@ vi.mock('@/components/explainers/explainers.css', () => ({}));
 import Home from '@/app/page';
 import { EXPLAINER_ORDER } from '@/components/explainers/catalog';
 import { EXPLAINER_WORDS } from '@/components/explainers/words';
+import { COMPANIES } from '@/data/companies';
 import { DID_YOU_KNOW } from '@/data/did-you-know';
 import { HOME_FEATURED_PICKS, HOME_FEATURED_SCENE } from '@/data/home-featured';
-import { DOMAINS, DOMAIN_META, publishedModules } from '@/data/modules';
+import { getImage } from '@/data/images';
+import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '@/data/modules';
 import { GLOSSARY } from '@/data/glossary';
 import { citedSourceIds } from '@/lib/home-counts';
+import { latestChanges, readableDate } from '@/lib/home-updates';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 
 /** next/link and jsdom disagree about trailing slashes; the path is what matters. */
 const path = (href: string | null) => (href ?? '').replace(/\/$/, '');
+const words = (text: string) => text.split(/\s+/).filter(Boolean);
 
 function region(name: RegExp) {
   return screen.getByRole('region', { name });
@@ -34,11 +38,29 @@ function region(name: RegExp) {
 describe('Home page', () => {
   beforeEach(() => mockPush.mockClear());
 
+  it('holds its six sections in order, each named by its own heading', () => {
+    render(<Home />);
+    const main = document.body.firstElementChild as HTMLElement;
+    const sections = [...main.querySelectorAll(':scope > section')].map((section) => {
+      const labelledBy = section.getAttribute('aria-labelledby');
+      return (
+        section.getAttribute('aria-label') ??
+        (labelledBy ? document.getElementById(labelledBy)?.textContent ?? '' : '')
+      ).trim();
+    });
+    expect(sections).toEqual(['Introduction', 'Start here', 'Latest', 'Contents', 'Did you know', 'Explore']);
+    // One h1, then the section heads, then the entries under them.
+    expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
+    const levels = [...document.querySelectorAll('h1, h2, h3, h4, h5, h6')].map((h) => Number(h.tagName[1]));
+    for (let index = 1; index < levels.length; index += 1) {
+      expect(levels[index] - levels[index - 1], `heading ${index}`).toBeLessThanOrEqual(1);
+    }
+  });
+
   it('opens with the identity line and registry counts', () => {
     render(<Home />);
-    expect(
-      screen.getByRole('heading', { level: 1, name: PUBLIC_IDENTITY }),
-    ).toBeInTheDocument();
+    const h1 = screen.getByRole('heading', { level: 1 });
+    expect(h1.textContent).toBe(PUBLIC_IDENTITY);
     expect(screen.getByText(PUBLIC_DESCRIPTOR)).toBeInTheDocument();
     const counts = document.querySelector('[data-home-counts]');
     expect(counts?.textContent).toContain(`${publishedModules().length} articles`);
@@ -66,7 +88,95 @@ describe('Home page', () => {
     expect(mockPush).toHaveBeenCalledWith('/search/?q=diffusion%20policy');
   });
 
-  it('lists every domain with its description and every article as a plain link', () => {
+  it('sets the humanoid explainer in the first section, on its poster, with no 3D kit until the reader starts it', async () => {
+    startExplainers.mockClear();
+    render(<Home />);
+    const intro = region(/^introduction$/i);
+    const frame = within(intro).getByRole('group', { name: '3D explainer: Inside a humanoid' });
+    expect(frame).toHaveAttribute('data-explainer-scene', 'humanoid');
+    // The served stage is the explainer's poster and its first step as text.
+    const poster = within(frame).getAllByRole('img')[0];
+    expect(poster).toHaveAttribute('src', '/explainers/posters/humanoid.webp');
+    expect(poster).toHaveAttribute('alt', EXPLAINER_WORDS.humanoid.steps[0]);
+    expect(poster).toHaveAttribute('width');
+    expect(poster).toHaveAttribute('height');
+    expect(frame.querySelector('[data-step-text]')?.textContent).toBe(EXPLAINER_WORDS.humanoid.steps[0]);
+    // The stepper caption is the scene's description.
+    expect(document.getElementById(frame.getAttribute('aria-describedby') ?? '')).toBe(
+      frame.querySelector('[data-step-text]'),
+    );
+    expect(frame.querySelector('canvas')).toBeNull();
+    const start = frame.querySelector<HTMLButtonElement>('[data-x="start"]');
+    expect(start?.textContent).toBe(HOME_FEATURED_SCENE.startLabel);
+    // The stepper keeps its names.
+    expect(within(frame).getByRole('button', { name: 'Back' })).toBeDisabled();
+    expect(within(frame).getByRole('button', { name: 'Next' })).toBeInTheDocument();
+    // The viewer opens the one scene and waits for the start button.
+    await waitFor(() => expect(startExplainers).toHaveBeenCalledTimes(1));
+    expect(startExplainers).toHaveBeenCalledWith(frame.querySelector('[data-explainers]'), { scene: 'humanoid' });
+    const section = within(frame).getByRole('link', {
+      name: `All ${EXPLAINER_ORDER.length} explainers in How robots work`,
+    });
+    expect(path(section.getAttribute('href'))).toBe('/how-robots-work');
+    expect(EXPLAINER_ORDER).toHaveLength(12);
+  });
+
+  it('starts the reader at four editor picks, hottest first, each with its own picture, title and short dek', () => {
+    render(<Home />);
+    const start = region(/^start here$/i);
+    const entries = start.querySelectorAll('[data-start-here]');
+    expect([...entries].map((entry) => entry.getAttribute('data-start-here'))).toEqual([
+      'world-models/taxonomy',
+      'manipulation/vla-models',
+      'rl-sim2real/humanoid-wbc',
+      'frontier/reliability-gap',
+    ]);
+    entries.forEach((entry, index) => {
+      const pick = HOME_FEATURED_PICKS[index];
+      const title = getModule(pick.domain, pick.slug)?.title ?? '';
+      const heading = within(entry as HTMLElement).getByRole('heading', { level: 3, name: title });
+      const link = within(heading).getByRole('link', { name: title });
+      expect(path(link.getAttribute('href'))).toBe(`/${pick.domain}/${pick.slug}`);
+      const dek = entry.querySelector('[data-featured-dek]')?.textContent ?? '';
+      expect(dek).toBe(pick.dek);
+      expect(words(dek).length).toBeLessThanOrEqual(14);
+      // The picture is the article's registered image, with real alt text and its size set.
+      const img = within(entry as HTMLElement).getByRole('img');
+      const registered = getImage(pick.imageId);
+      expect(img).toHaveAttribute('src', registered?.file);
+      expect(img).toHaveAttribute('width', String(registered?.width));
+      expect(img).toHaveAttribute('height', String(registered?.height));
+      expect(words(img.getAttribute('alt') ?? '').length).toBeGreaterThan(5);
+      // Every picture sits in the same 3:2 frame.
+      expect(pick.crop.width / pick.crop.height).toBeCloseTo(1.5, 2);
+      // Its credit names the creator and links the licence.
+      const credit = entry.querySelector('[data-image-credit]');
+      expect(credit?.textContent).toContain(registered?.creator);
+      expect(credit?.querySelector(`a[href="${registered?.licenceUrl}"]`)).not.toBeNull();
+    });
+    expect(screen.queryByRole('region', { name: /featured article/i })).toBeNull();
+  });
+
+  it('lists the five latest changes with readable dates and any editor note', () => {
+    render(<Home />);
+    const latest = region(/^latest$/i);
+    const items = within(latest).getAllByRole('listitem');
+    const expected = latestChanges(5);
+    expect(items).toHaveLength(5);
+    items.forEach((item, index) => {
+      const change = expected[index];
+      const time = item.querySelector('time');
+      expect(time?.getAttribute('datetime')).toBe(change.date);
+      expect(time?.textContent).toBe(readableDate(change.date));
+      expect(time?.textContent).toMatch(/^\d{1,2} [A-Z][a-z]{2} \d{4}$/);
+      const link = within(item).getByRole('link');
+      expect(link).toHaveTextContent(change.title);
+      expect(path(link.getAttribute('href'))).toBe(`/${change.domain}/${change.slug}`);
+      expect(item.querySelector('[data-latest-note]')?.textContent).toBe(change.note);
+    });
+  });
+
+  it('lists every domain with its scope and every article as a plain link', () => {
     render(<Home />);
     const contents = region(/^contents$/i);
     for (const domain of DOMAINS) {
@@ -92,55 +202,6 @@ describe('Home page', () => {
     }
   });
 
-  it("features the editor's first pick with one link and its dek of 25 words or fewer", () => {
-    render(<Home />);
-    const featured = region(/featured article/i);
-    const links = within(featured).getAllByRole('link');
-    expect(links).toHaveLength(1);
-    expect(links[0]).toHaveTextContent('What Is a World Model?');
-    expect(path(links[0].getAttribute('href'))).toBe('/world-models/taxonomy');
-    const dek = featured.querySelector('[data-featured-dek]');
-    expect(dek?.textContent).toBe(HOME_FEATURED_PICKS[0].dek);
-    const words = (dek?.textContent ?? '').split(/\s+/).filter(Boolean);
-    expect(words.length).toBeGreaterThan(5);
-    expect(words.length).toBeLessThanOrEqual(25);
-  });
-
-  it('features the humanoid explainer on its poster, with no 3D kit until the reader starts it', async () => {
-    startExplainers.mockClear();
-    render(<Home />);
-    const scene = region(/featured scene/i);
-    const frame = within(scene).getByRole('group', { name: '3D explainer: Inside a humanoid' });
-    expect(frame).toHaveAttribute('data-explainer-scene', 'humanoid');
-    // The caption is the frame's description, and it is the one home's data holds.
-    const caption = document.getElementById(frame.getAttribute('aria-describedby') ?? '');
-    expect(caption?.textContent).toBe(HOME_FEATURED_SCENE.caption);
-    // The served stage is the explainer's poster and its first step as text.
-    const poster = within(frame).getByRole('img');
-    expect(poster).toHaveAttribute('src', '/explainers/posters/humanoid.webp');
-    expect(poster).toHaveAttribute('alt', EXPLAINER_WORDS.humanoid.steps[0]);
-    expect(frame.querySelector('[data-step-text]')?.textContent).toBe(EXPLAINER_WORDS.humanoid.steps[0]);
-    expect(frame.querySelector('canvas')).toBeNull();
-    const start = frame.querySelector<HTMLButtonElement>('[data-x="start"]');
-    expect(start?.textContent).toBe(HOME_FEATURED_SCENE.startLabel);
-    // The viewer opens the one scene and waits for the start button.
-    await waitFor(() => expect(startExplainers).toHaveBeenCalledTimes(1));
-    expect(startExplainers).toHaveBeenCalledWith(frame.querySelector('[data-explainers]'), { scene: 'humanoid' });
-  });
-
-  it('links the full explainer section and credits the related article', () => {
-    render(<Home />);
-    const scene = region(/featured scene/i);
-    const section = within(scene).getByRole('link', {
-      name: `All ${EXPLAINER_ORDER.length} explainers in How robots work`,
-    });
-    expect(path(section.getAttribute('href'))).toBe('/how-robots-work');
-    expect(EXPLAINER_ORDER).toHaveLength(12);
-    const related = within(scene).getByRole('link', { name: 'Humanoid Whole-Body Control' });
-    expect(path(related.getAttribute('href'))).toBe('/rl-sim2real/humanoid-wbc');
-    expect(within(scene).getAllByRole('link')).toHaveLength(2);
-  });
-
   it('holds three cited facts, each linked to its article', () => {
     render(<Home />);
     const facts = region(/did you know/i).querySelectorAll('[data-did-you-know]');
@@ -155,23 +216,30 @@ describe('Home page', () => {
     });
   });
 
-  it('lists five dated article changes', () => {
+  it('explores the explainers, the market map and the playground, each with a picture of itself', () => {
     render(<Home />);
-    const items = within(region(/recently updated/i)).getAllByRole('listitem');
-    expect(items).toHaveLength(5);
-    for (const item of items) {
-      expect(item.querySelector('time[datetime]')).not.toBeNull();
-      expect(within(item).getAllByRole('link')).toHaveLength(1);
+    const explore = region(/^explore$/i);
+    const expected = [
+      ['how-robots-work', 'How robots work', '/how-robots-work'],
+      ['market-map', 'Market map', '/market-map'],
+      ['playground', 'Playground', '/playground'],
+    ] as const;
+    for (const [key, name, href] of expected) {
+      const entry = explore.querySelector(`[data-explore="${key}"]`) as HTMLElement;
+      const link = within(entry).getByRole('link', { name });
+      expect(path(link.getAttribute('href'))).toBe(href);
+      const picture = within(entry).getByRole('img');
+      expect(words(picture.getAttribute('alt') ?? picture.getAttribute('aria-label') ?? '').length).toBeGreaterThan(5);
     }
-  });
-
-  it('links the playground, the explainers and the market map from one plain tools line', () => {
-    render(<Home />);
-    const tools = region(/^tools$/i);
-    expect(path(within(tools).getByRole('link', { name: 'Playground' }).getAttribute('href'))).toBe('/playground');
-    expect(path(within(tools).getByRole('link', { name: 'How robots work' }).getAttribute('href'))).toBe('/how-robots-work');
-    expect(path(within(tools).getByRole('link', { name: 'Market Map' }).getAttribute('href'))).toBe('/market-map');
-    expect(tools.querySelector('img, svg, article, figure')).toBeNull();
+    // The playground's picture is the grey SO-101 arm of the reaching explainer, not the lime-marked one.
+    const arm = within(explore.querySelector('[data-explore="playground"]') as HTMLElement).getByRole('img');
+    expect(arm).toHaveAttribute('src', '/explainers/posters/reaching.webp');
+    const map = explore.querySelector('[data-explore="market-map"]') as HTMLElement;
+    expect(map.textContent).toContain(`${COMPANIES.length} companies`);
+    expect(map.querySelectorAll('.square')).toHaveLength(COMPANIES.length);
+    expect(explore.querySelector('[data-explore="how-robots-work"]')?.textContent).toContain(
+      `${EXPLAINER_ORDER.length} short explainers`,
+    );
   });
 
   it('carries no reading guide, mission statement or old product name', () => {
@@ -179,5 +247,6 @@ describe('Home page', () => {
     const main = document.body.textContent ?? '';
     expect(main).not.toMatch(/how to read|reading order|prerequisites|atlas/i);
     expect(main).not.toContain('a citation is not a guarantee of verification');
+    expect(main).not.toMatch(/[–—]/);
   });
 });

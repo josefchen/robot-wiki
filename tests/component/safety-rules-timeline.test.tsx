@@ -24,14 +24,20 @@ describe('SafetyRulesTimeline', () => {
       ['iso-10218', '2025-02-05', ['iso-10218-1-2025', 'iso-10218-2-2025']],
       ['r15-06', '2025-10-29', ['a3-r1506-2025-store']],
       ['iso-25785-1', '2026-07-08', ['iso-cd-25785-1']],
+      ['eu-ai-omnibus', '2026-07-27', ['eu-ai-omnibus-2026']],
+      ['iso-13482', '2026-11-11', ['iso-13482-revision-2026']],
       ['eu-machinery-regulation', '2027-01-20', ['eu-machinery-regulation-2023']],
-      ['eu-ai-act', '2028-08-02', ['eu-ai-act-framework-2026']],
+      ['eu-ai-act-standalone', '2027-12-02', ['eu-ai-omnibus-2026']],
+      ['eu-ai-act', '2028-08-02', ['eu-ai-act-framework-2026', 'eu-ai-omnibus-2026']],
     ]);
     expect(SAFETY_RULES.map((r) => r.dateText)).toEqual([
       '5 February 2025',
       '29 October 2025',
       '8 July 2026',
+      '27 July 2026',
+      '11 November 2026',
       '20 January 2027',
+      '2 December 2027',
       '2 August 2028',
     ]);
     expect(fractionalYear('2027-01-01')).toBe(2027);
@@ -43,9 +49,9 @@ describe('SafetyRulesTimeline', () => {
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(kicker).toBe('Robot safety rules by date');
-    expect(heading).toBe('2025 standards; undated humanoid draft; learned-safety law in January 2027');
+    expect(heading).toBe('Learned safety parts come under EU law in January 2027');
     expect(caption).toBe(
-      'Industrial standards renewed in 2025; the humanoid draft has no next date; EU law covers safety components learning from data in January 2027.',
+      'Industrial standards were renewed in 2025 and the humanoid draft has no next date, while EU rules for learned safety parts start in 2027.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
@@ -82,7 +88,7 @@ describe('SafetyRulesTimeline', () => {
       'data-chart-role',
       'highlight',
     );
-    for (const id of ['iso-10218', 'r15-06', 'iso-25785-1', 'eu-ai-act']) {
+    for (const id of ['iso-10218', 'r15-06', 'iso-25785-1', 'eu-ai-omnibus', 'iso-13482', 'eu-ai-act-standalone', 'eu-ai-act']) {
       expect(screen.getByTestId(`safety-rule-${id}`).querySelector('circle')).toHaveAttribute(
         'data-chart-role',
         'measurement',
@@ -107,7 +113,7 @@ describe('SafetyRulesTimeline', () => {
       a.getAttribute('href'),
     );
     expect(links).toEqual(SAFETY_RULE_SOURCES.map((id) => records.find((r) => r.id === id)?.url));
-    expect(links).toHaveLength(6);
+    expect(links).toHaveLength(8);
   });
 });
 

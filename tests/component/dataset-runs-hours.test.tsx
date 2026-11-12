@@ -39,11 +39,11 @@ describe('DatasetRunsHours', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Five robot datasets');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'AgiBot World: 25 times FineART’s runs, under twice its hours',
+      "AgiBot World: 25 times FineART's runs, under twice its hours",
     );
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(caption).toBe(
-      "About 25 times the runs, under twice the hours: FineART’s attempts last much longer, averaging 2.5 minutes versus under 20 seconds elsewhere.",
+      "About 25 times the runs, under twice the hours: FineART's attempts last much longer, averaging 2.5 minutes versus under 20 seconds elsewhere.",
     );
     expect(caption.split(/\s+/).length).toBeLessThanOrEqual(25);
   });

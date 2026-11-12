@@ -25,7 +25,7 @@ describe('HindsightRelabel', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Hindsight experience replay');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Relabelled with where it ended, a miss still teaches');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Relabeled with where it ended, a miss still teaches');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
       'Hindsight experience replay relabels a missed push with where the puck stopped, turning reward 0 into a success.',
     );

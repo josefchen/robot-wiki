@@ -150,7 +150,7 @@ test('preserved H2O and ASAP chips retain hover/focus containment', async ({ pag
 test('existing WBC selection, readouts and reset remain functional', async ({ page }) => {
   // The three companies' robot brains are the frame's visible choice; Reset waits in Adjust more.
   const frame = page.locator('main [data-figure-frame="wbc-decomposition"]');
-  const group = frame.getByRole('group', { name: 'Robot brain by' });
+  const group = frame.getByRole('group', { name: 'Whole-body system' });
   const buttons = group.getByRole('button');
   await expect(buttons).toHaveCount(3);
   // The figure is a lazily loaded client chunk (components/mdx/lazy-mounts.tsx):

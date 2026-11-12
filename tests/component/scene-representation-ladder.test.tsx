@@ -176,7 +176,7 @@ describe('SceneRepresentationLadder', () => {
   it('states the takeaway as a short headline under a kicker', () => {
     const { container } = render(<SceneRepresentationLadder />);
     const title = container.querySelector('[data-figure-title]');
-    expect(title).toHaveTextContent('Only storage format changes which questions can be answered');
+    expect(title).toHaveTextContent('Storage format, not detail, decides what a map can answer');
     expect(title?.textContent?.trim().split(/\s+/).length).toBeLessThanOrEqual(10);
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Scene representations');
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
@@ -229,7 +229,7 @@ describe('SceneRepresentationLadder', () => {
       expect(screen.getByTestId(`scene-format-row-${id}`)).toContainElement(description);
       expect(description!.closest('details')).toBeNull();
     }
-    expect(screen.getByText('Other answers may need extra processing; the selected format’s details are shown below.').closest('details')).toBeNull();
+    expect(screen.getByText("Other answers may need extra processing; the selected format's details are shown below.").closest('details')).toBeNull();
     expect(screen.getByTestId('scene-resolution-rule').compareDocumentPosition(screen.getByTestId('scene-resolution-slider')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
@@ -245,7 +245,7 @@ describe('SceneRepresentationLadder', () => {
     const { container } = render(<SceneRepresentationLadder />);
     const notes = container.querySelectorAll('[data-figure-stage] [data-figure-annotation]');
     expect(notes).toHaveLength(1);
-    expect(notes[0]).toHaveTextContent('Hidden behind the box:marked ‘unknown’, not ‘empty’');
+    expect(notes[0]).toHaveTextContent('Hidden behind the box:marked "unknown", not "empty"');
     // An arrow, which first-time readers take for a pointer rather than for a mark in the room.
     expect(notes[0]!.querySelector('[data-annotation-pointer="arrow"] polygon')).not.toBeNull();
     expect(notes[0]!.querySelector('circle')).toBeNull();

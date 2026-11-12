@@ -11,7 +11,7 @@
     "build": "next build && node scripts/measure-reading-times.ts --rebuild",
     "build:ungated": "npm run prebuild && npm run build --ignore-scripts",
     "vercel-build": "npm run build && node scripts/check-article-boxes.ts && node scripts/check-article-sources.ts",
-    "refresh": "npm run generate:motion-tokens && npm run generate:motion-equations && npm run generate:companies && npm run generate:content-dates && npm run build && npm run regen:nav",
+    "refresh": "npm run generate:motion-tokens && npm run generate:motion-equations && npm run generate:companies && npm run generate:content-dates && npm run build",
     "postbuild": "node scripts/prune-export-artifacts.ts && node scripts/patch-404-guard.ts && node scripts/build-search.ts && node scripts/lint-no-slop.ts && npm run check:figure-system && npm run check:seo && npm run check:discovery-prose && npm run check:internal-links && npm run generate:og-cards",
     "pretypecheck": "node scripts/prune-next-type-duplicates.ts",
     "typecheck": "next typegen && tsc --noEmit",

@@ -9,7 +9,7 @@ describe('SwarmControlTable', () => {
     expect(rows).toHaveLength(3);
     for (const id of [
       'swarm-family-reactive-flocking',
-      'swarm-family-predictive-nmpc-control',
+      'swarm-family-model-predictive-control',
       'swarm-family-decentralized-trajectory-planning',
     ]) {
       expect(container.querySelector(`[data-testid="${id}"]`)).not.toBeNull();

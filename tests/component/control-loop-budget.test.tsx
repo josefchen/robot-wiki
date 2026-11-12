@@ -58,7 +58,7 @@ describe('ControlLoopBudget', () => {
   it('the data-centre preset shows the cited H100 prediction inside one beat', async () => {
     const user = userEvent.setup();
     const { container } = render(<ControlLoopBudget />);
-    await user.click(screen.getByRole('button', { name: 'Data-centre computer' }));
+    await user.click(screen.getByRole('button', { name: 'Data-center computer' }));
     expect(container.querySelectorAll('[data-clb-beat="missed"]')).toHaveLength(0);
     expect(verdict()).toHaveTextContent('closes at 50 Hz');
     expect(screen.getByTestId('control-time-comparison')).toHaveTextContent('Choosing a move takes 6.2 milliseconds; the arm has 20 milliseconds between commands. That is 0.3 times the available time.');

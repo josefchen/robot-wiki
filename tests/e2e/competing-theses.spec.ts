@@ -17,7 +17,7 @@ const THESIS_NAMES = [
   'Just make it bigger',
   'A planner directs simple skills',
   'Let the robot imagine first',
-  'Copy first, then practise',
+  'Copy first, then practice',
   'Humans steer while robots learn',
   'Human-shaped or built for the job',
 ];
@@ -134,7 +134,7 @@ test.describe('frontier competing-theses module', () => {
       await expect(detail.getByText('Who backs it')).toBeVisible();
       await expect(detail.getByText('Evidence for')).toBeVisible();
       await expect(detail.getByText('Evidence against')).toBeVisible();
-      await expect(detail.getByText('We’d know it’s wrong if')).toBeVisible();
+      await expect(detail.getByText("We'd know it's wrong if")).toBeVisible();
       // Each field carries content, and the evidence carries citation chips.
       const detailText = (await detail.textContent()) ?? '';
       expect(detailText.length).toBeGreaterThan(400);
@@ -195,11 +195,11 @@ test.describe('frontier competing-theses module', () => {
       .focus();
     await page.keyboard.press('ArrowUp');
     await expect(readout).toHaveText(
-      '6 bets, showing: Copy first, then practise',
+      '6 bets, showing: Copy first, then practice',
     );
     await expect(detail).toContainText('RL-100');
     const rlButton = explorer.getByRole('button', {
-      name: 'Copy first, then practise',
+      name: 'Copy first, then practice',
     });
     await expect(rlButton).toHaveAttribute('aria-pressed', 'true');
     await expect(rlButton).toBeFocused();

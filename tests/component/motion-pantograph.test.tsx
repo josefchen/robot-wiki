@@ -80,7 +80,7 @@ describe('MotionPantograph', () => {
     expect(container.querySelector('[data-readout]')).toHaveTextContent('3 to 1 · 30 mm at the hand, 10 mm at the tip');
     const svg = screen.getByRole('img');
     expect(svg.querySelectorAll('text')).toHaveLength(0);
-    expect(svg.getAttribute('aria-label')).toMatch(/a 30 millimetre stroke .* moves the tip 10 millimetres/);
+    expect(svg.getAttribute('aria-label')).toMatch(/a 30 millimeter stroke .* moves the tip 10 millimeters/);
     expect(container.querySelectorAll('.iso-solid[data-lit]')).toHaveLength(1);
     expect(screen.getByTestId('pantograph-hand-trace')).toHaveAttribute('data-mm', '30');
     expect(screen.getByTestId('pantograph-tip-trace')).toHaveAttribute('data-mm', '10');
@@ -106,7 +106,7 @@ describe('MotionPantograph', () => {
     expect(screen.getByTestId('pantograph-tip-trace')).toHaveAttribute('data-mm', '6');
     expect(screen.getByTestId('pantograph-linkage')).toHaveAttribute('data-scale', '5');
     expect(hand()).toBe(before);
-    expect(slider).toHaveAttribute('aria-valuetext', '5 to 1: a 30 millimetre hand movement moves the tip 6 millimetres');
+    expect(slider).toHaveAttribute('aria-valuetext', '5 to 1: a 30 millimeter hand movement moves the tip 6 millimeters');
     fireEvent.change(slider, { target: { value: '2' } });
     expect(screen.getByTestId('pantograph-tip-trace')).toHaveAttribute('data-mm', '15');
   });

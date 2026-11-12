@@ -97,7 +97,7 @@ describe('the safety filter model', () => {
 describe('SafetyFilterFence', () => {
   it('draws the still pose: the aim inside the fence, the pen held at its edge, no words in the drawing', () => {
     render(<SafetyFilterFence />);
-    expect(screen.getByText('The simple filter gets checked; it guards each proposed move')).toBeInTheDocument();
+    expect(screen.getByText('A checked safety filter guards each move the controller proposes')).toBeInTheDocument();
     const rule = screen.getByTestId('fence-safe-branch');
     const main = screen.getByTestId('fence-main-point');
     expect(main).toHaveTextContent('The simple safety filter is what engineers check.');

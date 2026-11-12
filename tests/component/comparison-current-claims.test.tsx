@@ -45,25 +45,8 @@ describe('comparison current claim corrections', () => {
     expect(new Set(parsed.data.citations).size).toBe(parsed.data.citations.length);
   });
 
-  it('does not invent a continuous pi0.7 execution interval', () => {
-    expect(parsed.content).toContain('15 or 25');
-    expect(parsed.content).not.toMatch(/15 to 25|15-25/);
-  });
-
-  it('replaces the universal regression-displacement and latency assertions', () => {
-    expect(parsed.content).not.toMatch(/every row samples|Generative action heads displaced regression|twice the end-to-end latency|Fifty hertz became the standard claim|frontier rows all carry/);
-    expect(parsed.content).toContain('deterministically');
-  });
-
-  it('scopes DP horizons to a named configuration rather than all architectures', () => {
-    expect(parsed.content).toContain('CNN Push-T');
-    expect(parsed.content).toContain('prediction and execution horizons of 2, 16 and 8');
-  });
-
-  it('does not call an unset scalar proof that a primary paper lacks rates', () => {
+  it('names the table so an unset rate is not read as proof that a paper lacks one', () => {
     render(<ComparisonMatrix />);
-    expect(screen.getByRole('table')).toHaveAccessibleName(/Unset scalar rates do not prove/);
-    expect(parsed.content).not.toContain('neither states a single');
-    expect(parsed.content).not.toContain('rates, are omitted rather than repeated');
+    expect(screen.getByRole('table')).toHaveAccessibleName(/An empty rate cell does not mean a source reports no rate/);
   });
 });

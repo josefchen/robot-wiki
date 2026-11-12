@@ -12,7 +12,7 @@
  * - MonoRace: TU Delft's news of 15 April 2025, and the MonoRace paper
  *   (arXiv 2601.15222), which dates the competition to 11 and 12 April
  *   2025 and says it beat "three human FPV world champions in a direct
- *   knockout tournament" on drone hardware and a track the organisers set.
+ *   knockout tournament" on drone hardware and a track the organizers set.
  * - A2RL 2026: the A2RL release of January 2026. Minchan Kim faced TII
  *   Racing "in a best-of-nine showdown that remained tied at four wins
  *   apiece", and won when "the autonomous drone struck a gate and was
@@ -65,7 +65,7 @@ export const RACING_CONTESTS: readonly RacingContest[] = [
     row: 'Swift, University of Zurich',
     when: 'August 2023 (Nature)',
     result: `AI won ${SWIFT_WINS} of ${SWIFT_RACES} races against three champions`,
-    setting: 'the researchers’ own lab, track and hardware',
+    setting: "the researchers' own lab, track and hardware",
     citationIds: ['swift-drone-racing-2023', 'tudelft-a2rl-2025'],
   },
   {
@@ -78,7 +78,7 @@ export const RACING_CONTESTS: readonly RacingContest[] = [
     row: 'MonoRace, TU Delft',
     when: 'April 2025 (A2RL)',
     result: 'AI beat three human world champions in a knockout',
-    setting: 'hardware and track set by the organisers',
+    setting: 'hardware and track set by the organizers',
     citationIds: ['monorace-2026', 'tudelft-a2rl-2025'],
   },
   {

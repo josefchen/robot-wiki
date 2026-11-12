@@ -517,14 +517,15 @@ describe('identity geometry and typography stay aligned', () => {
   });
 
   it('does not draw a chart-like teaser around unsourced quantities', () => {
-    const home = read('app/page.tsx');
+    const explore = read('components/home/explore.tsx');
     // The market-map entry once drew a bubble scatter with a dashed
     // trend line: arbitrary circle radii read as funding values and the
-    // diagonal implied a correlation, none of it sourced. The front page
-    // now links the map from its tools line as plain text, so home draws
-    // no marks for it at all.
-    expect(home).toContain('href="/market-map/"');
-    expect(home).not.toMatch(/MarketMapPoster|<svg|circle\s+cx=|<path/);
+    // diagonal implied a correlation, none of it sourced. Home now links
+    // the map from Explore with one equal square per company, counted from
+    // the company data, so nothing on it reads as a funding value.
+    expect(explore).toContain("href: '/market-map/'");
+    expect(explore).toContain('COMPANIES');
+    expect(explore).not.toMatch(/MarketMapPoster|<circle|trend/i);
     expect(existsSync(join(process.cwd(), 'components/market-map/market-map-poster.tsx'))).toBe(false);
   });
 });

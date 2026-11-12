@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs';
 import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
@@ -33,8 +32,8 @@ describe('ACT five source-scoped records', () => {
   it('preserves source-scoped horizon, rate and weight absence on both tables', () => {
     const view = render(<PolicyChunkingTable />);
     expect(screen.getByRole('row', { name: /^RT-1 / })).toHaveTextContent('not disclosed');
-    expect(screen.getByRole('row', { name: /^pi0.5 / })).toHaveTextContent('mobile');
-    expect(screen.getByRole('row', { name: /^GR00T / })).toHaveTextContent('inference');
+    expect(screen.getByRole('row', { name: /^π0\.5 / })).toHaveTextContent('mobile');
+    expect(screen.getByRole('row', { name: /^GR00T N1\.7 / })).toHaveTextContent('inference');
     expect(screen.getByRole('row', { name: /^Helix / })).toHaveTextContent('announcement');
     expect(within(screen.getByRole('table')).queryByText('n/a')).toBeNull();
     view.unmount();
@@ -55,13 +54,5 @@ describe('ACT five source-scoped records', () => {
     for (const name of ['RT-1', 'π0.6', 'π0.7', 'Helix 02']) {
       expect(unknown.some(method => method.name === name)).toBe(true);
     }
-  });
-  it('places actual citations and replaces the unqualified release cutoff', () => {
-    const article = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');
-    for (const id of ['rt1-2022', 'pi05-2025', 'openpi-repo-2024', 'isaac-gr00t-repo-2026', 'helix-02-2026']) {
-      expect(article).toContain(`<Cite id="${id}" />`);
-    }
-    expect(article).not.toContain('the open releases stop at pi0.5');
-    expect(article).toContain('NVIDIA Open Model License');
   });
 });

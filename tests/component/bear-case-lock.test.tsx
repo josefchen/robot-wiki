@@ -12,7 +12,7 @@ afterEach(() => {
 });
 
 describe('the bear-case lock model', () => {
-  it("takes each pin's status from the watchlist's milestone for that result, and none is met in September 2026", () => {
+  it("takes each pin's status from the watchlist's milestone for that result, and none is met in November 2026", () => {
     expect(PREMISES.map(({ id }) => id)).toEqual(['commercial', 'generalization', 'form-factor', 'plateau']);
     for (const premise of PREMISES) {
       const milestone = MILESTONES.find(({ id }) => id === premise.milestone);
@@ -56,7 +56,7 @@ describe('the bear-case lock model', () => {
   });
 
   it('reads out in words', () => {
-    expect(readoutFor(NONE_SUPPOSED, 0)).toBe('None of 4 in, 2 partly · locked');
+    expect(readoutFor(NONE_SUPPOSED, 0)).toBe('None of 4 shown yet, 2 partly · locked');
     expect(readoutFor({ ...NONE_SUPPOSED, commercial: true, plateau: true }, 0)).toBe('Supposing 2 of 4 · still locked');
     expect(readoutFor(ALL, TURN / 2)).toBe('All 4 supposed · pins reach the line');
     expect(readoutFor(ALL, TURN)).toBe('All 4 supposed · the plug turns');
@@ -72,7 +72,7 @@ describe('BearCaseLock', () => {
     expect(drawing).toHaveAttribute('data-on-line', '0');
     expect(drawing).toHaveAttribute('data-open', 'false');
     const stage = screen.getByTestId('bear-lock-stage-frame');
-    expect(stage.querySelector('[data-readout]')).toHaveTextContent('None of 4 in, 2 partly · locked');
+    expect(stage.querySelector('[data-readout]')).toHaveTextContent('None of 4 shown yet, 2 partly · locked');
     expect(stage).toHaveTextContent(/illustrative/);
     const svg = drawing.querySelector('svg')!;
     expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
@@ -141,7 +141,7 @@ describe('BearCaseLock', () => {
   it('server-renders the still pose it hydrates', () => {
     const html = renderToString(<BearCaseLock />);
     expect(html).toContain('data-figure-frame="bear-case-lock"');
-    expect(html).toContain('None of 4 in, 2 partly · locked');
+    expect(html).toContain('None of 4 shown yet, 2 partly · locked');
     expect(html).not.toContain('aria-pressed="true"');
   });
 });

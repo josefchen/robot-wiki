@@ -22,7 +22,7 @@ describe('HandEyePoses', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Hand-eye calibration');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Camera calibration needs three poses; past twelve, little improves');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'At least three poses locate the camera relative to the wrist. More poses improve the estimate, with little benefit beyond about twelve.',
+      'Three poses are the minimum to locate the camera on the wrist, and past about twelve more poses add little.',
     );
   });
 
@@ -38,7 +38,7 @@ describe('HandEyePoses', () => {
     expect(screen.getByTestId('hand-eye-ring')).not.toHaveAttribute('data-open');
     expect(screen.getByTestId('hand-eye-ring')).toHaveAttribute('data-gap', irisGap(3).toFixed(3));
     expect(container.querySelectorAll('[data-peg]')).toHaveLength(3);
-    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Opening: relative position uncertainty; 1.0 is the three-pose baseline, with no physical units');
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('1.0 is its size at three poses');
     // The minimum remains a numeric 1.0 reference, now explained as uncertainty.
     const row = [...container.querySelectorAll('details[data-chart-data] tbody tr')].find((tr) => tr.querySelector('th')?.textContent === '3');
     expect(row?.querySelector('td')).toHaveTextContent('1.0');
@@ -55,7 +55,7 @@ describe('HandEyePoses', () => {
     fireEvent.change(slider, { target: { value: '15' } });
     expect(slider).toHaveAttribute('aria-valuetext', '15 poses: 3.6 times tighter than with 3');
     expect(container.querySelectorAll('[data-peg]')).toHaveLength(15);
-    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('that opening barely shrinks');
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('the iris barely closes further');
     const drawing = screen.getByTestId('hand-eye-stage');
     expect(drawing.querySelector('text, title, desc, foreignObject')).toBeNull();
     expect(drawing.textContent).toBe('');
