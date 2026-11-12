@@ -1,21 +1,19 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { EXPLAINER_ORDER, POSTER_SIZE } from '@/components/explainers/catalog';
 import { EXPLAINER_WORDS } from '@/components/explainers/words';
 import { ContentsIndex } from '@/components/home/contents-index';
-import { DidYouKnow, HOME_PROSE_LINK_CLASS } from '@/components/home/did-you-know';
+import { DidYouKnow } from '@/components/home/did-you-know';
+import { Explore } from '@/components/home/explore';
 import { FeaturedExplainer } from '@/components/home/featured-explainer';
 import { HomeSearch } from '@/components/home/home-search';
+import { LatestChanges } from '@/components/home/latest-changes';
+import { StartHere } from '@/components/home/start-here';
+import { IntentLink } from '@/components/ui/intent-link';
 import { HOME_FEATURED_SCENE } from '@/data/home-featured';
-import { getModule, publishedModules } from '@/data/modules';
 import { materialAttributes } from '@/lib/brand-v2-materials';
-import { recentlyUpdated } from '@/lib/content-dates';
-import {
-  HOME_ROTATING_WORDS,
-  featuredArticleWithin,
-  recentListWords,
-} from '@/lib/featured-article';
+import { startHere } from '@/lib/featured-article';
 import { homeCounts } from '@/lib/home-counts';
+import { latestChanges } from '@/lib/home-updates';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { HOME_META_DESCRIPTION, websiteJsonLd } from '@/lib/seo';
@@ -42,158 +40,79 @@ export const metadata: Metadata = {
 };
 
 /**
- * Home is an encyclopedia front page: the identity line with live counts
- * and search, the contents of all seven domains, the editor's featured
- * article, one featured 3D explainer, three cited facts, the latest article
- * changes and a line of tool links. Scope, reading guidance and the citation
- * caveat live on /about/.
+ * Home is an encyclopedia front page built around one robot. The first
+ * screen sets the name, the descriptor, the search and the live counts
+ * beside the humanoid explainer, which the reader can turn in 3D. Below it:
+ * where to start, what changed lately, the full contents, three cited facts
+ * and the three things on the site that are not articles. Scope, reading
+ * guidance and the citation caveat live on /about/.
  *
- * The sections are direct children of <main>, because the structural
- * signature checks in contract/design-integrity.md measure them there.
+ * Every section is a direct child of <main>, and each one carries
+ * data-pagefind-body itself: once one page declares a body region Pagefind
+ * skips pages that declare none (VAL-SEARCH-021).
  */
-const container = 'sheet';
-
-const heading = 'section-h2';
-
-/**
- * The registered structural signature of each section, as
- * `surface/heading/form`, checked against
- * contract/brand-v2-section-signature-registry.json.
- */
-const SECTION_SIGNATURES = {
-  identity: 'sheet/display-lockup/search-form',
-  contents: 'ruled-plain/index-heading/row-links',
-  featuredArticle: 'plain/module-heading/lead-excerpt',
-  featuredScene: 'plain/module-heading/motion-scene',
-  didYouKnow: 'plain/module-heading/cited-facts',
-  recentlyUpdated: 'plain/module-heading/dated-links',
-  tools: 'ruled-plain/inline-label/link-line',
-} as const;
-
 export default function Home() {
   const counts = homeCounts();
-  const recent = recentlyUpdated(publishedModules(), 5);
-  const featured = featuredArticleWithin(HOME_ROTATING_WORDS - recentListWords(recent));
+  const entries = startHere();
+  const latest = latestChanges(5);
   const scene = HOME_FEATURED_SCENE;
   const explainer = EXPLAINER_ORDER.find(({ id }) => id === scene.explainer);
-  const related = getModule(scene.related.domain, scene.related.slug);
   if (!explainer) {
     throw new Error(`the featured scene names ${scene.explainer}, which the explainer catalog does not list`);
-  }
-  if (!related || related.status !== 'published') {
-    throw new Error('the featured scene credits an article that is not published');
   }
 
   return (
     <>
-      {/* data-pagefind-body sits on each section rather than a wrapper:
-          once one page declares a body region Pagefind skips pages that
-          declare none, so home needs its own (VAL-SEARCH-021), and a
-          wrapper would stop the sections being children of <main>. */}
       <section
         aria-label="Introduction"
         data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.identity}
         // The home representative surface declares its material: paper,
         // the one texture-free ground the site paints (VAL-B2-SURF-011).
         {...materialAttributes('paper')}
-        className={`${container} sheet-masthead home-masthead material-paper`}
+        className="home-frame home-hero material-paper"
       >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: websiteJsonLd() }}
         />
-        {/* The masthead of the Pantheon standard: one DM Sans display H1,
-            the locked descriptor as the lead, and the live counts as the
-            muted meta line. */}
         {/* The lockup is the h1 and the descriptor alone in one container:
-            every other text beside the wordmark would read as a descriptor
-            surface (VAL-B2-ID-002), so the counts and the search sit
-            outside it. */}
+            any other text beside the wordmark would read as a descriptor
+            surface (VAL-B2-ID-002). The two words stack as blocks with a
+            real space between them, so the heading's text stays exactly
+            the public identity. */}
         <div className="home-lockup">
-          <h1 data-tektur-role="home-wordmark" className="display-h1">
-            {PUBLIC_IDENTITY}
+          <h1 data-tektur-role="home-wordmark" className="home-wordmark">
+            <span className="home-wordmark-line">
+              <span>{PUBLIC_IDENTITY.split(' ')[0]}</span>
+            </span>{' '}
+            <span className="home-wordmark-line">
+              <span>{PUBLIC_IDENTITY.split(' ').slice(1).join(' ')}</span>
+            </span>
           </h1>
-          {/* The locked string verbatim, in sentence case. No
-              text-transform: a rendered casing change would fail the byte
-              comparison in VAL-B2-ID-002. */}
-          <p className="page-lead">{PUBLIC_DESCRIPTOR}</p>
+          {/* The locked string verbatim, in sentence case. */}
+          <p className="home-descriptor">{PUBLIC_DESCRIPTOR}</p>
         </div>
-        {/* Counted from the registries at build time. */}
-        <p data-home-counts className="meta-line">
-          <span>{counts.articles} articles</span>
-          <span aria-hidden="true"> · </span>
-          <span data-brand-highlight="home-source-count">
-            {counts.sources} sources
-          </span>
-          <span aria-hidden="true"> · </span>
-          <span>{counts.glossaryTerms} glossary terms</span>
-        </p>
-        <HomeSearch className="home-masthead-search mt-8" />
-      </section>
-      <section
-        aria-labelledby="contents-heading"
-        data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.contents}
-        className={`${container} sheet-section home-section`}
-      >
-        <h2
-          id="contents-heading"
-          data-tektur-role="section-display"
-          className={heading}
-        >
-          Contents
-        </h2>
-        <ContentsIndex />
-      </section>
-
-      {/* The editor's first pick and the dek written for home
-          (data/home-featured.ts), which fit beside "Recently updated"
-          (lib/featured-article.ts). */}
-      <section
-        aria-labelledby="featured-article-heading"
-        data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.featuredArticle}
-        className={`${container} sheet-section home-section`}
-      >
-        <h2 id="featured-article-heading" data-tektur-role="section-display" className={heading}>
-          Featured article
-        </h2>
-        <p className="home-feature-title">
-          <Link
-            data-brand-control-id="control:link-focus"
-            href={featured.href}
-            className={HOME_PROSE_LINK_CLASS}
-          >
-            {featured.title}
-          </Link>
-        </p>
-        <p data-featured-dek className="home-feature-dek">
-          {featured.dek}
-        </p>
-      </section>
-
-      <section
-        aria-labelledby="featured-scene-heading"
-        data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.featuredScene}
-        className={`${container} sheet-section home-section`}
-      >
-        <h2 id="featured-scene-heading" data-tektur-role="section-display" className={heading}>
-          Featured scene
-        </h2>
+        <div className="home-find">
+          <HomeSearch />
+          {/* Counted from the registries at build time. */}
+          <p data-home-counts className="meta-line home-counts">
+            <span>{counts.articles} articles</span>
+            <span aria-hidden="true"> · </span>
+            <span data-brand-highlight="home-source-count">{counts.sources} sources</span>
+            <span aria-hidden="true"> · </span>
+            <span>{counts.glossaryTerms} glossary terms</span>
+          </p>
+        </div>
         {/* One explainer from /how-robots-work/, on its poster until the
             reader starts it (components/home/featured-explainer.tsx). */}
         <div
           role="group"
           aria-label={`3D explainer: ${explainer.label}`}
-          aria-describedby="featured-scene-caption"
+          // The stepper caption describes the scene, step by step.
+          aria-describedby="featured-scene-step"
           data-explainer-scene={explainer.id}
-          className="home-explainer"
+          className="home-scene home-explainer"
         >
-          <p id="featured-scene-caption" className="home-feature-dek">
-            {scene.caption}
-          </p>
           <FeaturedExplainer
             scene={explainer.id}
             firstStep={EXPLAINER_WORDS[explainer.id].steps[0]}
@@ -201,120 +120,80 @@ export default function Home() {
             posterHeight={POSTER_SIZE.height}
             startLabel={scene.startLabel}
           />
-          <ul className="home-run home-explainer-source meta-line">
-            <li>
-              <Link
-                data-brand-control-id="control:link-focus"
-                href="/how-robots-work/"
-                className={HOME_PROSE_LINK_CLASS}
-              >
-                All {EXPLAINER_ORDER.length} explainers in How robots work
-              </Link>
-            </li>
-            <li>
-              {' '}
-              Related:{' '}
-              <Link
-                data-brand-control-id="control:link-focus"
-                href={`/${scene.related.domain}/${scene.related.slug}/`}
-                className={HOME_PROSE_LINK_CLASS}
-              >
-                {related.title}
-              </Link>
-            </li>
-          </ul>
+          <p className="home-scene-more">
+            <IntentLink
+              data-brand-control-id="control:link-focus"
+              href="/how-robots-work/"
+              className="ink-link"
+            >
+              All {EXPLAINER_ORDER.length} explainers in How robots work
+            </IntentLink>
+          </p>
         </div>
+      </section>
+
+      <section
+        aria-labelledby="start-here-heading"
+        data-pagefind-body
+        className="home-frame home-section home-start"
+      >
+        <h2 id="start-here-heading" data-tektur-role="section-display" className="section-h2 home-h2">
+          Start here
+        </h2>
+        <StartHere entries={entries} />
+      </section>
+
+      {/* Dated by git (data/content-dates.json) or by the editor's note in
+          data/updates.ts, whichever names the latest change. */}
+      <section
+        aria-labelledby="latest-heading"
+        data-pagefind-body
+        className="home-frame home-section home-aside"
+      >
+        <div className="home-aside-head">
+          <h2 id="latest-heading" data-tektur-role="section-display" className="section-h2 home-h2">
+            Latest
+          </h2>
+          <p className="home-aside-more">
+            <IntentLink data-brand-control-id="control:link-focus" href="/a-z/" className="ink-link">
+              All articles, A to Z
+            </IntentLink>
+          </p>
+        </div>
+        <LatestChanges changes={latest} />
+      </section>
+
+      <section
+        aria-labelledby="contents-heading"
+        data-pagefind-body
+        className="home-frame home-section home-contents"
+      >
+        <h2 id="contents-heading" data-tektur-role="section-display" className="section-h2 home-h2">
+          Contents
+        </h2>
+        <ContentsIndex />
       </section>
 
       <section
         aria-labelledby="did-you-know-heading"
         data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.didYouKnow}
-        className={`${container} sheet-section home-section`}
+        className="home-frame home-section home-aside home-facts"
       >
-        <h2 id="did-you-know-heading" data-tektur-role="section-display" className={heading}>
+        <h2 id="did-you-know-heading" data-tektur-role="section-display" className="section-h2 home-h2">
           Did you know
         </h2>
         <DidYouKnow />
       </section>
 
-      {/* Dated by git (data/content-dates.json), the same date each
-          article's JSON-LD states as dateModified, and printed in that
-          form: one word per date keeps the list inside the home word
-          budget of VAL-OPUS-021. */}
       <section
-        aria-labelledby="recently-updated-heading"
+        aria-labelledby="explore-heading"
         data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.recentlyUpdated}
-        className={`${container} sheet-section home-section`}
+        className="home-frame home-section home-explore"
       >
-        <h2 id="recently-updated-heading" data-tektur-role="section-display" className={heading}>
-          Recently updated
+        <h2 id="explore-heading" data-tektur-role="section-display" className="section-h2 home-h2">
+          Explore
         </h2>
-        <ol className="border-t border-border text-[15px] leading-6">
-          {recent.map((entry) => (
-            <li
-              key={`${entry.domain}/${entry.slug}`}
-              className="flex flex-col items-baseline gap-x-6 border-b border-border py-3 min-[360px]:flex-row"
-            >
-              <time
-                dateTime={entry.dateModified}
-                className="w-24 shrink-0 font-mono text-[13px] tabular-nums text-text-dim"
-              >
-                {entry.dateModified}
-              </time>
-              <Link
-                data-brand-control-id="control:link-focus"
-                href={`/${entry.domain}/${entry.slug}/`}
-                className={`min-w-0 ${HOME_PROSE_LINK_CLASS}`}
-              >
-                {entry.title}
-              </Link>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section
-        aria-label="Tools"
-        data-pagefind-body
-        data-brand-module-signature={SECTION_SIGNATURES.tools}
-        className={`${container} sheet-section home-section`}
-      >
-        <div className="flex flex-wrap items-baseline gap-x-4 border-t border-border pt-4 text-[15px]">
-          <span className="eyebrow">Tools</span>
-          <ul className="home-run leading-[1.65]">
-            <li>
-              <Link
-                data-brand-control-id="control:link-focus"
-                href="/playground/"
-                className={HOME_PROSE_LINK_CLASS}
-              >
-                Playground
-              </Link>
-            </li>
-            <li>
-              {' '}
-              <Link
-                data-brand-control-id="control:link-focus"
-                href="/how-robots-work/"
-                className={HOME_PROSE_LINK_CLASS}
-              >
-                How robots work
-              </Link>
-            </li>
-            <li>
-              {' '}
-              <Link
-                data-brand-control-id="control:link-focus"
-                href="/market-map/"
-                className={HOME_PROSE_LINK_CLASS}
-              >
-                Market Map
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <Explore explainerCount={EXPLAINER_ORDER.length} />
       </section>
     </>
   );

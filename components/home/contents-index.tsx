@@ -20,59 +20,50 @@ export const HOME_DOMAIN_SUMMARIES: Record<Domain, string> = {
   adjacent: 'Vehicles, drones, surgery and space',
 };
 
-const linkClass = 'ink-link';
-
 /**
- * The contents index: every domain, then every published article in it as
- * a plain link, in registry order.
+ * The contents index: every domain, its one-line scope, then every
+ * published article in it as a plain link, in registry order. On a phone the
+ * articles run inline, so the index stays short; from a tablet up they stand
+ * one to a line in columns, read like the contents of a book.
  *
- * Each domain's name and summary share one element so the name link's
- * parent is the entry the home sweeps measure; the article list is its
- * sibling, so a long list does not stretch that entry below the fold.
+ * Each domain's name and scope share one element, and the article list is
+ * its sibling.
  */
 export function ContentsIndex() {
   const published = publishedModules();
   return (
-    <div className={'divide-y divide-border border-y border-border' /* taste-skill-ignore: Research-page domain index rows retain their required hairlines. */}>
-      {DOMAINS.map((domain) => (
-        <div
-          key={domain}
-          data-contents-domain={domain}
-          className="grid items-start gap-x-6 gap-y-1 py-2 md:grid-cols-[15.5rem_minmax(0,1fr)]"
-        >
-          <p className="text-[15px] leading-[1.4]">
-            <IntentLink
-              data-brand-control-id="control:link-focus"
-              href={`/${domain}/`}
-              className="font-display font-semibold text-text transition-colors hover:text-text-dim"
-            >
-              {DOMAIN_META[domain].name}
-            </IntentLink>
-            <span className="block text-[13px] text-text-dim">
-              {HOME_DOMAIN_SUMMARIES[domain]}
-            </span>
-          </p>
-          <ul
-            aria-label={`${DOMAIN_META[domain].name} articles`}
-            className="home-run text-[14px] leading-[1.75]"
-          >
-            {published
-              .filter((entry) => entry.domain === domain)
-              .map((entry, index) => (
+    <div className="home-index">
+      {DOMAINS.map((domain) => {
+        const articles = published.filter((entry) => entry.domain === domain);
+        return (
+          <div key={domain} data-contents-domain={domain} className="contents-domain">
+            <p className="contents-head">
+              <IntentLink
+                data-brand-control-id="control:link-focus"
+                href={`/${domain}/`}
+                className="contents-name"
+              >
+                {DOMAIN_META[domain].name}
+              </IntentLink>
+              <span className="contents-scope">{HOME_DOMAIN_SUMMARIES[domain]}</span>
+            </p>
+            <ul aria-label={`${DOMAIN_META[domain].name} articles`} className="home-run contents-list">
+              {articles.map((entry, index) => (
                 <li key={entry.slug}>
                   {index > 0 ? ' ' : null}
                   <IntentLink
                     data-brand-control-id="control:link-focus"
                     href={`/${domain}/${entry.slug}/`}
-                    className={linkClass}
+                    className="ink-link"
                   >
                     {entry.title}
                   </IntentLink>
                 </li>
               ))}
-          </ul>
-        </div>
-      ))}
+            </ul>
+          </div>
+        );
+      })}
     </div>
   );
 }

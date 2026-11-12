@@ -1,41 +1,35 @@
-import { HOME_FEATURED_PICKS, type HomeFeaturedPick } from '../data/home-featured.ts';
-import { DOMAIN_META, getModule, publishedModules } from '../data/modules.ts';
+import { HOME_FEATURED_PICKS, type HomeCrop, type HomeFeaturedPick } from '../data/home-featured.ts';
+import { creditNoun, getImage, licenceLabel } from '../data/images.ts';
+import { DOMAIN_META, getModule } from '../data/modules.ts';
 import { wordCount } from './article-lead.ts';
 import { homeCopyProblems } from './home-copy.ts';
+import { moduleSource } from './module-source.ts';
 
 /**
- * The home page's featured article: the first of the editor's picks in
- * data/home-featured.ts, with the dek written for home. It changes only
- * when an editor edits that list, never with the date.
+ * The home page's "Start here" entries: the editor's picks in
+ * data/home-featured.ts, in their order, each with the dek and the picture
+ * chosen for home. They change only when an editor edits that list, never
+ * with the date.
  */
-export const FEATURED_DEK_MAX_WORDS = 25;
+export const FEATURED_DEK_MAX_WORDS = 14;
 
-/**
- * The words the featured article and "Recently updated" share on home: the
- * featured title and dek, and each update's date and title. The update
- * titles change with each content commit, so every pick has to fit this
- * share beside the five longest titles any update could print; the rest of
- * <main> fits in what this leaves of the 250-word VAL-OPUS-021 budget,
- * which tests/e2e/home-front-page.spec.ts measures.
- */
-export const HOME_ROTATING_WORDS = 56;
+/** How many entries "Start here" shows, side by side. */
+export const START_HERE_COUNT = 4;
 
-/** The words a "Recently updated" list prints: an ISO date and a title per row. */
-export function recentListWords(entries: readonly { title: string }[]): number {
-  return entries.reduce((sum, { title }) => sum + 1 + wordCount(title), 0);
-}
+/** The crop shape every entry shares. */
+export const ENTRY_CROP_RATIO = 3 / 2;
 
-/**
- * The most words a five-row "Recently updated" list can print: the five
- * longest published titles, each with its date.
- */
-export function longestRecentListWords(
-  entries: readonly { title: string }[] = publishedModules(),
-): number {
-  return recentListWords(
-    [...entries].sort((left, right) => wordCount(right.title) - wordCount(left.title)).slice(0, 5),
-  );
-}
+export type FeaturedPicture = {
+  id: string;
+  src: string;
+  /** The source image's own size, in pixels. */
+  width: number;
+  height: number;
+  crop: HomeCrop;
+  alt: string;
+  /** The visible credit: what it is, who made it, and its licence. */
+  credit: { kind: string; creator: string; licence: string; licenceUrl: string; sourceUrl?: string };
+};
 
 export type FeaturedArticle = {
   domain: string;
@@ -43,6 +37,7 @@ export type FeaturedArticle = {
   title: string;
   href: string;
   dek: string;
+  picture: FeaturedPicture;
 };
 
 /**
@@ -59,15 +54,31 @@ export function domainNamesIn(text: string): string[] {
 
 export const FEATURED_MAX_DOMAIN_NAMES = 3;
 
+/** Whether the article's own source mounts the registered image `imageId`. */
+export function articleShowsImage(
+  domain: string,
+  slug: string,
+  imageId: string,
+  read: (domain: string, slug: string) => string = moduleSource,
+): boolean {
+  const escaped = imageId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`<Image\\s+id="${escaped}"`).test(read(domain, slug));
+}
+
 /**
- * Every reason `pick` could not be featured on home; empty when it can. A
- * dek prints no digit, because a number on home needs a citation and the
- * dek carries none.
+ * Every reason `pick` could not be shown on home; empty when it can. A dek
+ * prints no digit, because a number on home needs a citation and the dek
+ * carries none. `ratio` is the crop shape its place on home needs.
  */
-export function featuredPickProblems(pick: HomeFeaturedPick): string[] {
+export function featuredPickProblems(
+  pick: HomeFeaturedPick,
+  ratio: number = ENTRY_CROP_RATIO,
+  read: (domain: string, slug: string) => string = moduleSource,
+): string[] {
   const problems: string[] = [];
   const entry = getModule(pick.domain, pick.slug);
-  if (!entry || entry.status !== 'published') {
+  const published = entry?.status === 'published';
+  if (!published) {
     problems.push(`${pick.domain}/${pick.slug} is not a published article`);
   }
   const words = wordCount(pick.dek);
@@ -81,48 +92,76 @@ export function featuredPickProblems(pick: HomeFeaturedPick): string[] {
   if (named.length > FEATURED_MAX_DOMAIN_NAMES) {
     problems.push(`the title and dek name ${named.length} domains, which only the contents index may list`);
   }
+  const image = getImage(pick.imageId);
+  if (!image) {
+    problems.push(`${pick.imageId} is not a registered image`);
+  } else {
+    if (published && !articleShowsImage(pick.domain, pick.slug, pick.imageId, read)) {
+      problems.push(`${pick.imageId} is not one of ${pick.domain}/${pick.slug}'s own images`);
+    }
+    const { x, y, width, height } = pick.crop;
+    if (x < 0 || y < 0 || width <= 0 || height <= 0 || x + width > image.width || y + height > image.height) {
+      problems.push(`the crop falls outside ${pick.imageId}'s ${image.width} by ${image.height} pixels`);
+    }
+    if (Math.abs(width / height - ratio) > 0.01) {
+      problems.push(`the crop is ${(width / height).toFixed(2)}:1, not the ${ratio.toFixed(2)}:1 its place needs`);
+    }
+  }
+  if (wordCount(pick.alt) < 6) problems.push('the picture has no real alternative text');
   return problems;
 }
 
-/** One pick as home prints it, or an error naming why it cannot be featured. */
-export function featuredArticleFrom(pick: HomeFeaturedPick): FeaturedArticle {
-  const problems = featuredPickProblems(pick);
+/** One pick as home prints it, or an error naming why it cannot be shown. */
+export function featuredArticleFrom(
+  pick: HomeFeaturedPick,
+  ratio: number = ENTRY_CROP_RATIO,
+): FeaturedArticle {
+  const problems = featuredPickProblems(pick, ratio);
   if (problems.length > 0) {
     throw new Error(`the featured pick ${pick.domain}/${pick.slug} cannot be featured: ${problems.join('; ')}`);
   }
   const { title } = getModule(pick.domain, pick.slug)!;
+  const image = getImage(pick.imageId)!;
   return {
     domain: pick.domain,
     slug: pick.slug,
     title,
     href: `/${pick.domain}/${pick.slug}/`,
     dek: pick.dek,
+    picture: {
+      id: image.id,
+      src: image.file,
+      width: image.width,
+      height: image.height,
+      crop: pick.crop,
+      alt: pick.alt,
+      credit: {
+        kind: creditNoun(image),
+        creator: image.creator,
+        licence: licenceLabel(image),
+        licenceUrl: image.licenceUrl,
+        sourceUrl: image.sourceUrl,
+      },
+    },
   };
 }
 
-/** The featured article: the first pick, and only the first. */
+/** The "Start here" entries: the first four picks, in order. */
+export function startHere(
+  picks: readonly HomeFeaturedPick[] = HOME_FEATURED_PICKS,
+): FeaturedArticle[] {
+  if (picks.length < START_HERE_COUNT) {
+    throw new Error(`home needs ${START_HERE_COUNT} picks to start from and has ${picks.length}`);
+  }
+  return picks
+    .slice(0, START_HERE_COUNT)
+    .map((pick) => featuredArticleFrom(pick));
+}
+
+/** The first entry: the hottest pick. */
 export function featuredArticle(
   picks: readonly HomeFeaturedPick[] = HOME_FEATURED_PICKS,
 ): FeaturedArticle {
   if (picks.length === 0) throw new Error('home has no featured pick');
   return featuredArticleFrom(picks[0]);
-}
-
-/**
- * The featured article, refused when its title and dek do not fit in
- * `maxWords`, so a list of updates that leaves too little room fails the
- * build rather than the word budget.
- */
-export function featuredArticleWithin(
-  maxWords: number,
-  picks: readonly HomeFeaturedPick[] = HOME_FEATURED_PICKS,
-): FeaturedArticle {
-  const featured = featuredArticle(picks);
-  const words = wordCount(featured.title) + wordCount(featured.dek);
-  if (words > maxWords) {
-    throw new Error(
-      `the featured title and dek run to ${words} words, over the ${maxWords} home has left`,
-    );
-  }
-  return featured;
 }

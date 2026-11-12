@@ -24,7 +24,11 @@ export function FeaturedExplainer({
   startLabel,
 }: {
   scene: ExplainerId;
-  /** The explainer's first step, which is also its poster's alternative text. */
+  /**
+   * The explainer's first step, which is also its poster's alternative text.
+   * The stepper caption that shows it carries the id `featured-scene-step`,
+   * so the page can name it as the scene's description.
+   */
   firstStep: string;
   posterWidth: number;
   posterHeight: number;
@@ -89,7 +93,7 @@ export function FeaturedExplainer({
         </div>
         <div className="steps">
           <div className="dots" data-x="dots" data-steps />
-          <p className="step-text" data-x="stepText" data-step-text aria-live="polite">
+          <p id="featured-scene-step" className="step-text" data-x="stepText" data-step-text aria-live="polite">
             {firstStep}
           </p>
           <div className="nav">
