@@ -126,14 +126,14 @@ export default function CreditsPage() {
         </h1>
         <p className="mt-5 font-serif text-base leading-[1.62] text-text">
           Every photograph and diagram on {PUBLIC_IDENTITY} is listed here
-          with its creator, source page and licence. Article images are CC0,
-          CC BY, CC BY-SA, public domain or used under a documented reuse
-          permission. No image is AI-generated.
+          with its creator, source and license. Article images are CC0, CC BY,
+          CC BY-SA, public domain or used with documented permission. No image
+          is AI-generated.
         </p>
         <p className="mt-4 font-serif text-base leading-[1.62] text-text">
-          Market-map logos include official company marks, recorded as
-          unlicensed or unknown where no reuse grant is named. The
-          site&apos;s own text and original diagrams are licensed CC BY 4.0.
+          Market Map logos are the companies&apos; own marks, listed as
+          unlicensed or unknown where no reuse grant exists. The site&apos;s
+          own text and original diagrams are licensed CC BY 4.0.
         </p>
         {/* Author identity (VAL-DIST-009): the /credits occurrence of the
             owner-supplied name, byte-identical with meta[name=author] and
@@ -174,7 +174,7 @@ export default function CreditsPage() {
           from machine learning and cites the source of every claim.
         </p>
         <p className="mt-4 font-sans text-sm text-text-dim">
-          Corrections follow the{' '}
+          To correct an error, see the{' '}
           <Link
             data-brand-control-id="control:link-focus"
             href="/editorial-policy/"
@@ -182,7 +182,7 @@ export default function CreditsPage() {
           >
             editorial policy
           </Link>
-          ;{' '}
+          {' '}or{' '}
           <a
             data-brand-control-id="control:link-focus"
             href={CONTENT_CORRECTION_URL}
@@ -190,7 +190,7 @@ export default function CreditsPage() {
             rel="noopener"
             className="ink-link"
           >
-            report a factual issue on GitHub
+            report it on GitHub
           </a>
           .
         </p>

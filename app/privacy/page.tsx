@@ -40,13 +40,13 @@ export default function PrivacyPage() {
           Privacy
         </h1>
         <p className="mt-5 font-serif text-base leading-[1.62] text-text">
-          Robot Wiki uses Vercel Web Analytics to understand which pages are
-          useful and how readers find them. The integration is limited to
-          anonymous, aggregate traffic measurement. It does not use advertising
-          identifiers or add a cross-site profile.
+          Robot Wiki uses Vercel Web Analytics to see which pages are read
+          and how readers find them. It measures anonymous, aggregate traffic
+          only, with no advertising identifiers and no profile of you across
+          sites.
         </p>
         <p className="mt-3 font-mono text-xs text-text-dim">
-          Last updated 24 August 2026
+          Last updated August 24, 2026
         </p>
       </header>
 
@@ -55,11 +55,11 @@ export default function PrivacyPage() {
           What is measured
         </h2>
         <p className={prose}>
-          The service records page views, the page path, referral source,
-          approximate region, browser, operating system, device category, and
-          event time. Robot Wiki removes query strings and fragments before an
-          event is sent. This means text entered into site search is not
-          transmitted as analytics data.
+          Each page view records the page path, the referring site, an
+          approximate region, the browser, operating system and device type,
+          and the time. Query strings and fragments are removed before
+          anything is sent, so what you type into site search is never
+          recorded.
         </p>
       </section>
 
@@ -68,11 +68,10 @@ export default function PrivacyPage() {
           What is excluded
         </h2>
         <p className={prose}>
-          Robot Wiki does not send names, email addresses, account identifiers,
-          internal search phrases, form contents, or full query-string URLs.
-          There are no user accounts, advertising pixels, or Google Analytics
-          tags on the site. Analytics is disabled on preview and local
-          deployments.
+          No names, email addresses, account identifiers, search terms or
+          form contents are sent. The site has no user accounts, advertising
+          pixels or Google Analytics. Analytics is off on preview and local
+          builds.
         </p>
       </section>
 
@@ -81,20 +80,19 @@ export default function PrivacyPage() {
           Purpose and questions
         </h2>
         <p className={prose}>
-          Aggregate data is used to find broken entry paths, prioritize article
-          updates, and evaluate whether search and distribution work reaches the
-          intended robotics audience. It is not sold or used for advertising.
-          Vercel processes the measurements as the hosting and analytics
-          provider.
+          The totals show which links into the site are broken and which
+          articles to update first. They are never sold or used for
+          advertising. Vercel processes them as the site&apos;s host and
+          analytics provider.
         </p>
         <p className="mt-4 font-sans text-sm leading-relaxed text-text-dim">
-          Questions or correction requests can be raised through the{' '}
+          Questions go through the same channel as corrections; see the{' '}
           <Link
             data-brand-control-id="control:link-focus"
             href="/editorial-policy/"
             className="ink-link"
           >
-            editorial and corrections policy
+            editorial policy
           </Link>
           .
         </p>

@@ -43,8 +43,8 @@ export default function EditorialPolicyPage() {
         </h1>
         <p className="mt-5 font-serif text-base leading-[1.62] text-text">
           Robot Wiki is an independent reference on modern robotics. It ranks
-          no products and states uncertainty, deployment constraints and
-          disagreement.
+          no products and says where evidence is thin or researchers
+          disagree.
         </p>
       </header>
 
@@ -53,11 +53,11 @@ export default function EditorialPolicyPage() {
           Sources and evidence
         </h2>
         <p className={prose}>
-          Every non-obvious claim is cited. Papers, official documentation,
-          dataset cards, standards and first-party technical reports come
-          first. A secondary source is used when it is the clearest record or
-          the primary cannot be retrieved, and the text says so. Unknown
-          values are reported as unknown.
+          Every number and non-obvious claim is cited to its primary source
+          where one exists: the paper, standard, dataset card or company
+          report. A secondary source is used only when it is clearer or the
+          primary cannot be found, and the text says so. Unknown values are
+          marked unknown.
         </p>
       </section>
 
@@ -66,24 +66,22 @@ export default function EditorialPolicyPage() {
           Review and updates
         </h2>
         <p className={prose}>
-          Every published article passes the content-schema,
-          citation-resolution, internal-link, accessibility and
-          production-build checks. Its review date changes only after a
-          material factual or explanatory review. Fast-moving model, dataset,
-          evaluation and deployment pages are checked more often than
-          mathematical foundations.
+          Each article shows the date it was last reviewed, and that date
+          changes only when its facts have been checked again. Articles on
+          fast-moving models, datasets and deployments are reviewed more
+          often than those on mathematical foundations.
         </p>
       </section>
 
       <section aria-labelledby="expert-heading" className="mt-16">
         <h2 id="expert-heading" className={sectionHeading}>
-          Expert criticism
+          Expert review
         </h2>
         <p className={prose}>
-          Researchers, maintainers, engineers and educators may review an
-          article for errors or missing context. A reviewer is named only with
-          permission, and a conflict is disclosed when someone reviews coverage
-          of their own work.
+          Researchers and engineers are welcome to review an article for
+          errors or missing context. Reviewers are named only with their
+          permission, and a reviewer&apos;s stake in the work under review is
+          disclosed.
         </p>
       </section>
 
@@ -92,10 +90,10 @@ export default function EditorialPolicyPage() {
           Corrections
         </h2>
         <p className={prose}>
-          Correction requests name the page, the disputed claim and a
-          supporting source. A confirmed error is fixed in the article and,
-          where relevant, its structured data or interactive; a material
-          correction gets a new review date.
+          Corrections are welcome. Name the page, the disputed claim and a
+          supporting source. A confirmed error is fixed everywhere it
+          appears, charts included, and a substantial correction gets a new
+          review date.
         </p>
         <p className="mt-4 font-sans text-sm leading-relaxed text-text-dim">
           <a
@@ -105,11 +103,11 @@ export default function EditorialPolicyPage() {
             rel="noopener"
             className={inlineLink}
           >
-            Open a content-correction report on GitHub
+            Report a correction on GitHub
           </a>{' '}
-          or review the repository&apos;s{' '}
+          or see the{' '}
           <Link data-brand-control-id="control:link-focus" href="/credits/" className={inlineLink}>
-            authorship and image credits
+            author and image credits
           </Link>
           .
         </p>

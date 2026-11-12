@@ -53,6 +53,15 @@
  */
 import type { Citation } from './schemas/citation.ts';
 import { sourceKey } from '../lib/citation-source-key.ts';
+import { ADDITIONS as MANIPULATION_A_ADDITIONS } from './citation-additions/manipulation-a.ts';
+import { ADDITIONS as MANIPULATION_B_ADDITIONS } from './citation-additions/manipulation-b.ts';
+import { ADDITIONS as RL_SIM2REAL_ADDITIONS } from './citation-additions/rl-sim2real.ts';
+import { ADDITIONS as WORLD_MODELS_ADDITIONS } from './citation-additions/world-models.ts';
+import { ADDITIONS as DATA_HARDWARE_ADDITIONS } from './citation-additions/data-hardware.ts';
+import { ADDITIONS as CLASSICAL_ADDITIONS } from './citation-additions/classical.ts';
+import { ADDITIONS as FRONTIER_ADDITIONS } from './citation-additions/frontier.ts';
+import { ADDITIONS as ADJACENT_ADDITIONS } from './citation-additions/adjacent.ts';
+import { ADDITIONS as GLOSSARY_ADDITIONS } from './citation-additions/glossary.ts';
 
 export type { Citation } from './schemas/citation.ts';
 
@@ -121,27 +130,9 @@ export const CITATIONS: Citation[] = [
     ],
     year: 2023,
     // Landing metadata describes an extended journal version of the original RSS2023 paper.
-    // Keep this eight-author work distinct from the explicitly cited original v1.
+    // One entry per arXiv record: the original v1 is this same document.
     arxiv: '2303.04137',
     url: 'https://arxiv.org/abs/2303.04137',
-    type: 'paper',
-  },
-  {
-    id: 'diffusion-policy-2023-v1',
-    title: 'Diffusion Policy: Visuomotor Policy Learning via Action Diffusion',
-    authors: [
-      'Cheng Chi',
-      'Siyuan Feng',
-      'Yilun Du',
-      'Zhenjia Xu',
-      'Eric Cousineau',
-      'Benjamin Burchfiel',
-      'Shuran Song',
-    ],
-    year: 2023,
-    // Original arXiv v1, 7 March 2023; not the later eight-author edition.
-    arxiv: '2303.04137',
-    url: 'https://arxiv.org/abs/2303.04137v1',
     type: 'paper',
   },
   {
@@ -9471,9 +9462,10 @@ export const CITATIONS: Citation[] = [
   },
   {
     // KOL backlog batch 2026-10-05 (Yuke Zhu intake). Abstract page and HTML
-    // full text fetched 2026-10-05; submitted 3 June 2026.
+    // full text fetched 2026-10-05; submitted 3 June 2026. arXiv Atom API
+    // read 2026-11-12: v2 (19 Oct 2026) retitled the paper.
     id: 'grail-2026',
-    title: 'GRAIL: Generating Humanoid Loco-Manipulation from 3D Assets and Video Priors',
+    title: 'GRAIL: Generating Humanoid Loco-Manipulation from World Models',
     authors: [
       'Tianyi Xie', 'Haotian Zhang', 'Jinhyung Park', 'Zi Wang', 'Bowen Wen', 'Jiefeng Li', 'Xueting Li',
       'Qingwei Ben', 'Haoyang Weng', 'Yufei Ye', 'David Minor', 'Tingwu Wang', 'Chenfanfu Jiang', 'Sanja Fidler',
@@ -11666,7 +11658,7 @@ export const CITATIONS: Citation[] = [
     year: 2026,
     arxiv: '2601.00675',
     url: 'https://arxiv.org/abs/2601.00675',
-    type: 'docs',
+    type: 'paper',
   },
   // ecomem-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu.
   // Abstract page fetched 2026-10-06; submitted 30 September 2026.
@@ -16693,6 +16685,7 @@ export const CITATIONS: Citation[] = [
     title: 'Boston Dynamics Unveils New Atlas Robot to Revolutionize Industry',
     authors: ['Boston Dynamics'],
     year: 2026,
+    venue: 'Boston Dynamics blog, 2026-01-05',
     url: 'https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/',
     type: 'press',
   },
@@ -19155,16 +19148,6 @@ export const CITATIONS: Citation[] = [
     arxiv: '2405.02292',
     url: 'https://arxiv.org/abs/2405.02292',
     type: 'paper',
-  },
-  // bd-atlas-unveil-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
-  {
-    id: 'bd-atlas-unveil-2026',
-    title: 'Boston Dynamics Unveils New Atlas Robot to Revolutionize Industry',
-    authors: ['Boston Dynamics'],
-    year: 2026,
-    venue: 'Boston Dynamics blog, 2026-01-05',
-    url: 'https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/',
-    type: 'press',
   },
   // bd-rmac-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy, data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
   {
@@ -23873,6 +23856,16 @@ export const CITATIONS: Citation[] = [
     "url": "https://arxiv.org/abs/2106.00170",
     "type": "paper"
   },
+  // Reviewed additions, one file per domain under data/citation-additions/.
+  ...MANIPULATION_A_ADDITIONS,
+  ...MANIPULATION_B_ADDITIONS,
+  ...RL_SIM2REAL_ADDITIONS,
+  ...WORLD_MODELS_ADDITIONS,
+  ...DATA_HARDWARE_ADDITIONS,
+  ...CLASSICAL_ADDITIONS,
+  ...FRONTIER_ADDITIONS,
+  ...ADJACENT_ADDITIONS,
+  ...GLOSSARY_ADDITIONS,
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -23895,6 +23888,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['1X Technologies', '1X Technologies'],
   ['Advanced Machine Intelligence (AMI Labs)', 'AMI Labs'],
   ['Agility Robotics', 'Agility Robotics'],
+  ['AI Robot Association (AIRoA)', 'AIRoA'],
   ['ALOHA 2 Team', 'ALOHA 2 Team'],
   ['Amazon Staff', 'Amazon'],
   ['Association for Advancing Automation', 'A3'],
@@ -23906,13 +23900,17 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['California DMV', 'California DMV'],
   ['Canadian Space Agency', 'Canadian Space Agency'],
   ['CMR Surgical', 'CMR Surgical'],
+  ['Cognex Corporation', 'Cognex'],
   ['Creative Commons', 'Creative Commons'],
   ['DROID Dataset Team', 'DROID Dataset Team'],
-  ['EVST Engineering Team', 'EVST Engineering Team'],
+  ['Dyna Robotics', 'Dyna Robotics'],
   ['European Commission', 'European Commission'],
   ['European Parliament and Council of the European Union', 'European Union'],
+  ['EVST Engineering Team', 'EVST Engineering Team'],
   ['Federal Aviation Administration', 'FAA'],
   ['Federal Communications Commission', 'FCC'],
+  ['Federal Motor Carrier Safety Administration', 'FMCSA'],
+  ['FF EAI Robotics Ecosystem Inc.', 'FF EAI Robotics'],
   ['Figure AI', 'Figure AI'],
   ['Franka Robotics', 'Franka Robotics'],
   ['GEAR Team', 'GEAR Team'],
@@ -23926,10 +23924,12 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['International Federation of Robotics', 'International Federation of Robotics'],
   ['Intuitive Surgical', 'Intuitive Surgical'],
   ['ISO/IEC JTC 1/SC 42', 'ISO/IEC JTC 1/SC 42'],
+  ['Japan Aerospace Exploration Agency', 'JAXA'],
   ['Johnson & Johnson', 'Johnson & Johnson'],
   ['Kavraki Lab', 'Kavraki Lab'],
   ['Lean Enterprise Institute', 'Lean Enterprise Institute'],
   ['LimX Dynamics', 'LimX Dynamics'],
+  ['Meituan Robotics Team', 'Meituan Robotics Team'],
   ['Meta AI', 'Meta AI'],
   ['Moon Surgical', 'Moon Surgical'],
   ['MoveIt Maintainers', 'MoveIt Maintainers'],
@@ -23939,16 +23939,18 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Newton project (Linux Foundation)', 'Newton'],
   ['Noetix Robotics', 'Noetix Robotics'],
   ['Northrop Grumman', 'Northrop Grumman'],
+  ['NTT, Inc.', 'NTT'],
   ['Ocado Group plc', 'Ocado Group'],
-  ['Occupational Safety and Health Administration', 'OSHA'],
   ['Ocado Group', 'Ocado Group'],
+  ['Occupational Safety and Health Administration', 'OSHA'],
   ['Octo Model Team', 'Octo Model Team'],
   ['ONNX Project Contributors', 'ONNX'],
   ['Open X-Embodiment Collaboration', 'Open X-Embodiment Collaboration'],
   ['Open-H-Embodiment Consortium', 'Open-H-Embodiment Consortium'],
   ['Physical Intelligence', 'Physical Intelligence'],
-  ['PyTorch Contributors', 'PyTorch'],
   ['PickNik Robotics', 'PickNik Robotics'],
+  ['Pony AI Inc.', 'Pony AI'],
+  ['PyTorch Contributors', 'PyTorch'],
   ['Robotics and AI Institute', 'RAI Institute'],
   ['Rocking Robots', 'Rocking Robots'],
   ['ROS 2 Project', 'ROS 2 Project'],
@@ -23958,6 +23960,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['SCSC Assurance Case Working Group', 'SCSC'],
   ['Seeed Studio', 'Seeed Studio'],
   ['Shadow Robot', 'Shadow Robot'],
+  ['Sharpa Robotics', 'Sharpa Robotics'],
   ['Simple AI', 'Simple AI'],
   ['Skild AI Team', 'Skild AI Team'],
   ['Skild Team', 'Skild Team'],
@@ -23967,22 +23970,26 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Team Zipline', 'Zipline'],
   ['Tesla, Inc.', 'Tesla'],
   ['The Linux Foundation', 'The Linux Foundation'],
-  ['The Robot Report', 'The Robot Report'],
+  ['The Planetary Society', 'The Planetary Society'],
   ['The Robot Report Staff', 'The Robot Report'],
+  ['The Robot Report', 'The Robot Report'],
   ['The Waymo Team', 'Waymo'],
   ['TRI LBM Team', 'TRI LBM Team'],
   ['Trossen Robotics', 'Trossen Robotics'],
   ['TU Delft', 'TU Delft'],
   ['U.S. Food and Drug Administration', 'FDA'],
+  ['UBTECH Robotics Corp Ltd', 'UBTECH Robotics'],
   ['UBTECH Robotics', 'UBTECH Robotics'],
-  ['UN News', 'UN News'],
   ['UL Standards & Engagement', 'UL Standards & Engagement'],
+  ['UN News', 'UN News'],
   ['Unitree Robotics', 'Unitree Robotics'],
   ['Universal Robots', 'Universal Robots'],
+  ['University of California San Diego', 'UC San Diego'],
   ['Waymo AI Team', 'Waymo'],
   ['Wing Team', 'Wing'],
   ['World Labs', 'World Labs'],
   ['Xiaomi Robotics Team', 'Xiaomi Robotics Team'],
+  ['Xiaomi Robotics', 'Xiaomi Robotics'],
 ]);
 
 /**
