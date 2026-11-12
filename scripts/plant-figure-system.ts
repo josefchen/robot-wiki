@@ -19,9 +19,13 @@ import { FIGURE_RULES, figureName, type FigureRule } from '../lib/figure-system-
 const args = process.argv.slice(2);
 const at = args.indexOf('--root');
 const root = at >= 0 && args[at + 1] ? args[at + 1] : 'out';
+const allowlistAt = args.indexOf('--allowlist');
 const allowlisted = new Set(
-  (JSON.parse(readFileSync('contract/figure-system-allowlist.json', 'utf8')).entries as { route: string; figure: string }[])
-    .map(({ route, figure }) => `${route} ${figure}`),
+  allowlistAt >= 0 && args[allowlistAt + 1]
+    ? (JSON.parse(readFileSync(args[allowlistAt + 1], 'utf8')).entries as { route: string; figure: string }[]).map(
+        ({ route, figure }) => `${route} ${figure}`,
+      )
+    : [],
 );
 
 const SVG_NS = 'http://www.w3.org/2000/svg';

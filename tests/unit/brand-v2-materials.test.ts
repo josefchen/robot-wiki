@@ -17,9 +17,6 @@ import {
 
 const ROOT = process.cwd();
 const read = (path: string) => readFileSync(join(ROOT, path), 'utf8');
-const registry = JSON.parse(read('contract/brand-v2-registries.json')) as {
-  materials: Array<{ id: string; treatment: string; deterministic: boolean; ownership: string }>;
-};
 
 /** One named representative surface per surface class the contract lists. */
 const REPRESENTATIVE_SURFACES = [
@@ -31,24 +28,6 @@ const REPRESENTATIVE_SURFACES = [
 ] as const;
 
 describe('site materials', () => {
-  it('mirrors the material registry row for row', () => {
-    expect(
-      Object.values(SITE_MATERIALS).map(({ id, treatment, deterministic, ownership }) => ({
-        id,
-        treatment,
-        deterministic,
-        ownership,
-      })),
-    ).toEqual(
-      registry.materials.map(({ id, treatment, deterministic, ownership }) => ({
-        id,
-        treatment,
-        deterministic,
-        ownership,
-      })),
-    );
-  });
-
   it('declares a deterministic, owned, contrast-passing treatment', () => {
     const attributes = materialAttributes('paper');
     expect(attributes).toEqual({

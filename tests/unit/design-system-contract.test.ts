@@ -15,7 +15,7 @@ const read = (rel: string): string =>
   readFileSync(join(process.cwd(), rel), 'utf8');
 
 const spec = read('library/design-system.md');
-const integrity = read('contract/design-integrity.md');
+const integrity = read('library/design-integrity.md');
 const agents = readProjectInstructionText(process.cwd());
 const readme = read('README.md');
 const badge = read('components/ui/badge.tsx');
@@ -132,7 +132,7 @@ describe('canonical design-system documentation', () => {
   it('keeps contributor guidance and retained project-agent instructions wired to the same contracts', () => {
     for (const text of [readme, ...(agents === null ? [] : [agents])]) {
       expect(text).toContain('library/design-system.md');
-      expect(text).toContain('contract/design-integrity.md');
+      expect(text).toContain('library/design-integrity.md');
     }
     if (agents !== null) expect(agents).toContain('Do not invent a logo');
     expect(readme).toMatch(/there is\s+no separate logo/i);

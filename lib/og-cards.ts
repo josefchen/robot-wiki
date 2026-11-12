@@ -54,7 +54,7 @@ export const SITE_URL_ORIGIN = 'https://robot-wiki.com';
  * The site name every card block restates (og:site_name). This is the
  * public display identity, not the repository slug: the card PATH below
  * keeps `robot-wiki` because it is a generated filename sealed by the
- * 48-card matrix in contract/design-integrity.md.
+ * 48-card matrix in library/design-integrity.md.
  */
 export const SITE_NAME = PUBLIC_IDENTITY;
 

@@ -10,8 +10,7 @@ sentence tells you what changed and why.
 Owner inputs, in order of authority:
 
 1. [`library/motion-language-spec-20260926.md`](../../library/motion-language-spec-20260926.md) — the binding spec.
-2. [`contract/motion-language.md`](../../contract/motion-language.md) — the measurable acceptance criteria (`VAL-MOTION*`).
-3. `motion-tokens.json` — the single source of truth every generator reads.
+2. `motion-tokens.json` — the single source of truth every generator reads.
 
 ## Why a language
 

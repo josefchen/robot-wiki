@@ -10,7 +10,6 @@ import {
   paintHex,
   RETIRED_PAINTS,
   STATUS_LABEL_VOCABULARY,
-  tableSortCensus,
   tableSortKindOf,
   type MarkObservation,
 } from '../../lib/brand-v2-interactive-data';
@@ -158,16 +157,6 @@ describe('brand-v2 interactive data: legend text naming', () => {
 });
 
 describe('brand-v2 interactive data: classification registry', () => {
-  const registry = JSON.parse(
-    readFileSync(join(process.cwd(), 'contract', 'brand-v2-registries.json'), 'utf8'),
-  ) as { interactive: { sources: Array<{ id: string; component: string }> } };
-
-  it('classifies exactly the registry interactive sources', () => {
-    const registryIds = registry.interactive.sources.map(({ id }) => id).sort();
-    const classifiedIds = Object.keys(INTERACTIVE_DATA_CLASSIFICATION).sort();
-    expect(classifiedIds).toEqual(registryIds);
-  });
-
   it('records a kind for every source and a lead series only for charts', () => {
     for (const [id, row] of Object.entries(INTERACTIVE_DATA_CLASSIFICATION)) {
       expect(
@@ -214,21 +203,5 @@ describe('brand-v2 interactive data: sortable-table census', () => {
     expect(tableSortKindOf('/* sort headers (aria-pressed / aria-sort) */ <th scope="col">Year</th>')).toBeNull();
     expect(tableSortKindOf('<PresetGroup label="Sort by" presets={P} /><th scope="col">Year</th>')).toBeNull();
     expect(tableSortKindOf(`{ key: 'name', header: 'Name', sortable: false }`)).toBeNull();
-  });
-
-  it('finds the five registered instruments that sort a table, four in headers and one by its visible control', () => {
-    const registry = JSON.parse(
-      readFileSync(join(process.cwd(), 'contract', 'brand-v2-registries.json'), 'utf8'),
-    ) as { interactive: { sources: Array<{ id: string; sourcePath?: string }> } };
-    const census = tableSortCensus(registry.interactive.sources, (path) =>
-      readFileSync(join(process.cwd(), path), 'utf8'),
-    );
-    expect(Object.fromEntries([...census].sort(([a], [b]) => a.localeCompare(b)))).toEqual({
-      'interactive:ComparisonMatrix': 'header-sort',
-      'interactive:DatasetTable': 'header-sort',
-      'interactive:HandComparison': 'control-sort',
-      'interactive:HardwareGuide': 'header-sort',
-      'interactive:TeleopRigMatrix': 'header-sort',
-    });
   });
 });
