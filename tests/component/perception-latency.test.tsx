@@ -77,9 +77,9 @@ describe('PerceptionLatency', () => {
   it('the event camera preset sets the study latency and raises the top speed', () => {
     render(<PerceptionLatency />);
     fireEvent.click(screen.getByRole('button', { name: 'Faster camera (about 1 hundredth)' }));
-    expect(screen.getByTestId('latency-readout').textContent).toBe('12 ms');
+    expect(screen.getByTestId('latency-readout').textContent).toBe('13 ms');
     expect(screen.getByTestId('speedometer-reading').textContent).toBe('about 80 km/h');
-    expect((slider() as HTMLInputElement).value).toBe('12');
+    expect((slider() as HTMLInputElement).value).toBe('12.9');
   });
 
   it('zero latency reaches the geometric limit of the agility', () => {
@@ -113,7 +113,7 @@ describe('PerceptionLatency', () => {
     render(<PerceptionLatency />);
     const text = document.body.textContent ?? '';
     expect(text).toContain('Stereo frame camera 70 ms');
-    expect(text).toContain('Event camera 12 ms');
+    expect(text).toContain('Event camera 12.9 ms');
     expect(screen.getByText(/maximum speed = range \/ \(latency \+ 2 sqrt\(r \/ u\)\)/)).toBeInTheDocument();
     expect(text).toMatch(/Extreme 200 m\/s² \(about 20\.4 g\)/);
   });

@@ -81,12 +81,14 @@ describe('the event-camera argument', () => {
 
   it('the event camera speedup is the paper percentage, not an order of magnitude', () => {
     // Paper Table I, 8 m sensing range, u = 50 m/s^2: stereo 25.40 m/s
-    // versus event 31.03 m/s = +22 percent; the paper reports 7 to 12
+    // versus event 31.03 m/s = +22 percent (the figure reproduces the
+    // reported 31.03 from the 0.0129 s it implies); the paper reports 7 to 12
     // percent at other latency bounds and calls the gap "significant"
     // only at high agility, so a same-order gain is the honest claim.
     const stereo = maxSpeedMs(0.07, 50, 8);
     const event = maxSpeedMs(SENSORS[1].latencyS, 50, SENSORS[1].rangeM);
-    expect(event).toBeCloseTo(31.13, 1);
+    expect(event).toBeCloseTo(31.03, 2);
+    expect(stereo).toBeCloseTo(25.40, 2);
     const gain = (event - stereo) / stereo;
     expect(gain).toBeGreaterThan(0.07);
     expect(gain).toBeLessThan(0.3);
