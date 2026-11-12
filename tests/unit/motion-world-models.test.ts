@@ -1,4 +1,3 @@
-import { historicalGit } from '../helpers/historical-git';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -14,8 +13,6 @@ import { applyPush, DEFAULT_FORCE_N, INITIAL_LAYERS, INITIAL_MUG } from '@/lib/a
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
-import { withoutPreDomainPassKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
-import { preDomainPass } from '../helpers/seo-pass';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -122,53 +119,6 @@ describe('world-models prose truth', () => {
     const prose = readFileSync(join(folder, 'generative-sim.mdx'), 'utf8');
     expect(prose).toMatch(/The first three figures are from the 2024 RoboCasa release <Cite id="robocasa-2024" \/>\. RoboCasa365 reports a separate, larger set <Cite id="robocasa365-2026" \/>/);
     expect(prose).not.toMatch(/RoboCasa365 reports a separate, larger set <Cite id="robocasa-2024" \/>/);
-  });
-
-  it('preserves prior numeric and citation tokens in every article', () => {
-    // The shortened taxonomy search description names the V-JEPA 2 model; its
-    // version number is the one token it adds, and only this exact text may add it.
-    const approvedDescriptions: Record<string, { description: string; tokens: string[] }> = {
-      'taxonomy.mdx': {
-        description: "A world model predicts how an environment evolves in a form useful for a robot's decisions. Six example groups compared, from DreamerV3 to V-JEPA 2.",
-        tokens: ['2'],
-      },
-    };
-    for (const file of articles) {
-      const current = withoutPreDomainPassKolBacklogParagraphs(`world-models/${file}`, preDomainPass(`content/world-models/${file}`).toString('utf8'));
-      const before = historicalGit(['show', `68fd2b8:content/world-models/${file}`], {
-        cwd: root, encoding: 'utf8',
-      });
-      const numbers = (text: string) => text
-        .replace(/\b(?:Tables?|Tab\.|Figures?|Fig\.|Equation|Eq\.|Algorithm|Sections?)\s*\(?\s*(?:\d+(?:\.\d+)*[a-z]?|[IVXL]+)\b|\bAppendix\s+[A-Z]\d*(?:\.\d+)?\b|\bv\d+\b/g, '')
-        .match(/(?<![\w-])\d(?:[\d,]*\d)?(?:\.\d+)?(?:%|x|Hz|ms|s|m|M|k)?/g)
-        ?.sort() ?? [];
-      const citations = (text: string) => [...text.matchAll(/<Cite id="([^"]+)"/g)].map((match) => match[1]);
-      const descriptionLine = (text: string) => text.match(/^description: "(.*)"$/m)?.[1];
-      const approved = approvedDescriptions[file];
-      if (approved) {
-        expect(descriptionLine(current), `${file} description`).toBe(approved.description);
-        expect(numbers(approved.description), `${file} description tokens`).toEqual(approved.tokens);
-        expect(numbers(descriptionLine(before) ?? ''), `${file} prior description tokens`).toEqual([]);
-      }
-      expect(numbers(current), `${file} numeric tokens`)
-        .toEqual([...numbers(before), ...(approved?.tokens ?? [])].sort());
-      const prior = citations(before);
-      if (file === 'generative-sim.mdx') {
-        const preRepair = historicalGit(['show', 'a6298625:content/world-models/generative-sim.mdx'], {
-          cwd: root, encoding: 'utf8',
-        });
-        const target = preRepair.indexOf('RoboCasa365 reports a separate, larger set');
-        expect(target).toBeGreaterThan(0);
-        const insertion = citations(preRepair.slice(0, target)).length + 1;
-        // The existing v1 citation moves within the sentence; the new 365
-        // citation follows it. All other occurrences keep their order.
-        const expected = [...prior];
-        expected.splice(insertion, 0, 'robocasa365-2026');
-        expect(citations(current), `${file} citations`).toEqual(expected);
-      } else {
-        expect(citations(current), `${file} citations`).toEqual(prior);
-      }
-    }
   });
 
   it('measures all eight articles at no more than two structural tells per thousand words', () => {

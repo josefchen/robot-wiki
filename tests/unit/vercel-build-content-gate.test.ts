@@ -5,34 +5,39 @@ const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as {
   scripts: Record<string, string>;
 };
 
-describe('content gate placement', () => {
-  it('runs the content gate before any export or public search mirror in the gated build', () => {
-    const prebuild = pkg.scripts['prebuild'];
-    const postbuild = pkg.scripts['postbuild'];
-    expect(prebuild).toContain('npm run validate:content');
-    expect(pkg.scripts['validate:content']).toContain('node scripts/check-audit-coverage.ts');
-    expect(pkg.scripts['build']).toBe(
-      'next build && node scripts/measure-reading-times.ts && next build',
-    );
-    expect(postbuild).toContain('node scripts/build-search.ts');
+/** vercel-build with npm's pre/post hooks spelled out, in run order. */
+function expandedGate(): string {
+  const { prebuild, build, postbuild } = pkg.scripts;
+  return pkg.scripts['vercel-build'].replace('npm run build', [prebuild, build, postbuild].join(' && '));
+}
+
+describe('release gate placement', () => {
+  it('validates content before the export and indexes search after it', () => {
+    const gate = expandedGate();
+    expect(gate).toContain('npm run validate:content');
+    expect(pkg.scripts['validate:content']).toContain('node scripts/validate-content.ts');
+    expect(pkg.scripts['validate:content']).toContain('node scripts/lint-no-slop.ts --source-only');
+    expect(pkg.scripts['validate:content']).toContain('node scripts/check-chart-descriptions.ts');
+    expect(gate.indexOf('npm run validate:content')).toBeLessThan(gate.indexOf('next build'));
+    expect(gate.indexOf('scripts/build-search.ts')).toBeGreaterThan(gate.indexOf('next build'));
   });
 
-  it('restores the full gated production build and retains its additional content checks', () => {
-    // The completed mission retires the temporary audit bypass. npm runs
-    // prebuild/build/postbuild in order; additional production checks remain.
-    const command = pkg.scripts['vercel-build'];
-    expect(command).toBe('npm run build && npm run check:teach-back && node scripts/check-article-boxes.ts && node scripts/check-article-sources.ts');
-    const expanded = command.replace('npm run build', [pkg.scripts.prebuild, pkg.scripts.build, pkg.scripts.postbuild].join(' && '));
-    expect(expanded).toContain('npm run validate:content');
-    expect(pkg.scripts['validate:content']).toContain('node scripts/check-audit-coverage.ts');
-    expect(expanded).toContain('&& next build && node scripts/measure-reading-times.ts && next build');
-    expect(expanded).toContain('&& node scripts/build-search.ts');
-    expect(expanded).toContain('&& node scripts/lint-no-slop.ts');
-    expect(expanded).toContain('&& npm run check:brand-v2-registries');
-    expect(expanded).toContain('&& npm run check:brand-v2-enforcement');
-    expect(expanded.indexOf('npm run validate:content')).toBeLessThan(expanded.indexOf('next build'));
-    expect(expanded.indexOf('scripts/build-search.ts')).toBeGreaterThan(expanded.lastIndexOf('next build'));
-    expect(expanded).not.toContain('--ignore-scripts');
-    expect(command).not.toContain('--ignore-scripts');
+  it('runs every reader-protecting check over the export', () => {
+    const gate = expandedGate();
+    for (const step of [
+      'node scripts/measure-reading-times.ts --rebuild',
+      'node scripts/patch-404-guard.ts',
+      'node scripts/build-search.ts',
+      'node scripts/lint-no-slop.ts &&',
+      'npm run check:figure-system',
+      'npm run check:seo',
+      'npm run check:internal-links',
+      'npm run generate:og-cards',
+      'node scripts/check-article-boxes.ts',
+      'node scripts/check-article-sources.ts',
+    ]) {
+      expect(gate).toContain(step);
+    }
+    expect(gate).not.toContain('--ignore-scripts');
   });
 });

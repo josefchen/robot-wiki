@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "state": "complete",
-  "corpusDigest": "92effbce525d3e12b889c09eb1d589637b8b5b39049cce0e86ae394051b872a5",
+  "corpusDigest": "d1ddbfbf07ed63d56fd283be48f4d954a027348aabddc17539be3b360a033d3a",
   "trees": [
     {
       "path": "public/og",
@@ -25,7 +25,7 @@
     },
     {
       "path": "evidence/brand-v2/og-cards",
-      "stagedDigest": "022b78ca8ae80be71ff0dec8534be7affd12c85f65b946035ad949b6b73fdf9d",
+      "stagedDigest": "eb345d8a8ff9c037af6be3041538e01ddaf1183a1f38683464911241faad4dda",
       "status": "swapped"
     }
   ]

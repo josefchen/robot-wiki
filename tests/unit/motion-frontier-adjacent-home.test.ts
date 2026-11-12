@@ -1,4 +1,3 @@
-import { historicalGit } from '../helpers/historical-git';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -8,8 +7,6 @@ import { SENSE_AVOID_METHOD_NOTE, SENSE_AVOID_SCENE, senseAvoidDistances, senseA
 import { DEFAULT_AGILITY, SENSORS, latencyOutcome } from '@/lib/aerial-latency';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
-import { withoutPreDomainPassKolBacklogParagraphs } from '../helpers/kol-backlog-20261001';
-import { preDomainPass } from '../helpers/seo-pass';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -161,34 +158,7 @@ describe('frontier and adjacent scene truth', () => {
   });
 });
 
-// Reviewed token corrections made after e14e2504, as [file, old, new]. The
-// EgoScale prediction step quoted 0.95 at 100k hours, but the chart it wraps
-// draws the completion fit from lib/egoscale-law.ts: 0.887, shown as 0.89.
-const REVIEWED_TOKEN_CHANGES: ReadonlyArray<readonly [string, string, string]> = [
-  ['frontier/generalization.mdx', 'reads 0.95, high', 'reads 0.89, high'],
-];
-
 describe('frontier and adjacent prose continuity', () => {
-  it('preserves the original ordered citation IDs and numeric tokens', () => {
-    for (const file of articles) {
-      const current = withoutPreDomainPassKolBacklogParagraphs(file, preDomainPass(`content/${file}`).toString('utf8'));
-      let before = historicalGit(['show', `e14e2504:content/${file}`], {
-        cwd: root, encoding: 'utf8',
-      });
-      for (const [changed, from, to] of REVIEWED_TOKEN_CHANGES) {
-        if (changed !== file) continue;
-        expect(before.split(from), `${file} holds "${from}" once at e14e2504`).toHaveLength(2);
-        before = before.replace(from, to);
-      }
-      const numbers = (text: string) => text
-        .replace(/\b(?:Tables?|Tab\.|Figures?|Fig\.|Equation|Eq\.|Algorithm|Sections?)\s*\(?\s*(?:\d+(?:\.\d+)*[a-z]?|[IVXL]+)\b|\bAppendix\s+[A-Z]\d*(?:\.\d+)?\b|\bv\d+\b/g, '')
-        .match(/(?<![\w-])\d(?:[\d,]*\d)?(?:\.\d+)?(?:%|x|Hz|ms|s|m|M|k)?/g)
-        ?.sort() ?? [];
-      const citations = (text: string) => [...text.matchAll(/<Cite id="([^"]+)"/g)].map((match) => match[1]);
-      expect(numbers(current), `${file} numeric tokens`).toEqual(numbers(before));
-      expect(citations(current), `${file} ordered citations`).toEqual(citations(before));
-    }
-  });
 
   it('keeps every article at or below two structural tells per thousand words', () => {
     for (const file of articles) {

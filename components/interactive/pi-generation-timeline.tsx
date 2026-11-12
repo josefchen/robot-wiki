@@ -200,7 +200,7 @@ export function PiGenerationTimeline({
       figureId="pi-generation-timeline"
       className={className}
       kicker="Physical Intelligence's models"
-      heading="A new model every few months; only the first three have confirmed downloads"
+      heading="New model every few months; downloads confirmed for first three"
       controls={
         <dl className="grid basis-full gap-y-3 font-sans leading-normal text-text" data-testid="generation-download-summary">
           <div className="grid gap-1 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-x-4">

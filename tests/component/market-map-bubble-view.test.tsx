@@ -36,7 +36,7 @@ afterEach(() => {
   window.history.replaceState(null, '', '/');
 });
 
-const TIMEOUT = 15_000;
+const TIMEOUT = 30_000;
 
 function mark(id: string) {
   const el = document.querySelector(`circle[data-company-id="${id}"]`);

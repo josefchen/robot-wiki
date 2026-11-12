@@ -23,7 +23,7 @@ The [playground](https://robot-wiki.com/playground/) loads the SO-101 arm and ru
 ## Sources and audit
 
 - Every source lives in one registry, `data/citations.ts`. Prose cites it with `<Cite id="..." />`, and the build fails on an id that is not registered. Glossary terms work the same way through `<Term id="..." />` and `data/glossary.ts`.
-- Each published article has a section in its domain's audit ledger under [`audit/`](audit/README.md). Each row records the claim, the source checked, the URL fetched, the supporting passage and a verdict: verified, corrected or cut. The content validator fails when a published article or a registered citation has no ledger entry.
+- Each published article has a section in its domain's audit ledger under [`audit/`](audit/README.md). Each row records the claim, the source checked, the URL fetched, the supporting passage and a verdict: verified, corrected or cut. The ledgers are a record of review, not a build gate.
 - Unknown values are written as "not disclosed" or "n/a", never guessed.
 - Three network checks run on demand rather than in the build: `npm run check:links` (citation URLs resolve), `npm run check:citations` (each fetched document matches its registry entry) and `npm run check:crossref-authors` (DOI-bearing citations agree with Crossref on authors, year and title).
 
@@ -73,7 +73,7 @@ The dev server runs on <http://localhost:3200>. Articles, navigation and interac
 ```sh
 npm run typecheck         # route types, then tsc --noEmit
 npm run lint              # ESLint
-npm run validate:content  # schema, citation, glossary and audit checks; prints the counts above
+npm run validate:content  # schema, citation, glossary and prose checks; prints the counts above
 npm run test              # Vitest unit and component tests
 npm run test:e2e          # Playwright end-to-end tests in headless Chromium
 ```
@@ -91,7 +91,7 @@ The build runs the content validator first, then `next build` with a reading-tim
 
 ## Deployment
 
-The `main` branch deploys to Vercel at <https://robot-wiki.com>. Vercel runs `npm run vercel-build`, which includes content validation, the export and post-export checks, then the teach-back and article box/source checks. Cache headers live in `vercel.json`. Because `out/` is plain files, any static host works.
+The `main` branch deploys to Vercel at <https://robot-wiki.com>. Vercel runs `npm run vercel-build`, which includes content validation, the export and post-export checks, then the article box and source checks. [docs/release-gate.md](docs/release-gate.md) lists every step. Run `npm run refresh` before committing to regenerate committed derived files. Cache headers live in `vercel.json`. Because `out/` is plain files, any static host works.
 
 ## Contributing
 

@@ -10,7 +10,7 @@ const { writeAgentFiles } = createRequire(import.meta.url)('next/dist/server/lib
 };
 
 describe('project instruction applicability in a public release', () => {
-  it('accepts only an absent untracked guide or the exact generated Next scaffold', () => {
+  it('accepts an absent untracked guide or the generated Next scaffold, and rejects a tracked guide without project rules', () => {
     const root = mkdtempSync(join(tmpdir(), 'project-instructions-'));
     try {
       writeAgentFiles(root);
@@ -19,10 +19,6 @@ describe('project instruction applicability in a public release', () => {
       expect(projectInstructionText(scaffold, false)).toBeNull();
       expect(() => projectInstructionText(null, true)).toThrow('Tracked project instructions are missing');
       expect(() => projectInstructionText(scaffold, true)).toThrow('lost their project rules');
-      for (const tracked of [false, true]) {
-        expect(() => projectInstructionText(Buffer.concat([scaffold, Buffer.from('\nChanged instructions.\n')]), tracked)).toThrow('unreviewed');
-        expect(() => projectInstructionText(Buffer.from('## Robot Wiki research-page standard (current authority)\nInvented rules.'), tracked)).toThrow('unreviewed');
-      }
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

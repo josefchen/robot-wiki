@@ -80,7 +80,7 @@ function Strip({ index, points }: { index: number; points: PricedPoint[] }) {
   return (
     <g data-testid={`price-strip-${LADDER_ROWS[index].id}`} data-series={LADDER_ROWS[index].id}>
       <DirectLabel x={PLOT_LEFT} y={y0} seriesFor={LADDER_ROWS[index].id}>
-        <tspan fontWeight={600}>{LADDER_ROWS[index].label}: {usd(points[0].priceUsd)}–{usd(points[points.length - 1].priceUsd)}</tspan>
+        <tspan fontWeight={600}>{LADDER_ROWS[index].label}: {usd(points[0].priceUsd)} to {usd(points[points.length - 1].priceUsd)}</tspan>
       </DirectLabel>
       <line
         x1={PLOT_LEFT}

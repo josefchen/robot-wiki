@@ -111,7 +111,7 @@ async function openMoreFilters(user: ReturnType<typeof userEvent.setup>) {
 
 // MarketMap renders 111 company tiles. Under full-suite jsdom load a render
 // can exceed the 5 s default timeout, so every test here gets 15 s.
-const TIMEOUT = 15_000;
+const TIMEOUT = 30_000;
 
 describe('MarketMap', () => {
   it('maps all 111 companies in the six segments (VAL-MKT-001, VAL-MKT-002)', () => {

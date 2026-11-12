@@ -104,7 +104,7 @@
     }
   ],
   "toolchain": {
-    "node": "v24.18.0",
+    "node": "v24.21.0",
     "packages": [
       {
         "name": "next",
