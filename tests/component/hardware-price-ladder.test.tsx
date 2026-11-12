@@ -71,7 +71,7 @@ describe('HardwarePriceLadder', () => {
   it('leads with both price ranges and retains the named unpriced-product disclosures', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Maker list prices');
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Arms $295–$70,000; humanoids $4,900–$29,900; some prices unpublished');
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Arms $295 to $70,000; humanoids $4,900 to $29,900; some unpriced');
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(caption).toBe(
       'Arms: $295 to $70,000. Humanoids: $4,900 to $29,900. Several humanoid makers publish no price or do not offer open sales.',

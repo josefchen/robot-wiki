@@ -172,7 +172,7 @@ export function PiGenerationTimeline({
           buttonRefs.current[i] = el;
         }}
         type="button"
-        data-status={g.openWeights === true ? 'open' : g.openWeights === false ? 'unavailable' : 'unknown'}
+        data-download-status={g.openWeights === true ? 'open' : g.openWeights === false ? 'unavailable' : 'unknown'}
         aria-label={g.name}
         aria-pressed={g.id === selected.id}
         onClick={() => select(i)}

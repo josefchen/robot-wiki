@@ -40,7 +40,7 @@ const milestoneNames: Readonly<Record<string, string>> = {
   'tactile-foundation-model': 'Touch sensing built into the robot’s brain',
   'sim-to-real-contact': 'Hand skills learned only in simulation work for real',
   'cost-per-task-parity': 'A humanoid matches a specialist machine’s cost per job',
-  'data-scaling-law': '100 times more data; task success gains keep pace (required gain unspecified)',
+  'data-scaling-law': '100 times more data; measure the gain in task success (required gain not specified)',
 };
 const thesisNames: Readonly<Record<string, string>> = {
   'end-to-end-vla': 'Just make it bigger', 'hierarchical-planner': 'A planner directs simple skills',
@@ -114,7 +114,7 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       const s = Number(c.sourceState('data-source-progress')), tracing = c.sourceState('data-source-tracing');
       if (!Number.isFinite(s) || s < 0 || s > 1 || !['true', 'false'].includes(tracing)) throw new Error('Invalid observed excavator trace state');
       c.readoutText(0, tracing === 'true' ? `${selected[0].minutes} minutes · tracing, ${Math.round(s * 100)}% of the path` : selected[0].reads);
-      c.contains(`Learning on the machine${selected[0].id === 'twenty' ? 'Learning its arm: 20 minutes matches 100–150 minutes’ practice' : selected[0].reads.replace(' · ', ': ')}`);
+      c.contains(`Learning on the machine${selected[0].id === 'twenty' ? 'Arm model: 20 minutes matches 100 to 150 minutes’ practice' : selected[0].reads.replace(' · ', ': ')}`);
       c.contains('20 minutes the shovel tracked its timed path 2.7 cm off on average, against 2.8 and 4.5 cm');
       c.contains('100 to 150 minutes');
     },
@@ -235,6 +235,9 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       const selected = PI_GENERATIONS.filter(row => c.selected(exact(row.name)));
       if (selected.length !== 1) throw new Error('Expected one selected PI model');
       c.contains(selected[0].plain);
+      c.contains('MEM adds memory: recent video plus notes the model writes for itself.');
+      c.contains("Physical Intelligence's modelsA new model every few months; only the first three have confirmed downloads");
+      c.contains("Physical Intelligence's releases A new model every few months Confirmed downloads Only the first three models Later models' availability is unverified.");
       const dated = PI_GENERATIONS.filter(row => row.released !== null), months = [...new Set(dated.map(row => row.released!))];
       const xAt = (ym: string) => { const [year, month] = ym.split('-').map(Number); return rounded(12 + ((year - 2024) * 12 + month - 1 - 8) * 316 / 21); };
       c.requireSeries([...months, 'downloadable']);
@@ -581,7 +584,7 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
         const x = rounded(10 + (year + share - 2025) * 80);
         c.row(row.row, { 'what happened': row.event, date: row.dateText });
         c.point(row.id, x, 32 + i * 40, 2.5);
-        c.svgText(row.id, row.label, 10, 18 + i * 40);
+        c.svgText(row.id, row.id === 'eu-machinery-regulation' ? 'EU law: safety systems that learn from data' : row.id === 'eu-ai-act' ? 'EU AI Act: AI subject to product safety checks' : row.label, 10, 18 + i * 40);
         if (row.id === 'iso-25785-1') {
           c.svgMarkCount(row.id, 'line', 1);
           c.svgMark(row.id, 'line', { x1: rounded(x + 7), x2: rounded(x + 52), y1: 112, y2: 112 });
@@ -589,6 +592,11 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
         }
       });
       c.readoutText(0, SAFETY_RULES[3].dateText); c.readoutText(1, SAFETY_RULES[4].dateText);
+      c.contains('Robot safety rules by date2025 standards; undated humanoid draft; learned-safety law in January 2027');
+      c.contains('2025Industrial robot safety standards renewed');
+      c.contains('No next dateHumanoid safety standard remains a draft');
+      c.contains('January 2027EU law covers safety components that learn from data');
+      c.contains('Separate 2028 AI Act rule: AI safety components or AI products requiring independent health or safety assessment under product laws.');
       for (const year of [2025, 2026, 2027, 2028, 2029]) c.svgText(null, String(year), 10 + (year - 2025) * 80, 222);
     },
   },
@@ -649,17 +657,25 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
     evidencePaths: ['lib/world-model-figures.ts', componentPath('world-model-output-times'), 'audit/evidence/world-model-figures-20261102/sources.json'],
     seriesIds: WORLD_MODEL_OUTPUT_TIMES.map(row => row.id),
     check(c) {
+      const outputRoles: Readonly<Record<string, string>> = { '3dgs': 'Single image', dreamzero: 'Group of robot moves', '1xwm': 'Five seconds of predicted moves', vjepa2: 'One chosen move', predict2: 'Video clip', 'cosmos-planner': 'One chosen move' };
       c.circleCount(WORLD_MODEL_OUTPUT_TIMES.filter(row => row.kind !== 'upper-bound').length);
       WORLD_MODEL_OUTPUT_TIMES.forEach((row, i) => {
         c.row(row.label, { time: row.displayedTime, 'output and hardware': `${row.output}; ${row.hardware}`, 'measurement scope': row.note });
         const x = rounded(12 + (Math.log10(row.seconds) + 2) * 316 / (Math.log10(300) + 2), 3), y = 52 + 58 * i;
         if (row.kind === 'upper-bound') { c.svgMarkCount(row.id, 'path', 1); c.svgMark(row.id, 'path', { d: `M${x + 8} ${y - 4} L${x} ${y} L${x + 8} ${y + 4}` }); }
-        else c.point(row.id, x, y, 2.5);
-        c.svgText(row.id, `${row.label} · ${row.id === '1xwm' ? 'predicts five seconds of actions' : row.output}`, 12, y - 36);
+        else {
+          c.point(row.id, x, y, 2.5);
+          c.svgMark(row.id, 'circle', { cx: x, cy: y, r: 2.5 }, 0.05, { ownerTestId: `output-time-${row.id}` });
+        }
+        c.svgPlotPoints(row.id, row.kind === 'upper-bound' ? 'path' : 'circle', `output-time-${row.id}`, '0 0 340 416',
+          row.kind === 'upper-bound' ? [[x + 8, y - 4], [x, y], [x + 8, y + 4]] : [[x, y], [x + 2.5, y], [x, y + 2.5]]);
+        c.svgText(row.id, `${outputRoles[row.id]} · ${row.id === 'cosmos-planner' ? '' : row.id === '3dgs' ? 'method: ' : 'model: '}${row.label}`, 12, y - 36);
+        c.svgText(row.id, `Chips: ${row.hardware}`, 12, y - 19);
       });
       [WORLD_MODEL_OUTPUT_TIMES[0], WORLD_MODEL_OUTPUT_TIMES[3], WORLD_MODEL_OUTPUT_TIMES[5]].forEach((row, i) => c.readoutText(i, row.displayedTime));
       for (const seconds of [0.01, 0.1, 1, 10, 100]) c.svgText(null, String(seconds), rounded(12 + (Math.log10(seconds) + 2) * 316 / (Math.log10(300) + 2), 3), 389);
       c.svgText(null, 'Seconds, each tick is ten times longer', 12, 405);
+      c.contains('V-JEPA 2-AC is a prediction model; a planner uses its forecasts after proposed moves to choose a robot move.');
     },
   },
 };

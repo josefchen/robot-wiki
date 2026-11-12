@@ -1,0 +1,261 @@
+{
+  "schemaVersion": "pi-download-status-source-continuity-v1",
+  "status": "Exact private source-proof continuation for independent root review. The genuine prior canonical failure is retained; compiled validation and a fresh Pi reader are still required. No prior verdict is regraded and no release waiver is granted.",
+  "baseSourceCommit": "bf2a0d87e87df0ee7ed8c05030e398168f630462",
+  "sourceReady": {
+    "path": "pi-download-status-semantics-20261105/SOURCE-READY.json",
+    "sha256": "c71adc903a6e8f9205afcd2d03e8f489bbcaa12e57ad6f41c93326e035e34292"
+  },
+  "independentSourceApproval": {
+    "path": "pi-download-status-semantics-independent-review-20261105/SOURCE-APPROVAL.json",
+    "sha256": "67d314cd040510e796b7543606a40436111a051d54738945f187c226677e8b51",
+    "approvalField": "sourceApproved",
+    "sourceApproved": true
+  },
+  "sourceChanges": [
+    {
+      "path": "components/interactive/pi-generation-timeline.tsx",
+      "before": {
+        "path": "components/interactive/pi-generation-timeline.tsx",
+        "bytes": 20321,
+        "sha256": "572aabf886a09117e969168a75e6257aa56d7d6267318a5b3702145b1c57dcb2"
+      },
+      "after": {
+        "path": "components/interactive/pi-generation-timeline.tsx",
+        "bytes": 20330,
+        "sha256": "7d77a5fde8281d30d0d97e0ce373cddc09a2a6b2c05680a732ceef6ab56b3671"
+      },
+      "edits": [
+        {
+          "before": "data-status={g.openWeights === true ? 'open' : g.openWeights === false ? 'unavailable' : 'unknown'}",
+          "after": "data-download-status={g.openWeights === true ? 'open' : g.openWeights === false ? 'unavailable' : 'unknown'}"
+        }
+      ],
+      "inverseExact": true,
+      "shared264Member": true
+    },
+    {
+      "path": "tests/component/pi-generation-timeline.test.tsx",
+      "before": {
+        "path": "tests/component/pi-generation-timeline.test.tsx",
+        "bytes": 8548,
+        "sha256": "3a6aedc8e151023c07e2b231370329fdda461a4cc518a45a7ca2e30dc101c4c1"
+      },
+      "after": {
+        "path": "tests/component/pi-generation-timeline.test.tsx",
+        "bytes": 8756,
+        "sha256": "38e404b509c8a3c4676c1b4b83b9378ed385698e9b80904d9b641622cc37198a"
+      },
+      "edits": [
+        {
+          "before": "[data-status=\"open\"]",
+          "after": "[data-download-status=\"open\"]"
+        },
+        {
+          "before": "[data-status=\"unknown\"]",
+          "after": "[data-download-status=\"unknown\"]"
+        },
+        {
+          "before": "[data-status=\"closed\"]",
+          "after": "[data-download-status=\"closed\"]"
+        },
+        {
+          "before": "    expect(list.querySelectorAll('[data-download-status=\"closed\"]').length).toBe(0);",
+          "after": "    expect(list.querySelectorAll('[data-download-status=\"closed\"]').length).toBe(0);\n    expect(list.querySelectorAll('[data-download-status=\"unavailable\"]').length).toBe(0);\n    expect(list.querySelector('[data-status], [data-state], [data-ui-state]')).toBeNull();"
+        }
+      ],
+      "inverseExact": true,
+      "shared264Member": true
+    },
+    {
+      "path": "tests/unit/brand-v2-state-witness.test.ts",
+      "before": {
+        "path": "tests/unit/brand-v2-state-witness.test.ts",
+        "bytes": 2959,
+        "sha256": "c2f6917bcba3c5935fc5ed6b85be5d0145979c5bfb73162ded5e6490d3d0809b"
+      },
+      "after": {
+        "path": "tests/unit/brand-v2-state-witness.test.ts",
+        "bytes": 3123,
+        "sha256": "ad4cd47bf3e2ddcb6e11c6df9406c1abd6a2d03d784afbbbdbfbeb4366e78484"
+      },
+      "edits": [
+        {
+          "before": "    ['unavailable', '<p>Hollow nodes include unavailable and not-disclosed records.</p>'],",
+          "after": "    ['unavailable', '<p>Hollow nodes include unavailable and not-disclosed records.</p>'],\n    ['unavailable', \"return <button data-download-status={g.openWeights === true ? 'open' : g.openWeights === false ? 'unavailable' : 'unknown'}>Model</button>;\"],"
+        }
+      ],
+      "inverseExact": true,
+      "shared264Member": false
+    }
+  ],
+  "semanticScope": "One data-status attribute name becomes data-download-status. The full true/false/null expression, selected controls, scientific values, dates, visible text and every other component byte remain exact. Existing generic UI-state discovery and canonical runtime witness predicates stay unchanged.",
+  "sharedContinuity": {
+    "sources": 264,
+    "changedRows": [
+      {
+        "path": "components/interactive/pi-generation-timeline.tsx",
+        "oldEdits": 8,
+        "addedEdits": 1,
+        "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+        "archivedBytes": 18601,
+        "archivedSha256": "00e36e07784c4d1ec3ae054e13fcfee475a8bae9cea851105c5db5e407302708",
+        "forwardInverseExact": true
+      },
+      {
+        "path": "tests/component/pi-generation-timeline.test.tsx",
+        "oldEdits": 2,
+        "addedEdits": 4,
+        "archivedFrom": "1924801e572dd0c33b28f6c13ffc1e4c8192a659",
+        "archivedBytes": 7452,
+        "archivedSha256": "dead82585274691cc5e9effc3a36a3279227057620b81875367ca62d0e7ff8cc",
+        "forwardInverseExact": true
+      }
+    ],
+    "allOtherRowsExact": 262,
+    "allOldReasonsEditsPreservedNeedlesChecksAndArchivePinsPreserved": true,
+    "helperEdits": "Review pin and the two exact current file pins only; function bodies unchanged."
+  },
+  "baselineConsequence": {
+    "readOnlyMappedActualCollector": true,
+    "beforeLedgerEntries": 5608,
+    "afterLedgerEntries": 5609,
+    "beforeSuffixEntries": 920,
+    "afterSuffixEntries": 921,
+    "requiredNewSourceEdges": 1,
+    "requiredNewDefaultEdges": 0,
+    "allTenOtherManifestRootsExact": true,
+    "behavioralDefaultsUnchanged": true,
+    "beforeMemberHash": "07a380c8fcac43a44365ad7256bc0c3a2e26110c7fded18852fa10d92172de68",
+    "afterMemberHash": "e003c7b166da33b9e70ce5dd203fd86656051feaae1230a602bdb81e6b23beb2",
+    "priorPiEdgesPreserved": 11,
+    "existing5608EntryPrefixExact": true,
+    "existing920EntrySuffixPrefixExact": true,
+    "candidateBaselineOK": true,
+    "candidateBaselineFailures": []
+  },
+  "sourceVerificationOnly": {
+    "existingSourceVerifiers": 264,
+    "focusedChangedRowNegatives": 11,
+    "pinCorruptionRejectedAndRestored": true,
+    "completionInventoryNegatives": 4,
+    "missingCurrentEdgeRejected": true,
+    "wrongCurrentEdgeHashRejected": true,
+    "typesPassed": true,
+    "actualStdinLintsPassed": 2,
+    "actualFull101SuiteRun": false
+  },
+  "rootReviewedAuthorEvidence": {
+    "focusedCases": 53,
+    "rootOpenedPrototypeImages": 2,
+    "prototypeViewports": [
+      1440,
+      375
+    ],
+    "prototypeNodesEach": 188,
+    "prototypeChangedPixelsEach": 0,
+    "allSevenInitialSelectionSsrExact": true,
+    "prototypeScope": "DOM-only attribute prototype on the unchanged current export; not compiled candidate acceptance."
+  },
+  "retainedActualFailure": {
+    "executionHead": "bf2a0d87e87df0ee7ed8c05030e398168f630462",
+    "failedAt": "capture-canonical",
+    "sourceFreezeSha256": "a15ba598a821c053a2a6772dbf901894e56aeb8b2eb1f9bd7b7147fe0607c71d",
+    "status": {
+      "path": "pi-download-status-semantics-20261105/failure-evidence/status.json",
+      "sha256": "1f8065e81781d73e09d506a6005a66647c12aff54a5f3440f2130462cb8c3181"
+    },
+    "log": {
+      "path": "pi-download-status-semantics-20261105/failure-evidence/capture-canonical.log",
+      "sha256": "cfee9790d02c9003a10d252f36e0274c7cc6c99ef20c31ff6ce6a848948c937a"
+    },
+    "canonicalPassed": 13,
+    "canonicalFailed": 1,
+    "failure": "PiGenerationTimeline unavailable source branch has no reached production witness",
+    "complete": false,
+    "releaseAccepted": false
+  },
+  "readerHandling": {
+    "acceptedManifest": {
+      "name": "all110-accepted-readers-r39.json",
+      "sha256": "d531b2597794bb8ad010b26cb79b10cc26267e0b5930704a7dc29296efdeef29"
+    },
+    "currentAcceptedReaders": 110,
+    "currentProtectedPaths": 562,
+    "allCurrentProtectedPathHashesExactBeforeApplication": true,
+    "affectedReader": "manipulation--pi-line--pi-generation-timeline",
+    "affectedRegistryEntries": 1,
+    "sourcePaths": [
+      "components/interactive/pi-generation-timeline.tsx",
+      "lib/pi-generations.ts"
+    ],
+    "record": {
+      "path": "evidence/reader-first/manipulation--pi-line--pi-generation-timeline.json",
+      "sha256": "8c2f14f464e5845b2d5a2fe244775d04d6445aafff3c3f70ca1281e18360a0fe",
+      "recordedVerdict": "pass",
+      "sourceDigest": "77de02ba5708f1ca89ec3f7a7f0cb9e22cb07c8387d8d75575a3de7e4ceda6c8"
+    },
+    "existingImages": [
+      {
+        "path": "evidence/reader-first/manipulation--pi-line--pi-generation-timeline.375.png",
+        "sha256": "0aa2da65505e3d75104643a6f68ba7993f7ec0804a72037b6cf0c38d4ca3679f"
+      },
+      {
+        "path": "evidence/reader-first/manipulation--pi-line--pi-generation-timeline.1280.png",
+        "sha256": "ee6e6d3176c2069b354f219c9b333c3d2850ed3d3319272cc8d351169049cb3e"
+      }
+    ],
+    "proposedSourceDigest": "8c8f951fb2651c57bda28964583110608da480a02f3e141d3ce741a780ef0d57",
+    "freshCompiledPiReaderRequired": true,
+    "existingRecordAndImagesUnchanged": true,
+    "newReaderPerformed": false,
+    "newReaderVerdict": null,
+    "recordsEdited": 0,
+    "regrades": 0
+  },
+  "preservedHistoricalProofs": [
+    {
+      "path": "lib/audit-reader-first-continuity.ts",
+      "sha256": "1960d3c10d7832bec0c980cf5946fcf62019f9b0658e12be88499d01cc7d7617"
+    },
+    {
+      "path": "audit/evidence/mission-completion-20261102/reader-round38-39-source-continuity-review.json",
+      "sha256": "554010f970ea3871d5d6b7e4845754acda3a826c6957f5832225613a5f5330f3"
+    },
+    {
+      "path": "audit/evidence/mission-completion-20261102/press-forced-color-underline-continuity-review.json",
+      "sha256": "304742ceeb35cb6a347502b45b6d0442aa5b9867d80c522bd04d912da6f33268"
+    }
+  ],
+  "productionCensusDriverAndScientificModelUnchanged": [
+    {
+      "path": "lib/pi-generations.ts",
+      "sha256": "2b6fb2b7465a04f6f4c1eb99145a5a6bcb1cacf8e07149c3700ea9d6c53808ee"
+    },
+    {
+      "path": "lib/brand-v2-census.ts",
+      "sha256": "297ec9ae08d3704f0faab894e83d5ec34c5e7bccc5c61a89f29cd2204d786125"
+    },
+    {
+      "path": "tests/e2e/helpers/interactive-ledger-driver.ts",
+      "sha256": "8ada71014b98e6dbd07f3ab4ae9044635cf09622e55d3ce4a2253efa507daab9"
+    }
+  ],
+  "privatePreparationReceipts": {
+    "base-binding.json": "9eb10ef90419df8a08ac6bd1665c749e817b8711f219320ac91688d534297ae1",
+    "collector-proposal.json": "acf06424c1feb127db0ddf57ef8ecab0a4d04bc6d91d49f23af6c6926f581eeb",
+    "helper-checks.json": "abed841fec56e98cbc7ddcb1c0040b8ab88abac262e2c3753c496d1abc0b0d55",
+    "preservation.json": "2818478c66671bcb2695bde0cc4506b81040b81027a18bf338c109359da4c336",
+    "reader-boundary.json": "e3af1af4922fc32cda9d0043d88ed51264fc9c60d65b8e467cf91ffeb7c083c2",
+    "shared-helper-successors.json": "4c56311b9b56bf4662632ce0cf1a48d522e0ddabb4787119c6eb233f1abf55de",
+    "completion-helper-successors.json": "80f1adbaee1bdfa303454886359ae59c1a9efb274e3089ddfef53cc5b140ebce"
+  },
+  "browserGo": false,
+  "publicApplicationAuthorized": false,
+  "readerRecordsChanged": false,
+  "readerRegraded": false,
+  "newSourceReaderAccepted": false,
+  "fullTechnicalAccepted": false,
+  "fullMissionAccepted": false,
+  "releaseAccepted": false
+}

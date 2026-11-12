@@ -173315,6 +173315,79 @@
           "newHash": "d1ab9523a548496c218e4b1a3b53690cc96452b9292228e724a19668c4846831"
         }
       ]
+    },
+    {
+      "id": "completion-pi-download-status-20261105-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-e003c7b166",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pi-generation-timeline.tsx",
+      "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+      "newHash": "e003c7b166da33b9e70ce5dd203fd86656051feaae1230a602bdb81e6b23beb2",
+      "reason": "components/interactive/pi-generation-timeline.tsx: exact metadata-only source successor renames the model download classification from data-status to data-download-status. Its open/unavailable/unknown expression, selected controls, native actions, dates, scientific values and visible copy remain byte-exact. The generic application-state witness must not treat the domain download classification as an application unavailable branch. Existing witness production predicates stay unchanged; an additive regression case preserves that distinction. The genuine prior canonical capture failure remains retained. This source edge records the necessary new raw-source fingerprint only; behavioral-defaults and all other manifest roots are unchanged. A fresh Pi reader and compiled canonical/official checks remain required. See audit/evidence/mission-completion-20261102/pi-download-status-continuity-review.json.",
+      "ownerApproval": "Owner-authorized necessary metadata semantics repair and exact proof continuation, prepared for independent root review. This entry grants no reader result, native behavior exemption or release waiver.",
+      "responsibleMilestone": "opus-pass-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-OPUS-143",
+        "VAL-OPUS-144"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "cross-article-closeouts-20260907-18",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "453d6052606d3147c077f5a012413cd0d1d94fbdaf0f1912d41561a69fa31be6"
+        },
+        {
+          "id": "perf-articles-20260923-src-pi-generation-timeline",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "42e4dba93af50d7c614ae6188985c4d283cdac083f5cc3d2d46f0316d597137b"
+        },
+        {
+          "id": "completion-figure-20261102-source-components-interactive-pi-generation-timeline-tsx-22927547a2",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "22927547a2922290fcb888de7b8947d954e60afffe240e93ca442386d9e38d38"
+        },
+        {
+          "id": "completion-witness-20261102-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-9559e61afd",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "9559e61afddab70f17c35c8d1beafc3ca1b62ec1b32aec4a058b4b04ba13e1f5"
+        },
+        {
+          "id": "completion-reader-clarity-20261103-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-b13ccff11a",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "b13ccff11a61b91c52f64b1e1775c877f293e513e9f0969c2b9183e983c3404c"
+        },
+        {
+          "id": "completion-reader-round3-20261103-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-8c8880e2bc",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "8c8880e2bc809664679d077ffe8518a4dc11c3e00225d81581397483876fddf4"
+        },
+        {
+          "id": "completion-reader-round4-20261103-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-df31d59ee7",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "df31d59ee79cf391b9e7d93187117bc10a43cdaf47c595d2a12efd2028d40d73"
+        },
+        {
+          "id": "completion-pi-timeline-text-reflow-20261103-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-361665bc61",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "361665bc61c4b2af9f3989b832bbe675ee1a3d09d5f0f589301c9e903bec1a0c"
+        },
+        {
+          "id": "completion-reader-round8-20261103-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-3252baa1ed",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "3252baa1ed6426f83ffb00d899a6237502507f647605e4bfd44df79452cbdd8f"
+        },
+        {
+          "id": "completion-reader-round9-20261103-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-bde4393d42",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "bde4393d427a504cefcaa0535adc730a0d210e4275d5509b87321f0a51dfa6aa"
+        },
+        {
+          "id": "completion-reader-round10-20261103-interactive-sources-mounts-source-components-interactive-pi-generation-timeline-tsx-07a380c8fc",
+          "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+          "newHash": "07a380c8fcac43a44365ad7256bc0c3a2e26110c7fded18852fa10d92172de68"
+        }
+      ]
     }
   ]
 }

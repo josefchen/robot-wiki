@@ -75,7 +75,7 @@ export function SurgicalAutonomyLadder({ className }: { className?: string }) {
       stage={
         <FigureStage>
           <p className="font-sans text-sm leading-snug text-text">
-            Six levels, numbered 0–5. <strong className="font-medium">Authorized platforms here reach level 1; SRT-H’s authors claim level 4</strong> for research on tissue outside a body.
+            Six levels, numbered 0 to 5. <strong className="font-medium">Authorized platforms here reach level 1; SRT-H’s authors claim level 4</strong> for research on tissue outside a body.
           </p>
           <p className="font-sans text-sm leading-snug text-text">
             Dots: platforms authorized by the US Food and Drug Administration (FDA). Crosses: research demonstrations.

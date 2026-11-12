@@ -69,7 +69,7 @@ const COMPUTERS = rowPoints('compute');
 const range = (points: PricedPoint[]) =>
   `from ${usd(points[0].priceUsd)} (${points[0].label}) to ${usd(points[points.length - 1].priceUsd)} (${points[points.length - 1].label})`;
 
-const HEADING = `Arms ${usd(ARMS[0].priceUsd)}–${usd(ARMS[ARMS.length - 1].priceUsd)}; humanoids ${usd(HUMANOIDS[0].priceUsd)}–${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}; some prices unpublished`;
+const HEADING = `Arms ${usd(ARMS[0].priceUsd)} to ${usd(ARMS[ARMS.length - 1].priceUsd)}; humanoids ${usd(HUMANOIDS[0].priceUsd)} to ${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}; some unpriced`;
 const CAPTION = `Arms: ${usd(ARMS[0].priceUsd)} to ${usd(ARMS[ARMS.length - 1].priceUsd)}. Humanoids: ${usd(HUMANOIDS[0].priceUsd)} to ${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}. Several humanoid makers publish no price or do not offer open sales.`;
 const DESCRIPTION = `Listed prices of ${LADDER_POINTS.length} robot products on a ruler that steps by ten times: arms ${range(ARMS)}, humanoids ${range(HUMANOIDS)}, and robot computers ${range(COMPUTERS)}. EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.`;
 

@@ -60,7 +60,7 @@ describe('SurgicalAutonomyLadder', () => {
     expect(words(caption)).toBeLessThanOrEqual(25);
     const comparison = screen.getByText('Authorized platforms here reach level 1; SRT-H’s authors claim level 4');
     expect(comparison.closest('details')).toBeNull();
-    expect(comparison.parentElement).toHaveTextContent('Six levels, numbered 0–5.');
+    expect(comparison.parentElement).toHaveTextContent('Six levels, numbered 0 to 5.');
     expect(comparison.parentElement).toHaveTextContent('for research on tissue outside a body.');
     expect(screen.getByText(/US Food and Drug Administration \(FDA\)/).closest('details')).toBeNull();
     // One keyboard activation of the method fold reveals the complete table.
