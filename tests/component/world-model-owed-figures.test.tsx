@@ -104,7 +104,7 @@ describe('world-model figure source semantics', () => {
     }
     const bound = screen.getByTestId('output-time-3dgs');
     expect(bound.querySelector('circle')).toBeNull();
-    expect(bound).toHaveTextContent('at most 0.01 second');
+    expect(bound).toHaveTextContent('under 0.01 second');
     expect(stage.querySelectorAll('[data-scene-tick]')).toHaveLength(5);
     const table = screen.getByRole('table', { hidden: true });
     expect(within(table).getAllByRole('row', { hidden: true })).toHaveLength(7);

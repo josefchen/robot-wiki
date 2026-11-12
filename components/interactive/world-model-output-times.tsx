@@ -81,7 +81,7 @@ export function WorldModelOutputTimes({ className }: { className?: string }) {
         <>
           <div>
             V-JEPA 2-AC predicts numerical descriptions of camera views after chosen moves.
-            Reported elapsed times on a logarithmic axis. The left-pointing mark is an upper bound from 3DGS rendering at least 100 frames per second.
+            Reported elapsed times on a logarithmic axis. The left-pointing 3DGS mark means under 0.01 second: its fully trained scenes averaged 134 to 154 frames per second, about 7 milliseconds per frame.
             DreamZero uses its reported 150-millisecond inference latency; its robot executes commands faster than it refreshes an action chunk.
             The 1XWM total adds 11 seconds of video generation and one second of inverse dynamics.
             V-JEPA 2-AC and the Cosmos Predict1 planning baseline share a GPU, ten refinement iterations and a one-step horizon, but use 800 and 80 samples respectively.
