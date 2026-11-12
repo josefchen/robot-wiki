@@ -24,7 +24,7 @@ export function WmTaxonomyTable({ className }: { className?: string }) {
       // matching the surgical/swarm/orbital table convention.
       tabIndex={0}
       role="region"
-      aria-label="World model paradigms compared"
+      aria-label="Six ways to build a world model, compared"
       data-brand-surface-id="surface:flat"
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
@@ -33,7 +33,7 @@ export function WmTaxonomyTable({ className }: { className?: string }) {
     >
       <table className="w-full min-w-[880px] border-collapse text-left">
         <caption className="px-4 pt-3 text-left font-mono text-[11px] text-text-dim">
-          Six example groups selected for this article
+          Six ways to build a world model
         </caption>
         <thead>
           <tr className="border-b border-border">
@@ -41,7 +41,7 @@ export function WmTaxonomyTable({ className }: { className?: string }) {
               scope="col"
               className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
-              Paradigm
+              Family
             </th>
             {COLUMNS.map((col) => (
               <th

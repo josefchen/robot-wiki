@@ -1,5 +1,5 @@
-One Kalman filter, a whole run — illustrative clip, 16 seconds.
-Through noisy and missing readings the filter stays close to the object, and its band shows when a robot should trust it less.
+One Kalman filter, a whole run: illustrative clip, 16 seconds.
+The filter mixes a motion prediction with sensor readings to track the object. When readings stop, its widening band shows growing uncertainty.
 Transcript:
 - An object moves back and forth as time runs left to right, and the dashed line marks its true position.
 - A noisy sensor reports the object's position as dots, and about one time in five it reports nothing.

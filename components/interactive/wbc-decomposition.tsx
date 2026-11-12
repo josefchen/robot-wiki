@@ -94,12 +94,12 @@ const PLAIN_LAYERS: Record<WbcApproachId, readonly (readonly [string, string])[]
 
 /** The plain names on the design buttons: whose robot brain each stack is. */
 const DESIGN_LABELS: Record<WbcApproachId, string> = {
-  'tracking-rl': 'Figure AI',
-  'latent-action': 'NVIDIA',
-  'end-to-end-vla': 'Google DeepMind',
+  'tracking-rl': 'Figure Helix 02',
+  'latent-action': 'NVIDIA GR00T and SONIC',
+  'end-to-end-vla': 'Gemini Robotics 2',
 };
 /** The group label says what a choice changes: whose robot brain the stack shows. */
-const DESIGN_GROUP_LABEL = 'Robot brain by';
+const DESIGN_GROUP_LABEL = 'Whole-body system';
 
 /** The status line names whose published speeds the stack shows. */
 const STATUS: Record<WbcApproachId, string> = {
@@ -248,7 +248,7 @@ export function WbcDecomposition({
       figureId="wbc-decomposition"
       className={className}
       kicker="Humanoid whole-body control"
-      heading="Robot brains are layered: slow thinking above, fast reflexes below"
+      heading="Three 2026 systems split deciding from balancing differently"
       controls={
         <PresetGroup<WbcApproachId>
           label={DESIGN_GROUP_LABEL}
@@ -303,13 +303,13 @@ export function WbcDecomposition({
           </PlotStage>
         </FigureStage>
       }
-      caption="Splitting the work lets a slow planner think while a fast layer keeps the robot balanced and moving."
+      caption="Figure and NVIDIA hand balance to a fast separate layer, while Gemini Robotics 2 runs the whole body from one model."
       method={
         <>
           <p>
-            The three robot brains are the three whole-body control decompositions shipping in 2026: Figure AI&rsquo;s
-            Helix 02 is motion-tracking RL, NVIDIA&rsquo;s GR00T with GEAR-SONIC is a latent-action hierarchy, and
-            Google DeepMind&rsquo;s Gemini Robotics 2 is an end-to-end VLA. They differ in where they draw the lines
+            The three systems are the three whole-body control splits shipping in 2026: Figure AI&apos;s
+            Helix 02 is motion-tracking RL, NVIDIA&apos;s GR00T with GEAR-SONIC is a latent-action hierarchy, and
+            Google DeepMind&apos;s Gemini Robotics 2 is an end-to-end VLA. They differ in where they draw the lines
             between layers. {approach.idea}
           </p>
           <ul data-testid="wbc-layers" className="m-0! grid list-none gap-0.5 p-0!">
@@ -341,6 +341,7 @@ export function WbcDecomposition({
           <p>
             In this stack, {approach.interfaceNote}. Openness: {approach.openness}.
             {approach.lineage.length > 0 ? ` Academic lineage: ${approach.lineage.join(', ')}.` : ''}
+            {approach.later ? ` ${approach.later}` : ''}
           </p>
           <ChartDescription
             id={descriptionId}

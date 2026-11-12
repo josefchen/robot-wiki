@@ -171,8 +171,8 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
                 step={5}
                 value={speed}
                 onChange={(e) => setSpeed(Number(e.target.value))}
-                aria-label={`Hand speed, in centimetres a second, currently ${speed}`}
-                aria-valuetext={`${speed} centimetres a second; the photo shows the hand ${formatMm(gap)} millimetres behind`}
+                aria-label={`Hand speed, in centimeters a second, currently ${speed}`}
+                aria-valuetext={`${speed} centimeters a second; the photo shows the hand ${formatMm(gap)} millimeters behind`}
                 className={INSTRUMENT_SLIDER_CLASS}
               />
             </SliderRow>
@@ -202,7 +202,7 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
               width={WIDTH}
               height={HEIGHT}
               fit={PHONE_FIT}
-              label={`A gripper on a rail over a ruler at ${speed} centimetres a second, the camera's beam ${formatMm(gap)} millimetres behind its pointer`}
+              label={`A gripper on a rail over a ruler at ${speed} centimeters a second, the camera's beam ${formatMm(gap)} millimeters behind its pointer`}
               describedBy={descriptionId}
             >
               {RUNS.map((run, index) => {

@@ -161,7 +161,7 @@ export function LoopClosure({ className }: { className?: string }) {
       figureId="loop-closure"
       className={className}
       kicker="Loop closure"
-      heading="Recognising a place corrects every step of the map"
+      heading="Recognizing a place corrects every step of the map"
       controls={
         <>
           <SliderRow htmlFor={driftId} label="How far each turn is off" value={<span data-testid="lc-drift">{drift.toFixed(1)} degrees</span>}>
@@ -193,7 +193,7 @@ export function LoopClosure({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Small turn errors bend the map; recognising a visited place spreads the correction across every recorded step."
+          hint="Set how far each turn is off, then close the loop: recognizing the start spreads the correction across every recorded step."
           readout={readout}
           status="Illustrative course and drift. Faint floor circles mark where the robot truly stopped; each recorded step shares the correction."
           data-testid="lc-stage"
@@ -205,8 +205,8 @@ export function LoopClosure({ className }: { className?: string }) {
               describedBy={drawingId}
               label={
                 closed
-                  ? `A jointed chain on a plotting table, a robot's map of one lap round a corridor. With each measured turn ${drift.toFixed(1)} degrees short, the loop is closed: the lit bar's socket sits on the start post, the springs at ${JOINTS} joints share ${words.lap} degrees, and the worst pose lies ${words.worstClosed} m off the plan.`
-                  : `A jointed chain on a plotting table, a robot's map of one lap round a corridor. With each measured turn ${drift.toFixed(1)} degrees short, the chain swings wide of the plan and the lit bar, the camera's view of the start, misses the start post by ${words.gap} m.`
+                  ? `A jointed chain on a plotting table, a robot's map of one lap around a corridor. With each measured turn ${drift.toFixed(1)} degrees short, the loop is closed: the lit bar's socket sits on the start post, the springs at ${JOINTS} joints share ${words.lap} degrees, and the worst pose lies ${words.worstClosed} m off the plan.`
+                  : `A jointed chain on a plotting table, a robot's map of one lap around a corridor. With each measured turn ${drift.toFixed(1)} degrees short, the chain swings wide of the plan and the lit bar, the camera's view of the start, misses the start post by ${words.gap} m.`
               }
             >
               <defs>
@@ -231,20 +231,20 @@ export function LoopClosure({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Turn errors bend the map. Recognising the start spreads the correction across every recorded step."
+      caption="Small turn errors bend the map, and recognizing the start spreads the correction across every recorded step."
       method={
         <>
           <p>
             A robot that maps as it drives places each pose from the one before, so every small error in a measured
             turn bends the rest of the map and the drift grows with distance. Coming back to a place it has mapped and
-            recognising it gives one more measurement: where that old place is from here. Once it is checked, it ties
+            recognizing it gives one more measurement: where that old place is from here. Once it is checked, it ties
             the end of the map to its start, and the back end spreads the loop&apos;s error along the whole chain
             instead of dumping it on the last pose, as monocular ORB-SLAM does with similarity alignment and Essential
             Graph optimization. This works because smoothing keeps the past poses in the graph, free to move. A revisit
             can reduce drift and in some cases correct it; it does not promise to remove all of it.
           </p>
           <p id={drawingId}>
-            The drawing is a chain-map table. A printed floor plan shows a corridor round a block of rooms, with a ring
+            The drawing is a chain-map table. A printed floor plan shows a corridor around a block of rooms, with a ring
             at every place the robot truly stopped. On it lies a jointed chain, the robot&apos;s map of its lap: a
             steel link for every {LEG_M} m leg it drove, a pin on a glide puck for every pose it remembered, and a
             torsion spring at every pin, its legs on posts on the two links, holding the turn it measured. The first
@@ -254,10 +254,10 @@ export function LoopClosure({ className }: { className?: string }) {
             gives by its share.
           </p>
           <p>
-            Illustrative: a loop of {DRIVEN_LEGS + 1} legs of {LEG_M} m round a block, and every measured turn short by
+            Illustrative: a loop of {DRIVEN_LEGS + 1} legs of {LEG_M} m around a block, and every measured turn short by
             between 0.2 and 1.8 times the drift set, more on the early legs, averaging it. Each joint&apos;s share is the
             smallest set of corrections, weighted alike, that puts the socket on the post facing the right way, solved
-            by repeated linearisation as a pose-graph back end does. The springs are all alike, so they cannot tell
+            by repeated linearization as a pose-graph back end does. The springs are all alike, so they cannot tell
             which turns were worse, and a little error stays.
           </p>
         </>

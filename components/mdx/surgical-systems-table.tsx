@@ -33,7 +33,7 @@ export function SurgicalSystemsTable({ className }: { className?: string }) {
           Surgical robotic systems compared: Intuitive da Vinci, CMR Versius,
           Medtronic Hugo, J&amp;J OTTAVA and Moon Surgical Maestro, by design
           focus, differentiator, and
-          regulatory path, with each system’s position on the six-level
+          regulatory path, with each system&apos;s position on the six-level
           autonomy scale of Yang et al.
         </caption>
         <thead>

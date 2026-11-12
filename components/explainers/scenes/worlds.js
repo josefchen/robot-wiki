@@ -376,7 +376,7 @@ export default {
       const r = lerp(0.2 + dist * 0.17, 46, smooth(0.8, 1, v));
       setReveal(v <= 0.001 ? 0 : r);
       const n = v <= 0.001 ? 1 : (v >= 0.999 ? COUNT : Math.max(1, within(r + 0.5)));
-      ui.readout(`Robots practising at once: <b>${fmt(n)}</b>, on one computer. Trained like this, a four-legged robot learned to walk on flat ground in under <b>four minutes</b>, and on rough ground in twenty.`);
+      ui.readout(`Robots practicing at once: <b>${fmt(n)}</b>, on one computer. Trained like this, a four-legged robot learned to walk on flat ground in under <b>four minutes</b>, and on rough ground in twenty.`);
     };
     const zoom = ui.slider({ label: '', left: 'One robot', right: '4,096 robots', min: 0, max: 1, step: 0.001, value: 1, onInput: (v) => applyV(v) });
     const shuffleBtn = ui.button('Shuffle worlds', () => { shuffle(); const from = 0.25; tween(0.7, (k) => { U.uRand.value = lerp(from, 1, k); }); });

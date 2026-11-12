@@ -141,7 +141,7 @@ export function LinearizationGap({ className }: { className?: string }) {
       figureId="linearization-gap"
       className={className}
       kicker="Linearization"
-      heading="Greater uncertainty makes the straight-line shortcut miss further"
+      heading="Greater uncertainty makes the straight-line shortcut miss farther"
       controls={
         <>
           <SliderRow htmlFor={spreadId} label="How uncertain the guess is" value={<span data-testid="lg-spread">{spread} degrees</span>}>
@@ -173,9 +173,9 @@ export function LinearizationGap({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="A straight line matches the curved path near the guess; greater uncertainty spreads possible positions farther away and increases the error."
+          hint="Widen the uncertainty, then swing the arm: near the guess the straight line matches the curved path, and farther out it misses more."
           readout={readoutFor(spread)}
-          status="Blue rod below the dial: the prediction’s error against the curved path. Illustrative arm and spread; exact geometry."
+          status="Blue rod below the dial: the prediction's error against the curved path. Illustrative arm and spread; exact geometry."
           data-testid="lg-stage"
         >
           <div data-testid="lg-drawing" data-spread={tenth(stand.spread)} data-angle={tenth(stand.angle)}>
@@ -183,7 +183,7 @@ export function LinearizationGap({ className }: { className?: string }) {
               width={WIDTH}
               height={HEIGHT}
               describedBy={drawingId}
-              label={`An arm swinging over an upright protractor, with a straight rule touching its arc at the guess. At ${spread} degrees either side of the guess, a dial gauge on the rule reads ${miss.toFixed(1)} centimetres between the rule and the arc.`}
+              label={`An arm swinging over an upright protractor, with a straight rule touching its arc at the guess. At ${spread} degrees either side of the guess, a dial gauge on the rule reads ${miss.toFixed(1)} centimeters between the rule and the arc.`}
             >
               {PARTS.map((part, index) => {
                 if (part.kind !== 'slot') return <PartView key={index} part={part} />;
@@ -199,7 +199,7 @@ export function LinearizationGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="The robot estimates position using a straight line touching the curve at its current guess. Greater uncertainty makes this shortcut miss further."
+      caption="The filter predicts with a straight line touching the curve at its guess, and the more uncertain the guess, the farther that line misses."
       method={
         <>
           <p>
@@ -217,7 +217,7 @@ export function LinearizationGap({ className }: { className?: string }) {
             line puts the hand for the arm&apos;s angle, the same arc length along the rule as the stylus goes along
             the groove. The dial gauge on the cursor reaches its lit plunger down to the arm&apos;s tip, so the
             plunger&apos;s length is the miss; its dial turns once for 15 cm, and the plunger is marked every
-            centimetre. Groove and rule carry the same graduations, five degrees of arc apart. Two pairs of stops, on
+            centimeter. Groove and rule carry the same graduations, five degrees of arc apart. Two pairs of stops, on
             the rim and on the rule, mark the spread either side of the guess.
           </p>
           <p>

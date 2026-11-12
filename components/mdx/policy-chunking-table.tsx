@@ -65,7 +65,7 @@ const ROWS: PolicyRow[] = [
     open: true,
   },
   {
-    policy: 'pi0',
+    policy: 'π0',
     year: 2024,
     horizon: pi0.actionHorizon.planned,
     horizonNote: 'Executes 16 on UR5e/Franka; 25 on other evaluated robots',
@@ -75,7 +75,7 @@ const ROWS: PolicyRow[] = [
     open: true,
   },
   {
-    policy: 'pi0.5',
+    policy: 'π0.5',
     year: 2025,
     horizon: 50,
     horizonNote: model('pi05').actionHorizon.note,
@@ -86,7 +86,7 @@ const ROWS: PolicyRow[] = [
     weightsNote: model('pi05').weightsNote,
   },
   {
-    policy: 'pi0.6',
+    policy: 'π0.6',
     year: 2025,
     horizon: model('pi06').actionHorizon.planned,
     horizonNote: model('pi06').actionHorizon.note,
@@ -97,7 +97,7 @@ const ROWS: PolicyRow[] = [
     weightsNote: model('pi06').weightsNote,
   },
   {
-    policy: 'pi0.7',
+    policy: 'π0.7',
     year: 2026,
     horizon: model('pi07').actionHorizon.planned,
     horizonNote: model('pi07').actionHorizon.note,
@@ -117,6 +117,17 @@ const ROWS: PolicyRow[] = [
     representation: 'flow-matching DiT head, relative EEF',
     open: true,
     weightsNote: model('gr00t-n1-7').weightsNote,
+  },
+  {
+    policy: 'GR00T 2',
+    year: 2026,
+    horizon: null,
+    horizonNote: model('gr00t-2').actionHorizon.note,
+    frequencyHz: model('gr00t-2').controlFrequencyHz,
+    frequencyNote: model('gr00t-2').controlFrequencyNote,
+    representation: 'one diffusion transformer denoises future video and the action chunk together',
+    open: model('gr00t-2').openWeights,
+    weightsNote: model('gr00t-2').weightsNote,
   },
   {
     policy: 'Helix 02',
@@ -160,7 +171,7 @@ export function PolicyChunkingTable() {
   return (
     <Table
       interactiveId="PolicyChunkingTable"
-      caption="Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness."
+      caption="Every policy here after RT-1 predicts a chunk; each action horizon and rate is its source's own setup, so values do not compare directly."
       columns={COLUMNS}
       rows={ROWS}
       initialSort={{ key: 'year', direction: 'asc' }}

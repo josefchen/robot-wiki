@@ -349,7 +349,7 @@ export function TrajectoryStitching({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Lit car: the robot, with its route so far"
+          hint="Switch how the robot learns to compare the two routes. Lit car: the robot, with its route so far"
           readout={rest.readout}
           status="Illustrative layout; conditions cited"
           data-testid="stitching-stage"
@@ -377,7 +377,7 @@ export function TrajectoryStitching({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Offline reinforcement learning rewards successful recorded actions: joining useful parts reaches the goal, although copying either complete run cannot."
+      caption="Offline reinforcement learning can join the useful parts of two recorded runs into a route to the goal, which copying either run cannot do."
       method={
         <>
           <div>

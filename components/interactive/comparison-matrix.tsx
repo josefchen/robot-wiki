@@ -306,6 +306,11 @@ const STRIP = {
   dotStep: 10,
 } as const;
 const STRIP_COL_W = (STRIP.width - STRIP.colX0) / YEARS.length;
+/** Dot spacing in one cell: the usual step, tightened only when a crowded cell would spill out of its year column. */
+const stripDotStep = (members: number) =>
+  members > 1
+    ? Math.min(STRIP.dotStep, (STRIP_COL_W - 2 * STRIP.dotR - 2) / (members - 1))
+    : STRIP.dotStep;
 const STRIP_HEIGHT = STRIP.rowY0 + STRIP.rowStep * (OUTPUT_STYLES.length - 1) + 10;
 const fx = (v: number) => Number(v.toFixed(2));
 
@@ -364,7 +369,7 @@ function YearStrip({ shown }: { shown: ReadonlySet<string> }) {
                 <circle
                   key={m.id}
                   data-method-dot={m.id}
-                  cx={fx(colCenter(year) + (j - (members.length - 1) / 2) * STRIP.dotStep)}
+                  cx={fx(colCenter(year) + (j - (members.length - 1) / 2) * stripDotStep(members.length))}
                   cy={y}
                   r={STRIP.dotR}
                   fill={undisclosed ? MOTION_STAGE.background : measurement}
@@ -475,7 +480,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
       figureId="comparison-matrix"
       className={className}
       kicker="Policy comparison"
-      heading="All disclosed motion methods through 2025; most 2026 models don’t"
+      heading="Until 2026, every model said how it outputs motion"
       controls={
         <button
           data-brand-control-id="control:selection"
@@ -554,7 +559,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
                 // The shared table sets numeric columns in mono; in a figure
                 // mono is reserved for readouts, so every cell stays in the sans.
                 className="mt-1 [&_td]:font-sans"
-                caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.`}
+                caption={`${METHODS.length} policies across eight design choices. Horizon shows predicted / executed steps (n.d. = not disclosed). Weights describe download availability, not license terms, and not disclosed is separate from not released. Undisclosed cells always sort last. An empty rate cell does not mean a source reports no rate for any setup, so read the setting notes and sources before comparing cells.`}
                 columns={COLUMNS}
                 rows={rows}
                 initialSort={{ key: 'year', direction: 'asc' }}
@@ -573,7 +578,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
         >
           <div className="font-sans text-sm leading-snug">
             <div className="text-text-dim">
-              <span className="font-semibold text-text">Through 2025, every model disclosed its motion method.</span>{' '}Most 2026 models leave it undisclosed. Each dot is one model in the full catalogue.
+              <span className="font-semibold text-text">Through 2025, every model disclosed how it outputs motion.</span>{' '}In 2026, 6 of 11 leave it out. Each dot is one model in the full matrix.
             </div>
             <div className="@container mt-2 max-w-[520px]">
               <YearStrip shown={shown} />
@@ -620,21 +625,21 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           </div>
         </FigureStage>
       }
-      caption="Through 2025 every system here published how it outputs motion; four of the six 2026 entries are company announcements that leave it out."
+      caption="Through 2025 every system here published how it outputs motion; in 2026, six of eleven entries leave it out, all of them company announcements."
       method={
         <>
           <div>
             Compiled from the primary sources linked in each row of the full matrix under
-            &ldquo;Adjust more&rdquo;. The cards and dots group the action representations into
-            plain words: discrete tokens are &ldquo;numbered words&rdquo;, continuous outputs are
-            &ldquo;movement amounts&rdquo;, and diffusion and flow matching, which both refine random
-            noise into a move, are &ldquo;refined move guesses&rdquo;.
+            &quot;Adjust more&quot;. The cards and dots group the action representations into
+            plain words: discrete tokens are &quot;numbered words&quot;, continuous outputs are
+            &quot;movement amounts&quot;, and diffusion and flow matching, which both refine random
+            noise into a move, are &quot;refined move guesses&quot;.
           </div>
           <div>
-            &ldquo;Plans ahead&rdquo; is the planned action horizon and &ldquo;speed&rdquo; the
+            &quot;Plans ahead&quot; is the predicted action horizon and &quot;Speed&quot; the
             reported control frequency, each for the setting the source names; the matrix keeps
-            the executed steps and the setting notes. &ldquo;Download&rdquo; describes download
-            availability, not licence openness. Cells the vendor has not published read{' '}
+            the executed steps and the setting notes. &quot;Download&quot; describes download
+            availability, not license terms. Cells the vendor has not published read{' '}
             {NOT_DISCLOSED_TEXT} and sort last in both directions.
           </div>
         </>

@@ -151,8 +151,8 @@ const SPACING_WORDS: Record<RepresentationId, readonly [string, string]> = {
 /** What each store keeps in the region the camera never saw. */
 const HIDDEN_NOTE: Record<RepresentationId, readonly string[]> = {
   'point-cloud': ['Hidden behind the box: no dots,', 'which looks the same as empty'],
-  'occupancy-grid': ['Hidden behind the box:', 'marked ‘unknown’, not ‘empty’'],
-  tsdf: ['Hidden behind the box:', 'kept as ‘unknown’'],
+  'occupancy-grid': ['Hidden behind the box:', 'marked "unknown", not "empty"'],
+  tsdf: ['Hidden behind the box:', 'kept as "unknown"'],
   mesh: ['Hidden behind the box:', 'a hole in the skin'],
   'gaussian-splat': ['Hidden behind the box:', 'blobs rendered, never measured'],
 };
@@ -711,7 +711,7 @@ export function SceneRepresentationLadder({
         })}
       </div>
       <p className="font-sans text-sm leading-snug text-text-dim">
-        Other answers may need extra processing; the selected format’s details are shown below.
+        Other answers may need extra processing; the selected format&apos;s details are shown below.
       </p>
     </div>
   );
@@ -738,8 +738,8 @@ export function SceneRepresentationLadder({
         step={1}
         value={resolutionIndex}
         onChange={(e) => setResolutionIndex(Number(e.target.value))}
-        aria-label={`Detail, currently ${cellCm} centimetres per cell`}
-        aria-valuetext={`${cellCm} centimetres per cell`}
+        aria-label={`Detail, currently ${cellCm} centimeters per cell`}
+        aria-valuetext={`${cellCm} centimeters per cell`}
         data-testid="scene-resolution-slider"
         className={INSTRUMENT_SLIDER_CLASS}
       />
@@ -800,7 +800,7 @@ export function SceneRepresentationLadder({
       data-testid="scene-ladder"
       className={className}
       kicker="Scene representations"
-      heading="Only storage format changes which questions can be answered"
+      heading="Storage format, not detail, decides what a map can answer"
       controls={
         <>
           <p data-testid="scene-main-comparison" className="basis-full font-sans text-lg font-medium leading-snug text-text">

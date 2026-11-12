@@ -253,7 +253,7 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption={`One model controls the humanoid’s whole body: success falls from ${Math.round(PICK_RATES.shelf)}% shelf to ${Math.round(PICK_RATES.table)}% table to ${Math.round(PICK_RATES.floor)}% floor, the least reliable height.`}
+      caption={`Gemini Robotics 2's whole-body picks succeed ${formatSuccess(PICK_RATES.shelf)} of the time from a shelf, ${formatSuccess(PICK_RATES.table)} from a table and ${formatSuccess(PICK_RATES.floor)} from the floor.`}
       method={
         <>
           <div>

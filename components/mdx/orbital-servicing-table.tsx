@@ -13,7 +13,7 @@ const ROWS = [
     year: '1998',
     operator: 'NASDA (Japan)',
     demonstrated:
-      'Autonomous rendezvous and docking between two satellites, plus a 2-metre, 6-DoF robot arm operated from the ground and in orbit'
+      'Autonomous rendezvous and docking between two satellites, plus a 2-meter, six-jointed robot arm operated from the ground and in orbit'
   },
   {
     mission: 'Orbital Express',
@@ -27,7 +27,7 @@ const ROWS = [
     year: '2001 / 2008',
     operator: 'CSA (on the ISS)',
     demonstrated:
-      'A 17-metre arm that assembled the station and still berths visiting vehicles, working with a two-armed robot that replaces exterior equipment including 100-kg batteries'
+      'A 17-meter arm that assembled the station and still berths visiting vehicles, working with a two-armed robot that replaces exterior equipment including 100-kg batteries'
   },
   {
     mission: 'MEV-1',
@@ -41,14 +41,14 @@ const ROWS = [
     year: '2024',
     operator: 'Astroscale (for JAXA)',
     demonstrated:
-      'Rendezvous with a discarded rocket upper stage, fly-around inspections, and a 15-metre approach, the closest any commercial craft has come to debris; controlled deorbit begun by March 25, 2026, after 293 days in orbit'
+      'Rendezvous with a discarded rocket upper stage, fly-around inspections, and a 15-meter approach, the closest any commercial craft has come to debris; controlled deorbit begun by March 25, 2026, after 293 days in orbit'
   },
   {
     mission: 'Mission Robotic Vehicle',
     year: '2026',
     operator: 'Northrop Grumman / DARPA',
     demonstrated:
-      'Launched on July 21, 2026 with the RSGS payload, twin robotic arms built by the U.S. Naval Research Laboratory, to install mission extension pods that extend satellites’ lives'
+      'Launched on July 21, 2026, with the RSGS payload, twin robotic arms built by the U.S. Naval Research Laboratory, to install mission extension pods that extend satellites\' lives'
   },
 ] as const;
 

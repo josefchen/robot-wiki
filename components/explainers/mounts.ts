@@ -90,6 +90,6 @@ export const EXPLAINER_MOUNTS = {
     article: 'rl-sim2real/parallel-sim-rl',
     linkedFrom: ['rl-sim2real/sim2real-transfer'],
     caption: 'Practice in thousands of slightly different simulated worlds makes the real world just one more variation.',
-    cue: 'Zoom out in the figure below to see thousands of copies of one robot practise at once, then shuffle their worlds.',
+    cue: 'Zoom out in the figure below to see thousands of copies of one robot practice at once, then shuffle their worlds.',
   },
 } as const satisfies Record<ExplainerId, ExplainerMount>;

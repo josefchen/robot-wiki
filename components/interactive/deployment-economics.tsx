@@ -113,7 +113,7 @@ const SUCCESS_CONTROL: ControlSpec = {
   term: 'per-pick success',
   format: (v) => `${v.toFixed(1)}%`,
   ends: ['90%', '99.9%'],
-  note: 'Assumption: the policy headline number; the demonstration teaching step drops this to 99.',
+  note: 'Assumption: the share of picks that succeed, the number a picking policy is usually quoted by; the scene below uses 99.',
 };
 
 /** Every control past the two in view, in the order the model lists them. */
@@ -132,7 +132,7 @@ const FOLD_CONTROLS: ControlSpec[] = [
     term: 'integration multiple',
     format: (v) => `${v.toFixed(1)}x`,
     ends: ['1 robot price', '5 robot prices'],
-    note: 'Assumption: 2.5x is chosen within EVST’s 2-3x complete-cell guidance, not a measured cell.',
+    note: "Assumption: 2.5 times is chosen within EVST's guidance of 2 to 3 times for a complete cell, not a measured cell.",
   },
   {
     key: 'cycleTimeSeconds',
@@ -391,7 +391,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
       stage={
         <AnatomyStage
           viewWidth={DRAWING_WIDTH}
-          hint="The sliding weight marks months to earn back the robot’s cost"
+          hint="The sliding weight marks the months the robot takes to earn back its cost"
           readout={
             <>
               Pays for itself in{' '}
@@ -407,7 +407,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
             width={DRAWING_WIDTH}
             height={DRAWING_HEIGHT}
             fit={PHONE_FIT}
-            label={`A steelyard: the cell's cost, ${formatMoney(out.totalCellCost)}, hangs from the short arm as ${discs.length} slotted weights, and a sliding weight for one month of labour value rests ${out.paybackMonths === null || out.paybackMonths > SCALE_MONTHS ? `on the end stop at ${SCALE_MONTHS} months, short of balance` : `${paybackText} out along the arm`}, against a collar at ${HORIZON_MONTHS} months.`}
+            label={`A steelyard: the cell's cost, ${formatMoney(out.totalCellCost)}, hangs from the short arm as ${discs.length} slotted weights, and a sliding weight for one month of labor value rests ${out.paybackMonths === null || out.paybackMonths > SCALE_MONTHS ? `on the end stop at ${SCALE_MONTHS} months, short of balance` : `${paybackText} out along the arm`}, against a collar at ${HORIZON_MONTHS} months.`}
             describedBy={`${captionId} ${descriptionId}`}
           >
             {PARTS.map((part, index) => {
@@ -501,7 +501,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
             The calculator values a robotic pick cell by the picker wages its output replaces. Cell
             cost is robot price times the integration multiple ({formatMoney(out.totalCellCost)} now).
             Each failed pick is a jam a person clears, so every good pick carries the jam rate times
-            the clearing time on top of its cycle. Payback divides cell cost by the monthly labour
+            the clearing time on top of its cycle. Payback divides cell cost by the monthly labor
             value of the modeled picks; the verdict compares it with a chosen{' '}
             {PAYBACK_TARGET_MONTHS}-month horizon.
           </p>
@@ -532,8 +532,8 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
             ))}
           </ul>
           <p>
-            All seven defaults and slider ranges are authored assumptions; EVST’s guide supplies
-            context, not exact inputs; none is a measured deployment result. The chart&rsquo;s lines
+            All seven defaults and slider ranges are authored assumptions; EVST&apos;s guide supplies
+            context, not exact inputs; none is a measured deployment result. The chart&apos;s lines
             hold every other input at its current value and vary only the clearing time, at 99.9%
             (1 failed pick in 1,000) and 99% (1 in 100) per-pick success. The hour bar spends 3,600
             elapsed seconds on productive cycles, jam clearing and downtime.

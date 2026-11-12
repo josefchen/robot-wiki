@@ -559,10 +559,10 @@ export function ReliabilityCompounding({
           </p>
           <p>
             The drawing is a marble run of {GATES} trapdoor gates, ten to a rail; the first {armed}{' '}
-            are armed as the job&rsquo;s steps and the rest are pinned shut. A hundred marbles, one
+            are armed as the job&apos;s steps and the rest are pinned shut. A hundred marbles, one
             job each, roll from the hopper. Each armed gate passes the share p of the marbles that
             reach it, rounded to whole marbles, so after k gates round(100 p^k) are still rolling, and
-            the finish tray holds the readout&rsquo;s share as whole jobs out of 100 (now{' '}
+            the finish tray holds the readout&apos;s share as whole jobs out of 100 (now{' '}
             <span data-testid="finished-marbles">{finished}</span>). Which marble drops at which
             gate is a fixed shuffle of the release order; the counts do not depend on it. A run plays
             in about ten seconds, not to scale. Working backwards, a job that must finish with

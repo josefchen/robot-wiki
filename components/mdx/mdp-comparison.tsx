@@ -15,7 +15,7 @@ export function MdpComparison({ className }: { className?: string }) {
       // matching the surgical/swarm/orbital table convention.
       tabIndex={0}
       role="region"
-      aria-label="Locomotion and manipulation MDP properties"
+      aria-label="Six differences between walking and grasping as learning problems"
       data-brand-surface-id="surface:flat"
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
@@ -29,7 +29,7 @@ export function MdpComparison({ className }: { className?: string }) {
               scope="col"
               className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
-              MDP property
+              Property
             </th>
             <th
               scope="col"

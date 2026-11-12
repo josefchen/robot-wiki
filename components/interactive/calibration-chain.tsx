@@ -161,7 +161,7 @@ const LINKS: readonly Link[] = [
     },
     citationId: 'khoshelham-kinect-2012',
     finding:
-      'Khoshelham and Oude Elberink found that a Kinect depth sensor’s random depth error grows from a few millimetres to about 4 cm at its maximum range.',
+      "Khoshelham and Oude Elberink found that a Kinect depth sensor's random depth error grows from a few millimeters to about 4 cm at its maximum range.",
     error: 'random depth error up to about 4 cm',
   },
   {

@@ -150,7 +150,7 @@ export function MotionPantograph({ className }: { className?: string }) {
               step={1}
               value={scale}
               onChange={(e) => setScale(scaleOf(Number(e.target.value)))}
-              aria-valuetext={`${scale} to 1: a ${formatMm(handMm)} millimetre hand movement moves the tip ${formatMm(tipMm(handMm, scale))} millimetres`}
+              aria-valuetext={`${scale} to 1: a ${formatMm(handMm)} millimeter hand movement moves the tip ${formatMm(tipMm(handMm, scale))} millimeters`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
           </SliderRow>
@@ -194,7 +194,7 @@ export function MotionPantograph({ className }: { className?: string }) {
             <IsoFigure
               width={WIDTH}
               height={HEIGHT}
-              label={`A reducing pantograph on a bench: four bars pinned to a fixed post carry the surgeon's stylus over the master plate and an instrument tip over a practice pad. Set to ${scale} to 1, a ${formatMm(handMm)} millimetre stroke of the stylus, wobble included, moves the tip ${formatMm(tipMm(handMm, scale))} millimetres.`}
+              label={`A reducing pantograph on a bench: four bars pinned to a fixed post carry the surgeon's stylus over the master plate and an instrument tip over a practice pad. Set to ${scale} to 1, a ${formatMm(handMm)} millimeter stroke of the stylus, wobble included, moves the tip ${formatMm(tipMm(handMm, scale))} millimeters.`}
               describedBy={drawingId}
             >
               {PARTS.map((part, index) => {
@@ -222,14 +222,14 @@ export function MotionPantograph({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="At 3 to 1, a surgeon’s 30 mm hand stroke becomes 10 mm at the instrument tip, with every wobble divided too."
+      caption="At 3 to 1, a surgeon's 30 mm hand stroke becomes 10 mm at the instrument tip, with every wobble divided too."
       method={
         <>
           <p>
             Motion scaling is one of the things a teleoperated surgical robot adds to the surgeon&apos;s hand: the
             console divides each hand movement before it reaches the instrument, so a large, comfortable movement
             becomes a fine one inside the patient, and any wobble in the hand is divided too. Yang and colleagues
-            count it as Level 0, no autonomy, because the instrument still follows the surgeon&apos;s own motion.
+            count it as level 0, no autonomy, because the instrument still follows the surgeon&apos;s own motion.
           </p>
           <p id={drawingId}>
             The drawing is a reducing pantograph doing the same thing with four bars. With the stylus at H and the
@@ -239,7 +239,7 @@ export function MotionPantograph({ className }: { className?: string }) {
           </p>
           <p>
             Illustrative: the 30 mm stroke and its wobble of 1.5 mm either side are authored, and so are the scale
-            settings; a real system also filters tremor, which this pantograph only divides. The millimetre rules on
+            settings; a real system also filters tremor, which this pantograph only divides. The millimeter rules on
             both plates are the same scale, so the two traces can be compared directly.
           </p>
         </>

@@ -61,12 +61,12 @@ const PLAIN: Record<
   push: {
     name: 'Sideways shove',
     focus: 'rl',
-    note: ['Both stay up: a shove is easy', 'to plan for and to practise'],
+    note: ['Both stay up: a shove is easy', 'to plan for and to practice'],
   },
   'low-friction': {
     name: 'Slippery patch',
     focus: 'mpc',
-    note: ['Wrong floor guess: planning fails;', 'Unpractised weak motors topple the trained robot'],
+    note: ['Wrong floor guess: planning fails,', 'while the practiced robot stays up'],
   },
   payload: {
     name: 'Heavy backpack',
@@ -75,10 +75,10 @@ const PLAIN: Record<
     note: ['It plans as if there is no', 'backpack, so its body sags'],
   },
   'torque-limit': {
-    name: 'Weaker motors (unpractised)',
+    name: 'Weaker motors (unpracticed)',
     focus: 'rl',
     degraded: 'stays up, but slower',
-    note: ['Unpractised weak motors topple the trained robot;', 'wrong floor guesses defeat planning'],
+    note: ['Weak motors it never practiced with', 'topple it; the planning robot slows'],
   },
 };
 
@@ -195,7 +195,7 @@ export function MpcVsRl({ className }: { className?: string }) {
       figureId="mpc-vs-rl"
       className={className}
       kicker="Two ways to stay upright"
-      heading="Wrong predictions defeat planning; unpractised surprises defeat learned moves"
+      heading="Wrong predictions defeat planning; unpracticed surprises defeat learned moves"
       controls={
         <PresetGroup
           label="Surprise for the robot"
@@ -269,7 +269,7 @@ export function MpcVsRl({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="A planner fails when its world predictions are wrong; a robot trained by practice fails on surprises it never practised."
+      caption="A planner fails when its world predictions are wrong; a robot trained by practice fails on surprises it never practiced."
       method={
         <>
           <p>
@@ -284,7 +284,7 @@ export function MpcVsRl({ className }: { className?: string }) {
             Each surprise in the literature&apos;s terms:{' '}
             {PERTURBATIONS.map((p) => `${PLAIN[p.id].name}, ${p.label}`).join('; ')}. The traces are an illustrative
             model of the failure modes the literature reports, not measured hardware data: base-height deviation in
-            centimetres over {TRACE_STEPS} control steps, with the surprise at step {APPLY_STEP}. The drawing shows how
+            centimeters over {TRACE_STEPS} control steps, with the surprise at step {APPLY_STEP}. The drawing shows how
             each response ends: standing for &quot;stays up&quot;, on its back for a fall, and sagging or slower
             for a degraded response.
           </p>

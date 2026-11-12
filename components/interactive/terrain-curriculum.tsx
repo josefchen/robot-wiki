@@ -230,7 +230,7 @@ export function TerrainCurriculum({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="Robots that cross their patch move to harder ground; those covering under half move back."
+      caption="Robots that cross their patch move to harder ground, and those that cover less than half of it move back."
       method={
         <>
           <div>

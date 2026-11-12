@@ -15,7 +15,7 @@ const ROWS = [
   {
     stage: 'Perception',
     question: 'Where is everything, and what is it?',
-    methods: "Lidar, camera, and radar detection and tracking; occupancy grids; the Waymo Open Dataset lineage",
+    methods: "Lidar, camera and radar detection and tracking; occupancy grids; the Waymo Open Dataset lineage",
     failure:
       'A missed or misclassified object propagates to every stage below; the Tempe 2018 crash began as a classification flip',
   },
@@ -28,7 +28,7 @@ const ROWS = [
   },
   {
     stage: 'Planning',
-    question: 'What should the ego vehicle do about it?',
+    question: 'What should the car do about it?',
     methods: 'Imitative planning with synthesized worst cases (ChauffeurNet); joint training (UniAD); text trajectories (EMMA)',
     failure:
       'Causal confusion and imitation shortcuts: the policy learns what the expert usually did, not why',
@@ -36,7 +36,7 @@ const ROWS = [
   {
     stage: 'Control',
     question: 'How is the plan tracked through the car?',
-    methods: 'Lateral and longitudinal feedback, MPC and the survey taxonomy of Paden et al.',
+    methods: 'Steering and speed feedback, from pure pursuit to model-predictive control (Paden et al.)',
     failure:
       'Tracking error grows at the limits of available friction and actuator latency',
   },
@@ -62,7 +62,7 @@ export function AvStackTable({ className }: { className?: string }) {
       <table className="w-full min-w-[560px] border-collapse text-left">
         <caption className="sr-only">
           The four stages of the autonomous-driving stack: perception,
-          prediction, planning, and control, with the question each answers,
+          prediction, planning and control, with the question each answers,
           representative methods, and its characteristic failure.
         </caption>
         <thead>

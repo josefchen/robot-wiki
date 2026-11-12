@@ -31,7 +31,7 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * WmDisambiguator: what the article's six example groups of world model
+ * WmDisambiguator: what the article's six families of world model
  * imagine when a robot arm is about to pick up a cup. The scene now is on
  * the left; on the right are the three forms an imagined next moment can
  * take, a picture, a compressed summary or plain facts, with the selected
@@ -67,7 +67,7 @@ const FORM_WORDS: Record<Form, string> = {
 /** Each form's label on the stage. */
 const FORM_LABEL: Record<Form, string> = {
   pictures: 'The next picture',
-  summary: 'A learned number code',
+  summary: 'A number summary',
   facts: 'Plain facts',
 };
 
@@ -77,7 +77,7 @@ const TAKEAWAY_NAME: Record<WmParadigmId, string> = {
   'generative-video': 'Generative video',
   jepa: 'JEPA',
   'world-action': 'World-action',
-  symbolic: 'Symbolic',
+  symbolic: 'Structured',
 };
 
 /** What each group predicts, in the words the takeaway uses. */
@@ -91,7 +91,7 @@ const PREDICTS_PLAIN: Record<WmParadigmId, string> = {
   jepa: 'predicts a future representation, never pixels, and plans by its distance to a goal representation',
   'world-action': 'predicts future frames and a chunk of next actions from one backbone',
   symbolic:
-    'predicts how predicates, object relations or occupancy change, such as the cup moving into the gripper',
+    'predicts how facts, object relations or occupied space change, such as the cup moving into the gripper',
 };
 
 /**
@@ -400,8 +400,8 @@ function takeaway(p: WmParadigm): string {
   const total = WM_PARADIGMS.length;
   const share =
     peers === 1
-      ? `the only group of the ${total} that imagines ${FORM_WORDS[form]}`
-      : `one of ${peers} groups out of ${total} that imagine ${FORM_WORDS[form]}`;
+      ? `the only family of the ${total} that imagines ${FORM_WORDS[form]}`
+      : `one of ${peers} families out of ${total} that imagine ${FORM_WORDS[form]}`;
   return `${TAKEAWAY_NAME[p.id]}, ${share}, ${PREDICTS_PLAIN[p.id]}; of the ${WM_USES.length} uses, it serves ${usesInWords(p)}.`;
 }
 
@@ -424,7 +424,7 @@ function UsedFor({ selected }: { selected: WmParadigm }) {
                 are unlayered and would beat any utility class here. */}
             <div
               role="list"
-              aria-label={served ? 'What the selected group is used for' : 'What the selected group is not used for'}
+              aria-label={served ? 'What the selected family is used for' : 'What the selected family is not used for'}
               className="flex min-w-0 flex-1 flex-wrap gap-1.5"
             >
               {uses.map((use) => (
@@ -458,13 +458,13 @@ function Method({ selected, descriptionId }: { selected: WmParadigm; description
         On the left is what the robot sees now: an arm above a cup on a table, about to pick the cup
         up. On the right are the three forms an imagined next moment can take: the next picture
         itself, a compressed summary (a short list of numbers, drawn as beads), or plain facts about
-        the objects. The marked form is the one the selected group predicts; &ldquo;Adjust
-        more&rdquo; lists the six groups and their uses.
+        the objects. The marked form is the one the selected family predicts; &quot;Adjust
+        more&quot; lists the six families and their uses.
       </p>
-      <p>What each group predicts and what it is used for:</p>
+      <p>What each family predicts and what it is used for:</p>
       {/* A role list, not a ul: the article's prose list margins are
           unlayered and would beat any utility class here. */}
-      <div role="list" aria-label="What each example group predicts" className="grid gap-1">
+      <div role="list" aria-label="What each family predicts" className="grid gap-1">
         {WM_PARADIGMS.map((p) => (
           <div role="listitem" key={p.id}>
             <span className="font-medium text-text">{p.name}:</span> {p.predicts}. Used for{' '}
@@ -475,11 +475,12 @@ function Method({ selected, descriptionId }: { selected: WmParadigm; description
       <p>
         Dreamer-style models also learn a decoder that turns a summary back into a picture, but they
         use it only as a training signal; TD-MPC-style and JEPA models have no decoder at all. The
-        uses are this article&apos;s reading of each group against the survey&apos;s four: policy
+        uses are this article&apos;s reading of each family against the survey&apos;s four: policy
         learning, planning, evaluation and data generation.
       </p>
       <p>
-        The six groups are this article&apos;s selection, not an exhaustive taxonomy. The arm, the
+        These six ways to build a world model are the article&apos;s grouping, not an official
+        taxonomy. The arm, the
         cup, the beads and the facts are drawn by hand to show the form each prediction takes; none
         of them is a model&apos;s output.
       </p>
@@ -487,10 +488,10 @@ function Method({ selected, descriptionId }: { selected: WmParadigm; description
         id={descriptionId}
         form="state"
         open
-        summary="Current world-model group"
+        summary="Selected world-model family"
         description={takeaway(selected)}
         states={[
-          { label: 'group', value: selected.short },
+          { label: 'family', value: selected.short },
           { label: 'imagines', value: FORM_WORDS[form] },
           { label: 'predicts', value: selected.predicts },
           { label: 'used for', value: `${selected.uses.length} of ${WM_USES.length}: ${usesInWords(selected)}` },
@@ -524,8 +525,8 @@ export function WmDisambiguator({
     <InstrumentFigure
       figureId="wm-disambiguator"
       className={className}
-      kicker="Six kinds of world model"
-      heading="Robot imaginations: pictures, number codes, or plain facts"
+      kicker="Six ways to build one"
+      heading="A world model imagines pictures, number summaries or facts"
       controls={
         <PresetGroup<Form>
           label="What it imagines"
@@ -539,7 +540,7 @@ export function WmDisambiguator({
         <>
           <div
             role="group"
-            aria-label="World-model paradigms"
+            aria-label="World-model families"
             className="grid w-full grid-cols-1 gap-x-3 gap-y-2 sm:grid-cols-2"
           >
             {WM_PARADIGMS.map((p) => (
@@ -591,11 +592,11 @@ export function WmDisambiguator({
           <PanelArt id={selectedId} hidden={false} describedBy={descriptionId} />
         </FigureStage>
       }
-      caption="Some models imagine pictures; others predict number summaries of images. Plain facts instead name relationships, such as the cup being held."
+      caption="Two of the six families imagine the next picture, three a summary in numbers, and one plain facts such as the cup being held."
       method={<Method selected={selected} descriptionId={descriptionId} />}
       source="Original schematic; the drawings are illustrative."
     >
-      {/* The unselected groups' drawings stay in the document, hidden and
+      {/* The unselected families' drawings stay in the document, hidden and
           aria-hidden: VAL-EDU-037 checks that exactly the selected one is
           exposed as an image. */}
       <div hidden>

@@ -251,7 +251,7 @@ export function RetargetingGap({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Copied poses: shorter legs float; longer legs sink."
+          hint="Change the leg length: with the same joint angles, shorter legs float and longer legs sink."
           readout={rest.readout}
           status="Lit: the robot foot meant to touch the floor. Illustrative bodies."
           data-testid="retargeting-stage"
@@ -280,7 +280,7 @@ export function RetargetingGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Copying human joint positions onto differently proportioned robots leaves feet above the floor with shorter legs, or below it with longer legs."
+      caption="Copying human joint angles onto a robot with shorter legs leaves its feet above the floor, and with longer legs, below it."
       method={
         <>
           <div>
@@ -292,7 +292,7 @@ export function RetargetingGap({ className }: { className?: string }) {
           </div>
           <div>
             The bodies, the walking pose and the 90 cm hip height are illustrative; no robot&apos;s measurements are
-            drawn. On the frame, the gauge&apos;s scale reads centimetres at that hip height.
+            drawn. On the frame, the gauge&apos;s scale reads centimeters at that hip height.
           </div>
           <ChartDescription
             id={descriptionId}

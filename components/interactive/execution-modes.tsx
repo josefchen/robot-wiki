@@ -480,7 +480,7 @@ export function ExecutionModes({ className }: { className?: string }) {
             delay, then eases into the new plan.
           </p>
           <p>
-            The velocity-step readouts in &ldquo;Adjust more&rdquo; read each lane against a{' '}
+            The velocity-step readouts in &quot;Adjust more&quot; read each lane against a{' '}
             {JERK_LIMIT.toFixed(2)} per-tick limit. With no delay all three lanes coincide: the new
             plan is ready the tick the old one ends, so the synchronous lane has nothing to wait
             for.
@@ -488,7 +488,7 @@ export function ExecutionModes({ className }: { className?: string }) {
           <p data-testid="execution-assumption-note">
             Illustrative hand-off traces, not an RTC solver or measured robot data, in arbitrary units. The 0.30
             per-tick limit is a discontinuity proxy, not physical jerk. The sine-shaped plan, delay-dependent
-            offset, four-tick ramps and five-tick linear blend are teaching assumptions, not the paper’s
+            offset, four-tick ramps and five-tick linear blend are teaching assumptions, not the paper&apos;s
             inpainting algorithm. RTC (arXiv:2506.07339) motivates overlapping inference and execution; these
             curves do not reproduce its experiments or guarantee safety.
           </p>
@@ -507,7 +507,7 @@ export function ExecutionModes({ className }: { className?: string }) {
           />
         </>
       }
-      source="Illustrative movement traces; switching plans of future movement commands while the robot moves follows the cited paper."
+      source="Illustrative traces of a plan hand-off, after Real-Time Chunking (Black, Galliker and Levine, 2025, arXiv 2506.07339)."
     />
   );
 }

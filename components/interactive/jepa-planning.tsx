@@ -315,11 +315,11 @@ export function JepaPlanning({
     </g>
   );
 
-  const note = `In the number code: try ${candidateCount} moves; keep the closest to the goal`;
+  const note = `Each step tries ${candidateCount} moves and keeps the one that lands closest to the goal; more options make a straighter path`;
   const plane = (
     <AnatomyStage
       viewWidth={TABLE_WIDTH}
-      story={<p className="font-sans text-sm leading-snug text-text-dim">Table points represent compact number summaries of cup-and-gripper images. Nearby points mean similar scenes; dial: percentage of starting goal distance left.</p>}
+      story={<p className="font-sans text-sm leading-snug text-text-dim">Each point on the table is a number summary of a cup-and-gripper picture; nearby points mean similar scenes. The dial shows how much of the starting distance to the goal is left.</p>}
       hint={
         <span data-testid="plan-note" data-figure-annotation="">
           {note}
@@ -387,7 +387,7 @@ export function JepaPlanning({
       figureId="jepa-planning"
       className={className}
       kicker="Planning by comparing summaries"
-      heading="Robot plans by steering its mental summary toward the goal"
+      heading="The robot plans by steering its summary toward the goal"
       controls={
         <>
           <button
@@ -437,7 +437,7 @@ export function JepaPlanning({
         </>
       }
       stage={plane}
-      caption="The robot predicts moves in a compact number summary of the scene, keeping whichever brings that summary closest to the goal’s summary."
+      caption="Without drawing any picture, the robot predicts where each move takes a summary of the scene and keeps the one closest to the goal."
       method={
         <>
           <p>
@@ -462,14 +462,14 @@ export function JepaPlanning({
           <p>
             The probe head stands on the current summary and sets out one feeler for each move it
             tries, each ending on a pin. The lit pin sits exactly where the model predicts the kept move lands,
-            closest to the target, and &ldquo;Plan next move&rdquo; carries the head along its feeler.
+            closest to the target, and &quot;Plan next move&quot; carries the head along its feeler.
             Prick marks show where the head really ended up, and the dial on the controller reads the
             distance left.
           </p>
           <p>
-            The model&rsquo;s other moves bunch into narrow wings, so for display their pins are spread
+            The model&apos;s other moves bunch into narrow wings, so for display their pins are spread
             evenly from 20 degrees past the kept move to 100 degrees either side of the goal direction.
-            Each pin keeps its side, the common reach and its order, so the spread changes no pin&rsquo;s
+            Each pin keeps its side, the common reach and its order, so the spread changes no pin&apos;s
             rank and the lit one stays the closest.
           </p>
           <p>
@@ -483,7 +483,7 @@ export function JepaPlanning({
             {formatDistance(initialDistance)} at the start.
           </p>
           <p>
-            With few options even the best one points well away from the goal, so the path zig-zags; with
+            With few options even the best one points well away from the goal, so the path zigzags; with
             many it heads almost straight there. The toy prescribes this by construction, so it measures
             nothing about a real robot. The paper scores moves by the L1 distance between predicted and
             goal feature maps and searches with the Cross-Entropy Method, using 800 samples and ten

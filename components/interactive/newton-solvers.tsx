@@ -122,7 +122,7 @@ export function NewtonSolvers({ className }: { className?: string }) {
       heading="One simulation toolkit, specialist programs for each material"
       controls={<PresetGroup label="What is being simulated" presets={MATERIALS} value={materialId} onChange={setMaterialId} testId="newton-material" />}
       stage={
-        <FigureStage footer={<StageStatus>Solvers calculate motion. VBD (vertex block descent) adjusts cloth points in turns. MPM (material point method) moves particles on a grid; “implicit” solves them together. Four of eight programs, schematically.</StageStatus>}>
+        <FigureStage footer={<StageStatus>Solvers calculate motion. VBD (vertex block descent) adjusts cloth points in turns. MPM (material point method) moves particles on a grid; &quot;implicit&quot; solves them together. Four of eight programs, schematically.</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Four materials above four solvers, joined through one Newton interface: ${material.label.toLowerCase()} go to ${solverName(material)}.`}

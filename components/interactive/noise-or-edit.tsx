@@ -129,7 +129,7 @@ export function NoiseOrEdit({ className }: { className?: string }) {
       figureId="noise-or-edit"
       className={className}
       kicker="Frozen base policy"
-      heading="Choosing starting guesses stays within the robot’s learned moves"
+      heading="Noise steering stays inside the moves the robot learned"
       controls={
         <>
           <PresetGroup<ModeId> label="What each learning method may change" presets={MODES.map((option) => ({ ...option, label: option.id === 'noise' ? 'Starting guess only (DSRL)' : 'Guess and movement edit (EXPO)' }))} value={mode} onChange={choose} testId="noise-or-edit" />
@@ -159,7 +159,7 @@ export function NoiseOrEdit({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint="The pear-shaped wheel represents a fixed movement model. Its dark strip marks every peg position it can produce."
           readout={readoutFor(mode, pose)}
-          status="Noise is a random starting guess for a move. An edit shifts the final movement beyond the wheel’s range. Illustrative mechanism."
+          status="Noise is a random starting guess for a move. An edit shifts the final movement beyond the wheel's range. Illustrative mechanism."
           data-testid="noise-or-edit-stage-frame"
         >
           <div data-testid="noise-or-edit-drawing" data-mode={mode} data-deg={r2(pose.deg % 360)} data-edit={r2(pose.edit)} data-drop={r2(pose.drop)} data-phase={pose.phase} data-landed={landed}>
@@ -180,7 +180,7 @@ export function NoiseOrEdit({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="DSRL, a starting-guess learning method, stays within learned moves; EXPO, a movement-editing method, can reach beyond them."
+      caption="DSRL only picks the starting noise, so it stays within the base policy's moves; EXPO edits the move itself and can reach past them."
       method={
         <>
           <p>

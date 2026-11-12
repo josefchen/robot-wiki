@@ -63,9 +63,9 @@ const PLAIN_NAME: Record<string, string> = {
   'ten-thousand-unit-deployment': '10,000 humanoids doing documented work',
   'open-benchmark': 'Labs agree on one shared public test',
   'broad-rl-reliability': 'Practice gets robots to 99% on many tasks',
-  'tactile-foundation-model': 'Touch sensing built into the robot’s brain',
+  'tactile-foundation-model': "Touch sensing built into the robot's brain",
   'sim-to-real-contact': 'Hand skills learned only in simulation work for real',
-  'cost-per-task-parity': 'A humanoid matches a specialist machine’s cost per job',
+  'cost-per-task-parity': "A humanoid matches a specialist machine's cost per job",
   'data-scaling-law': '100 times more data; measure the gain in task success (required gain not specified)',
 };
 
@@ -120,7 +120,7 @@ function MilestoneDetail({ milestone }: { milestone: Milestone }) {
           </div>
         </div>
         <div>
-          <div className={SECTION_LABEL}>How we&rsquo;d know</div>
+          <div className={SECTION_LABEL}>How we&apos;d know</div>
           <div className="mt-1 leading-relaxed text-text-dim">{milestone.howWeKnow}</div>
         </div>
       </div>
@@ -169,7 +169,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
       data-testid="milestones-watchlist"
       className={className}
       kicker="Bear-case milestones"
-      heading="September 2026: eight tests, none complete, five partly achieved"
+      heading="As of November 2026, none of eight milestones is met"
       controls={
         <PresetGroup<MilestoneFilter>
           label="Show"
@@ -190,7 +190,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
             </p>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
               <div data-testid="watchlist-score" className="m-0 text-[15px] text-text">
-                September 2026: {tally('met')} of {MILESTONES.length} done
+                November 2026: {tally('met')} of {MILESTONES.length} done
               </div>
               <StageCallout data-testid="watchlist-tally">
                 {tally('partial')} partly there, {tally('not-met')} not yet, {tally('met')} done
@@ -261,15 +261,15 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
           </div>
         </FigureStage>
       }
-      caption="Watch these eight: as of September 2026 five are partly there, and each one met would weaken the case that robotics is overhyped."
+      caption="Watch these eight: as of November 2026 five are partly there, and each one met would weaken the case that robotics is overhyped."
       method={
         <>
           <div>
-            Each status is Robot Wiki&rsquo;s editorial call on published evidence, reviewed in
-            September 2026: &ldquo;partly there&rdquo; means a published result moves toward the
-            milestone without meeting its test; &ldquo;not yet&rdquo; means no inspected record does.
-            The table gives each milestone&rsquo;s original name, why it matters, the evidence behind
-            the call with its sources, and how we&rsquo;d know it had been met.
+            Each status is Robot Wiki&apos;s editorial call on published evidence, reviewed in
+            November 2026: &quot;partly there&quot; means a published result moves toward the
+            milestone without meeting its test; &quot;not yet&quot; means no inspected record does.
+            The table gives each milestone&apos;s original name, why it matters, the evidence behind
+            the call with its sources, and how we&apos;d know it had been met.
           </div>
           <TableScroll labelledBy={captionId} className="pt-1">
             <table className="w-full min-w-[640px] border-collapse text-left font-sans text-sm text-text">
@@ -283,7 +283,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
                   <th scope="col" className={TABLE_HEADER_CELL}>Why it matters</th>
                   <th scope="col" className={TABLE_HEADER_CELL}>Status</th>
                   <th scope="col" className={TABLE_HEADER_CELL}>Evidence</th>
-                  <th scope="col" className={TABLE_HEADER_CELL}>How we&rsquo;d know</th>
+                  <th scope="col" className={TABLE_HEADER_CELL}>How we&apos;d know</th>
                 </tr>
               </thead>
               <tbody>

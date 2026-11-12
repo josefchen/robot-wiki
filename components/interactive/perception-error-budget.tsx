@@ -120,9 +120,9 @@ const FAR_M = SLIDER_SPECS.distance.max;
 /** The stage's words: the miss at the staff, in plain words. */
 function benchReadout(tiltDeg: number, distanceM: number): string {
   const miss = handEyeErrorMm(tiltDeg, distanceM);
-  const where = `${tiltDeg.toFixed(1)} degrees at ${distanceM.toFixed(2)} metres`;
+  const where = `${tiltDeg.toFixed(1)} degrees at ${distanceM.toFixed(2)} meters`;
   if (miss < 0.05) return `${where} · the beam lands on the peg`;
-  return `${where} · misses by ${miss.toFixed(1)} millimetres${overTop(miss) ? ', past the scale' : ''}`;
+  return `${where} · misses by ${miss.toFixed(1)} millimeters${overTop(miss) ? ', past the scale' : ''}`;
 }
 
 /** The bench's parts in painter's order, cut into runs: the static art and the staff's moving carriage. */
@@ -260,7 +260,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
     share: 1,
   }];
 
-  const verdictText = { within: 'within model band', marginal: 'marginal', jam: 'above model band' }[budget.verdict];
+  const verdictText = { within: `under ${CLEARANCE_MM} mm`, marginal: `${CLEARANCE_MM} to ${2 * CLEARANCE_MM} mm`, jam: `over ${2 * CLEARANCE_MM} mm` }[budget.verdict];
 
   const depthMm = budget.contributions.find((c) => c.key === 'depth')!.mm;
   const dominant = [...budget.contributions].sort((a, b) => b.share - a.share)[0];
@@ -370,7 +370,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         htmlFor={`${uid}-distance`}
         value={
           <>
-            <span data-testid="perception-distance-value">{distance.toFixed(2)}</span> metres
+            <span data-testid="perception-distance-value">{distance.toFixed(2)}</span> meters
           </>
         }
       >
@@ -385,11 +385,11 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         step={SLIDER_SPECS.distance.step}
         value={distance}
         onChange={(e) => setParam('workingDistanceM', Number(e.target.value))}
-        aria-label={`Distance to the object: the working distance in metres, currently ${distance.toFixed(2)}`}
+        aria-label={`Distance to the object: the working distance in meters, currently ${distance.toFixed(2)}`}
         data-testid="perception-distance-slider"
         className={INSTRUMENT_SLIDER_CLASS}
       />
-      <SliderEnds low="15 centimetres" high="1.5 metres" />
+      <SliderEnds low="15 centimeters" high="1.5 meters" />
     </ControlField>
   );
 
@@ -432,7 +432,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           step={SLIDER_SPECS.pose.step}
           value={params.poseMm}
           onChange={(e) => setParam('poseMm', Number(e.target.value))}
-          aria-label={`Object pose (mm): the translation error in millimetres, currently ${params.poseMm.toFixed(1)}`}
+          aria-label={`Object pose (mm): the translation error in millimeters, currently ${params.poseMm.toFixed(1)}`}
           data-testid="perception-pose-slider"
           className={INSTRUMENT_SLIDER_CLASS}
         />
@@ -443,7 +443,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
   const chart = (
     <PlotStage
       viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-      aria-label={`Authored input magnitudes and root-sum-of-squares total against the model band. Total ${budget.totalMm.toFixed(1)} millimetres.`}
+      aria-label={`The three error inputs and their root-sum-of-squares total against the ${CLEARANCE_MM} mm teaching band. Total ${budget.totalMm.toFixed(1)} millimeters.`}
       aria-describedby={descriptionId}
       data-testid="perception-chart"
     >
@@ -530,7 +530,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           fontSize={CHART_TYPE.axisPx}
           fill={reference}
         >
-          model band {CLEARANCE_MM} mm
+          {CLEARANCE_MM} mm band
         </text>
       </g>
       <line
@@ -654,7 +654,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         viewBox={`0 0 ${BENCH_WIDTH} ${BENCH_HEIGHT}`}
         role="img"
         focusable="false"
-        aria-label={`A camera seen from the side, its assumed line of sight tilted ${params.handEyeDeg.toFixed(1)} degrees from the true one: at ${distance.toFixed(2)} metres the robot misses by ${missMm.toFixed(1)} millimetres.`}
+        aria-label={`A camera seen from the side, its assumed line of sight tilted ${params.handEyeDeg.toFixed(1)} degrees from the true one: at ${distance.toFixed(2)} meters the robot misses by ${missMm.toFixed(1)} millimeters.`}
         aria-describedby={sideDescriptionId}
         data-testid="perception-sight-view"
       >
@@ -676,8 +676,8 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
       <div className="font-sans text-sm text-text-dim">
         The tilt&apos;s miss is one of three errors a robot stacks up before it grasps. The filled bars are
         those three, set by the controls above; the outlined bar is their root-sum-of-squares total. The
-        dashed line marks the {CLEARANCE_MM} mm model band, and hatching covers totals over{' '}
-        {2 * CLEARANCE_MM} mm, above the model band.
+        dashed line marks the {CLEARANCE_MM} mm teaching band, and hatching covers totals over{' '}
+        {2 * CLEARANCE_MM} mm. Both bands are teaching thresholds, not limits of a real gripper.
       </div>
       <div className="@container">{chart}</div>
       <InstrumentReadout>
@@ -690,12 +690,12 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           <span className="font-mono">{depthMm.toFixed(2)} mm</span> at{' '}
           <span className="font-mono">{budget.effectiveDepthPct.toFixed(1)}%</span>
         </span>
-        <span className="text-text-dim"> · model band</span>{' '}
+        <span className="text-text-dim"> · total</span>{' '}
         <span data-testid="perception-verdict-readout">{verdictText}</span>
       </InstrumentReadout>
       <p className="w-full font-sans text-[13px] leading-snug text-text-dim">
         <span data-testid="perception-target-note">
-          The {target.label} case uses an authored depth floor of{' '}
+          The {target.label} case uses a chosen depth floor of{' '}
           {depthFloorPct(params.target).toFixed(0)}% of the fixed nominal range;
           it is not a measured property of that material.
         </span>{' '}
@@ -709,12 +709,12 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
   const referenceNote = (
     <>
       <span data-testid="perception-simplification-label">
-        The depth term here is modelled as range-independent, evaluated once
+        The depth term here is modeled as range-independent, evaluated once
         at a fixed {NOMINAL_RANGE_M.toFixed(1)} m standoff, so the percentage
-        you set converts to the same millimetres at every working distance.
-        This authored simplification isolates the chosen ray-to-plane term;
+        you set converts to the same millimeters at every working distance.
+        This simplification isolates the chosen ray-to-plane term;
         it does not describe how every real depth sensor changes with range.
-        Root-sum-of-squares is an authored rule here: these slider values
+        Root-sum-of-squares is a teaching rule here: these slider values
         are not established standard deviations, and the instrument does
         not establish independence or a real-system error bound.
       </span>{' '}
@@ -726,8 +726,8 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
       or a standard deviation <CiteRef id="realsense-d400-datasheet-2026" />.
       The model chooses multipliers 1, 3 and 8 for its opaque, specular and
       transparent cases; none is a measured material-specific floor. Its 15 mm
-      and 30 mm bands are authored comparison thresholds, not predictions of
-      grasp success or collision.
+      and 30 mm bands are teaching thresholds, not predictions of grasp
+      success or collision.
     </>
   );
 
@@ -766,7 +766,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           <div ref={stageRef}>{sideView}</div>
         </AnatomyStage>
       }
-      caption="Robots reach for what their camera sees, so a camera angle off by a fraction of a degree puts the hand beside the object."
+      caption="A camera tilted a fraction of a degree puts the hand beside the object; the 15 and 30 mm bands are teaching thresholds, not limits."
       method={
         <>
           <p>
@@ -795,8 +795,8 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           <ChartDescription
             id={descriptionId}
             form="state"
-            summary="Current authored budget and model band"
-            description={`At an authored angle of ${params.handEyeDeg.toFixed(1)} degrees and axial distance ${params.workingDistanceM.toFixed(2)} m, the model's root-sum-of-squares magnitude is ${budget.totalMm.toFixed(2)} mm against its ${CLEARANCE_MM} mm comparison band. ${dominant.label} contributes ${(dominant.share * 100).toFixed(0)}% of the sum of squared inputs. Model band: ${verdictText}.`}
+            summary="Current error budget against the teaching bands"
+            description={`At a tilt of ${params.handEyeDeg.toFixed(1)} degrees and a distance of ${params.workingDistanceM.toFixed(2)} m, the model's root-sum-of-squares magnitude is ${budget.totalMm.toFixed(2)} mm against its ${CLEARANCE_MM} mm teaching band. ${dominant.label.charAt(0).toUpperCase()}${dominant.label.slice(1)} contributes ${(dominant.share * 100).toFixed(0)}% of the sum of squared inputs. Model band: ${verdictText}.`}
             states={[
               { label: 'hand-eye', value: `${params.handEyeDeg.toFixed(1)} deg` },
               { label: 'distance', value: `${params.workingDistanceM.toFixed(2)} m` },

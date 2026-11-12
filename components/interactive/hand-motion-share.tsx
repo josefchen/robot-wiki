@@ -174,7 +174,7 @@ export function HandMotionShare({ className }: { className?: string }) {
               describedBy={drawingId}
               label={`A mannequin arm draws a check mark on its easel while a robot arm with shorter links copies it on another, through a copy box set to send the person's ${
                 copy === 'joints'
-                  ? `joint angles. The robot's lit ink comes out smaller and skewed, straying up to ${stray} centimetres from the check mark placed at its start.`
+                  ? `joint angles. The robot's lit ink comes out smaller and skewed, straying up to ${stray} centimeters from the check mark placed at its start.`
                   : "hand motion. The robot finds its own joint angles, and its lit ink lies on the same check mark."
               }`}
             >

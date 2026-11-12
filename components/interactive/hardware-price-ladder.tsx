@@ -55,6 +55,7 @@ const rowTop = (index: number) => TOP + index * ROW_H;
 const LABEL_PLACEMENT: Record<string, { anchor: 'start' | 'middle' | 'end'; dx: number }> = {
   'so-arm101-pro-unassembled': { anchor: 'start', dx: -4 },
   'reachy-2': { anchor: 'end', dx: 4 },
+  'ff-nova': { anchor: 'end', dx: 4 },
   'unitree-r1': { anchor: 'end', dx: 4 },
   'unitree-h2': { anchor: 'middle', dx: 0 },
   'jetson-thor-t4000': { anchor: 'end', dx: 0 },
@@ -69,8 +70,8 @@ const COMPUTERS = rowPoints('compute');
 const range = (points: PricedPoint[]) =>
   `from ${usd(points[0].priceUsd)} (${points[0].label}) to ${usd(points[points.length - 1].priceUsd)} (${points[points.length - 1].label})`;
 
-const HEADING = `Arms ${usd(ARMS[0].priceUsd)} to ${usd(ARMS[ARMS.length - 1].priceUsd)}; humanoids ${usd(HUMANOIDS[0].priceUsd)} to ${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}; some unpriced`;
-const CAPTION = `Arms: ${usd(ARMS[0].priceUsd)} to ${usd(ARMS[ARMS.length - 1].priceUsd)}. Humanoids: ${usd(HUMANOIDS[0].priceUsd)} to ${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}. Several humanoid makers publish no price or do not offer open sales.`;
+const HEADING = `Listed prices: arms ${usd(ARMS[0].priceUsd)} to ${usd(ARMS[ARMS.length - 1].priceUsd)}, humanoids ${usd(HUMANOIDS[0].priceUsd)} to ${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}`;
+const CAPTION = 'The cheapest listed humanoid costs less than a WidowX AI research arm, and several humanoid makers publish no price or do not sell openly.';
 const DESCRIPTION = `Listed prices of ${LADDER_POINTS.length} robot products on a ruler that steps by ten times: arms ${range(ARMS)}, humanoids ${range(HUMANOIDS)}, and robot computers ${range(COMPUTERS)}. EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.`;
 
 function Strip({ index, points }: { index: number; points: PricedPoint[] }) {
@@ -144,7 +145,7 @@ export function HardwarePriceLadder({ className }: { className?: string }) {
       stage={
         <FigureStage>
           <p className="m-0 font-sans text-sm text-text-dim">
-            Each dot is one listed product; names beside dots mark each row’s cheapest and priciest. Several humanoid makers publish no price.
+            Each dot is one listed product; names beside dots mark each row&apos;s cheapest and priciest. Several humanoid makers publish no price.
           </p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}

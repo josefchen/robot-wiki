@@ -346,7 +346,7 @@ export function ActuatorGap({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? 'Running, slowed for the eye' : 'Lit crank: the simulated motor'}
+          hint={running ? 'Running, slowed for the eye' : 'Switch the motor model, then play the run; the lit crank is the simulated motor'}
           readout={stillReadout(model)}
           status="Graph: time across, motor position upward. Blue: simulation; dark curve: real motor; faint step: target. Gap is their average position difference as a percent of the move. Illustrative responses; cited outcome."
           data-testid="actuator-stage"
@@ -384,7 +384,7 @@ export function ActuatorGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A movement controller trained with ideal simulated motors fell at ANYmal’s first step; modelling the real motors’ response let it walk."
+      caption="A walking policy trained with ideal simulated motors fell at ANYmal's first step; modeling the real motors' response let it walk."
       method={
         <>
           <div>

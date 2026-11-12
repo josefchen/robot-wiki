@@ -80,7 +80,7 @@ export default {
       const ok = r.error < 0.01;
       cupMat.color.copy(ok ? stage.colors[reachedRole] : stage.colors.fail);
       cupLabel.set(ok ? 'Reached' : 'Out of reach').tone(ok ? reachedRole : 'fail');
-      ui.readout(ok ? angles() : `No joint angles put the hand there; it gets no closer than <b>${Math.round(r.error * 100)} centimetres</b>.`);
+      ui.readout(ok ? angles() : `No joint angles put the hand there; it gets no closer than <b>${Math.round(r.error * 100)} centimeters</b>.`);
       return ok;
     };
     const drag = stage.draggable(cup, { handle: cup, plane: 'horizontal',

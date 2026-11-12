@@ -343,7 +343,7 @@ export function DataScaleChart({
             testId="collection-goal"
           />
           <PresetGroup<KindFilter>
-            label="Datasets to pick out"
+            label="Highlight datasets"
             presets={[
               { id: 'all', label: 'All' },
               { id: 'robot', label: 'Robot data' },
@@ -576,21 +576,21 @@ export function DataScaleChart({
           </PlotStage>
         </FigureStage>
       }
-      caption={`Robot data is tiny beside chatbot text: ${robotsWord} ${rigs === 1 ? 'needs' : 'need'} ${durationInWords(goalYears)} for ${goal.toLocaleString('en-US')} hours at this collection rate.`}
+      caption={`Robot data is tiny beside chatbot text: ${robotsWord} ${rigs === 1 ? 'needs' : 'need'} ${durationInWords(goalYears)} for ${goal.toLocaleString('en-US')} hours; more robots or busier ones cut the wait.`}
       method={
         <>
           <p>
             The two panels use separate rulers because there is no honest exchange rate between an
             hour of robot practice and a token of text, so none is drawn. A token is a piece of a
             word: GPT-3 trained on {LLM_POINTS[0].value} and Llama 3 on{' '}
-            {LLM_POINTS[1].value}. Both rulers are logarithmic: each labelled step is ten times the
+            {LLM_POINTS[1].value}. Both rulers are logarithmic: each labeled step is ten times the
             one before.
           </p>
           <div data-testid="rate-explanation">
             <p>
               {rate.note} The 10,000-hour and 1,000,000-hour targets are authored hypothetical
-              inputs, not OXE totals or measured frontier requirements. Hours marked &ldquo;about&rdquo; on
-              dataset points are estimates. Hours marked &ldquo;over&rdquo; are totals Xiaomi and Generalist
+              inputs, not OXE totals or measured frontier requirements. Hours marked &quot;about&quot; on
+              dataset points are estimates. Hours marked &quot;over&quot; are totals Xiaomi and Generalist
               report for their own models; neither company has released the data, so no one outside
               can count them.
             </p>
@@ -645,8 +645,8 @@ export function DataScaleChart({
             description={
               <>
                 Demonstration hours span {ROBOT_POINTS[0].value} (DROID) to{' '}
-                {ROBOT_POINTS[ROBOT_POINTS.length - 1].value} (EgoScale) across{' '}
-                {ROBOT_POINTS.length} robot and human datasets, and companies report unreleased totals
+                {ROBOT_POINTS[ROBOT_POINTS.length - 1].value} ({ROBOT_POINTS[ROBOT_POINTS.length - 1].label}) across{' '}
+                {ROBOT_POINTS.length} robot and human-video collections, and companies report unreleased totals
                 of{' '}
                 {COMPANY_POINTS.map((p, i) =>
                   `${i === 0 ? '' : i === COMPANY_POINTS.length - 1 ? ' and ' : ', '}${p.value} (${p.label})`,

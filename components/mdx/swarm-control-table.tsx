@@ -17,7 +17,7 @@ const ROWS = [
     limit: 'No lookahead: local minima trap the group, and collision avoidance degrades in clutter',
   },
   {
-    family: 'Predictive (NMPC) control',
+    family: 'Model-predictive control',
     mechanism:
       'Each drone solves a receding-horizon optimization that folds the same interaction terms into its dynamics',
     exemplar: 'Five-quadrotor swarm through an obstacle field (Soria et al., 2021)',
@@ -52,7 +52,7 @@ export function SwarmControlTable({ className }: { className?: string }) {
       <table className="w-full min-w-[560px] border-collapse text-left">
         <caption className="sr-only">
           The three control families for aerial swarms: reactive flocking,
-          predictive nonlinear model-predictive control, and decentralized
+          model-predictive control, and decentralized
           trajectory planning, with the mechanism, the system that
           demonstrated each, and its characteristic limit.
         </caption>

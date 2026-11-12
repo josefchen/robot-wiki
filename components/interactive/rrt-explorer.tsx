@@ -413,7 +413,7 @@ export function RrtExplorer({ className }: { className?: string }) {
       method={
         <>
           <p>
-            Authored fixed-seed scene. Each sampling attempt selects the goal with probability 1.5% and otherwise
+            A made-up scene with a fixed random seed. Each sampling attempt selects the goal with probability 1.5% and otherwise
             samples uniformly; steps are capped at 2 world units. Each accepted step grows from the tree node
             nearest a random sample, so the tree spreads into open space. Every iteration adds one node; with this
             seed a branch first reaches the goal at iteration {goalIteration ?? total}, and the path it gives

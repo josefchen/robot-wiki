@@ -173,7 +173,7 @@ export function ImpedancePress({ className }: { className?: string }) {
       figureId="impedance-press"
       className={className}
       kicker="Impedance action"
-      heading={displayedTarget > 0 ? "This action sends target and stiffness for contact" : displayedTarget < 0 ? "This action sends target and stiffness before contact" : "This action sends target and stiffness at the surface"}
+      heading={displayedTarget > 0 ? "Stiffness sets how hard the tool pushes on contact" : displayedTarget < 0 ? "Before contact, stiffness has nothing to push against" : "At the surface, the tool touches without pushing"}
       stage={
         <AnatomyStage
           viewWidth={WIDTH}

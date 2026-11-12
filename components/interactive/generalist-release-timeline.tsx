@@ -38,7 +38,7 @@ import { cx } from '@/lib/utils';
 
 /**
  * GeneralistReleaseTimeline: every selected generalist policy on one
- * calendar, Feb 2025 to Jul 2026, one row per release with its name in a
+ * calendar, Feb 2025 to Nov 2026, one row per release with its name in a
  * left column. One shape and one colour: a filled circle has a reported
  * download, a hollow one is either not offered or not stated. Tapping a row
  * opens its card below. One toggle fades every release that cannot be
@@ -76,7 +76,7 @@ const FAINT_ROW_OPACITY = 0.3;
 
 /** Time axis bounds (month precision), slightly padded past the data. */
 const AXIS_MIN = '2025-01';
-const AXIS_MAX = '2026-08';
+const AXIS_MAX = '2026-12';
 const AXIS_TICKS = ['2025-01', '2026-01'];
 
 function monthIndex(ym: string): number {
@@ -102,7 +102,7 @@ const FILTERS: readonly { id: OpenFilter; label: string }[] = [
 /** Plain display glosses; canonical source records and the source table stay unchanged. */
 const RELEASE_DISPLAY_GLOSSES: Readonly<Partial<Record<string, { weightsNote: string; capability: string }>>> = {
   'helix-2025': {
-    weightsNote: "The February 20, 2025 announcement identifies a downloadable picture-and-language model; it does not establish a download or licence for Helix’s trained movement controller.",
+    weightsNote: "The February 20, 2025 announcement identifies a downloadable picture-and-language model; it does not establish a download or license for Helix's trained movement controller.",
     capability: "Figure reports two connected parts: S2 represents the task; S1 uses that information, images and robot measurements, including joint positions, to control wrists, fingers, torso and head and report task completion.",
   },
 };
@@ -251,7 +251,7 @@ export function GeneralistReleaseTimeline({
       data-source-selected={selected.id}
       className={className}
       kicker="Generalist policies"
-      heading="Thirteen robot brains since 2025; four you can download"
+      heading="Seventeen robot brains since 2025; four you can download"
       controls={
         <>
           <button
@@ -524,7 +524,7 @@ export function GeneralistReleaseTimeline({
             generalist policy. Each sits at the month of its primary source; no days are invented.
             Source types: a paper (arXiv), repository release notes, a lab blog, or a press
             release. Blog and press entries are vendor-reported: the maker&apos;s own claims, with
-            no outside check. Show source type in &ldquo;Adjust more&rdquo; draws each as its own
+            no outside check. Show source type in &quot;Adjust more&quot; draws each as its own
             shape.
           </div>
           <TableScroll labelledBy={tableCaptionId} className="pt-1">

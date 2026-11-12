@@ -283,7 +283,7 @@ function annotationLines(realMu: number, point: number, dr: number): string[] {
   if (dr < 0.2) return ['Far from every practice floor,', 'both robots mostly fail'];
   if (point < 0.1) {
     return [
-      `Floor ${realMu < MU_TRAIN ? 'more slippery' : 'grippier'} than practised:`,
+      `Floor ${realMu < MU_TRAIN ? 'more slippery' : 'grippier'} than practiced:`,
       'the one-floor robot fails, the',
       'many-floor robot keeps going',
     ];
@@ -429,7 +429,7 @@ export function FrictionTransfer({
                   one-floor robot
                 </LegendItem>
                 <LegendItem series="dr-policy" swatch={<ManyFloorsSwatch />}>
-                  many-floor robot, practised on the shaded floors
+                  many-floor robot, practiced on the shaded floors
                 </LegendItem>
               </InstrumentLegend>
               <StageStatus>Illustrative, not measured</StageStatus>
@@ -575,7 +575,7 @@ export function FrictionTransfer({
           </PlotStage>
         </FigureStage>
       }
-      caption="Robots practise on computer-simulated floors that never match a real floor exactly, so engineers vary them on purpose."
+      caption="Robots practice on simulated floors that never match a real floor exactly, so engineers vary the floors on purpose."
       method={
         <>
           <p>
@@ -605,10 +605,10 @@ export function FrictionTransfer({
             {formatPct(pointSuccess(MU_TRAIN))}.
           </p>
           <p data-testid="ft-explanation">
-            At friction {formatMu(realMu)} the {higher}. All curves are authored formulas, not trained policies or
+            At friction {formatMu(realMu)} the {higher}. All curves are made-up formulas, not trained policies or
             robot data, and not measured robot performance. All values and the falling DR peak are local
             assumptions: the plateau height is 0.93 minus 0.55 times the half-width, so it widens and falls together,
-            74% at half-width 0.35 and 57% at 0.65. These authored values do not come from Peng paper results, and
+            74% at half-width 0.35 and 57% at 0.65. These illustrative values do not come from Peng paper results, and
             domain randomization has no measured universal law of this shape.
           </p>
           <ChartDescription

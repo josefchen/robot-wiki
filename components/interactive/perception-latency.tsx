@@ -66,7 +66,7 @@ import {
 
 const f = (v: number) => Number(v.toFixed(2));
 const kmh = (ms: number) => Math.round(ms * 3.6);
-const metres = (m: number) => `${m.toFixed(1)} metres`;
+const metres = (m: number) => `${m.toFixed(1)} meters`;
 const G = 9.81;
 /** The run is slowed this many times so the eye can follow it. */
 export const SLOW = 10;
@@ -97,7 +97,7 @@ const CAMERA_PRESETS: { id: CameraId; label: string }[] = [
 
 const AGILITY_NAMES: Record<AgilityId, string> = {
   '10': 'Gentle',
-  '25': 'Standard (the study’s)',
+  '25': "Standard (the study's)",
   '50': 'Hard',
   '200': 'Extreme',
 };
@@ -283,7 +283,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
     next();
   };
 
-  const plainReadout = `At about ${speedKmh} kilometres an hour the drone flies about ${metres(
+  const plainReadout = `At about ${speedKmh} kilometers an hour the drone flies about ${metres(
     blindM,
   )} before its camera reports the wall, then swerves for about ${metres(swerveM)}.`;
   const cameraWords = CAMERA_WORDS[camera] || `Camera ${latencyMs} ms late`;
@@ -460,7 +460,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
         <AnatomyStage
           viewWidth={RIG.WIDTH}
           keys={RIDER_KEYS}
-          hint={running ? `Flying at its top safe speed, slowed ${SLOW} times` : undefined}
+          hint={running ? `Flying at its top safe speed, slowed ${SLOW} times` : 'Pick a slower camera or a weaker swerve and the top safe speed drops'}
           readout={
             <>
               {cameraWords} · {swerveWords} · top safe speed <span data-testid="speedometer-reading">{`about ${speedKmh} km/h`}</span>
@@ -472,7 +472,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
           <IsoFigure
             width={RIG.WIDTH}
             height={RIG.HEIGHT}
-            label={`A drone at its top safe speed of about ${speedKmh} kilometres an hour that swerves past a wall ${rangeM} metres ahead with no margin`}
+            label={`A drone at its top safe speed of about ${speedKmh} kilometers an hour that swerves past a wall ${rangeM} meters ahead with no margin`}
             describedBy={descriptionId}
           >
             {staticRun(RIG.PARTS, slot)}
@@ -494,12 +494,12 @@ export function PerceptionLatency({ className }: { className?: string }) {
             rider is the stretch flown before the camera reports (speed times delay), the plain one the
             swerve. The drone and its sideways throw are drawn larger than that scale. A run plays
             {` ${SLOW} `}times slower than the real flight; the carriage starts {Math.abs(START_X / UNITS_PER_M).toFixed(1)} m before the
-            gate, and the timer wheel on it runs down the camera&rsquo;s delay before the spring pack throws
+            gate, and the timer wheel on it runs down the camera&apos;s delay before the spring pack throws
             the drone sideways.
           </p>
           <p>
             Swerve settings, as sideways acceleration: Gentle 10 m/s² (about {(10 / G).toFixed(1)} g),
-            Standard, the study&rsquo;s value, 25 m/s² (about {(25 / G).toFixed(1)} g), Hard 50 m/s²
+            Standard, the study&apos;s value, 25 m/s² (about {(25 / G).toFixed(1)} g), Hard 50 m/s²
             (about {(50 / G).toFixed(1)} g), Extreme 200 m/s² (about {(200 / G).toFixed(1)} g).
           </p>
           <p data-testid="reference-latencies">
@@ -510,8 +510,8 @@ export function PerceptionLatency({ className }: { className?: string }) {
                 {s.name} {formatSeconds(s.latencyS)}
               </span>
             ))}
-            . &ldquo;Ordinary camera&rdquo; is the stereo frame camera and &ldquo;Faster camera&rdquo; is the event camera; the camera-delay slider under
-            &ldquo;Adjust more&rdquo; sets any latency from 0 to {INTERACTIVE_MAX_LATENCY_MS} ms.
+            . &quot;Ordinary camera&quot; is the stereo frame camera and &quot;Faster camera&quot; is the event camera; the camera-delay slider under
+            &quot;Adjust more&quot; sets any latency from 0 to {INTERACTIVE_MAX_LATENCY_MS} ms.
           </p>
           <p>
             The same budget on a time axis, at the current settings ({agilityName} swerve):

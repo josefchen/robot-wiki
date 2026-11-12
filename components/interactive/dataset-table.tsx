@@ -136,7 +136,7 @@ const COLUMNS: Column<Dataset>[] = [
 const SIZE_OPTIONS: Array<{ value: SizeFilter; label: string }> = [
   { value: 'all', label: 'All sizes' },
   { value: 'under-100k', label: 'Under 100k episodes' },
-  { value: '100k-1m', label: '100k-1M episodes' },
+  { value: '100k-1m', label: '100k to 1M episodes' },
   { value: '1m-plus', label: '1M+ episodes' },
   { value: 'unknown', label: 'Unknown size' },
 ];
@@ -150,7 +150,7 @@ const EMBODIMENT_OPTIONS: Array<{ value: EmbodimentFilter; label: string }> = [
 const TASK_OPTIONS: Array<{ value: TaskFilter; label: string }> = [
   { value: 'all', label: 'All task counts' },
   { value: 'under-100', label: 'Under 100 tasks' },
-  { value: '100-1k', label: '100-1,000 tasks' },
+  { value: '100-1k', label: '100 to 1,000 tasks' },
   { value: '1k-plus', label: '1,000+ tasks' },
   { value: 'unknown', label: 'Unknown count' },
 ];
@@ -238,7 +238,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
           onSelect={(size) => patchFilters({ size })}
         />
         <FilterGroup
-          label="Filter by embodiment"
+          label="Filter by robot platforms"
           options={EMBODIMENT_OPTIONS}
           active={filters.embodiment}
           onSelect={(embodiment) => patchFilters({ embodiment })}
@@ -285,7 +285,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${DATASETS.length} open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.`}
+          caption={`${DATASETS.length} open robot-manipulation datasets. The filters above narrow the list by size in episodes (recorded runs), by whether one robot platform or several recorded the data, and by number of tasks; clicking a column heading sorts it. Figures the source does not publish read not disclosed and sort last; estimates stay in the prose, and every row links to its dataset site or paper.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'episodes', direction: 'desc' }}

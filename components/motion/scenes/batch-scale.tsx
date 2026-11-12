@@ -273,7 +273,7 @@ export function BatchScale({ className }: { className?: string }) {
         </p>
         <p>
           These are illustrative calculations, not measured training curves: the robot counts, times and the
-          main-computer cost are authored for this lab. The reported Rudin time bounds, their separate protocols and
+          main-computer cost are chosen for this lab. The reported Rudin time bounds, their separate protocols and
           the CPU benchmark that motivates the dashed curve are in the article text. The time axis is logarithmic,
           from one minute to four hours.
         </p>

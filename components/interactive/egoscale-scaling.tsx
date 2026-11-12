@@ -421,7 +421,7 @@ export function EgoScaleScaling({
             onClick={() => setShowLaw((v) => !v)}
             className={INSTRUMENT_TOGGLE_CLASS}
           >
-            Show the paper&rsquo;s error measure
+            Show the paper&apos;s error measure
           </button>
           <InstrumentReset onClick={reset} />
         </>
@@ -434,7 +434,7 @@ export function EgoScaleScaling({
         >
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`Task completion against hours of human video, measured from 1,000 to 20,000 hours, with a straight-line trend extended to ${plainHours(horizon)} hours (${formatHours(horizon)})${showLaw ? ', above the paper\u2019s validation-loss law' : ''}`}
+            aria-label={`Task completion against hours of human video, measured from 1,000 to 20,000 hours, with a straight-line trend extended to ${plainHours(horizon)} hours (${formatHours(horizon)})${showLaw ? ', above the paper\'s validation-loss law' : ''}`}
             aria-describedby={descriptionId}
           >
             {/* Everything right of 20k hours is not measured: shaded. */}
@@ -525,7 +525,7 @@ export function EgoScaleScaling({
                 strokeDasharray={CHART_STROKE.dash}
               />
               <DirectLabel x={SCORE_PANEL.left + 6} y={f(solvedY - 5)} role="reference">
-                the bar for &ldquo;solved&rdquo;
+                the bar for &quot;solved&quot;
               </DirectLabel>
             </g>
 
@@ -625,18 +625,18 @@ export function EgoScaleScaling({
           <p data-testid="scaling-legend">
             The line is a least-squares log-linear fit through the five scores, an editorial
             completion fit ({PUBLIC_IDENTITY}, R&sup2; ={' '}
-            {COMPLETION_FIT.rSquared.toFixed(2)}), not the paper&rsquo;s law. It reads 0.89 at
+            {COMPLETION_FIT.rSquared.toFixed(2)}), not the paper&apos;s law. It reads 0.89 at
             100k hours, crosses the 0.90 solved bar near{' '}
             {Math.round(solvedBarCrossingHours() / 1000)}k hours and passes 100% near{' '}
             {Math.round(impossibleHours / 1000)}k hours, which is impossible. The hours axis is
-            logarithmic. The solved bar is this article&rsquo;s criterion: one policy above 90%
+            logarithmic. The solved bar is this article&apos;s criterion: one policy above 90%
             success across many unseen homes with no per-site data.
           </p>
           <p>
-            The paper&rsquo;s published law is about validation loss (MSE on held-out human
+            The paper&apos;s published law is about validation loss (MSE on held-out human
             video): L = 0.024 &minus; 0.003 ln D, D in thousands of hours, R&sup2; = {R_SQUARED},
-            over the five scales. &ldquo;Show the paper&rsquo;s error measure&rdquo; in
-            &ldquo;Adjust more&rdquo; draws it above the completion panel. Past 20k hours both
+            over the five scales. &quot;Show the paper&apos;s error measure&quot; in
+            &quot;Adjust more&quot; draws it above the completion panel. Past 20k hours both
             panels then show a scenario band, a scenario bracket between the law holding and a
             plateau at the last measured value, not a confidence interval.
           </p>

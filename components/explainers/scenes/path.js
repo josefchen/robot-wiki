@@ -114,9 +114,9 @@ const STEP_TEXT = EXPLAINER_WORDS.path.steps;
 export default {
   id: 'path',
   how: `<ul>
-    <li>The tree is a real rapidly-exploring random tree, the method introduced by Steven LaValle in 1998 (<a href="https://lavalle.pl/papers/Lav98c.pdf" target="_blank" rel="noopener">"Rapidly-exploring random trees: a new tool for path planning"</a>), running in your browser. Each try picks a random point in the room and steps 5 centimetres toward it from the nearest point of the tree.</li>
+    <li>The tree is a real rapidly-exploring random tree, the method introduced by Steven LaValle in 1998 (<a href="https://lavalle.pl/papers/Lav98c.pdf" target="_blank" rel="noopener">"Rapidly-exploring random trees: a new tool for path planning"</a>), running in your browser. Each try picks a random point in the room and steps 5 centimeters toward it from the nearest point of the tree.</li>
     <li>Collision checks are exact: the gripper's bounding box is swept along each step and tested against every shelf board, panel and box. The first tree uses a fixed random seed so every reader sees the same one; each replan uses a new seed.</li>
-    <li>The path is smoothed in two passes: shortcutting (jump straight to the furthest point that is still safe) and corner rounding, each piece re-checked for collisions. The last few centimetres into the can are a straight approach.</li>
+    <li>The path is smoothed in two passes: shortcutting (jump straight to the furthest point that is still safe) and corner rounding, each piece re-checked for collisions. The last few centimeters into the can are a straight approach.</li>
     <li>Here the tree grows in ordinary 3D space, because this gripper only slides. A real arm grows the same kind of tree in the space of its joint angles, often 7 numbers at a time.</li>
     <li>Speed today: VAMP, a vectorised planner from Rice University, plans for the 7-joint Panda arm in a median 40 millionths of a second (25,000 plans a second) on one CPU core, using RRT-Connect, a two-tree version of this method (Thomason, Kingston and Kavraki, ICRA 2024, <a href="https://arxiv.org/abs/2309.14545" target="_blank" rel="noopener">arXiv:2309.14545</a>). The same paper notes that planners of this kind typically took hundreds of milliseconds to dozens of seconds before. Since April 2026, VAMP is available as an optional fast backend in the Open Motion Planning Library 2.0 (<a href="https://ompl.kavrakilab.org/releaseNotes.html" target="_blank" rel="noopener">OMPL release notes</a>).</li>
   </ul>`,
@@ -396,7 +396,7 @@ export default {
             if (!(await anim(0.9, (e) => { reveal(straight, e); gripper.position.lerpVectors(a, hit, e); }, my))) return;
             straight.material.setRole('fail');
             hitAt = hit.clone().add(new THREE.Vector3(0, 0.08, 0)); hitLabel.show(true);
-            ui.readout(`Straight there is <b>${a.distanceTo(b).toFixed(2)} metres</b>, but it is blocked after <b>${a.distanceTo(hit).toFixed(2)} metres</b>.`);
+            ui.readout(`Straight there is <b>${a.distanceTo(b).toFixed(2)} meters</b>, but it is blocked after <b>${a.distanceTo(hit).toFixed(2)} meters</b>.`);
           } },
         { text: STEP_TEXT[1],
           enter: async () => {
@@ -441,13 +441,13 @@ export default {
             setTube(rawPath, [...route.raw].reverse().map(V), 0.0034); rawPath.material.setRole('focus'); reveal(rawPath, 0);
             if (!(await anim(0.9, (k) => reveal(rawPath, k), my))) return;
             rawAt = V(route.raw[Math.round(route.raw.length * 0.3)]); rawLabel.show(true);
-            ui.readout(`Followed back: <b>${route.raw.length - 1}</b> steps, <b>${lengthOf(route.raw).toFixed(2)} metres</b>.`);
+            ui.readout(`Followed back: <b>${route.raw.length - 1}</b> steps, <b>${lengthOf(route.raw).toFixed(2)} meters</b>.`);
             if (!(await anim(0.3, (k) => { treeMat.opacity = lerp(TREE_OPACITY, 0.2, k); }, my))) return;
             rawPath.material.setRole('ref'); rawLabel.tone('plain');
             setTube(smooth, route.pts); smooth.material.setRole('focus'); reveal(smooth, 0);
             if (!(await anim(0.6, (k) => reveal(smooth, k), my))) return;
             pathLabel.set('Smoothed').tone('focus'); pathAt = route.curve.getPointAt(0.62); pathLabel.show(true);
-            ui.readout(`Followed back: <b>${route.raw.length - 1}</b> steps, <b>${lengthOf(route.raw).toFixed(2)} metres</b>. Smoothed: <b>${lengthOf(route.smooth).toFixed(2)} metres</b>.`);
+            ui.readout(`Followed back: <b>${route.raw.length - 1}</b> steps, <b>${lengthOf(route.raw).toFixed(2)} meters</b>. Smoothed: <b>${lengthOf(route.smooth).toFixed(2)} meters</b>.`);
             if (await fly(my, 2.0)) ghost.visible = false;
           } },
         { text: STEP_TEXT[4],

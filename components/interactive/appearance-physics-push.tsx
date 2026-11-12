@@ -110,7 +110,7 @@ function noteLines(layers: LayerState, mug: MugState): readonly [string, string]
   }
   if (!layers.simulation) return ['Shape, weight and friction are there,', 'but no solver works out the motion'];
   if (mug.effectivePushes === 0) return ['Weight and friction are in place,', 'so a push will now slide the mug'];
-  if (mug.position >= TRACK_MAX_M - 1e-9) return ['With weight and friction underneath,', 'the pushes slid it to the table’s end'];
+  if (mug.position >= TRACK_MAX_M - 1e-9) return ['With weight and friction underneath,', "the pushes slid it to the table's end"];
   return ['With weight and friction underneath,', 'the same push slides the mug along'];
 }
 
@@ -587,8 +587,8 @@ export function AppearancePhysicsPush({
             which turns each push into motion.
           </p>
           <p>
-            &ldquo;Picture plus physics&rdquo; sets the mug on the plate from its stand; &ldquo;Adjust
-            more&rdquo; switches each layer on its own. Each push is an authored impulse held for {CONTACT_TIME_S} seconds, {newtons(defaultForceN)}{' '}
+            &quot;Picture plus physics&quot; sets the mug on the plate from its stand; &quot;Adjust
+            more&quot; switches each layer on its own. Each push is a set impulse held for {CONTACT_TIME_S} seconds, {newtons(defaultForceN)}{' '}
             by default and {MIN_FORCE_N} to {MAX_FORCE_N} newtons with the push-strength slider, which
             cocks the plunger further. Friction stops the mug after d = v&sup2;/(2&mu;g), so the default
             push slides it {formatCentimetres(displacementForForce(defaultForceN))}; the bench plays the
@@ -597,7 +597,7 @@ export function AppearancePhysicsPush({
           </p>
           <p data-testid="push-test-note">
             <span className="font-medium text-text">{note.title}.</span> {note.body} The numbers are
-            authored for this schematic, not measured on a real mug.
+            chosen for this schematic, not measured on a real mug.
           </p>
           <ChartDescription
             id={descriptionId}

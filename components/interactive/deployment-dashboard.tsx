@@ -65,12 +65,12 @@ const STAGE_NAME: Record<string, string> = {
 
 /** The stage line for a record with no hours to draw. */
 const NO_HOURS_NOTE: Record<string, string> = {
-  'tesla-optimus': 'No work hours; robot production lines being built',
+  'tesla-optimus': 'No work hours; production began on Fremont lines, rate not given',
 };
 
 /** The note under the biggest drawn record, by record. */
 const RECORD_NOTE: Record<string, string> = {
-  'agility-digit': 'Biggest record: 65,000 working hours, from Agility’s September release',
+  'agility-digit': "Biggest record: 65,000 working hours, from Agility's September release",
   'figure-bmw': 'Biggest record shown: 1,250+ hours at one BMW factory, from Figure',
   'figure-8hr-shift': 'One livestream, planned as an 8-hour shift',
 };
@@ -274,12 +274,13 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
             times at each tick, so 200 hours and 65,000 hours fit on one line.
           </p>
           <p>
-            &ldquo;{DEPLOYMENT_STATUS_LABEL.verified}&rdquo; means the figure traces to a cited
-            company document at that document&rsquo;s own date; the hours and parts are vendor
-            reports, and no independent audit is claimed. &ldquo;{DEPLOYMENT_STATUS_LABEL.claimed}
-            &rdquo; marks a vendor demonstration without a published deployment metric. The records
+            &quot;{DEPLOYMENT_STATUS_LABEL.verified}&quot; means the figure traces to a cited
+            company document at that document&apos;s own date; the hours and parts are vendor
+            reports, and no independent audit is claimed. &quot;{DEPLOYMENT_STATUS_LABEL.claimed}
+            &quot; marks a vendor demonstration without a published deployment metric. The records
             come from each document at its own date, not from one common snapshot. Tesla reports
-            no hours: its lines are under construction, and installed capacity is not output.
+            no hours or production rate: Optimus production began in Fremont, but building robots
+            is not deployed work.
           </p>
           <TableScroll labelledBy={captionId} className="pt-1">
             <table className="w-full min-w-[480px] border-collapse text-left font-sans text-sm text-text">

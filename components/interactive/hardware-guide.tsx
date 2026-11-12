@@ -193,8 +193,8 @@ const CATEGORY_OPTIONS: Array<{ value: CategoryFilter; label: string }> = [
 const PRICE_OPTIONS: Array<{ value: PriceFilter; label: string }> = [
   { value: 'all', label: 'All prices' },
   { value: 'under-1k', label: 'Under $1k' },
-  { value: '1k-10k', label: '$1k-$10k' },
-  { value: '10k-25k', label: '$10k-$25k' },
+  { value: '1k-10k', label: '$1k to $10k' },
+  { value: '10k-25k', label: '$10k to $25k' },
   { value: '25k-plus', label: '$25k and up' },
   { value: 'unlisted', label: 'No listed price' },
 ];
@@ -202,7 +202,7 @@ const PRICE_OPTIONS: Array<{ value: PriceFilter; label: string }> = [
 const DOF_OPTIONS: Array<{ value: DofFilter; label: string }> = [
   { value: 'all', label: 'Any DoF' },
   { value: 'under-10', label: 'Under 10' },
-  { value: '10-30', label: '10-30' },
+  { value: '10-30', label: '10 to 30' },
   { value: '30-plus', label: '30+' },
   { value: 'unknown', label: 'Not disclosed' },
 ];
@@ -304,7 +304,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
           onSelect={(price) => patchFilters({ price })}
         />
         <FilterGroup
-          label="Filter by DoF"
+          label="Filter by degrees of freedom"
           options={DOF_OPTIONS}
           active={filters.dof}
           onSelect={(dof) => patchFilters({ dof })}
@@ -334,8 +334,8 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
             No hardware matches these filters.
           </p>
           <p className="mt-1 font-sans text-xs text-text-dim">
-            Entries without a listed price only match the No listed price
-            option; try widening the selection.
+            Entries without a listed price match only the &quot;No listed
+            price&quot; filter; try widening the selection.
           </p>
           <button
             data-brand-control-id="control:secondary-action"
@@ -351,7 +351,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${HARDWARE.length} hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.`}
+          caption={`${HARDWARE.length} hardware entries across arms, humanoids, hands, sensors and compute; the filters above narrow the list, and clicking the Entry, Category, Price or DoF heading sorts it. DoF is degrees of freedom, the joints a robot moves independently. Figures a source does not publish read not disclosed and sort last, every price carries an as-of date, and price filters use the low end of a range.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'category', direction: 'asc' }}

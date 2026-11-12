@@ -19,9 +19,9 @@ const STEP_TEXT = EXPLAINER_WORDS.mug.steps;
 export default {
   id: 'mug',
   how: `<ul>
-    <li>One mug, modelled as a turned body (a lathe shape) plus a curved handle: 8 centimetres across and 9.5 centimetres tall. Every count in the readout is computed from what is drawn.</li>
+    <li>One mug, modeled as a turned body (a lathe shape) plus a curved handle: 8 centimeters across and 9.5 centimeters tall. Every count in the readout is computed from what is drawn.</li>
     <li>Dots: a simulated depth camera of ${DEPTH_W} by ${DEPTH_H} pixels. The mug's surface is sampled finely, only surface facing the camera is kept, and each pixel keeps its nearest hit, as a real depth image does. One dot per pixel that lands on the mug; the far side stays empty.</li>
-    <li>Cubes: a 1-centimetre grid in which a cube is full if any part of the mug's surface falls inside it. Mapping tools such as OctoMap store space this way, keeping cells that are full, free or unknown in a compact tree (Hornung et al., <a href="https://link.springer.com/article/10.1007/s10514-012-9321-0" target="_blank" rel="noopener">Autonomous Robots, 2013</a>; <a href="https://octomap.github.io/" target="_blank" rel="noopener">octomap.github.io</a>).</li>
+    <li>Cubes: a 1-centimeter grid in which a cube is full if any part of the mug's surface falls inside it. Mapping tools such as OctoMap store space this way, keeping cells that are full, free or unknown in a compact tree (Hornung et al., <a href="https://link.springer.com/article/10.1007/s10514-012-9321-0" target="_blank" rel="noopener">Autonomous Robots, 2013</a>; <a href="https://octomap.github.io/" target="_blank" rel="noopener">octomap.github.io</a>).</li>
     <li>Skin: the triangle mesh the mug is drawn with, shown with its edges.</li>
     <li>Soft blobs: ${SPLATS.toLocaleString('en-GB')} flat, soft-edged Gaussian blobs lying on the surface, each with its own baked shade. They are drawn the way splatting draws them: each blob's 3D spread is projected to a 2D ellipse on screen, and the blobs are blended back to front. This is an approximation: real Gaussian splats are fitted to many photos, and each one's colour changes with the viewing angle, so new views look photographic in real time (Kerbl et al., "3D Gaussian Splatting for Real-Time Radiance Field Rendering", SIGGRAPH 2023, <a href="https://arxiv.org/abs/2308.04079" target="_blank" rel="noopener">arXiv:2308.04079</a>; <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener">project page</a>).</li>
   </ul>`,
@@ -257,7 +257,7 @@ export default {
     const words = { dots: 'dots', cubes: 'cubes', skin: 'triangles', blobs: 'soft blobs' };
     const detail = {
       dots: 'one for each point the camera measured on the mug',
-      cubes: 'each 1 centimetre across, full or empty',
+      cubes: 'each 1 centimeter across, full or empty',
       skin: 'small flat pieces of surface',
       blobs: 'each a soft, see-through smudge',
     };
@@ -265,7 +265,7 @@ export default {
     // ----- Labels (at most three at once) -----
     const camLabel = stage.label('Depth camera', () => (rig.visible && dots.visible ? CAM_AT.clone().add(new THREE.Vector3(0, 0.03, 0)) : null)).show(false);
     const hiddenLabel = stage.label('Far side: no dots', () => new THREE.Vector3(-0.03, 0.1, -0.03).add(dots.position)).show(false);
-    const cubeLabel = stage.label('One cube: 1 centimetre', () => cellCentre(cellList[cellList.length - 1]).add(cubes.position)).show(false);
+    const cubeLabel = stage.label('One cube: 1 centimeter', () => cellCentre(cellList[cellList.length - 1]).add(cubes.position)).show(false);
     const skinLabel = stage.label('Each piece is a flat triangle', () => new THREE.Vector3(-0.028, 0.06, 0.03).add(skin.position)).show(false);
     const labels = [camLabel, hiddenLabel, cubeLabel, skinLabel];
 

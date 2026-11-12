@@ -348,7 +348,7 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Across: grip strength. Up: score out of 100. Pinned strip: prediction; thin curve: actual result."
+          hint="Raise the caution to pull down the scores predicted for untried grips. Across: grip strength; up: score out of 100; pinned strip: prediction; thin curve: actual result."
           readout={rest.readout}
           status="Pins: recorded tries. Lit weight: actual score. Caution lowers untried predictions toward recorded results. Illustrative curves."
           data-testid="overreach-stage"

@@ -49,7 +49,7 @@ export function readoutFor(id: CountId): string {
 
 function describe(id: CountId): string {
   const count = COUNTS.find((c) => c.id === id)!;
-  return `${thousands(count.robots)} simulated robots practise at once, ${count.note}, which is ${count.robots / ROBOTS_PER_SQUARE} times the 128 typical of CPU simulators; each square in the grid stands for 128 robots.`;
+  return `${thousands(count.robots)} simulated robots practice at once, ${count.note}, which is ${count.robots / ROBOTS_PER_SQUARE} times the 128 typical of CPU simulators; each square in the grid stands for 128 robots.`;
 }
 
 function PartView({ part }: { part: Part }) {
@@ -150,7 +150,7 @@ export function RobotsPerGpu({ className }: { className?: string }) {
       className={className}
       kicker="Massively parallel simulation"
       heading="One graphics chip trains thousands of robots at once"
-      controls={<PresetGroup label="Robots practising at once" presets={COUNTS} value={countId} onChange={setCountId} testId="robots-count" />}
+      controls={<PresetGroup label="Robots practicing at once" presets={COUNTS} value={countId} onChange={setCountId} testId="robots-count" />}
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
@@ -170,7 +170,7 @@ export function RobotsPerGpu({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="One graphics chip simulated 16,384 robots at once; older simulators using a computer’s central processor typically ran 128."
+      caption="One graphics chip simulated 16,384 robots at once, where older simulators running on a computer's central processor typically ran 128."
       method={
         <>
           <div>

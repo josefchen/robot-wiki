@@ -17,7 +17,7 @@ export default {
   id: 'arm',
   how: `<ul>
     <li>Model: the SO-101 follower arm, from <a href="https://github.com/TheRobotStudio/SO-ARM100" target="_blank" rel="noopener">TheRobotStudio/SO-ARM100</a> (Apache-2.0), meshes simplified from 940,000 to 24,000 vertices.</li>
-    <li>Holding loads are computed live from the link masses and centres of mass in the arm's URDF, at the pose shown, with no payload. They are what each motor must supply just to stay still, shown as a share of its stall torque.</li>
+    <li>Holding loads are computed live from the link masses and centers of mass in the arm's URDF, at the pose shown, with no payload. They are what each motor must supply just to stay still, shown as a share of its stall torque.</li>
     <li>Motors: six Feetech STS3215 servos with 1:345 gearing (<a href="https://huggingface.co/docs/lerobot/en/so101" target="_blank" rel="noopener">LeRobot SO-101 guide</a>); stall torque 19.5 kg·cm, about 1.9 N·m, at 7.4 V (<a href="https://www.feetechrc.com/2020-05-13_56655.html" target="_blank" rel="noopener">Feetech</a>); 55 g each (<a href="https://www.feetechrc.com/products.html?keyword=STS3215" target="_blank" rel="noopener">Feetech</a>).</li>
   </ul>`,
 
@@ -61,7 +61,7 @@ export default {
       const top = [...motors].sort((a, b) => tau[b.joint] - tau[a.joint]).slice(0, 3);
       loadLabels.forEach((l) => l.remove()); loadLabels.length = 0;
       for (const m of top) loadLabels.push(stage.label(`${m.name}: ${share(tau[m.joint])}`, () => model.center(m), { tone: m === top[0] ? 'act' : 'plain' }));
-      ui.readout(`Each number is how much of its full strength a motor uses just to hold the arm still; the harder it works, the stronger its colour. The shoulder lift uses <b>${share(tau.shoulder_lift)}</b>. The unlabelled motors hold almost nothing.`);
+      ui.readout(`Each number is how much of its full strength a motor uses just to hold the arm still; the harder it works, the stronger its color. The shoulder lift uses <b>${share(tau.shoulder_lift)}</b>. The unlabelled motors hold almost nothing.`);
     };
     const clearLoads = () => { paintLoad(false); loadLabels.forEach((l) => l.remove()); loadLabels.length = 0; ui.readout(''); };
 

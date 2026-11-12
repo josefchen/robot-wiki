@@ -201,7 +201,7 @@ export function ChunkBuffer({ className }: { className?: string }) {
                 </div>
               </div>
               <div className="order-2 grid min-w-0 max-w-full gap-1 [flex:1_1_min-content] [overflow-wrap:break-word] @min-[44em]/feeder:order-3" data-testid="chunk-control-clock">
-                <p className="text-[16px] font-semibold">Robot’s control clock</p>{' '}
+                <p className="text-[16px] font-semibold">Robot&apos;s control clock</p>{' '}
                 <p className="text-[18px]">Needs <strong className="font-mono text-[24px]">{TICKS_PER_SECOND}</strong> commands each second.</p>
               </div>
             </div>{' '}
@@ -212,7 +212,7 @@ export function ChunkBuffer({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Gemini Robotics needs 250 milliseconds per plan but sends 50 commands a second: 13 queued actions cover the wait; fewer leave it idle."
+      caption="Each Gemini Robotics reply takes about 250 milliseconds while the arm needs 50 commands a second, so 13 queued actions cover the wait."
       method={
         <>
           <p>

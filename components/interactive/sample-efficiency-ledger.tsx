@@ -234,7 +234,7 @@ function LedgerNotes({ ledger }: { ledger: Ledger }) {
         {ledger.selected.verdict.exemplars}.
       </p>
       <p data-testid="sample-simplification-label">
-        What is modelled rather than measured: the three lanes use constant
+        What is modeled rather than measured: the three lanes use constant
         illustrative rates. The simulation constant is 122,880 steps/s,
         computed at Rudin&apos;s 1,200-second boundary; the reported run
         implies a strictly greater end-to-end average, not an exact measured
@@ -284,13 +284,13 @@ function LedgerNotes({ ledger }: { ledger: Ledger }) {
         800 robot hours, separate from approximately 28,000 additional
         on-policy fine-tuning grasps <CiteRef id="qt-opt-2018" />; and
         section 5.2 of Levine&apos;s 2016 preprint reports about 800,000
-        grasp attempts over two months using 6-14 robots. Its abstract says
-        “over 800,000” and its introduction says “several months”
+        grasp attempts over two months using 6 to 14 robots. Its abstract says
+        &quot;over 800,000&quot; and its introduction says &quot;several months&quot;
         <CiteRef id="levine-hand-eye-2016" />. Robot-hours are not parallel
         wall time. Bounds and approximate durations are plotted at their
         stated numeric anchors; two months is drawn as 60 days for placement,
         not as a measured elapsed-time conversion. These are not matched
-        benchmarks. Keep the modelled budget fixed while switching sources
+        benchmarks. Keep the modeled budget fixed while switching sources
         or changing fleet size to inspect the toy assumptions.
       </p>
     </>
@@ -434,7 +434,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
                   swatch={<LegendSwatch role="state" mark="bar" />}
                 >
                   <span data-testid="sample-modelled-label">
-                    modelled at a constant rate, not measured
+                    modeled at a constant rate, not measured
                   </span>
                 </LegendItem>
                 <LegendItem
@@ -442,7 +442,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
                   swatch={<LegendSwatch role="measurement" mark="dot" />}
                 >
                   <span data-testid="sample-measured-label">
-                    reported times, including “under” limits
+                    reported times, including &quot;under&quot; limits
                   </span>
                 </LegendItem>
               </InstrumentLegend>
@@ -452,7 +452,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         >
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`Modelled wall-clock time for ${formatSteps(ledger.budgetSteps)} environment steps under constant-rate assumptions. Paper anchors include different units, bounds and approximate durations, not matched benchmark runs. Selected model: ${ledger.selected.label} at ${formatDuration(ledger.selected.seconds)}.`}
+            aria-label={`Modeled wall-clock time for ${formatSteps(ledger.budgetSteps)} environment steps under constant-rate assumptions. Paper anchors include different units, bounds and approximate durations, not matched benchmark runs. Selected model: ${ledger.selected.label} at ${formatDuration(ledger.selected.seconds)}.`}
             aria-describedby={descriptionId}
             data-testid="sample-chart"
           >
@@ -487,7 +487,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
           />
         </>
       }
-      source="Lanes use constant illustrative rates; dots retain each paper’s stated duration or time limit, such as “under 4 minutes”."
+      source="Lanes use constant illustrative rates; dots keep each paper's stated duration or time limit, such as &quot;under 4 minutes&quot;."
     />
   );
 }

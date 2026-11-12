@@ -298,7 +298,7 @@ export function QosQueueAge({ className }: { className?: string }) {
       figureId="qos-queue-age"
       className={className}
       kicker="Quality of Service"
-      heading="Ten queued pictures make the robot’s view ⅓ second old"
+      heading="Ten queued pictures make the robot's view ⅓ second old"
       controls={
         <div className="flex flex-wrap items-end gap-x-6 gap-y-1">
           <PresetGroup label="Queue keeps" presets={QUEUES} value={queue} onChange={choose} testId="qos-queue" />
@@ -317,7 +317,7 @@ export function QosQueueAge({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? `Running, slowed about ${SLOW} times` : 'Blue: picture handed to the robot’s decision program'}
+          hint={running ? `Running, slowed about ${SLOW} times` : 'Choose how many pictures the queue keeps; blue marks the picture handed to the policy'}
           readout={restReadout(depth)}
           status="Illustrative camera rate"
           data-testid="qos-stage-frame"
@@ -357,7 +357,7 @@ export function QosQueueAge({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="At 30 pictures per second, a queue of ten makes the robot’s decision program act on a view one-third of a second old."
+      caption="At 30 pictures a second, a queue of ten leaves the policy acting on a view a third of a second old."
       method={
         <>
           <div>

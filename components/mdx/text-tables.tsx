@@ -89,8 +89,8 @@ export function ActionSpaceTable({ className }: { className?: string }) {
         ],
         [
           'Transfer across different arms',
-          'Relative Cartesian deltas',
-          'IK, frames and singularities',
+          'Relative tool motion (Cartesian deltas)',
+          'Inverse kinematics, frames and singularities',
         ],
         [
           'Contact compliance',
@@ -154,6 +154,13 @@ export function FoundationModelFamiliesTable({
           'Latent future, value or plan',
           'New tasks with shared dynamics structure',
           'Planning objective and action grounding',
+        ],
+        [
+          'World action model',
+          'Video prediction tied to actions',
+          'Future video and an action chunk together',
+          'New tasks from few or no demonstrations on the target robot',
+          'Model size and real-time speed',
         ],
         [
           'Generative world model',
@@ -227,8 +234,8 @@ export function WorldModelCostTable({ className }: { className?: string }) {
       columns={[
         'Quantity',
         '8B text LLM (decode)',
-        'Latent WM (V-JEPA 2-AC)',
-        'AR / diffusion WM (Cosmos Predict)',
+        'Latent world model (V-JEPA 2-AC)',
+        'Video world model (Cosmos Predict)',
         'Explicit 3D world (3DGS)',
       ]}
       rows={[
@@ -236,7 +243,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
           'Model memory',
           '~16 GB fp16 (8B params x 2 bytes, derived); ~5 GB at 4-bit weights (derived)',
           '~2.6 GB fp16, derived from the stated 1B encoder + 0.3B predictor params',
-          '32.5 to 56.4 GB required VRAM (Predict2 Video2World, 2B to 14B); Predict1 14B card lists >80 GB with the prompt upsampler offloaded',
+          '32.5 to 56.4 GB required VRAM (Predict2 Video2World, 2B to 14B); Predict1 14B card lists over 80 GB with the prompt upsampler offloaded',
           '0; the scene is an asset, not weights',
         ],
         [
@@ -250,7 +257,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
           'Single-GPU fit',
           'fits a 24 GB-class GPU (~16 GB fp16 weights, derived)',
           '24 GB class, easy',
-          '14B needs 56.38 GB (fits an 80 GB H100); 2B needs 32.54 GB, vendor recommends >=32 GB',
+          '14B needs 56.38 GB (fits an 80 GB H100); 2B needs 32.54 GB, vendor recommends at least 32 GB',
           'any rasterizer GPU; the scene asset grows with splat count',
         ],
         [

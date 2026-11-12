@@ -349,7 +349,7 @@ export function LatencyComparison({
     offMode
       ? `leaves both valid modes, ends at ${teEndAction.toFixed(2)} and runs into the post`
       : `holds within tolerance, ends at ${teEndAction.toFixed(2)} and passes the post`
-  }; the post between the two plan grooves is drawn for illustration, and the grooves are the modelled modes rather than measured actions.`;
+  }; the post between the two plan grooves is drawn for illustration, and the grooves are the modeled modes rather than measured actions.`;
 
   const plotterLabel = `Averaging plotter with ${delayWords(delayMs)}: two grooves either side of a post are the two good plans, go left and go right. The pen rides a beam between them at the weight averaging keeps on the plan under way, ${weight.toFixed(2)}, so ${
     offMode ? 'its ink heads into the post and the gantry stops there' : 'its ink stays clear of the post'
@@ -421,7 +421,7 @@ export function LatencyComparison({
           <InstrumentReset onClick={reset} />
         </>
       }
-      caption="Averaging a late plan with the old one can enter the obstacle; keeping already-committed moves avoids that unchosen path."
+      caption="Averaging a late plan with the old one can steer the arm into the obstacle; keeping the moves already committed avoids it."
       method={
         <>
           <p>
@@ -492,7 +492,7 @@ export function LatencyComparison({
       stage={
         <AnatomyStage
           viewWidth={PLOTTER_WIDTH}
-          hint={<>Blue line: the movement the robot executes.{' '}{running ? 'Running at seven control ticks a second' : offMode ? 'Two grooves: two safe plans. Red mark: the averaged move hits the obstacle.' : 'Two grooves: two safe plans. With this delay, the averaged move clears the obstacle.'}</>}
+          hint={<>Blue line: the movement the robot executes.{' '}{running ? 'Running at seven control ticks a second.' : offMode ? 'Two grooves: two safe plans. Red mark: the averaged move hits the obstacle.' : 'Two grooves: two safe plans. With this delay, the averaged move clears the obstacle.'}</>}
           readout={
             <>
               <LiveReadoutText ref={phaseRef} data-lc-phase="" />
@@ -547,7 +547,7 @@ export function LatencyComparison({
           </IsoFigure>
         </AnatomyStage>
       }
-      source="Repeatable illustration of switching plans of future movement commands while moving, after Black, Galliker and Levine (2025, arXiv 2506.07339)."
+      source="Schematic of the π0.5 real-time chunking experiment, after Black, Galliker and Levine (2025, arXiv 2506.07339)."
     />
   );
 }

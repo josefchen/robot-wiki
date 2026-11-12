@@ -66,7 +66,7 @@ const MOON = delayOf(MOON_ID);
 const MARS = delayOf(MARS_ID);
 
 const CAPTION =
-  'Drones use two camera views to sense in hundredths of a second; Mars takes 8 to 40 minutes round-trip, so robots there must act independently.';
+  'A Mars rover waits thousands of times longer for Earth than a drone waits for its camera, so it must act alone.';
 const DESCRIPTION = `Three delays on a compressed scale. The labeled ticks are one second, one minute and one hour: each is 60 times the previous one. A drone's stereo camera needs ${CAMERA.readout} from an obstacle coming into view to the start of a dodge, by Falanga and colleagues' bounds. A signal to the Moon and back takes ${MOON.readout}, and to Mars and back ${MARS.readout}, twice JPL's one-way ${MARS_ONE_WAY_MINUTES[0]} to ${MARS_ONE_WAY_MINUTES[1]} minutes. JPL says the Mars delay rules out driving a rover from Earth and motivates autonomy.`;
 
 export function SpaceLatencyLadder({ className }: { className?: string }) {
@@ -78,11 +78,11 @@ export function SpaceLatencyLadder({ className }: { className?: string }) {
       figureId="space-latency-ladder"
       className={className}
       kicker="Delays a robot works within"
-      heading="Camera: hundredths of seconds; Mars replies: 8 to 40 minutes"
+      heading="Signals to Mars and back take 8 to 40 minutes"
       stage={
         <FigureStage>
           <p className="font-sans text-sm leading-snug text-text">
-            A drone’s camera reacts in hundredths of a second. <strong className="font-medium">Mars messages take 8 to 40 minutes there and back</strong>, so a rover must act on its own.
+            A drone&apos;s camera reacts in hundredths of a second. <strong className="font-medium">A signal to Mars and back takes 8 to 40 minutes</strong>, so a rover must act on its own.
           </p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
