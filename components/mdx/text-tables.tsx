@@ -22,11 +22,14 @@ function TextTable({
   columns,
   rows,
   className,
+  wide = false,
 }: {
   ariaLabel: string;
   columns: readonly string[];
   rows: ReadonlyArray<readonly string[]>;
   className?: string;
+  /** Five long-text columns: keep each column readable and let the region scroll on phones. */
+  wide?: boolean;
 }) {
   const [first, ...rest] = columns;
   return (
@@ -40,7 +43,7 @@ function TextTable({
         className,
       )}
     >
-      <table className="w-full min-w-[520px] border-collapse text-left">
+      <table className={cx('w-full border-collapse text-left', wide ? 'min-w-[880px]' : 'min-w-[520px]')}>
         <thead>
           <tr className="border-b border-border">
             <th scope="col" className={HEADER_CELL}>
@@ -231,6 +234,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
   return (
     <TextTable
       ariaLabel="What a text model and three kinds of world model cost to run"
+      wide
       columns={[
         'What is compared',
         'Text model, 8 billion parameters (Llama 3 8B)',
@@ -299,7 +303,7 @@ export function WorldModelCostTable({ className }: { className?: string }) {
         // 80 TFLOP/s sustained, which is plausible.
         [
           'Arithmetic per unit, compared with one text token (estimate)',
-          'One times (the baseline)',
+          'The baseline',
           'About 10 times per predicted step; about 100,000 times per planned action',
           'About 100,000 to 1,000,000 times per frame',
           'Almost none; no neural network runs',
