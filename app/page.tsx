@@ -10,7 +10,7 @@ import { LatestChanges } from '@/components/home/latest-changes';
 import { StartHere } from '@/components/home/start-here';
 import { IntentLink } from '@/components/ui/intent-link';
 import { HOME_FEATURED_SCENE } from '@/data/home-featured';
-import { materialAttributes } from '@/lib/brand-v2-materials';
+import { materialAttributes } from '@/lib/site-materials';
 import { startHere } from '@/lib/featured-article';
 import { homeCounts } from '@/lib/home-counts';
 import { latestChanges } from '@/lib/home-updates';

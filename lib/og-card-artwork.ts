@@ -32,7 +32,7 @@
  */
 
 import type { ModuleRegistryEntry } from '../data/schemas/module.ts';
-import { BRAND_COLORS } from './brand-v2-tokens.ts';
+import { BRAND_COLORS } from './design-tokens.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 import { OG_DISPLAY_STACK, OG_MONO_STACK } from './og-renderer-fonts.ts';
 import { sanitizeCardText } from './og-cards.ts';

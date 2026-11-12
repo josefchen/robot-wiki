@@ -1,5 +1,5 @@
 import { Color, MeshStandardMaterial, SRGBColorSpace } from 'three';
-import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
+import { BRAND_COLORS } from '@/lib/design-tokens';
 
 /**
  * The playground's look, borrowed from the /how-robots-work/ explainers so
@@ -8,7 +8,7 @@ import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
  * accent for the part the reader is working with.
  *
  * WebGL cannot read CSS custom properties, so the colours are derived here
- * from the renderer mirror in lib/brand-v2-tokens.ts, which a unit test
+ * from the renderer mirror in lib/design-tokens.ts, which a unit test
  * holds equal to app/globals.css. The clay and motor greys repeat the
  * explainers' `color-mix(in srgb, ...)` declarations in
  * components/explainers/explainers.css, and the light rig repeats the

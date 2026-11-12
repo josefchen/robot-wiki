@@ -5,7 +5,7 @@ import {
   maskMarkdownCode,
   maskScriptComments,
   scanJsxTags,
-} from '@/lib/brand-v2-jsx-elements';
+} from '@/lib/jsx-element-tree';
 
 describe('jsx element tree', () => {
   it('closes a tag at the real bracket, not at one inside a quoted value', () => {

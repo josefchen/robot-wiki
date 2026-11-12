@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ChunkSizeCurve, chunkScaleX, chunkScaleY } from '@/components/interactive/chunk-size-curve';
 import { CHART_STROKE } from '@/components/motion/chart/chart-tokens';
-import { STATUS_LABEL_VOCABULARY } from '@/lib/brand-v2-interactive-data';
+import { STATUS_LABEL_VOCABULARY } from '@/lib/interactive-data-kinds';
 import { ACT_CHUNK_ANCHORS } from '@/lib/chunk-size';
 
 describe('ChunkSizeCurve', () => {

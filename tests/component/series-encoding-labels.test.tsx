@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { describe, expect, it } from 'vitest';
-import { labelledSeriesIds, seriesLabelNames, type SeriesLabelEvidence } from '@/lib/brand-v2-interactive-data';
+import { labelledSeriesIds, seriesLabelNames, type SeriesLabelEvidence } from '@/lib/interactive-data-kinds';
 import { legendSeriesIds, seriesEncodingViolations, seriesEncodings, seriesLabels, seriesNames } from '../helpers/series-encoding';
 
 /**

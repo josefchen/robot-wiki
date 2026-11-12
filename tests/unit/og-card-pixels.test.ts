@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { deflateSync } from 'node:zlib';
 import { describe, expect, it } from 'vitest';
-import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
+import { BRAND_COLORS } from '@/lib/design-tokens';
 import { OG_FRAME_INSET_PX, OG_TEXT_INSET_PX, cardPaintedColors } from '@/lib/og-card-artwork';
 import { ogCardCorpus, openSealedCardTree } from '@/lib/og-card-corpus';
 import { OG_PIXEL_TOLERANCE, inspectCardPixels } from '@/lib/og-card-pixels';

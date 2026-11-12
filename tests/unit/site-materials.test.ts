@@ -6,7 +6,7 @@ import {
   SITE_MATERIALS,
   materialAttributes,
   materialContrast,
-} from '@/lib/brand-v2-materials';
+} from '@/lib/site-materials';
 
 /**
  * Material treatments are deterministic, owned or provenance-backed,

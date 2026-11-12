@@ -16,7 +16,7 @@
  * The spec's own names live on :root below (--paper, --ink, --line, ...);
  * figures and primitives consume those directly. The --color-* names here
  * are the Tailwind utility layer over the same values. Renderer mirrors
- * live in lib/brand-v2-tokens.ts.
+ * live in lib/design-tokens.ts.
  */
 :root {
   --paper: #fafaf8;

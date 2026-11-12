@@ -16,7 +16,7 @@ import { getCitation } from '@/data/citations';
 import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/modules';
 import type { ModuleFrontmatter } from '@/data/schemas/module';
 import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
-import { materialAttributes } from '@/lib/brand-v2-materials';
+import { materialAttributes } from '@/lib/site-materials';
 import { articleDateModified, articleDatePublished } from '@/lib/content-dates';
 import { moduleSource } from '@/lib/module-source';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';

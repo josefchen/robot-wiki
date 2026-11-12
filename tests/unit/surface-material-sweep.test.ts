@@ -8,7 +8,7 @@ import { describe, expect, it } from 'vitest';
  * VAL-B2-SURF-001/002/004/005, VAL-B2-COL-009 and VAL-DESIGN-030.
  *
  * The rendered sweeps (tests/e2e/design-chrome.spec.ts and
- * tests/e2e/brand-v2-primitives.spec.ts) measure what a route paints; this
+ * tests/e2e/shared-primitives.spec.ts) measure what a route paints; this
  * one reads every first-party stylesheet and component, so a corner, a
  * shadow, a blur or a gradient written into a module no audited route mounts
  * yet is caught before it ships. Each exception names the one place it is

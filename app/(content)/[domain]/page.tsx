@@ -7,7 +7,7 @@ import { IntentLink } from '@/components/ui/intent-link';
 import { citationLabel, citationMeta, getCitation } from '@/data/citations';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { DomainCitedText, DomainEvidenceRow, Domain } from '@/data/modules';
-import { materialAttributes } from '@/lib/brand-v2-materials';
+import { materialAttributes } from '@/lib/site-materials';
 import { relatedTitle } from '@/lib/domain-hub';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import {

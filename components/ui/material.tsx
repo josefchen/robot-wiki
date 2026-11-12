@@ -3,7 +3,7 @@ import {
   SITE_MATERIALS,
   materialAttributes,
   type MaterialTreatment,
-} from '@/lib/brand-v2-materials';
+} from '@/lib/site-materials';
 import { cx } from '@/lib/utils';
 
 type MaterialProps = HTMLAttributes<HTMLDivElement> & {
@@ -14,7 +14,7 @@ type MaterialProps = HTMLAttributes<HTMLDivElement> & {
 /**
  * A block that paints one registered material. Surfaces that already own an
  * element spread `materialAttributes()` and the material's class on it
- * instead of adding a wrapper (lib/brand-v2-materials.ts).
+ * instead of adding a wrapper (lib/site-materials.ts).
  */
 export function Material({
   treatment = 'paper',
