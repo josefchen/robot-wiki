@@ -182,44 +182,44 @@ export function SimVsModelTable({ className }: { className?: string }) {
       columns={['Property', 'Physics simulator', 'Learned world model']}
       rows={[
         [
-          'Dynamics source',
-          'equations and parameters',
-          'observed transitions',
+          'Where the motion comes from',
+          'equations and measured parameters',
+          'recorded examples of what happened next',
         ],
         [
-          'Counterfactual coverage',
-          'broad within modeled mechanics',
-          'strongest near training support',
+          'Actions never tried before',
+          'broad, wherever the modeled mechanics hold',
+          'reliable mainly close to the training data',
         ],
         [
-          'State access',
-          'explicit positions, forces and contacts',
-          'latent or generated observations',
+          'What a program can read',
+          'exact positions, forces and contacts',
+          'a compressed internal state or generated images',
         ],
         [
           'Debugging',
           'inspect parameters and constraints',
-          'inspect errors and sensitivity indirectly',
+          'only indirectly, by probing errors and sensitivity',
         ],
         [
           'Appearance',
-          'authored assets and renderers',
-          'learned from image or video data',
+          'hand-built 3D models and renderers',
+          'learned from images or video',
         ],
         [
-          'Adaptation',
-          'identify parameters or modify models',
-          'fine-tune on new trajectories',
+          'Adapting to a new robot or scene',
+          'measure new parameters or edit the model',
+          'fine-tune on new recordings',
         ],
         [
-          'Failure mode',
+          'Typical failure',
           'wrong assumptions or parameters',
-          'action collapse, drift, hallucination',
+          'predictions that ignore the action, drift or show things that are not there',
         ],
         [
-          'Compute pattern',
-          'many small integration steps',
-          'large neural inference calls',
+          'Computing pattern',
+          'many small, cheap time steps',
+          'large neural network calls',
         ],
       ]}
       className={className}
@@ -230,100 +230,100 @@ export function SimVsModelTable({ className }: { className?: string }) {
 export function WorldModelCostTable({ className }: { className?: string }) {
   return (
     <TextTable
-      ariaLabel="Inference cost of four world representations compared on one machine"
+      ariaLabel="What a text model and three kinds of world model cost to run"
       columns={[
-        'Quantity',
-        '8B text LLM (decode)',
+        'What is compared',
+        'Text model, 8 billion parameters (Llama 3 8B)',
         'Latent world model (V-JEPA 2-AC)',
         'Video world model (Cosmos Predict)',
-        'Explicit 3D world (3DGS)',
+        'Captured 3D scene (Gaussian splatting)',
       ]}
       rows={[
         [
-          'Model memory',
-          '~16 GB fp16 (8B params x 2 bytes, derived); ~5 GB at 4-bit weights (derived)',
-          '~2.6 GB fp16, derived from the stated 1B encoder + 0.3B predictor params',
-          '32.5 to 56.4 GB required VRAM (Predict2 Video2World, 2B to 14B); Predict1 14B card lists over 80 GB with the prompt upsampler offloaded',
-          '0; the scene is an asset, not weights',
+          'Memory for the model',
+          'About 16 GB at 16 bits per weight (8 billion weights at 2 bytes each), about 5 GB at 4 bits per weight; both are estimates',
+          'About 2.6 GB at 16 bits per weight, an estimate from the stated 1 billion encoder and 0.3 billion predictor parameters',
+          '32.5 to 56.4 GB of graphics memory for Predict2 Video2World (2 to 14 billion parameters); the Predict1 14B model card lists over 80 GB with its prompt-rewriting model moved off the GPU',
+          'None: the scene is stored data, not a trained network',
         ],
         [
-          'Runtime state per step',
-          'KV cache, ~128 KB per token (derived: 32 layers x 8 KV heads x 128-dim)',
-          'block-causal context: patch features, actions and poses of the current and earlier steps',
-          'latents plus KV, grows with clip length',
-          'splat set; 0.3 to 0.7 GB per scene (dataset averages, Table 1)',
+          'Memory used while running',
+          'A cache of everything read so far, about 128 KB per token, or word piece (estimate from 32 layers and 8 key-value heads of 128 numbers each)',
+          'Image features, actions and arm poses from the current and earlier steps',
+          'Compressed video plus a cache of earlier frames, growing with clip length',
+          'The splats themselves: 0.3 to 0.7 GB per scene on average across the test datasets',
         ],
         [
-          'Single-GPU fit',
-          'fits a 24 GB-class GPU (~16 GB fp16 weights, derived)',
-          '24 GB class, easy',
-          '14B needs 56.38 GB (fits an 80 GB H100); 2B needs 32.54 GB, vendor recommends at least 32 GB',
-          'any rasterizer GPU; the scene asset grows with splat count',
+          'Fits on one graphics card',
+          'Yes, a 24 GB card holds the 16 GB of 16-bit weights (estimate)',
+          'Yes, easily, on a 24 GB card',
+          'The 14B model needs 56.38 GB, so it fits an 80 GB H100; the 2B model needs 32.54 GB, and NVIDIA recommends at least 32 GB',
+          'Yes, on any card that can draw the splats; memory grows with the number of splats',
         ],
         [
-          'Unit of work',
-          '1 token',
-          '1 latent step',
-          '1 clip x N denoise steps',
-          '1 camera view',
+          'One unit of work',
+          'One token',
+          'One predicted step',
+          'One video clip, cleaned of noise over several passes',
+          'One camera view',
         ],
         [
-          'Sequence tokens in that unit',
-          '1',
-          '256 patch tokens per frame (derived from the stated 16 x 16 patch grid) plus action and pose tokens',
-          'token count scales with clip length, resolution and tokenizer compression (4x8x8 to 8x16x16 factors in the paper)',
-          '0 transformer tokens',
+          'Tokens processed per unit',
+          'One',
+          '256 image patches per frame (a 16 by 16 grid) plus action and pose tokens',
+          'Grows with clip length and resolution and shrinks with compression: the paper compresses time 4 to 8 times and each image side 8 to 16 times',
+          'None; no neural network runs',
         ],
         [
-          'Parallel multiplier',
-          'batching shares weights',
-          'CEM samples, 10^2 to 10^3 (the paper uses 800)',
-          'one clip at a time; denoise-pass count not stated by the cited sources',
-          '1 raster pass',
+          'Copies run side by side',
+          'Many requests can share one copy of the weights',
+          '100 to 1,000 candidate actions scored at once (the paper uses 800)',
+          'One clip at a time; the cited sources do not state the number of noise-removal passes',
+          'One drawing pass',
         ],
         [
-          'Latency to useful output',
-          'weight-bandwidth-bound per token (authored reasoning; no benchmark cited)',
-          'about 16 s per planned action (800 samples x 10 refinements)',
-          'Predict2: about 26 s (2B, GB200) to over 30 min (14B, DGX Spark) per 480p, 16 fps clip; Predict1 14B: about 10 min per 5 s clip on one H100 with offloading',
-          'under 30 ms per frame',
+          'Time to a usable result',
+          'Limited by how fast the weights can be read from memory for each token (estimate; no benchmark cited)',
+          'About 16 s per planned action (800 candidates, refined 10 times)',
+          'Predict2: about 26 s (2B on a GB200) to over 30 min (14B on a DGX Spark) per 480p clip at 16 frames per second; Predict1 14B: about 10 min per 5 s clip on one H100 with parts of the model moved off the GPU',
+          'Under 30 ms per frame',
         ],
-        // Derived order-of-magnitude estimate (see the article's lead-in), not a
-        // measurement. 8B decode token: 2 x 8e9 = ~1.6e10 FLOP. V-JEPA 2-AC
-        // (vjepa2-2025, Sec. 3.1 and App. B.2): a ~300M, 24-layer, 1024-wide
-        // predictor reads one step of 256 patch tokens (16 x 16 feature map)
-        // plus an action and a pose token, so a pass is 2 x 3e8 x 258 = ~1.6e11
-        // FLOP (attention and I/O projections add ~5%), about 10x a token. CEM
-        // at planning horizon 1 runs 800 samples x 10 refinements = 8,000
-        // passes, ~1.3e15 FLOP per planned action, ~8e4 = ~10^5x a token. At
-        // 16 s on one RTX 4090 that is ~80 TFLOP/s sustained, which is plausible.
+        // Order-of-magnitude estimate by the lead editor, not a measurement.
+        // 8B decode token: 2 x 8e9 = 1.6e10 FLOP. V-JEPA 2-AC (vjepa2-2025):
+        // a 300M, 24-layer, 1024-wide predictor reads one step of 256 patch
+        // tokens (16 x 16 feature map) plus an action and a pose token, so a
+        // pass is 2 x 3e8 x 258 = 1.6e11 FLOP (attention and projections add
+        // about 5%), about 10x a token. Planning at horizon 1 runs 800 samples
+        // x 10 refinements = 8,000 passes, 1.3e15 FLOP per planned action,
+        // about 1e5 times a token. At 16 s on one RTX 4090 that is about
+        // 80 TFLOP/s sustained, which is plausible.
         [
-          'Approx. FLOP per unit vs 8B token',
-          '1x',
-          '~10x per latent step; ~10^5x per planned action (800 samples x 10 refinements)',
-          '~10^5 to 10^6x per frame',
-          'near 0 transformer FLOP',
-        ],
-        [
-          'Bottleneck',
-          'weight bandwidth',
-          'batched predictor GEMMs',
-          'denoise FLOPs plus KV traffic',
-          'splat sorting and fill rate',
+          'Arithmetic per unit, compared with one text token (estimate)',
+          'One times (the baseline)',
+          'About 10 times per predicted step; about 100,000 times per planned action',
+          'About 100,000 to 1,000,000 times per frame',
+          'Almost none; no neural network runs',
         ],
         [
-          'Scaling with horizon',
-          'KV grows linearly with context',
-          'context grows with each predicted step; the paper plans one step ahead',
-          'linear in tokens times steps',
-          'free; the asset already exists',
+          'What limits speed',
+          'Reading the weights from memory',
+          'The predictor\'s arithmetic, run in large batches',
+          'Arithmetic for every noise-removal pass, plus moving the cache',
+          'Sorting the splats and filling pixels',
         ],
         [
-          'Scaling with batch',
-          'linear KV, then compute-bound',
-          'batched CEM is the intended mode',
-          'usually batch 1 per clip',
-          'extra cameras render nearly free',
+          'Looking further ahead',
+          'The cache grows in step with the text so far',
+          'Context grows with each predicted step; the paper plans one step ahead',
+          'Cost grows with tokens times noise-removal passes',
+          'No extra cost; the scene already exists',
+        ],
+        [
+          'Running many at once',
+          'The cache grows with each request until arithmetic becomes the limit',
+          'Built to score many candidates at once',
+          'Usually one clip at a time',
+          'Extra camera views cost little',
         ],
       ]}
       className={className}
