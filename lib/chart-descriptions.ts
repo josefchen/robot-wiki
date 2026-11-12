@@ -170,7 +170,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/latent-imagination.tsx',
     route: '/world-models/latent-dynamics/',
     quantityNames: ['deviation', 'step'],
-    text: 'In this deterministic toy, latent deviation grows from 0 at step 0 to 0.301 units at the current 15-step horizon under the 2.0% one-step-error input. The shaded band is illustrative, from 3 to 15 steps; it is not a published range, confidence interval, or reliability bound.',
+    text: 'In this deterministic toy, latent deviation grows from 0 at step 0 to 0.301 units at the current 15-step horizon under the 2.0% one-step-error input. The shaded band marks 3 to 16 steps, the look-ahead published latent models use; the curve is a toy, not a measured error.',
   },
   {
     component: 'LatentImaginationRollout',

@@ -37,11 +37,15 @@ export const COMPOUNDING_GAIN = 0.02;
 export const REWARD_ERROR_GAIN = 0.35;
 
 /**
- * Illustrative shaded-band endpoints, not a published or reliable range.
- * The legacy export name is retained for compatibility. Neither endpoint
- * resolves DreamerV3 H=15/T=16 or DayDreamer H=16/H=15 source differences.
+ * Shaded-band endpoints: the look-ahead the cited papers use. TD-MPC2 plans
+ * 3 steps (tdmpc2-2023); DreamerV3 lists an imagination horizon of 15 and a
+ * prediction horizon of 16 (dreamerv3-2023), and DayDreamer imagines 15
+ * (daydreamer-2022), so the band runs to 16 as the article heading does.
  */
-export const TYPICAL_HORIZON: readonly [number, number] = [3, 15];
+export const TYPICAL_HORIZON: readonly [number, number] = [3, 16];
+
+/** Default toy horizon: DreamerV3's and DayDreamer's imagination horizon of 15. */
+export const DEFAULT_HORIZON = 15;
 
 /** Longest horizon the interactive draws. */
 export const MAX_HORIZON = 50;

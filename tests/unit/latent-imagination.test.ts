@@ -11,9 +11,9 @@ import {
 } from '@/lib/latent-imagination';
 
 describe('latent-imagination model', () => {
-  it('preserves illustrative band endpoints without claiming a published range', () => {
+  it('spans the published look-ahead from TD-MPC2 to DreamerV3', () => {
     // Toy endpoints; not a reconciliation of source horizon labels.
-    expect(TYPICAL_HORIZON).toEqual([3, 15]);
+    expect(TYPICAL_HORIZON).toEqual([3, 16]);
     expect(MAX_HORIZON).toBeGreaterThanOrEqual(TYPICAL_HORIZON[1]);
   });
 

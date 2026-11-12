@@ -40,6 +40,7 @@ import {
   MAX_HORIZON,
   REWARD_ERROR_GAIN,
   TYPICAL_HORIZON,
+  DEFAULT_HORIZON,
   deviationAt,
   imagineDeviation,
   rewardPredictionError,
@@ -52,9 +53,9 @@ import {
  * steel template that marks the real route, by the toy deviation. A
  * trolley (the one lit part) stands at the head; a radius arm on the hub
  * reads how far it is from the route. The recurrence, the bench, the
- * picture flags and the shaded 3-15 step band in the method chart are
- * teaching choices, not measured model predictions, published horizon
- * bounds or reliability estimates. The sliders redraw the bench at once;
+ * picture flags are teaching choices, not measured model predictions or
+ * reliability estimates; the shaded 3 to 16 step band in the method chart
+ * marks the look-ahead the cited papers use. The sliders redraw the bench at once;
  * "Lay the track" lays it again section by section and is the only motion,
  * which reduced motion skips.
  */
@@ -155,7 +156,7 @@ function PartView({ part }: { part: Part }) {
 const calm = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
 
 export function LatentImagination({
-  defaultHorizon = TYPICAL_HORIZON[1],
+  defaultHorizon = DEFAULT_HORIZON,
   defaultEpsilon = 0.02,
   className,
 }: LatentImaginationProps) {
@@ -183,16 +184,16 @@ export function LatentImagination({
       values: [
         formatUnits(fullDeviation[t]),
         t >= TYPICAL_HORIZON[0] && t <= TYPICAL_HORIZON[1]
-          ? 'inside illustrative band'
+          ? 'inside published range'
           : t < TYPICAL_HORIZON[0]
-            ? 'before illustrative band'
-            : 'past illustrative band',
+            ? 'before published range'
+            : 'past published range',
         t === horizon ? 'playhead' : 'off',
       ],
     }));
   }, [fullDeviation, horizon]);
 
-  const descriptionText = `In this deterministic toy, latent deviation grows from 0 at step 0 to ${formatUnits(deviationNow)} units at the current ${horizon}-step horizon under the ${epsilonPercent.toFixed(1)}% one-step-error input. The shaded band is illustrative, from ${TYPICAL_HORIZON[0]} to ${TYPICAL_HORIZON[1]} steps; it is not a published range, confidence interval, or reliability bound.`;
+  const descriptionText = `In this deterministic toy, latent deviation grows from 0 at step 0 to ${formatUnits(deviationNow)} units at the current ${horizon}-step horizon under the ${epsilonPercent.toFixed(1)}% one-step-error input. The shaded band marks ${TYPICAL_HORIZON[0]} to ${TYPICAL_HORIZON[1]} steps, the look-ahead published latent models use; the curve is a toy, not a measured error.`;
 
   // Pictures the decoder draws (or reward errors) at a quarter, half and the full horizon.
   const sampleSteps = [...new Set([Math.max(1, Math.round(horizon / 4)), Math.max(1, Math.round(horizon / 2)), horizon])];
@@ -276,14 +277,14 @@ export function LatentImagination({
   const deviationStage = (
     <PlotStage
       viewBox={`0 0 ${WIDTH} ${CHART_HEIGHT}`}
-      aria-label={`Latent deviation versus imagination step in a deterministic toy. Deviation reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded 3 to 15 step band is illustrative, not a published reliability bound.`}
+      aria-label={`Latent deviation versus imagination step in a deterministic toy. Deviation reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded band marks the 3 to 16 steps published latent models look ahead.`}
       aria-describedby={descriptionId}
     >
       {/* Labelled by the "shaded: …" note drawn after the axes. */}
       <rect data-testid="typical-range-band" data-series="typical-range" data-chart-role="reference" x={bandX} y={PLOT.top} width={bandWidth} height={PLOT.bottom - PLOT.top} fill={reference} fillOpacity={CHART_UNCERTAINTY.fillAlpha} stroke="none" />
       <ChartAxes plot={PLOT} x={stepX} y={deviationY} xTicks={STEP_TICKS} yTicks={DEVIATION_TICKS} xLabel="steps imagined ahead" yLabel="how far off" yLabelFor="deviation" />
       <text data-scene-axis="" data-series-label-for="typical-range" x={bandX} y={BAND_NOTE_Y} fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
-        shaded: an illustrative {TYPICAL_HORIZON[0]} to {TYPICAL_HORIZON[1]} steps
+        shaded: {TYPICAL_HORIZON[0]} to {TYPICAL_HORIZON[1]} steps, as in the papers
       </text>
       {/* The one curve is the quantity the y axis names ("how far off"), solid to the horizon and dashed past it. */}
       <path data-testid="deviation-curve" data-series="deviation" data-chart-role="state" d={path(fullDeviation.slice(0, horizon + 1).map((d, t) => [stepX(t), deviationY(d)] as ChartPoint))} fill="none" stroke={state} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" strokeLinejoin="round" />
@@ -422,8 +423,9 @@ export function LatentImagination({
           </p>
           <p>
             In the chart below, the shaded band from {TYPICAL_HORIZON[0]} to {TYPICAL_HORIZON[1]} steps
-            is a teaching choice, not a published range, a confidence interval or a reliability bound;
-            the article discusses the horizons the papers use.
+            marks how far published latent models look ahead: TD-MPC2 plans 3 steps, and DreamerV3 and
+            DayDreamer imagine 15 or 16, depending on how the horizon is counted. The curve inside it is
+            still the toy, not a measured error.
           </p>
           <div data-inset-plot>{deviationStage}</div>
           <ChartDescription

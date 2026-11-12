@@ -152,14 +152,14 @@ describe('LatentImagination', () => {
     expect(deviationReadout()).toBeCloseTo(0.301, 3);
   });
 
-  it('keeps the recurrence, the deviation chart and its illustrative band in "How this was made"', () => {
+  it('keeps the recurrence, the deviation chart and its published-range band in "How this was made"', () => {
     const { container } = render(<LatentImagination />);
     const method = methodFold(container);
     expect(method).toHaveTextContent(/toy recurrence, not a measured model/);
     expect(within(method).getByRole('img', { name: /latent deviation versus imagination step/i })).toBeInTheDocument();
     expect(within(method).getByTestId('typical-range-band')).toBeInTheDocument();
     expect(within(method).getByTestId('deviation-curve')).toBeInTheDocument();
-    expect(method).toHaveTextContent(/teaching choice, not a published range/);
+    expect(method).toHaveTextContent(/TD-MPC2 plans 3 steps, and DreamerV3 and DayDreamer imagine 15 or 16/);
     const details = method.querySelector<HTMLDetailsElement>('details[data-chart-form="state"]');
     expect(details?.open).toBe(true);
   });
@@ -179,7 +179,7 @@ describe('LatentImagination series encoding (VAL-B2-VIZ-002/004)', () => {
     // The curve is named by the y-axis title that names its quantity, the band by its own note.
     expect(seriesNames(container)).toEqual({
       deviation: ['how far off'],
-      'typical-range': ['shaded: an illustrative 3 to 15 steps'],
+      'typical-range': ['shaded: 3 to 16 steps, as in the papers'],
     });
     // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
     expect(container.querySelector('[data-series-labelled]')).toBeNull();
