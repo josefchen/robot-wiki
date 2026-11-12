@@ -1,11 +1,11 @@
 ---
 title: "Generative Simulation"
-description: "RoboGen, Holodeck, and RoboCasa: foundation models that author the simulation instead of replacing it, and why generated content inside a real physics engine sidesteps the failure modes of generative dynamics."
+description: "How AI models write a simulator's tasks, scenes and objects while a physics engine still computes the motion, and what still needs checking."
 domain: world-models
 slug: generative-sim
 order: 5
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-11-12"
 citations:
   - robogen-2024
   - holodeck-2024
@@ -45,6 +45,12 @@ citations:
   - newton-manipulation-blog-2026
   - metagensim-2026
   - roborender-2026
+  - cosmos-interactive-sim-2026
+  - code2worlds-2-2026
+  - worldlabs-atlas-release-2026
+  - worldlabs-taxonomy-2026
+  - autorsr-2026
+  - isaac-lab-3-0-2026
 seeAlso:
   - "rl-sim2real/parallel-sim-rl"
   - "data-hardware/data-bottleneck"
@@ -53,11 +59,11 @@ seeAlso:
 
 import { AppearancePhysicsPush } from '@/components/interactive/appearance-physics-push';
 
-Generative simulation is the use of generative models to author a simulator's tasks, scenes, assets and rewards while a physics engine, itself an unlearned <Term id="world-model">world model</Term>, keeps the dynamics <Cite id="robogen-2024" />. A 2026 survey finds the field shifting "from visual realism toward interaction readiness" <Cite id="3d-gen-embodied-survey-2026" />.
+Generative simulation uses AI models to write a simulator's content, its tasks, scenes, objects and rewards, while a physics engine, itself a hand-built <Term id="world-model">world model</Term>, still computes how things move <Cite id="robogen-2024" />. A 2026 survey finds the field shifting "from visual realism toward interaction readiness" <Cite id="3d-gen-embodied-survey-2026" />.
 
 <Image id="robocasa-object-library-2024" />
 
-A rendered scene has no dynamics, and realism does not supply them: on Physics-IQ, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />. Try it: push the mug as a picture only, then as a picture plus physics.
+Realism does not supply physics: on the Physics-IQ benchmark, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
 
 <AppearancePhysicsPush className="my-6" />
 
@@ -68,70 +74,68 @@ A rendered scene has no dynamics, and realism does not supply them: on Physics-I
   <Stat label="RoboCasa365" value="2,500" note="kitchens, ICLR 2026" />
 </div>
 
-The first three figures are from the 2024 RoboCasa release <Cite id="robocasa-2024" />. RoboCasa365 reports a separate, larger set <Cite id="robocasa365-2026" />.
-
 <span id="generate-content-inside-a-physics-engine" />
 ## A physics engine keeps generated content physically consistent
 
-[Generative video](/world-models/generative-video/) learns physics from pixels, and a plausible future can ignore the pending action; the 2026 world-model survey calls visual plausibility a weak proxy for control utility <Cite id="world-model-survey-2026" />. Generative simulation moves the model off that path: a solver executes the generated task, layout, mesh or reward, so a mug with the wrong friction still cannot fall upward. ManiSkill3 parallelizes physics and rendering together, including heterogeneous environments and point-cloud or voxel observations <Cite id="maniskill3-2024" />.
+[Generative video](/world-models/generative-video/) learns physics from pixels, and its plausible futures can ignore the pending action; the 2026 world-model survey calls visual plausibility a weak proxy for usefulness in control <Cite id="world-model-survey-2026" />. Generative simulation avoids that path. A solver executes the generated task, layout, object or reward, so a mug with the wrong friction may slide too far but cannot fall upward. ManiSkill3 runs physics and rendering in parallel on the GPU, even for differing environments <Cite id="maniskill3-2024" />, and Isaac Lab 3.0 (October 2026) runs one task interface across several physics and rendering back ends <Cite id="isaac-lab-3-0-2026" />.
 
 <span id="robogen-propose-generate-learn" />
 ## RoboGen automates task proposal, but humans still inspect the results
 
-RoboGen runs a propose-generate-learn cycle: GPT-4 proposes tasks from a robot type and a sampled object, generates scene configurations, decomposes each task into sub-tasks, picks a learning method and supplies rewards or target-shape supervision <Cite id="robogen-2024" />.
+RoboGen runs a propose, generate and learn cycle. Given a robot type and a sampled object, GPT-4 proposes a task, writes the scene configuration, splits the task into sub-tasks, picks a learning method for each and supplies rewards or target shapes. People still design the prompts and inspect scenes, rewards and skills, and the authors name large-scale skill verification and sim-to-real transfer as open problems <Cite id="robogen-2024" />.
 
-Locomotion, presented as an RL task, uses cross-entropy-method planning with the ground-truth simulator. Manipulation uses SAC with motion-planned primitives. Prompt design, in-context examples and human inspection of scenes, rewards, and learned skills remain. The authors name large-scale skill verification and sim-to-real transfer as open <Cite id="robogen-2024" />.
-
-GenSim used GPT-4 to expand a benchmark tenfold to over 100 tasks, and pretrained policies beat baselines by 25% on unseen real long-horizon tasks <Cite id="gensim-2023" />. RoboTwin 2.0 repairs generated task code with simulation in the loop; a VLA trained on its data plus 10 real demonstrations improved 367% over the 10-demo baseline <Cite id="robotwin-2-2025" />.
+GenSim used GPT-4 to grow a benchmark tenfold to over 100 tasks, and policies pretrained on them beat baselines by 25% on unseen real long-horizon tasks <Cite id="gensim-2023" />. RoboTwin 2.0 repairs generated task code with the simulator in the loop; a VLA trained on its data plus 10 real demonstrations improved 367% over using the 10 alone <Cite id="robotwin-2-2025" />. Code2Worlds-2 (October 2026) adds a simulator critic that checks penetration, stability, contact forces and joint limits before exporting a scene to MuJoCo <Cite id="code2worlds-2-2026" />.
 
 <span id="holodeck-language-guided-environment-generation" />
 ## Holodeck builds rooms from prompts but does not test manipulation
 
-Holodeck (CVPR 2024) uses GPT-4 to build AI2-THOR environments from text prompts. It selects Objaverse objects and proposes soft relational constraints, and a depth-first-search solver enforces collision and room boundaries while satisfying as many soft constraints as possible <Cite id="holodeck-2024" />.
+Holodeck uses GPT-4 to turn a text prompt into an AI2-THOR environment. It picks Objaverse objects and proposes loose spatial relations, which a search-based solver meets as far as collisions and room boundaries allow. Its evaluation fine-tuned a navigation model in generated scenes and tested it in artist-designed rooms, so it says nothing about physically valid manipulation, and the authors report trouble with complex layouts and missing assets <Cite id="holodeck-2024" />. ProcTHOR procedurally generates interactive houses for navigation, rearrangement and arm manipulation <Cite id="procthor-2022" />.
 
-Holodeck's evaluation, a navigation model pretrained on ProcTHOR-10K, fine-tuned in generated scenes and tested in artist-designed NoveltyTHOR rooms, does not test physically valid manipulation. The authors report trouble with complex layouts and with assets missing from Objaverse <Cite id="holodeck-2024" />. ProcTHOR procedurally generates interactive houses for navigation, rearrangement and arm manipulation <Cite id="procthor-2022" />.
-
-Objaverse supplies 800K+ models without physical properties <Cite id="objaverse-2022" />. SceneSmith (ICML 2026) adds text-to-3D assets, articulated retrieval and physical-property estimation, with 3 to 6 times more objects than prior methods, under 2% collisions and 96% of objects stable <Cite id="scenesmith-2026" />.
+Objects are the weak link. Objaverse supplies over 800,000 3D models without physical properties <Cite id="objaverse-2022" />. SceneSmith adds text-to-3D assets, retrieval of objects with moving parts and estimates of physical properties, placing 3 to 6 times more objects than prior methods with under 2% collisions and 96% of objects stable <Cite id="scenesmith-2026" />.
 
 <span id="robocasa" />
 ## More generated demonstrations raised RoboCasa success from 26.3% to 47.6%
 
-RoboCasa's 120 kitchen scenes combine 10 floor plans with 12 styles from architectural references. It holds 2,509 objects and 153 categories, plus 100 tasks: 25 atomic tasks and 75 composite tasks; GPT-4 and Gemini 1.5 drafted the composite blueprints, with human filtering, editing and code. Objects come from Objaverse and Luma.ai text-to-3D, textures from MidJourney, and MimicGen adapts human demonstrations and keeps successful trajectories <Cite id="robocasa-2024" />. MimicGen itself turned about 200 human demonstrations into over 50K across 18 tasks <Cite id="mimicgen-2023" />.
+RoboCasa, a simulated kitchen benchmark, was built partly by generative models. Its 120 kitchens combine 10 floor plans with 12 styles and hold 2,509 objects in 153 categories, from Objaverse and Luma.ai text-to-3D. Of its 100 tasks, 75 composite ones were drafted by GPT-4 and Gemini 1.5, then filtered, edited and coded by people. MimicGen multiplies human demonstrations by adapting them to new scenes and keeping successes <Cite id="robocasa-2024" />; on its own it turned about 200 human demonstrations into over 50,000 across 18 tasks <Cite id="mimicgen-2023" />.
 
 <Image id="robocasa-kitchens-2024" />
 
-The scaling study trains a language-conditioned BC-Transformer for a Franka Panda on an Omron mobile base on 24 atomic tasks, excluding navigation, with 100, 300, or 3,000 generated demonstrations per task using Objaverse objects and AI-generated textures. Tested with curated textures, unseen objects and 50 trials per task in five kitchens, two in unseen styles, success is 26.3%, 35.0%, and 47.6% respectively. Individual tasks do not improve monotonically <Cite id="robocasa-2024" />. RoboCasa365 extends the platform to 365 tasks in 2,500 kitchens, with 600+ hours of human and 1,600+ hours of synthetic demonstrations for multi-task, foundation-model and lifelong-learning benchmarks <Cite id="robocasa365-2026" />.
+In a scaling study, a language-conditioned imitation policy for a Franka Panda arm on a mobile base learned 24 basic tasks from 100, 300 or 3,000 generated demonstrations each. Tested on unseen objects in five kitchens, two in unseen styles, with 50 trials per task, it succeeded 26.3%, 35.0% and 47.6% of the time, though individual tasks did not improve steadily <Cite id="robocasa-2024" />. RoboCasa365 extends the platform to 365 tasks in 2,500 kitchens, with over 600 hours of human and 1,600 hours of synthetic demonstrations <Cite id="robocasa365-2026" />.
 
 ## Generators expand a few demonstrations or one image into training data
 
-Isaac Lab Mimic splits human demonstrations into object-centric subtasks, transforms them and recombines them for new poses, from as little as one demonstration, across parallel environments. Results depend on SkillGen's trial counts, environment counts and planner settings, trading speed against success and motion quality <Cite id="isaac-lab-2025" />. SkillGen turned 60 human demonstrations into over 24K, and its agents were 24% more successful on average <Cite id="skillmimicgen-2024" />. NVIDIA generated 780,000 simulated trajectories for GR00T N1, equal to 6,500 hours of human demonstration, in 11 hours <Cite id="gr00t-n1-2025" />.
+| System | Starts from | Produces |
+| --- | --- | --- |
+| Isaac Lab Mimic | As little as one demonstration | Subtask segments recombined for new object poses <Cite id="isaac-lab-2025" /> |
+| SkillGen | 60 human demonstrations | Over 24,000, with agents 24% more successful on average <Cite id="skillmimicgen-2024" /> |
+| NVIDIA, for GR00T N1 | Human demonstrations | 780,000 simulated trajectories, equal to 6,500 hours of human demonstration, in 11 hours <Cite id="gr00t-n1-2025" /> |
 
-GRS starts from one real RGB-D image. SAM2 segments it, depth and a calibrated robot-frame transform give bounding boxes, and a vision-language model matches objects to supplied simulation-ready assets. A router revises generated task code and tests until an oracle policy completes the task. Experiments cap repair attempts, exclude runtime-error cases from the reported reward average and document failures that bypass intended behavior, and sim-to-real transfer is future work <Cite id="grs-2024" />.
+GRS turns one real color-and-depth image into a scene of matched simulation assets, then revises generated task code until a scripted policy completes the task; its reported reward average excludes runtime-error cases, and sim-to-real transfer is future work <Cite id="grs-2024" />. AutoRSR (October 2026) scans a real workspace into metric-scale simulation assets. Policies trained on 1,000 generated episodes per task reached 73.3% to 86.7% real success on three tasks, comparable to π0.5 trained on 150 teleoperated demonstrations <Cite id="autorsr-2026" />.
 
 <span id="the-push-test" />
 ## Generative simulation borrows its physics from the engine
 
-The push figure separates three layers. Appearance renders the mug, as a reconstruction, texture or video frame might; a physics proxy adds collision geometry, mass and friction; and the simulator integrates the push, sliding the mug by $d = v^2/(2\mu g)$ every time. Cosmos-Transfer1 generates the first layer from segmentation, depth and edge inputs <Cite id="cosmos-transfer1-2025" />, and in the [taxonomy's](/world-models/taxonomy/) verdict on Gaussian Splatting twins, a real-time radiance-field renderer supplies only layer one <Cite id="3dgs-2023" />. Generative video tries to learn layer three, and generative simulation borrows layers two and three from an engine. RoboRender likewise changes simulated video appearance while preserving geometry, robot motion and action labels <Cite id="roborender-2026" />.
+A simulated push has three layers. Appearance renders the mug, as a reconstruction, texture or video frame might. A physics proxy adds collision shape, mass and friction. The simulator then integrates the push, so the same push slides the mug the same distance every time, $d = v^2/(2\mu g)$. Cosmos-Transfer1 generates only the first layer, from segmentation, depth and edge maps <Cite id="cosmos-transfer1-2025" />, and so does a Gaussian Splatting twin, as the [taxonomy](/world-models/taxonomy/) explains <Cite id="3dgs-2023" />. Generative video tries to learn the third layer; generative simulation borrows the second and third from an engine. RoboRender changes the look of simulated video while preserving geometry, robot motion and action labels <Cite id="roborender-2026" />, and NVIDIA's November 2026 Cosmos framework can render observations from an external simulator's physical state, so the engine keeps the dynamics <Cite id="cosmos-interactive-sim-2026" />.
 
 <span id="limitations" />
 ## Generated content still needs physical and human checks
 
-1. Scenes are only as physically correct as their asset parameters: a text-to-3D mug's mass, friction and center of mass are estimates, and generated assets "often overlook rich and important physical properties" <Cite id="physx-3d-2025" />. Calibration is partly automated: Scalable Real2Sim identifies collision geometry and inertial parameters from joint-torque sensors and a camera <Cite id="scalable-real2sim-2025" />, and DrEureka constructs domain-randomization distributions <Cite id="dreureka-2024" />. Articulate-Anything raised articulation success to 75%, from 8.7% to 12.2% for prior work <Cite id="articulate-anything-2024" />. The 3D-generation survey still names "the gap between geometric quality and physical validity" a main bottleneck <Cite id="3d-gen-embodied-survey-2026" />.
-2. Task fitness may miss human intent. Eureka notes that its task metric may not match the behavior a person wants, and its authors call a generated PushBlock reward "amenable to post-hoc human inspection and editing" without requiring such inspection or comparing reward hacking <Cite id="eureka-2024" />. Text2Reward's generated rewards matched or beat expert rewards on 13 of 17 manipulation tasks <Cite id="text2reward-2023" />. See [reward design](/rl-sim2real/reward-design-mpc/).
-3. Scene diversity has specific design sources. Holodeck's authors document cultural biases from the LLM and asset retrieval, with only qualitative evidence that new prompts help <Cite id="holodeck-2024" />. RoboCasa's authors drew floor plans and styles from home-design and architecture magazines <Cite id="robocasa-2024" />.
+A scene is only as physical as its objects. A text-to-3D mug's mass, friction and center of mass are estimates, and generated assets "often overlook rich and important physical properties" <Cite id="physx-3d-2025" />. World Labs warns that generated geometry can look correct while intersecting itself or sitting at the wrong scale <Cite id="worldlabs-taxonomy-2026" />. Calibration is partly automated: Scalable Real2Sim identifies collision geometry and inertial parameters from joint-torque sensors and a camera <Cite id="scalable-real2sim-2025" />, DrEureka builds the ranges for <Term id="domain-randomization">domain randomization</Term> <Cite id="dreureka-2024" />, and Articulate-Anything raised the success of modeling objects with moving parts to 75%, from 8.7% to 12.2% for prior work <Cite id="articulate-anything-2024" />. The 3D-generation survey names "the gap between geometric quality and physical validity" a main bottleneck <Cite id="3d-gen-embodied-survey-2026" />.
+
+Generated goals can miss what a person wants. Eureka notes that its task metric may not match the intended behavior; its authors call one generated reward "amenable to post-hoc human inspection and editing" but do not require such inspection <Cite id="eureka-2024" />. Text2Reward's generated rewards matched or beat expert rewards on 13 of 17 manipulation tasks <Cite id="text2reward-2023" />. See [reward design](/rl-sim2real/reward-design-mpc/). Diversity has sources too: Holodeck's authors document cultural biases from the language model and asset retrieval, with only qualitative evidence that new prompts help <Cite id="holodeck-2024" />, and RoboCasa's floor plans and styles came from home-design and architecture magazines <Cite id="robocasa-2024" />.
 
 <span id="where-this-leaves-the-field" />
 ## Policies trained on generated variations now transfer to real robots
 
-Learned world models hold narrow roles in [evaluation](/world-models/evaluation/) and data generation ([generative video](/world-models/generative-video/)), while generative models author tasks, scenes, assets and supervision for physics engines <Cite id="robogen-2024" /> <Cite id="holodeck-2024" /> <Cite id="robocasa-2024" />. Policies trained on digital cousins reached 90% zero-shot sim-to-real success against 25% for exact digital twins <Cite id="digital-cousins-2024" />. In 2026, SimFoundry's object, scene and task cousins raised zero-shot real success by 17%, 21% and 40% <Cite id="simfoundry-2026" />.
+Learned world models hold narrow roles in [evaluation](/world-models/evaluation/) and data generation; generative models more often author tasks, scenes, assets and supervision for physics engines <Cite id="robogen-2024" /> <Cite id="holodeck-2024" /> <Cite id="robocasa-2024" />. Variety beats exactness. Policies trained on digital cousins, similar but not identical simulated scenes, reached 90% zero-shot sim-to-real success against 25% for exact digital twins <Cite id="digital-cousins-2024" />, and in 2026 SimFoundry's object, scene and task cousins raised zero-shot real success by 17%, 21% and 40% <Cite id="simfoundry-2026" />.
 
-Liqian Ma, Danfei Xu and colleagues at Georgia Tech (October 2026) train a rater network by meta-gradients to learn which simulator settings produce useful co-training data for a real task <Cite id="metagensim-2026" />. With 10 real demonstrations per task and Diffusion Policy on a Franka Panda, MetaGenSim data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniformly sampled simulation data and 26 for real data alone <Cite id="metagensim-2026" />. Data from settings an expert aligned by hand gave 57 <Cite id="metagensim-2026" />.
+Choosing what to simulate matters. MetaGenSim, from Georgia Tech (October 2026), learns which simulator settings produce useful co-training data for a real task. With 10 real demonstrations per task on a Franka Panda, its data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniform simulation data, 26 for real data alone and 57 for hand-tuned settings <Cite id="metagensim-2026" />.
 
 <span id="the-hybrid-boundary" />
 ## Generators propose content and the engine integrates contact
 
-A generator proposes layouts, tasks, textures and initial states; an asset pipeline checks for interpenetrating parts and attaches physical properties, as Infinigen-Articulated does for 18 articulated categories <Cite id="infinigen-articulated-2025" />. Generated 3D worlds follow the same split: World Labs' Marble exports worlds as Gaussian splats and as meshes, including low-fidelity collider meshes for coarse physics simulation <Cite id="marble-2025" />. The engine integrates contacts, a supervisor labels outcomes, and the dataset records which component produced every field. Engines now model more of the contact: Newton 1.0 adds SDF-based collision and hydroelastic contact for tight-tolerance assembly such as connector insertion <Cite id="newton-manipulation-blog-2026" />.
+A generator proposes layouts, tasks, textures and starting states. An asset pipeline checks for interpenetrating parts and attaches physical properties, as Infinigen-Articulated does for 18 categories of objects with moving parts <Cite id="infinigen-articulated-2025" />. The engine integrates contacts, a supervisor labels outcomes, and the dataset records each field's source. 3D world generators follow the same split: World Labs' Marble exports worlds as Gaussian splats and as low-fidelity collision meshes for coarse physics <Cite id="marble-2025" />. Engines also model more contact: Newton 1.0 adds signed-distance-field collision and hydroelastic contact for tight-tolerance assembly such as connector insertion <Cite id="newton-manipulation-blog-2026" />.
 
-World Labs describes Atlas as an autoregressive diffusion transformer that accepts images, camera poses and depth maps and outputs point clouds or Gaussian splats, generating plausible geometry in unobserved regions <Cite id="worldlabs-atlas-2026" />.
+World Labs' Atlas takes images, camera poses and depth and outputs point clouds or Gaussian splats, filling in unseen regions <Cite id="worldlabs-atlas-2026" />. Its public release on November 12, 2026 converts splats to meshes and targets robotics simulation among other uses <Cite id="worldlabs-atlas-release-2026" />.
 
-Check asset scale and collision geometry before dynamics, static stability before rollouts and contact parameters against real measurements before claiming transfer. Steerable scene generation enforces feasibility "via projection and simulation" and releases over 44 million scenes <Cite id="steerable-scene-generation-2025" />. Keep failed scenes as adversarial tests; the [simulator comparison](/world-models/world-models-vs-simulators/) gives the selection rule.
+Check asset scale and collision geometry before dynamics, static stability before rollouts, and contact parameters against real measurements before claiming transfer. Steerable scene generation enforces feasibility "via projection and simulation" and releases over 44 million scenes <Cite id="steerable-scene-generation-2025" />. Keep failed scenes as adversarial tests. The [simulator comparison](/world-models/world-models-vs-simulators/) gives the selection rule.
