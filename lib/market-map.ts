@@ -7,7 +7,7 @@
  */
 import type { AbsentField, Company } from '@/data/schemas/company.ts';
 
-export const MARKET_MAP_AS_OF = '2026-08-06';
+export const MARKET_MAP_AS_OF = '2026-11-12';
 
 export const SEGMENT_ORDER = [
   'foundation-models',

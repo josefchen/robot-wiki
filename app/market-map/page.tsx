@@ -35,7 +35,7 @@ export default function MarketMapPage() {
       {/* data-pagefind-body scoped to the heading and the intro, not the
           map: Pagefind excludes every page that declares no body region
           once one page declares one, so this route needed its own to be
-          searchable (VAL-SEARCH-021), but the 111 company tiles are
+          searchable (VAL-SEARCH-021), but the company tiles are
           already reachable through the structured index, and indexing
           their prose here would return this page for every company name
           instead of the entity row. */}
