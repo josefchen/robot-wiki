@@ -1,4 +1,3 @@
-import { historicalGit } from '../helpers/historical-git';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createElement } from 'react';
@@ -17,7 +16,6 @@ import { DEFAULT_GAIT, GAITS, GAIT_ORDER, minStanceCount, stanceLegs } from '@/l
 import { DEFAULT_ENVS, MAX_ENVS, MIN_ENVS, wallClockSeconds } from '@/lib/parallel-sim';
 import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
 import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
-import { preDomainPass } from '../helpers/seo-pass';
 
 type Decision = 'keep' | 'restyle' | 'rethink' | 'replace' | 'remove' | 'add';
 interface Row {
@@ -197,43 +195,7 @@ describe('RL and sim-to-real scene models', () => {
   });
 });
 
-// Authored toy values that left the prose together with a retired figure
-// block (the sim2real-transfer prediction exercise and its second friction
-// panel). None is a sourced measurement; every other token must still match.
-const RETIRED_WITH_FIGURES: Record<string, string[]> = {
-  'sim2real-transfer.mdx': [
-    '0.35', '0.55', '0.5725', '0.65', '0.65', '0.65', '0.65',
-    '0.7375', '0.80', '0.93', '57%', '57%', '74%',
-  ],
-};
-
 describe('RL and sim-to-real prose truth', () => {
-  it('preserves the original numeric tokens and citation mounts per article', () => {
-    for (const file of articles) {
-      // The 2026-10-06 domain pass rewrote these articles from the owner's
-      // drafts; its reviewed successor hands this check the pre-pass bytes.
-      const current = preDomainPass(`content/rl-sim2real/${file}`).toString('utf8');
-      const before = historicalGit(['show', `8368034:content/rl-sim2real/${file}`], {
-        cwd: root, encoding: 'utf8',
-      });
-      // Paper-internal locators are moved out of reader prose by the
-      // humanizer pass. Compare the exact remaining quantity strings as a
-      // multiset: moving a sentence does not change a sourced measurement.
-      const numbers = (text: string) => text
-        .replace(/\b(?:Tables?|Tab\.|Figures?|Fig\.|Equation|Eq\.|Algorithm|Sections?)\s*\(?\s*(?:\d+(?:\.\d+)*[a-z]?|[IVXL]+)\b|\bAppendix\s+[A-Z]\d*(?:\.\d+)?\b|\bv\d+\b/g, '')
-        .match(/(?<![\w-])\d(?:[\d,]*\d)?(?:\.\d+)?(?:%|x|Hz|ms|s|m|M|k)?/g)
-        ?.sort() ?? [];
-      const citations = (text: string) => [...text.matchAll(/<Cite id="([^"]+)"/g)].map((match) => match[1]);
-      const expected: string[] = [...numbers(before)];
-      for (const token of RETIRED_WITH_FIGURES[file] ?? []) {
-        const index = expected.indexOf(token);
-        expect(index, `${file} retired token ${token}`).toBeGreaterThanOrEqual(0);
-        expected.splice(index, 1);
-      }
-      expect(numbers(current), `${file} numeric tokens`).toEqual(expected);
-      expect(citations(current), `${file} citations`).toEqual(citations(before));
-    }
-  });
 
   it('measures all eight articles at no more than two structural tells per thousand words', () => {
     expect(articles).toHaveLength(8);

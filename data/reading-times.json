@@ -16,7 +16,7 @@
     "minutes": 9
   },
   "manipulation/pi-line": {
-    "words": 1853,
+    "words": 1850,
     "minutes": 9
   },
   "manipulation/generalist-policies": {
@@ -112,7 +112,7 @@
     "minutes": 8
   },
   "world-models/model-based-robot-learning": {
-    "words": 1438,
+    "words": 1443,
     "minutes": 7
   },
   "world-models/evaluation": {
@@ -132,7 +132,7 @@
     "minutes": 10
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3340,
+    "words": 3349,
     "minutes": 17
   },
   "data-hardware/teleop-rigs": {
@@ -220,11 +220,11 @@
     "minutes": 12
   },
   "adjacent/surgical": {
-    "words": 2172,
+    "words": 2174,
     "minutes": 11
   },
   "adjacent/space": {
-    "words": 2206,
+    "words": 2213,
     "minutes": 11
   }
 }

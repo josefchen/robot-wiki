@@ -52,7 +52,7 @@ describe('PiGenerationTimeline', () => {
     const { container } = render(<PiGenerationTimeline />);
     expect(
       container.querySelector('[data-figure-title]'),
-    ).toHaveTextContent('A new model every few months; only the first three have confirmed downloads');
+    ).toHaveTextContent('New model every few months; downloads confirmed for first three');
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent(
       "Physical Intelligence's models",
     );

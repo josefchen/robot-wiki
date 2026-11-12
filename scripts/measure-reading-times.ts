@@ -18,7 +18,8 @@
  * would violate the reading-time contract.
  */
 import { join } from 'node:path';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
 import { publishedModules } from '../data/modules.ts';
@@ -80,8 +81,29 @@ if (invokedAsCli) {
   const record = measureExport();
 
   const outPath = join(root, 'data', 'reading-times.json');
-  writeFileSync(outPath, `${JSON.stringify(record, null, 2)}\n`, 'utf8');
+  const serialized = `${JSON.stringify(record, null, 2)}\n`;
+  const previous = existsSync(outPath) ? readFileSync(outPath, 'utf8') : null;
+  writeFileSync(outPath, serialized, 'utf8');
   console.log(
     `measure:reading-times: OK (${Object.keys(record).length} articles → ${outPath})`,
   );
+
+  // --rebuild: the export just measured rendered its headers from the
+  // previous file. When the measurement moved, build once more so every
+  // header shows the new count, then re-measure: an export that does not
+  // re-measure to what it was rendered from would show readers a wrong time.
+  if (process.argv.includes('--rebuild')) {
+    if (previous === serialized) {
+      console.log('measure:reading-times: unchanged, no second build needed');
+    } else {
+      console.log('measure:reading-times: changed, rebuilding so headers carry the new times');
+      const rebuilt = spawnSync('next', ['build'], { cwd: root, stdio: 'inherit', shell: true });
+      if (rebuilt.status !== 0) process.exit(rebuilt.status ?? 1);
+      const remeasured = `${JSON.stringify(measureExport(), null, 2)}\n`;
+      if (remeasured !== serialized) {
+        fail('the rebuilt export measures differently from the build before it; clear .next and rebuild');
+      }
+      console.log('measure:reading-times: OK (rebuilt export re-measures to the same times)');
+    }
+  }
 }

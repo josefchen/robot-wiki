@@ -13,6 +13,10 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
+    // Figure tests drive many animation frames; the 5 s default times them
+    // out when the machine is busy, which says nothing about the figure.
+    testTimeout: 30_000,
+    hookTimeout: 30_000,
     include: ['tests/**/*.test.{ts,tsx}'],
     exclude: [
       'tests/e2e/**',

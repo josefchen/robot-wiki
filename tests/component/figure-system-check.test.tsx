@@ -166,11 +166,9 @@ describe('figure-system check', () => {
   it('runs in the gated build and the production build, after the export exists', () => {
     const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { scripts: Record<string, string> };
     expect(pkg.scripts['check:figure-system']).toBe('node scripts/check-figure-system.ts');
-    for (const hook of ['postbuild', 'vercel-build']) {
-      const command = pkg.scripts[hook];
-      expect(command, hook).toContain('&& npm run check:figure-system &&');
-      expect(command.indexOf('check:figure-system'), hook).toBeGreaterThan(command.lastIndexOf('next build'));
-    }
+    // npm runs postbuild after `npm run build`, which vercel-build starts with.
+    expect(pkg.scripts['vercel-build']).toMatch(/^npm run build && /);
+    expect(pkg.scripts.postbuild).toContain('&& npm run check:figure-system &&');
     const allowlist = JSON.parse(readFileSync('contract/figure-system-allowlist.json', 'utf8')) as Allowlist;
     expect(allowlist.schemaVersion).toBe('figure-system-allowlist-v1');
   });

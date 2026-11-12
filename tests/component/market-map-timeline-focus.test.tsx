@@ -31,7 +31,7 @@ afterEach(() => {
   window.history.replaceState(null, '', '/');
 });
 
-const TIMEOUT = 15_000;
+const TIMEOUT = 30_000;
 
 /**
  * Roving-tabindex keyboard access for the funding timeline (parity with

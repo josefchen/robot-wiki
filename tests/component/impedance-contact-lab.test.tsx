@@ -264,7 +264,7 @@ describe('ImpedanceContactLab pressing again', () => {
     await waitFor(() => expect(readout()).toBe('Peak push 34.7 newtons · past the crushing force'), { timeout: (PRESS_SECONDS + 2) * 1000 });
     expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Force control can be set soft enough to spare the glass; the stiff arm only follows position and crushes it.');
     expect(screen.getByTestId('impedance-crack').style.opacity).toBe('1');
-  }, 15000);
+  }, 30_000);
 });
 
 describe('ImpedanceContactLab press model', () => {

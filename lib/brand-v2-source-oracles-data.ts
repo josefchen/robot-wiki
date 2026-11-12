@@ -236,7 +236,7 @@ export const DATA_SOURCE_ORACLES: Readonly<Record<string, SourceOracle>> = {
       if (selected.length !== 1) throw new Error('Expected one selected PI model');
       c.contains(selected[0].plain);
       c.contains('MEM adds memory: recent video plus notes the model writes for itself.');
-      c.contains("Physical Intelligence's modelsA new model every few months; only the first three have confirmed downloads");
+      c.contains("Physical Intelligence's modelsNew model every few months; downloads confirmed for first three");
       c.contains("Physical Intelligence's releases A new model every few months Confirmed downloads Only the first three models Later models' availability is unverified.");
       const dated = PI_GENERATIONS.filter(row => row.released !== null), months = [...new Set(dated.map(row => row.released!))];
       const xAt = (ym: string) => { const [year, month] = ym.split('-').map(Number); return rounded(12 + ((year - 2024) * 12 + month - 1 - 8) * 316 / 21); };

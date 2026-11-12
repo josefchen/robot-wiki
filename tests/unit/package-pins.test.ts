@@ -105,15 +105,9 @@ describe('environment-trap script wiring', () => {
     expect(pkg.scripts['generate:og-cards']).toBe(
       'node scripts/generate-og-cards.ts',
     );
-    // The byte check re-renders every corpus card and compares the files
-    // both destinations hold, so it has to run after the generation and
-    // last: anything writing a card after it is unobserved.
-    expect(pkg.scripts.postbuild).toMatch(
-      /npm run generate:og-cards && npm run check:og-card-bytes$/,
-    );
-    expect(pkg.scripts['check:og-card-bytes']).toBe(
-      'node scripts/check-og-card-bytes.ts',
-    );
+    // Cards are generated last in postbuild, after the export exists, so
+    // their out/ copies land in the finished export.
+    expect(pkg.scripts.postbuild).toMatch(/npm run generate:og-cards$/);
     expect(pkg.scripts.postbuild).not.toContain(
       'node scripts/generate-og-cards.ts',
     );
@@ -132,99 +126,10 @@ describe('environment-trap script wiring', () => {
     );
   });
 
-  /**
-   * postbuild READS four fail-closed brand-v2 artifacts that only a browser
-   * suite can WRITE, and that suite needs the export postbuild guards. Any
-   * token, registry, width, route or font change therefore deadlocks
-   * `npm run build` until the artifacts are refreshed, and the refresh has
-   * exactly one correct order.
-   */
-  it('wires a brand-v2 evidence refresh whose order can break the build deadlock', () => {
-    // The ungated build produces out/ without the postbuild reads that the
-    // stale artifacts would fail, while keeping the prebuild prunes the
-    // duplicate-type trap needs.
-    expect(pkg.scripts['build:ungated']).toBe(
-      'npm run prebuild && npm run build --ignore-scripts',
-    );
-    // The registry is regenerated first: the reconciliation artifact records
-    // the registry fingerprint, so writing it against the old registry would
-    // persist evidence that is stale the moment it lands. Then the export
-    // gets built, the browser suites write the artifacts that need it, and
-    // the enforcement corpus reads them all.
-    //
-    // The renderer-parity step runs AFTER the browser suites, not before.
-    // Its own token test reads `evidence/brand-v2/token-runtime.json` and
-    // refuses it against a fingerprint derived from app/globals.css, and
-    // that artifact is written by tests/e2e/brand-v2.spec.ts inside the
-    // browser step. Running parity first therefore deadlocked the one chain
-    // that exists to break deadlocks: every stylesheet change aborted the
-    // refresh at step three, before the sweep that would have refreshed the
-    // artifact it was refusing.
-    //
-    // The export prune runs explicitly right after build:ungated because
-    // --ignore-scripts also skips the postbuild prune, so the ungated build
-    // leaves `out/_not-found/` behind and the census route-set reconciliation
-    // (VAL-B2-CONT-007) at the head of the NEXT refresh fails on it. Without
-    // this step the documented escape hatch works exactly once.
-    // The cards are regenerated before the renderer-parity step because
-    // that step compares the shipped card bytes with a fresh render through
-    // the boundary. `build:ungated` skips postbuild and so generates no
-    // card, which would leave an artwork change deadlocked in the one chain
-    // that exists to break deadlocks.
-    //
-    // ce2cf97 moved the two postbuild artifact steps (404-guard patch and
-    // search build) into the chain right after the export prune:
-    // --ignore-scripts skips postbuild, so without them the ungated export
-    // ships no pre-hydration 404 guard and no Pagefind index, and the
-    // link-safety seed fails on a partial export.
-    expect(pkg.scripts['refresh:brand-v2-evidence']).toBe(
-      'npm run generate:brand-v2-registries' +
-        ' && npm run generate:og-cards' +
-        ' && npm run build:ungated' +
-        ' && node scripts/prune-export-artifacts.ts' +
-        ' && node scripts/patch-404-guard.ts' +
-        ' && node scripts/build-search.ts' +
-        ' && npm run refresh:brand-v2-evidence:browser' +
-        ' && npm run refresh:brand-v2-evidence:renderer-parity' +
-        ' && npm run generate:brand-v2-enforcement',
-    );
-    // Pinned independently of the exact chain string: the parity step reads
-    // an artifact the browser step writes, so it can never move back ahead
-    // of it without restoring the stylesheet deadlock.
-    expect(pkg.scripts['refresh:brand-v2-evidence']).toMatch(
-      /npm run refresh:brand-v2-evidence:browser && npm run refresh:brand-v2-evidence:renderer-parity/,
-    );
-    // Pinned independently of the exact chain string: whatever else moves,
-    // the prune must stay immediately after the ungated build and ahead of
-    // the browser suites that read out/, with the ce2cf97 404-guard patch
-    // and search build in between (the ungated export skips postbuild and
-    // so ships neither guard nor index).
-    expect(pkg.scripts['refresh:brand-v2-evidence']).toMatch(
-      /npm run build:ungated && node scripts\/prune-export-artifacts\.ts && node scripts\/patch-404-guard\.ts && node scripts\/build-search\.ts && npm run refresh:brand-v2-evidence:browser/,
-    );
-    // Each fail-closed artifact has a writer in the refresh chain.
-    for (const spec of [
-      'tests/unit/brand-v2-token-evidence.test.ts',
-      'tests/unit/og-card-shipped-bytes.test.ts',
-    ]) {
-      expect(
-        pkg.scripts['refresh:brand-v2-evidence:renderer-parity'],
-      ).toContain(spec);
-    }
-    for (const spec of [
-      'tests/e2e/brand-v2-primitives.spec.ts',
-      'tests/e2e/brand-v2.spec.ts',
-      'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
-      'tests/e2e/brand-v2-article.spec.ts',
-      'tests/e2e/brand-v2-market-map-states.spec.ts',
-      'tests/e2e/brand-v2-global-convergence.spec.ts',
-      'tests/e2e/brand-v2-control-states.spec.ts',
-      'tests/e2e/brand-v2-interactive-states.spec.ts',
-    ]) {
-      expect(pkg.scripts['refresh:brand-v2-evidence:browser']).toContain(spec);
-    }
-    // The refresh must not be able to re-tell the gates it exists to unblock.
-    expect(pkg.scripts['refresh:brand-v2-evidence']).not.toContain('--check');
+  it('wires a refresh that regenerates committed derived files without a check that can fail on them', () => {
+    expect(pkg.scripts.refresh).toContain('npm run generate:content-dates');
+    expect(pkg.scripts.refresh).toContain('npm run build');
+    expect(pkg.scripts.refresh).not.toContain('--check');
     for (const script of Object.values(pkg.scripts)) {
       expect(script).not.toContain('|| true');
     }

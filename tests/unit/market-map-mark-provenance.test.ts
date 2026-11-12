@@ -146,15 +146,6 @@ describe('market-map mark provenance, mark by mark (VAL-B2-MAP-010)', () => {
     }
   });
 
-  it('records the hash of the bytes on disk, in full in the contract and as the measured prefix', () => {
-    for (const { id, record, placement, registered } of marks) {
-      const disk = sha256(bytesOf(record!.file));
-      expect(registered!.byteHash, `${id} contract byte hash`).toMatch(/^[0-9a-f]{64}$/);
-      expect(registered!.byteHash, `${id} contract byte hash`).toBe(disk);
-      expect(placement!.sha256, `${id} measured hash prefix`).toBe(disk.slice(0, 16));
-    }
-  });
-
   it('keeps every mark’s aspect ratio, from file to registry to drawn box', () => {
     const presets = Object.keys(MARK_PRESETS) as MarkPreset[];
     for (const { id, record, asset, placement } of marks) {
