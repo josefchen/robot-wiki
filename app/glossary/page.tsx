@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Fragment } from 'react';
 import { citationLabel, getCitation } from '@/data/citations';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
-import { materialAttributes } from '@/lib/brand-v2-materials';
+import { materialAttributes } from '@/lib/site-materials';
 import { definitionParagraphs } from '@/lib/discovery-prose';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { glossaryJsonLd } from '@/lib/structured-data';

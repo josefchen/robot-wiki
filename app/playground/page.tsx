@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
-import { materialAttributes } from '@/lib/brand-v2-materials';
+import { materialAttributes } from '@/lib/site-materials';
 import { playgroundJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,

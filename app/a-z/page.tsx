@@ -9,7 +9,7 @@ import {
   letterAnchorId,
   type AzIndexSourceEntry,
 } from '@/lib/az-index';
-import { materialAttributes } from '@/lib/brand-v2-materials';
+import { materialAttributes } from '@/lib/site-materials';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import {
   STANDALONE_SEO_DESCRIPTIONS,

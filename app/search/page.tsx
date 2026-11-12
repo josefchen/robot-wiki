@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SearchInterface } from '@/components/search/search-interface';
-import { materialAttributes } from '@/lib/brand-v2-materials';
+import { materialAttributes } from '@/lib/site-materials';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { webPageJsonLd } from '@/lib/structured-data';
 import {

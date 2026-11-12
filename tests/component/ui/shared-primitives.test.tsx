@@ -13,7 +13,7 @@ import {
   Tabs,
 } from '@/components/ui';
 
-describe('brand-v2 shared primitives', () => {
+describe('shared primitives', () => {
   it('renders surface levels with stable variant annotations', () => {
     const { rerender } = render(<Surface level="flat">Flat</Surface>);
     expect(screen.getByText('Flat')).toHaveAttribute(

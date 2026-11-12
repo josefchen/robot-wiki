@@ -1,4 +1,4 @@
-import type { ReleaseActivity } from '../../../lib/brand-v2-release-activity';
+import type { ReleaseActivity } from '../../../lib/live-region-activity';
 
 type ActivityController={take:()=>ReleaseActivity;resume:()=>void;dispose:()=>void};
 declare global { interface Window { __robotWikiReleaseActivity?:ActivityController } }

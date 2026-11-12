@@ -6,12 +6,11 @@ import {
   type MarkGeometry,
   type MarkObservation,
   type SeriesLabelEvidence,
-} from '@/lib/brand-v2-interactive-data';
+} from '@/lib/interactive-data-kinds';
 
 /**
- * The series evidence the interactive-data gate collects in a browser
- * (tests/e2e/brand-v2-interactive-data.spec.ts, VAL-B2-VIZ-002/004), read in
- * jsdom from the rendered SVG attributes. jsdom resolves no SVG
+ * The series evidence for VAL-B2-VIZ-002/004, read in jsdom from the
+ * rendered SVG attributes. jsdom resolves no SVG
  * presentation attributes into computed style, so fill and dash are read
  * from the mark or the nearest ancestor that sets them, the way the
  * browser inherits them, and an unset fill is the SVG default (black, so

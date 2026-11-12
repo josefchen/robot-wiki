@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { BRAND_COLORS, BRAND_SPACING } from '@/lib/brand-v2-tokens';
+import { BRAND_COLORS, BRAND_SPACING } from '@/lib/design-tokens';
 import { OG_RENDERER_FACES } from '@/lib/og-renderer-fonts';
 import { readProjectInstructionText } from '../helpers/project-instructions';
 
@@ -211,7 +211,7 @@ describe('design tokens stay aligned', () => {
   it('compares the shared renderer constants against the sealed values', () => {
     // Asserting only that lib/og-card-artwork.ts mentions BRAND_COLORS.signal
     // proves the renderer reads the mirror, not that the mirror is right: a
-    // wrong literal in lib/brand-v2-tokens.ts propagates to every card and
+    // wrong literal in lib/design-tokens.ts propagates to every card and
     // to the WebGL scene and stays green through regeneration. The values
     // themselves are therefore compared against the same expectations the
     // authority documents and app/globals.css are held to.

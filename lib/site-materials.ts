@@ -1,4 +1,4 @@
-import { BRAND_COLORS } from './brand-v2-tokens.ts';
+import { BRAND_COLORS } from './design-tokens.ts';
 
 /**
  * The materials the site paints, and the attributes a representative

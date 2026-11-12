@@ -23,8 +23,8 @@ import matter from 'gray-matter';
 import { DOMAIN_META, publishedModules } from '../data/modules.ts';
 import { TEKTUR_FONT_METADATA } from '../data/tektur-font-metadata.ts';
 import { TEKTUR_ROLE_INSTANCES } from '../data/type-roles.ts';
-import { BRAND_COLORS } from './brand-v2-tokens.ts';
-import { deriveAuthoredColorTokens } from './brand-v2-token-evidence.ts';
+import { BRAND_COLORS } from './design-tokens.ts';
+import { deriveAuthoredColorTokens } from './css-color-tokens.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 import {
   OG_CARD_DEVICES,

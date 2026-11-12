@@ -4,7 +4,7 @@ import { openSync, type LayoutFont } from 'fontkit';
 import { describe, expect, it } from 'vitest';
 import { DEVICE_REGISTRATION } from '@/components/ui/brand-device';
 import { DOMAIN_META, publishedModules } from '@/data/modules';
-import { BRAND_SPACING } from '@/lib/brand-v2-tokens';
+import { BRAND_SPACING } from '@/lib/design-tokens';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import {
   OG_BAND_HEIGHT_PX,

@@ -12,9 +12,9 @@ import {
   STATUS_LABEL_VOCABULARY,
   tableSortKindOf,
   type MarkObservation,
-} from '../../lib/brand-v2-interactive-data';
+} from '../../lib/interactive-data-kinds';
 
-describe('brand-v2 interactive data: resolved paint classification', () => {
+describe('interactive data: resolved paint classification', () => {
   const theme = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
   const token = (name: string) => {
     const value = new RegExp(`${name}:\\s*(#[0-9A-Fa-f]{6});`).exec(theme)?.[1];
@@ -96,7 +96,7 @@ describe('brand-v2 interactive data: resolved paint classification', () => {
   });
 });
 
-describe('brand-v2 interactive data: geometry classes', () => {
+describe('interactive data: geometry classes', () => {
   it('separates lines, dashed lines, dots, rings, bars, and bands', () => {
     expect(geometryClassOf({ tag: 'polyline', dashed: false, filled: false })).toBe('line');
     expect(geometryClassOf({ tag: 'path', dashed: true, filled: false })).toBe('dashed-line');
@@ -107,7 +107,7 @@ describe('brand-v2 interactive data: geometry classes', () => {
   });
 });
 
-describe('brand-v2 interactive data: non-colour distinctness', () => {
+describe('interactive data: non-colour distinctness', () => {
   const base: MarkObservation = {
     paint: 'accent',
     geometries: ['line'],
@@ -140,7 +140,7 @@ describe('brand-v2 interactive data: non-colour distinctness', () => {
   });
 });
 
-describe('brand-v2 interactive data: legend text naming', () => {
+describe('interactive data: legend text naming', () => {
   it('rejects colour-name-only legend subjects', () => {
     expect(classifyLegendText('blue: dims this source drives')).toBe('colour-name-only');
     expect(classifyLegendText('dashed blue: sideways attention (forward)')).toBe('colour-name-only');
@@ -156,7 +156,7 @@ describe('brand-v2 interactive data: legend text naming', () => {
   });
 });
 
-describe('brand-v2 interactive data: classification registry', () => {
+describe('interactive data: classification registry', () => {
   it('records a kind for every source and a lead series only for charts', () => {
     for (const [id, row] of Object.entries(INTERACTIVE_DATA_CLASSIFICATION)) {
       expect(
@@ -182,7 +182,7 @@ describe('brand-v2 interactive data: classification registry', () => {
   });
 });
 
-describe('brand-v2 interactive data: sortable-table census', () => {
+describe('interactive data: sortable-table census', () => {
   it('reads a sortable Table column as a header sort', () => {
     expect(
       tableSortKindOf(`const COLUMNS = [{ key: 'year', header: 'Year', sortable: true, numeric: true }];`),

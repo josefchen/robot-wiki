@@ -3,7 +3,7 @@ import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-enc
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
-import { INTERACTIVE_DATA_CLASSIFICATION } from '@/lib/brand-v2-interactive-data';
+import { INTERACTIVE_DATA_CLASSIFICATION } from '@/lib/interactive-data-kinds';
 import {
   SLIDER_MAX,
   SLIDER_MIN,

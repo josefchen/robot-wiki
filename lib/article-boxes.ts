@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { maskMarkdownCode, scanJsxTags } from './brand-v2-jsx-elements.ts';
+import { maskMarkdownCode, scanJsxTags } from './jsx-element-tree.ts';
 
 /**
  * Articles carry no boxed Callout or Aside panel: a real fact becomes one

@@ -2,7 +2,7 @@
  * The one place a shipped Open Graph card is painted.
  *
  * Everything about this module is structural. `rendererSourceIdentity` in
- * lib/brand-v2-token-evidence.ts requires that no other module in the
+ * lib/css-color-tokens.ts requires that no other module in the
  * renderer closure can obtain an image renderer — by import or by
  * re-export — that the card generator does not bind the seal opener or the
  * artwork builders, and that the single

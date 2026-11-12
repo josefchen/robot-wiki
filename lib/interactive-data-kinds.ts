@@ -4,11 +4,10 @@
  * VAL-B2-COMP-009/010).
  *
  * Every registered interactive source is classified here once, with the
- * evidence for the classification in the row's comment. The browser gate
- * (tests/e2e/brand-v2-interactive-data.spec.ts) reconciles the rendered
- * instrument frames against these rows; the classification itself is
- * reconciled against the registry's interactive sources by unit test so a
- * new instrument cannot ship unclassified.
+ * evidence for the classification in the row's comment. The classification
+ * is reconciled against the registry's interactive sources by unit test
+ * (tests/unit/interactive-data-kinds.test.ts) so a new instrument cannot
+ * ship unclassified.
  *
  * Three kinds:
  * - `source-data`   plots or tabulates values a source published. Unknowns

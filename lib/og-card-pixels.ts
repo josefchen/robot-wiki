@@ -19,7 +19,7 @@
  * Text is not read back; the manifest proves the strings. What is checked
  * here is that ink was painted where the title and the wordmark sit.
  */
-import { BRAND_COLORS } from './brand-v2-tokens.ts';
+import { BRAND_COLORS } from './design-tokens.ts';
 import {
   OG_BAND_HEIGHT_PX,
   OG_CROSS_SPAN_PX,

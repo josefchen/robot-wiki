@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { publishedModules } from '@/data/modules';
 import { DOMAIN_META } from '@/data/modules';
-import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
+import { BRAND_COLORS } from '@/lib/design-tokens';
 import {
   OG_CROSS_SPAN_PX,
   OG_FRAME_INSET_PX,
