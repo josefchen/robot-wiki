@@ -14,25 +14,21 @@
  * strings against their sources, glyph probes, decoded pixels, a second
  * render for determinism), and only then swapped into place tree by tree,
  * with a rollback on any caught failure and recovery of an interrupted run
- * from its journal. The renderer-input manifest and the completed journal
- * are written to evidence/brand-v2/og-cards/.
+ * from its journal.
  *
  * The card trees and their destinations come from the shared corpus in
- * lib/og-card-corpus.ts, which is also the population the renderer
- * evidence measures. This module must not build a card tree of its own,
+ * lib/og-card-corpus.ts. This module must not build a card tree of its own,
  * and cannot transform one either: what it receives is a sealed handle
  * whose element tree is unreachable from here, and
  * lib/og-card-render-boundary.ts is the only module that opens one and
- * paints it. scripts/check-og-card-bytes.ts runs after this one in
- * postbuild, re-renders every corpus card through the boundary and
- * requires each shipped file to be exactly those bytes.
+ * paints it.
  *
  * Flags:
  *   --check-only  build the corpus without rendering (registry and facts).
  *   --stage-only  stage and validate into .og-staging/stage without
  *                 publishing, and leave the staging tree for inspection.
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { ogCardCorpus } from '../lib/og-card-corpus.ts';
 import {
@@ -40,11 +36,10 @@ import {
   validateStagedOgCorpus,
   type StagedCorpus,
 } from '../lib/og-card-generation.ts';
-import { OG_CARD_JOURNAL_PATH, type OgCardManifest } from '../lib/og-card-manifest.ts';
+import type { OgCardManifest } from '../lib/og-card-manifest.ts';
 import {
   OG_STAGING_DIR,
   activeTrees,
-  publicationRecord,
   publishOgCorpus,
   recoverOgPublication,
 } from '../lib/og-card-publication.ts';
@@ -107,10 +102,6 @@ async function main(): Promise<void> {
     stage: run.stage,
     validate: run.validate,
   });
-  writeFileSync(
-    join(root, OG_CARD_JOURNAL_PATH),
-    `${JSON.stringify(publicationRecord(journal), null, 2)}\n`,
-  );
   const seconds = ((Date.now() - t0) / 1000).toFixed(1);
   console.log(
     `generate-og-cards: OK (${run.summary()}; ${journal.trees.map(({ path }) => path).join(', ')} swapped; recovery ${recovery}; ${seconds}s)`,

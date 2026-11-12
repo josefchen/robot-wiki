@@ -1,7 +1,0 @@
-{
-  "schemaVersion": 1,
-  "generator": "scripts/brand-v2-enforcement.ts",
-  "populationSource": "app/globals.css#semantic-tokens-and-use-sites",
-  "ownedBy": "brand-v2-interactive-data-legends-and-render-parity",
-  "marks": []
-}

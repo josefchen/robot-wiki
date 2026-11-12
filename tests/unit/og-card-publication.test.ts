@@ -17,7 +17,6 @@ import {
   OG_STAGING_DIR,
   PublicationCrash,
   activeTrees,
-  publicationRecord,
   publishOgCorpus,
   readLiveJournal,
   recoverOgPublication,
@@ -37,7 +36,7 @@ import {
 const TREES: OgPublicationTree[] = [
   { path: 'public/og', kind: 'tracked' },
   { path: 'public/structured-images', kind: 'tracked' },
-  { path: 'evidence/og-cards', kind: 'evidence' },
+  { path: 'cards/og', kind: 'tracked' },
 ];
 
 const roots: string[] = [];
@@ -54,7 +53,7 @@ function priorRoot(): string {
   write(root, 'public/og/robot-wiki.png', 'prior site');
   write(root, 'public/og/classical/control.png', 'prior control');
   write(root, 'public/structured-images/classical/control-square.png', 'prior square');
-  write(root, 'evidence/og-cards/manifest.json', '{"prior":true}');
+  write(root, 'cards/og/manifest.json', '{"prior":true}');
   return root;
 }
 
@@ -83,7 +82,6 @@ describe('staged Open Graph publication', () => {
     expect(activeTrees(root).map(({ path }) => path)).toEqual([
       'public/og',
       'public/structured-images',
-      'evidence/brand-v2/og-cards',
     ]);
     mkdirSync(join(root, 'out'));
     expect(activeTrees(root).map(({ path }) => path)).toEqual(OG_PUBLICATION_TREES.map(({ path }) => path));
@@ -105,21 +103,11 @@ describe('staged Open Graph publication', () => {
 
   it('publishes a tree that did not exist before', async () => {
     const root = priorRoot();
-    rmSync(join(root, 'evidence'), { recursive: true });
+    rmSync(join(root, 'cards'), { recursive: true });
     const { journal } = await publishOgCorpus({ root, stage: stageNext, validate: accept, trees: TREES });
-    const evidence = journal.trees.find(({ path }) => path === 'evidence/og-cards');
-    expect(evidence).toMatchObject({ hadPrior: false, priorDigest: null, status: 'swapped' });
-    expect(existsSync(join(root, 'evidence/og-cards/next.txt'))).toBe(true);
-  });
-
-  it('commits a record that is identical across regenerations of the same corpus', async () => {
-    const root = priorRoot();
-    const first = publicationRecord((await publishOgCorpus({ root, stage: stageNext, validate: accept, trees: TREES })).journal);
-    const second = publicationRecord((await publishOgCorpus({ root, stage: stageNext, validate: accept, trees: TREES })).journal);
-    expect(second).toEqual(first);
-    expect(JSON.stringify(first)).not.toMatch(/prior|backup/i);
-    const swapping: PublicationJournal = { schemaVersion: 1, state: 'swapping', corpusDigest: 'x', trees: [] };
-    expect(() => publicationRecord(swapping)).toThrow(/swapping publication has no completed record/);
+    const added = journal.trees.find(({ path }) => path === 'cards/og');
+    expect(added).toMatchObject({ hadPrior: false, priorDigest: null, status: 'swapped' });
+    expect(existsSync(join(root, 'cards/og/next.txt'))).toBe(true);
   });
 
   it('leaves the prior corpus untouched when validation fails', async () => {
@@ -201,7 +189,7 @@ describe('staged Open Graph publication', () => {
     // The next full run recovers first, then publishes.
     const crashOnEvidence = {
       afterMoveAside: (tree: string): void => {
-        if (tree === 'evidence/og-cards') throw new PublicationCrash('killed again');
+        if (tree === 'cards/og') throw new PublicationCrash('killed again');
       },
     };
     await expect(

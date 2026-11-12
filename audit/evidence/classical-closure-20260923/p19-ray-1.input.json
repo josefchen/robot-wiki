@@ -1,8 +1,0 @@
-{
-  "id": "perception-ray",
-  "mode": "derive",
-  "inputs": {
-    "angleDeg": 1,
-    "distanceM": 1
-  }
-}

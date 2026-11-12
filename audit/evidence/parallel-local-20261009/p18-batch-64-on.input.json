@@ -1,8 +1,0 @@
-{
-  "id": "batch-scale",
-  "mode": "derive",
-  "inputs": {
-    "envs": 64,
-    "cpuBound": true
-  }
-}

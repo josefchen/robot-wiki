@@ -3,8 +3,8 @@
  * (VAL-B2-OG-013, VAL-B2-OG-014, VAL-B2-OG-015).
  *
  * The corpus spans several trees — the tracked `public/og` and
- * `public/structured-images`, their copies in the `out/` export when one
- * exists, and the manifest under `evidence/brand-v2/og-cards`. A generator
+ * `public/structured-images`, and their copies in the `out/` export when
+ * one exists. A generator
  * that clears and rewrites them in place leaves a partial or mixed corpus
  * behind whenever it fails halfway. Publication therefore runs in phases:
  *
@@ -49,7 +49,7 @@ export type OgPublicationTree = {
   /** The tree's path relative to the repository root; also its ID. */
   path: string;
   /** `export` trees are published only when the export root exists. */
-  kind: 'tracked' | 'export' | 'evidence';
+  kind: 'tracked' | 'export';
 };
 
 export const OG_PUBLICATION_TREES: readonly OgPublicationTree[] = [
@@ -57,7 +57,6 @@ export const OG_PUBLICATION_TREES: readonly OgPublicationTree[] = [
   { path: 'public/structured-images', kind: 'tracked' },
   { path: 'out/og', kind: 'export' },
   { path: 'out/structured-images', kind: 'export' },
-  { path: 'evidence/brand-v2/og-cards', kind: 'evidence' },
 ];
 
 export type JournalTreeStatus = 'pending' | 'moved-aside' | 'swapped' | 'restored';
@@ -336,30 +335,4 @@ export async function publishOgCorpus(input: PublishInput): Promise<PublishResul
   persist(root, journal);
   rmSync(join(root, OG_STAGING_DIR), { recursive: true, force: true });
   return { recovery, journal };
-}
-
-/**
- * What a completed publication commits beside its manifest: the state, the
- * corpus digest and each tree's validated digest. The prior digests and
- * backup slots matter only to an interrupted run and stay in the live
- * journal; recording them here would change the committed record on every
- * regeneration even when the corpus does not change.
- */
-export type PublicationRecord = {
-  schemaVersion: 1;
-  state: 'complete';
-  corpusDigest: string;
-  trees: Array<{ path: string; stagedDigest: string; status: 'swapped' }>;
-};
-
-export function publicationRecord(journal: PublicationJournal): PublicationRecord {
-  if (journal.state !== 'complete' || journal.trees.some(({ status }) => status !== 'swapped')) {
-    throw new Error(`a ${journal.state} publication has no completed record`);
-  }
-  return {
-    schemaVersion: 1,
-    state: 'complete',
-    corpusDigest: journal.corpusDigest,
-    trees: journal.trees.map(({ path, stagedDigest }) => ({ path, stagedDigest, status: 'swapped' })),
-  };
 }

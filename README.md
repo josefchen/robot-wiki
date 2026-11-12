@@ -20,11 +20,12 @@ The articles fall into seven domains:
 
 The [playground](https://robot-wiki.com/playground/) loads the SO-101 arm and runs forward kinematics from joint sliders, inverse kinematics from a click-to-reach target with a damped-least-squares solver, and trajectory record and replay with JSON export. The [market map](https://robot-wiki.com/market-map/) filters companies by segment, country, stage and approach, with a source link on every entry.
 
-## Sources and audit
+## Sources
 
 - Every source lives in one registry, `data/citations.ts`. Prose cites it with `<Cite id="..." />`, and the build fails on an id that is not registered. Glossary terms work the same way through `<Term id="..." />` and `data/glossary.ts`.
-- Each published article has a section in its domain's audit ledger under [`audit/`](audit/README.md). Each row records the claim, the source checked, the URL fetched, the supporting passage and a verdict: verified, corrected or cut. The ledgers are a record of review, not a build gate.
+- Every number and claim cites its primary source: a paper, official documentation, a dataset card or a first-party report.
 - Unknown values are written as "not disclosed" or "n/a", never guessed.
+- To report an error, open a [content correction](https://github.com/josefchen/robot-wiki/issues/new?template=content-correction.yml) issue with the page URL and a primary source that shows the correct value.
 - Three network checks run on demand rather than in the build: `npm run check:links` (citation URLs resolve), `npm run check:citations` (each fetched document matches its registry entry) and `npm run check:crossref-authors` (DOI-bearing citations agree with Crossref on authors, year and title).
 
 ## Repository layout
@@ -42,7 +43,6 @@ lib/          content pipeline, search, IK solver, rehype plugins
 scripts/      validation, reading times, search index, link checks
 tests/        Vitest unit and component tests, Playwright end-to-end specs
 research/     research notes behind the articles
-audit/        per-claim audit ledgers
 ```
 
 References, "See also" lists, backlinks, breadcrumbs, reading times and citation counts are generated at build time. Draft articles are left out of the export, navigation, search and sitemap.

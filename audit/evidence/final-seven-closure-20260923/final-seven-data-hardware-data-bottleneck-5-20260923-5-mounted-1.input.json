@@ -1,9 +1,0 @@
-{
-  "id": "data-scale",
-  "inputs": {
-    "rateId": "droid-measured",
-    "rigs": 10,
-    "targetHours": 10000
-  },
-  "mode": "derive"
-}

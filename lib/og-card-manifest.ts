@@ -53,9 +53,6 @@ import {
 } from './og-renderer-fonts.ts';
 import { pngDimensions } from './png-decode.ts';
 
-export const OG_CARD_EVIDENCE_DIR = 'evidence/brand-v2/og-cards';
-export const OG_CARD_MANIFEST_PATH = `${OG_CARD_EVIDENCE_DIR}/manifest.json`;
-export const OG_CARD_JOURNAL_PATH = `${OG_CARD_EVIDENCE_DIR}/journal.json`;
 const REGISTRIES_PATH = 'contract/brand-v2-registries.json';
 const RUNTIME_TOKENS_PATH = 'app/globals.css';
 

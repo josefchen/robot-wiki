@@ -1,9 +1,0 @@
-{
-  "id": "parallel",
-  "mode": "derive",
-  "inputs": {
-    "envs": 64,
-    "cpuBound": true,
-    "samples": 49
-  }
-}

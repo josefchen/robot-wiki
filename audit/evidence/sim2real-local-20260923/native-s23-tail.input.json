@@ -1,8 +1,0 @@
-{
-  "id": "friction",
-  "mode": "derive",
-  "inputs": {
-    "mu": 1.5,
-    "range": 0.35
-  }
-}
