@@ -85,15 +85,15 @@ ROS 2, the second generation of the Robot Operating System, is a modular framewo
 
 ## The graph: nodes and typed interfaces
 
-On an arm run by a learned policy, the camera driver, policy server and controller bridge are each a node. Nodes talk through topics for streams such as images, services for short request-response calls, and actions for long-running goals with feedback, cancellation and a result <Cite id="ros2-interfaces-2026" />. A `geometry_msgs/PoseStamped` carries the timestamp and frame a bare array lacks, and REP 103 puts ROS on SI units <Cite id="rep-103-2010" />.
+A policy on ROS 2 never touches the camera or the motors; it reads typed messages, such as an image with its timestamp and camera frame, and publishes commands. A `geometry_msgs/PoseStamped` carries the timestamp and frame a bare array lacks, and REP 103 puts ROS on SI units <Cite id="rep-103-2010" />. On an arm, the camera driver, policy server and controller bridge are each a node. Nodes talk through topics for streams such as images, services for short request-response calls, and actions for long-running goals with feedback, cancellation and a result <Cite id="ros2-interfaces-2026" />.
 
 <Ros2Interfaces className="my-6" />
 
 ## QoS is part of the model input
 
-Quality of Service (QoS) settings, inherited from DDS <Cite id="ros2-dds-design-2014" />, decide which messages a subscriber gets. The default profile keeps the last 10 messages and delivers reliably; the sensor-data profile uses best effort and a smaller queue, because timely readings matter more than complete ones. Lifespan silently drops messages older than its limit, and endpoints with incompatible policies never connect <Cite id="ros2-qos-2026" />. A deep reliable queue can serve stale images.
+Quality of Service (QoS) settings, inherited from DDS <Cite id="ros2-dds-design-2014" />, decide which messages reach the policy: a deep reliable queue can serve stale images. The default profile keeps the last 10 messages and delivers reliably; the sensor-data profile uses best effort and a smaller queue, because timely readings matter more than complete ones. Lifespan silently drops messages older than its limit, and endpoints with incompatible policies never connect <Cite id="ros2-qos-2026" />.
 
-Latency depends strongly on the DDS implementation; ROS 2 can add 50% over raw DDS <Cite id="ros2-latency-2021" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is Tier 1 <Cite id="ros2-kilted-2025" />.
+Latency depends on the DDS implementation; ROS 2 can add 50% over raw DDS <Cite id="ros2-latency-2021" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is Tier 1 <Cite id="ros2-kilted-2025" />.
 
 <QosQueueAge className="my-6" />
 
@@ -103,7 +103,7 @@ Camera, depth, joint and force streams arrive at different rates, so each input 
 
 ## tf2: the coordinate-frame graph
 
-tf2 keeps a time-buffered tree of coordinate frames and transforms data between any two frames at any moment <Cite id="tf2-docs-2026" />, an idea from Foote's original tf library <Cite id="tf-library-2013" />. A lookup at an image's timestamp can wait for the transform, and the tf2 tutorial raises an exception only if it is still missing after a 50 ms timeout <Cite id="tf2-time-tutorial-2026" />.
+tf2 keeps a time-buffered tree of coordinate frames and transforms data between any two frames at any moment <Cite id="tf2-docs-2026" />, after Foote's original tf library <Cite id="tf-library-2013" />. A lookup at an image's timestamp can wait for the transform, and the tf2 tutorial raises an exception only if it is missing after 50 ms <Cite id="tf2-time-tutorial-2026" />.
 
 REP 105 defines `odom` as a drifting short-term reference and `map` as a frame whose poses can jump <Cite id="rep-105-2010" />, and camera optical frames take an `_optical` suffix and a different axis convention <Cite id="rep-103-2010" />. A policy trained on <Term id="end-effector">end-effector</Term> motions in the base frame cannot be sent motions in the tool frame; *Modern Robotics* covers the geometry <Cite id="modern-robotics-2017" />.
 
@@ -125,12 +125,12 @@ Lyrical's `rosidl::Buffer` lets a byte-array field live in GPU memory without ch
 
 ## Navigation uses the same architecture
 
-Nav2 uses a behavior tree to coordinate planner, controller and recovery servers <Cite id="nav2-2020" />. Its costmap accepts plugins for AI outputs and semantic information <Cite id="nav2-costmap-2d-2026" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback; the Smac Planner provides searches that respect the robot's motion constraints <Cite id="smac-planner-2024" />. [Scene representation](/classical/scene-representation) covers the map choices.
+Nav2 uses a behavior tree to coordinate planner, controller and recovery servers <Cite id="nav2-2020" />. Its costmap accepts plugins for AI outputs and semantic information <Cite id="nav2-costmap-2d-2026" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback; the Smac Planner's searches respect the robot's motion constraints <Cite id="smac-planner-2024" />. [Scene representation](/classical/scene-representation) covers the map choices.
 
 <Image id="clearpath-jackal-ugv-2020" />
 
 ## Common integration failures
 
-Frequent failures include a policy run in a different frame from its training data, queues hiding latency, two unarbitrated command publishers, bags without transforms, wall-time assumptions under `/clock`, and one node holding drivers, inference and hardware commands. DDS implementations interoperate only in limited circumstances, so a system should use one ROS version and one middleware <Cite id="ros2-middleware-vendors-2026" />. With `rmw_zenoh`, nodes cannot find each other unless a Zenoh router is running, because multicast discovery is off by default <Cite id="rmw-zenoh-readme-2026" />.
+Integration often fails on two unarbitrated command publishers, bags without transforms, or one node holding drivers, inference and hardware commands. DDS implementations interoperate only in limited circumstances, so a system should use one ROS version and one middleware <Cite id="ros2-middleware-vendors-2026" />. With `rmw_zenoh`, nodes cannot find each other unless a Zenoh router is running, because multicast discovery is off by default <Cite id="rmw-zenoh-readme-2026" />.
 
 Nodes are not guaranteed to communicate across releases, which alternate yearly between five-year long-term-support versions and shorter-lived ones <Cite id="rep-2000-2026" />: Lyrical is supported until May 2031, Kilted until December 2026, Humble until May 2027 and Jazzy until May 2029 <Cite id="ros2-distributions-2026" />, and the next, Makoa Mata-mata, is planned for May 2027 <Cite id="ros2-makoa-boss-2026" />. ROS 1 ended when Noetic reached end of life in May 2025 <Cite id="noetic-eol-2025" />.
