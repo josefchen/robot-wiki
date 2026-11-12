@@ -12,7 +12,7 @@ export const HOME_PROSE_LINK_CLASS = 'ink-link';
  */
 export function DidYouKnow() {
   return (
-    <ul className="border-t border-border leading-[1.62] text-text">
+    <ul className="leading-[1.62] text-text">
       {DID_YOU_KNOW.map((fact) => {
         const citation = getCitation(fact.citationId);
         if (!citation) {
@@ -25,7 +25,11 @@ export function DidYouKnow() {
         const cut = fact.after.lastIndexOf(' ');
         const lastWord = fact.after.slice(cut + 1);
         return (
-          <li key={fact.id} data-did-you-know={fact.id} className="border-b border-border py-4">
+          <li
+            key={fact.id}
+            data-did-you-know={fact.id}
+            className={'border-b border-border py-4' /* taste-skill-ignore: the research-page standard rules lists with 1px hairlines. */}
+          >
             {fact.before}
             <Link
               data-brand-control-id="control:link-focus"

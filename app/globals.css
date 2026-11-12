@@ -258,105 +258,113 @@
 }
 
 /*
- * Home is the one index that has to show its whole contents in the first
- * screen: all seven domains above the fold at 1440x900 and the featured
- * scene starting within 1200px. Its masthead puts the search beside the
- * lead, and its sections close up to 48px, the same rules and type at a
- * front-page density.
+ * Home: a front page built around one robot. One 12-column frame, wider
+ * than the reading column, with a single axis at the start of column 5:
+ * the hero's scene, the "Latest" and "Did you know" lists and the second
+ * column of the contents all hang from it. Five type sizes do the work:
+ * the wordmark, the lead title, 20px titles and statements, 16px text and
+ * 14px notes. Rules are 1px hairlines; there are no boxes.
  */
-.sheet-masthead.home-masthead {
-  padding-top: 32px;
+.home-frame {
+  --home-gap: 32px;
+  width: 100%;
+  max-width: calc(1344px + 2 * var(--article-gutter));
+  margin-inline: auto;
+  padding-inline: var(--article-gutter);
 }
 
-.home-masthead .page-lead {
-  margin-top: 20px;
+.home-section {
+  margin-top: 80px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-strong); /* taste-skill-ignore: the research-page standard rules sections and lists with 1px hairlines (brand, AGENTS.md). */
 }
 
-.home-masthead .meta-line {
-  margin-top: 12px;
+.home-h2 {
+  margin-bottom: 28px;
 }
 
 @media (min-width: 1024px) {
-  .home-masthead {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 22rem;
-    grid-template-rows: 1fr auto;
-    column-gap: 48px;
+  .home-section {
+    margin-top: 128px;
   }
 
-  .home-masthead > .home-lockup {
-    grid-column: 1;
-    grid-row: 1 / span 2;
+  .home-hero + .home-section {
+    margin-top: 88px;
   }
 
-  /* The counts and the search share the right column; the search's bottom
-     edge lines up with the lead's. */
-  .home-masthead > .meta-line {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: end;
-    margin: 0 0 12px;
-  }
-
-  .home-masthead > .home-masthead-search {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: end;
-    margin-top: 0;
+  .home-h2 {
+    margin-bottom: 36px;
   }
 }
 
-/* Major sections open 48 px apart on phones and tablets and 64 px on
-   desktop (VAL-B2-SPACE-003). */
-.sheet-section.home-section {
-  margin-top: 48px;
+/* The hero. On a phone it stacks: the name, the search and the counts, then
+   the scene, whose poster already shows in the first screen. From 1024px
+   the name and the search hold the four columns left of the axis and the
+   scene takes the eight to its right, as large as the first screen allows. */
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 28px;
+  padding-top: 28px;
 }
 
-@media (min-width: 1024px) {
-  .sheet-section.home-section {
-    margin-top: 64px;
-  }
-}
-
-.home-section > .section-h2 {
-  margin-bottom: 16px;
-}
-
-/*
- * The featured article and the featured scene: the article's title set in
- * the display face, then a dek written for home; the scene's caption takes
- * the dek's type above the explainer's stage, which runs the sheet's full
- * width.
- */
-.home-feature-title {
+.home-wordmark {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1.15rem + 1.1vw, 2rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  /* VAL-B2-TYPE-006: 40-48px at 375, 84-92px at 1440, leading 0.90-0.96. */
+  font-size: clamp(2.5rem, 1.86rem + 4.32vw, 5.75rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+/* Each word is its own line from 1024px; the clip lets it rise into place. */
+.home-wordmark-line {
+  display: inline-block;
+  overflow: hidden;
+  padding-block: 0.06em;
+  margin-block: -0.06em;
+  vertical-align: top;
+}
+
+.home-wordmark-line > span {
+  display: inline-block;
+}
+
+.home-descriptor {
+  margin-top: 18px;
+  max-width: 24ch;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.4;
   color: var(--ink);
   text-wrap: balance;
 }
 
-.home-feature-dek {
-  max-width: 62ch;
+.home-search-label {
+  display: block;
+  margin-bottom: 8px;
   font-family: var(--font-sans);
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--ink);
-  text-wrap: pretty;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
 }
 
-.home-feature-title + .home-feature-dek {
-  margin-top: 10px;
+.home-search {
+  max-width: 34rem;
 }
 
-.home-explainer > .home-feature-dek {
-  margin-bottom: 14px;
-}
-
-.home-explainer-source {
+.home-counts {
   margin-top: 14px;
+  font-size: 14px;
+}
+
+.home-scene-more {
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
 }
 
 /* On a phone the explainer's stage is 4:5 while its poster is the 16:10
@@ -366,6 +374,508 @@
 @container (max-width: 560px) {
   .home-explainer .stage[data-mode='poster'] .poster {
     object-fit: cover;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-hero {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto auto 1fr;
+    column-gap: var(--home-gap);
+    row-gap: 0;
+    padding-top: 36px;
+  }
+
+  .home-lockup {
+    grid-column: 1 / 5;
+    grid-row: 1;
+  }
+
+  .home-wordmark-line {
+    display: block;
+  }
+
+  .home-descriptor {
+    margin-top: 28px;
+  }
+
+  /* The search and the counts follow the descriptor as one group; the
+     column ends where the group ends. */
+  .home-find {
+    grid-column: 1 / 5;
+    grid-row: 2;
+    margin-top: 32px;
+  }
+
+  .home-scene {
+    grid-column: 5 / 13;
+    grid-row: 1 / 4;
+  }
+}
+
+/* Start here: four equal entries, hottest first, each a picture at 3:2,
+   the title, the dek and the picture's credit. Stacked on a phone with a
+   hairline between entries, two by two on a tablet and one row of four on
+   a desktop, set apart by space alone. */
+.start-here {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 28px;
+  list-style: none;
+}
+
+.start-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  row-gap: 16px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line); /* taste-skill-ignore: the research-page standard rules sections and lists with 1px hairlines (brand, AGENTS.md). */
+}
+
+.start-entry:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.home-crop {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: var(--crop-ratio);
+}
+
+.home-crop > img {
+  position: absolute;
+  width: var(--crop-width);
+  left: var(--crop-left);
+  top: var(--crop-top);
+  max-width: none;
+  height: auto;
+  transform-origin: 50% 50%;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.start-entry:hover .start-picture > img {
+  transform: scale(1.025);
+}
+
+.start-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.start-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--ink) 35%, transparent);
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 200ms ease;
+}
+
+/* The picture's link wraps the cropped frame and adds nothing of its own. */
+.start-picture-link {
+  display: block;
+}
+
+.start-entry:hover .start-link,
+.explore-entry:hover .start-link,
+.start-link:focus-visible {
+  text-decoration-color: var(--ink);
+}
+
+.start-dek {
+  margin-top: 8px;
+  max-width: 46ch;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.home-credit {
+  margin-top: 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.home-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.home-credit a:hover {
+  color: var(--ink);
+}
+
+.home-credit a:last-child {
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .start-here {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px var(--home-gap);
+  }
+
+  .start-entry,
+  .start-entry:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .start-here {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Latest and Did you know: the heading left of the axis, the list on it. */
+@media (min-width: 1024px) {
+  .home-aside {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--home-gap);
+    align-items: start;
+  }
+
+  .home-aside > .home-h2,
+  .home-aside > .home-aside-head {
+    grid-column: 1 / 5;
+    margin-bottom: 0;
+  }
+
+  .home-aside-head > .home-h2 {
+    margin-bottom: 0;
+  }
+
+  .home-aside > :not(.home-h2, .home-aside-head) {
+    grid-column: 5 / 13;
+  }
+}
+
+.home-aside-more {
+  margin-top: -12px;
+  margin-bottom: 28px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+  .home-aside-more {
+    margin-top: 14px;
+    margin-bottom: 0;
+  }
+}
+
+.latest {
+  list-style: none;
+}
+
+.latest-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 2px;
+  padding-block: 14px;
+  border-bottom: 1px solid var(--line); /* taste-skill-ignore: the research-page standard rules sections and lists with 1px hairlines (brand, AGENTS.md). */
+}
+
+.latest-row:first-child {
+  padding-top: 0;
+}
+
+.latest-row:last-child {
+  border-bottom: 0;
+}
+
+.latest-date {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.75;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.latest-title {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.latest-note {
+  margin-top: 2px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+@media (min-width: 640px) {
+  .latest-row {
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    column-gap: 24px;
+    align-items: baseline;
+  }
+}
+
+/* The contents: domains in columns, each a name, its scope and its
+   articles. On a phone the articles run inline; from 768px they stand one
+   to a line, like the contents of a book. */
+.contents-domain {
+  padding-bottom: 32px;
+  break-inside: avoid;
+}
+
+.contents-head {
+  margin-bottom: 10px;
+}
+
+.contents-name {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.contents-name:hover {
+  color: var(--muted);
+}
+
+.contents-scope {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.contents-list {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .home-index {
+    columns: 2;
+    column-gap: var(--home-gap);
+  }
+
+  .home-index .contents-list > li {
+    display: block;
+    padding-block: 3px;
+    line-height: 1.45;
+  }
+
+  .home-index .contents-list > li + li::before {
+    content: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-index {
+    columns: 3;
+  }
+}
+
+/* Did you know: three cited facts on the axis, set as statements. */
+.home-facts ul {
+  border-top: 0;
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+/* Below 360px the site lets these runs wrap so nothing overflows; on home
+   each fact's last word, chip and full stop measure under 200px, so they
+   stay together and no chip opens a line of its own. */
+@media (max-width: 359px) {
+  .home-facts [data-did-you-know] .whitespace-nowrap {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-facts ul {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+
+.home-facts [data-did-you-know] {
+  max-width: 44em;
+  padding-block: 16px;
+}
+
+.home-facts [data-did-you-know]:first-child {
+  padding-top: 0;
+}
+
+.home-facts [data-did-you-know]:last-child {
+  border-bottom: 0;
+}
+
+/* On home the shared footer's content takes the home frame's width, so it
+   lines up with the sections above; every other route keeps its column. */
+#main-content:has(> .home-hero) + [data-site-footer] > div:last-child {
+  max-width: calc(1344px + 2 * var(--article-gutter));
+}
+
+/* Explore: the three things on the site that are not articles. */
+.explore {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px var(--home-gap);
+  list-style: none;
+}
+
+.explore-entry {
+  position: relative;
+}
+
+.explore-visual {
+  display: block;
+  margin-bottom: 16px;
+  border-block: 1px solid var(--line); /* taste-skill-ignore: the research-page standard rules sections and lists with 1px hairlines (brand, AGENTS.md). */
+}
+
+.explore-entry:hover .explore-visual > img {
+  transform: scale(1.03);
+}
+
+.explore-squares {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+}
+
+.squares {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 4px;
+  width: 70%;
+}
+
+.square {
+  aspect-ratio: 1;
+  background: var(--chart-dark);
+}
+
+.square[data-tone='light'] {
+  background: var(--chart-medium);
+}
+
+.explore-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.explore-line {
+  margin-top: 6px;
+  max-width: 36ch;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+@media (min-width: 768px) {
+  .explore {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Motion. The name rises into place line by line, the rest of the first
+   screen follows, and each part of a section rises a little as it enters
+   the view, never hidden on its way. Without scroll timelines, or under reduced motion, everything
+   simply stands still and in place. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-wordmark-line > span {
+    animation: home-rise 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .home-wordmark-line + .home-wordmark-line > span {
+    animation-delay: 110ms;
+  }
+
+  .home-descriptor,
+  .home-find {
+    animation: home-fade 700ms cubic-bezier(0.16, 1, 0.3, 1) 280ms both;
+  }
+
+  .home-scene {
+    animation: home-fade 900ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
+  }
+
+  @supports (animation-timeline: view()) {
+    .home-section > .home-h2,
+    .start-entry,
+    .latest-row,
+    .contents-domain,
+    .home-facts [data-did-you-know],
+    .explore-entry {
+      animation: home-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes home-rise {
+  from {
+    transform: translateY(105%);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+/* Travel only, like every move on home: nothing is ever drawn faint, so
+   text keeps its full contrast from the first frame. */
+@keyframes home-fade {
+  from {
+    transform: translateY(14px);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+/* Travel only: a part that has not entered the view yet is never hidden,
+   so a full-page capture, print or a reader who jumps straight to it still
+   finds everything in place. */
+@keyframes home-enter {
+  from {
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
