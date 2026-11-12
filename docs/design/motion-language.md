@@ -156,12 +156,10 @@ What makes a scene feel explained rather than decorated:
 
 ## The look-and-fix loop
 
-`npm run scene:capture -- <scene-id>` renders every beat's end-state plus
-the poster at 375 px and 1440 px into `evidence/motion/scenes/`. Look at
-every image: no overlap or clipping, labels readable, roles correct, one
-idea per beat, captions matching the frame, reduced-motion stills intact.
-Fix and re-capture until clean, then commit the captures. A scene nobody
-looked at is not done.
+Step through every beat and the poster at 375 px and 1440 px and look at
+each one: no overlap or clipping, labels readable, roles correct, one idea
+per beat, captions matching the frame, reduced-motion stills intact. Fix
+until clean. A scene nobody looked at is not done.
 
 ## Cinematic clips
 
@@ -187,11 +185,8 @@ The pipeline is fully offline and stays that way:
   and the same model code via a deterministic JSON export), then encodes
   VP9 WebM and H.264 MP4, cuts the poster from the final frame, and
   writes one WebVTT cue per beat plus the text alternative. Anything
-  over 3 MiB fails the render and the test suite.
-- `npm run clips:capture` walks every mounted clip at 375 px and
-  1440 px: the poster state before any bytes are fetched, then each
-  beat's end-state taken by seeking the decoded video. The same
-  look-and-fix loop as scenes applies.
+  over 3 MiB fails the render and the test suite. The same
+  look-and-fix loop as scenes applies to every mounted clip.
 
 A clip mounts as `<Clip id="..." />`: a native `<video controls
 preload="none">` with the poster and intrinsic size pinned, WebM and MP4

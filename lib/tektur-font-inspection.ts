@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { isAbsolute, join } from 'node:path';
 import { openSync, type Font } from 'fontkit';
@@ -10,7 +11,8 @@ import {
   typeRoleRegistrySchema,
   type TekturAssignedString,
 } from '../data/type-roles.ts';
-import { sha256 } from './brand-v2-baseline.ts';
+
+const sha256 = (bytes: Uint8Array | string): string => createHash('sha256').update(bytes).digest('hex');
 
 export type TekturInspectionReport = {
   ok: boolean;
