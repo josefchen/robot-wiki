@@ -4,7 +4,7 @@
  * Every mark is drawn plate-less, as a single-ink silhouette of its file's
  * alpha (components/ui/logo-mark.tsx). The files under public/images/logos
  * and their registry entries (data/logos.ts, data/logo-images.ts) change
- * only through a sourced replacement recorded in audit/market-map.md;
+ * only through a sourced replacement;
  * nothing here edits, recolours or cuts a file. What this module decides:
  *
  * - Size by artwork, not by file box. Some files carry wide transparent
@@ -184,7 +184,7 @@ export type WithheldMark = {
  * company's name as text and its details say why, and /credits, which
  * credits what the site shows, leaves it out. Remove an entry once the
  * registry points at a correct official mark with recorded provenance
- * (Nimble's and Farm-ng's were, on 19 October 2026: audit/market-map.md).
+ * (Nimble's and Farm-ng's were, on 19 October 2026).
  */
 export const WITHHELD_MARKS: Readonly<Record<string, WithheldMark>> = {
   'assured-robot-intelligence-logo': {
@@ -225,7 +225,7 @@ export type LuminanceMask = {
  * - dark: ink = alpha x (1 - luminance x alpha). Dark type and a coloured
  *   badge are the ink and the badge's white glyph is cut out of it.
  *
- * Each cut-out was checked on a contact sheet (audit/market-map.md). Like a
+ * Each cut-out was checked on a contact sheet. Like a
  * withholding, an entry stops applying the moment its file changes, and the
  * unit tests then require it to be reviewed.
  */

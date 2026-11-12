@@ -119,8 +119,7 @@ describe('COMPANIES data', () => {
       expect(company.aka, `${company.id} aka`).toEqual(researchAka.get(company.id));
     }
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
-    // ['Pi', 'π'] -> ['π'] on 2026-10-19: the field audit
-    // (audit/market-map-ledger.json) found its sources use "Pi" only for the
+    // ['Pi', 'π'] -> ['π'] on 2026-10-19: its sources use "Pi" only for the
     // Pi0 model and the Pi API, never as a name for the company.
     expect(pi?.aka).toEqual(['π']);
   });
