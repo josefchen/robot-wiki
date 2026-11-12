@@ -184,10 +184,10 @@ export function LatentImagination({
       values: [
         formatUnits(fullDeviation[t]),
         t >= TYPICAL_HORIZON[0] && t <= TYPICAL_HORIZON[1]
-          ? 'inside published range'
+          ? 'inside'
           : t < TYPICAL_HORIZON[0]
-            ? 'before published range'
-            : 'past published range',
+            ? 'before'
+            : 'past',
         t === horizon ? 'playhead' : 'off',
       ],
     }));
@@ -435,7 +435,7 @@ export function LatentImagination({
             rowHeader="step"
             columns={[
               { header: 'deviation', numeric: true },
-              { header: 'range', numeric: false },
+              { header: 'published range', numeric: false },
               { header: 'playhead', numeric: false },
             ]}
             rows={sampleRows}
