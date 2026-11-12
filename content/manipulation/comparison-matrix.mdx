@@ -1,11 +1,11 @@
 ---
 title: "Comparison Matrix"
-description: "Every major policy across eight architectural axes: action representation, horizon, frequency, backbone, conditioning, cross-embodiment, hierarchy, openness."
+description: "Major robot policies from RT-1 to π0.7 compared on eight design choices, what each choice means, and how to use the table to pick a model."
 domain: manipulation
 slug: comparison-matrix
 order: 7
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-11-12"
 citations:
   - rt1-2022
   - act-aloha-2023
@@ -26,6 +26,7 @@ citations:
   - isaac-gr00t-repo-2026
   - helix-02-2026
   - agibot-go2-2026
+  - agibot-go3-preview-2026
   - skild-series-c-2026
   - real-time-chunking-2025
   - gemini-robotics-on-device-2025
@@ -42,8 +43,12 @@ citations:
   - generalist-gen1-2026
   - nvidia-gtc-gr00t-n2-2026
   - helix-2025
-  - helix-2-5-2026
   - agibot-world-2025
+  - gemini-robotics-2-5-2026
+  - gr00t-2-2026
+  - runway-praxis-1-open-2026
+  - xiaomi-robotics-1-2026
+  - xiaomi-robotics-1-repo-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "manipulation/action-spaces"
@@ -54,54 +59,50 @@ import { ChunkBuffer } from '@/components/interactive/chunk-buffer';
 
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 
-Compare major robot policies, RT-1 (2022) through π0.7 (2026), on eight architectural axes: action representation, horizon, control frequency, backbone, conditioning, cross-embodiment, hierarchy and weights <Cite id="rt1-2022" /> <Cite id="pi07-2026" />. Cells record named sources' disclosures.
+The comparison matrix lines up major robot policies, from RT-1 (2022) to π0.7 (2026), on eight design choices, from how actions are written to whether the weights can be downloaded <Cite id="rt1-2022" /> <Cite id="pi07-2026" />. Each cell records what a named source discloses.
 
 <Image id="octo-evaluation-setups-2024" />
 
-Filter weights to Downloadable to compare available checkpoints <Cite id="openpi-repo-2024" />.
-
 <ComparisonMatrix className="my-6 wide-measure" />
 
-## Use the matrix as a constraint solver
+## Narrow the field before comparing scores
 
-Remove models whose weights or training data the project cannot use (Gemini Robotics On-Device offers trusted-tester SDK access <Cite id="gemini-robotics-on-device-2025" />), then models whose action representation, latency, observations or adaptation-data needs mismatch the robot, before comparing benchmark performance.
+Benchmarks come last. First drop models whose weights, license or training data rule them out; Gemini Robotics On-Device, for example, goes only to trusted testers via an SDK <Cite id="gemini-robotics-on-device-2025" />. Then drop those whose actions, speed, cameras or data needs do not fit the robot.
 
 <Image id="roboarena-evaluation-2025" />
 
-Compare survivors with one protocol, identical cameras, action horizon and resets; keep a behavior-cloning or action-chunking baseline. TRI's Large Behavior Model study used blind, randomized trials <Cite id="tri-lbm-2025" />; RoboArena ranked seven generalist policies more accurately than centralized evaluation through over 600 double-blind pairwise real-robot episodes <Cite id="roboarena-2025" />. The [foundation-model guide](/manipulation/foundation-models/) explains family priors, the [action-space guide](/manipulation/action-spaces/) output compatibility, and the [evaluation crisis](/data-hardware/evaluation-crisis/) why protocols resist shared leaderboards.
+Compare the rest under one protocol, with identical cameras, horizon and resets, and keep a behavior-cloning baseline. TRI's Large Behavior Model study used blind, randomized trials <Cite id="tri-lbm-2025" />, and RoboArena ranked seven generalist policies more accurately than centralized evaluation through over 600 double-blind pairwise episodes <Cite id="roboarena-2025" />. The [foundation-model guide](/manipulation/foundation-models/) covers priors.
 
-## The eight axes
+## How actions are written and timed
 
-Action representation: continuous regression, discrete action tokens or generative heads, including diffusion or <Term id="flow-matching">flow matching</Term>. Supervision and runtime generation can differ: π0.5 trains with FAST tokens but generates continuous actions with flow matching <Cite id="pi05-2025" />.
+Action representation is the form of the output: plain numbers, word-like tokens, or a generative head that refines noise into motion by diffusion or <Term id="flow-matching">flow matching</Term>. Training and running can differ: π0.5 learns from compressed FAST tokens <Cite id="pi0-fast-2025" /> but generates actions by flow matching <Cite id="pi05-2025" />.
 
-Distinguish planned chunk length $H$, the <Term id="predicted-horizon">predicted horizon</Term>, from steps executed before re-planning, the <Term id="committed-horizon">committed horizon</Term>. Diffusion Policy's simulated CNN Push-T reference uses observation, prediction and execution horizons of 2, 16 and 8 <Cite id="diffusion-policy-2023" />; ACT's 100-step entry is its k=100 chunk-ablation reference <Cite id="act-aloha-2023" />; OFT+ predicts and executes 25 actions at 25 Hz on ALOHA <Cite id="openvla-oft-2025" />; π0.7 predicts 50 with five denoising steps, executing 15 or 25 <Cite id="pi07-2026" />. [Real-time chunking](/manipulation/realtime-execution/) generates the next chunk while the current one executes <Cite id="real-time-chunking-2025" />.
+The horizon has two parts: the <Term id="predicted-horizon">predicted horizon</Term>, how many actions a chunk holds, and the <Term id="committed-horizon">committed horizon</Term>, how many run before replanning. Diffusion Policy's simulated Push-T setup looks at 2 frames, predicts 16 actions and executes 8 <Cite id="diffusion-policy-2023" />. ACT's 100-step entry comes from its chunk-size tests <Cite id="act-aloha-2023" />, OFT+ predicts and executes 25 actions at 25 Hz on ALOHA <Cite id="openvla-oft-2025" />, and π0.7 predicts 50 and executes 15 or 25 <Cite id="pi07-2026" />. [Real-time chunking](/manipulation/realtime-execution/) computes the next chunk during the current one <Cite id="real-time-chunking-2025" />.
 
-Control frequency: specify conditions. ACT's ALOHA runs at 50 Hz with <Term id="temporal-ensembling">temporal ensembling</Term> <Cite id="act-aloha-2023" />, RT-1 commands Everyday Robots' platform at 3 Hz <Cite id="rt1-2022" />, and RT-2's multi-TPU cloud service runs PaLI-X-55B at 1 to 3 Hz <Cite id="rt2-2023" />. OpenVLA reaches about 6 Hz on one RTX 4090; its Franka fine-tuning setups use 5 Hz and 15 Hz controllers <Cite id="openvla-2024" />.
-
-Gemini Robotics turns about 250 ms end-to-end latency into effective 50 Hz control frequency with multi-action chunks <Cite id="gemini-robotics-2025" />, GR00T N1's 16-action chunk sampling takes 63.9 ms on an L40 <Cite id="gr00t-n1-2025" />, π0.6's card: 63 ms per chunk on one H100 <Cite id="pi06-model-card-2025" />; Generalist says GEN-1.5 produces 100 Hz action trajectories <Cite id="gen-1-5-2026" />.
+Control frequency depends on hardware. ACT runs at 50 Hz with <Term id="temporal-ensembling">temporal ensembling</Term> <Cite id="act-aloha-2023" />, RT-1 at 3 Hz <Cite id="rt1-2022" />, the 55-billion-parameter RT-2 at 1 to 3 Hz from cloud servers <Cite id="rt2-2023" /> and OpenVLA at about 6 Hz on one RTX 4090 graphics card <Cite id="openvla-2024" />. Chunks hide latency: Gemini Robotics turns about 250 milliseconds of latency into effective 50 Hz control <Cite id="gemini-robotics-2025" />, GR00T N1 samples a 16-action chunk in 63.9 milliseconds <Cite id="gr00t-n1-2025" />, π0.6 takes 63 <Cite id="pi06-model-card-2025" />, and Generalist says GEN-1.5 produces 100 Hz trajectories <Cite id="gen-1-5-2026" />.
 
 <ChunkBuffer className="my-6" />
 
-Backbone, conditioning and cross-embodiment: components, inputs and robot-body transfer scope. Mixed-embodiment training, one checkpoint across bodies and new-body fine-tuning are different evidence; CrossFormer gives the strongest evidence: identical weights control very different robots after 900K training trajectories from 20 embodiments <Cite id="crossformer-2024" />. Skild says S1 executes a task shown in one video <Cite id="skild-s1-2026" />: demonstration video conditioning.
+## What each model builds on and controls
 
-Hierarchy: internal high-level stages versus separate systems. π0.5 predicts a semantic subtask before low-level actions <Cite id="pi05-2025" />; the N1.7 SONIC workflow's separate whole-body controller decodes VLA latent action tokens into joint commands <Cite id="isaac-gr00t-repo-2026" />. A separate high-level VLM gives π0 subtasks <Cite id="pi0-2024" />.
+Backbone and conditioning are a model's pretrained parts and accepted inputs. Octo takes an instruction in words or a goal image <Cite id="octo-2024" />, and Skild says S1 performs a task shown in one video <Cite id="skild-s1-2026" />.
 
-Weights separates download availability from license. openpi lists π0, π0-FAST and π0.5 checkpoints <Cite id="openpi-repo-2024" />; N1.7's README separates Apache 2.0 code and NVIDIA Open Model License weights <Cite id="isaac-gr00t-repo-2026" />; SmolVLA releases code, pretrained models and training data <Cite id="smolvla-2025" />.
+Cross-embodiment, handling several kinds of robot, has three strengths of evidence: training on many robots' data, as with Open X-Embodiment's 22 robot types <Cite id="open-x-embodiment-2023" />; fine-tuning to a new body; and one checkpoint running different bodies. CrossFormer gives the strongest: identical weights control very different robots after 900,000 trajectories from 20 embodiments <Cite id="crossformer-2024" />.
 
-## Row notes
+Hierarchy is whether planning and motion are separate stages. π0.5 writes a subtask before acting, inside one model <Cite id="pi05-2025" />; π0 can take subtasks from a separate high-level vision-language model <Cite id="pi0-2024" />; GR00T N1.7's SONIC workflow hands latent action tokens to a separate whole-body controller <Cite id="isaac-gr00t-repo-2026" />.
 
-RT-1's "limited" cross-embodiment training mixes Kuka IIWA and Everyday Robots data; evaluation uses Everyday Robots <Cite id="rt1-2022" />. ACT trains task-specific roughly 80M-parameter models from scratch <Cite id="act-aloha-2023" />; RT-2's action-only entry excludes its chain-of-thought variant <Cite id="rt2-2023" />.
+Weights separates downloading a model from being allowed to use it. openpi lists π0, π0-FAST and π0.5 checkpoints <Cite id="openpi-repo-2024" />, N1.7 pairs Apache 2.0 code with NVIDIA Open Model License weights <Cite id="isaac-gr00t-repo-2026" />, and SmolVLA releases code, pretrained models and training data <Cite id="smolvla-2025" />.
+
+## Notes on individual rows
+
+RT-1's "limited" cross-embodiment training mixes Kuka IIWA and Everyday Robots data, evaluated on Everyday Robots <Cite id="rt1-2022" />. ACT trains a task-specific, roughly 80-million-parameter model from scratch <Cite id="act-aloha-2023" />; RT-2's entry excludes its chain-of-thought variant <Cite id="rt2-2023" />. OpenVLA's 7B is its language model, beside a 600M visual encoder <Cite id="openvla-2024" />. OFT's "limited" means adapting a pretrained model to separate tasks and robot setups <Cite id="openvla-oft-2025" />. GR00T N1.6 predicts actions relative to the current state for most bodies <Cite id="gr00t-n1-6-2025" />, and π*0.6's Recap training more than doubles throughput on some of the hardest tasks <Cite id="pistar06-2025" />.
 
 <Image id="gemini-robotics-apollo-franka-2025" />
 
-OpenVLA's 7B denotes its language model, beside a 600M visual encoder <Cite id="openvla-2024" />. OFT's "limited" means pretrained-model adaptation to separate tasks and robot setups <Cite id="openvla-oft-2025" />; GR00T N1.6 predicts state-relative action chunks for most embodiments <Cite id="gr00t-n1-6-2025" />. π*0.6's Recap post-training more than doubles throughput on some of the hardest tasks <Cite id="pistar06-2025" />.
+## What vendors leave out
 
-Gemini Robotics 1.5's card discloses continuous numerical actions, omitting action-head family, chunk length, command rate or parameter count; one checkpoint spans ALOHA, bi-arm Franka and Apollo; separate GR-ER 1.5 orchestrators are optional <Cite id="gemini-robotics-15-2025" />. DeepMind's July 30, 2026 Gemini Robotics 2 announcement covers Apollo 2 and Franka Duo with one checkpoint but omits backbone, output parameterization, chunk length, control frequency or parameter count <Cite id="gemini-robotics-2-2026" />. Skild's row: its January 14, 2026 Series C announcement, without reproducible cross-embodiment evaluation or runtime details <Cite id="skild-series-c-2026" />.
+Gemini Robotics 1.5's card discloses continuous actions but no action head, chunk length, command rate or parameter count, though one checkpoint spans ALOHA, two-arm Franka and Apollo <Cite id="gemini-robotics-15-2025" />; Gemini Robotics 2 <Cite id="gemini-robotics-2-2026" /> and 2.5 <Cite id="gemini-robotics-2-5-2026" /> omit the same details. Figure gave Helix 02's rates, 200 Hz joint targets and 1 kHz actuator commands, but no training loss, chunk horizon or release terms <Cite id="helix-02-2026" />; the first Helix post gave a 7 to 9 Hz onboard VLM and an 80M-parameter controller at 200 Hz trained by standard regression <Cite id="helix-2025" />. AgiBot describes GO-2's slow planner and fast executor without rates, backbone, output format or weight terms <Cite id="agibot-go2-2026" />; GO-1 learned latent actions from AgiBot World's over 1 million trajectories across 217 tasks <Cite id="agibot-world-2025" />. Skild's row rests on a funding announcement without reproducible evaluation or runtime details <Cite id="skild-series-c-2026" />, and Generalist's 99% average success for GEN-1, against 64% for earlier models with 1 hour of robot data per task, is its own claim <Cite id="generalist-gen1-2026" />.
 
-## What the matrix can establish
+## The newest rows
 
-ACT fixes CVAE latents to the prior mean, zero, to decode deterministically <Cite id="act-aloha-2023" />; π0's flow-matching expert generates continuous action chunks <Cite id="pi0-2024" />. Generalist says GEN-1's base trains on wearable human data without robot data and averages 99% success versus earlier models' 64%, with 1 hour of robot data per task <Cite id="generalist-gen1-2026" />. On March 16, 2026, NVIDIA previewed GR00T N2, based on DreamZero <Cite id="nvidia-gtc-gr00t-n2-2026" />.
-
-## Helix 02 and GO-2 disclosure limits
-
-Figure announced Helix 02's S1 joint targets at 200 Hz and S0 actuator commands at 1 kHz, but no output-head training loss, chunk horizon or weight-release terms <Cite id="helix-02-2026" />. Helix's first post disclosed a 7 to 9 Hz onboard VLM and 80M-parameter S1 at 200 Hz, trained end-to-end with standard regression loss <Cite id="helix-2025" />; Figure reports Index human-video pretraining raised Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />. AgiBot describes lower-frequency System 2 planning and higher-frequency System 1 action following, without numerical rate, backbone, output encoding, chunk length or weight terms <Cite id="agibot-go2-2026" />; predecessor GO-1 uses latent action representations trained on AgiBot World's over 1 million trajectories across 217 tasks <Cite id="agibot-world-2025" />.
+The five newest rows are GR00T 2, Gemini Robotics 2.5, AgiBot GO-3 Preview, Praxis-1 and Xiaomi-Robotics-1. NVIDIA previewed GR00T N2, based on DreamZero, in March 2026 <Cite id="nvidia-gtc-gr00t-n2-2026" />. Its GR00T 2 (November 2026) denoises future video and an action chunk together; on a Unitree G1 its Turbo variant plans 1.6-second chunks about once a second, run at 50 Hz, with code due in December <Cite id="gr00t-2-2026" />. Runway's Praxis-1 is a 27-billion-parameter diffusion transformer for video and actions with Apache 2.0 weights <Cite id="runway-praxis-1-open-2026" />. Xiaomi-Robotics-1 pairs a Qwen3-VL backbone with a flow-matching transformer in 2.6B to 10.5B sizes <Cite id="xiaomi-robotics-1-2026" />, with Apache 2.0 checkpoints <Cite id="xiaomi-robotics-1-repo-2026" />.

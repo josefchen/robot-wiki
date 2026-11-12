@@ -1,11 +1,11 @@
 ---
 title: "Vision-Language-Action Models"
-description: "RT-1, RT-2, RT-X, Octo, and OpenVLA: how web-scale vision-language pretraining entered robot control, why actions became text tokens, and what that choice costs in throughput."
+description: "What a vision-language-action model does at each step, how RT-1, RT-2, RT-X, Octo and OpenVLA built it, and why writing actions as words is slow."
 domain: manipulation
 slug: vla-models
 order: 4
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-11-12"
 citations:
   - rt1-2022
   - rt2-2023
@@ -15,7 +15,6 @@ citations:
   - openvla-oft-2025
   - knowledge-insulation-2025
   - oxe-quality-critique-2026
-  - act-aloha-2023
   - efficientnet-2019
   - film-2018
   - tokenlearner-2021
@@ -43,6 +42,14 @@ citations:
   - x-vla-2025
   - xiaomi-robotics-1-2026
   - commgap-2026
+  - bc-action-quantization-2026
+  - xiaomi-robotics-1-repo-2026
+  - gr00t-2-2026
+  - runway-praxis-1-open-2026
+  - robolab-2026
+  - apple-amp1-2026
+  - gemini-robotics-2-5-2026
+  - pi-api-beta-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "manipulation/generalist-policies"
@@ -51,79 +58,80 @@ seeAlso:
 
 import { ActionTokenization } from '@/components/interactive/action-tokenization';
 
-A <Term id="vision-language-action-model">vision-language-action (VLA)</Term> model is a robot policy adapted from a vision-language model, pretrained on web-scale images and text, to output robot actions; earlier [behavior cloning](/manipulation/bc-foundations/) and [Diffusion Policy](/manipulation/diffusion-policy/) learned from robot data alone. The design question is how to extract actions from a model producing text <Cite id="rt2-2023" />.
+A <Term id="vision-language-action-model">vision-language-action (VLA)</Term> model is a robot controller made by teaching a vision-language model, an AI system trained on web images and text, to output movements. The hope is that its knowledge of objects, words and space carries over to robots, which have far less data of their own <Cite id="rt2-2023" />.
 
 <Image id="gemini-robotics-aloha-dexterous-2025" />
 
-Move the "Moment in the movement" slider to inspect the illustrated action tokens <Cite id="rt2-2023" />.
+## What a VLA does when it runs
+
+A running VLA repeats one loop: look at the camera images, read the instruction ("pick up the apple"), write the next move, let the robot carry it out, look again. A move is a short row of numbers saying how far to shift and turn the gripper, how wide to open it and whether the task is done. In the classic design each number is rounded to one of 256 levels with its own token, so the model writes a move as it writes a sentence <Cite id="rt2-2023" />.
 
 <ActionTokenization className="my-6" />
 
+[Behavior cloning](/manipulation/bc-foundations/) and [Diffusion Policy](/manipulation/diffusion-policy/) learn the same loop from robot demonstrations alone. A VLA starts out knowing what an apple is.
+
 ## RT-1: actions become tokens
 
-RT-1 (2022) conditions an ImageNet-pretrained EfficientNet <Cite id="efficientnet-2019" /> on the instruction through FiLM <Cite id="film-2018" />, and TokenLearner <Cite id="tokenlearner-2021" /> cuts each of six images to eight tokens for a 19M-parameter decoder-only transformer; the full system has 35M parameters <Cite id="rt1-2022" />.
-
-Its 11 action coordinates are seven arm variables (translation, rotation and gripper opening), three base variables and a mode switch that can also end episodes. Each is discretized into 256 bins spaced uniformly within its bounds and trained with categorical cross-entropy <Cite id="rt1-2022" />. Drag “Moment in the movement” to watch each motion's value land in one of 256 bins.
-
-The data covers about 130k episodes over more than 700 tasks, collected over 17 months with 13 robots, and the paper reports 3,000 real-world evaluation trials <Cite id="rt1-2022" />.
+RT-1 (2022) showed that one <Term id="transformer">transformer</Term> could learn hundreds of manipulation tasks from real robot data. Three times a second it reads recent camera images and an instruction and outputs 11 action tokens for the arm, gripper, mobile base and a mode switch. Trained on about 130,000 demonstrations collected by 13 robots over 17 months, it performed more than 700 training instructions with 97% success, and 76% of instructions it had never seen <Cite id="rt1-2022" />.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="bins per dim" value="256" note="uniform quantization" accent />
-  <Stat label="action dims" value="11" note="arm includes gripper; 3 base, 1 mode" />
+  <Stat label="levels per number" value="256" note="evenly spaced" accent />
+  <Stat label="numbers per move" value="11" note="7 arm and gripper, 3 base, 1 mode" />
   <Stat label="episodes" value="~130k" note="700+ tasks, 13 robots" />
-  <Stat label="control rate" value="3 Hz" note="reported RT-1 robot setup" />
+  <Stat label="control rate" value="3 Hz" note="three moves per second" />
 </div>
 
-RT-1 predicts one action at a time at 3 Hz, with a fixed 280 ms wait, the maximum observed latency of all components, to keep action timing consistent <Cite id="rt1-2022" />.
+## RT-2: web knowledge reaches the robot
 
-## RT-2: actions become text
+RT-2 (2023) took the defining step. It <Term id="fine-tuning">fine-tuned</Term> web-trained <Term id="vision-language-model">vision-language models</Term> of up to 55 billion parameters on RT-1's robot data to write actions as number text, keeping web data in the training mix, which generalized better than robot data alone <Cite id="rt2-2023" />.
 
-RT-2 (2023) writes each action dimension's 256 bin indices as strings in a <Term id="vision-language-model">vision-language model</Term>'s token stream: PaLI-X already has a token for every integer up to 1000, while PaLM-E overwrites its 256 least frequently used tokens. The backbone, up to 55B parameters, is co-fine-tuned on robot trajectories and original web vision-language data, which the authors report generalizes better than robot data alone <Cite id="rt2-2023" />. PaLM-E's inputs interleave visual, continuous state-estimation and text embeddings, grounding its language model in sensor observations <Cite id="palm-e-2023" />.
+In about 6,000 real trials RT-2 matched RT-1 on familiar tasks and roughly doubled its success with unseen objects, backgrounds and instructions. It obeyed commands absent from the robot data, such as picking up the smallest object, and with step-by-step reasoning chose a rock as an improvised hammer <Cite id="rt2-2023" />. Gemini Robotics 1.5 writes out its reasoning between actions <Cite id="gemini-robotics-15-2025" />, and VLA-0, writing actions as ordinary text with no new vocabulary, beat models trained on the same robot data on the LIBERO simulation benchmark <Cite id="vla-0-2025" />.
 
-That web knowledge appears as emergent object choice, such as picking the smallest object, and multi-stage reasoning, such as using a rock as an improvised hammer <Cite id="rt2-2023" />. Gemini Robotics 1.5 interleaves actions with natural-language reasoning <Cite id="gemini-robotics-15-2025" />. VLA-0 revisits plain-text action representations, avoiding added action heads or a modified vocabulary <Cite id="vla-0-2025" />.
+## Open X-Embodiment and RT-X: one dataset, many robots
 
-In a May 2025 research note, Danny Driess and colleagues at Physical Intelligence call this tokenization "not suitable for high-frequency, precise, or fluent motions," likening it to "controlling your arm by verbally saying which muscles should contract" <Cite id="knowledge-insulation-2025" />. The same lab's FAST paper locates the failure in simple per-dimension, per-timestep binning; its compressed tokens match diffusion VLAs on 10k hours of robot data while training up to 5 times faster <Cite id="pi0-fast-2025" />.
-
-## Open X-Embodiment and RT-X: pooling the data
-
-<Term id="open-x-embodiment">Open X-Embodiment</Term> pools more than one million real robot trajectories spanning 22 embodiments, 527 skills and 160,266 tasks; its abstract names 21 institutions, and its dataset description covers 60 datasets from 34 labs. RT-1-X and RT-2-X trained on a nine-embodiment subset. RT-1-X beat the original methods on four of five small-data domains but underperformed RT-1 in the large-data setting, where the higher-capacity RT-2-X outperformed both. RT-2-X gained Google Robot skills from WidowX Bridge data, a <Term id="cross-embodiment">cross-embodiment</Term> transfer, and performed roughly on par with RT-2 on unseen objects, backgrounds and environments <Cite id="open-x-embodiment-2023" />.
+Each lab records data in its own format for its own robot. <Term id="open-x-embodiment">Open X-Embodiment</Term> (OXE, 2023) converted 60 existing datasets from 34 labs at 21 institutions into one format: over a million real robot episodes from 22 kinds of robot. RT-X is RT-1 and RT-2 retrained on data from the nine robots pooled by then <Cite id="open-x-embodiment-2023" />.
 
 <Image id="open-x-embodiment-overview-2023" />
 
-In February 2026, Toyota Research Institute researchers compared 89 co-trained policies over 58,000 simulated and 2,835 real rollouts. Vision-language and cross-embodiment co-training substantially improved generalization, while discrete action-token variants brought no significant benefit <Cite id="lbm-cotraining-2026" />. Xiaomi-Robotics-1 (July 2026) pretrains on over 100,000 hours of UMI handheld-gripper and egocentric trajectories and reports 57.4% on RoboCasa365 against a previous best of 46.6%; its authors say code and checkpoints will be released <Cite id="xiaomi-robotics-1-2026" />.
+The test was <Term id="cross-embodiment">cross-embodiment</Term> transfer: does data from other robots help each robot? RT-1-X beat each lab's own model on four of five small datasets, with 50% higher mean success. On the two large datasets RT-1-X fell behind RT-1 trained on that data alone, while the far larger RT-2-X beat both. On Google's robot, for skills seen only in another arm's data (the WidowX in the Bridge dataset), RT-2-X succeeded 75.8% of the time against 27.3% for RT-2, and 42.8% with Bridge left out <Cite id="open-x-embodiment-2023" />.
 
-Moritz Reuss's October 2025 post, presented as his personal selection and opinion, says "OXE is mostly low-quality data" and "we still lack good methods to quantify data quality in imitation learning" <Cite id="oxe-quality-critique-2026" />.
+The mix matters. Testing 89 <Term id="co-training">co-trained</Term> policies in 58,000 simulated and 2,835 real rollouts, Toyota Research Institute (February 2026) found that adding vision-language and cross-robot data substantially improved generalization, while discrete action tokens brought no significant benefit <Cite id="lbm-cotraining-2026" />. Re-Mix learns how much of each OXE dataset to train on, and its mix beat an even one by 38% on average <Cite id="remix-2024" />. X-VLA gives each data source a few learned inputs, a "soft prompt", that tell one shared model which robot it is reading <Cite id="x-vla-2025" />. Moritz Reuss, in a personal 2025 overview, judged that "OXE is mostly low-quality data" <Cite id="oxe-quality-critique-2026" />. Xiaomi-Robotics-1 (July 2026), pretrained on over 100,000 hours recorded by people with handheld UMI grippers, reports 57.4% on the RoboCasa365 simulation benchmark against a previous best of 46.6% <Cite id="xiaomi-robotics-1-2026" />; its code is open <Cite id="xiaomi-robotics-1-repo-2026" />.
 
 ## Octo and OpenVLA: the open models
 
-Two 2024 releases made the recipe reproducible outside Google. Octo ships 27M- and 93M-parameter checkpoints trained on 800k Open X-Embodiment trajectories; learned readout tokens in a block-wise-masked transformer feed a lightweight diffusion head that outputs action chunks, and fine-tuning can add a new sensor or output while retaining transformer weights <Cite id="octo-2024" />. In zero-shot WidowX evaluation, Octo reports a "25% higher success rate" with goal images than with language, and the authors suggest goal images carry more task information; only 56% of its pretraining data has language annotations <Cite id="octo-2024" />.
+RT-2 stayed closed; two 2024 releases gave researchers models they could download. Octo, trained on 800,000 OXE trajectories, takes instructions as words or goal images and fine-tunes within hours on a consumer GPU to robots with new sensors or controls. Out of the box on a WidowX arm, goal images gave 25% higher success than language <Cite id="octo-2024" />.
 
 <Image id="octo-evaluation-setups-2024" />
 
-OpenVLA builds on the Prismatic VLM <Cite id="prismatic-vlm-2024" />, with a Llama 2 7B backbone <Cite id="llama-2-2023" /> and fused DINOv2 <Cite id="dinov2-2023" /> and SigLIP <Cite id="siglip-2023" /> features. Trained on 970k robot demonstrations, it predicts seven coordinates for position, orientation and gripper, each split into 256 uniform bins between the training data's 1st and 99th quantiles instead of its minimum and maximum; bin indices replace the 256 least-used Llama tokens and are predicted autoregressively <Cite id="openvla-2024" /> <Cite id="openvla-oft-2025" />.
+OpenVLA, trained on 970,000 robot demonstrations, beat RT-2-X by 16.5 points of task success with seven times fewer parameters, over 29 tasks on two robots with five or ten trials each <Cite id="openvla-2024" />. SmolVLA later trained on one GPU <Cite id="smolvla-2025" />, and CogACT passes the language model's output to a separate diffusion model that produces the motion <Cite id="cogact-2024" />.
 
-Its headline result is 16.5 points higher absolute task success than RT-2-X (55B) with "7x fewer parameters", over 29 tasks on two embodiments: 17 WidowX tasks with ten trials each and 12 Google-robot tasks with five, from matched initial robot and object states, with partial credit on some tasks <Cite id="openvla-2024" />. Among later open models, SmolVLA trains on one GPU, deploys on consumer GPUs or CPUs and decouples action prediction from execution with asynchronous inference <Cite id="smolvla-2025" />. CogACT conditions a dedicated diffusion action transformer on VLM output <Cite id="cogact-2024" />.
+## Writing actions as words is slow
 
-## The discrete-token throughput problem
+Each token waits for the one before it, which limits speed. OpenVLA writes its seven tokens one after another at every step <Cite id="openvla-oft-2025" />, about 6 moves per second on one gaming GPU <Cite id="openvla-2024" />, and the largest RT-2 managed 1 to 3 from cloud servers <Cite id="rt2-2023" />. Physical Intelligence researchers likened this tokenization to "controlling your arm by verbally saying which muscles should contract" <Cite id="knowledge-insulation-2025" />. Their FAST tokenizer compresses a stretch of motion with the discrete cosine transform, the method behind JPEG images; a VLA using it matched diffusion-based VLAs on 10,000 hours of robot data while training up to five times faster <Cite id="pi0-fast-2025" />. In theory, with stable dynamics and a smooth policy, the cost of rounding grows only polynomially with task length <Cite id="bc-action-quantization-2026" />.
 
-OpenVLA's original formulation decodes seven action tokens sequentially per timestep <Cite id="openvla-oft-2025" />. RT-2 runs at 1 to 3 Hz for the 55B PaLI-X variant and about 5 Hz for the 5B variant, queried over the network from a multi-TPU cloud service <Cite id="rt2-2023" />. OpenVLA runs at about 6 Hz on one RTX 4090 in bfloat16, without compilation or speculative decoding, and its quantization analysis notes slower inference changes the controller dynamics <Cite id="openvla-2024" />.
+The alternative is an <Term id="action-chunking">action chunk</Term>, many continuous moves output at once. Physical Intelligence's π0 (2024) adds an "action expert" that generates chunks by <Term id="flow-matching">flow matching</Term>, a relative of diffusion, at up to 50 moves per second <Cite id="pi0-2024" />. PD-VLA writes all of a chunk's tokens at once and then refines them, executing actions 2.52 times as often without retraining <Cite id="pd-vla-2025" />. OpenVLA-OFT (2025) retrained OpenVLA to output chunks: 109.7 actions per second against 4.2 on one data-center GPU, and, with a wrist camera and joint readings added, average LIBERO success <Cite id="libero-2023" /> up from 76.5% to 97.1% <Cite id="openvla-oft-2025" />.
 
-π0 instead adds a flow-matching expert that outputs action chunks at up to 50 Hz <Cite id="pi0-2024" />, and PD-VLA decodes in parallel by fixed-point iteration with no retraining, reaching 2.52 times the execution frequency <Cite id="pd-vla-2025" />. OpenVLA-OFT (2025) combines bidirectional parallel decoding, <Term id="action-chunking">action chunking</Term>, continuous actions and an L1-trained MLP head; its ALOHA variant, OFT+, adds FiLM for language grounding <Cite id="openvla-oft-2025" />.
+| Model | Built on | Action output |
+| --- | --- | --- |
+| RT-1 (2022) | EfficientNet <Cite id="efficientnet-2019" />, FiLM <Cite id="film-2018" />, TokenLearner <Cite id="tokenlearner-2021" />; 35M parameters <Cite id="rt1-2022" /> | 11 tokens per move, 3 Hz |
+| RT-2 (2023) | PaLI-X or PaLM-E <Cite id="palm-e-2023" />, up to 55B <Cite id="rt2-2023" /> | Same tokens as text, 1 to 3 Hz |
+| Octo (2024) | Transformer, 27M or 93M <Cite id="octo-2024" /> | Diffusion-head chunks |
+| OpenVLA (2024) | Prismatic <Cite id="prismatic-vlm-2024" />: Llama 2 7B <Cite id="llama-2-2023" />, DINOv2 <Cite id="dinov2-2023" />, SigLIP <Cite id="siglip-2023" /> <Cite id="openvla-2024" /> | 7 tokens per move, about 6 Hz |
+| π0 (2024) | PaliGemma 3B, 300M action expert <Cite id="pi0-2024" /> | Flow-matching chunks, up to 50 Hz |
+| OpenVLA-OFT (2025) | OpenVLA <Cite id="openvla-oft-2025" /> | Continuous chunks, 25 Hz on ALOHA |
 
-On LIBERO <Cite id="libero-2023" />, OFT raises average success over four ten-task suites from 76.5% to 97.1% with an added wrist image and proprioceptive state, fine-tuned per suite and scored over 500 episodes each. On an A100, averaged over 100 one-image queries, L1 OFT generates 109.7 actions per second against OpenVLA's 4.2, and 71.4 with the added inputs <Cite id="openvla-oft-2025" />. LIBERO-Plus finds such models drop from 95% to below 30% under modest perturbations and tend to ignore language instructions completely <Cite id="libero-plus-2025" />.
+## What is still hard
 
-Real ALOHA runs use three images, robot state and absolute joint targets at 25 Hz, down from the platform's 50 Hz, and OFT+ executes all 25 actions before replanning, against eight on LIBERO. ALOHA tasks such as folding clothes are scored for partial completion, LIBERO for binary success <Cite id="openvla-oft-2025" />.
+High scores hide brittleness. LIBERO-Plus found that models scoring 95% on LIBERO fell below 30% under modest changes such as a new camera angle, and tended to ignore the instruction completely <Cite id="libero-plus-2025" />. Papers differ in actions, data and protocols, so their numbers rarely compare <Cite id="rt2-2023" /> <Cite id="openvla-2024" />. RoboArena ranks policies in double-blind head-to-head trials on DROID robots at seven institutions <Cite id="roboarena-2025" />, and SIMPLER's simulated scores correlate with real-robot results <Cite id="simpler-2024" /> ([evaluation crisis](/data-hardware/evaluation-crisis/)).
 
-In the one-image LIBERO comparison with parallel decoding and eight-step chunks, L1 OFT averages 95.3% against 95.4% for a diffusion head using 50 denoising steps, and 90.7% against 91.1% on LIBERO-Long; the diffusion variants trained longer and converged and inferred more slowly. The demonstrations follow one consistent strategy per task, and the authors leave multimodal demonstrations and large-scale pretraining open <Cite id="openvla-oft-2025" />. Removing ACT's CVAE objective barely changes scripted-data results but cuts human-data success from 35.3% to 2%; its chunk-size ablation is in [action chunking](/manipulation/action-chunking/) <Cite id="act-aloha-2023" />.
+Instructions are another gap. Stanford's Yiqing Xu and Jiajun Wu (October 2026) found that people's instructions grow only from 9.1 words for one-step tasks to 15.8 for tasks of three or more steps. On the 120 simulated tasks of NVIDIA's RoboLab benchmark, π0.5 fine-tuned on DROID succeeded 38.0% of the time with explicit commands and 15.2 points less when told only the intent <Cite id="commgap-2026" />.
 
-## State of the field
+## Where VLAs are heading
 
-Action interfaces, data mixtures, inputs and execution protocols differ across these studies, so read token-generation and robot-control rates separately <Cite id="rt2-2023" /> <Cite id="openvla-2024" />. With LIBERO near its ceiling, ranking needs harder tests ([evaluation crisis](/data-hardware/evaluation-crisis/)): RoboArena compares generalist policies in double-blind pairs on DROID robots at seven institutions <Cite id="roboarena-2025" />, and SIMPLER's simulated scores correlate with real performance <Cite id="simpler-2024" />.
+Some systems split the work: GR00T N1 pairs a vision-language "System 2" that interprets the scene with a fast diffusion "System 1" that moves <Cite id="gr00t-n1-2025" />. π0.7 adds strategy notes and subgoal images to the instruction, and Physical Intelligence reports it folding laundry on a robot type it had never been trained on <Cite id="pi07-2026" />; it offers its models through a hosted API, in beta since October 13, 2026 <Cite id="pi-api-beta-2026" />. Google DeepMind's Gemini Robotics 2 controls full humanoids <Cite id="gemini-robotics-2-2026" />, and Gemini Robotics 2.5 (November 10, 2026), for partners only, reports 30 to 100% higher success than earlier baselines across over 200 tasks <Cite id="gemini-robotics-2-5-2026" />.
 
-Yiqing Xu and Jiajun Wu at Stanford (October 2026) asked 50 people to describe demonstrated tasks; their instructions grew only from 9.1 words for one-event tasks to 15.8 words for tasks of three or more events. On 120 simulated RoboLab tasks with 10 rollouts each, π0.5 fine-tuned on DROID succeeded 38.0% of the time with fully explicit commands, 4.5 points less when told the outcome instead of the action and 15.2 points less when told only the intent. Issuing a fully specified task one step at a time helped all three policies tested <Cite id="commgap-2026" />.
+Others predict video along with actions. NVIDIA's GR00T 2 succeeded 40% of the time on 50 tasks with no demonstrations on the target robot, and 95% after five demonstrations each, on tasks chosen because five sufficed <Cite id="gr00t-2-2026" />. Runway's open-weight Praxis-1 reports 46.2% on RoboLab-120 against 28.0% for π0.5 <Cite id="runway-praxis-1-open-2026" /> <Cite id="robolab-2026" />. Apple's AMP1 skips the VLA, letting a general-purpose AI model command the arm directly, and with no demonstrations reached 85.6% on RoboLab-120 against 49.2% for the leading VLA <Cite id="apple-amp1-2026" />.
 
-## A 2026 selection rule
+## Choosing a model
 
-Choosing a VLA selects a prior (the visual, language and robot experience in the backbone) and a control interface (the action, horizon, frame and measured rate). OFT changed both throughput and success without replacing OpenVLA <Cite id="openvla-oft-2025" />. Record the required semantic novelty, embodiment data, action contract and latency budget, pick the prior with the [foundation-model guide](/manipulation/foundation-models/) and the output with the [action-space guide](/manipulation/action-spaces/), then compare only models whose contracts match; [generalist policies](/manipulation/generalist-policies/) and [RL fine-tuning](/manipulation/rl-finetuning/) cover the rest.
-
-GR00T N1 separates the two, with a vision-language System 2 over a diffusion-transformer System 1 <Cite id="gr00t-n1-2025" />. π0.7 conditions on language plus strategy metadata and subgoal images, and Physical Intelligence reports zero-shot cross-embodiment laundry folding <Cite id="pi07-2026" />. Google DeepMind's Gemini Robotics 2 controls full humanoids, including a 22-degree-of-freedom hand, and is available only to early-access partners <Cite id="gemini-robotics-2-2026" />.
+Choosing a VLA means choosing a prior, what the model already knows, and a control interface: its action format, how far ahead it plans and how fast it runs. The two can change separately; OFT made OpenVLA faster and more successful without replacing it <Cite id="openvla-oft-2025" />. The [foundation-model guide](/manipulation/foundation-models/) covers the prior, the [action-space guide](/manipulation/action-spaces/) the interface, and [generalist policies](/manipulation/generalist-policies/) and [RL fine-tuning](/manipulation/rl-finetuning/) what follows.
