@@ -1,11 +1,11 @@
 ---
 title: "The Evaluation Crisis"
-description: "A success rate compresses trial count, confidence width, task horizon, and scorer bias into one digit. The small-N statistics behind N-of-10 trials, SIMPLER's sim-to-real proxy, RoboArena's blind pairwise arena, and what careful evaluation costs."
+description: "A robot success rate hides trial count, uncertainty, task length and scorer. Small-sample statistics, perturbed benchmarks, simulation proxies and blind arenas."
 domain: data-hardware
 slug: evaluation-crisis
 order: 5
 status: published
-lastReviewed: "2026-10-26"
+lastReviewed: "2026-11-12"
 citations:
   - maker-2025
   - tri-lbm-2025
@@ -49,6 +49,11 @@ citations:
   - softgym-2020
   - furniturebench-2023
   - safe-control-gym-2021
+  - behavior-2026-second-place
+  - molmospaces-commonsense-2026
+  - stochastic-challenges-2026
+  - race-checkpoint-selection-2026
+  - rollout-then-recycle-2026
 seeAlso:
   - "world-models/evaluation"
   - "frontier/reliability-gap"
@@ -62,13 +67,13 @@ The evaluation crisis is the gap between the success rates robot learning papers
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="trial-count examples" value="10 or 50" note="small feasible samples, Snyder et al.; not a census" accent />
   <Stat label="real rollouts" value="1,800" note="TRI LBM evaluation, blind A/B" />
-  <Stat label="pairwise comparisons" value="612" note="RoboArena v2, seven universities; distinct from 4,284 oracle rollouts" />
+  <Stat label="pairwise comparisons" value="612" note="RoboArena, seven universities" />
   <Stat label="benchmark collapse" value="<30%" note="LIBERO-Plus, from 95% under modest shifts" />
 </div>
 
 ## What the success rate hides: the horizon
 
-In an illustrative model, every decision succeeds with the same probability $p$ conditional on all earlier decisions succeeding, so a task of $n$ decisions completes with probability $p^n$ <Cite id="maker-2025" />. At $p = 0.95$, 30 decisions give 21.5% and 100 give 0.6%. Drag "How many steps the job has" to compare these examples.
+A long task multiplies risks. In an illustrative model, every decision succeeds with the same probability $p$ given that all earlier decisions succeeded, so a task of $n$ decisions completes with probability $p^n$ <Cite id="maker-2025" />. At $p = 0.95$, 30 decisions give 21.5% and 100 give 0.6%.
 
 <PredictThenReveal
   prompt="Each decision goes right 95% of the time, given every earlier one went right. Roughly how many decisions in a row bring the whole job below one half?"
@@ -98,59 +103,49 @@ In an illustrative model, every decision succeeds with the same probability $p$ 
   <ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="evaluation" className="mt-3" />
 </PredictThenReveal>
 
-<Image id="roboarena-evaluation-2025" />
+Turned around, an 80% target for the whole task needs 95.6% per step at 5 steps and 99.3% at 30. Behavior cloning compounds errors the same way, because each mistake takes the policy to states its demonstrations never showed: a policy with error rate $\varepsilon$ on the expert's states can make as many as $T^2\varepsilon$ mistakes over $T$ steps of its own <Cite id="dagger-2011" />.
 
-Solving $p^n = q$ gives $p = q^{1/n}$, so an episode target of $q = 0.8$ needs 95.6% per step at $n = 5$ and 99.3% at $n = 30$. Behavior cloning compounds errors the same way: a policy with error rate $\varepsilon$ on the expert's states can make as many as $T^2\varepsilon$ mistakes over $T$ steps of its own <Cite id="dagger-2011" />.
-
-Benchmarks now measure long horizons directly. CALVIN scores 1,000 chains of five sequential tasks <Cite id="calvin-2021" />, and the 2026 BEHAVIOR Challenge ranks 100 full-length household tasks by average success with partial credit, with 20,000 teleoperated demonstrations totaling 1,950 hours <Cite id="behavior-challenge-2026" />.
+Benchmarks now measure long horizons directly. CALVIN scores 1,000 chains of five tasks in a row <Cite id="calvin-2021" />, and the 2026 BEHAVIOR Challenge ranks 100 full-length household tasks by average success with partial credit, supplying 20,000 teleoperated demonstrations totaling 1,950 hours <Cite id="behavior-challenge-2026" />. The second-placed team reports 41.2% full-task success on the private test set <Cite id="behavior-2026-second-place" />.
 
 ## Small samples limit comparison
 
-Toyota Research Institute's Large Behavior Models extend the <Term id="diffusion-policy">Diffusion Policy</Term> recipe to multitask models trained on about 1,700 demonstration hours. The mixture holds 468 hours of real bimanual <Term id="teleoperation">teleoperation</Term>, 45 simulation hours, 32 UMI hours and about 1,150 hours from a subset of Open X-Embodiment <Cite id="diffusion-policy-2023" /> <Cite id="tri-lbm-2025" />. TRI reports 1,800 real-world rollouts and over 47,000 simulation rollouts, with 50 real attempts per task per policy per condition, a target of 200 in simulation and missing simulation data for some combinations. Hardware comparisons were blind, with policy order randomized within bundles sharing an initial condition <Cite id="tri-lbm-2025" />.
+Real robot trials are slow, so results rest on few of them. Toyota Research Institute's Large Behavior Models extend the <Term id="diffusion-policy">Diffusion Policy</Term> recipe to multitask policies trained on about 1,700 hours of <Term id="teleoperation">teleoperated</Term>, simulated, handheld and public data <Cite id="diffusion-policy-2023" /> <Cite id="tri-lbm-2025" />. Their evaluation ran 1,800 real-world rollouts and over 47,000 in simulation, with 50 real attempts per task per policy per condition. Hardware comparisons were blind, with policy order randomized among runs sharing an initial condition <Cite id="tri-lbm-2025" />.
 
-Simulation used automated predicates for scoring. TRI draws Bayesian posteriors over each policy's success probability under a uniform prior as violin plots, which avoid reading significance from overlapping confidence intervals; the posteriors describe single checkpoints and exclude variation from stochastic training. TRI also warns of a significant risk that many robotics papers measure statistical noise for lack of power <Cite id="tri-lbm-2025" />. Snyder et al. give 10 or 50 trials as examples of small feasible samples, and a test that finds no significant difference does not show two policies are equivalent <Cite id="optimal-stopping-2025" />.
+TRI reports uncertainty instead of single numbers: for each policy it plots the whole spread of success probabilities its trials support, which avoids reading significance off overlapping error bars. The spreads describe single checkpoints and leave out variation between training runs. TRI warns of a significant risk that many robotics papers measure statistical noise for lack of power, too few trials to detect a real difference <Cite id="tri-lbm-2025" />. Snyder and colleagues give 10 or 50 trials as examples of small feasible samples, and note that a test finding no significant difference does not show two policies are equivalent <Cite id="optimal-stopping-2025" />.
 
-Deep reinforcement learning met the same problem: without significance tests and standard reporting, claimed improvements are hard to judge <Cite id="henderson-rl-matters-2018" />, so interval estimates and performance profiles are advocated over point estimates <Cite id="agarwal-statistical-precipice-2021" />.
+Deep reinforcement learning met the same problem. Without significance tests and standard reporting, claimed improvements are hard to judge <Cite id="henderson-rl-matters-2018" />, so interval estimates and performance profiles are advocated over point estimates <Cite id="agarwal-statistical-precipice-2021" />. Training seeds add variation: Colas and colleagues relate the number of seeds to statistical error and power <Cite id="random-seeds-power-2018" />, and Patterson and colleagues treat hyperparameter selection and experimenter bias as part of experiment design <Cite id="empirical-design-rl-2023" />.
 
-Training seeds add another source of variation. Colas and colleagues relate the number of seeds to statistical error and power, including the assumptions behind t-tests and bootstrap comparisons <Cite id="random-seeds-power-2018" />. Patterson and colleagues also treat hyperparameter selection and experimenter bias as part of empirical design <Cite id="empirical-design-rl-2023" />.
-
-STEP, a sequential test from Snyder et al., stops comparing two policies once enough evidence accumulates. It reports up to 32% fewer trials than the Lai and SAVI sequential baselines, assumes i.i.d. binary outcomes and uses a uniform risk-accumulation schedule in its experiments <Cite id="optimal-stopping-2025" />. TRI uses the Lai test for binary comparisons, while STEP is a separate method, and Welch's t-test for task progress <Cite id="tri-lbm-2025" />. A 2026 follow-up from Snyder and colleagues extends anytime-valid testing to partial credit and continuous metrics and reports up to 70% less evaluation effort than batch methods <Cite id="beyond-binary-success-2026" />.
+Smarter tests need fewer trials. STEP, a sequential test from Snyder and colleagues, stops comparing two policies once enough evidence accumulates, and reports up to 32% fewer trials than two earlier sequential tests, assuming independent pass-or-fail trials <Cite id="optimal-stopping-2025" />. A 2026 follow-up extends this kind of test, valid whenever it stops, to partial credit and continuous scores, and reports up to 70% less evaluation effort than fixed-size batches <Cite id="beyond-binary-success-2026" />.
 
 ## Clean benchmarks overstate
 
-LIBERO reports 130 tasks: ten each in LIBERO-Spatial, LIBERO-Object and LIBERO-Goal, plus LIBERO-100: 90 short-horizon pretraining tasks and ten long-horizon downstream tasks. Each task has 50 human-expert demonstrations collected by Spacemouse teleoperation <Cite id="libero-2023" />. LIBERO-Plus perturbs the benchmark along seven dimensions: object layout, camera viewpoint, robot initial state, language instruction, lighting, background texture and sensor noise. Models that score 95% on the clean benchmark fall below 30% under modest camera or initial-state shifts, and shuffling or removing the instruction barely moves performance, suggesting the models largely ignore the language <Cite id="libero-plus-2025" />.
+Fixed benchmarks reward policies fitted to their exact scenes. LIBERO has 130 simulated tasks, each with 50 human-expert demonstrations <Cite id="libero-2023" />. LIBERO-Plus perturbs it along seven dimensions, among them object layout, camera viewpoint, the robot's initial state, the instruction, lighting and sensor noise. Models that score 95% on the clean benchmark fall below 30% under modest camera or initial-state shifts, and shuffling or removing the instruction barely moves performance, suggesting the models largely ignore the language <Cite id="libero-plus-2025" />.
 
 <Image id="libero-benchmark-overview-2023" />
 
-LIBERO-PRO reports that models above 90% on standard LIBERO collapse to 0.0% in its generalized setting <Cite id="libero-pro-2025" />, and THE COLOSSEUM measured 30 to 50% degradation per perturbation factor and at least 75% when perturbations combine <Cite id="colosseum-2024" />. On RoboDojo's 42 simulated and 18 real tasks, the best of 30 policies in the standard setting scored 21.98 and fell to 1.57 under randomization, a 92.9% relative drop <Cite id="robodojo-2026" />. On RoboCasa365's household tasks, the best multi-task baseline, GR00T N1.5, averaged 20.0% success <Cite id="robocasa365-2026" />.
+Other stress tests agree. LIBERO-PRO reports models above 90% on standard LIBERO collapsing to 0.0% in its generalized setting <Cite id="libero-pro-2025" />, and THE COLOSSEUM measured 30 to 50% degradation per perturbation factor and at least 75% when perturbations combine <Cite id="colosseum-2024" />. On RoboDojo's 42 simulated and 18 real tasks, the best of 30 policies scored 21.98 in the standard setting and 1.57 under randomization, a 92.9% relative drop <Cite id="robodojo-2026" />. MolmoSpaces-CommonSense (October 2026) found that zero-shot generalist policies lose over half their success as distractors increase, and act on the wrong object 30% of the time in clutter <Cite id="molmospaces-commonsense-2026" />. Harder benchmarks start low: on RoboCasa365's household tasks the best multi-task baseline, GR00T N1.5, averaged 20.0% <Cite id="robocasa365-2026" />.
 
-Newer benchmarks build the variation in. RoboTwin 2.0 randomizes clutter, lighting, background, tabletop height and language <Cite id="robotwin-2-2025" />, and RoboLab's 120 tasks address the overlap between training and evaluation that trivializes success rates on existing benchmarks <Cite id="robolab-2026" />.
-
-A physical benchmark also needs repeatable setup. FurnitureBench supplies printable furniture parts, demonstrations and systematic task initialization for real-world assembly, alongside a corresponding simulator <Cite id="furniturebench-2023" />.
+Newer benchmarks build the variation in. RoboTwin 2.0 randomizes clutter, lighting, background, table height and language <Cite id="robotwin-2-2025" />, and RoboLab's 120 tasks address the overlap between training and evaluation that trivializes success rates on existing benchmarks <Cite id="robolab-2026" />. Real benchmarks also need repeatable setups. FurnitureBench supplies printable furniture parts, demonstrations and systematic task initialization for real-world assembly, with a matching simulator <Cite id="furniturebench-2023" />. In November 2026 Marc Pollefeys, Hermann Blum and colleagues proposed "stochastic challenges": reproducible real scenes with randomly sampled tasks, so robots in different labs are compared on draws from one distribution <Cite id="stochastic-challenges-2026" />.
 
 ## Simulation as an evaluation proxy
 
-A benchmark score can also come from an analytic test. GraspNet-1Billion scores proposed grasp poses analytically and compares its evaluation system with physical experiments <Cite id="graspnet-1billion-2020" />.
+A simulator is a cheap, repeatable stand-in for real trials, if its scores track real ones. GraspNet-1Billion scores grasp poses analytically and checks that scoring against physical experiments <Cite id="graspnet-1billion-2020" />. SoftGym gives deformable-object tasks, whose state is high-dimensional and partly observed, one common interface <Cite id="softgym-2020" />, and safe-control-gym makes repeatable disturbances to controls, measurements and inertial properties part of the benchmark <Cite id="safe-control-gym-2021" />.
 
-Deformable-object benchmarks expose a different difficulty: the state has many interacting degrees of freedom and is only partly observed. SoftGym provides simulated manipulation tasks under a common interface for comparing algorithms on that problem <Cite id="softgym-2020" />.
-
-For control comparisons, safe-control-gym exposes symbolic dynamics and constraints and lets experiments repeat disturbances to controls, measurements and inertial properties. That makes the disturbance protocol part of the benchmark <Cite id="safe-control-gym-2021" />.
-
-SIMPLER tests whether simulated performance predicts real performance <Cite id="simpler-2024" />. It narrows the visual gap with real-image backgrounds and matched textures, and the control gap by fitting controller stiffness and damping through offline <Term id="system-identification">system identification</Term>. The project site reports about 1,500 evaluation episodes each from real and simulated Google Robot and WidowX setups <Cite id="simpler-project-page" />.
-
-Agreement is scored with Pearson correlation, which can be unstable when policies perform similarly, and Mean Maximum Rank Violation, which weights wrong orderings by real performance margins. It varies by task: the WidowX carrot-placement comparison contains a ranking error. The experiments focus on rigid objects, and green-screening assumes fixed cameras and misses shadows <Cite id="simpler-2024" />. Across 7 tasks and 5 policy architectures, SimFoundry's simulated evaluations reached a mean Pearson correlation of 0.911 with real results and a mean maximum rank violation of 0.018 <Cite id="simfoundry-2026" />.
+SIMPLER tests whether simulated performance predicts real performance <Cite id="simpler-2024" />. It narrows the visual gap with real-image backgrounds and matched textures, and the control gap by fitting the simulated controller's stiffness and damping to the real robot through offline <Term id="system-identification">system identification</Term>. The project site reports about 1,500 evaluation episodes each from real and simulated Google Robot and WidowX setups <Cite id="simpler-project-page" />. Agreement is scored by correlation between simulated and real success, which can be unstable when policies perform similarly, and by a rank-violation measure that weights wrong orderings by the real performance gap. It varies by task, and the WidowX carrot-placement comparison contains a ranking error. The experiments focus on rigid objects, and green-screening assumes fixed cameras and misses shadows <Cite id="simpler-2024" />. Across 7 tasks and 5 policy architectures, SimFoundry's simulated evaluations reached a mean correlation of 0.911 with real results and a mean maximum rank violation of 0.018 <Cite id="simfoundry-2026" />.
 
 Generative world models now act as evaluators ([world-model evaluation](/world-models/evaluation)). Google DeepMind validated a Veo world simulator against 1,600+ real-world evaluations of eight Gemini Robotics checkpoints <Cite id="veo-world-simulator-2025" />, WorldEval reports a strong correlation with real-world performance <Cite id="worldeval-2025" />, and Ctrl-World, trained on DROID, ranks policies without real rollouts <Cite id="ctrl-world-2025" />. SureSim corrects simulator bias with a few paired real and simulated trials and saves over 20 to 25% of hardware evaluation effort for similar bounds <Cite id="suresim-2025" />. [Sim-to-Real Transfer](/rl-sim2real/sim2real-transfer) covers simulation for training.
 
-WorldOracle, from Haoyi Duan, Yuke Zhu and colleagues at AgiBot, NVIDIA and three universities (October 2026), feeds recorded actions from real robot episodes to seven action-conditioned world models and scores whether each predicted video matches what happened <Cite id="worldoracle-2026" />. On 100 two-minute AgiBot G2 episodes, DreamDojo's single-view score out of 100 fell from 50.56 over the first 30 seconds to 27.08 over the full episode, and Cosmos 3 Nano's from 53.99 to 26.60 <Cite id="worldoracle-2026" />. AgiBot's own GE-Sim 2.0, which shares four authors with the benchmark, fell from 73.86 to 63.33 <Cite id="worldoracle-2026" /> <Cite id="ge-sim-2-2026" />.
+World models drift over long episodes. WorldOracle (AgiBot, NVIDIA and three universities, October 2026) feeds the recorded actions of real robot episodes to seven action-conditioned world models and scores whether each predicted video matches what happened. On 100 two-minute AgiBot G2 episodes, DreamDojo's single-view score out of 100 fell from 50.56 over the first 30 seconds to 27.08 over the full episode, and Cosmos 3 Nano's from 53.99 to 26.60 <Cite id="worldoracle-2026" />. AgiBot's own GE-Sim 2.0, which shares four authors with the benchmark, fell from 73.86 to 63.33 <Cite id="worldoracle-2026" /> <Cite id="ge-sim-2-2026" />.
 
 ## Blind, distributed, pairwise
 
-RoboArena distributes evaluation across seven universities on the DROID Franka Panda platform <Cite id="droid-2024" /> <Cite id="roboarena-2025" />. Evaluators receive anonymous policy endpoints, choose tasks and scenes, and run each pair double-blind and back-to-back from closely matched initial conditions, recording progress scores, preferences and explanations. Its study reports 612 pairwise comparisons across seven DROID-trained policies, and against a 4,284-rollout oracle its rankings agreed better than a conventional evaluation of 17 tasks and 44 episodes per policy <Cite id="roboarena-2025" />. Chatbot Arena ranks language models the same pairwise, crowdsourced way, from over 240K votes <Cite id="chatbot-arena-2024" />.
+<Image id="roboarena-evaluation-2025" />
 
-RoboChallenge hosts robots at its own site and exposes asynchronous observation and action APIs; model inference stays with the submitting user. Its first benchmark, Table30, holds tabletop tasks; held-out demonstration frames guide scene resets, but lighting and camera drift remain, and the system cannot verify the remote model matches its submitted name <Cite id="robochallenge-2025" />.
+RoboArena spreads evaluation across seven universities on DROID's Franka Panda platform <Cite id="droid-2024" /> <Cite id="roboarena-2025" />. Evaluators receive anonymous policies, choose tasks and scenes, and run each pair double-blind and back-to-back from closely matched initial conditions, recording progress scores, preferences and explanations. Its study reports 612 pairwise comparisons across seven DROID-trained policies, and against a 4,284-rollout reference ranking its rankings agreed better than a conventional evaluation of 17 tasks and 44 episodes per policy <Cite id="roboarena-2025" />. Chatbot Arena ranks language models the same pairwise, crowdsourced way, from over 240,000 votes <Cite id="chatbot-arena-2024" />.
 
-OpenVLA's evaluation needed over 2,500 rollouts and over 100 hours of human labour, and AutoEval's automatic resets and success detection let evaluation run around the clock <Cite id="autoeval-2025" />. XPolicyLab cuts the integrations needed to connect $N$ policies to $M$ environments from $O(NM)$ to $O(N+M)$ <Cite id="xpolicylab-2026" />.
+RoboChallenge hosts robots at its own site and lets users drive them remotely while model inference stays on the user's side. Its first benchmark, Table30, holds tabletop tasks; held-out demonstration frames guide scene resets, but lighting and camera drift remain, and the system cannot verify that a remote model matches its submitted name <Cite id="robochallenge-2025" />.
+
+Automation cuts the labor. OpenVLA's evaluation needed over 2,500 rollouts and over 100 hours of human labor, and AutoEval's automatic resets and success detection let evaluation run around the clock <Cite id="autoeval-2025" />. XPolicyLab cuts the integrations needed to connect N policies to M environments from one per pair to one per policy plus one per environment <Cite id="xpolicylab-2026" />. RACE (November 2026) ranks training checkpoints without rollouts, scoring calibrated action deviations on held-out successful trajectories, and its real-robot rankings matched deployment success <Cite id="race-checkpoint-selection-2026" />. Failed rollouts are data too: ArmnetBench released all 3,718 operator-labeled episodes from its comparison of seven policies on 12 SO-101 tasks, 73% of them failures <Cite id="rollout-then-recycle-2026" />.
 
 ## Reading a result table
 
@@ -160,9 +155,9 @@ OpenVLA's evaluation needed over 2,500 rollouts and over 100 hours of human labo
 - Who scored the rollouts, with what agreement against the tested population <Cite id="roboarena-2025" />?
 - What correlation backs a simulation number <Cite id="simpler-2024" />?
 
-StopWatch, from Xinhao Liu, Pieter Abbeel, Guanya Shi and colleagues at Amazon FAR, NYU, UC Berkeley and Carnegie Mellon (October 2026), checked the labels that score HM3D-OVON, an object-goal navigation benchmark. A stop counts only when the object's annotated name matches the goal word, so a robot that stops at a couch annotated as sofa fails when asked for a couch, and a manual audit dropped 23% of the unseen-category validation episodes for missing or wrong labels. The frontier-exploration expert that generated the training demonstrations succeeds in 72% of episodes under the official scoring and 96% under the authors' corrected scoring of the remaining episodes, and their system's lead over the strongest baseline, LightNav-0, grows from 6.4 to 8.8 points <Cite id="stopwatch-2026" />.
+Even the scorer can be wrong. StopWatch (Amazon FAR, NYU, UC Berkeley and Carnegie Mellon, October 2026) audited the labels that score HM3D-OVON, a benchmark in which a robot must find an object of a named category. A stop counts only when the annotated name matches the goal word, so stopping at a couch labeled "sofa" fails a request for a couch. The audit dropped 23% of unseen-category validation episodes for missing or wrong labels; on the rest, the exploration expert that generated the training demonstrations succeeds in 72% of episodes under official scoring and 96% under corrected scoring <Cite id="stopwatch-2026" />.
 
-Eval-Actions argues binary success rates hide process-level differences and provides 13K+ real-robot episodes over 150+ tasks <Cite id="eval-actions-2026" />, and fine-grained task progress separates policies with fewer trials than binary success <Cite id="beyond-binary-success-2026" />. The [reliability gap](/frontier/reliability-gap) follows the same arithmetic into deployment.
+Pass-or-fail scores also hide how a task went. Eval-Actions makes that argument and provides over 13,000 real-robot episodes across more than 150 tasks <Cite id="eval-actions-2026" />, and fine-grained task progress separates policies with fewer trials than binary success <Cite id="beyond-binary-success-2026" />. The [reliability gap](/frontier/reliability-gap) follows the same arithmetic into deployment.
 
 <SelfCheck
   prompt="Two policies both report 80% success on the same nominal task. One was scored on 10 trials, the other on 50 with a Bayesian posterior attached. What can you conclude from that information alone?"

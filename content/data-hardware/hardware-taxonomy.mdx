@@ -1,11 +1,11 @@
 ---
 title: "Hardware Taxonomy"
-description: "A buyer's guide to the 2026 robot stack: arms, humanoids, hands, tactile sensors, and edge compute, with dated prices, disclosed DoF counts, and honest gaps where vendors publish nothing."
+description: "Arms, humanoids, hands, tactile sensors and edge compute for robot learning, with dated maker prices, disclosed DoF counts and the gaps vendors leave."
 domain: data-hardware
 slug: hardware-taxonomy
 order: 3
 status: published
-lastReviewed: "2026-10-26"
+lastReviewed: "2026-11-12"
 citations:
   - so-arm100-repo-2026
   - seeed-so-arm101-pro-2026
@@ -28,7 +28,7 @@ citations:
   - anyskin-2024
   - jetson-thor-2026
   - vla-perf-2026
-  - bd-atlas-unveil-2026
+  - bd-atlas-ces-2026
   - noetix-bumi-2025
   - bjnews-noetix-bumi-2025
   - trossen-widowx-ai-2026
@@ -67,6 +67,13 @@ citations:
   - limx-oli-spec-2026
   - unitree-dex5-1-2026
   - engineai-se01-2026
+  - ff-nova-2026
+  - tesla-q3-2026-update
+  - lingbot-touch-2026
+  - lingbot-touch-release-2026
+  - intel-robotics-platform
+  - fcc-da-26-1130
+  - fcc-da-26-1181
 seeAlso:
   - "frontier/dexterity"
   - "rl-sim2real/humanoid-wbc"
@@ -78,12 +85,12 @@ import { HardwarePriceLadder } from '@/components/interactive/hardware-price-lad
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Robot-learning hardware runs a learned policy: arms, humanoids, dexterous hands, tactile sensors and edge computers closing the control loop. Prices run from about \$122 in SO-101 arm parts <Cite id="so-arm100-repo-2026" /> to \$29,900 for a Unitree H2 humanoid <Cite id="unitree-h2-2026" />, and Boston Dynamics scheduled its 2026 Atlas deployments at Hyundai and Google DeepMind <Cite id="bd-atlas-unveil-2026" />.
+Robot-learning hardware is the physical platform a learned policy runs on: arms, humanoids, dexterous hands, touch sensors and the onboard computers that run the policy. Listed prices run from about \$122 in parts for an SO-101 arm <Cite id="so-arm100-repo-2026" /> to \$29,900 for a Unitree H2 humanoid <Cite id="unitree-h2-2026" />.
 
 <Image id="nist-dexterous-manipulation-testbed-2013" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="entry arm" value="$122" note="US BOM, one SO-101 arm" accent />
+  <Stat label="entry arm" value="$122" note="US parts list, one SO-101 arm" accent />
   <Stat label="entry humanoid" value="$1,400" note="Bumi presale at ¥9,998" />
   <Stat label="humanoid DoF" value="56" note="Atlas (Electric), continuous joints" />
   <Stat label="edge compute" value="2,070" note="FP4 TFLOPS, Jetson Thor T5000" />
@@ -93,65 +100,80 @@ Robot-learning hardware runs a learned policy: arms, humanoids, dexterous hands,
 
 <HardwareGuide className="my-6 wide-measure" />
 
-Try Preorder, Humanoids and \$1k-\$10k together and one row remains: Noetix's Bumi, announced for presale in October 2025 at ¥9,998, about \$1,400 <Cite id="noetix-bumi-2025" /> <Cite id="bjnews-noetix-bumi-2025" />.
+## Arms and bimanual rigs
 
-Noetix lists Bumi as 98 cm tall, 17 kg, with 21 total degrees of freedom <Cite id="noetix-bumi-page-2026" />.
-
-## Arms, from \$122 to \$70,000
-
-The SO-101, a 3D-printed arm, has six <Term id="degrees-of-freedom">degrees of freedom</Term>, five joints plus a gripper, using STS3215 servos. One follower arm's community BOM totals \$121.94 in the US column <Cite id="so-arm100-repo-2026" />. Seeed Studio sells SO-ARM101 Pro at \$295 unassembled or \$299 assembled, with 12-bit magnetic encoders and a 500 g payload <Cite id="seeed-so-arm101-pro-2026" />. LeRobot runs ACT, π0 and SmolVLA policies on these arms <Cite id="lerobot-docs-2026" />. Pull the arm apart in the figure below, then guess which motor works hardest to hold it out straight.
+The cheapest entry is a 3D-printed arm. The SO-101 has six <Term id="degrees-of-freedom">degrees of freedom</Term> (DoF), five joints plus a gripper, and the community parts list for one follower arm totals \$121.94 in its US column <Cite id="so-arm100-repo-2026" />. Seeed Studio sells the SO-ARM101 Pro at \$295 unassembled or \$299 assembled <Cite id="seeed-so-arm101-pro-2026" />, and Hugging Face's LeRobot runs ACT, π0 and SmolVLA policies on these arms <Cite id="lerobot-docs-2026" />.
 
 <ExplainerFigure id="arm" />
 
-Trossen Robotics renamed its ALOHA line Trossen AI. Its Solo AI, Stationary AI and Mobile AI kits list at \$11,385.95, \$23,995.95 and \$33,695.95 and integrate LeRobot and OpenPI <Cite id="trossen-ai-2026" />. The WidowX AI arm, sold as leader and follower for <Term id="teleoperation">teleoperation</Term>, lists at \$4,545.95 in base form, with six DoF, a 1.5 kg payload and 700 mm reach <Cite id="trossen-widowx-ai-2026" />.
+Research rigs cost more. Trossen Robotics, which renamed its ALOHA line Trossen AI, lists its Solo AI, Stationary AI and Mobile AI kits at \$11,385.95, \$23,995.95 and \$33,695.95, with LeRobot and OpenPI integrated <Cite id="trossen-ai-2026" />. Its WidowX AI arm, sold as a leader and follower pair for <Term id="teleoperation">teleoperation</Term> (a person moves the leader and the follower copies it), lists at \$4,545.95 in base form <Cite id="trossen-widowx-ai-2026" />. ALOHA 2, successor to the bimanual ALOHA rig behind ACT <Cite id="act-aloha-2023" /> and Mobile ALOHA <Cite id="mobile-aloha-2024" />, has open-source hardware designs and no published price <Cite id="aloha-2-2024" />.
 
-ALOHA 2 succeeds the bimanual ALOHA rig behind ACT <Cite id="act-aloha-2023" /> and Mobile ALOHA <Cite id="mobile-aloha-2024" />; its hardware designs are open-source, and the paper gives no price <Cite id="aloha-2-2024" />. Hugging Face, which bought Pollen Robotics in April 2025, sells the Reachy 2 humanoid for \$70,000 <Cite id="hf-pollen-acquisition-2025" />. The seven-DoF Franka Emika Panda collected DROID's 76,000 trajectories <Cite id="droid-2024" />.
+Higher up, Hugging Face, which bought Pollen Robotics in April 2025, sells the Reachy 2 humanoid for \$70,000 <Cite id="hf-pollen-acquisition-2025" />, and DROID's 76,000 trajectories were all collected on the seven-DoF Franka Emika Panda <Cite id="droid-2024" />.
 
 <Image id="franka-emika-panda-cebit-2017" />
 
-## Humanoids: shipping beat shouting
+## Humanoids ship in the thousands
 
-Omdia counts about 13,000 [humanoids shipped](/market-map) in 2025, including 5,168 from AgiBot, 39 percent of the total <Cite id="agibot-omdia-ranking-2026" />, including AgiBot's mobile manipulators <Cite id="agibot-omdia-2026" />. IFR counts about 7,000 full-size humanoids (above 140 cm) sold in 2025, often in applications still requiring human teleoperation <Cite id="ifr-service-robots-2026" />. Unitree's May 2026 IPO prospectus reports over 5,500 humanoids shipped in 2025, excluding wheeled dual-arm robots, claiming the world's highest total <Cite id="unitree-prospectus-2026" />.
+Shipment counts depend on who counts. Omdia counts about 13,000 [humanoids shipped](/market-map) in 2025, 5,168 of them (39 percent) from AgiBot <Cite id="agibot-omdia-ranking-2026" />, including its mobile manipulators <Cite id="agibot-omdia-2026" />. The International Federation of Robotics counts about 7,000 full-size humanoids (above 140 cm) sold in 2025, often for work still requiring human teleoperation <Cite id="ifr-service-robots-2026" />. Unitree's May 2026 IPO prospectus reports over 5,500 shipped in 2025, excluding wheeled dual-arm robots, and claims the world's highest total <Cite id="unitree-prospectus-2026" />.
 
-Unitree's R1 AIR lists at \$4,900 with 20 DoF and the R1 at \$5,900 with 26 <Cite id="unitree-r1-2026" />. The G1 lists at \$13,500 for its 23 DoF base model; its EDU configuration spans 23 to 43 DoF by quote <Cite id="unitree-g1-2026" />. H2 has [31 DoF](/how-robots-work/#humanoid) (six per leg, seven per arm, three waist, two head), 360 N·m joint torque and a 2,070 TOPS onboard chip <Cite id="unitree-h2-2026" />.
+| Humanoid | Maker's listed price | Degrees of freedom |
+| --- | --- | --- |
+| Noetix Bumi | ¥9,998, about \$1,400, presale from October 2025 <Cite id="noetix-bumi-2025" /> <Cite id="bjnews-noetix-bumi-2025" /> | 21 <Cite id="noetix-bumi-page-2026" /> |
+| Faraday Future FF Nova | \$2,490 at its October 2026 launch, first to 100 invited developers and schools <Cite id="ff-nova-2026" /> | |
+| Unitree R1 AIR and R1 | \$4,900 and \$5,900 <Cite id="unitree-r1-2026" /> | 20 and 26 |
+| Unitree G1 | \$13,500 base; EDU version by quote <Cite id="unitree-g1-2026" /> | 23 base; EDU 23 to 43 |
+| 1X NEO | \$20,000 or \$499 a month after a refundable \$200 deposit, US deliveries from 2026 <Cite id="1x-order-2026" /> | 22 per hand <Cite id="1x-neo-2026" /> |
+| Unitree H2 | \$29,900 <Cite id="unitree-h2-2026" /> | [31](/how-robots-work/#humanoid) |
 
-Joint-count comparisons depend on configuration. Fourier lists up to 55 actuators for GR-3 with its optional 12-DoF hands <Cite id="fourier-gr3-docs-2026" />. LimX lists 31 active DoF for Oli with end-effector options listed separately <Cite id="limx-oli-spec-2026" />.
+Joint counts depend on configuration: Fourier lists up to 55 actuators for GR-3 counting its optional 12-DoF hands <Cite id="fourier-gr3-docs-2026" />, LimX lists 31 active DoF for Oli with end-effectors separate <Cite id="limx-oli-spec-2026" />, and Boston Dynamics' electric Atlas has 56, some rotating continuously <Cite id="bd-atlas-2026" />, and reaches 2.3 m <Cite id="bd-atlas-ces-2026" />.
 
-1X sells NEO for \$20,000 or \$499 monthly after a refundable \$200 deposit, with US deliveries from 2026 <Cite id="1x-order-2026" />. In April 2026 it reported capacity for 10,000 NEOs annually and said some buyers would get theirs that year, others later <Cite id="1x-neo-factory-2026" />.
-
-Boston Dynamics' electric Atlas has 56 DoF with continuous-rotation key joints, a 50 kg instant payload, IP67 sealing and a 4-hour swappable battery <Cite id="bd-atlas-2026" />, and reaches 2.3 m <Cite id="bd-atlas-unveil-2026" />. Hyundai Motor Group plans 25,000 Atlas units for its plants over the next few years, plus a US factory able to build 30,000 robots a year <Cite id="bd-rmac-2026" />.
-
-Figure's third-generation humanoid has a camera in each palm, no disclosed hand DoF and 2 kW wireless charging through its feet. Figure builds it for high-volume manufacturing at its BotQ facility <Cite id="figure-03-2025" />, whose first-line capacity is up to 12,000 humanoids a year <Cite id="figure-botq-2025" />. Agility says Digit 5, unveiled September 2026, repeatedly lifts loads up to 22.7 kg and runs 90 minutes on a 9-minute charge, with general availability by 2027's end <Cite id="agility-digit-5-2026" />. Tesla reports installing the first Optimus production lines at Fremont and will collect training data with the first builds <Cite id="tesla-q2-2026-update" />.
+Hyundai Motor Group plans 25,000 Atlas units for its plants and a US factory able to build 30,000 robots a year, and in September 2026 Boston Dynamics began training Atlas at a Hyundai plant in Georgia <Cite id="bd-rmac-2026" />. 1X reported capacity for 10,000 NEOs a year in April 2026 <Cite id="1x-neo-factory-2026" />. Figure builds its third-generation humanoid for high-volume manufacturing <Cite id="figure-03-2025" /> at BotQ, whose first line can make up to 12,000 a year <Cite id="figure-botq-2025" />. Agility plans general availability of Digit 5, unveiled in September 2026, by the end of 2027 <Cite id="agility-digit-5-2026" />. Tesla said in July 2026 that its first Fremont Optimus builds would collect training data <Cite id="tesla-q2-2026-update" />, and in October reported production on high-volume lines there <Cite id="tesla-q3-2026-update" />.
 
 <Image id="atlas-darpa-frontview-2013" />
 
 ## Hands, bundled and standalone
 
-<span id="hands-ship-bundled" />Most [dexterous hands](/frontier/dexterity) ship with a robot: Unitree's Dex3-1, a G1 EDU option, has seven active DoF per hand (three thumb, two index, two middle) and an optional tactile array <Cite id="unitree-g1-2026" />. 1X's order page lists 22 DoF per NEO hand <Cite id="1x-neo-2026" />. Its July 9, 2026 hand post counts 25, adding 3 wrist DoF to the 22 fully actuated finger and palm DoF <Cite id="1x-neos-hands-2026" />. Boston Dynamics' October 2026 Atlas hand has four fingers and 13 DoF, with fingertip and palm pressure sensors <Cite id="bd-atlas-hand-2026" />.
+<span id="hands-ship-bundled" />Most [dexterous hands](/frontier/dexterity) ship as part of a robot, and counts vary with what is counted: 1X's July 2026 hand post counts 25 DoF per NEO hand by adding three wrist DoF to the listed 22 <Cite id="1x-neos-hands-2026" />. Open research hands cut prices: LEAP Hand's authors put theirs at roughly an eighth of the cost of the Allegro Hand <Cite id="leap-hand-2023" />, and RUKA's authors priced Allegro at \$15,000 <Cite id="ruka-2025" />.
 
-The open LEAP Hand has 16 DoF and costs about \$2,000 in catalog parts, roughly an eighth of the Allegro Hand used for comparison <Cite id="leap-hand-2023" />. RUKA's authors priced Allegro at \$15,000 and built a five-fingered hand for under \$1,300 <Cite id="ruka-2025" />. ORCA is an open 17-DoF tendon-driven hand with tactile sensors, under 2,000 CHF in materials <Cite id="orca-hand-2025" />, and the commercial Shadow Dexterous Hand uses 20 motors for 24 degrees of freedom <Cite id="shadow-dexterous-hand-2026" />. Sharpa's Wave, a human-scale five-finger hand with 22 active DoF and high-resolution tactile sensing, requires a sales enquiry and lists no price <Cite id="sharpa-wave-2026" />. PSYONIC designed its Ability Hand as a prosthesis, opening it to robotics researchers in November 2022 <Cite id="psyonic-ability-hand-2022" />.
+| Hand | Degrees of freedom | Price and notes |
+| --- | --- | --- |
+| Unitree Dex3-1 | 7 active per hand | G1 EDU option, optional tactile array <Cite id="unitree-g1-2026" /> |
+| Atlas hand (October 2026) | 13, four fingers | Fingertip and palm pressure sensors <Cite id="bd-atlas-hand-2026" /> |
+| LEAP Hand | 16 | About \$2,000 in catalog parts, open design <Cite id="leap-hand-2023" /> |
+| RUKA | Five fingers | Under \$1,300 to build <Cite id="ruka-2025" /> |
+| ORCA | 17, tendon-driven | Open, tactile, under 2,000 CHF in materials <Cite id="orca-hand-2025" /> |
+| Unitree Dex5-1 | 20, 16 active | Standalone, 94 tactile sensors <Cite id="unitree-dex5-1-2026" /> |
+| Sharpa Wave | 22 active | High-resolution touch; sales enquiry, no listed price <Cite id="sharpa-wave-2026" /> |
+| Shadow Dexterous Hand | 24, from 20 motors | Commercial <Cite id="shadow-dexterous-hand-2026" /> |
 
-Unitree lists standalone Dex5-1 at 20 total DoF, 16 active, with 94 tactile sensors per hand <Cite id="unitree-dex5-1-2026" />.
+PSYONIC designed its Ability Hand as a prosthesis and opened it to robotics researchers in November 2022 <Cite id="psyonic-ability-hand-2022" />.
 
 ## Sensors: touch is the missing channel
 
-Generalist policies mostly train on vision and <Term id="proprioception">proprioception</Term>; DROID's Franka rig has three cameras and no touch sensing <Cite id="droid-2024" />. AgiBot World's humanoids add visuo-tactile sensors to cameras <Cite id="agibot-world-2025" />. A 2025 outlook in IEEE Transactions on Robotics blames divergent transduction methods with no standardized evaluation, poor durability, hysteresis and temperature sensitivity <Cite id="tactile-outlook-2025" />.
+Generalist policies learn mostly from cameras and <Term id="proprioception">proprioception</Term>, the robot's sense of its own joint positions. DROID's Franka rig has three cameras and no touch sensing <Cite id="droid-2024" />; AgiBot World's humanoids add visuo-tactile sensors <Cite id="agibot-world-2025" />, and ENGINEAI's SE01 adds lidar, depth and infrared cameras <Cite id="engineai-se01-2026" />.
 
-Perception hardware extends beyond ordinary cameras: ENGINEAI lists the SE01 sensors as lidar, depth cameras and infrared cameras <Cite id="engineai-se01-2026" />.
+Agility Robotics' Chris Paxton argued after IROS 2026 that multi-fingered hands may need touch sensing two-finger grippers can forgo, because their fingers increasingly hide the contacts a camera needs to see. He called the tendon-driven hands now sold off the shelf a significant step toward making human-like dexterity "an intelligence problem, instead of a hardware design problem" <Cite id="paxton-iros-2026" />.
 
-Agility Robotics' Chris Paxton argued on October 12, after IROS 2026, that multi-fingered hands may need touch sensing two-finger grippers can forgo, because their fingers increasingly hide contacts needed for camera vision. He called currently off-the-shelf tendon-driven hands a significant step toward making human-like dexterity "an intelligence problem, instead of a hardware design problem" <Cite id="paxton-iros-2026" />.
+A 2025 outlook in IEEE Transactions on Robotics points to sensors built on divergent physical principles with no standardized evaluation, poor durability, hysteresis (readings that depend on past loading) and temperature sensitivity <Cite id="tactile-outlook-2025" />. Robbyant's open LingBot-Touch (November 2026) maps piezoresistive, magnetic and visuotactile signals into one representation <Cite id="lingbot-touch-2026" />, pretrained on nearly 5,000 hours of tactile recordings <Cite id="lingbot-touch-release-2026" />.
 
-GelSight Mini retails at \$500 and Meta FAIR's open DIGIT fingertip at \$350 <Cite id="tactile-outlook-2025" /> <Cite id="digit-sensor-2020" />. DIGIT's successor, Digit 360, has about 8.3 million taxels and resolves normal and shear forces to 1.01 mN and 1.27 mN <Cite id="digit-360-2024" />. GelSight manufactures it under Meta's partnership announced in October 2024 <Cite id="meta-fair-touch-2024" />. AnySkin, a magnetic skin, is the first uncalibrated tactile sensor reported to carry learned policies across replacement skins <Cite id="anyskin-2024" />.
-
-Optical designs differ in observable contacts. GelSlim 3.0 measures shape, contact-force distributions and incipient slip in a compact finger <Cite id="gelslim3-2021" />. GelTip views a deformable finger from its base, capturing contacts inside and outside the gripper closure <Cite id="geltip-2021" />. DenseTact estimates 3D surface deformation from fisheye camera images <Cite id="densetact-2022" />; AllSight estimates contact position, forces and torsion on a rounded finger <Cite id="allsight-2023" />.
+| Sensor | What it offers |
+| --- | --- |
+| GelSight Mini | \$500 <Cite id="tactile-outlook-2025" /> |
+| DIGIT (Meta FAIR) | Open fingertip sensor, \$350 <Cite id="tactile-outlook-2025" /> <Cite id="digit-sensor-2020" /> |
+| Digit 360 | DIGIT's successor: about 8.3 million sensing points; pressing and sliding forces resolved to 1.01 and 1.27 mN <Cite id="digit-360-2024" />; made by GelSight under a Meta partnership announced in October 2024 <Cite id="meta-fair-touch-2024" /> |
+| AnySkin | Magnetic skin; the first uncalibrated tactile sensor reported to carry learned policies across replacement skins <Cite id="anyskin-2024" /> |
+| GelSlim 3.0 | Shape, force distribution and the onset of slip in a compact finger <Cite id="gelslim3-2021" /> |
+| GelTip | Films a soft finger from its base, seeing contacts inside and outside the gripper <Cite id="geltip-2021" /> |
+| DenseTact | 3D surface deformation from fisheye images <Cite id="densetact-2022" /> |
+| AllSight | Contact position, forces and torsion on a rounded finger <Cite id="allsight-2023" /> |
 
 ## Compute: closing the loop
 
-NVIDIA's Jetson Thor T5000 delivers 2,070 sparse FP4 TFLOPS with 128 GB of LPDDR5X at 273 GB/s on a 14-core Neoverse-V3AE CPU, within 40-130 W. The T4000 has 1,200 TFLOPS and 64 GB <Cite id="jetson-thor-2026" />. NVIDIA rates Thor's AI compute at 7.5x Jetson Orin's and launched the developer kit at \$3,499 in August 2025 <Cite id="nvidia-jetson-thor-available-2025" />. It now lists the kit at \$5,499, and the T5000 and T4000 modules at \$4,999 and \$2,999 in 1,000-unit volume <Cite id="nvidia-jetson-faq" />.
+The onboard computer sets how often a policy can choose its next move. NVIDIA's Jetson Thor T5000 delivers 2,070 sparse FP4 TFLOPS with 128 GB of memory within 40 to 130 W, and the T4000 1,200 TFLOPS with 64 GB <Cite id="jetson-thor-2026" />. NVIDIA rates Thor at 7.5 times Jetson Orin's AI compute and launched the developer kit at \$3,499 in August 2025 <Cite id="nvidia-jetson-thor-available-2025" />; it now lists the kit at \$5,499 and the two modules at \$4,999 and \$2,999 in 1,000-unit volume <Cite id="nvidia-jetson-faq" />.
 
-The 1X NEO uses Jetson Thor at up to 2,070 FP4 TFLOPS <Cite id="1x-neo-2026" />. Figure's Helix runs entirely on embedded low-power GPUs, with a 7-9 Hz vision-language model guiding a 200 Hz controller <Cite id="helix-2025" />.
+VLA-Perf, an analytical model, predicts that π0, with three cameras, 50-action chunks and 10 denoising steps, runs 19.0 times a second on Jetson Thor, 32.2 on an RTX 4090 and 314.4 on a B100 data-center GPU, with one request at a time and no network delay. On the B100, raising denoising steps from 10 to 50 raises total latency 2.15 times <Cite id="vla-perf-2026" />. [Real-Time Execution](/manipulation/realtime-execution) develops these latency budgets.
 
-VLA-Perf's roofline model predicts π0 inference at 19.0 Hz on Jetson Thor, 32.2 Hz on RTX 4090, 61.7 Hz on A100, 162.5 Hz on H100 and 314.4 Hz on B100, without network latency. These batch-one analytical predictions use the 2.7B π0 baseline with 3 cameras, 14 action dimensions, chunk size 50 and 10 denoising steps, without measuring the policy on all five GPUs. On B100, raising denoising steps from 10 to 50 raises total latency 2.15×; raising chunk size from 50 to 250 raises it 11% <Cite id="vla-perf-2026" />. [Real-Time Execution](/manipulation/realtime-execution) develops these latency budgets.
+Intel runs real-time control, perception and policies together on Core Ultra Series 3 processors, which combine CPU, GPU and NPU <Cite id="intel-robotics-platform" />. Figure's Helix runs on embedded low-power GPUs, a vision-language model working 7 to 9 times a second guiding a 200 Hz controller <Cite id="helix-2025" />.
 
 <Image id="jetson-agx-orin-auledas-2024" />
 
@@ -159,4 +181,4 @@ VLA-Perf's roofline model predicts π0 inference at 19.0 Hz on Jetson Thor, 32.2
 
 <HardwarePriceLadder className="my-6" />
 
-On July 28, 2026 the FCC added foreign-produced mobile robots, including humanoids and quadrupeds, to its Covered List. Listed new models cannot get FCC authorization for US sale; earlier-authorized models can still be sold <Cite id="fcc-covered-list-robots-2026" />.
+List prices are dated and configuration-specific; the G1 EDU is priced by quote <Cite id="unitree-g1-2026" />. On July 28, 2026 the FCC added foreign-produced mobile robots, including humanoids and quadrupeds, to its Covered List: listed new models cannot get FCC authorization for US sale, while earlier-authorized models can still be sold <Cite id="fcc-covered-list-robots-2026" />. From October 2026 the FCC began exempting models that won Department of War conditional approval <Cite id="fcc-da-26-1130" />, including ATI Motors' Sherpa Mecha humanoid and OMRON's LD-150 and LD-300 mobile robots <Cite id="fcc-da-26-1181" />.
