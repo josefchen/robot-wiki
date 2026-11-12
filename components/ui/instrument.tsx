@@ -106,8 +106,9 @@ export function InstrumentFigure(props: FigureFrameProps) {
 
 /**
  * One labelled control among the figure controls: a ControlLabel over its
- * slider or select, sized so a slider keeps a usable track at 375px and two
- * fields stack there rather than squeeze their labels and values side by side.
+ * slider or select. On a phone each field takes the whole row, so a slider
+ * keeps a full-width track and a button after it drops to its own row
+ * instead of squeezing the label and value beside it.
  */
 export function ControlField({
   className,
@@ -117,7 +118,7 @@ export function ControlField({
   return (
     <div
       data-figure-control-field=""
-      className={cx('grid min-w-44 flex-1 gap-0.5 sm:max-w-80', className)}
+      className={cx('grid min-w-44 flex-1 gap-0.5 max-sm:basis-full sm:max-w-80', className)}
       {...props}
     >
       {children}
