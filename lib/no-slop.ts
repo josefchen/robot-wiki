@@ -311,7 +311,21 @@ export function dashLines(
   return lines;
 }
 
-/** Find banned vocabulary in an MDX body, prose only, with line numbers. */
+/**
+ * A banned word written entirely in capitals is a proper name (Toyota
+ * Research Institute's TAPESTRY system), not the marker: the vice is the
+ * ordinary word in running prose. Only an all-capitals spelling of the whole
+ * word qualifies, so "Tapestry" at the start of a sentence still fails.
+ */
+function isAllCapitalsName(token: string): boolean {
+  return /[A-Z]/.test(token) && token === token.toUpperCase();
+}
+
+/**
+ * Find banned vocabulary in an MDX body, prose only, with line numbers.
+ * Registered quotations are masked first, and an all-capitals proper name
+ * is allowed (isAllCapitalsName); every other spelling still fails.
+ */
 export function findBannedVocabulary(
   body: string,
   exceptions: readonly SlopQuotationException[] = [],
@@ -320,8 +334,9 @@ export function findBannedVocabulary(
   const findings: Array<SlopFinding & { word: string }> = [];
   masked.split('\n').forEach((line, i) => {
     for (const { word, category } of BANNED_VOCABULARY) {
-      const pattern = new RegExp(`\\b${word}\\b`, 'i');
-      if (pattern.test(line)) {
+      const pattern = new RegExp(`\\b${word}\\b`, 'gi');
+      const ordinary = [...line.matchAll(pattern)].some((match) => !isAllCapitalsName(match[0]));
+      if (ordinary) {
         findings.push({
           file: '',
           line: i + 1,
