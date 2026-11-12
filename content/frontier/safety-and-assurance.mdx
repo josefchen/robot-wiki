@@ -5,7 +5,7 @@ domain: frontier
 slug: safety-and-assurance
 order: 6
 status: published
-lastReviewed: "2026-10-26"
+lastReviewed: "2026-11-12"
 citations:
   - iso-12100
   - iso-10218-1-2025
@@ -63,6 +63,13 @@ citations:
   - adaptive-conformal-2021
   - selectivenet-2019
   - energy-ood-2020
+  - iso-13482-revision-2026
+  - iso-13482-2014
+  - eu-ai-omnibus-2026
+  - korea-humanoid-sandbox-2026
+  - cnbc-figure-whistleblower-2025
+  - carryon-harness-2026
+  - gemini-robotics-2-5-2026
 seeAlso:
   - "data-hardware/industrial-deployment"
   - "rl-sim2real/legged-locomotion"
@@ -75,125 +82,123 @@ import { CollaborativeOperationModes } from '@/components/interactive/collaborat
 
 import { SafetyRulesTimeline } from '@/components/interactive/safety-rules-timeline';
 
-Safety assurance demonstrates a robot system is safe enough to run. Industrial robots have a settled, numerical standards stack, but none certifies learned policies, so what ships is a verifiable safety layer around them <Cite id="iso-iec-tr-5469-2024" />.
+Safety assurance is the work of showing that a robot system is safe enough to run. Industrial robots have a settled stack of standards with numerical limits, but none of it certifies a learned policy, so what ships is a verifiable safety layer around the policy <Cite id="iso-iec-tr-5469-2024" />.
 
 <Image id="robotic-welding-cell-guarding-2014" />
+
+The standards share one logic: assess the installation's risks, reduce them, and give each safety function a specification that a rated control system enforces. A learned policy has no such specification, so the policy stays uncertified and the simpler mechanisms that can stop it are certified instead.
 
 <span id="four-ways-to-share-a-workspace" />
 ## Fenceless robots use four collaborative modes, two of them quantitative
 
-Pick a mode under "How it keeps you safe" below, then drag "Robot speed" under "Keeps its distance". The bar under the drawing recomposes the protective separation distance from the four terms of Marvel and Norcross's NIST equation <Cite id="marvel-norcross-2017" />.
-
 <CollaborativeOperationModes className="my-6" />
 
-Marvel and Norcross summarise the four ISO/TS 15066 (2016) scenarios. Two are procedural: a safety-rated monitored stop forbids motion with a person present; hand guiding gives the operator control. Two are quantitative: <Term id="speed-and-separation-monitoring">speed and separation monitoring</Term> maintains computed separation between robot and person, while <Term id="power-and-force-limiting">power and force limiting</Term> gives up distance and bounds the contact <Cite id="marvel-norcross-2017" />.
-
-ISO/TS 15066, published in 2016, supplemented the 2011 ISO 10218 for collaborative operation and now awaits revision <Cite id="iso-ts-15066" />. The 2025 revision of ISO 10218 integrated it normatively and introduced classifications for collaborative applications, Hartmann and colleagues report <Cite id="hartmann-iso-10218-2026" />.
+Sharing space with people needs rules for how close a robot may come and how hard it may touch. Marvel and Norcross of NIST summarize the four scenarios of ISO/TS 15066 (2016). Two are procedural: a safety-rated monitored stop forbids motion while a person is present, and hand guiding gives the operator control. Two are quantitative: <Term id="speed-and-separation-monitoring">speed and separation monitoring</Term> keeps a computed distance between robot and person, while <Term id="power-and-force-limiting">power and force limiting</Term> allows contact but bounds it <Cite id="marvel-norcross-2017" />. The 2025 revision of ISO 10218 folded the 2016 document in <Cite id="iso-ts-15066" /> and introduced classes of collaborative application, Hartmann and colleagues report <Cite id="hartmann-iso-10218-2026" />.
 
 ## Separation criteria assume a person approaching at 1600 to 2000 mm/s
 
-Marvel and Norcross reproduce the ISO 13855:2010 decision criteria: an intrusion margin of at least 850 mm for normal approach protected by multiple separate beams, against 1200 mm for a single-height beam. A two-handed control device may reduce the margin to 250 mm, but they exclude typical two-handed teach pendants from that exception and doubt stationary-machinery criteria transfer to robots <Cite id="marvel-norcross-2017" />.
-
-For operator approach they call 1600 mm/s a worst-case assumption and report a 2000 mm/s stationary-machinery maximum, with the 1600 mm/s option only when separation is greater than 500 mm. Approach speed may be measured directly; otherwise it is typically assumed constant and directed toward the robot. They add 2000 mm/s may be more prudent for rapid motions and detection uncertainty, and risk assessment may require a faster approach <Cite id="marvel-norcross-2017" />.
-
-The instrument is an authored teaching model whose defaults are not certified limits: C = 0.85 m, 10 m/s² deceleration, a 0.1 s reaction delay, 0.1 m position uncertainty and a 1.6 m workcell. A 100 Hz update period is 0.01 s, revealing nothing about detect-to-command latency. The NIST paper calls its early-draft equation a rough approximation and requires traceable stopping-time and braking-distance measurements for real robots <Cite id="marvel-norcross-2017" />.
+Separation monitoring needs an assumed human speed. Marvel and Norcross report the stationary-machinery maximum of 2,000 mm/s, a fast walk, with 1,600 mm/s allowed only when separation exceeds 500 mm; unless measured, the person is assumed to head straight for the robot at constant speed, and a risk assessment may require a faster approach. They doubt that stationary-machinery criteria transfer to robots and require traceable stopping-time and braking-distance measurements, calling their own separation equation a rough approximation <Cite id="marvel-norcross-2017" />.
 
 ## Force limits rest on measured pain thresholds by body region
 
-Haddadin, Albu-Schäffer and Hirzinger made the force question empirical with crash-test impacts <Cite id="haddadin-2009" />. Later pain-threshold studies, including Han and colleagues' 37-subject impactor tests, report limits by body region and contact geometry <Cite id="han-force-pain-2024" />. A power-and-force-limited application therefore attaches a measured number to a named body part, the value the [contact-force lab in the control module](/classical/control/) also reads <Cite id="han-force-pain-2024" />.
+Force limiting needs to know how much contact a person can take. Haddadin, Albu-Schäffer and Hirzinger made the question empirical in 2009 with crash-test impacts <Cite id="haddadin-2009" />. Later pain-threshold studies, including Han and colleagues' 37-subject impactor tests, report limits by body region and contact geometry, so a force-limited application attaches a measured number to a named body part ([contact forces](/classical/control/)) <Cite id="han-force-pain-2024" />.
 
 <span id="the-stack-the-standards-actually-form" />
 ## Risk assessment comes first, and a compliant robot does not make a compliant cell
 
-<Term id="risk-assessment">Risk assessment</Term> begins with ISO 12100, the general-principles standard for machinery safety, at edition 1 since 2010 and awaiting replacement by a draft revision <Cite id="iso-12100" />. Its abstract specifies: identify hazards, estimate and evaluate risks, then reduce them, documenting and verifying each step <Cite id="iso-12100" />. Risk reduction follows a hierarchy: design the hazard out, guard against what remains, then inform the operator, the "3-step approach" OSHA's manual reproduces from the robot industry association <Cite id="osha-otm-robots" />.
+Every robot standard starts from a <Term id="risk-assessment">risk assessment</Term> of the installation. ISO 12100, the general machinery standard, sets the steps: identify hazards, estimate and evaluate risks, then reduce them, documenting and verifying each step <Cite id="iso-12100" />. Risk reduction follows a hierarchy, the "3-step approach" OSHA's manual reproduces from the robot industry association: design the hazard out, guard against what remains, then inform the operator <Cite id="osha-otm-robots" />.
 
-Robot-specific standards split liability in two. ISO 10218-1 covers the robot as partly completed machinery, the manufacturer's obligation; ISO 10218-2 covers the application and its cell, the integrator's <Cite id="iso-10218-1-2025" /> <Cite id="iso-10218-2-2025" />. Both were republished February 2025 at editions 3 and 2, the first major revision since 2011. The US adoption, ANSI/A3 R15.06-2025, added Part 3, approved October 7, 2025, guiding industrial robot cell users <Cite id="a3-r1506-2025-store" /> <Cite id="rr-ansi-r1506-2026" />.
+Robot standards then split responsibility in two. ISO 10218-1 covers the robot as partly completed machinery, the manufacturer's obligation; ISO 10218-2 covers the application and its cell, the integrator's <Cite id="iso-10218-1-2025" /> <Cite id="iso-10218-2-2025" />. Both were republished in February 2025, the first major revision since 2011. The US adoption, ANSI/A3 R15.06-2025, adds a part for cell users <Cite id="a3-r1506-2025-store" />.
+
+| Standard | Covers | Status |
+| --- | --- | --- |
+| ISO 12100 | Machinery risk assessment | 2010; revision drafted <Cite id="iso-12100" /> |
+| ISO 10218-1 | Robot | 2025 <Cite id="iso-10218-1-2025" /> |
+| ISO 10218-2 | Robot application and cell | 2025 <Cite id="iso-10218-2-2025" /> |
+| ANSI/A3 R15.06 | US adoption; Part 3 for users | Part 3 approved October 7, 2025 <Cite id="a3-r1506-2025-store" /> <Cite id="rr-ansi-r1506-2026" /> |
+| ISO/TS 15066 | Collaborative operation | 2016; awaiting revision <Cite id="iso-ts-15066" /> |
+| IEC 61508-1 | Generic functional safety | 2010 <Cite id="iec-61508-1-2010" /> |
+| ISO 13849-1 | Machine safety controls | 2023 <Cite id="iso-13849-1-2023" /> |
+| ISO 13850 | Emergency stop | 2015 <Cite id="iso-13850-2015" /> |
+| IEC 60204-1 | Machine electrical equipment | 2016 <Cite id="iec-60204-1-2016" /> |
+| ISO 3691-4 | Driverless trucks and mobile robots | 2023 <Cite id="iso-3691-4-2023" /> |
+| ANSI/A3 R15.08 | Industrial mobile robots | 2020 and 2023 <Cite id="a3-robot-safety-standards" /> |
+| ISO/CD 25785-1 | Balancing mobile robots, including bipeds | Committee draft <Cite id="iso-cd-25785-1" /> |
+| ISO 13482 | Service robots | 2014; new edition coming <Cite id="iso-13482-2014" /> <Cite id="iso-13482-revision-2026" /> |
 
 ## Safety controls carry rated integrity levels, and an emergency stop cannot detect a hazard
 
-<Term id="functional-safety">Functional safety</Term> grades the control system enforcing these requirements. IEC 61508, with Part 1 at edition 2 from 2010, is the generic standard for electrical, electronic and programmable systems performing safety functions, rated by <Term id="safety-integrity-level">safety integrity level</Term> <Cite id="iec-61508-1-2010" />. ISO 13849-1, at edition 4 from 2023, is the machinery counterpart for safety-related control parts, including software, rated by <Term id="performance-level">performance level</Term>; it defers low-demand operation to IEC 61508 <Cite id="iso-13849-1-2023" />.
+<Term id="functional-safety">Functional safety</Term> grades the control system that enforces these requirements. IEC 61508 is the generic standard for electrical, electronic and programmable systems performing safety functions, rated by <Term id="safety-integrity-level">safety integrity level</Term> <Cite id="iec-61508-1-2010" />. ISO 13849-1 is the machinery counterpart, rated by <Term id="performance-level">performance level</Term>, and defers low-demand operation to IEC 61508 <Cite id="iso-13849-1-2023" />.
 
-ISO 13850, at edition 3 from 2015, specifies the <Term id="emergency-stop">emergency stop</Term> regardless of energy source and names IEC 60204-1, at its 2016 edition, for electrical realisation <Cite id="iso-13850-2015" /> <Cite id="iec-60204-1-2016" />. The button cannot detect hazards; someone must see one and press. Stop category 0 removes actuator power and engages brakes; category 1 keeps power during controlled stopping <Cite id="marvel-norcross-2017" />.
+The <Term id="emergency-stop">emergency stop</Term> shows the limit of a manual safeguard. ISO 13850 specifies it regardless of energy source and names IEC 60204-1 for the electrical side <Cite id="iso-13850-2015" /> <Cite id="iec-60204-1-2016" />. The button cannot detect hazards; someone must see one and press. Stop category 0 removes actuator power and engages brakes, while category 1 keeps power during a controlled stop <Cite id="marvel-norcross-2017" />.
 
 <Image id="emergency-stop-siemens-2006" />
-
-For mobile robots, ISO 3691-4, at edition 2 from 2023, covers driverless industrial trucks, including automated guided vehicles and autonomous mobile robots <Cite id="iso-3691-4-2023" />. The US R15.08 series covers industrial mobile robots, with Part 1 published in 2020 and Part 2 in 2023 <Cite id="a3-robot-safety-standards" />.
 
 <span id="the-humanoid-gap-and-the-standard-that-is-not-finished" />
 ### The humanoid standard is still a committee draft at stage 30.60
 
-Humanoids fall, a hazard the industrial documents were not written for. ISO/CD 25785-1 covers industrial mobile robots needing active balance control, including bipedal machines <Cite id="iso-cd-25785-1" />. It is a committee draft: the comment period closed on 8 July 2026; the late October 2026 catalogue still showed stage 30.60, with edition 1 unpublished and the next stage undated <Cite id="iso-cd-25785-1" />. A parallel technical report for the United States and Canada, ANSI/A3 TR R15.108, is under development for dynamically stable industrial mobile robots including humanoids <Cite id="agility-digit-5-2026" />.
+Humanoids fall, a hazard the industrial documents were not written for. ISO/CD 25785-1, for mobile robots that balance actively, is a committee draft: comments closed on 8 July 2026, and the November 2026 catalogue still showed stage 30.60, with the next stage undated <Cite id="iso-cd-25785-1" />. ANSI/A3 TR R15.108, a parallel report for the United States and Canada, is in development for dynamically stable industrial mobile robots including humanoids <Cite id="agility-digit-5-2026" />. Outside factories, the second edition of ISO 13482 passed its final-draft ballot on 11 November 2026 <Cite id="iso-13482-revision-2026" />.
 
-Until those documents are agreed, a humanoid deployed beside people runs under a risk assessment devising its own fall risk treatment. Agility reports Digit 5 avoids people, stops or sits down under an independent safety controller, and Digit passed independent field evaluation on a customer production line against OSHA-administered safety standards <Cite id="agility-digit-5-2026" />. Brooks predicts that without new types of mechanical systems walking humanoids "will remain too unsafe to be in close proximity to real humans" <Cite id="brooks-scorecard-2026" />.
+Meanwhile, a humanoid beside people runs under a risk assessment that devises its own treatment of falls. In October 2026 South Korea's industry ministry exempted 20 Robros bipedal humanoids from fence rules written for stationary robots, on condition of risk assessments, and will use the data for future standards <Cite id="korea-humanoid-sandbox-2026" />. Their safety is disputed. Agility reports that Digit 5 avoids people, stops or sits down under an independent safety controller, and that Digit passed independent field evaluation on a customer production line against OSHA-administered safety standards <Cite id="agility-digit-5-2026" />. Brooks predicts that without new types of mechanical systems walking humanoids "will remain too unsafe to be in close proximity to real humans" <Cite id="brooks-scorecard-2026" />. In a November 2025 lawsuit, Figure's former head of product safety alleged he was fired after warning that its robots "were powerful enough to fracture a human skull"; Figure called the allegations "falsehoods" <Cite id="cnbc-figure-whistleblower-2025" />.
 
-OSHA's technical manual chapter on industrial robots covers safeguarding devices, the teach-pendant hazard and lockout and tagout, describing accidents <Cite id="osha-otm-robots" />. NIOSH counted 41 robot-related workplace fatalities in the United States from 1992 to 2017. Most involved stationary robots (83%) striking the worker under their own power (78%), often during maintenance <Cite id="layne-robot-fatalities-2023" />.
+Past harm came mostly from fixed robots. NIOSH counted 41 robot-related workplace fatalities in the United States from 1992 to 2017; most involved stationary robots (83%) striking the worker under their own power (78%), often during maintenance <Cite id="layne-robot-fatalities-2023" />. OSHA's technical manual covers the matching safeguards: safeguarding devices, the teach-pendant hazard, and lockout and tagout <Cite id="osha-otm-robots" />.
 
 <span id="why-a-learned-policy-cannot-be-certified" />
 ## Certification needs a specification beyond the policy weights
 
-Safety integrity levels and performance levels are assigned to safety functions <Cite id="iso-13849-1-2023" />. Both presume a verifiable specification of the function's requirements, and a development process avoiding systematic faults, design errors redundant hardware cannot remove.
+Safety integrity and performance levels are assigned to safety functions <Cite id="iso-13849-1-2023" />, and both presume a verifiable specification of the function's requirements, plus a development process that avoids systematic faults, the design errors that redundant hardware cannot remove. A network's weights state neither which behaviors must be excluded nor how such faults were prevented.
 
-Policy weights alone do not state which behaviours must be excluded or document how systematic faults were prevented. Luckcuck and colleagues find testing and simulation insufficient evidence for certifying autonomous robots <Cite id="luckcuck-formal-2019" />. Kalra and Paddock calculate existing fleets would need tens and sometimes hundreds of years of driving to demonstrate autonomous-vehicle reliability <Cite id="kalra-paddock-2016" />, and [deployment numbers](/frontier/reliability-gap/) show the same distance.
-
-Neural-network properties are checkable in restricted settings. Reluplex extends the simplex method to ReLU activations and demonstrated property verification on prototype ACAS Xu aircraft collision-avoidance networks <Cite id="reluplex-2017" />.
+Testing cannot fill the gap. Luckcuck and colleagues find testing and simulation insufficient evidence for certifying autonomous robots <Cite id="luckcuck-formal-2019" />, and Kalra and Paddock calculated that existing fleets would need tens and sometimes hundreds of years of driving to demonstrate autonomous-vehicle reliability <Cite id="kalra-paddock-2016" />; [deployment numbers](/frontier/reliability-gap/) show the same distance. Proof works only in restricted settings: Reluplex extends the simplex method to ReLU networks and verified properties of prototype ACAS Xu aircraft collision-avoidance networks <Cite id="reluplex-2017" />.
 
 <span id="the-pattern-a-verifiable-layer-wrapping-an-unverifiable-one" />
 ### A verifiable safety filter can wrap an unverifiable policy
 
-Shipped systems put a simple, verifiable mechanism between the black-box policy and actuators, with override authority. ISO/IEC TR 5469 (2024) names this use: non-AI safety related functions that ensure safety for AI-controlled equipment <Cite id="iso-iec-tr-5469-2024" />.
+Shipped systems therefore put a simple, verifiable mechanism between the black-box policy and the actuators, with authority to override it. ISO/IEC TR 5469 (2024) names this use: non-AI safety related functions that ensure safety for AI-controlled equipment <Cite id="iso-iec-tr-5469-2024" />.
 
-The formal instance is the safety filter. A <Term id="control-barrier-function">control barrier function</Term> defines a set the system must stay inside and turns that set's forward invariance into a constraint enforced on commanded input each step <Cite id="ames-cbf-2019" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter modifying any source's proposed input as little as necessary <Cite id="wabersich-safety-filters-2023" />.
-
-Mechanisms vary with the specification. Ames and colleagues combine barrier constraints with Lyapunov performance objectives in a quadratic program <Cite id="cbf-qp-2016" />. Predictive filters instead check proposed inputs through model predictive control with state- and input-dependent uncertainty <Cite id="predictive-safety-filter-2018" />. A temporal-logic shield can restrict available actions or correct one that violates its specification <Cite id="shielding-2017" />.
-
-Runtime assurance can switch controllers. Neural Simplex transfers control to a baseline when the neural controller proposes a potentially unsafe input, adding retraining and return to the advanced controller <Cite id="neural-simplex-2019" />.
-
-Learning barriers still requires assumptions. Robey and colleagues learn one from safe expert trajectories for a known control-affine dynamical system, with guarantees under specified smoothness conditions <Cite id="learn-cbf-2020" />. CPO instead targets near-constraint satisfaction during policy optimization and tests safety-motivated constraints in simulated locomotion <Cite id="constrained-policy-2017" />.
+The formal version is the safety filter. A <Term id="control-barrier-function">control barrier function</Term> defines a set of states the system must stay inside and, at each step, turns staying inside it into a constraint on the commanded input <Cite id="ames-cbf-2019" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that modifies any source's proposed input as little as necessary <Cite id="wabersich-safety-filters-2023" />. Variants intervene differently: through an optimization that balances barrier constraints against performance <Cite id="cbf-qp-2016" />, predictive checks of proposed inputs <Cite id="predictive-safety-filter-2018" />, temporal-logic shields <Cite id="shielding-2017" />, a switch to a baseline controller <Cite id="neural-simplex-2019" />, barriers learned from safe expert trajectories <Cite id="learn-cbf-2020" /> or constraints during policy training <Cite id="constrained-policy-2017" />.
 
 <SafetyFilterFence className="my-6" />
 
-In 2026 the pattern reached vision-language-action policies. VLPSA wraps π0.5 in a full-body CBF-QP safety filter without retraining; on SafeLIBERO it raised collision avoidance from 23.1% to 91.2% while surpassing the base policy's task success <Cite id="vlpsa-2026" />.
+In 2026 the pattern reached vision-language-action policies. VLPSA wraps π0.5 in a full-body barrier-function safety filter without retraining, and on SafeLIBERO it raised collision avoidance from 23.1% to 91.2% while surpassing the base policy's task success <Cite id="vlpsa-2026" />. CarryOn screens a frozen VLA's actions for predicted hazardous contact and cut the violation rate of an already safety-finetuned VLA from 52.6% to 6.1% <Cite id="carryon-harness-2026" />.
 
 ### Barrier functions now reach slender robots, and industrial limiters remain the norm
 
-Barrier functions are being adapted to bodies rigid-arm controllers handle poorly. In September 2026, Zijian Cai, Daniela Rus, Cecilia Laschi and colleagues weighted control barrier functions along a slender hyper-redundant robot to enforce obstacle constraints while correcting tracking errors from uneven loading. On a circular path-following task with obstacles, fixed weights cut the unweighted method's root-mean-square tracking error by up to 59.6% in simulation and 87.7% in physical experiments <Cite id="wcbf-hyper-redundant-2026" />.
+Barrier functions are reaching bodies that rigid-arm controllers handle poorly. In September 2026 a team including Daniela Rus and Cecilia Laschi weighted them along a slender, hyper-redundant robot to avoid obstacles while correcting tracking errors from uneven loading, cutting the unweighted method's tracking error by up to 59.6% in simulation and 87.7% in physical experiments <Cite id="wcbf-hyper-redundant-2026" />.
 
 <Image id="wcbf-hyper-redundant-robot-2026" />
 
-Industry deploys a cruder version far more widely: actuators limit force, drives limit velocity and safety controllers limit workspace. Those standards can rate these mechanisms, whatever generated the trajectory. Guardrails inside a model are no substitute: RoboPAIR jailbroke LLM-controlled robots, often with 100% attack success, including a deployed Unitree Go2 <Cite id="robopair-2024" />.
+Industry deploys a cruder version far more widely: actuators limit force, drives limit velocity and safety controllers limit workspace, and the standards can rate these mechanisms whatever generated the trajectory. Guardrails inside a model are no substitute. RoboPAIR jailbroke robots controlled by language models, often with 100% attack success, including a deployed Unitree Go2 <Cite id="robopair-2024" />.
 
 <span id="the-assurance-case-for-what-testing-cannot-reach" />
 ### A safety case argues for what testing cannot show
 
-What the wrapper leaves over gets a <Term id="safety-case">safety case</Term>: a structured, documented argument that a system is acceptably safe in a stated environment, with evidence for each step. UL 4600, at edition 3 from March 2023, applies it to autonomous products <Cite id="ul-4600-2023" />. The Goal Structuring Notation community standard, version 3, supplies the usual notation, decomposing a top-level goal into subgoals each resting on cited evidence <Cite id="gsn-standard-v3" />. For ML components, AMLAS supplies safety case patterns and an evidence-generation process <Cite id="amlas-2021" />.
+What the wrapper cannot cover goes into a <Term id="safety-case">safety case</Term>: a structured, documented argument that a system is acceptably safe in a stated environment, with evidence for each step. UL 4600, at edition 3 from March 2023, applies it to autonomous products <Cite id="ul-4600-2023" />. The Goal Structuring Notation standard, version 3, supplies the usual notation, breaking a top-level goal into subgoals that each rest on cited evidence <Cite id="gsn-standard-v3" />, and AMLAS supplies safety-case patterns and an evidence-generation process for machine-learning components <Cite id="amlas-2021" />.
 
-An argument built to conclude safety usually does; Koopman argues that "safe enough" means more than crashes divided by miles <Cite id="koopman-safe-enough-2026" />. Shalev-Shwartz, Shammah and Shashua proposed the alternative, a checkable formal rule set, as responsibility-sensitive safety <Cite id="rss-2017" />. Robotics is inheriting that decade-long [autonomous vehicles](/adjacent/autonomous-vehicles/) argument late.
+An argument built to conclude safety usually does. Philip Koopman (2026) argues that "safe enough" means more than crashes divided by miles <Cite id="koopman-safe-enough-2026" />, and Shalev-Shwartz, Shammah and Shashua proposed the alternative of a checkable formal rule set, responsibility-sensitive safety, in 2017 <Cite id="rss-2017" />. Robotics is inheriting that decade-long [autonomous vehicles](/adjacent/autonomous-vehicles/) argument late.
 
 <span id="the-machine-learning-half-of-the-wrapper" />
 ## Conformal prediction and monitors tell a learned system when to stop or ask
 
-<Term id="conformal-prediction">Conformal prediction</Term> turns any model's raw output into a prediction set with a guaranteed coverage rate under exchangeability. Vovk, Gammerman and Shafer built the framework <Cite id="vovk-conformal-2022" />; Angelopoulos and Bates's tutorial carried it into general machine-learning practice <Cite id="angelopoulos-conformal-2021" />. In KnowNo, Ren and colleagues calibrate a language-model planner conformally so the robot requests human help when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id="knowno-2023" />.
+<Term id="conformal-prediction">Conformal prediction</Term> turns any model's raw output into a set of candidate answers that contains the right one at a guaranteed rate, provided new data are exchangeable with the calibration data. Vovk, Gammerman and Shafer built the framework <Cite id="vovk-conformal-2022" />; Angelopoulos and Bates's tutorial carried it into general machine-learning practice <Cite id="angelopoulos-conformal-2021" />. In KnowNo, Ren and colleagues calibrate a language-model planner this way, so the robot asks a person for help when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id="knowno-2023" />.
 
-The guarantee depends on what is bounded. Conformal Risk Control targets the expected value of a monotone loss <Cite id="conformal-risk-2022" />. Risk-controlling prediction sets use held-out calibration to bound expected loss at a chosen level <Cite id="risk-prediction-sets-2021" />. Adaptive conformal inference tracks coverage over long periods as the data distribution changes <Cite id="adaptive-conformal-2021" />. These are aggregate statistical targets; none means every individual decision is correct.
+Variants bound different quantities: the expected value of a monotone loss <Cite id="conformal-risk-2022" />, expected loss at a chosen level using held-out calibration <Cite id="risk-prediction-sets-2021" />, or coverage over long periods as the data distribution changes <Cite id="adaptive-conformal-2021" />. These are aggregate targets; none means every individual decision is correct.
 
 <Image id="knowno-ask-for-help-2023" />
 
-<Term id="out-of-distribution-detection">Out-of-distribution detection</Term> asks whether the observation resembles anything the policy was trained on. Sinha and colleagues run a fast anomaly detector on the live observation stream to trigger a reactive fallback while slower reasoning catches up <Cite id="sinha-anomaly-2024" />. Runtime monitoring generalises both: Farid and colleagues detect trajectory-predictor failures by their effect on the planner, with guarantees on false-positive and false-negative rates <Cite id="farid-failure-2022" />.
+<Term id="out-of-distribution-detection">Out-of-distribution detection</Term> asks whether an observation resembles anything the policy was trained on. Sinha and colleagues run a fast anomaly detector on the live observation stream to trigger a reactive fallback while slower reasoning catches up <Cite id="sinha-anomaly-2024" />, and Farid and colleagues detect trajectory-predictor failures by their effect on the planner, with guarantees on false-positive and false-negative rates <Cite id="farid-failure-2022" />. Rejecting an input needs a decision rule: SelectiveNet learns prediction and rejection together <Cite id="selectivenet-2019" />, and energy-based detection scores inputs with an energy function, avoiding the overconfidence of softmax scores on unfamiliar data <Cite id="energy-ood-2020" />.
 
-Input rejection requires a decision rule. SelectiveNet learns prediction and rejection jointly <Cite id="selectivenet-2019" />. Energy-based out-of-distribution detection instead scores classifier inputs with an energy function, addressing softmax scores' overconfidence on unfamiliar data <Cite id="energy-ood-2020" />.
-
-ASIMOV benchmarks semantic safety in robotics agents, from payload and reach limits to judging from stereo images whether a person is close enough to require a stop <Cite id="asimov-agentic-2026" />. Gemini Robotics ER 2, in public preview, reports 97.9% safety-instruction-following accuracy and 93.0% on 1 m human proximity <Cite id="gemini-robotics-er2-2026" />.
+Google DeepMind's ASIMOV benchmarks semantic safety in robot agents, from payload and reach limits to judging from stereo images whether a person is close enough to require a stop <Cite id="asimov-agentic-2026" />. Gemini Robotics ER 2 reports 97.9% accuracy at following safety instructions and 93.0% on 1 m human proximity <Cite id="gemini-robotics-er2-2026" />. For Gemini Robotics 2.5 (November 2026), DeepMind reports that safety guidance at inference time raised safe task completion by 33% around obstacles and 43% around people, and that Gemini 4 Argon resisted 99.5% of disguised unsafe requests on its new ASIMOV-Jailbreak benchmark, against 82% for Gemini Robotics ER 2 <Cite id="gemini-robotics-2-5-2026" />.
 
 <span id="regulation-catches-up" />
 ## EU rules for learned safety components apply from January 2027
 
-From 20 January 2027, the EU Machinery Regulation lists "safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions" in Annex I Part A. Its recitals call for third-party conformity assessment of such components <Cite id="eu-machinery-regulation-2023" />. The AI Act's rules for high-risk AI systems embedded in the regulated products of its Annex I apply from 2 August 2028, after the AI Omnibus extended the transition <Cite id="eu-ai-act-framework-2026" />.
+From 20 January 2027, the EU Machinery Regulation lists "safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions" in Annex I Part A, and its recitals call for third-party conformity assessment of such components <Cite id="eu-machinery-regulation-2023" />. The AI Act's rules for high-risk AI systems embedded in regulated products apply from 2 August 2028 <Cite id="eu-ai-act-framework-2026" />. The Digital Omnibus on AI, in force since 27 July 2026, moved machinery into the AI Act's sectoral track: the Commission must amend the Machinery Regulation's essential requirements by delegated acts that apply by 2 August 2028, and AI used only for convenience or performance optimization does not count as a safety component <Cite id="eu-ai-omnibus-2026" />.
 
 <SafetyRulesTimeline className="my-6" />
 
 <span id="what-would-actually-close-this" />
 ## Three missing pieces block certification of learned systems
 
-First is a specification language expressing a manipulation task's safety requirement precisely enough to check <Cite id="luckcuck-formal-2019" />. Second is a humanoid standard past committee draft, giving fall risk an agreed treatment <Cite id="iso-cd-25785-1" />. Third is a published assurance case for a deployed learned system, complete enough for outsiders to dispute a specific step <Cite id="amlas-2021" />.
+First is a specification language that states a manipulation task's safety requirement precisely enough to check <Cite id="luckcuck-formal-2019" />. Second is a humanoid standard past committee draft, giving falls an agreed treatment <Cite id="iso-cd-25785-1" />. Third is a published assurance case for a deployed learned system, complete enough for outsiders to dispute a specific step <Cite id="amlas-2021" />.
 
-An October 2026 position paper by researchers at Scuola Superiore Sant'Anna, MIT CSAIL and four other universities asks for the same kind of evidence on the interaction's human side. Niccolò Pagliarani, Maximilian Stölzle, Daniela Rus, Matteo Cianchetti and colleagues argue claims of robot trustworthiness around people should require evidence for three properties in the intended setting: bounded physical risk, behavior people can anticipate, and expectations matching the robot's demonstrated capabilities and limitations. They argue these should guide design and evaluation from the outset; the paper offers candidate evaluation criteria as a research agenda, without new measurements <Cite id="trustworthy-physical-ai-2026" />.
+An October 2026 position paper by Niccolò Pagliarani, Daniela Rus and colleagues argues that claims of robot trustworthiness should rest on evidence of bounded physical risk, behavior people can anticipate, and expectations that match the robot's demonstrated abilities; it proposes evaluation criteria without new measurements <Cite id="trustworthy-physical-ai-2026" />.

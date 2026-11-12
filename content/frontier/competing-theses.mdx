@@ -1,11 +1,11 @@
 ---
 title: "Competing Theses"
-description: "The six live bets on how robot intelligence gets built: end-to-end VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation as a bridge, and the humanoid form factor, each with its falsification criterion."
+description: "Six live bets on building robot intelligence: VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation and humanoids, each with a refuting test."
 domain: frontier
 slug: competing-theses
 order: 4
 status: published
-lastReviewed: "2026-10-26"
+lastReviewed: "2026-11-12"
 citations:
   - brooks-better-lesson-2019
   - sutton-bitter-lesson-2019
@@ -15,7 +15,6 @@ citations:
   - karcini-position-2026
   - bessemer-robotics-2026
   - egoscale-2026
-  - pi05-2025
   - pi07-2026
   - pi07-blog-2026
   - pistar06-2025
@@ -40,6 +39,17 @@ citations:
   - generalist-gen1-2026
   - amazon-million-robots-2025
   - adcock-figure-livestream-2026
+  - fan-robotics-end-game-2026
+  - brooks-does-until-2026
+  - robojepa-2026
+  - hwm-2026
+  - gr00t-2-2026
+  - gemini-robotics-2-5-2026
+  - collective-experience-learning-2026
+  - pi-api-beta-2026
+  - agility-nasdaq-listing-2026
+  - tesla-q3-2026-call
+  - forbes-adcock-figure-2026
 seeAlso:
   - "manipulation/vla-models"
   - "world-models/generative-video"
@@ -50,7 +60,7 @@ import { HelixClockwork } from '@/components/interactive/helix-clockwork';
 
 import { ThesisExplorer } from '@/components/interactive/thesis-explorer';
 
-Competing theses are rival bets on building robot intelligence: end-to-end VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation as a bridge, and the humanoid form factor. The bets are expensive: Figure committed \$3.5B of compute to training Helix <Cite id="helix-2-5-2026" />; Physical Intelligence staked its program, from π0 to π0.7, on scaling <Cite id="pi07-2026" />.
+Competing theses are the rival bets on how to build general robot intelligence, from scaling one model to building humanoids. The bets are expensive: Figure committed \$3.5B of compute to training Helix <Cite id="helix-2-5-2026" />.
 
 <Image id="unitree-g1-stage-japan-mobility-2025" />
 
@@ -58,79 +68,73 @@ Competing theses are rival bets on building robot intelligence: end-to-end VLA s
   <Stat label="live theses" value="6" note="each with a kill condition" accent />
   <Stat label="Figure compute" value="$3.5B" note="committed to training Helix" />
   <Stat label="scaling fit" value="R²=0.9983" note="EgoScale law, validation loss" />
-  <Stat label="settled" value="0" note="of the six, as of Oct 2026" />
+  <Stat label="settled" value="0" note="of the six, as of Nov 2026" />
 </div>
 
 <span id="the-six-theses" />
 ## The theses can coexist, and π0.7 already combines several
 
-Each card states one thesis, its bet and the result that would prove it wrong. Try "Just make it bigger", then "Let the robot imagine first", to read the evidence on both sides <Cite id="pi07-2026" />.
+The theses are not exclusive: π0.7 is an end-to-end <Term id="vision-language-action-model">vision-language-action model</Term> that reasons in steps, can take subgoal images from a lightweight <Term id="world-model">world model</Term>, and absorbs experience from π*0.6 specialists trained with reinforcement learning <Cite id="pi07-2026" />.
 
 <ThesisExplorer className="my-6 wide-measure" />
 
-The theses can coexist: π0.7 is an end-to-end <Term id="vision-language-action-model">vision-language-action model</Term> that reasons hierarchically, takes optional subgoal-image prompts from a separate <Term id="world-model">world model</Term> initialized from BAGEL, which the paper describes as lightweight, and distills experience from RL-trained π*0.6 specialists <Cite id="pi07-2026" />.
-
 <span id="end-to-end-vla-scaling" />
-## Scaling has early laws, such as EgoScale's log-linear fit to validation loss
+## Scaling has early laws, mostly on stand-in measures
 
-The claim: keep the architecture general, scale data and parameters, and generalist robot intelligence follows, as with language. Rich Sutton's 2019 essay The Bitter Lesson frames it: general methods using computation ultimately win <Cite id="sutton-bitter-lesson-2019" />. Brooks answered six days later, in a reply that paraphrases Sutton and describes itself, including its closing comment, as "seventy six words shorter than Sutton's post" <Cite id="brooks-better-lesson-2019" />. Bessemer's investor analysis argues "scaling laws are emerging" and that capital is the moat <Cite id="bessemer-robotics-2026" /> ([VLA models](/manipulation/vla-models/)).
+The scaling thesis: keep the model general, grow data and size, and general robot intelligence follows, as it did for language. Rich Sutton's 2019 essay The Bitter Lesson frames it: general methods that use computation ultimately win <Cite id="sutton-bitter-lesson-2019" />. Physical Intelligence staked its program, from π0 to π0.7, on that bet <Cite id="pi07-2026" />, and Bessemer (2026) argues "scaling laws are emerging" and that capital is the moat <Cite id="bessemer-robotics-2026" /> ([VLA models](/manipulation/vla-models/)).
 
-EgoScale fit a log-linear <Term id="scaling-law">scaling law</Term> (R² = 0.9983) from human-video pretraining hours to validation loss, reported to correlate strongly with downstream robot performance <Cite id="egoscale-2026" />. Its full recipe lifts average success by 54% over a no-pretraining baseline on a 22-DoF hand <Cite id="egoscale-2026" />. Figure reports a human-to-humanoid transfer law on robot-action prediction, with Index pretraining lifting zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />. Lin et al. found single-task success following "a roughly power-law relationship with the number of environments and objects" <Cite id="lin-data-scaling-laws-2024" />. In entirely new homes, π0.5 cleaned kitchens and bedrooms <Cite id="pi05-2025" />.
+EgoScale (2026) found validation loss, the model's error on held-out data, falling on a <Term id="scaling-law">log-linear line</Term> (R² = 0.9983) as human-video pretraining hours grew, and tracking robot performance; its full recipe lifted average success 54% over no pretraining on a 22-degree-of-freedom hand <Cite id="egoscale-2026" />. With robot data held fixed, NVIDIA's GR00T 2 (November 2026) raised real-robot success from 18% to 41% by adding its full human-video set, with no leveling off at the largest scale tested <Cite id="gr00t-2-2026" />. Figure reports Index pretraining lifting zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />, and Lin et al. (2024) found single-task success following "a roughly power-law relationship with the number of environments and objects" <Cite id="lin-data-scaling-laws-2024" />.
 
 ## Brooks and Goldberg cite engineered priors and a 100,000-year data gap
 
-Brooks answered Sutton directly: image-labeling systems use a human-designed convolutional front end for translational invariance <Cite id="brooks-better-lesson-2019" />. His 2025 essay extends this to speech preprocessing from telephone engineering, listing FFTs and Mel filter banks, noting implementations use different selections. He also acknowledges leaving as much as possible to learning was critical to the gains in speech and image tasks. Vision-only training, he adds, gives robots no force channel ([dexterity](/frontier/dexterity/)) <Cite id="brooks-dexterity-2025" />.
+Rodney Brooks replied to The Bitter Lesson six days later <Cite id="brooks-better-lesson-2019" />. Learning, he argued, leans on human-designed structure, such as the convolutional front end that lets image labelers recognize an object wherever it sits. His 2025 essay extends the point to speech front ends, while granting that leaving as much as possible to learning was critical to those gains, and adds that training on video gives robots no sense of force ([dexterity](/frontier/dexterity/)) <Cite id="brooks-dexterity-2025" />. In November 2026 he wrote that current machine learning techniques "may run out of steam. When? We do not know" <Cite id="brooks-does-until-2026" />.
 
-On compute, Brooks notes "self driving cars require about 2,500 Watts of power for computation", while "a human brain only requires 20 Watts" <Cite id="brooks-better-lesson-2019" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)).
-
-Ken Goldberg describes a 100,000-year gap in data and argues good old-fashioned engineering can bootstrap robots' data collection <Cite id="goldberg-data-gap-2025" />. Karcini and co-authors argue policy scaling misses the interfaces that turn physical data into supervision <Cite id="karcini-position-2026" />. The kill condition is a plateau in real-world success despite 10x more data with no architectural change; the laws currently govern a proxy loss or a single task ([generalization](/frontier/generalization/)).
+Ken Goldberg (2025) describes a 100,000-year gap in data and argues good old-fashioned engineering can bootstrap robots' data collection <Cite id="goldberg-data-gap-2025" />. Karcini and co-authors (2026) argue policy scaling misses the interfaces that turn physical data into supervision <Cite id="karcini-position-2026" />. The thesis fails if real-world success plateaus despite ten times more data and no change of architecture. So far the laws govern a proxy loss, a single task or a fixed task set ([generalization](/frontier/generalization/)).
 
 <span id="a-hierarchical-planner-over-skills" />
 ## Hierarchical systems run long tasks, while single networks blur the line
 
-The claim: a vision-language model decomposes goals into subtasks; learned skills or a low-level policy execute them. SayCan (2022) had a separate LLM dispatch a fixed skill library <Cite id="saycan-2022" />; today the hierarchy sits inside the network or in a paired fast system ([hierarchical approaches](/manipulation/hierarchical/)). In Figure's Helix 02, S2 sequences behaviors from scenes and language, S1 converts perception into full-body joint targets at 200 Hz, and S0 executes at 1 kHz as the <Term id="whole-body-control">whole-body controller</Term> <Cite id="helix-02-2026" />. Google DeepMind's Gemini Robotics ER 2 plans multi-step tasks for a lower-level VLA <Cite id="gemini-robotics-er2-2026" />.
+The hierarchy thesis splits thinking from moving: a vision-language model breaks a goal into steps, and faster learned skills carry them out. SayCan (2022) had a separate language model pick from a fixed skill library <Cite id="saycan-2022" />; today the split sits inside one system as slow and fast parts ([hierarchical approaches](/manipulation/hierarchical/)). In Figure's Helix 02, S2 sequences behaviors from scenes and language, S1 turns perception into joint targets 200 times a second, and S0, the <Term id="whole-body-control">whole-body controller</Term>, executes them 1,000 times a second <Cite id="helix-02-2026" />. Google DeepMind's Gemini Robotics ER 2 plans multi-step tasks for a lower-level VLA <Cite id="gemini-robotics-er2-2026" />.
 
 <HelixClockwork className="my-6" />
 
-Supporting evidence is long-horizon behavior: Figure reports Helix 02 completed a continuous four-minute dishwasher unloading-and-reloading task without resets or human intervention, in 61 loco-manipulation actions <Cite id="helix-02-2026" />. Against it, π0.7's compositional generalization emerges from one network <Cite id="pi07-2026" />; Gemini Robotics 1.5 already "interleaves actions with a multi-level internal reasoning process" inside one VLA <Cite id="gemini-robotics-15-2025" />. SayCan's authors found their system bounded by "the range and capabilities of the underlying skills" <Cite id="saycan-2022" />. The thesis dies if a flat model with no high-level inference pass outperforms the best hierarchical system on long-horizon tasks.
+In support, Figure reports that Helix 02 unloaded and reloaded a dishwasher for four minutes without resets or human intervention <Cite id="helix-02-2026" />. In a November 2026 Mercedes-Benz pilot, DeepMind's reasoning model tracked the workflow while Gemini Robotics 2.5 controlled an Apptronik humanoid kitting parts at 96% success <Cite id="gemini-robotics-2-5-2026" />. Against the thesis, π0.7's ability to combine skills in new ways emerges from one network <Cite id="pi07-2026" />, and Gemini Robotics 1.5 already "interleaves actions with a multi-level internal reasoning process" inside one VLA <Cite id="gemini-robotics-15-2025" />. The thesis fails if a flat model with no separate planning pass beats the best hierarchical system on long tasks.
 
 <span id="world-model-based-training" />
 ## World models plan from under 62 hours of robot video but still miss contact
 
-The claim: a learned model of world evolution can replace most real-robot data: plan in it, or train the policy inside it. NVIDIA's Cosmos 3 and Meta's V-JEPA 2 are the largest such bets ([what is a world model?](/world-models/taxonomy/)). V-JEPA 2 plans zero-shot reaching, grasping and pick-and-place on Franka arms in unseen labs after post-training on less than 62 hours of unlabeled robot video <Cite id="vjepa2-2025" />. DreamZero, a world action model serving as the policy, reports over 2x better generalization to new tasks and environments than state-of-the-art VLAs <Cite id="dreamzero-2026" /> ([generative video](/world-models/generative-video/)).
+The world-model thesis: learn how the world changes, then plan or train the policy inside it instead of on most real-robot data. NVIDIA's Jim Fan argued in April 2026 that world action models, which predict video and actions together, will replace the VLA paradigm, and that robots will pass a "physical Turing test" within two to three years <Cite id="fan-robotics-end-game-2026" />. NVIDIA released GR00T 2, a world action model, that November <Cite id="gr00t-2-2026" />, and DreamZero, an earlier one, reports over 2x better generalization to new tasks and environments than leading VLAs <Cite id="dreamzero-2026" /> ([generative video](/world-models/generative-video/)).
 
-Cosmos 3 was pretrained on up to 31 trillion tokens, on clusters as large as 2,048 GB200 GPUs <span className="block" data-cosmos-source-placement="line-start"><Cite id="cosmos-3-2026" />,</span> and no world model yet predicts contact physics well enough for manipulation, where a one-millimeter error flips stick to slip. Karcini and co-authors argue world models alone cannot solve the supervision problem <Cite id="karcini-position-2026" />. It dies if world-model training fails to beat VLA scaling alone on real-world contact-rich tasks.
+Models that plan in a learned abstract space are scaling too ([what is a world model?](/world-models/taxonomy/)). V-JEPA 2 planned zero-shot pick-and-place in unseen labs after post-training on less than 62 hours of unlabeled robot video <Cite id="vjepa2-2025" />. A hierarchical version solved real pick-and-place from a goal image 70% of the time, against 0% for single-level planning <Cite id="hwm-2026" />. RoboJEPA (October 2026), trained on 12 robot embodiments, showed its prediction error following a power law in compute <Cite id="robojepa-2026" />.
+
+The gap is contact. Cosmos 3 was pretrained on up to 31 trillion tokens <span className="block" data-cosmos-source-placement="line-start"><Cite id="cosmos-3-2026" />,</span> yet no world model predicts contact physics well enough for manipulation, where a one-millimeter error turns a grip into a slip. Karcini and co-authors argue world models alone cannot solve the supervision problem <Cite id="karcini-position-2026" />. The thesis fails if world-model training does not beat VLA scaling alone on real contact-rich tasks.
 
 <span id="rl-fine-tuning-on-imitation" />
 ## RL fine-tuning reaches 90% to 100% per task, but each result is a specialist
 
-The claim: pretrain on demonstrations, then close the reliability gap through real-robot RL. HIL-SERL reached near-perfect success in 1 to 2.5 hours of training <Cite id="hil-serl-2024" />; π*0.6 with Recap more than doubled throughput and reached the 90%+ range on all tasks except diverse laundry <Cite id="pistar06-2025" />. RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks <Cite id="rl-100-2025" />. ENPIRE hands the improvement loop to coding agents, reaching 99% on dexterous tasks including pin-box organizing <Cite id="enpire-2026" /> ([RL fine-tuning](/manipulation/rl-finetuning/)).
+The RL thesis: pretrain on demonstrations, then close the reliability gap with reinforcement learning on the real robot. HIL-SERL reached near-perfect success in 1 to 2.5 hours of training <Cite id="hil-serl-2024" />, π*0.6 with Recap more than doubled throughput and reached the 90%+ range on all tasks except diverse laundry <Cite id="pistar06-2025" />, and RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks <Cite id="rl-100-2025" />. ENPIRE hands the improvement loop to coding agents and reaches 99% on dexterous tasks <Cite id="enpire-2026" /> ([RL fine-tuning](/manipulation/rl-finetuning/)). In an October 2026 preprint, 96 robots pooling their own executions raised phone packaging from 79.2% to 98.3% <Cite id="collective-experience-learning-2026" />.
 
-The evidence against concerns transfer: each result is per-task; neither paper claims transfer to unseen tasks <Cite id="pistar06-2025" /> <Cite id="rl-100-2025" />. Physical Intelligence reports one π0.7 model matches the RL-trained specialists on evaluated laundry-folding, espresso-making, and box-building tasks, sometimes exceeding their throughput, after distilling Recap experience with strategy metadata. The paper measures throughput as successful episodes per hour; inference speed is a separate measure <Cite id="pi07-2026" /> <Cite id="pi07-blog-2026" />. The recipe becomes a niche tool if RL specialists keep failing to generalize without per-task retraining.
+The evidence against is transfer: neither the π*0.6 nor the RL-100 paper claims transfer to unseen tasks <Cite id="pistar06-2025" /> <Cite id="rl-100-2025" />. In reply, one π0.7 model, after absorbing Recap experience, matches the RL-trained specialists on evaluated laundry, espresso and box-building tasks, sometimes exceeding their throughput <Cite id="pi07-2026" /> <Cite id="pi07-blog-2026" />. The recipe becomes a niche tool if RL specialists keep failing to generalize without per-task retraining.
 
 <span id="teleoperation-as-a-bridge" />
 ## Teleoperation feeds deployment data, but its share of vendor hours is unreported
 
-The claim: deploy <Term id="teleoperation">teleoperated</Term> or human-supervised robots for real work now, harvest data, and fade humans out as autonomy improves. Nucleus accordingly deploys humanoids under human supervision <Cite id="nucleus-supervised-2026" />, and 1X lets NEO owners schedule an expert for chores it does not know, "helping NEO learn" <Cite id="1x-neo-2026" />.
+The bridge thesis: put <Term id="teleoperation">teleoperated</Term> or human-supervised robots to real work now, harvest the data, and fade people out as autonomy improves. Nucleus deploys humanoids under human supervision <Cite id="nucleus-supervised-2026" />, 1X lets NEO owners schedule an expert for chores the robot does not know, "helping NEO learn" <Cite id="1x-neo-2026" />, and Physical Intelligence's October 2026 API beta is built around customers' own demonstrations <Cite id="pi-api-beta-2026" />. Recap learns from experts' teleoperated interventions <Cite id="pistar06-2025" />. Neither Agility's more than 65,000 hours of Digit operation <Cite id="agility-nasdaq-listing-2026" /> nor Figure's 1,250+ runtime hours at BMW Spartanburg <Cite id="figure-bmw-production-2025" /> is broken down by teleoperated share ([teleoperation rigs](/data-hardware/teleop-rigs/)).
 
-Recap, the π*0.6 method, learns from expert teleoperated interventions <Cite id="pistar06-2025" />, while Sergey Levine argues surrogates for real robot data usually end up "a lousy spoon with holes or an ineffective blunt fork" <Cite id="levine-sporks-2025" />. Bessemer quotes Voxel51's Brian Moore and Foxglove's Adrian Macneil on data flywheels: "better decisions, better model improvements, and better deployments faster than everyone else." Bessemer lists both companies in its portfolio <Cite id="bessemer-robotics-2026" />.
-
-Agility reports 65,000 hours of Digit production experience on an undated homepage <Cite id="agility-digit-production" />, and Figure reports 1,250+ runtime hours at BMW Spartanburg <Cite id="figure-bmw-production-2025" />; neither quantifies teleoperation's share of those hours ([teleoperation rigs](/data-hardware/teleop-rigs/)). Bessemer quotes the Zeromatter CEO, Ian Glow: "you'll never get the scale or diversity you need from teleop alone." He recommends internet data or simulators with reinforcement learning; Bessemer cautions that world models are expensive and sim-to-real manipulation remains an open research problem <Cite id="bessemer-robotics-2026" />.
-
-Egocentric human video provides cheaper data with a measured scaling law <Cite id="egoscale-2026" />. Generalist reports its base models are "trained without any robot data" and reach 99% average success with "only 1 hour of robot data" per task <Cite id="generalist-gen1-2026" />. The bridge dies if autonomous policies pass 99% success trained without any teleoperation data.
+Opponents say teleoperation cannot scale. Bessemer quotes Zeromatter CEO Ian Glow: "you'll never get the scale or diversity you need from teleop alone," and itself cautions that world models are expensive and sim-to-real manipulation remains open <Cite id="bessemer-robotics-2026" />. Sergey Levine argues surrogates for real robot data usually end up "a lousy spoon with holes or an ineffective blunt fork" <Cite id="levine-sporks-2025" />. Jim Fan expects <Term id="egocentric-video">egocentric human video</Term> to replace teleoperation <Cite id="fan-robotics-end-game-2026" />, and such video already has a measured scaling law <Cite id="egoscale-2026" />. Generalist reports its base models are "trained without any robot data" and reach 99% average success with "only 1 hour of robot data" per task <Cite id="generalist-gen1-2026" />. The bridge thesis fails if autonomous policies pass 99% success trained without any teleoperation data.
 
 <span id="humanoid-versus-task-specific" />
 ## Cost per task decides between humanoid and task-specific robots
 
-The humanoid side, backed by Figure, Tesla, 1X, Apptronik, and Unitree, bets a human body is the right interface to a world built for humans. The task-specific side, argued by Rodney Brooks, who describes his company's warehouse robots and his work at Robust.AI <Cite id="brooks-dexterity-2025" />, bets purpose-built systems win on cost and reliability for any prespecified task. Amazon has deployed its millionth robot <Cite id="amazon-million-robots-2025" />; Agility sits between the sides, deploying its Digit humanoid in narrow logistics work <Cite id="agility-digit-production" />.
+The humanoid side, backed by Figure, Tesla, 1X, Apptronik and Unitree, bets a human-shaped body is the right interface to a world built for humans. The task-specific side, argued by Rodney Brooks of Robust.AI <Cite id="brooks-dexterity-2025" />, bets purpose-built machines win on cost and reliability for any prespecified task; Amazon has deployed its millionth robot <Cite id="amazon-million-robots-2025" />. Agility sits between, with Digit in narrow logistics work <Cite id="agility-digit-production" />, and listed on Nasdaq in November 2026 with more than \$300 million in committed Digit 5 orders <Cite id="agility-nasdaq-listing-2026" />.
 
 <Image id="amazon-drive-unit-2023" />
 
-Helix 02 runs whole-body loco-manipulation <Cite id="helix-02-2026" />; Gemini Robotics 2 controls full humanoids from feet to fingertips with one model <Cite id="gemini-robotics-2-2026" />. Brooks calls plug-compatible humanoids replacing people in manual jobs at lower prices and just as well "pure fantasy thinking" within decades. He argues articulated fingers lack the robustness, force and lifetime for industrial applications, and forecasts task-specialized robots still called humanoids over the next fifteen years <Cite id="brooks-dexterity-2025" />.
+For the humanoid side, Gemini Robotics 2 controls full humanoids from feet to fingertips with one model <Cite id="gemini-robotics-2-2026" />. Commercial timelines are long: Musk expects outside Optimus deliveries around the end of 2027 <Cite id="tesla-q3-2026-call" />, and BMW told Forbes in October 2026 that no Figure robots were operating at its plant after a small test ended <Cite id="forbes-adcock-figure-2026" />. Brooks calls plug-compatible humanoids replacing people in manual jobs at lower prices and just as well "pure fantasy thinking" within decades. He argues articulated fingers lack the robustness, force and lifetime for industrial use, and forecasts task-specialized robots still called humanoids over the next fifteen years <Cite id="brooks-dexterity-2025" />.
 
-Both kill conditions measure cost per task, since the humanoid plan is to do human manual work "at lower prices and just as well" <Cite id="brooks-dexterity-2025" />. If task-specific robots keep winning in the same applications, the humanoid thesis dies; if a humanoid reaches parity across many tasks, the task-specific thesis does.
+Both kill conditions measure cost per task. If task-specific robots keep winning in the same applications, the humanoid thesis dies; if a humanoid reaches parity across many tasks, the task-specific thesis does.
 
 <span id="what-would-settle-it" />
 ## Six observations would settle the theses, and GEN-1 nearly meets one
 
-Each card's "wrong if" line is an observation to watch, from [real-world success](/data-hardware/evaluation-crisis/) flat after a 10x data increase to humanoid cost-per-task parity. GEN-1 nearly meets the teleoperation test, but uses 1 hour of robot data per task <Cite id="generalist-gen1-2026" />, and [the bear case](/frontier/bear-case/) tracks each observation on its watchlist.
+The observations run from [real-world success](/data-hardware/evaluation-crisis/) flat after a tenfold data increase to humanoid cost-per-task parity. GEN-1 nearly meets the teleoperation test, though it still uses 1 hour of robot data per task <Cite id="generalist-gen1-2026" />; [the bear case](/frontier/bear-case/) tracks all six on its watchlist.
