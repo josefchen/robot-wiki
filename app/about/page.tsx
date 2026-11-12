@@ -55,9 +55,9 @@ export default function AboutPage() {
           Robot Wiki covers modern robot learning, from{' '}
           {DOMAIN_META.manipulation.name} and{' '}
           {DOMAIN_META['world-models'].name} to the{' '}
-          {DOMAIN_META.classical.name} underneath. The industry appears as
-          data in the Market Map; company news and investment advice are out
-          of scope.
+          {DOMAIN_META.classical.name} underneath. The Market Map covers the
+          industry as data; the wiki carries no company news or investment
+          advice.
         </p>
       </header>
 
@@ -66,9 +66,8 @@ export default function AboutPage() {
           Reading the wiki
         </h2>
         <p className={prose}>
-          Articles stand alone, but inside a domain the reading order is the
-          contents order: later articles assume the earlier ones. Start
-          with{' '}
+          Each article stands alone, but within a domain later articles
+          assume the earlier ones. Start with{' '}
           <IntentLink
             data-brand-control-id="control:link-focus"
             href="/manipulation/action-chunking/"
@@ -79,10 +78,10 @@ export default function AboutPage() {
           , which shows the format every article follows.
         </p>
         <p className={prose}>
-          The one prerequisite is fluency in machine learning. An article
-          that needs a classical result links to the article that derives it,
-          and terms are defined where they first appear and collected in
-          the{' '}
+          The one prerequisite is fluency in machine learning. Where an
+          article needs a classical result, it links to the article that
+          derives it. Terms are defined where they first appear and collected
+          in the{' '}
           <IntentLink
             data-brand-control-id="control:link-focus"
             href="/glossary/"
@@ -93,13 +92,12 @@ export default function AboutPage() {
           .
         </p>
         <p className={prose}>
-          Technical claims trace to cited evidence. A citation chip links
-          each claim to its source, and every article ends with its
-          bibliography. Sources range from research papers to first-party
-          documentation and labelled community estimates; a citation tells
-          you where a claim comes from, and the kind of source tells you how
-          far to trust it. Where researchers disagree, the text names who
-          holds which position.
+          Technical claims trace to cited evidence. Each citation links to
+          its source, and every article ends with a reference list. Sources
+          range from research papers to company documentation and labeled
+          community estimates; the kind of source tells you how far to trust
+          a claim. Where researchers disagree, the article says who holds
+          which view.
         </p>
       </section>
 
@@ -143,7 +141,7 @@ export default function AboutPage() {
       </section>
 
       <p className="mt-12 font-sans text-sm leading-relaxed text-text-dim">
-        Corrections follow the{' '}
+        To report an error, see the{' '}
         <Link
           data-brand-control-id="control:link-focus"
           href="/editorial-policy/"
@@ -151,7 +149,7 @@ export default function AboutPage() {
         >
           editorial policy
         </Link>
-        . The author and every image licence are listed under{' '}
+        . The author and every image license are listed in the{' '}
         <Link
           data-brand-control-id="control:link-focus"
           href="/credits/"

@@ -51,8 +51,8 @@ export default function GlossaryPage() {
           Glossary
         </h1>
         <p className="page-lead mt-[30px]">
-          Each definition is written from a cited primary source. In an
-          article, hover over or focus a marked term to see it.
+          Each definition cites its sources. In an article, hover over or
+          focus a marked term to read its definition.
         </p>
         <p className="meta-line mt-6">
           <span className="font-mono tabular-nums">{terms.length}</span> terms
