@@ -1,7 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { EXPLAINER_ORDER } from '../../components/explainers/catalog';
+import { DEVICE_REGISTRATION } from '../../components/ui/brand-device';
 import { HOME_FEATURED_PICKS, HOME_FEATURED_SCENE } from '../../data/home-featured';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '../../data/modules';
 import { FEATURED_DEK_MAX_WORDS } from '../../lib/featured-article';
@@ -415,11 +416,7 @@ test.describe('home front page', () => {
     const room = 5 * UPDATE_NOTE_MAX_WORDS - counted.notes;
     expect(counted.prose + room, `${counted.prose} words of prose, room for ${room} more in notes`).toBeLessThanOrEqual(250);
 
-    const registered = (
-      JSON.parse(
-        readFileSync(join(process.cwd(), 'contract/brand-v2-registries.json'), 'utf8'),
-      ) as { gridDevices: Array<{ id: string }> }
-    ).gridDevices.map(({ id }) => id);
+    const registered = Object.keys(DEVICE_REGISTRATION);
     const graphics = await page.evaluate((deviceIds) => {
       const mainElement = document.querySelector('main');
       if (!mainElement) return [];
