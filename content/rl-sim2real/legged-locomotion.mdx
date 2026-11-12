@@ -5,7 +5,7 @@ domain: rl-sim2real
 slug: legged-locomotion
 order: 5
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-11-12"
 citations:
   - hwangbo-2019
   - lee-2020
@@ -46,6 +46,12 @@ citations:
   - bd-atlas-ces-2026
   - walk-like-this-2026
   - rubiks-quadruped-2026
+  - bd-atlas-on-a-roll-2026
+  - agility-digit-5-2026
+  - agility-nasdaq-2026
+  - fcts-parkour-2026
+  - polymorph-2026
+  - space-quadruped-rl-2026
 seeAlso:
   - "classical/control"
   - "rl-sim2real/parallel-sim-rl"
@@ -60,80 +66,70 @@ import { TerrainCurriculum } from '@/components/interactive/terrain-curriculum';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-<Term id="legged-locomotion">Legged locomotion</Term> is walking and running robot control, the area where sim-to-real reinforcement learning reached shipping products such as Spot <Cite id="bd-spot-rl-2024" />. ETH Zurich's ANYmal line went from simulation-trained policies on hardware in 2019 <Cite id="hwangbo-2019" /> to a 2.2 km alpine hike in 2022 <Cite id="miki-2022" />.
+<Term id="legged-locomotion">Legged locomotion</Term> is the control of walking and running robots. It is where reinforcement learning in simulation reached shipping products such as Boston Dynamics' Spot <Cite id="bd-spot-rl-2024" />, and ETH Zurich's ANYmal went from simulation-trained policies on hardware in 2019 <Cite id="hwangbo-2019" /> to a 2.2 km alpine hike in 2022 <Cite id="miki-2022" />.
 
 <Image id="spot-boston-dynamics-2023" />
-
-Try "Play", then "Step forward one beat", to compare the scene's gaits <Cite id="hwangbo-2019" />.
 
 <GaitSupport className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="Flat-terrain training" value="< 4 min" note="Rudin abstract; single GPU, separate flat run" accent />
-  <Stat label="Uneven-terrain policy" value="< 20 min" note="4,096 robots; i9-11900k + RTX A6000" />
-  <Stat label="Alpine hike" value="78 min" note="Miki 2022: 2.2 km; planner 76 min" />
-  <Stat label="Sand running" value="3.03 m/s" note="Choi 2023, feet fully buried" />
+  <Stat label="Flat-terrain training" value="< 4 min" note="one GPU (Rudin and colleagues)" accent />
+  <Stat label="Uneven-terrain policy" value="< 20 min" note="4,096 simulated robots" />
+  <Stat label="Alpine hike" value="78 min" note="2.2 km; planner estimate 76 min" />
+  <Stat label="Sand running" value="3.03 m/s" note="Raibo, feet fully buried" />
 </div>
 
 ## The quadruped lineage
 
-Hwangbo and colleagues replaced simulated actuation with a learned network for ANYmal's series-elastic actuators, predicting joint torque from current and past joint-position errors and velocities; policies trained with ideal or analytical actuator models failed to take one step without falling. A separate recovery policy flipped ANYmal upright from nine tested configurations, after the authors relaxed joint-velocity constraints following the first hardware attempt <Cite id="hwangbo-2019" />.
+Each step in the quadruped line removed a piece of hand engineering. In 2019 Hwangbo and colleagues replaced the simulator's idealized motors with a neural network fitted to ANYmal's real actuators; policies trained with ideal or analytical motor models could not take one step without falling. A separate learned policy flipped ANYmal upright from nine tested positions, after the authors relaxed joint-speed limits following the first hardware attempt <Cite id="hwangbo-2019" />.
 
 <ActuatorGap className="my-6" />
 
-Lee and colleagues trained a privileged RL teacher to supervise a temporal convolutional student's actions and latent features; the student reads two seconds of <Term id="proprioception">proprioceptive</Term> history, plus the command and current state, with no terrain map. Trained on rigid procedural terrain, ANYmal-B and ANYmal-C controllers crossed mud, snow, rubble and vegetation without environment-specific tuning, though a robot commanded off a cliff will walk off it <Cite id="lee-2020" />. RMA, a base policy plus an adaptation module, deployed on A1 without any fine-tuning <Cite id="rma-2021" />; the [sim-to-real module](/rl-sim2real/sim2real-transfer) covers the distillation mechanics.
+In 2020 Lee and colleagues showed that a robot could walk blind. A teacher with privileged terrain information trained a student that reads two seconds of <Term id="proprioception">proprioceptive</Term> history and no terrain map. Trained only on rigid simulated terrain, ANYmal crossed mud, snow, rubble and vegetation, though a robot commanded off a cliff will walk off it <Cite id="lee-2020" />. RMA deployed on the A1 without any fine-tuning <Cite id="rma-2021" />; the [sim-to-real module](/rl-sim2real/sim2real-transfer) covers such training.
 
-Miki and colleagues fed elevation-map height samples and proprioception to a GRU belief encoder whose learned attention gate controls how much exteroception enters; the student imitates a privileged teacher and falls back on proprioception when sensors mislead. The Etzel hike covered 2.2 km and 120 m of climb in 78 minutes against a planner's 76, with no falls but stops to reattach a shoe and swap batteries, and the authors list possible falls at occluded cliffs or stepping stones <Cite id="miki-2022" />. Agarwal and colleagues use a front-facing depth camera and policy memory to infer terrain beneath the hind feet <Cite id="agarwal-vision-2022" />.
+Miki and colleagues added the terrain map back with a safeguard: a learned gate decides how much to trust the elevation map, so the policy falls back on body sensing when sensors mislead. The Etzel hike covered 2.2 km and 120 m of climb in 78 minutes against a planner's estimate of 76, with no falls but stops to reattach a shoe and swap batteries <Cite id="miki-2022" />. Agarwal and colleagues used one front depth camera and memory to infer the terrain under the hind feet <Cite id="agarwal-vision-2022" />.
 
-Rudin and colleagues trained flat-terrain walking in under four minutes on one workstation GPU. Their deployment policy used 4,096 ANYmal robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under twenty minutes, with a game-inspired terrain <Term id="curriculum-learning">curriculum</Term> that promotes robots crossing a tile, demotes those falling short and loops hardest-level solvers back to a random level <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="rudin-2021" /></span>. The released `legged_gym` repository (October 2021) is the Isaac Gym environment for training ANYmal on rough terrain <Cite id="legged-gym-repo-2021" />.
+Training also became fast. Rudin and colleagues trained flat-ground walking in under four minutes on one workstation GPU, and an uneven-terrain policy for 4,096 simulated ANYmals in under twenty. Their game-inspired <Term id="curriculum-learning">curriculum</Term> promotes robots that cross a tile to harder terrain and demotes those that fall short <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="rudin-2021" /></span>, and the `legged_gym` repository released the environment in October 2021 <Cite id="legged-gym-repo-2021" />. In October 2026 a quadruped trained for under 20 minutes on one consumer GPU crossed varied real terrain, including a lunar-analog facility <Cite id="space-quadruped-rl-2026" />.
 
 <TerrainCurriculum className="my-6" />
 
 <Image id="anymal-anybotics-2022" />
 
-ANYmal Parkour's high-level policy selects walking, jumping, climbing and crouching skills, crossing obstacles at up to two meters per second <Cite id="anymal-parkour-2023" />. With a cheap granular-media model during training, Choi and colleagues' Raibo ran on beach sand at 3.03 m/s with feet fully buried <Cite id="choi-2023" />.
+Agile skills followed. ANYmal Parkour chooses among walking, jumping, climbing and crouching skills, crossing obstacles at up to two meters per second <Cite id="anymal-parkour-2023" />, and Raibo, trained with a cheap model of sand, ran on a beach at 3.03 m/s with its feet fully buried <Cite id="choi-2023" />. Curricula are now generated from failures. On terrain scanned from construction sites, FCTS builds training terrain where the policy last failed, raising success on a medium course from 28.4% to 85.8% against the strongest baseline, and its policies ran on a real quadruped <Cite id="fcts-parkour-2026" />. PolyMorph trains one policy for two-, three- and four-legged robots and ran it on real quadrupeds in several configurations without per-robot retraining <Cite id="polymorph-2026" />.
 
 ## A gait is a timing pattern
 
-A gait is a footfall-timing pattern: each leg's stride phase offset and duty factor $\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id="walk-these-ways-2022" />. Push the dog and humanoid below to see why fewer feet on the ground make balance harder.
+A gait is a pattern of footfall timing: when each leg touches down relative to the others, and its duty factor, the fraction of each stride it spends on the ground. Animals of different sizes move in dynamically similar ways when their Froude number, speed squared divided by gravity times hip height, is equal <Cite id="alexander-1984" />. Walk These Ways lets an operator command a gait as three timing offsets between pairs of feet plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks, all four feet together <Cite id="walk-these-ways-2022" />.
 
 <ExplainerFigure id="upright" />
 
 <Image id="horse-in-motion-muybridge-1878" />
 
-In the MIT Cheetah 2 design, Park, Wensing and Kim plan stance time from stride length and speed, $T_{st} = L/v_d$, keep swing duration fixed, and modulate duty cycle by vertical impulse scaling. Stride length grows with speed only up to 3 m/s, so this is one controller's schedule. Roll instability ended the 6.4 m/s top-speed treadmill run, and at the highest speeds the robot partly leaned on the side wall. Minimum cost of transport, 0.47, came at 4 m/s <Cite id="park-2017-bounding" />.
-
-Margolis and colleagues report record agility for the MIT Mini Cheetah with a learned controller, sustaining speeds up to 3.9 m/s <Cite id="margolis-rapid-2022" />, and periodic reward composition yields standing, walking, hopping, running and skipping on Cassie <Cite id="siekmann-2020" />.
+Hand-designed controllers set the timing explicitly. For the MIT Cheetah 2, Park, Wensing and Kim set each foot's ground time to stride length divided by speed and kept swing time fixed. Roll instability ended its 6.4 m/s treadmill run, and its lowest cost of transport, energy per unit weight and distance, was 0.47 at 4 m/s <Cite id="park-2017-bounding" />. Learned controllers find the timing themselves: Margolis and colleagues report record agility for the Mini Cheetah, at up to 3.9 m/s <Cite id="margolis-rapid-2022" />, and rewards built from periodic terms gave Cassie standing, walking, hopping, running and skipping <Cite id="siekmann-2020" />.
 
 ## From quadrupeds to humanoids
 
-On Unitree's H1, H2O turns RGB-camera human pose estimates into real-time whole-body <Term id="teleoperation">teleoperation</Term>: it fits and <Term id="retargeting">retargets</Term> AMASS motions, filters those a privileged imitator cannot track, and trains a tracking policy with domain randomization that outputs 19 joint-position targets to a PD controller. The robot also uses motion capture for linear velocity <Cite id="h2o-2024" />.
+Humanoid control has moved from classical model-based methods to RL at simulation scale and now to generative models <Cite id="gu-humanoid-review-2026" />. Humanoids inherited the quadruped recipe and added human motion as a reference. H2O turns camera-based human pose estimates into real-time whole-body <Term id="teleoperation">teleoperation</Term> of a Unitree H1 with a tracking policy trained on <Term id="retargeting">retargeted</Term> motion-capture clips, though the robot also uses motion capture to measure its speed <Cite id="h2o-2024" />. ASAP corrects its simulator with real G1 rollouts, though its hardware comparison covers only two motions <Cite id="asap-2025" />.
 
-On the G1 with fixed wrists, ASAP trains an ankle delta-action model from real rollouts, freezes it in simulation for fine-tuning, and deploys the policy without it. Its quantitative hardware comparison against Vanilla covers only kicking and LeBron's "Silencer" <Cite id="asap-2025" />.
+A transformer reading the robot's recent sensing ran a real humanoid zero-shot <Cite id="radosavovic-2023" />. Cassie's controller, which reads both short and long histories, ran a 400-meter dash <Cite id="li-cassie-2024" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id="haarnoja-soccer-2023" />, and Hiking in the Wild maps depth images and body sensing straight to joint commands at up to 2.5 m/s <Cite id="hiking-wild-2026" />. Humanoid Parkour learns vision-based whole-body skills without motion priors <Cite id="humanoid-parkour-2024" />, and a diffusion model generating terrain-aware reference motion let a tracker cross boxes, hurdles and stairs on a G1 <Cite id="wbc-motion-gen-2026" />.
 
-A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id="radosavovic-2023" />. Cassie's dual-history controller ran a 400-meter dash <Cite id="li-cassie-2024" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id="haarnoja-soccer-2023" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id="hiking-wild-2026" />. Humanoid Parkour learns vision-based whole-body control without motion priors and selects obstacle-crossing skills autonomously under joystick steering <Cite id="humanoid-parkour-2024" />.
-
-Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it <Cite id="walk-like-this-2026" />. In simulation, a tracker trained on generated motion fell 0.001 times per minute following the diffusion output, against 1.104 for one trained on original motion capture, with larger tracking errors <Cite id="walk-like-this-2026" />. On a Unitree G1 the authors report about 4 hours of zero-shot deployment across styles without a failure <Cite id="walk-like-this-2026" />.
+Walk Like This, from Disney Research Zurich and ETH Zurich (October 2026), sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it. In simulation, a tracker trained on generated motion fell 0.001 times per minute following the diffusion output, against 1.104 for one trained on original motion capture, and on a Unitree G1 the authors report about 4 hours of zero-shot deployment across styles without a failure <Cite id="walk-like-this-2026" />.
 
 <Image id="cassie-oregon-state-2017" />
 
-Jeon and colleagues compared rewards for a simulated 18-DoF MIT Humanoid running with arms fixed and ten leg joints controlled, holding <Term id="ppo">PPO</Term>-Clip <Cite id="ppo-2017" /> and IsaacGym fixed. Ten runs per case converged to similar performance within 1,000 iterations, potential-based shaping was less sensitive across a 0.1 to 10 times weight sweep, and the practical variant set the shaping discount to 1 against PPO's 0.99, which the authors say sacrifices policy invariance <span className="max-sm:[&_[role=tooltip]]:-translate-x-[64px]"><Cite id="mit-humanoid-rewards-2023" /></span>.
+Jeon and colleagues compared reward designs for a simulated MIT Humanoid running. With <Term id="ppo">PPO</Term> <Cite id="ppo-2017" /> held fixed, ten runs per design converged to similar performance, and potential-based shaping was less sensitive to its weights, though their practical variant gives up policy invariance <span className="max-sm:[&_[role=tooltip]]:-translate-x-[64px]"><Cite id="mit-humanoid-rewards-2023" /></span>.
 
 ## Industrial adoption
 
-Boston Dynamics says Spot's earlier controller evaluated dozens of <Term id="mpc">MPC</Term> horizons with distinct step-trajectory references in under a millisecond and picked the highest-scoring output. Its 2024 account adds a learned policy, keeps the model-based controller for what it does well and drops the parallel MPC instances. Spot now falls less, the company reports, including on extremely slick or irregular surfaces, without a numerical fall rate, and a separate research architecture climbs boxes over 70 cm <Cite id="bd-spot-rl-2024" />.
+Boston Dynamics says Spot's earlier controller evaluated dozens of <Term id="mpc">model-predictive control</Term> plans in under a millisecond and picked the best. Its 2024 account adds a learned policy, keeps the model-based controller for what it does well and drops the parallel MPC instances. Spot now falls less, including on extremely slick or irregular surfaces, the company reports, without giving a fall rate. Policies are tested in simulation, then on an internal fleet running over 2,000 cumulative hours a week, and falls that simulation can reproduce are recreated for training <Cite id="bd-spot-rl-2024" />. Model-based control keeps improving too: a 2026 whole-body controller runs MuJoCo's physics inside its optimizer with few sim-to-real adjustments, tested on hardware with laboratory motion capture <Cite id="mujoco-ilqr-2026" />.
 
-Boston Dynamics benchmarks policies in simulation, then on an internal Spot robustness fleet running 24/7 for over 2,000 cumulative hours a week; falls reproducible in simulation are recreated for training or evaluation <Cite id="bd-spot-rl-2024" />.
+In March 2025 the RAI Institute described an Atlas policy that tracks retargeted human motion, each maneuver built from about 150 million simulator runs and transferred zero-shot <Cite id="rai-atlas-rl-2025" />. Boston Dynamics later said Atlas practiced "for millions of hours in simulations in parallel", with only rotary actuators, which are easier to represent in simulation <Cite id="bd-atlas-hard-work-2026" />, and ZEST moved skills learned from motion capture, video and animation onto Atlas zero-shot <Cite id="zest-2026" />. A November 2026 post describes a wheeled Atlas built as a research testbed: engineers tuned the simulated motor model to match the robot, and RL learned on its own to roll during a side dash <Cite id="bd-atlas-on-a-roll-2026" />. In August 2025 Boston Dynamics and Toyota Research Institute showed Large Behavior Models on Atlas, trained on teleoperated demonstrations from hardware and simulation and controlling the full robot 30 times a second <Cite id="bd-atlas-lbm-2025" />. The product version of Atlas was unveiled at CES on 5 January 2026, with its 2026 fleets committed to Hyundai and Google DeepMind <Cite id="bd-atlas-ces-2026" />.
 
-On 19 March 2025 the RAI Institute described an Atlas policy that tracks retargeted human motion, each maneuver built from about 150 million simulator runs and transferred zero-shot <Cite id="rai-atlas-rl-2025" />. Boston Dynamics later said Atlas practiced "for millions of hours in simulations in parallel", with only rotary actuators, easier to represent in simulation <Cite id="bd-atlas-hard-work-2026" />.
-
-In August 2025, Boston Dynamics and Toyota Research Institute reported Large Behavior Models on Atlas: a 450M-parameter diffusion transformer trained with <Term id="flow-matching">flow matching</Term> on curated teleoperated demonstrations from hardware and simulation. It controls the full robot at 30 Hz, predicting 48 actions (1.6 seconds) per inference and most often executing 24 (0.8 seconds at 1x speed), and neural policies share its control interface with an MPC-based teleoperation system <Cite id="bd-atlas-lbm-2025" />. Boston Dynamics unveiled Atlas's product version at CES on 5 January 2026 and committed its 2026 fleets to Hyundai and Google DeepMind <Cite id="bd-atlas-ces-2026" />.
-
-Agility reports Digit's whole-body control model, an LSTM with fewer than one million parameters, trains in Isaac Sim for decades of simulated time over three or four days and transfers zero-shot <Cite id="agility-wbc-2025" />. Figure reports its S0 whole-body policy, now conditioned on camera perception, traverses real-world stairs <Cite id="figure-s0-2026" />.
+Agility reports that Digit's whole-body control model, a network of fewer than one million parameters, trains in Isaac Sim for decades of simulated time over three or four days and transfers zero-shot <Cite id="agility-wbc-2025" />. Digit 5, unveiled on 15 September 2026, builds on more than 65,000 hours of operation and lifts loads up to 50 lb (22.7 kg) <Cite id="agility-digit-5-2026" />, and Agility listed on Nasdaq on 5 November 2026 <Cite id="agility-nasdaq-2026" />. Figure reports that its S0 whole-body policy, now conditioned on camera input, climbs real stairs <Cite id="figure-s0-2026" />.
 
 <span id="what-the-lineage-does-not-solve" />
 ## Limits of the lineage
 
-Contact-rich manipulation is harder to simulate: Acosta and colleagues call dynamic contact the computational bottleneck for most simulations <Cite id="acosta-2021" />, and the [locomotion-manipulation comparison](/rl-sim2real/why-rl-locomotion) explains why. Eureka's LLM-written rewards beat human experts on 83% of 29 environments <Cite id="eureka-2024" />, and DrEureka writes both reward functions and domain-randomization distributions, getting a quadruped to walk atop a yoga ball <Cite id="dreureka-2024" />.
+Contact-rich manipulation is harder to simulate: dynamic contact is the computational bottleneck of most simulations <Cite id="acosta-2021" />, and the [locomotion and manipulation comparison](/rl-sim2real/why-rl-locomotion) explains why. Language models now attempt the hand design that remains: Eureka's LLM-written rewards beat human experts on 83% of 29 environments <Cite id="eureka-2024" />, and DrEureka writes both rewards and randomization ranges, getting a quadruped to walk on a yoga ball <Cite id="dreureka-2024" />.
 
-Lukas Amiet, Marco Hutter, Cesar Cadena and colleagues at ETH Zurich (October 2026) had an ANYmal D quadruped solve a Rubik's Cube with its feet; the cube measures 0.4 m per side and weighs 4.6 kg, and the robot flips it or pins it with one foot while the other pushes a layer round <Cite id="rubiks-quadruped-2026" />. Skills trained with privileged RL and distilled into policies that read onboard depth and proprioception completed all three attempted hardware solves without intervention, each about 30 steps over 8 to 9 minutes <Cite id="rubiks-quadruped-2026" />. In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 <Cite id="rubiks-quadruped-2026" />.
+Feet can also manipulate. In October 2026 ETH Zurich researchers had an ANYmal D solve a Rubik's Cube 0.4 m on a side and weighing 4.6 kg, flipping it or pinning it with one foot while the other pushed a layer round. Skills trained with privileged RL and distilled into depth-and-proprioception policies completed all three attempted hardware solves without intervention, each about 30 steps over 8 to 9 minutes; in separate trials both flips succeeded 15 of 15 times, and the layer turns 13 and 10 of 15 <Cite id="rubiks-quadruped-2026" />.

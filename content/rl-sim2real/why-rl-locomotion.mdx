@@ -1,11 +1,11 @@
 ---
 title: "Why RL Won Locomotion but Not Manipulation"
-description: "Sim-trained RL is the default for legged locomotion but not for general manipulation. The cause is not the RL algorithm; it is that the manipulation MDP, with its per-object geometry, friction, compliance, and millimeter-accurate contact, is not cheaply simulatable."
+description: "Sim-trained RL is the default for legged locomotion but not general manipulation, because millimeter-scale, contact-rich manipulation is hard to simulate cheaply."
 domain: rl-sim2real
 slug: why-rl-locomotion
 order: 2
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-11-12"
 citations:
   - rudin-2021
   - reality-gap-survey-2026
@@ -20,7 +20,6 @@ citations:
   - radosavovic-2023
   - seo-2025
   - bd-spot-rl-2024
-  - tang-drl-survey-2025
   - diffusion-policy-2023
   - act-aloha-2023
   - bd-atlas-hard-work-2026
@@ -32,7 +31,6 @@ citations:
   - visual-dexterity-2022
   - dextrah-rgb-2024
   - automate-2024
-  - sparr-2026
   - zhao-force-grasp-2026
   - simtoolreal-2026
   - doorman-2025
@@ -42,6 +40,12 @@ citations:
   - insertanything-2026
   - insertion-world-models-2026
   - fetchman-2026
+  - bd-atlas-hand-2026
+  - dexterous-learning-survey-2026
+  - sgs-2026
+  - blind-precise-assembly-2026
+  - regrind-2026
+  - hydroshear-2026
 seeAlso:
   - "frontier/dexterity"
   - "world-models/generative-sim"
@@ -55,55 +59,55 @@ import { DemoOrSim } from '@/components/interactive/demo-or-sim';
 
 import { CubeTrials } from '@/components/interactive/cube-trials';
 
-Simulation-trained reinforcement learning (RL) made legged locomotion robust well before general manipulation, because walking is cheap to simulate and contact-rich manipulation is not. In 2021 an ANYmal quadruped learned flat-ground walking in under four minutes, and on uneven terrain in twenty, on one workstation GPU <Cite id="rudin-2021" />.
+Since 2019, <Term id="reinforcement-learning">reinforcement learning</Term> (RL) in simulation has become the standard way to teach legged robots to walk <Cite id="hwangbo-2019" />, while most robot hands still learn from human demonstrations. The difference is contact: feet meeting the ground is cheap to simulate, and fingers working an object at millimeter scale is not <Cite id="reality-gap-survey-2026" />.
 
 <Image id="anymal-x-offshore-stairs-2022" />
-
-Move the "Contact-model error" slider to compare the illustrative walking and insertion tolerances <Cite id="reality-gap-survey-2026" />.
 
 <ContactGeometry className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Flat-terrain walk" value="< 4 min" note="sim RL training, one workstation GPU" accent />
   <Stat label="Uneven terrain" value="20 min" note="ANYmal, game-inspired curriculum" />
-  <Stat label="GR2 multi-finger tasks" value="32-92%" note="success spread, Gemini Robotics 2" />
+  <Stat label="Multi-finger task success" value="32 to 92%" note="Gemini Robotics 2, by task" />
   <Stat label="Sim-to-real insertion" value="60%" note="Play2Perfect, 0.5 mm clearance (CoRL 2026)" />
 </div>
 
-## The asymmetry is in the MDP
+## Walking is cheap to simulate
 
-Legged RL left simulation in 2019, when Hwangbo and colleagues transferred trained policies to ANYmal <Cite id="hwangbo-2019" />. Lee and colleagues' proprioceptive controller then held up in natural environments <Cite id="lee-2020" />, RMA ran on an A1 without fine-tuning <Cite id="rma-2021" />, and an off-policy recipe trains humanoid locomotion in 15 minutes on one RTX 4090 <Cite id="seo-2025" />.
+In 2021 an ANYmal quadruped trained with <Term id="ppo">PPO</Term> and a <Term id="curriculum-learning">curriculum</Term> of harder terrain learned to walk on flat ground in under four minutes of simulated training, and on uneven terrain in twenty, on one GPU. Its policy needed only <Term id="proprioception">proprioception</Term>, the robot's sense of its own joints, plus 108 samples of terrain height, with a learned model of its hard-to-simulate actuators <Cite id="rudin-2021" />. With <Term id="domain-randomization">randomized physics</Term>, the recipe held up on natural terrain <Cite id="lee-2020" />, carried over to an A1 without fine-tuning <Cite id="rma-2021" />, ran a real humanoid zero-shot <Cite id="radosavovic-2023" /> and by 2025 trained humanoid walking in 15 minutes on one gaming GPU <Cite id="seo-2025" />. Boston Dynamics says RL helps where conditions are easy to simulate but good strategies are hard to describe <Cite id="bd-spot-rl-2024" />.
 
-Boston Dynamics says RL helps where conditions are easy to simulate but good strategies are hard to describe <Cite id="bd-spot-rl-2024" />. Rudin and colleagues' policy observes <Term id="proprioception">proprioception</Term> and 108 terrain-height samples, and a learned network models ANYmal's series-elastic actuators, which are hard to simulate <Cite id="rudin-2021" />. Contact-rich manipulation is harder: the 2026 reality-gap survey notes most simulators assume rigid bodies while real objects deform, perfect fidelity is computationally infeasible, and simplified contact models are particularly problematic in contact-rich tasks <Cite id="reality-gap-survey-2026" />. Tang and colleagues blame physical interaction costs for RL's difficulty in [robotics](/rl-sim2real/rl-for-robotics) <Cite id="tang-drl-survey-2025" />.
-
-Locomotion papers combine <Term id="ppo">PPO</Term>, <Term id="domain-randomization">domain randomization</Term> and a <Term id="curriculum-learning">curriculum</Term>. Manipulation papers more often learn from real demonstrations needing no contact model: Diffusion Policy beat prior methods by 46.9% on average across 12 tasks <Cite id="diffusion-policy-2023" />, and ACT learned to slot a battery at 80 to 90% success from 10 minutes of [demonstrations](/manipulation/bc-foundations) <Cite id="act-aloha-2023" />.
+Manipulation is the reverse: simulators mostly assume rigid bodies, and simplified contact models are particularly problematic in contact-rich tasks <Cite id="reality-gap-survey-2026" />. So manipulation more often learns from real demonstrations, which need no contact model: Diffusion Policy beat prior methods by 46.9% on average across 12 tasks <Cite id="diffusion-policy-2023" />, and ACT learned to slot a battery at 80 to 90% success from 10 minutes of [demonstrations](/manipulation/bc-foundations) <Cite id="act-aloha-2023" />.
 
 <DemoOrSim className="my-6" />
 
-## Six properties of the two MDPs
+## Six differences between walking and grasping
+
+Walking is easier on every count.
 
 <MdpComparison className="my-6 wide-measure" />
 
-Boston Dynamics builds Atlas from rotary actuators that are "much easier to represent well in simulation" <Cite id="bd-atlas-hard-work-2026" />, and NVIDIA's SimReady asset standard specifies mass, friction, inertia, collision and articulation limits <Cite id="nvidia-simready-2026" />. Isaac Lab calls multi-fingered manipulation harder than parallel-jaw grasping <Cite id="isaac-lab-2025" />, and Lin and colleagues find sim-to-real dexterous RL still largely limited to single-hand or state-based setups <Cite id="lin-humanoid-sim2real-2025" />.
-
 ## Contact geometry is where the gap lives
 
-A gait recovers from a wrong contact force on the next step; a jammed peg cannot. Acosta and colleagues call dynamic contact the computational bottleneck for most simulations, and three tested simulators missed elastic impacts <Cite id="acosta-2021" />. Rigid-body contact models have a task-specific accuracy ceiling <Cite id="fazeli-2017" />, and Factory, simulating 1000 nut-and-bolt interactions simultaneously, still calls assembly contact a longstanding challenge <Cite id="factory-2022" />.
+A gait recovers from a wrong contact force on the next step; a jammed peg cannot. Dynamic contact is the computational bottleneck of most simulations, and three simulators tested missed elastic impacts <Cite id="acosta-2021" />. Rigid-body contact models have a task-specific accuracy ceiling <Cite id="fazeli-2017" />, and Factory simulates 1,000 nut-and-bolt interactions at once yet still calls assembly contact a longstanding challenge <Cite id="factory-2022" />. Small errors in friction, compliance or geometry compound over sustained finger contact <Cite id="regrind-2026" />, and HydroShear's authors call touch sensing the main bottleneck <Cite id="hydroshear-2026" />.
 
 <Image id="shadow-hand-lightbulb-2007" />
 
 <span id="it-is-a-tendency-not-a-law" />
 ## Exceptions in manipulation
 
-OpenAI's in-hand policy learned finger gaiting without human demonstrations <Cite id="openai-dactyl-2018" />. Its Rubik's-cube successor, trained with automatic domain randomization, solved one fixed 43-subgoal scramble in two of ten trials with a sensor cube and zero of ten with vision for face angles, on customized hardware with tuned torque limits and a calibrated hand simulation <Cite id="openai-rubiks-cube-2019" />. Visual Dexterity reorients novel shapes in about seven seconds (median) on hardware under \$5,000 <Cite id="visual-dexterity-2022" />, and DextrAH-RGB [transfers](/rl-sim2real/sim2real-transfer/) an end-to-end RGB grasping policy <Cite id="dextrah-rgb-2024" />, distilled from a privileged teacher into a stereo-RGB student for a KUKA arm and Allegro hand <Cite id="isaac-lab-2025" />.
+OpenAI's simulation-trained hand learned finger gaiting without demonstrations <Cite id="openai-dactyl-2018" />; its Rubik's-cube successor solved a fixed 43-subgoal scramble in two of ten trials, and none of ten using vision for face angles, on customized hardware <Cite id="openai-rubiks-cube-2019" />. Visual Dexterity reorients novel shapes in about seven seconds (median) on hardware under \$5,000 <Cite id="visual-dexterity-2022" />, and DextrAH-RGB [transfers](/rl-sim2real/sim2real-transfer/) a camera-based grasping policy distilled from a privileged teacher <Cite id="dextrah-rgb-2024" /> <Cite id="isaac-lab-2025" />.
 
 <CubeTrials className="my-6" />
 
-AutoMate's generalist solves 20 assemblies zero-shot <Cite id="automate-2024" />, Play2Perfect reaches 60% on 0.5 mm-clearance insertions <Cite id="play2perfect-2026" />, and InsertAnything, trained only on simulated hexagonal insertion, succeeded on 95.0% of trials across eight unseen real insertion tasks <Cite id="insertanything-2026" />. SPARR's real-world residual adds 38.4% success over zero-shot transfer <Cite id="sparr-2026" />.
+Assembly has gained most. AutoMate's generalist solves 20 assemblies and transfers zero-shot <Cite id="automate-2024" />, InsertAnything, trained only on simulated hexagonal insertion, succeeded in 95.0% of trials on eight unseen real tasks <Cite id="insertanything-2026" />, and Play2Perfect reaches 60% on 0.5 mm-clearance insertions <Cite id="play2perfect-2026" />. A 2026 policy sensing only its own joints inserted unseen pegs in 73% of real trials <Cite id="blind-precise-assembly-2026" />. Success Guided Sampling trained assembly in over a million parallel environments <Cite id="sgs-2026" />, and in simulation a world model trained on up to 90 insertion tasks reached 56% on unseen parts against 7% without one <Cite id="insertion-world-models-2026" />.
 
-Such results often need per-task engineering: zero-shot force-controlled dexterous grasping needed tactile simulation, current-to-torque calibration and actuator models <Cite id="zhao-force-grasp-2026" />. SimToolReal instead trains one policy over procedural tools, transferring zero-shot across 24 real tasks <Cite id="simtoolreal-2026" />, and Boston Dynamics says Atlas learned to lift a fridge, perceiving implicitly from proprioception <Cite id="bd-atlas-hard-work-2026" />. FetchMan refines a policy cloned from synthetic demonstrations with sparse-reward RL before zero-shot humanoid deployment <Cite id="fetchman-2026" />. DoorMan trains vision-based humanoid door interaction entirely in simulation using staged resets and teacher-student learning <Cite id="doorman-2025" />.
+Many need per-task engineering: zero-shot force-controlled grasping needed tactile simulation and calibrated actuator models <Cite id="zhao-force-grasp-2026" />. SimToolReal instead trains one policy over procedural tools and transfers zero-shot across 24 real tasks <Cite id="simtoolreal-2026" />. Humanoids learn fetching <Cite id="fetchman-2026" /> and door opening <Cite id="doorman-2025" /> in simulation.
+
+## Robots built to be simulated
+
+Boston Dynamics builds Atlas from rotary actuators "much easier to represent well in simulation" <Cite id="bd-atlas-hard-work-2026" />, and its 13-degree-of-freedom hand, uses rigid backdrivable drives so it can be simulated accurately <Cite id="bd-atlas-hand-2026" />. NVIDIA's SimReady standard specifies each asset's physical properties, such as mass and friction <Cite id="nvidia-simready-2026" />. Sim-to-real dexterous RL remains mostly limited to single-hand or state-based setups <Cite id="lin-humanoid-sim2real-2025" />.
 
 <span id="the-honest-snapshot-comes-from-the-imitation-side" />
-## Imitation-trained baselines
+## Most manipulation still learns from people
 
-Physical Intelligence reports π0.5 cleaning kitchens and bedrooms in entirely new homes <Cite id="pi05-2025" />, and TRI finds multi-task pretraining raises success and cuts new-task data needs <Cite id="tri-lbm-2025" />. DeepMind's Gemini Robotics 2 reports 32% to 92% multi-finger task success <Cite id="gemini-robotics-2-2026" />; [humanoid whole-body control](/rl-sim2real/humanoid-wbc/) has full results.
+An October 2026 survey of 113 dexterous methods found almost half use simulated RL distilled into a vision-only student, while learning from demonstrations is growing faster <Cite id="dexterous-learning-survey-2026" />. Physical Intelligence reports π0.5 cleaning kitchens and bedrooms in new homes <Cite id="pi05-2025" />, TRI finds multi-task pretraining cuts new-task data needs <Cite id="tri-lbm-2025" />, and real-robot RL from demonstrations offers a third route <Cite id="rl-100-2025" />. DeepMind's Gemini Robotics 2 reports 32% to 92% multi-finger task success <Cite id="gemini-robotics-2-2026" />; see [humanoid whole-body control](/rl-sim2real/humanoid-wbc/).
