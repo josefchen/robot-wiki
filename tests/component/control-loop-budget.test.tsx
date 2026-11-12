@@ -72,7 +72,7 @@ describe('ControlLoopBudget', () => {
     expect(container.querySelectorAll('[data-clb-beat="missed"]')).toHaveLength(2);
   });
 
-  it('defaults to the pi0 anchor: 3.0B at 52.6 ms, missing the 50 Hz loop', () => {
+  it('defaults to the π0 anchor: 3.0B at 52.6 ms, missing the 50 Hz loop', () => {
     render(<ControlLoopBudget />);
     expect(slider()).toHaveValue('3');
     expect(screen.getByTestId('latency-readout')).toHaveTextContent('52.6 ms');
@@ -87,7 +87,7 @@ describe('ControlLoopBudget', () => {
     expect(verdict()).toHaveTextContent(/closes/i);
   });
 
-  it('misses the loop badly at the pi0-L end of the slider', () => {
+  it('misses the loop badly at the π0-L end of the slider', () => {
     render(<ControlLoopBudget />);
     fireEvent.change(slider(), { target: { value: '9.1' } });
     expect(screen.getByTestId('latency-readout')).toHaveTextContent('256.4 ms');
@@ -121,13 +121,13 @@ describe('ControlLoopBudget', () => {
     const note = screen.getByTestId('model-assumption-note');
     expect(note).toHaveTextContent(/illustrative teaching model/i);
     expect(note).toHaveTextContent(/not hardware profiling/i);
-    expect(note).toHaveTextContent(/2.7B pi0/);
-    expect(note).toHaveTextContent(/hypothetical 9.1B pi0-L/);
+    expect(note).toHaveTextContent(/2.7B π0/);
+    expect(note).toHaveTextContent(/hypothetical 9.1B π0-L/);
     expect(note).toHaveTextContent(/deliberately places the first reference at 3.0B/);
     const method = screen.getByTestId('model-assumption-note').closest('[data-figure-fold="method"]')!;
-    expect(method).toHaveTextContent('pi0 reference (modeled)');
-    expect(method).toHaveTextContent('pi0-L hypothetical');
-    expect(screen.queryByText(/^pi0(?:-L)? .*measured$/i)).not.toBeInTheDocument();
+    expect(method).toHaveTextContent('π0 reference (modeled)');
+    expect(method).toHaveTextContent('π0-L hypothetical');
+    expect(screen.queryByText(/^π0(?:-L)? .*measured$/i)).not.toBeInTheDocument();
     expect(screen.getByText(/reciprocal inference rate, not robot Hz/i)).toBeInTheDocument();
   });
 

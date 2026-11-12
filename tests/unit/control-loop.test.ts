@@ -13,12 +13,12 @@ import {
 
 describe('inferenceMsOnThor', () => {
   it('anchors to the VLA-Perf Jetson Thor measurements', () => {
-    // arXiv:2602.18397: pi0 ~3B at 52.57 ms (19.0 Hz), pi0-L 9.1B at 3.9 Hz.
+    // arXiv:2602.18397: π0 ~3B at 52.57 ms (19.0 Hz), π0-L 9.1B at 3.9 Hz.
     expect(inferenceMsOnThor(3.0)).toBeCloseTo(52.57, 2);
     expect(inferenceMsOnThor(9.1)).toBeCloseTo(1000 / 3.9, 0);
   });
 
-  it('scales linearly below the pi0 anchor (memory-bound regime)', () => {
+  it('scales linearly below the π0 anchor (memory-bound regime)', () => {
     expect(inferenceMsOnThor(1.5)).toBeCloseTo(52.57 / 2, 2);
     expect(inferenceMsOnThor(0.5)).toBeCloseTo(52.57 / 6, 1);
   });
@@ -56,7 +56,7 @@ describe('50 Hz loop verdicts', () => {
     expect(missedTicks(256.41)).toBe(12);
   });
 
-  it('recovers the published 19 Hz for pi0 on Jetson Thor', () => {
+  it('recovers the published 19 Hz for π0 on Jetson Thor', () => {
     expect(effectiveHz(52.57)).toBeCloseTo(19.0, 1);
   });
 

@@ -45,7 +45,7 @@ import { MOTION_STAGE } from '@/lib/motion-tokens';
  * arm's beat. The arm wants a fresh command every fiftieth of a second;
  * each beat that passes while the brain is still working is drawn hollow
  * and grey. The two presets are the two VLA-Perf roofline predictions for
- * pi0: a data-centre H100 (6.15 ms, inside one beat) and the robot's own
+ * π0: a data-center H100 (6.15 ms, inside one beat) and the robot's own
  * Jetson Thor (52.57 ms, two beats missed). The figure opens on the robot's
  * own computer.
  *
@@ -53,7 +53,7 @@ import { MOTION_STAGE } from '@/lib/motion-tokens';
  * the other cited latencies and Reset. "How this was made" holds the
  * roofline settings, the RTC breakdown, the π0.7 training-delay setting and
  * the teaching-model disclaimers. VLA-Perf numbers are analytical
- * predictions, not measurements; its pi0 is 2.7B and pi0-L is hypothetical.
+ * predictions, not measurements; its π0 is 2.7B and π0-L is hypothetical.
  * The slider deliberately keeps the original 3.0B teaching coordinate and
  * deterministic scaling rule (lib/control-loop.ts).
  */
@@ -91,7 +91,7 @@ const COMPUTER_PRESETS: ReadonlyArray<{ id: Computer; label: string }> = [
 type ControlLoopBudgetProps = {
   /**
    * Initial teaching coordinate in billions. Defaults to the chosen 3.0B
-   * coordinate (not paper pi0 size); Reset returns to this value.
+   * coordinate (not paper π0 size); Reset returns to this value.
    */
   defaultParamsB?: number;
   className?: string;
@@ -268,7 +268,7 @@ export function ControlLoopBudget({
             />
             <SliderEnds
               low={`${MIN_PARAMS_B.toFixed(1)}B`}
-              high={`${PI0L_ANCHOR.paramsB}B, pi0-L hypothetical`}
+              high={`${PI0L_ANCHOR.paramsB}B, π0-L hypothetical`}
             />
           </ControlField>
           <InstrumentReadout>
@@ -392,25 +392,25 @@ export function ControlLoopBudget({
             with action chunks and asynchronous execution, described further down the article.
           </p>
           <p>
-            The two presets are VLA-Perf v1 roofline predictions for pi0, not measurements:{' '}
+            The two presets are VLA-Perf v1 roofline predictions for π0, not measurements:{' '}
             {formatRefMs(SERVER.ms)} on an H100 server and {formatRefMs(THOR.ms)} on a Jetson Thor,
             both at BF16/FP16 with three cameras, ten denoising steps, a chunk of 50 and no network.
-            The other cited latencies in &ldquo;Adjust more&rdquo;: the pi0.6 model card reports
+            The other cited latencies in &ldquo;Adjust more&rdquo;: the π0.6 model card reports
             63 ms per chunk on an H100 with five denoising steps; the real-time chunking paper
             measured 108.76 ms (±2.34 ms) mean total on a non-mobile robot over a wired LAN with an
             RTX 4090 at bfloat16, and 138.98 ms (±6.71 ms) on a mobile robot (model 96.89, network
-            21.20, image resize 11.22, other 9.67 ms). The pi0.7 paper trains with up to 12
+            21.20, image resize 11.22, other 9.67 ms). The π0.7 paper trains with up to 12
             simulated ticks of delay at 50 Hz, a 240 ms training-delay setting rather than a
             measured latency.
           </p>
           <p data-testid="model-assumption-note">
-            Illustrative teaching model, not hardware profiling. VLA-Perf v1 models 2.7B pi0 at 52.57 ms
-            and hypothetical 9.1B pi0-L at 3.9 Hz; this plot deliberately places the first reference at 3.0B.
+            Illustrative teaching model, not hardware profiling. VLA-Perf v1 models 2.7B π0 at 52.57 ms
+            and hypothetical 9.1B π0-L at 3.9 Hz; this plot deliberately places the first reference at 3.0B.
           </p>
           <p>
             The model-size slider follows a teaching curve on the robot&apos;s own computer: linear
-            below the pi0 reference (modeled) at {PI0_ANCHOR.paramsB.toFixed(1)}B, a power law up to
-            the pi0-L hypothetical at {PI0L_ANCHOR.paramsB}B. Neither rule is a hardware measurement or
+            below the π0 reference (modeled) at {PI0_ANCHOR.paramsB.toFixed(1)}B, a power law up to
+            the π0-L hypothetical at {PI0L_ANCHOR.paramsB}B. Neither rule is a hardware measurement or
             a size limit. The inference rate in the readout, {Math.round(hz)} answers a second at
             the current setting, is the reciprocal of one call&apos;s latency, not the rate at which
             the robot&apos;s controller runs.
@@ -440,7 +440,7 @@ export function ControlLoopBudget({
               <>
                 {onServer ? (
                   <>
-                    On the data-center computer, pi0 is predicted at {formatMs(inferenceMs)}, inside
+                    On the data-center computer, π0 is predicted at {formatMs(inferenceMs)}, inside
                     the {Math.round(CONTROL_PERIOD_MS)} ms budget of a {CONTROL_HZ} Hz loop. On the
                     robot&apos;s own computer, the
                   </>
@@ -454,8 +454,8 @@ export function ControlLoopBudget({
                   : `missing ${missedTicks(curveMs)} ${missedTicks(curveMs) === 1 ? 'deadline' : 'deadlines'} and running at ${Math.round(effectiveHz(curveMs))} Hz`}
                 ; inference stays under budget only below about{' '}
                 {(PI0_ANCHOR.paramsB * CONTROL_PERIOD_MS / PI0_ANCHOR.inferenceMs).toFixed(1)}B toy
-                parameters. The 3.0B coordinate is deliberately chosen; VLA-Perf models pi0 at 2.7B
-                and pi0-L as hypothetical. All displayed rates are reciprocal toy inference rates,
+                parameters. The 3.0B coordinate is deliberately chosen; VLA-Perf models π0 at 2.7B
+                and π0-L as hypothetical. All displayed rates are reciprocal toy inference rates,
                 not robot/controller frequencies.
               </>
             }
