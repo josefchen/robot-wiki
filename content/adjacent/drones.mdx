@@ -5,7 +5,7 @@ domain: adjacent
 slug: drones
 order: 2
 status: published
-lastReviewed: "2026-08-18"
+lastReviewed: "2026-11-12"
 citations:
   - high-speed-flight-2021
   - swift-drone-racing-2023
@@ -38,7 +38,6 @@ citations:
   - geles-marl-2026
   - spectrum-ukraine-autonomy-2026
   - zipline-safety-facts
-  - zipline-2m-2026
   - wing-walmart-2026
   - walmart-drone-1m-2026
   - faa-part-108-nprm-2025
@@ -50,6 +49,11 @@ citations:
   - neural-fly-2022
   - pampc-2018
   - learning-crash-2017
+  - walmart-zipline-300-2026
+  - zipline-raise-2026
+  - wing-fort-worth-2026
+  - bianco-narrow-gap-2026
+  - crazyflow-2026
 seeAlso:
   - "manipulation/realtime-execution"
   - "rl-sim2real/sim2real-transfer"
@@ -66,90 +70,82 @@ import { SenseAvoid } from '@/components/motion/scenes/sense-avoid';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Aerial robotics designs and controls flying robots, from delivery drones and racing quadrotors to <Term id="swarm-robotics">swarms</Term>. Flight was an early learning success because its dynamics simulate well: a reinforcement-learning system beat human world champions in its own lab in 2023 <Cite id="swift-drone-racing-2023" />, and a one-camera drone won an organiser-run race in 2025 <Cite id="monorace-2026" />.
+Aerial robotics builds and controls flying robots, from delivery drones and racing quadrotors to <Term id="swarm-robotics">swarms</Term>. Flight was an early learning success because its dynamics simulate well: a reinforcement-learning system beat human world champions in its own lab in 2023 <Cite id="swift-drone-racing-2023" />, and a one-camera drone won an organizer-run race in 2025 <Cite id="monorace-2026" />.
 
 <Image id="racing-quadrotor-minion-220-2016" />
 
-Switch the drone below between an ordinary camera, which takes about 70 ms to report what it sees, and a faster event camera, and try each swerve setting: the top safe speed moves with every choice <Cite id="falanga-latency-2019" />.
+How fast a drone can safely fly depends on how quickly its camera reports an obstacle: about 70 ms for an ordinary stereo camera, much less for an event camera <Cite id="falanga-latency-2019" />.
 
 <PerceptionLatency className="my-6" />
 
 <SenseAvoid className="my-6" />
 
-## Why flight was the first solved testbed
+## Why flight was an early success
 
-A quadrotor is a benign case for simulation. Its dynamics are differentially flat in position and heading, even with linear rotor drag <Cite id="faessler-flatness-2018" />, and standard models cover its dynamics, estimation and control <Cite id="mahony-multirotor-2012" />. The racing comparison here concerns free flight. Racing quadrotors still exceed 100 km/h and accelerate at several times gravity <Cite id="swift-drone-racing-2023" />. Make the drone in the figure below climb, fly forward and turn, and watch its four propeller speeds change.
+A quadrotor in open air touches nothing, so it is easy to simulate. Its motion is differentially flat in position and heading, even with rotor drag: a smooth path alone fixes the inputs needed to fly it <Cite id="faessler-flatness-2018" />, and standard models cover its dynamics, estimation and control <Cite id="mahony-multirotor-2012" />. The difficulty is speed: racing quadrotors exceed 100 km/h and accelerate at several times gravity <Cite id="swift-drone-racing-2023" />.
 
 <ExplainerFigure id="flying" />
 
-Simulation separates camera views from airframe motion. Flightmare decouples rendering and dynamics so they can run independently <Cite id="flightmare-2020" />. FlightGoggles can feed rendered sensor measurements to a physical vehicle flying in a motion-capture room <Cite id="flightgoggles-2019" />. AirSim combines Unreal Engine rendering with physics and hardware-in-the-loop interfaces <Cite id="airsim-2017" />.
+Drone simulators keep rendering apart from physics <Cite id="flightmare-2020" />, and some put real hardware in the loop: FlightGoggles feeds rendered images to a real vehicle flying in a motion-capture room <Cite id="flightgoggles-2019" />, and AirSim connects flight hardware to Unreal Engine rendering <Cite id="airsim-2017" />.
 
-Classical stacks plan then track a trajectory. Mellinger and Kumar generated minimum-snap trajectories for quadrotors <Cite id="mellinger-minimum-snap-2011" />, and Lee and colleagues built a geometric tracking controller on SE(3) <Cite id="lee-se3-control-2010" />. In 2021 time-optimal trajectory planning outperformed professional human pilots in racing <Cite id="foehn-time-optimal-2021" />.
+Classical stacks plan a smooth trajectory <Cite id="mellinger-minimum-snap-2011" /> and track it with a geometric controller <Cite id="lee-se3-control-2010" />. In 2021 time-optimal planning outperformed professional human pilots in racing <Cite id="foehn-time-optimal-2021" />. Learning helps where models fall short: Neural-Fly learns a shared model of aerodynamic effects offline, then adjusts a few coefficients in flight as the wind changes <Cite id="neural-fly-2022" />.
 
-Wind adaptation adds a separate learned component. Neural-Fly learns a shared aerodynamic representation offline, then adjusts a small set of mixing coefficients online as conditions change <Cite id="neural-fly-2022" />.
+## Learned controllers beat the champions
 
-The University of Zurich's Swift raced three human champions, including the world champions of two leagues, and won several races against each <Cite id="swift-drone-racing-2023" />. It trained its control policy in simulation with model-free reinforcement learning <Cite id="swift-drone-racing-2023" />. The team then fitted residual models of perception noise and unmodeled dynamics from real flight data and retrained <Cite id="swift-drone-racing-2023" />.
+The University of Zurich's Swift raced three human champions, including the world champions of two leagues, and won several races against each. It was trained in simulation by model-free reinforcement learning; the team then fitted models of perception noise and unmodeled dynamics from real flights and retrained <Cite id="swift-drone-racing-2023" />.
 
-In September 2023, Song and colleagues showed an RL controller outperformed optimal control on the same racing task <Cite id="racing-rl-vs-oc-2023" />. Optimal control splits the problem into planning and control with a trajectory as the interface, which limits the controller under unmodeled effects. RL optimizes a task-level objective directly and handles model uncertainty through domain randomization; it flew above 12 g and 108 km/h <Cite id="racing-rl-vs-oc-2023" />. A later hybrid embedded a differentiable MPC in an actor-critic framework and matched model-free RL at up to 21 m/s <Cite id="ac-mpc-2026" />.
+In September 2023 Song and colleagues showed a reinforcement-learning controller outperforming optimal control on the same racing task, above 12 g and 108 km/h. Optimal control hands a trajectory from planner to controller, which limits the controller when the model is wrong; reinforcement learning optimizes the race objective directly and copes with model error through randomized training <Cite id="racing-rl-vs-oc-2023" />. A later hybrid with a differentiable model-predictive controller inside the learner matched model-free learning at up to 21 m/s <Cite id="ac-mpc-2026" />.
 
-In April 2025 a TU Delft drone with one rolling-shutter camera and an IMU won the A2RL race in Abu Dhabi, beating all AI teams and three human world champions in a knockout tournament <Cite id="monorace-2026" />. TU Delft notes Swift raced in a lab where the researchers controlled conditions, hardware and track, while the A2RL organisers designed both hardware and track <Cite id="tudelft-a2rl-2025" />.
-
-In January 2026 world FPV champion Minchan Kim beat TII Racing's drone from a 4 to 4 tie when it struck a gate and could not recover <Cite id="a2rl-2026-final" />. Champion policies stay narrow: they often crash immediately in unseen configurations, and a 2026 method improved generalization 7.4x <Cite id="green-generalization-2026" />.
+The wins came with conditions. Swift raced in a lab where the researchers controlled conditions, hardware and track; at the April 2025 A2RL race in Abu Dhabi the organizers designed the hardware and track <Cite id="tudelft-a2rl-2025" />, and a TU Delft drone with one rolling-shutter camera and an inertial sensor beat all AI teams and three human world champions in a knockout tournament <Cite id="monorace-2026" />. In January 2026 world FPV champion Minchan Kim beat TII Racing's drone in a best-of-nine tied at 4 to 4, when the drone struck a gate in the deciding race and could not recover <Cite id="a2rl-2026-final" />. Champion policies are narrow and often crash immediately on unseen tracks; Green, Scaramuzza and colleagues reported a 7.4-fold gain in generalization in 2026 <Cite id="green-generalization-2026" />.
 
 <DroneChampionsTimeline className="my-6" />
 
 ## The autonomy stack on a flying robot
 
-One camera and one low-cost IMU are the minimum sensor suite for metric six-DoF state estimation <Cite id="vins-mono-2018" />. <Term id="visual-inertial-odometry">Visual-inertial odometry</Term> fuses image features with IMU measurements into the pose and velocity the controller needs, without GPS or motion capture <Cite id="swift-drone-racing-2023" />. The fast inner loop often runs on a microcontroller stack like PX4, which has substantially lower latency than a typical robotics Linux system <Cite id="px4-2015" />.
+A drone must know where it is without GPS. One camera and one low-cost <Term id="imu">IMU</Term>, a sensor for acceleration and rotation, are the minimum for estimating position and orientation <Cite id="vins-mono-2018" />, and <Term id="visual-inertial-odometry">visual-inertial odometry</Term> fuses the two into the pose and velocity the controller needs <Cite id="swift-drone-racing-2023" />. The fast inner loop often runs on a microcontroller autopilot such as PX4, with substantially lower latency than a typical robotics Linux system <Cite id="px4-2015" />.
 
 <Image id="dji-mavic-pro-in-flight" />
 
 ### Perception latency bounds the whole system
 
-Falanga, Kim and Scaramuzza asked how fast a drone can fly given its perception latency and available airframe acceleration <Cite id="falanga-latency-2019" />. A drone at speed $v$ sees an obstacle at sensing range $s$, and its pipeline delays that information by latency $\tau$. Avoiding the obstacle at maximum lateral acceleration $u$ takes time proportional to the square root of obstacle size over $u$. If $s/v - \tau$ is shorter than the maneuver, no controller saves the drone <Cite id="falanga-latency-2019" />.
+A drone cannot dodge what its camera has not yet reported. Falanga, Kim and Scaramuzza turned that into a speed limit: a drone at speed $v$ that sees an obstacle at range $s$ learns of it only after latency $\tau$, and if $s/v - \tau$ is shorter than the time to dodge at its maximum sideways acceleration, no controller can save it. A 70 ms stereo pipeline, the study's upper bound from a commercial camera's datasheet, supports about 19 m/s at 25 m/s² of lateral acceleration and 25 m/s at 50 m/s². An event camera reports per-pixel brightness changes without waiting for a frame; at 8 m of range it raises the ceiling by 7 percent on the least agile airframe and 22 percent at 50 m/s², 31.03 against 25.40 m/s. Against the fastest stereo camera on the most agile airframe, at 200 m/s², the gain is 7 to 12 percent <Cite id="falanga-latency-2019" />. In 2020 an event-camera quadrotor dodged fast-moving objects using only onboard sensing and computing <Cite id="falanga-event-avoidance-2020" />, and PAMPC plans motion that keeps a chosen point in view <Cite id="pampc-2018" />.
 
-A 70 ms stereo pipeline, the study's upper bound from a commercial camera's datasheet, supports about 19 m/s at 25 m/s² of lateral acceleration and 25 m/s at 50 m/s² <Cite id="falanga-latency-2019" />. An event camera reports per-pixel brightness changes without waiting for a frame. At 8 m of range its ceiling is 7 percent higher on the least agile airframe and 22 percent higher at 50 m/s², 31.03 against 25.40 m/s. The paper's own summary of 7 to 12 percent is for its most agile airframe, at 200 m/s², against the fastest stereo camera <Cite id="falanga-latency-2019" />.
-
-Motion can also preserve the information the camera needs. PAMPC optimizes a point's visibility and motion in the image while respecting the quadrotor's dynamics and input limits <Cite id="pampc-2018" />.
-
-In 2020 an event-camera quadrotor dodged fast-moving objects using only onboard sensing and computation <Cite id="falanga-event-avoidance-2020" />. Vision-language-action flight is far slower: RaceVLA averaged 1.04 m/s with a top speed of 2.02 m/s <Cite id="racevla-2025" />. On the CognitiveDrone benchmark RaceVLA succeeded 31.3 percent of the time, and CognitiveDrone-R1, which adds a reasoning module, 77.2 percent <Cite id="cognitivedrone-2025" />.
-
-Jaewoo Lee, Guanya Shi and colleagues at Seoul National University, Carnegie Mellon and elsewhere (October 2026) let a coding agent that programs an aerial manipulator run diagnostic programs in simulation, including a camera move or a test lift, before it declares a task done <Cite id="fly-by-code-2026" />. Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images <Cite id="fly-by-code-2026" />. Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials <Cite id="fly-by-code-2026" />.
+Language-driven flight is far slower. The vision-language-action model RaceVLA averaged 1.04 m/s with a top speed of 2.02 m/s <Cite id="racevla-2025" />, and on the CognitiveDrone benchmark it succeeded 31.3 percent of the time against 77.2 percent for CognitiveDrone-R1, which adds a reasoning module <Cite id="cognitivedrone-2025" />. In October 2026 Jaewoo Lee, Guanya Shi and colleagues let a coding agent for an aerial manipulator test its programs in simulation before declaring a task done, raising success on six simulated tasks to 75 percent from 31.7 percent; the programs then completed 4 of 5 real pick-and-place trials <Cite id="fly-by-code-2026" />.
 
 ### End-to-end learning skips the interfaces
 
-Real failures can supply supervision too. Learning to Fly by Crashing collected 11,500 crashes and combined the failed approaches with successful portions of the same trajectories to train a navigation policy <Cite id="learning-crash-2017" />.
+Each hand-off between sensing, mapping and planning adds delay and passes on errors, which Loquercio and colleagues argue "can be problematic for high-speed navigation in cluttered environments" <Cite id="high-speed-flight-2021" />. Swift kept a modular front end, an estimator and gate detector feeding a small network that outputs thrust and body rates <Cite id="swift-drone-racing-2023" />. Later controllers remove more of them.
 
-Deep Drone Acrobatics trained a policy entirely in simulation by imitating an optimal controller with privileged information, and flew maneuvers at up to 3 g <Cite id="deep-drone-acrobatics-2020" />. In 2021 Loquercio and colleagues used the same recipe to map noisy depth images directly to collision-free trajectories <Cite id="high-speed-flight-2021" />. With realistic simulated sensor noise, the policy transferred to forests, snow, derailed trains and collapsed buildings without additional training. The authors argue that separating sensing, mapping and planning "can be problematic for high-speed navigation in cluttered environments" because latency compounds and errors propagate <Cite id="high-speed-flight-2021" />.
+| System | Approach | Reported result |
+| --- | --- | --- |
+| Learning to Fly by Crashing (2017) | 11,500 crashes plus the good parts of the same flights | A navigation policy <Cite id="learning-crash-2017" /> |
+| Deep Drone Acrobatics (2020) | Imitates a privileged optimal controller in simulation | Maneuvers at up to 3 g <Cite id="deep-drone-acrobatics-2020" /> |
+| Loquercio et al. (2021) | Same recipe, depth images to paths | Forests, snow and collapsed buildings with no extra training <Cite id="high-speed-flight-2021" /> |
+| Geles et al. (2024) | Reinforcement learning, pixels to pilot commands, no state estimator | Gates at up to 40 km/h <Cite id="geles-pixels-2024" /> |
+| Dream to Fly (2025) | A <Term id="world-model">world model</Term> learned from pixels | Racing where PPO and SAC struggled <Cite id="dream-to-fly-2025" /> |
+| Zhang et al. (2025) | Differentiable physics, depth to control | Forests at up to 20 m/s on a \$21 computer <Cite id="zhang-diff-physics-2025" /> |
+| MonoRace (2025) | Network sends motor commands directly | 500 commands per second <Cite id="monorace-2026" /> |
+| Bianco et al. (2026) | Differentiable physics, vision | 99.3 percent through a moving gap in simulation after minutes of training; 8 of 10 real attempts <Cite id="bianco-narrow-gap-2026" /> |
+| Crazyflow (2026) | Reinforcement learning during flight | Recovery policy learned in 0.37 seconds as a thrown drone fell <Cite id="crazyflow-2026" /> |
 
-Swift kept a modular front end: a visual-inertial estimator and a gate-detection network feed a Kalman filter, and a small two-layer RL network maps that state to collective thrust and body rates <Cite id="swift-drone-racing-2023" />. Later systems drop explicit state estimation. Geles and colleagues fly from pixels with the thrust and body-rate commands human pilots use <Cite id="geles-pixels-2024" />, and Dream to Fly learned racing from pixels with a world model where PPO and SAC struggled <Cite id="dream-to-fly-2025" />.
+## Swarms
 
-MonoRace keeps a state estimator, but its network skips inner-loop controllers and sends motor commands at 500 Hz <Cite id="monorace-2026" />. Training through differentiable physics produced a depth-to-control policy flying forests at up to 20 m/s on a \$21 computer <Cite id="zhang-diff-physics-2025" />.
-
-## Swarm robotics
-
-Swarm robotics uses many cheap platforms to cover a search area, map a forest or fly a light show. Its founding models came from biology, Reynolds' 1987 flocking model being the canonical one <Cite id="reynolds-boids-1987" />, and treat the group as a dynamical system of local attraction and repulsion. Vásárhelyi and colleagues optimized those terms and flew 30 drones in coherent outdoor flocking <Cite id="vasarhelyi-flocking-2018" />. Reactive models have no lookahead.
+Swarm robotics uses many cheap platforms at once, to search an area or fly a light show. Its founding models, above all Reynolds' 1987 flocking model <Cite id="reynolds-boids-1987" />, came from biology and treat the group as local attraction and repulsion between neighbors. Vásárhelyi and colleagues tuned those rules to fly 30 drones in coherent outdoor flocking <Cite id="vasarhelyi-flocking-2018" />, but reactive rules do not look ahead.
 
 <SwarmControlTable className="my-6" />
 
-Soria, Schiano and Floreano folded the interaction terms into a nonlinear model-predictive controller with obstacle and neighbour terms <Cite id="soria-nmpc-swarm-2021" />. In simulation it flew faster and with fewer collisions than the reactive equivalent, and five quadrotors flew it through a real indoor obstacle field <Cite id="soria-nmpc-swarm-2021" />. EGO-Swarm's agents generate safe, dynamically feasible trajectories in several milliseconds over an unreliable trajectory-sharing network <Cite id="ego-swarm-2021" />.
+Lookahead helped: a model-predictive version flew faster and with fewer collisions than the reactive one in simulation, and five quadrotors flew it through a real indoor obstacle field <Cite id="soria-nmpc-swarm-2021" />. EGO-Swarm's drones plan safe paths in milliseconds while sharing them over an unreliable network <Cite id="ego-swarm-2021" />, and Zhou and colleagues flew ten palm-sized drones through a dense bamboo forest with no external positioning <Cite id="micro-drone-swarm-2022" />. The differentiable-physics policy coordinates several drones with no communication <Cite id="zhang-diff-physics-2025" />, and multi-agent reinforcement learning with league self-play beat a champion-level human in multi-player races above 22 m/s, with 50 percent fewer collisions than single-agent baselines <Cite id="geles-marl-2026" />.
 
-Zhou and colleagues ran a spatial-temporal trajectory optimizer on palm-sized drones, solving in milliseconds from onboard sensing with no external localization <Cite id="micro-drone-swarm-2022" />. Ten of them flew through a dense bamboo forest <Cite id="micro-drone-swarm-2022" />. The differentiable-physics policy coordinates several drones without communication or centralized planning <Cite id="zhang-diff-physics-2025" />. Multi-agent RL with league self-play beat a champion-level human pilot in multi-player races above 22 m/s and cut collisions by 50 percent against single-agent baselines <Cite id="geles-marl-2026" />.
-
-Everything cited above coordinates implicitly; none of it decides who goes where. In Ukraine, electronic warfare is pushing military drones toward terrain-based navigation, autonomous target lock-on and, eventually, mesh-networked swarms <Cite id="spectrum-ukraine-autonomy-2026" />.
+None of these systems assigns tasks among drones; they coordinate through shared paths or learned behavior. In Ukraine, electronic jamming is pushing military drones toward navigating by terrain, locking on to targets alone and, eventually, mesh-networked swarms <Cite id="spectrum-ukraine-autonomy-2026" />.
 
 ## Delivery and regulation
 
-Zipline reports more than 3 million deliveries and more than 140 million commercial autonomous miles since its first commercial delivery in 2016 <Cite id="zipline-safety-facts" />. In January 2026 it reported US delivery growth of about 15 percent week over week for seven months <Cite id="zipline-2m-2026" />. Wing reports well over one million commercial deliveries and plans more than 270 Walmart locations reaching 40 million Americans by 2027 <Cite id="wing-walmart-2026" />. Walmart reported 1 million drone deliveries in May 2026, from 66 stores in four states <Cite id="walmart-drone-1m-2026" />.
+Drones have what manipulation lacks, commercial fleets at scale. Zipline reports more than 3 million deliveries and nearly 150 million commercial autonomous miles since its first commercial delivery in 2016 <Cite id="zipline-safety-facts" />. Wing reported well over one million commercial deliveries in June 2026 and plans more than 270 Walmart locations reaching 40 million Americans by 2027 <Cite id="wing-walmart-2026" />. Walmart, which uses both, passed 1 million drone deliveries in May 2026 <Cite id="walmart-drone-1m-2026" /> and 2 million in November, when it agreed to add 300 Zipline sites <Cite id="walmart-zipline-300-2026" />; Zipline raised \$1.5 billion the same day <Cite id="zipline-raise-2026" />.
 
 <DroneDeliveryCounts className="my-6" />
 
-The FAA and TSA proposed Part 108 in August 2025 to enable routine flight beyond visual line of sight <Cite id="faa-part-108-nprm-2025" />. The FAA reopened comments on electronic conspicuity and right-of-way until February 11, 2026 <Cite id="faa-part-108-reopen-2026" />.
+Routine flight beyond the pilot's line of sight awaits rules: the FAA and TSA proposed Part 108 to enable it in August 2025 <Cite id="faa-part-108-nprm-2025" />, and the FAA reopened comments on electronic conspicuity and right-of-way until February 11, 2026 <Cite id="faa-part-108-reopen-2026" />. In November 2026 Wing still described the final rule as upcoming <Cite id="wing-fort-worth-2026" />.
 
-## What the rest of robotics takes from it
+## What the rest of robotics takes from flight
 
-Latency budgets transfer directly. A policy inferring at 20 Hz controls a contact-rich task at about 20 Hz whatever the arm's bandwidth, the reasoning the perception-latency study formalised for flight <Cite id="falanga-latency-2019" />. [Real-time execution](/manipulation/realtime-execution/) covers that budget for manipulators.
-
-The sim-to-real recipe also transfers: residual models fitted from real data <Cite id="swift-drone-racing-2023" /> plus privileged imitation with realistic sensor noise <Cite id="high-speed-flight-2021" />. [Sim-to-real transfer](/rl-sim2real/sim2real-transfer/) and [parallel simulation](/rl-sim2real/parallel-sim-rl/) cover it for other robots.
-
-Champion claims need context. Swift won in its own lab and MonoRace on organiser hardware <Cite id="tudelft-a2rl-2025" />, and the 2026 final turned on one unrecovered gate strike <Cite id="a2rl-2026-final" />. The distance between peak and reliable performance is the [reliability gap](/frontier/reliability-gap/), and [surgical robotics](/adjacent/surgical/) shows a bar cleared under regulatory oversight.
+Latency budgets transfer: a policy inferring at 20 Hz controls a contact-rich task at about 20 Hz whatever the arm's bandwidth, the reasoning the latency study formalized for flight <Cite id="falanga-latency-2019" /> ([real-time execution](/manipulation/realtime-execution/)). So does the sim-to-real recipe: models of the gap fitted from real data <Cite id="swift-drone-racing-2023" /> plus privileged imitation with realistic sensor noise <Cite id="high-speed-flight-2021" /> ([sim-to-real transfer](/rl-sim2real/sim2real-transfer/), [parallel simulation](/rl-sim2real/parallel-sim-rl/)). Champion claims need their conditions attached, a lab or an organizer's track and a final decided by one gate strike <Cite id="tudelft-a2rl-2025" /><Cite id="a2rl-2026-final" />. The distance between peak and reliable performance is the [reliability gap](/frontier/reliability-gap/), and [surgical robotics](/adjacent/surgical/) shows a bar cleared under regulatory oversight.
