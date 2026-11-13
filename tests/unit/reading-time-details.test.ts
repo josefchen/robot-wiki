@@ -135,7 +135,7 @@ describe('countVisibleWords: disclosures mirror Chromium innerText', () => {
   });
 
   it('counts only the FIRST direct-child summary of a closed disclosure', () => {
-    // Measured in headless Chromium 2026-08-19 (visual-details-summary-probe):
+    // Measured in headless Chromium 2026-08-19 on a details/summary probe page:
     // innerText "alpha beta", 2 tokens. Chromium renders only the first
     // direct-child <summary> of a closed <details>; the second is absent.
     // A second, independent measurement returned the same numbers.

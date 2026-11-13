@@ -9,9 +9,8 @@ import { useEffect, useRef } from 'react';
  * The shell keeps one document across client-side navigations, so a history
  * step restores the route with no document load that would reset focus.
  * Without this, the URL restores but activeElement stays BODY (observed at
- * both 375px and 1440px, tracked under
- * brand-v2-discovery-route-flows-history-and-404): a keyboard or
- * screen-reader reader lands back on the page with no reading position and
+ * both 375px and 1440px, and covered by the route-flows e2e spec): a
+ * keyboard or screen-reader reader lands back on the page with no reading position and
  * no announcement that the view changed.
  *
  * Both ways a history step can reach the page are covered:
