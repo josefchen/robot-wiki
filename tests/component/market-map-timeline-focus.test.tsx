@@ -164,7 +164,7 @@ describe('FundingTimeline roving keyboard access', () => {
     expect(tabbable).toHaveLength(1);
   }, TIMEOUT);
 
-  it('keeps click selection working and the native-button contract (VAL-MKT-016 regression)', () => {
+  it('keeps click selection working and the native-button contract (regression)', () => {
     render(<Timeline />);
     // The rows are native <button> elements: Enter/Space activation is
     // the browser's built-in behavior (jsdom does not synthesize the
@@ -186,7 +186,7 @@ describe('FundingTimeline roving keyboard access', () => {
     // The row opens the company's details (MarketMap's sheet) and is marked.
     expect(figure.getAttribute('aria-expanded')).toBe('true');
     expect(figure.getAttribute('aria-controls')).toBe('market-map-company');
-    // Marked in the research-page selected state (VAL-B2-MAP-003
+    // Marked in the research-page selected state (DI-MAP-003
     // successor): a 1 px ink rule and the name in semibold, with no fill,
     // tint or accent bar on the row or its button.
     const row = figure.closest('li')!;

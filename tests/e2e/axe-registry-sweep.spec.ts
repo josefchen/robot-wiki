@@ -6,15 +6,15 @@ import { DOMAINS, publishedModules } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
- * Registry-driven global sweep (VAL-A11Y-017, VAL-CROSS-018): axe-core with
+ * Registry-driven global sweep: axe-core with
  * zero violations on EVERY published module route plus every other
  * generated route, enumerated from the module registry rather than a
  * hard-coded sample, so a newly published module joins the sweep
  * automatically.
  *
- * The same pass covers the site-wide console/network cleanliness
- * (VAL-A11Y-013, VAL-CROSS-017), the single-theme invariant (VAL-CROSS-020),
- * and font loading (VAL-A11Y-014). Run against the shipped artifact: the
+ * The same pass covers the site-wide console/network cleanliness,
+ * the single-theme invariant,
+ * and font loading. Run against the shipped artifact: the
  * static export served on an OS-assigned port.
  *
  * The 404 page is included since the React hydration mismatch (#418) was
@@ -25,7 +25,7 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
 
 const OUT = join(process.cwd(), 'out');
 /**
- * The site's one page-ground token (contract VAL-CROSS-020). Every route
+ * The site's one page-ground token. Every route
  * resolves to exactly this: there is no second theme and no
  * prefers-color-scheme branch, so a route reporting anything else is either
  * unthemed or has been given a ground of its own.
@@ -128,7 +128,7 @@ test.describe('registry-driven axe + console sweep', () => {
         `failed requests on ${route}`,
       ).toEqual([]);
 
-      // Single-theme invariant (VAL-CROSS-020): the page background is the
+      // Single-theme invariant: the page background is the
       // ground token after full load; no unthemed default-white page.
       const bg = await page.evaluate(
         () => getComputedStyle(document.body).backgroundColor,
@@ -137,7 +137,7 @@ test.describe('registry-driven axe + console sweep', () => {
     });
   }
 
-  test('search with an executed query stays clean (VAL-A11Y-013)', async ({ page }) => {
+  test('search with an executed query stays clean', async ({ page }) => {
     const observed = observe(page);
     await page.goto(`${BASE}/search/`);
     const box = page.getByRole('searchbox', { name: /search/i }).first();
@@ -149,7 +149,7 @@ test.describe('registry-driven axe + console sweep', () => {
     expect(observed.failedRequests).toEqual([]);
   });
 
-  test('the three typefaces resolve on home and a module page (VAL-A11Y-014)', async ({ page }) => {
+  test('the three typefaces resolve on home and a module page', async ({ page }) => {
     // Owner-approved successor (Josef, 2026-10-10, the research-page
     // standard): DM Sans (the H1 display), Geist (interface and article
     // prose) and Geist Mono (numerals and code) replace IBM Plex Sans,
@@ -188,7 +188,7 @@ test.describe('registry-driven axe + console sweep', () => {
   test('the 404 page is axe-clean and console-clean through the host fallback', async ({ page }) => {
     // Request an unknown path (not /404/ directly) so the server behaves
     // like a real host: 404 status + themed document, guard redirect to
-    // /404/, then hydration. This is the VAL-CROSS-025 surface.
+    // /404/, then hydration. This is the surface the 404 route flows test.
     const observed = observe(page);
     const response = await page.goto(`${BASE}/manipulation/does-not-exist/`, {
       waitUntil: 'load',
@@ -221,7 +221,7 @@ test.describe('registry-driven axe + console sweep', () => {
   });
 });
 
-test.describe('responsive viewports (VAL-CROSS-019)', () => {
+test.describe('responsive viewports', () => {
   // Drawer open/navigate/close at 375 is covered by navigation.spec and
   // design-chrome.spec; per-module 375px no-overflow checks live in each
   // module spec. This block adds the cross-area sample: the same four

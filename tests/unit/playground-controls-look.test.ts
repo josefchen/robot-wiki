@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 /**
  * The control deck takes the site's controls (library/design-integrity.md
- * VAL-B2-PLAY-004): the radius tokens in app/globals.css that the shared
+ * DI-PLAY-004): the radius tokens in app/globals.css that the shared
  * Action and input primitives draw with, and the figure controls of
  * components/motion/stage.css, which are square except for the 12 px round
  * slider thumb. Every corner the playground stylesheet declares is held to

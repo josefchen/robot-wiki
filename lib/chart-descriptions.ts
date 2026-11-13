@@ -1,5 +1,5 @@
 /**
- * The default-state chart-description registry (VAL-EDU-026).
+ * The default-state chart-description registry.
  *
  * One entry per <ChartDescription> mount in the component tree: the
  * authored takeaway text at the chart's DEFAULT configuration, the source

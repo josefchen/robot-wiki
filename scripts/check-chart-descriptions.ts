@@ -1,5 +1,5 @@
 /**
- * Chart-description enforcement gate (VAL-EDU-026).
+ * Chart-description enforcement gate.
  *
  * Wired into validate:content beside the existing checkers. Two halves:
  *
@@ -87,7 +87,7 @@ const mounts = sweepMounts(join(root, 'components'));
 
 // Coverage check over the DERIVED population: an unregistered mount is a
 // loud failure naming its file, and a registered file that lost its mount
-// (the VAL-EDU-026(a) deleted-description mutation) fails the same way.
+// (the deleted-description mutation) fails the same way.
 const coverageProblems = validateChartDescriptionCoverage(
   mounts,
   CHART_DESCRIPTIONS,

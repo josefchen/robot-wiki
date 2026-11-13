@@ -10,8 +10,8 @@ import {
 
 /**
  * Material treatments are deterministic, owned or provenance-backed,
- * contrast-safe, and absent behind prose (VAL-B2-SURF-007, VAL-B2-SURF-011,
- * VAL-DESIGN-030). The site paints one material, paper, and each named
+ * contrast-safe, and absent behind prose (DI-SURF-007, DI-SURF-011).
+ * The site paints one material, paper, and each named
  * representative surface declares it on its own element.
  */
 

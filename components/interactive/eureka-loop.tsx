@@ -467,7 +467,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           <p>Fitness is the task score after training with this reward, from 0 to 1; the scores here are illustrative.</p>
           <div className="text-text-dim">Scripted reward statistics</div>
           {/* Capped below the column width: wider, its dividers count as full-width
-              rules against the article's two-rule bound (VAL-EDU-031). */}
+              rules against the article's two-rule bound. */}
           <dl data-testid="eureka-stats" className="m-0 max-w-md divide-y divide-border-strong border-y border-border-strong">
             {current.stats.map((s) => (
               <div key={s.label} className="flex items-baseline gap-3 py-1.5">

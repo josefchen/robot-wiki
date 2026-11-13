@@ -310,7 +310,7 @@ describe('state-form chart descriptions', () => {
     const { container } = render(<LatentImagination />);
     const { text } = assertDescribed(
       // Successor of the bench-and-template name: the drawing is named in one
-      // clause (VAL-EDU-021, owed-figures slice of 2026-10-26).
+      // clause (owed-figures slice of 2026-10-26).
       screen.getByRole('img', { name: /imagined track \d+ steps? ahead/i }),
       container,
     );

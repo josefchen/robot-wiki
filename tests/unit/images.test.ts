@@ -33,8 +33,7 @@ import { GLOSSARY } from '@/data/glossary';
 import { COMPANIES } from '@/data/companies';
 
 /**
- * Imagery pipeline (VAL-IMG-001, VAL-IMG-006, VAL-IMG-007, VAL-IMG-008,
- * VAL-IMG-013): the Zod schema is the licence gate, and the validator's
+ * Imagery pipeline: the Zod schema is the licence gate, and the validator's
  * imagery check ties the registry to what pages actually reference in both
  * directions, so the /credits page cannot drift from what the site renders.
  */
@@ -78,7 +77,7 @@ describe('imageSchema', () => {
     expect(imageSchema.safeParse(validEntry).success).toBe(true);
   });
 
-  it('rejects an entry whose licence field is removed (VAL-IMG-008)', () => {
+  it('rejects an entry whose licence field is removed', () => {
     const { licence: _licenceRemoved, ...rest } = validEntry;
     void _licenceRemoved;
     const parsed = imageSchema.safeParse(rest);
@@ -86,7 +85,7 @@ describe('imageSchema', () => {
     expect(parsed.error?.message).toMatch(/licence/i);
   });
 
-  it('rejects a licence outside the permitted set, naming the value (VAL-IMG-008)', () => {
+  it('rejects a licence outside the permitted set, naming the value', () => {
     const parsed = imageSchema.safeParse({ ...validEntry, licence: 'cc-by-nc-4.0' });
     expect(parsed.success).toBe(false);
     expect(parsed.error?.message).toContain('cc-by-nc-4.0');
@@ -132,7 +131,7 @@ describe('imageSchema', () => {
     }
   });
 
-  it('rejects press-kit and permission licences without a recorded grant reference (VAL-IMG-007)', () => {
+  it('rejects press-kit and permission licences without a recorded grant reference', () => {
     for (const licence of ['press-kit', 'permission'] as const) {
       const parsed = imageSchema.safeParse(editorialPhoto({ licence }));
       expect(parsed.success).toBe(false);
@@ -176,7 +175,7 @@ describe('imageSchema', () => {
     }
   });
 
-  it('rejects alt text that is generic, a filename, too short, or dashed (VAL-IMG-001)', () => {
+  it('rejects alt text that is generic, a filename, too short, or dashed', () => {
     const badAlts = [
       'image',
       'Photo',
@@ -333,7 +332,7 @@ describe('validateContent imagery check', () => {
     ).toBe(true);
   });
 
-  it('does not let draft-only usage satisfy the stale-registry guard (VAL-IMG-006)', () => {
+  it('does not let draft-only usage satisfy the stale-registry guard', () => {
     // The published module references nothing; a DRAFT references the
     // image. Readers never see a draft, so the registry entry is stale
     // and the build must fail even though some MDX body uses the id.
@@ -424,7 +423,7 @@ describe('validateContent imagery check', () => {
     ).toBe(true);
   });
 
-  it('fails on provenance that carries a synthesis marker (VAL-IMG-013)', () => {
+  it('fails on provenance that carries a synthesis marker', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
     const synthetic = editorialPhoto({ sourceName: 'AI-generated render' });
     const issues = validateContent({ ...baseOpts(), images: [synthetic] });
@@ -436,7 +435,7 @@ describe('validateContent imagery check', () => {
   });
 });
 
-describe('the shipped registry (VAL-IMG-006, VAL-IMG-013)', () => {
+describe('the shipped registry', () => {
   it('every registry entry is schema-valid', () => {
     for (const image of IMAGES) {
       const parsed = imageSchema.safeParse(image);
@@ -472,8 +471,8 @@ describe('the shipped registry (VAL-IMG-006, VAL-IMG-013)', () => {
 });
 
 /**
- * The §1.13 provenance record (VAL-B2-IMG-002, VAL-B2-IMG-003,
- * VAL-B2-IMG-008). Every editorial image has to carry one closed
+ * The §1.13 provenance record (DI-IMG-002, DI-IMG-003,
+ * DI-IMG-008). Every editorial image has to carry one closed
  * legal-basis value, the attribution sentence the page renders, and a
  * preservation policy, and the schema has to refuse a record that
  * contradicts the licence beside it.
@@ -482,7 +481,7 @@ describe('§1.13 provenance record', () => {
   const editorial = IMAGES.filter((image) => !image.file.startsWith('/images/logos/'));
   const marks = IMAGES.filter((image) => image.file.startsWith('/images/logos/'));
 
-  it('covers every editorial image and leaves the mark path to VAL-B2-MAP-010', () => {
+  it('covers every editorial image and leaves the mark path to DI-MAP-010', () => {
     expect(editorial.length).toBeGreaterThan(0);
     expect(marks.length).toBeGreaterThan(0);
     for (const image of editorial) {
@@ -508,7 +507,7 @@ describe('§1.13 provenance record', () => {
   it('grounds each declared basis in the licence recorded beside it, except a company mark, which rests on identification', () => {
     for (const image of IMAGES) {
       // §1.13: "Company marks use `official-identification-use`", and
-      // VAL-B2-IMG-008 calls it the path marks use ONLY. The licence a mark
+      // DI-IMG-008 calls it the path marks use ONLY. The licence a mark
       // file happens to carry - `cc-by-4.0` on the Physical Intelligence
       // logo, `apache-2.0` on others - is a statement about the file, not a
       // licence to reproduce somebody else's trademark.

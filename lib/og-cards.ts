@@ -1,5 +1,5 @@
 /**
- * Open Graph social-card helpers (VAL-DIST-002/003/005).
+ * Open Graph social-card helpers.
  *
  * The site is output: 'export', so there is no request-time image
  * generation: every card is a real PNG emitted into out/og/ at build
@@ -9,7 +9,7 @@
  *
  *   - articleCardPath(domain, slug): '/og/<domain>/<slug>.png'. The slug
  *     rides in the URL path so a validator can attribute a card to its
- *     article from the URL alone (VAL-DIST-003).
+ *     article from the URL alone.
  *   - siteCardPath: '/og/robot-wiki.png', the one card the non-article
  *     destinations share. Byte-distinct from every article asset by
  *     construction (different canvas).
@@ -191,7 +191,7 @@ export type OgImageSet = Array<{ url: string; width: number; height: number; alt
 /**
  * Route-level openGraph block for an article: the full object, because it
  * replaces the layout's (no deep merge). The PLAIN article title is
- * declared explicitly (VAL-DIST-004): left unset, the framework fills
+ * declared explicitly: left unset, the framework fills
  * og:title from the templated document title, which leaves the
  * '| Robot Wiki' suffix on the card, and the card title must equal the
  * page's rendered h1. og:description is left to fall back to the route's
@@ -243,7 +243,7 @@ export function routeOpenGraph(title: string): {
 /**
  * The twitter block a route re-declares alongside its openGraph. The
  * plain title is pinned to the same string the route declares as
- * og:title (VAL-DIST-004: a declared twitter:title must equal its og
+ * og:title (a declared twitter:title must equal its og
  * counterpart exactly), so the pair cannot drift whatever the
  * framework's own fallbacks would fill in.
  */

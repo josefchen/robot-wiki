@@ -1,7 +1,7 @@
 import { Children, Fragment, cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
 
 export const NUMERAL_RUN = /([−+-]?(?:\d+(?:[,.]\d+)*|\.\d+))/g;
-export const NUMERAL_CLASS = 'font-mono tabular-nums'; // taste-skill-ignore: Geist Mono numerals are required by VAL-B2-TYPE-005.
+export const NUMERAL_CLASS = 'font-mono tabular-nums'; // taste-skill-ignore: Geist Mono numerals are required by DI-TYPE-005.
 
 /** Preserve the written value; use the data face only for its numeral runs. */
 export function NumberText({ children }: { children: string | number }) {

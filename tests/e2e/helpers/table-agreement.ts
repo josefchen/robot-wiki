@@ -1,5 +1,5 @@
 /**
- * Pure logic for the VAL-EDU-023 spec (tests/e2e/chart-table-agreement.
+ * Pure logic for the chart-table agreement spec (tests/e2e/chart-table-agreement.
  * spec.ts). Everything here is data-in / verdict-out so the binding and
  * matching rules are unit-testable against fixtures captured from the
  * rendered export (tests/unit/table-agreement.test.ts).

@@ -307,7 +307,7 @@ describe('companySchema', () => {
     expect(parsed.success).toBe(true);
   });
 
-  it('rejects an empty field with no recorded disposition (VAL-B2-BASE-005)', () => {
+  it('rejects an empty field with no recorded disposition (DI-BASE-005)', () => {
     // An empty list or a null is never read as a state on its own.
     for (const [field, patch] of [
       ['aka', { aka: [] }],

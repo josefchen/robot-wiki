@@ -1,5 +1,5 @@
 /**
- * The explainer label check (VAL-OPUS-043).
+ * The explainer label check.
  *
  *   node scripts/check-explainer-labels.ts [--out out | --base-url URL] [--ids arm,hand]
  *     [--widths 1280,390] [--record file.json] [--shots dir] [--fixture] [--layout off]

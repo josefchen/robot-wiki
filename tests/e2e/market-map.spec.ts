@@ -81,7 +81,7 @@ async function openMoreFilters(page: Page) {
 }
 
 test.describe('market map visualization', () => {
-  test('maps every company in six segments (VAL-MKT-001, VAL-MKT-002)', async ({
+  test('maps every company in six segments', async ({
     page,
   }) => {
     const response = await page.goto(ROUTE);
@@ -121,7 +121,7 @@ test.describe('market map visualization', () => {
     expect(tops[5]).toBeGreaterThan(tops[4]);
   });
 
-  test('filters compose, deep-link, and clear (VAL-MKT-005 to VAL-MKT-008, VAL-MKT-018)', async ({
+  test('filters compose, deep-link, and clear', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -177,7 +177,7 @@ test.describe('market map visualization', () => {
     await expect(tiles(page)).toHaveCount(3);
   });
 
-  test('invalid params fall back to the full set (VAL-MKT-024)', async ({
+  test('invalid params fall back to the full set', async ({
     page,
   }) => {
     const errors: string[] = [];
@@ -189,7 +189,7 @@ test.describe('market map visualization', () => {
     expect(errors).toEqual([]);
   });
 
-  test('dependent facets hide zero-count sub-segments (VAL-MKT-025)', async ({
+  test('dependent facets hide zero-count sub-segments', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -206,7 +206,7 @@ test.describe('market map visualization', () => {
     );
   });
 
-  test('company details open in a sheet and keep unknown funding honest (VAL-MKT-009 to VAL-MKT-013)', async ({
+  test('company details open in a sheet and keep unknown funding honest', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -239,7 +239,7 @@ test.describe('market map visualization', () => {
     await tile(page, 'unitree-robotics').click();
     const unitree = sheet(page, 'Unitree Robotics');
     await expect(unitree.locator('[data-field="status"]')).toHaveText('IPO');
-    // VAL-MKT-009 (2026-09-24 qualification): the 5,500-unit 2025
+    // Qualified on 2026-09-24: the 5,500-unit 2025
     // shipment, 30,000+ cumulative quadruped and ~33% sales-share
     // literals were press-repeated prospectus figures (Rest of World);
     // the Unitree prospectus itself was never inspected, so the details
@@ -258,7 +258,7 @@ test.describe('market map visualization', () => {
     await expect(covariant).not.toContainText('$0');
   });
 
-  test('timeline renders the 2023-2026 anchors (VAL-MKT-015, VAL-MKT-016)', async ({
+  test('timeline renders the 2023-2026 anchors', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -298,7 +298,7 @@ test.describe('market map visualization', () => {
     await expect(sheet(page, 'Covariant').getByText('not disclosed').first()).toBeVisible();
   });
 
-  test('bubble view excludes null funding and labels axes (VAL-MKT-023)', async ({
+  test('bubble view excludes null funding and labels axes', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -317,7 +317,7 @@ test.describe('market map visualization', () => {
     await expect(sheet(page, 'Figure AI').locator('[data-field="valuation"]')).toHaveText('$39B');
   });
 
-  test('empty filter state is recoverable (VAL-MKT-017)', async ({ page }) => {
+  test('empty filter state is recoverable', async ({ page }) => {
     await page.goto(ROUTE);
     await segmentTab(page, /^Components/).click();
     await openMoreFilters(page);
@@ -329,7 +329,7 @@ test.describe('market map visualization', () => {
     await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
   });
 
-  test('acquired and shut-down statuses are truthful (VAL-MKT-022)', async ({
+  test('acquired and shut-down statuses are truthful', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -364,7 +364,7 @@ test.describe('market map visualization', () => {
     await expect(tiles(page)).toHaveCount(1);
   });
 
-  test('is usable at 375px and has no axe violations (VAL-MKT-019, VAL-MKT-026)', async ({
+  test('is usable at 375px and has no axe violations', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
@@ -418,7 +418,7 @@ test.describe('market map visualization', () => {
     expect(await noOverflow(page)).toBe(true);
   });
 
-  test('filter bar is keyboard operable (VAL-MKT-026)', async ({ page }) => {
+  test('filter bar is keyboard operable', async ({ page }) => {
     await page.goto(ROUTE);
     await segmentTab(page, /^Humanoids/).focus();
     await page.keyboard.press('Enter');
@@ -443,7 +443,7 @@ test.describe('market map visualization', () => {
     await expect(segmentTab(page, /^All/)).toBeFocused();
   });
 
-  test('segment tabs show their whole focus ring and selected rule (VAL-MKT-026)', async ({
+  test('segment tabs show their whole focus ring and selected rule', async ({
     page,
   }) => {
     // The tab row is a scroll container at every width; it overflows on a
@@ -525,7 +525,7 @@ test.describe('market map visualization', () => {
     await expect(page.getByRole('dialog')).toBeVisible();
   });
 
-  test('uppercase letterspaced micro-labels stay at or under 5 (VAL-DESIGN-010)', async ({
+  test('uppercase letterspaced micro-labels stay at or under 5', async ({
     browser,
   }) => {
     test.setTimeout(240_000);
@@ -566,7 +566,7 @@ test.describe('market map visualization', () => {
     );
   });
 
-  test('demoted micro-labels read as sentence case, not lowercase (VAL-DESIGN-010)', async ({
+  test('demoted micro-labels read as sentence case, not lowercase', async ({
     page,
   }) => {
     test.setTimeout(120_000);

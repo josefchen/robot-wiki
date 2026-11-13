@@ -641,7 +641,7 @@ details[data-figure-fold='method']:not([open])::details-content {
 }
 
 /*
- * A clip keeps the browser's own controls (VAL-MOTION-018), drawn on the
+ * A clip keeps the browser's own controls, drawn on the
  * light stage like the figure's other quiet controls. Chromium paints its
  * control strip as a dark gradient band with white glyphs across the
  * bottom of the clip, the one dark surface on the page's light stage; here

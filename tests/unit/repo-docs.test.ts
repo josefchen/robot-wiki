@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { beforeAll, describe, expect, it } from 'vitest';
 
-// Repo docs are load-bearing (VAL-ADJ-012/013/014): the README must document
+// Repo docs are load-bearing: the README must document
 // commands that actually exist in package.json, CONTRIBUTING must carry PR
 // guidelines and the project's content standards, and both license files
 // must hold the real license texts. These tests read the shipped files the
@@ -25,7 +25,7 @@ function headings(text: string): string[] {
   return [...text.matchAll(/^#{1,3} (.+)$/gm)].map((m) => m[1]);
 }
 
-describe('README.md (VAL-ADJ-012)', () => {
+describe('README.md', () => {
   let readme: string;
   beforeAll(() => {
     readme = read('README.md');
@@ -78,7 +78,7 @@ describe('README.md (VAL-ADJ-012)', () => {
   });
 });
 
-describe('CONTRIBUTING.md (VAL-ADJ-013)', () => {
+describe('CONTRIBUTING.md', () => {
   let contributing: string;
   beforeAll(() => {
     contributing = read('CONTRIBUTING.md');
@@ -121,7 +121,7 @@ describe('CONTRIBUTING.md (VAL-ADJ-013)', () => {
   });
 });
 
-describe('LICENSE (VAL-ADJ-014, MIT)', () => {
+describe('LICENSE (MIT)', () => {
   let license: string;
   beforeAll(() => {
     license = read('LICENSE');
@@ -134,7 +134,7 @@ describe('LICENSE (VAL-ADJ-014, MIT)', () => {
   });
 });
 
-describe('LICENSE-CONTENT (VAL-ADJ-014, CC BY 4.0)', () => {
+describe('LICENSE-CONTENT (CC BY 4.0)', () => {
   let license: string;
   beforeAll(() => {
     license = read('LICENSE-CONTENT');

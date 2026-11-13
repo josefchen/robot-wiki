@@ -31,12 +31,12 @@ import { useEffect, useRef } from 'react';
  * The history key is the path PLUS the query, because the shell's search
  * box pushes one entry per submit: Back between two /search?q= entries
  * changes only the query, and a commit effect keyed on the pathname alone
- * never re-runs for it (VAL-NAV-028).
+ * never re-runs for it.
  *
  * Contract, narrowed to exactly that defect:
  * - Click navigations never move focus; the clicked link keeps focus
  *   exactly as before. An armed step is bound to the path+query it
- *   restored (VAL-NAV-029), so it is discarded rather than fired when a
+ *   restored, so it is discarded rather than fired when a
  *   click commits a different route inside the two-second window, and it
  *   never survives its traversal by more than two seconds.
  * - Hash-only history steps keep the browser's own scrolling and focus:
@@ -122,8 +122,7 @@ export function HistoryFocus({ suspended = false }: { suspended?: boolean }) {
     const { pushState, replaceState } = window.history;
     // The entry this document loaded on is the shell's own key from the
     // start: a hash-only Back on the first page (before any router push
-    // has been observed) restores that key and must not arm a move
-    // (VAL-NAV-029).
+    // has been observed) restores that key and must not arm a move.
     lastPushedKey.current ??= keyOf(window.location.href);
     window.history.pushState = function (data, unused, url) {
       const key = keyOf(url);
@@ -239,7 +238,7 @@ export function HistoryFocus({ suspended = false }: { suspended?: boolean }) {
     if (armedKey.current !== null && committedKey !== armedKey.current) {
       // The URL has settled on a route the armed step was not armed for:
       // a click navigation committed inside the window. Discard the arm
-      // rather than steal focus on the new page (VAL-NAV-029).
+      // rather than steal focus on the new page.
       armed.current = false;
       return;
     }

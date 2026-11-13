@@ -23,7 +23,7 @@ type ResultsGroupProps = {
    * Marks the note as an index failure rather than a query outcome. The
    * note carries the group id as its error marker and the error semantic
    * token, because a surface that failed to load must never read as a
-   * surface that answered with nothing (VAL-B2-DISC-001/002).
+   * surface that answered with nothing (DI-DISC-001/002).
    */
   noteIsError?: boolean;
   /**

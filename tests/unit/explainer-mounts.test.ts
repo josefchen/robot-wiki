@@ -7,7 +7,7 @@ import { publishedModules } from '@/data/modules';
 import { CAPTION_MAX_WORDS, words } from '@/lib/figure-system-paint';
 
 /**
- * VAL-OPUS-153: each 3D explainer is mounted exactly once, by a one-line
+ * Each 3D explainer is mounted exactly once, by a one-line
  * mount in its home article, in the body after the article's first section
  * heading, right after a prose paragraph, and never next to another
  * explainer; every other home article the
@@ -45,7 +45,7 @@ const mentions = articles.flatMap((article) =>
     .map((line) => ({ article, line: line.trim() })),
 );
 
-describe('explainer mounts (VAL-OPUS-153)', () => {
+describe('explainer mounts', () => {
   it('lists every catalog explainer once, in curriculum order', () => {
     expect(Object.keys(EXPLAINER_MOUNTS)).toEqual(ids);
   });

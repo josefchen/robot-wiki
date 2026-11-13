@@ -136,7 +136,7 @@ describe('SafetyRulesTimeline served HTML', () => {
   });
 });
 
-describe('SafetyRulesTimeline series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('SafetyRulesTimeline series encoding (DI-VIZ-002/004)', () => {
   it('names every plotted series in the plot and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(SAFETY_RULES.map((r) => r.id).sort());

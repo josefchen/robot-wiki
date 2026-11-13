@@ -163,8 +163,8 @@ describe('ActionTokenization', () => {
   });
 
   it('names each drawing more briefly than the description it points to, at every motion', () => {
-    // VAL-EDU-021: the accessible name is a short name; the numbers live in the description.
-    // VAL-EDU-036 (chart-coverage-sweep): name and description still share two quantity words.
+    // The accessible name is a short name; the numbers live in the description.
+    // As chart-coverage-sweep requires, name and description still share two quantity words.
     const stopwords = ['with', 'from', 'over', 'against', 'versus', 'each', 'this', 'that', 'than', 'time'];
     const words = (text: string) =>
       text

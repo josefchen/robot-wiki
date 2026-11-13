@@ -1,5 +1,5 @@
 /**
- * Pure rules behind scripts/check-chart-descriptions.ts (VAL-EDU-026).
+ * Pure rules behind scripts/check-chart-descriptions.ts.
  *
  * A chart description is an authored takeaway sentence rendered as real
  * DOM text beside the chart. The gate enforces four mechanical properties
@@ -12,7 +12,7 @@
  *      is a caption, and captions are what this feature replaces);
  *   2. both plotted quantity names appear (episode success and steps, not
  *      "the data");
- *   3. no banned opener from the VAL-EDU-026 list ("This chart shows...",
+ *   3. no banned opener from the list below ("This chart shows...",
  *      "Line chart of...", "Diagram showing...", "shows the
  *      relationship...");
  *   4. cross-chart uniqueness after digit normalisation, so six charts
@@ -34,7 +34,7 @@ export function normalizeDigits(text: string): string {
   return text.replace(/\d/g, '#');
 }
 
-/** VAL-EDU-026's banned-opener list, verbatim. */
+/** The banned-opener list. */
 const BANNED_OPENER_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
   {
     label: '"(this|the) (chart|graph|figure|diagram|plot)" opener',

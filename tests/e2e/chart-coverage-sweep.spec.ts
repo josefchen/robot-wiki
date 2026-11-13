@@ -7,12 +7,12 @@ import { forEachInOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
- * Corpus closers for the chart-description milestone (VAL-EDU-035, 036,
+ * Corpus closers for the chart-description milestone (036,
  * 037, 040's 375px half). Population is derived from the module registry,
  * never typed as a literal article list.
  *
- * VAL-EDU-040's axe and console halves live in axe-registry-sweep.spec.ts,
- * whose route set is a superset of the 040 set. This file asserts that
+ * The axe and console halves of the 375px check live in axe-registry-sweep.spec.ts,
+ * whose route set is a superset of the article set. This file asserts that
  * inclusion and walks article routes at 375px itself.
  */
 
@@ -105,7 +105,7 @@ test.afterAll(async () => {
 });
 
 test.describe('derived populations', () => {
-  test('VAL-EDU-035/040 populations come from the registry', () => {
+  test('coverage and overflow populations come from the registry', () => {
     // Registry-derived: no literal published count is pinned (it drifted
     // 42 -> 43 -> 47 -> 57 across publishes); non-zero cardinality only.
     expect(ARTICLE_ROUTES.length, 'published article count').toBeGreaterThan(0);
@@ -170,7 +170,7 @@ async function classifySvgs(page: Page, route: string): Promise<SvgRow[]> {
   }, route);
 }
 
-test.describe('VAL-EDU-035 chart-description coverage is complete site-wide', () => {
+test.describe('chart-description coverage is complete site-wide', () => {
   test('every SVG on the derived route set is classified; none uncovered', async ({
     browser,
   }) => {
@@ -299,7 +299,7 @@ async function computedDescriptions(
 // description repeats it at the wrong level, so every described drawing on
 // the derived route set names itself in fewer characters than the text it
 // points to.
-test.describe('VAL-EDU-021 every described drawing is named more briefly than it is described', () => {
+test.describe('every described drawing is named more briefly than it is described', () => {
   test('each aria-label is shorter than the description it references', async ({ browser }) => {
     test.setTimeout(180_000);
     const rows: { route: string; name: string; nameLength: number; descriptionLength: number }[] = [];
@@ -337,7 +337,7 @@ test.describe('VAL-EDU-021 every described drawing is named more briefly than it
   });
 });
 
-test.describe('VAL-EDU-036 descriptions are specific and unique site-wide', () => {
+test.describe('descriptions are specific and unique site-wide', () => {
   test('every chart description names quantities, has digits, and is unique', async ({
     browser,
   }) => {
@@ -434,7 +434,7 @@ test.describe('VAL-EDU-036 descriptions are specific and unique site-wide', () =
   });
 });
 
-test.describe('VAL-EDU-037 WmDisambiguator predictions are available as text', () => {
+test.describe('WmDisambiguator predictions are available as text', () => {
   test('each selectable paradigm exposes what it predicts', async ({ page }) => {
     await page.goto(`${BASE}/world-models/taxonomy/`, { waitUntil: 'load' });
     // The six groups sit in the figure's "Adjust more" fold and the
@@ -470,7 +470,7 @@ test.describe('VAL-EDU-037 WmDisambiguator predictions are available as text', (
   });
 });
 
-test.describe('VAL-EDU-040 article routes do not scroll sideways at 375px', () => {
+test.describe('article routes do not scroll sideways at 375px', () => {
   test('every published article has scrollWidth equal to innerWidth', async ({
     browser,
   }) => {

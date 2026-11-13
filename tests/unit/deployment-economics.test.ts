@@ -53,7 +53,7 @@ describe('deployment-economics pure model', () => {
     expect(cheapOut.paybackMonths! / base.paybackMonths!).toBeLessThan(1.01);
   });
 
-  it('the same success drop with expensive jam clearing collapses payback (VAL-DATA-033)', () => {
+  it('the same success drop with expensive jam clearing collapses payback', () => {
     // Hold everything at defaults except jam-clearing time at its max
     // (300 s), then measure how far a 99.9 -> 99 success drop moves the
     // payback readout, and compare with the cheap-jam delta.

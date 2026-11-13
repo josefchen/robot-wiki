@@ -90,7 +90,7 @@ describe('the ledger converts one budget under every source', () => {
     const robot = ledger.rows.find((r) => r.id === 'robot')!;
     expect(sim.verdict.family).toBe('on-policy');
     expect(robot.verdict.family).not.toBe('on-policy');
-    // VAL-RL-040's factor-of-ten clause, in the model rather than the DOM.
+    // The factor-of-ten clause, in the model rather than the DOM.
     expect(robot.seconds / sim.seconds).toBeGreaterThan(10);
   });
 

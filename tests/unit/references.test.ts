@@ -103,7 +103,7 @@ describe('resolveReferences', () => {
     expect(resolved.map((r) => r.citation.id)).toEqual(['act-aloha-2023']);
   });
 
-  it('gives the header citation count one source: the rendered entry list, not the raw frontmatter array (VAL-WIKI-014)', () => {
+  it('gives the header citation count one source: the rendered entry list, not the raw frontmatter array', () => {
     const declared = [
       'dagger-2011',
       'act-aloha-2023',

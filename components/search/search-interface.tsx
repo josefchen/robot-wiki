@@ -71,7 +71,7 @@ const ENTITY_TYPE_LABEL: Record<EntityType, string> = {
  * A surface whose index failed reports the failure in its own group note
  * and in the status line; it never renders the no-results wording, because
  * an index that could not load has not answered the query
- * (VAL-B2-DISC-001).
+ * (DI-DISC-001).
  */
 export function SearchInterface({
   loadClient = createPagefindClient,
@@ -128,7 +128,7 @@ export function SearchInterface({
   // The unfiltered structured list is kept alongside the filtered one so the
   // empty state can tell the two apart: a facet hiding real matches is a
   // different situation from a query nothing in the wiki answers, and the
-  // old single message conflated them (VAL-SEARCH-023).
+  // old single message conflated them.
   const structuredAll =
     status === 'searching' || status === 'done'
       ? (result?.structured ?? [])
@@ -267,7 +267,7 @@ export function SearchInterface({
       // A type facet is hiding real entity hits while the module surface is
       // also down. The filter is named, never a total miss, because the
       // page still shows the filter-hiding recovery note: what a screen
-      // reader hears must agree with it (VAL-SEARCH-027). This check runs
+      // reader hears must agree with it. This check runs
       // before the proseFailed empty-match copy for exactly that reason.
       statusText = `No ${ENTITY_TYPE_LABEL[facetType as EntityType]} results for "${trimmed}" under the active type filter; the module index is unavailable`;
     } else if (proseFailed) {
@@ -302,7 +302,7 @@ export function SearchInterface({
   }
 
   // The prose group's settled note: an index failure reads as an error,
-  // never as "nothing matched" (VAL-B2-DISC-001/002).
+  // never as "nothing matched" (DI-DISC-001/002).
   const proseNote: string | undefined = proseFailed
     ? 'The module index is unavailable, so module results could not be loaded for this query. This is a load failure, not a verdict on the query.'
     : status === 'done' && hits.length === 0
@@ -406,8 +406,7 @@ export function SearchInterface({
       {/* The site-wide empty state, raised only when neither surface has
           anything to show for the query with no facet applied. It names
           both surfaces the query was run against and points at a browse
-          destination, so a reader who mistyped is not left at a dead end
-          (VAL-SEARCH-023 b). */}
+          destination, so a reader who mistyped is not left at a dead end. */}
       {siteEmpty ? (
         <div
           data-search-empty

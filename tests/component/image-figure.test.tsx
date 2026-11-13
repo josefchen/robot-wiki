@@ -8,7 +8,7 @@ import { getImage, licenceLabel, type SiteImage } from '@/data/images';
 import { MARK_PLACEMENT } from '@/lib/market-map-marks';
 
 /**
- * The registry-backed figure (VAL-IMG-001/002/003/009): intrinsic
+ * The registry-backed figure: intrinsic
  * dimensions on the img, and a visible credit naming creator, source and
  * licence, with the source link pointing at the registry's source URL.
  */
@@ -36,7 +36,7 @@ describe('Figure with a registry credit', () => {
     );
   }
 
-  it('renders the image with intrinsic width and height (VAL-IMG-009)', () => {
+  it('renders the image with intrinsic width and height', () => {
     renderFigure();
     const img = screen.getByRole('img', { name: entry.alt });
     expect(img).toHaveAttribute('width', String(entry.width));
@@ -44,7 +44,7 @@ describe('Figure with a registry credit', () => {
     expect(img).toHaveAttribute('src', entry.file);
   });
 
-  it('renders a visible credit naming creator, source and licence (VAL-IMG-002)', () => {
+  it('renders a visible credit naming creator, source and licence', () => {
     renderFigure();
     const credit = document.querySelector('[data-image-credit]');
     expect(credit).not.toBeNull();
@@ -53,7 +53,7 @@ describe('Figure with a registry credit', () => {
     expect(credit!.textContent).toContain('CC BY-SA 4.0');
   });
 
-  it('links the credit to the original source URL and the licence (VAL-IMG-003)', () => {
+  it('links the credit to the original source URL and the licence', () => {
     renderFigure();
     const credit = document.querySelector('[data-image-credit]')!;
     const anchors = Array.from(credit.querySelectorAll('a'));
@@ -75,7 +75,7 @@ describe('ImageRef (registry resolver)', () => {
     );
   });
 
-  it('names a site-created diagram in text with no external source link (VAL-IMG-003)', () => {
+  it('names a site-created diagram in text with no external source link', () => {
     const diagram = getImage('covariate-shift') as SiteImage;
     expect(diagram.sourceUrl).toBeUndefined();
     render(<ImageRef id="covariate-shift" />);
@@ -98,8 +98,8 @@ describe('ImageRef (registry resolver)', () => {
 });
 
 /**
- * The brand-v2 figure treatment (VAL-B2-ART-004, VAL-B2-ART-005,
- * VAL-B2-ART-006, VAL-B2-IMG-003). A schematic draws on the light page
+ * The brand-v2 figure treatment (DI-ART-004, DI-ART-005,
+ * DI-ART-006, DI-IMG-003). A schematic draws on the light page
  * stage and says what it is; a photograph is not a schematic, and neither
  * loses its caption or its credit to the change.
  */
@@ -141,7 +141,7 @@ describe('figure treatment by kind', () => {
     expect(figure.querySelector('[data-figure-label]')).toBeNull();
   });
 
-  it('crops every photograph to 3:2, anchoring the tall Atlas portrait at its head (VAL-OPUS-012)', () => {
+  it('crops every photograph to 3:2, anchoring the tall Atlas portrait at its head', () => {
     const { unmount } = render(<ImageRef id="franka-emika-panda-cebit-2017" />);
     const frame = document.querySelector('[data-photo-frame]')!;
     expect(frame.className).toContain('aspect-[3/2]');
@@ -224,7 +224,7 @@ describe('figure treatment by kind', () => {
   });
 
   it('draws a credited mark as its own registered <img>, masked in the one ink', () => {
-    // /credits credits the file itself (VAL-B2-IMG-005): the mark's ink layer
+    // /credits credits the file itself (DI-IMG-005): the mark's ink layer
     // is that file's <img>, with the registry alt and intrinsic size, and it
     // paints only the ink through the mask of its own file, cropped to the
     // measured artwork box (engineai-logo has one; nvidia-logo fills its file).

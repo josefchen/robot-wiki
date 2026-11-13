@@ -36,7 +36,7 @@ function names(summary: string): string[] {
     .filter((token) => /[A-Z]/.test(token));
 }
 
-describe('domain hub leads (VAL-OPUS-105)', () => {
+describe('domain hub leads', () => {
   for (const domain of DOMAINS) {
     const meta = DOMAIN_META[domain as Domain];
     it(`${domain} opens with a sentence that defines the domain`, () => {
@@ -63,7 +63,7 @@ describe('domain hub leads (VAL-OPUS-105)', () => {
   }
 });
 
-describe('hub summaries state only what their articles state (VAL-OPUS-114)', () => {
+describe('hub summaries state only what their articles state', () => {
   for (const entry of publishedModules()) {
     it(`${entry.domain}/${entry.slug}`, () => {
       expect(sentences(entry.summary), entry.summary).toHaveLength(1);

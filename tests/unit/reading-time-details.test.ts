@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { countVisibleWords } from '@/lib/reading-time';
 
 /**
- * Ground truth for disclosure handling in the reading-time walker
- * (VAL-EDU-001/002/003). Every expected number below was measured in
+ * Ground truth for disclosure handling in the reading-time walker.
+ * Every expected number below was measured in
  * headless Chromium on 2026-08-19 by rendering the exact fragment inside
  * an `article .prose` container and tokenizing the container's innerText
  * on whitespace. The walker must agree with the browser it approximates,
@@ -13,7 +13,7 @@ import { countVisibleWords } from '@/lib/reading-time';
  * Both directions are encoded on purpose. A walker that skipped every
  * <details> unconditionally passes the closed cases and fails the open
  * ones; a walker that never learned about <details> passes the open ones
- * and fails the closed ones. VAL-EDU-002 is proved by exactly this flip,
+ * and fails the closed ones. The disclosure rule is proved by exactly this flip,
  * so the closed and open forms of one markup must differ by the body
  * word count and nothing else.
  */
@@ -169,7 +169,7 @@ describe('countVisibleWords: disclosures mirror Chromium innerText', () => {
     expect(countVisibleWords(markup)).toBe(2);
   });
 
-  it('flips with the open attribute: the cheap experiment VAL-EDU-002 names', () => {
+  it('flips with the open attribute: the cheap experiment', () => {
     // One attribute added to one shipped disclosure must move the count
     // by exactly the body's word count, in both directions. This is the
     // unit-scale shape of the build-level mutation proof.

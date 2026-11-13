@@ -83,7 +83,7 @@ describe('ComparisonMatrix', () => {
     expect(years()).toEqual([...years()].sort((a, b) => b - a));
   });
 
-  it('sorts not-disclosed frequency cells last in both directions (VAL-MAN-065)', async () => {
+  it('sorts not-disclosed frequency cells last in both directions', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
     const hzButton = screen.getByRole('button', {
@@ -127,7 +127,7 @@ describe('ComparisonMatrix', () => {
     );
   });
 
-  it('filters to open weights and restores on clear (VAL-MAN-034)', async () => {
+  it('filters to open weights and restores on clear', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
     await user.click(screen.getByRole('button', { name: /^downloadable$/i }));
@@ -182,7 +182,7 @@ describe('ComparisonMatrix', () => {
     expect(rowNamed('Octo')).toBeDefined();
   });
 
-  it('shows an empty state with a clear affordance on zero results (VAL-MAN-066)', async () => {
+  it('shows an empty state with a clear affordance on zero results', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
     // No not-released method uses diffusion; unknown rows must not be

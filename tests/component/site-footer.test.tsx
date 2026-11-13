@@ -10,8 +10,7 @@ import {
 
 /**
  * The site footer (components/nav/site-footer.tsx): one quiet typographic
- * line naming the author and linking the source repository on every route
- * (VAL-DIST-006, VAL-DIST-007, VAL-DIST-009).
+ * line naming the author and linking the source repository on every route.
  */
 
 /** The contract's source-destination test for the repository link name. */
@@ -27,7 +26,7 @@ describe('SiteFooter', () => {
   });
 
   /**
-   * VAL-DESIGN-022: the footer renders the identity. It is an annotated
+   * The footer renders the identity. It is an annotated
    * `shell-wordmark`, not a loose display string, because the identity
    * sweep discovers footer brand slots structurally and holds each to both
    * the registered role and the exact identity text.

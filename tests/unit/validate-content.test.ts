@@ -298,7 +298,7 @@ describe('validateContent (fixtures)', () => {
   });
 });
 
-describe('validateContent inline citation declaration (VAL-WIKI-005)', () => {
+describe('validateContent inline citation declaration', () => {
   let root: string;
 
   beforeEach(() => {
@@ -366,7 +366,7 @@ describe('validateContent inline citation declaration (VAL-WIKI-005)', () => {
   });
 });
 
-describe('validateContent seeAlso resolution (VAL-WIKI-007, VAL-WIKI-009, VAL-WIKI-010)', () => {
+describe('validateContent seeAlso resolution', () => {
   let root: string;
 
   beforeEach(() => {
@@ -464,7 +464,7 @@ describe('validateContent seeAlso resolution (VAL-WIKI-007, VAL-WIKI-009, VAL-WI
     expect(seeAlsoIssues()).toMatch(/duplicate/i);
   });
 
-  it('fails when a published module omits seeAlso (VAL-WIKI-007)', () => {
+  it('fails when a published module omits seeAlso', () => {
     // seeAlso was optional at the schema level only until the backfill
     // landed; every published article now declares it, and the build must
     // keep it that way (the schema's 2-4 bounds apply once present).
@@ -723,7 +723,7 @@ describe('validateContent glossary checks (fixtures)', () => {
     expect(run()).toEqual([]);
   });
 
-  it('FAILS on an unknown <Term> id, naming the article and the id (VAL-GLOSS-008)', () => {
+  it('FAILS on an unknown <Term> id, naming the article and the id', () => {
     writeModule(
       `${frontmatter()}\nAn <Term id="made-up-term">unknown term</Term> slips in <Cite id="act-aloha-2023" />.\n`,
     );

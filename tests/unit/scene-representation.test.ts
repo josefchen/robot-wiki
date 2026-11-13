@@ -57,12 +57,12 @@ describe('the representation ladder', () => {
     }
   });
 
-  it('gives at least two rungs different capability sets (VAL-CLASS-050)', () => {
+  it('gives at least two rungs different capability sets', () => {
     const distinct = new Set(IDS.map(capabilityKey));
     expect(distinct.size).toBeGreaterThanOrEqual(2);
   });
 
-  it('reports a negative contact-normal state on at least one rung (VAL-CLASS-050)', () => {
+  it('reports a negative contact-normal state on at least one rung', () => {
     const negatives = REPRESENTATIONS.filter(
       (r) => r.capabilities['contact-normal'].state === 'no',
     ).map((r) => r.id);
@@ -107,7 +107,7 @@ describe('the representation ladder', () => {
 });
 
 describe('memory footprint', () => {
-  it('increases strictly as the map gets finer, on every rung (VAL-CLASS-051)', () => {
+  it('increases strictly as the map gets finer, on every rung', () => {
     for (const id of IDS) {
       const series = RESOLUTION_CM.map((cm) => footprint(id, cm).bytes);
       expect(series.length).toBeGreaterThanOrEqual(3);

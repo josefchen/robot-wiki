@@ -27,7 +27,7 @@ const ROOT = process.cwd();
 const CORPUS = ogCardCorpus(ROOT);
 
 /**
- * The identity the cards paint (VAL-B2-ID-001/002/003/009, VAL-BRAND-001/002).
+ * The identity the cards paint (DI-ID-001/002/003/009).
  *
  * Read off the element tree the generator renders, so it is the same object
  * the shipped PNG is rasterised from rather than a restated literal. The
@@ -63,7 +63,7 @@ describe('card identity text', () => {
       for (const run of cardTextRuns(openSealedCardTree(card))) {
         expect(FORBIDDEN_DISPLAY, `${cardId} run ${JSON.stringify(run.text)}`).not.toContain(run.text);
         // A run naming the brand is the exact display identity; the card
-        // facts are limited to the owning route's fields (VAL-IMG-015), so
+        // facts are limited to the owning route's fields, so
         // the production domain is not painted as a readout either.
         if (/robot[- ]wiki/i.test(run.text)) expect(run.text).toBe(PUBLIC_IDENTITY);
         // A run that talks about citations is either the canonical

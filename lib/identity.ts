@@ -1,6 +1,6 @@
 /**
  * Public brand identity, locked by `library/design-system.md` §3.1 and
- * measured by `VAL-B2-ID-001`/`VAL-B2-ID-002`. Capital `R`, capital `W`,
+ * measured by `DI-ID-001`/`DI-ID-002`. Capital `R`, capital `W`,
  * one literal space, no hyphen, no terminal punctuation; the descriptor's
  * terminal period is part of the descriptor. Every public lockup, metadata
  * title, site name, and descriptor surface imports these rather than
@@ -9,7 +9,7 @@
  * These are display identity only. The repository slug, the production
  * domain `robot-wiki.com`, the generated card path `/og/robot-wiki.png`,
  * and `robot-atlas-trajectory` are technical identifiers and stay
- * unchanged (`VAL-B2-ID-004`, design-system §3.2).
+ * unchanged (`DI-ID-004`, design-system §3.2).
  */
 export const PUBLIC_IDENTITY = 'Robot Wiki';
 export const PUBLIC_DESCRIPTOR =
@@ -20,7 +20,7 @@ export const PUBLIC_DESCRIPTOR =
  * reword, embellish, or paraphrase these strings: the author name renders
  * in three places that must stay byte-identical after whitespace collapse
  * (meta[name=author] on every route, the site footer on every route, and
- * /credits, per VAL-DIST-009), so every surface imports these constants
+ * /credits), so every surface imports these constants
  * instead of restating the string.
  */
 export const AUTHOR_NAME = 'Josef Chen';
@@ -30,11 +30,11 @@ export const AUTHOR_BIO =
   'I spent three years building and deploying robots at KAIKAKU (acquired by REEF)';
 /**
  * External author profile. Verified to resolve 200 on 2026-08-20 and used
- * as the anchor around the author name (VAL-DIST-009 clause c).
+ * as the anchor around the author name.
  */
 export const AUTHOR_PROFILE_URL = 'https://github.com/josefchen';
 /**
- * Source repository, linked from the footer on every route (VAL-DIST-007).
+ * Source repository, linked from the footer on every route.
  */
 export const REPOSITORY_URL = 'https://github.com/josefchen/robot-wiki';
 

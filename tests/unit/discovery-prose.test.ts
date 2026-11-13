@@ -87,7 +87,7 @@ describe('discovery prose counter', () => {
   });
 });
 
-describe('discovery phrase sweep (VAL-OPUS-108)', () => {
+describe('discovery phrase sweep', () => {
   it.each([
     ['This page lists every term.', 'module or page opener'],
     ['The inspected body says so.', 'audit residue'],
@@ -103,7 +103,7 @@ describe('discovery phrase sweep (VAL-OPUS-108)', () => {
   });
 });
 
-describe('discovery budget check (VAL-OPUS-107)', () => {
+describe('discovery budget check', () => {
   const budgets = budgetsFor(PAGES);
 
   it('passes each page at its budget', () => {

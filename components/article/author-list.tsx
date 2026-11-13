@@ -14,11 +14,11 @@ declare global {
  * and joined in full each one runs to sixteen wrapped lines at desktop and
  * thirty-two at 375px, which buries the title it belongs to.
  *
- * Six, the Vancouver convention, rather than the contract's ceiling of eight:
+ * Six, the Vancouver convention, rather than the earlier ceiling of eight:
  * at the research-page References measure (13 px Geist beside a number
  * gutter), eight names put the Gemini Robotics entry on pi-line at five line
  * boxes at 375 px and left the section only 29% shorter than expanded at
- * 1440 px, against VAL-WIKI-029's four lines and 30%.
+ * 1440 px, against the target of four lines and 30%.
  */
 export const AUTHORS_SHOWN = 6;
 

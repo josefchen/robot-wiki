@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   // instead, which serves this page in the export. The full openGraph set is
   // restated here: a route-level openGraph object replaces the layout's, so
   // omitting siteName/type would silently drop those tags. og:title is the
-  // plain page title so the card matches the rendered h1 (VAL-DIST-004).
+  // plain page title so the card matches the rendered h1.
   alternates: { canonical: '/404/' },
   // Explicit route-level pin: the 404 page stays noindex regardless of
   // ALLOW_INDEXING in lib/site.ts, so flipping the site-wide switch can

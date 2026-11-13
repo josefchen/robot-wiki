@@ -5,7 +5,7 @@ import { openArticlesPanel } from './helpers/articles-panel';
 /**
  * Search e2e coverage that does not depend on the Pagefind index (the dev
  * server never serves out/pagefind, so result rendering is verified against
- * the static export instead). VAL-SEARCH-001/007/009 plus an axe pass on the
+ * the static export instead), plus an axe pass on the
  * empty state.
  */
 test.describe('search shell', () => {

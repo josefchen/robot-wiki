@@ -72,7 +72,7 @@ const MAX_SUCCESS = 0.5;
 /**
  * The plot scale, exported so the source/render parity gate can recompute
  * expected user-unit coordinates from the same constants the chart uses
- * (VAL-B2-VIZ-013). Pure: no hooks, no state. The x axis is logarithmic, so
+ * (DI-VIZ-013). Pure: no hooks, no state. The x axis is logarithmic, so
  * the measured rise from one move to 100 takes most of the width.
  */
 export function chunkScaleX(k: number): number {

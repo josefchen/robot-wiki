@@ -114,8 +114,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     // declared as the PLAIN article title: the framework would otherwise
     // fill it from the templated document title, leaving the
     // '| Robot Wiki' suffix on the card, and the card title must equal
-    // the page's rendered h1 (VAL-DIST-004). The article's own social
-    // card (one distinct PNG per article, VAL-DIST-002/003/005) travels
+    // the page's rendered h1. The article's own social
+    // card (one distinct PNG per article) travels
     // with this object for the same reason. og:description falls back to
     // this route's description, so the og and twitter pair share one value.
     openGraph: {
@@ -248,7 +248,7 @@ export default async function ModulePage({ params }: { params: Params }) {
         }}
       />
       {/* The article representative surface declares its material: the
-          title sheet, never the prose column (VAL-B2-SURF-011). A plain
+          title sheet, never the prose column (DI-SURF-011). A plain
           block in the same grid cell, so the masthead's layout is
           unchanged and the sealed header source stays as it is. */}
       <div {...materialAttributes('paper')} className="material-paper">

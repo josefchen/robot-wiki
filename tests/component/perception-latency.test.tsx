@@ -133,7 +133,7 @@ describe('PerceptionLatency', () => {
     expect(moved).not.toMatch(/70 ms of perception latency/);
   });
 
-  it('announces the plain readout in a polite live region (VAL-EDU-038)', () => {
+  it('announces the plain readout in a polite live region', () => {
     render(<PerceptionLatency />);
     const readout = screen.getByTestId('latency-plain-readout');
     const live = readout.closest('[aria-live]');
@@ -241,7 +241,7 @@ describe('latency corridor model', () => {
   });
 });
 
-describe('PerceptionLatency series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('PerceptionLatency series encoding (DI-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<PerceptionLatency />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['avoidance-maneuver', 'perception-latency']);

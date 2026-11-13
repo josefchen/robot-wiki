@@ -15,7 +15,7 @@ export const HOME_SEO_DESCRIPTION =
   'Explore modern robotics with source-cited guides to robot learning, vision-language-action models, reinforcement learning, sim-to-real and control.';
 /**
  * Home's meta description. It opens with the locked descriptor, which the
- * site root's metadata has to carry verbatim (VAL-B2-ID-002).
+ * site root's metadata has to carry verbatim (DI-ID-002).
  */
 export const HOME_META_DESCRIPTION = routeSeoProfile('/').description;
 

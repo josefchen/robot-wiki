@@ -363,7 +363,7 @@ describe('SearchInterface', () => {
   });
 });
 
-describe('VAL-SEARCH-027: facet narrowing is announced before index-failure emptiness', () => {
+describe('facet narrowing is announced before index-failure emptiness', () => {
   it('names the active filter when the module index failed and a facet hides real hits', async () => {
     // The module index failed AND a type facet is hiding real structured
     // hits. What a screen reader hears must agree with the visible

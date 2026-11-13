@@ -83,7 +83,7 @@ import {
  *
  * The contact-force limit and its label come from lib/force-limits through
  * lib/safety-modes, the same module the impedance lab on /classical/control
- * renders, so the two pages cannot drift apart (VAL-FRONT-029).
+ * renders, so the two pages cannot drift apart.
  *
  * The main view speaks in words: the gap the robot must keep, laid on the
  * floor ruler as its four parts and named under the drawing, or how hard a

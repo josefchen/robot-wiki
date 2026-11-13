@@ -2,7 +2,7 @@
  * Shared contact-force limit constants for compliant-contact
  * interactives. The impedance lab on /classical/control and the
  * safety-coverage instrument on the frontier side both render the same
- * power-and-force-limiting reference quantity; VAL-FRONT-029 requires the
+ * power-and-force-limiting reference quantity; the two pages require the
  * two rendered strings to be identical character for character with the
  * same stated basis, so the constants and the rendered strings live HERE,
  * once, and both components import them instead of recomputing.

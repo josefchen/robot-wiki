@@ -4,7 +4,7 @@
  * from the two-pass build (scripts/measure-reading-times.ts writes
  * data/reading-times.json between the passes), not the dev server. Dev
  * shows the render-time prose estimate when the measured file is absent;
- * the export carries the measured rendered count (VAL-WIKI-015), and the
+ * the export carries the measured rendered count, and the
  * two surfaces are asserted separately.
  *
  * Deliberately dependency-free (node:http): the spec must run offline and

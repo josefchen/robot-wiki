@@ -261,10 +261,10 @@ describe('GaitDiagram', () => {
   });
 
   it('samples the disclosure table on the rendered tick grid, endpoints included', async () => {
-    // VAL-EDU-023 clause (a): the table must carry the plotted range's
+    // Chart-table agreement clause (a): the table must carry the plotted range's
     // endpoints, so it samples the rendered tick set [0, 0.25, 0.5, 0.75,
     // 1] exactly rather than a 20% grid that stops at 80%. Every cell
-    // must be non-empty (VAL-EDU-028), and the closing 100% row must
+    // must be non-empty, and the closing 100% row must
     // equal phase 0 (the cycle wraps: 100% labels the same instant).
     const user = userEvent.setup();
     render(<GaitDiagram />);

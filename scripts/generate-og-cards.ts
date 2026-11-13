@@ -1,12 +1,12 @@
 /**
- * Build-time OG card generation (VAL-DIST-002/003/005, VAL-B2-OG-001..015).
+ * Build-time OG card generation (DI-OG-001..015).
  *
  * Renders one 1200x630 PNG per published article plus one site-level
  * card, and the registered 4:3 and square structured-data variant of each
  * article card, into public/og/ and public/structured-images/ — and into
  * their out/ copies when the static export exists. The static export
  * serves them as plain files: no framework process, no image-optimisation
- * endpoint, no API route (the three shapes VAL-DIST-005 rejects).
+ * endpoint, no API route (the three shapes the card checks reject).
  *
  * Publication is staged and journalled (lib/og-card-publication.ts): the
  * complete corpus is rendered into a clean staging tree, validated there

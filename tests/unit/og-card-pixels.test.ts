@@ -10,7 +10,7 @@ import { OG_PIXEL_TOLERANCE, inspectCardPixels } from '@/lib/og-card-pixels';
 import { decodePng, type DecodedPng } from '@/lib/png-decode';
 
 /**
- * VAL-B2-OG-002..005 and VAL-B2-OG-008 read from decoded pixels: every
+ * DI-OG-002..005 and DI-OG-008 read from decoded pixels: every
  * shipped card is opaque, stays on the palette its tree paints within the
  * declared tolerance, and carries the registered devices at their exact
  * pixels. The negative cases repaint a shipped card and re-encode it, so

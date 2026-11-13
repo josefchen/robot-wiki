@@ -62,7 +62,7 @@ describe('LinkedFrom', () => {
 
   it('renders nothing for an article with no inbound links', () => {
     // The honest state for zero backlinks is no section at all: no bare
-    // heading, no empty list, no apologetic placeholder (VAL-WIKI-012).
+    // heading, no empty list, no apologetic placeholder.
     const { container } = render(<LinkedFrom entries={[]} />);
     expect(container).toBeEmptyDOMElement();
   });

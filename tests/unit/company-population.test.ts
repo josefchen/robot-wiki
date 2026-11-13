@@ -7,8 +7,8 @@ import { companyIdSetIssues, companyPopulationIssues } from '@/lib/company-popul
 
 /**
  * The market map's company population, checked as a set derived from the
- * registry rather than as a remembered count (VAL-MKT-001, VAL-MKT-012,
- * VAL-MKT-014). validate:content runs companyPopulationIssues against the
+ * registry rather than as a remembered count. validate:content runs
+ * companyPopulationIssues against the
  * research file data/companies.ts is generated from, and the static-export
  * spec runs companyIdSetIssues against the tiles the page ships. Every
  * failure each gate claims to catch is planted here.

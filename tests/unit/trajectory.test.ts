@@ -162,7 +162,7 @@ describe('parseTrajectory validation', () => {
     // A literal file exported by the app before the robot-atlas -> robot-wiki
     // rename. The persisted format discriminator is data, not branding: it
     // stays 'robot-atlas-trajectory' forever, so existing user files must
-    // keep parsing after the rebrand (VAL-BRAND-013).
+    // keep parsing after the rebrand.
     const preRebrandFile = `{
   "format": "robot-atlas-trajectory",
   "version": 1,

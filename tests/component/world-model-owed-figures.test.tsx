@@ -43,7 +43,7 @@ for (const { name, Component, id, route, marks } of FIGURES) {
       expect(mainViewSymbolHits(new JSDOM(html).window.document.querySelector('[data-figure-frame]')!)).toEqual([]);
     });
 
-    it('names every series in the plot and distinguishes them without colour (VAL-B2-VIZ-002/004)', () => {
+    it('names every series in the plot and distinguishes them without colour (DI-VIZ-002/004)', () => {
       const { container } = render(node);
       expect(Object.keys(seriesEncodings(container))).toHaveLength(marks);
       expect(seriesEncodingViolations(container)).toEqual([]);

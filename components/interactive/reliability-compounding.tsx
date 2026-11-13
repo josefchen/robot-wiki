@@ -110,7 +110,7 @@ type ReliabilityCompoundingProps = {
   /** A named set of settings the per-step presets jump to. */
   presets?: keyof typeof PRESET_SETS;
   /**
-   * Distinguishes reused mounts so VAL-EDU-036 takeaways stay structurally
+   * Distinguishes reused mounts so their takeaways stay structurally
    * different after digit-run normalisation; also picks the headline.
    */
   descriptionVariant?: Variant;
@@ -277,8 +277,8 @@ export function ReliabilityCompounding({
 
   const sampleRows = useMemo(() => {
     // The sampled table reads the same compounding curve as the board's
-    // trays, so the two can never disagree (VAL-EDU-023), and the sample
-    // moves with the per-step control (VAL-EDU-024).
+    // trays, so the two can never disagree, and the sample
+    // moves with the per-step control.
     const curve = compoundingCurve(perStep, maxSteps);
     return [0, 10, 25, 50, 75, maxSteps].map((n) => ({
       label: `${n} step${n === 1 ? '' : 's'}`,

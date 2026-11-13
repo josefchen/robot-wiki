@@ -21,7 +21,7 @@ import {
 } from '@/lib/og-cards';
 
 /**
- * OG card helpers (VAL-DIST-002/003/005): the vocabulary the emitted
+ * OG card helpers: the vocabulary the emitted
  * PNGs, the metadata tags and the generator all share. Pure logic only;
  * the PNG emission itself is covered by the e2e spec against the built
  * export.
@@ -35,7 +35,7 @@ describe('og card vocabulary', () => {
     // publishes); the distinct-path checks below are the real guard.
     expect(published.length).toBeGreaterThan(0);
     const paths = published.map((m) => articleCardPath(m.domain, m.slug));
-    // One distinct URL path per published article (VAL-DIST-003).
+    // One distinct URL path per published article.
     expect(new Set(paths).size).toBe(published.length);
     for (const m of published) {
       const path = articleCardPath(m.domain, m.slug);
@@ -102,7 +102,7 @@ describe('og card vocabulary', () => {
     expect(Math.abs(ratio - 1.91)).toBeLessThanOrEqual(0.05);
   });
 
-  // VAL-DIST-004: the route blocks pin the PLAIN title. The framework's
+  // The route blocks pin the PLAIN title. The framework's
   // own fallback fills og:title from the templated document title, which
   // leaves the ' | PUBLIC_IDENTITY' suffix on the card and breaks the h1
   // match; the helpers must declare the title explicitly so that can

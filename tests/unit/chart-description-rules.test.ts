@@ -104,7 +104,7 @@ describe('normalizeDigits', () => {
   });
 });
 
-describe('bannedOpeners (VAL-EDU-026 list)', () => {
+describe('bannedOpeners', () => {
   it('rejects "this chart" and "the figure" openers case-insensitively', () => {
     expect(bannedOpeners('This chart shows the decay of reliability')).toHaveLength(1);
     expect(bannedOpeners('the diagram plots latency')).toHaveLength(1);

@@ -123,7 +123,7 @@ export function averageSentenceLength(blocks: readonly string[]): number {
   return count === 0 ? 0 : words / count;
 }
 
-/** The phrase sweep of the opus-pass domain rules (D4), applied to reader text. */
+/** The phrase sweep of the domain prose rules, applied to reader text. */
 export const DISCOVERY_PHRASE_SWEEP: ReadonlyArray<{ label: string; pattern: RegExp }> = [
   {
     label: 'module or page opener',

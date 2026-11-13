@@ -3,8 +3,8 @@ import { DASH_PATTERN, findBannedVocabulary } from './no-slop.ts';
 /**
  * Wording the home page may not show. Build-progress copy is refused by the
  * home composition sweep (tests/e2e/brand-v2-home.spec.ts); banned
- * vocabulary and dash characters by VAL-DESIGN-011; reading guidance by
- * VAL-NAV-005, which keeps it on /about/. Text picked for home by code,
+ * vocabulary and dash characters by the prose lint; reading guidance by
+ * the navigation rule that keeps it on /about/. Text picked for home by code,
  * such as the featured lead, is screened with the same lists.
  */
 export const HOME_PROGRESS_PHRASES = [

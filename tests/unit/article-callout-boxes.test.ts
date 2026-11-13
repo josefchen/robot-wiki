@@ -10,7 +10,7 @@ import { boxElements, boxImports, boxUses, mdxFiles } from '@/lib/article-boxes'
  * cited sentence and a disclaimer is cut. Both components stay registered in
  * mdx-components.tsx, so an article can still mount one; this check keeps
  * them out and deliberately has no allowlist. The same scan runs in
- * vercel-build as scripts/check-article-boxes.ts (VAL-OPUS-151).
+ * vercel-build as scripts/check-article-boxes.ts.
  */
 
 const ROOT = process.cwd();

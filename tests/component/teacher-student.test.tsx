@@ -116,7 +116,7 @@ describe('TeacherStudent', () => {
   });
 });
 
-describe('TeacherStudent series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('TeacherStudent series encoding (DI-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<TeacherStudent />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['readings', 'reconstruction', 'terrain']);

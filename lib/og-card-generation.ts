@@ -14,7 +14,7 @@
  * - the decoded pixels of every OG/X card against its painted palette and
  *   registered device anchors;
  * - a second, independent render of every OG/X card, which must reproduce
- *   the staged bytes exactly (VAL-B2-OG-010);
+ *   the staged bytes exactly (DI-OG-010);
  * - byte equality between the staged copies of each tree pair.
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';

@@ -1,5 +1,5 @@
 /**
- * Build gate for VAL-OPUS-151: no article under content/ mounts or imports a
+ * Build gate: no article under content/ mounts or imports a
  * Callout or Aside box. No allowlist and no exemption.
  *
  *   node scripts/check-article-boxes.ts [--content-dir <path>]

@@ -169,7 +169,7 @@ describe('ControlLoopBudget', () => {
   });
 });
 
-describe('ControlLoopBudget series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('ControlLoopBudget series encoding (DI-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<ControlLoopBudget />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['clb-inference', 'clb-overrun']);

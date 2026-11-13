@@ -93,7 +93,7 @@ describe('DroneDeliveryCounts served HTML', () => {
   });
 });
 
-describe('DroneDeliveryCounts series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('DroneDeliveryCounts series encoding (DI-VIZ-002/004)', () => {
   it('names every plotted series in the plot and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(DELIVERY_COUNTS.map((d) => d.id).sort());

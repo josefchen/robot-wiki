@@ -121,7 +121,7 @@ describe('WmDisambiguator', () => {
     expect(chipFor('policy-learning')).toHaveAttribute('data-active', 'true');
   });
 
-  it('exposes what each paradigm predicts as real text (VAL-EDU-037)', () => {
+  it('exposes what each paradigm predicts as real text', () => {
     render(<WmDisambiguator />);
     for (const paradigm of WM_PARADIGMS) {
       const text = screen.getByTestId(`predicts-${paradigm.id}`);

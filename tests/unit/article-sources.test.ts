@@ -7,7 +7,7 @@ import { publishedModules } from '@/data/modules';
 import { MIN_DISTINCT_SOURCES, MIN_SITE_DISTINCT_SOURCES, countArticleSources, normaliseUrl, sourceKey } from '@/lib/article-sources';
 
 /**
- * VAL-OPUS-152: every published article cites at least 30 distinct sources
+ * Every published article cites at least 30 distinct sources
  * inline, where entries sharing an arXiv id, a DOI or a normalised URL count
  * once. scripts/check-article-sources.ts enforces it in vercel-build with no
  * exemption list.

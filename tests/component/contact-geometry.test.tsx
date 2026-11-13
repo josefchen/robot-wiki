@@ -157,7 +157,7 @@ describe('ContactGeometry', () => {
     expect(container.querySelectorAll('[data-testid^="contact-marker-foot-"][data-contact="lost"]')).toHaveLength(4);
   });
 
-  it('describes the stance and tracks the error slider (VAL-EDU-032/034)', () => {
+  it('describes the stance and tracks the error slider', () => {
     const { container } = render(<ContactGeometry />);
     const img = screen.getByRole('img');
     const id = img.getAttribute('aria-describedby');

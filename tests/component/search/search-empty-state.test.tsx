@@ -16,7 +16,7 @@ vi.mock('next/navigation', () => ({
 import { SearchInterface } from '@/components/search/search-interface';
 
 /**
- * The empty state, per VAL-SEARCH-023. The single message
+ * The empty state. The single message
  * `No modules match "X"` used to render whenever both groups came back
  * empty, so it named modules for a query that may only have missed the
  * entity records, and it rendered with a type facet active while unfiltered
@@ -77,7 +77,7 @@ beforeEach(() => {
   mockParams = new URLSearchParams();
 });
 
-describe('VAL-SEARCH-023 (a): prose empty, entities present', () => {
+describe('empty state (a): prose empty, entities present', () => {
   it('raises no site-wide empty state and keeps the structured group visible', async () => {
     const user = userEvent.setup();
     const { container } = render(
@@ -134,7 +134,7 @@ describe('VAL-SEARCH-023 (a): prose empty, entities present', () => {
   });
 });
 
-describe('VAL-SEARCH-023 (b): both groups empty', () => {
+describe('empty state (b): both groups empty', () => {
   it('renders exactly one site-wide message naming both surfaces', async () => {
     const user = userEvent.setup();
     const { container } = render(
@@ -206,7 +206,7 @@ describe('VAL-SEARCH-023 (b): both groups empty', () => {
   });
 });
 
-describe('VAL-SEARCH-023 (c): a type facet is narrowing the results', () => {
+describe('empty state (c): a type facet is narrowing the results', () => {
   async function narrowToDatasets() {
     const user = userEvent.setup();
     const view = render(

@@ -125,7 +125,7 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     expect(label).toHaveTextContent(b.name);
   }, TIMEOUT);
 
-  it('keeps Enter and Space selection working (VAL-MKT-023 regression)', () => {
+  it('keeps Enter and Space selection working (regression)', () => {
     render(<Chart />);
     const figure = mark('figure-ai');
     // jsdom has no focus management, so key events are dispatched on the

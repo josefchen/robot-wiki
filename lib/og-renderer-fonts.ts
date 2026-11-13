@@ -4,7 +4,7 @@
  * Satori cannot consume a variable WOFF2, which is why the OG path uses
  * separately vendored static binaries rather than the browser faces. Each
  * registered face still has to serve one of the four first-party roles:
- * VAL-B2-TYPE-001's KaTeX exception is scoped to mathematical content and
+ * DI-TYPE-001's KaTeX exception is scoped to mathematical content and
  * must never substitute for a first-party role, so the renderer's mono
  * data/registration labels use the vendored static IBM Plex Mono.
  *

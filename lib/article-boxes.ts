@@ -4,7 +4,7 @@ import { maskMarkdownCode, scanJsxTags } from './jsx-element-tree.ts';
 
 /**
  * Articles carry no boxed Callout or Aside panel: a real fact becomes one
- * cited sentence and a disclaimer is cut (VAL-OPUS-151). Both components stay
+ * cited sentence and a disclaimer is cut. Both components stay
  * registered in mdx-components.tsx, so an article can still mount one; this
  * scan keeps them out and deliberately has no allowlist.
  */

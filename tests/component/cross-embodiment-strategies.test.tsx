@@ -162,7 +162,7 @@ describe('CrossEmbodimentStrategies', () => {
     expect(screen.queryAllByText(/zero-padded/)).toHaveLength(0);
   });
 
-  it('tells every slot series apart without colour under every way, drawing fresh strip slots for each (VAL-B2-VIZ-002)', () => {
+  it('tells every slot series apart without colour under every way, drawing fresh strip slots for each (DI-VIZ-002)', () => {
     const { container } = render(<CrossEmbodimentStrategies />);
     const stripSlots = () => [...container.querySelectorAll('[data-testid^="row-"] rect[data-series]')];
     for (const name of ["Fill unused joint slots with zeros", 'Translate between bodies', 'Describe where the hand goes', "Fill unused joint slots with zeros"]) {

@@ -7,7 +7,7 @@ import { sourceKey } from './citation-source-key.ts';
 export { normaliseUrl, sourceKey } from './citation-source-key.ts';
 
 /**
- * Distinct sources per article (VAL-OPUS-152). A source an article cites is a
+ * Distinct sources per article. A source an article cites is a
  * registry entry it marks with an inline <Cite>; a front-matter id the body
  * never cites renders under "Further reading" and does not count. Entries
  * that share an arXiv id, a DOI or a normalised URL are one source.

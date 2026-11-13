@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 
 /**
- * VAL-BUILD-010: the tracked next-env.d.ts imports production
+ * The tracked next-env.d.ts imports production
  * `.next/types/...` routes, never `.next/dev/types`.
  *
  * `next dev` (and therefore every Playwright webServer run on port 3200)
@@ -19,7 +19,7 @@ const committedNextEnv = execFileSync('git', ['show', 'HEAD:next-env.d.ts'], {
   encoding: 'utf8',
 });
 
-describe('VAL-BUILD-010: committed next-env.d.ts never references .next/dev', () => {
+describe('committed next-env.d.ts never references .next/dev', () => {
   it('holds the production type imports in the committed blob', () => {
     expect(committedNextEnv).toContain(
       'import "./.next/types/routes.d.ts";',

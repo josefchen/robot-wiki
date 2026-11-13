@@ -30,7 +30,7 @@ function plottedCost(
   return sum;
 }
 
-/** Marker height as a percentage of plot height, per VAL-MAN-067. */
+/** Marker height as a percentage of plot height. */
 function markerPercent(
   epsilon: number,
   steps: number,
@@ -97,7 +97,7 @@ describe('deviationAxisFraction', () => {
   });
 });
 
-describe('VAL-MAN-067 marker-height bounds on the deviation axis', () => {
+describe('marker-height bounds on the deviation axis', () => {
   it('(a) reads at least 20% of plot height at the article defaults', () => {
     expect(markerPercent(0.05, 120)).toBeGreaterThanOrEqual(20);
   });

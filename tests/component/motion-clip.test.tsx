@@ -4,7 +4,7 @@ import { Clip } from '@/components/motion/clip';
 import { getMotionClip } from '@/lib/motion-clips';
 
 /**
- * The clip player contract (VAL-MOTION-018): native controls, preload
+ * The clip player contract: native controls, preload
  * none, a poster so the reader never downloads video bytes unasked, fixed
  * intrinsic dimensions so activation cannot shift layout, a captions
  * track, a visible status line, and an sr-only transcript. The clip never

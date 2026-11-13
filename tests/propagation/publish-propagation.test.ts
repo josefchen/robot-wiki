@@ -1,6 +1,6 @@
 // @vitest-environment node
 /**
- * VAL-CROSS-029: publishing a module propagates it to every discovery
+ * Publishing a module propagates it to every discovery
  * surface with no per-surface wiring, and reverting removes it again.
  *
  * Draft-probe pattern (see tests/helpers/draft-fixtures.ts): this test
@@ -103,7 +103,7 @@ const PROBE_SENTINEL: ModuleRegistryEntry =
   probe ?? { domain: 'adjacent', slug: '', title: '', summary: '', order: 0, status: 'draft' };
 
 describe.skipIf(probe === undefined)(
-  'draft-probe propagation (VAL-CROSS-029)',
+  'draft-probe propagation',
   () => {
     const key = `${PROBE_SENTINEL.domain}/${PROBE_SENTINEL.slug}`;
     const probeFile = join(ROOT, 'content', PROBE_SENTINEL.domain, `${PROBE_SENTINEL.slug}.mdx`);

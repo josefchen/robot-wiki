@@ -319,7 +319,7 @@ describe('PerceptionErrorBudget bench model', () => {
   });
 });
 
-describe('PerceptionErrorBudget series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('PerceptionErrorBudget series encoding (DI-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<PerceptionErrorBudget />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['input', 'model-band', 'total']);

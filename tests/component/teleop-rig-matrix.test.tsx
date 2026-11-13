@@ -14,7 +14,7 @@ function rowNamed(name: string | RegExp): HTMLElement | undefined {
 }
 
 describe('TeleopRigMatrix', () => {
-  it('renders every rig family with the four comparison dimensions (VAL-DATA-019)', () => {
+  it('renders every rig family with the four comparison dimensions', () => {
     render(<TeleopRigMatrix />);
     expect(
       screen.getByRole('table', { name: /teleoperation rig families/i }),
@@ -42,7 +42,7 @@ describe('TeleopRigMatrix', () => {
     }
   });
 
-  it('renders the unpublished VR system cost as not disclosed and never invents numbers (VAL-DATA-020)', () => {
+  it('renders the unpublished VR system cost as not disclosed and never invents numbers', () => {
     render(<TeleopRigMatrix />);
     const vr = rowNamed(/VR teleoperation/) as HTMLElement;
     expect(vr).toBeDefined();
@@ -72,7 +72,7 @@ describe('TeleopRigMatrix', () => {
     expect(costs[0]).toContain('$300');
   });
 
-  it('sorts rating columns with null-safe ordering (VAL-DATA-020)', async () => {
+  it('sorts rating columns with null-safe ordering', async () => {
     const user = userEvent.setup();
     render(<TeleopRigMatrix />);
     await user.click(
@@ -95,7 +95,7 @@ describe('TeleopRigMatrix', () => {
     expect(header).toHaveAttribute('aria-sort', 'descending');
   });
 
-  it('highlights a dimension and shows the per-rig detail readout (VAL-DATA-020)', async () => {
+  it('highlights a dimension and shows the per-rig detail readout', async () => {
     const user = userEvent.setup();
     render(<TeleopRigMatrix />);
     // Anchored: the table header also exposes a "Sort by Data quality" button.
@@ -185,7 +185,7 @@ describe('TeleopRigMatrix', () => {
     ).toHaveAttribute('aria-sort', 'ascending');
   });
 
-  it('carries at least one external source link per row (VAL-DATA-018)', () => {
+  it('carries at least one external source link per row', () => {
     render(<TeleopRigMatrix />);
     for (const row of bodyRows()) {
       const links = within(row)

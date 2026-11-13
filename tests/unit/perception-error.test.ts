@@ -91,7 +91,7 @@ describe('composition', () => {
     }
   });
 
-  it('is exactly flat in working distance at a zero angle (VAL-CLASS-042)', () => {
+  it('is exactly flat in working distance at a zero angle', () => {
     const totals = [
       SLIDER_SPECS.distance.min,
       0.4,
