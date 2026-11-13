@@ -8,7 +8,7 @@
  *   paper and card     --paper (the page itself; fills hide what is behind)
  *   lines hi/mid/lo    --ink, --chart-dark, --chart-medium
  *   lines faint        --line, the 1 px hairline tone
- *   lit (one part)     --accent
+ *   lit (one part)     --accent on its edges, and a faint tint of it on its faces
  *   side shades 0..3   --chart-background mixed into --paper, darkest first
  *
  * The kit's soft halo under a base is a drop shadow, and the site draws no
@@ -23,7 +23,7 @@
   --anatomy-shade-1:color-mix(in srgb,var(--chart-background) 68%,var(--paper));
   --anatomy-shade-2:color-mix(in srgb,var(--chart-background) 40%,var(--paper));
   --anatomy-shade-3:color-mix(in srgb,var(--chart-background) 16%,var(--paper));
-  --anatomy-lit-top:var(--color-white,white);--anatomy-lit-shade:color-mix(in srgb,var(--chart-background) 40%,var(--paper));
+  --anatomy-lit-top:color-mix(in srgb,var(--accent) 14%,var(--color-white,white));--anatomy-lit-shade:color-mix(in srgb,var(--accent) 26%,var(--paper));
   --anatomy-hi:var(--ink);--anatomy-mid:var(--chart-dark);--anatomy-lo:var(--chart-medium);--anatomy-faint:var(--line);--anatomy-lit:var(--accent);
   --anatomy-dot:var(--ink);
   --anatomy-red:var(--fail);--anatomy-green:var(--ok);--anatomy-blue:var(--accent);
