@@ -36,7 +36,7 @@
     "minutes": 17
   },
   "manipulation/realtime-execution": {
-    "words": 1616,
+    "words": 1612,
     "minutes": 8
   },
   "manipulation/cross-embodiment": {
@@ -72,7 +72,7 @@
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2034,
+    "words": 2053,
     "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
@@ -116,7 +116,7 @@
     "minutes": 8
   },
   "world-models/evaluation": {
-    "words": 1338,
+    "words": 1499,
     "minutes": 7
   },
   "world-models/world-models-vs-simulators": {
@@ -196,8 +196,8 @@
     "minutes": 14
   },
   "frontier/generalization": {
-    "words": 2032,
-    "minutes": 10
+    "words": 2149,
+    "minutes": 11
   },
   "frontier/competing-theses": {
     "words": 2155,

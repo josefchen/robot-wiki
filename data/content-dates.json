@@ -94,7 +94,7 @@
     },
     "frontier/generalization": {
       "published": "2026-08-12T15:08:41+01:00",
-      "modified": "2026-11-12T20:55:05+00:00"
+      "modified": "2026-11-13T06:02:09+00:00"
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T04:02:00+01:00",
@@ -198,7 +198,7 @@
     },
     "world-models/evaluation": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-11-12T20:36:51+00:00"
+      "modified": "2026-11-13T06:02:09+00:00"
     },
     "world-models/generative-sim": {
       "published": "2026-08-08T22:15:16+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-13T05:24:04+00:00"
+      "modified": "2026-11-13T06:02:09+00:00"
     },
     "/manipulation/": {
       "modified": "2026-11-13T05:23:07+00:00"
@@ -264,7 +264,7 @@
       "modified": "2026-11-13T05:23:07+00:00"
     },
     "/glossary/": {
-      "modified": "2026-11-13T05:24:04+00:00"
+      "modified": "2026-11-13T05:29:50+00:00"
     },
     "/credits/": {
       "modified": "2026-11-13T05:23:07+00:00"
