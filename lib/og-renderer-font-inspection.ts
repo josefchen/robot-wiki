@@ -1,6 +1,5 @@
 /**
- * Registration and parity checks for the Open Graph renderer's font faces
- * (DI-TYPE-001, DI-TYPE-011 through 014).
+ * Registration and parity checks for the Open Graph renderer's font faces.
  *
  * The text population is walked out of the element trees the generator
  * renders, so a family painted by the artwork but never registered with the

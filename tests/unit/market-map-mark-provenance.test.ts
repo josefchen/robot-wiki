@@ -24,7 +24,7 @@ import {
 
 /**
  * The provenance of every company mark the market map can draw
- * (DI-MAP-010), joined record by record from each company's `logo`:
+ *, joined record by record from each company's `logo`:
  * the registry entry that credits it (data/logo-images.ts), the slim lookup
  * the map reads (data/logos.ts), its measured placement and any withholding
  * (lib/market-map-marks.ts), and the bytes on disk.
@@ -87,7 +87,7 @@ const marks = COMPANIES.filter((company) => company.logo !== null).map((company)
   };
 });
 
-describe('market-map mark provenance, mark by mark (DI-MAP-010)', () => {
+describe('market-map mark provenance, mark by mark', () => {
   it('joins every company mark to one registry record, lookup and placement', () => {
     expect(marks.length).toBeGreaterThan(0);
     // One mark per company, and every registered mark belongs to a company.

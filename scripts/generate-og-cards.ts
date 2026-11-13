@@ -1,5 +1,5 @@
 /**
- * Build-time OG card generation (DI-OG-001..015).
+ * Build-time OG card generation.
  *
  * Renders one 1200x630 PNG per published article plus one site-level
  * card, and the registered 4:3 and square structured-data variant of each
@@ -10,7 +10,7 @@
  *
  * Publication is staged and journalled (lib/og-card-publication.ts): the
  * complete corpus is rendered into a clean staging tree, validated there
- * in full (lib/og-card-generation.ts: sealed matrix, route ownership,
+ * in full (lib/og-card-generation.ts: card population, route ownership,
  * strings against their sources, glyph probes, decoded pixels, a second
  * render for determinism), and only then swapped into place tree by tree,
  * with a rollback on any caught failure and recovery of an interrupted run

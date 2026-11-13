@@ -248,7 +248,7 @@ export default async function ModulePage({ params }: { params: Params }) {
         }}
       />
       {/* The article representative surface declares its material: the
-          title sheet, never the prose column (DI-SURF-011). A plain
+          title sheet, never the prose column. A plain
           block in the same grid cell, so the masthead's layout is
           unchanged and the sealed header source stays as it is. */}
       <div {...materialAttributes('paper')} className="material-paper">

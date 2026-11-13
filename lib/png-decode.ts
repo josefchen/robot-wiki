@@ -1,8 +1,7 @@
 /**
  * A checked-in, dependency-free PNG decoder for generated-image validation.
  *
- * The contract forbids resting an image claim on an undeclared machine
- * binary (design-integrity §23): the Open Graph pixel checks therefore
+ * No image check may rest on an undeclared machine binary: the Open Graph pixel checks therefore
  * decode with this file and the runtime's own zlib, so the decoder's
  * version is this source and its checksum. It reads exactly what the card
  * renderer emits — non-interlaced, 8-bit greyscale, RGB, palette,

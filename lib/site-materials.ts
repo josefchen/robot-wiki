@@ -2,7 +2,7 @@ import { BRAND_COLORS } from './design-tokens.ts';
 
 /**
  * The materials the site paints, and the attributes a representative
- * surface carries to declare one (DI-SURF-011).
+ * surface carries to declare one.
  *
  * Decision of 10 October 2026: the research-page
  * sheet is plain paper, so the concrete micro-texture and the halftone dot

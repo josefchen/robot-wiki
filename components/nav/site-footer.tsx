@@ -57,7 +57,7 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
       data-site-footer
       className="relative mt-24 pt-px"
     >
-      {/* The closing rail every route shares (DI-GRID-002): the same
+      {/* The closing rail every route shares: the same
           1px hairline the footer always drew, registered as the section
           rule it is and anchored to the footer's own top edge, so home,
           discovery, the market map and the playground each carry one
@@ -74,8 +74,7 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
         {/* The lockup keeps its own block. The identity sweep reads a
             lockup's siblings as its descriptor surfaces, and the credit
             sentence below is a separate statement rather than a descriptor:
-            design-system 3.5 omits the descriptor from every chrome
-            lockup, and the home hero owns the only one. */}
+            no chrome lockup carries the descriptor, and the home hero owns the only one. */}
         <div>
           <Link
             href="/"

@@ -3,7 +3,7 @@
 /**
  * ScenePlayer: the shared playback shell for every motion scene.
  *
- * Contract (docs/design/motion-language.md):
+ * Contract (docs/design.md, Motion):
  * - Click-to-play, never autoplay. The poster is the prerendered final
  *   frame of the last beat; play is a click.
  * - Two visible controls: play/pause and a native range scrubber whose

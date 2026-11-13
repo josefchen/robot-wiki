@@ -125,7 +125,7 @@ test.describe('home front page', () => {
     const search = page.getByRole('searchbox', {
       name: 'Search articles, sources and glossary',
     });
-    // DI-COMP-004: the name is a persistent visible label, kept beside
+    // the name is a persistent visible label, kept beside
     // the box at both stated widths, never an aria-label.
     await expect(search).not.toHaveAttribute('aria-label');
     const label = page.locator('label[for="home-search-input"]');

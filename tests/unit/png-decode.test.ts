@@ -7,8 +7,7 @@ import { describe, expect, it } from 'vitest';
 import { decodePng, pixelAt, pngDimensions } from '@/lib/png-decode';
 
 /**
- * The checked-in decoder the generated-image claims rest on
- * (design-integrity §23: no undeclared image binary). Each filter and
+ * The checked-in decoder the generated-image checks rest on. Each filter and
  * colour type is exercised on a PNG assembled here byte by byte, so the
  * expected pixels are known without a second decoder.
  */

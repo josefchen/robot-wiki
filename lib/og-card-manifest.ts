@@ -1,5 +1,5 @@
 /**
- * The Open Graph renderer-input manifest (DI-OG-011, DI-OG-012).
+ * The Open Graph renderer-input manifest.
  *
  * For every card the manifest records each painted string with the card
  * field it carries, the canonical source it was derived from and that
@@ -385,7 +385,7 @@ export function buildOgCardManifest(input: BuildManifestInput): {
 } {
   const { root, corpus } = input;
   const failures: string[] = [];
-  const matrix = input.matrix ?? readOgMatrix(root);
+  const matrix = input.matrix ?? readOgMatrix();
   failures.push(...ogMatrixDrift(matrix, corpus));
   const published = publishedModules();
   if (corpus.length !== published.length + 1) {
@@ -489,7 +489,7 @@ export function buildOgCardManifest(input: BuildManifestInput): {
   }
   const structuredCount = cards.reduce((sum, { structuredVariants }) => sum + structuredVariants.length, 0);
   if (structuredCount !== matrix.structuredImageCount) {
-    failures.push(`${structuredCount} structured images; the matrix seals ${matrix.structuredImageCount}`);
+    failures.push(`${structuredCount} structured images; expected ${matrix.structuredImageCount}`);
   }
   if (input.files.size !== allAssets.length) {
     failures.push(`${input.files.size} files were staged; the corpus accounts for ${allAssets.length}`);
@@ -516,7 +516,7 @@ export function buildOgCardManifest(input: BuildManifestInput): {
   const manifest: OgCardManifest = {
     schemaVersion: 1,
     contract: {
-      source: 'library/design-integrity.md#20',
+      source: 'data/modules.ts',
       ogCardCount: matrix.rows.length,
       articleCount: matrix.rows.length - 1,
       siteDestinations: matrix.siteDestinations,

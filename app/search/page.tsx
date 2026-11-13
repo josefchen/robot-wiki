@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     // The search sheet is the route's representative surface and declares
-    // its material (DI-SURF-011).
+    // its material.
     <div
       data-pagefind-ignore
       {...materialAttributes('paper')}

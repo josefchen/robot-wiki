@@ -4,8 +4,7 @@ import { describe, expect, it } from 'vitest';
 
 /**
  * Source sweep for the surface and material rules of the research-page
- * standard (decided 10 October 2026):
- * DI-SURF-001/002/004/005 and DI-COL-009.
+ * standard (decided 10 October 2026).
  *
  * The rendered sweeps (tests/e2e/design-chrome.spec.ts and
  * tests/e2e/shared-primitives.spec.ts) measure what a route paints; this
@@ -75,7 +74,7 @@ describe('surface and material source sweep', () => {
     // 7px code corner literally (the figure rewrite record), and the
     // training-time chart keeps a 1px corner on its 10px legend swatches
     // (an archived proof pins that file). A swatch is a data
-    // mark, which DI-SURF-001 exempts.
+    // mark, which the rule exempts.
     const named: ReadonlyArray<readonly [string, string]> = [
       ['components/interactive/eureka-loop.tsx', 'rounded-[7px]'],
       ['components/interactive/training-time-chart.tsx', 'rounded-[1px]'],
@@ -141,7 +140,7 @@ describe('surface and material source sweep', () => {
   it('draws no stray list marker on a list that declares list-none inside prose', () => {
     // The unlayered prose list rules outrank Tailwind's layered list-none,
     // so without this override every tile of a figure's list grid got a
-    // bullet beside it (DI-GRID-006: no unanchored glyph).
+    // bullet beside it (no unanchored glyph).
     const css = readFileSync(join(ROOT, 'app/globals.css'), 'utf8');
     expect(css).toMatch(/\.prose :is\(ul, ol\)\.list-none\s*\{\s*list-style:\s*none;\s*\}/);
     const usesListNone = hits(/\blist-none\b/);

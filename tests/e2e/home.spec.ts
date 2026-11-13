@@ -5,9 +5,8 @@ import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { forEachInOwnContext } from './helpers/per-route-context';
 
 /**
- * Structural contract for the home front page. Encodes the measurable
- * bounds from library/design-integrity.md and the navigation
- * rules: a dense contents index instead of a
+ * Structural contract for the home front page. Encodes the design
+ * bounds and the navigation rules: a dense contents index instead of a
  * card grid, the humanoid scene beside the name in the first screen, the
  * three explore entries, bounded bordered boxes and micro-labels, no
  * overview paragraph, and the reading guide on /about/.
@@ -152,18 +151,14 @@ test.describe('home page', () => {
     expect(phonePoster!.y, 'poster begins inside the first phone screen').toBeLessThan(844 - 200);
   });
 
-  test('the wordmark holds its locked type scale at both stated viewports (DI-TYPE-006)', async ({
+  test('the wordmark holds its locked type scale at both stated viewports', async ({
     page,
   }) => {
-    // library/design-integrity.md DI-TYPE-006, as the decision
-    // of 10 October 2026 (the research-page standard) restated it: the
-    // shared DM Sans 400 display h1, 40-48px at 375 and 84-92px at 1440,
-    // line height 0.90-0.96, at the registered home-wordmark instance
-    // (wght 400) with no variation-axis override (DI-TYPE-015). It
-    // replaced Tektur at 52-68/88-120px, 0.88-0.98, wght 600 / wdth 100,
-    // at the same strength. Measured after fonts settle, because the size
-    // is fluid and a fallback face would change the box the seventh domain
-    // link is then checked against.
+    // The shared DM Sans 400 display h1, 40-48px at 375 and 84-92px at
+    // 1440, line height 0.90-0.96, at the registered home-wordmark instance
+    // (wght 400) with no variation-axis override. Measured after fonts
+    // settle, because the size is fluid and a fallback face would change the
+    // box the seventh domain link is then checked against.
     const bands = [
       { width: 375, height: 812, min: 40, max: 48 },
       { width: 1440, height: 900, min: 84, max: 92 },
@@ -208,8 +203,8 @@ test.describe('home page', () => {
     }
 
     // The scale and the fold are one constraint: a wordmark inside its band
-    // that pushed the scene's start button past y=900 would trade
-    // DI-TYPE-006 for the first-viewport rule. Asserted here as well as in the
+    // that pushed the scene's start button past y=900 would trade the
+    // type scale for the first-viewport rule. Asserted here as well as in the
     // first-viewport test so a type change cannot pass this test alone.
     const start = page
       .getByRole('group', { name: '3D explainer: Inside a humanoid' })

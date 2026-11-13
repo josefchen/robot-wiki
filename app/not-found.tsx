@@ -45,8 +45,7 @@ export default function NotFound() {
         }}
       />
       {/* The status numeral is editorial wayfinding rather than a data
-          readout, so it takes the display numeral role (design-system
-          4.2) instead of the mono data face. */}
+          readout, so it takes the display numeral role instead of the mono data face. */}
       <p
         data-tektur-role="display-numerals"
         className="eyebrow font-display-numerals"

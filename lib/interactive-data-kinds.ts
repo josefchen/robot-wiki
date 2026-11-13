@@ -1,7 +1,5 @@
 /**
- * The interactive data/legend classification and its pure predicates
- * (DI-VIZ-002/003/004/005/006/013/015, DI-COL-010,
- * DI-COMP-009/010).
+ * The interactive data/legend classification and its pure predicates.
  *
  * Every registered interactive source is classified here once, with the
  * evidence for the classification in the row's comment. The classification
@@ -30,7 +28,7 @@ export interface InteractiveDataSpec {
   /**
    * Series id of the lead active path, when the instrument plots one. The
    * mark group carries the same id on `data-series` and the gate resolves
-   * its computed paint (DI-VIZ-003).
+   * its computed paint.
    */
   leadSeriesId?: string;
   /**
@@ -46,7 +44,7 @@ export interface InteractiveDataSpec {
 
 /**
  * Resolved-paint tokens the gates treat as data-bearing. `retired` is a
- * superseded brand-v2 paint, which no figure may draw (DI-VIZ-003).
+ * superseded brand-v2 paint, which no figure may draw.
  */
 export type DataPaintToken =
   | 'accent'
@@ -88,7 +86,7 @@ const PAINT_BY_HEX: Readonly<Record<string, DataPaintToken | 'neutral'>> = {
 
 /**
  * The superseded brand-v2 paints: highlight lime, the brand-v2 signal blue
- * and the earlier blue DI-RES-003 retires. They fail at any opacity.
+ * and the earlier blue. They fail at any opacity.
  */
 export const RETIRED_PAINTS = ['#C6FF19', '#245FFF', '#245EDB'] as const;
 
@@ -191,7 +189,7 @@ export interface MarkObservation {
 /**
  * Whether two plotted series stay distinguishable with colour removed:
  * they differ in geometry class (line vs dot vs bar vs band vs ring), in
- * dash, or one of them is directly labelled in the plot (DI-VIZ-002).
+ * dash, or one of them is directly labelled in the plot.
  */
 export function nonColourDistinct(a: MarkObservation, b: MarkObservation): boolean {
   if (a.labelled || b.labelled) return true;
@@ -214,7 +212,7 @@ const COLOUR_NAME =
 /**
  * Classify one legend entry's text. A subject made only of colour and dash
  * words ("blue:", "dashed blue:", "red line") relies on colour alone and
- * fails DI-VIZ-004/DI-COL-010; an entry that names the thing it
+ * fails; an entry that names the thing it
  * marks passes.
  */
 export function classifyLegendText(text: string): 'named' | 'colour-name-only' | 'empty' {
@@ -238,7 +236,7 @@ export function classifyLegendText(text: string): 'named' | 'colour-name-only' |
 }
 
 /**
- * Rendered text that claims to name plotted series (DI-VIZ-004): text
+ * Rendered text that claims to name plotted series: text
  * tied to them by `data-series-label-for` (an in-plot SVG text, DirectLabel
  * or StageAnnotation), or a legend entry whose `data-legend-series` names
  * one. A marker attribute on the series itself is not a label. The
@@ -282,7 +280,7 @@ export function labelledSeriesIds(
 
 /**
  * The rendered-text vocabulary that labels a schematic or a generated
- * signal for what it is (DI-VIZ-006). The words come from the
+ * signal for what it is. The words come from the
  * instruments' own honest disclosures.
  */
 export const STATUS_LABEL_VOCABULARY = {
@@ -291,8 +289,7 @@ export const STATUS_LABEL_VOCABULARY = {
 } as const;
 
 /**
- * The frozen-evidence boundary for DI-VIZ-006 (and the lead-series
- * clause of DI-VIZ-003). Empty since the status labels were finished: the
+ * The status-label exceptions. Empty since the status labels were finished: the
  * five formerly unlabeled instruments (gait-diagram, planar-fk-arm,
  * pendulum-controller, impedance-contact-lab, reliability-compounding)
  * now carry an in-frame STATUS_LABEL_VOCABULARY label on every mount,
@@ -324,7 +321,7 @@ export const STATUS_LABEL_EXCEPTIONS: Readonly<Record<string, StatusLabelExcepti
 
 
 /**
- * The honest `n/a` families (DI-COMP-010). "n/a" is reserved for a
+ * The honest `n/a` families. "n/a" is reserved for a
  * field that genuinely does not apply to that row; the gate reconciles
  * the rendered set against this registry in both directions, so a new
  * `n/a` cell cannot appear without a recorded justification, and a
@@ -373,13 +370,13 @@ export const NA_CELL_FAMILIES: ReadonlyArray<NaCellFamily> = [
 ];
 
 /**
- * How an instrument lets the reader reorder its table (DI-COMP-009),
+ * How an instrument lets the reader reorder its table,
  * read from the module source the registry names:
  * - `header-sort`: a `Table` column declared `sortable: true`, which
  *   renders a "Sort by <column>" button inside that column's header.
  * - `control-sort`: a visible "Sort by" preset group in the figure header
  *   orders the rows and the table's own headers carry `aria-sort`. This
- *   is the shape the figure system (library/design-system.md 13.4) gives a
+ *   is the shape the figure system (docs/design.md) gives a
  *   figure whose two visible controls include the sort and whose data
  *   table sits in "How this was made".
  * A module that does both counts as `header-sort`.
@@ -414,7 +411,7 @@ export function tableSortCensus(
 }
 
 /**
- * The value-to-coordinate parity anchors (DI-VIZ-013). Each anchor
+ * The value-to-coordinate parity anchors. Each anchor
  * names the exported scale and constants its component ships, so the
  * expectation is computed from source data, never copied from the
  * rendered output. The e2e gate imports the anchor modules and compares

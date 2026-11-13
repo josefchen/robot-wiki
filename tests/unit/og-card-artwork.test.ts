@@ -27,7 +27,7 @@ const ROOT = process.cwd();
 const CORPUS = ogCardCorpus(ROOT);
 
 /**
- * The identity the cards paint (DI-ID-001/002/003/009).
+ * The identity the cards paint.
  *
  * Read off the element tree the generator renders, so it is the same object
  * the shipped PNG is rasterised from rather than a restated literal. The
@@ -35,7 +35,7 @@ const CORPUS = ogCardCorpus(ROOT);
  * to `Robot Wiki`, because nothing here quantified over what the cards say.
  */
 describe('card identity text', () => {
-  /** Design-system §3.1 forbids each of these as a display identity. */
+  /** None of these may stand in for the display identity. */
   const FORBIDDEN_DISPLAY = [
     'robot-wiki',
     'ROBOT WIKI',

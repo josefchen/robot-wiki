@@ -70,8 +70,7 @@ const ENTITY_TYPE_LABEL: Record<EntityType, string> = {
  *
  * A surface whose index failed reports the failure in its own group note
  * and in the status line; it never renders the no-results wording, because
- * an index that could not load has not answered the query
- * (DI-DISC-001).
+ * an index that could not load has not answered the query.
  */
 export function SearchInterface({
   loadClient = createPagefindClient,
@@ -302,7 +301,7 @@ export function SearchInterface({
   }
 
   // The prose group's settled note: an index failure reads as an error,
-  // never as "nothing matched" (DI-DISC-001/002).
+  // never as "nothing matched".
   const proseNote: string | undefined = proseFailed
     ? 'The module index is unavailable, so module results could not be loaded for this query. This is a load failure, not a verdict on the query.'
     : status === 'done' && hits.length === 0

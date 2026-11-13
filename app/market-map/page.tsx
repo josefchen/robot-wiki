@@ -39,8 +39,7 @@ export default function MarketMapPage() {
           already reachable through the structured index, and indexing
           their prose here would return this page for every company name
           instead of the entity row. */}
-      {/* The market-map representative surface declares its material
-          (DI-SURF-011). */}
+      {/* The market-map representative surface declares its material. */}
       <div data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <h1
           data-tektur-role="page-h1"

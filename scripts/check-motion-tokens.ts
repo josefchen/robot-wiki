@@ -2,7 +2,7 @@
  * Motion token check: interactive and scene files must take colours,
  * durations and easings from the motion tokens, never hard-code them.
  *
- * The binding rule (docs/design/motion-language.md): hard-coded hex values
+ * The rule (docs/design.md): hard-coded hex values
  * in components/interactive/** and components/motion/** fail this check.
  * The only allowed colour literals live in the generated token artifacts:
  * motion-tokens.json itself, components/motion/motion-tokens.css,
@@ -11,7 +11,7 @@
  * short timings, which is why brand transition utilities without explicit
  * duration or easing literals stay allowed.
  *
- *   npm run check:motion-tokens
+ *   node scripts/check-motion-tokens.ts
  *
  * Exit code 1 lists every violation with file, line and rule.
  */

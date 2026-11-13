@@ -26,7 +26,7 @@ import {
 } from '@/lib/og-card-publication';
 
 /**
- * DI-OG-013..015: the corpus is staged and validated before anything
+ * the corpus is staged and validated before anything
  * canonical moves, swapped tree by tree under a journal, rolled back on a
  * caught failure and recovered from the journal after a crash. Every case
  * runs on a temporary root with small fake trees, so the publication

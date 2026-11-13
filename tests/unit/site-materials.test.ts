@@ -10,7 +10,7 @@ import {
 
 /**
  * Material treatments are deterministic, owned or provenance-backed,
- * contrast-safe, and absent behind prose (DI-SURF-007, DI-SURF-011).
+ * contrast-safe, and absent behind prose.
  * The site paints one material, paper, and each named
  * representative surface declares it on its own element.
  */
