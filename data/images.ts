@@ -8,7 +8,7 @@
  * permitted set. The /credits page
  * is generated from this registry, so it cannot drift from what renders.
  *
- * Licensing policy lives in library/imagery.md and is a hard gate. Every
+ * Licensing policy lives in data/schemas/image.ts and is a hard gate. Every
  * entry below records the verbatim licence sentence read on the asset's own
  * page (the anti-fabrication rule) in a comment next to the entry. Never
  * invent a Commons licence. Official market-map marks with no reuse grant
@@ -153,11 +153,11 @@ const ARTICLE_IMAGES: SiteImage[] = [
     retrieved: '2026-08-08',
     width: 640,
     height: 250,
-    // Original SVG drawn for this site. Convention (library/imagery.md):
+    // Original SVG drawn for this site. Convention:
     // site-created diagrams carry no sourceUrl, because there is no
     // external original to link to; the credit names Robot Wiki as the
     // creator in text. The licence basis is the site's content licence
-    // (CC BY 4.0, mission.md).
+    // (CC BY 4.0, LICENSE-CONTENT).
   },
   {
     id: 'temporal-ensembling',
@@ -180,7 +180,7 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // Original SVG drawn for this site; same no-sourceUrl convention as
     // covariate-shift above.
   },
-  // BEGIN manipulation images (image brief, 2026-10-11)
+  // BEGIN manipulation images (added 2026-10-11)
   {
     id: 'aloha-2-workcell-2024',
     figureKind: 'paper-figure',
@@ -1101,8 +1101,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // trimmed of its white margin to 3624 x 1543 px; resized to 1600 x 681
     // px, JPEG quality 82, metadata stripped. No other change.
   },
-  // END manipulation images (image brief, 2026-10-11)
-  // BEGIN world-models images (image brief, 2026-10-11)
+  // END manipulation images (added 2026-10-11)
+  // BEGIN world-models images (added 2026-10-11)
   {
     id: 'dreamerv3-open-loop-quadruped-2023',
     figureKind: 'paper-figure',
@@ -1574,8 +1574,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // 1284 px); resized to 1600 x 1190 px, JPEG quality 82, metadata
     // stripped. No other change.
   },
-  // END world-models images (image brief, 2026-10-11)
-  // BEGIN classical images (image brief, 2026-10-11)
+  // END world-models images (added 2026-10-11)
+  // BEGIN classical images (added 2026-10-11)
   {
     id: 'ur16e-cobot-arm-2020',
     figureKind: 'photograph',
@@ -2041,8 +2041,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // Licence sentence read on the file page: "This file is licensed under
     // the Creative Commons Attribution 2.0 Generic license."
   },
-  // END classical images (image brief, 2026-10-11)
-  // BEGIN rl-sim2real images (image brief, 2026-10-11)
+  // END classical images (added 2026-10-11)
+  // BEGIN rl-sim2real images (added 2026-10-11)
   {
     id: 'atlas-electric-hyundai-goyang-2026',
     figureKind: 'photograph',
@@ -2501,8 +2501,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // arXiv source (3566 x 2000), the paper's real Franka setup figure;
     // resized to 1600 px, JPEG quality 82.
   },
-  // END rl-sim2real images (image brief, 2026-10-11)
-  // BEGIN frontier images (image brief, 2026-10-11)
+  // END rl-sim2real images (added 2026-10-11)
+  // BEGIN frontier images (added 2026-10-11)
   {
     id: 'amazon-swindon-slam-line-2025',
     figureKind: 'photograph',
@@ -2910,8 +2910,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // to 1600 px, JPEG quality 82. Re-read on 2026-10-15: same licence
     // link.
   },
-  // END frontier images (image brief, 2026-10-11)
-  // BEGIN adjacent images (image brief, 2026-10-11)
+  // END frontier images (added 2026-10-11)
+  // BEGIN adjacent images (added 2026-10-11)
   {
     id: 'waymo-jaguar-ipace-san-francisco-2023',
     figureKind: 'photograph',
@@ -3176,8 +3176,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // International license." (own work, 2023-09-23, public open day at
     // the Vesoul hospital).
   },
-  // END adjacent images (image brief, 2026-10-11)
-  // BEGIN data-hardware images (image brief, 2026-10-11)
+  // END adjacent images (added 2026-10-11)
+  // BEGIN data-hardware images (added 2026-10-11)
   {
     id: 'umi-test-environments-2024',
     figureKind: 'paper-figure',
@@ -3497,7 +3497,7 @@ const ARTICLE_IMAGES: SiteImage[] = [
     // unchanged. Re-read on 2026-10-15: the abstract page's licence link is
     // unchanged.
   },
-  // END data-hardware images (image brief, 2026-10-11)
+  // END data-hardware images (added 2026-10-11)
 ];
 
 export const IMAGES: SiteImage[] = [...ARTICLE_IMAGES, ...LOGO_IMAGES];

@@ -2,14 +2,14 @@ import { z } from 'zod';
 import { httpsUrlSchema, isoDateSchema, slugSchema } from './shared.ts';
 
 /**
- * Image registry entry (library/imagery.md). Every content image on the
+ * Image registry entry. Every content image on the
  * site is registered here; the prebuild validator fails the build on an
  * entry whose licence is missing or outside the permitted set, exactly the
  * way an unknown <Term> id fails.
  */
 
 /**
- * The permitted licences (contract/imagery.md): the CC-BY family members
+ * The permitted licences: the CC-BY family members
  * the site can honour, CC0, public domain, named press kits whose stated
  * terms permit editorial reuse, documented permission grants, and
  * official company marks whose reuse grant is unnamed. NC and ND
@@ -66,9 +66,9 @@ export type LegalBasis = (typeof LEGAL_BASES)[number];
  * The legal basis each licence value is allowed to claim.
  *
  * A one-to-one map rather than a free field: the licence is already read off
- * the asset's own page under the anti-fabrication rule in
- * `library/imagery.md`, so the basis is a restatement of that reading in the
- * contract's vocabulary and must not be able to disagree with it.
+ * the asset's own page under the anti-fabrication rule of
+ * `data/images.ts`, so the basis is a restatement of that reading in the
+ * schema's vocabulary and must not be able to disagree with it.
  */
 export const LEGAL_BASIS_BY_LICENCE: Readonly<
   Record<(typeof IMAGE_LICENCES)[number], LegalBasis>

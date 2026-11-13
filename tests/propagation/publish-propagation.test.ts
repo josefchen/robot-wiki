@@ -53,7 +53,7 @@ const PORT = 3202;
 const BASE = `http://localhost:${PORT}`;
 // Distinctive real-word marker: unique across the site, and genuine enough
 // for the Pagefind index (a nonsense token trips the truncation-fallback
-// quirk, see library/user-testing.md quirk on isGenuineHit).
+// quirk; see isGenuineHit).
 const MARKER = 'lattice zephyr quorum';
 const SCREENSHOT_DIR = '/tmp/propagation-probe';
 

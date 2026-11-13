@@ -5,7 +5,7 @@ import rehypeCitePunctuation from '@/lib/rehype-cite-punctuation.mjs';
  * Chromium allows a line break between the atomic inline-block <Cite> chip
  * and a following plain-text punctuation node, so a line can begin with a
  * lone "." or "," (measured corpus-wide, 2026-08-12; the U+2060 word joiner
- * was tried and does NOT suppress the break — see library/content-pipeline.md).
+ * was tried and does NOT suppress the break).
  * The plugin wraps each chip plus its immediately-following sentence
  * punctuation in a whitespace-nowrap span at build time, so the break
  * opportunity disappears. In a stacked cluster (<Cite a/> <Cite b/>.) only

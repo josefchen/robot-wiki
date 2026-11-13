@@ -14,7 +14,7 @@ import { httpsUrlSchema, slugSchema } from './shared.ts';
  * The capture itself is https and content-addressed to a specific date, so
  * it satisfies the schema while preserving the real author, title, venue and
  * original date in the entry (precedent: Sutton, The Bitter Lesson; settled
- * 2026-08-12, see library/content-quality.md). Undated or wildcard archive
+ * 2026-08-12, see the header of data/citations.ts). Undated or wildcard archive
  * URLs are rejected by datedArchiveRefinement below, and there is no blanket
  * http allowlist.
  */
@@ -37,7 +37,7 @@ export const citationSchema = z.object({
   venue: z.string().min(1).optional(),
   /** Bare arXiv id, e.g. "2304.13705". When present, url must be its abs
    *  page (unversioned, or versioned …vN for quotes that exist only in a
-   *  superseded version; see audit/README.md's quote policy). */
+   *  superseded version). */
   arxiv: z
     .string()
     .regex(/^\d{4}\.\d{4,5}$/, 'arXiv ids look like 2304.13705')
