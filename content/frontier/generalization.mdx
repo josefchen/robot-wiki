@@ -62,6 +62,7 @@ seeAlso:
 import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
 
 import { HelixZeroShotSuccess } from '@/components/interactive/helix-zero-shot-success';
+import { SceneSplit } from '@/components/interactive/scene-split';
 
 Generalization is a robot policy's ability to work in settings it was not trained in: new rooms, objects and clutter, a <Term id="distribution-shift">distribution shift</Term> it must handle without data collected at each site <Cite id="droid-2024" />. It decides whether one trained model can serve every home and factory or must be retrained for each.
 
@@ -80,6 +81,10 @@ The difficulty is that robot data comes from few places. DROID's authors wrote i
 ## π0.5 cleaned three unseen homes, trained mostly on other data
 
 Physical Intelligence's π0.5 (April 2025), one end-to-end <Term id="vision-language-action-model">vision-language-action model</Term>, cleaned kitchens and bedrooms in homes absent from its training data <Cite id="pi05-2025" />. Only about 400 hours of its mixture is mobile-manipulator data from real homes; 97.6% of the examples in the first training phase come from elsewhere, including other robots, laboratory tasks and web data. Removing the other robots' data degrades performance sharply, while removing web data mainly hurts unseen objects. Breadth stood in for local data: a model trained on the test homes themselves scored about the same as the 104-location model that never saw them <Cite id="pi05-2025" />.
+
+<SceneSplit initialSplit="holdout" className="my-6" />
+
+<FigureReuse className="-mt-4" href="/data-hardware/robot-learning-stack/" page="The Robot Learning Stack">Here the rack shows what unseen has to mean: every card from the test homes is held out of training. The split is taught in</FigureReuse>
 
 ## Knowing what is easier than knowing how
 
