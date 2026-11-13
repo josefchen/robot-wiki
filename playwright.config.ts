@@ -19,8 +19,7 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:3200',
     launchOptions: {
-      // Headless Chromium needs these flags to get a WebGL context
-      // (see research/06-stack-feasibility.md).
+      // Headless Chromium needs these flags to get a WebGL context.
       args: [...PLAYWRIGHT_SWIFTSHADER_ARGS],
     },
   },

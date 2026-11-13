@@ -109,7 +109,7 @@ describe('METHODS data', () => {
     ).toBeNull();
   });
 
-  it('honors the paper-verified anchor values from research/01', () => {
+  it('honors the paper-verified anchor values from the papers', () => {
     const act = METHODS.find((m) => m.id === 'act');
     expect(act?.actionHorizon).toMatchObject({ planned: 100, executed: 1 });
     expect(act?.controlFrequencyHz).toBe(50);

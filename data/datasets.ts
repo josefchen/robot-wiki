@@ -2,17 +2,16 @@
  * Dataset comparison data: one row per major open robot-manipulation
  * dataset, for the /data-hardware/datasets module.
  *
- * Sources: research/03-data-hardware-evaluation.md (Part A1) plus live
- * verification of the underlying primary sources (2026-08-17). Rules:
+ * Sources: the primary sources each row cites, verified live (2026-08-17). Rules:
  *   - Figures the source does not publish are null and render as "not
  *     disclosed"; nothing is guessed (OXE and BridgeData V2 hours, all
  *     AgiBot World 2026 counts).
  *   - Open-ended counts ("1M+") store the stated lower bound and carry the
  *     qualifier in the note field.
- *   - research/03 covers BridgeData V2 nowhere; its row is verified against
- *     the paper (arXiv 2308.12952) and the project site.
- *   - research/03's AgiBot World Alpha "479 tasks; 96 objects" cell is a
- *     copy of RoboMIND's row; the paper (arXiv 2503.06669) reports 217
+ *   - The BridgeData V2 row is verified against the paper (arXiv
+ *     2308.12952) and the project site.
+ *   - An AgiBot World Alpha "479 tasks; 96 objects" figure seen elsewhere is
+ *     a copy of RoboMIND's row; the paper (arXiv 2503.06669) reports 217
  *     tasks in five deployment scenarios, which is what this row ships.
  *   - AgiBot World Beta does publish an hour count (2,976.4 h alongside
  *     1,001,552 trajectories, paper Sec. 3 and the dataset card); the

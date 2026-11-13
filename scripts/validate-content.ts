@@ -116,11 +116,11 @@ for (const message of roundSourceMembershipIssues(COMPANIES)) {
   });
 }
 
-// This derives the population from the research file the registry is
+// This derives the population from the source file the registry is
 // generated from, so an omitted, extra, repeated or re-segmented company, or
 // an empty population on either side, fails by name.
 const companyManifest = JSON.parse(
-  readFileSync(join(root, 'research', '04-market-map-companies.json'), 'utf8'),
+  readFileSync(join(root, 'data', 'market-map-companies.json'), 'utf8'),
 ) as Array<{ id: string; segment: string }>;
 for (const message of companyPopulationIssues(COMPANIES, companyManifest)) {
   issues.push({ file: 'data/companies.ts', message });

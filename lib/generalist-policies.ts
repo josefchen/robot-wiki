@@ -1,6 +1,5 @@
 /**
- * Structured data for the generalist-policies release timeline, from
- * research/01-learned-manipulation-lineage.md. Unit-tested in
+ * Structured data for the generalist-policies release timeline. Unit-tested in
  * tests/unit/generalist-policies.test.ts.
  *
  * Release months come from the primary sources (arXiv submission months,

@@ -13,7 +13,7 @@
  * sweep.
  */
 export interface DatasetSourceException {
-  /** The exact source URL from research/04-market-map-companies.json. */
+  /** The exact source URL from data/market-map-companies.json. */
   url: string;
   /** Why this URL cannot be verified by machine. */
   reason: string;

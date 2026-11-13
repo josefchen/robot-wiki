@@ -1,7 +1,7 @@
 /**
  * Market-map dataset source-URL liveness sweep.
  *
- * Checks every company `sources[].url` in research/04-market-map-companies.json
+ * Checks every company `sources[].url` in data/market-map-companies.json
  * (the file data/companies.ts is generated from) with the same conventions as
  * the citation link-liveness sweep (scripts/check-citation-links.ts): a real
  * browser user agent, redirects followed, GET fallback for HEAD-hostile
@@ -40,7 +40,7 @@ import {
 } from '../lib/citation-links.ts';
 import { DATASET_SOURCE_EXCEPTIONS } from '../data/dataset-source-exceptions.ts';
 
-const SOURCE = join(import.meta.dirname, '..', 'research', '04-market-map-companies.json');
+const SOURCE = join(import.meta.dirname, '..', 'data', 'market-map-companies.json');
 
 const DEFAULT_TIMEOUT_MS = 20_000;
 /**

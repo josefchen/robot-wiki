@@ -9,8 +9,7 @@
  * temporal ensembling failing outright at +100 ms and +200 ms because the
  * exponentially weighted average of two disagreeing chunks lands in neither
  * mode. The curves below are a model of those results, not measured data;
- * the UI labels them as such. See
- * research/01-learned-manipulation-lineage.md (RTC section).
+ * the UI labels them as such.
  */
 
 export const MIN_DELAY_MS = 0;

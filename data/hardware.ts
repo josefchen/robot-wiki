@@ -1,8 +1,8 @@
 /**
  * Hardware buyer's guide rows for /data-hardware/hardware-taxonomy.
  *
- * Every figure comes from research/03 Part B and the primary sources it
- * lists; nothing is invented. Rules of the table:
+ * Every figure comes from the primary sources each row cites; nothing is
+ * invented. Rules of the table:
  *
  * - Unknown figures stay null. The table renders null as "not disclosed".
  * - Every price carries priceAsOf: hardware pricing moves fast and a price

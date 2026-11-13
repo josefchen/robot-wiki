@@ -1,7 +1,6 @@
 /**
- * Structured data for the hierarchy-timescales interactive, from
- * research/01-learned-manipulation-lineage.md (sections on pi0.5,
- * Gemini Robotics 1.5, Helix 02, GO-2, and the 2022-2026 hierarchy line).
+ * Structured data for the hierarchy-timescales interactive: pi0.5,
+ * Gemini Robotics 1.5, Helix 02, GO-2 and the 2022-2026 hierarchy line.
  * Unit-tested in tests/unit/hierarchy-timescales.test.ts.
  *
  * Each system is drawn as a set of lanes, one per level of its control
