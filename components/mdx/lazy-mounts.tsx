@@ -310,6 +310,9 @@ export const ThesisExplorer = dynamic(() =>
 export const TimeOffsetMiss = dynamic(() =>
   import('@/components/interactive/time-offset-miss').then((m) => m.TimeOffsetMiss),
 );
+export const TrialTally = dynamic(() =>
+  import('@/components/interactive/trial-tally').then((m) => m.TrialTally),
+);
 export const TrajectoryStitching = dynamic(() =>
   import('@/components/interactive/trajectory-stitching').then((m) => m.TrajectoryStitching),
 );

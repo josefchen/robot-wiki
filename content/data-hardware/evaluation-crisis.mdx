@@ -61,6 +61,7 @@ seeAlso:
 ---
 
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
+import { TrialTally } from '@/components/interactive/trial-tally';
 
 The evaluation crisis is the gap between the success rates robot learning papers report and what those rates can establish. A <Term id="success-rate">success rate</Term> folds trial count, task length, scene setup and scorer into one number, and papers often report it with little or no information on the number of runs, initial conditions or success criteria <Cite id="kress-gazit-evaluation-2024" />.
 
@@ -112,6 +113,8 @@ Benchmarks now measure long horizons directly. CALVIN scores 1,000 chains of fiv
 Real robot trials are slow, so results rest on few of them. Toyota Research Institute's Large Behavior Models extend the <Term id="diffusion-policy">Diffusion Policy</Term> recipe to multitask policies trained on about 1,700 hours of <Term id="teleoperation">teleoperated</Term>, simulated, handheld and public data <Cite id="diffusion-policy-2023" /> <Cite id="tri-lbm-2025" />. Their evaluation ran 1,800 real-world rollouts and over 47,000 in simulation, with 50 real attempts per task per policy per condition. Hardware comparisons were blind, with policy order randomized among runs sharing an initial condition <Cite id="tri-lbm-2025" />.
 
 TRI reports uncertainty instead of single numbers: for each policy it plots the whole spread of success probabilities its trials support, which avoids reading significance off overlapping error bars. The spreads describe single checkpoints and leave out variation between training runs. TRI warns of a significant risk that many robotics papers measure statistical noise for lack of power, too few trials to detect a real difference <Cite id="tri-lbm-2025" />. Snyder and colleagues give 10 or 50 trials as examples of small feasible samples, and note that a test finding no significant difference does not show two policies are equivalent <Cite id="optimal-stopping-2025" />.
+
+<TrialTally className="my-6" />
 
 Deep reinforcement learning met the same problem. Without significance tests and standard reporting, claimed improvements are hard to judge <Cite id="henderson-rl-matters-2018" />, so interval estimates and performance profiles are advocated over point estimates <Cite id="agarwal-statistical-precipice-2021" />. Training seeds add variation: Colas and colleagues relate the number of seeds to statistical error and power <Cite id="random-seeds-power-2018" />, and Patterson and colleagues treat hyperparameter selection and experimenter bias as part of experiment design <Cite id="empirical-design-rl-2023" />.
 
