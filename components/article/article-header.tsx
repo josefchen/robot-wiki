@@ -50,10 +50,13 @@ export function ArticleHeader({
           library/search.md). data-pagefind-ignore is index-only: the line
           stays visible above. */}
       <p data-pagefind-ignore data-article-meta className="meta-line">
+        {/* On a phone the three values do not fit on one line, so the date
+            takes its own line and drops its separator; otherwise the line
+            would break after a hanging dot. */}
         {lastReviewed ? (
-          <span data-header-last-reviewed={lastReviewed}>
+          <span data-header-last-reviewed={lastReviewed} className="max-sm:block">
             Updated <time dateTime={lastReviewed}>{formatLongDate(lastReviewed)}</time>
-            <span aria-hidden="true"> · </span>
+            <span aria-hidden="true" className="max-sm:hidden"> · </span>
           </span>
         ) : null}
         <span data-header-reading-minutes={readingTimeMinutes}>
