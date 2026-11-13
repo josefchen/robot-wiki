@@ -746,7 +746,7 @@ export const ISO_CSS = `
   --anatomy-shade-1:color-mix(in srgb,var(--chart-background) 68%,var(--paper));
   --anatomy-shade-2:color-mix(in srgb,var(--chart-background) 40%,var(--paper));
   --anatomy-shade-3:color-mix(in srgb,var(--chart-background) 16%,var(--paper));
-  --anatomy-lit-top:var(--color-white,white);--anatomy-lit-shade:color-mix(in srgb,var(--chart-background) 40%,var(--paper));
+  --anatomy-lit-top:color-mix(in srgb,var(--accent) 14%,var(--color-white,white));--anatomy-lit-shade:color-mix(in srgb,var(--accent) 26%,var(--paper));
   --anatomy-hi:var(--ink);--anatomy-mid:var(--chart-dark);--anatomy-lo:var(--chart-medium);--anatomy-faint:var(--line);--anatomy-lit:var(--accent);
   --anatomy-dot:var(--ink);
   --anatomy-red:var(--fail);--anatomy-green:var(--ok);--anatomy-blue:var(--accent);
