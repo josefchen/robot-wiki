@@ -1,58 +1,40 @@
-# Contributing to robot-wiki
+# Contributing
 
-Thanks for helping improve the wiki. Contributions that fit this repo: corrections to published articles, new articles or glossary terms, data fixes in the structured datasets, improvements to interactives, and tooling. The wiki is built to be citable, so the content rules below are enforced in review, not treated as suggestions.
+Every claim traces to a primary source that says it: a paper, official
+documentation, a dataset card or a first-party report. An unpublished value is
+"not disclosed", one that does not apply is "n/a". Never guess.
 
-## Getting set up
+## Report or fix an error
 
-You need Node.js 22+ and npm (the repo uses npm exclusively).
+Open a [content correction](https://github.com/josefchen/robot-wiki/issues/new?template=content-correction.yml)
+with the page URL and a primary source that shows the right value. To fix it
+yourself, edit the article in `content/<domain>/<slug>.mdx` and open a pull
+request that names the source.
 
-```sh
-git clone https://github.com/josefchen/robot-wiki.git
-cd robot-wiki
-npm install
-npm run dev
-```
+## Add a source
 
-The dev server runs at <http://localhost:3200>. See the [README](README.md) for the full command list and architecture overview.
+Add an entry to `data/citations.ts` (or the file for that domain in
+`data/citation-additions/`) with an id, title, authors, year, venue and URL
+checked against the source itself. Cite it in prose with `<Cite id="..." />`.
+An unknown id fails the build.
 
-## Content standards
+## Add or edit an article
 
-These rules exist because the wiki's value is that every claim can be traced to a source that actually says it.
+Articles are MDX in `content/<domain>/`, listed in `data/modules.ts`. Write
+plainly, in American English, with no hype and no dashes as punctuation. Wrap
+jargon in `<Term id="..." />` and give new terms a cited definition in
+`data/glossary.ts`. Each article cites at least 30 distinct sources.
+References, backlinks, reading time and "See also" are generated; set only
+`seeAlso` in the front matter.
 
-- **Cite every non-obvious claim.** Add the source to the citation registry (`data/citations.ts`) and cite it in prose with `<Cite id="..." />`. Acceptable primary sources: papers (arXiv, DOI links), official documentation, and lab or company blogs. Verify identifiers against the source itself; never rely on memory for an arXiv id or DOI. The build fails on a citation id that is not registered.
-- **Never invent data.** If a value is unknown, write "not disclosed" when the owner of the number has chosen not to publish it, or "n/a" when the value genuinely does not apply. A plausible-sounding guess is a defect, not a placeholder. Every market-map entry and dataset row carries at least one source link.
-- **Write plainly.** No marketing language, no hype. Where experts disagree, present both sides and name the proponents. Avoid inflated significance, vague attributions ("experts say"), padding in threes and em-dash-heavy prose; `npm run lint-prose` flags the common cases.
-- **Do not hand-write generated sections.** References, "See also", "Linked from" backlinks, breadcrumbs, reading time, and citation counts are derived at build time. Your job as an author is the frontmatter (`seeAlso` with 2 to 4 curated ids of genuinely related published articles) and the prose.
-- **Glossary terms carry cited definitions.** Wrap jargon in `<Term id="..." />` on first use and add missing terms to `data/glossary.ts` with a source. An unknown term id fails the build.
-- **Interactives are instruments, not decorations.** Keyboard-accessible controls with ARIA labels, a visible numeric readout, a reset control, and respect for `prefers-reduced-motion`. Follow [`library/design-system.md`](library/design-system.md); no gradients, glassmorphism or emoji icons.
-- **Interactives load only where they render.** Import a widget into MDX as usual (`import { X } from '@/components/interactive/x'`); the build turns that into a lazily loaded chunk through `components/mdx/lazy-mounts.tsx`, so give a new widget an entry there. A client component must not import the citation registry, `components/mdx/cite-ref.tsx`, or zod: a widget that links to sources takes its records from the server (`useCitationLookup` or `CiteRef` from `components/article/citation-records.tsx`, with its ids in `lib/widget-citations.ts`), and a data file a widget imports stays plain typed rows validated in `lib/registry-validation.ts`. `tests/unit/article-mounts.test.ts` and `tests/unit/widget-citations.test.tsx` enforce all three.
+## Add a figure
 
-## Testing your change
+Figures live in `components/interactive/` and follow [docs/design.md](docs/design.md).
+Give each one a lazy entry in `components/mdx/lazy-mounts.tsx`, a text
+description in `lib/chart-descriptions.ts` and a test in `tests/component/`.
 
-Run the full gate locally before opening a pull request:
+## Checks
 
-```sh
-npm run typecheck
-npm run lint
-npm run test
-npm run validate:content
-npm run build
-```
-
-Also run `npm run test:e2e` if you touched anything a browser can see (pages, interactives, metadata, the search index). The suite runs serially against a dev server it starts itself and takes several minutes.
-
-## Pull request guidelines
-
-- Branch from `main` and keep the PR to one logical change. A new article, a data fix, and a component refactor belong in separate PRs.
-- Write commit subjects as short imperative sentences that say what changed, without type prefixes.
-- Describe what and why. For content changes, list the primary sources you used and explicitly flag anything you could not verify. Reviewers check claims against the cited sources, so an unverifiable claim will be cut rather than softened.
-- Expect a real review. Every PR is reviewed before merge. Content PRs are audited against their sources; code PRs are checked for test coverage and accessibility (axe-core runs in e2e on the pages it touches). Push new commits to address review comments; do not force-push a branch under review.
-- Every PR must leave the gates green: typecheck, lint, the Vitest suite, content validation, and the production build. A red build on `main` breaks the automatic Vercel deployment, so this is not negotiable.
-
-## Licensing
-
-By contributing code, you agree it will be licensed under the MIT license ([LICENSE](LICENSE)). By contributing editorial content (articles, glossary definitions, figures), you agree it will be licensed under Creative Commons Attribution 4.0 International ([LICENSE-CONTENT](LICENSE-CONTENT)).
-
-## Reporting a problem
-
-Every number and claim on the site cites its primary source, so an error can be checked against it. Open an issue with the URL of the page and, for factual claims, a primary source that contradicts what the page says. Reports that come with a source get fixed faster.
+Run `npm run typecheck`, `npm run lint`, `npm test` and `npm run validate:content`
+before a pull request. [docs/release-gate.md](docs/release-gate.md) lists the rest.
+Code is contributed under MIT, content under CC BY 4.0.
