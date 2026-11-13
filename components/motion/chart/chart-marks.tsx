@@ -181,7 +181,7 @@ export function UncertaintyBand({
  * A label beside its mark. Reference geometry keeps its muted role colour,
  * while reference text uses ink so it remains legible over shaded bands. Leave the
  * role out for a plain stage label. `seriesFor` names the `data-series` id(s)
- * the label names, which is what ties it to the series for DI-VIZ-004.
+ * the label names, which is what ties it to the series.
  */
 export function DirectLabel({
   x,

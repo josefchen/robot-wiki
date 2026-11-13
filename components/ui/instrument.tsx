@@ -36,7 +36,7 @@ const INSTRUMENT_SIGNATURE = 'instrument-frame';
  * figure-tab classes and the 1 px keyboard focus outline. Being a quiet
  * text action, the starting action registers as
  * `control:secondary-action`; `control:primary-action` is the page's
- * ink-filled action (DI-COL-004).
+ * ink-filled action.
  */
 const INSTRUMENT_CONTROL_BASE = 'figure-action font-sans text-[13px]';
 export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} figure-action-primary`;
@@ -373,7 +373,7 @@ type LegendItemProps = {
   /**
    * Stable series id when this entry names a plotted series; the mark
    * group in the plot carries the same id on `data-series` so the
-   * legend-to-mark mapping is checkable (DI-VIZ-004).
+   * legend-to-mark mapping is checkable.
    */
   series?: string;
   children: ReactNode;

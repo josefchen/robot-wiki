@@ -1,6 +1,5 @@
 /**
- * Public brand identity, locked by `library/design-system.md` §3.1 and
- * measured by `DI-ID-001`/`DI-ID-002`. Capital `R`, capital `W`,
+ * Public brand identity (docs/design.md). Capital `R`, capital `W`,
  * one literal space, no hyphen, no terminal punctuation; the descriptor's
  * terminal period is part of the descriptor. Every public lockup, metadata
  * title, site name, and descriptor surface imports these rather than
@@ -9,7 +8,7 @@
  * These are display identity only. The repository slug, the production
  * domain `robot-wiki.com`, the generated card path `/og/robot-wiki.png`,
  * and `robot-atlas-trajectory` are technical identifiers and stay
- * unchanged (`DI-ID-004`, design-system §3.2).
+ * unchanged.
  */
 export const PUBLIC_IDENTITY = 'Robot Wiki';
 export const PUBLIC_DESCRIPTOR =

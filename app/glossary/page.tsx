@@ -44,8 +44,7 @@ export default function GlossaryPage() {
           body region as soon as one page declares one, which left this
           route unreachable by the query "Glossary" that the sidebar itself
           invites. */}
-      {/* The glossary's representative surface declares its material
-          (DI-SURF-011). */}
+      {/* The glossary's representative surface declares its material. */}
       <header data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <h1 data-tektur-role="page-h1" className="display-h1">
           Glossary
@@ -71,7 +70,7 @@ export default function GlossaryPage() {
               data-glossary-term={term.id}
               // The deep-link target for every inline <Term> and every A-Z
               // glossary entry. tabIndex={-1} makes the fragment navigation
-              // move focus here (DI-DISC-005): without it, following
+              // move focus here: without it, following
               // /glossary/#<id> leaves focus on <body>, so a keyboard
               // reader lands mid-page with no focus context and a screen
               // reader announces nothing about the term it arrived at.

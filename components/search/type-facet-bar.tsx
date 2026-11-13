@@ -29,8 +29,8 @@ type TypeFacetBarProps = {
  * open space: they are not nested inside a bordered container.
  *
  * A selected facet is ink on a 1px ink rule plus a check marker and
- * `aria-pressed`, so selection never rides on colour alone
- * (DI-DISC-003). The same ink/rule/marker treatment the tabs and chips
+ * `aria-pressed`, so selection never rides on colour alone.
+ * The same ink/rule/marker treatment the tabs and chips
  * primitives use, because a facet is a selection control, not a link.
  */
 export function TypeFacetBar({

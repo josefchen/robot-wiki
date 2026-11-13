@@ -34,8 +34,8 @@
 
   --page-gutter: clamp(24px, 8vw, 160px);
   /* The top bar's inline padding. It never falls under the page-frame
-     minimum (20 px on a phone, 32 px on a tablet, 48 px on a desktop,
-     DI-SPACE-002), and on a phone or a tablet it lines the wordmark
+     minimum (20 px on a phone, 32 px on a tablet, 48 px on a desktop),
+     and on a phone or a tablet it lines the wordmark
      up with the article gutter below it. */
   --header-gutter: clamp(24px, 4vw, 80px);
   --code-radius: 7px;
@@ -311,7 +311,7 @@
 .home-wordmark {
   font-family: var(--font-display);
   font-weight: 400;
-  /* DI-TYPE-006: 40-48px at 375, 84-92px at 1440, leading 0.90-0.96. */
+  /* 40-48px at 375, 84-92px at 1440, leading 0.90-0.96. */
   font-size: clamp(2.5rem, 1.86rem + 4.32vw, 5.75rem);
   line-height: 0.92;
   letter-spacing: -0.03em;
@@ -1091,7 +1091,7 @@ article > hr {
 }
 
 /* From 1024 px the frame is the desktop frame, whose inline padding is
-   48 px (DI-SPACE-002): the top bar's wordmark then lines up with the
+   48 px: the top bar's wordmark then lines up with the
    article's contents rail, and at 1440 px the centred column sits where it
    did. */
 @media (min-width: 1024px) {
@@ -1145,8 +1145,8 @@ article > hr {
  * The article title: the display H1, scaling from 40px on a phone to 87px
  * at 1440. Its phone floor sits 4px under the page H1's because a title
  * word has to fit one line of the 327px column: "Counterargument" sets
- * 345px wide at 44px and 318px at 40px, the lowest size DI-TYPE-007
- * allows. Hyphenation cannot carry that word: Chromium never auto-hyphenates
+ * 345px wide at 44px and 318px at 40px, the lowest size the
+ * type scale allows. Hyphenation cannot carry that word: Chromium never auto-hyphenates
  * a capitalised English word, so `hyphens: auto` breaks only the lowercase
  * ones (the root element declares lang="en"), and a word wider than the
  * line would still break with no hyphen.
@@ -1441,8 +1441,7 @@ article > hr {
  * A list that declares list-none (a figure's tile grid, a card list, a
  * control column) draws no marker. The prose rules above are unlayered, so
  * they outrank Tailwind's layered utility and painted a stray bullet beside
- * each tile of those grids: an unanchored glyph that no registry owns
- * (DI-GRID-006).
+ * each tile of those grids: an unanchored glyph that no registry owns.
  */
 .prose :is(ul, ol).list-none {
   list-style: none;

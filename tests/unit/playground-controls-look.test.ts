@@ -2,8 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 /**
- * The control deck takes the site's controls (library/design-integrity.md
- * DI-PLAY-004): the radius tokens in app/globals.css that the shared
+ * The control deck takes the site's controls: the radius tokens in app/globals.css that the shared
  * Action and input primitives draw with, and the figure controls of
  * components/motion/stage.css, which are square except for the 12 px round
  * slider thumb. Every corner the playground stylesheet declares is held to

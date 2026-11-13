@@ -78,8 +78,7 @@ export default function AzIndexPage() {
           titles and term names that all live on their own routes, and
           indexing them here would put this page in front of the article a
           reader was looking for. */}
-      {/* The index's representative surface declares its material
-          (DI-SURF-011). */}
+      {/* The index's representative surface declares its material. */}
       <header data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <h1 data-tektur-role="page-h1" className="display-h1 mt-6">
           A-Z Index
@@ -121,7 +120,7 @@ export default function AzIndexPage() {
           >
             {/* The jump-link and deep-link target for this letter group.
                 tabIndex={-1} makes fragment navigation move focus to the
-                heading (DI-DISC-005), so a keyboard reader arriving at
+                heading, so a keyboard reader arriving at
                 /a-z/#letter-m starts inside that group rather than on the
                 body with no context. */}
             <h2
@@ -134,7 +133,7 @@ export default function AzIndexPage() {
             {/* The same rule rhythm the glossary and the domain landings
                 use: one hairline above the run and one under every entry,
                 so the alphabetical run reads as ruled index rows rather
-                than an unbounded stack of links (DI-DISC-006). The
+                than an unbounded stack of links. The
                 section rule this replaces drew one line per letter group
                 only; the entries inside carried no rhythm of their own. */}
             <ul className="mt-4 list-none border-t border-border">

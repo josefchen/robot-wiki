@@ -3,8 +3,7 @@
  * generator renders (scripts/generate-og-cards.ts). No node-only imports
  * here so the geometry is unit-testable under Vitest.
  *
- * Research-page composition (library/design-system.md, decision of
- * 10 October 2026, §19): a plain paper ground framed by four 1px concrete
+ * Composition: a plain paper ground framed by four 1px concrete
  * hairline rails, one signal-blue registration cross on each rail
  * intersection, and on the article card hairline section rules under the
  * header band and over the footer band. There is no lattice or field: the
@@ -397,7 +396,7 @@ function frame(content: CardNode): CardNode {
 const LABEL = {
   fontFamily: MONO,
   fontSize: '18px',
-  // The registration-label tracking ratio (design-system §4.3, 0.08–0.14em).
+  // The registration-label tracking ratio (0.08 to 0.14em).
   letterSpacing: '1.8px',
   color: DIM,
 } as const;
@@ -509,9 +508,8 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
 
 /**
  * The site-level card shared by the non-article destinations: the dominant
- * wordmark on one line over the exact descriptor (the site OG/X lockup,
- * design-system §3.5). The descriptor is a full sentence, which §4.2 keeps
- * out of the display face, so it sets in IBM Plex Mono, the renderer's
+ * wordmark on one line over the exact descriptor. The descriptor is a full
+ * sentence, which stays out of the display face, so it sets in IBM Plex Mono, the renderer's
  * other registered face. Its strings appear on no article card, so the
  * asset is byte-distinct from all of them through its text
  * rather than ornament.

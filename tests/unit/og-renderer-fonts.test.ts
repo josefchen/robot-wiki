@@ -27,7 +27,7 @@ const source = (path: string): string =>
   readFileSync(join(ROOT, path), 'utf8');
 
 describe('OG renderer font delivery contract', () => {
-  it('registers only first-party role families (DI-TYPE-001)', () => {
+  it('registers only first-party role families', () => {
     // Updated for the research-page standard of 10 October
     // 2026: the web roles moved to DM Sans, Geist and Geist Mono, and
     // the cards keep their vendored offline faces, which each role records
@@ -114,7 +114,7 @@ describe('OG renderer font delivery contract', () => {
     expect(siteMono).toEqual([PUBLIC_DESCRIPTOR]);
   });
 
-  it('walks every shipped card and covers each painted run (DI-TYPE-011 through 014)', () => {
+  it('walks every shipped card and covers each painted run', () => {
     const report = inspectOgRendererFonts();
     expect(report.failures).toEqual([]);
     expect(report.ok).toBe(true);

@@ -1,6 +1,5 @@
 /**
- * Staged, journalled publication of the Open Graph corpus
- * (DI-OG-013, DI-OG-014, DI-OG-015).
+ * Staged, journalled publication of the Open Graph corpus.
  *
  * The corpus spans several trees — the tracked `public/og` and
  * `public/structured-images`, and their copies in the `out/` export when

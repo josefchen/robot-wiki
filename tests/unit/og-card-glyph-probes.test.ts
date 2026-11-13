@@ -9,7 +9,7 @@ import { OG_DISPLAY_STACK, OG_MONO_STACK, ogRendererFaceForStack } from '@/lib/o
 import { sanitizeCardText } from '@/lib/og-cards';
 
 /**
- * DI-OG-012 and DI-TYPE-017: every string the corpus assigns to a
+ * every string the corpus assigns to a
  * renderer face is painted from that face alone. The probe compares an
  * own-face render with a production render, so a glyph borrowed from
  * another registered face, or requested from the network, fails it.

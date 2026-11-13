@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   // The '%s | Robot Wiki' template must stay in lockstep with
   // SITE_TITLE_SUFFIX in lib/search.ts, which strips the site name off
   // Pagefind result titles; the default is the SEO home title while the
-  // site-level description stays the locked descriptor (DI-ID-002).
+  // site-level description stays the locked descriptor.
   title: {
     default: HOME_SEO_TITLE,
     template: `%s | ${PUBLIC_IDENTITY}`,

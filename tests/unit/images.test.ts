@@ -58,7 +58,7 @@ const validEntry: SiteImage = {
 };
 
 /**
- * A variant of the fixture whose §1.13 record stays coherent with whatever
+ * A variant of the fixture whose provenance record stays coherent with whatever
  * the case changes. Cases below alter one field to test one rule; without
  * this they would also break the licence/basis and attribution cross-checks
  * and fail for a reason they are not about.
@@ -471,17 +471,16 @@ describe('the shipped registry', () => {
 });
 
 /**
- * The §1.13 provenance record (DI-IMG-002, DI-IMG-003,
- * DI-IMG-008). Every editorial image has to carry one closed
+ * The provenance record. Every editorial image has to carry one closed
  * legal-basis value, the attribution sentence the page renders, and a
  * preservation policy, and the schema has to refuse a record that
  * contradicts the licence beside it.
  */
-describe('§1.13 provenance record', () => {
+describe('provenance record', () => {
   const editorial = IMAGES.filter((image) => !image.file.startsWith('/images/logos/'));
   const marks = IMAGES.filter((image) => image.file.startsWith('/images/logos/'));
 
-  it('covers every editorial image and leaves the mark path to DI-MAP-010', () => {
+  it('covers every editorial image and leaves the identification basis to the marks', () => {
     expect(editorial.length).toBeGreaterThan(0);
     expect(marks.length).toBeGreaterThan(0);
     for (const image of editorial) {
@@ -506,8 +505,8 @@ describe('§1.13 provenance record', () => {
 
   it('grounds each declared basis in the licence recorded beside it, except a company mark, which rests on identification', () => {
     for (const image of IMAGES) {
-      // §1.13: "Company marks use `official-identification-use`", and
-      // DI-IMG-008 calls it the path marks use ONLY. The licence a mark
+      // Company marks use `official-identification-use`, and only marks
+      // use it. The licence a mark
       // file happens to carry - `cc-by-4.0` on the Physical Intelligence
       // logo, `apache-2.0` on others - is a statement about the file, not a
       // licence to reproduce somebody else's trademark.
@@ -589,7 +588,7 @@ describe('§1.13 provenance record', () => {
     for (const licence of ['unlicensed', 'unknown'] as const) {
       const parsed = imageSchema.safeParse(editorialPhoto({ licence }));
       expect(parsed.success, licence).toBe(false);
-      expect(parsed.error?.message).toMatch(/official-identification-use is the mark path/);
+      expect(parsed.error?.message).toMatch(/official-identification-use is only for company marks/);
     }
   });
 

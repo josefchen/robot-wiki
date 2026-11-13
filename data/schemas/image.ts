@@ -37,7 +37,7 @@ export const IMAGE_LICENCES = [
 export const imageLicenceSchema = z.enum(IMAGE_LICENCES);
 
 /**
- * The closed legal-basis enum of `library/design-integrity.md` §1.13.
+ * The closed legal-basis enum for editorial images.
  *
  * It is deliberately not the same list as `IMAGE_LICENCES`. A licence names
  * the instrument ("CC BY-SA 4.0", with a deed to link); a legal basis names
@@ -45,7 +45,7 @@ export const imageLicenceSchema = z.enum(IMAGE_LICENCES);
  * fixes those eight strings. Recording both, and requiring them to agree,
  * is what stops a mark with no reuse grant from being filed under a
  * reusable-content basis: `unlicensed` and `unknown` map only to
- * `official-identification-use`, which is the mark path in `DI-MAP-010`
+ * `official-identification-use`, which is the path for company marks
  * and never a licence for editorial reuse.
  */
 export const LEGAL_BASES = [
@@ -109,14 +109,12 @@ export type FigureKind = (typeof FIGURE_KINDS)[number];
 /**
  * What may happen to the shipped bytes after registration.
  *
- * `external-bytes-preserved` is the promise `DI-IMG-009` measures: the
+ * `external-bytes-preserved` promises that the
  * file on disk is the file that was retrieved, so a recolour, crop, filter
  * or redraw would show up as a byte-hash mismatch.
  * `first-party-restyled-semantics-preserved` is the weaker promise the two
  * original diagrams need, because brand-v2 restyles them: their bytes may
- * change, and `DI-VIZ-014` holds the normalized semantic geometry and
- * label text against the immutable baseline so only the allowlisted style
- * attributes can move.
+ * change, but their semantic geometry and label text may not.
  */
 export const PRESERVATION_POLICIES = [
   'external-bytes-preserved',
@@ -126,7 +124,7 @@ export const PRESERVATION_POLICIES = [
 export const preservationPolicySchema = z.enum(PRESERVATION_POLICIES);
 export type PreservationPolicy = (typeof PRESERVATION_POLICIES)[number];
 
-/** Market-map company marks; their provenance row is owned by DI-MAP-010. */
+/** Market-map company marks. */
 export function isCompanyMarkFile(file: string): boolean {
   return file.startsWith('/images/logos/');
 }
@@ -237,10 +235,8 @@ export const imageSchema = z
      */
     permissionNote: z.string().min(1).optional(),
     /**
-     * The §1.13 record. Required on every editorial image; the market-map
-     * marks carry it derived rather than declared, because their provenance
-     * row is `DI-MAP-010` and this feature must not restate a hundred
-     * approvals it did not make.
+     * The provenance record. Required on every editorial image; the
+     * market-map marks carry it derived rather than declared.
      */
     figureKind: figureKindSchema.optional(),
     legalBasis: legalBasisSchema.optional(),
@@ -292,7 +288,7 @@ export const imageSchema = z
         if (image[field] === undefined) {
           ctx.addIssue({
             code: z.ZodIssueCode.custom,
-            message: `editorial image "${image.id}" must record ${field} (library/design-integrity.md §1.13)`,
+            message: `editorial image "${image.id}" must record ${field}`,
           });
         }
       }
@@ -309,7 +305,7 @@ export const imageSchema = z
       });
     }
 
-    // `DI-IMG-008`: reusable editorial content needs an approved
+    // Reusable editorial content needs an approved
     // reusable-content basis, and `unlicensed` is never one. The
     // identification path exists for company marks and stops there, so an
     // editorial photograph cannot borrow it by leaving its licence unknown.
@@ -319,7 +315,7 @@ export const imageSchema = z
     ) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: `editorial image "${image.id}" cannot rest on licence "${image.licence}"; official-identification-use is the mark path in DI-MAP-010`,
+        message: `editorial image "${image.id}" cannot rest on licence "${image.licence}"; official-identification-use is only for company marks`,
       });
     }
 
@@ -327,8 +323,7 @@ export const imageSchema = z
     // not on the ground of the licence it is published under, so `owned` is
     // the second admissible basis there and nowhere else.
     // A company mark rests on identification, never on the licence of the
-    // file it was fetched as. §1.13 states it flatly and DI-IMG-008
-    // calls it the path marks use ONLY, so a mark that declares any other
+    // file it was fetched as, so a mark that declares any other
     // basis is refused here rather than silently overridden downstream.
     const grounded: LegalBasis[] = isMark
       ? ['official-identification-use']

@@ -139,7 +139,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           {/* The wordmark is the navigation item for "/", so on home it
               keeps aria-current exactly as a taxonomy entry would. It sits
               alone in its container: text beside a lockup reads as a
-              descriptor surface (DI-ID-002), and the bar's links are
+              descriptor surface, and the bar's links are
               controls, not a descriptor. */}
           <div className="flex items-center">
             <Link

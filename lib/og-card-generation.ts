@@ -6,7 +6,7 @@
  * tree. `validateStagedOgCorpus` then decides whether that staged corpus may
  * replace the canonical one, before anything canonical is touched:
  *
- * - the renderer-input manifest (lib/og-card-manifest.ts): sealed matrix,
+ * - the renderer-input manifest (lib/og-card-manifest.ts): card population,
  *   route ownership, painted strings against their sources, devices,
  *   palette tokens against runtime declarations, font binaries, file
  *   dimensions, sizes and distinctness;
@@ -14,7 +14,7 @@
  * - the decoded pixels of every OG/X card against its painted palette and
  *   registered device anchors;
  * - a second, independent render of every OG/X card, which must reproduce
- *   the staged bytes exactly (DI-OG-010);
+ *   the staged bytes exactly;
  * - byte equality between the staged copies of each tree pair.
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';

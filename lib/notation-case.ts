@@ -1,6 +1,6 @@
 /**
  * Text whose case carries meaning, so a label set in capitals must keep it
- * as written (DI-GRID-010): a word holding a lowercase Greek letter
+ * as written: a word holding a lowercase Greek letter
  * (the model name π0.7 would read Π0.7, another symbol) and a unit of
  * measure written after a number (2000 mm/s would read MM/S, megametres
  * per second). Only units whose capital form means something else are

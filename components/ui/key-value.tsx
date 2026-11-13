@@ -13,7 +13,7 @@ type KeyValueProps = {
 
 /**
  * Dense spec sheet. Keys are mono dim labels, values are plain text. Rows are
- * separated by spacing, not hairlines (see library/design-system.md).
+ * separated by spacing, not hairlines (see docs/design.md).
  */
 export function KeyValue({ items, className }: KeyValueProps) {
   return (

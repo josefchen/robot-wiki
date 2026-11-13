@@ -80,8 +80,7 @@ export function Breadcrumbs({
                 <IntentLink
                   href={item.href}
                   data-brand-control-id="control:link-focus"
-                  // The underline is the non-colour cue design-system 4.4
-                  // requires: without it an ancestor crumb differs from the
+                  // The underline is the non-colour cue: without it an ancestor crumb differs from the
                   // non-link current crumb by hue alone.
                   className="text-text-dim underline decoration-border-strong decoration-1 underline-offset-[3px] transition-colors hover:text-text hover:decoration-text"
                 >

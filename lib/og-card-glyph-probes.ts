@@ -1,6 +1,6 @@
 /**
  * Rendered glyph probes for every string the Open Graph corpus assigns to a
- * renderer face (DI-OG-012, DI-TYPE-017).
+ * renderer face.
  *
  * A cmap lookup says a face *has* a glyph. It does not say the renderer
  * *used* it: satori walks the registered faces per glyph, so a code point

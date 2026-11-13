@@ -22,8 +22,7 @@ type BrandDeviceProps = {
 
 /**
  * Each device's structural purpose and owner surface. Every rendered
- * instance carries both, so the purposeful-device anchor
- * (library/design-integrity.md §1.12) reads a purpose and an owner off the
+ * instance carries both, so a check reads a purpose and an owner off the
  * device itself instead of finding a bare mark.
  */
 export const DEVICE_REGISTRATION: Readonly<
@@ -56,7 +55,7 @@ export const DEVICE_REGISTRATION: Readonly<
  * every rail and rule is a 1px hairline in the --line token, the same rule
  * the page draws everywhere else, and a current state is a 1px ink rule,
  * never a thick or coloured accent bar. The registration cross keeps the
- * one muted accent, which is the registration colour (DI-COL-006).
+ * one muted accent, which is the registration colour.
  */
 const deviceClasses: Record<Device, string> = {
   'outer-rail': 'border-l border-border',

@@ -38,8 +38,7 @@ export default function PlaygroundPage() {
           one page declares one, so this route needed its own.
           The playground below carries live readouts
           that change on every interaction and are not prose. */}
-      {/* The playground representative surface declares its material
-          (DI-SURF-011). */}
+      {/* The playground representative surface declares its material. */}
       <div
         data-pagefind-body
         {...materialAttributes('paper')}

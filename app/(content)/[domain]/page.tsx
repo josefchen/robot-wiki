@@ -186,8 +186,7 @@ export default async function DomainLandingPage({
           search. The region is the header and the module
           list, excluding the breadcrumb chrome above it. */}
       <div data-pagefind-body>
-        {/* The discovery representative surface declares its material
-            (DI-SURF-011). */}
+        {/* The discovery representative surface declares its material. */}
         <header {...materialAttributes('paper')} className="mb-16 material-paper">
           <h1 data-tektur-role="page-h1" className="display-h1">
             {meta.name}

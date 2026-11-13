@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Single source of truth for the site's cinematic clips, tier (b) of the motion language. scripts/generate-motion-clips.ts regenerates lib/motion-clips.ts (the registry the <Clip> component reads) and scripts/render-clips.ts reads the beats to build captions and the text alternative. Edit this file, then run npm run generate:motion-clips. The binding design input is docs/design/motion-language.md.",
+  "description": "Single source of truth for the site's cinematic clips, tier (b) of the motion language. scripts/generate-motion-clips.ts regenerates lib/motion-clips.ts (the registry the <Clip> component reads) and scripts/render-clips.ts reads the beats to build captions and the text alternative. Edit this file, then run npm run generate:motion-clips. The binding design input is docs/design.md.",
   "budgetBytes": 3145728,
   "clips": [
     {
