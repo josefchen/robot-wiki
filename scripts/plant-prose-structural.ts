@@ -1,18 +1,18 @@
 /**
- * Mutation proof for the structural-tell floor of scripts/lint-no-slop.ts:
+ * Mutation proof for the structural-tell floor of scripts/lint-prose.ts:
  * for every domain, plants a fixture article carrying three
  * not-X disclaimers per 1,000 words into a copy of content/, and requires the
  * lint (the same CLI, --report-structural) to exit non-zero naming that
  * fixture. The unplanted copy must pass. content/ itself is never written.
  *
- *   node scripts/plant-no-slop-structural.ts
+ *   node scripts/plant-prose-structural.ts
  */
 import { spawnSync } from 'node:child_process';
 import { cpSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { DOMAINS } from '../data/domains.ts';
-import { STRUCTURAL_TELL_LIMIT, structuralTellReport } from '../lib/no-slop.ts';
+import { STRUCTURAL_TELL_LIMIT, structuralTellReport } from '../lib/prose-lint.ts';
 
 const FIXTURE = 'zz-structural-floor-plant.mdx';
 const CLEAN =
@@ -32,16 +32,16 @@ function fixtureBody(): string {
 const body = fixtureBody();
 const expected = structuralTellReport(body);
 if (expected.notX !== 3 || expected.density <= STRUCTURAL_TELL_LIMIT || expected.density > 3.2) {
-  throw new Error(`plant-no-slop-structural: fixture is ${expected.notX} not-X at ${expected.density.toFixed(2)}/1k, expected 3 near 3/1k`);
+  throw new Error(`plant-prose-structural: fixture is ${expected.notX} not-X at ${expected.density.toFixed(2)}/1k, expected 3 near 3/1k`);
 }
 
 function lint(contentDir: string) {
-  return spawnSync(process.execPath, ['scripts/lint-no-slop.ts', '--report-structural', '--content-dir', contentDir], {
+  return spawnSync(process.execPath, ['scripts/lint-prose.ts', '--report-structural', '--content-dir', contentDir], {
     encoding: 'utf8',
   });
 }
 
-const dir = mkdtempSync(join(tmpdir(), 'no-slop-structural-'));
+const dir = mkdtempSync(join(tmpdir(), 'prose-structural-'));
 const failures: string[] = [];
 try {
   const copy = join(dir, 'content');
@@ -62,7 +62,7 @@ try {
   rmSync(dir, { recursive: true, force: true });
 }
 if (failures.length) {
-  console.error(`plant-no-slop-structural: FAILED\n${failures.join('\n')}`);
+  console.error(`plant-prose-structural: FAILED\n${failures.join('\n')}`);
   process.exit(1);
 }
-console.log(`plant-no-slop-structural: OK (${DOMAINS.length} planted domains fail, clean copy passes)`);
+console.log(`plant-prose-structural: OK (${DOMAINS.length} planted domains fail, clean copy passes)`);

@@ -1,4 +1,4 @@
-import { DASH_PATTERN, findBannedVocabulary } from './no-slop.ts';
+import { DASH_PATTERN, findBannedVocabulary } from './prose-lint.ts';
 
 /**
  * Wording the home page may not show. Build-progress copy is refused by the

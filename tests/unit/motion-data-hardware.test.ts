@@ -4,8 +4,8 @@ import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
 import { JAM_OVERHEAD_SCENE, jamOverheadFrame } from '@/components/motion/scenes/jam-overhead';
 import { computeEconomics, DEFAULT_INPUTS } from '@/lib/deployment-economics';
-import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
-import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
+import { PROSE_LINT_EXCEPTIONS } from '@/data/prose-lint-exceptions';
+import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/prose-lint';
 
 const root = process.cwd();
 const folder = join(root, 'content/data-hardware');
@@ -40,9 +40,9 @@ describe('data-hardware prose truth', () => {
   it('measures all seven articles at no more than two structural tells per thousand words', () => {
     for (const file of articles) {
       const body = readFileSync(join(folder, file), 'utf8');
-      const report = structuralTellReport(body, NO_SLOP_EXCEPTIONS);
+      const report = structuralTellReport(body, PROSE_LINT_EXCEPTIONS);
       expect(report.measured, file).toBe(true);
-      expect(report.tells, file).toBe(findStructuralTells(body, NO_SLOP_EXCEPTIONS).length);
+      expect(report.tells, file).toBe(findStructuralTells(body, PROSE_LINT_EXCEPTIONS).length);
       expect(report.density, file).toBeLessThanOrEqual(STRUCTURAL_TELL_LIMIT);
     }
   });

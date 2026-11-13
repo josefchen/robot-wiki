@@ -1,8 +1,8 @@
 /**
- * Registered verbatim-quotation exceptions for the no-slop lint
- * (scripts/lint-no-slop.ts, lib/no-slop.ts).
+ * Registered verbatim-quotation exceptions for the prose lint
+ * (scripts/lint-prose.ts, lib/prose-lint.ts).
  *
- * The marker lint bans AI-writing markers in shipped prose, including em
+ * The marker lint bans weak-writing markers in shipped prose, including em
  * and en dashes. Audit work replaces our paraphrase with a source's own
  * words, and a quotation we did not write may legitimately contain a
  * banned marker. The exemption for such text lives HERE, never in the
@@ -14,19 +14,19 @@
  * Every entry is evidence, not suppression, in the house pattern of
  * data/link-check-exceptions.ts: it must name the source (a citation id
  * from data/citations.ts, or an explicit sourceUrl), record WHY the text
- * must stay verbatim, HOW a human last verified it against that source,
+ * must stay verbatim, HOW it was last verified against that source,
  * and WHEN. The lint validates all of this before scanning a single file.
  *
  * Never reword a registered quotation to satisfy the lint; if the lint
  * flags text inside a quotation, re-check the quotation against its
- * source and leave the words alone (AGENTS.md, library/content-quality.md).
+ * source and leave the words alone.
  *
  * Type-only relative import so this file loads under plain node, Vitest,
  * and Next.js alike.
  */
-import type { SlopQuotationException } from '../lib/no-slop.ts';
+import type { QuotationException } from '../lib/prose-lint.ts';
 
-export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
+export const PROSE_LINT_EXCEPTIONS: QuotationException[] = [
   {
     id: 'hogan-1985',
     quote:

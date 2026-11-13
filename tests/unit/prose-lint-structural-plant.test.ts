@@ -11,7 +11,7 @@ import { DOMAINS } from '../../data/domains.ts';
  */
 describe('structural-tell floor plant', () => {
   it('fails a planted fixture in each of the seven domains and passes the clean copy', () => {
-    const run = spawnSync(process.execPath, ['scripts/plant-no-slop-structural.ts'], { encoding: 'utf8' });
+    const run = spawnSync(process.execPath, ['scripts/plant-prose-structural.ts'], { encoding: 'utf8' });
     expect(run.stderr).toBe('');
     expect(run.status).toBe(0);
     expect(run.stdout).toContain('clean copy: exit 0');
@@ -23,6 +23,6 @@ describe('structural-tell floor plant', () => {
 
   it('is registered as an npm script beside the lint it plants', () => {
     const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { scripts: Record<string, string> };
-    expect(pkg.scripts['check:no-slop-structural:plant']).toBe('node scripts/plant-no-slop-structural.ts');
+    expect(pkg.scripts['check:prose-structural:plant']).toBe('node scripts/plant-prose-structural.ts');
   });
 });
