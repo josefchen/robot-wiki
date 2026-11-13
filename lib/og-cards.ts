@@ -27,7 +27,9 @@
  * walk the registry.
  */
 
+import { DOMAIN_META } from '../data/modules.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
+import { ROUTE_SEO_PROFILES, routeSeoProfile } from './seo-profiles.ts';
 
 /** Card canvas: at least 1200x630, aspect within 0.05 of 1.91:1. */
 export const OG_CARD_WIDTH = 1200;
@@ -187,15 +189,62 @@ export function articleOgImages(
 /** The image set every card block carries, absolute on the apex origin. */
 export type OgImageSet = Array<{ url: string; width: number; height: number; alt: string }>;
 
+/** The site-name suffix the root layout's title template appends. */
+const DOCUMENT_TITLE_SUFFIX = ` | ${PUBLIC_IDENTITY}`;
+
+/**
+ * The page name each non-article route passes to routeOpenGraph (its h1,
+ * or the site name for home and the layout default), mapped to the route
+ * whose search profile holds its document title.
+ */
+const ROUTE_PATH_BY_PAGE_NAME: Readonly<Record<string, string>> = {
+  [PUBLIC_IDENTITY]: '/',
+  'A-Z Index': '/a-z/',
+  About: '/about/',
+  Credits: '/credits/',
+  'Editorial policy': '/editorial-policy/',
+  Glossary: '/glossary/',
+  'How robots work': '/how-robots-work/',
+  'Market Map': '/market-map/',
+  '3D Kinematics Playground': '/playground/',
+  Privacy: '/privacy/',
+  Search: '/search/',
+  ...Object.fromEntries(
+    Object.entries(DOMAIN_META).map(([domain, meta]) => [meta.name, `/${domain}/`]),
+  ),
+};
+
+function withoutSiteSuffix(title: string): string {
+  return title.endsWith(DOCUMENT_TITLE_SUFFIX)
+    ? title.slice(0, -DOCUMENT_TITLE_SUFFIX.length)
+    : title;
+}
+
+/**
+ * og:title and twitter:title for a route: its document title without the
+ * ' | Robot Wiki' suffix, so a shared link names what the search result
+ * promised. Declared explicitly because the framework would otherwise
+ * fill og:title from the templated document title, suffix included.
+ * A page name with no search profile (the 404 page) is used as written.
+ */
+export function routeSocialTitle(pageName: string): string {
+  const path = ROUTE_PATH_BY_PAGE_NAME[pageName];
+  const profile = path === undefined ? undefined : ROUTE_SEO_PROFILES[path];
+  return profile ? withoutSiteSuffix(profile.title) : pageName;
+}
+
+/** og:title and twitter:title for an article: its search title, unsuffixed. */
+export function articleSocialTitle(domain: string, slug: string): string {
+  return withoutSiteSuffix(routeSeoProfile(`/${domain}/${slug}/`).title);
+}
+
 /**
  * Route-level openGraph block for an article: the full object, because it
- * replaces the layout's (no deep merge). The PLAIN article title is
- * declared explicitly: left unset, the framework fills
- * og:title from the templated document title, which leaves the
- * '| Robot Wiki' suffix on the card, and the card title must equal the
- * page's rendered h1. og:description is left to fall back to the route's
- * metadata description (the module summary), the same value on both
- * sides, so the og and twitter pair can never drift.
+ * replaces the layout's (no deep merge). og:title is the article's search
+ * title (articleSocialTitle); the card image and its alt text keep the
+ * editorial title the card renders. og:description is left to fall back
+ * to the route's metadata description, the same value on both sides, so
+ * the og and twitter pair can never drift.
  */
 export function articleOpenGraph(
   domain: string,
@@ -210,7 +259,7 @@ export function articleOpenGraph(
 } {
   return {
     type: 'article',
-    title,
+    title: articleSocialTitle(domain, slug),
     url: './',
     siteName: SITE_NAME,
     images: articleOgImages(domain, slug, title),
@@ -220,10 +269,10 @@ export function articleOpenGraph(
 /**
  * Route-level openGraph block for a non-article destination (the domain
  * landings and the standalone routes), which share the site-level card.
- * Same replacement trap and same plain-title rule as
- * articleOpenGraph above.
+ * Same replacement trap as articleOpenGraph above; the page name resolves
+ * to the route's search title (routeSocialTitle).
  */
-export function routeOpenGraph(title: string): {
+export function routeOpenGraph(pageName: string): {
   type: 'website';
   title: string;
   url: './';
@@ -232,7 +281,7 @@ export function routeOpenGraph(title: string): {
 } {
   return {
     type: 'website',
-    title,
+    title: routeSocialTitle(pageName),
     url: './',
     siteName: SITE_NAME,
     images: siteOgImage(),
@@ -241,20 +290,19 @@ export function routeOpenGraph(title: string): {
 
 /**
  * The twitter block a route re-declares alongside its openGraph. The
- * plain title is pinned to the same string the route declares as
- * og:title (a declared twitter:title must equal its og
- * counterpart exactly), so the pair cannot drift whatever the
- * framework's own fallbacks would fill in.
+ * title resolves exactly as routeOpenGraph's does (a declared
+ * twitter:title must equal its og counterpart exactly), so the pair
+ * cannot drift whatever the framework's own fallbacks would fill in.
  */
 export function routeTwitter(
-  title: string,
+  pageName: string,
   images: OgImageSet = siteOgImage(),
 ): {
   card: 'summary_large_image';
   title: string;
   images: OgImageSet;
 } {
-  return { card: 'summary_large_image', title, images };
+  return { card: 'summary_large_image', title: routeSocialTitle(pageName), images };
 }
 
 export function articleTwitter(
@@ -266,5 +314,9 @@ export function articleTwitter(
   title: string;
   images: OgImageSet;
 } {
-  return routeTwitter(title, articleOgImages(domain, slug, title));
+  return {
+    card: 'summary_large_image',
+    title: articleSocialTitle(domain, slug),
+    images: articleOgImages(domain, slug, title),
+  };
 }

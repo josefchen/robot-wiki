@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { publishedModules } from '@/data/modules';
+import { DOMAIN_META, DOMAINS, publishedModules } from '@/data/modules';
 import {
   ARTICLE_IMAGE_VARIANTS,
   OG_CARD_HEIGHT,
@@ -14,11 +14,13 @@ import {
   clampTitle,
   ogImageAltForTitle,
   routeOpenGraph,
+  routeSocialTitle,
   routeTwitter,
   sanitizeCardText,
   siteOgImage,
   siteOgImageAlt,
 } from '@/lib/og-cards';
+import { routeSeoProfile } from '@/lib/seo-profiles';
 
 /**
  * OG card helpers: the vocabulary the emitted
@@ -102,14 +104,13 @@ describe('og card vocabulary', () => {
     expect(Math.abs(ratio - 1.91)).toBeLessThanOrEqual(0.05);
   });
 
-  // The route blocks pin the PLAIN title. The framework's
-  // own fallback fills og:title from the templated document title, which
-  // leaves the ' | PUBLIC_IDENTITY' suffix on the card and breaks the h1
-  // match; the helpers must declare the title explicitly so that can
-  // never happen.
-  it('routeOpenGraph declares the plain title, a website card block, and the site card', () => {
+  // The route blocks pin the search title without the ' | PUBLIC_IDENTITY'
+  // suffix. The framework's own fallback fills og:title from the templated
+  // document title, suffix included; the helpers must declare the title
+  // explicitly so that can never happen.
+  it('routeOpenGraph declares the search title, a website card block, and the site card', () => {
     const og = routeOpenGraph('Market Map');
-    expect(og.title).toBe('Market Map');
+    expect(og.title).toBe('Market Map: Robotics Companies and Funding');
     expect(og.title).not.toContain(SITE_NAME);
     expect(og.type).toBe('website');
     expect(og.url).toBe('./');
@@ -118,19 +119,44 @@ describe('og card vocabulary', () => {
     expect(og.images[0].url.endsWith(SITE_CARD_PATH)).toBe(true);
   });
 
-  it('routeTwitter pins the plain title, summary_large_image, and the same images as og', () => {
+  it('routeTwitter pins the search title, summary_large_image, and the same images as og', () => {
     const tw = routeTwitter('Market Map');
     expect(tw.card).toBe('summary_large_image');
-    expect(tw.title).toBe('Market Map');
+    expect(tw.title).toBe('Market Map: Robotics Companies and Funding');
     expect(tw.title).toBe(routeOpenGraph('Market Map').title);
     expect(tw.images).toEqual(siteOgImage());
   });
 
-  it('articleOpenGraph declares the plain article title and the article card', () => {
+  it('resolves every page name to its search title without the site suffix', () => {
+    const cases: Array<[string, string]> = [
+      [SITE_NAME, '/'],
+      ['A-Z Index', '/a-z/'],
+      ['About', '/about/'],
+      ['Credits', '/credits/'],
+      ['Editorial policy', '/editorial-policy/'],
+      ['Glossary', '/glossary/'],
+      ['How robots work', '/how-robots-work/'],
+      ['Market Map', '/market-map/'],
+      ['3D Kinematics Playground', '/playground/'],
+      ['Privacy', '/privacy/'],
+      ['Search', '/search/'],
+      ...DOMAINS.map((d): [string, string] => [DOMAIN_META[d].name, `/${d}/`]),
+    ];
+    for (const [name, path] of cases) {
+      const expected = routeSeoProfile(path).title.replace(` | ${SITE_NAME}`, '');
+      expect(routeSocialTitle(name), name).toBe(expected);
+      expect(routeSocialTitle(name), name).not.toContain(`| ${SITE_NAME}`);
+    }
+    expect(routeSocialTitle(SITE_NAME)).toBe('Modern Robotics and Robot Learning');
+    // A page with no search profile keeps its own name.
+    expect(routeSocialTitle('Page not found')).toBe('Page not found');
+  });
+
+  it('articleOpenGraph declares the search title and the article card', () => {
     const og = articleOpenGraph('manipulation', 'action-chunking', 'Action Chunking (ACT and ALOHA)');
     expect(og.type).toBe('article');
-    expect(og.title).toBe('Action Chunking (ACT and ALOHA)');
-    expect(og.title).not.toContain(`- ${SITE_NAME}`);
+    expect(og.title).toBe('Action Chunking: ACT, Real-Time Chunking, PACE');
+    expect(og.title).not.toContain(SITE_NAME);
     expect(og.url).toBe('./');
     expect(og.siteName).toBe(SITE_NAME);
     expect(og.images).toEqual(
@@ -144,6 +170,9 @@ describe('og card vocabulary', () => {
       const tw = articleTwitter(m.domain, m.slug, m.title);
       expect(tw.card).toBe('summary_large_image');
       expect(tw.title, `${m.slug} twitter:title equals og:title`).toBe(og.title);
+      expect(og.title, `${m.slug} og:title is the search title`).toBe(
+        routeSeoProfile(`/${m.domain}/${m.slug}/`).title,
+      );
       expect(tw.images, `${m.slug} twitter images equal og images`).toEqual(og.images);
     }
   });
