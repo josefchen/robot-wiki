@@ -35,6 +35,6 @@ words or dashes in prose, a dead link, wrong SEO metadata, a broken search index
 bad data, or broken logic.
 
 Retire it when it fails only because bytes differ from a recorded earlier
-state or a process record is missing: hash pins, continuity or originals
-records, evidence freshness, approved-delta chains, baselines, ledger
-equality, reader-test or capture records, release fingerprints.
+state or a bookkeeping record is missing: hash pins, continuity or originals
+records, stale screenshots, approval chains, baselines, record-count
+equality, capture records, release fingerprints.
