@@ -1,276 +1,181 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, screen } from '@testing-library/react';
+import { JSDOM } from 'jsdom';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import { FrictionTransfer, readoutSpots } from '@/components/interactive/friction-transfer';
-import { drCurvePoints, drSuccess, formatPct, pointCurvePoints, pointSuccess } from '@/lib/sim2real';
+import { FrictionTransfer, HINT, OPENING_REAL_MU, TOUR, floorWords, readoutFor } from '@/components/interactive/friction-transfer';
+import {
+  ONE_FLOOR,
+  SLOTS,
+  carriageShift,
+  crankTurns,
+  gritGap,
+  needleDegrees,
+  practiceFloors,
+  standsAt,
+  xOf,
+} from '@/components/iso/figures/floor-test-bed';
+import { CitationRecordsProvider } from '@/components/article/citation-records';
+import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
+import { mainViewSymbolHits } from '@/lib/figure-main-view';
+import { DEFAULT_DR_RANGE, DR_RANGE_MAX, MU_MAX, MU_MIN, MU_TRAIN, drSuccess, pointSuccess } from '@/lib/sim2real';
+import { widgetCitationRecords } from '@/lib/widget-citations';
+import { renderWithCitations } from '../helpers/widget-citations';
 
-function realMuSlider() {
-  return screen.getByRole('slider', { name: /real robot friction/i });
-}
+const render = renderWithCitations('FrictionTransfer');
 
-function rangeSlider() {
-  return screen.getByRole('slider', { name: /randomization half-width/i });
-}
+const realFloor = () => screen.getByRole('slider', { name: /^Real floor/ });
+const practiceRange = () => screen.getByRole('slider', { name: /^Range of practice floors/ });
 
-function readout(id: string) {
-  return screen.getByTestId(id).textContent ?? '';
-}
+describe('floor test bed model', () => {
+  it('has a slot for every 0.05 of friction across the scale, the practice floor at the middle of the bed', () => {
+    expect(SLOTS[0]).toBe(MU_MIN);
+    expect(SLOTS[SLOTS.length - 1]).toBe(MU_MAX);
+    expect(SLOTS).toHaveLength(27);
+    expect(xOf(MU_TRAIN)).toBe(0);
+    expect(xOf(MU_MAX)).toBeGreaterThan(xOf(MU_MIN));
+  });
 
-const words = (text: string) => text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  it('racks one strip for the one-floor robot and a run either side of it for the many-floor robot', () => {
+    expect(ONE_FLOOR).toEqual([MU_TRAIN]);
+    const run = practiceFloors(DEFAULT_DR_RANGE);
+    expect(run[0]).toBe(0.45);
+    expect(run[run.length - 1]).toBe(1.15);
+    expect(run).toHaveLength(15);
+    expect(practiceFloors(0.1)).toEqual([0.7, 0.75, 0.8, 0.85, 0.9]);
+    expect(practiceFloors(DR_RANGE_MAX)).toHaveLength(26);
+  });
 
-/** The slider's visible label, without its value slot, as the label-in-name check reads it. */
-function visibleLabel(input: HTMLElement) {
-  return [...((input as HTMLInputElement).labels ?? [])]
-    .map((label) => {
-      const copy = label.cloneNode(true) as HTMLElement;
-      copy.querySelectorAll('[data-figure-control-value], [aria-hidden="true"]').forEach((node) => node.remove());
-      return copy.textContent ?? '';
-    })
-    .join(' ');
-}
+  it('packs grit closer on grippier floors', () => {
+    expect(gritGap(MU_MAX)).toBeLessThan(gritGap(MU_TRAIN));
+    expect(gritGap(MU_TRAIN)).toBeLessThan(gritGap(MU_MIN));
+  });
+
+  it('turns each dial from its left stop at no tries to its right stop at every try', () => {
+    expect(needleDegrees(0)).toBe(-120);
+    expect(needleDegrees(1)).toBe(120);
+    expect(needleDegrees(0.5)).toBe(0);
+  });
+
+  it('opens a little more slippery than the practice floor, where the one-floor robot already falls', () => {
+    expect(OPENING_REAL_MU).toBeLessThan(MU_TRAIN);
+    expect(floorWords(OPENING_REAL_MU)).toBe('a bit more slippery');
+    expect(Math.round(pointSuccess(OPENING_REAL_MU) * 100)).toBe(24);
+    expect(Math.round(drSuccess(OPENING_REAL_MU, DEFAULT_DR_RANGE) * 100)).toBe(74);
+  });
+
+  it('stands a robot while at least half its tries end without a fall, and topples it below that', () => {
+    expect(standsAt(0.5)).toBe(true);
+    expect(standsAt(0.49)).toBe(false);
+    const poses = (mu: number) => [standsAt(pointSuccess(mu)), standsAt(drSuccess(mu, DEFAULT_DR_RANGE))];
+    expect(poses(0.8)).toEqual([true, true]);
+    expect(poses(OPENING_REAL_MU)).toEqual([false, true]);
+    expect(poses(1.1)).toEqual([false, true]);
+    expect(poses(1.5)).toEqual([false, false]);
+    expect(poses(0.2)).toEqual([false, false]);
+  });
+
+  it('tours the practice floor first, then floors on both sides, ending where it opened', () => {
+    expect(TOUR[0]).toBe(MU_TRAIN);
+    expect(TOUR.some((mu) => mu < MU_TRAIN - DEFAULT_DR_RANGE)).toBe(true);
+    expect(TOUR.some((mu) => mu > MU_TRAIN + DEFAULT_DR_RANGE)).toBe(true);
+    expect(TOUR[TOUR.length - 1]).toBe(OPENING_REAL_MU);
+  });
+});
 
 describe('FrictionTransfer', () => {
-  it('renders both curves, the DR band, the real-robot line, readouts, and reset', () => {
-    render(<FrictionTransfer />);
-    expect(realMuSlider()).toBeInTheDocument();
-    expect(rangeSlider()).toBeInTheDocument();
-    expect(screen.getByTestId('point-curve')).toBeInTheDocument();
-    expect(screen.getByTestId('dr-curve')).toBeInTheDocument();
-    expect(screen.getByTestId('dr-band')).toBeInTheDocument();
-    expect(screen.getByTestId('real-line')).toBeInTheDocument();
-    expect(screen.getByTestId('real-mu-readout')).toBeInTheDocument();
-    expect(screen.getByTestId('point-readout')).toBeInTheDocument();
-    expect(screen.getByTestId('dr-readout')).toBeInTheDocument();
-    expect(screen.getByTestId('delta-readout')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
-  });
-
-  it('opens on the practice floor, where the one-floor robot wins', () => {
+  it('opens on a slightly slippery real floor: the one-floor robot at 24%, the many-floor robot at 74%', () => {
     const { container } = render(<FrictionTransfer />);
-    expect(readout('real-mu-readout')).toBe('0.80');
-    expect(readout('point-readout')).toBe('97%');
-    expect(readout('dr-readout')).toBe('74%');
-    expect(readout('delta-readout')).toMatch(/point \+\d+ pts/);
-    expect(container.querySelector('[data-figure-title]')).toHaveTextContent(
-      'One-floor robot wins on its floor; many-floor robot copes widely',
-    );
-    // The headline names the robots the way the legend and the note do, and the axis says what the share counts.
-    expect(container.querySelector('[data-legend-series="point-policy"]')).toHaveTextContent('one-floor robot');
-    expect(container.querySelector('[data-scene-axis]')).toHaveTextContent('tries without a fall');
-    const note = container.querySelectorAll('[data-figure-annotation]');
-    expect(note).toHaveLength(1);
-    expect(note[0]).toHaveTextContent(/Real floor same as the practice floor:\s*the one-floor robot wins, 97% against 74%/);
-    // The real floor is the one slider in view, its setting read as one phrase;
-    // the range of practice floors and Reset sit in Adjust more.
-    const controls = container.querySelector('[data-figure-controls]')!;
-    const adjust = container.querySelector('details[data-figure-fold="adjust"]')!;
-    expect(controls).toContainElement(realMuSlider());
-    expect(adjust).not.toContainElement(realMuSlider());
-    expect(controls).toHaveTextContent('Real floor: same as the practice floor');
-    expect(adjust).toContainElement(rangeSlider());
-    expect(adjust).toHaveTextContent('a middling spread');
-    expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
-    // One legend entry names the many-floor robot's line and its shaded range together.
-    expect(screen.getByTestId('dr-band')).toHaveAttribute('data-series', 'dr-policy');
-    expect(container.querySelector('[data-legend-series="dr-policy"]')).toHaveTextContent(
-      'many-floor robot, practiced on the shaded floors',
-    );
-    expect(container.querySelector('[data-legend-series="training-range"]')).toBeNull();
+    expect(container.querySelector('[data-figure-title]')).toHaveTextContent('One-floor robot wins on its floor; many-floor robot copes widely');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('Tries without a fall: one-floor robot 24%, many-floor robot 74%');
+    expect(realFloor()).toHaveValue('65');
+    expect(screen.getByTestId('real-floor-carriage').getAttribute('transform')).toBe(carriageShift(OPENING_REAL_MU));
+    expect(screen.getByTestId('rack-one-floor')).toHaveAttribute('data-strips', '1');
+    expect(screen.getByTestId('rack-many-floors')).toHaveAttribute('data-strips', '15');
+    // The real floor plate is the one lit part, and the drawing carries no words.
+    expect(container.querySelectorAll('.iso-solid[data-lit]')).toHaveLength(1);
+    expect(container.querySelectorAll('svg text')).toHaveLength(0);
+    // The back robot opens toppled and the front robot standing; only the shown pose is opaque.
+    expect(screen.getByTestId('walker-back')).toHaveAttribute('data-pose', 'toppled');
+    expect(screen.getByTestId('walker-front')).toHaveAttribute('data-pose', 'standing');
+    expect(screen.getByTestId('walker-back').querySelector('[data-walker-pose="standing"]')).toHaveAttribute('opacity', '0');
+    expect(screen.getByTestId('walker-back').querySelector('[data-walker-pose="toppled"]')).toHaveAttribute('opacity', '1');
+    expect(screen.getByTestId('walker-front').querySelector('[data-walker-pose="standing"]')).toHaveAttribute('opacity', '1');
+    // Both poses carry a dial reading the same share.
+    expect(screen.getByTestId('dial-back-toppled').querySelector('[data-needle]')).toHaveAttribute('transform', `rotate(${needleDegrees(pointSuccess(OPENING_REAL_MU)).toFixed(1)})`);
+    // Three lines under the drawing: the hint, the readout and the status note.
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent(HINT);
+    expect(container.querySelector('[data-anatomy-keys]')).toBeNull();
+    // Each dial's needle opens at its robot's share.
+    expect(container.querySelector('[data-needle="back"]')).toHaveAttribute('transform', `rotate(${needleDegrees(pointSuccess(OPENING_REAL_MU)).toFixed(1)})`);
+    expect(container.querySelector('[data-needle="front"]')).toHaveAttribute('transform', `rotate(${needleDegrees(drSuccess(OPENING_REAL_MU, DEFAULT_DR_RANGE)).toFixed(1)})`);
   });
 
-  it('labels each dot with its robot\'s chance on the real floor and keeps the method note in the fold', () => {
+  it('puts the one-floor robot ahead on its own practice floor', () => {
     const { container } = render(<FrictionTransfer />);
-    const values = () => [...screen.getByTestId('real-floor-values').querySelectorAll('text')].map((t) => t.textContent);
-    expect(values()).toEqual(['97%', '74%']);
-    fireEvent.change(realMuSlider(), { target: { value: '35' } });
-    expect(values()).toEqual([readout('point-readout'), readout('dr-readout')]);
-    // The authored-formula note lives in "How this was made", not on a source line under the caption.
-    expect(container.querySelector('[data-figure-source]')).toBeNull();
-    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('made-up formulas');
+    fireEvent.change(realFloor(), { target: { value: '80' } });
+    expect(screen.getByText('Real floor:').parentElement).toHaveTextContent('Real floor: same as the practice floor');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent(readoutFor(0.8, DEFAULT_DR_RANGE));
+    expect(readoutFor(0.8, DEFAULT_DR_RANGE)).toBe('Tries without a fall: one-floor robot 97%, many-floor robot 74%');
+    expect(screen.getByTestId('friction-note')).toHaveTextContent('On its own practice floor the one-floor robot does best');
+    expect(screen.getByTestId('walker-back')).toHaveAttribute('data-pose', 'standing');
+    expect(screen.getByTestId('walker-front')).toHaveAttribute('data-pose', 'standing');
+    expect(screen.getByTestId('point-readout')).toHaveTextContent('97%');
+    expect(screen.getByTestId('dr-readout')).toHaveTextContent('74%');
   });
 
-  it('on the training friction itself the point policy is ahead', () => {
-    render(<FrictionTransfer />);
-    fireEvent.change(realMuSlider(), { target: { value: '80' } });
-    expect(readout('real-mu-readout')).toBe('0.80');
-    expect(readout('point-readout')).toBe('97%');
-    expect(readout('dr-readout')).toBe('74%');
-    expect(readout('delta-readout')).toMatch(/point \+\d+ pts/);
-  });
-
-  it('moving the real-robot line far off the training friction flips the winner to DR', () => {
-    render(<FrictionTransfer />);
-    fireEvent.change(realMuSlider(), { target: { value: '35' } });
-    expect(readout('real-mu-readout')).toBe('0.35');
-    expect(readout('point-readout')).toBe('0%');
-    expect(readout('delta-readout')).toMatch(/DR \+\d+ pts/);
-  });
-
-  it('widening the randomization range lowers the DR peak readout', () => {
-    render(<FrictionTransfer />);
-    const before = readout('dr-readout');
-    fireEvent.change(rangeSlider(), { target: { value: '65' } });
-    const after = readout('dr-readout');
-    expect(after).not.toBe(before);
-    expect(Number(after.replace('%', ''))).toBeLessThan(
-      Number(before.replace('%', '')),
-    );
-    expect(screen.getByTestId('dr-peak-label')).toBeInTheDocument();
-  });
-
-  it('reset restores the default line position and range', async () => {
-    const user = userEvent.setup();
-    render(<FrictionTransfer />);
-    fireEvent.change(realMuSlider(), { target: { value: '120' } });
-    fireEvent.change(rangeSlider(), { target: { value: '65' } });
-    await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(readout('real-mu-readout')).toBe('0.80');
-    expect(readout('point-readout')).toBe('97%');
-    expect(readout('dr-readout')).toBe('74%');
-  });
-
-  it('renders a table-form chart description that names the assumed range and its shaded band', () => {
+  it('keeps the many-floor robot going off the practice floor until the plate leaves its strips', () => {
     const { container } = render(<FrictionTransfer />);
-    const desc = container.querySelector('[data-chart-description]');
-    expect(desc?.textContent).toMatch(/assumed DR half-width is 0.35/i);
-    expect(desc?.textContent).toMatch(/not a confidence interval/i);
-    expect(desc?.textContent).toMatch(/shaded band marks an assumed range/i);
-    const details = container.querySelector('details[data-chart-data]');
-    expect(details).toHaveAttribute('data-chart-form', 'table');
-    const rows = details?.querySelectorAll('tbody tr').length ?? 0;
-    expect(rows).toBeGreaterThanOrEqual(5);
-    expect(rows).toBeLessThanOrEqual(10);
-    const before = desc?.textContent ?? '';
-    fireEvent.change(realMuSlider(), { target: { value: '50' } });
-    expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
-      before,
-    );
+    fireEvent.change(realFloor(), { target: { value: '110' } });
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('one-floor robot 0%, many-floor robot 74%');
+    expect(realFloor()).toHaveAttribute('aria-valuetext', expect.stringMatching(/^much grippier, friction 1\.10/));
+    fireEvent.change(realFloor(), { target: { value: '150' } });
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('one-floor robot 0%, many-floor robot 0%');
+    expect(screen.getByTestId('friction-note')).toHaveTextContent('Past every practice strip, both robots mostly fall');
+    expect(screen.getByTestId('walker-front')).toHaveAttribute('data-pose', 'toppled');
   });
 
-  it('does not confuse being inside the assumed training band with the point curve winning', () => {
+  it('widens the front rack from "Adjust more", and resets to the opening floor and rack', () => {
+    const { container } = render(<FrictionTransfer />);
+    fireEvent.change(practiceRange(), { target: { value: '65' } });
+    expect(screen.getByTestId('rack-many-floors')).toHaveAttribute('data-strips', '26');
+    expect(screen.getByTestId('dr-peak-label')).toHaveTextContent('57%');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('many-floor robot 57%');
+    fireEvent.change(realFloor(), { target: { value: '30' } });
+    const fold = container.querySelector('details[data-figure-fold="adjust"]')!;
+    const reset = [...fold.querySelectorAll('button')].filter((button) => button.textContent === 'Reset');
+    expect(reset).toHaveLength(1);
+    fireEvent.click(reset[0]);
+    expect(realFloor()).toHaveValue('65');
+    expect(practiceRange()).toHaveValue('35');
+    expect(screen.getByTestId('rack-many-floors')).toHaveAttribute('data-strips', '15');
+    expect(container.querySelector('[data-readout]')).toHaveTextContent(readoutFor(OPENING_REAL_MU, DEFAULT_DR_RANGE));
+  });
+
+  it('describes the drawing and the model in words, and links both sources', () => {
     render(<FrictionTransfer />);
-    fireEvent.change(realMuSlider(), { target: { value: '110' } });
-    expect(readout('delta-readout')).toMatch(/DR \+\d+ pts/);
-    expect(screen.getByTestId('ft-explanation')).not.toHaveTextContent('point-trained policy wins');
-    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('local assumptions');
-  });
-
-  it('discloses authored formulas and restores the prediction mount defaults', () => {
-    render(<FrictionTransfer defaultRange={0.65} />);
-    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('made-up formulas');
-    expect(readout('dr-readout')).toBe('57%');
-    fireEvent.change(realMuSlider(), { target: { value: '20' } });
-    fireEvent.change(rangeSlider(), { target: { value: '10' } });
-    fireEvent.click(screen.getByRole('button', { name: /reset/i }));
-    expect(readout('real-mu-readout')).toBe('0.80');
-    expect(readout('point-readout')).toBe('97%');
-    expect(readout('dr-readout')).toBe('57%');
-  });
-
-  it('names the width regime so both article mounts describe differently after digit normalisation', () => {
-    const descriptionText = (props: { defaultRange?: number }) => {
-      const { container, unmount } = render(<FrictionTransfer {...props} />);
-      const text = container.querySelector('[data-chart-description]')?.textContent ?? '';
-      unmount();
-      return text;
-    };
-    const ordinary = descriptionText({});
-    const wide = descriptionText({ defaultRange: 0.65 });
-    expect(ordinary).toMatch(/band is marked ordinary at the selected half-width/);
-    expect(wide).toMatch(/band is marked wide at the selected half-width/);
-    const key = (text: string) => text.toLowerCase().replace(/\d+/g, '#');
-    expect(key(ordinary)).not.toBe(key(wide));
+    const img = screen.getByRole('img', { name: /A floor test bed/ });
+    expect(img).toHaveAccessibleName(/back walker practiced on one floor strip, at 0\.80, lies toppled/);
+    expect(img).toHaveAccessibleName(/front walker practiced on 15 strips, from 0\.45 to 1\.15, stands and its dial reads 74%/);
+    const description = document.getElementById(img.getAttribute('aria-describedby') ?? '');
+    expect(description).toHaveTextContent(/^Illustrative, not measured robot data\. With the real floor plate at friction 0\.65/);
+    const links = screen.getByTestId('friction-sources').querySelectorAll('a');
+    expect(links).toHaveLength(2);
+    expect(crankTurns(MU_TRAIN)).toBe(0);
   });
 });
 
-describe('FrictionTransfer readout spots', () => {
-  // Independent of the component: the plot spans x 72 to 326 and y 210 (0%)
-  // to 86 (100%) in the 340-wide view.
-  const x = (mu: number) => 72 + ((mu - 0.2) / 1.3) * 254;
-  const y = (s: number) => 210 - s * 124;
-  const curve = (fn: (mu: number) => number) =>
-    Array.from({ length: 1301 }, (_, i) => 0.2 + i / 1000).map((mu) => [x(mu), y(fn(mu))] as const);
-
-  it('keeps both readouts clear of the curves, the line, the dots and each other on every floor and spread', () => {
-    const failures: string[] = [];
-    for (let r = 10; r <= 65; r += 5) {
-      const range = r / 100;
-      const drStage = drCurvePoints(range).map((p) => [x(p.mu), y(p.success)] as [number, number]);
-      const pointStage = pointCurvePoints().map((p) => [x(p.mu), y(p.success)] as [number, number]);
-      const dense = [curve(pointSuccess), curve((mu) => drSuccess(mu, range))];
-      for (let m = 20; m <= 150; m++) {
-        const mu = m / 100;
-        const lineX = x(mu);
-        const [p, d] = [pointSuccess(mu), drSuccess(mu, range)];
-        const spots = readoutSpots({
-          lineX,
-          pointY: y(p),
-          drY: y(d),
-          pointText: formatPct(p),
-          drText: formatPct(d),
-          curves: [pointStage, drStage],
-        });
-        const at = `mu ${mu} range ${range}`;
-        for (const [name, spot, dotY] of [['point', spots.point, y(p)], ['dr', spots.dr, y(d)]] as const) {
-          const b = spot.box;
-          if (!Number.isFinite(spot.cost)) failures.push(`${at}: ${name} has no clear spot`);
-          if (b.x0 <= lineX && lineX <= b.x1) failures.push(`${at}: ${name} crosses the real-floor line`);
-          if (b.y0 < 86 || b.y1 > 210 || b.x0 < 72 || b.x1 > 340) failures.push(`${at}: ${name} leaves the plot`);
-          for (const pts of dense) {
-            if (pts.some(([cx, cy]) => cx >= b.x0 - 1 && cx <= b.x1 + 1 && cy >= b.y0 - 1 && cy <= b.y1 + 1)) {
-              failures.push(`${at}: ${name} sits on a curve`);
-            }
-          }
-          // Beside the line it reads as the real floor's at any height; out in the plot it must stay near its dot.
-          const out = (spot.anchor === 'start' ? b.x0 - lineX : lineX - b.x1) - 9;
-          if (out >= 10 && Math.hypot(out, (b.y0 + b.y1) / 2 - dotY) > 50) failures.push(`${at}: ${name} strays from its dot`);
-        }
-        const [a, b] = [spots.point.box, spots.dr.box];
-        if (a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1) failures.push(`${at}: readouts overlap`);
-      }
-    }
-    expect(failures).toEqual([]);
+describe('FrictionTransfer served HTML', () => {
+  const html = `<!doctype html><html><body><main>${renderToStaticMarkup(
+    <CitationRecordsProvider records={widgetCitationRecords('FrictionTransfer')}>
+      <FrictionTransfer />
+    </CitationRecordsProvider>,
+  )}</main></body></html>`;
+  it('passes the figure-system check', () => {
+    const { figures, violations } = inspectFigureDocument(html, '/rl-sim2real/sim2real-transfer/');
+    expect(figures).toEqual(['friction-transfer']);
+    expect(violations.map(formatViolation)).toEqual([]);
   });
-
-  it('opens with 97% right of the spike and 74% left of the line, both above the plateau', () => {
-    render(<FrictionTransfer />);
-    const [pointLabel, drLabel] = [...screen.getByTestId('real-floor-values').querySelectorAll('text')];
-    const lineX = Number(screen.getByTestId('real-line').querySelector('line')!.getAttribute('x1'));
-    expect(pointLabel).toHaveTextContent('97%');
-    expect(pointLabel).toHaveAttribute('text-anchor', 'start');
-    expect(Number(pointLabel.getAttribute('x'))).toBeGreaterThan(lineX);
-    expect(drLabel).toHaveTextContent('74%');
-    expect(drLabel).toHaveAttribute('text-anchor', 'end');
-    expect(Number(drLabel.getAttribute('x'))).toBeLessThan(lineX);
-    for (const label of [pointLabel, drLabel]) expect(Number(label.getAttribute('y'))).toBeLessThan(y(0.74));
-  });
-});
-
-describe('FrictionTransfer series encoding (VAL-B2-VIZ-002/004)', () => {
-  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
-    const { container } = render(<FrictionTransfer />);
-    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['dr-policy', 'point-policy', 'real-robot']);
-    expect(seriesEncodingViolations(container)).toEqual([]);
-  });
-
-  it('names each slider starting with its visible label, also when the real-floor words change', () => {
-    render(<FrictionTransfer />);
-    for (const value of ['80', '20', '150']) {
-      fireEvent.change(realMuSlider(), { target: { value } });
-      for (const slider of [realMuSlider(), rangeSlider()]) {
-        const label = words(visibleLabel(slider));
-        expect(label).not.toBe('');
-        expect(words(slider.getAttribute('aria-label') ?? '').startsWith(label)).toBe(true);
-      }
-    }
-    expect(realMuSlider()).toHaveAttribute(
-      'aria-label',
-      'Real floor: much grippier; real robot friction, currently 1.50',
-    );
-    expect(rangeSlider()).toHaveAttribute(
-      'aria-label',
-      'Range of practice floors: randomization half-width, currently plus or minus 0.35',
-    );
+  it('shows no symbol, formula or bare unit in the main view', () => {
+    expect(mainViewSymbolHits(new JSDOM(html).window.document.querySelector('[data-figure-frame]')!)).toEqual([]);
   });
 });

@@ -163,7 +163,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/friction-transfer.tsx',
     route: '/rl-sim2real/sim2real-transfer/',
     quantityNames: ['friction', 'half-width'],
-    text: 'Illustrative, not measured robot data. At selected friction 0.80, the point curve is 97% and the DR curve is 74%. The assumed DR half-width is 0.35 and its plateau is 74%. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. The shaded band marks an assumed range, not a confidence interval. The randomization band is marked ordinary at the selected half-width. Reset restores this panel to friction 0.80 and half-width 0.35. Selecting friction samples the formulas; no training or adaptation runs.',
+    text: "Illustrative, not measured robot data. With the real floor plate at friction 0.65, the one-floor robot gets through 24% of tries without a fall and the many-floor robot 74%. The many-floor robot's rack holds 15 strips, friction 0.45 to 1.15, a half-width of 0.35 either side of the practice floor at 0.80, marked ordinary; on them it gets through 74%, from 0.93 minus 0.55 times the half-width. The one-floor robot's share is a bell with peak 0.97 and width 0.09 around 0.80, and the many-floor robot's falls away with width 0.10 past its strips. Reset restores friction 0.65 and half-width 0.35. Moving the plate samples the formulas; no training or adaptation runs.",
   },
   {
     component: 'LatentImagination',

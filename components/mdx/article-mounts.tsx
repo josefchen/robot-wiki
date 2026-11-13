@@ -27,6 +27,7 @@ import {
   DeploymentDashboard as LazyDeploymentDashboard,
   DroneChampionsTimeline as LazyDroneChampionsTimeline,
   DroneDeliveryCounts as LazyDroneDeliveryCounts,
+  FrictionTransfer as LazyFrictionTransfer,
   FundingHumanoidCounts as LazyFundingHumanoidCounts,
   GeneralistReleaseTimeline as LazyGeneralistReleaseTimeline,
   HandComparison as LazyHandComparison,
@@ -89,7 +90,6 @@ export {
   ExplainerFigure,
   ExpoFtResults,
   FlowMatchingTrajectory,
-  FrictionTransfer,
   GearRatioBench,
   GaitDiagram,
   GraspWrenchLab,
@@ -167,6 +167,7 @@ export const DemoOrSim = withCitationRecords('DemoOrSim', LazyDemoOrSim);
 export const DeploymentDashboard = withCitationRecords('DeploymentDashboard', LazyDeploymentDashboard);
 export const DroneChampionsTimeline = withCitationRecords('DroneChampionsTimeline', LazyDroneChampionsTimeline);
 export const DroneDeliveryCounts = withCitationRecords('DroneDeliveryCounts', LazyDroneDeliveryCounts);
+export const FrictionTransfer = withCitationRecords('FrictionTransfer', LazyFrictionTransfer);
 export const FundingHumanoidCounts = withCitationRecords('FundingHumanoidCounts', LazyFundingHumanoidCounts);
 export const GeneralistReleaseTimeline = withCitationRecords('GeneralistReleaseTimeline', LazyGeneralistReleaseTimeline);
 export const HandComparison = withCitationRecords('HandComparison', LazyHandComparison);

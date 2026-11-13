@@ -463,10 +463,10 @@ describe('identity geometry and typography stay aligned', () => {
     expect(latentImagination).not.toMatch(/green/i);
     expect(sim2real).not.toMatch(/green plateau/i);
     // The DR plateau prose lost its colour word in the audit rewrite. The
-    // friction chart paints both success curves through the value role on
-    // the graphite stage, keeps signal blue off its marks, and nothing calls
-    // the plateau green.
-    expect(frictionTransfer).toContain("const valueColour = roleColour('value')");
+    // friction figure is a floor test bed drawn with the isometric kit: its
+    // one lit part is the real floor plate, signal blue stays off its code,
+    // and nothing calls the plateau green.
+    expect(frictionTransfer).toContain("from '@/components/iso/figures/floor-test-bed'");
     expect(frictionTransfer).not.toMatch(/--color-accent/);
     expect(frictionTransfer).not.toMatch(/green/i);
     expect(jepaChart).toContain('two-dimensional points and loads no trained encoder or predictor');
@@ -491,11 +491,10 @@ describe('identity geometry and typography stay aligned', () => {
     expect(jepaChart).not.toMatch(/green/i);
     expect(jepaTable).not.toMatch(/ACCENT|--color-accent/);
     expect(jepaTable).not.toMatch(/green/i);
-    // VAL-OPUS-068: the friction chart's authored status is labelled once, in
-    // its frame next to the controls, and the prose disclaimer is gone.
+    // The friction figure's authored status is labelled once, in
+    // its stage's status line, and the prose disclaimer is gone.
     expect(sim2real).not.toContain('authored toy');
-    expect(frictionChart).toContain('<StageStatus>Illustrative, not measured</StageStatus>');
-    expect(frictionChart).toMatch(/points=\{polyline\(drCurvePoints\(range\)\)\}[\s\S]*?stroke=\{valueColour\}/);
+    expect(frictionChart).toContain('status="Illustrative teaching model, not measured robot data"');
     expect(advantage).not.toContain('elapsed portion green');
     expect(advantage).not.toMatch(/green (?:line|trace)/i);
   });
