@@ -6,7 +6,7 @@ slug: model-based-robot-learning
 order: 6
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - dreamer-2019
   - dreamerv3-2023
@@ -62,11 +62,11 @@ seeAlso:
 import { ExcavatorPractice } from '@/components/interactive/excavator-practice';
 import { ModelBasedLoop } from '@/components/interactive/model-based-loop';
 
-Model-based robot learning teaches a robot how the world responds to its actions, then uses that model to plan, to practice in imagination, or both <Cite id="mbrl-survey-2020" />. It matters because real robot time is slow, costly and sometimes unsafe.
+Model-based robot learning teaches a robot how the world responds to its actions, then uses that model to plan, to practice in imagination, or both <Cite id="mbrl-survey-2020" />. It saves real robot time, which is slow, costly and sometimes unsafe.
 
 <Image id="daydreamer-a1-rollover-2022" />
 
-The loop predicts what candidate actions would do, scores the outcomes, acts, observes the result and updates the model. Richard Sutton proposed this integration of learning, planning and reacting in 1990 <Cite id="dyna-1990" />.
+The loop predicts what candidate actions would do, scores the outcomes, acts, observes and updates the model, as Richard Sutton proposed in 1990 <Cite id="dyna-1990" />.
 
 <ModelBasedLoop className="my-6" />
 
@@ -96,55 +96,80 @@ The loop predicts what candidate actions would do, scores the outcomes, acts, ob
 <span id="the-model-based-decomposition" />
 ## Model-based means predicting the effect of an action
 
-The model must say what an action will do; a 2026 survey defines a world model as "an action-conditioned predictive system" <Cite id="manip-wm-survey-2026" />. Classical model-predictive control (MPC) takes this from explicit physics, such as MuJoCo's rigid-body and contact model <Cite id="mujoco-2012" />, while model-based learning fits some or all of it to data.
+A 2026 survey defines a world model as "an action-conditioned predictive system" <Cite id="manip-wm-survey-2026" />. Classical model-predictive control (MPC) takes it from explicit physics such as MuJoCo <Cite id="mujoco-2012" />; model-based learning fits some or all of it to data.
 
-A <Term id="world-model">world model</Term> need not predict pixels. Value-equivalent models predict only what planning needs, "without compromising performance" <Cite id="value-equivalence-2020" />, and PILCO carries the uncertainty of a probabilistic model into controller learning <Cite id="pilco-2015" />. NTT's November 2026 world model adds an explicit physics module to a video generator; screening candidate actions with it raised a small robot's shelf-loading success from 73.1% to 92.3% <Cite id="ntt-physics-wm-2026" />.
+A <Term id="world-model">world model</Term> need not predict pixels. NTT's November 2026 model adds a physics module to a video generator, and screening actions with it raised a small robot's shelf-loading success from 73.1% to 92.3% <Cite id="ntt-physics-wm-2026" />.
+
+Also: value-equivalent models <Cite id="value-equivalence-2020" />, PILCO's probabilistic dynamics <Cite id="pilco-2015" />.
 
 <span id="two-ways-to-use-imagined-experience" />
 ## A model can plan each step or train a policy in imagination
 
-A planner rolls sampled action sequences through the model, executes the best first action and replans. New goals then need no retraining, at the price of many predictions per real step ([reward design and MPC](/rl-sim2real/reward-design-mpc/)). In 2016 Finn and Levine combined action-conditioned video prediction with MPC so a real robot could push objects it had never seen <Cite id="deep-visual-foresight-2016" />. TD-MPC2 trained one agent on 80 tasks <Cite id="tdmpc2-2023" />, and PointWorld plans at 0.1 seconds per step on a real Franka arm without demonstrations <Cite id="pointworld-2026" />.
+A planner rolls sampled action sequences through the model, executes the best first action and replans. New goals need no retraining, at the price of many predictions per real step ([reward design and MPC](/rl-sim2real/reward-design-mpc/)). A policy can instead practice in imagination or learn from gradients through the model.
 
-A policy can instead practice in imagination, as Dreamer does in a learned [latent](/world-models/latent-dynamics/) space <Cite id="dreamer-2019" />. DreamerV3 covers more than 150 tasks with one configuration <Cite id="dreamerv3-2023" />, and Dreamer 4 learns purely offline, a setting its authors tie to robotics, where interaction "can be unsafe and slow" <Cite id="dreamer4-2025" />.
-
-A third route differentiates through the model. Stochastic Value Gradients did so in 2015, using real observations to limit compounding error <Cite id="stochastic-value-gradients-2015" />, and SuperMimic (October 2026) backpropagates through short rollouts of a learned humanoid model, beating in 3 GPU-hours a tracker trained for 7 days on 128 GPUs <Cite id="supermimic-2026" />.
+| Route | Example | Result |
+| --- | --- | --- |
+| Plan | Visual foresight, 2016 | A real robot pushed objects it had never seen <Cite id="deep-visual-foresight-2016" /> |
+| Plan | TD-MPC2 | One agent, 80 tasks <Cite id="tdmpc2-2023" /> |
+| Plan | PointWorld | 0.1 s per step on a real Franka, no demonstrations <Cite id="pointworld-2026" /> |
+| Imagine | Dreamer | Practices in a learned [latent](/world-models/latent-dynamics/) space <Cite id="dreamer-2019" /> |
+| Imagine | DreamerV3 | 150+ tasks, one configuration <Cite id="dreamerv3-2023" /> |
+| Imagine | Dreamer 4 | Purely offline, since robot interaction "can be unsafe and slow" <Cite id="dreamer4-2025" /> |
+| Differentiate | Stochastic Value Gradients, 2015 | Real observations limit compounding error <Cite id="stochastic-value-gradients-2015" /> |
+| Differentiate | SuperMimic (Oct 2026) | In 3 GPU-hours beat a tracker trained 7 days on 128 GPUs <Cite id="supermimic-2026" /> |
 
 <span id="uncertainty-aware-models" />
 ## Uncertainty estimates keep policies from exploiting model errors
 
-A policy trained inside a model exploits its mistakes: it "tends to exploit regions where insufficient data is available". ME-TRPO counters this by training against an ensemble of models <Cite id="me-trpo-2018" />. PETS, a probabilistic ensemble, matched model-free final performance with 8 and 125 times fewer samples than SAC and PPO on a simulated half-cheetah <Cite id="pets-2018" />. MBPO keeps rollouts short and "branched from real data" <Cite id="mbpo-2019" />. In [offline RL](/rl-sim2real/offline-rl/), which learns only from logged data, MOPO penalizes reward by model uncertainty <Cite id="mopo-2020" /> and MOReL trains its policy inside a pessimistic model <Cite id="morel-2020" />.
+A policy trained inside a model "tends to exploit regions where insufficient data is available"; ME-TRPO counters this with an ensemble of models <Cite id="me-trpo-2018" />. PETS, a probabilistic ensemble, matched model-free final performance on a simulated half-cheetah with 8 and 125 times fewer samples than SAC and PPO <Cite id="pets-2018" />.
+
+Also: short branched rollouts in MBPO <Cite id="mbpo-2019" />; for [offline RL](/rl-sim2real/offline-rl/), MOPO's uncertainty penalty <Cite id="mopo-2020" /> and MOReL's pessimistic model <Cite id="morel-2020" />.
 
 <span id="why-physical-robots-make-the-model-harder" />
 ## Robots see only part of the state
 
-Cameras miss forces, friction and compliance; adding depth to color images improved fabric-folding success by 80% <Cite id="visuospatial-foresight-2020" />. Data is narrow too. Hansen and Wang call world-model hallucination "inherently a data coverage issue" and adapt a model to unseen simulated environments with 50 trajectories <Cite id="wm-hallucination-2026" />.
+Cameras miss forces, friction and compliance; adding depth to color images improved fabric-folding success by 80% <Cite id="visuospatial-foresight-2020" />. Hansen and Wang call world-model hallucination "inherently a data coverage issue" and adapt a model to unseen simulated environments with 50 trajectories <Cite id="wm-hallucination-2026" />.
 
-Adapting at test time can recover hidden factors. One October 2026 video world model, kept frozen, infers a 32-number description of friction or mass from one or two interactions; over four real-robot tasks, actions it picked succeeded 70.80% of the time against 26.47% without it, though the paper omits trial counts <Cite id="t2z-2026" />. OpTTA adapts a model toward reaching the goal and gained 13.5 points of planning success under distribution shift <Cite id="optta-2026" />.
+Test-time adaptation recovers hidden factors. One frozen October 2026 video world model infers a 32-number description of friction or mass from one or two interactions. Over four real-robot tasks, its chosen actions succeeded 70.80% of the time against 26.47% without it <Cite id="t2z-2026" />.
+
+Also: OpTTA, 13.5 points more planning success under distribution shift <Cite id="optta-2026" />.
 
 ## Real robots learn useful models in minutes to hours
 
-PDDM learned contact-rich manipulation on a hand with 24 <Term id="degrees-of-freedom">degrees of freedom</Term> from 4 real hours <Cite id="pddm-2019" />. DayDreamer ran Dreamer online on four robots without simulators, and a quadruped learned to stand up and walk in 1 hour <Cite id="daydreamer-2022" />. SSRL adds a learned force ensemble to known equations of motion and learned Go1 gaits from a few minutes of data <Cite id="ssrl-2024" />. On an 11.5-ton hydraulic excavator, Canales, Hutter and colleagues (September 2026) learned a dynamics ensemble from scratch. After 20 minutes its sampling-based MPC tracked as well as learned controllers trained on 100 to 150 minutes, and after 40 it held sub-centimeter mean path error at high speed <Cite id="excavator-mbrl-2026" />.
+| Robot | Method | Real data | Result |
+| --- | --- | --- | --- |
+| Hand with 24 <Term id="degrees-of-freedom">degrees of freedom</Term> | PDDM | 4 h | Contact-rich manipulation <Cite id="pddm-2019" /> |
+| Quadruped | DayDreamer | 1 h | Stood up and walked <Cite id="daydreamer-2022" /> |
+| Unitree Go1 | SSRL: learned forces on known equations of motion | A few minutes | Walking gaits <Cite id="ssrl-2024" /> |
+| 11.5-ton excavator | Dynamics ensemble and sampling-based MPC | 20 min | Tracked as well as controllers trained on 100 to 150 min; sub-centimeter mean error at speed after 40 min <Cite id="excavator-mbrl-2026" /> |
+| Soft robot | Policy trained on a 6-dimensional model fit to logs | 3 h of training | Replaced an estimated 3 years on hardware <Cite id="soft-robot-assm-rl-2026" /> |
 
-A November 2026 soft-robot study trained a policy in 3 hours on a 6-dimensional model fitted from logged data, replacing an estimated 3 years of hardware interaction <Cite id="soft-robot-assm-rl-2026" />. In simulation, one TD-MPC2 model trained on up to 90 insertion tasks reached 56% zero-shot success on unseen objects, against 7% for a model-free policy <Cite id="insertion-world-models-2026" />.
+In simulation, one TD-MPC2 model trained on up to 90 insertion tasks reached 56% zero-shot success on unseen objects, against 7% model-free <Cite id="insertion-world-models-2026" />.
 
 <ExcavatorPractice className="my-6" />
 
 ## Model error is task-weighted
 
-A two-millimeter error does not matter in free space and decides the outcome at a tight connector. One-step prediction likelihood "is not always correlated with control performance", and task-effective models "do not necessarily need to be globally accurate" <Cite id="objective-mismatch-2020" />. In one 2026 latent world model, one-step error and planning success were uncorrelated across 15 checkpoints <Cite id="one-step-fidelity-2026" />. The 2026 robot world-model survey stresses tests of action consistency and usefulness for the task <Cite id="world-model-survey-2026" />, and the [evaluation guide](/world-models/evaluation/) gives a protocol.
+A two-millimeter error does not matter in free space and decides the outcome at a tight connector. One-step likelihood "is not always correlated with control performance" <Cite id="objective-mismatch-2020" />, and in one 2026 latent model it was uncorrelated with planning success across 15 checkpoints <Cite id="one-step-fidelity-2026" />. Test action consistency and task usefulness instead <Cite id="world-model-survey-2026" />, using the [evaluation guide](/world-models/evaluation/).
 
 <span id="neural-simulators-and-hybrid-models" />
 ## Neural and hybrid simulators now train real-robot policies
 
-Robotic World Model trains a neural-network simulator for policy optimization <Cite id="robotic-world-model-2025" />, and RWM-U adds uncertainty estimates to train real quadruped and humanoid policies entirely offline <Cite id="rwm-u-2025" />. RISE improves a VLA inside a [video world model](/world-models/generative-video/), gaining 35 to 45 points on three real tasks <Cite id="rise-2026" />; PhysCanvas raised π0.5's mean real success from 59.1% to 70.8% <Cite id="physcanvas-2026" />; and NVIDIA post-trains GR00T 2 on real robots and in a world model <Cite id="gr00t-2-2026" />.
+| System | Result |
+| --- | --- |
+| Robotic World Model | A neural-network simulator for policy optimization <Cite id="robotic-world-model-2025" /> |
+| RWM-U | Real quadruped and humanoid policies trained entirely offline, with uncertainty estimates <Cite id="rwm-u-2025" /> |
+| RISE | A VLA improved inside a [video world model](/world-models/generative-video/) gained 35 to 45 points on three real tasks <Cite id="rise-2026" /> |
+| PhysCanvas | π0.5's mean real success from 59.1% to 70.8% <Cite id="physcanvas-2026" /> |
+| GR00T 2 | NVIDIA post-trains it on real robots and in a world model <Cite id="gr00t-2-2026" /> |
 
 <Image id="roboworld-synthetic-scenes-2026" />
 
-Hybrids keep known physics and learn what it misses. TossingBot learns corrections to a physics-based throw and reached more than 500 mean picks per hour <Cite id="tossingbot-2019" />, and ASAP fits a correction to the actions of a real Unitree G1 humanoid <Cite id="asap-2025" />. [World models versus physics simulators](/world-models/world-models-vs-simulators/) compares the options.
+Hybrids keep known physics and learn what it misses. TossingBot learns corrections to a physics-based throw and reached more than 500 mean picks per hour <Cite id="tossingbot-2019" />; ASAP fits an action correction on a real Unitree G1 humanoid <Cite id="asap-2025" />. [World models versus physics simulators](/world-models/world-models-vs-simulators/) compares the options.
 
 <span id="when-to-choose-model-based-learning" />
 ## Model-based learning pays off when real interaction is expensive
 
-It fits when interaction is expensive, goals change faster than dynamics and planning fits the time per step, and fits less well when observations omit contact state or resets are cheap. Plan with a model only once its action rankings track real ones. In a 2026 agile-driving study, SAC won in simulation, yet "only TD-MPC2 consistently outperforms the MPPI baseline on the physical platform" <Cite id="reset-free-driving-2026" />.
+Choose it when goals change faster than dynamics and planning fits the time per step. Plan with a model only once its action rankings track real ones. In a 2026 agile-driving study SAC won in simulation, yet "only TD-MPC2 consistently outperforms the MPPI baseline on the physical platform" <Cite id="reset-free-driving-2026" />.
 
-A Toyota Research Institute and UC San Diego group (October 2026) pretrains a racing world model in simulation and corrects its mismatch on the real car. With 44 minutes of real-car data all 8 runs on one track succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety <Cite id="pia-2026" />.
+Toyota Research Institute and UC San Diego (October 2026) pretrained a racing world model in simulation and corrected it on the real car. With 44 minutes of real data, all 8 runs on one track succeeded, with a best sector of 49.55 s against 52.47 s for MPC. A run on real data alone was stopped for safety <Cite id="pia-2026" />.

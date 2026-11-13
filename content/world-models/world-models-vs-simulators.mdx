@@ -6,7 +6,7 @@ slug: world-models-vs-simulators
 order: 8
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - mujoco-2012
   - isaac-lab-2025
@@ -61,11 +61,11 @@ import { PlannerExploit } from '@/components/interactive/planner-exploit';
 import { SimVsModelTable, WorldModelCostTable } from '@/components/mdx/text-tables';
 import { WorldModelOutputTimes } from '@/components/interactive/world-model-output-times';
 
-Learned <Term id="world-model">world models</Term> and physics simulators answer one question: what will this action do? MuJoCo computes the answer from explicit geometry, dynamics and contact rules <Cite id="mujoco-2012" />, a learned model from data. Physics suits mechanics that can be written down and actions no dataset covers; learning suits appearance and contact that are costly to model. Many systems combine both.
+Learned <Term id="world-model">world models</Term> and physics simulators answer one question: what will this action do? MuJoCo computes the answer from explicit geometry, dynamics and contact rules <Cite id="mujoco-2012" />; a learned model fits it to data, and many systems combine both.
 
 <Image id="isaac-lab-assembly-sim-2025" />
 
-Hwangbo and colleagues kept ANYmal's rigid-body physics and learned an "actuator net" for its 12 joints, and the result ran about a thousand times faster than real time <Cite id="hwangbo-2019" />.
+Hwangbo and colleagues kept ANYmal's rigid-body physics and learned an "actuator net" for its 12 joints; the result ran about a thousand times faster than real time <Cite id="hwangbo-2019" />.
 
 <SelfCheck
   prompt="Your arm geometry is accurate, but simulated actuators respond differently from hardware. What is the most data-efficient first fix?"
@@ -90,79 +90,95 @@ Hwangbo and colleagues kept ANYmal's rigid-body physics and learned an "actuator
   takeaway="Keep trusted structure explicit and learn only the error you can measure."
 />
 
-## They solve different specification problems
+## A simulator is written down; a world model is learned
 
-A simulator outputs state that programs can check, such as joint angles, while a renderer outputs only what a camera would see, as a June 2026 World Labs essay puts it <Cite id="worldlabs-taxonomy-2026" />. MuJoCo writes articulated bodies, constraints and contact as explicit equations and parameters <Cite id="mujoco-2012" />, MuJoCo 4.0 (November 2026) adds speculative contacts, letting humanoid stair climbing and thin-object grasping run 6 to 9 times faster with larger time steps <Cite id="mujoco-4-2026" />. Isaac Lab packages GPU simulation, sensors, tasks and batched environments for robot learning <Cite id="isaac-lab-2025" />. Newton, the GPU engine that Disney Research, Google DeepMind and NVIDIA gave to the Linux Foundation in 2025 <Cite id="newton-lf-2025" />, added an experimental solver built with Skild AI in November 2026 <Cite id="newton-v1-8-0-2026" />, and NVIDIA reports that MuJoCo Warp runs 252 times faster than MJX on locomotion <Cite id="newton-manipulation-blog-2026" />.
+A simulator outputs state that programs can check, such as joint angles; a renderer outputs only what a camera would see <Cite id="worldlabs-taxonomy-2026" />. MuJoCo writes bodies, constraints and contact as explicit equations and parameters <Cite id="mujoco-2012" />.
 
-A learned world model instead estimates transitions from recorded data, often in a compressed latent or video space, trading parameter errors for data gaps. Hansen and Wang call hallucination "inherently a data coverage issue" <Cite id="wm-hallucination-2026" />. A 2026 survey lists their roles as simulation, planning, policy learning, evaluation and data generation <Cite id="world-model-survey-2026" />. Graph Network-based Simulators keep particles but learn their motion, predicting fluids, rigid solids and deformable materials <Cite id="graph-network-simulator-2020" />, and GPWM (November 2026) extends this to cloth and granular materials, cutting error by 31% against prior learned models <Cite id="gpwm-2026" />.
+| Engine | What it brings |
+| --- | --- |
+| MuJoCo 4.0 (Nov 2026) | Speculative contacts run humanoid stair climbing and thin-object grasping 6 to 9 times faster <Cite id="mujoco-4-2026" /> |
+| Isaac Lab | GPU simulation, sensors, tasks and batched environments for robot learning <Cite id="isaac-lab-2025" /> |
+| Newton | Open GPU engine at the Linux Foundation since 2025 <Cite id="newton-lf-2025" />; experimental Skild AI solver in Nov 2026 <Cite id="newton-v1-8-0-2026" /> |
+| MuJoCo Warp | 252 times faster than MJX on locomotion, by NVIDIA's count <Cite id="newton-manipulation-blog-2026" /> |
 
-## Comparison by engineering property
+A learned world model estimates transitions from recorded data, often in a latent or video space, and trades parameter errors for data gaps. Hansen and Wang call hallucination "inherently a data coverage issue" <Cite id="wm-hallucination-2026" />. Graph Network-based Simulators keep particles but learn their motion <Cite id="graph-network-simulator-2020" />, and GPWM (November 2026) extends this to cloth and granular materials with 31% lower error <Cite id="gpwm-2026" />.
+
+Also: the roles a 2026 survey lists <Cite id="world-model-survey-2026" />.
+
+## Physics can be inspected; learned models must be probed
 
 <SimVsModelTable className="my-6" />
 
 <span id="what-each-representation-costs-to-run" />
 ## A latent planner needs seconds per action, a video planner minutes
 
-Physics is the cheap baseline: Isaac Gym steps thousands of environments in parallel on one GPU and trained robot tasks 100 to 1,000 times faster than CPU-simulator pipelines <Cite id="isaac-gym-2021" />.
+Physics is the cheap baseline: Isaac Gym steps thousands of environments in parallel on one GPU and trained robot tasks 100 to 1,000 times faster than CPU pipelines <Cite id="isaac-gym-2021" />.
 
 <WorldModelCostTable className="my-6" />
 
-For comparison, Llama 3 8B, a text model <Cite id="llama-3-2024" />, holds about 16 GB of 16-bit weights, and its 32 layers and 8 key-value heads <Cite id="llama-3-herd-2024" /> add about 128 KB of memory per token.
+V-JEPA 2-AC, a latent planner, takes about 16 seconds per action; a Cosmos video planner took about 4 minutes, roughly 15 times slower, both looking one step ahead <Cite id="vjepa2-2025" />. LeWorldModel plans up to 48 times faster than foundation-model world models <Cite id="leworldmodel-2026" />.
 
-V-JEPA 2-AC, a latent planner, takes about 16 seconds per action, scoring 800 samples over 10 rounds; a Cosmos video planner took about 4 minutes with 80 samples, roughly 15 times slower, and both looked only one step ahead <Cite id="vjepa2-2025" />. LeWorldModel plans up to 48 times faster than foundation-model world models <Cite id="leworldmodel-2026" />.
+Also: Llama 3 8B as the text baseline <Cite id="llama-3-2024" /> <Cite id="llama-3-herd-2024" />.
 
 <WorldModelOutputTimes className="my-6" />
 
 ## Clip generators run far slower than interactive world models
 
-Cosmos Predict1's diffusion and autoregressive video models range from 4 to 14 billion parameters <Cite id="cosmos-predict-2025" />. NVIDIA measured Predict2's 14-billion-parameter Video2World at 56 GB of graphics memory and about 85 seconds per 480p clip on a GB200, over 30 minutes on a DGX Spark <Cite id="cosmos-predict2-perf-2025" />. Such generators cannot run at 24 frames per second, and a policy that calls one at every step inherits the delay.
+NVIDIA measured Cosmos Predict2's 14-billion-parameter Video2World at 56 GB of graphics memory and about 85 seconds per 480p clip on a GB200 <Cite id="cosmos-predict2-perf-2025" />. A policy that calls such a generator at every step inherits that delay.
 
-DeepMind reports Genie 3 at 24 frames per second and 720p <Cite id="genie-3-2025" />, the Interactive World Simulator holds 15 frames per second for over 10 minutes on one RTX 4090 <Cite id="interactive-world-simulator-2026" />, and DreamZero controls a robot seven times a second from a 14-billion-parameter video model <Cite id="dreamzero-2026" />.
+| System | Speed |
+| --- | --- |
+| Genie 3 | 24 frames per second at 720p <Cite id="genie-3-2025" /> |
+| Interactive World Simulator | 15 frames per second for over 10 minutes on one RTX 4090 <Cite id="interactive-world-simulator-2026" /> |
+| DreamZero | 7 robot commands a second from a 14-billion-parameter video model <Cite id="dreamzero-2026" /> |
+| 3D Gaussian Splatting | About 7 ms per frame for 1 to 5 million Gaussians, with no dynamics <Cite id="3dgs-2023" /> |
 
-## Gaussian splats render in milliseconds but carry no dynamics
-
-3D Gaussian Splatting renders a scene of 1 to 5 million Gaussians in about 7 milliseconds per frame, but the splats carry no dynamics <Cite id="3dgs-2023" />.
+Also: Cosmos Predict1, 4 to 14 billion parameters <Cite id="cosmos-predict-2025" />.
 
 <Image id="gaussian-splatting-garden-2023" />
 
 <span id="where-physics-remains-difficult-to-replace" />
 ## Physics stays ahead for untried actions and checkable safety limits
 
-A planner, as in [model-based RL](/world-models/model-based-robot-learning/), tries actions outside the data by design. A physics engine integrates them while its modeled regimes hold; a learned model must extrapolate, and the planner can exploit its errors, picking actions with falsely high predicted reward. Across six video generators, physical understanding was "severely limited, and unrelated to visual realism" <Cite id="physics-iq-2025" />. Safety favors explicit state: joint limits, collision geometry and force bounds can be checked directly, while predicted video gives a safety monitor no such numbers.
+A planner, as in [model-based RL](/world-models/model-based-robot-learning/), tries actions outside the data by design. A physics engine integrates them while its modeled regimes hold; a learned model extrapolates, and the planner exploits its errors. Across six video generators, physical understanding was "severely limited, and unrelated to visual realism" <Cite id="physics-iq-2025" />.
+
+Explicit state can be checked: joint limits, collision geometry and force bounds. Predicted video gives a safety monitor no such numbers.
 
 <PlannerExploit className="my-6" />
 
 <span id="where-learning-has-the-advantage" />
 ## Learning captures appearance and contact that are costly to model
 
-Learned models pick up textures, reflections, cables and clutter that are expensive to render, and deformable contact, unmodeled actuators and wear resist hand-written parameters. Robotic World Model aims a neural simulator at policy optimization <Cite id="robotic-world-model-2025" />, and RoboWorld aims one at policy evaluation, with rankings checked against real robots <Cite id="roboworld-2026" />.
+Learned models pick up textures, reflections, cables and clutter that are expensive to render, and deformable contact and wear that resist hand-written parameters. Robotic World Model aims a neural simulator at policy optimization <Cite id="robotic-world-model-2025" />; RoboWorld aims one at policy evaluation, with rankings checked against real robots <Cite id="roboworld-2026" />.
 
 <span id="three-hybrid-patterns" />
-## Four hybrid patterns
+## Hybrids keep the engine and learn what it misses
 
-### Learn appearance, keep dynamics
+Residual models are the most conservative hybrid because they fit named errors, such as actuator delay <Cite id="hwangbo-2019" />. [Generative simulation](/world-models/generative-sim/) uses models to author scenes while the engine keeps contact causal.
 
-Real-to-sim systems reconstruct a real scene's appearance and keep a physics engine for motion and contact, as RoboGSim does with Gaussian splatting <Cite id="robogsim-2024" />. Policies trained only on images from SplatSim's splat-rendered simulator succeeded zero-shot 86.25% of the time, against 97.5% with real training data <Cite id="splatsim-2024" />. AutoRSR (October 2026) automates the scan-to-simulation step and reached 73.3% to 86.7% real success on three tasks <Cite id="autorsr-2026" />. The pattern suits rigid objects better than friction or tool compliance. PhysTwin extends it to deformables, building spring-mass twins of ropes, plush toys, cloth and packages from video <Cite id="phystwin-2025" />, and a soft-body evaluator scores packing and rope-routing policies in such twins <Cite id="softbody-splat-eval-2025" />. NVIDIA's November 2026 Cosmos framework renders video from an external simulator's state <Cite id="cosmos-interactive-sim-2026" />.
-
-### Generate content, keep the engine
-
-[Generative simulation](/world-models/generative-sim/) uses models to author objects, layouts, tasks and assets inside a physics engine: the generator supplies variety while the engine keeps contact causal. RoboCasa and its successor RoboCasa365 supply large sets of everyday manipulation environments <Cite id="robocasa-2024" /> <Cite id="robocasa365-2026" />.
-
-### Learn residual dynamics
-
-Residual models learn measured deviations from explicit dynamics, such as actuator delay or contact impulses. Because they fit named errors, this is the most conservative hybrid <Cite id="hwangbo-2019" />. ASAP trains an action correction on real Unitree G1 data and beats system-identification and domain-randomization baselines on tracking error <Cite id="asap-2025" />. Residuals fitted to walking may fail on falls.
-
-### Pretrain in simulation, adapt dynamics on hardware
-
-SimDist trains a world model in simulation, updates only its latent dynamics on real data, and kept improving on contact-rich manipulation and quadruped locomotion <Cite id="simdist-2026" />.
+| Pattern | Example | Result |
+| --- | --- | --- |
+| Learn appearance | RoboGSim | Gaussian-splat scenes on a physics engine <Cite id="robogsim-2024" /> |
+| Learn appearance | SplatSim | 86.25% zero-shot from splat-rendered images alone, against 97.5% with real data <Cite id="splatsim-2024" /> |
+| Learn appearance | AutoRSR (Oct 2026) | Automated scan to simulation; 73.3% to 86.7% real success on three tasks <Cite id="autorsr-2026" /> |
+| Learn appearance | PhysTwin | Spring-mass twins of ropes, plush toys, cloth and packages from video <Cite id="phystwin-2025" /> |
+| Learn appearance | Soft-body evaluator | Scores packing and rope-routing policies in such twins <Cite id="softbody-splat-eval-2025" /> |
+| Learn appearance | Cosmos (Nov 2026) | Renders video from an external simulator's state <Cite id="cosmos-interactive-sim-2026" /> |
+| Generate content | RoboCasa, RoboCasa365 | Large sets of everyday manipulation environments <Cite id="robocasa-2024" /> <Cite id="robocasa365-2026" /> |
+| Learn residuals | ASAP | Beat system identification and domain randomization on Unitree G1 tracking error <Cite id="asap-2025" /> |
+| Adapt on hardware | SimDist | Sim-trained, only latent dynamics updated on real data; kept improving on manipulation and quadruped walking <Cite id="simdist-2026" /> |
 
 ## Evaluation must use the same real anchor
 
-Both kinds have errors that policies learn to exploit, such as soft contacts in physics or visual shortcuts in world models. One October 2026 audit traced objects ejected in a RoboTwin benchmark to a single collision constant <Cite id="simuguard-2026" />. SIMPLER builds matched environments and correlates simulated with real policy performance <Cite id="simpler-2024" />. Test both with several policy families and held-out environments, scored on the same real outcome ([world-model evaluation](/world-models/evaluation/)).
+Both kinds have errors that policies learn to exploit, such as soft contacts in physics or visual shortcuts in learned models. One October 2026 audit traced objects ejected in a RoboTwin benchmark to a single collision constant <Cite id="simuguard-2026" />. SIMPLER builds matched environments and correlates simulated with real policy performance <Cite id="simpler-2024" />.
+
+Score both on the same real outcome, with several policy families and held-out environments ([world-model evaluation](/world-models/evaluation/)).
 
 <Image id="isaac-lab-assembly-real-2025" />
 
 <span id="a-selection-rule" />
 ## Choose by what can be specified and what the data cover
 
-Use explicit physics when state and mechanics can be specified, untried actions are common, constraints need inspection or parallel stepping matters most ([parallel simulation for RL](/rl-sim2real/parallel-sim-rl/)). Use learned world models when real observations hold structure costly to author, the data cover the relevant decisions and validation can anchor model error. Use hybrids for localized mismatches, as ANYmal's simulator did <Cite id="hwangbo-2019" />. [Classical control](/classical/control/) and [latent dynamics](/world-models/latent-dynamics/) cover the two ends.
+Use explicit physics when mechanics can be specified, untried actions are common, constraints need inspection or parallel stepping matters ([parallel simulation for RL](/rl-sim2real/parallel-sim-rl/)). Use learned models when observations hold structure costly to author and the data cover the decisions. Use hybrids for localized mismatches, as ANYmal's simulator did <Cite id="hwangbo-2019" />.
+
+[Classical control](/classical/control/) and [latent dynamics](/world-models/latent-dynamics/) cover the two ends.
