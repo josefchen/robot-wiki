@@ -7,8 +7,8 @@
  * Exits 1 on any violation that is not allowlisted, on an allowlist entry
  * that no longer matches a violation, and on a Sitemap URL with no page.
  * Without --allowlist every figure must pass. --write-allowlist records the
- * current violations in the named file for a domain pass to work down; it
- * keeps each existing entry's pass.
+ * current violations in the named file so they can be worked down domain
+ * by domain; it keeps each existing entry's pass.
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -34,8 +34,8 @@ const DOMAINS = ['manipulation', 'classical', 'rl-sim2real', 'world-models', 'fr
 
 function passFor(route: string): string {
   const first = route.split('/').filter(Boolean)[0] ?? '';
-  if (!first) return 'opus-pass-homepage';
-  return DOMAINS.includes(first) ? `opus-pass-${first}` : 'opus-pass-home-hubs-and-discovery';
+  if (!first) return 'reader-pass-homepage';
+  return DOMAINS.includes(first) ? `reader-pass-${first}` : 'reader-pass-home-hubs-and-discovery';
 }
 
 function sitemapRoutes(): string[] {

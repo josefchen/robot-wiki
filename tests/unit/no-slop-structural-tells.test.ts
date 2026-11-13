@@ -8,8 +8,8 @@ import {
 import type { SlopQuotationException } from '../../lib/no-slop.ts';
 
 /**
- * Structural-tell floor for the manipulation humanizer v3 pass
- * (VAL-HUMAN-001): §1 not-X disclaimers and paper-internal locators,
+ * Structural-tell floor for the manipulation humanizer v3 pass:
+ * §1 not-X disclaimers and paper-internal locators,
  * counted per 1,000 words of MDX prose. The patterns are deliberately a
  * small, nameable set: every counted tell is one a careful writer would
  * avoid on purpose, and the floor (2/1k) allows a handful of honest

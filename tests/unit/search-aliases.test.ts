@@ -11,7 +11,7 @@ import {
 } from '@/lib/structured-search';
 
 /**
- * VAL-SEARCH-019 and VAL-SEARCH-020.
+ * Search aliases for methods and datasets.
  *
  * Measured on the pre-alias index (2026-08-21, commit 677575f): a reader who
  * knows a method by its acronym expansion or by the vendor's own ASCII
@@ -53,7 +53,7 @@ function isSubstringOfTitle(alias: string, title: string): boolean {
 const ALIASED_METHODS = METHODS.filter((method) => method.aka.length > 0);
 const ALIASED_DATASETS = DATASETS.filter((dataset) => dataset.aka.length > 0);
 
-describe('methods and datasets carry aliases (VAL-SEARCH-020a)', () => {
+describe('methods and datasets carry aliases (a)', () => {
   it('samples at least 10 methods and at least 3 datasets', () => {
     expect(ALIASED_METHODS.length).toBeGreaterThanOrEqual(10);
     expect(ALIASED_DATASETS.length).toBeGreaterThanOrEqual(3);
@@ -103,7 +103,7 @@ describe('methods and datasets carry aliases (VAL-SEARCH-020a)', () => {
   });
 });
 
-describe('aliases are search-only (VAL-SEARCH-020c)', () => {
+describe('aliases are search-only (c)', () => {
   it('is read by the search index and by no rendering surface', async () => {
     const { readFile, readdir } = await import('node:fs/promises');
     const { join } = await import('node:path');
@@ -134,7 +134,7 @@ describe('aliases are search-only (VAL-SEARCH-020c)', () => {
     }
     // company-card.tsx is the one rendering surface that legitimately shows
     // aliases: the market map presented Company.aka before this change, and
-    // VAL-SEARCH-020(c) exempts what a route already presented. The market
+    // rule (c) exempts what a route already presented. The market
     // map's own name search (lib/market-map.ts, 2026-10-19) is a second
     // search reader: it matches a typed name against the aliases and never
     // prints them, which the next check holds it to.
@@ -158,7 +158,7 @@ describe('aliases are search-only (VAL-SEARCH-020c)', () => {
   });
 });
 
-describe('aliases are unambiguous across the whole corpus (VAL-SEARCH-020b)', () => {
+describe('aliases are unambiguous across the whole corpus (b)', () => {
   it('maps no alias to two different entities', () => {
     const owners = new Map<string, string[]>();
     const rows = [
@@ -188,7 +188,7 @@ describe('aliases are unambiguous across the whole corpus (VAL-SEARCH-020b)', ()
   });
 });
 
-describe('an acronym query outranks its prefix collisions (VAL-SEARCH-019)', () => {
+describe('an acronym query outranks its prefix collisions', () => {
   /**
    * The population is derived, not listed: every method and dataset whose
    * displayed title is a single short token is an acronym-shaped query, so a

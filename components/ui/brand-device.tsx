@@ -56,7 +56,7 @@ export const DEVICE_REGISTRATION: Readonly<
  * every rail and rule is a 1px hairline in the --line token, the same rule
  * the page draws everywhere else, and a current state is a 1px ink rule,
  * never a thick or coloured accent bar. The registration cross keeps the
- * one muted accent, which is the registration colour (VAL-B2-COL-006).
+ * one muted accent, which is the registration colour (DI-COL-006).
  */
 const deviceClasses: Record<Device, string> = {
   'outer-rail': 'border-l border-border',

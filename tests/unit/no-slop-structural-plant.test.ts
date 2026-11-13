@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { DOMAINS } from '../../data/domains.ts';
 
 /**
- * VAL-OPUS-122: the structural-tell floor binds every domain. The plant runs
+ * The structural-tell floor binds every domain. The plant runs
  * the real lint CLI over a copy of content/ with a three-tells-per-1,000-words
  * fixture in each domain in turn; every plant must fail and name its fixture,
  * and the unplanted copy must pass.

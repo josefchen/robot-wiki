@@ -115,7 +115,7 @@ export function Table<T extends Record<string, unknown>>({
       // same convention as the bespoke MDX tables and .katex-display.
       // Because it is focusable it must also be named: without the region
       // role and the caption reference a keyboard or screen-reader user
-      // lands on an anonymous scrollable box (VAL-B2-COMP-009).
+      // lands on an anonymous scrollable box (DI-COMP-009).
       tabIndex={0}
       role="region"
       aria-labelledby={captionId}

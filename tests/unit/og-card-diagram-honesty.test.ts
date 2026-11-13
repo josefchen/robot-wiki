@@ -13,7 +13,7 @@ import {
 import { ogCardCorpus, openSealedCardTree } from '@/lib/og-card-corpus';
 
 /**
- * VAL-IMG-015: no generated card draws or suggests a quantity it does not have.
+ * No generated card draws or suggests a quantity it does not have.
  *
  * The three conditions are checked directly rather than by proxy:
  * (a) no pseudo-random or unrelated-quantity source reaches a mark's
@@ -160,7 +160,7 @@ function everyCard(): Array<{ label: string; tree: CardNode }> {
   }));
 }
 
-describe('VAL-IMG-015 population', () => {
+describe('card honesty population', () => {
   it('grades the shipped card corpus: registered devices on every card and no lattice field', () => {
     const cards = everyCard();
     expect(cards.length).toBe(publishedModules().length + 1);
@@ -171,7 +171,7 @@ describe('VAL-IMG-015 population', () => {
   });
 });
 
-describe('VAL-IMG-015 (a): no pseudo-random or unrelated-quantity geometry', () => {
+describe('card honesty (a): no pseudo-random or unrelated-quantity geometry', () => {
   it('constructs no random-number generator anywhere in the artwork module', () => {
     expect(blameSites(/new Rng\(|Math\.random\(/)).toEqual([]);
   });
@@ -191,7 +191,7 @@ describe('VAL-IMG-015 (a): no pseudo-random or unrelated-quantity geometry', () 
   });
 });
 
-describe('VAL-IMG-015 (b): the devices carry no chart affordance', () => {
+describe('card honesty (b): the devices carry no chart affordance', () => {
   it('draws only uniform 1px hairlines: concrete rails and rules, and signal crosses of one span', () => {
     const offenders: string[] = [];
     for (const { label, tree } of everyCard()) {
@@ -271,7 +271,7 @@ describe('VAL-IMG-015 (b): the devices carry no chart affordance', () => {
   });
 });
 
-describe('VAL-IMG-015 (c): the devices are a constant of the corpus', () => {
+describe('card honesty (c): the devices are a constant of the corpus', () => {
   it('renders the identical devices on every card of a kind, and the identical frame on both kinds', () => {
     const byKind = new Map<string, Set<string>>();
     const frames = new Set<string>();

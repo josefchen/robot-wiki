@@ -21,13 +21,13 @@
  * `props.ogMeta.field`, so the renderer-input manifest records which
  * canonical fact each string came from. Satori ignores `ogMeta`.
  *
- * HONESTY CONTRACT (VAL-IMG-015). The devices are constants of the card
+ * HONESTY CONTRACT. The devices are constants of the card
  * kind: their geometry depends only on the canvas edges, never on an
  * article fact, a hash or a random source. No device draws a series, cell,
  * axis or distinguished line, the one accent is confined to the
  * registration crosses, and the highlight tone is not painted at all, so
  * nothing reads as a selected datum or a progress state. Cards stay
- * byte-distinct (VAL-DIST-003) through their factual text: title, domain,
+ * byte-distinct through their factual text: title, domain,
  * review year and reference count.
  */
 
@@ -513,7 +513,7 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
  * design-system §3.5). The descriptor is a full sentence, which §4.2 keeps
  * out of the display face, so it sets in IBM Plex Mono, the renderer's
  * other registered face. Its strings appear on no article card, so the
- * asset is byte-distinct from all of them (VAL-DIST-003) through its text
+ * asset is byte-distinct from all of them through its text
  * rather than ornament.
  */
 export function siteCardElement(): CardNode {

@@ -35,7 +35,7 @@
   --page-gutter: clamp(24px, 8vw, 160px);
   /* The top bar's inline padding. It never falls under the page-frame
      minimum (20 px on a phone, 32 px on a tablet, 48 px on a desktop,
-     VAL-B2-SPACE-002), and on a phone or a tablet it lines the wordmark
+     DI-SPACE-002), and on a phone or a tablet it lines the wordmark
      up with the article gutter below it. */
   --header-gutter: clamp(24px, 4vw, 80px);
   --code-radius: 7px;
@@ -311,7 +311,7 @@
 .home-wordmark {
   font-family: var(--font-display);
   font-weight: 400;
-  /* VAL-B2-TYPE-006: 40-48px at 375, 84-92px at 1440, leading 0.90-0.96. */
+  /* DI-TYPE-006: 40-48px at 375, 84-92px at 1440, leading 0.90-0.96. */
   font-size: clamp(2.5rem, 1.86rem + 4.32vw, 5.75rem);
   line-height: 0.92;
   letter-spacing: -0.03em;
@@ -1091,7 +1091,7 @@ article > hr {
 }
 
 /* From 1024 px the frame is the desktop frame, whose inline padding is
-   48 px (VAL-B2-SPACE-002): the top bar's wordmark then lines up with the
+   48 px (DI-SPACE-002): the top bar's wordmark then lines up with the
    article's contents rail, and at 1440 px the centred column sits where it
    did. */
 @media (min-width: 1024px) {
@@ -1145,7 +1145,7 @@ article > hr {
  * The article title: the display H1, scaling from 40px on a phone to 87px
  * at 1440. Its phone floor sits 4px under the page H1's because a title
  * word has to fit one line of the 327px column: "Counterargument" sets
- * 345px wide at 44px and 318px at 40px, the lowest size VAL-B2-TYPE-007
+ * 345px wide at 44px and 318px at 40px, the lowest size DI-TYPE-007
  * allows. Hyphenation cannot carry that word: Chromium never auto-hyphenates
  * a capitalised English word, so `hyphens: auto` breaks only the lowercase
  * ones (the root element declares lang="en"), and a word wider than the
@@ -1442,7 +1442,7 @@ article > hr {
  * control column) draws no marker. The prose rules above are unlayered, so
  * they outrank Tailwind's layered utility and painted a stray bullet beside
  * each tile of those grids: an unanchored glyph that no registry owns
- * (VAL-B2-GRID-006).
+ * (DI-GRID-006).
  */
 .prose :is(ul, ol).list-none {
   list-style: none;
@@ -1675,8 +1675,8 @@ article > hr {
 
 /*
  * Code blocks: --paper-deep inside a 1px hairline, 7px corners, Geist Mono
- * 14/23. The hairline is the edge of the box the block scrolls in
- * (VAL-NAV-023), drawn like every other rule.
+ * 14/23. The hairline is the edge of the box the block scrolls in,
+ * drawn like every other rule.
  */
 .prose pre {
   margin: 32px 0;

@@ -43,7 +43,7 @@ describe('DatasetTable', () => {
     }
   });
 
-  it('renders unknown values as not disclosed and never invents numbers (VAL-DATA-009)', () => {
+  it('renders unknown values as not disclosed and never invents numbers', () => {
     render(<DatasetTable />);
     const unreleased = rowNamed('AgiBot World 2026') as HTMLElement;
     expect(unreleased).toBeDefined();
@@ -73,7 +73,7 @@ describe('DatasetTable', () => {
     expect(cells[7]).not.toHaveTextContent(/CC BY|Apache|n\/a/);
   });
 
-  it('carries at least one external source link per row (VAL-DATA-010)', () => {
+  it('carries at least one external source link per row', () => {
     render(<DatasetTable />);
     for (const row of bodyRows()) {
       const links = within(row)
@@ -117,7 +117,7 @@ describe('DatasetTable', () => {
     unknownsLast();
   });
 
-  it('filters by size and restores on clear (VAL-DATA-008)', async () => {
+  it('filters by size and restores on clear', async () => {
     const user = userEvent.setup();
     render(<DatasetTable />);
     await user.click(screen.getByRole('button', { name: /^1M\+ episodes$/i }));

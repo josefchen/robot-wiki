@@ -6,8 +6,8 @@ import { COMPANIES } from '@/data/companies';
 import { companySchema, companySegmentSchema } from '@/data/schemas/company';
 
 /**
- * Market-map data contract (VAL-MKT-014, plus the integrity gates
- * VAL-MKT-011/012/013 need at the dataset layer): the shipped
+ * Market-map data contract (plus the integrity gates the map
+ * needs at the dataset layer): the shipped
  * `data/companies.ts` is a mechanical conversion of
  * research/04-market-map-companies.json. Count, segment distribution,
  * sources, confidence, and null-not-zero funding must match the research
@@ -182,7 +182,7 @@ describe('COMPANIES data', () => {
     expect(unitree?.latestRound?.amountUsd).toBe(904_000_000);
     expect(unitree?.latestRound?.date).toBe('2026-08-06');
     expect(unitree?.latestRound?.valuationUsd).toBe(9_040_000_000);
-    // VAL-MKT-009 (2026-09-24 qualification): the 5,500-unit 2025
+    // Qualified on 2026-09-24: the 5,500-unit 2025
     // shipment, 30,000+ cumulative quadruped and ~33% share literals were
     // press-repeated prospectus figures (Rest of World prints them citing
     // its 363-page prospectus copy), not inspected company-body evidence.

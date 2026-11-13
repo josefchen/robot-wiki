@@ -115,7 +115,7 @@ describe('NavTree', () => {
         screen.getByRole('button', { name: DOMAIN_META[draftProbe.domain].name }),
       );
       // Drafts never appear: no link (a link would 404) and no placeholder
-      // row either (VAL-BUILD-001, VAL-DESIGN-001).
+      // row either.
       expect(
         screen.queryByRole('link', { name: draftProbe.title }),
       ).not.toBeInTheDocument();

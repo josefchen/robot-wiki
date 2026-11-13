@@ -25,7 +25,7 @@ const registeredQuote: SlopQuotationException = {
   verifiedOn: '2026-08-18',
 };
 
-describe('findPlaceholderMarkers (VAL-BUILD-004)', () => {
+describe('findPlaceholderMarkers', () => {
   it('finds each placeholder marker in rendered HTML', () => {
     const html = '<main><p>lorem ipsum</p><p>TODO: fix</p></main>';
     expect(findPlaceholderMarkers(html)).toContain('lorem');
@@ -54,7 +54,7 @@ describe('findPlaceholderMarkers (VAL-BUILD-004)', () => {
   });
 });
 
-describe('banned vocabulary (VAL-BUILD-007)', () => {
+describe('banned vocabulary', () => {
   it('flags promotional vocabulary in prose with a line number', () => {
     const body = 'First line.\nThis game-changing approach unlocks new capabilities.\n';
     const findings = findBannedVocabulary(body);
@@ -108,7 +108,7 @@ describe('banned vocabulary (VAL-BUILD-007)', () => {
   });
 });
 
-describe('dash ban in prose (VAL-BUILD-007)', () => {
+describe('dash ban in prose', () => {
   it('reports the line of an em dash in prose', () => {
     expect(dashLines('line one\nan em dash — here')).toEqual([2]);
   });
@@ -122,7 +122,7 @@ describe('dash ban in prose (VAL-BUILD-007)', () => {
   });
 });
 
-describe('rule-of-three density (VAL-BUILD-007)', () => {
+describe('rule-of-three density', () => {
   it('never scores a non-empty short body as a measured clean zero', () => {
     // The historical defect: a sub-floor body returned density 0, so a
     // triad-heavy short page passed invisibly. The true ratio must be
@@ -240,7 +240,7 @@ describe('rule-of-three floor boundary: exact 99 and 100 words', () => {
   });
 });
 
-describe('registered verbatim quotations (VAL-BUILD-008)', () => {
+describe('registered verbatim quotations', () => {
   const quotedBody = `Brooks states the cost side directly: "${registeredQuote.quote}" <Cite id="brooks-better-lesson-2019" />.`;
 
   it('passes a registered quotation containing an en dash', () => {
@@ -256,7 +256,7 @@ describe('registered verbatim quotations (VAL-BUILD-008)', () => {
   it('fails a registered quote whose text does not match the line under check', () => {
     const altered = quotedBody.replace('small robots', 'tiny robots');
     // One word changed: the registered span no longer matches, so the dash
-    // on the line surfaces again (VAL-BUILD-009).
+    // on the line surfaces again.
     expect(dashLines(altered, [registeredQuote])).toEqual([1]);
   });
 
@@ -276,7 +276,7 @@ describe('registered verbatim quotations (VAL-BUILD-008)', () => {
   });
 });
 
-describe('quotation marks alone never exempt text (VAL-BUILD-009)', () => {
+describe('quotation marks alone never exempt text', () => {
   it('fails an unregistered banned construction wrapped in quotation marks', () => {
     const body = 'The vendor called it "game-changing" and said it "unlocks new capabilities".';
     const words = findBannedVocabulary(body, []).map((f) => f.word);
@@ -372,7 +372,7 @@ describe('stale quotation exceptions', () => {
   });
 });
 
-describe('vague attribution phrases (VAL-BUILD-007)', () => {
+describe('vague attribution phrases', () => {
   it('flags attribution constructions to unnamed authorities', () => {
     for (const body of [
       'Critics say the approach is overhyped.',
@@ -401,7 +401,7 @@ describe('vague attribution phrases (VAL-BUILD-007)', () => {
   });
 });
 
-describe('rendered prose extraction (VAL-BUILD-007 scope widening)', () => {
+describe('rendered prose extraction (widened scope)', () => {
   it('extracts visible text, meta descriptions, and titles', () => {
     const html =
       '<title>Robot kinematics — the wiki page</title>' +

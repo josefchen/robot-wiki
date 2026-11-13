@@ -59,7 +59,7 @@ type FigureProps = {
 /**
  * The visible label a first-party diagram opens with.
  *
- * `VAL-B2-ART-006` and `VAL-B2-IMG-003` both turn on the same thing: a
+ * `DI-ART-006` and `DI-IMG-003` both turn on the same thing: a
  * drawing that is not a reproduction of a published figure has to say so, or
  * a reader has no way to tell an explanatory sketch from a mapping somebody
  * measured. The credit line already names Robot Wiki as the creator, but it

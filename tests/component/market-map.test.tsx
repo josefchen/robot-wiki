@@ -40,7 +40,7 @@ function tile(id: string): HTMLElement {
 }
 
 /**
- * The research-page selected state (VAL-B2-MAP-003 successor): the open
+ * The research-page selected state (DI-MAP-003 successor): the open
  * company's tile reads in ink weight on a 1 px ink rule with no fill, tint
  * or accent bar, and every other tile keeps the same 1 px rule, transparent,
  * so selection does not move the layout.
@@ -126,7 +126,7 @@ async function openMoreFilters(user: ReturnType<typeof userEvent.setup>) {
 const TIMEOUT = 30_000;
 
 describe('MarketMap', () => {
-  it('maps every company in the six segments (VAL-MKT-001, VAL-MKT-002)', () => {
+  it('maps every company in the six segments', () => {
     render(<MarketMap companies={COMPANIES} />);
     expect(screen.getByText(of(COMPANY_COUNT))).toBeInTheDocument();
     expect(tiles()).toHaveLength(COMPANY_COUNT);
@@ -166,7 +166,7 @@ describe('MarketMap', () => {
     expect(tile('farm-ng')).toHaveAccessibleName('Farm-ng, acquired');
   }, TIMEOUT);
 
-  it('exposes all seven filter dimensions, a name search and the three views (VAL-MKT-003, VAL-MKT-004)', async () => {
+  it('exposes all seven filter dimensions, a name search and the three views', async () => {
     const user = userEvent.setup();
     // A one-segment subset keeps the render cheap; the controls are the
     // same for any population.
@@ -199,7 +199,7 @@ describe('MarketMap', () => {
     expect(tiles().length).toBeLessThan(subset.length);
   }, TIMEOUT);
 
-  it('applies a single filter and composes a second one (VAL-MKT-005, VAL-MKT-006)', async () => {
+  it('applies a single filter and composes a second one', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(segmentTab(/^Humanoids/));
@@ -238,7 +238,7 @@ describe('MarketMap', () => {
     expect(window.location.search).toBe('');
   }, TIMEOUT);
 
-  it('narrows sub-segments when a segment is active (VAL-MKT-025)', async () => {
+  it('narrows sub-segments when a segment is active', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await openMoreFilters(user);
@@ -249,7 +249,7 @@ describe('MarketMap', () => {
     expect(sub).not.toHaveTextContent('warehouse automation');
   }, TIMEOUT);
 
-  it('opens the full field set with cited sources and closes it (VAL-MKT-009, VAL-MKT-010)', async () => {
+  it('opens the full field set with cited sources and closes it', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     const before = window.history.length;
@@ -302,7 +302,7 @@ describe('MarketMap', () => {
     expect(tile('physical-intelligence')).toHaveAttribute('aria-expanded', 'false');
   }, TIMEOUT);
 
-  it('shows every record\'s confidence as a labelled sheet row, a planted low tier included (VAL-MKT-013)', async () => {
+  it('shows every record\'s confidence as a labelled sheet row, a planted low tier included', async () => {
     // Every record's sheet names its own tier, by text.
     const tiers = new Set<string>();
     for (const company of COMPANIES) {
@@ -315,7 +315,7 @@ describe('MarketMap', () => {
       tiers.add(row!.textContent!);
       unmount();
     }
-    // This revision has no low record (VAL-MKT-013 successor), so the low
+    // This revision has no low record, so the low
     // tier is proven by a planted one, opened through the map like any other.
     expect([...tiers].sort()).toEqual(['high', 'medium']);
     const planted: Company = { ...COMPANIES.find((x) => x.id === 'clone-robotics')!, confidence: 'low' };
@@ -355,7 +355,7 @@ describe('MarketMap', () => {
     expect(listedSource(tars, number)).toHaveTextContent('As of 25 Aug 2026');
   }, TIMEOUT);
 
-  it('links each external page once, in the numbered Sources list with its as-of date, for every company (VAL-MKT-010)', () => {
+  it('links each external page once, in the numbered Sources list with its as-of date, for every company', () => {
     // The browser resolves `https://farm-ng.com` and `https://farm-ng.com/`
     // to the same page, so links are compared as it resolves them.
     const page = (href: string) => new URL(href).href;
@@ -443,7 +443,7 @@ describe('MarketMap', () => {
     }
   }, 60_000);
 
-  it('shows a round caveat with its source on the card (VAL-B2-MAP-009)', async () => {
+  it('shows a round caveat with its source on the card (DI-MAP-009)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(tile('figure-ai'));
@@ -468,7 +468,7 @@ describe('MarketMap', () => {
     expect(sheet('Genesis AI').querySelector('[data-round-caveat]')).toBeNull();
   }, TIMEOUT);
 
-  it('keeps a reported raise visible without promoting it to a round (VAL-B2-MAP-009)', async () => {
+  it('keeps a reported raise visible without promoting it to a round (DI-MAP-009)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(tile('clone-robotics'));
@@ -495,7 +495,7 @@ describe('MarketMap', () => {
     expect(clone).not.toHaveTextContent('$0');
   }, TIMEOUT);
 
-  it('keeps same-round contradictions visible on the card (VAL-B2-MAP-009)', async () => {
+  it('keeps same-round contradictions visible on the card (DI-MAP-009)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     const crunchbase =
@@ -539,7 +539,7 @@ describe('MarketMap', () => {
     expect(carbon.querySelector('[data-field="amount"]')).toHaveTextContent('$20M');
   }, TIMEOUT);
 
-  it('renders unknown funding as not disclosed, never zero (VAL-MKT-011)', async () => {
+  it('renders unknown funding as not disclosed, never zero', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     // No tile prints a zero.
@@ -623,7 +623,7 @@ describe('MarketMap', () => {
     expect(document.activeElement).toBe(tiles()[tiles().length - 1]);
   }, TIMEOUT);
 
-  it('switches to bubble and timeline views (VAL-MKT-003, VAL-MKT-015, VAL-MKT-023)', async () => {
+  it('switches to bubble and timeline views', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(screen.getByRole('button', { name: 'Bubble' }));
@@ -664,7 +664,7 @@ describe('MarketMap', () => {
     expect(tile('unitree-robotics')).toHaveAttribute('aria-expanded', 'true');
   }, TIMEOUT);
 
-  it('shows an empty state and restores the full set on clear (VAL-MKT-017, VAL-MKT-018)', async () => {
+  it('shows an empty state and restores the full set on clear', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(segmentTab(/^Components/));
@@ -686,7 +686,7 @@ describe('MarketMap', () => {
     expect(emptyState()).toHaveTextContent('No company name starts with "zzz".');
   }, TIMEOUT);
 
-  it('hands focus to the All tab when Clear filters removes itself (VAL-MKT-026)', async () => {
+  it('hands focus to the All tab when Clear filters removes itself', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(segmentTab(/^Humanoids/));
@@ -700,7 +700,7 @@ describe('MarketMap', () => {
     expect(segmentTab(/^All/)).toHaveAttribute('aria-pressed', 'true');
   }, TIMEOUT);
 
-  it('hands focus to the All tab from the empty state\'s Clear filters (VAL-MKT-026)', async () => {
+  it('hands focus to the All tab from the empty state\'s Clear filters', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.type(screen.getByRole('searchbox', { name: 'Search companies by name' }), 'zzz');
@@ -712,7 +712,7 @@ describe('MarketMap', () => {
     expect(segmentTab(/^All/)).toHaveFocus();
   }, TIMEOUT);
 
-  it('hydrates filters from the URL and ignores invalid params (VAL-MKT-007, VAL-MKT-024)', async () => {
+  it('hydrates filters from the URL and ignores invalid params', async () => {
     window.history.replaceState(null, '', '/market-map/?segment=humanoids&country=US');
     const { unmount } = render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
@@ -817,7 +817,7 @@ describe('MarketMap', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   }, TIMEOUT);
 
-  it('announces the result count in an aria-live region (VAL-MKT-026)', () => {
+  it('announces the result count in an aria-live region', () => {
     render(<MarketMap companies={COMPANIES} />);
     const count = screen.getByText(of(COMPANY_COUNT));
     expect(count).toHaveAttribute('aria-live', 'polite');

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: STANDALONE_SEO_DESCRIPTIONS.playground,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
-  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // page title so the card matches the rendered h1
   // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
@@ -35,11 +35,11 @@ export default function PlaygroundPage() {
       />
       {/* data-pagefind-body scoped to the heading and the description:
           Pagefind excludes every page that declares no body region once
-          one page declares one, so this route needed its own
-          (VAL-SEARCH-021). The playground below carries live readouts
+          one page declares one, so this route needed its own.
+          The playground below carries live readouts
           that change on every interaction and are not prose. */}
       {/* The playground representative surface declares its material
-          (VAL-B2-SURF-011). */}
+          (DI-SURF-011). */}
       <div
         data-pagefind-body
         {...materialAttributes('paper')}

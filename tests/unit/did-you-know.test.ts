@@ -5,7 +5,7 @@ import { getModule } from '@/data/modules';
 import { wordCount } from '@/lib/article-lead';
 import { homeCopyProblems } from '@/lib/home-copy';
 
-describe('Did you know (VAL-OPUS-018)', () => {
+describe('Did you know', () => {
   it('holds exactly three facts from three different articles', () => {
     expect(DID_YOU_KNOW).toHaveLength(3);
     expect(new Set(DID_YOU_KNOW.map((fact) => fact.id)).size).toBe(3);

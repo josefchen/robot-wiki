@@ -1,5 +1,5 @@
 # Steps every explainer on /how-robots-work/ at 1280 and 390 px and fails when two stage labels
-# overlap or a label runs past the stage (VAL-OPUS-043). The sweep needs a browser with WebGL,
+# overlap or a label runs past the stage. The sweep needs a browser with WebGL,
 # which the static deploy build does not have, so it runs here on every push.
 name: Explainer labels
 

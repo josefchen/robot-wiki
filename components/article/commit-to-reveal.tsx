@@ -63,7 +63,7 @@ export interface CommitOption {
    * component renders the chip itself: a small mono link to this
    * article's References entry (#ref-<id>), which exists on every
    * article that lists the id in its frontmatter citations. This is how
-   * a correct answer stays traceable to its source (VAL-EDU-018).
+   * a correct answer stays traceable to its source.
    */
   cite?: string;
   /**
@@ -250,8 +250,8 @@ export function CommitToReveal({
                 // Both markings are CSS driven off the data attributes,
                 // never applied by an effect: the correct row must be
                 // marked for the reader who opens the summary without
-                // answering, including with no script at all
-                // (VAL-EDU-044). The correct row carries the ok token
+                // answering, including with no script at all.
+                // The correct row carries the ok token
                 // AND a weight step, so the mark survives forced
                 // colours (WCAG 1.4.1); the reader's own pick carries a
                 // neutral text marker instead, because in this

@@ -11,7 +11,7 @@ import {
 /**
  * The A-Z index model (lib/az-index.ts): one flat alphabetical list of every
  * published article and every glossary term, grouped by first letter with
- * jump links (architecture.md section 6, VAL-WIKI-019/020).
+ * jump links (architecture.md section 6).
  *
  * Fixture tests pin the sorting and grouping rules; the registry tests pin
  * completeness: every published article and every term, zero drafts.

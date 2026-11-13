@@ -16,7 +16,7 @@ function collectErrors(page: Page) {
   page.on('console', (msg) => {
     if (msg.type() !== 'error') return;
     // Browser-generated network noise (failed/aborted resource loads) is
-    // allowed by VAL-PLAY-004 when the fallback path renders; the status
+    // allowed when the fallback path renders; the status
     // assertions above catch a genuinely broken happy path.
     if (/^Failed to load resource/.test(msg.text())) return;
     consoleErrors.push(msg.text());

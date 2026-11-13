@@ -1,8 +1,8 @@
 import type { ExplainerId } from './words.ts';
 
 /**
- * Where each explainer sits outside /how-robots-work/ (VAL-OPUS-153 and rule
- * 12 of the 3D curriculum). It is mounted once, in its home article (the
+ * Where each explainer sits outside /how-robots-work/ (rule 12 of the 3D
+ * curriculum). It is mounted once, in its home article (the
  * first the curriculum names for it), where that article first introduces
  * the concept, and every other home article the curriculum names links to it
  * at `/how-robots-work/#<id>`. `cue` is the sentence that ends the paragraph

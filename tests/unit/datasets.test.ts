@@ -9,7 +9,7 @@ import {
 } from '@/lib/datasets';
 
 /**
- * The datasets data contract (VAL-DATA-005 through VAL-DATA-010): rows
+ * The datasets data contract: rows
  * validate against the dataset schema, every row carries at least one
  * citation-registry source, the five named dataset families are present,
  * and unknown figures stay null rather than invented.
@@ -29,7 +29,7 @@ describe('DATASETS data', () => {
     expect(parsed.success).toBe(true);
   });
 
-  it('covers the five dataset families VAL-DATA-007 requires', () => {
+  it('covers the five required dataset families', () => {
     const ids = new Set(DATASETS.map((d) => d.id));
     for (const id of REQUIRED_IDS) {
       expect(ids.has(id), `missing dataset row: ${id}`).toBe(true);
@@ -116,7 +116,7 @@ describe('filterDatasets', () => {
     );
   });
 
-  it('partitions episodes into the size buckets (VAL-DATA-008)', () => {
+  it('partitions episodes into the size buckets', () => {
     const small = filterDatasets(DATASETS, {
       ...DEFAULT_DATASET_FILTERS,
       size: 'under-100k',
@@ -149,7 +149,7 @@ describe('filterDatasets', () => {
     expect(unknown.map((d) => d.id)).toEqual(['agibot-world-2026']);
   });
 
-  it('filters single versus multi platform collections (VAL-DATA-008)', () => {
+  it('filters single versus multi platform collections', () => {
     const single = filterDatasets(DATASETS, {
       ...DEFAULT_DATASET_FILTERS,
       embodiment: 'single',
@@ -170,7 +170,7 @@ describe('filterDatasets', () => {
     ]);
   });
 
-  it('partitions task counts into the task buckets (VAL-DATA-008)', () => {
+  it('partitions task counts into the task buckets', () => {
     const few = filterDatasets(DATASETS, {
       ...DEFAULT_DATASET_FILTERS,
       tasks: 'under-100',

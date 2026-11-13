@@ -111,8 +111,7 @@ test.describe('navigation shell', () => {
       main.getByText('Kinematics', { exact: true }),
     ).toBeVisible();
     // No progress counters and no draft placeholders: the page reads as an
-    // index of what exists, not a project tracker (VAL-DESIGN-001/015,
-    // VAL-WIKI-021).
+    // index of what exists, not a project tracker.
     await expect(main.getByText(/\d+\s+of\s+\d+\s+modules?/i)).toHaveCount(0);
     await expect(main.getByText(/planned/i)).toHaveCount(0);
     const draft = firstDraftModule('classical');
@@ -162,7 +161,7 @@ test.describe('navigation shell', () => {
     // before hydration is a no-op: the router only stamps history.state
     // once it initializes, so wait for that before driving the keyboard.
     await page.waitForFunction(() => window.history.state !== null);
-    // VAL-A11Y-020: the skip link is still the first thing a Tab reaches at
+    // The skip link is still the first thing a Tab reaches at
     // mobile width, before the drawer trigger.
     await page.keyboard.press('Tab');
     await expect(
@@ -178,7 +177,7 @@ test.describe('navigation shell', () => {
     await page.keyboard.press('Tab');
     const trigger = page.getByRole('button', { name: 'Articles' });
     await expect(trigger).toBeFocused();
-    // VAL-A11Y-005: opened, cycled and dismissed without a pointer.
+    // Opened, cycled and dismissed without a pointer.
     await page.keyboard.press('Enter');
     const dialog = page.getByRole('dialog', { name: 'Site navigation' });
     await expect(dialog).toBeVisible();
@@ -215,7 +214,7 @@ test.describe('navigation shell', () => {
       'aria-controls',
       'mobile-nav-drawer',
     );
-    // VAL-NAV-016: closed means gone, not hidden. A drawer that only moved
+    // Closed means gone, not hidden. A drawer that only moved
     // off-screen would still be in the tab order and the a11y tree.
     await expect(page.locator('#mobile-nav-drawer')).toHaveCount(0);
 
@@ -293,8 +292,8 @@ test.describe('unknown routes hydrate clean (React #418 fix)', () => {
   // /_not-found tree; served for any other path it hydrates divergent and
   // throws Minified React error #418. The postbuild guard redirects to
   // /404/ before hydration. These specs pin that behavior against the
-  // shipped artifact (VAL-CROSS-025 + the console-cleanliness half of
-  // VAL-A11Y-013 on the 404 surface), which the dev server cannot
+  // shipped artifact (the styled 404 and a clean console on the 404
+  // surface), which the dev server cannot
   // reproduce: dev serves not-found per-request with no payload/path
   // divergence.
   test('unknown route redirects to /404/ and throws no hydration error', async ({ page }) => {

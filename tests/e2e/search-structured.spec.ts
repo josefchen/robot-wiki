@@ -44,7 +44,7 @@ async function waitForSettled(page: Page) {
 }
 
 test.describe('structured search on the static export', () => {
-  test('a company query produces a typed structured group (VAL-SEARCH-003)', async ({
+  test('a company query produces a typed structured group', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -60,7 +60,7 @@ test.describe('structured search on the static export', () => {
     await expect(page.getByRole('region', { name: 'Modules' })).toBeVisible();
   });
 
-  test('a query matching both layers shows both groups (VAL-SEARCH-004)', async ({
+  test('a query matching both layers shows both groups', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -83,7 +83,7 @@ test.describe('structured search on the static export', () => {
     await expect(structured.getByText(/^method$/i).first()).toBeVisible();
   });
 
-  test('clicking a company result lands on that company (VAL-SEARCH-006)', async ({
+  test('clicking a company result lands on that company', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -103,7 +103,7 @@ test.describe('structured search on the static export', () => {
     ).toBeVisible();
   });
 
-  test('clicking a method result lands on that row (VAL-SEARCH-006)', async ({
+  test('clicking a method result lands on that row', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -121,7 +121,7 @@ test.describe('structured search on the static export', () => {
     await expect(row).toContainText('Diffusion Policy');
   });
 
-  test('clicking a dataset result lands on that row (VAL-SEARCH-006)', async ({
+  test('clicking a dataset result lands on that row', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -137,7 +137,7 @@ test.describe('structured search on the static export', () => {
     await expect(row).toContainText('DROID');
   });
 
-  test('no-match query shows empty notes in both groups (VAL-SEARCH-008)', async ({
+  test('no-match query shows empty notes in both groups', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -151,7 +151,7 @@ test.describe('structured search on the static export', () => {
     await expect(page.locator('[data-search-result]')).toHaveCount(0);
   });
 
-  test('mixed query shows results in one group and an explicit empty note in the other (VAL-SEARCH-008)', async ({
+  test('mixed query shows results in one group and an explicit empty note in the other', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -171,7 +171,7 @@ test.describe('structured search on the static export', () => {
     await expect(page.getByText(/searching/i)).toHaveCount(0);
   });
 
-  test('type facet narrows structured results and leaves prose (VAL-SEARCH-010)', async ({
+  test('type facet narrows structured results and leaves prose', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -205,7 +205,7 @@ test.describe('structured search on the static export', () => {
     );
   });
 
-  test('zero axe violations in empty, both-groups, no-results, and facet states (VAL-A11Y-003)', async ({
+  test('zero axe violations in empty, both-groups, no-results, and facet states', async ({
     page,
   }) => {
     test.setTimeout(60_000);
@@ -225,7 +225,7 @@ test.describe('structured search on the static export', () => {
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   });
 
-  test('the exported index is valid JSON covering every shipped entity (VAL-SEARCH-013, VAL-SEARCH-014)', () => {
+  test('the exported index is valid JSON covering every shipped entity', () => {
     const raw = readFileSync(
       join(process.cwd(), 'out', 'search-index.json'),
       'utf8',

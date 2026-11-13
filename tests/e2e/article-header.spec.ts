@@ -11,7 +11,7 @@ import { forEachInOwnContext, inOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
- * Article header metadata (VAL-WIKI-013, VAL-WIKI-014, VAL-WIKI-015):
+ * Article header metadata:
  * domain, last-reviewed date, reading time and citation count on every
  * published article, rendered by the shared template and derived at build
  * time (frontmatter `lastReviewed`, the resolved References list, and the
@@ -174,7 +174,7 @@ test.afterAll(async () => {
 });
 
 test.describe('Article header metadata', () => {
-  test('every article shows its frontmatter last-reviewed date, unambiguous and machine-reconcilable (VAL-WIKI-013)', async ({
+  test('every article shows its frontmatter last-reviewed date, unambiguous and machine-reconcilable', async ({
     browser,
   }) => {
     test.setTimeout(300_000);
@@ -206,7 +206,7 @@ test.describe('Article header metadata', () => {
     });
   });
 
-  test('every header citation count equals the References entries actually rendered (VAL-WIKI-014)', async ({
+  test('every header citation count equals the References entries actually rendered', async ({
     browser,
   }) => {
     test.setTimeout(300_000);
@@ -241,7 +241,7 @@ test.describe('Article header metadata', () => {
     expect(seenCounts.size).toBeGreaterThan(1);
   });
 
-  test('reading time matches the rendered article at 200 wpm within a minute, varies, never degenerate (VAL-WIKI-015)', async ({
+  test('reading time matches the rendered article at 200 wpm within a minute, varies, never degenerate', async ({
     browser,
   }) => {
     test.setTimeout(300_000);
@@ -330,7 +330,7 @@ test.describe('Article header metadata', () => {
     }
   });
 
-  test('the header row wraps without overflowing at 375px (VAL-WIKI-013)', async ({
+  test('the header row wraps without overflowing at 375px', async ({
     browser,
   }) => {
     const context = await browser.newContext({
@@ -359,7 +359,7 @@ test.describe('Article header metadata', () => {
     await context.close();
   });
 
-  test('the header row wraps without overflowing at 1440px (VAL-WIKI-013)', async ({
+  test('the header row wraps without overflowing at 1440px', async ({
     browser,
   }) => {
     const context = await browser.newContext({

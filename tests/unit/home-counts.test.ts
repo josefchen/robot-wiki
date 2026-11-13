@@ -7,7 +7,7 @@ import { publishedModules } from '@/data/modules';
 import { citedSourceIds, homeCounts } from '@/lib/home-counts';
 import { moduleSource } from '@/lib/module-source';
 
-describe('home counts (VAL-OPUS-014)', () => {
+describe('home counts', () => {
   const counts = homeCounts();
 
   it('counts published articles and glossary terms from their registries', () => {

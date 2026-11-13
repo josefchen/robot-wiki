@@ -34,7 +34,7 @@
  * The contact-force half never recomputes the limit: it imports the
  * rendered limit string from lib/force-limits, the same module the
  * impedance lab on /classical/control renders, so the two pages cannot
- * drift (VAL-FRONT-029).
+ * drift.
  */
 
 import {
@@ -383,7 +383,7 @@ export function formatForce(n: number): string {
 /**
  * The contact-force limit label, re-exported rather than re-stated. Any
  * component rendering this module's force half renders THIS string, which
- * is the same string the impedance lab renders, so VAL-FRONT-029's
+ * is the same string the impedance lab renders, so the
  * character-for-character match holds by construction rather than by
  * two authors agreeing.
  */

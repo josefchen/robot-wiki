@@ -41,7 +41,7 @@ export type FeaturedArticle = {
 };
 
 /**
- * The domain display names `text` mentions. VAL-DESIGN-008 fails a home
+ * The domain display names `text` mentions. The design checks fail a home
  * prose section that names four or more, since only the contents index may
  * list the taxonomy.
  */

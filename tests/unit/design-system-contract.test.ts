@@ -111,17 +111,17 @@ describe('canonical design-system documentation', () => {
   it('has a measurable companion contract with sealed requirements', () => {
     expect(integrity.length).toBeGreaterThan(6_000);
     for (const id of [
-      'VAL-B2-BASE-001',
-      'VAL-B2-ID-001',
-      'VAL-B2-COL-001',
-      'VAL-B2-TYPE-001',
-      'VAL-B2-GRID-001',
-      'VAL-B2-SURF-001',
-      'VAL-B2-COMP-001',
-      'VAL-B2-OG-001',
-      'VAL-B2-A11Y-001',
-      'VAL-B2-EVID-001',
-      'VAL-B2-GOV-001',
+      'DI-BASE-001',
+      'DI-ID-001',
+      'DI-COL-001',
+      'DI-TYPE-001',
+      'DI-GRID-001',
+      'DI-SURF-001',
+      'DI-COMP-001',
+      'DI-OG-001',
+      'DI-A11Y-001',
+      'DI-EVID-001',
+      'DI-GOV-001',
     ]) {
       expect(integrity).toContain(id);
     }
@@ -306,9 +306,9 @@ describe('identity geometry and typography stay aligned', () => {
     expect(spec).toContain('Capital `R`');
     expect(spec).toContain('Capital `W`');
     expect(spec).toContain('One literal space');
-    expect(integrity).toContain('VAL-B2-ID-001');
-    expect(integrity).toContain('VAL-B2-ID-002');
-    expect(integrity).toContain('VAL-B2-ID-004');
+    expect(integrity).toContain('DI-ID-001');
+    expect(integrity).toContain('DI-ID-002');
+    expect(integrity).toContain('DI-ID-004');
   });
 
   it('seals the site-card and article-card descriptor split', () => {
@@ -351,8 +351,8 @@ describe('identity geometry and typography stay aligned', () => {
     }
     expect(spec).toContain('loaded through `next/font/local`');
     expect(spec).toContain('separate checked-in static TTF');
-    expect(integrity).toContain('VAL-B2-TYPE-011');
-    expect(integrity).toContain('VAL-B2-TYPE-012');
+    expect(integrity).toContain('DI-TYPE-011');
+    expect(integrity).toContain('DI-TYPE-012');
   });
 
   it('seals the v2 grid, surface, and autonomous-validation rules', () => {
@@ -367,28 +367,28 @@ describe('identity geometry and typography stay aligned', () => {
     expect(spec).toContain('without waiting for a human visual-review pass');
     expect(integrity).toContain('No human approval step is required');
     for (const id of [
-      'VAL-B2-GRID-001',
-      'VAL-B2-SURF-001',
-      'VAL-B2-SURF-004',
-      'VAL-B2-SURF-006',
-      'VAL-B2-EVID-004',
-      'VAL-B2-EVID-007',
+      'DI-GRID-001',
+      'DI-SURF-001',
+      'DI-SURF-004',
+      'DI-SURF-006',
+      'DI-EVID-004',
+      'DI-EVID-007',
     ]) {
       expect(integrity).toContain(id);
     }
     // The research-page successors of the grid and surface rows (owner
     // decision of 10 October 2026), each at the brand-v2 row's strength.
     const row = (id: string) => integrity.split('\n').find((line) => line.startsWith(`| \`${id}\``)) ?? '';
-    expect(row('VAL-B2-GRID-001')).toContain('within 4px of a line of that frame');
-    expect(row('VAL-B2-GRID-002')).toContain('on every generated card');
-    expect(row('VAL-B2-SURF-002')).toContain('no state takes a 2px border');
-    expect(row('VAL-B2-SURF-003')).toContain('No first-party surface outside a data figure has a dashed or dotted border');
-    expect(row('VAL-B2-SURF-004')).toContain('"No shadows"');
-    expect(row('VAL-B2-SURF-006')).toContain('no bounded dark instrument');
-    expect(row('VAL-B2-SURF-007')).toContain('the one material is the registered flat `material:paper`');
-    expect(row('VAL-B2-SURF-008')).toContain('"No pills"');
-    expect(row('VAL-B2-GRID-010')).toContain('`lib/notation-case.ts`');
-    expect(row('VAL-B2-SURF-011')).toContain('renders byte-identically twice');
+    expect(row('DI-GRID-001')).toContain('within 4px of a line of that frame');
+    expect(row('DI-GRID-002')).toContain('on every generated card');
+    expect(row('DI-SURF-002')).toContain('no state takes a 2px border');
+    expect(row('DI-SURF-003')).toContain('No first-party surface outside a data figure has a dashed or dotted border');
+    expect(row('DI-SURF-004')).toContain('"No shadows"');
+    expect(row('DI-SURF-006')).toContain('no bounded dark instrument');
+    expect(row('DI-SURF-007')).toContain('the one material is the registered flat `material:paper`');
+    expect(row('DI-SURF-008')).toContain('"No pills"');
+    expect(row('DI-GRID-010')).toContain('`lib/notation-case.ts`');
+    expect(row('DI-SURF-011')).toContain('renders byte-identically twice');
   });
 
   it('does not leave stale green labels on blue interactive marks', () => {

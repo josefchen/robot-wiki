@@ -75,7 +75,7 @@ import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
  * bench" plays it from the first move. The main view offers the task
  * length and how the robot is run; the error size, a free task length and
  * Reset sit in "Adjust more". The textbook reference curves on a log axis,
- * which the VAL-MAN-067 geometry gate measures, live in "How this was
+ * which the marker-height geometry check measures, live in "How this was
  * made".
  *
  * Deterministic illustration of persistent drift, with quadratic and linear
@@ -386,7 +386,7 @@ export function CompoundingError({
 
   // A mount seeded at another horizon gets a takeaway of a different
   // sentence shape, not only a different numeral, so two mounts on one
-  // page never read as one template filled twice (VAL-EDU-036).
+  // page never read as one template filled twice.
   const daggerClause = dagger ? ` and expert relabeling every ${DAGGER_INTERVAL} steps` : '';
   const descriptionText =
     defaultSteps === 120

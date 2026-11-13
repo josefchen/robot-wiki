@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: STANDALONE_SEO_DESCRIPTIONS.marketMap,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
-  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // page title so the card matches the rendered h1
   // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
@@ -35,12 +35,12 @@ export default function MarketMapPage() {
       {/* data-pagefind-body scoped to the heading and the intro, not the
           map: Pagefind excludes every page that declares no body region
           once one page declares one, so this route needed its own to be
-          searchable (VAL-SEARCH-021), but the company tiles are
+          searchable, but the company tiles are
           already reachable through the structured index, and indexing
           their prose here would return this page for every company name
           instead of the entity row. */}
       {/* The market-map representative surface declares its material
-          (VAL-B2-SURF-011). */}
+          (DI-SURF-011). */}
       <div data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <h1
           data-tektur-role="page-h1"

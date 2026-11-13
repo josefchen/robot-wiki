@@ -68,7 +68,7 @@ describe('SceneRepresentationLadder', () => {
     expect(selector('occupancy-grid')).toHaveAttribute('aria-pressed', 'false');
   });
 
-  it('two representations yield different capability sets (VAL-CLASS-050)', async () => {
+  it('two representations yield different capability sets', async () => {
     const user = userEvent.setup();
     render(<SceneRepresentationLadder />);
     const grid = capabilityStates();
@@ -77,7 +77,7 @@ describe('SceneRepresentationLadder', () => {
     expect(splat).not.toEqual(grid);
   });
 
-  it('renders a negative contact-normal state as visible text (VAL-CLASS-050)', async () => {
+  it('renders a negative contact-normal state as visible text', async () => {
     const user = userEvent.setup();
     render(<SceneRepresentationLadder />);
     await user.click(selector('gaussian-splat'));
@@ -92,7 +92,7 @@ describe('SceneRepresentationLadder', () => {
     expect(capability('novel-view')).toHaveAttribute('data-state', 'yes');
   });
 
-  it('the footprint rises strictly with resolution while capabilities hold (VAL-CLASS-051)', async () => {
+  it('the footprint rises strictly with resolution while capabilities hold', async () => {
     render(<SceneRepresentationLadder />);
     const slider = screen.getByTestId('scene-resolution-slider');
     const before = capabilityStates();

@@ -11,7 +11,7 @@ import {
 } from '@/lib/teleop-rigs';
 
 /**
- * The teleop-rig matrix data contract (VAL-DATA-017 through VAL-DATA-020):
+ * The teleop-rig matrix data contract:
  * rows validate against the schema, the four named rig families are
  * present, every row carries citation-registry sources and external links,
  * every comparison dimension is populated per row, and unpublished figures
@@ -26,7 +26,7 @@ describe('TELEOP_RIGS data', () => {
     expect(parsed.success).toBe(true);
   });
 
-  it('covers the four rig families VAL-DATA-019 requires', () => {
+  it('covers the four required rig families', () => {
     const ids = new Set(TELEOP_RIGS.map((rig) => rig.id));
     for (const id of REQUIRED_IDS) {
       expect(ids.has(id), `missing rig family: ${id}`).toBe(true);
@@ -54,7 +54,7 @@ describe('TELEOP_RIGS data', () => {
     }
   });
 
-  it('populates all four comparison dimensions for every row (VAL-DATA-019)', () => {
+  it('populates all four comparison dimensions for every row', () => {
     for (const rig of TELEOP_RIGS) {
       expect(rig.dataQualityNote.length).toBeGreaterThan(0);
       expect(rig.throughputNote.length).toBeGreaterThan(0);
@@ -68,7 +68,7 @@ describe('TELEOP_RIGS data', () => {
     }
   });
 
-  it('keeps the unpublished VR system cost null instead of guessed (VAL-DATA-020)', () => {
+  it('keeps the unpublished VR system cost null instead of guessed', () => {
     const vr = TELEOP_RIGS.find((rig) => rig.id === 'vr-teleop');
     expect(vr, 'missing vr-teleop row').toBeDefined();
     expect(vr?.costUsd).toBeNull();

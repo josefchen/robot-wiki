@@ -179,7 +179,7 @@ describe('HistoryFocus', () => {
   });
 
   it('restores heading focus when Back changes only the query', async () => {
-    // VAL-NAV-028: the shell search box pushes one history entry per
+    // The shell search box pushes one history entry per
     // submit, so Back between two /search?q= entries changes only the
     // query. The pathname never changes, so a commit effect keyed on the
     // pathname alone never re-runs, and focus is left on BODY.
@@ -202,8 +202,8 @@ describe('HistoryFocus', () => {
   });
 
   it('leaves a still-focused result alone on a query-only Back', async () => {
-    // VAL-NAV-028: "or the previously focused result if it is still
-    // mounted". A control that owns focus after the step is never
+    // Focus goes to the heading "or the previously focused result if it is
+    // still mounted". A control that owns focus after the step is never
     // disturbed, even when the query is the only thing that changed.
     const { rerender } = render(<Harness />);
     navigateTo('/search/?q=aloha');
@@ -222,7 +222,7 @@ describe('HistoryFocus', () => {
     // this helper's and can flush the restored commit inside that
     // dispatch, so the commit effect runs while nothing is armed yet.
     // The handler must then fire the armed move itself, because no later
-    // commit will come to fire it (VAL-NAV-028).
+    // commit will come to fire it.
     const { rerender } = render(<Harness />);
     navigateTo('/search/?q=aloha');
     await rerenderAt(rerender);
@@ -240,7 +240,7 @@ describe('HistoryFocus', () => {
   });
 
   it('does not arm on a hash-only Back from the first page', async () => {
-    // VAL-NAV-029: the document loads on '/', a reader jumps to an in-page
+    // The document loads on '/', a reader jumps to an in-page
     // anchor (no router push is observed), then presses Back. The entry
     // the document loaded on must already count as the shell's own key, so
     // the hash Back does not arm a heading move that a later click fires.
@@ -260,7 +260,7 @@ describe('HistoryFocus', () => {
   });
 
   it('discards a query-only Back arm when a click commits another route first', async () => {
-    // VAL-NAV-029: a query-only Back arms the move, but the restored
+    // A query-only Back arms the move, but the restored
     // commit can be beaten by a click navigation. The arm must be bound to
     // the restored path+query so the click cannot fire it at the heading.
     const { rerender } = render(<Harness />);

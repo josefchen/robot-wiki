@@ -427,7 +427,7 @@ export function ruleOfThreeDensity(body: string): number {
 export const RULE_OF_THREE_LIMIT = 22;
 
 /**
- * Structural-tell patterns for the humanizer v3 floor (VAL-HUMAN-001).
+ * Structural-tell patterns for the humanizer v3 floor.
  *
  * The owner-measured slop in this corpus is structural, not vocabulary: the
  * audit process wrote §1 not-X disclaimers ("This is not a universal

@@ -23,7 +23,7 @@ import { SITE_DISPLAY_NAME } from '@/lib/site';
  * Home keeps the layout's title and cards but carries a description long
  * enough to state what the site answers. It opens with the locked
  * descriptor, so every descriptor field still carries it verbatim
- * (VAL-B2-ID-002). The card blocks are restated because a route-level
+ * (DI-ID-002). The card blocks are restated because a route-level
  * object replaces the layout's (no deep merge).
  */
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
  *
  * Every section is a direct child of <main>, and each one carries
  * data-pagefind-body itself: once one page declares a body region Pagefind
- * skips pages that declare none (VAL-SEARCH-021).
+ * skips pages that declare none.
  */
 export default function Home() {
   const counts = homeCounts();
@@ -67,7 +67,7 @@ export default function Home() {
         aria-label="Introduction"
         data-pagefind-body
         // The home representative surface declares its material: paper,
-        // the one texture-free ground the site paints (VAL-B2-SURF-011).
+        // the one texture-free ground the site paints (DI-SURF-011).
         {...materialAttributes('paper')}
         className="home-frame home-hero material-paper"
       >
@@ -77,7 +77,7 @@ export default function Home() {
         />
         {/* The lockup is the h1 and the descriptor alone in one container:
             any other text beside the wordmark would read as a descriptor
-            surface (VAL-B2-ID-002). The two words stack as blocks with a
+            surface (DI-ID-002). The two words stack as blocks with a
             real space between them, so the heading's text stays exactly
             the public identity. */}
         <div className="home-lockup">

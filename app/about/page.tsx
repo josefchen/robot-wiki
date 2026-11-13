@@ -27,8 +27,7 @@ const inlineLink =
 /**
  * Scope, reading guidance and citation conventions: the text the home page
  * carried before it became a front page. The scope statement names domains
- * by their sidebar display names and states its exclusions as plain fact
- * (VAL-WIKI-028).
+ * by their sidebar display names and states its exclusions as plain fact.
  */
 export default function AboutPage() {
   const paths = learningPaths();

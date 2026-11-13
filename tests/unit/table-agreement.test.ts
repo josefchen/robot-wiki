@@ -12,7 +12,7 @@ import {
 } from '../e2e/helpers/table-agreement';
 
 /**
- * Unit fixtures for the VAL-EDU-023 matcher. The EgoScale fixture is the
+ * Unit fixtures for the chart-table agreement matcher. The EgoScale fixture is the
  * PRE-FIX table (fit-only completion column): clause (b) must fail it,
  * which is the red phase for the table repair. The six carve-out family
  * fixtures encode the two-branch rule: values cited at unsampled x are

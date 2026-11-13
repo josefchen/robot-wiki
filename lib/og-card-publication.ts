@@ -1,6 +1,6 @@
 /**
  * Staged, journalled publication of the Open Graph corpus
- * (VAL-B2-OG-013, VAL-B2-OG-014, VAL-B2-OG-015).
+ * (DI-OG-013, DI-OG-014, DI-OG-015).
  *
  * The corpus spans several trees — the tracked `public/og` and
  * `public/structured-images`, and their copies in the `out/` export when

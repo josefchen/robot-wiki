@@ -11,7 +11,7 @@ type BadgeProps = {
 // No pill: a badge is a short lowercase table value, like "not disclosed",
 // its words the cue and its colour only a second one. Tracked capitals stay
 // with eyebrows and section heads: one per table row would put a page over
-// its five micro-labels (VAL-DESIGN-010).
+// its five micro-labels.
 const variantClasses: Record<BadgeVariant, string> = {
   default: 'text-text-dim',
   accent: 'font-semibold text-ink',

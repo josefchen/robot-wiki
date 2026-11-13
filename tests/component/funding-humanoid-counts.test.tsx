@@ -62,7 +62,7 @@ describe('FundingHumanoidCounts', () => {
       expect(screen.getByTestId(`funding-${year}`).querySelector('rect')).toHaveAttribute('data-chart-role', 'measurement');
     }
     // The partial year is named in words inside the plot, so it does not
-    // rest on the accent alone (VAL-B2-VIZ-002).
+    // rest on the accent alone (DI-VIZ-002).
     const partial = screen.getByTestId('funding-2026').querySelector('[data-scene-readout]');
     expect(partial).toHaveTextContent('$18.8B to 22 June');
     expect(partial).toHaveAttribute('data-series-label-for', 'funding-partial-year');
@@ -124,7 +124,7 @@ describe('FundingHumanoidCounts served HTML', () => {
   });
 });
 
-describe('FundingHumanoidCounts series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('FundingHumanoidCounts series encoding (DI-VIZ-002/004)', () => {
   it('names every plotted series in the plot and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['funding', 'funding-partial-year', 'ifr', 'sag']);

@@ -148,8 +148,8 @@ describe('figure-system check', () => {
     const allowlist: Allowlist = {
       schemaVersion: 'figure-system-allowlist-v1',
       entries: [
-        { route: ROUTE, figure: FIGURE, rules: ['hard-coded-colour'], pass: 'opus-pass-homepage' },
-        { route: ROUTE, figure: 'gone', rules: ['outside-frame'], pass: 'opus-pass-homepage' },
+        { route: ROUTE, figure: FIGURE, rules: ['hard-coded-colour'], pass: 'reader-pass-homepage' },
+        { route: ROUTE, figure: 'gone', rules: ['outside-frame'], pass: 'reader-pass-homepage' },
       ],
     };
     const result = applyAllowlist(violations, allowlist);

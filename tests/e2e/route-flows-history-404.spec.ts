@@ -5,10 +5,9 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
 import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
- * Route-flow closure for the discovery milestone
- * (brand-v2-discovery-route-flows-history-and-404):
+ * Route flows, history and the 404 page:
  *
- * 1. VAL-CROSS-025 — unknown top-level and article paths serve the styled
+ * 1. Unknown top-level and article paths serve the styled
  *    404 with the site chrome intact, a human-readable message, and a
  *    working way home; the export ships out/404.html. Verified against the
  *    static export through a host-like server (unknown paths get the
@@ -18,7 +17,7 @@ import { openArticlesPanel } from './helpers/articles-panel';
  * 2. Browser Back/Forward restore each prior route AND move focus to the
  *    restored page's heading — the tracked defect where Back restored the
  *    URL but left activeElement on BODY at both widths (audit 2026-09).
- * 3. The chrome destinations named by the feature (market map, playground,
+ * 3. The chrome destinations (market map, playground,
  *    A-Z, search entry, home wordmark) are reachable by clicking alone.
  */
 
@@ -166,7 +165,7 @@ test.describe('browser history restores route and focus', () => {
   });
 });
 
-test.describe('unknown routes render the styled 404 (VAL-CROSS-025)', () => {
+test.describe('unknown routes render the styled 404', () => {
   test('unknown article path: 404 status, themed page, intact chrome, way home', async ({
     page,
   }) => {

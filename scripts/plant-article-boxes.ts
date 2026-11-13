@@ -1,5 +1,5 @@
 /**
- * Mutation proof for scripts/check-article-boxes.ts (VAL-OPUS-151): on a copy
+ * Mutation proof for scripts/check-article-boxes.ts: on a copy
  * of content/, a <Callout> planted in one article and an <Aside> planted in
  * another must each make the check exit non-zero naming the file and line;
  * the clean copy must exit zero. content/ itself is never written.

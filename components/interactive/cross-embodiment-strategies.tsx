@@ -71,7 +71,7 @@ const f = (v: number) => Number(v.toFixed(2));
  * representation, so they get a neutral structure hatch rather than a
  * colour: status colours are reserved, and "schematic" is not a success
  * state. The hatch is also the non-colour channel that keeps latent slots
- * distinct from active ones without relying on hue (VAL-CHART-002).
+ * distinct from active ones without relying on hue.
  */
 const SLOT_FILL: Record<SlotState, string> = {
   active: roleColour('action'),

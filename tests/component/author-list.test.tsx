@@ -7,7 +7,7 @@ import { getCitation } from '@/data/citations';
 const worstCase = getCitation('pi07-2026');
 if (!worstCase) throw new Error('registry fixture pi07-2026 missing');
 
-/** The marker pattern VAL-WIKI-029 clause (a) requires. */
+/** The elision marker the author list must print. */
 const ELISION = /\b(\+|and)\s*(\d+)\s+(more|others|authors)\b/i;
 
 function names(count: number): string[] {

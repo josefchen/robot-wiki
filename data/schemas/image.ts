@@ -45,7 +45,7 @@ export const imageLicenceSchema = z.enum(IMAGE_LICENCES);
  * fixes those eight strings. Recording both, and requiring them to agree,
  * is what stops a mark with no reuse grant from being filed under a
  * reusable-content basis: `unlicensed` and `unknown` map only to
- * `official-identification-use`, which is the mark path in `VAL-B2-MAP-010`
+ * `official-identification-use`, which is the mark path in `DI-MAP-010`
  * and never a licence for editorial reuse.
  */
 export const LEGAL_BASES = [
@@ -109,12 +109,12 @@ export type FigureKind = (typeof FIGURE_KINDS)[number];
 /**
  * What may happen to the shipped bytes after registration.
  *
- * `external-bytes-preserved` is the promise `VAL-B2-IMG-009` measures: the
+ * `external-bytes-preserved` is the promise `DI-IMG-009` measures: the
  * file on disk is the file that was retrieved, so a recolour, crop, filter
  * or redraw would show up as a byte-hash mismatch.
  * `first-party-restyled-semantics-preserved` is the weaker promise the two
  * original diagrams need, because brand-v2 restyles them: their bytes may
- * change, and `VAL-B2-VIZ-014` holds the normalized semantic geometry and
+ * change, and `DI-VIZ-014` holds the normalized semantic geometry and
  * label text against the immutable baseline so only the allowlisted style
  * attributes can move.
  */
@@ -126,7 +126,7 @@ export const PRESERVATION_POLICIES = [
 export const preservationPolicySchema = z.enum(PRESERVATION_POLICIES);
 export type PreservationPolicy = (typeof PRESERVATION_POLICIES)[number];
 
-/** Market-map company marks; their provenance row is owned by VAL-B2-MAP-010. */
+/** Market-map company marks; their provenance row is owned by DI-MAP-010. */
 export function isCompanyMarkFile(file: string): boolean {
   return file.startsWith('/images/logos/');
 }
@@ -239,7 +239,7 @@ export const imageSchema = z
     /**
      * The §1.13 record. Required on every editorial image; the market-map
      * marks carry it derived rather than declared, because their provenance
-     * row is `VAL-B2-MAP-010` and this feature must not restate a hundred
+     * row is `DI-MAP-010` and this feature must not restate a hundred
      * approvals it did not make.
      */
     figureKind: figureKindSchema.optional(),
@@ -309,7 +309,7 @@ export const imageSchema = z
       });
     }
 
-    // `VAL-B2-IMG-008`: reusable editorial content needs an approved
+    // `DI-IMG-008`: reusable editorial content needs an approved
     // reusable-content basis, and `unlicensed` is never one. The
     // identification path exists for company marks and stops there, so an
     // editorial photograph cannot borrow it by leaving its licence unknown.
@@ -319,7 +319,7 @@ export const imageSchema = z
     ) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: `editorial image "${image.id}" cannot rest on licence "${image.licence}"; official-identification-use is the mark path in VAL-B2-MAP-010`,
+        message: `editorial image "${image.id}" cannot rest on licence "${image.licence}"; official-identification-use is the mark path in DI-MAP-010`,
       });
     }
 
@@ -327,7 +327,7 @@ export const imageSchema = z
     // not on the ground of the licence it is published under, so `owned` is
     // the second admissible basis there and nowhere else.
     // A company mark rests on identification, never on the licence of the
-    // file it was fetched as. §1.13 states it flatly and VAL-B2-IMG-008
+    // file it was fetched as. §1.13 states it flatly and DI-IMG-008
     // calls it the path marks use ONLY, so a mark that declares any other
     // basis is refused here rather than silently overridden downstream.
     const grounded: LegalBasis[] = isMark

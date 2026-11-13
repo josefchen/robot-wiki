@@ -15,8 +15,8 @@ import { forEachInOwnContext } from './helpers/per-route-context';
  * Owner-approved successor (Josef, 12 November 2026, the home redesign:
  * "don't be afraid to make radical changes"): the robot is now the first
  * screen and the contents its index below, so the pins that held all seven
- * domain links above the fold (VAL-HOME-001) and the scene below them
- * within 1200px (VAL-HOME-003) move to the new first screen at the same
+ * domain links above the fold and the scene below them
+ * within 1200px move to the new first screen at the same
  * strength: the identity, descriptor, counts, search, the scene's poster
  * and its start button all sit inside 1440x900, and the poster shows in
  * the first screen of a 390x844 phone.
@@ -120,8 +120,8 @@ test.describe('home page', () => {
     const scene = page.getByRole('group', { name: '3D explainer: Inside a humanoid' });
     const poster = scene.locator('[data-x="poster"]');
     const start = scene.getByRole('button', { name: 'Turn it in 3D' });
-    // The full box must sit inside the first viewport (VAL-HOME-001/
-    // VAL-DSHOME-001): a top edge above y=900 with the body hanging below
+    // The full box must sit inside the first viewport: a top edge above
+    // y=900 with the body hanging below
     // it is a clipped premise, and checking y alone would pass it.
     const insideFirstViewport = async (
       locator: ReturnType<Page['locator']>,
@@ -153,14 +153,14 @@ test.describe('home page', () => {
     expect(phonePoster!.y, 'poster begins inside the first phone screen').toBeLessThan(844 - 200);
   });
 
-  test('the wordmark holds its locked type scale at both stated viewports (VAL-B2-TYPE-006)', async ({
+  test('the wordmark holds its locked type scale at both stated viewports (DI-TYPE-006)', async ({
     page,
   }) => {
-    // library/design-integrity.md VAL-B2-TYPE-006, as the owner decision
+    // library/design-integrity.md DI-TYPE-006, as the owner decision
     // of 10 October 2026 (the research-page standard) restated it: the
     // shared DM Sans 400 display h1, 40-48px at 375 and 84-92px at 1440,
     // line height 0.90-0.96, at the registered home-wordmark instance
-    // (wght 400) with no variation-axis override (VAL-B2-TYPE-015). It
+    // (wght 400) with no variation-axis override (DI-TYPE-015). It
     // replaced Tektur at 52-68/88-120px, 0.88-0.98, wght 600 / wdth 100,
     // at the same strength. Measured after fonts settle, because the size
     // is fluid and a fallback face would change the box the seventh domain
@@ -210,7 +210,7 @@ test.describe('home page', () => {
 
     // The scale and the fold are one constraint: a wordmark inside its band
     // that pushed the scene's start button past y=900 would trade
-    // VAL-B2-TYPE-006 for VAL-HOME-001. Asserted here as well as in the
+    // DI-TYPE-006 for the first-viewport rule. Asserted here as well as in the
     // first-viewport test so a type change cannot pass this test alone.
     const start = page
       .getByRole('group', { name: '3D explainer: Inside a humanoid' })
@@ -245,7 +245,7 @@ test.describe('home page', () => {
     }
   });
 
-  test('the six core domain entries click through to real domain pages (VAL-NAV-003)', async ({
+  test('the six core domain entries click through to real domain pages', async ({
     page,
   }) => {
     // The index rows being links is necessary but not sufficient: a wrong
@@ -389,7 +389,7 @@ test.describe('home page', () => {
     }
   });
 
-  test('home carries no overview paragraph and its text is free of banned tokens (VAL-DESIGN-011)', async ({
+  test('home carries no overview paragraph and its text is free of banned tokens', async ({
     page,
   }) => {
     await page.goto('/');
@@ -417,7 +417,7 @@ test.describe('home page', () => {
     }
   });
 
-  test('the reading guide lives on /about/, links into content and never says atlas (VAL-NAV-005)', async ({
+  test('the reading guide lives on /about/, links into content and never says atlas', async ({
     page,
   }) => {
     await page.goto('/');
@@ -458,7 +458,7 @@ test.describe('home page', () => {
   // 375px masthead is the lockup, then the search and its counts, then the
   // scene; the first section after it opens on its 1px hairline rule with
   // its heading under it. Each relation is pinned at one-decimal precision.
-  test('at 375px the masthead runs lockup, search, scene, and the first hairline follows (VAL-DSHOME-009)', async ({
+  test('at 375px the masthead runs lockup, search, scene, and the first hairline follows', async ({
     page,
   }) => {
     // Geometry is measured at rest: the first screen's entrance moves it.
@@ -520,7 +520,7 @@ test.describe('home page', () => {
   // explainer; the lockup and the search hold the four columns left of the
   // axis, the search below the descriptor, and the scene the eight to its
   // right, its stage starting level with the wordmark.
-  test('the hero title sheet is the locked plain-paper masthead with no grid device (VAL-DSBRAND-004)', async ({
+  test('the hero title sheet is the locked plain-paper masthead with no grid device', async ({
     page,
   }) => {
     // Geometry is measured at rest: the first screen's entrance moves it.
@@ -602,7 +602,7 @@ test.describe('home page', () => {
   // engineering-grid device now: no svg background on any element and no
   // grid node or registered dot-grid device, and
   // home's title sheet and everything in it paints no image at all.
-  test('no route paints an engineering-grid device, home title sheet included (VAL-DSBRAND-005)', async ({ browser }) => {
+  test('no route paints an engineering-grid device, home title sheet included', async ({ browser }) => {
     // One fresh context per route over the whole registry population runs
     // close to the default 30 s budget on its own.
     test.setTimeout(90_000);

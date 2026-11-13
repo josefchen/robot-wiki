@@ -1,5 +1,5 @@
 /**
- * Mutation proof for the explainer label check (VAL-OPUS-043).
+ * Mutation proof for the explainer label check.
  *
  *   node scripts/plant-explainer-labels.ts [--out out | --base-url URL] [--ids flying,puppeteer]
  *

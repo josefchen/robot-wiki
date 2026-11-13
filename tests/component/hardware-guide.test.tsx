@@ -14,7 +14,7 @@ function rowNamed(name: string | RegExp): HTMLElement | undefined {
 }
 
 describe('HardwareGuide', () => {
-  it('renders every entry with the buyer columns (VAL-DATA-011)', () => {
+  it('renders every entry with the buyer columns', () => {
     render(<HardwareGuide />);
     expect(
       screen.getByRole('table', { name: /hardware entries/i }),
@@ -34,7 +34,7 @@ describe('HardwareGuide', () => {
     }
   });
 
-  it('shows all five hardware families in the rendered rows (VAL-DATA-011)', () => {
+  it('shows all five hardware families in the rendered rows', () => {
     render(<HardwareGuide />);
     const categoryCells = bodyRows().map(
       (row) => within(row).getAllByRole('cell')[1].textContent,
@@ -47,7 +47,7 @@ describe('HardwareGuide', () => {
     }
   });
 
-  it('carries an as-of note on every listed price (VAL-DATA-012)', () => {
+  it('carries an as-of note on every listed price', () => {
     render(<HardwareGuide />);
     for (const row of bodyRows()) {
       const priceCell = within(row).getAllByRole('cell')[2];
@@ -65,7 +65,7 @@ describe('HardwareGuide', () => {
     expect(priced.length).toBeGreaterThan(10);
   });
 
-  it('renders unpublished figures as not disclosed and never invents numbers (VAL-DATA-015)', () => {
+  it('renders unpublished figures as not disclosed and never invents numbers', () => {
     render(<HardwareGuide />);
     // Tesla publishes no Optimus 3 price or DoF.
     const optimus = rowNamed(/Tesla Optimus 3/) as HTMLElement;
@@ -85,7 +85,7 @@ describe('HardwareGuide', () => {
     ).toMatch(/^56/);
   });
 
-  it('carries at least one external source link per row (VAL-DATA-014)', () => {
+  it('carries at least one external source link per row', () => {
     render(<HardwareGuide />);
     for (const row of bodyRows()) {
       const links = within(row)
@@ -95,7 +95,7 @@ describe('HardwareGuide', () => {
     }
   });
 
-  it('filters by category and restores on reset (VAL-DATA-013)', async () => {
+  it('filters by category and restores on reset', async () => {
     const user = userEvent.setup();
     render(<HardwareGuide />);
     await user.click(screen.getByRole('button', { name: /^humanoids$/i }));
@@ -110,7 +110,7 @@ describe('HardwareGuide', () => {
     expect(bodyRows()).toHaveLength(HARDWARE.length);
   });
 
-  it('filters by price with null-honest buckets (VAL-DATA-012)', async () => {
+  it('filters by price with null-honest buckets', async () => {
     const user = userEvent.setup();
     render(<HardwareGuide />);
     await user.click(
@@ -134,7 +134,7 @@ describe('HardwareGuide', () => {
     expect(rowNamed(/GelSight Mini/)).toBeDefined();
   });
 
-  it('composes price and availability filters conjunctively (VAL-DATA-016)', async () => {
+  it('composes price and availability filters conjunctively', async () => {
     const user = userEvent.setup();
     render(<HardwareGuide />);
     await user.click(screen.getByRole('button', { name: /^\$1k to \$10k$/i }));

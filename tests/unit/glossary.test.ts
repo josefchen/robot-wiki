@@ -134,7 +134,7 @@ describe('inlineTermIds', () => {
   });
 });
 
-describe('inline term ids across published articles (VAL-GLOSS-010)', () => {
+describe('inline term ids across published articles', () => {
   it('every <Term> used in a published module resolves to a glossary entry', () => {
     const published = modules.filter((m) => m.status === 'published');
     expect(published.length).toBeGreaterThan(0);

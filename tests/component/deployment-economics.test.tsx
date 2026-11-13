@@ -60,7 +60,7 @@ describe('DeploymentEconomics component', () => {
       expect(slider(name).value).toBe(String(value));
     }
     // Seven sourcing notes, each naming its input's default a source or an
-    // assumption (VAL-DATA-034).
+    // assumption.
     const notes = document.querySelectorAll('[data-control-note]');
     const noteTexts = Array.from(notes).map((n) => n.textContent ?? '');
     expect(
@@ -126,7 +126,7 @@ describe('DeploymentEconomics component', () => {
   });
 
   it('carries both payback columns of the sampled table at the jam time the slider sets', () => {
-    // VAL-EDU-023 clause (c), as chart-table-agreement.spec.ts probes it:
+    // Chart-table agreement clause (c), as chart-table-agreement.spec.ts probes it:
     // set the jam slider to a sampled row, then read the figure with the
     // table removed. Every numeric cell of that row must be there at the
     // precision the table prints.
@@ -208,7 +208,7 @@ describe('DeploymentEconomics component', () => {
   });
 });
 
-describe('DeploymentEconomics series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('DeploymentEconomics series encoding (DI-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = mount();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['economics-downtime', 'economics-jam-clearing', 'economics-productive']);

@@ -15,7 +15,7 @@ export const equations = {
  * typeset alone, so its markup carries no spacing; the scene lays the glyphs
  * out from KaTeX's own advance widths. Each keeps its MathML layer even though
  * the stage is hidden from assistive technology: the article equation sweep
- * (VAL-B2-ART-007) holds every `.katex` root on a page to MathML plus a TeX
+ * (DI-ART-007) holds every `.katex` root on a page to MathML plus a TeX
  * annotation, and KaTeX's stylesheet clips that layer, so the layout is unchanged.
  */
 export const glyphs = {

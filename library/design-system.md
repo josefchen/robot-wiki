@@ -40,7 +40,7 @@ Josef replaced the brand-v2 visual identity on every page and every figure with 
 
 Before changing any page, component, visualization, navigation surface, social card, font, colour, texture, illustration, photograph, or generated visual asset, a worker MUST read this file and `library/design-integrity.md` completely and inspect both approved references.
 
-- `MUST`, `MUST NOT`, and sealed `VAL-B2*` criteria are release requirements.
+- `MUST`, `MUST NOT`, and sealed `DI-*` criteria are release requirements.
 - Apply this direction literally across the whole product. Do not propose or preserve a parallel paper-system direction.
 - Preserve routes, content, citations, source meaning, data truth, accessibility, and working interactions.
 - Validation is autonomous. A worker MUST run the required tests, capture the required visual evidence, compare the rendered result with both references, and resolve drift without waiting for a human visual-review pass.
@@ -470,7 +470,7 @@ Requirements:
 ### 10.5 Badges, chips, and status
 
 - Chips are for filters, compact provenance, state, or taxonomy.
-- Selected chips and filter tokens are unfilled and read in ink with a 1 px ink rule or underline (or a weight step of at least 200), plus a text, icon or shape confirmation and the semantic state (`aria-pressed`, `aria-selected` or native checked). No lime, colour fill, tint or rounded pill carries selection, and colour is never the only cue (owner decision of 10 October 2026, `VAL-B2-COMP-007`).
+- Selected chips and filter tokens are unfilled and read in ink with a 1 px ink rule or underline (or a weight step of at least 200), plus a text, icon or shape confirmation and the semantic state (`aria-pressed`, `aria-selected` or native checked). No lime, colour fill, tint or rounded pill carries selection, and colour is never the only cue (owner decision of 10 October 2026, `DI-COMP-007`).
 - Status chips use the dedicated status colours (green and red outcome marks only) with a text label.
 - Do not convert ordinary category or metadata prose into pill rows.
 
@@ -576,7 +576,7 @@ Every explanatory figure, scene and tool preview uses one frame (`components/mot
 Both folds are closed at settle and keep their content in the served HTML. Nothing else sits between the stage and the next prose block.
 
 - The main view (header, stage, controls and caption at settle) carries no symbol and no bare unit: no Greek letter or one- or two-letter variable used as a quantity, no sub- or superscript, power or formula, no Hz, ms, rad or "/step". The same line may gloss one in plain words ("10 times a second (10 Hz)"). %, currency, dates, and kg, km, km/h, m, cm and mm after a number are everyday forms. Maths and units live in the article text or "How this was made". `lib/figure-main-view.ts` holds the pattern list.
-- Data marks use the stage role palette (`--role-*-stage`): the role hues darkened to at least 4.5:1 on paper. A figure uses one focus colour plus greys: the one muted accent, painted only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); the retired bright signal blue appears on no figure mark (owner decisions of 10 and 19 October 2026, `VAL-B2-VIZ-003`). Status colours mark status only. The constraint red appears only as a hatch. The mark group the annotation points at is the only one at full emphasis; the annotation and its leader take the dark-green highlight role, and lime at most haloes the one highlighted point.
+- Data marks use the stage role palette (`--role-*-stage`): the role hues darkened to at least 4.5:1 on paper. A figure uses one focus colour plus greys: the one muted accent, painted only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); the retired bright signal blue appears on no figure mark (owner decisions of 10 and 19 October 2026, `DI-VIZ-003`). Status colours mark status only. The constraint red appears only as a hatch. The mark group the annotation points at is the only one at full emphasis; the annotation and its leader take the dark-green highlight role, and lime at most haloes the one highlighted point.
 - Figure controls are the site's quiet controls: one hairline segmented row for named presets, hairline buttons with sans labels and no underline, and thin graphite sliders with plain labels. The selected option takes the research-page selected state: ink weight or a 1 px ink rule, never a colour fill or tint, and a reader's committed answer in a prediction step or self-check also carries the "Your pick" marker. Lime never fills a control. Reset lives in "Adjust more" unless the figure truly needs it in view.
 - No furniture that needs explaining sits on the stage: no "catalogue ends here" lines, "availability unverified" legends, inline source chips or "current generation" links. Sources go on the source line or in "How this was made", and details sit below the figure as page text, not as a card.
 - Stage text is IBM Plex Sans at 14px displayed, in at most three sizes across the frame (16px headline, 14px stage, caption and controls, 12px kicker and source). IBM Plex Mono is for numeric readouts only. Each axis has at most five labelled ticks.
@@ -585,7 +585,7 @@ Both folds are closed at settle and keep their content in the served HTML. Nothi
 - A guided beat runs only when the reader starts it, lasts 3 to 6 seconds and ends on the annotated frame with a plain hint.
 - The stage fits its content: no band wider than the plot and taller than 20% of the stage is empty.
 - Charts are drawn with the primitives in `components/motion/chart/`, which read the tokens.
-- Company marks sit on no plate: each is a single-ink silhouette of its official file, its alpha (or a reviewed luminance-derived mask) filled with the secondary ink token, so white and dark marks read alike and clear 3:1. No filter is registered (`VAL-B2-MAP-007`, owner decision of 19 October 2026). On `/credits/` the ink layer is the credited file's own `<img>`, with its registry alt and intrinsic width and height, drawn through the mask of itself and cropped to the artwork box, so the page fetches and names exactly the file it credits (`VAL-B2-IMG-005`).
+- Company marks sit on no plate: each is a single-ink silhouette of its official file, its alpha (or a reviewed luminance-derived mask) filled with the secondary ink token, so white and dark marks read alike and clear 3:1. No filter is registered (`DI-MAP-007`, owner decision of 19 October 2026). On `/credits/` the ink layer is the credited file's own `<img>`, with its registry alt and intrinsic width and height, drawn through the mask of itself and cropped to the artwork box, so the page fetches and names exactly the file it credits (`DI-IMG-005`).
 - Photographs use one 3:2 cover crop, one width per viewport, the figure caption style and the figure source line for credit.
 - A concept has one canonical visual. Another page links to it, or reuses it with a caption that names a different purpose.
 - `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale, figures outside the frame, a stage that is not the flat page surface or a dark, raised or floating plate inside a frame, a headline over 10 words, a kicker over 6, a caption over 25, a fold with another label and a symbol in the main view. It runs in `postbuild` and `vercel-build`. Every exported figure must pass. `--allowlist <file>` takes a temporary list of figures not yet migrated, one entry per figure; an entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
@@ -594,7 +594,7 @@ Both folds are closed at settle and keep their content in the served HTML. Nothi
 
 - Search, A–Z, glossary, and domain indexes share the same display, rail, filter, and selection language.
 - Search empty, loading, results, filtered, no-results, and error states are explicit.
-- Selected filters use the research-page selected state of 10.5 (`VAL-B2-DISC-003`, `VAL-B2-COMP-007`): unfilled, an ink label with a 1 px ink rule, and a semantic plus text or icon confirmation.
+- Selected filters use the research-page selected state of 10.5 (`DI-DISC-003`, `DI-COMP-007`): unfilled, an ink label with a 1 px ink rule, and a semantic plus text or icon confirmation.
 - Search-result titles remain links using signal blue or a strong ink treatment with an explicit hover/focus underline.
 - Match excerpts preserve source wording and never fabricate context.
 - Keyboard users can reach, change, clear, and reset every filter.
@@ -614,7 +614,7 @@ An interactive is an explanatory instrument.
 - Values are source-backed; unknowns read `not disclosed`.
 - Schematics label themselves.
 - First render is deterministic.
-- Keyboard controls, visible focus, a current-state description and a deterministic return to the default are mandatory. Where the figure has a reset control, activating it by keyboard restores the exact default state; where it has none, returning each changed control to its default value by keyboard restores the same default state, each control states its default in its visible readout, and a started run ends or can be stopped on the default frame (owner decision of 2 October 2026, no "Reset" unless it is truly needed; `VAL-B2-VIZ-007`).
+- Keyboard controls, visible focus, a current-state description and a deterministic return to the default are mandatory. Where the figure has a reset control, activating it by keyboard restores the exact default state; where it has none, returning each changed control to its default value by keyboard restores the same default state, each control states its default in its visible readout, and a started run ends or can be stopped on the default frame (owner decision of 2 October 2026, no "Reset" unless it is truly needed; `DI-VIZ-007`).
 - No autoplay teaching sequence, fake telemetry, decorative waveform, or fabricated progress.
 - Figures and interactives draw on the light page stage (13.4). Dark surfaces stay for code, media frames and the 3D playground (5.4).
 
@@ -788,7 +788,7 @@ The owner decisions of 10 and 19 October 2026 supersede the original brand-v2 fo
 
 - public identity `Robot Wiki`;
 - exact descriptor;
-- DM Sans web display and wordmark roles; offline OG/X artwork retains the registered static Tektur display and IBM Plex Mono data faces (`VAL-B2-TYPE-001`);
+- DM Sans web display and wordmark roles; offline OG/X artwork retains the registered static Tektur display and IBM Plex Mono data faces (`DI-TYPE-001`);
 - Geist web body/interface type and Geist Mono web code, numerical and tabular roles;
 - paper `#FAFAF8`, ink `#1C1C1A`, and the muted figure accent `#3B6EA8`;
 - ink primary actions and unfilled ink selection, confirmed by a non-colour cue and semantic state;
@@ -886,7 +886,7 @@ This section is approved brand-v2 authority and resolves ambiguities elsewhere i
 
 ### 29.1 Immutable migration baseline
 
-Milestone 1 implementation MUST start from a clean tracked worktree or record the exact Git tree hash used, plus manifest root hashes and pinned tool/runtime versions. It then deterministically generates manifests for routes; normalized visible article prose and accessible names; citations, References, See also and Linked from; navigation names/hrefs; market-map records/semantics; playground constants, trajectory schema/defaults; photo/logo bytes and uses; normalized original-SVG semantic geometry/text; interactive source exports and production mounts; and current behavioral defaults. No baseline is claimed created by documentation alone. Post-baseline changes pass only through the exact approved-delta allowlist defined by `VAL-B2-BASE-010`.
+Milestone 1 implementation MUST start from a clean tracked worktree or record the exact Git tree hash used, plus manifest root hashes and pinned tool/runtime versions. It then deterministically generates manifests for routes; normalized visible article prose and accessible names; citations, References, See also and Linked from; navigation names/hrefs; market-map records/semantics; playground constants, trajectory schema/defaults; photo/logo bytes and uses; normalized original-SVG semantic geometry/text; interactive source exports and production mounts; and current behavioral defaults. No baseline is claimed created by documentation alone. Post-baseline changes pass only through the exact approved-delta allowlist defined by `DI-BASE-010`.
 
 The approved migration may change public brand strings and fact-preserving caption/attribution copy. A visible first-party creator label may change from `robot-wiki` to `Robot Wiki` while preserving factual authorship. Other article text and accessible names remain baseline-identical unless explicitly approved.
 
@@ -894,7 +894,7 @@ The approved migration may change public brand strings and fact-preserving capti
 
 Tektur roles use measurable registered instances. The default approved home-wordmark instance is `wght=600`, `wdth=100`; shell wordmark, page h1, article h1, section display, and display numerals each receive registered values. The static OG TTF maps to one registered instance. `cmap` and glyph-probe validation covers every assigned string with no per-glyph fallback. Only the four first-party role families are permitted; KaTeX math and licensed functional icon fonts/systems are scoped exceptions.
 
-The fixed spacing ladder is `4, 8, 12, 16, 24, 32, 48, 64, 96, 128`. Page padding is at least 20px mobile, 32px tablet, and 48px desktop. Major sections separate by 48–80px mobile and 64–128px desktop. Related controls use 4–12px gaps; component interiors use 12–24px. Desktop frames remain 1280–1440px and reading columns 62–68ch. Canvas-derived dimensions and one-pixel optical corrections require registered reasons. Page h1, section, UI, and data ranges are those sealed in `VAL-B2-TYPE-*` and `VAL-B2-SPACE-*`.
+The fixed spacing ladder is `4, 8, 12, 16, 24, 32, 48, 64, 96, 128`. Page padding is at least 20px mobile, 32px tablet, and 48px desktop. Major sections separate by 48–80px mobile and 64–128px desktop. Related controls use 4–12px gaps; component interiors use 12–24px. Desktop frames remain 1280–1440px and reading columns 62–68ch. Canvas-derived dimensions and one-pixel optical corrections require registered reasons. Page h1, section, UI, and data ranges are those sealed in `DI-TYPE-*` and `DI-SPACE-*`.
 
 ### 29.3 Registries and semantic state
 

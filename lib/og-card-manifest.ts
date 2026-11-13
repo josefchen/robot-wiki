@@ -1,5 +1,5 @@
 /**
- * The Open Graph renderer-input manifest (VAL-B2-OG-011, VAL-B2-OG-012).
+ * The Open Graph renderer-input manifest (DI-OG-011, DI-OG-012).
  *
  * For every card the manifest records each painted string with the card
  * field it carries, the canonical source it was derived from and that

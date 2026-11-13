@@ -52,13 +52,13 @@ export const metadata: Metadata = {
   // The '%s | Robot Wiki' template must stay in lockstep with
   // SITE_TITLE_SUFFIX in lib/search.ts, which strips the site name off
   // Pagefind result titles; the default is the SEO home title while the
-  // site-level description stays the locked descriptor (VAL-B2-ID-002).
+  // site-level description stays the locked descriptor (DI-ID-002).
   title: {
     default: HOME_SEO_TITLE,
     template: `%s | ${PUBLIC_IDENTITY}`,
   },
   description: PUBLIC_DESCRIPTOR,
-  // Author identity (VAL-DIST-009): declared once in the root layout so
+  // Author identity: declared once in the root layout so
   // every route inherits meta[name=author] (a route-level metadata object
   // replaces only the keys it declares; authors is never overridden).
   // The value must stay byte-identical with the footer occurrence and the
@@ -75,14 +75,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     // routeOpenGraph re-declares type/url/siteName and the build-time PNG
-    // site card (VAL-DIST-002/005); routes that declare their own
+    // site card; routes that declare their own
     // openGraph object replace this block, no deep merge.
     ...routeOpenGraph(SITE_DISPLAY_NAME),
     description: PUBLIC_DESCRIPTOR,
     locale: 'en_US',
   },
   // summary_large_image: the card is the 1.91:1 asset above, not a small
-  // square thumbnail (VAL-DIST-001).
+  // square thumbnail.
   twitter: {
     ...routeTwitter(SITE_DISPLAY_NAME),
     description: PUBLIC_DESCRIPTOR,

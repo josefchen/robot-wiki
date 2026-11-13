@@ -16,9 +16,9 @@ import {
 } from './static-export-server';
 
 /**
- * The encyclopedia front page (contract/opus-pass.md, VAL-OPUS-014 to 022)
- * and the /about/ page that took home's scope statement and reading guide
- * (VAL-WIKI-028). Served from the static export, because the counts, the
+ * The encyclopedia front page
+ * and the /about/ page that took home's scope statement and reading guide.
+ * Served from the static export, because the counts, the
  * featured pick and the dates are fixed when the page is built.
  *
  * Owner-approved successor (Josef, 12 November 2026, the home redesign):
@@ -50,7 +50,7 @@ const words = (value: string) => value.split(/\s+/).filter(Boolean);
 const squash = (value: string) => value.replace(/\s+/g, ' ').trim();
 const trimSlash = (href: string) => href.replace(/\/$/, '');
 
-/** The six blocks VAL-OPUS-022 permits in <main>, in order. */
+/** The six blocks the front page permits in <main>, in order. */
 const HOME_BLOCKS = [
   'Introduction',
   'Start here',
@@ -77,7 +77,7 @@ async function home(page: Page, width = 1440, height = 900) {
 }
 
 test.describe('home front page', () => {
-  test('opens with the identity line, registry counts and a search box that finds results (VAL-OPUS-014)', async ({
+  test('opens with the identity line, registry counts and a search box that finds results', async ({
     page,
   }) => {
     for (const [width, height] of [
@@ -125,7 +125,7 @@ test.describe('home front page', () => {
     const search = page.getByRole('searchbox', {
       name: 'Search articles, sources and glossary',
     });
-    // VAL-B2-COMP-004: the name is a persistent visible label, kept beside
+    // DI-COMP-004: the name is a persistent visible label, kept beside
     // the box at both stated widths, never an aria-label.
     await expect(search).not.toHaveAttribute('aria-label');
     const label = page.locator('label[for="home-search-input"]');
@@ -148,7 +148,7 @@ test.describe('home front page', () => {
     });
   });
 
-  test('the contents index links every published article under its domain (VAL-OPUS-015)', async ({
+  test('the contents index links every published article under its domain', async ({
     page,
   }) => {
     const main = await home(page);
@@ -187,7 +187,7 @@ test.describe('home front page', () => {
       }
     }
   });
-  test("starts the reader at the editor's four picks, each with its picture and a dek of 14 words or fewer (VAL-OPUS-016)", async ({
+  test("starts the reader at the editor's four picks, each with its picture and a dek of 14 words or fewer", async ({
     page,
   }) => {
     expect(`${HOME_FEATURED_PICKS[0].domain}/${HOME_FEATURED_PICKS[0].slug}`).toBe('world-models/taxonomy');
@@ -219,7 +219,7 @@ test.describe('home front page', () => {
     expect(response?.status(), href).toBe(200);
   });
 
-  test('sets the humanoid explainer beside the name on its poster and loads no 3D kit until the reader starts it (VAL-OPUS-017)', async ({
+  test('sets the humanoid explainer beside the name on its poster and loads no 3D kit until the reader starts it', async ({
     page,
   }) => {
     const scripts: string[] = [];
@@ -288,7 +288,7 @@ test.describe('home front page', () => {
     expect(await page.evaluate(() => document.getAnimations().filter((a) => a.playState === 'running').length)).toBe(0);
   });
 
-  test('"Did you know" holds three short facts, each cited and linked to the article that states it (VAL-OPUS-018)', async ({
+  test('"Did you know" holds three short facts, each cited and linked to the article that states it', async ({
     page,
     browser,
   }) => {
@@ -347,7 +347,7 @@ test.describe('home front page', () => {
     expect(alone).toEqual([]);
   });
 
-  test('"Latest" lists the five latest changes, each dated as its JSON-LD states or as its editor note (VAL-OPUS-019)', async ({
+  test('"Latest" lists the five latest changes, each dated as its JSON-LD states or as its editor note', async ({
     page,
     browser,
   }) => {
@@ -391,7 +391,7 @@ test.describe('home front page', () => {
   // home prose is everything but article titles, the three facts and
   // navigation labels, and it holds 250 words or fewer even with a full
   // ten-word note on every "Latest" row.
-  test('<main> holds 250 words of prose or fewer beside article titles, facts and navigation, and no ornament (VAL-OPUS-021)', async ({
+  test('<main> holds 250 words of prose or fewer beside article titles, facts and navigation, and no ornament', async ({
     page,
   }) => {
     const main = await home(page);
@@ -459,7 +459,7 @@ test.describe('home front page', () => {
     expect(await highlight.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe('rgba(0, 0, 0, 0)');
   });
 
-  test('home holds only the six front-page blocks and none of the removed texts (VAL-OPUS-022)', async ({
+  test('home holds only the six front-page blocks and none of the removed texts', async ({
     page,
   }) => {
     const main = await home(page);
@@ -478,7 +478,7 @@ test.describe('home front page', () => {
     for (const removed of REMOVED_TEXTS) expect(text).not.toMatch(removed);
   });
 
-  test('/about/ holds the scope statement, the reading guide and the citation caveat (VAL-WIKI-028, VAL-OPUS-022)', async ({
+  test('/about/ holds the scope statement, the reading guide and the citation caveat', async ({
     page,
   }) => {
     const response = await page.goto(`${BASE}/about/`);

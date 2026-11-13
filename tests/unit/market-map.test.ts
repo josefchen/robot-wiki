@@ -28,7 +28,7 @@ import {
 } from '@/lib/market-map';
 
 /**
- * Pure market-map logic (VAL-MKT-005/006/007/011/015/023/024/025).
+ * Pure market-map logic.
  * Filter composition, URL round-trip, timeline anchors, and the
  * null-funding-is-never-zero plot rule all live here so the UI can stay
  * thin.
@@ -47,7 +47,7 @@ describe('filterCompanies', () => {
     expect(hasActiveFilters(DEFAULT_MARKET_MAP_FILTERS)).toBe(false);
   });
 
-  it('filters segment=humanoids to exactly the humanoid companies (VAL-MKT-005)', () => {
+  it('filters segment=humanoids to exactly the humanoid companies', () => {
     const rows = filterCompanies(COMPANIES, filters({ segment: 'humanoids' }));
     const humanoids = COMPANIES.filter((company) => company.segment === 'humanoids');
     expect(humanoids.length).toBeGreaterThan(0);
@@ -56,14 +56,14 @@ describe('filterCompanies', () => {
     expect(hasActiveFilters(filters({ segment: 'humanoids' }))).toBe(true);
   });
 
-  it('filters country=US to US-headquartered companies only (VAL-MKT-005)', () => {
+  it('filters country=US to US-headquartered companies only', () => {
     const rows = filterCompanies(COMPANIES, filters({ country: 'US' }));
     expect(rows.length).toBeGreaterThan(0);
     expect(rows).toHaveLength(COMPANIES.filter((company) => company.hq.country === 'US').length);
     expect(rows.every((row) => row.hq.country === 'US')).toBe(true);
   });
 
-  it('intersects segment, country, and confidence (VAL-MKT-006)', () => {
+  it('intersects segment, country, and confidence', () => {
     const humanoidsUs = filterCompanies(
       COMPANIES,
       filters({ segment: 'humanoids', country: 'US' }),
@@ -90,7 +90,7 @@ describe('filterCompanies', () => {
     expect(high.length).toBeLessThan(humanoidsUs.length);
   });
 
-  it('filters acquired and shut-down statuses truthfully (VAL-MKT-022)', () => {
+  it('filters acquired and shut-down statuses truthfully', () => {
     const acquired = filterCompanies(COMPANIES, filters({ status: 'acquired' }));
     expect(acquired.map((row) => row.id)).toEqual(
       expect.arrayContaining([
@@ -119,7 +119,7 @@ describe('filterCompanies', () => {
     expect(shutDown.every((row) => row.status === 'dead')).toBe(true);
   });
 
-  it('treats IPO as companies whose latest round is an IPO (VAL-MKT-004)', () => {
+  it('treats IPO as companies whose latest round is an IPO', () => {
     const ipo = filterCompanies(COMPANIES, filters({ status: 'ipo' }));
     const expected = COMPANIES.filter((row) => row.latestRound?.type === 'IPO').map((row) => row.id);
     expect(expected.length).toBeGreaterThan(0);
@@ -128,7 +128,7 @@ describe('filterCompanies', () => {
     expect(ipo.map((row) => row.id)).not.toContain('ubtech-robotics');
   });
 
-  it('filters open-source contributions (VAL-MKT-004)', () => {
+  it('filters open-source contributions', () => {
     const open = filterCompanies(COMPANIES, filters({ openSource: 'yes' }));
     expect(open).toHaveLength(COMPANIES.filter((company) => company.openSource.length > 0).length);
     expect(open.every((row) => row.openSource.length > 0)).toBe(true);
@@ -141,7 +141,7 @@ describe('filterCompanies', () => {
     );
   });
 
-  it('can produce a zero-result intersection (VAL-MKT-017)', () => {
+  it('can produce a zero-result intersection', () => {
     const empty = filterCompanies(
       COMPANIES,
       filters({ segment: 'components-hardware', status: 'shut-down' }),
@@ -151,7 +151,7 @@ describe('filterCompanies', () => {
 });
 
 describe('dependent facets', () => {
-  it('narrows sub-segments to those present under an active segment (VAL-MKT-025)', () => {
+  it('narrows sub-segments to those present under an active segment', () => {
     const humanoidSubs = subSegmentOptions(COMPANIES, 'humanoids');
     const expectedSubs = [...new Set(COMPANIES.filter((row) => row.segment === 'humanoids').map((row) => row.subSegment))]
       .filter((sub): sub is string => typeof sub === 'string')
@@ -173,7 +173,7 @@ describe('dependent facets', () => {
 });
 
 describe('URL search params', () => {
-  it('round-trips filters and view through the query string (VAL-MKT-007)', () => {
+  it('round-trips filters and view through the query string', () => {
     const parsed = parseMarketMapSearch(
       '?segment=humanoids&country=US&confidence=high&view=bubble',
       COMPANIES,
@@ -191,7 +191,7 @@ describe('URL search params', () => {
     );
   });
 
-  it('ignores invalid params and falls back to the unfiltered grid (VAL-MKT-024)', () => {
+  it('ignores invalid params and falls back to the unfiltered grid', () => {
     const parsed = parseMarketMapSearch(
       '?segment=bogus&confidence=999&view=xyz',
       COMPANIES,
@@ -200,7 +200,7 @@ describe('URL search params', () => {
     expect(parsed.filters).toEqual(DEFAULT_MARKET_MAP_FILTERS);
   });
 
-  it('serializes the empty state as an empty query string (VAL-MKT-018)', () => {
+  it('serializes the empty state as an empty query string', () => {
     expect(
       serializeMarketMapSearch({
         view: 'grid',
@@ -336,7 +336,7 @@ describe('relaxFiltersForCompany', () => {
 });
 
 describe('money and unknown figures', () => {
-  it('formats known amounts without inventing zeros (VAL-MKT-011)', () => {
+  it('formats known amounts without inventing zeros', () => {
     expect(formatUsd(1_000_000_000)).toBe('$1B');
     expect(formatUsd(1_400_000_000)).toBe('$1.4B');
     expect(formatUsd(39_000_000_000)).toBe('$39B');
@@ -354,7 +354,7 @@ describe('money and unknown figures', () => {
 });
 
 describe('timelineEvents', () => {
-  it('covers 2023-2026 notable rounds including the five anchors (VAL-MKT-015)', () => {
+  it('covers 2023-2026 notable rounds including the five anchors', () => {
     const events = timelineEvents(COMPANIES);
     // One event per company whose latest round is dated inside the window.
     const dated = COMPANIES.filter((company) => {
@@ -461,7 +461,7 @@ describe('timelineEvents', () => {
 });
 
 describe('bubblePoints', () => {
-  it('never plots null funding as a fake zero (VAL-MKT-023)', () => {
+  it('never plots null funding as a fake zero', () => {
     const points = bubblePoints(COMPANIES);
     expect(points.length).toBeGreaterThan(0);
     expect(points.length).toBeLessThan(COMPANIES.length);
@@ -484,7 +484,7 @@ describe('bubblePoints', () => {
     }
   });
 
-  it('respects a filtered input set (VAL-MKT-008)', () => {
+  it('respects a filtered input set', () => {
     const humanoids = filterCompanies(
       COMPANIES,
       filters({ segment: 'humanoids' }),

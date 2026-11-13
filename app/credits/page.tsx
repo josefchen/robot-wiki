@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description: STANDALONE_SEO_DESCRIPTIONS.credits,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
-  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // page title so the card matches the rendered h1
   // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
@@ -113,7 +113,7 @@ export default function CreditsPage() {
         }}
       />
       {/* data-pagefind-body: Pagefind excludes every page that declares no
-          body region once one page declares one (VAL-SEARCH-021). Scoped
+          body region once one page declares one. Scoped
           to the header, so the licence list below stays out of the prose
           index: it is 40-odd repeated licence identifiers and creator
           names, which would crowd out real prose matches. */}
@@ -135,7 +135,7 @@ export default function CreditsPage() {
           unlicensed or unknown where no reuse grant exists. The site&apos;s
           own text and original diagrams are licensed CC BY 4.0.
         </p>
-        {/* Author identity (VAL-DIST-009): the /credits occurrence of the
+        {/* Author identity: the /credits occurrence of the
             owner-supplied name, byte-identical with meta[name=author] and
             the footer occurrence, linked to the external profile. */}
         <p className="mt-5 font-serif text-base leading-[1.62] text-text">
@@ -153,10 +153,10 @@ export default function CreditsPage() {
         </p>
       </header>
 
-      {/* About section (VAL-DIST-008): why this site exists, kept in its
+      {/* About section: why this site exists, kept in its
           own <section> so the licence list below stays the registry-
-          generated surface VAL-IMG-004 grades. The biography is rendered
-          from AUTHOR_BIO rather than restated in JSX, so the owner's
+          generated surface the image checks grade. The biography is rendered
+          from AUTHOR_BIO rather than restated in JSX, so the author's
           wording cannot drift here while lib/identity.ts changes. */}
       <section aria-labelledby="about-heading" className="mt-16">
         {/* Set as a supporting head, not the uppercase section head: the

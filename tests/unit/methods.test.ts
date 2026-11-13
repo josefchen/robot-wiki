@@ -6,8 +6,8 @@ import { getCitation } from '@/data/citations';
 import { filterMethods, DEFAULT_FILTERS } from '@/lib/methods';
 
 /**
- * The comparison-matrix data contract (VAL-MAN-031, VAL-MAN-032,
- * VAL-MAN-035): rows validate against the method schema, every row carries
+ * The comparison-matrix data contract: rows validate against the method
+ * schema, every row carries
  * at least one citation-registry source, and rows whose vendors publish no
  * architecture stay honestly null rather than guessed.
  */
@@ -35,7 +35,7 @@ describe('METHODS data', () => {
     expect(parsed.success).toBe(true);
   });
 
-  it('covers every row VAL-MAN-031 requires at minimum', () => {
+  it('covers every required row at minimum', () => {
     const ids = new Set(METHODS.map((m) => m.id));
     for (const id of REQUIRED_IDS) {
       expect(ids.has(id), `missing method row: ${id}`).toBe(true);
@@ -150,7 +150,7 @@ describe('filterMethods', () => {
     );
   });
 
-  it('partitions downloadable, unavailable and unverified weights (VAL-MAN-034)', () => {
+  it('partitions downloadable, unavailable and unverified weights', () => {
     const open = filterMethods(METHODS, {
       ...DEFAULT_FILTERS,
       weights: 'open',

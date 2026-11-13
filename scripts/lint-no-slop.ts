@@ -47,7 +47,7 @@ import { CITATIONS } from '../data/citations.ts';
 import { DOMAINS } from '../data/domains.ts';
 
 const sourceOnly = process.argv.includes('--source-only');
-// Report mode (VAL-HUMAN-001, VAL-MOTION-021/022, VAL-OPUS-122): print the
+// Report mode: print the
 // structural-tell rate for every article in all seven domains and enforce
 // 2/1k.
 // The same sweep also runs inside every normal invocation, so postbuild

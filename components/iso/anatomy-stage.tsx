@@ -41,7 +41,7 @@ type AnatomyStageProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   /**
    * The keys to the drawing's marks, first in the band under it. The
    * drawing carries no words, so a plotted series is named here, by an
-   * unboxed legend entry tied to it by id (VAL-B2-VIZ-004).
+   * unboxed legend entry tied to it by id (DI-VIZ-004).
    */
   keys?: readonly AnatomyKey[];
   /** Words the figure tells under its drawing before the hint (a step told in full), across the band. */

@@ -9,7 +9,7 @@ import {
 } from '@/lib/identity';
 
 /**
- * Site footer (VAL-DIST-006/007/009): the closing identity lockup over one
+ * Site footer: the closing identity lockup over one
  * quiet typographic line naming the author and linking the source
  * repository, rendered on every route by the shell, outside <main> and
  * <aside> so it resolves as a contentinfo landmark.
@@ -17,7 +17,7 @@ import {
  * The lockup is the same registered `shell-wordmark` role the header,
  * sidebar and drawer carry, at the chrome size rather than the home
  * display size: the reference board closes a sheet on the identity, and
- * VAL-DESIGN-022 requires the footer to render it. It is the navigation
+ * the design system requires the footer to render it. It is the navigation
  * item for "/", so it takes the shared focus control rather than a private
  * treatment. It carries no aria-current: the top bar lockup already marks
  * the current route, and a second marked "/" would put two current-route
@@ -28,7 +28,7 @@ import {
  * footer carries one quiet row of index routes and otherwise states only
  * what no other chrome does: whose site this is, who made it and where
  * the source lives. The author name is an anchor to the
- * external profile (VAL-DIST-009 clause c); the repository link's
+ * external profile; the repository link's
  * accessible name reads as a source destination, not an icon.
  */
 
@@ -57,7 +57,7 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
       data-site-footer
       className="relative mt-24 pt-px"
     >
-      {/* The closing rail every route shares (VAL-B2-GRID-002): the same
+      {/* The closing rail every route shares (DI-GRID-002): the same
           1px hairline the footer always drew, registered as the section
           rule it is and anchored to the footer's own top edge, so home,
           discovery, the market map and the playground each carry one

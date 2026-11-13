@@ -1,6 +1,6 @@
 /**
- * Mutation proof for the structural-tell floor of scripts/lint-no-slop.ts
- * (VAL-OPUS-122): for every domain, plants a fixture article carrying three
+ * Mutation proof for the structural-tell floor of scripts/lint-no-slop.ts:
+ * for every domain, plants a fixture article carrying three
  * not-X disclaimers per 1,000 words into a copy of content/, and requires the
  * lint (the same CLI, --report-structural) to exit non-zero naming that
  * fixture. The unplanted copy must pass. content/ itself is never written.

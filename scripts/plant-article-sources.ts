@@ -1,5 +1,5 @@
 /**
- * Mutation proof for scripts/check-article-sources.ts (VAL-OPUS-152): on a
+ * Mutation proof for scripts/check-article-sources.ts: on a
  * copy of content/, a fixture article cut to 29 distinct cited sources must
  * make the check exit non-zero naming its route and count; the clean copy
  * must exit zero. content/ itself is never written.

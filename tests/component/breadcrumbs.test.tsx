@@ -8,8 +8,8 @@ import {
 
 /**
  * The breadcrumb trail (components/article/breadcrumbs.tsx): Home > Domain >
- * Article on every published article, with BreadcrumbList structured data
- * (VAL-WIKI-016/017). The ancestor crumbs are real links; the current page
+ * Article on every published article, with BreadcrumbList structured data.
+ * The ancestor crumbs are real links; the current page
  * is the non-linked trailing crumb.
  */
 

@@ -91,7 +91,7 @@ describe('endpointDispersion', () => {
   const field = generateFlowField(7);
 
   it('is observably larger at 1-2 steps than at 5+ steps', () => {
-    // VAL-MAN-024 pass condition: the transported cloud visibly misses the
+    // Pass condition: the transported cloud visibly misses the
     // target distribution at very low step counts and concentrates by 5-10.
     const d1 = endpointDispersion(field, 1);
     const d2 = endpointDispersion(field, 2);

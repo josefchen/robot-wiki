@@ -1,5 +1,5 @@
 /**
- * The explainer console sweep (VAL-OPUS-046).
+ * The explainer console sweep.
  *
  *   node scripts/check-explainer-console.ts [--out out | --base-url URL] [--modes webgl,no-webgl,reduced-motion]
  *     [--log file.json]

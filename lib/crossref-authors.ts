@@ -1,5 +1,5 @@
 /**
- * Crossref author-metadata comparison (VAL-BUILD citation integrity).
+ * Crossref author-metadata comparison (citation integrity).
  *
  * The URL liveness sweep (check:links) and the document-identity audit
  * (check:citations) both trust Crossref for the paper a DOI resolves to, but

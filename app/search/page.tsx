@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
-  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // page title so the card matches the rendered h1
   // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     // The search sheet is the route's representative surface and declares
-    // its material (VAL-B2-SURF-011).
+    // its material (DI-SURF-011).
     <div
       data-pagefind-ignore
       {...materialAttributes('paper')}

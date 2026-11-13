@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: STANDALONE_SEO_DESCRIPTIONS.azIndex,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
-  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // page title so the card matches the rendered h1
   // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
@@ -72,14 +72,14 @@ export default function AzIndexPage() {
       />
       {/* data-pagefind-body: Pagefind excludes every page that declares no
           body region as soon as one page declares one, so this route was
-          unreachable by the sidebar's own "A-Z Index" label
-          (VAL-SEARCH-021, VAL-SEARCH-022). Scoped to the header rather
+          unreachable by the sidebar's own "A-Z Index" label.
+          Scoped to the header rather
           than the whole page: the alphabetical run is made of article
           titles and term names that all live on their own routes, and
           indexing them here would put this page in front of the article a
           reader was looking for. */}
       {/* The index's representative surface declares its material
-          (VAL-B2-SURF-011). */}
+          (DI-SURF-011). */}
       <header data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <h1 data-tektur-role="page-h1" className="display-h1 mt-6">
           A-Z Index
@@ -121,7 +121,7 @@ export default function AzIndexPage() {
           >
             {/* The jump-link and deep-link target for this letter group.
                 tabIndex={-1} makes fragment navigation move focus to the
-                heading (VAL-B2-DISC-005), so a keyboard reader arriving at
+                heading (DI-DISC-005), so a keyboard reader arriving at
                 /a-z/#letter-m starts inside that group rather than on the
                 body with no context. */}
             <h2
@@ -134,7 +134,7 @@ export default function AzIndexPage() {
             {/* The same rule rhythm the glossary and the domain landings
                 use: one hairline above the run and one under every entry,
                 so the alphabetical run reads as ruled index rows rather
-                than an unbounded stack of links (VAL-B2-DISC-006). The
+                than an unbounded stack of links (DI-DISC-006). The
                 section rule this replaces drew one line per letter group
                 only; the entries inside carried no rhythm of their own. */}
             <ul className="mt-4 list-none border-t border-border">

@@ -1,5 +1,5 @@
 /**
- * Geometry rules for the explainer stage labels (VAL-OPUS-043), shared by the step sweep
+ * Geometry rules for the explainer stage labels, shared by the step sweep
  * (scripts/check-explainer-labels.ts) and its unit tests.
  *
  * A stage label is an anchored label, the interaction prompt or the part card drawn over the stage.

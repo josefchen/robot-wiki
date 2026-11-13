@@ -26,7 +26,7 @@ describe('Tektur font delivery contract', () => {
   // Owner-approved successor (Josef, 2026-10-10, the research-page
   // standard): the web roles are DM Sans, Geist and Geist Mono; the offline
   // OG renderer keeps static Tektur and IBM Plex Mono, recorded per role.
-  it('registers exactly four first-party families (VAL-B2-TYPE-001, VAL-A11Y-014)', () => {
+  it('registers exactly four first-party families (DI-TYPE-001)', () => {
     expect(FIRST_PARTY_TYPE_ROLES).toEqual([
       { id: 'display', family: 'DM Sans', ogFamily: 'Tektur Variable' },
       { id: 'interface', family: 'Geist' },
@@ -35,7 +35,7 @@ describe('Tektur font delivery contract', () => {
     ]);
   });
 
-  it('registers measurable Tektur role instances and the exact OG mapping (VAL-B2-TYPE-015, VAL-B2-TYPE-016)', () => {
+  it('registers measurable Tektur role instances and the exact OG mapping (DI-TYPE-015, DI-TYPE-016)', () => {
     expect(TEKTUR_ROLE_INSTANCES).toEqual([
       // The display H1s set at 400, the wordmark, section heads and
       // numerals at 600 (app/globals.css). The OG Tektur SemiBold maps to
@@ -50,7 +50,7 @@ describe('Tektur font delivery contract', () => {
     expect(TEKTUR_OG_ROLE_ID).toBe('shell-wordmark');
   });
 
-  it('keeps assigned web and OG strings non-empty and code-point addressable (VAL-B2-TYPE-017)', () => {
+  it('keeps assigned web and OG strings non-empty and code-point addressable (DI-TYPE-017)', () => {
     expect(TEKTUR_ASSIGNED_STRINGS.length).toBeGreaterThan(0);
     expect(
       TEKTUR_ASSIGNED_STRINGS.every(
@@ -62,7 +62,7 @@ describe('Tektur font delivery contract', () => {
     ).toBe(true);
   });
 
-  it('inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)', () => {
+  it('inspects checksums, formats, axes, static mapping, and cmap coverage (DI-TYPE-011 through 017)', () => {
     const report = inspectTekturAssets();
     expect(report.failures).toEqual([]);
     expect(report.ok).toBe(true);

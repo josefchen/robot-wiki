@@ -6,7 +6,7 @@ import { IMAGES, figureKind, getImage, type SiteImage } from '@/data/images';
 import { mainViewSymbolHits } from '@/lib/figure-main-view';
 
 /**
- * VAL-OPUS-127: the original schematics are drawn inline in the shared
+ * The original schematics are drawn inline in the shared
  * figure frame, on the graphite stage with no plate of their own, in role
  * colours only, with their labels on the stage type scale. The registry
  * record (alt, credit, licence) is unchanged and names the drawing.

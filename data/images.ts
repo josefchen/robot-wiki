@@ -3516,7 +3516,7 @@ export function licenceLabel(image: SiteImage): string {
 
 /**
  * What the entry is. Declared on every editorial image; derived for the
- * market-map marks, whose hundred-odd rows are owned by `VAL-B2-MAP-010`
+ * market-map marks, whose hundred-odd rows are owned by `DI-MAP-010`
  * and are all the same kind by construction (they live under
  * `public/images/logos/` because they are company marks).
  */
@@ -3533,8 +3533,8 @@ export function figureKind(image: SiteImage): FigureKind {
  *
  * A company mark is not covered by the licence its file happens to carry.
  * §1.13 says "Company marks use `official-identification-use`" without
- * qualification, and `VAL-B2-IMG-008` calls it "the distinct
- * official-identification-use path in VAL-B2-MAP-010" that marks use ONLY.
+ * qualification, and `DI-IMG-008` calls it "the distinct
+ * official-identification-use path in DI-MAP-010" that marks use ONLY.
  * Falling back to the licence map published a mark carrying `apache-2.0`
  * as resting on `cc-by`, which is a claim about somebody else's trademark
  * that the contract does not let this repository make.
@@ -3547,7 +3547,7 @@ export function legalBasis(image: SiteImage): LegalBasis {
 /**
  * The byte/style preservation policy. A mark carries the same promise as an
  * external photograph: the shipped bytes are the retrieved bytes, and only
- * the contain-fit placement `VAL-B2-MAP-010` registers may differ.
+ * the contain-fit placement `DI-MAP-010` registers may differ.
  */
 export function preservationPolicy(image: SiteImage): PreservationPolicy {
   return image.preservationPolicy ?? 'external-bytes-preserved';

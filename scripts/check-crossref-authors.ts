@@ -1,5 +1,5 @@
 /**
- * Author-metadata sweep (VAL-BUILD citation integrity).
+ * Author-metadata sweep (citation integrity).
  *
  * For every citation in data/citations.ts it can reach, query an
  * authoritative metadata source and compare the registry entry's author

@@ -132,11 +132,10 @@ export async function generateMetadata({
     // Full openGraph and twitter blocks, restated because a route-level
     // object replaces the layout's for the same key (no deep merge).
     // og:title is the plain domain name: the card title must equal the
-    // page's rendered h1 (VAL-DIST-004), not the templated document
-    // title. Non-article destinations share the site-level card
-    // (VAL-DIST-003). og:url './' resolves against this route's own
-    // pathname, keeping canonical and og:url route-correct
-    // (VAL-BRAND-003).
+    // page's rendered h1, not the templated document
+    // title. Non-article destinations share the site-level card.
+    // og:url './' resolves against this route's own
+    // pathname, keeping canonical and og:url route-correct.
     openGraph: routeOpenGraph(meta.name),
     twitter: routeTwitter(meta.name),
   };
@@ -184,11 +183,11 @@ export default async function DomainLandingPage({
       {/* data-pagefind-body: once any page in the export declares a body
           region, Pagefind drops every page that does not, so each
           non-article destination has to name its own or stay invisible to
-          search (VAL-SEARCH-021). The region is the header and the module
+          search. The region is the header and the module
           list, excluding the breadcrumb chrome above it. */}
       <div data-pagefind-body>
         {/* The discovery representative surface declares its material
-            (VAL-B2-SURF-011). */}
+            (DI-SURF-011). */}
         <header {...materialAttributes('paper')} className="mb-16 material-paper">
           <h1 data-tektur-role="page-h1" className="display-h1">
             {meta.name}
@@ -204,7 +203,7 @@ export default async function DomainLandingPage({
           </p>
           {/* "Domain overview" is this page's link text in the Articles
               panel. The hidden prefix lets search find the page under that
-              label (VAL-SEARCH-022) without printing it a second time. */}
+              label without printing it a second time. */}
           <p className="meta-line mt-6 max-w-[960px]">
             <span className="sr-only">Domain overview: </span>
             {published.length} articles. {meta.readingOrder}

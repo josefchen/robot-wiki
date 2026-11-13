@@ -1,5 +1,5 @@
 /**
- * Build gate for VAL-OPUS-152: every published article cites at least 30
+ * Build gate: every published article cites at least 30
  * distinct sources inline. Entries sharing an arXiv id, a DOI or a
  * normalised URL count once. No exemption list.
  *

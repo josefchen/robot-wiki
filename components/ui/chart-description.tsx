@@ -6,7 +6,7 @@ import { TableScroll } from './table-scroll';
 import { NumberText } from './number-text';
 
 /**
- * The chart-description primitive (VAL-EDU-021..028).
+ * The chart-description primitive.
  *
  * Every retrofitted data chart renders its authored takeaway as real DOM
  * text a screen reader, the printer, Pagefind and the no-slop lint all
@@ -31,13 +31,13 @@ import { NumberText } from './number-text';
  *
  * Design constraints this component exists to hold:
  * - The <summary> is sentence case, never an uppercase letterspaced
- *   micro-label (VAL-DESIGN-010 caps those at 5 per audited page).
- * - The disclosure carries no border of its own (VAL-DESIGN-018 counts
+ *   micro-label (the design checks cap those at 5 per audited page).
+ * - The disclosure carries no border of its own (the design checks count
  *   full-width horizontal rules against a 2-per-article budget).
  * - Tables use min-w-[480px] inside the padded panel, not the house
  *   min-w-[560px]: the prose column is about 690px at 1440px and p-4/sm:p-5
  *   leaves about 543px, so the table scrolls inside its own overflow
- *   container instead of breaking the page width (VAL-EDU-028). There are
+ *   container instead of breaking the page width. There are
  *   no .prose table styles in globals.css, so the styles are carried here.
  * - Every size sits on the figure type scale (12 px headers, 14 px cells),
  *   in the brand sans.

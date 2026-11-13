@@ -1,5 +1,5 @@
 /**
- * Writes each explainer's poster (VAL-OPUS-045): its first step, settled, on the 16:10 desktop stage,
+ * Writes each explainer's poster: its first step, settled, on the 16:10 desktop stage,
  * with the labels and without the interaction prompt, on a transparent background. It captures under
  * reduced motion, after pressing Start, so a first step whose text names a looping motion gives the
  * same still every run: the moment the scene holds for readers who ask for less motion.

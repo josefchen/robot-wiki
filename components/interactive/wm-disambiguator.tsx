@@ -597,7 +597,7 @@ export function WmDisambiguator({
       source="Original schematic; the drawings are illustrative."
     >
       {/* The unselected families' drawings stay in the document, hidden and
-          aria-hidden: VAL-EDU-037 checks that exactly the selected one is
+          aria-hidden: the chart coverage sweep checks that exactly the selected one is
           exposed as an image. */}
       <div hidden>
         {WM_PARADIGMS.filter((p) => p.id !== selectedId).map((p) => (

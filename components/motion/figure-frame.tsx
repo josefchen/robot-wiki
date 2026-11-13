@@ -353,7 +353,7 @@ export function StageReadout({
 
 /**
  * The status label a toy, authored or illustrative figure keeps on its
- * stage, in the VAL-MOTION-016 vocabulary ("Illustrative, not measured").
+ * stage, in the shared status vocabulary ("Illustrative, not measured").
  * Only the label: the method and caveats behind it belong in "How this
  * was made".
  */

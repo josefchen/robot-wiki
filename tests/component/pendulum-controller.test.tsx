@@ -638,7 +638,7 @@ describe('PendulumController served HTML', () => {
   });
 });
 
-describe('PendulumController series encoding (VAL-B2-VIZ-002/004)', () => {
+describe('PendulumController series encoding (DI-VIZ-002/004)', () => {
   beforeEach(() => mockReducedMotion(false));
 
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {

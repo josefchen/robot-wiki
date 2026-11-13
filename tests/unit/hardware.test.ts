@@ -10,8 +10,8 @@ import {
 } from '@/lib/hardware';
 
 /**
- * The hardware buyer's guide data contract (VAL-DATA-011 through
- * VAL-DATA-016): rows validate against the hardware schema, all five
+ * The hardware buyer's guide data contract: rows validate against the
+ * hardware schema, all five
  * hardware families appear with multiple entries, every price carries an
  * explicit as-of date, unknown figures stay null rather than invented, and
  * every row cites at least one registered source.
@@ -36,7 +36,7 @@ describe('HARDWARE data', () => {
     }
   });
 
-  it('covers all five hardware families with multiple entries (VAL-DATA-013)', () => {
+  it('covers all five hardware families with multiple entries', () => {
     for (const category of CATEGORIES) {
       const count = HARDWARE.filter((e) => e.category === category).length;
       expect(
@@ -46,7 +46,7 @@ describe('HARDWARE data', () => {
     }
   });
 
-  it('gives every row at least one source in the citation registry (VAL-DATA-014)', () => {
+  it('gives every row at least one source in the citation registry', () => {
     for (const entry of HARDWARE) {
       expect(entry.sources.length).toBeGreaterThan(0);
       for (const id of entry.sources) {
@@ -58,7 +58,7 @@ describe('HARDWARE data', () => {
     }
   });
 
-  it('attaches an as-of date to every listed price (VAL-DATA-012)', () => {
+  it('attaches an as-of date to every listed price', () => {
     for (const entry of HARDWARE) {
       if (entry.priceUsd !== null) {
         expect(
@@ -114,7 +114,7 @@ describe('HARDWARE data', () => {
     expect(atlas?.priceUsd).toBeNull();
   });
 
-  it('keeps unpublished figures null instead of guessed (VAL-DATA-015)', () => {
+  it('keeps unpublished figures null instead of guessed', () => {
     // Tesla has released no Optimus 3 spec sheet or price.
     const optimus = HARDWARE.find((e) => e.id === 'tesla-optimus-3');
     expect(optimus?.priceUsd).toBeNull();
@@ -179,7 +179,7 @@ describe('filterHardware', () => {
     );
   });
 
-  it('filters each hardware family (VAL-DATA-013)', () => {
+  it('filters each hardware family', () => {
     const arms = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
       category: 'arm',
@@ -212,7 +212,7 @@ describe('filterHardware', () => {
     expect(compute.length).toBe(6);
   });
 
-  it('partitions listed prices into buckets and keeps unlisted out (VAL-DATA-012)', () => {
+  it('partitions listed prices into buckets and keeps unlisted out', () => {
     const cheap = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
       price: 'under-1k',
@@ -336,7 +336,7 @@ describe('filterHardware', () => {
     expect(unknown.every((e) => e.dof === null)).toBe(true);
   });
 
-  it('filters by availability and composes with price (VAL-DATA-016)', () => {
+  it('filters by availability and composes with price', () => {
     const buyable = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
       availability: 'buy',

@@ -36,7 +36,7 @@ describe('search titles', () => {
   });
 
   it('leads every title with its search term', () => {
-    // VAL-OPUS-023 accepts the H1 topic or the first intent query; the head
+    // The title may lead with the H1 topic or the first intent query; the head
     // term is the description's anchor and usually the same phrase.
     const h1s = new Map<string, string>([
       ...publishedModules().map((m) => [`/${m.domain}/${m.slug}/`, m.title] as [string, string]),

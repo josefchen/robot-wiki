@@ -9,7 +9,7 @@ import {
 } from '@/lib/interactive-data-kinds';
 
 /**
- * The series evidence for VAL-B2-VIZ-002/004, read in jsdom from the
+ * The series evidence for DI-VIZ-002/004, read in jsdom from the
  * rendered SVG attributes. jsdom resolves no SVG
  * presentation attributes into computed style, so fill and dash are read
  * from the mark or the nearest ancestor that sets them, the way the

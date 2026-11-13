@@ -87,7 +87,7 @@ type ControlSpec = {
   /** Plain words for the two slider ends. */
   ends: [string, string];
   /** Sourcing note under the slider; every default is sourced or an
-   * explicitly labelled assumption (VAL-DATA-034). */
+   * explicitly labelled assumption. */
   note: string;
 };
 
