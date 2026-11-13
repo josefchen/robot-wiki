@@ -26,7 +26,6 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import {
-  COLLECTION_RATES,
   DEFAULT_RIGS,
   FRONTIER_HOURS,
   LLM_POINTS,
@@ -386,7 +385,7 @@ export function DataScaleChart({
                   your robots, one year
                 </LegendItem>
               </InstrumentLegend>
-              <StageStatus>Illustrative: chosen collection rates, not a measured farm.</StageStatus>
+              <StageStatus>Illustrative model</StageStatus>
             </>
           }
         >
@@ -576,37 +575,16 @@ export function DataScaleChart({
           </PlotStage>
         </FigureStage>
       }
-      caption={`Robot data is tiny beside chatbot text: ${robotsWord} ${rigs === 1 ? 'needs' : 'need'} ${durationInWords(goalYears)} for ${goal.toLocaleString('en-US')} hours; more robots or busier ones cut the wait.`}
+      caption="Robot data is tiny beside chatbot text; more robots or busier ones cut the wait."
       method={
         <>
           <p>
-            The two panels use separate rulers because there is no honest exchange rate between an
-            hour of robot practice and a token of text, so none is drawn. A token is a piece of a
-            word: GPT-3 trained on {LLM_POINTS[0].value} and Llama 3 on{' '}
-            {LLM_POINTS[1].value}. Both rulers are logarithmic: each labeled step is ten times the
-            one before.
+            Hours and tokens sit on separate log rulers: no honest exchange rate links them.
           </p>
-          <div data-testid="rate-explanation">
-            <p>
-              {rate.note} The 10,000-hour and 1,000,000-hour targets are authored hypothetical
-              inputs, not OXE totals or measured frontier requirements. Hours marked &quot;about&quot; on
-              dataset points are estimates. Hours marked &quot;over&quot; are totals Xiaomi and Generalist
-              report for their own models; neither company has released the data, so no one outside
-              can count them.
-            </p>
-            <ul className="list-disc space-y-1 pl-5">
-              {COLLECTION_RATES.map((r) => (
-                <li key={r.id}>
-                  {RATE_PRESETS.find((preset) => preset.id === r.id)!.label} ({r.label},{' '}
-                  {r.hoursPerRigYear.toLocaleString('en-US')} h/rig/yr): {r.note}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <p>
-            Current projection: {formatRigs(rigs)} rigs at {formatHours(perYear)}/yr, 10,000 h in{' '}
-            {formatDuration(targetYears)} and 1,000,000 h in {formatDuration(largerTargetYears)}. No
-            OXE hour estimate is supplied or plotted here.
+          <p data-testid="rate-explanation">
+            Rates and targets are authored hypothetical inputs, not a measured DROID productivity
+            rate; Xiaomi and Generalist report the &quot;over&quot; totals, and neither company has
+            released the data.
           </p>
           <p>
             Sources for each count:{' '}

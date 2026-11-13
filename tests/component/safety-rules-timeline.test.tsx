@@ -51,7 +51,7 @@ describe('SafetyRulesTimeline', () => {
     expect(kicker).toBe('Robot safety rules by date');
     expect(heading).toBe('Learned safety parts come under EU law in January 2027');
     expect(caption).toBe(
-      'Industrial standards were renewed in 2025 and the humanoid draft has no next date, while EU rules for learned safety parts start in 2027.',
+      'Industrial standards renewed in 2025; the humanoid draft has no next date; EU rules for learned safety parts start in 2027.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
@@ -72,9 +72,8 @@ describe('SafetyRulesTimeline', () => {
     for (const id of ['industrial', 'humanoid', 'learning']) {
       expect(screen.getByTestId(`safety-summary-${id}`).closest('dl')).toBe(main);
     }
-    expect(screen.getByText(/Regulated products include machinery, medical devices/).closest('details')).toBeNull();
     expect(screen.getByText(/Separate 2028 AI Act rule/).closest('details')).toBeNull();
-    expect(screen.getByText(/Separate 2028 AI Act rule/)).toHaveTextContent('AI safety components or AI products requiring independent health or safety assessment under product laws.');
+    expect(screen.getByText(/Separate 2028 AI Act rule/)).toHaveTextContent('AI in products that need independent safety checks.');
     expect(container.querySelector('[data-figure-fold="method"]')).toHaveTextContent('the product must require a third-party assessment concerning health or safety');
   });
 

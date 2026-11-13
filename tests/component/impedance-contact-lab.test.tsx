@@ -34,7 +34,7 @@ describe('ImpedanceContactLab served HTML', () => {
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
     expect(lines).toContain(
-      'Pick an arm and how stiff it is, then press: a force-controlled arm set soft enough spares the glass.Peak push 23.7 newtons · just under the crushing force',
+      'Pick an arm and how stiff it is, then pressPeak push 23.7 newtons · just under the crushing force',
     );
     // The pain limit is off the gauge's scale; it is stated, with its citation, in the method fold.
     expect(lines.some((line) => /pain limit|Han et al/i.test(line))).toBe(false);
@@ -262,7 +262,7 @@ describe('ImpedanceContactLab pressing again', () => {
     await waitFor(() => expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Pressing, slowed for the eye'), { timeout: 2000 });
     expect(readout()).toMatch(/^Pressing · /);
     await waitFor(() => expect(readout()).toBe('Peak push 34.7 newtons · past the crushing force'), { timeout: (PRESS_SECONDS + 2) * 1000 });
-    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Pick an arm and how stiff it is, then press: a force-controlled arm set soft enough spares the glass.');
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Pick an arm and how stiff it is, then press');
     expect(screen.getByTestId('impedance-crack').style.opacity).toBe('1');
   }, 30_000);
 });

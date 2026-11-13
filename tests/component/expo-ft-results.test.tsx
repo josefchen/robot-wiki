@@ -55,10 +55,9 @@ describe('ExpoFtResults', () => {
     expect(container.querySelector('[data-expo-lead-row]')).not.toBeNull();
   });
 
-  it('keeps the method notes and the full table, with the HIL-SERL caveat, in How this was made', () => {
+  it('keeps the full table, with the HIL-SERL caveat, in How this was made', () => {
     const { container } = render(<ExpoFtResults />);
     const method = container.querySelector('details[data-figure-fold="method"]')!;
-    expect(method).toContainElement(screen.getByTestId('expo-ft-methods'));
     expect(method.querySelector('[data-chart-description]')?.textContent).toMatch(
       /randomizes a substantially larger initial-state space/,
     );

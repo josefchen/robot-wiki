@@ -20,9 +20,6 @@ export function WorldModelEvaluationLadder({ className }: { className?: string }
       heading="Five tests that realistic video alone cannot pass"
       stage={
         <FigureStage>
-          <p className="font-sans text-sm leading-snug text-text">
-            A world model is good enough to choose between policies only if it ranks them the way real trials do. Good-looking video is no evidence of that.
-          </p>
           <PlotStage className="mx-auto max-w-xl" viewBox="0 0 340 282" aria-label="Five-rung world-model evaluation ladder" aria-describedby={descriptionId} data-testid="world-model-evaluation-ladder-stage">
             <line x1="12" x2="12" y1="24" y2="252" stroke={roleColour('reference')} strokeWidth={CHART_STROKE.reference} />
             {EVALUATION_RUNGS.map((rung, i) => (
@@ -40,20 +37,16 @@ export function WorldModelEvaluationLadder({ className }: { className?: string }
               <text x="36" y="226" data-scene-readout="">{SIMFOUNDRY_EVALUATION.tasks} tasks, {SIMFOUNDRY_EVALUATION.architectures} policy types</text>
             </g>
           </PlotStage>
-          <p className="font-sans text-sm leading-snug text-text-dim">A policy is the program that chooses a robot&apos;s actions. SimFoundry rebuilds real scenes in a physics simulator. A correlation near 1 means simulated and real success rates rise together; 0 means no straight-line link.</p>
+          <p className="font-sans text-sm leading-snug text-text-dim">Correlation near 1: simulated and real success rates rise together.</p>
 
         </FigureStage>
       }
-      caption="Each use needs its own test: a model that makes realistic video can still ignore the action or rank policies wrongly."
+      caption="Realistic video can still ignore the action or rank policies wrongly."
       method={
         <>
           <div>
-            Original guide to the five questions this article asks, assembled from separate studies.
-            WorldEval tests action-following predictions, WorldModelBench checks physical violations, and WorldGym uses a separate vision-language reward scorer.
-            SimFoundry supplies a physics-simulation reference for the fourth rung: its zero-shot evaluations across seven tasks and five policy architectures
-            report mean Pearson correlation {SIMFOUNDRY_EVALUATION.pearson} and mean maximum rank violation {SIMFOUNDRY_EVALUATION.mmrv}.
-            Pearson measures linear agreement in success rates; rank violation measures how much the ordering disagrees, with zero ideal.
-            Neither number is a success percentage or proof of safety. V-JEPA 2 tests real reaching, grasping and pick-and-place with its model in the loop for the final question.
+            Original guide; rung 4 uses SimFoundry&apos;s physics-simulation result, mean Pearson correlation {SIMFOUNDRY_EVALUATION.pearson} and mean maximum rank violation {SIMFOUNDRY_EVALUATION.mmrv}.
+            Neither number is a success percentage or proof of safety.
           </div>
           <ChartDescription open id={descriptionId} form="state" summary="The question at each rung" description={EVALUATION_LADDER_DESCRIPTION} states={EVALUATION_RUNGS.map((rung, i) => ({ label: `${i + 1}. ${rung.label}`, value: rung.question }))} />
         </>

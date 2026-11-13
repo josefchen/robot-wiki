@@ -140,7 +140,7 @@ describe('JepaPlanning', () => {
     expect(note?.textContent).toContain('Each step tries 24 moves and keeps');
     expect(note?.textContent).toContain('closest to the goal');
     expect(container.querySelectorAll('[data-figure-annotation]')).toHaveLength(1);
-    expect(screen.getByTestId('plan-note')).toHaveTextContent('Each step tries 24 moves and keeps the one that lands closest to the goal; more options make a straighter path');
+    expect(screen.getByTestId('plan-note')).toHaveTextContent('Each step tries 24 moves and keeps the one closest to the goal');
     const kept = container.querySelectorAll('[data-candidate="kept"]');
     expect(kept).toHaveLength(1);
     expect(kept[0]!.querySelector('[data-lit]')).not.toBeNull();

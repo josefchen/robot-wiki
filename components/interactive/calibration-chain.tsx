@@ -428,18 +428,8 @@ export function CalibrationChain({ className }: { className?: string }) {
       method={
         <>
           <div>
-            The drawing is a schematic. Each arrow is a link between two frames, places the robot keeps
-            track of; the dot marks the spot on the box the hand must reach, and the robot base is
-            where the drawn robot arm stands. To find the box,
-            the robot chains robot base to wrist,
-            wrist to camera and camera to box. It places the gripper through robot base to wrist and
-            wrist to hand, the gripper tip. An error on any of these links moves where the gripper lands
-            relative to the box. Calibration measures each link.
-          </div>
-          <div>
-            Each number comes from a different study and robot: a humanoid&apos;s kinematics, a wrist
-            camera&apos;s CAD values and a Kinect depth sensor. The numbers show the size of error each
-            link can carry, not one robot&apos;s error budget.
+            Each arrow links two frames, and an error on any link moves where the gripper lands. The numbers
+            come from different studies and robots, not one robot&apos;s error budget.
           </div>
           <ul className="list-disc space-y-1 pl-5" data-testid="calibration-chain-sources">
             {LINKS.map((link) => (
@@ -453,10 +443,6 @@ export function CalibrationChain({ className }: { className?: string }) {
               </li>
             ))}
           </ul>
-          <div>
-            The article recommends storing each calibration together with its residuals, the error left
-            over after calibrating.
-          </div>
           <ChartDescription
             id={descriptionId}
             form="table"

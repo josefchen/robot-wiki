@@ -54,14 +54,12 @@ export function ModelBasedLoop({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="The model scores each possible action by its predicted reward, a measure of task progress, and real outcomes then retrain the model."
+      caption="The model scores each action by predicted reward, and real outcomes then retrain the model."
       method={
         <>
           <div>
-            Original schematic of the online TD-MPC2 pattern. Its encoder represents observations; learned dynamics predict future states;
-            reward and terminal-value predictions score candidate trajectories. The planner executes the first action and replans from the next observation.
-            Training samples recorded transitions from replay data. The diagram compresses collection and learning into one loop; model updates need not follow every action.
-            Offline deployment can hold the model fixed, and imagination-trained policies can move planning work into training.
+            Original schematic of the online TD-MPC2 pattern: the planner executes the first action and replans from the next observation.
+            Training samples replay data, so model updates need not follow every action.
           </div>
           <ChartDescription open id={descriptionId} form="state" summary="Each step in the loop" description={MODEL_BASED_LOOP_DESCRIPTION} states={MODEL_BASED_LOOP.map(step => ({ label: step.label, value: step.detail.join(' ') }))} />
         </>

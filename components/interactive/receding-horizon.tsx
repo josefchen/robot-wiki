@@ -461,7 +461,7 @@ export function RecedingHorizon({
               <span data-testid="rh-replan-readout">{rateWords(replanRateHz(clamped.ta))}</span>
             </>
           }
-          status="Schematic: each tape row is one move; dots mark planned positions, and the blue line joins executed moves."
+          status="Schematic, not a recorded run"
           data-testid="rh-stage-frame"
         >
           <IsoFigure width={WIDTH} height={HEIGHT} label={label} describedBy={descriptionId}>
@@ -509,21 +509,13 @@ export function RecedingHorizon({
           </IsoFigure>
         </AnatomyStage>
       }
-      caption={tailSteps > 0 ? `Acting on only the first ${secondsWords(commitDurationS(clamped.ta))} of each plan lets the robot correct course often while its motion stays smooth.` : `Without replanning, the robot follows all ${secondsWords(commitDurationS(clamped.tp))} of each plan blind and cannot react to surprises.`}
+      caption={tailSteps > 0 ? `Acting on the first ${secondsWords(commitDurationS(clamped.ta))} of each plan keeps motion smooth and lets the robot correct course often.` : `Without replanning, the robot follows all ${secondsWords(commitDurationS(clamped.tp))} of each plan blind and cannot react to surprises.`}
       method={
         <>
           <p>
-            This is receding-horizon control. Each plan predicts T_p actions and the robot executes the
-            first T_a before it plans again; the rest of each plan is replaced by the next plan and never
-            executed. The presets use the Diffusion Policy setting, T_p = {defaults.tp} and T_a ={' '}
-            {defaults.ta} at {CONTROL_HZ} Hz: 1.25 replans a second and 0.8 s committed per plan.
-            &quot;Never rethink&quot; sets both to {MAX_TP}, so the robot runs each plan open-loop. Now T_p ={' '}
-            {clamped.tp}, T_a = {clamped.ta}: {replanRate} replan rate, {committed} committed per plan.
-          </p>
-          <p>
-            The bench is a schematic, not a recorded run: one row of tape is one planned step, the hole
-            across a row is where that step moves, and the path the holes follow is made up. Running, it
-            moves three times slower than ten steps a second.
+            Each plan predicts T_p actions; the robot executes the first T_a, drops the rest and plans
+            again. The preset is Diffusion Policy&apos;s T_p = {defaults.tp}, T_a = {defaults.ta} at{' '}
+            {CONTROL_HZ} Hz, drawn as a schematic tape bench.
           </p>
           <ChartDescription
             id={descriptionId}

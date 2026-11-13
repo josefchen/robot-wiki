@@ -157,9 +157,9 @@ export function NoiseOrEdit({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="The pear-shaped wheel represents a fixed movement model. Its dark strip marks every peg position it can produce."
+          hint="The frozen wheel's dark strip marks every peg position it can reach"
           readout={readoutFor(mode, pose)}
-          status="Noise is a random starting guess for a move. An edit shifts the final movement beyond the wheel's range. Illustrative mechanism."
+          status="Illustrative mechanism"
           data-testid="noise-or-edit-stage-frame"
         >
           <div data-testid="noise-or-edit-drawing" data-mode={mode} data-deg={r2(pose.deg % 360)} data-edit={r2(pose.edit)} data-drop={r2(pose.drop)} data-phase={pose.phase} data-landed={landed}>
@@ -180,29 +180,13 @@ export function NoiseOrEdit({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="DSRL only picks the starting noise, so it stays within the base policy's moves; EXPO edits the move itself and can reach past them."
+      caption="DSRL only picks the starting noise, so it stays within the base policy's moves; EXPO edits past them."
       method={
         <>
-          <p>
-            A diffusion or flow policy turns a noise sample into an action. DSRL keeps the pretrained policy frozen
-            and runs RL over that noise. Dong and Finn give the cost: whatever noise is chosen, the result is still
-            an action the model already knows how to produce, so a skill the model never learned cannot be found
-            that way. EXPO instead pairs the base policy with a lightweight edit policy that shifts actions toward
-            higher value, keeping each edit small, and the base keeps training on the edited actions that worked.
-          </p>
           <p id={drawingId}>
-            The drawing is that difference on a cam bench. The frozen cam is the base policy and the dial on the
-            stand at the front, belted to the camshaft, is its noise. The follower rides the cam and pushes the
-            slide, so the follower&apos;s place is the action: whatever the dial reads, the lit peg lands on the
-            darker strip in the fixture plate, between the cam&apos;s lowest and highest lift. The hole the task
-            needs is just past the strip. With the micrometer locked (noise only), the best the search can do is
-            turn the cam&apos;s nose to the follower, and the peg still drops short. With the edit free, the same
-            setting plus a small turn of the micrometer moves the peg past the strip and into the hole.
-          </p>
-          <p>
-            Schematic: one action, an illustrative cam, hole and edit, and no number is measured. In Dong and
-            colleagues&apos; comparison on six real tasks, EXPO-FT reached 30 of 30 trials on average, where DSRL
-            averaged 19 of 30.
+            The drawing is that difference on a cam bench. The frozen cam is the base policy and its dial
+            the noise: any dial setting drops the lit peg on the darker strip, and only the micrometer
+            edit moves it past, into the hole.
           </p>
         </>
       }

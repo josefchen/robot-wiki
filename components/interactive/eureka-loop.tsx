@@ -435,23 +435,14 @@ export function EurekaLoop({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A robot in training repeats whatever earns it points, so an AI reads each result and fixes rules that reward the wrong thing."
+      caption="A language model reads each training result and rewrites the scoring rules that reward the wrong thing."
       method={
         <>
           <div className="text-text-dim">Eureka loop, scripted replay</div>
-          <p>
-            Scripted replay of the Eureka loop (propose reward code, train, select on fitness, reflect, mutate)
-            with made-up teaching data, not a recording of a real Eureka run.
-            In Eureka a language model writes reward code for the task, a policy trains on each candidate, a
-            task-fitness score picks the best, and the model reflects on per-term training statistics before writing
-            the next generation. Task: {EUREKA_TASK}.
-          </p>
           <p id={drawingId}>
-            The drawing is that loop as a bench. Each round&apos;s rules are punched into a card, one notch on its top
-            edge for each rule the reward code pays or charges for: raw speed, being near the target speed, staying
-            up, a fall, jerky moves. The reader&apos;s pins drop into the notches, the robot runs, and the logger writes
-            its speed on a ribbon that feeds back into the writer: a spike that ends in a fall within half a second,
-            a flat line at almost zero for the full 20 seconds, then a line along the 1.0 meters a second target.
+            The drawing is that loop as a bench, replayed with made-up data: each round&apos;s reward rules are punched
+            into a card, and a ribbon carries the robot&apos;s speed back. Fitness is the 0 to 1 score after training
+            for {EUREKA_TASK}.
           </p>
           <InstrumentReadout className="flex flex-wrap gap-x-4 gap-y-1">
             <span data-testid="generation-readout">
@@ -464,7 +455,6 @@ export function EurekaLoop({ className }: { className?: string }) {
               </span>
             </span>
           </InstrumentReadout>
-          <p>Fitness is the task score after training with this reward, from 0 to 1; the scores here are illustrative.</p>
           <div className="text-text-dim">Scripted reward statistics</div>
           {/* Capped below the column width: wider, its dividers count as full-width
               rules against the article's two-rule bound. */}

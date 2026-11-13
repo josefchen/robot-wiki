@@ -34,7 +34,7 @@ describe('AvSafetyMiles', () => {
     expect(275e6 / (100 * 25 * 24 * 365)).toBeCloseTo(12.5, 0);
   });
 
-  it('leads with the kicker, the takeaway headline and a caption under 25 words', () => {
+  it('leads with the kicker, the takeaway headline and a caption of at most 20 words', () => {
     const { container } = renderFigure();
     const kicker = container.querySelector('[data-figure-kicker]')?.textContent ?? '';
     const heading = container.querySelector('[data-figure-title]')?.textContent ?? '';
@@ -42,11 +42,11 @@ describe('AvSafetyMiles', () => {
     expect(kicker).toBe('Miles needed to prove safety');
     expect(heading).toBe('Matching human drivers takes 275 million miles without a death');
     expect(caption).toBe(
-      "Driving 275 million miles without a death would show, at 95% confidence, that a fleet's death rate is no higher than US human drivers'.",
+      "Driving 275 million miles without a death shows, at 95% confidence, a death rate no higher than US human drivers'.",
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
-    expect(words(caption)).toBeLessThanOrEqual(25);
+    expect(words(caption)).toBeLessThanOrEqual(20);
     const confidence = screen.getByTestId('av-confidence-summary');
     expect(confidence).toHaveTextContent("No higher than the study's US human-driver benchmark");
     expect(confidence.closest('details')).toBeNull();
@@ -60,11 +60,9 @@ describe('AvSafetyMiles', () => {
     expect(screen.getByTestId('av-upper-limit')).toHaveTextContent("No higher than the study's US human-driver benchmark");
     expect(screen.getByTestId('av-confidence-coverage').previousElementSibling?.textContent).toBe("No higher than the study's US human-driver benchmark");
     expect(screen.getByTestId('av-required-run')).toHaveTextContent(/^Required fleet run at 95% confidence\s*275 million miles 0 deaths$/);
-    expect(screen.getByTestId('av-rare-event-explanation')).toHaveTextContent("Under the study's per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.");
-    expect(screen.getByTestId('av-rare-event-explanation').closest('details')).toHaveAttribute('data-figure-fold', 'method');
-    expect(screen.getByTestId('av-model-assumptions')).toHaveTextContent('hypothetical test with a fixed distance and zero deaths');
-    expect(screen.getByTestId('av-model-assumptions')).toHaveTextContent('independent miles with the same failure probability on every mile');
-    expect(screen.getByTestId('av-model-assumptions')).toHaveTextContent('2013 US benchmark includes all motor vehicles');
+    expect(screen.getByTestId('av-model-assumptions').closest('details')).toHaveAttribute('data-figure-fold', 'method');
+    expect(screen.getByTestId('av-model-assumptions')).toHaveTextContent('Each mile is an independent pass-or-fail trial against 2013 US rates');
+    expect(screen.getByTestId('av-model-assumptions')).toHaveTextContent('The 12.5 years assume 100 cars at 25 miles per hour, around the clock.');
     expect(screen.getByTestId('av-confidence-coverage').closest('details')).toBeNull();
     expect(screen.getByTestId('av-confidence-coverage')).toBeVisible();
     expect(screen.getByTestId('av-upper-limit')).toContainElement(screen.getByTestId('av-confidence-coverage'));
@@ -74,7 +72,7 @@ describe('AvSafetyMiles', () => {
     const method = container.querySelector('details[data-figure-fold="method"]')!;
     fireEvent.click(method.querySelector('summary')!);
     expect(method).toHaveAttribute('open');
-    expect(screen.getByTestId('av-rare-event-explanation')).toBeVisible();
+    expect(screen.getByTestId('av-model-assumptions')).toBeVisible();
   });
 
   it('places each benchmark on the ten-times ruler, deaths in the accent with the fleet note', () => {

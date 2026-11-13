@@ -21,7 +21,7 @@ import {
 } from '@/components/iso/figures/latency-corridor';
 import {
   AGILITY_STEPS,
-  DEFAULT_AGILITY, INTERACTIVE_MAX_LATENCY_MS, OBSTACLE_RADIUS_M, SENSORS,
+  DEFAULT_AGILITY, INTERACTIVE_MAX_LATENCY_MS, SENSORS,
   latencyOutcome, formatSpeed, formatSeconds,
 } from '@/lib/aerial-latency';
 
@@ -49,7 +49,7 @@ export const SENSE_AVOID_SCENE: SceneDefinition = {
     {
       id: 'camera',
       linear: true,
-      caption: 'With an ordinary camera, the drone flies about 1.3 meters before the wall is reported, then swerves in time at about 69 km/h.',
+      caption: 'An ordinary camera reports the wall after about 1.3 meters; the drone swerves in time at about 69 km/h.',
     },
     {
       id: 'delay',
@@ -105,7 +105,7 @@ export function senseAvoidDistances(latencyS: number) {
 const QUICK_DIST = senseAvoidDistances(STEREO.latencyS);
 
 /** The method note: the model and what is authored rather than measured. */
-export const SENSE_AVOID_METHOD_NOTE = `The starting model is Falanga, Kim and Scaramuzza's: an ${STEREO.rangeM} m sensing range, ${DEFAULT_AGILITY} m/s² of sideways agility and the stereo camera's ${formatSeconds(STEREO.latencyS)} latency, which give ${formatSpeed(QUICK.maxSpeedMs)}. The slow camera's ${INTERACTIVE_MAX_LATENCY_MS} ms is a delay chosen for this figure; it gives ${formatSpeed(SLOW.maxSpeedMs)}. Both drones swerve for the same fixed avoidance duration of about ${formatSeconds(QUICK.avoidanceTimeS)}, which depends only on the agility and the ${OBSTACLE_RADIUS_M} m it must move sideways. The figure above lets you set the delay directly, under "Adjust more".`;
+export const SENSE_AVOID_METHOD_NOTE = `Falanga, Kim and Scaramuzza's model at ${STEREO.rangeM} m range and ${DEFAULT_AGILITY} m/s² gives ${formatSpeed(QUICK.maxSpeedMs)} for the stereo camera's ${formatSeconds(STEREO.latencyS)}; the slow camera's ${INTERACTIVE_MAX_LATENCY_MS} ms is a delay chosen for this figure and gives ${formatSpeed(SLOW.maxSpeedMs)}. Both swerves last about ${formatSeconds(QUICK.avoidanceTimeS)}.`;
 
 // ------------------------------------------------------------------ the rig
 const RIG = buildCorridor({ tracks: 2 });
@@ -372,18 +372,6 @@ export function SenseAvoid({ className }: { className?: string }) {
       statusLine="illustrative"
       method={<>
         <p data-testid="sense-avoid-method">{SENSE_AVOID_METHOD_NOTE}</p>
-        <p>
-          Ordinary camera: {formatSeconds(STEREO.latencyS)} delay, {formatSpeed(QUICK.maxSpeedMs)}, about{' '}
-          {QUICK_DIST.blindM.toFixed(1)} m flown before the report. Slow camera:{' '}
-          {INTERACTIVE_MAX_LATENCY_MS} ms delay, {formatSpeed(SLOW.maxSpeedMs)}, about{' '}
-          {senseAvoidDistances(SLOW_LATENCY_S).blindM.toFixed(1)} m. Speeds on the dials are the same values in km/h.
-        </p>
-        <p>
-          The drawing is the flight-test corridor of the figure above, with two lanes: each drone sits on
-          its test carriage at the light gate, where its camera first sees the wall 8 m ahead, with its timer
-          wheel set to the camera&apos;s delay. The gauge board in front is to scale along the 8 m, one track
-          per lane; the drones are drawn larger than that scale.
-        </p>
         <p>The four steps, in order:</p>
         <ol>
           {SENSE_AVOID_SCENE.beats.map((beat) => <li key={beat.id}>{beat.caption}</li>)}

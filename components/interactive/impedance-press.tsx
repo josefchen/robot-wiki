@@ -81,7 +81,7 @@ export function displayHintFor(spring: SpringId, target: number): string {
   if (displayedTarget === 0) return 'Target and tool meet the surface with no gap, so there is no push.';
   const push = pushFor(spring, displayedTarget);
   const pushWords = Number.isInteger(push) ? String(push) : push.toFixed(1);
-  return `The surface stops the tool. Stiffness ${springOf(spring).rate} times a target gap of ${displayedTarget} ruler marks gives ${pushWords} dial marks of push.`;
+  return `Stiffness ${springOf(spring).rate} times a ${displayedTarget}-mark target gap gives ${pushWords} dial marks of push.`;
 }
 
 /** The target's height is a virtual reference on the tool's line, not another physical part. */
@@ -179,7 +179,7 @@ export function ImpedancePress({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint={displayHintFor(spring, displayedTarget)}
           readout={displayReadoutFor(spring, displayedTarget)}
-          status="Schematic ruler and dial marks, with no physical units: springs give 1, 2 or 4 dial marks per ruler mark."
+          status="Schematic marks, no physical units"
           className="@container/press"
           style={{ overflow: 'visible' }}
           data-testid="press-stage-frame"
@@ -518,21 +518,10 @@ export function ImpedancePress({ className }: { className?: string }) {
           </div>
           </div>
           <p>
-            An impedance action is a target pose plus a stiffness and a damping, and a controller under the policy
-            turns the gap between the target and the tool into a push. Hogan&apos;s impedance law says exactly that:
-            at rest the push is the stiffness times the gap, and the damping only acts while the tool moves.
+            Hogan&apos;s impedance law: at rest, push equals stiffness times the gap between target and tool.
           </p>
           <p id={drawingId}>
-            The press is that law made of parts. The crosshead and its depth rod carry the target; the rod&apos;s tip,
-            read on the column&apos;s ruler, is where the policy asked the tool to be. The tool hangs from the arm on a
-            spring. In free space nothing stops the tool, so it rides on the target and the scale reads nothing. Once
-            the target passes the pan, the pan stops the tool, the arm keeps going, the nut lifts off the arm, and the
-            spring is squeezed by the gap. The dial reads the push: the spring&apos;s rate times the gap. The same
-            target pushes four times as hard through the stiff spring as through the soft one.
-          </p>
-          <p>
-            Illustrative: the three springs push 1, 2 and 4 dial marks per ruler mark of gap, and no force in newtons
-            is claimed. On a robot the spring is in the controller, and the policy can change it at every step.
+            The press is that law made of parts: the rod carries the target, the spring squeezes by the gap, and the dial reads the push.
           </p>
         </>
       }

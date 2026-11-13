@@ -447,7 +447,7 @@ export function ActionTokenization({
               and is written as <span data-testid="tok-token-readout">word {bin}</span>
             </>
           }
-          status="Illustrative: a made-up movement, not recorded robot data."
+          status="Illustrative, made-up movement"
           data-testid="tok-stage-frame"
         >
           <IsoFigure width={WIDTH} height={HEIGHT} label={stageLabel} describedBy={descriptionId}>
@@ -528,29 +528,20 @@ export function ActionTokenization({
           </div>
         </AnatomyStage>
       }
-      caption={`Rounding each of a move's seven numbers to one of ${BIN_COUNT} levels turns the move into seven words a language model can write.`}
+      caption={`Rounding each of a move's seven numbers to one of ${BIN_COUNT} levels turns it into seven writable words.`}
       method={
         <>
           <p>
-            In the symbols robotics papers use, the seven motions are Δx, Δy and Δz (forward/back,
-            left/right, up/down), Δroll, Δpitch and Δyaw (roll, tilt, turn) and grip (open/close).
-            Each is a number on [{VALUE_MIN}, {VALUE_MAX}], cut into {BIN_COUNT} uniform bins, and
-            each bin is one vocabulary token. Now: {ACTION_DIMS[dim].label} = {value.toFixed(3)} at
-            step {step}, bin {bin} of {BIN_COUNT - 1}, token {token};{' '}
+            Each of the seven motions (Δx, Δy, Δz, Δroll, Δpitch, Δyaw, grip) is a number on [{VALUE_MIN},{' '}
+            {VALUE_MAX}] cut into {BIN_COUNT} uniform bins, one token per bin. Now: {ACTION_DIMS[dim].label} ={' '}
+            {value.toFixed(3)} at step {step}, bin {bin} of {BIN_COUNT - 1}, token {token};{' '}
             <span data-testid="tok-error-readout">
               reconstructs to {center.toFixed(4)} (error {signed(error)})
             </span>
             .
           </p>
           <p data-testid="decode-order">
-            {SEQUENTIAL_DECODES} sequential decodes per control step: token n+1 cannot start until
-            token n has been emitted.
-          </p>
-          <p>
-            A toy chunk with fixed [{VALUE_MIN}, {VALUE_MAX}] bounds and synthetic token labels, after
-            the action tokenization of RT-1, RT-2 and OpenVLA; the token names are stand-ins, not any
-            model&apos;s real vocabulary. The racks are a schematic: one notch is one bin, and the close-up
-            magnifies the {ZOOM_BINS} bins around the chosen one.
+            {SEQUENTIAL_DECODES} sequential decodes per control step: token n+1 waits for token n.
           </p>
           <ChartDescription
             id={descriptionId}

@@ -39,7 +39,7 @@ describe('ExcavatorPractice', () => {
     render(<ExcavatorPractice />);
     const svg = screen.getByTestId('excavator-drawing').querySelector('svg')!;
     expect(document.getElementById(svg.getAttribute('aria-describedby') ?? '')).toHaveTextContent(
-      /^The drawing is that loop on a practice yard\./,
+      /^The drawing shows the learning loop on a practice yard:/,
     );
   });
 

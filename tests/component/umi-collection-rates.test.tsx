@@ -33,7 +33,7 @@ describe('UmiCollectionRates', () => {
     );
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(caption).toBe(
-      "Arranging cups, the UMI gripper recorded 111 demonstrations an hour, about three times the spacemouse rate (35) and half the bare-hand rate (231).",
+      "Arranging cups, the UMI gripper recorded 111 demonstrations an hour: about three times spacemouse teleoperation, half the bare hand.",
     );
     expect(caption.split(/\s+/).length).toBeLessThanOrEqual(25);
   });

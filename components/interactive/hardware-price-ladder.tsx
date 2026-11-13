@@ -71,7 +71,7 @@ const range = (points: PricedPoint[]) =>
   `from ${usd(points[0].priceUsd)} (${points[0].label}) to ${usd(points[points.length - 1].priceUsd)} (${points[points.length - 1].label})`;
 
 const HEADING = `Listed prices: arms ${usd(ARMS[0].priceUsd)} to ${usd(ARMS[ARMS.length - 1].priceUsd)}, humanoids ${usd(HUMANOIDS[0].priceUsd)} to ${usd(HUMANOIDS[HUMANOIDS.length - 1].priceUsd)}`;
-const CAPTION = 'The cheapest listed humanoid costs less than a WidowX AI research arm, and several humanoid makers publish no price or do not sell openly.';
+const CAPTION = 'The cheapest listed humanoid undercuts a WidowX AI arm; several humanoid makers list no price or do not sell openly.';
 const DESCRIPTION = `Listed prices of ${LADDER_POINTS.length} robot products on a ruler that steps by ten times: arms ${range(ARMS)}, humanoids ${range(HUMANOIDS)}, and robot computers ${range(COMPUTERS)}. EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.`;
 
 function Strip({ index, points }: { index: number; points: PricedPoint[] }) {
@@ -203,15 +203,8 @@ export function HardwarePriceLadder({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Each dot is one product at the price its maker or seller lists, read from the buyer&apos;s guide
-            above, which dates each price. The ruler steps by ten times. Trossen&apos;s prices end in
-            95 cents, dropped here; LimX lists the Oli at ¥158,000 at launch, about $21,800; NVIDIA&apos;s
-            Jetson Thor prices are per module in 1,000-unit orders.
-          </div>
-          <div>
-            Left off: parts lists (the SO-101 and Koch builds, the LEAP Hand), prices only others report (the
-            Noetix Bumi, the GelSight Mini and DIGIT sensors), and rows the guide gives no price, among them
-            AgiBot A2 and Agility Digit 5, which sell through sales contact or as a service.
+            Each dot is one maker or seller list price, dated in the buyer&apos;s guide above, on a ruler that steps by
+            ten. Parts lists, prices only others report and unpriced rows are left off.
           </div>
           <ChartDescription
             id={descriptionId}

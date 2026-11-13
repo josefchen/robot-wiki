@@ -88,7 +88,6 @@ import {
 
 const DEFAULT_PARAMS_B = PI0_ANCHOR.paramsB;
 const SERVER = LATENCY_REFERENCES.find((ref) => ref.id === 'pi0-h100')!;
-const THOR = LATENCY_REFERENCES.find((ref) => ref.id === 'pi0-thor')!;
 
 type Computer = 'server' | 'robot';
 const COMPUTER_PRESETS: ReadonlyArray<{ id: Computer; label: string }> = [
@@ -107,7 +106,7 @@ type ControlLoopBudgetProps = {
 
 /** The one line under the drawing that says what to watch. */
 export const HINT =
-  'One swing is one beat · a token is a fresh order · at an empty pocket the blue feeler drops in and the arm reuses its last order';
+  'Empty pocket: the blue feeler drops in and the arm reuses its last order';
 
 /** The pose the server, the first render and reduced motion draw. */
 export const stillPose = (inferenceMs: number) => poseAt(inferenceMs, STILL_T);
@@ -481,7 +480,7 @@ export function ControlLoopBudget({
           viewWidth={WIDTH}
           hint={HINT}
           readout={readoutOf(inferenceMs, stillPose(inferenceMs))}
-          status="Illustrative teaching model of predicted timings, slowed down"
+          status="Illustrative teaching model, slowed down"
           data-testid="beat-feeder-stage"
         >
           <p className="mb-2 font-sans text-[14px] leading-normal text-text" data-testid="control-time-comparison">
@@ -495,46 +494,11 @@ export function ControlLoopBudget({
       caption={loopCloses(inferenceMs) ? "This computer chooses a move before the next motor command is due." : `This computer takes ${(inferenceMs / CONTROL_PERIOD_MS).toFixed(1)} command intervals to choose a move; the arm must wait or reuse old orders.`}
       method={
         <>
-          <p data-testid="clb-machine-note">
-            The arm in this figure runs a {CONTROL_HZ} Hz control loop, so a command is due every{' '}
-            {Math.round(CONTROL_PERIOD_MS)} ms. The drawing is that loop made of parts. Each swing of the
-            pendulum lets the star wheel on the axle, and the pocket wheel with it, step one pocket: one
-            beat. The press at the left is the model. One turn of its flywheel is one inference call, and
-            the policy is asked again as soon as it answers, so a token, a fresh order, rolls into the
-            pocket under the press each time a call ends. On the robot&apos;s own computer a call takes{' '}
-            {strokeBeats(THOR.ms).toFixed(1)} beats, so the first beats of each call pass with no fresh
-            order; a faster call fills every pocket. At the next pocket the blue feeler drops onto each
-            pocket as it arrives: on a token it stops, and in an empty pocket it falls in and the arm
-            repeats its last order. The tokens ride on over the wheel as a record of the last {RECORD}{' '}
-            beats and tip into the bin at the bottom, so the share of filled pockets is the share of
-            beats with a fresh order, {freshPerSecond(inferenceMs)} of every {CONTROL_HZ} at the current
-            setting. The machine runs slowed down, about {(BEAT_S * 1000).toFixed(0)} ms of screen time
-            for each {Math.round(CONTROL_PERIOD_MS)} ms beat. Real systems hide this wait with action
-            chunks and asynchronous execution, described further down the article.
-          </p>
-          <p>
-            The two presets are VLA-Perf v1 roofline predictions for π0, not measurements:{' '}
-            {formatRefMs(SERVER.ms)} on an H100 server and {formatRefMs(THOR.ms)} on a Jetson Thor,
-            both at BF16/FP16 with three cameras, ten denoising steps, a chunk of 50 and no network.
-            The other cited latencies in &ldquo;Adjust more&rdquo;: the π0.6 model card reports
-            63 ms per chunk on an H100 with five denoising steps; the real-time chunking paper
-            measured 108.76 ms (±2.34 ms) mean total on a non-mobile robot over a wired LAN with an
-            RTX 4090 at bfloat16, and 138.98 ms (±6.71 ms) on a mobile robot (model 96.89, network
-            21.20, image resize 11.22, other 9.67 ms). The π0.7 paper trains with up to 12
-            simulated ticks of delay at 50 Hz, a 240 ms training-delay setting rather than a
-            measured latency.
-          </p>
           <p data-testid="model-assumption-note">
-            Illustrative teaching model, not hardware profiling. VLA-Perf v1 models 2.7B π0 at 52.57 ms
-            and hypothetical 9.1B π0-L at 3.9 Hz; this figure deliberately places the first reference at 3.0B.
-          </p>
-          <p>
-            The model-size slider follows a teaching curve on the robot&apos;s own computer: linear
-            below the π0 reference (modeled) at {PI0_ANCHOR.paramsB.toFixed(1)}B, a power law up to
-            the π0-L hypothetical at {PI0L_ANCHOR.paramsB}B. Neither rule is a hardware measurement or
-            a size limit. The inference rate in the readout, {Math.round(hz)} answers a second at
-            the current setting, is the reciprocal of one call&apos;s latency, not the rate at which
-            the robot&apos;s controller runs.
+            Illustrative teaching model, not hardware profiling: the presets are VLA-Perf v1 roofline
+            predictions, which model 2.7B π0 at 52.57 ms and hypothetical 9.1B π0-L at 3.9 Hz, and this
+            figure deliberately places the first reference at 3.0B. The size slider is linear below the
+            π0 reference (modeled) and a power law up to the π0-L hypothetical.
           </p>
           <ChartDescription
             id={descriptionId}

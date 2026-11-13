@@ -443,18 +443,12 @@ export function HierarchyTimescales({
       method={
         <>
           <p>
-            Each row is one level of the robot&apos;s control hierarchy, slowest at the top, drawn on
-            one 2-second clock. A tick marks an update: a new instruction, a new subtask, a new
-            chunk of actions, a new motor command. {system.name} ({system.org}): {system.pattern}
+            Each row is one level of control, slowest at the top, on one 2-second clock; a tick is an
+            update. {system.name} ({system.org}): {system.pattern}
           </p>
           <p>
-            Some rates are stated by the source; the rest are drawn. A rate marked
-            &ldquo;Schematic&rdquo; in &ldquo;Adjust more&rdquo; is a local drawing assumption, and
-            so is the single task instruction at t = 0. The fastest lane, {fastest.label} at{' '}
-            {fastest.rate}, ticks {ratioText} times during one {slowest.label} update{' '}
-            {updateRatePhrase(slowest)}. A lane with more than {MAX_DISPLAY_TICKS} updates in the 2
-            seconds is drawn with evenly spaced ticks so the marks stay apart; its counts in
-            &ldquo;Adjust more&rdquo; are the full ones.
+            Rates marked &ldquo;Schematic&rdquo; and the single instruction at t = 0 are drawing
+            assumptions; a lane with over {MAX_DISPLAY_TICKS} updates is drawn with evenly spaced ticks.
           </p>
           <ChartDescription
             id={descriptionId}

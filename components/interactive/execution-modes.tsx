@@ -436,7 +436,7 @@ export function ExecutionModes({ className }: { className?: string }) {
               pause {waitWords(deadMs)} · lurch {naivePeak.toFixed(2)} · blend {rtcPeak.toFixed(2)} · speed-change limit {JERK_LIMIT.toFixed(2)}
             </>
           }
-          status="Lanes, back to front: pause, lurch, blend. Gauges: speed changes between commands, 0.02 second apart, on an illustrative scale. Red cross: limit exceeded."
+          status="Illustrative scale; red cross: over limit"
           data-testid="em-stage-frame"
         >
           <IsoFigure width={TRACK_WIDTH} height={TRACK_HEIGHT} label={trackLabel} describedBy={descriptionId}>
@@ -470,27 +470,11 @@ export function ExecutionModes({ className }: { className?: string }) {
       caption="A robot that gets a new plan mid-motion can stop, lurch, or blend the two; blending keeps it moving smoothly."
       method={
         <>
-          <p>
-            Each lane is the commanded velocity of one arm around a single chunk hand-off: the old
-            chunk runs out at the dashed line and the new one, computed during the thinking delay,
-            takes over. Pausing (synchronous execution) slows to rest, waits out the delay and
-            starts again, so it costs dead time rather than a jump. Switching at once (a naive
-            switch) applies the whole disagreement between the stale plan and the fresh one in one
-            20 ms tick. Real-time chunking keeps the moves already under way for the length of the
-            delay, then eases into the new plan.
-          </p>
-          <p>
-            The velocity-step readouts in &quot;Adjust more&quot; read each lane against a{' '}
-            {JERK_LIMIT.toFixed(2)} per-tick limit. With no delay all three lanes coincide: the new
-            plan is ready the tick the old one ends, so the synchronous lane has nothing to wait
-            for.
-          </p>
           <p data-testid="execution-assumption-note">
-            Illustrative hand-off traces, not an RTC solver or measured robot data, in arbitrary units. The 0.30
-            per-tick limit is a discontinuity proxy, not physical jerk. The sine-shaped plan, delay-dependent
-            offset, four-tick ramps and five-tick linear blend are teaching assumptions, not the paper&apos;s
-            inpainting algorithm. RTC (arXiv:2506.07339) motivates overlapping inference and execution; these
-            curves do not reproduce its experiments or guarantee safety.
+            Illustrative hand-off traces, not an RTC solver or measured robot data, in arbitrary units;
+            the 0.30 per-tick limit is a discontinuity proxy, not physical jerk. The sine-shaped plan,
+            delay-dependent offset, four-tick ramps and five-tick linear blend are teaching assumptions,
+            and the curves follow RTC but do not reproduce its experiments or guarantee safety.
           </p>
           <ChartDescription
             id={descriptionId}

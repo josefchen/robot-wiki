@@ -246,7 +246,7 @@ export function KinematicTwin({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint="Drag the lit handle; the robot copies each joint"
           readout={readoutFor(arms.leader)}
-          status="Schematic: the copy is exact; sizes, stops and the run are illustrative"
+          status="Schematic: the copy is exact"
           data-testid="twin-stage-frame"
         >
           <div
@@ -281,29 +281,16 @@ export function KinematicTwin({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="The matching leader arm sends each joint angle straight to the robot, so a recorded demonstration is already the robot's own joint commands."
+      caption="The leader sends each joint angle straight to the robot, so a demonstration is already robot joint commands."
       method={
         <>
           <p>
-            GELLO is a scaled replica of the arm it drives, built from 3D-printed links and off-the-shelf motors, so
-            each joint&apos;s reading maps one to one onto the robot&apos;s command for the same joint, with no
-            translation in between. ALOHA&apos;s leader arm twins its follower the same way, which is why its
-            demonstrations arrive already in the robot&apos;s joint space. The price of the match is that every new
-            arm needs its own replica: GELLO&apos;s published designs cover Franka, UR5 and xArm.
+            GELLO and ALOHA build the leader as a scaled replica, so each joint reading maps one to one onto the
+            robot&apos;s command.
           </p>
           <p id={drawingId}>
-            The drawing is a leader and its robot on one bench. Both have a shoulder, an elbow and a wrist that keeps
-            the hand pointing down, in the same order, and every link of the small printed leader is the same share of
-            the robot&apos;s. Each shoulder and elbow faces you with a dial zeroed the same way on both arms: the
-            shoulder&apos;s reads up from level, the elbow&apos;s reads the bend down from the upper arm. The lit
-            handle is what the operator holds. The controller at the back passes the leader&apos;s readings to the
-            robot unchanged, so the robot&apos;s dials always settle on the leader&apos;s, and its hand traces the
-            leader&apos;s path at the robot&apos;s size.
-          </p>
-          <p>
-            Schematic: a real arm has six or seven joints, and the drawing shows three. The leader&apos;s size, the
-            joint stops, the run and the robot&apos;s short lag behind the leader are illustrative; the copy from
-            leader to robot is exact.
+            The drawing is a leader and its robot on one bench. It shows three of a real arm&apos;s six or seven
+            joints, each with a matching dial.
           </p>
         </>
       }

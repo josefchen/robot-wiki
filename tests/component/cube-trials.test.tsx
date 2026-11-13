@@ -22,7 +22,7 @@ describe('CubeTrials', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Sim-trained dexterity');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Simulation training led to at most two real solves");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "OpenAI taught the hand to solve in simulation; on the real cube it finished 2 of 10 trials with internal sensors, none with cameras.",
+      "Trained in simulation, the hand solved the real cube in 2 of 10 trials with internal sensors, none with cameras.",
     );
   });
 

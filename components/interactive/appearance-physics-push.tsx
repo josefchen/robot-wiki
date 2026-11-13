@@ -105,7 +105,7 @@ function sceneOf(layers: LayerState): Scene | null {
 function noteLines(layers: LayerState, mug: MugState): readonly [string, string] {
   if (!layers.physics) {
     return layers.appearance
-      ? ['Pushed, but it is only a picture:', 'no weight or friction, so it stays put']
+      ? ['Only a picture:', 'no weight or friction, so it stays put']
       : ['No picture and no physics:', 'there is nothing here to push'];
   }
   if (!layers.simulation) return ['Shape, weight and friction are there,', 'but no solver works out the motion'];
@@ -576,28 +576,14 @@ export function AppearancePhysicsPush({
         </>
       }
       stage={stage}
-      caption="AI can generate convincing 3D scenes, but a robot cannot train in them until someone adds shape, weight and friction underneath."
+      caption="A generated 3D scene is trainable only once someone adds shape, weight and friction underneath."
       method={
         <>
           <p>
-            The scene has three layers, drawn as a push bench. The picture is what a renderer or a
-            generative model draws: here, the light a projector throws onto the plate. The physics proxy
-            adds what a solver needs: the real mug, with its shape, a mass of {MASS_KG} kilograms and a
-            friction coefficient of {FRICTION_MU} at its felt pad. The simulation layer is the solver,
-            which turns each push into motion.
-          </p>
-          <p>
-            &quot;Picture plus physics&quot; sets the mug on the plate from its stand; &quot;Adjust
-            more&quot; switches each layer on its own. Each push is a set impulse held for {CONTACT_TIME_S} seconds, {newtons(defaultForceN)}{' '}
-            by default and {MIN_FORCE_N} to {MAX_FORCE_N} newtons with the push-strength slider, which
-            cocks the plunger further. Friction stops the mug after d = v&sup2;/(2&mu;g), so the default
-            push slides it {formatCentimetres(displacementForForce(defaultForceN))}; the bench plays the
-            slide {SLOW} times slower than real time. The table is {formatCentimetres(TRACK_MAX_M)} long
-            and the mug stops at its end.
+            The mug has a mass of {MASS_KG} kilograms and friction {FRICTION_MU}, chosen for this schematic; the bench plays the slide {SLOW} times slower than real time.
           </p>
           <p data-testid="push-test-note">
-            <span className="font-medium text-text">{note.title}.</span> {note.body} The numbers are
-            chosen for this schematic, not measured on a real mug.
+            <span className="font-medium text-text">{note.title}.</span> {note.body}
           </p>
           <ChartDescription
             id={descriptionId}

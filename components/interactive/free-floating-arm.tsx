@@ -15,16 +15,9 @@ import { PartView } from '@/components/iso/part-view';
 import { IsoFigure } from '@/components/iso/react/draw';
 import { asksForStillness, useInView } from '@/components/iso/react/live';
 import {
-  ARM_MASS,
-  BALLAST_BRICKS,
-  BRICK,
-  ETS_VII,
-  ETS_VII_RATIO,
   HEIGHT,
-  LAB,
   PARTS,
   PHONE_FIT,
-  Q2,
   SWING_DEGREES,
   WIDTH,
   bodyOf,
@@ -232,8 +225,6 @@ export function FreeFloatingArm({ className }: { className?: string }) {
   const swung = Math.round(SWING_DEGREES * target);
   const reached = target > 0.5;
   const parts = rigParts(body, s);
-  const lab = bodyOf('lab');
-  const ballast = bodyOf('ballast');
   const sources = {
     lab: 'https://ntrs.nasa.gov/citations/19900020580',
     paper: 'https://doi.org/10.1109/70.34766',
@@ -283,9 +274,9 @@ export function FreeFloatingArm({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Watch the blue hand: the post marks where the arm would put it if the body held still"
+          hint="Watch the blue hand; the post marks where a held body would put it"
           readout={readoutFor(body, s)}
-          status="Model of a 1989 lab rig; the heavier body adds two lead bricks for illustration"
+          status="1989 lab model; bricks illustrative"
           data-testid="floating-stage-frame"
         >
           <div
@@ -321,36 +312,13 @@ export function FreeFloatingArm({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A floating body turns against its arm, so the same shoulder swing puts the hand somewhere else; the heavier the body, the smaller the miss."
+      caption="A floating body turns against its arm, so the hand misses; the heavier the body, the smaller the miss."
       method={
         <>
           <p id={drawingId}>
-            The drawing is a laboratory air-bearing table: a granite slab on three leveling jacks, with a mock-up
-            spacecraft floating on three air pads, carrying its own gas bottle, battery and radio, and a two-link arm.
-            Nothing in the slab&apos;s plane pushes on the body, so it can slide and turn as it would in orbit. A tape
-            square marks where the body started, and a grapple fixture is bolted where the hand lands when the body is
-            held still. The shoulder swings {SWING_DEGREES} degrees with the elbow held at {Q2} degrees; the lit hand is
-            the part to watch.
-          </p>
-          <p>
-            The numbers are Umetani and Yoshida&apos;s own 1989 test model: a {lab.mass!.toFixed(1)} kg body with a
-            moment of inertia of {LAB.body.inertia} kg m² about its center, and two 0.35 m links of{' '}
-            {LAB.links[0].mass} and {LAB.links[1].mass} kg, {ARM_MASS.toFixed(2)} kg in all. The model is planar
-            conservation of momentum with everything starting at rest: the center of mass of the whole rig stays put,
-            and the body turns by whatever keeps the total angular momentum at zero while the shoulder swings, the rule
-            behind their generalized Jacobian. As built, the body turns {whole(resultOf('lab', 1).turn)} degrees and the
-            hand ends {Math.round(resultOf('lab', 1).miss * 100)} cm off; with {BALLAST_BRICKS} standard lead bricks of{' '}
-            {BRICK.mass} kg on its deck it weighs {ballast.mass!.toFixed(1)} kg, {Math.round(ballast.mass! / ARM_MASS)}{' '}
-            times its arm, and turns {whole(resultOf('ballast', 1).turn)} degrees; clamped down, it is a ground-based
-            arm and the hand lands on the grapple.
-          </p>
-          <p>
-            What resists the turn is the body&apos;s moment of inertia more than its mass: bricks on a small deck add
-            weight close to the center, so the turn only falls by a third. ETS-VII&apos;s {ETS_VII.body.toLocaleString('en-US')}{' '}
-            kg body outweighed its {Math.round(ETS_VII.arm)} kg, {ETS_VII.armLength} m arm about {Math.round(ETS_VII_RATIO)} to 1, and its moment of
-            inertia about the same axis was {ETS_VII.inertiaZ.toLocaleString('en-US')} kg m², which is why its arm
-            disturbed it far less. The bricks are this figure&apos;s illustration; real air-bearing tables are often
-            glass or granite, and their 1989 table was planar glass, 1.8 m square.
+            The drawing is a laboratory air-bearing table: a mock-up spacecraft with a two-link arm floats on three air
+            pads, free to slide and turn as in orbit. Masses and inertia are Umetani and Yoshida&apos;s 1989 test model,
+            and the body turns to keep total angular momentum at zero.
           </p>
           <p>
             Sources:{' '}

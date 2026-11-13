@@ -168,7 +168,7 @@ export function SafetyFilterFence({ className }: { className?: string }) {
         <AnatomyStage
           viewWidth={WIDTH}
           readout={readoutFor(t)}
-          status="Faint: the learned controller's proposed path. Dark: what the pen drew. The ring represents the separately checked filter. Schematic."
+          status="Schematic. Faint: proposed. Dark: drawn."
           data-testid="fence-stage-frame"
         >
           <div
@@ -199,31 +199,12 @@ export function SafetyFilterFence({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="The learned controller proposes moves; the separately checked filter preserves safe ones and makes the smallest change needed to keep unsafe ones outside."
+      caption="The filter passes safe moves unchanged and makes the smallest change that keeps unsafe ones out."
       method={
-        <>
-          <p>
-            A learned policy has no written specification to certify, so what ships puts something simple enough to
-            verify between the policy and the actuators. A safety filter is the formal version: a control barrier
-            function defines a set the system must stay inside and turns staying inside it into a constraint on
-            each command, and Wabersich and colleagues describe a filter that takes a proposed input from any source
-            and modifies it as little as necessary.
-          </p>
-          <p id={drawingId}>
-            The drawing is that rule as a bench. The sealed box, with no window and a tamper seal, stands for the
-            policy: it swings the arm, and the arm&apos;s spindle is where the policy aims. The pen hangs from the
-            spindle on a spring. The ring fence round the darker keep-out zone, lit, is the filter. Outside the
-            fence the pen sits under the spindle and draws the proposal unchanged. When the aim goes inside, the
-            fence stops the pen and the spring pulls it along the fence to the point nearest the aim: the smallest
-            change that keeps it out. The faint line is the proposal; the dark ink is what was drawn, and the two
-            differ only round the fence.
-          </p>
-          <p>
-            Schematic: the stroke, the zone and the bench are illustrative, and no number is claimed. A real filter
-            acts on commanded velocities or torques at every control step, against a set worked out from the
-            robot&apos;s dynamics; the least-change rule is the same.
-          </p>
-        </>
+        <p id={drawingId}>
+          The sealed box stands for the policy and the lit ring fence for the filter. Inside the fence the
+          pen stops at the edge point nearest the aim, the smallest safe change.
+        </p>
       }
       source="Rule from Ames and colleagues (2019) and Wabersich and colleagues (2023)."
     />

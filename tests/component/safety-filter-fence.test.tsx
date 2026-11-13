@@ -135,7 +135,7 @@ describe('SafetyFilterFence', () => {
     render(<SafetyFilterFence />);
     const svg = screen.getByTestId('fence-drawing').querySelector('svg')!;
     expect(document.getElementById(svg.getAttribute('aria-describedby') ?? '')).toHaveTextContent(
-      /^The drawing is that rule as a bench\. The sealed box, with no window and a tamper seal, stands for the policy/,
+      /^The sealed box stands for the policy and the lit ring fence for the filter\./,
     );
   });
 

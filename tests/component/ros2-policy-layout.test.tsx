@@ -67,7 +67,7 @@ describe('Ros2PolicyLayout', () => {
       'Separate parts let engineers test, stop or swap the AI without touching what moves the robot.',
     );
     expect(container.querySelector('[data-figure-status]')).toHaveTextContent(
-      'Schematic: one recommended layout, not a required one',
+      'Schematic: one recommended layout',
     );
   });
 

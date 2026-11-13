@@ -48,7 +48,7 @@ const UMI = rateOf(UMI_RATE_ID);
 const HAND = rateOf('bare-hand');
 const TELEOP = rateOf('spacemouse');
 
-const CAPTION = `Arranging cups, the UMI gripper recorded ${UMI} demonstrations an hour, about three times the spacemouse rate (${TELEOP}) and half the bare-hand rate (${HAND}).`;
+const CAPTION = `Arranging cups, the UMI gripper recorded ${UMI} demonstrations an hour: about three times spacemouse teleoperation, half the bare hand.`;
 const DESCRIPTION = `Demonstrations recorded per hour on UMI's cup-arrangement task: ${HAND} by bare hand with no robot, ${UMI} with the UMI handheld gripper and ${TELEOP} by spacemouse teleoperation of a robot. The UMI gripper ran at ${Math.round((UMI / HAND) * 100)} percent of bare-hand speed and ${(UMI / TELEOP).toFixed(1)} times the teleoperation rate.`;
 
 export function UmiCollectionRates({ className }: { className?: string }) {
@@ -140,8 +140,7 @@ export function UmiCollectionRates({ className }: { className?: string }) {
         <>
           <div>
             The UMI project site reports these rates for one task, arranging a cup. The bare hand records no
-            robot data; it is the speed the gripper is measured against. The spacemouse drives a robot arm
-            directly.
+            robot data and sets the speed to beat.
           </div>
           <ChartDescription
             id={descriptionId}

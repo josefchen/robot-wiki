@@ -96,16 +96,13 @@ export function CubeTrials({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="OpenAI taught the hand to solve in simulation; on the real cube it finished 2 of 10 trials with internal sensors, none with cameras."
+      caption="Trained in simulation, the hand solved the real cube in 2 of 10 trials with internal sensors, none with cameras."
       method={
         <>
           <div>
-            OpenAI trained the policy in simulation with automatic domain randomization, for a modified Shadow hand,
-            and ran it on the real hand. With a sensor cube reporting its face angles it completed one fixed
-            {` ${SUBGOALS}`}-subgoal scramble in two of ten trials; with vision for the face angles, in zero of ten.
-            The system used customized hardware, tuned torque limits and a calibrated hand simulation.
+            OpenAI trained the policy in simulation with automatic domain randomization and ran it on a modified Shadow
+            hand, on one fixed{` ${SUBGOALS}`}-subgoal scramble. Each square is one trial; filled squares finished.
           </div>
-          <div>Each square is one trial; filled squares are the trials that finished. The squares count, they do not order.</div>
           <ChartDescription
             id={descriptionId}
             form="table"

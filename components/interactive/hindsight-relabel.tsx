@@ -180,25 +180,9 @@ export function HindsightRelabel({ className }: { className?: string }) {
       method={
         <>
           <div>
-            With a sparse reward, 1 for reaching the goal and 0 otherwise, a robot that has never reached the goal
-            has nothing to learn from. Hindsight experience replay stores each step under its original goal and
-            under goals the robot did reach, recomputing the reward for each. Its simplest version uses the spot
-            reached at the end of the episode, as here; its future version samples spots reached later in the same
-            episode.
-          </div>
-          <div>
-            Andrychowicz and colleagues trained a simulated seven-joint Fetch arm on pushing, sliding and
-            pick-and-place; with the future version it learned all three, where the same learner without
-            relabelling did not. Relabelling needs a reward that can be recomputed for any goal. The push drawn here
-            is illustrative.
-          </div>
-          <div>
-            The drawing is a push test table. A robot arm at one end has pushed the puck across the felt, leaving a
-            chalk trail from the start mark to where it stopped. The goal the robot was given is printed on the felt
-            and marked by a pin. The goal the push is judged against is the lit hoop a gantry holds just above the
-            felt; the flag on the gantry&apos;s carriage stands up when the puck lies inside the hoop, a reward of 1.
-            Relabelling carries the hoop from the pin to the puck; the pin and its printed circle stay where the
-            given goal was.
+            Hindsight experience replay stores each step under its original goal and under a spot the robot did reach,
+            recomputing the 0 or 1 reward for each. Relabeling moves the lit hoop from the pin to the puck; the push
+            drawn here is illustrative.
           </div>
           <ChartDescription
             id={descriptionId}

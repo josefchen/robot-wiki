@@ -71,7 +71,7 @@ export function RealRobotRlGains({ className }: { className?: string }) {
       heading="Reinforcement learning improves robots already trained on recordings"
       controls={<PresetGroup label="Real-robot success" presets={PHASES} value={phase} onChange={setPhase} testId="rl-gains-phase" />}
       stage={
-        <FigureStage footer={<StageStatus>Hollow: learned from recordings. Filled: reinforcement learning rewards useful actions. Rates: real-robot tests. RankQ ranks actions; SCORE keeps simulated practice near recorded moves; PA-RL adapts different robot brains; BORA learns corrections. OpenVLA moves objects from camera views and instructions.</StageStatus>}>
+        <FigureStage footer={<StageStatus>Hollow: recordings only; filled: after RL</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Real-robot success in four studies ${phase === 'after' ? 'after' : 'before'} reinforcement learning: ${GAIN_STUDIES.map((s) => `${s.task}, ${pct(phase === 'after' ? s.after : s.before)}`).join('; ')}.`}
@@ -132,9 +132,8 @@ export function RealRobotRlGains({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Each row is one study&apos;s reported real-robot success before and after reinforcement learning, on its
-            own task, robot and protocol, so the rows show a direction, not a ranking. The hollow mark is the policy
-            trained on recorded data; the filled mark is after RL.
+            Each row is one study&apos;s real-robot success before and after RL, on its own task and robot, so rows
+            show direction, not rank.
           </div>
           <ul className="list-disc space-y-1 pl-5">
             {GAIN_STUDIES.map((study) => (
@@ -144,9 +143,8 @@ export function RealRobotRlGains({ className }: { className?: string }) {
             ))}
           </ul>
           <div>
-            The other side stays in view: Robomimic found batch RL weak on human demonstrations, where a recurrent
-            cloning policy was a strong baseline, so these gains come from studies with reward-bearing data or
-            online practice.
+            These gains come from reward-bearing data or online practice; Robomimic found batch RL weak on human
+            demonstrations.
           </div>
           <ChartDescription
             id={descriptionId}

@@ -173,9 +173,9 @@ export function LinearizationGap({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Widen the uncertainty, then swing the arm: near the guess the straight line matches the curved path, and farther out it misses more."
+          hint="Widen the uncertainty, then swing the arm"
           readout={readoutFor(spread)}
-          status="Blue rod below the dial: the prediction's error against the curved path. Illustrative arm and spread; exact geometry."
+          status="Illustrative arm, exact geometry"
           data-testid="lg-stage"
         >
           <div data-testid="lg-drawing" data-spread={tenth(stand.spread)} data-angle={tenth(stand.angle)}>
@@ -199,31 +199,12 @@ export function LinearizationGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="The filter predicts with a straight line touching the curve at its guess, and the more uncertain the guess, the farther that line misses."
+      caption="The filter predicts along a tangent at its guess, which misses farther as uncertainty grows."
       method={
         <>
-          <p>
-            Joint angles enter a robot&apos;s models through sines and cosines, so where a one-joint arm puts its hand
-            is a curve. The extended Kalman filter keeps a Gaussian belief and moves its spread through the models&apos;
-            tangents at the current estimate, the Jacobians. Near the estimate the tangent and the curve agree; away
-            from it they part, and the farther the belief spreads, the more the straight line misses: about four
-            times as much for twice the spread. Where the curve bends strongly over the spread the filter&apos;s
-            covariance stops describing its real error, and it can grow overconfident and diverge.
-          </p>
           <p id={drawingId}>
-            The drawing is a tangent-rule stand. A one-joint arm swings over an upright protractor, its stylus riding
-            in a groove engraved in the face: the hand&apos;s true path. A steel rule across the top touches the groove
-            at the guess: the straight line the filter uses in its place. A cursor on the rule goes where the straight
-            line puts the hand for the arm&apos;s angle, the same arc length along the rule as the stylus goes along
-            the groove. The dial gauge on the cursor reaches its lit plunger down to the arm&apos;s tip, so the
-            plunger&apos;s length is the miss; its dial turns once for 15 cm, and the plunger is marked every
-            centimeter. Groove and rule carry the same graduations, five degrees of arc apart. Two pairs of stops, on
-            the rim and on the rule, mark the spread either side of the guess.
-          </p>
-          <p>
-            Illustrative: a {ARM_CM} cm arm and spreads from {SPREAD_RANGE[0]} to {SPREAD_RANGE[1]} degrees. The miss
-            is that arm&apos;s exact geometry, the distance between the hand and the tangent&apos;s point for the same
-            angle.
+            The drawing is a tangent-rule stand. The dial gauge&apos;s lit plunger spans the gap between the {ARM_CM} cm
+            arm&apos;s true arc and the rule, which roughly quadruples when the spread doubles.
           </p>
         </>
       }

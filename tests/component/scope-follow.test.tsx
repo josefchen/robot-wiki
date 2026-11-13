@@ -44,7 +44,7 @@ describe('ScopeFollow', () => {
     render(<ScopeFollow />);
     const svg = screen.getByTestId('scope-drawing').querySelector('svg')!;
     expect(document.getElementById(svg.getAttribute('aria-describedby') ?? '')).toHaveTextContent(
-      /^The drawing is a box trainer on a bench\. Two instruments, the surgeon's hands, enter through ports/,
+      /^The drawing is a box trainer: two instruments and a robot-held laparoscope enter through fixed ports/,
     );
   });
 

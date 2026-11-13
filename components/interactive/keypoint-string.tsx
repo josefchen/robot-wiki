@@ -145,7 +145,7 @@ export function KeypointString({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint="Every point on the lit string shows up at the ring in the image"
           readout={readoutFor(share)}
-          status="Schematic: an illustrative camera, image and toolbox"
+          status="Schematic, no distances claimed"
           data-testid="keypoint-stage-frame"
         >
           <div
@@ -179,24 +179,17 @@ export function KeypointString({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A picked pixel fixes only a line from the camera, so the robot needs a depth reading to know which point on it to reach."
+      caption="A picked pixel fixes only a line from the camera; a depth reading picks the point on it to reach."
       method={
         <>
           <p>
-            A vision-language model that points answers in the image: MOKA has it pick marked grasp and target
-            points, and RoboPoint predicts image points directly. A point in an image is not yet a place in the room.
-            Every point on the line from the camera&apos;s center through that pixel shows up at the same pixel, so the
-            pixel alone fixes only the line. A calibrated depth reading picks the point on it: the target is the
-            camera&apos;s center plus the depth times the line&apos;s direction.
+            Every point on the line from the camera through a pixel lands on that pixel, so a calibrated
+            depth reading picks the target: the camera&apos;s center plus the depth times the line&apos;s direction.
           </p>
           <p id={drawingId}>
-            The frame is that geometry made of parts, after Dürer&apos;s drawing machine. The grid is the image; the
-            ring is the model&apos;s point; the lit string runs from the lens through the ring. The depth camera beside
-            the lens casts a faint beam to the first surface on that line, the toolbox&apos;s handle. Paid out to that
-            depth, the string&apos;s bead, the arm&apos;s target, sits on the handle; paid out short, it hangs in the air,
-            and the arm would close on nothing.
+            The frame is that geometry made of parts, after Dürer&apos;s drawing machine. The grid is the
+            image, the ring the model&apos;s point, the lit string the line, and the bead the arm&apos;s target.
           </p>
-          <p>Schematic: the camera, the frame and the toolbox are illustrative, and no distance is claimed.</p>
         </>
       }
       source="Point lifting as in MOKA (2024) and RoboPoint (2024)."

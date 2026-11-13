@@ -54,7 +54,7 @@ describe('Ros2Interfaces', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('ROS 2 interfaces');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Robot programs stream, ask, or run a job');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'Robot programs, called nodes, talk three ways: topics stream readings, services trade a question for an answer, actions run long cancelable jobs.',
+      'Nodes talk three ways: topics stream, services answer one question, actions run long cancelable jobs.',
     );
   });
 

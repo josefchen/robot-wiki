@@ -24,7 +24,7 @@ describe('AdvantageScrubber', () => {
     );
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Advantage tags');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "Marking each step as helping or hurting traces failure to a crooked grip 20 seconds before the coffee-filter handle failed to lock.",
+      "Tagging each step as helping or hurting traces the failed handle lock to a crooked grip 20 seconds earlier.",
     );
     expect(screen.getByRole('button', { name: /^play$/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /^the attempt$/i })).toHaveAttribute('aria-pressed', 'true');

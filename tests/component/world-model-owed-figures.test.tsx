@@ -110,14 +110,11 @@ describe('world-model figure source semantics', () => {
     expect(within(table).getAllByRole('row', { hidden: true })).toHaveLength(7);
     expect(table).toHaveTextContent('85.26 seconds');
     expect(table).toHaveTextContent('five-second action rollout');
-    const explanation = screen.getByText(/3DGS blends overlapping 3D color blobs into a frame/);
+    const explanation = screen.getByText(/An action chunk is a group of upcoming moves/);
     expect(explanation.closest('details')).toBeNull();
     expect(document.querySelector('[data-figure-fold="method"]')).toHaveTextContent('V-JEPA 2-AC predicts numerical descriptions of camera views after chosen moves.');
     expect(explanation).not.toHaveTextContent('numerical descriptions of camera views');
-    expect(explanation).toHaveTextContent('V-JEPA 2-AC only predicts; a planner tries proposed moves through it and picks one.');
-    expect(explanation).toHaveTextContent('The 14B in Predict2 means 14 billion parameters, the numbers set during training.');
-    expect(explanation).toHaveTextContent('1XWM predicts five seconds of actions before the robot carries them out');
-    expect(screen.getByText('Single images, groups of robot moves, a move chosen from several options, and video clips need different waits and different graphics chips.').closest('details')).toBeNull();
+    expect(explanation).toHaveTextContent('14B means 14 billion parameters');
     expect(screen.getByTestId('output-time-3dgs')).toHaveTextContent('Single image · method: 3DGS');
     expect(screen.getByTestId('output-time-dreamzero')).toHaveTextContent('Group of robot moves · model: DreamZero-Flash');
     expect(screen.getByTestId('output-time-vjepa2')).toHaveTextContent('One chosen move · model: V-JEPA 2-AC');

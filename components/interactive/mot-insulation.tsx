@@ -479,32 +479,20 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           </div>
         </FigureStage>
       }
-      caption="Blocking the action expert's training signal protects what the backbone knew, and π0.5 + KI matched π0 at table bussing in 7.5 times fewer steps."
+      caption="With the backbone shielded, π0.5 + KI matched π0 at table bussing in 7.5 times fewer steps."
       method={
         <>
           <p>
-            The model is a π0-style vision-language-action model laid out as a mixture of
-            transformers: a 2B language-model backbone and a 300M flow-matching action expert.
-            The drawing makes each a column of {LAYER_COUNT} trays, a schematic layer count, with
-            cross-sections in the ratio of their sizes, and joins them at every tray through a
-            one-way check valve. On the forward pass the expert attends sideways into the
-            backbone&apos;s activations at every layer, so the valves open. On the backward pass
-            the expert&apos;s flow-matching loss sends gradients back down its own stack.
-            Knowledge Insulation puts a stop-gradient at the interface (every valve shut), so
-            those gradients never reach the backbone; the backbone instead learns actions from
-            the cross-entropy loss on discrete FAST action tokens, the feed into its head. Turn
-            the protection off and the expert&apos;s gradients cross into the backbone at every
-            layer they reach.
+            Columns of {LAYER_COUNT} trays stand for a 2B language-model backbone and a 300M flow-matching
+            action expert, with cross-sections in the ratio of their sizes. A stop-gradient shuts every
+            valve, so the backbone learns actions only from FAST action tokens.
           </p>
           <p>
-            The 0 to 100 &quot;follows instructions&quot; score is illustrative: it stands in
-            for the paper&apos;s spoon-and-trash example, where a model trained without
-            insulation stops following the instruction, and is not a published curve. The
-            measured result is separate:{' '}
+            The instruction score is illustrative; the paper measured{' '}
             <span data-testid="speedup-readout">
               {TRAINING_STEP_SPEEDUP}x fewer training steps
             </span>{' '}
-            for the π0.5 + KI generalist than π0, at similar table-bussing performance.
+            for π0.5 + KI than π0 at table bussing.
             {citation && (
               <>
                 {' '}

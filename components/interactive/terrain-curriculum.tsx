@@ -385,9 +385,9 @@ export function TerrainCurriculum({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Easy ground on the left, hard on the right · blue tokens just moved up a level"
+          hint="Easy ground left, hard right; blue tokens just moved up"
           readout={statusLine(round)}
-          status="Illustrative teaching model: 20 seeded robots on 8 levels; the rules and step heights are the paper's"
+          status="Illustrative model; the paper's rules"
           data-testid="curriculum-stage"
           data-round={round}
           data-source-round={round}
@@ -423,24 +423,9 @@ export function TerrainCurriculum({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Rudin and colleagues trained thousands of ANYmal robots at once on a grid of terrain patches of rising
-            difficulty. A robot that walks across its patch is promoted to the next level; one that covers less than
-            half the distance it was commanded to walk is demoted; one that solves the hardest level is sent back to
-            a random level, so the population never collapses onto the top. Their stairs are built as pyramids, and
-            the step height rises from {STEP_CM[0]} cm on the easiest stairs to {STEP_CM[1]} cm on the hardest.
-          </div>
-          <div>
-            The table is a teaching model. Each of its {LEVELS} bays is a strip of pyramid stairs, its step height
-            spread evenly from {STEP_CM[0]} to {STEP_CM[1]} cm and drawn far taller than scale, so the four-to-one rise
-            shows; the ruler along the front counts the bays in ticks. Between rounds each bay&apos;s tokens stand on the
-            start deck in front of it, three abreast, so the row of tokens is a tally of where the robots train.
-            Each token is one robot. In a round every token walks back over its stairs: one that reaches the far end
-            rides the back shuttle one bay toward the hard end and is lit; one that stops short of the summit, half
-            the strip, rides the front shuttle one bay back; the rest return to their bay. In the paper a robot
-            starts at the center of an 8 m square patch and is promoted when it walks past the patch&apos;s border.
-            Here {ROBOTS} illustrative robots, with seeded skills that grow each round, follow the three rules; the
-            skills, luck and outcomes are invented for the drawing, and only the rules and step heights come from
-            the paper.
+            Rudin and colleagues promote a robot that crosses its patch, demote one that covers under half its
+            commanded distance, and send one that solves the hardest level back to a random one. Here {ROBOTS} invented
+            robots follow those rules on stairs rising from {STEP_CM[0]} to {STEP_CM[1]} cm, drawn taller than scale.
           </div>
           <ChartDescription
             id={descriptionId}

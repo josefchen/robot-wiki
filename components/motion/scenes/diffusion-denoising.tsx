@@ -89,7 +89,7 @@ const SCENE: SceneDefinition = {
       duration: 'long',
       linear: true,
       caption:
-        'To act, the robot starts from random guesses and cleans them up in ten small steps, guided by what it sees; follow one guess.',
+        'To act, the robot cleans up random guesses in ten small steps, guided by what it sees. Follow one guess.',
     },
     {
       id: 'in-symbols',
@@ -101,7 +101,7 @@ const SCENE: SceneDefinition = {
       id: 'recap',
       duration: 'long',
       caption:
-        'Starting from random guesses and cleaning them up step by step lets the robot keep two different good moves instead of blurring them together.',
+        'Cleaning random guesses up step by step lets the robot keep two different good moves, not one blur.',
     },
   ],
 };
@@ -470,7 +470,7 @@ function DiffusionReadout() {
 }
 
 /** What the scene is and is not: the method note under "How this was made". */
-export const DIFFUSION_METHOD_NOTE = `The pin heights come from an illustrative model with fixed random seeds. Each move is ${PIN_COUNT} planned positions, the prediction horizon of the Diffusion Policy paper (Chi et al., 2023, arXiv 2303.04137); training mixes in noise on improved DDPM's square-cosine schedule, and acting runs the ${DENOISING_STEPS} deterministic DDIM steps the paper uses on real robots. The denoiser is the ideal one for a training set of just the two demonstrations, not a trained network's output.`;
+export const DIFFUSION_METHOD_NOTE = `The denoiser is the ideal one for two demonstrations; each move is ${PIN_COUNT} positions, cleaned in the ${DENOISING_STEPS} DDIM steps Diffusion Policy uses on real robots (Chi et al., 2023, arXiv 2303.04137).`;
 
 const swatch = (style: Record<string, string>, className: string) => (
   <span aria-hidden className={`inline-block ${className}`} style={style} />
@@ -497,38 +497,15 @@ export function DiffusionDenoising({ className }: { className?: string }) {
         </>
       }
       readout={() => <DiffusionReadout />}
-      statusLine="Illustrative: a drawn model of the idea, not a trained robot's output."
+      statusLine="Illustrative model"
       method={
         <>
           <p>
             In symbols, the policy samples{' '}
             <span data-scene-equation="diffusion" dangerouslySetInnerHTML={{ __html: html }} />
-            : an action a is drawn from a distribution of actions conditioned on what the robot
-            observes, o. Over the {DENOISING_STEPS} clean-up steps the two guesses&apos; average
-            distance from the move each lands on falls from{' '}
-            <span data-testid="diffusion-dispersion">
-              {fixed(GUESS_DISTANCES.start)} {'→'} {fixed(GUESS_DISTANCES.end)}
-            </span>
-            , measured in arch heights.
-          </p>
-          <p>
-            The guess the scene follows starts {fixed(WORKED_DISTANCES.start)} from its move and ends{' '}
-            {fixed(WORKED_DISTANCES.end)} away.
+            : an action a drawn to fit what the robot observes, o.
           </p>
           <p>{DIFFUSION_METHOD_NOTE}</p>
-          <p>
-            The drawing is a pin gauge, two of them side by side. Each pin&apos;s height is one planned
-            position, and the thread through the pins is the move. The bar is what the camera sees.
-            A demonstration arches the thread over the bar or sags it under; a thread pulled straight,
-            the average of the two, would run into it. The gauge, the bar and the camera are an
-            illustration.
-          </p>
-          <p>The {BEAT_WORDS} steps, in order:</p>
-          <ol>
-            {SCENE.beats.map((beat) => (
-              <li key={beat.id}>{beat.caption}</li>
-            ))}
-          </ol>
         </>
       }
       textAlternative={`${SCENE.title}. A ${BEAT_WORDS}-beat scene on two pin gauges, where each pin is one planned position of a move and a thread through the pins is the move, passing a bar the robot's camera sees. ${SCENE.beats

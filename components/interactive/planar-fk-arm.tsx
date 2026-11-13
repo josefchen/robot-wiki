@@ -228,9 +228,9 @@ export function PlanarFkArm({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Turn a joint and everything beyond it swings along. Faint lines: the pose before the turn. Curved line: the pen's path during it"
+          hint="Faint lines: the pose before the turn. Curve: the pen's path"
           readout={readoutFor(shown)}
-          status="Schematic: one grid square is half the upper-arm length, from shoulder to elbow"
+          status="Schematic; grid square: half a link"
           data-testid="fk-stage-frame"
         >
           <Stage className="iso-stage">
@@ -274,14 +274,9 @@ export function PlanarFkArm({ className }: { className?: string }) {
       method={
         <>
           <p>
-            Computed on chosen link lengths of 1.00, 0.75 and 0.55 link units, so the hand reaches at most{' '}
-            {REACH.toFixed(2)} from the shoulder. Each angle is measured from the link before it, counterclockwise
-            positive, and the hand&apos;s position is the running sum of the three link vectors. The shoulder turns
-            from 0 degrees (pointing right) to 180 (pointing left); the elbow and wrist turn up to 180 degrees either
-            way. In the drawing each joint&apos;s dial rides on the link before it and the next link is its pointer;
-            the shoulder&apos;s dial is the protractor on the paper, and one grid square is half a link unit. The
-            faint sketch on the paper is the pose before the last move; at load it is the opening pose with the
-            shoulder 40 degrees back, and the inked arc is the path the pen swept while only the shoulder turned.
+            Computed on link lengths of 1.00, 0.75 and 0.55, so the hand reaches at most {REACH.toFixed(2)} from
+            the shoulder. Each angle is measured from the link before it, and the hand is the running sum of the
+            three link vectors.
           </p>
           <ChartDescription
             id={descriptionId}

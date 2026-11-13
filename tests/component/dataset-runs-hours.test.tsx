@@ -43,7 +43,7 @@ describe('DatasetRunsHours', () => {
     );
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(caption).toBe(
-      "About 25 times the runs, under twice the hours: FineART's attempts last much longer, averaging 2.5 minutes versus under 20 seconds elsewhere.",
+      "FineART's runs average 2.5 minutes; every other dataset's runs average under 20 seconds.",
     );
     expect(caption.split(/\s+/).length).toBeLessThanOrEqual(25);
   });
@@ -75,7 +75,6 @@ describe('DatasetRunsHours', () => {
     const links = [...screen.getByTestId('dataset-runs-hours-source').querySelectorAll('a')].map((a) => a.getAttribute('href'));
     expect(links).toEqual(records.map((r) => r.url));
     expect(links).toHaveLength(5);
-    expect(screen.getByTestId('dataset-runs-hours-notes')).toHaveTextContent('DROID: 76k runs as printed, 350 hours');
   });
 });
 

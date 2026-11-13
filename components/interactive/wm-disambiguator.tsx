@@ -455,34 +455,8 @@ function Method({ selected, descriptionId }: { selected: WmParadigm; description
   return (
     <>
       <p>
-        On the left is what the robot sees now: an arm above a cup on a table, about to pick the cup
-        up. On the right are the three forms an imagined next moment can take: the next picture
-        itself, a compressed summary (a short list of numbers, drawn as beads), or plain facts about
-        the objects. The marked form is the one the selected family predicts; &quot;Adjust
-        more&quot; lists the six families and their uses.
-      </p>
-      <p>What each family predicts and what it is used for:</p>
-      {/* A role list, not a ul: the article's prose list margins are
-          unlayered and would beat any utility class here. */}
-      <div role="list" aria-label="What each family predicts" className="grid gap-1">
-        {WM_PARADIGMS.map((p) => (
-          <div role="listitem" key={p.id}>
-            <span className="font-medium text-text">{p.name}:</span> {p.predicts}. Used for{' '}
-            {usesInWords(p)}.
-          </div>
-        ))}
-      </div>
-      <p>
-        Dreamer-style models also learn a decoder that turns a summary back into a picture, but they
-        use it only as a training signal; TD-MPC-style and JEPA models have no decoder at all. The
-        uses are this article&apos;s reading of each family against the survey&apos;s four: policy
-        learning, planning, evaluation and data generation.
-      </p>
-      <p>
-        These six ways to build a world model are the article&apos;s grouping, not an official
-        taxonomy. The arm, the
-        cup, the beads and the facts are drawn by hand to show the form each prediction takes; none
-        of them is a model&apos;s output.
+        Left is what the robot sees now; right is the form its imagined next moment takes. Beads stand
+        for a summary in numbers, and the six-way grouping is this article&apos;s own.
       </p>
       <ChartDescription
         id={descriptionId}
@@ -576,7 +550,7 @@ export function WmDisambiguator({
         <FigureStage
           footer={
             <>
-              <StageStatus>Illustrative schematic: drawn by hand, not a model&apos;s output.</StageStatus>
+              <StageStatus>Illustrative schematic, drawn by hand</StageStatus>
               {/* The pressed control already shows the selection, so the
                   announcement is for assistive technology. */}
               <InstrumentReadout data-testid="wm-live-summary" className="sr-only">
@@ -592,7 +566,7 @@ export function WmDisambiguator({
           <PanelArt id={selectedId} hidden={false} describedBy={descriptionId} />
         </FigureStage>
       }
-      caption="Two of the six families imagine the next picture, three a summary in numbers, and one plain facts such as the cup being held."
+      caption="Two families imagine the next picture, three a summary in numbers, and one plain facts."
       method={<Method selected={selected} descriptionId={descriptionId} />}
       source="Original schematic; the drawings are illustrative."
     >

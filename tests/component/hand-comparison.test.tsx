@@ -95,7 +95,7 @@ describe('HandComparison', () => {
     expect([tactile, cost, both]).toEqual([2, 2, 0]);
     expect(
       screen.getByText(
-        'No hand publishes both touch sensitivity and price; counts are independent joint motions, including passive ones; active means motor-driven.',
+        'Counts are independent joint motions, passive ones included; active means motor-driven.',
       ),
     ).toHaveAttribute('data-figure-caption');
   });

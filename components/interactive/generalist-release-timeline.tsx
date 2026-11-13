@@ -514,18 +514,10 @@ export function GeneralistReleaseTimeline({
       method={
         <>
           <div>
-            A robot brain&apos;s trained model, often called its weights, is the file you would need
-            to run it yourself. A filled circle means the maker reports a download of that trained
-            model. A hollow circle is either not offered or not disclosed, and the two are kept
-            apart in each card and in the table below; hollow does not mean closed licensing.
-          </div>
-          <div>
-            This is an authored selection of {GENERALIST_RELEASES.length} records, not every
-            generalist policy. Each sits at the month of its primary source; no days are invented.
-            Source types: a paper (arXiv), repository release notes, a lab blog, or a press
-            release. Blog and press entries are vendor-reported: the maker&apos;s own claims, with
-            no outside check. Show source type in &quot;Adjust more&quot; draws each as its own
-            shape.
+            Filled means the maker reports a downloadable trained model; hollow means not offered or
+            not disclosed, which does not prove closed licensing. The {GENERALIST_RELEASES.length}{' '}
+            records are an authored selection at each primary source&apos;s month, and blog or press
+            entries are vendor-reported.
           </div>
           <TableScroll labelledBy={tableCaptionId} className="pt-1">
             <table className="w-full min-w-[560px] border-collapse text-left font-sans text-sm text-text">

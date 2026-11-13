@@ -70,7 +70,7 @@ const SAG_2026 = humanoidCount('sag-first-half-2026');
 const units = (n: number) => n.toLocaleString('en-US');
 const billions = (n: number) => `$${n} billion`;
 
-const CAPTION = `Crunchbase counts all robotics startups and its ${LAST.year} total runs to ${FUNDING_PARTIAL_UNTIL}, while IFR counts full-size humanoids sold and SAG counts humanoids shipped.`;
+const CAPTION = `Crunchbase counts all robotics startups, its ${LAST.year} total to ${FUNDING_PARTIAL_UNTIL}; IFR counts full-size humanoids sold and SAG humanoids shipped.`;
 const BEFORE_RECORD = FUNDING_BY_YEAR.filter((r) => r.year < 2025);
 const DESCRIPTION = `Venture funding raised by robotics startups, by Crunchbase's count, in billions of US dollars: ${BEFORE_RECORD.map((r) => `${r.billionsUsd} in ${r.year}`).join(', ')}, a record ${fundingIn(2025)} in 2025, then ${LAST.billionsUsd} in ${LAST.year} to ${FUNDING_PARTIAL_UNTIL}. Humanoids counted: about ${units(IFR.units)} full-size humanoids sold in 2025 (IFR), and about ${units(SAG_2025.units)} shipped in the first half of 2025 and ${units(SAG_2026.units)} in the first half of 2026 (SAG). The funding covers every robotics startup, not only humanoid makers.`;
 
@@ -254,11 +254,8 @@ export function FundingHumanoidCounts({ className }: { className?: string }) {
       method={
         <>
           <div>
-            The funding bars are the yearly totals in Crunchbase News&apos;s chart of 22 June 2026; the {LAST.year}{' '}
-            bar is the year to that date. The humanoid counts come from two trackers with different rules: the IFR
-            counts full-size humanoids, above 140 cm, sold in 2025, and SAG counts every humanoid shipped, by
-            half-year. The panels share no scale and no ratio joins them, because the funding goes to every kind of
-            robotics startup.
+            The funding bars are the yearly totals in Crunchbase News&apos;s chart of 22 June 2026. The IFR counts
+            full-size humanoids, above 140 cm, sold in 2025; SAG counts every humanoid shipped, by half-year.
           </div>
           <ChartDescription
             id={descriptionId}

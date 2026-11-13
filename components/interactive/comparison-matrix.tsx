@@ -559,7 +559,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
                 // The shared table sets numeric columns in mono; in a figure
                 // mono is reserved for readouts, so every cell stays in the sans.
                 className="mt-1 [&_td]:font-sans"
-                caption={`${METHODS.length} policies across eight design choices. Horizon shows predicted / executed steps (n.d. = not disclosed). Weights describe download availability, not license terms, and not disclosed is separate from not released. Undisclosed cells always sort last. An empty rate cell does not mean a source reports no rate for any setup, so read the setting notes and sources before comparing cells.`}
+                caption={`${METHODS.length} policies across eight design choices. Horizon is predicted / executed steps; n.d. means not disclosed. An empty rate cell does not mean a source reports no rate.`}
                 columns={COLUMNS}
                 rows={rows}
                 initialSort={{ key: 'year', direction: 'asc' }}
@@ -625,22 +625,16 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           </div>
         </FigureStage>
       }
-      caption="Through 2025 every system here published how it outputs motion; in 2026, six of eleven entries leave it out, all of them company announcements."
+      caption="Every system through 2025 published how it outputs motion; in 2026, six of eleven entries omit it, all company announcements."
       method={
         <>
           <div>
-            Compiled from the primary sources linked in each row of the full matrix under
-            &quot;Adjust more&quot;. The cards and dots group the action representations into
-            plain words: discrete tokens are &quot;numbered words&quot;, continuous outputs are
-            &quot;movement amounts&quot;, and diffusion and flow matching, which both refine random
-            noise into a move, are &quot;refined move guesses&quot;.
+            Tokens read as &quot;numbered words&quot;, continuous outputs as &quot;movement amounts&quot;,
+            and diffusion or flow as &quot;refined move guesses&quot;.
           </div>
           <div>
-            &quot;Plans ahead&quot; is the predicted action horizon and &quot;Speed&quot; the
-            reported control frequency, each for the setting the source names; the matrix keeps
-            the executed steps and the setting notes. &quot;Download&quot; describes download
-            availability, not license terms. Cells the vendor has not published read{' '}
-            {NOT_DISCLOSED_TEXT} and sort last in both directions.
+            &quot;Download&quot; means availability, not license terms; unpublished cells read{' '}
+            {NOT_DISCLOSED_TEXT} and sort last.
           </div>
         </>
       }

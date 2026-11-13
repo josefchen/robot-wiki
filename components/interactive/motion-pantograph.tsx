@@ -179,7 +179,7 @@ export function MotionPantograph({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint={tracing ? 'Tracing the stroke' : 'Drag on the right-hand plate to move the stylus'}
           readout={readoutFor(scale, handMm)}
-          status="Illustrative: an authored stroke and scale settings; the division is exact"
+          status="Illustrative stroke; exact division"
           data-testid="pantograph-stage-frame"
         >
           <div
@@ -222,25 +222,13 @@ export function MotionPantograph({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="At 3 to 1, a surgeon's 30 mm hand stroke becomes 10 mm at the instrument tip, with every wobble divided too."
+      caption="At 3 to 1, a 30 mm hand stroke becomes 10 mm at the tip, every wobble divided too."
       method={
         <>
-          <p>
-            Motion scaling is one of the things a teleoperated surgical robot adds to the surgeon&apos;s hand: the
-            console divides each hand movement before it reaches the instrument, so a large, comfortable movement
-            becomes a fine one inside the patient, and any wobble in the hand is divided too. Yang and colleagues
-            count it as level 0, no autonomy, because the instrument still follows the surgeon&apos;s own motion.
-          </p>
           <p id={drawingId}>
-            The drawing is a reducing pantograph doing the same thing with four bars. With the stylus at H and the
-            fixed pivot at O, the tip sits on the line between them at 1/scale of the way out, so tip = hand ÷ scale
-            for every point of the stroke. The two knurled scale pins move along the bars&apos; hole rows to set 2 to 1
-            up to 5 to 1; the pips beside each hole count the scale it sets.
-          </p>
-          <p>
-            Illustrative: the 30 mm stroke and its wobble of 1.5 mm either side are authored, and so are the scale
-            settings; a real system also filters tremor, which this pantograph only divides. The millimeter rules on
-            both plates are the same scale, so the two traces can be compared directly.
+            The drawing is a reducing pantograph that divides motion with four bars: the tip sits 1/scale of the way
+            from the fixed pivot O to the stylus H, so tip = hand ÷ scale. The 30 mm stroke, its 1.5 mm wobble and the
+            2 to 1 up to 5 to 1 scale settings are authored.
           </p>
         </>
       }

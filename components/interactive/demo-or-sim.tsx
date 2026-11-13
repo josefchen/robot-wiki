@@ -105,7 +105,7 @@ export function DemoOrSim({ className }: { className?: string }) {
       heading="Simulated contact errors transfer; demonstrations need no contact model"
       controls={<PresetGroup label="Train the movement controller from" presets={RECIPES} value={recipeId} onChange={setRecipeId} testId="recipe" />}
       stage={
-        <FigureStage footer={<StageStatus>Simulation guesses how surfaces touch and push; its mistakes transfer. Copying real demonstrations needs no contact model. Schematic; examples cited.</StageStatus>}>
+        <FigureStage footer={<StageStatus>Schematic; examples cited</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Three steps from training to the real robot. ${sim ? 'Trained in a simulator, the policy learns against an approximate contact model, and its errors reach the real robot.' : 'Copied from real demonstrations, the policy meets real contact and needs no contact model.'}`}
@@ -169,15 +169,9 @@ export function DemoOrSim({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Locomotion papers read PPO, domain randomization and curriculum: the policy learns by trial and error in a
-            simulator, against the simulator&apos;s model of contact. The 2026 reality-gap survey calls mismatches from
-            simplified contact models particularly problematic in contact-rich tasks. Many manipulation papers learn
-            instead from real demonstrations, which need no contact model.
-          </div>
-          <div>
-            The pipeline is a schematic. The examples are the article&apos;s: Rudin and colleagues&apos; ANYmal walked on
-            flat ground after under four minutes of simulated training, and ACT slotted a battery at 80 to 90% success
-            from 10 minutes of demonstrations.
+            A schematic: locomotion policies learn by trial and error against a simulator&apos;s contact model, while many
+            manipulation policies copy real demonstrations, which need none. The examples are Rudin and colleagues&apos;
+            ANYmal and ACT&apos;s battery slotting.
           </div>
           <ChartDescription
             id={descriptionId}

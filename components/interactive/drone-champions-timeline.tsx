@@ -56,7 +56,7 @@ const READOUT_SIDE: Record<string, 'start' | 'end'> = {
 const SWIFT = contestOf(SWIFT_ID);
 
 const CAPTION =
-  'Dots mark drone wins over human champions in 2023 and 2025; the cross marks the 2026 final, lost when the drone struck a gate.';
+  'Dots mark drone wins in 2023 and 2025; the cross marks the 2026 final, lost on a gate strike.';
 const DESCRIPTION = `Three contests between autonomous racing drones and human champions. Swift, from the University of Zurich, ${SWIFT.readout} against three champions in its own lab, reported in Nature in August 2023. In April 2025 TU Delft's MonoRace won the A2RL race in Abu Dhabi, beating three human world champions in a knockout on hardware and a track the organizers set. In January 2026 world FPV champion Minchan Kim beat TII Racing's drone in a best-of-nine final: at four wins each, the drone struck a gate in the deciding race and could not recover.`;
 
 export function DroneChampionsTimeline({ className }: { className?: string }) {
@@ -156,13 +156,8 @@ export function DroneChampionsTimeline({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Each contest sits at the month its result was announced. Swift&apos;s Nature paper, published in
-            August 2023, gives its record against each champion: 5 of 9 against Alex Vanover, 4 of 7 against
-            Thomas Bitmatta and 6 of 9 against Marvin Schaepper. It does not date the races, which came before Nature
-            received the paper in January 2023. MonoRace&apos;s competition ran on 11 and 12 April 2025, and TU
-            Delft notes that Swift&apos;s lab conditions, hardware and track were the researchers&apos;, while the
-            A2RL organizers set MonoRace&apos;s. At the January 2026 final every drone flew on one forward camera
-            and an inertial sensor.
+            Each contest sits at the month its result was announced. Swift beat Alex Vanover 5 of 9, Thomas Bitmatta
+            4 of 7 and Marvin Schaepper 6 of 9, in races held before January 2023.
           </div>
           <ChartDescription
             open

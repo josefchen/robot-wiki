@@ -193,9 +193,9 @@ export function DeltaFrame({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="A frame fixes the directions: tool directions turn with the tool; table directions stay fixed"
+          hint="Dark stroke: demonstration. Blue ink: replay, read in the chosen frame"
           readout={readoutNow(frame, angle, pen)}
-          status="Dark stroke: demonstration. Blue ink: replay. Move and angles illustrative; geometry exact."
+          status="Illustrative move, exact geometry"
           data-testid="delta-frame-stage-frame"
         >
           <div data-testid="delta-frame-drawing" data-frame={frame} data-angle={degrees} data-pen={`${r2(pen.at[0])},${r2(pen.at[1])}`} data-phase={pen.phase} data-gap={gap}>
@@ -212,29 +212,13 @@ export function DeltaFrame({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A move recorded in the tool's frame replays correctly only in that frame; read in the table's, it misses once the tool turns."
+      caption="A move recorded in the tool's frame replays correctly only in that frame; read in the table's, it misses."
       method={
         <>
-          <p>
-            An end-effector delta is a few numbers, and numbers alone do not say which way they point. Tedrake asks
-            that every time a position is written as a vector of numbers, the frame it is expressed in be named; Lynch
-            and Park write the same motion either in the fixed space frame or in the moving body frame. A dataset
-            that stores deltas in the tool&apos;s frame and a controller that reads them in the table&apos;s frame
-            disagree whenever the tool is turned, and the replay looks like a careless policy.
-          </p>
           <p id={drawingId}>
-            The drawing is a pen plotter. The rail along the back and the paper&apos;s squares are the table&apos;s
-            frame. The tool hangs from a turret under the pen carriage, a gripper whose two fingers point along its
-            own forward direction; the knob on the carriage reads how far it is turned. A demonstration moved 5 cm
-            forward in the tool&apos;s frame and left the dark stroke along the fingers. The blue ink is a replay of
-            the same two numbers: read in the tool&apos;s frame it runs down the stroke; read in the table&apos;s frame
-            it runs along the rail and ends off the stroke. After each replay the pen lifts and the arm parks at the end
-            of its rail, so both strokes stay in view. Square to the table, the two agree, so the mistake hides until
-            the tool turns.
-          </p>
-          <p>
-            The move&apos;s length and the angles are illustrative. The miss is exact: the chord between the two
-            moves, twice 5 cm times the sine of half the angle.
+            The drawing is a pen plotter. Its rail and squared paper are the table&apos;s frame, and a 5 cm
+            move along the tool&apos;s fingers, replayed in that frame, misses by twice 5 cm times the sine
+            of half the angle.
           </p>
         </>
       }

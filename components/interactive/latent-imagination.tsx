@@ -112,7 +112,7 @@ function path(points: readonly ChartPoint[]): string {
 function noteLines(horizon: number, gap: number, stopped: boolean): readonly [string, string] {
   if (gap < VISIBLE_GAP) return [`${stepsWord(horizon)} ahead:`, 'the ruler shows a small gap to the real route'];
   if (stopped) return [`${stepsWord(horizon)} ahead: so far off,`, 'the blue tip has run into the central hub'];
-  return [`${stepsWord(horizon)} ahead:`, 'the ruler measures the gap from the blue tip to the real route'];
+  return [`${stepsWord(horizon)} ahead:`, 'the ruler measures the blue tip\'s gap to the route'];
 }
 
 /** The imagined steps Dreamer decodes into pictures: a quarter, a half and three quarters of the way. */
@@ -251,7 +251,7 @@ export function LatentImagination({
       viewWidth={BENCH_WIDTH}
       hint={<span data-testid="drift-note">{lines.join(' ')}</span>}
       readout={readout}
-      status="Illustrative distance scale: 100% means one toy unit of error."
+      status="Illustrative toy model"
       data-testid="latent-imagination-stage"
       data-stopped={stopped ? '' : undefined}
     >
@@ -372,8 +372,7 @@ export function LatentImagination({
           />
           {mode === 'decoder-free' ? (
             <p data-testid="decoder-free-note" className="font-sans text-sm leading-snug text-text-dim">
-              TD-MPC2 draws no pictures, so the picture flags are gone. Its drift shows up instead as error
-              in the reward it predicts, a fixed multiple of the toy deviation:{' '}
+              TD-MPC2 draws no pictures. Its drift shows as reward error:{' '}
               <span data-testid="reward-error-bars">
                 {rewardErrors.map(({ t, value }, i) => (
                   <span key={t}>
@@ -394,38 +393,17 @@ export function LatentImagination({
         </>
       }
       stage={rolloutStage}
-      caption="Robots plan by imagining the future; each imagined step builds on the last, so short look-aheads stay close and long ones drift."
+      caption="Each imagined step builds on the last, so short look-aheads stay close and long ones drift."
       method={
         <>
           <p>
-            The robot plans by imagining its future one step at a time, and each imagined step starts
-            from the last imagined one, not from the real state. On the bench each imagined step is one
-            section of track, bolted to the end of the section before it, and the curved steel template
-            with a station post every five steps is the real route. A small error at one joint is
-            carried into every later section and grows. The bench lays as many sections as the first
-            slider says; the knob on the controller turns with the second.
+            The drift is a toy recurrence, not a measured model: d(t) = d(t &minus; 1) + e &times; (1 +
+            0.02 &times; d(t &minus; 1)), here{' '}
+            <span data-testid="deviation-readout">{formatUnits(deviationNow)}</span> units.
           </p>
           <p>
-            The drift is a toy recurrence, not a measured model: each step adds the one-step error,
-            scaled up by how far the imagined state has already drifted, d(t) = d(t &minus; 1) + e
-            &times; (1 + 0.02 &times; d(t &minus; 1)). At {epsilonPercent.toFixed(1)}% error per step
-            and {stepsWord(horizon)} it reaches{' '}
-            <span data-testid="deviation-readout">{formatUnits(deviationNow)}</span> units of toy
-            latent deviation. The bench draws each unit as the same inward step off the template, read on
-            the radius arm, and stops the track at the hub&apos;s flange; the number keeps growing.
-          </p>
-          <p>
-            Dreamer learns with a decoder that turns imagined states back into pictures, drawn here as
-            picture cards on flags along the track. TD-MPC2 has no decoder: it never draws a picture, and its drift shows up as
-            error in the reward it predicts (&quot;Adjust more&quot; switches between the two). TD-MPC
-            and TD-MPC2 are also trained to keep imagined and encoded states consistent, so a single
-            toy number is not a complete account of either training loss.
-          </p>
-          <p>
-            In the chart below, the shaded band from {TYPICAL_HORIZON[0]} to {TYPICAL_HORIZON[1]} steps
-            marks how far published latent models look ahead: TD-MPC2 plans 3 steps, and DreamerV3 and
-            DayDreamer imagine 15 or 16, depending on how the horizon is counted. The curve inside it is
-            still the toy, not a measured error.
+            The shaded band is published practice: TD-MPC2 plans 3 steps, and DreamerV3 and DayDreamer
+            imagine 15 or 16.
           </p>
           <div data-inset-plot>{deviationStage}</div>
           <ChartDescription

@@ -103,9 +103,9 @@ const DESIGN_GROUP_LABEL = 'Whole-body system';
 
 /** The status line names whose published speeds the stack shows. */
 const STATUS: Record<WbcApproachId, string> = {
-  'tracking-rl': 'Schematic; speeds as published by Figure AI',
-  'latent-action': 'Schematic; speeds as published by NVIDIA',
-  'end-to-end-vla': 'Schematic; Google DeepMind publishes no speeds',
+  'tracking-rl': "Schematic; Figure AI's published speeds",
+  'latent-action': "Schematic; NVIDIA's published speeds",
+  'end-to-end-vla': 'Schematic; DeepMind publishes no speeds',
 };
 
 /** The note on the bottom layer, the one that moves the joints. */
@@ -307,10 +307,8 @@ export function WbcDecomposition({
       method={
         <>
           <p>
-            The three systems are the three whole-body control splits shipping in 2026: Figure AI&apos;s
-            Helix 02 is motion-tracking RL, NVIDIA&apos;s GR00T with GEAR-SONIC is a latent-action hierarchy, and
-            Google DeepMind&apos;s Gemini Robotics 2 is an end-to-end VLA. They differ in where they draw the lines
-            between layers. {approach.idea}
+            Helix 02 is motion-tracking RL, GR00T with GEAR-SONIC a latent-action hierarchy, Gemini Robotics 2 an
+            end-to-end VLA. {approach.idea}
           </p>
           <ul data-testid="wbc-layers" className="m-0! grid list-none gap-0.5 p-0!">
             {approach.layers.map((layer) => (
@@ -338,11 +336,6 @@ export function WbcDecomposition({
               </div>
             ))}
           </dl>
-          <p>
-            In this stack, {approach.interfaceNote}. Openness: {approach.openness}.
-            {approach.lineage.length > 0 ? ` Academic lineage: ${approach.lineage.join(', ')}.` : ''}
-            {approach.later ? ` ${approach.later}` : ''}
-          </p>
           <ChartDescription
             id={descriptionId}
             form="state"

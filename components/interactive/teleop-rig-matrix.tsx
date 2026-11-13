@@ -243,7 +243,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
       <Table
         key={resetCount}
         className="mt-4"
-        caption={`${TELEOP_RIGS.length} teleoperation rig families compared on cost, data quality, throughput and embodiment gap, how far the recorded motion is from the robot's own. Choosing a dimension above marks its column and lists each rig's detail; clicking a column heading sorts the table. Ratings are low, medium or high, explained in each cell; unpublished figures read not disclosed and sort last.`}
+        caption={`${TELEOP_RIGS.length} teleoperation rig families compared on cost, data quality, throughput and embodiment gap. Click a heading to sort; undisclosed figures sort last.`}
         columns={columns}
         rows={TELEOP_RIGS}
         initialSort={{ key: 'costUsd', direction: 'asc' }}

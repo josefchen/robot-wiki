@@ -23,7 +23,7 @@ describe('RobotsPerGpu', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Massively parallel simulation');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('One graphics chip trains thousands of robots at once');
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "One graphics chip simulated 16,384 robots at once, where older simulators running on a computer's central processor typically ran 128.",
+      "One graphics chip simulated 16,384 robots at once; CPU simulators typically ran 128.",
     );
   });
 

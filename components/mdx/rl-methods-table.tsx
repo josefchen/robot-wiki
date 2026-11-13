@@ -169,7 +169,7 @@ export function RlMethodsTable({ className }: { className?: string }) {
     <Table
       interactiveId="RlMethodsTable"
       className={className}
-      caption="Each of these eight RL fine-tuning results comes from its own source under its own protocol, so the table compares methods and does not rank them."
+      caption="Eight RL fine-tuning results, each measured under its own source's protocol."
       columns={COLUMNS}
       rows={ROWS}
       initialSort={{ key: 'year', direction: 'asc' }}

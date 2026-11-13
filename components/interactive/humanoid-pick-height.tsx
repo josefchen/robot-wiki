@@ -180,7 +180,7 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
       heading="Lower picks succeed less often; the floor is worst"
       controls={<PresetGroup label="The object sits on" presets={PLACES} value={place} onChange={setPlace} testId="pick-height-place" />}
       stage={
-        <FigureStage footer={<StageStatus>Shelf picks succeed most often, table picks less, floor picks least. Dashed line: a stationary arm fitting a part, a different task. Drawing illustrative; rates published.</StageStatus>}>
+        <FigureStage footer={<StageStatus>Illustrative drawing; published rates</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`A humanoid robot reaching for an object ${PLACES.find((p) => p.id === place)!.words}. Bars show how often its whole-body picks succeed: ${formatSuccess(PICK_RATES.shelf)} from a shelf, ${formatSuccess(PICK_RATES.table)} from a table, ${formatSuccess(PICK_RATES.floor)} from the floor.`}
@@ -253,16 +253,13 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption={`Gemini Robotics 2's whole-body picks succeed ${formatSuccess(PICK_RATES.shelf)} of the time from a shelf, ${formatSuccess(PICK_RATES.table)} from a table and ${formatSuccess(PICK_RATES.floor)} from the floor.`}
+      caption={`Gemini Robotics 2's whole-body picks succeed ${formatSuccess(PICK_RATES.shelf)} from a shelf, ${formatSuccess(PICK_RATES.table)} from a table and ${formatSuccess(PICK_RATES.floor)} from the floor.`}
       method={
         <>
           <div>
-            Google DeepMind reports Gemini Robotics 2 driving Apollo 2 with Inspire hands &quot;from feet to
-            fingertips&quot;. Its whole-body rates average several tasks per category: picking from a shelf, from a
-            table and from the floor. The dashed line is precise gripper insertion on the fixed-base Franka Duo with
-            Robotiq grippers, under the same model. The rates are vendor-reported, with no external replication.
+            Each rate averages several vendor-reported tasks on Apollo 2 with Inspire hands. The dashed line is
+            gripper insertion on the Franka Duo, a different task.
           </div>
-          <div>The humanoid drawing and its poses are illustrative; they are not Apollo 2&apos;s measured motion.</div>
           <ChartDescription
             id={descriptionId}
             form="table"

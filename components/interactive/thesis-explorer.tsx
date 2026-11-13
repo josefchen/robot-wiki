@@ -254,9 +254,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
         <>
           <div>
             The grouping into six theses is Robot Wiki&apos;s editorial reading of the field, not
-            a published taxonomy. Each card&apos;s plain name stands for the technical thesis in
-            the table below; the evidence for and against, with its citations, opens when you tap a
-            card. The table gives the original short &quot;Falsified if&quot; signal and the full
+            a published taxonomy. Tap a card for its evidence; the table gives each full
             falsification criterion.
           </div>
           <TableScroll labelledBy={captionId} className="pt-1">

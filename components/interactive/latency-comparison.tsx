@@ -52,10 +52,8 @@ import {
   HANDOFF_TICK,
   MAX_DELAY_MS,
   MIN_DELAY_MS,
-  MODE_TOLERANCE,
   MODE_VALUE,
   TRACE_TICKS,
-  VALID_ACTION_FLOOR,
   ensembleCommitWeight,
   isValidModeAction,
   rtcHandoffTrace,
@@ -421,37 +419,13 @@ export function LatencyComparison({
           <InstrumentReset onClick={reset} />
         </>
       }
-      caption="Averaging a late plan with the old one can steer the arm into the obstacle; keeping the moves already committed avoids it."
+      caption="Averaging a late plan with the old one can hit the obstacle; keeping committed moves avoids it."
       method={
         <>
           <p>
-            Deterministic toy, not measured throughput. This qualitative model illustrates a possible
-            cross-mode hand-off: the arm can pass an obstacle on the left or on the right, and the
-            demonstrations hold both. Temporal ensembling averages the plan in flight with newer ones.
-            With an added delay d, the weight it keeps on the committed go-left plan is
-            w = 0.5 + 0.5 / (1 + (d / 125 ms)³), and the executed move is (2w − 1) × {MODE_VALUE.toFixed(1)},
-            where +{MODE_VALUE.toFixed(1)} is go left and −{MODE_VALUE.toFixed(1)} go right. A move within{' '}
-            {MODE_TOLERANCE} of either counts as on a plan; anything weaker than{' '}
-            {VALID_ACTION_FLOOR.toFixed(2)} heads into the obstacle, and the toy score falls from 100%
-            to 0% as it does. Real-time chunking freezes the moves already committed, so it stays on
-            the go-left plan at every delay and its score is held at 100% by assumption.
-          </p>
-          <p>
-            The presets are the three settings the π0.5 real-time chunking experiment tested: +0, +100
-            and +200 ms of injected delay on top of 76 ms model latency for the baselines (97 ms for
-            RTC) and 10 to 20 ms over the network. Its temporal-ensembling variants triggered
-            protective stops at +100 and +200 ms, and RTC showed no drop in average task throughput
-            across six tasks through +200 ms (Black, Galliker and Levine, 2025). The toy&apos;s
-            percentages, its curve between those settings, the flat RTC line and the slider&apos;s
-            reach past +200 ms are assumptions; the delay where it collapses is not a universal latency
-            threshold.
-          </p>
-          <p>
-            The plotter is a schematic of that hand-off. Each groove is one plan, the pen&apos;s place on
-            the beam is the executed move, and the post is as wide as the moves that count as off both
-            plans. It replays a {TRACE_TICKS}-tick hand-off sampled once per controller tick; the late
-            plan arrives at tick {HANDOFF_TICK}, where the trip dog sits on the ruler. Running, it moves
-            {' '}{TICKS_PER_SECOND} ticks a second.
+            A qualitative model of a two-route hand-off at the experiment&apos;s +0, +100 and +200 ms delays.
+            There, temporal ensembling triggered protective stops and RTC held throughput; the toy&apos;s
+            scores between those settings are assumptions.
           </p>
           <div data-inset-plot><PlotStage
             viewBox={`0 0 ${WIDTH} ${SCORE_H}`}
@@ -492,7 +466,7 @@ export function LatencyComparison({
       stage={
         <AnatomyStage
           viewWidth={PLOTTER_WIDTH}
-          hint={<>Blue line: the movement the robot executes.{' '}{running ? 'Running at seven control ticks a second.' : offMode ? 'Two grooves: two safe plans. Red mark: the averaged move hits the obstacle.' : 'Two grooves: two safe plans. With this delay, the averaged move clears the obstacle.'}</>}
+          hint={running ? 'Blue line: the executed move, at seven ticks a second.' : offMode ? 'Blue line: the executed move. Red mark: averaging hits the obstacle.' : 'Blue line: the executed move. Two grooves: two safe plans.'}
           readout={
             <>
               <LiveReadoutText ref={phaseRef} data-lc-phase="" />
@@ -501,15 +475,15 @@ export function LatencyComparison({
               <span data-testid="rtc-throughput-readout">{Math.round(rtc * 100)}%</span>
             </>
           }
-          status="Illustrative work-rate scores: 100% is the no-delay output; 0% means stopped. Not measured robot data."
+          status="Illustrative scores, not measured"
           data-testid="lc-stage-frame"
         >
           <p className="mb-4 font-sans text-[14px] leading-normal text-text" data-testid="lc-combination">
             {delayMs > 0 ? (
-              <>The old plan and a late replacement propose different moves. <strong>Averaging combines those proposals into a move neither plan chose.</strong>{' '}
-                {offMode ? 'That unchosen move hits the obstacle.' : 'At this delay, the combined move still clears the obstacle.'}</>
+              <><strong>Averaging the old and late plans makes a move neither chose.</strong>{' '}
+                {offMode ? 'It hits the obstacle.' : 'At this delay, it still clears the obstacle.'}</>
             ) : (
-              <>With no delay, the robot stays on the old plan. Add a delay to see how combining it with a late replacement can create an unchosen move.</>
+              <>With no delay, the robot stays on the old plan. Add delay to see averaging fail.</>
             )}
           </p>
           <IsoFigure width={PLOTTER_WIDTH} height={HEIGHT} label={plotterLabel} describedBy={`${delayId}-trace-description`}>

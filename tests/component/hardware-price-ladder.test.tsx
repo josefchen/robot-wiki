@@ -75,7 +75,7 @@ describe('HardwarePriceLadder', () => {
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent('Listed prices: arms $295 to $70,000, humanoids $2,490 to $29,900');
     const caption = container.querySelector('[data-figure-caption]')?.textContent ?? '';
     expect(caption).toBe(
-      'The cheapest listed humanoid costs less than a WidowX AI research arm, and several humanoid makers publish no price or do not sell openly.',
+      'The cheapest listed humanoid undercuts a WidowX AI arm; several humanoid makers list no price or do not sell openly.',
     );
     expect(caption.split(/\s+/).length).toBeLessThanOrEqual(25);
     expect(container).toHaveTextContent('EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.');

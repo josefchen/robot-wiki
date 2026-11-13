@@ -234,30 +234,9 @@ function LedgerNotes({ ledger }: { ledger: Ledger }) {
         {ledger.selected.verdict.exemplars}.
       </p>
       <p data-testid="sample-simplification-label">
-        What is modeled rather than measured: the three lanes use constant
-        illustrative rates. The simulation constant is 122,880 steps/s,
-        computed at Rudin&apos;s 1,200-second boundary; the reported run
-        implies a strictly greater end-to-end average, not an exact measured
-        rate of 122,880. The single-robot constant is approximately 22.2
-        steps/s from Minitaur&apos;s whole training process, not its rollout
-        control rate. Neither constant predicts arbitrary tasks or robots.
-        Fleet scaling assumes perfect parallelism. QT-Opt&apos;s evaluation
-        protocol allows up to 20 steps per grasp attempt; that cap is not a
-        measured mean and does not establish a campaign step rate from
-        grasp totals and robot-hours. No QT-Opt steps-per-robot-second value
-        is presented here as measured. Robot-hours are not parallel wall time.
-        The one-hour and {OFFLINE_ONLY_ABOVE_HOURS}-hour boundaries are
-        editorial thresholds for this toy, not scientific algorithm-eligibility
-        limits. The bands do not rule algorithms in or out.
-      </p>
-      <p>
-        The bands: a run under {ON_POLICY_MAX_HOURS} hour sits in the toy on-policy band (PPO is an example), up to{' '}
-        {OFFLINE_ONLY_ABOVE_HOURS} hours in the toy off-policy band (SAC, TD3 and RLPD are examples), and longer in the
-        toy offline band (CQL, IQL and TD3+BC are examples). The time axis is logarithmic: each tick is a much longer
-        time than the last.
-      </p>
-      <p>
-        The real examples from papers, in time order:
+        Lanes run at constant illustrative rates with perfect parallelism, and the {ON_POLICY_MAX_HOURS}-hour and{' '}
+        {OFFLINE_ONLY_ABOVE_HOURS}-hour bands are editorial thresholds: the bands do not rule algorithms in or out.
+        Numbered dots are paper-reported durations in different units, and robot-hours are not parallel wall time.
       </p>
       <ol className="m-0! grid list-none gap-0.5 p-0!">
         {anchorsByTime.map((anchor, i) => (
@@ -268,30 +247,8 @@ function LedgerNotes({ ledger }: { ledger: Ledger }) {
         ))}
       </ol>
       <p>
-        Paper-reported durations, with different settings and units: Rudin
-        reports ANYmal flat-terrain training in under four minutes and uneven
-        terrain in twenty minutes on one workstation GPU. The separately
-        described simulation/deployment policy used 4,096 environments,
-        98,304 samples per update and 1,500 updates in under twenty minutes
-        on an i9-11900k CPU and RTX A6000 GPU <CiteRef id="rudin-2021" />;
-        DayDreamer reports one A1 run learning to roll over, stand and walk
-        in one hour without a simulator, with physical interventions at the
-        training-area boundary that preserved joint configuration and
-        orientation <CiteRef id="daydreamer-2022" />; Minitaur walking
-        required 160,000 control steps over about two hours of whole-process
-        training time <CiteRef id="haarnoja-walk-2019" />; QT-Opt reports
-        a 580,000-grasp off-policy dataset from seven robots over about
-        800 robot hours, separate from approximately 28,000 additional
-        on-policy fine-tuning grasps <CiteRef id="qt-opt-2018" />; and
-        section 5.2 of Levine&apos;s 2016 preprint reports about 800,000
-        grasp attempts over two months using 6 to 14 robots. Its abstract says
-        &quot;over 800,000&quot; and its introduction says &quot;several months&quot;
-        <CiteRef id="levine-hand-eye-2016" />. Robot-hours are not parallel
-        wall time. Bounds and approximate durations are plotted at their
-        stated numeric anchors; two months is drawn as 60 days for placement,
-        not as a measured elapsed-time conversion. These are not matched
-        benchmarks. Keep the modeled budget fixed while switching sources
-        or changing fleet size to inspect the toy assumptions.
+        Sources: <CiteRef id="rudin-2021" /> <CiteRef id="daydreamer-2022" /> <CiteRef id="haarnoja-walk-2019" />{' '}
+        <CiteRef id="qt-opt-2018" /> <CiteRef id="levine-hand-eye-2016" />
       </p>
     </>
   );

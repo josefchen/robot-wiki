@@ -44,7 +44,7 @@ describe('FundingHumanoidCounts', () => {
     expect(kicker).toBe('Robotics funding and humanoid counts');
     expect(heading).toBe('By June 2026, robotics funding surpassed every earlier year');
     expect(caption).toBe(
-      'Crunchbase counts all robotics startups and its 2026 total runs to 22 June, while IFR counts full-size humanoids sold and SAG counts humanoids shipped.',
+      'Crunchbase counts all robotics startups, its 2026 total to 22 June; IFR counts full-size humanoids sold and SAG humanoids shipped.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);

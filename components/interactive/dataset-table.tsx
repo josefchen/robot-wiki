@@ -285,7 +285,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${DATASETS.length} open robot-manipulation datasets. The filters above narrow the list by size in episodes (recorded runs), by whether one robot platform or several recorded the data, and by number of tasks; clicking a column heading sorts it. Figures the source does not publish read not disclosed and sort last; estimates stay in the prose, and every row links to its dataset site or paper.`}
+          caption={`${DATASETS.length} open robot-manipulation datasets. Filter or sort them; unpublished figures read not disclosed and sort last.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'episodes', direction: 'desc' }}

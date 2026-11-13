@@ -155,9 +155,9 @@ export function ChunkBuffer({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="This card feeder represents the action queue. The robot arm is not drawn: empty belt slots show moments when it waits."
+          hint="Card feeder as action queue. Empty belt slots: moments the arm waits."
           readout={`${readoutFor(chunk)} · ${ENOUGH} or more cover the wait`}
-          status={`${pose.left > 0 ? 'Beside the upright ruler: cards left from this reply.' : 'Beside the upright ruler: no cards left from this reply.'} One card per action; the next reply arrives from the box. Chunk sizes illustrative; slowed twenty times.`}
+          status={pose.left > 0 ? 'Cards left; illustrative, slowed 20×' : 'Holder empty; illustrative, slowed 20×'}
           data-testid="chunk-stage-frame"
         >
           <div className="@container/feeder grid min-w-0 gap-4 font-sans leading-normal text-text" data-testid="chunk-rate-comparison">
@@ -212,14 +212,9 @@ export function ChunkBuffer({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Each Gemini Robotics reply takes about 250 milliseconds while the arm needs 50 commands a second, so 13 queued actions cover the wait."
+      caption="Replies take about 250 ms and the arm needs 50 commands a second: 13 queued actions cover the wait."
       method={
         <>
-          <p>
-            Gemini Robotics runs about 250 ms from camera to action, yet reaches a 50 Hz effective control frequency
-            because each answer is a chunk of several actions. At 50 Hz the controller needs an action every 20 ms,
-            so one 250 ms wait spans 12.5 ticks: a chunk of 13 or more lasts until the next answer lands.
-          </p>
           <div className="grid gap-1" data-testid="chunk-derived-minimum">
             <p className="text-[14px] text-text-dim">Derived from the reported timing (ms = milliseconds):</p>{' '}
             <p className="text-[14px]">One action every <span className="font-mono">{TICK_MS} ms</span></p>{' '}
@@ -231,16 +226,10 @@ export function ChunkBuffer({ className }: { className?: string }) {
             </p>{' '}
           </div>{' '}
           <p id={drawingId}>
-            The feeder is that arithmetic made of parts. Each answer is a deck of cards, one card per action, and the
-            deck on its way slides down the channel for the whole 250 ms. When it lands it shoves out what is left of
-            the deck before, because the fresher plan wins. The Geneva wheel indexes once every 20 ms; the belt moves
-            one slot, and the bottom card of the deck slides onto it. A deck that runs out early leaves slots empty,
-            and each empty slot is a tick the arm waits. The line on the ruler beside the deck marks 12.5 cards.
+            The feeder is that arithmetic made of parts: each reply is a deck, one card per action, dealt every 20 ms.
           </p>
           <p>
-            Assumed: one request at a time, the next sent when an answer lands. Gemini Robotics does not publish its
-            chunk length, so the deck size is the reader&apos;s; 16 is the chunk GR00T N1 samples. Robot time is slowed
-            twenty times.
+            Gemini Robotics does not publish its chunk length, so the deck size is yours; GR00T N1 samples 16.
           </p>
         </>
       }

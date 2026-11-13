@@ -350,8 +350,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
           className={INSTRUMENT_SLIDER_CLASS}
         />
         <SliderEnds low={spec.ends[0]} high={spec.ends[1]} />
-        {/* In view, the note is for assistive technology only; it is
-            repeated, with the others, in "How this was made". */}
+        {/* In view, the note is for assistive technology only. */}
         <div data-control-note="" className={visible ? 'sr-only' : 'font-sans text-sm leading-snug text-text-dim'}>
           {spec.note}
         </div>
@@ -391,7 +390,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
       stage={
         <AnatomyStage
           viewWidth={DRAWING_WIDTH}
-          hint="The sliding weight marks the months the robot takes to earn back its cost"
+          hint="The sliding weight marks the months until the robot pays for itself"
           readout={
             <>
               Pays for itself in{' '}
@@ -400,7 +399,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
               </StageNumber>
             </>
           }
-          status="Illustrative: chosen inputs, not a measured cell."
+          status="Illustrative model"
           data-testid="payback-steelyard-stage"
         >
           <IsoFigure
@@ -498,12 +497,9 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
       method={
         <>
           <p>
-            The calculator values a robotic pick cell by the picker wages its output replaces. Cell
-            cost is robot price times the integration multiple ({formatMoney(out.totalCellCost)} now).
-            Each failed pick is a jam a person clears, so every good pick carries the jam rate times
-            the clearing time on top of its cycle. Payback divides cell cost by the monthly labor
-            value of the modeled picks; the verdict compares it with a chosen{' '}
-            {PAYBACK_TARGET_MONTHS}-month horizon.
+            Payback divides cell cost, robot price times the integration multiple, by the monthly
+            picker wages its good picks replace. Each failed pick adds a person&apos;s jam-clearing
+            time to the cycle; all seven inputs are assumptions, informed by EVST&apos;s guide.
           </p>
           <p>
             Current case: payback <span>{paybackText}</span>; capital cost per pick{' '}
@@ -523,20 +519,6 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
             <span data-testid="breakdown-jams">jam clearing {breakdown.jamClearing.toFixed(0)} s</span>,{' '}
             <span data-testid="breakdown-downtime">downtime {breakdown.downtime.toFixed(0)} s</span>{' '}
             of {SECONDS_PER_HOUR} s.
-          </p>
-          <ul className="list-disc space-y-1 pl-5">
-            {[JAM_CONTROL, ...FOLD_CONTROLS].map((spec) => (
-              <li key={spec.key}>
-                {spec.label} ({spec.term}, default {spec.format(DEFAULT_INPUTS[spec.key])}): {spec.note}
-              </li>
-            ))}
-          </ul>
-          <p>
-            All seven defaults and slider ranges are authored assumptions; EVST&apos;s guide supplies
-            context, not exact inputs; none is a measured deployment result. The chart&apos;s lines
-            hold every other input at its current value and vary only the clearing time, at 99.9%
-            (1 failed pick in 1,000) and 99% (1 in 100) per-pick success. The hour bar spends 3,600
-            elapsed seconds on productive cycles, jam clearing and downtime.
           </p>
           <ChartDescription
             id={descriptionId}

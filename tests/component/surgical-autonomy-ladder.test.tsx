@@ -53,7 +53,7 @@ describe('SurgicalAutonomyLadder', () => {
     expect(kicker).toBe('Six levels of surgical autonomy');
     expect(heading).toBe('Authorized surgical robots reach level 1; research claims level 4');
     expect(caption).toBe(
-      'Every FDA-authorized surgical robot sits at level 0 or 1; everything higher is research on animals or on tissue removed from the body.',
+      'Every FDA-authorized surgical robot sits at level 0 or 1; everything higher is research in animals or excised tissue.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);

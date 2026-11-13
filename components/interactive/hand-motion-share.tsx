@@ -164,7 +164,7 @@ export function HandMotionShare({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint="Faint: the person's check mark, placed at the robot's start"
           readout={readoutAt(copy, state)}
-          status="Arm lengths, poses and the stroke are illustrative; the geometry is exact"
+          status="Illustrative arms; exact geometry"
           data-testid="hand-motion-share-stage-frame"
         >
           <div data-testid="hand-motion-share-drawing" data-copy={copy} data-phase={state.phase} data-share={r2(state.share)} data-stray={stray} data-lever={r2(lever)}>
@@ -183,29 +183,12 @@ export function HandMotionShare({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Relative hand motion preserves the same stroke across different arms, giving human and robot recordings a shared action description; copied joint angles distort it."
+      caption="Relative hand motion keeps the same stroke across different arms; copied joint angles distort it."
       method={
         <>
-          <p>
-            Robots and people have different joints and different link lengths, so one body&apos;s joint angles
-            mean little to another. GR00T N1.7 writes actions as deltas from the hand&apos;s current pose, shared
-            by robot and human embodiments, and NVIDIA calls this a key factor in its cross-embodiment
-            performance: because the representation is the same for human and robot data, priors learned from
-            human video carry over to robot control. EgoScale likewise uses relative wrist motion, and N1.6 moved
-            most embodiments to state-relative action chunks.
-          </p>
           <p id={drawingId}>
-            The drawing is two easels on one bench. At the left a mannequin arm holds a pen to its squared sheet and
-            draws a check mark. At the right a robot arm with shorter links holds its pen to the other sheet. The copy
-            box between them carries the person&apos;s movement to the robot, and its lever picks what is sent. To
-            the left, the shoulder and elbow angles go across as they are, and on the shorter arm they trace a
-            smaller, skewed stroke. To the right, the hand&apos;s motion from the stroke&apos;s start goes across, the
-            robot works out its own angles for it, and its ink lands on the faint check mark, which is the
-            person&apos;s stroke placed at the robot&apos;s start.
-          </p>
-          <p>
-            The arms&apos; lengths, the poses and the stroke are illustrative; the geometry is exact. Real arms have
-            more joints, which makes copying angles across bodies harder still.
+            The drawing is two easels on one bench. A copy box sends the shorter robot arm either the
+            person&apos;s joint angles, which skew its stroke, or the hand&apos;s motion, which lands on the faint check mark.
           </p>
         </>
       }

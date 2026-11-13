@@ -54,7 +54,7 @@ const ZIPLINE = deliveryOf(ZIPLINE_ID);
 const WING = deliveryOf(WING_ID);
 
 const CAPTION =
-  "Each bar is a company's own lower bound on its own date; Walmart's 2 million are not added because they overlap Wing's and Zipline's counts.";
+  "Each bar is a company's own lower bound; Walmart's 2 million overlap Wing's and Zipline's and are not added.";
 const DESCRIPTION = `Cumulative drone deliveries as the companies report them. Zipline reports ${ZIPLINE.readout} deliveries since its first commercial delivery in 2016, on a fact sheet read in October 2026. Wing reported ${WING.readout} commercial deliveries in June 2026. Both are lower bounds. Walmart's more than 2 million drone deliveries, reported in November 2026, are not added, because its providers include Wing and Zipline.`;
 
 export function DroneDeliveryCounts({ className }: { className?: string }) {
@@ -151,12 +151,9 @@ export function DroneDeliveryCounts({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Each bar is the operator&apos;s own count, drawn to the lower bound it states. Zipline&apos;s safety fact
-            sheet, a page it keeps current, said more than {ZIPLINE.atLeast / 1e6} million when read on 27 October
-            2026; its January 2026 release had reported passing {ZIPLINE_JANUARY_2026 / 1e6} million. Wing&apos;s
-            figure is from its 8 June 2026 post on its Walmart expansion. Walmart reported more
-            than {WALMART_NOVEMBER_2026 / 1e6} million drone deliveries on 5 November 2026, made with providers
-            including Wing and Zipline, so it overlaps both bars and is not drawn.
+            Zipline&apos;s fact sheet said more than {ZIPLINE.atLeast / 1e6} million on 27 October 2026, up from{' '}
+            {ZIPLINE_JANUARY_2026 / 1e6} million in January; Wing&apos;s count is from its 8 June 2026 post. Walmart&apos;s{' '}
+            {WALMART_NOVEMBER_2026 / 1e6} million, made with Wing and Zipline, overlap both bars and are not drawn.
           </div>
           <ChartDescription
             open

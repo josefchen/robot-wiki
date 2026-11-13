@@ -349,7 +349,7 @@ export function TrajectoryStitching({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Switch how the robot learns to compare the two routes. Lit car: the robot, with its route so far"
+          hint="Switch how the robot learns; the lit car is the robot"
           readout={rest.readout}
           status="Illustrative layout; conditions cited"
           data-testid="stitching-stage"
@@ -377,21 +377,13 @@ export function TrajectoryStitching({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Offline reinforcement learning can join the useful parts of two recorded runs into a route to the goal, which copying either run cannot do."
+      caption="Offline reinforcement learning joins the useful parts of two recorded runs; copying either run misses the goal."
       method={
         <>
           <div>
-            The layout holds two recorded runs as two tracks. Run 1 leaves the robot&apos;s start and stops short of
-            the goal; run 2 reaches the goal from somewhere else. They meet once, on a shared stretch. Copying, as
-            behavior cloning does, follows the run that leaves the start and repeats its miss. A value learner rates
-            every place by the reward that can follow it, so the shared stretch inherits run 2&apos;s success and the
-            points send the robot onto run 2 there.
-          </div>
-          <div>
-            Kumar and colleagues favor offline reinforcement learning over cloning for sparse rewards, suboptimal or
-            noisy data, and long tasks whose runs can be joined. On a real robot, COG chained four skills under a
-            reward of 1 for success and 0 otherwise, from prior data that never solved the new task. The layout is
-            illustrative.
+            Run 1 leaves the start and stops short; run 2 reaches the goal from elsewhere, and they share one stretch.
+            Cloning repeats run 1&apos;s miss, while a value learner gives the shared stretch run 2&apos;s success and
+            switches there.
           </div>
           <ChartDescription
             id={descriptionId}

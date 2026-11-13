@@ -508,28 +508,15 @@ export function CrossEmbodimentStrategies({
           <Overview selected={strategyId} describedBy={descriptionId} />
         </FigureStage>
       }
-      caption="Robots have different bodies; describing actions as where the hand moves lets one model learn from many robots and from people on video."
+      caption="Describing actions as where the hand moves lets one model learn from many robots and from people on video."
       method={
         <>
           <p>
-            A model trained on many robots needs one action list that every body can write into.
-            Each bar here is an illustrative 32-slot vector. The robot rows use toy widths: 8
-            coordinates for a 7-DoF arm (seven joint targets and a gripper; DoF counts the joints
-            that move independently), 16 for two arms with two grippers, and 29 for a humanoid,
-            which is not its hardware DoF count. A person on video has no joint targets at all,
-            only 3D hand keypoints tracked from the footage.
+            Each bar is an illustrative 32-slot action vector; a person on video gives only tracked 3D hand keypoints.
           </p>
           <p>
-            Padding gives each robot its own leading slots and fills the rest with zeros; this toy
-            models no adapter for human data. Motion transfer, in the Gemini Robotics 1.5 report,
-            aligns embodiments during training; the {LATENT_DIMS} hatched slots are an illustrative
-            link, not a disclosed latent. A shared relative end-effector (EEF) space describes
-            where the hand or gripper moves relative to where it is, so a tracked human hand can
-            fill the same {EEF_SPACE_DIMS} slots. NVIDIA&apos;s GR00T N1.7 README reports
-            relative EEF actions shared across robot data and 20K hours of EgoScale human video;
-            the EgoScale paper (Zheng 2026) separately uses wrist deltas, retargeted hand joint
-            actions and aligned human-robot mid-training. The strips do not implement those
-            adapters.
+            The {LATENT_DIMS} hatched slots stand in for undisclosed Motion Transfer alignment, and the shared
+            relative end-effector space lets a tracked hand fill the same {EEF_SPACE_DIMS} slots.
           </p>
           <ChartDescription
             id={descriptionId}

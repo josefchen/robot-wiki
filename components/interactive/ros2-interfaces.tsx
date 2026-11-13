@@ -388,21 +388,13 @@ export function Ros2Interfaces({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="Robot programs, called nodes, talk three ways: topics stream readings, services trade a question for an answer, actions run long cancelable jobs."
+      caption="Nodes talk three ways: topics stream, services answer one question, actions run long cancelable jobs."
       method={
         <>
           <div>
-            In ROS 2, nodes talk through topics for continuous streams, services for short request and response
-            calls, and actions for long-running goals with feedback, cancellation and a result. The node names
-            are examples: a camera driver publishes pictures on a topic, a policy server asks a gripper driver a
-            yes-or-no question as a service, and a task manager sends a 30-second fetch job as an action.
-          </div>
-          <div>
-            The bench is a schematic: the cabinet at the left is the node that starts the exchange, the one at
-            the right the node that answers. The conveyor in front carries a stream of pictures and brings
-            nothing back; the duct in the middle carries a question capsule over and an answer capsule back; the
-            shuttle at the back carries a job out while the three flags on the left cabinet rise, two for
-            progress updates and the last for the result, and the lever on its front can cancel the job.
+            The left node starts each exchange: a conveyor streams pictures, a duct carries a question and its
+            answer, and a shuttle carries a job. The flags rise for two progress updates and the result; the
+            lever cancels.
           </div>
           <ChartDescription
             id={descriptionId}

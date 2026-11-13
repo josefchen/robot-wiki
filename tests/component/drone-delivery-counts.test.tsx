@@ -36,7 +36,7 @@ describe('DroneDeliveryCounts', () => {
     expect(kicker).toBe('Deliveries, as the companies report them');
     expect(heading).toBe('Zipline passed 3 million drone deliveries; Wing passed 1 million');
     expect(caption).toBe(
-      "Each bar is a company's own lower bound on its own date; Walmart's 2 million are not added because they overlap Wing's and Zipline's counts.",
+      "Each bar is a company's own lower bound; Walmart's 2 million overlap Wing's and Zipline's and are not added.",
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);
