@@ -235,7 +235,7 @@ export const PROSE_LINT_EXCEPTIONS: QuotationException[] = [
     verifiedOn: '2026-10-07',
   },
   /* ------------------------------------------------------------------ *
-   * Verbatim source titles added with the KOL batch (2026-10-21).
+   * Verbatim source titles added 2026-10-21.
    * ------------------------------------------------------------------ */
   {
     id: 'commgap-2026',

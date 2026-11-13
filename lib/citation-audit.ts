@@ -19,7 +19,7 @@ import { normalizeTitle, type ExceptedVerdict, type LinkCheckException } from '.
 /**
  * A dated web.archive.org capture: the sanctioned citation form for a
  * canonical source that is genuinely served over http only (decided
- * 2026-08-12; see the registry header and library/content-quality.md). The
+ * 2026-08-12; see the registry header in data/citations.ts). The
  * capture itself is https, so it satisfies the https-only schema, and the
  * dated timestamp makes it content-addressed and stable. The checker treats
  * such URLs as deliberate, valid citations, never as oddities.

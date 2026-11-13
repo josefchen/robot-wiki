@@ -14,7 +14,7 @@ import type { LinkCheckException } from '@/lib/citation-links';
 
 describe('parseArchivalCapture', () => {
   it('recognizes a dated capture of an http-only canonical source', () => {
-    // The sanctioned Bitter Lesson pattern (library/content-quality.md).
+    // The sanctioned Bitter Lesson pattern (see the header of data/citations.ts).
     expect(
       parseArchivalCapture(
         'https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html',

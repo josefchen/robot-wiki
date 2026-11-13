@@ -7,9 +7,8 @@ import type { Locator } from '@playwright/test';
  * dispatched event and the onChange handler never fires; a readout
  * assertion then sees the stale value (intermittently, under full-suite
  * load). Going through the HTMLInputElement prototype setter leaves the
- * tracker behind and always delivers the event. Two occurrences of the
- * fill() flake are recorded in library/user-testing.md ("Known environment
- * quirks"); every e2e slider interaction goes through this helper.
+ * tracker behind and always delivers the event. The fill() flake was seen
+ * twice; every e2e slider interaction goes through this helper.
  */
 export async function setSlider(
   slider: Locator,

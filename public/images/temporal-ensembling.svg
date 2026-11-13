@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 250" width="640" height="250" role="img" aria-label="Temporal ensembling diagram">
-  <!-- Brand-v2 palette and chunk geometry preserved. The approved factual
-       correction reverses the meaning-carrying weight widths/opacities and
-       labels to oldest-first, and explicitly labels illustrative m=0.5.
-       Original migration semantics remain in history; exact source-backed
-       before/after asset and semantic deltas must accompany implementation. -->
+  <!-- Brand-v2 palette and chunk geometry preserved. A factual correction
+       reversed the meaning-carrying weight widths/opacities and labels to
+       oldest-first, and labels the illustrative m=0.5 explicitly. -->
   <rect width="640" height="250" fill="#0B0B0C"/>
 
   <!-- Section labels -->

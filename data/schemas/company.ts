@@ -176,8 +176,8 @@ const companyObjectSchema = z.object({
    * figure, add individual rounds yourself, or promote a floor or ceiling to
    * an exact value. When only a bound is available, sources conflict without a
    * primary resolution, or a single fetched page contradicts itself, use null
-   * and record the bound or disagreement in deployments prose and
-   * audit/market-map.md. Null is a publishable state, not missing work.
+   * and record the bound or disagreement in deployments prose and the
+   * entry's comment. Null is a publishable state, not missing work.
    */
   totalRaisedUsd: z.number().positive().nullable(),
   latestRound: fundingRoundSchema.nullable(),

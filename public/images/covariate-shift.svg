@@ -2,7 +2,7 @@
   <!-- brand-v2 palette: ink ground, graphite corridor, concrete linework and
        labels, lime for the one path the figure is about. Only fill, stroke,
        stroke-width and opacity move; the geometry and the label text are
-       pinned by the normalized semantic baseline (VAL-B2-VIZ-014). -->
+       pinned by the normalized semantic baseline (DI-VIZ-014). -->
   <rect width="640" height="250" fill="#0B0B0C"/>
 
   <!-- Expert corridor (the states the demonstrations cover) -->

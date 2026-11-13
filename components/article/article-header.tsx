@@ -46,8 +46,8 @@ export function ArticleHeader({
       </h1>
       <p className="page-lead">{entry.summary}</p>
       {/* The meta line is page chrome, not prose: dates and counts are
-          never legitimate excerpt candidates (decision recorded in
-          library/search.md). data-pagefind-ignore is index-only: the line
+          never legitimate excerpt candidates. data-pagefind-ignore is
+          index-only: the line
           stays visible above. */}
       <p data-pagefind-ignore data-article-meta className="meta-line">
         {/* On a phone the three values do not fit on one line, so the date

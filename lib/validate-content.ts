@@ -18,7 +18,7 @@
  *   7. Currency hygiene: no unescaped dollar sign before a digit in MDX
  *      prose. remark-math parses "$1.4B ... $14B" as an inline KaTeX span,
  *      garbling the sentence and overflowing the mobile column; prices are
- *      written \$1.4B instead (library/content-quality.md gotcha).
+ *      written \$1.4B instead.
  *   8. Inline citation declaration: every <Cite id="..."> in the MDX body
  *      must be declared in that module's frontmatter citations list. An
  *      undeclared inline cite would render as a chip with no entry in the
@@ -48,7 +48,7 @@
  *      publish), but only published modules, the static sources, and
  *      company logo fields count as usage: an image referenced only by a
  *      draft is invisible to readers and must not satisfy the
- *      stale-registry guard (library/imagery.md). Provenance fields are
+ *      stale-registry guard. Provenance fields are
  *      scanned for synthesis markers.
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
@@ -408,7 +408,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
     // gate scans drafts too (an unknown id should fail before publish),
     // but only a PUBLISHED module counts as usage for the stale-registry
     // guard: an image referenced only by a draft is invisible to readers
-    // and must not satisfy it (library/imagery.md).
+    // and must not satisfy it.
     if (opts.images) {
       for (const id of referencedImageIds(body)) {
         if (!imageIds.has(id)) {
@@ -460,7 +460,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
     for (const line of unescapedCurrencyLines(body)) {
       push(
         rel,
-        `unescaped currency dollar sign at line ${line}: write prices as \\$ (remark-math parses unescaped $ amounts as inline KaTeX; see library/content-quality.md)`,
+        `unescaped currency dollar sign at line ${line}: write prices as \\$ (remark-math parses unescaped $ amounts as inline KaTeX)`,
       );
     }
 

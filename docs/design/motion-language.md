@@ -9,8 +9,8 @@ sentence tells you what changed and why.
 
 Sources, in order of authority:
 
-1. [`library/motion-language-spec-20260926.md`](../../library/motion-language-spec-20260926.md) — the binding spec.
-2. `motion-tokens.json` — the single source of truth every generator reads.
+1. This document, the binding spec.
+2. `motion-tokens.json`, the single source of truth every generator reads.
 
 ## Why a language
 

@@ -4,8 +4,8 @@ import { DOMAIN_META, publishedModules } from './modules.ts';
 
 const firstPartyTypeRoleSchema = z.object({
   id: z.enum(['display', 'interface', 'reading', 'data']),
-  // Owner-approved successor (Josef, 2026-10-10, the research-page
-  // standard): DM Sans displays, Geist reads and runs the interface, Geist
+  // Updated for the research-page standard of 10 October
+  // 2026: DM Sans displays, Geist reads and runs the interface, Geist
   // Mono carries data. Tektur is left only to the offline OG renderer.
   family: z.enum(['DM Sans', 'Geist', 'Geist Mono']),
   /**

@@ -1299,7 +1299,7 @@ export const LOGO_IMAGES: SiteImage[] = [
     retrieved: '2026-10-19',
     width: 135,
     height: 57,
-    // Official mark (owner-session decision of 2026-10-19): the header logo of the company's own site,
+    // Official mark (decided 2026-10-19): the header logo of the company's own site,
     // https://farm-ng.com/wp-content/uploads/2025/05/farm-ng-logo.svg, in the Wayback Machine capture of
     // 2025-07-10 13:44:07 UTC (the header of the farm-ng.com capture of 2025-06-18 references it, under
     // "© 2025 Farm-ng, Inc."), from before farm-ng.com began redirecting to Bonsai Robotics; saved byte for byte.
