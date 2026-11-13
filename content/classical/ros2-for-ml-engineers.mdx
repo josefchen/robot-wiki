@@ -6,7 +6,7 @@ slug: ros2-for-ml-engineers
 order: 9
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - ros2-lyrical-2026
   - ros2-interfaces-2026
@@ -56,7 +56,7 @@ import { Ros2Interfaces } from '@/components/interactive/ros2-interfaces';
 
 import { QosQueueAge } from '@/components/interactive/qos-queue-age';
 
-ROS 2, the second generation of the Robot Operating System, is a modular framework of free robot software, rebuilt because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />. For a learned policy it is the runtime that carries sensor data in and actions out. The current long-term-support release, Lyrical Luth, shipped on 22 May 2026 <Cite id="ros2-lyrical-2026" />.
+ROS 2, the Robot Operating System's second generation, is free modular robot software rebuilt for production use <Cite id="ros2-science-robotics-2022" />. For a learned policy it is the runtime that carries sensor data in and actions out.
 
 <Image id="pr2-maker-faire-2011" />
 
@@ -83,54 +83,64 @@ ROS 2, the second generation of the Robot Operating System, is a modular framewo
   takeaway="Topics stream, services answer short requests, and actions manage long-running goals with feedback and cancellation."
 />
 
-## The graph: nodes and typed interfaces
+## A policy reaches the robot only through typed messages
 
-A policy on ROS 2 never touches the camera or the motors; it reads typed messages, such as an image with its timestamp and camera frame, and publishes commands. A `geometry_msgs/PoseStamped` carries the timestamp and frame a bare array lacks, and REP 103 puts ROS on SI units <Cite id="rep-103-2010" />. On an arm, the camera driver, policy server and controller bridge are each a node. Nodes talk through topics for streams such as images, services for short request-response calls, and actions for long-running goals with feedback, cancellation and a result <Cite id="ros2-interfaces-2026" />.
+A policy never touches the camera or the motors: it reads typed messages and publishes commands. A `geometry_msgs/PoseStamped` carries the timestamp and frame a bare array lacks, in REP 103's SI units <Cite id="rep-103-2010" />. Nodes talk through topics for streams, services for short calls, and actions for long goals with feedback and cancellation <Cite id="ros2-interfaces-2026" />.
 
 <Ros2Interfaces className="my-6" />
 
-## QoS is part of the model input
+## QoS decides which messages reach the policy
 
-Quality of Service (QoS) settings, inherited from DDS <Cite id="ros2-dds-design-2014" />, decide which messages reach the policy: a deep reliable queue can serve stale images. The default profile keeps the last 10 messages and delivers reliably; the sensor-data profile uses best effort and a smaller queue, because timely readings matter more than complete ones. Lifespan silently drops messages older than its limit, and endpoints with incompatible policies never connect <Cite id="ros2-qos-2026" />.
+Quality of Service (QoS) settings, inherited from DDS <Cite id="ros2-dds-design-2014" />, can make a deep reliable queue serve stale images. The default keeps 10 messages reliably; the sensor-data profile uses best effort and a smaller queue. Lifespan silently drops old messages, and endpoints with incompatible policies never connect <Cite id="ros2-qos-2026" />.
 
-Latency depends on the DDS implementation; ROS 2 can add 50% over raw DDS <Cite id="ros2-latency-2021" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is Tier 1 <Cite id="ros2-kilted-2025" />.
+ROS 2 can add 50% latency over raw DDS <Cite id="ros2-latency-2021" />. Since Kilted Kaiju (May 2025), Zenoh's `rmw_zenoh_cpp` is Tier 1 <Cite id="ros2-kilted-2025" />.
 
 <QosQueueAge className="my-6" />
 
-## Time and synchronization
+## Every input needs two timestamps
 
-Camera, depth, joint and force streams arrive at different rates, so each input needs capture and arrival timestamps. MCAP records a publish time and a log time for every message <Cite id="mcap-spec-2026" />. Logging capture, receipt and inference times splits latency into sensing, transport, model and command delivery; ros2_tracing does this with an average overhead of 0.0033 ms per message <Cite id="ros2-tracing-2022" />. With `use_sim_time` set, ROS time follows the latest `/clock` message <Cite id="ros2-clock-design" />, so nodes that mix it with wall time see spurious timeouts. The [calibration guide](/classical/calibration) covers alignment.
+Streams arrive at different rates, so log each reading's capture and arrival times. MCAP stores a publish time and a log time per message <Cite id="mcap-spec-2026" />, and ros2_tracing splits latency by stage for 0.0033 ms per message <Cite id="ros2-tracing-2022" />. With `use_sim_time` set, ROS time follows `/clock`, so nodes that mix it with wall time see spurious timeouts <Cite id="ros2-clock-design" />.
 
-## tf2: the coordinate-frame graph
+## tf2 knows where every frame was, and when
 
-tf2 keeps a time-buffered tree of coordinate frames and transforms data between any two frames at any moment <Cite id="tf2-docs-2026" />, after Foote's original tf library <Cite id="tf-library-2013" />. A lookup at an image's timestamp can wait for the transform, and the tf2 tutorial raises an exception only if it is missing after 50 ms <Cite id="tf2-time-tutorial-2026" />.
+tf2 keeps a time-buffered tree of frames and transforms data between any two at any moment <Cite id="tf2-docs-2026" />, after Foote's tf <Cite id="tf-library-2013" />. In the tf2 tutorial, a lookup at an image's timestamp waits 50 ms before it fails <Cite id="tf2-time-tutorial-2026" />.
 
-REP 105 defines `odom` as a drifting short-term reference and `map` as a frame whose poses can jump <Cite id="rep-105-2010" />, and camera optical frames take an `_optical` suffix and a different axis convention <Cite id="rep-103-2010" />. A policy trained on <Term id="end-effector">end-effector</Term> motions in the base frame cannot be sent motions in the tool frame; *Modern Robotics* covers the geometry <Cite id="modern-robotics-2017" />.
+REP 105 defines `odom` as a drifting frame and lets `map` poses jump <Cite id="rep-105-2010" />; camera optical frames take an `_optical` suffix and their own axes <Cite id="rep-103-2010" />. A policy trained on <Term id="end-effector">end-effector</Term> motions in the base frame cannot take tool-frame motions <Cite id="modern-robotics-2017" />.
 
-## URDF, robot state and MoveIt
+## URDF and MoveIt give the policy a robot model
 
-URDF, the most common robot-description format <Cite id="urdf-dataset-2023" />, lists links, joints, geometry and limits, and `robot_state_publisher` combines it with joint readings to publish the frame tree. MoveIt 2's planning scene combines robot state, model and world geometry for kinematics, constraint and collision checks <Cite id="moveit-planning-scene-2026" />, so a policy can use it to plan or check collision-free motion.
+URDF, the most common robot-description format, lists links, joints, geometry and limits <Cite id="urdf-dataset-2023" />. MoveIt 2's planning scene adds world geometry for kinematics and collision checks <Cite id="moveit-planning-scene-2026" />.
 
 ## rosbag2 is the experiment record
 
-rosbag2 records timestamped messages for replay, in MCAP by default since Iron Irwini <Cite id="ros2-iron-mcap-2023" />, and since Kilted can replay in publication order instead of arrival order <Cite id="ros2-kilted-2025" />. Learning pipelines convert bags to episode formats such as RLDS <Cite id="rlds-2021" />.
+rosbag2 records timestamped messages, in MCAP by default since Iron Irwini <Cite id="ros2-iron-mcap-2023" />, and since Kilted replays them in publication order <Cite id="ros2-kilted-2025" />. Training pipelines convert bags to episode formats such as RLDS <Cite id="rlds-2021" />.
 
-## A production policy layout
+## Inference stays out of the hard real-time loop
 
-A learned-policy graph can separate drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor; ros2_control can provide the bridge <Cite id="ros2-control-docs-2026" />, and the supervisor can drive managed nodes, which change state only on an external request or an error <Cite id="ros2-lifecycle-design-2015" />. Inference stays outside the hard real-time loop unless its worst case fits, and ROS 2's real-time guidance keeps page faults, dynamic allocation and blocking synchronization out of that loop <Cite id="ros2-realtime-docs-2026" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id="ros2-executors-2026" />.
+Run inference outside the hard real-time loop unless its worst case fits, and keep page faults, dynamic allocation and blocking locks out of that loop <Cite id="ros2-realtime-docs-2026" />.
+
+| Part | ROS 2 piece |
+| --- | --- |
+| Controller bridge | ros2_control <Cite id="ros2-control-docs-2026" /> |
+| Supervisor | Managed nodes, which change state only on request or error <Cite id="ros2-lifecycle-design-2015" /> |
+| Executor | Lyrical's EventsCBGExecutor: less CPU overhead, an unbounded event queue <Cite id="ros2-executors-2026" /> |
+| GPU messages | `rosidl::Buffer` keeps byte arrays in GPU memory <Cite id="ros2-buffer-backends-2026" />, since host round trips cost latency and bandwidth <Cite id="isaac-ros-rosidl-buffer-2026" />; NVIDIA deprecated NITROS for it on 21 September 2026 <Cite id="isaac-ros-nitros-2026" /> |
 
 <Ros2PolicyLayout className="my-6" />
 
-Lyrical's `rosidl::Buffer` lets a byte-array field live in GPU memory without changing the message definition <Cite id="ros2-buffer-backends-2026" />, and NVIDIA deprecated its NITROS transport in its favor on 21 September 2026, with a CUDA backend <Cite id="isaac-ros-nitros-2026" />, because round trips through the host add latency and use CPU and memory bandwidth <Cite id="isaac-ros-rosidl-buffer-2026" />.
-
 ## Navigation uses the same architecture
 
-Nav2 uses a behavior tree to coordinate planner, controller and recovery servers <Cite id="nav2-2020" />. Its costmap accepts plugins for AI outputs and semantic information <Cite id="nav2-costmap-2d-2026" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback; the Smac Planner's searches respect the robot's motion constraints <Cite id="smac-planner-2024" />. [Scene representation](/classical/scene-representation) covers the map choices.
+Nav2 coordinates planner, controller and recovery servers with a behavior tree <Cite id="nav2-2020" />. Its costmap takes plugins for AI outputs <Cite id="nav2-costmap-2d-2026" />, so a learned local controller can reuse a classical one's costmap, goals and fallback. Also: the Smac Planner's motion-constrained search <Cite id="smac-planner-2024" />.
 
 <Image id="clearpath-jackal-ugv-2020" />
 
-## Common integration failures
+## Run one ROS version and one middleware
 
-Integration often fails on two unarbitrated command publishers, bags without transforms, or one node holding drivers, inference and hardware commands. DDS implementations interoperate only in limited circumstances, so a system should use one ROS version and one middleware <Cite id="ros2-middleware-vendors-2026" />. With `rmw_zenoh`, nodes cannot find each other unless a Zenoh router is running, because multicast discovery is off by default <Cite id="rmw-zenoh-readme-2026" />.
+DDS implementations interoperate only in limited cases, so run one ROS version and one middleware <Cite id="ros2-middleware-vendors-2026" />. `rmw_zenoh` nodes find each other only through a running Zenoh router <Cite id="rmw-zenoh-readme-2026" />. Nodes are not guaranteed to talk across releases, which alternate yearly between five-year long-term-support versions and shorter ones <Cite id="rep-2000-2026" />.
 
-Nodes are not guaranteed to communicate across releases, which alternate yearly between five-year long-term-support versions and shorter-lived ones <Cite id="rep-2000-2026" />: Lyrical is supported until May 2031, Kilted until December 2026, Humble until May 2027 and Jazzy until May 2029 <Cite id="ros2-distributions-2026" />, and the next, Makoa Mata-mata, is planned for May 2027 <Cite id="ros2-makoa-boss-2026" />. ROS 1 ended when Noetic reached end of life in May 2025 <Cite id="noetic-eol-2025" />.
+| Release | Support |
+| --- | --- |
+| Lyrical Luth, long-term support | Shipped 22 May 2026 <Cite id="ros2-lyrical-2026" />, supported until May 2031 <Cite id="ros2-distributions-2026" /> |
+| Jazzy, Humble, Kilted | Until May 2029, May 2027 and December 2026 <Cite id="ros2-distributions-2026" /> |
+| Makoa Mata-mata | Planned for May 2027 <Cite id="ros2-makoa-boss-2026" /> |
+| Noetic, the last ROS 1 | Ended May 2025 <Cite id="noetic-eol-2025" /> |

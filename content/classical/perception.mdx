@@ -5,7 +5,7 @@ domain: classical
 slug: perception
 order: 6
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - zhang-2000-calibration
   - tsai-lenz-1989
@@ -82,7 +82,7 @@ seeAlso:
 
 import { PerceptionErrorBudget } from '@/components/interactive/perception-error-budget';
 
-Perception for manipulation turns camera and depth data into object poses in the robot's own frame, so that [grasp planning](/classical/grasp-planning) can compute grasps against them. The classical pipeline calibrates the camera, senses depth, detects and segments objects and estimates their pose. Done well, it lets a robot grasp known household objects in clutter <Cite id="dope-2018" />.
+Perception for manipulation turns camera and depth data into object poses in the robot's frame, so [grasp planning](/classical/grasp-planning) can compute grasps against them. Done well, it lets a robot grasp known household objects in clutter <Cite id="dope-2018" />.
 
 <Image id="realsense-d435-depth-camera" />
 
@@ -90,28 +90,27 @@ Perception for manipulation turns camera and depth data into object poses in the
 
 <PerceptionErrorBudget className="my-6" />
 
-Picture a robot picking a mug off a cluttered table. The camera's placement on the robot, the depth reading and the pose estimate each carry some error, and the gripper sees their sum. Adding independent errors as a root-sum-of-squares gives a rough budget, and the camera-placement term grows with working distance. Tolerances can be tight: a 90 mm gripper opening around a 60 mm part leaves 15 mm per side, and one reported assembly task had only 0.5 mm of contact clearance <Cite id="play2perfect-2026" />.
+Camera placement, depth and pose errors add up at the gripper, and the placement term grows with distance. Margins are small: one reported assembly task had 0.5 mm of contact clearance <Cite id="play2perfect-2026" />.
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="Zhang calibration" value="2000" note="planar target; motion need not be known" />
-  <Stat label="hand-eye solver" value="1989" note="Tsai and Lenz solve the camera-to-gripper transform" />
-  <Stat label="visual-servo formulation" value="1992" note="Espiau, Chaumette and Rives; image-feature feedback" />
-  <Stat label="promptable masks" value="2023" note="SAM; 1.1 billion masks on 11 million images" />
-</div>
+## Calibration fixes what a pixel means
 
-## Calibration: what a pixel means
+A camera's <Term id="camera-intrinsics">intrinsics</Term> describe how it projects the world onto its sensor: focal length in pixels, image center and lens distortion <Cite id="hartley-zisserman-2004" />. Zhang's 2000 method recovers them from a flat printed pattern shown at a few unmeasured angles <Cite id="zhang-2000-calibration" />.
 
-A camera projects the 3D world onto a flat sensor. Its <Term id="camera-intrinsics">intrinsics</Term> describe that projection: focal length in pixels on each axis, the image center and lens distortion <Cite id="hartley-zisserman-2004" />. Zhang's 2000 method recovers them from a flat printed pattern shown at a few unmeasured angles, with a closed-form solution refined by maximum likelihood, and needs no special equipment <Cite id="zhang-2000-calibration" />.
+### Hand-eye calibration places the camera on the robot
 
-### Hand-eye calibration: what a pixel means to the robot
+<Term id="hand-eye-calibration">Hand-eye calibration</Term> finds where the camera sits on the robot. Shiu and Ahmad cast it as $AX = XB$: move the arm by $A$, watch a fixed target shift by $B$, solve for the mount $X$ <Cite id="shiu-ahmad-1989" />.
 
-To act on what it sees, the robot also needs to know where the camera is: relative to the flange for a wrist camera, or to the base for a fixed one. That is <Term id="hand-eye-calibration">hand-eye calibration</Term>. Shiu and Ahmad cast it as $AX = XB$: move the arm by a known motion $A$, watch the camera's view of a fixed target change by $B$, and solve for the unknown camera mount $X$ <Cite id="shiu-ahmad-1989" />. Tsai and Lenz gave an efficient closed-form solution, rotation first, then translation <Cite id="tsai-lenz-1989" />, and Park and Martin derived exact and least-squares solutions with Lie theory <Cite id="park-martin-1994" />. OpenCV defaults to Tsai and Lenz, needs at least two motions about non-parallel axes, and strongly recommends many more <Cite id="opencv-hand-eye-docs-2026" />.
+| Solver | Approach |
+| --- | --- |
+| Tsai and Lenz (1989) | Closed form, rotation first, then translation <Cite id="tsai-lenz-1989" /> |
+| Park and Martin (1994) | Exact and least-squares solutions from Lie theory <Cite id="park-martin-1994" /> |
+| OpenCV | Defaults to Tsai and Lenz; needs two motions about non-parallel axes, and many more are better <Cite id="opencv-hand-eye-docs-2026" /> |
 
-Small rotation errors become large position errors at a distance. A rotation error $\theta$ shifts a point at distance $d$ by about $d \tan \theta$, so one degree gives about 1.7 mm at 10 cm and 17 mm at 1 m. Tsai and Lenz's own error analysis gives a 15 mil (0.4 mm) error from a 3 milliradian rotation error at 5 inches <Cite id="tsai-lenz-1989" />.
+Small rotation errors become large misses: an error $\theta$ shifts a point at distance $d$ by about $d \tan \theta$, so one degree costs 17 mm at 1 m. Tsai and Lenz's error analysis gives 0.4 mm from 3 milliradians at 5 inches <Cite id="tsai-lenz-1989" />.
 
-## Depth sensing: what fails, and on what
+## Every depth sensor fails on some surface
 
-Every depth sensor fails on some surfaces, and those failures decide how a work cell is built. Stereo cameras triangulate features matched between two images, so a blank wall gives them nothing to match; Intel's RealSense cameras add a projector that paints texture onto the scene <Cite id="keselman-2017-realsense" />. Structured-light scanners project known patterns and trade speed for precision. Time-of-flight cameras measure the round trip of modulated near-infrared light at each pixel and fail where light reaches a pixel by several routes, as in a corner <Cite id="azure-kinect-depth-docs-2026" />.
+Stereo triangulates features matched between two images, so a blank wall defeats it; RealSense adds a projector that paints texture onto the scene <Cite id="keselman-2017-realsense" />. Time-of-flight cameras time modulated infrared light at each pixel and fail where light arrives by several paths, as in a corner <Cite id="azure-kinect-depth-docs-2026" />.
 
 | Sensor | Principle | Listed specification | Notes |
 | --- | --- | --- | --- |
@@ -119,29 +118,60 @@ Every depth sensor fails on some surfaces, and those failures decide how a work 
 | Photoneo PhoXi L | Structured light | 0.200 mm calibration accuracy, 870 to 2150 mm range, 250 to 2750 ms per scan <Cite id="photoneo-phoxi-l-2026" /> | No target condition given for the accuracy figure |
 | Azure Kinect DK | Time of flight | Five documented causes of invalid (zero) depth <Cite id="azure-kinect-depth-docs-2026" /> | Production ended August 2023, SDK support August 2024 <Cite id="azure-kinect-sdk-retirement-2024" /> |
 
-Neither the RealSense nor the PhoXi documents give accuracy on transparent or shiny surfaces <Cite id="realsense-d400-datasheet-2026" /> <Cite id="photoneo-phoxi-l-2026" />. Transparent objects "often appear as noisy or distorted approximations of the surfaces that lie behind them"; ClearGrasp predicts surface normals, glass masks and occlusion edges and rebuilds the depth from them <Cite id="cleargrasp-2020" />. Shiny surfaces can saturate the image, and the newer D400f model lists saturation as mitigated <Cite id="realsense-d400-datasheet-2026" />. Dark surfaces weaken the signal until Azure Kinect discards the pixel <Cite id="azure-kinect-depth-docs-2026" />, and fences and wire grids give stereo two equally good matches, which RealSense's processor can reject as zero depth <Cite id="realsense-tuning-2026" />. A surface lost from one viewpoint can reappear from another <Cite id="azure-kinect-depth-docs-2026" />. The business is moving too: RealSense spun out of Intel in July 2025 <Cite id="realsense-spinout-2025" />, and in September 2026 Cognex agreed to buy it for about \$500 million, with closing expected in the fourth quarter of 2026 <Cite id="cognex-realsense-2026" />.
+Neither the RealSense nor the PhoXi documents state accuracy on transparent or shiny surfaces <Cite id="realsense-d400-datasheet-2026" /> <Cite id="photoneo-phoxi-l-2026" />. Those are where depth breaks:
+
+| Surface | What goes wrong |
+| --- | --- |
+| Transparent | Reads as a noisy copy of the surface behind; ClearGrasp rebuilds depth from predicted normals, masks and edges <Cite id="cleargrasp-2020" /> |
+| Shiny | Saturates the image; the D400f lists this as mitigated <Cite id="realsense-d400-datasheet-2026" /> |
+| Dark | Signal too weak, so Azure Kinect discards the pixel <Cite id="azure-kinect-depth-docs-2026" /> |
+| Fences, wire grids | Two equally good stereo matches, rejected as zero depth <Cite id="realsense-tuning-2026" /> |
+
+A surface lost from one viewpoint can reappear from another <Cite id="azure-kinect-depth-docs-2026" />. Also: RealSense's 2025 spin-out from Intel <Cite id="realsense-spinout-2025" />, Cognex's 2026 deal to buy it for about \$500 million <Cite id="cognex-realsense-2026" />.
 
 <Image id="kinect-xbox-one-sensor" />
 
-Learned models now estimate depth from ordinary images. Depth Pro predicts metric depth from one image without knowing the camera's intrinsics, a 2.25-megapixel map in 0.3 seconds on a standard GPU <Cite id="depth-pro-2024" />. FoundationStereo trains on varied synthetic stereo pairs with a single-image depth prior to work in unseen scenes <Cite id="foundationstereo-2025" />, and Fast-FoundationStereo runs over 10 times faster while closely matching its zero-shot accuracy <Cite id="fast-foundationstereo-2025" />. Prompt Depth Anything feeds sparse readings from low-cost LiDAR to a depth model as a metric prompt <Cite id="prompt-depth-anything-2024" />.
+Learned models now estimate depth from ordinary images.
 
-Depth yields a <Term id="point-cloud">point cloud</Term>, an unordered set of 3D points, so a network must give the same answer whatever order they arrive in. PointNet encodes each point with shared weights and pools them with an order-independent function <Cite id="pointnet-2017" />; PointNet++ repeats this within neighbourhoods at growing scales <Cite id="pointnet-plus-plus-2017" />.
+| Model | What it does |
+| --- | --- |
+| Depth Pro | Metric depth from one image with unknown intrinsics, 2.25 megapixels in 0.3 s on a standard GPU <Cite id="depth-pro-2024" /> |
+| FoundationStereo | Zero-shot stereo, trained on varied synthetic pairs with a single-image depth prior <Cite id="foundationstereo-2025" /> |
+| Fast-FoundationStereo | Over 10 times faster at close to the same zero-shot accuracy <Cite id="fast-foundationstereo-2025" /> |
+| Prompt Depth Anything | Sparse readings from low-cost LiDAR as a metric prompt <Cite id="prompt-depth-anything-2024" /> |
 
-## Detection: any object a word can name
+Depth yields a <Term id="point-cloud">point cloud</Term>, an unordered set of 3D points. PointNet ignores the order by encoding each point with shared weights and pooling symmetrically <Cite id="pointnet-2017" />; PointNet++ repeats this in growing neighborhoods <Cite id="pointnet-plus-plus-2017" />.
 
-Classical detectors draw boxes around a list of classes fixed at training time; Mask R-CNN adds an object mask to each box <Cite id="mask-rcnn-2017" />. Open-vocabulary detectors accept any name. OWLv2 scales training by letting an existing detector label web image-text pairs <Cite id="owlv2-2023" />. Grounding DINO fuses language and vision inside a detector and accepts category names or phrases such as "the red mug on the left"; its largest model reports 52.5 average precision (AP) on COCO 2017 validation without COCO training images, though it is weak on such phrases without matching training data <Cite id="grounding-dino-2024" />. Grounding DINO 1.5 adds a larger Pro model and a faster Edge variant <Cite id="grounding-dino-1-5-2024" />.
+## Detectors now find any object a word can name
 
-Many of these systems build on self-supervised features. DINOv2 learns image and patch features from the curated LVD-142M dataset, and its frozen features transfer to classification, segmentation and depth with simple heads <Cite id="dinov2-2023" />; DINOv3 keeps dense features sharp during long training <Cite id="dinov3-2025" />.
+Classical detectors box a class list fixed at training; Mask R-CNN adds a mask to each box <Cite id="mask-rcnn-2017" />. Grounding DINO accepts any phrase, such as "the red mug on the left"; its largest model scores 52.5 AP on COCO without COCO training images <Cite id="grounding-dino-2024" />.
 
-## Segmentation: the grounding layer
+Also: OWLv2's self-labeled web training <Cite id="owlv2-2023" />, Grounding DINO 1.5 Pro and Edge <Cite id="grounding-dino-1-5-2024" />, DINOv2's frozen features that transfer with simple heads <Cite id="dinov2-2023" />, DINOv3's sharper dense features <Cite id="dinov3-2025" />.
 
-A box around a mug also contains the table behind it, so a grasp planner needs the exact pixels, which <Term id="semantic-segmentation">per-pixel labelling</Term> provides. Segment Anything (SAM, 2023) made segmentation promptable: click a point or draw a box and it returns a mask. It was trained on 1.1 billion automatically generated masks on 11 million images; fine structures remain hard, and its heavy image encoder is not real-time <Cite id="segment-anything-2023" />. SAM 2 extends prompting to video with a streaming memory, though tracks fail after long occlusions and on thin, fast-moving details <Cite id="sam2-2024" />. SAM 3 accepts a noun phrase or example image and segments every matching instance <Cite id="sam3-2025" />, and SAM 3.1 (March 2026) tracks up to 16 objects in one pass, doubling video throughput from 16 to 32 frames per second on one H100 GPU <Cite id="sam3-1-2026" />. Grounded SAM feeds Grounding DINO's boxes to SAM <Cite id="grounded-sam-2024" />, and CNOS segments unseen objects by matching DINOv2 features of SAM masks against views rendered from CAD models <Cite id="cnos-2023" />.
+## Segmentation gives the grasp planner exact pixels
 
-<Term id="promptable-segmentation">Promptable segmentation</Term> also feeds [keypoint interfaces](/manipulation/hierarchical), where a vision-language model (VLM) picks points and classical code does the rest. MOKA marks candidate points on GroundedSAM masks and asks a pretrained VLM to choose grasp, function and target points; calibrated depth lifts them into the robot frame and a separate grasp sampler and motion pipeline act, so MOKA trains no robot policy <Cite id="moka-2024" />. ReKep proposes keypoints from DINOv2 features inside SAM masks, and a VLM writes Python constraints over them that a solver turns into hand motion. The solver penalizes violations without guaranteeing physical feasibility, rigidity assumptions and tracking failures remain limits, and some evaluations use human annotations or disable tracking <Cite id="rekep-2024" />. RoboPoint tunes a VLM to predict affordance points directly, with no detector <Cite id="robopoint-2024" />. Dense Object Nets instead learns a descriptor for every pixel, self-supervised from RGB-D reconstructions, that finds the same spot across viewpoints and across similar hats, shoes and mugs <Cite id="dense-object-nets-2018" />.
+A box around a mug also holds the table behind it, so the grasp planner needs <Term id="semantic-segmentation">per-pixel labels</Term>. Segment Anything (SAM, 2023) made masks promptable: click a point or draw a box and get a mask. It trained on 1.1 billion masks over 11 million images <Cite id="segment-anything-2023" />.
 
-## 6-DoF pose estimation, and how to read a claim about it
+| Model | Adds |
+| --- | --- |
+| SAM 2 | Video, with a streaming memory <Cite id="sam2-2024" /> |
+| SAM 3 | Every instance matching a noun phrase or example image <Cite id="sam3-2025" /> |
+| SAM 3.1 (March 2026) | 16 objects per pass, 32 frames per second on one H100, up from 16 <Cite id="sam3-1-2026" /> |
+| Grounded SAM | Grounding DINO boxes as SAM prompts <Cite id="grounded-sam-2024" /> |
+| CNOS | Unseen objects, by matching DINOv2 features of SAM masks to CAD renders <Cite id="cnos-2023" /> |
 
-<Term id="pose-estimation">Pose estimation</Term> turns a mask into a rigid object with a position and an orientation, six numbers in all. Methods differ in how much they must know about the object beforehand, and the trend has been toward knowing less:
+<Term id="promptable-segmentation">Promptable segmentation</Term> also feeds [keypoint interfaces](/manipulation/hierarchical), where a vision-language model (VLM) picks points and classical code acts on them.
+
+| System | Points from | Action from |
+| --- | --- | --- |
+| MOKA | A VLM choosing among marks on GroundedSAM masks | Depth lifts the points; a grasp sampler and motion planner act, with no trained policy <Cite id="moka-2024" /> |
+| ReKep | DINOv2 features inside SAM masks | VLM-written Python constraints, solved without guaranteed feasibility <Cite id="rekep-2024" /> |
+| RoboPoint | A tuned VLM, no detector | Predicted affordance points <Cite id="robopoint-2024" /> |
+| Dense Object Nets | A self-supervised descriptor per pixel | The same spot across views and across similar hats, shoes and mugs <Cite id="dense-object-nets-2018" /> |
+
+## Pose estimators need less of the object every year
+
+<Term id="pose-estimation">Pose estimation</Term> turns a mask into a position and an orientation, six numbers in all.
 
 | Method | Needs for a new object | Approach |
 | --- | --- | --- |
@@ -154,29 +184,40 @@ A box around a mug also contains the table behind it, so a grasp planner needs t
 | Any6D (2025) | One RGB-D view, no CAD model | Pose from a single anchor view <Cite id="any6d-2025" /> |
 | SAM 3D (2025) | One image | Infers geometry, texture and layout, including unseen surfaces <Cite id="sam3d-2025" /> |
 
-A pose claim means what its metric means. Hinterstoisser and colleagues place the object's model points at the true pose $(R,T)$ and at the estimate $(\tilde R,\tilde T)$ and average the distances between matching points <Cite id="hinterstoisser-2012" />:
+A pose claim means what its metric means. Hinterstoisser and colleagues place the object's model points at the true pose $(R,T)$ and at the estimate $(\tilde R,\tilde T)$ and average the gaps <Cite id="hinterstoisser-2012" />:
 
 $$
 m = \operatorname{avg}_{x \in \mathcal M}
 \lVert (Rx+T)-(\tilde R x+\tilde T) \rVert
 $$
 
-An estimate counts as correct when $m$ is under a chosen fraction of the object's diameter, 0.1 in their LINEMOD evaluation. A cup looks the same at many rotations, so the <Term id="add-s-metric">symmetry-aware pose error</Term> matches each point to its nearest neighbour under the estimate instead <Cite id="hinterstoisser-2012" />, and CosyPose handles symmetries while matching pose guesses across several images <Cite id="cosypose-2020" />.
+An estimate counts as correct when $m$ is under 0.1 of the object's diameter. A cup looks the same at many rotations, so the <Term id="add-s-metric">symmetry-aware pose error</Term> matches each point to its nearest neighbor <Cite id="hinterstoisser-2012" />. CosyPose handles symmetry across several images <Cite id="cosypose-2020" />.
 
-The BOP benchmark has tracked 6D pose methods since 2017, scoring three symmetry-aware recalls over seven core datasets on a 0 to 100 scale <Cite id="bop-challenge-2023" />. BOP 2020 supplied physically based synthetic training images, making training data part of the comparison <Cite id="bop-2020" />. By the organizers' count, accuracy on objects seen in training rose from 56.9 to 86.0 between 2017 and 2024, and for unseen objects, which methods must onboard from CAD models within 5 minutes on one GPU, the best 2024 entry reached 82.5 <Cite id="bop-2025-challenge" />. Speed still separates the two: the best unseen-object method, FreeZeV2.1, took 24.9 seconds per image against 2.7 for GPose2023, and 2D detection was the main bottleneck <Cite id="bop-2024" />. BOP 2025 added industrial tracks <Cite id="bop-2025-challenge" />, including XYZ-IBD's metallic, symmetric and shiny bin-picking parts, on which state-of-the-art methods degrade markedly compared with household objects <Cite id="xyz-ibd-2025" />.
+The BOP benchmark scores pose methods on seven core datasets from 0 to 100 <Cite id="bop-challenge-2023" />. Unseen objects now score close to seen ones; speed still separates them.
 
-## Visual servoing: steer by the image
+| BOP result | Value |
+| --- | --- |
+| Seen objects, 2017 to 2024 | 56.9 to 86.0 <Cite id="bop-2025-challenge" /> |
+| Unseen objects, best 2024 entry, onboarded from CAD in 5 minutes on one GPU | 82.5 <Cite id="bop-2025-challenge" /> |
+| Time per image, best unseen method against GPose2023 | 24.9 s against 2.7 s; 2D detection is the bottleneck <Cite id="bop-2024" /> |
+| Metallic, symmetric, shiny bin-picking parts (XYZ-IBD, a 2025 industrial track) | Marked drop from household objects <Cite id="xyz-ibd-2025" /> |
 
-<Term id="visual-servoing">Visual servoing</Term> closes the control loop on vision: instead of estimating a pose once and moving blind, the robot keeps adjusting until the image looks right. Hutchinson, Hager and Corke's 1996 tutorial splits it into two kinds <Cite id="hutchinson-hager-corke-1996" />. Image-based servoing (IBVS) drives image features, such as the corners of a box, to where they should appear; position-based servoing (PBVS) drives an estimated pose to its goal. Espiau, Chaumette and Rives's 1992 formulation relates how the features move to the camera's velocity through an interaction matrix <Cite id="espiau-1992" />, written $\dot{s} = L_s v_c$ for feature rates $\dot{s}$ and the camera's six-part velocity $v_c$; even IBVS needs depth and intrinsics to build it <Cite id="chaumette-hutchinson-2006" />.
+Also: BOP 2020's physically based synthetic training images <Cite id="bop-2020" />.
 
-Each has its own failures. IBVS is locally stable under rank and positivity conditions, but coarse estimates bend the camera's path, poor ones can destabilize it, and large displacements can meet local minima or singularities. In PBVS features can leave the field of view, and pose errors set the final accuracy <Cite id="chaumette-hutchinson-2006" />. Chaumette and Hutchinson's 2007 sequel adds switching and planning methods for visibility, occlusion and joint limits <Cite id="chaumette-hutchinson-2007" />. Bateux and colleagues fine-tuned a CNN to estimate the pose between current and desired images and kept a pose-based control law <Cite id="bateux-2018" />.
+## Visual servoing steers by the image
 
-Learned servoing can also aim the camera. EyeRobot 2.0, from Ken Goldberg (UC Berkeley) and colleagues (October 2026), swivels the two viewpoints of one stereo camera to fixate a 3D point, with gaze policies trained by RL on real data. It beat passive stereo by 40% in real trials, and when a grasped object hid the wrist views it more than doubled the success of policies that had them, 48% against 22% <Cite id="eyerobot-2-2026" />.
+<Term id="visual-servoing">Visual servoing</Term> closes the loop on vision: the robot keeps moving until the image looks right. Image-based servoing (IBVS) drives image features to where they should appear; position-based servoing (PBVS) drives an estimated pose to its goal <Cite id="hutchinson-hager-corke-1996" />. Espiau, Chaumette and Rives tied feature motion to camera velocity, $\dot{s} = L_s v_c$ <Cite id="espiau-1992" />; that matrix needs depth and intrinsics <Cite id="chaumette-hutchinson-2006" />.
+
+Large moves can trap IBVS in local minima or singularities; PBVS can lose features from view, and its pose error sets the final accuracy <Cite id="chaumette-hutchinson-2006" />. Also: switching and planning fixes <Cite id="chaumette-hutchinson-2007" />, a CNN pose estimate inside a PBVS law <Cite id="bateux-2018" />.
+
+Learned gaze can aim the camera. EyeRobot 2.0 swivels a stereo camera's views to fixate a 3D point and beat passive stereo by 40%. When a held object hid the wrist views, it succeeded 48% of the time against 22% for wrist-camera policies <Cite id="eyerobot-2-2026" />.
 
 ## Separate model error from geometric error
 
-When the robot misses the mug, the detector may be fine and the camera mount may have moved. Hand-eye accuracy depends on noise and on how widely the arm moved during calibration, so Enebuse and colleagues advise accounting for both <Cite id="enebuse-2022" />. Check each stage on its own output first. The [calibration guide](/classical/calibration) lists the checks to rerun after a camera remount, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) shows where images, transforms and timestamps meet at runtime.
+When the robot misses the mug, the detector may be fine and the camera mount may have moved. Hand-eye accuracy depends on sensor noise and on how widely the arm moved during calibration <Cite id="enebuse-2022" />. Check each stage on its own: the [calibration guide](/classical/calibration) lists checks after a remount, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) shows where images, transforms and timestamps meet.
 
-## What the end-to-end models replaced
+## End-to-end models absorb the pipeline
 
-End-to-end vision-language-action (VLA) policies absorb the pipeline into their weights. Gemini Robotics controls robots directly, built on a reasoning model that can detect objects, point, and predict trajectories, grasps and 3D boxes <Cite id="gemini-robotics-2025" />. Google DeepMind says its April 2026 reasoning model, Gemini Robotics-ER 1.6, improves pointing, counting and success detection and acts as a robot's high-level planner, calling VLAs and other tools <Cite id="gemini-robotics-er-1-6-2026" />. Such a policy needs no detector class or CAD model for a new object, but when it misses a grasp by 8 mm there is no hand-eye estimate to re-solve. Some systems keep geometric steps visible, as [keypoint interfaces](/manipulation/hierarchical) do: MolmoAct encodes observations into depth-aware tokens and draws editable trajectory traces before predicting low-level actions <Cite id="molmoact-2025" />.
+Vision-language-action (VLA) policies fold the pipeline into their weights: Gemini Robotics runs on a reasoning model that detects, points and predicts grasps and 3D boxes <Cite id="gemini-robotics-2025" />. Such a policy needs no CAD model for a new object, but when it misses a grasp by 8 mm there is no hand-eye estimate to re-solve. MolmoAct keeps geometry visible, drawing editable trajectory traces before it acts <Cite id="molmoact-2025" />.
+
+Also: Gemini Robotics-ER 1.6, a planner that calls VLAs as tools <Cite id="gemini-robotics-er-1-6-2026" />.
