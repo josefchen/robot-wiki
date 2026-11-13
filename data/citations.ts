@@ -1902,7 +1902,7 @@ export const CITATIONS: Citation[] = [
     // Figures verified against the paper and the AgiBotWorld-Beta dataset
     // card (2026-08-17): 1,001,552 trajectories, 2,976.4 hours, 217 tasks,
     // 87 skills, 106 scenes, collected on the AgiBot G1 (not G2). The
-    // "no published hour count" research/03 reports is wrong, as is the
+    // "no published hour count" the source survey reports is wrong, as is the
     // ~100k h estimate that circulates from it.
     id: 'agibot-world-2025',
     title:
@@ -4659,7 +4659,7 @@ export const CITATIONS: Citation[] = [
   {
     // Verified against the arXiv abs page (2026-08-08): 101 authors; first three listed.
     // License re-verified 2026-08-17: the dataset ships CC BY 4.0, not the
-    // CC BY-NC 4.0 research/03 reports.
+    // CC BY-NC 4.0 the source survey reports.
     id: 'droid-2024',
     title: 'DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset',
     authors: ['Alexander Khazatsky', 'Karl Pertsch', 'Suraj Nair'],
@@ -4672,7 +4672,7 @@ export const CITATIONS: Citation[] = [
     // Verified against the arXiv abs page (2026-08-09): 14 authors; first
     // three listed. CoRL 2023 per the PMLR v229 proceedings entry (venue
     // omitted from the entry: it duplicates the year in the chip tooltip).
-    // research/03 does not cover BridgeData V2; figures verified against the
+    // the source survey does not cover BridgeData V2; figures verified against the
     // abs page and the project site (60,096 trajectories, 24 environments,
     // 13 skills, CC BY 4.0).
     id: 'bridgedata-v2-2023',
@@ -4697,7 +4697,7 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Dataset release page (research/03 ref [5]). Episode and hour counts
+    // Dataset release page. Episode and hour counts
     // are not published there as of August 2026; total file size 13.7 TB
     // (HF storage API, 13.66 TB, re-read 2026-08-17).
     id: 'agibot-world-2026',
@@ -4711,7 +4711,7 @@ export const CITATIONS: Citation[] = [
     // Retained arXiv v1 and abs metadata inspected 2026-09-13; no fresh fetch.
     // Preserve the collective byline plus all 81 names listed by this registry URL.
     // Body contributions spell Ben Burchfiel; abs metadata spells Benjamin Burchfiel.
-    // Science Robotics 2026 was inherited from research/03, not established by these captures.
+    // Science Robotics 2026 was inherited from the source survey, not established by these captures.
     id: 'tri-lbm-2025',
     title: 'A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation',
     authors: [
@@ -4805,7 +4805,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 6 authors.
-    // ICLR 2025 oral per research/03.
+    // ICLR 2025 oral per the source survey.
     id: 'lin-data-scaling-laws-2024',
     title: 'Data Scaling Laws in Imitation Learning for Robotic Manipulation',
     authors: [
@@ -4985,7 +4985,7 @@ export const CITATIONS: Citation[] = [
     // Verified against the live product line (2026-08-17): WidowX AI
     // $4,545.95, Solo AI $11,385.95, Stationary AI $23,995.95, Mobile AI
     // $33,695.95; 500 Hz CAN FD, LeRobot + OpenPI integration. The
-    // "30-34% price cut" research/03 reports is not supported by any live
+    // "30-34% price cut" the source survey reports is not supported by any live
     // page; the lower figures it lists appear nowhere on the site.
     id: 'trossen-ai-2026',
     title: 'Trossen AI Product Line (formerly ALOHA)',
@@ -5166,10 +5166,10 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-09): 5 authors. The
-    // full title ends "...for Robot Manipulators" (research/03 truncates
+    // full title ends "...for Robot Manipulators" (the source survey truncates
     // it). The sub-$300 parts BOM comes from the paper's project site
     // (wuphilipp.github.io/gello/). No build time is published anywhere:
-    // the "~30 minute assembly" research/03 reports appears in neither the
+    // the "~30 minute assembly" the source survey reports appears in neither the
     // paper nor the site, whose BOM sheet link is dead as of 2026-08-17.
     id: 'gello-2023',
     title:
@@ -5183,7 +5183,7 @@ export const CITATIONS: Citation[] = [
   {
     // Verified against the arXiv abs page (2026-08-09): 5 authors, CoRL
     // 2024 (venue omitted: it duplicates the entry year in the chip
-    // tooltip). research/03 lists Open TeleVision as [UNVERIFIED]; the
+    // tooltip). the source survey lists Open TeleVision as [UNVERIFIED]; the
     // paper was located and verified at arXiv 2407.01512.
     id: 'open-television-2024',
     title: 'Open-TeleVision: Teleoperation with Immersive Active Visual Feedback',
@@ -5195,9 +5195,9 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-09): 8 authors. The
-    // full title carries "...for Imitation Learning" (research/03
+    // full title carries "...for Imitation Learning" (the source survey
     // truncates it). Vision Pro launch price ($3,499) per Apple's
-    // January 2024 announcement, also carried by research/03.
+    // January 2024 announcement, also carried by the source survey.
     id: 'bunny-visionpro-2024',
     title:
       'Bunny-VisionPro: Real-Time Bimanual Dexterous Teleoperation for Imitation Learning',
@@ -5386,7 +5386,7 @@ export const CITATIONS: Citation[] = [
     // Verified against the arXiv abs page (2026-08-09): 37 authors in
     // alphabetical order. An online evaluation system for large-scale
     // real-robot testing of VLA models, benchmarked with the Table30 task
-    // suite. research/03 marks further details UNVERIFIED; only the
+    // suite. the source survey marks further details UNVERIFIED; only the
     // abstract's claims are used.
     id: 'robochallenge-2025',
     title: 'RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies',

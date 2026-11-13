@@ -2,7 +2,7 @@
  * Appearance/physics push-test model for the world-models generative-sim
  * module.
  *
- * Pedagogical model of the module's central claim (research/02 Part B4):
+ * Pedagogical model of the module's central claim:
  * generated content inside a real physics engine is reliable because the
  * engine, not a learned model, answers "what happens under an action". The
  * interactive stacks three layers on one scene: an appearance layer (the

@@ -9,12 +9,12 @@ import { companyIdSetIssues, companyPopulationIssues } from '@/lib/company-popul
  * The market map's company population, checked as a set derived from the
  * registry rather than as a remembered count. validate:content runs
  * companyPopulationIssues against the
- * research file data/companies.ts is generated from, and the static-export
+ * source file data/companies.ts is generated from, and the static-export
  * spec runs companyIdSetIssues against the tiles the page ships. Every
  * failure each gate claims to catch is planted here.
  */
 const MANIFEST = JSON.parse(
-  readFileSync(join(process.cwd(), 'research', '04-market-map-companies.json'), 'utf8'),
+  readFileSync(join(process.cwd(), 'data', 'market-map-companies.json'), 'utf8'),
 ) as Array<{ id: string; segment: string }>;
 
 const REGISTRY_IDS = COMPANIES.map(({ id }) => id);

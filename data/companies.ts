@@ -1,10 +1,10 @@
 /**
  * Market-map company data. Generated from
- * research/04-market-map-companies.json by scripts/generate-companies.ts.
+ * data/market-map-companies.json by scripts/generate-companies.ts.
  *
  * Do not edit by hand. Regenerate with `npm run generate:companies`.
  *
- * `aka` is carried through from the research source (expanded cards
+ * `aka` is carried through from the source source (expanded cards
  * need it). `website` is the official homepage when known, else null.
  * `logo` is an image-registry id or null. Unknown funding stays null;
  * never invent a number. Conflicting tracker figures stay as the snapshot

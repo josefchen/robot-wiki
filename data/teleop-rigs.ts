@@ -2,8 +2,7 @@
  * Teleop-rig comparison data: one row per reference rig family, for the
  * /data-hardware/teleop-rigs module.
  *
- * Sources: research/03-data-hardware-evaluation.md (Part C) plus live
- * verification of the underlying primary sources (2026-08-17). Rules:
+ * Sources: the primary sources each row cites, verified live (2026-08-17). Rules:
  *   - Figures no source publishes are null and render as "not disclosed";
  *     nothing is guessed (the VR family's total system cost).
  *   - Numeric costs require a supported USD value and purchase scope. GELLO

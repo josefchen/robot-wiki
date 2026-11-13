@@ -2,8 +2,7 @@
  * Comparison-matrix data: one row per major manipulation policy, across the
  * eight architectural axes defined in data/schemas/method.ts.
  *
- * Every value comes from the comparison matrix in
- * research/01-learned-manipulation-lineage.md and its cited primary sources.
+ * Every value comes from the cited primary sources.
  * Rules:
  *   - Cells the vendor has not disclosed are null and render as
  *     "not disclosed"; nothing is guessed (Gemini Robotics, Helix 02, Skild).

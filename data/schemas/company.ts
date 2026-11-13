@@ -143,14 +143,14 @@ export function absentFieldsOf(company: AbsenceProbe): AbsentField[] {
   return ABSENT_FIELDS.filter((field) => empty[field]);
 }
 
-/** Market-map company entry (data/companies.ts, 111 rows from research/04). */
+/** Market-map company entry (data/companies.ts, generated from data/market-map-companies.json). */
 const companyObjectSchema = z.object({
   id: slugSchema,
   name: z.string().min(1),
   aka: z.array(z.string().min(1)),
   /**
    * Official homepage when a first-party URL is known. Null when the
-   * homepage is not in the research snapshot; official pages may still
+   * homepage is not in the source snapshot; official pages may still
    * appear inside sources[]. Never invent a URL.
    */
   website: httpsUrlSchema.nullable(),

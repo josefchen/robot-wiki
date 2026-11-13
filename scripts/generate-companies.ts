@@ -1,8 +1,8 @@
 /**
- * Deterministic converter: research/04-market-map-companies.json →
+ * Deterministic converter: data/market-map-companies.json →
  * data/companies.ts.
  *
- * The research file is the source of truth. This script copies every field
+ * The source file is the source of truth. This script copies every field
  * (including `aka`, which the visualization feature needs for expanded
  * cards) with stable key order and a module-scope Zod parse so an invalid
  * row fails the build. Do not hand-edit the generated file.
@@ -19,7 +19,7 @@ import {
 } from '../data/schemas/company.ts';
 
 const root = join(import.meta.dirname, '..');
-const SOURCE = join(root, 'research', '04-market-map-companies.json');
+const SOURCE = join(root, 'data', 'market-map-companies.json');
 const DEST = join(root, 'data', 'companies.ts');
 
 const COMPANY_KEYS = [
@@ -173,7 +173,7 @@ function emitCompany(company: Company, level: number): string {
 }
 
 const raw = JSON.parse(readFileSync(SOURCE, 'utf8')) as unknown;
-if (!Array.isArray(raw)) fail('research source is not an array');
+if (!Array.isArray(raw)) fail('source source is not an array');
 
 const parsed = companySchema.array().safeParse(raw);
 if (!parsed.success) {
@@ -181,13 +181,13 @@ if (!parsed.success) {
     .slice(0, 12)
     .map((issue) => `  ${issue.path.join('.')}: ${issue.message}`)
     .join('\n');
-  fail(`research JSON failed companySchema (${parsed.error.issues.length} issue(s))\n${sample}`);
+  fail(`source JSON failed companySchema (${parsed.error.issues.length} issue(s))\n${sample}`);
 }
 
 const companies = parsed.data;
-// The population is whatever the research file holds: no remembered total.
+// The population is whatever the source file holds: no remembered total.
 // An empty file or a repeated id is still a broken source.
-if (companies.length === 0) fail('research source has no companies');
+if (companies.length === 0) fail('source source has no companies');
 const seenIds = new Set<string>();
 for (const company of companies) {
   if (seenIds.has(company.id)) fail(`duplicate company id "${company.id}"`);
@@ -200,11 +200,11 @@ const body = companies
 
 const file = `/**
  * Market-map company data. Generated from
- * research/04-market-map-companies.json by scripts/generate-companies.ts.
+ * data/market-map-companies.json by scripts/generate-companies.ts.
  *
  * Do not edit by hand. Regenerate with \`npm run generate:companies\`.
  *
- * \`aka\` is carried through from the research source (expanded cards
+ * \`aka\` is carried through from the source source (expanded cards
  * need it). \`website\` is the official homepage when known, else null.
  * \`logo\` is an image-registry id or null. Unknown funding stays null;
  * never invent a number. Conflicting tracker figures stay as the snapshot

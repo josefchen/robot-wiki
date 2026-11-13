@@ -4,8 +4,7 @@
  * flow-matching action expert) with a toggleable stop-gradient at the
  * interface between them.
  *
- * Sources (research/01-learned-manipulation-lineage.md, "Knowledge
- * Insulation (2025)"):
+ * Sources (Knowledge Insulation, 2025):
  * - VLM backbone (3B) + action expert (300M); the expert attends into
  *   backbone activations in the forward pass; the backward pass is severed
  *   at the boundary (arXiv:2505.23705).

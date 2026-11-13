@@ -9,23 +9,19 @@ import { companySchema, companySegmentSchema } from '@/data/schemas/company';
  * Market-map data contract (plus the integrity gates the map
  * needs at the dataset layer): the shipped
  * `data/companies.ts` is a mechanical conversion of
- * research/04-market-map-companies.json. Count, segment distribution,
- * sources, confidence, and null-not-zero funding must match the research
+ * data/market-map-companies.json. Count, segment distribution,
+ * sources, confidence, and null-not-zero funding must match the source
  * snapshot. Unknown figures stay null; nothing is invented.
  *
  * No total is remembered here: the map grows as companies are added, so
- * every count is derived from the research file and compared with the
+ * every count is derived from the source file and compared with the
  * generated registry.
  */
 
-const RESEARCH_PATH = join(
-  process.cwd(),
-  'research',
-  '04-market-map-companies.json',
-);
+const SOURCE_PATH = join(process.cwd(), 'data', 'market-map-companies.json');
 
-function loadResearch(): unknown[] {
-  return JSON.parse(readFileSync(RESEARCH_PATH, 'utf8')) as unknown[];
+function loadSource(): unknown[] {
+  return JSON.parse(readFileSync(SOURCE_PATH, 'utf8')) as unknown[];
 }
 
 function segmentCounts(rows: ReadonlyArray<{ segment: string }>): Record<string, number> {
@@ -46,18 +42,18 @@ describe('COMPANIES data', () => {
     }
   });
 
-  it('is a non-empty population that validates against the schema in the research file too', () => {
-    const research = loadResearch();
-    expect(research.length).toBeGreaterThan(0);
-    expect(z.array(companySchema).safeParse(research).success).toBe(true);
+  it('is a non-empty population that validates against the schema in the source file too', () => {
+    const source = loadSource();
+    expect(source.length).toBeGreaterThan(0);
+    expect(z.array(companySchema).safeParse(source).success).toBe(true);
   });
 
-  it('matches the research source count and segment distribution', () => {
-    const research = loadResearch() as Array<{ segment: string }>;
-    expect(COMPANIES).toHaveLength(research.length);
+  it('matches the source source count and segment distribution', () => {
+    const source = loadSource() as Array<{ segment: string }>;
+    expect(COMPANIES).toHaveLength(source.length);
 
     const counts = segmentCounts(COMPANIES);
-    expect(counts).toEqual(segmentCounts(research));
+    expect(counts).toEqual(segmentCounts(source));
     // Every segment the map draws holds at least one company, and every
     // company sits in one of them.
     for (const [segment, count] of Object.entries(counts)) {
@@ -112,11 +108,11 @@ describe('COMPANIES data', () => {
     }
   });
 
-  it('carries aka through from the research source', () => {
-    const research = loadResearch() as Array<{ id: string; aka: string[] }>;
-    const researchAka = new Map(research.map((row) => [row.id, row.aka]));
+  it('carries aka through from the source source', () => {
+    const source = loadSource() as Array<{ id: string; aka: string[] }>;
+    const sourceAka = new Map(source.map((row) => [row.id, row.aka]));
     for (const company of COMPANIES) {
-      expect(company.aka, `${company.id} aka`).toEqual(researchAka.get(company.id));
+      expect(company.aka, `${company.id} aka`).toEqual(sourceAka.get(company.id));
     }
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
     // ['Pi', 'π'] -> ['π'] on 2026-10-19: its sources use "Pi" only for the
@@ -124,11 +120,11 @@ describe('COMPANIES data', () => {
     expect(pi?.aka).toEqual(['π']);
   });
 
-  it('matches the research JSON row-for-row without invented fields', () => {
-    const research = loadResearch() as Array<Record<string, unknown>>;
-    expect(COMPANIES.map((c) => c.id)).toEqual(research.map((c) => c.id));
+  it('matches the source JSON row-for-row without invented fields', () => {
+    const source = loadSource() as Array<Record<string, unknown>>;
+    expect(COMPANIES.map((c) => c.id)).toEqual(source.map((c) => c.id));
     for (let i = 0; i < COMPANIES.length; i += 1) {
-      expect(COMPANIES[i], `row ${research[i]?.id}`).toEqual(research[i]);
+      expect(COMPANIES[i], `row ${source[i]?.id}`).toEqual(source[i]);
     }
   });
 
@@ -161,7 +157,7 @@ describe('COMPANIES data', () => {
     expect(skild?.latestRound?.date).toBe('2026-01-14');
     // TechCrunch quotes the CEO saying the company has raised "more than
     // $2 billion to date" — a lower bound, not a precise total. The
-    // research row correctly leaves totalRaisedUsd null rather than
+    // source row correctly leaves totalRaisedUsd null rather than
     // inventing 2e9 or summing the disclosed rounds.
     expect(skild?.totalRaisedUsd).toBeNull();
     expect(
@@ -203,15 +199,15 @@ describe('COMPANIES data', () => {
     expect(unitree?.confidence).toBe('medium');
   });
 
-  it('carries website and logo through from the research source', () => {
+  it('carries website and logo through from the source source', () => {
     // A company added before its mark is fetched carries logo null; the
     // card then falls back to its name. Website and logo are carried through
-    // from the research rows unchanged.
-    const research = loadResearch() as Array<{ id: string; website: string | null; logo: string | null }>;
-    const researchRow = new Map(research.map((row) => [row.id, row]));
+    // from the source rows unchanged.
+    const source = loadSource() as Array<{ id: string; website: string | null; logo: string | null }>;
+    const sourceRow = new Map(source.map((row) => [row.id, row]));
     for (const company of COMPANIES) {
-      expect(company.logo, `${company.id} logo`).toBe(researchRow.get(company.id)?.logo);
-      expect(company.website, `${company.id} website`).toBe(researchRow.get(company.id)?.website);
+      expect(company.logo, `${company.id} logo`).toBe(sourceRow.get(company.id)?.logo);
+      expect(company.website, `${company.id} website`).toBe(sourceRow.get(company.id)?.website);
     }
     // ari.bot and tars.bot are a domain for sale and a parked lander, never
     // the companies' sites, and monarchtractor.com stopped serving after

@@ -2,7 +2,7 @@
  * Action-conditioning model for the world-models generative-video module.
  *
  * Pedagogical model of the property the 2026 world-model survey names as the
- * top open challenge (research/02, survey section 8.1): a video world model
+ * top open challenge (survey section 8.1): a video world model
  * should produce different futures for different candidate actions. Many
  * models are trained mostly from observation history and task intent, so
  * their predicted futures are "semantically plausible or
