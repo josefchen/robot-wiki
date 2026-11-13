@@ -1,5 +1,5 @@
 /**
- * Global no-slop lint over the shipped prose and export.
+ * Global prose lint over the shipped prose and export.
  *
  * Two checks, both pure functions over strings so they are unit-testable:
  *
@@ -8,11 +8,11 @@
  *    MDX/JSX component tokens (a literal `<Figure`, `<Cite`, `<Term`,
  *    `<Image` rendered as text).
  *
- * 2. AI-writing marker lint over shipped prose, in two places:
+ * 2. Marker lint over shipped prose, in two places:
  *    every MDX body in content/, and the rendered prose extracted from
  *    the built export (component copy, data-file strings that render,
  *    landing-page text, <title> and meta/og descriptions). The checks are
- *    banned vocabulary per the humanizer skill's list (promotional
+ *    banned vocabulary from the house style list (promotional
  *    language, inflated symbolism, vague-attribution phrases, filler
  *    transitions, superficial -ing tacks), em/en dashes, and rule-of-three
  *    density. Before matching, maskNonProse blanks fenced code, inline
@@ -20,16 +20,16 @@
  *    masked, and quotation marks are never masked.
  *
  *    The single carve-out for verbatim quoted source text is the
- *    attribution-scoped exception registry in data/no-slop-exceptions.ts:
+ *    attribution-scoped exception registry in data/prose-lint-exceptions.ts:
  *    a quotation is exempt only when its exact text is
  *    registered there against a citation-registry id or a named source
- *    URL, each entry carrying why the text is verbatim, how a human
- *    verified it against the source, and when. The exemption comes from
+ *    URL, each entry carrying why the text is verbatim, how it was
+ *    verified against the source, and when. The exemption comes from
  *    that registration, never from punctuation: unregistered text inside
  *    quotation marks still fails, which the unit tests
  *    pin from both directions.
  *
- * The CLI wrapper (scripts/lint-no-slop.ts) runs both against the real
+ * The CLI wrapper (scripts/lint-prose.ts) runs both against the real
  * repo/export and exits non-zero on any hit, wired into validate:content.
  */
 
@@ -61,12 +61,12 @@ export function findPlaceholderMarkers(html: string): string[] {
 }
 
 /**
- * Banned AI-writing vocabulary in shipped prose, from the humanizer
- * skill's high-frequency list. Word-boundary matched, case-insensitive.
- * Each entry carries the category the contract names.
+ * Banned vocabulary in shipped prose, from the house style list of
+ * overused words. Word-boundary matched, case-insensitive.
+ * Each entry carries its category.
  */
 const BANNED_VOCABULARY: Array<{ word: string; category: string }> = [
-  // Promotional / advertisement-like (humanizer §4).
+  // Promotional / advertisement-like.
   { word: 'game-changing', category: 'promotional' },
   { word: 'revolutionary', category: 'promotional' },
   { word: 'cutting-edge', category: 'promotional' },
@@ -81,7 +81,7 @@ const BANNED_VOCABULARY: Array<{ word: string; category: string }> = [
   { word: 'unleash', category: 'promotional' },
   { word: 'seamless', category: 'promotional' },
   { word: 'seamlessly', category: 'promotional' },
-  // Inflated significance (humanizer §1).
+  // Inflated significance.
   { word: 'testament', category: 'inflated-significance' },
   { word: 'tapestry', category: 'inflated-significance' },
   { word: 'delve', category: 'inflated-significance' },
@@ -89,17 +89,17 @@ const BANNED_VOCABULARY: Array<{ word: string; category: string }> = [
   { word: 'underscores', category: 'inflated-significance' },
   { word: 'pivotal', category: 'inflated-significance' },
   { word: 'landscape', category: 'inflated-significance' },
-  // Filler / throat-clearing (humanizer §23).
+  // Filler / throat-clearing.
   { word: 'importantly', category: 'filler' },
   { word: 'needless', category: 'filler' },
-  // -ing superficial analysis tacks (humanizer §3), word form only for
+  // -ing superficial analysis tacks, word form only for
   // the strongest two markers.
   { word: 'fostering', category: 'superficial-ing' },
   { word: 'garnering', category: 'superficial-ing' },
 ];
 
 /**
- * Vague-attribution phrases (humanizer §5): opinions attributed to an
+ * Vague-attribution phrases: opinions attributed to an
  * unnamed authority. These are phrase-level, deliberately: the vice is the
  * attribution construction ("critics say"), not the noun, so a concrete
  * reference like "critics of the approach" passes, while "experts argue"
@@ -127,7 +127,7 @@ const VAGUE_ATTRIBUTION_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
   },
 ];
 
-/** Em and en dashes: zero in shipped prose (humanizer §14, hard rule). */
+/** Em and en dashes: zero in shipped prose (a hard rule of the house style). */
 export const DASH_PATTERN = /[—–]/;
 
 /** Mask code, URLs, and HTML/JSX so only prose words are scanned. */
@@ -151,14 +151,14 @@ export function maskNonProse(body: string): string {
  * verbatim (whitespace-insensitively) in the scanned text, or nothing is
  * masked. Registration, never punctuation, is what grants the exemption.
  */
-export interface SlopQuotationException {
+export interface QuotationException {
   /** Citation id from data/citations.ts, or a stable slug for a non-citation source (then sourceUrl is required). */
   id: string;
   /** The verbatim text as it appears in shipped prose (minimum 3 words). */
   quote: string;
   /** Why this text is excepted: whose words, and why they must stay verbatim. */
   reason: string;
-  /** How a human last verified the quote matches the named source. */
+  /** How the quote was last verified against the named source. */
   verifiedBy: string;
   /** ISO calendar date (YYYY-MM-DD) of that verification. */
   verifiedOn: string;
@@ -175,7 +175,7 @@ const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
  * lib/citation-links.ts.
  */
 export function validateQuotationExceptions(
-  exceptions: readonly SlopQuotationException[],
+  exceptions: readonly QuotationException[],
   citationIds: ReadonlySet<string>,
   today: Date = new Date(),
 ): string[] {
@@ -264,7 +264,7 @@ function quoteRegExpSource(quote: string): string | null {
  */
 export function maskRegisteredQuotes(
   text: string,
-  exceptions: readonly SlopQuotationException[],
+  exceptions: readonly QuotationException[],
 ): string {
   let masked = text;
   for (const exception of exceptions) {
@@ -284,15 +284,15 @@ export function maskRegisteredQuotes(
  * data/link-check-exceptions.ts holds with its [STALE] report).
  */
 export function findStaleQuotationExceptions(
-  exceptions: readonly SlopQuotationException[],
+  exceptions: readonly QuotationException[],
   texts: readonly string[],
-): SlopQuotationException[] {
+): QuotationException[] {
   return exceptions.filter(
     (exception) => !texts.some((text) => quoteMatches(text, exception.quote)),
   );
 }
 
-export interface SlopFinding {
+export interface ProseFinding {
   file: string;
   line: number;
   message: string;
@@ -301,7 +301,7 @@ export interface SlopFinding {
 /** 1-based line numbers of every dash in an MDX body (prose only). */
 export function dashLines(
   body: string,
-  exceptions: readonly SlopQuotationException[] = [],
+  exceptions: readonly QuotationException[] = [],
 ): number[] {
   const masked = maskRegisteredQuotes(maskNonProse(body), exceptions);
   const lines: number[] = [];
@@ -328,10 +328,10 @@ function isAllCapitalsName(token: string): boolean {
  */
 export function findBannedVocabulary(
   body: string,
-  exceptions: readonly SlopQuotationException[] = [],
-): Array<SlopFinding & { word: string }> {
+  exceptions: readonly QuotationException[] = [],
+): Array<ProseFinding & { word: string }> {
   const masked = maskRegisteredQuotes(maskNonProse(body), exceptions);
-  const findings: Array<SlopFinding & { word: string }> = [];
+  const findings: Array<ProseFinding & { word: string }> = [];
   masked.split('\n').forEach((line, i) => {
     for (const { word, category } of BANNED_VOCABULARY) {
       const pattern = new RegExp(`\\b${word}\\b`, 'gi');
@@ -361,8 +361,8 @@ export function findBannedVocabulary(
 }
 
 /**
- * Rule-of-three padding density (humanizer §10): count "X, Y, and Z"
- * enumerations per 1000 words of prose. Dense triads are an AI cadence
+ * Rule-of-three padding density: count "X, Y, and Z"
+ * enumerations per 1000 words of prose. Dense triads are a padding
  * marker; the threshold allows ordinary technical enumeration.
  *
  * The measurement floor is 100 words, not the historical 200. The 200-word
@@ -427,15 +427,15 @@ export function ruleOfThreeDensity(body: string): number {
 export const RULE_OF_THREE_LIMIT = 22;
 
 /**
- * Structural-tell patterns for the humanizer v3 floor.
+ * Structural-tell patterns for the structural floor.
  *
- * The owner-measured slop in this corpus is structural, not vocabulary: the
- * audit process wrote §1 not-X disclaimers ("This is not a universal
+ * The weak writing measured in this corpus is structural, not vocabulary:
+ * source audits left not-X disclaimers ("This is not a universal
  * efficiency ranking") and paper-internal locators ("Appendix D reports",
- * "Section 4.3.2 puts") into reader prose. Two counted classes, each a
+ * "Section 4.3.2 puts") in reader prose. Two counted classes, each a
  * small nameable pattern set, so the floor stays auditable:
  *
- * - `not-x`: the humanizer v3 §1 contrast constructions. Plain negation
+ * - `not-x`: the not-X contrast constructions. Plain negation
  *   ("the paper does not report a denominator") and registry vocabulary
  *   ("not disclosed") are not contrast constructions and pass.
  * - `paper-locator`: references to a position inside a cited paper
@@ -450,7 +450,7 @@ const STRUCTURAL_TELL_PATTERNS: ReadonlyArray<{
   label: string;
   pattern: RegExp;
 }> = [
-  // --- not-X disclaimers (humanizer v3 §1) ---
+  // --- not-X disclaimers ---
   { kind: 'not-x', label: 'not just/only/merely', pattern: /\bnot\s+(?:just|only|merely)\b/i },
   {
     kind: 'not-x',
@@ -489,7 +489,7 @@ const STRUCTURAL_TELL_PATTERNS: ReadonlyArray<{
   { kind: 'paper-locator', label: 'paper version marker', pattern: /(?<![\w-])v[0-9]+\b/ },
 ];
 
-export type StructuralTellFinding = SlopFinding & {
+export type StructuralTellFinding = ProseFinding & {
   kind: StructuralTellKind;
   label: string;
   match: string;
@@ -512,7 +512,7 @@ function maskMdxFrontmatter(body: string): string {
 /** Find every structural tell in one body of prose, prose only. */
 export function findStructuralTells(
   body: string,
-  exceptions: readonly SlopQuotationException[] = [],
+  exceptions: readonly QuotationException[] = [],
 ): StructuralTellFinding[] {
   const masked = maskRegisteredQuotes(maskNonProse(maskMdxFrontmatter(body)), exceptions);
   const findings: StructuralTellFinding[] = [];
@@ -553,7 +553,7 @@ export interface StructuralTellReport {
   words: number;
   /** Total counted tells (not-X plus paper-locators). */
   tells: number;
-  /** Counted §1 not-X disclaimers. */
+  /** Counted not-X disclaimers. */
   notX: number;
   /** Counted paper-internal locators. */
   paperLocator: number;
@@ -572,7 +572,7 @@ export interface StructuralTellReport {
  */
 export function structuralTellReport(
   body: string,
-  exceptions: readonly SlopQuotationException[] = [],
+  exceptions: readonly QuotationException[] = [],
 ): StructuralTellReport {
   const findings = findStructuralTells(body, exceptions);
   const words = maskNonProse(maskMdxFrontmatter(body)).split(/\s+/).filter((w) => w.length > 0).length;

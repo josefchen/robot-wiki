@@ -4,7 +4,7 @@
  * An article that writes "(Chen et al., 2025)" and then renders a chip whose
  * registry year is 2026 shows a reader two years for one paper in a single
  * sentence. Nothing else compares those two surfaces: the registry gates
- * check that every referenced id exists, and the no-slop lint reads prose
+ * check that every referenced id exists, and the prose lint reads prose
  * without knowing what a chip resolves to, so this class of drift is
  * invisible to every existing check.
  *

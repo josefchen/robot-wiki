@@ -5,8 +5,8 @@ import { beatSpans, posterTime } from '@/components/motion/timeline';
 import { TACTILE_SLIP_METHOD_NOTE, TACTILE_SLIP_SCENE, tactileSlipFrame } from '@/components/motion/scenes/tactile-slip';
 import { SENSE_AVOID_METHOD_NOTE, SENSE_AVOID_SCENE, senseAvoidDistances, senseAvoidFrame } from '@/components/motion/scenes/sense-avoid';
 import { DEFAULT_AGILITY, SENSORS, latencyOutcome } from '@/lib/aerial-latency';
-import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
-import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
+import { PROSE_LINT_EXCEPTIONS } from '@/data/prose-lint-exceptions';
+import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/prose-lint';
 
 const root = process.cwd();
 const articles = ['frontier', 'adjacent'].flatMap((domain) =>
@@ -77,9 +77,9 @@ describe('frontier and adjacent prose continuity', () => {
   it('keeps every article at or below two structural tells per thousand words', () => {
     for (const file of articles) {
       const body = readFileSync(join(root, 'content', file), 'utf8');
-      const report = structuralTellReport(body, NO_SLOP_EXCEPTIONS);
+      const report = structuralTellReport(body, PROSE_LINT_EXCEPTIONS);
       expect(report.measured, file).toBe(true);
-      expect(report.tells, file).toBe(findStructuralTells(body, NO_SLOP_EXCEPTIONS).length);
+      expect(report.tells, file).toBe(findStructuralTells(body, PROSE_LINT_EXCEPTIONS).length);
       expect(report.density, file).toBeLessThanOrEqual(STRUCTURAL_TELL_LIMIT);
     }
   });

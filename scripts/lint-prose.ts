@@ -1,11 +1,11 @@
 /**
- * CLI wrapper for the no-slop lint.
+ * CLI wrapper for the prose lint.
  *
- * Runs the pure checks in lib/no-slop.ts against the real repo:
+ * Runs the pure checks in lib/prose-lint.ts against the real repo:
  *   1. Placeholder sweep over every .html file in the static export
  *      (out/), skipping nothing except script/style contents (masked
  *      inside the checker).
- *   2. AI-writing marker lint over every MDX body in content/: banned
+ *   2. Marker lint over every MDX body in content/: banned
  *      vocabulary, em/en dashes in prose, and rule-of-three density.
  *   3. The same marker lint over the rendered prose of every exported
  *      HTML file: component copy, data-file strings that render, landing
@@ -15,12 +15,12 @@
  *      the placeholder half.
  *
  * Verbatim quoted source text is exempt only through the attribution
- * registry in data/no-slop-exceptions.ts: the registry is
+ * registry in data/prose-lint-exceptions.ts: the registry is
  * validated before any scanning (an entry without evidence fails the run),
  * its exact quote text is masked in both halves, and an entry whose quote
  * matches no scanned content is reported [STALE] so the list stays honest.
  *
- * Exits non-zero on any finding. Run standalone (npm run lint-no-slop) or
+ * Exits non-zero on any finding. Run standalone (npm run lint-prose) or
  * via validate:content (prebuild, --source-only: the source tree is what
  * exists before a build, and a stale out/ from an earlier build must not
  * fail the prebuild for defects already fixed in source) and via postbuild
@@ -41,8 +41,8 @@ import {
   STRUCTURAL_TELL_LIMIT,
   structuralTellReport,
   validateQuotationExceptions,
-} from '../lib/no-slop.ts';
-import { NO_SLOP_EXCEPTIONS } from '../data/no-slop-exceptions.ts';
+} from '../lib/prose-lint.ts';
+import { PROSE_LINT_EXCEPTIONS } from '../data/prose-lint-exceptions.ts';
 import { CITATIONS } from '../data/citations.ts';
 import { DOMAINS } from '../data/domains.ts';
 
@@ -61,9 +61,9 @@ const problems: string[] = [];
 // exception without recorded evidence is a suppressed failure, so the
 // lint fails fast and says why (same contract as the link-check sweep).
 const citationIds = new Set(CITATIONS.map((c) => c.id));
-const exceptionProblems = validateQuotationExceptions(NO_SLOP_EXCEPTIONS, citationIds);
+const exceptionProblems = validateQuotationExceptions(PROSE_LINT_EXCEPTIONS, citationIds);
 if (exceptionProblems.length > 0) {
-  console.error('The no-slop exception registry (data/no-slop-exceptions.ts) is not valid:');
+  console.error('The prose-lint exception registry (data/prose-lint-exceptions.ts) is not valid:');
   for (const problem of exceptionProblems) console.error(`  - ${problem}`);
   process.exit(1);
 }
@@ -74,9 +74,9 @@ const scannedTexts: string[] = [];
 // --- plus the rendered-prose marker lint. ---
 const outDir = join(root, 'out');
 if (reportOnly) {
-  console.log('no-slop: report-structural run, export and marker sweeps skipped');
+  console.log('prose-lint: report-structural run, export and marker sweeps skipped');
 } else if (sourceOnly) {
-  console.log('no-slop: source-only run, export sweeps skipped (postbuild gates the fresh export)');
+  console.log('prose-lint: source-only run, export sweeps skipped (postbuild gates the fresh export)');
 } else if (existsSync(outDir)) {
   const htmlFiles: string[] = [];
   (function walk(dir: string) {
@@ -101,11 +101,11 @@ if (reportOnly) {
     const prose = extractRenderedProse(html);
     scannedTexts.push(prose);
     const lines = prose.split('\n');
-    for (const finding of findBannedVocabulary(prose, NO_SLOP_EXCEPTIONS)) {
+    for (const finding of findBannedVocabulary(prose, PROSE_LINT_EXCEPTIONS)) {
       const excerpt = (lines[finding.line - 1] ?? '').trim().slice(0, 90);
       problems.push(`${rel}: ${finding.message} (near "${excerpt}")`);
     }
-    for (const line of dashLines(prose, NO_SLOP_EXCEPTIONS)) {
+    for (const line of dashLines(prose, PROSE_LINT_EXCEPTIONS)) {
       const excerpt = (lines[line - 1] ?? '').trim().slice(0, 90);
       problems.push(
         `${rel}: em or en dash in rendered prose (near "${excerpt}")`,
@@ -126,12 +126,12 @@ if (reportOnly) {
       );
     }
   }
-  console.log(`no-slop: placeholder + rendered-prose sweep over ${htmlFiles.length} exported HTML files`);
+  console.log(`prose-lint: placeholder + rendered-prose sweep over ${htmlFiles.length} exported HTML files`);
 } else {
-  console.log('no-slop: out/ absent, export sweeps skipped (runs standalone after build)');
+  console.log('prose-lint: out/ absent, export sweeps skipped (runs standalone after build)');
 }
 
-// --- 2. AI-writing markers over MDX prose. ---
+// --- 2. Banned markers over MDX prose. ---
 // --content-dir <path> points the source sweeps at another tree, so the
 // structural-floor plant can run this exact CLI over a planted copy.
 const contentDirAt = process.argv.indexOf('--content-dir');
@@ -153,10 +153,10 @@ if (!reportOnly) {
     const body = readFileSync(file, 'utf8');
     scannedTexts.push(body);
 
-    for (const finding of findBannedVocabulary(body, NO_SLOP_EXCEPTIONS)) {
+    for (const finding of findBannedVocabulary(body, PROSE_LINT_EXCEPTIONS)) {
       problems.push(`${rel}:${finding.line}: ${finding.message}`);
     }
-    for (const line of dashLines(body, NO_SLOP_EXCEPTIONS)) {
+    for (const line of dashLines(body, PROSE_LINT_EXCEPTIONS)) {
       problems.push(`${rel}:${line}: em or en dash in prose (rewrite with a comma, colon, or period)`);
     }
     const result = ruleOfThreeResult(body);
@@ -171,11 +171,11 @@ if (!reportOnly) {
       );
     }
   }
-  console.log(`no-slop: AI-writing lint over ${mdxFiles.length} MDX files`);
+  console.log(`prose-lint: marker lint over ${mdxFiles.length} MDX files`);
 }
 
 // --- 2b. Structural-tell report over the edited domains.
-// Counts humanizer v3 §1 not-X disclaimers and paper-internal locators per
+// Counts not-X disclaimers and paper-internal locators per
 // 1,000 words of MDX source prose, prints the rate for every article
 // in the edited domains, and fails any article above the 2/1k floor. Runs in every mode
 // (source-only, full, report-structural-only) so the floor binds wherever
@@ -188,13 +188,13 @@ if (!reportOnly) {
       const body = readFileSync(join(dir, file), 'utf8');
       return {
         rel: `/${domain}/${file}`,
-        report: structuralTellReport(body, NO_SLOP_EXCEPTIONS),
-        findings: findStructuralTells(body, NO_SLOP_EXCEPTIONS),
+        report: structuralTellReport(body, PROSE_LINT_EXCEPTIONS),
+        findings: findStructuralTells(body, PROSE_LINT_EXCEPTIONS),
       };
     }).sort((a, b) => b.report.density - a.report.density);
 
     console.log(
-      `no-slop: structural-tell report over ${rows.length} ${domain} articles (floor ${STRUCTURAL_TELL_LIMIT}/1k; counted: not-X disclaimers, paper-internal locators)`,
+      `prose-lint: structural-tell report over ${rows.length} ${domain} articles (floor ${STRUCTURAL_TELL_LIMIT}/1k; counted: not-X disclaimers, paper-internal locators)`,
     );
     for (const { rel, report } of rows) {
       const state = !report.measured
@@ -223,19 +223,19 @@ if (!reportOnly) {
 // source title) is invisible to a source-only run, which must not report
 // it stale on evidence it never collected.
 if (!sourceOnly && !reportOnly) {
-  const stale = findStaleQuotationExceptions(NO_SLOP_EXCEPTIONS, scannedTexts);
+  const stale = findStaleQuotationExceptions(PROSE_LINT_EXCEPTIONS, scannedTexts);
   for (const exception of stale) {
     console.log(
-      `  [STALE] ${exception.id}: the registered quotation no longer appears in any scanned content; remove its entry from data/no-slop-exceptions.ts.`,
+      `  [STALE] ${exception.id}: the registered quotation no longer appears in any scanned content; remove its entry from data/prose-lint-exceptions.ts.`,
     );
   }
 }
 
 if (problems.length > 0) {
-  console.error(`no-slop: FAILED (${problems.length} finding(s))`);
+  console.error(`prose-lint: FAILED (${problems.length} finding(s))`);
   for (const problem of problems) console.error(`  ${problem}`);
   process.exit(1);
 }
 console.log(
-  `no-slop: OK (zero placeholder markers, zero banned AI-writing markers, ${NO_SLOP_EXCEPTIONS.length} registered quotation exception(s) in force)`,
+  `prose-lint: OK (zero placeholder markers, zero banned prose markers, ${PROSE_LINT_EXCEPTIONS.length} registered quotation exception(s) in force)`,
 );

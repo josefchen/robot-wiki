@@ -12,12 +12,12 @@ import {
   RULE_OF_THREE_LIMIT,
   RULE_OF_THREE_MIN_WORDS,
   validateQuotationExceptions,
-  type SlopQuotationException,
-} from '@/lib/no-slop';
+  type QuotationException,
+} from '@/lib/prose-lint';
 
 const citationIds = new Set(['brooks-better-lesson-2019', 'yang-autonomy-2017']);
 
-const registeredQuote: SlopQuotationException = {
+const registeredQuote: QuotationException = {
   id: 'brooks-better-lesson-2019',
   quote: 'we can not afford to put even the results of machine learning on our small robots–a human brain only requires 20 Watts',
   reason: 'Verbatim quotation from Brooks\'s essay; the en dashes are his, not ours.',
@@ -98,7 +98,7 @@ describe('banned vocabulary', () => {
   });
 
   it('allows a banned word inside a registered exception', () => {
-    const exception: SlopQuotationException = {
+    const exception: QuotationException = {
       ...registeredQuote,
       quote: 'a tapestry of contact-rich skills',
     };
@@ -261,7 +261,7 @@ describe('registered verbatim quotations', () => {
   });
 
   it('masks banned vocabulary inside a registered quotation', () => {
-    const quoteWithVocab: SlopQuotationException = {
+    const quoteWithVocab: QuotationException = {
       ...registeredQuote,
       quote: 'the robotics landscape will change everything–fundamentally',
     };
@@ -299,7 +299,7 @@ describe('quotation marks alone never exempt text', () => {
 });
 
 describe('quotation exception registry validation', () => {
-  const valid: SlopQuotationException = { ...registeredQuote };
+  const valid: QuotationException = { ...registeredQuote };
 
   it('accepts a well-formed entry keyed to a citation id', () => {
     expect(validateQuotationExceptions([valid], citationIds)).toEqual([]);
@@ -318,7 +318,7 @@ describe('quotation exception registry validation', () => {
 
   it('rejects entries missing evidence fields', () => {
     for (const field of ['reason', 'verifiedBy', 'verifiedOn'] as const) {
-      const entry = { ...valid, [field]: '' } as SlopQuotationException;
+      const entry = { ...valid, [field]: '' } as QuotationException;
       expect(validateQuotationExceptions([entry], citationIds).length).toBeGreaterThan(0);
     }
   });

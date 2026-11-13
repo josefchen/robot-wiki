@@ -16,7 +16,7 @@ describe('release gate placement', () => {
     const gate = expandedGate();
     expect(gate).toContain('npm run validate:content');
     expect(pkg.scripts['validate:content']).toContain('node scripts/validate-content.ts');
-    expect(pkg.scripts['validate:content']).toContain('node scripts/lint-no-slop.ts --source-only');
+    expect(pkg.scripts['validate:content']).toContain('node scripts/lint-prose.ts --source-only');
     expect(pkg.scripts['validate:content']).toContain('node scripts/check-chart-descriptions.ts');
     expect(gate.indexOf('npm run validate:content')).toBeLessThan(gate.indexOf('next build'));
     expect(gate.indexOf('scripts/build-search.ts')).toBeGreaterThan(gate.indexOf('next build'));
@@ -28,7 +28,7 @@ describe('release gate placement', () => {
       'node scripts/measure-reading-times.ts --rebuild',
       'node scripts/patch-404-guard.ts',
       'node scripts/build-search.ts',
-      'node scripts/lint-no-slop.ts &&',
+      'node scripts/lint-prose.ts &&',
       'npm run check:figure-system',
       'npm run check:seo',
       'npm run check:internal-links',

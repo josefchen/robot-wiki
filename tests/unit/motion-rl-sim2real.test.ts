@@ -14,8 +14,8 @@ import {
 } from '@/components/motion/scenes/gait-support';
 import { DEFAULT_GAIT, GAITS, GAIT_ORDER, minStanceCount, stanceLegs } from '@/lib/gait';
 import { DEFAULT_ENVS, MAX_ENVS, MIN_ENVS, wallClockSeconds } from '@/lib/parallel-sim';
-import { NO_SLOP_EXCEPTIONS } from '@/data/no-slop-exceptions';
-import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/no-slop';
+import { PROSE_LINT_EXCEPTIONS } from '@/data/prose-lint-exceptions';
+import { findStructuralTells, structuralTellReport, STRUCTURAL_TELL_LIMIT } from '@/lib/prose-lint';
 
 const root = process.cwd();
 const folder = join(root, 'content/rl-sim2real');
@@ -144,9 +144,9 @@ describe('RL and sim-to-real prose truth', () => {
     expect(articles.length).toBeGreaterThan(0);
     for (const file of articles) {
       const body = readFileSync(join(folder, file), 'utf8');
-      const report = structuralTellReport(body, NO_SLOP_EXCEPTIONS);
+      const report = structuralTellReport(body, PROSE_LINT_EXCEPTIONS);
       expect(report.measured, file).toBe(true);
-      expect(report.tells, file).toBe(findStructuralTells(body, NO_SLOP_EXCEPTIONS).length);
+      expect(report.tells, file).toBe(findStructuralTells(body, PROSE_LINT_EXCEPTIONS).length);
       expect(report.density, file).toBeLessThanOrEqual(STRUCTURAL_TELL_LIMIT);
     }
   });

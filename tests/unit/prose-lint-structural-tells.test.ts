@@ -4,19 +4,19 @@ import {
   STRUCTURAL_TELL_LIMIT,
   structuralTellReport,
   type StructuralTellKind,
-} from '../../lib/no-slop.ts';
-import type { SlopQuotationException } from '../../lib/no-slop.ts';
+} from '../../lib/prose-lint.ts';
+import type { QuotationException } from '../../lib/prose-lint.ts';
 
 /**
- * Structural-tell floor for the manipulation humanizer v3 pass:
- * §1 not-X disclaimers and paper-internal locators,
+ * Structural-tell floor for the manipulation articles:
+ * not-X disclaimers and paper-internal locators,
  * counted per 1,000 words of MDX prose. The patterns are deliberately a
  * small, nameable set: every counted tell is one a careful writer would
  * avoid on purpose, and the floor (2/1k) allows a handful of honest
  * exceptions without letting the audit voice back in.
  */
 
-describe('findStructuralTells: not-X disclaimers (humanizer v3 §1)', () => {
+describe('findStructuralTells: not-X disclaimers', () => {
   it('flags "not just / not only / not merely" constructions', () => {
     const body = 'It is not just a scheduler. It is not merely a policy, not only a plan.';
     const kinds = findStructuralTells(body).map((f) => f.kind);
@@ -130,7 +130,7 @@ describe('findStructuralTells: paper-internal locators', () => {
 describe('findStructuralTells: registered verbatim quotations stay exempt', () => {
   it('masks a registered quote that contains a counted tell', () => {
     const quote = 'it is not yet a recipe';
-    const exceptions: SlopQuotationException[] = [
+    const exceptions: QuotationException[] = [
       {
         id: 'some-source',
         quote,

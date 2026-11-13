@@ -9,7 +9,7 @@ import { NumberText } from './number-text';
  * The chart-description primitive.
  *
  * Every retrofitted data chart renders its authored takeaway as real DOM
- * text a screen reader, the printer, Pagefind and the no-slop lint all
+ * text a screen reader, the printer, Pagefind and the prose lint all
  * reach, followed by a disclosure holding the machine-derived sample the
  * chart is drawn from. The takeaway paragraph is the target of the SVG's
  * aria-describedby; the disclosure is deliberately NOT referenced, because
@@ -17,7 +17,7 @@ import { NumberText } from './number-text';
  * sampled table flattened to one string is unusable.
  *
  * Why the numbers live in the DOM and not in an aria-label or an SVG
- * <desc>: the export half of the no-slop lint (lib/no-slop.ts
+ * <desc>: the export half of the prose lint (lib/prose-lint.ts
  * extractRenderedProse) strips <svg>...</svg> entirely and then deletes
  * every remaining tag, so text inside an attribute or an SVG subtree is
  * scanned by nothing. Real DOM text outside the SVG is reached by the lint,
