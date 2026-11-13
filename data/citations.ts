@@ -11,8 +11,8 @@
  * keep the initial; do not expand it from memory or from a web search of a
  * name you think you recognise — expanding an initial into a full given
  * name the source never printed is invention about a named person, the
- * defect this rule was written after (five fabricated given names landed in
- * one session with every DOI verified). Expanding is acceptable ONLY when
+ * defect this rule was written after (five fabricated given names once
+ * landed together, each with its DOI verified). Expanding is acceptable ONLY when
  * a record that genuinely transcribes or states the byline corroborates
  * it: the publisher's landing page or PDF byline, a DBLP publication
  * record, or the ORCID profile of the correct person with this work
@@ -196,7 +196,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Authors verified against the arXiv 2512.05964 abs page (2026-08-17,
-    // audit-manipulation-iii): individual authors, not the lab name.
+    // manipulation audit): individual authors, not the lab name.
     id: 'training-time-rtc-2025',
     title: 'Training-Time Action Conditioning for Efficient Real-Time Chunking',
     authors: ['Kevin Black', 'Allen Z. Ren', 'Michael Equi', 'Sergey Levine'],
@@ -277,7 +277,7 @@ export const CITATIONS: Citation[] = [
     id: 'rt1-2022',
     title: 'RT-1: Robotics Transformer for Real-World Control at Scale',
     // Full 51-author list from the arXiv abs page (completed 2026-08-17
-    // during the manipulation-ii audit; the entry previously carried only
+    // during the manipulation audit; the entry previously carried only
     // the first three names).
     authors: [
       'Anthony Brohan',
@@ -342,7 +342,7 @@ export const CITATIONS: Citation[] = [
     title:
       'RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control',
     // Full 54-author list from the arXiv abs page (completed 2026-08-17
-    // during the manipulation-ii audit; the entry previously carried only
+    // during the manipulation audit; the entry previously carried only
     // the first three names).
     authors: [
       'Anthony Brohan',
@@ -406,8 +406,7 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Inspected source: arXiv v9, 14 May 2025; source-event proof is in the
-    // OXE source-only packet. The 22-embodiment pool is distinct from the
+    // Inspected source: arXiv v9, 14 May 2025. The 22-embodiment pool is distinct from the
     // nine-embodiment RT-X training subset. RT-1-X gains are scoped to
     // small-data domains; ordinary RT-2-X generalization is roughly on par.
     // The abstract names 21 institutions; Section III-A names 34 labs.
@@ -752,7 +751,7 @@ export const CITATIONS: Citation[] = [
     id: 'openvla-2024',
     title: 'OpenVLA: An Open-Source Vision-Language-Action Model',
     // Full 18-author list from the arXiv abs page (completed 2026-08-17
-    // during the manipulation-ii audit).
+    // during the manipulation audit).
     authors: [
       'Moo Jin Kim',
       'Karl Pertsch',
@@ -1047,7 +1046,7 @@ export const CITATIONS: Citation[] = [
       'Ury Zhilinsky',
     ],
     year: 2025,
-    // Explicit v1 source; the retained packet does not establish CoRL 2025.
+    // Explicit v1 source; the retained copy does not establish CoRL 2025.
     arxiv: '2504.16054',
     url: 'https://arxiv.org/html/2504.16054v1',
     type: 'paper',
@@ -1089,8 +1088,8 @@ export const CITATIONS: Citation[] = [
     // Title capitalization as printed on the PDF's title page.
     title: 'π*0.6: a VLA That Learns From Experience',
     // 55 named authors from the blog's own author list (the PDF title page
-    // carries the same team); audit/README.md convention: named authors
-    // wherever a list exists, org-as-author only when none does.
+    // carries the same team); convention: named authors wherever a list
+    // exists, org-as-author only when none does.
     authors: [
       'Ali Amin',
       'Raichelle Aniceto',
@@ -1625,8 +1624,8 @@ export const CITATIONS: Citation[] = [
   {
     // v3 (28 Nov 2025): team plus all 172 individuals under Section 8 Authors.
     // The canonical abstract lists team plus 171 and omits Robert Baruch.
-    // Preserve both accounts in the retained OXE/GR1.5 event-bound source packet;
-    // Google DeepMind is the affiliation, not a substitute individual author.
+    // Both accounts are kept on file; Google DeepMind is the affiliation,
+    // not a substitute individual author.
     id: 'gemini-robotics-15-2025',
     title:
       'Gemini Robotics 1.5: Pushing the Frontier of Generalist Robots with Advanced Embodied Reasoning, Thinking, and Motion Transfer',
@@ -1825,7 +1824,7 @@ export const CITATIONS: Citation[] = [
     title:
       'GR00T N1: An Open Foundation Model for Generalist Humanoid Robots',
     // Full author list in arXiv order (org first, then the 41 named
-    // authors; completed 2026-08-17 during the manipulation-ii audit).
+    // authors; completed 2026-08-17 during the manipulation audit).
     authors: [
       'NVIDIA',
       'Johan Bjorck',
@@ -2873,7 +2872,7 @@ export const CITATIONS: Citation[] = [
     year: 2025,
     venue: 'CoRL 2025',
     arxiv: '2502.20396',
-    // Unversioned URL: since the 2026-10-06 domain pass the article cites the
+    // Unversioned URL: since 2026-10-06 the article cites the
     // current version's sentence (dexterous sim-to-real RL "remains largely
     // limited to single-hand ... or state-based setups"), which arXiv v1
     // does not hold; the earlier v1-only quote is no longer on the page.
@@ -3534,7 +3533,7 @@ export const CITATIONS: Citation[] = [
   {
     // Verified against the arXiv abs page (2026-08-08): 4 authors. This is the
     // 2023 arXiv preprint; the Nature 2025 version is dreamerv3-nature-2025,
-    // so this entry carries no venue (audit/world-models/latent-dynamics.md, R1).
+    // so this entry carries no venue.
     id: 'dreamerv3-2023',
     title: 'Mastering Diverse Domains through World Models',
     authors: [
@@ -3750,18 +3749,12 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
-    // REQUIRED registration per frozen packet
-    // convergence-source-x-jepa-20260916j record 1 (jepa row 9 part
-    // j9-ami-expansion: the only TechCrunch print that AMI 'stands for
-    // Advanced Machine Intelligence'). Fetched live by the packet's
-    // source session (curl GET 200, 2026-09-16T15:18:58Z, 240,641 bytes,
-    // retained sha-verified at
-    // convergence-source-x-jepa-20260916j/sources/tc-20260123.html);
-    // title, byline Anna Heim and dateline 4:04 PM PST - January 23, 2026
-    // needle-verified by this zero-retrieval integrator against the
-    // retained body before registering. The March raise piece stays on
-    // ami-labs-2026; the January piece prints the CEO as 'Alex LeBrun'
-    // (the March form is 'Alexandre'), recorded in the jepa row-9 note.
+    // The only TechCrunch piece that prints that AMI 'stands for Advanced
+    // Machine Intelligence'. Fetched 2026-09-16 (curl GET 200, 240,641
+    // bytes); title, byline Anna Heim and dateline 4:04 PM PST - January
+    // 23, 2026 checked against the saved page before registering. The
+    // March raise piece stays on ami-labs-2026; the January piece prints
+    // the CEO as 'Alex LeBrun' (the March form is 'Alexandre').
     id: 'ami-labs-founding-2026',
     title: "Who's behind AMI Labs, Yann LeCun's 'world model' startup",
     authors: ['Anna Heim'],
@@ -3807,11 +3800,8 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // NVIDIA newsroom launch release for Cosmos 3, registered by the
-    // generative-video integrator for the launch dateline only. Fetched
-    // live by the frozen packet's source session (curl GET 200, 2026-09-16,
-    // 83,088 bytes, retained sha-verified at
-    // convergence-source-n-generative-video-20260916e/sources/nv-launch-release.html);
+    // NVIDIA newsroom launch release for Cosmos 3, cited for the launch
+    // dateline only. Fetched 2026-09-16 (curl GET 200, 83,088 bytes);
     // prints the dateline 'NVIDIA GTC Taipei' and the date string
     // 'May 31, 2026'. The technical report stays on cosmos-3-2026.
     id: 'nvidia-cosmos-3-launch-2026',
@@ -4154,13 +4144,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Genie 1 paper, registered by the generative-video integrator. Abs
-    // page and full PDF fetched live by the frozen packet's source session
-    // (curl GET 200, 2026-09-16, retained sha-verified at
-    // convergence-source-n-generative-video-20260916e/sources/genie1-abs.html
-    // and genie1-paper.txt); 25-author list and order taken verbatim from
-    // the abs page. The abs page prints no venue (the packet's proposed
-    // 'ICML 2024' is printed by no retained text, so no venue is recorded).
+    // Genie 1 paper. Abs page and full PDF fetched 2026-09-16 (curl GET
+    // 200); 25-author list and order taken verbatim from the abs page. The
+    // abs page prints no venue ('ICML 2024' is printed by neither saved
+    // text, so no venue is recorded).
     id: 'genie-1-2024',
     title: 'Genie: Generative Interactive Environments',
     authors: [
@@ -4196,11 +4183,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Genie 2 blog, registered by the generative-video integrator. Fetched
-    // live twice by the frozen packet's source session (web fetch 200 and
-    // curl GET 200, 2026-09-16, retained sha-verified at
-    // convergence-source-n-generative-video-20260916e/sources/genie2-blog.html);
-    // 32-name byline taken verbatim from the page ('Please cite as
+    // Genie 2 blog. Fetched twice on 2026-09-16 (web fetch 200 and curl
+    // GET 200); 32-name byline taken verbatim from the page ('Please cite as
     // Parker-Holder et al.' also printed), byline date December 4, 2024.
     id: 'genie-2-2024',
     title: 'Genie 2: A large-scale foundation world model',
@@ -4427,11 +4411,8 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
-    // Starchild-1 announcement, registered by the generative-video
-    // integrator. Fetched live twice by the frozen packet's source session
-    // (web fetch 200 and curl GET 200, 2026-09-16, retained sha-verified at
-    // convergence-source-n-generative-video-20260916e/sources/starchild.html);
-    // byline Oliver Cameron, May 17th, 2026; prints 'synchronized audio and
+    // Starchild-1 announcement. Fetched twice on 2026-09-16 (web fetch 200
+    // and curl GET 200); byline Oliver Cameron, May 17th, 2026; prints 'synchronized audio and
     // video in real-time'.
     id: 'odyssey-starchild-1-2026',
     title: 'Starchild-1: The First Real-Time Multimodal World Model',
@@ -4442,11 +4423,8 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
-    // Agora-1 announcement, registered by the generative-video
-    // integrator. Fetched live twice by the frozen packet's source session
-    // (web fetch 200 and curl GET 200, 2026-09-16, retained sha-verified at
-    // convergence-source-n-generative-video-20260916e/sources/agora.html);
-    // byline Oliver Cameron, May 18th, 2026; prints 'up to four players to
+    // Agora-1 announcement. Fetched twice on 2026-09-16 (web fetch 200 and
+    // curl GET 200); byline Oliver Cameron, May 18th, 2026; prints 'up to four players to
     // interact within the same generated world in real time'.
     id: 'odyssey-agora-1-2026',
     title: 'Agora-1: The Multi-Agent World Model',
@@ -4471,12 +4449,9 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
-    // Google's own Project Genie blog, registered by the generative-video
-    // integrator as a first-party durability addition beside the Ars press
-    // citation. Fetched live twice by the frozen packet's source session
-    // (web fetch 200 and curl GET 200, 2026-09-16, retained sha-verified at
-    // convergence-source-n-generative-video-20260916e/sources/google-project-genie.html);
-    // prints the Jan 29, 2026 AI Ultra U.S. rollout and the limitation list
+    // Google's own Project Genie blog, a first-party source beside the Ars
+    // press citation. Fetched twice on 2026-09-16 (web fetch 200 and curl
+    // GET 200); prints the Jan 29, 2026 AI Ultra U.S. rollout and the limitation list
     // 'Limitations in generations to 60 seconds'. Page H1/og:title is the
     // registered title (the <title> tag is an SEO variant); no personal
     // byline is printed, so the corporate author stands.
@@ -4941,11 +4916,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
     // Project site for UMI (RSS 2024; Best Systems Paper Award Finalist
-    // per the site's own byline). Registered by the teleop-rigs evidence
-    // completion 2026-09-16: the 111/35/231 hourly rates and the
-    // any-home-any-restaurant 2-minute start are site-only claims (packet
-    // convergence-source-f-teleop-rigs-20260916, rows 9-10); fields from the
-    // site's own team byline and BibTeX.
+    // per the site's own byline). Registered 2026-09-16: the 111/35/231
+    // hourly rates and the any-home-any-restaurant 2-minute start are
+    // site-only claims; fields from the site's own team byline and BibTeX.
   {
     id: 'umi-gripper-site-2024',
     title:  'Universal Manipulation Interface (UMI) project site',
@@ -5245,8 +5218,7 @@ export const CITATIONS: Citation[] = [
   },
     // Apple's own January 8, 2024 press release printing the Vision Pro
     // U.S. launch price ("available starting at $3,499 (U.S.) with 256GB of
-    // storage"). Registered by the teleop-rigs evidence completion
-    // 2026-09-16 (packet row 13); first-party vendor source.
+    // storage"). Registered 2026-09-16; first-party vendor source.
   {
     id: 'apple-visionpro-price-2024',
     title: 
@@ -6674,8 +6646,8 @@ export const CITATIONS: Citation[] = [
   {
     // Sutton's essay, the reference statement of the scaling thesis. The
     // original is http-only (self-signed cert; https 404s), so the registry
-    // carries the dated archival mirror per the settled policy in
-    // library/content-quality.md; author, title and the original March 13,
+    // carries the dated archival mirror per the http-only policy in the
+    // header above; author, title and the original March 13,
     // 2019 date stay in the entry. Mirror verified live (200, 2026-08-18):
     // "general methods that leverage computation are ultimately the most
     // effective".
@@ -7396,9 +7368,7 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Registered 2026-09-16 from the frozen drones source packet (zero
-    // retrieval by the integrator): the author's own page (red3d.com,
-    // curl GET 200, 80,969 bytes, 2026-09-16T05:57:36Z) prints the title,
+    // Registered 2026-09-16: the author's own page (red3d.com, curl GET 200, 80,969 bytes, 2026-09-16T05:57:36Z) prints the title,
     // "the 1987 model" and "the SIGGRAPH '87 boids paper". The printed
     // bibliographic line comes from the fetched Soria Nature MI reference
     // list: "Reynolds, C. W. Flocks, herds and schools: a distributed
@@ -8086,9 +8056,8 @@ export const CITATIONS: Citation[] = [
   {
     // HAL author-deposited PDF (inria-00590039) fetched 2026-09-15:
     // IJRR 14(3), pp. 195-210, June 1995; the HAL cover prints the
-    // citation and DOI 10.1177/027836499501400301. Registered exactly
-    // as the frozen perception packet proposed; integrator needle-
-    // verified the retained PDF passages (shared-form listing,
+    // citation and DOI 10.1177/027836499501400301. The PDF passages it is
+    // cited for were checked word for word (shared-form listing,
     // classical-linear naming, eq. 18/16, rank deficiency).
     id: 'horaud-dornaika-1995',
     title: 'Hand-Eye Calibration',
@@ -9077,12 +9046,9 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // AgiBot-World official repository README (OpenDriveLab), registered by
-    // the datasets integrator for the repo trajectory count and the repo
-    // license. Raw markdown fetched live by the frozen packet's source
-    // session (curl 200, 2026-09-16T04:09:19Z, 19,254 bytes, retained at
-    // convergence-source-i-datasets-20260916c/sources/agibot-github-readme.md);
-    // year 2026 is the fetched-snapshot year (the living README prints no
+    // AgiBot-World official repository README (OpenDriveLab), cited for the
+    // repo trajectory count and the repo license. Raw markdown fetched
+    // 2026-09-16 (curl 200, 19,254 bytes); year 2026 is the fetched-snapshot year (the living README prints no
     // publication year; latest printed news date is 2025/09/19), following
     // the so-arm100-repo-2026 repo-docs convention. Markdown document: no
     // HTML title tag for the reachability title check to compare.
@@ -9098,7 +9064,7 @@ export const CITATIONS: Citation[] = [
     // reports planned January closures of three warehouses, monitoring of
     // five remaining sites, and expected compensation of around £190 million.
     // The original live URL returned HTTP 403. The HTTPS capture of the same
-    // article preserves its dated source body; see audit/citations.md.
+    // article preserves its dated source body.
     id: 'kroger-ocado-closures-2025',
     title:
       "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm",
@@ -9148,12 +9114,9 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Registered 2026-09-17 by the convergence-aq integrator from the frozen
-    // AO packet (convergence-ao-av2-plus-bookretry-20260917a, binding
-    // autonomous-vehicles:2), removing the 2026-09-15 registration hold: the
-    // tour pages serve over https with no redirect (re-verified fresh by the
-    // preparer 2026-09-17; index 5,933 B, home page 1,444 B, ralph.html
-    // 20,895 B, all sha256-pinned in the lane), so the locked registry schema
+    // Registered 2026-09-17, after a hold from 2026-09-15: the tour pages
+    // serve over https with no redirect (re-checked 2026-09-17; index
+    // 5,933 B, home page 1,444 B, ralph.html 20,895 B), so the registry schema
     // (https URLs and dated web.archive.org captures alone) admits the live
     // URL and no capture identity had to be constructed. The site is the
     // project's own CMU Robotics Institute page set (tjochem@ri.cmu.edu,
@@ -9169,8 +9132,8 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // KOL backlog batch 2026-10-01 (Yuke Zhu intake). Abstract page fetched
-    // 2026-10-01; v1 submitted 26 June 2026, v4 revised 5 August 2026.
+    // Added 2026-10-01 via Yuke Zhu. Abstract page fetched 2026-10-01; v1
+    // submitted 26 June 2026, v4 revised 5 August 2026.
     id: 'simfoundry-2026',
     title: 'SimFoundry: Modular and Automated Scene Generation for Policy Learning and Evaluation',
     authors: [
@@ -9185,9 +9148,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-01 (Marco Hutter intake). Abstract and HTML
-    // fetched 2026-10-01; submitted 25 September 2026. Affiliations from the
-    // HTML: Robotic Systems Lab, ETH Zurich; AMTC, Universidad de Chile.
+    // Added 2026-10-01 via Marco Hutter. Abstract and HTML fetched 2026-10-01;
+    // submitted 25 September 2026. Affiliations from the HTML: Robotic Systems
+    // Lab, ETH Zurich; AMTC, Universidad de Chile.
     id: 'excavator-mbrl-2026',
     title:
       'Precision at Speed: Sample-Efficient Online Model-Based Reinforcement Learning for Hydraulic Excavator Control',
@@ -9198,9 +9161,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-01 (Dieter Fox intake). Abstract and HTML
-    // fetched 2026-10-01; submitted 23 September 2026, IROS 2026. The HTML
-    // states the experiments run in simulation and build on TD-MPC2.
+    // Added 2026-10-01 via Dieter Fox. Abstract and HTML fetched 2026-10-01;
+    // submitted 23 September 2026, IROS 2026. The HTML states the experiments
+    // run in simulation and build on TD-MPC2.
     id: 'insertion-world-models-2026',
     title: 'Generalizable Robotic Insertion with World Models',
     authors: [
@@ -9214,8 +9177,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-01 (Chris Paxton intake). Newsletter post
-    // dated 12 September 2026, fetched 2026-10-01 for the dated attribution.
+    // Added 2026-10-01 via Chris Paxton. Newsletter post dated 12 September
+    // 2026, fetched 2026-10-01 for the dated attribution.
     id: 'paxton-autonomous-trucks-2026',
     title: 'The State of Autonomous Trucks in 2026',
     authors: ['Chris Paxton'],
@@ -9225,8 +9188,8 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
-    // KOL backlog batch 2026-10-01 (Jitendra Malik intake). Abstract page
-    // fetched 2026-10-01; v1 23 September 2026, v2 25 September 2026.
+    // Added 2026-10-01 via Jitendra Malik. Abstract page fetched 2026-10-01; v1
+    // 23 September 2026, v2 25 September 2026.
     id: 'morphometric-imitation-2026',
     title:
       'Morphometric Imitation: From Morphology and Contact Aware Hand Retargeting to Sim-to-Real Visuomotor Policy',
@@ -9240,9 +9203,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-01 (Yuke Zhu intake). Abstract page fetched
-    // 2026-10-01; v1 submitted 17 February 2026. The paper names the model
-    // DreamZero.
+    // Added 2026-10-01 via Yuke Zhu. Abstract page fetched 2026-10-01; v1
+    // submitted 17 February 2026. The paper names the model DreamZero.
     id: 'dreamzero-2026',
     title: 'World Action Models are Zero-shot Policies',
     authors: [
@@ -9259,8 +9221,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-01 (Yuke Zhu intake). Abstract page fetched
-    // 2026-10-02; v1 15 June 2026, v2 18 June 2026.
+    // Added 2026-10-01 via Yuke Zhu. Abstract page fetched 2026-10-02; v1 15
+    // June 2026, v2 18 June 2026.
     id: 't-rex-2026',
     title: 'T-Rex: Tactile-Reactive Dexterous Manipulation',
     authors: [
@@ -9277,8 +9239,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-01 (Yuke Zhu intake). Abstract page fetched
-    // 2026-10-02; v1 22 June 2026, v2 14 August 2026.
+    // Added 2026-10-01 via Yuke Zhu. Abstract page fetched 2026-10-02; v1 22
+    // June 2026, v2 14 August 2026.
     id: 'chord-2026',
     title: 'Learning Dexterous Manipulation Using Contact Wrench Guidance From Human Demonstration',
     authors: [
@@ -9293,8 +9255,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-01 (Ken Goldberg intake). Abstract page
-    // fetched 2026-10-02; submitted 24 September 2026, accepted to IROS 2026.
+    // Added 2026-10-01 via Ken Goldberg. Abstract page fetched 2026-10-02;
+    // submitted 24 September 2026, accepted to IROS 2026.
     id: 'trace-cables-2026',
     title: 'TRACE: Interactive Bi-Directional Tracing of Monochrome Cables Amid Clutter',
     authors: [
@@ -9308,8 +9270,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Yann LeCun intake). Abstract page fetched
-    // 2026-10-05; submitted 28 September 2026.
+    // Added 2026-10-05 via Yann LeCun. Abstract page fetched 2026-10-05;
+    // submitted 28 September 2026.
     id: 'ad-e2e-jepa-2026',
     title: 'AD-E2E-JEPA: A Joint-Embedding Predictive Architecture For End-to-End Autonomous Driving',
     authors: ['Haoran Zhu', 'Wancong Zhang', 'Yann LeCun', 'Anna Choromanska'],
@@ -9319,8 +9281,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Guanya Shi intake). Abstract page fetched
-    // 2026-10-05; submitted 30 September 2026.
+    // Added 2026-10-05 via Guanya Shi. Abstract page fetched 2026-10-05;
+    // submitted 30 September 2026.
     id: 'simex-2026',
     title: 'SimEX: Simulation-Integrated Robotics AutoResearch',
     authors: ['Jiaheng Hu', 'Roberto Martin-Martin', 'Peter Stone', 'Rocky Duan', 'Zhenyu Jiang', 'Guanya Shi'],
@@ -9330,8 +9292,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Dhruv Shah intake). Abstract page fetched
-    // 2026-10-05; v1 23 September 2026, v2 25 September 2026.
+    // Added 2026-10-05 via Dhruv Shah. Abstract page fetched 2026-10-05; v1 23
+    // September 2026, v2 25 September 2026.
     id: 'embodiedswe-2026',
     title: 'EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics',
     authors: [
@@ -9346,8 +9308,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Cheng Chi intake). Abstract page fetched
-    // 2026-10-05; v1 29 September 2026, v2 30 September 2026.
+    // Added 2026-10-05 via Cheng Chi. Abstract page fetched 2026-10-05; v1 29
+    // September 2026, v2 30 September 2026.
     id: 'roboharn-evo-2026',
     title: 'RoboHarn-Evo: Evolving Hierarchical Physical Knowledge for Self-Improving Robotic Manipulation',
     authors: [
@@ -9360,8 +9322,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Jim Fan intake). Abstract page fetched
-    // 2026-10-05; submitted 30 September 2026.
+    // Added 2026-10-05 via Jim Fan. Abstract page fetched 2026-10-05; submitted
+    // 30 September 2026.
     id: 'asena-2026',
     title: 'ASENA: Self-evolving Agents for Embodied Navigation',
     authors: [
@@ -9374,8 +9336,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Yuke Zhu intake). Abstract page and HTML
-    // full text fetched 2026-10-05; submitted 16 July 2026.
+    // Added 2026-10-05 via Yuke Zhu. Abstract page and HTML full text fetched
+    // 2026-10-05; submitted 16 July 2026.
     id: 'robottt-2026',
     title: 'RoboTTT: Context Scaling for Robot Policies',
     authors: [
@@ -9388,8 +9350,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Jiajun Wu intake). Abstract page fetched
-    // 2026-10-05; submitted 29 September 2026. arXiv typesets the name as T$^2$Mem.
+    // Added 2026-10-05 via Jiajun Wu. Abstract page fetched 2026-10-05; submitted
+    // 29 September 2026. arXiv typesets the name as T$^2$Mem.
     id: 't2mem-2026',
     title: 'T²Mem: Learning Test-Time Memory for Robotics',
     authors: ['Yize Liu', 'Huang Huang', 'Yining Hong', 'Zijian Du', 'Zhi Cao', 'Li Fei-Fei', 'Jiajun Wu'],
@@ -9399,8 +9361,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Cheng Chi intake). Abstract page fetched
-    // 2026-10-05; submitted 30 September 2026.
+    // Added 2026-10-05 via Cheng Chi. Abstract page fetched 2026-10-05;
+    // submitted 30 September 2026.
     id: 'chunktrust-2026',
     title: 'ChunkTrust: Adapting Execution Horizons for Robot Policies with Action-Expert Evidence',
     authors: [
@@ -9414,8 +9376,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Danfei Xu intake). Abstract page fetched
-    // 2026-10-05; submitted 30 September 2026.
+    // Added 2026-10-05 via Danfei Xu. Abstract page fetched 2026-10-05;
+    // submitted 30 September 2026.
     id: 'prefpi-2026',
     title: 'PrefPI: Preference-Guided Steering into Out-of-Distribution Behaviors',
     authors: ['Seungeun Rho', 'Wontaek Kim', 'Danfei Xu', 'Sehoon Ha'],
@@ -9425,8 +9387,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Ken Goldberg intake). Abstract page fetched
-    // 2026-10-05; v1 28 September 2026, v2 29 September 2026.
+    // Added 2026-10-05 via Ken Goldberg. Abstract page fetched 2026-10-05; v1
+    // 28 September 2026, v2 29 September 2026.
     id: 'agro-suvide-2026',
     title: 'AGRO-SUVIDE: Agentic Robotics for Surgical Viscoelastic Debridement',
     authors: [
@@ -9439,8 +9401,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Xiaolong Wang intake). Abstract page fetched
-    // 2026-10-05; v1 27 September 2026, v2 29 September 2026.
+    // Added 2026-10-05 via Xiaolong Wang. Abstract page fetched 2026-10-05; v1
+    // 27 September 2026, v2 29 September 2026.
     id: 'fingr-2026',
     title: "FINGR: Learning Dexterous Hand Control for Real-World Rubik's Cube Solving",
     authors: ['Yutong Liang', 'Quanquan Peng', 'Matthew Kim', 'Xiaolong Wang'],
@@ -9450,8 +9412,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Daniela Rus intake). Abstract page fetched
-    // 2026-10-05; submitted 21 September 2026.
+    // Added 2026-10-05 via Daniela Rus. Abstract page fetched 2026-10-05;
+    // submitted 21 September 2026.
     id: 'wcbf-hyper-redundant-2026',
     title: 'Safety Control of a Hyper-redundant Robot via Adaptive Weighted Control Barrier Functions',
     authors: ['Zijian Cai', 'Kiwan Wong', 'Wenci Xin', 'Wei Xiao', 'Daniela Rus', 'Cecilia Laschi'],
@@ -9461,9 +9423,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Yuke Zhu intake). Abstract page and HTML
-    // full text fetched 2026-10-05; submitted 3 June 2026. arXiv Atom API
-    // read 2026-11-12: v2 (19 Oct 2026) retitled the paper.
+    // Added 2026-10-05 via Yuke Zhu. Abstract page and HTML full text fetched
+    // 2026-10-05; submitted 3 June 2026. arXiv Atom API read 2026-11-12: v2 (19
+    // Oct 2026) retitled the paper.
     id: 'grail-2026',
     title: 'GRAIL: Generating Humanoid Loco-Manipulation from World Models',
     authors: [
@@ -9477,8 +9439,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Yuke Zhu intake). Abstract page and HTML
-    // full text fetched 2026-10-05; submitted 26 May 2026.
+    // Added 2026-10-05 via Yuke Zhu. Abstract page and HTML full text fetched
+    // 2026-10-05; submitted 26 May 2026.
     id: 'humanoidmimicgen-2026',
     title: 'HumanoidMimicGen: Data Generation for Loco-Manipulation via Whole-Body Planning',
     authors: [
@@ -9491,8 +9453,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Pieter Abbeel intake). Abstract page fetched
-    // 2026-10-05; submitted 29 September 2026; the page lists CoRL 2026.
+    // Added 2026-10-05 via Pieter Abbeel. Abstract page fetched 2026-10-05;
+    // submitted 29 September 2026; the page lists CoRL 2026.
     id: 'prism-humanoid-2026',
     title: 'Counterfactual Video Generation Enables Scalable Humanoid Loco-Manipulation',
     authors: [
@@ -9506,8 +9468,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (Jiajun Wu intake). Abstract page fetched
-    // 2026-10-05; submitted 28 September 2026.
+    // Added 2026-10-05 via Jiajun Wu. Abstract page fetched 2026-10-05;
+    // submitted 28 September 2026.
     id: 'dexagent-2026',
     title: 'DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library',
     authors: ['Youhui Wang', 'Yunzhu Li', 'Li Fei-Fei', 'Jiajun Wu', 'Huang Huang'],
@@ -9517,8 +9479,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // KOL backlog batch 2026-10-05 (The Robot Report intake, a trade summary;
-    // the IFR release itself is cited). Press release fetched 2026-10-05.
+    // Added 2026-10-05 via The Robot Report (a trade summary; the IFR
+    // release itself is cited). Press release fetched 2026-10-05.
     id: 'ifr-world-robotics-2026-release',
     title: 'Five Million Robots now Operate in Factories Globally',
     authors: ['International Federation of Robotics'],
@@ -9528,8 +9490,8 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
-    // KOL backlog batch 2026-10-05 (Marco Hutter intake). Abstract page fetched
-    // 2026-10-05; submitted 25 September 2026.
+    // Added 2026-10-05 via Marco Hutter. Abstract page fetched 2026-10-05;
+    // submitted 25 September 2026.
     id: 'mesh-mcl-construction-2026',
     title: 'Transformer-based Monte Carlo Localization in Construction Meshes',
     authors: ['Linus Kramer', 'William Talbot', 'Olga Vysotska', 'Marco Hutter'],
@@ -9538,8 +9500,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.31357',
     type: 'paper',
   },
-  // robosuite-2020: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
-  // Source pack pack-manipulation-1.md#10 for manipulation/action-spaces.
+  // robosuite-2020: added 2026-10-06.
   {
     id: 'robosuite-2020',
     title: 'robosuite: A Modular Simulation Framework and Benchmark for Robot Learning',
@@ -9549,7 +9510,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2009.12293',
     type: 'paper',
   },
-  // peng-action-space-2016: domain pass 2026-10-06, from drafts/classical/control.citations.ts; also drafts/manipulation/action-spaces.citations.ts.
+  // peng-action-space-2016: added 2026-10-06.
   // arXiv 1611.01055 v1 2016-11-03 (SCA 2017). "four different action parameterizations (torques,
   // muscle-activations, target joint angles, and target joint-angle velocities)"; "We demonstrate
   // that the local feedback provided by higher-level action parameterizations can significantly
@@ -9564,7 +9525,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1611.01055',
     type: 'paper',
   },
-  // rotation-continuity-2018: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/manipulation/action-spaces.citations.ts.
+  // rotation-continuity-2018: added 2026-10-06.
   // arXiv 1812.07035 (CVPR 2019). Rotation representations in four or fewer dimensions are
   // discontinuous; 5D and 6D are continuous.
   {
@@ -9576,7 +9537,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1812.07035',
     type: 'paper',
   },
-  // gr00t-n1-6-2025: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/manipulation/action-spaces.citations.ts, drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/cross-embodiment.citations.ts, drafts/manipulation/generalist-policies.citations.ts, drafts/manipulation/knowledge-insulation.citations.ts, drafts/manipulation/realtime-execution.citations.ts.
+  // gr00t-n1-6-2025: added 2026-10-06.
   // Official NVIDIA GEAR Lab research page (2025-12). State-relative action chunks; smoother motion;
   // error accumulation with small datasets. Authors as printed on the page (re-read 2026-10-04):
   // "Authors (alphabetical): *GEAR Team, Allison Azzolini, ... Yuke Zhu" ("GEAR Team" plus 58 named
@@ -9589,8 +9550,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://research.nvidia.com/labs/gear/gr00t-n1_6/',
     type: 'blog',
   },
-  // vla-scaling-alignment-2026: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
-  // Source pack pack-manipulation-1.md#4 for manipulation/action-spaces.
+  // vla-scaling-alignment-2026: added 2026-10-06.
   {
     id: 'vla-scaling-alignment-2026',
     title: 'Rethinking Visual-Language-Action Model Scaling: Alignment, Mixture, and Regularization',
@@ -9600,8 +9560,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.09722',
     type: 'paper',
   },
-  // levine-visuomotor-2015: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
-  // Source pack pack-manipulation-1.md#13 for manipulation/action-spaces.
+  // levine-visuomotor-2015: added 2026-10-06.
   {
     id: 'levine-visuomotor-2015',
     title: 'End-to-End Training of Deep Visuomotor Policies',
@@ -9611,8 +9570,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1504.00702',
     type: 'paper',
   },
-  // varin-action-spaces-2019: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
-  // Source pack pack-manipulation-1.md#1 for manipulation/action-spaces.
+  // varin-action-spaces-2019: added 2026-10-06.
   {
     id: 'varin-action-spaces-2019',
     title: 'A Comparison of Action Spaces for Learning Manipulation Tasks',
@@ -9622,7 +9580,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1908.08659',
     type: 'paper',
   },
-  // acp-2024: domain pass 2026-10-06, from drafts/classical/control.citations.ts; also drafts/manipulation/action-spaces.citations.ts.
+  // acp-2024: added 2026-10-06.
   // arXiv 2410.09309 v1 2024-10-12 (ICRA 2025). "learns to dynamically adjust system compliance both
   // spatially and temporally for given manipulation tasks from human demonstrations"; "achieves over
   // 50\% performance improvement compared to state-of-the-art visuomotor policy methods".
@@ -9636,8 +9594,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.09309',
     type: 'paper',
   },
-  // beast-2025: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
-  // Source pack pack-manipulation-1.md#21 for manipulation/action-spaces.
+  // beast-2025: added 2026-10-06.
   {
     id: 'beast-2025',
     title: 'BEAST: Efficient Tokenization of B-Splines Encoded Action Sequences for Imitation Learning',
@@ -9647,8 +9604,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.06072',
     type: 'paper',
   },
-  // vq-bet-2024: domain pass 2026-10-06, from drafts/manipulation/action-spaces.citations.ts.
-  // Source pack pack-manipulation-1.md#23 for manipulation/action-spaces.
+  // vq-bet-2024: added 2026-10-06.
   {
     id: 'vq-bet-2024',
     title: 'Behavior Generation with Latent Actions',
@@ -9658,7 +9614,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.03181',
     type: 'paper',
   },
-  // action-space-design-2026: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/manipulation/action-spaces.citations.ts.
+  // action-space-design-2026: added 2026-10-06.
   // arXiv 2602.23408. 13,000+ real rollouts, 500+ trained models.
   {
     id: 'action-space-design-2026',
@@ -9669,8 +9625,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.23408',
     type: 'paper',
   },
-  // bommasani-foundation-models-2021: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts.
-  // Source pack pack-manipulation-2.md#1 for manipulation/foundation-models.
+  // bommasani-foundation-models-2021: added 2026-10-06.
   {
     id: 'bommasani-foundation-models-2021',
     title: 'On the Opportunities and Risks of Foundation Models',
@@ -9680,8 +9635,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2108.07258',
     type: 'paper',
   },
-  // robocat-2023: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts.
-  // Source pack pack-manipulation-2.md#5 for manipulation/foundation-models.
+  // robocat-2023: added 2026-10-06.
   {
     id: 'robocat-2023',
     title: 'RoboCat: A Self-Improving Generalist Agent for Robotic Manipulation',
@@ -9692,7 +9646,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2306.11706',
     type: 'paper',
   },
-  // gen-1-5-2026: domain pass 2026-10-06, from drafts/frontier/generalization.citations.ts; also drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/foundation-models.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // gen-1-5-2026: added 2026-10-06.
   // Generalist AI research post dated August 19, 2026, byline "Generalist Team" (fetched
   // 2026-10-04): "The model learns new tasks in seconds when prompted with 3 to 12 seconds of a
   // single demonstration, no training required." Company-reported.
@@ -9705,10 +9659,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://generalistai.com/blog/gen-1.5',
     type: 'blog',
   },
-  // skild-s1-2026: domain pass 2026-10-06, from drafts/manipulation/comparison-matrix.citations.ts; also drafts/manipulation/foundation-models.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
-  // Same source and id as drafts/manipulation/foundation-models.citations.ts,
-  // drafts/manipulation/generalist-policies.citations.ts; copied here unchanged so this draft is
-  // self-contained; register once.
+  // skild-s1-2026: added 2026-10-06.
   {
     id: 'skild-s1-2026',
     title: 'Introducing S1: In-Context Learning for Robotics',
@@ -9718,8 +9669,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.skild.ai/blogs/s1',
     type: 'blog',
   },
-  // r3m-2022: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts.
-  // Source pack pack-manipulation-2.md#7 for manipulation/foundation-models.
+  // r3m-2022: added 2026-10-06.
   {
     id: 'r3m-2022',
     title: 'R3M: A Universal Visual Representation for Robot Manipulation',
@@ -9730,9 +9680,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2203.12601',
     type: 'paper',
   },
-  // dreamer4-2025: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts; also drafts/world-models/latent-dynamics.citations.ts.
-  // Source pack pack-manipulation-2.md#22 for manipulation/foundation-models; same source and id
-  // also proposed in drafts/world-models/latent-dynamics.citations.ts; register once.
+  // dreamer4-2025: added 2026-10-06.
   {
     id: 'dreamer4-2025',
     title: 'Training Agents Inside of Scalable World Models',
@@ -9742,8 +9690,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.24527',
     type: 'paper',
   },
-  // ctrl-world-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/manipulation/foundation-models.citations.ts, drafts/world-models/evaluation.citations.ts.
-  // Same id as drafts/world-models/evaluation.citations.ts; keep one entry when merging.
+  // ctrl-world-2025: added 2026-10-06.
   {
     id: 'ctrl-world-2025',
     title: 'Ctrl-World: A Controllable Generative World Model for Robot Manipulation',
@@ -9753,10 +9700,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.10125',
     type: 'paper',
   },
-  // nvidia-gtc-gr00t-n2-2026: domain pass 2026-10-06, from drafts/manipulation/comparison-matrix.citations.ts; also drafts/manipulation/foundation-models.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
-  // Same source and id as drafts/manipulation/foundation-models.citations.ts,
-  // drafts/manipulation/generalist-policies.citations.ts; copied here unchanged so this draft is
-  // self-contained; register once.
+  // nvidia-gtc-gr00t-n2-2026: added 2026-10-06.
   {
     id: 'nvidia-gtc-gr00t-n2-2026',
     title: 'NVIDIA and Global Robotics Leaders Take Physical AI to the Real World',
@@ -9766,8 +9710,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world',
     type: 'press',
   },
-  // vc1-2023: domain pass 2026-10-06, from drafts/manipulation/foundation-models.citations.ts.
-  // Source pack pack-manipulation-2.md#8 for manipulation/foundation-models.
+  // vc1-2023: added 2026-10-06.
   {
     id: 'vc1-2023',
     title: 'Where are we in the search for an Artificial Visual Cortex for Embodied Intelligence?',
@@ -9777,10 +9720,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2303.18240',
     type: 'paper',
   },
-  // robopair-2024: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts; also drafts/manipulation/foundation-models.citations.ts.
+  // robopair-2024: added 2026-10-06.
   // Abstract re-read 2026-10-04: "often achieving 100% attack success rates"; "our results on the
   // Unitree Go2 represent the first successful jailbreak of a deployed commercial robotic system."
-  // Source pack pack-manipulation-2.md#34 for manipulation/foundation-models.
   {
     id: 'robopair-2024',
     title: 'Jailbreaking LLM-Controlled Robots',
@@ -9790,7 +9732,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.13691',
     type: 'paper',
   },
-  // libero-pro-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/frontier/generalization.citations.ts, drafts/manipulation/foundation-models.citations.ts.
+  // libero-pro-2025: added 2026-10-06.
   {
     id: 'libero-pro-2025',
     title: 'LIBERO-PRO: Towards Robust and Fair Evaluation of Vision-Language-Action Models Beyond Memorization',
@@ -9800,10 +9742,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.03827',
     type: 'paper',
   },
-  // bidirectional-decoding-2024: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts; also drafts/manipulation/diffusion-policy.citations.ts, drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-1.md#10 for manipulation/action-chunking; same source and id also
-  // proposed in drafts/manipulation/diffusion-policy.citations.ts,
-  // drafts/manipulation/realtime-execution.citations.ts; register once.
+  // bidirectional-decoding-2024: added 2026-10-06.
   {
     id: 'bidirectional-decoding-2024',
     title: 'Bidirectional Decoding: Improving Action Chunking via Guided Test-Time Sampling',
@@ -9813,8 +9752,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2408.17355',
     type: 'paper',
   },
-  // implicit-bc-2021: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts; also drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-1.md#16 for manipulation/bc-foundations.
+  // implicit-bc-2021: added 2026-10-06.
   {
     id: 'implicit-bc-2021',
     title: 'Implicit Behavioral Cloning',
@@ -9824,8 +9762,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2109.00137',
     type: 'paper',
   },
-  // pearce-diffusion-bc-2023: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#13 for manipulation/diffusion-policy.
+  // pearce-diffusion-bc-2023: added 2026-10-06.
   {
     id: 'pearce-diffusion-bc-2023',
     title: 'Imitating Human Behaviour with Diffusion Models',
@@ -9836,8 +9773,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2301.10677',
     type: 'paper',
   },
-  // much-ado-noising-2025: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts; also drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-1.md#17 for manipulation/bc-foundations.
+  // much-ado-noising-2025: added 2026-10-06.
   {
     id: 'much-ado-noising-2025',
     title: 'Much Ado About Noising: Dispelling the Myths of Generative Robotic Control',
@@ -9847,8 +9783,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.01809',
     type: 'paper',
   },
-  // ddpm-2020: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#1 for manipulation/diffusion-policy.
+  // ddpm-2020: added 2026-10-06.
   {
     id: 'ddpm-2020',
     title: 'Denoising Diffusion Probabilistic Models',
@@ -9858,8 +9793,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2006.11239',
     type: 'paper',
   },
-  // iddpm-2021: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#3 for manipulation/diffusion-policy.
+  // iddpm-2021: added 2026-10-06.
   {
     id: 'iddpm-2021',
     title: 'Improved Denoising Diffusion Probabilistic Models',
@@ -9869,8 +9803,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2102.09672',
     type: 'paper',
   },
-  // ddim-2021: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#2 for manipulation/diffusion-policy.
+  // ddim-2021: added 2026-10-06.
   {
     id: 'ddim-2021',
     title: 'Denoising Diffusion Implicit Models',
@@ -9881,8 +9814,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2010.02502',
     type: 'paper',
   },
-  // film-2018: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts; also drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-2.md#8 for manipulation/diffusion-policy.
+  // film-2018: added 2026-10-06.
   {
     id: 'film-2018',
     title: 'FiLM: Visual Reasoning with a General Conditioning Layer',
@@ -9893,8 +9825,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1709.07871',
     type: 'paper',
   },
-  // scaledp-2024: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#16 for manipulation/diffusion-policy.
+  // scaledp-2024: added 2026-10-06.
   {
     id: 'scaledp-2024',
     title: 'Scaling Diffusion Policy in Transformer to 1 Billion Parameters for Robotic Manipulation',
@@ -9904,8 +9835,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.14411',
     type: 'paper',
   },
-  // groupnorm-2018: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#9 for manipulation/diffusion-policy.
+  // groupnorm-2018: added 2026-10-06.
   {
     id: 'groupnorm-2018',
     title: 'Group Normalization',
@@ -9915,8 +9845,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1803.08494',
     type: 'paper',
   },
-  // dp3-2024: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#14 for manipulation/diffusion-policy.
+  // dp3-2024: added 2026-10-06.
   {
     id: 'dp3-2024',
     title: '3D Diffusion Policy: Generalizable Visuomotor Policy Learning via Simple 3D Representations',
@@ -9927,8 +9856,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.03954',
     type: 'paper',
   },
-  // equivariant-diffusion-policy-2024: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#15 for manipulation/diffusion-policy.
+  // equivariant-diffusion-policy-2024: added 2026-10-06.
   {
     id: 'equivariant-diffusion-policy-2024',
     title: 'Equivariant Diffusion Policy',
@@ -9939,7 +9867,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.01812',
     type: 'paper',
   },
-  // aloha-unleashed-2024: domain pass 2026-10-06, from drafts/data-hardware/teleop-rigs.citations.ts; also drafts/manipulation/action-chunking.citations.ts, drafts/manipulation/diffusion-policy.citations.ts.
+  // aloha-unleashed-2024: added 2026-10-06.
   // Fleet figures read in the arXiv HTML body 2026-10-04: "a pool of 35 operators without oversight
   // by researchers" and "over 26k episodes for 5 real tasks, on 10 different robots in 2 different
   // buildings over the course of 8 months".
@@ -9952,8 +9880,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.13126',
     type: 'paper',
   },
-  // consistency-models-2023: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#5 for manipulation/diffusion-policy.
+  // consistency-models-2023: added 2026-10-06.
   {
     id: 'consistency-models-2023',
     title: 'Consistency Models',
@@ -9964,8 +9891,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2303.01469',
     type: 'paper',
   },
-  // mp1-2026: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#25 for manipulation/diffusion-policy.
+  // mp1-2026: added 2026-10-06.
   {
     id: 'mp1-2026',
     title: 'MP1: MeanFlow Tames Policy Learning in 1-step for Robotic Manipulation',
@@ -9976,8 +9902,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.10543',
     type: 'paper',
   },
-  // one-step-flow-policy-2026: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#26 for manipulation/diffusion-policy.
+  // one-step-flow-policy-2026: added 2026-10-06.
   {
     id: 'one-step-flow-policy-2026',
     title: 'One-Step Flow Policy: Self-Distillation for Fast Visuomotor Policies',
@@ -9987,9 +9912,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.12480',
     type: 'paper',
   },
-  // lipman-flow-matching-2022: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts; also drafts/manipulation/knowledge-insulation.citations.ts, drafts/manipulation/pi-line.citations.ts, drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-2.md#6 for manipulation/diffusion-policy; same source and id also
-  // proposed in drafts/manipulation/knowledge-insulation.citations.ts; register once.
+  // lipman-flow-matching-2022: added 2026-10-06.
   {
     id: 'lipman-flow-matching-2022',
     title: 'Flow Matching for Generative Modeling',
@@ -9999,8 +9922,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2210.02747',
     type: 'paper',
   },
-  // rectified-flow-2022: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts; also drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-2.md#7 for manipulation/diffusion-policy.
+  // rectified-flow-2022: added 2026-10-06.
   {
     id: 'rectified-flow-2022',
     title: 'Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow',
@@ -10010,8 +9932,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2209.03003',
     type: 'paper',
   },
-  // demystifying-diffusion-policies-2025: domain pass 2026-10-06, from drafts/manipulation/diffusion-policy.citations.ts.
-  // Source pack pack-manipulation-2.md#31 for manipulation/diffusion-policy.
+  // demystifying-diffusion-policies-2025: added 2026-10-06.
   {
     id: 'demystifying-diffusion-policies-2025',
     title: 'Demystifying Diffusion Policies: Action Memorization and Simple Lookup Table Alternatives',
@@ -10021,8 +9942,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.05787',
     type: 'paper',
   },
-  // efficientnet-2019: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-4.md#1 for manipulation/vla-models.
+  // efficientnet-2019: added 2026-10-06.
   {
     id: 'efficientnet-2019',
     title: 'EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks',
@@ -10033,8 +9953,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1905.11946',
     type: 'paper',
   },
-  // tokenlearner-2021: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-4.md#2 for manipulation/vla-models.
+  // tokenlearner-2021: added 2026-10-06.
   {
     id: 'tokenlearner-2021',
     title: 'TokenLearner: What Can 8 Learned Tokens Do for Images and Videos?',
@@ -10045,8 +9964,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2106.11297',
     type: 'paper',
   },
-  // palm-e-2023: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-4.md#5 for manipulation/vla-models.
+  // palm-e-2023: added 2026-10-06.
   {
     id: 'palm-e-2023',
     title: 'PaLM-E: An Embodied Multimodal Language Model',
@@ -10056,8 +9974,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2303.03378',
     type: 'paper',
   },
-  // vla-0-2025: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-4.md#17 for manipulation/vla-models.
+  // vla-0-2025: added 2026-10-06.
   {
     id: 'vla-0-2025',
     title: 'VLA-0: Building State-of-the-Art VLAs with Zero Modification',
@@ -10067,7 +9984,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.13054',
     type: 'paper',
   },
-  // remix-2024: domain pass 2026-10-06, from drafts/data-hardware/datasets.citations.ts; also drafts/manipulation/cross-embodiment.citations.ts, drafts/manipulation/vla-models.citations.ts.
+  // remix-2024: added 2026-10-06.
   {
     id: 'remix-2024',
     title: 'Re-Mix: Optimizing Data Mixtures for Large Scale Imitation Learning',
@@ -10077,8 +9994,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2408.14037',
     type: 'paper',
   },
-  // prismatic-vlm-2024: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-4.md#9 for manipulation/vla-models.
+  // prismatic-vlm-2024: added 2026-10-06.
   {
     id: 'prismatic-vlm-2024',
     title: 'Prismatic VLMs: Investigating the Design Space of Visually-Conditioned Language Models',
@@ -10089,8 +10005,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2402.07865',
     type: 'paper',
   },
-  // llama-2-2023: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-4.md#12 for manipulation/vla-models.
+  // llama-2-2023: added 2026-10-06.
   {
     id: 'llama-2-2023',
     title: 'Llama 2: Open Foundation and Fine-Tuned Chat Models',
@@ -10100,8 +10015,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2307.09288',
     type: 'paper',
   },
-  // siglip-2023: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-4.md#10 for manipulation/vla-models.
+  // siglip-2023: added 2026-10-06.
   {
     id: 'siglip-2023',
     title: 'Sigmoid Loss for Language Image Pre-Training',
@@ -10112,7 +10026,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2303.15343',
     type: 'paper',
   },
-  // smolvla-2025: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/realtime-execution.citations.ts, drafts/manipulation/robot-learning-roadmap.citations.ts, drafts/manipulation/vla-models.citations.ts.
+  // smolvla-2025: added 2026-10-06.
   {
     id: 'smolvla-2025',
     title: 'SmolVLA: A Vision-Language-Action Model for Affordable and Efficient Robotics',
@@ -10122,8 +10036,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.01844',
     type: 'paper',
   },
-  // cogact-2024: domain pass 2026-10-06, from drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-4.md#18 for manipulation/vla-models.
+  // cogact-2024: added 2026-10-06.
   {
     id: 'cogact-2024',
     title: 'CogACT: A Foundational Vision-Language-Action Model for Synergizing Cognition and Action in Robotic Manipulation',
@@ -10133,8 +10046,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2411.19650',
     type: 'paper',
   },
-  // pd-vla-2025: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts; also drafts/manipulation/vla-models.citations.ts.
-  // Source pack pack-manipulation-3.md#28 for manipulation/realtime-execution.
+  // pd-vla-2025: added 2026-10-06.
   {
     id: 'pd-vla-2025',
     title: 'PD-VLA: Accelerating Vision-Language-Action Model Integrated with Action Chunking via Parallel Decoding',
@@ -10145,8 +10057,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.02310',
     type: 'paper',
   },
-  // robot-learning-tutorial-2025: domain pass 2026-10-06, from drafts/manipulation/robot-learning-roadmap.citations.ts.
-  // Source pack pack-manipulation-4.md#1 for manipulation/robot-learning-roadmap.
+  // robot-learning-tutorial-2025: added 2026-10-06.
   {
     id: 'robot-learning-tutorial-2025',
     title: 'Robot Learning: A Tutorial',
@@ -10156,11 +10067,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.12403',
     type: 'paper',
   },
-  // tedrake-manipulation-2026: domain pass 2026-10-06, from drafts/manipulation/robot-learning-roadmap.citations.ts.
-  // Source pack pack-manipulation-4.md#3 for manipulation/robot-learning-roadmap; Chapter 3, Basic
-  // Pick and Place, fetched 2026-10-04: "This is one area where careful notation can yield
-  // dividends, and sloppy notation will inevitably lead to confusion and bugs." Page byline (c) Russ
-  // Tedrake, 2020-2026; working notes updated through the Fall 2026 semester.
+  // tedrake-manipulation-2026: added 2026-10-06.
+  // Chapter 3, Basic Pick and Place, fetched 2026-10-04: "This is one area where careful notation
+  // can yield dividends, and sloppy notation will inevitably lead to confusion and bugs." Page
+  // byline (c) Russ Tedrake, 2020-2026; working notes updated through the Fall 2026 semester.
   {
     id: 'tedrake-manipulation-2026',
     title: 'Robotic Manipulation: Perception, Planning, and Control',
@@ -10171,7 +10081,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://manipulation.csail.mit.edu/pick.html',
     type: 'docs',
   },
-  // kalibr-2013: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/classical/state-estimation.citations.ts, drafts/data-hardware/robot-learning-stack.citations.ts, drafts/manipulation/robot-learning-roadmap.citations.ts.
+  // kalibr-2013: added 2026-10-06.
   {
     id: 'kalibr-2013',
     title: 'Unified temporal and spatial calibration for multi-sensor systems',
@@ -10181,7 +10091,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/IROS.2013.6696514',
     type: 'paper',
   },
-  // rlds-2021: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/data-hardware/robot-learning-stack.citations.ts, drafts/manipulation/robot-learning-roadmap.citations.ts.
+  // rlds-2021: added 2026-10-06.
   {
     id: 'rlds-2021',
     title: 'RLDS: an Ecosystem to Generate, Share and Use Datasets in Reinforcement Learning',
@@ -10191,7 +10101,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2111.02767',
     type: 'paper',
   },
-  // lerobot-paper-2026: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/manipulation/robot-learning-roadmap.citations.ts.
+  // lerobot-paper-2026: added 2026-10-06.
   // LeRobot library paper. Abstract read 2026-10-04: integrates "across the entire robot learning
   // stack" and describes "a generalized asynchronous inference stack".
   {
@@ -10203,7 +10113,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.22818',
     type: 'paper',
   },
-  // kress-gazit-evaluation-2024: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/frontier/reliability-gap.citations.ts, drafts/manipulation/robot-learning-roadmap.citations.ts.
+  // kress-gazit-evaluation-2024: added 2026-10-06.
   {
     id: 'kress-gazit-evaluation-2024',
     title: 'Robot Learning as an Empirical Science: Best Practices for Policy Evaluation',
@@ -10213,7 +10123,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.09491',
     type: 'paper',
   },
-  // ros2-science-robotics-2022: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/data-hardware/robot-learning-stack.citations.ts.
+  // ros2-science-robotics-2022: added 2026-10-06.
   // Crossref 10.1126/scirobotics.abm6074 read 2026-10-04: Science Robotics 7(66), published
   // 2022-05-25.
   {
@@ -10225,9 +10135,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/scirobotics.abm6074',
     type: 'paper',
   },
-  // serl-2024: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts; also drafts/manipulation/robot-learning-roadmap.citations.ts, drafts/rl-sim2real/rl-for-robotics.citations.ts.
-  // Source pack pack-manipulation-4.md#17 for manipulation/rl-finetuning; same source and id also
-  // proposed in drafts/manipulation/robot-learning-roadmap.citations.ts; register once.
+  // serl-2024: added 2026-10-06.
   {
     id: 'serl-2024',
     title: 'SERL: A Software Suite for Sample-Efficient Robotic Reinforcement Learning',
@@ -10238,11 +10146,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2401.16013',
     type: 'paper',
   },
-  // lai-action-chunking-2022: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
-  // Source pack pack-manipulation-1.md#1 for manipulation/action-chunking; PsyArXiv preprint; title,
-  // authors and 2022 from Crossref; abstract read via the OSF API on 2026-10-04: "The action
-  // sequence can become a ``chunk'' when individual actions are grouped together and executed as one
-  // unit, making them more efficient to store and execute.".
+  // lai-action-chunking-2022: added 2026-10-06.
+  // PsyArXiv preprint; title, authors and 2022 from Crossref; abstract read via the OSF API on
+  // 2026-10-04: "The action sequence can become a ``chunk'' when individual actions are grouped
+  // together and executed as one unit, making them more efficient to store and execute.".
   {
     id: 'lai-action-chunking-2022',
     title: 'Action chunking as conditional policy compression',
@@ -10252,8 +10159,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.31234/osf.io/z8yrv',
     type: 'paper',
   },
-  // dehp-2026: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
-  // Source pack pack-manipulation-1.md#14 for manipulation/action-chunking.
+  // dehp-2026: added 2026-10-06.
   {
     id: 'dehp-2026',
     title: 'Dynamic Execution Horizon Prediction for Chunk-based Robot Policies',
@@ -10263,7 +10169,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.11408',
     type: 'paper',
   },
-  // simchowitz-continuous-il-2025: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts; also drafts/manipulation/action-chunking.citations.ts, drafts/manipulation/bc-foundations.citations.ts.
+  // simchowitz-continuous-il-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-03-12, 3 authors.
   {
     id: 'simchowitz-continuous-il-2025',
@@ -10274,9 +10180,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.09722',
     type: 'paper',
   },
-  // zhang-chunking-exploration-2025: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts; also drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#8 for manipulation/action-chunking; same source and id also
-  // proposed in drafts/manipulation/bc-foundations.citations.ts; register once.
+  // zhang-chunking-exploration-2025: added 2026-10-06.
   {
     id: 'zhang-chunking-exploration-2025',
     title: 'Action Chunking and Exploratory Data Collection Yield Exponential Improvements in Behavior Cloning for Continuous Control',
@@ -10286,8 +10190,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.09061',
     type: 'paper',
   },
-  // autohorizon-2026: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
-  // Source pack pack-manipulation-1.md#12 for manipulation/action-chunking.
+  // autohorizon-2026: added 2026-10-06.
   {
     id: 'autohorizon-2026',
     title: 'VLA Knows Its Limits: Adaptive Execution Horizons for Robot Policies',
@@ -10297,8 +10200,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.21445',
     type: 'paper',
   },
-  // pace-2026: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
-  // Source pack pack-manipulation-1.md#13 for manipulation/action-chunking.
+  // pace-2026: added 2026-10-06.
   {
     id: 'pace-2026',
     title: 'PACE: Phase-Aware Chunk Execution for Robot Policies with Action Chunking',
@@ -10308,8 +10210,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.00537',
     type: 'paper',
   },
-  // moh-2025: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
-  // Source pack pack-manipulation-1.md#11 for manipulation/action-chunking.
+  // moh-2025: added 2026-10-06.
   {
     id: 'moh-2025',
     title: 'Mixture of Horizons in Action Chunking',
@@ -10319,11 +10220,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.19433',
     type: 'paper',
   },
-  // lerobot-rtc-docs: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
-  // Source pack pack-manipulation-1.md#20 for manipulation/action-chunking; LeRobot docs page, no
-  // publication date printed; read 2026-10-04: "Real-Time Chunking (RTC) is an inference-time method
-  // that allows large, flow-matching based robotic policies, such as Pi0, Pi0.5, and SmolVLA, to
-  // produce smooth, continuous, and reactive motion despite having high inference latency.".
+  // lerobot-rtc-docs: added 2026-10-06.
+  // LeRobot docs page, no publication date printed; read 2026-10-04: "Real-Time Chunking (RTC) is an
+  // inference-time method that allows large, flow-matching based robotic policies, such as Pi0,
+  // Pi0.5, and SmolVLA, to produce smooth, continuous, and reactive motion despite having high
+  // inference latency.".
   {
     id: 'lerobot-rtc-docs',
     title: 'Real-Time Chunking (RTC)',
@@ -10334,9 +10235,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://huggingface.co/docs/lerobot/en/rtc',
     type: 'docs',
   },
-  // a2c2-2025: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts; also drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-1.md#16 for manipulation/action-chunking; same source and id also
-  // proposed in drafts/manipulation/realtime-execution.citations.ts; register once.
+  // a2c2-2025: added 2026-10-06.
   {
     id: 'a2c2-2025',
     title: 'Leave No Observation Behind: Real-time Correction for VLA Action Chunks',
@@ -10346,8 +10245,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.23224',
     type: 'paper',
   },
-  // remac-2026: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
-  // Source pack pack-manipulation-1.md#17 for manipulation/action-chunking.
+  // remac-2026: added 2026-10-06.
   {
     id: 'remac-2026',
     title: 'Real-Time Robot Execution with Masked Action Chunking',
@@ -10357,8 +10255,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.20130',
     type: 'paper',
   },
-  // q-chunking-2025: domain pass 2026-10-06, from drafts/manipulation/action-chunking.citations.ts.
-  // Source pack pack-manipulation-1.md#27 for manipulation/action-chunking.
+  // q-chunking-2025: added 2026-10-06.
   {
     id: 'q-chunking-2025',
     title: 'Reinforcement Learning with Action Chunking',
@@ -10368,8 +10265,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.07969',
     type: 'paper',
   },
-  // ross-bagnell-2010: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#1 for manipulation/bc-foundations.
+  // ross-bagnell-2010: added 2026-10-06.
   {
     id: 'ross-bagnell-2010',
     title: 'Efficient Reductions for Imitation Learning',
@@ -10379,12 +10275,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://proceedings.mlr.press/v9/ross10a.html',
     type: 'paper',
   },
-  // pomerleau-1991: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; also drafts/manipulation/bc-foundations.citations.ts.
-  // Same id and fields as drafts/manipulation/bc-foundations.citations.ts (drop one copy when
-  // merging). Crossref abstract (read 2026-10-04): "ALVINN is a backpropagation network designed to
-  // drive the CMU Navlab, a modified Chevy van"; "the training techniques that allow ALVINN to learn
-  // in under 5 minutes to autonomously control the Navlab by watching the reactions of a human
-  // driver".
+  // pomerleau-1991: added 2026-10-06.
+  // Crossref abstract (read 2026-10-04): "ALVINN is a backpropagation network designed to drive the
+  // CMU Navlab, a modified Chevy van"; "the training techniques that allow ALVINN to learn in under
+  // 5 minutes to autonomously control the Navlab by watching the reactions of a human driver".
   {
     id: 'pomerleau-1991',
     title: 'Efficient Training of Artificial Neural Networks for Autonomous Navigation',
@@ -10394,8 +10288,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1162/neco.1991.3.1.88',
     type: 'paper',
   },
-  // bojarski-e2e-driving-2016: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#3 for manipulation/bc-foundations.
+  // bojarski-e2e-driving-2016: added 2026-10-06.
   {
     id: 'bojarski-e2e-driving-2016',
     title: 'End to End Learning for Self-Driving Cars',
@@ -10405,8 +10298,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1604.07316',
     type: 'paper',
   },
-  // foster-bc-horizon-2024: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#9 for manipulation/bc-foundations.
+  // foster-bc-horizon-2024: added 2026-10-06.
   {
     id: 'foster-bc-horizon-2024',
     title: 'Is Behavior Cloning All You Need? Understanding Horizon in Imitation Learning',
@@ -10416,8 +10308,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.15007',
     type: 'paper',
   },
-  // rajaraman-il-limits-2020: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#8 for manipulation/bc-foundations.
+  // rajaraman-il-limits-2020: added 2026-10-06.
   {
     id: 'rajaraman-il-limits-2020',
     title: 'Toward the Fundamental Limits of Imitation Learning',
@@ -10427,8 +10318,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2009.05990',
     type: 'paper',
   },
-  // causal-confusion-2019: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#6 for manipulation/bc-foundations.
+  // causal-confusion-2019: added 2026-10-06.
   {
     id: 'causal-confusion-2019',
     title: 'Causal Confusion in Imitation Learning',
@@ -10438,8 +10328,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1905.11979',
     type: 'paper',
   },
-  // copycat-bc-2020: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#7 for manipulation/bc-foundations.
+  // copycat-bc-2020: added 2026-10-06.
   {
     id: 'copycat-bc-2020',
     title: 'Fighting Copycat Agents in Behavioral Cloning from Observation Histories',
@@ -10449,8 +10338,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2010.14876',
     type: 'paper',
   },
-  // butterfly-sgd-noise-2023: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#12 for manipulation/bc-foundations.
+  // butterfly-sgd-noise-2023: added 2026-10-06.
   {
     id: 'butterfly-sgd-noise-2023',
     title: 'Butterfly Effects of SGD Noise: Error Amplification in Behavior Cloning and Autoregression',
@@ -10460,8 +10348,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2310.11428',
     type: 'paper',
   },
-  // dart-2017: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#4 for manipulation/bc-foundations.
+  // dart-2017: added 2026-10-06.
   {
     id: 'dart-2017',
     title: 'DART: Noise Injection for Robust Imitation Learning',
@@ -10471,8 +10358,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1703.09327',
     type: 'paper',
   },
-  // diffusion-meets-dagger-2024: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#22 for manipulation/bc-foundations.
+  // diffusion-meets-dagger-2024: added 2026-10-06.
   {
     id: 'diffusion-meets-dagger-2024',
     title: 'Diffusion Meets DAgger: Supercharging Eye-in-hand Imitation Learning',
@@ -10482,8 +10368,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2402.17768',
     type: 'paper',
   },
-  // bc-z-2022: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#21 for manipulation/bc-foundations.
+  // bc-z-2022: added 2026-10-06.
   {
     id: 'bc-z-2022',
     title: 'BC-Z: Zero-Shot Task Generalization with Robotic Imitation Learning',
@@ -10493,8 +10378,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2202.02005',
     type: 'paper',
   },
-  // cr-dagger-2025: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#24 for manipulation/bc-foundations.
+  // cr-dagger-2025: added 2026-10-06.
   {
     id: 'cr-dagger-2025',
     title: 'Compliant Residual DAgger: Improving Real-World Contact-Rich Manipulation with Human Corrections',
@@ -10504,8 +10388,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.16685',
     type: 'paper',
   },
-  // sop-2026: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts; also drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-1.md#25 for manipulation/bc-foundations.
+  // sop-2026: added 2026-10-06.
   {
     id: 'sop-2026',
     title: 'SOP: A Scalable Online Post-Training System for Vision-Language-Action Models',
@@ -10515,8 +10398,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.03044',
     type: 'paper',
   },
-  // rac-2025: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#23 for manipulation/bc-foundations.
+  // rac-2025: added 2026-10-06.
   {
     id: 'rac-2025',
     title: 'RaC: Robot Learning for Long-Horizon Tasks by Scaling Recovery and Correction',
@@ -10526,8 +10408,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.07953',
     type: 'paper',
   },
-  // block-generative-bc-2023: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#13 for manipulation/bc-foundations.
+  // block-generative-bc-2023: added 2026-10-06.
   {
     id: 'block-generative-bc-2023',
     title: 'Provable Guarantees for Generative Behavior Cloning: Bridging Low-Level Stability and High-Level Behavior',
@@ -10537,8 +10418,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2307.14619',
     type: 'paper',
   },
-  // gail-2016: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#15 for manipulation/bc-foundations.
+  // gail-2016: added 2026-10-06.
   {
     id: 'gail-2016',
     title: 'Generative Adversarial Imitation Learning',
@@ -10548,8 +10428,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1606.03476',
     type: 'paper',
   },
-  // darp-2026: domain pass 2026-10-06, from drafts/manipulation/bc-foundations.citations.ts.
-  // Source pack pack-manipulation-1.md#28 for manipulation/bc-foundations.
+  // darp-2026: added 2026-10-06.
   {
     id: 'darp-2026',
     title: 'Difference-Aware Retrieval Policies for Imitation Learning',
@@ -10559,8 +10438,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.09758',
     type: 'paper',
   },
-  // kumar-finetuning-distorts-2022: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#3 for manipulation/knowledge-insulation.
+  // kumar-finetuning-distorts-2022: added 2026-10-06.
   {
     id: 'kumar-finetuning-distorts-2022',
     title: 'Fine-Tuning can Distort Pretrained Features and Underperform Out-of-Distribution',
@@ -10571,8 +10449,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2202.10054',
     type: 'paper',
   },
-  // chatvla-2025: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#16 for manipulation/knowledge-insulation.
+  // chatvla-2025: added 2026-10-06.
   {
     id: 'chatvla-2025',
     title: 'ChatVLA: Unified Multimodal Understanding and Robot Control with Vision-Language-Action Model',
@@ -10582,8 +10459,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.14420',
     type: 'paper',
   },
-  // instructvla-2025: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#19 for manipulation/knowledge-insulation.
+  // instructvla-2025: added 2026-10-06.
   {
     id: 'instructvla-2025',
     title: 'InstructVLA: Vision-Language-Action Instruction Tuning from Understanding to Manipulation',
@@ -10593,8 +10469,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.17520',
     type: 'paper',
   },
-  // vla-continual-forgetting-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#27 for manipulation/knowledge-insulation.
+  // vla-continual-forgetting-2026: added 2026-10-06.
   {
     id: 'vla-continual-forgetting-2026',
     title: 'Pretrained Vision-Language-Action Models are Surprisingly Resistant to Forgetting in Continual Learning',
@@ -10604,8 +10479,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.03818',
     type: 'paper',
   },
-  // paligemma-2024: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts; also drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#9 for manipulation/knowledge-insulation.
+  // paligemma-2024: added 2026-10-06.
   {
     id: 'paligemma-2024',
     title: 'PaliGemma: A versatile 3B VLM for transfer',
@@ -10615,11 +10489,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.07726',
     type: 'paper',
   },
-  // gr00t-n1-5-2025: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts; also drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-2.md#8 for manipulation/generalist-policies; same source and id
-  // also proposed in drafts/manipulation/knowledge-insulation.citations.ts; register once. Fix
-  // 2026-10-04: metadata aligned with the page byline / the other drafts carrying this id (see
-  // verify/manipulation/).
+  // gr00t-n1-5-2025: added 2026-10-06.
+  // Fix 2026-10-04: metadata aligned with the page byline.
   {
     id: 'gr00t-n1-5-2025',
     title: 'GR00T N1.5: An Improved Open Foundation Model for Generalist Humanoid Robots',
@@ -10628,8 +10499,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://research.nvidia.com/labs/gear/gr00t-n1_5/',
     type: 'blog',
   },
-  // blip2-2023: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#5 for manipulation/knowledge-insulation.
+  // blip2-2023: added 2026-10-06.
   {
     id: 'blip2-2023',
     title: 'BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models',
@@ -10639,8 +10509,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2301.12597',
     type: 'paper',
   },
-  // vlm2vla-2025: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#18 for manipulation/knowledge-insulation.
+  // vlm2vla-2025: added 2026-10-06.
   {
     id: 'vlm2vla-2025',
     title: 'Actions as Language: Fine-Tuning VLMs into VLAs Without Catastrophic Forgetting',
@@ -10650,8 +10519,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.22195',
     type: 'paper',
   },
-  // uam-forgetting-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#25 for manipulation/knowledge-insulation.
+  // uam-forgetting-2026: added 2026-10-06.
   {
     id: 'uam-forgetting-2026',
     title: 'UAM: A Dual-Stream Perspective on Forgetting in VLA Training',
@@ -10661,8 +10529,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.15735',
     type: 'paper',
   },
-  // hybridvla-2025: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#17 for manipulation/knowledge-insulation.
+  // hybridvla-2025: added 2026-10-06.
   {
     id: 'hybridvla-2025',
     title: 'HybridVLA: Collaborative Diffusion and Autoregression in a Unified Vision-Language-Action Model',
@@ -10672,8 +10539,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.10631',
     type: 'paper',
   },
-  // apt-action-expert-pretraining-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#23 for manipulation/knowledge-insulation.
+  // apt-action-expert-pretraining-2026: added 2026-10-06.
   {
     id: 'apt-action-expert-pretraining-2026',
     title: 'APT: Action Expert Pretraining Improves Instruction Generalization of Vision-Language-Action Policies',
@@ -10683,8 +10549,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.12366',
     type: 'paper',
   },
-  // anchor-align-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#24 for manipulation/knowledge-insulation.
+  // anchor-align-2026: added 2026-10-06.
   {
     id: 'anchor-align-2026',
     title: 'Generalizable VLA Finetuning via Representation Anchoring and Language-Action Alignment',
@@ -10694,8 +10559,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.13429',
     type: 'paper',
   },
-  // garg-self-demonstrated-control-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts; also drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#26 for manipulation/knowledge-insulation.
+  // garg-self-demonstrated-control-2026: added 2026-10-06.
   {
     id: 'garg-self-demonstrated-control-2026',
     title: 'Fine-Tuning VLAs with Self-Demonstrated Generative Control for Multi-Task Manipulation',
@@ -10705,8 +10569,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.19490',
     type: 'paper',
   },
-  // act2answer-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#28 for manipulation/knowledge-insulation.
+  // act2answer-2026: added 2026-10-06.
   {
     id: 'act2answer-2026',
     title: 'Does VLA Even Know the Basics? Measuring Commonsense and World Knowledge Retention in Vision-Language-Action Models',
@@ -10716,9 +10579,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.19297',
     type: 'paper',
   },
-  // lap-2026: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts; also drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-2.md#10 for manipulation/cross-embodiment; same source and id also
-  // proposed in drafts/manipulation/knowledge-insulation.citations.ts; register once.
+  // lap-2026: added 2026-10-06.
   {
     id: 'lap-2026',
     title: 'LAP: Language-Action Pre-Training Enables Zero-shot Cross-Embodiment Transfer',
@@ -10728,8 +10589,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.10556',
     type: 'paper',
   },
-  // labvla-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#21 for manipulation/knowledge-insulation.
+  // labvla-2026: added 2026-10-06.
   {
     id: 'labvla-2026',
     title: 'LabVLA: Grounding Vision-Language-Action Models in Scientific Laboratories',
@@ -10739,8 +10599,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.13578',
     type: 'paper',
   },
-  // stulp-full-stack-transfer-2026: domain pass 2026-10-06, from drafts/manipulation/knowledge-insulation.citations.ts.
-  // Source pack pack-manipulation-3.md#22 for manipulation/knowledge-insulation.
+  // stulp-full-stack-transfer-2026: added 2026-10-06.
   {
     id: 'stulp-full-stack-transfer-2026',
     title: 'Are Foundation Models the Route to Full-Stack Transfer in Robotics?',
@@ -10750,7 +10609,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.22001',
     type: 'paper',
   },
-  // crossformer-2024: domain pass 2026-10-06, from drafts/data-hardware/datasets.citations.ts; also drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/cross-embodiment.citations.ts.
+  // crossformer-2024: added 2026-10-06.
   {
     id: 'crossformer-2024',
     title: 'Scaling Cross-Embodied Learning: One Policy for Manipulation, Navigation, Locomotion and Aviation',
@@ -10760,8 +10619,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2408.11812',
     type: 'paper',
   },
-  // hpt-2024: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#2 for manipulation/cross-embodiment.
+  // hpt-2024: added 2026-10-06.
   {
     id: 'hpt-2024',
     title: 'Scaling Proprioceptive-Visual Learning with Heterogeneous Pre-trained Transformers',
@@ -10772,8 +10630,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.20537',
     type: 'paper',
   },
-  // x-vla-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#9 for manipulation/cross-embodiment.
+  // x-vla-2025: added 2026-10-06.
   {
     id: 'x-vla-2025',
     title: 'X-VLA: Soft-Prompted Transformer as Scalable Cross-Embodiment Vision-Language-Action Model',
@@ -10783,11 +10640,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.10274',
     type: 'paper',
   },
-  // gemini-robotics-15-blog-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts; also drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-2.md#14 for manipulation/cross-embodiment; Launch post;
-  // datePublished 2025-09-25, author Carolina Parada (read 2026-10-04): "tasks only presented to the
-  // ALOHA 2 robot during training, also just work on the Apptronik's humanoid robot, Apollo, and the
-  // bi-arm Franka robot, and vice versa".
+  // gemini-robotics-15-blog-2025: added 2026-10-06.
+  // Launch post; datePublished 2025-09-25, author Carolina Parada (read 2026-10-04): "tasks only
+  // presented to the ALOHA 2 robot during training, also just work on the Apptronik's humanoid
+  // robot, Apollo, and the bi-arm Franka robot, and vice versa".
   {
     id: 'gemini-robotics-15-blog-2025',
     title: 'Gemini Robotics 1.5 brings AI agents into the physical world',
@@ -10797,12 +10653,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/',
     type: 'blog',
   },
-  // gemini-robotics-on-device-2025: domain pass 2026-10-06, from drafts/manipulation/comparison-matrix.citations.ts; also drafts/manipulation/cross-embodiment.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-1.md#6 for manipulation/comparison-matrix; Launch post;
-  // datePublished 2025-06-24, author Carolina Parada (the pack lists the byline as Google DeepMind)
-  // (read 2026-10-04): "Developers can access the SDK by signing up to our trusted tester program.";
-  // same source and id also proposed in drafts/manipulation/cross-embodiment.citations.ts,
-  // drafts/manipulation/generalist-policies.citations.ts; register once.
+  // gemini-robotics-on-device-2025: added 2026-10-06.
+  // Launch post; datePublished 2025-06-24, author Carolina Parada (read 2026-10-04): "Developers
+  // can access the SDK by signing up to our trusted tester program."
   {
     id: 'gemini-robotics-on-device-2025',
     title: 'Gemini Robotics On-Device brings AI to local robotic devices',
@@ -10812,8 +10665,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://deepmind.google/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/',
     type: 'blog',
   },
-  // mirage-2024: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#16 for manipulation/cross-embodiment.
+  // mirage-2024: added 2026-10-06.
   {
     id: 'mirage-2024',
     title: 'Mirage: Cross-Embodiment Zero-Shot Policy Transfer with Cross-Painting',
@@ -10824,8 +10676,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2402.19249',
     type: 'paper',
   },
-  // rovi-aug-2024: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#17 for manipulation/cross-embodiment; oral.
+  // rovi-aug-2024: added 2026-10-06.
+  // Oral.
   {
     id: 'rovi-aug-2024',
     title: 'RoVi-Aug: Robot and Viewpoint Augmentation for Cross-Embodiment Robot Learning',
@@ -10836,8 +10688,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.03403',
     type: 'paper',
   },
-  // shadow-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#18 for manipulation/cross-embodiment.
+  // shadow-2025: added 2026-10-06.
   {
     id: 'shadow-2025',
     title: 'Shadow: Leveraging Segmentation Masks for Cross-Embodiment Policy Transfer',
@@ -10847,8 +10698,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.00774',
     type: 'paper',
   },
-  // lapa-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#30 for manipulation/cross-embodiment.
+  // lapa-2025: added 2026-10-06.
   {
     id: 'lapa-2025',
     title: 'Latent Action Pretraining from Videos',
@@ -10859,7 +10709,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.11758',
     type: 'paper',
   },
-  // egomimic-2024: domain pass 2026-10-06, from drafts/data-hardware/teleop-rigs.citations.ts; also drafts/manipulation/cross-embodiment.citations.ts.
+  // egomimic-2024: added 2026-10-06.
   {
     id: 'egomimic-2024',
     title: 'EgoMimic: Scaling Imitation Learning via Egocentric Video',
@@ -10869,9 +10719,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.24221',
     type: 'paper',
   },
-  // egobridge-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#24 for manipulation/cross-embodiment; the pack also lists a
-  // CoRL 2025 oral.
+  // egobridge-2025: added 2026-10-06.
+  // A secondary listing names a CoRL 2025 oral.
   {
     id: 'egobridge-2025',
     title: 'EgoBridge: Domain Adaptation for Generalizable Imitation from Egocentric Human Data',
@@ -10882,8 +10731,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.19626',
     type: 'paper',
   },
-  // h-rdt-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#26 for manipulation/cross-embodiment.
+  // h-rdt-2025: added 2026-10-06.
   {
     id: 'h-rdt-2025',
     title: 'H-RDT: Human Manipulation Enhanced Bimanual Robotic Manipulation',
@@ -10893,8 +10741,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.23523',
     type: 'paper',
   },
-  // phantom-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#27 for manipulation/cross-embodiment.
+  // phantom-2025: added 2026-10-06.
   {
     id: 'phantom-2025',
     title: 'Phantom: Training Robots Without Robots Using Only Human Videos',
@@ -10905,8 +10752,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.00779',
     type: 'paper',
   },
-  // masquerade-2026: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#28 for manipulation/cross-embodiment.
+  // masquerade-2026: added 2026-10-06.
   {
     id: 'masquerade-2026',
     title: 'Masquerade: Learning from In-the-wild Human Videos using Data-Editing',
@@ -10917,7 +10763,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.09976',
     type: 'paper',
   },
-  // helix-2-5-2026: domain pass 2026-10-06, from drafts/frontier/generalization.citations.ts; also drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/cross-embodiment.citations.ts, drafts/manipulation/generalist-policies.citations.ts, drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // helix-2-5-2026: added 2026-10-06.
   // Figure news post dated September 17, 2026 (fetched 2026-10-04, no byline): "Then we took the
   // robot into 30 Bay Area homes with zero data collected in any of them."; "In blind evaluations,
   // the policy trained from scratch succeeded on 9% of zero-shot trials. The Index-pretrained policy
@@ -10934,8 +10780,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization',
     type: 'blog',
   },
-  // embodiment-scaling-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts.
-  // Source pack pack-manipulation-2.md#11 for manipulation/cross-embodiment.
+  // embodiment-scaling-2025: added 2026-10-06.
   {
     id: 'embodiment-scaling-2025',
     title: 'Towards Embodiment Scaling Laws in Robot Locomotion',
@@ -10946,10 +10791,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.05753',
     type: 'paper',
   },
-  // skild-omni-bodied-2025: domain pass 2026-10-06, from drafts/manipulation/cross-embodiment.citations.ts; also drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-2.md#13 for manipulation/cross-embodiment; Vendor post;
-  // article:published_time "24 Sep, 2025", article:author "Skild AI Team" (read 2026-10-04): "We
-  // created a universe with 100,000 different robots and trained our AI to control them all.".
+  // skild-omni-bodied-2025: added 2026-10-06.
+  // Vendor post; article:published_time "24 Sep, 2025", article:author "Skild AI Team" (read
+  // 2026-10-04): "We created a universe with 100,000 different robots and trained our AI to
+  // control them all.".
   {
     id: 'skild-omni-bodied-2025',
     title: 'The case for an omni-bodied robot brain',
@@ -10959,7 +10804,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.skild.ai/blogs/omni-bodied',
     type: 'blog',
   },
-  // generalist-gen1-2026: domain pass 2026-10-06, from drafts/data-hardware/teleop-rigs.citations.ts; also drafts/frontier/generalization.citations.ts, drafts/manipulation/comparison-matrix.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // generalist-gen1-2026: added 2026-10-06.
   // Company research post dated April 2, 2026, byline "Generalist Team" (read 2026-10-04). "half a
   // million hours" and the no-robot-data pretraining are company-reported.
   {
@@ -10971,11 +10816,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://generalistai.com/blog/gen-1',
     type: 'blog',
   },
-  // gemini-robotics-blog-2025: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-2.md#1 for manipulation/generalist-policies; Launch post;
-  // datePublished 2025-03-12, author Carolina Parada (read 2026-10-04; the pack's /discover/blog/
-  // URL redirects here): "Gemini Robotics more than doubles performance on a comprehensive
-  // generalization benchmark compared to other state-of-the-art vision-language-action models".
+  // gemini-robotics-blog-2025: added 2026-10-06.
+  // Launch post; datePublished 2025-03-12, author Carolina Parada (read 2026-10-04; the older
+  // /discover/blog/ URL redirects here): "Gemini Robotics more than doubles performance on a
+  // comprehensive generalization benchmark compared to other state-of-the-art
+  // vision-language-action models".
   {
     id: 'gemini-robotics-blog-2025',
     title: 'Gemini Robotics brings AI into the physical world',
@@ -10985,7 +10830,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/',
     type: 'blog',
   },
-  // gemini-robotics-er-1-6-2026: domain pass 2026-10-06, from drafts/classical/perception.citations.ts; also drafts/manipulation/generalist-policies.citations.ts.
+  // gemini-robotics-er-1-6-2026: added 2026-10-06.
   // Google DeepMind blog, datePublished 2026-04-14, byline Laura Graesser and Peng Xu. "Gemini
   // Robotics-ER 1.6 shows significant improvement over both Gemini Robotics-ER 1.5 and Gemini 3.0
   // Flash, specifically enhancing spatial and physical reasoning capabilities such as pointing,
@@ -11002,11 +10847,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://deepmind.google/blog/gemini-robotics-er-1-6/',
     type: 'blog',
   },
-  // gemini-robotics-er-2-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts; also drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-2.md#6 for manipulation/generalist-policies; Google post;
-  // datePublished 2026-07-30, author Steven Hansen (read 2026-10-04): "Success/failure detection:
-  // Now operates on raw video feeds rather than static snapshots" / "We tested it across 10
-  // different types of instruments.".
+  // gemini-robotics-er-2-2026: added 2026-10-06.
+  // Google post; datePublished 2026-07-30, author Steven Hansen (read 2026-10-04):
+  // "Success/failure detection: Now operates on raw video feeds rather than static snapshots" /
+  // "We tested it across 10 different types of instruments.".
   {
     id: 'gemini-robotics-er-2-2026',
     title: 'Introducing Gemini Robotics ER 2',
@@ -11016,8 +10860,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-robotics-er-2/',
     type: 'blog',
   },
-  // veo-world-simulator-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/manipulation/generalist-policies.citations.ts, drafts/world-models/evaluation.citations.ts.
-  // Same id as drafts/world-models/evaluation.citations.ts; keep one entry when merging.
+  // veo-world-simulator-2025: added 2026-10-06.
   {
     id: 'veo-world-simulator-2025',
     title: 'Evaluating Gemini Robotics Policies in a Veo World Simulator',
@@ -11027,11 +10870,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.10675',
     type: 'paper',
   },
-  // figure-index-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-2.md#16 for manipulation/generalist-policies; Vendor post dated
-  // August 25, 2026 (read 2026-10-04): "Our Creators, the network of individuals building this data,
-  // have uploaded over 16M videos to our app" / "committed to spend over $1B the next 12 months on
-  // data and compute".
+  // figure-index-2026: added 2026-10-06.
+  // Vendor post dated August 25, 2026 (read 2026-10-04): "Our Creators, the network of individuals
+  // building this data, have uploaded over 16M videos to our app" / "committed to spend over $1B the
+  // next 12 months on data and compute".
   {
     id: 'figure-index-2026',
     title: 'Introducing Index: Building The World\'s Largest and Most Diverse Physical Dataset',
@@ -11041,7 +10883,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.figure.ai/news/introducing-index',
     type: 'blog',
   },
-  // agibot-world-repo: domain pass 2026-10-06, from drafts/data-hardware/datasets.citations.ts; also drafts/manipulation/generalist-policies.citations.ts.
+  // agibot-world-repo: added 2026-10-06.
   // Repository README read 2026-10-04: "AgiBot World Beta : Our complete dataset featuring 1,003,672
   // trajectories" and "All the data and code within this repo are under CC BY-NC-SA 4.0".
   // Organisation as author; no byline.
@@ -11055,8 +10897,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/OpenDriveLab/AgiBot-World',
     type: 'docs',
   },
-  // acot-vla-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-2.md#19 for manipulation/generalist-policies.
+  // acot-vla-2026: added 2026-10-06.
   {
     id: 'acot-vla-2026',
     title: 'ACoT-VLA: Action Chain-of-Thought for Vision-Language-Action Models',
@@ -11067,11 +10908,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.11404',
     type: 'paper',
   },
-  // skild-brain-2025: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-2.md#24 for manipulation/generalist-policies; Vendor post;
-  // article:published_time "29 July, 2025", article:author "Skild AI Team" (read 2026-10-04):
-  // "follows a hierarchical architecture: (1) a low-frequency high-level manipulation and navigation
-  // action policy which provides inputs to a (2) high-frequency low-level action policy".
+  // skild-brain-2025: added 2026-10-06.
+  // Vendor post; article:published_time "29 July, 2025", article:author "Skild AI Team" (read
+  // 2026-10-04): "follows a hierarchical architecture: (1) a low-frequency high-level manipulation
+  // and navigation action policy which provides inputs to a (2) high-frequency low-level action
+  // policy".
   {
     id: 'skild-brain-2025',
     title: 'Building the general-purpose robotic brain',
@@ -11081,10 +10922,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.skild.ai/blogs/building-the-general-purpose-robotic-brain',
     type: 'blog',
   },
-  // skild-self-play-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-2.md#27 for manipulation/generalist-policies; Vendor post;
-  // article:published_time "Sep 23, 2026", article:author "Skild Team" (read 2026-10-04): "After 140
-  // years of simulated play, we transferred the policy into a robot".
+  // skild-self-play-2026: added 2026-10-06.
+  // Vendor post; article:published_time "Sep 23, 2026", article:author "Skild Team" (read
+  // 2026-10-04): "After 140 years of simulated play, we transferred the policy into a robot".
   {
     id: 'skild-self-play-2026',
     title: 'Physical Self-Play',
@@ -11094,11 +10934,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.skild.ai/blogs/physical-self-play',
     type: 'blog',
   },
-  // skild-arr-2026: domain pass 2026-10-06, from drafts/manipulation/generalist-policies.citations.ts.
-  // Source pack pack-manipulation-2.md#28 for manipulation/generalist-policies; Vendor post;
-  // article:published_time "Sep 10, 2026", article:author "Deepak Pathak and Abhinav Gupta" (read
-  // 2026-10-04): "We have crossed $100M in annual recurring revenue." / "In ten months, we've scaled
-  // to 60+ paying customers".
+  // skild-arr-2026: added 2026-10-06.
+  // Vendor post; article:published_time "Sep 10, 2026", article:author "Deepak Pathak and Abhinav
+  // Gupta" (read 2026-10-04): "We have crossed $100M in annual recurring revenue." / "In ten months,
+  // we've scaled to 60+ paying customers".
   {
     id: 'skild-arr-2026',
     title: 'The Hidden Pillar of Robotics',
@@ -11108,7 +10947,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.skild.ai/blogs/skild-crosses-100m-arr',
     type: 'blog',
   },
-  // generalist-gen0-2025: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/frontier/generalization.citations.ts, drafts/manipulation/generalist-policies.citations.ts.
+  // generalist-gen0-2025: added 2026-10-06.
   // Conflict resolved: title follows the publisher's own citation block on
   // https://generalistai.com/blog/gen-0 ("Please cite this work as: Generalist
   // Team, 'GEN-0: Embodied Foundation Models That Scale with Physical
@@ -11116,8 +10955,7 @@ export const CITATIONS: Citation[] = [
   // the page heading form with ' / '.
   // Company research post dated November 4, 2025, byline "Generalist Team" (read 2026-10-04). Corpus
   // figures (270,000+ hours, 10,000 hours a week) are company-reported. Title as in the post's own
-  // "Please cite this work as" block (the page heading prints "GEN-0 /"), matching
-  // drafts/manipulation/generalist-policies.citations.ts (fix 2026-10-04).
+  // "Please cite this work as" block (the page heading prints "GEN-0 /") (fix 2026-10-04).
   {
     id: 'generalist-gen0-2025',
     title: 'GEN-0: Embodied Foundation Models That Scale with Physical Interaction',
@@ -11127,11 +10965,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://generalistai.com/blog/gen-0',
     type: 'blog',
   },
-  // pi0-blog-2024: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#1 for manipulation/pi-line; PI post published October 31,
-  // 2024; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-09-22
-  // (2026-10-04): "We use a smaller 3 billion parameter VLM as a starting point" / "our own datasets
-  // consisting of dexterous tasks from 8 distinct robots".
+  // pi0-blog-2024: added 2026-10-06.
+  // PI post published October 31, 2024; pi.website returns 429 to scripted requests, so read via the
+  // Wayback capture of 2026-09-22 (2026-10-04): "We use a smaller 3 billion parameter VLM as a
+  // starting point" / "our own datasets consisting of dexterous tasks from 8 distinct robots".
   {
     id: 'pi0-blog-2024',
     title: 'π0: Our First Generalist Policy',
@@ -11141,12 +10978,12 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.pi.website/blog/pi0',
     type: 'blog',
   },
-  // openpi-blog-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#2 for manipulation/pi-line; PI post published February 4,
-  // 2025; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-09-23
-  // (2026-10-04): "Today, we are releasing the code and weights for the π0 as part of our
-  // experimental openpi repository." / "between 1 and 20 hours of data was sufficient to fine-tune
-  // to a variety of tasks" / "The model is trained on OXE and 7 of our robot platforms.".
+  // openpi-blog-2025: added 2026-10-06.
+  // PI post published February 4, 2025; pi.website returns 429 to scripted requests, so read via the
+  // Wayback capture of 2026-09-23 (2026-10-04): "Today, we are releasing the code and weights for
+  // the π0 as part of our experimental openpi repository." / "between 1 and 20 hours of data was
+  // sufficient to fine-tune to a variety of tasks" / "The model is trained on OXE and 7 of our robot
+  // platforms.".
   {
     id: 'openpi-blog-2025',
     title: 'Open Sourcing π0',
@@ -11156,11 +10993,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.pi.website/blog/openpi',
     type: 'blog',
   },
-  // jetson-ai-lab-openpi-thor: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts; also drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-3.md#26 for manipulation/pi-line; same source and id also proposed
-  // in drafts/manipulation/realtime-execution.citations.ts; register once. Fix 2026-10-04: aligned
-  // with the realtime-execution copy (page prints authors Aditya Sahu and Anqi Liu and no date;
-  // title "OpenPi π₀.₅ on Jetson Thor").
+  // jetson-ai-lab-openpi-thor: added 2026-10-06.
+  // Fix 2026-10-04: aligned with the realtime-execution copy (page prints authors Aditya Sahu and
+  // Anqi Liu and no date; title "OpenPi π₀.₅ on Jetson Thor").
   {
     id: 'jetson-ai-lab-openpi-thor',
     title: 'OpenPi π₀.₅ on Jetson Thor',
@@ -11171,11 +11006,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.jetson-ai-lab.com/tutorials/openpi_on_thor/',
     type: 'docs',
   },
-  // pi-fast-blog-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#9 for manipulation/pi-line; PI post published January 16,
-  // 2025; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-07-30
-  // (2026-10-04): "we are releasing a general-purpose variant of the FAST tokenizer trained on 1M
-  // real robot action sequences".
+  // pi-fast-blog-2025: added 2026-10-06.
+  // PI post published January 16, 2025; pi.website returns 429 to scripted requests, so read via the
+  // Wayback capture of 2026-07-30 (2026-10-04): "we are releasing a general-purpose variant of the
+  // FAST tokenizer trained on 1M real robot action sequences".
   {
     id: 'pi-fast-blog-2025',
     title: 'FAST: Efficient Robot Action Tokenization',
@@ -11185,11 +11019,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.pi.website/research/fast',
     type: 'blog',
   },
-  // hi-robot-blog-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#10 for manipulation/pi-line; PI post published February 26,
-  // 2025; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-07-30
-  // (2026-10-04): "π0 serves as the instinctual, reactive \"System 1\"" / "This high-level policy is
-  // itself a VLM (in fact, it uses exactly the same VLM backbone as π0)".
+  // hi-robot-blog-2025: added 2026-10-06.
+  // PI post published February 26, 2025; pi.website returns 429 to scripted requests, so read via
+  // the Wayback capture of 2026-07-30 (2026-10-04): "π0 serves as the instinctual, reactive \"System
+  // 1\"" / "This high-level policy is itself a VLM (in fact, it uses exactly the same VLM backbone
+  // as π0)".
   {
     id: 'hi-robot-blog-2025',
     title: 'Teaching Robots to Listen and Think Harder',
@@ -11199,8 +11033,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.pi.website/research/hirobot',
     type: 'blog',
   },
-  // gemma3-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#13 for manipulation/pi-line.
+  // gemma3-2025: added 2026-10-06.
   {
     id: 'gemma3-2025',
     title: 'Gemma 3 Technical Report',
@@ -11210,11 +11043,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.19786',
     type: 'paper',
   },
-  // pi-partner-2026: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#21 for manipulation/pi-line; PI post published February 24,
-  // 2026; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-07-30
-  // (2026-10-04): "Continuous shot of π0.6 packaging orders at Ultra's customer site for a full
-  // shift at 96.4% autonomy.".
+  // pi-partner-2026: added 2026-10-06.
+  // PI post published February 24, 2026; pi.website returns 429 to scripted requests, so read via
+  // the Wayback capture of 2026-07-30 (2026-10-04): "Continuous shot of π0.6 packaging orders at
+  // Ultra's customer site for a full shift at 96.4% autonomy.".
   {
     id: 'pi-partner-2026',
     title: 'The Physical Intelligence Layer',
@@ -11224,8 +11056,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.pi.website/blog/partner',
     type: 'blog',
   },
-  // cfgrl-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#15 for manipulation/pi-line.
+  // cfgrl-2025: added 2026-10-06.
   {
     id: 'cfgrl-2025',
     title: 'Diffusion Guidance Is a Controllable Policy Improvement Operator',
@@ -11235,10 +11066,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.23458',
     type: 'paper',
   },
-  // mem-blog-2026: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#19 for manipulation/pi-line; PI post published March 3, 2026;
-  // pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-08-31
-  // (2026-10-04): "MEM VLAs can solve tasks that require up to 15 minutes of memory".
+  // mem-blog-2026: added 2026-10-06.
+  // PI post published March 3, 2026; pi.website returns 429 to scripted requests, so read via the
+  // Wayback capture of 2026-08-31 (2026-10-04): "MEM VLAs can solve tasks that require up to 15
+  // minutes of memory".
   {
     id: 'mem-blog-2026',
     title: 'VLAs with Long and Short-Term Memory',
@@ -11248,12 +11079,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.pi.website/research/memory',
     type: 'blog',
   },
-  // rlt-2026: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts; also drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-3.md#20 for manipulation/pi-line; PI post published March 19,
-  // 2026; pi.website returns 429 to scripted requests, so read via the Wayback capture of 2026-09-14
-  // (2026-10-04): "Across four challenging manipulation tasks, RLT speeds up the most precise stages
-  // of each task by up to 3×" / "Training takes a total of two hours, with just 15 minutes of total
-  // robot data".
+  // rlt-2026: added 2026-10-06.
+  // PI post published March 19, 2026; pi.website returns 429 to scripted requests, so read via the
+  // Wayback capture of 2026-09-14 (2026-10-04): "Across four challenging manipulation tasks, RLT
+  // speeds up the most precise stages of each task by up to 3×" / "Training takes a total of two
+  // hours, with just 15 minutes of total robot data".
   {
     id: 'rlt-2026',
     title: 'Precise Manipulation with Efficient Online RL',
@@ -11263,8 +11093,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.pi.website/research/rlt',
     type: 'blog',
   },
-  // bagel-2025: domain pass 2026-10-06, from drafts/manipulation/pi-line.citations.ts.
-  // Source pack pack-manipulation-3.md#22 for manipulation/pi-line.
+  // bagel-2025: added 2026-10-06.
   {
     id: 'bagel-2025',
     title: 'Emerging Properties in Unified Multimodal Pretraining',
@@ -11274,8 +11103,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.14683',
     type: 'paper',
   },
-  // huang-zero-shot-planners-2022: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#2 for manipulation/hierarchical.
+  // huang-zero-shot-planners-2022: added 2026-10-06.
   {
     id: 'huang-zero-shot-planners-2022',
     title: 'Language Models as Zero-Shot Planners: Extracting Actionable Knowledge for Embodied Agents',
@@ -11285,8 +11113,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2201.07207',
     type: 'paper',
   },
-  // inner-monologue-2022: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#1 for manipulation/hierarchical.
+  // inner-monologue-2022: added 2026-10-06.
   {
     id: 'inner-monologue-2022',
     title: 'Inner Monologue: Embodied Reasoning through Planning with Language Models',
@@ -11296,8 +11123,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2207.05608',
     type: 'paper',
   },
-  // text2motion-2023: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#5 for manipulation/hierarchical.
+  // text2motion-2023: added 2026-10-06.
   {
     id: 'text2motion-2023',
     title: 'Text2Motion: From Natural Language Instructions to Feasible Plans',
@@ -11307,8 +11133,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2303.12153',
     type: 'paper',
   },
-  // voxposer-2023: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#7 for manipulation/hierarchical.
+  // voxposer-2023: added 2026-10-06.
   {
     id: 'voxposer-2023',
     title: 'VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models',
@@ -11318,8 +11143,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2307.05973',
     type: 'paper',
   },
-  // rt-trajectory-2023: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#11 for manipulation/hierarchical.
+  // rt-trajectory-2023: added 2026-10-06.
   {
     id: 'rt-trajectory-2023',
     title: 'RT-Trajectory: Robotic Task Generalization via Hindsight Trajectory Sketches',
@@ -11329,8 +11153,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2311.01977',
     type: 'paper',
   },
-  // hamster-2025: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#12 for manipulation/hierarchical.
+  // hamster-2025: added 2026-10-06.
   {
     id: 'hamster-2025',
     title: 'HAMSTER: Hierarchical Action Models For Open-World Robot Manipulation',
@@ -11340,8 +11163,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.05485',
     type: 'paper',
   },
-  // robobrain-25-2026: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#14 for manipulation/hierarchical.
+  // robobrain-25-2026: added 2026-10-06.
   {
     id: 'robobrain-25-2026',
     title: 'RoboBrain 2.5: Depth in Sight, Time in Mind',
@@ -11351,8 +11173,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.14352',
     type: 'paper',
   },
-  // rt-h-2024: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#16 for manipulation/hierarchical.
+  // rt-h-2024: added 2026-10-06.
   {
     id: 'rt-h-2024',
     title: 'RT-H: Action Hierarchies Using Language',
@@ -11362,8 +11183,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.01823',
     type: 'paper',
   },
-  // cot-vla-2025: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#22 for manipulation/hierarchical.
+  // cot-vla-2025: added 2026-10-06.
   {
     id: 'cot-vla-2025',
     title: 'CoT-VLA: Visual Chain-of-Thought Reasoning for Vision-Language-Action Models',
@@ -11373,7 +11193,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.22020',
     type: 'paper',
   },
-  // molmoact-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts; also drafts/manipulation/hierarchical.citations.ts.
+  // molmoact-2025: added 2026-10-06.
   // arXiv 2508.07917 abstract: "Our model, MolmoAct, encodes observations and instructions into
   // depth-aware perception tokens, generates mid-level spatial plans as editable trajectory traces,
   // and predicts precise low-level actions".
@@ -11386,9 +11206,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.07917',
     type: 'paper',
   },
-  // fast-in-slow-2025: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts; also drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-3.md#19 for manipulation/hierarchical; same source and id also
-  // proposed in drafts/manipulation/realtime-execution.citations.ts; register once.
+  // fast-in-slow-2025: added 2026-10-06.
   {
     id: 'fast-in-slow-2025',
     title: 'Fast-in-Slow: A Dual-System Foundation Model Unifying Fast Manipulation within Slow Reasoning',
@@ -11398,8 +11216,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.01953',
     type: 'paper',
   },
-  // vista-2026: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#29 for manipulation/hierarchical.
+  // vista-2026: added 2026-10-06.
   {
     id: 'vista-2026',
     title: 'Scaling World Model for Hierarchical Manipulation Policies',
@@ -11409,12 +11226,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.10983',
     type: 'paper',
   },
-  // gemini-robotics-er-15-dev-2025: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#24 for manipulation/hierarchical; Google post; datePublished
-  // 2025-09-25, authors Kendra Byrne and Fei Xia (read 2026-10-04): "This is the first Gemini
-  // Robotics model to be made broadly available. It acts as a high-level reasoning model for a
-  // robot." / "can call a vision-language-action model (VLA) or any other third-party user-defined
-  // functions to execute the task".
+  // gemini-robotics-er-15-dev-2025: added 2026-10-06.
+  // Google post; datePublished 2025-09-25, authors Kendra Byrne and Fei Xia (read 2026-10-04):
+  // "This is the first Gemini Robotics model to be made broadly available. It acts as a high-level
+  // reasoning model for a robot." / "can call a vision-language-action model (VLA) or any other
+  // third-party user-defined functions to execute the task".
   {
     id: 'gemini-robotics-er-15-dev-2025',
     title: 'Building the Next Generation of Physical Agents with Gemini Robotics-ER 1.5',
@@ -11424,8 +11240,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://developers.googleblog.com/building-the-next-generation-of-physical-agents-with-gemini-robotics-er-15/',
     type: 'blog',
   },
-  // orchestrating-policies-2026: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#27 for manipulation/hierarchical.
+  // orchestrating-policies-2026: added 2026-10-06.
   {
     id: 'orchestrating-policies-2026',
     title: 'What Matters in Orchestrating Robot Policies: A Systematic Study of Hierarchical VLA Agents',
@@ -11435,8 +11250,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.10267',
     type: 'paper',
   },
-  // fast-plans-2026: domain pass 2026-10-06, from drafts/manipulation/hierarchical.citations.ts.
-  // Source pack pack-manipulation-3.md#28 for manipulation/hierarchical.
+  // fast-plans-2026: added 2026-10-06.
   {
     id: 'fast-plans-2026',
     title: 'Fast Plans, Faithful Actions: Closing the Planning-Execution Gap in Hierarchical Vision-Language-Action Models',
@@ -11446,8 +11260,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.30833',
     type: 'paper',
   },
-  // nvidia-jetson-thor-available-2025: domain pass 2026-10-06, from drafts/data-hardware/hardware-taxonomy.citations.ts; also drafts/manipulation/realtime-execution.citations.ts.
-  // Same id as drafts/manipulation/realtime-execution.citations.ts; keep one entry when merging.
+  // nvidia-jetson-thor-available-2025: added 2026-10-06.
   // Dated August 25, 2025 (read 2026-10-04): "The NVIDIA Jetson AGX Thor developer kit is available
   // now starting at $3,499"; "up to 7.5x higher AI compute and 3.5x greater energy efficiency".
   {
@@ -11459,8 +11272,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://nvidianews.nvidia.com/news/nvidia-blackwell-powered-jetson-thor-now-available-accelerating-the-age-of-general-robotics',
     type: 'press',
   },
-  // vlash-2025: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-3.md#9 for manipulation/realtime-execution.
+  // vlash-2025: added 2026-10-06.
   {
     id: 'vlash-2025',
     title: 'VLASH: Real-Time VLAs via Future-State-Aware Asynchronous Inference',
@@ -11470,8 +11282,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.01031',
     type: 'paper',
   },
-  // futurertc-2026: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-3.md#12 for manipulation/realtime-execution.
+  // futurertc-2026: added 2026-10-06.
   {
     id: 'futurertc-2026',
     title: 'FutureRTC: Real-Time Robot Execution with Anticipatory-Conditioned Action Chunking',
@@ -11481,8 +11292,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.24008',
     type: 'paper',
   },
-  // event-triggered-vla-2026: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-3.md#13 for manipulation/realtime-execution.
+  // event-triggered-vla-2026: added 2026-10-06.
   {
     id: 'event-triggered-vla-2026',
     title: 'React When You Need To: Event-Triggered Asynchronous Inference for VLA Policies',
@@ -11492,9 +11302,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.22587',
     type: 'paper',
   },
-  // lerobot-async-inference-2025: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-3.md#7 for manipulation/realtime-execution; Hugging Face blog,
-  // published July 10, 2025; byline read from the page.
+  // lerobot-async-inference-2025: added 2026-10-06.
+  // Hugging Face blog, published July 10, 2025; byline read from the page.
   {
     id: 'lerobot-async-inference-2025',
     title: 'Asynchronous Robot Inference: Decoupling Action Prediction and Execution',
@@ -11504,8 +11313,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://huggingface.co/blog/async-robot-inference',
     type: 'blog',
   },
-  // soft-rtc-2026: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-3.md#3 for manipulation/realtime-execution.
+  // soft-rtc-2026: added 2026-10-06.
   {
     id: 'soft-rtc-2026',
     title: 'Action-Prior Denoising for Smooth Real-Time Chunking',
@@ -11515,8 +11323,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.25537',
     type: 'paper',
   },
-  // faster-flow-vla-2026: domain pass 2026-10-06, from drafts/manipulation/realtime-execution.citations.ts.
-  // Source pack pack-manipulation-3.md#11 for manipulation/realtime-execution.
+  // faster-flow-vla-2026: added 2026-10-06.
   {
     id: 'faster-flow-vla-2026',
     title: 'FASTER: Rethinking Real-Time Flow VLAs',
@@ -11526,8 +11333,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.19199',
     type: 'paper',
   },
-  // ire-vla-2025: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#27 for manipulation/rl-finetuning.
+  // ire-vla-2025: added 2026-10-06.
   {
     id: 'ire-vla-2025',
     title: 'Improving Vision-Language-Action Model with Online Reinforcement Learning',
@@ -11538,8 +11344,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2501.16664',
     type: 'paper',
   },
-  // ddpo-2023: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#2 for manipulation/rl-finetuning.
+  // ddpo-2023: added 2026-10-06.
   {
     id: 'ddpo-2023',
     title: 'Training Diffusion Models with Reinforcement Learning',
@@ -11549,8 +11354,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2305.13301',
     type: 'paper',
   },
-  // reinflow-2025: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#6 for manipulation/rl-finetuning.
+  // reinflow-2025: added 2026-10-06.
   {
     id: 'reinflow-2025',
     title: 'ReinFlow: Fine-tuning Flow Matching Policy with Online Reinforcement Learning',
@@ -11560,8 +11364,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.22094',
     type: 'paper',
   },
-  // fpo-2025: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#7 for manipulation/rl-finetuning.
+  // fpo-2025: added 2026-10-06.
   {
     id: 'fpo-2025',
     title: 'Flow Matching Policy Gradients',
@@ -11571,9 +11374,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.21053',
     type: 'paper',
   },
-  // pa-rl-2024: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts; also drafts/rl-sim2real/offline-rl.citations.ts.
-  // Source pack pack-manipulation-4.md#10 for manipulation/rl-finetuning; same source and id also
-  // proposed in drafts/rl-sim2real/offline-rl.citations.ts; register once.
+  // pa-rl-2024: added 2026-10-06.
   {
     id: 'pa-rl-2024',
     title: 'Policy Agnostic RL: Offline RL and Online RL Fine-Tuning of Any Class and Backbone',
@@ -11583,8 +11384,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2412.06685',
     type: 'paper',
   },
-  // grpo-2024: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#5 for manipulation/rl-finetuning.
+  // grpo-2024: added 2026-10-06.
   {
     id: 'grpo-2024',
     title: 'DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models',
@@ -11594,8 +11394,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2402.03300',
     type: 'paper',
   },
-  // cfg-2022: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#13 for manipulation/rl-finetuning.
+  // cfg-2022: added 2026-10-06.
   {
     id: 'cfg-2022',
     title: 'Classifier-Free Diffusion Guidance',
@@ -11605,8 +11404,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2207.12598',
     type: 'paper',
   },
-  // awr-2019: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#12 for manipulation/rl-finetuning.
+  // awr-2019: added 2026-10-06.
   {
     id: 'awr-2019',
     title: 'Advantage-Weighted Regression: Simple and Scalable Off-Policy Reinforcement Learning',
@@ -11616,8 +11414,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1910.00177',
     type: 'paper',
   },
-  // residual-rl-2018: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#23 for manipulation/rl-finetuning.
+  // residual-rl-2018: added 2026-10-06.
   {
     id: 'residual-rl-2018',
     title: 'Residual Reinforcement Learning for Robot Control',
@@ -11627,8 +11424,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1812.03201',
     type: 'paper',
   },
-  // lwd-2026: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#21 for manipulation/rl-finetuning.
+  // lwd-2026: added 2026-10-06.
   {
     id: 'lwd-2026',
     title: 'Learning While Deploying: Fleet-Scale Reinforcement Learning for Generalist Robot Policies',
@@ -11638,8 +11434,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.00416',
     type: 'paper',
   },
-  // simplevla-rl-2025: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#30 for manipulation/rl-finetuning.
+  // simplevla-rl-2025: added 2026-10-06.
   {
     id: 'simplevla-rl-2025',
     title: 'SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning',
@@ -11649,8 +11444,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.09674',
     type: 'paper',
   },
-  // roboreward-2026: domain pass 2026-10-06, from drafts/manipulation/rl-finetuning.citations.ts.
-  // Source pack pack-manipulation-4.md#32 for manipulation/rl-finetuning.
+  // roboreward-2026: added 2026-10-06.
   {
     id: 'roboreward-2026',
     title: 'RoboReward: General-Purpose Vision-Language Reward Models for Robotics',
@@ -11660,7 +11454,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.00675',
     type: 'paper',
   },
-  // ecomem-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu.
+  // ecomem-2026: added 2026-10-06 via Jiajun Wu.
   // Abstract page fetched 2026-10-06; submitted 30 September 2026.
   {
     id: 'ecomem-2026',
@@ -11671,7 +11465,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.00801',
     type: 'paper',
   },
-  // rpg-2026: domain pass 2026-10-06, KOL intake note of Pieter Abbeel.
+  // rpg-2026: added 2026-10-06 via Pieter Abbeel.
   // Abstract page fetched 2026-10-06; submitted 1 October 2026.
   {
     id: 'rpg-2026',
@@ -11685,7 +11479,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.02204',
     type: 'paper',
   },
-  // lbm-cotraining-2026: domain pass 2026-10-06, owner sweep item VLA.R4 (also KI.R3, HI.R3, CE.R6, FM.R5).
+  // lbm-cotraining-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 1 February 2026. Toyota Research Institute
   // per the correspondence address (tri.global) and acknowledgements; no affiliation block is printed.
   {
@@ -11700,7 +11494,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.01067',
     type: 'paper',
   },
-  // xiaomi-robotics-1-2026: domain pass 2026-10-06, owner sweep item VLA.R5 (also DP.R3).
+  // xiaomi-robotics-1-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 16 July 2026, v2 22 July 2026.
   {
     id: 'xiaomi-robotics-1-2026',
@@ -11717,7 +11511,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.15330',
     type: 'paper',
   },
-  // drifting-models-2026: domain pass 2026-10-06, owner sweep item DP.R2.
+  // drifting-models-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 4 February 2026, v2 6 February 2026.
   {
     id: 'drifting-models-2026',
@@ -11730,7 +11524,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.04770',
     type: 'paper',
   },
-  // realtime-vla-2025: domain pass 2026-10-06, owner sweep item RT.R1.
+  // realtime-vla-2025: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 30 October 2025. Dexmal and StepFun.
   {
     id: 'realtime-vla-2025',
@@ -11743,7 +11537,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.26742',
     type: 'paper',
   },
-  // dm0-2026: domain pass 2026-10-06, owner sweep item KI.R2.
+  // dm0-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 16 February 2026. "DM0 Team, Dexmal & StepFun";
   // the 49 authors are listed alphabetically by the paper.
   {
@@ -11763,7 +11557,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.14974',
     type: 'paper',
   },
-  // actioncodec-2026: domain pass 2026-10-06, owner sweep item AS.R1.
+  // actioncodec-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 17 February 2026.
   {
     id: 'actioncodec-2026',
@@ -11777,7 +11571,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.15397',
     type: 'paper',
   },
-  // factr-2-2026: domain pass 2026-10-06, owner sweep item AS.R4.
+  // factr-2-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 10 June 2026, v2 12 August 2026. Carnegie Mellon University
   // and Waseda University.
   {
@@ -11792,7 +11586,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.12406',
     type: 'paper',
   },
-  // recova-2026: domain pass 2026-10-06, KOL intake note of Linxi Fan.
+  // recova-2026: added 2026-10-06 via Linxi Fan.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 1 October 2026. UC San Diego, UT Austin and NVIDIA.
   {
     id: 'recova-2026',
@@ -11806,7 +11600,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.01178',
     type: 'paper',
   },
-  // rebarsim-2026: domain pass 2026-10-06, KOL intake note of Abhishek Gupta.
+  // rebarsim-2026: added 2026-10-06 via Abhishek Gupta.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 17 September 2026. University of Washington, McGill
   // University and Princeton University; corresponding author Yi Shao (McGill).
   {
@@ -11821,7 +11615,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.20477',
     type: 'paper',
   },
-  // seeq-2026: domain pass 2026-10-06, KOL intake note of Aviral Kumar.
+  // seeq-2026: added 2026-10-06 via Aviral Kumar.
   // Abstract and HTML fetched 2026-10-06; v1 18 September 2026, v2 27 September 2026. Carnegie Mellon University.
   {
     id: 'seeq-2026',
@@ -11834,7 +11628,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.22085',
     type: 'paper',
   },
-  // bilinear-flow-policy-2026: domain pass 2026-10-06, KOL intake note of Abhishek Gupta.
+  // bilinear-flow-policy-2026: added 2026-10-06 via Abhishek Gupta.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 5 October 2026. Georgia Institute of Technology,
   // Toyota Research Institute and University of Washington.
   {
@@ -11849,7 +11643,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.05765',
     type: 'paper',
   },
-  // ditto-x-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu.
+  // ditto-x-2026: added 2026-10-06 via Jiajun Wu.
   // Abstract and HTML fetched 2026-10-06; v1 30 September 2026, v2 5 October 2026. Stanford University and
   // Columbia University.
   {
@@ -11864,7 +11658,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.00781',
     type: 'paper',
   },
-  // gott-2026: domain pass 2026-10-06, KOL intake note of Pieter Abbeel.
+  // gott-2026: added 2026-10-06 via Pieter Abbeel.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 2 October 2026. Amazon FAR, UC San Diego, UC Berkeley
   // and University of Chicago.
   {
@@ -11878,7 +11672,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.03861',
     type: 'paper',
   },
-  // roth-mooring-ravani-1987: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // roth-mooring-ravani-1987: added 2026-10-06.
   // IEEE J. Robotics and Automation 3(5), 1987. "Modeling, measurement, identification, and
   // correction issues in robot calibration are discussed".
   {
@@ -11890,7 +11684,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/JRA.1987.1087124',
     type: 'paper',
   },
-  // halo-payload-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // halo-payload-2026: added 2026-10-06.
   // arXiv 2603.15084. Two stages: calibrate the nominal model, then identify the unknown payload's
   // mass distribution.
   {
@@ -11902,7 +11696,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.15084',
     type: 'paper',
   },
-  // kannala-brandt-2006: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // kannala-brandt-2006: added 2026-10-06.
   // IEEE TPAMI 28(8), 2006. Crossref byline: J. Kannala, S.S. Brandt.
   {
     id: 'kannala-brandt-2006',
@@ -11913,7 +11707,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TPAMI.2006.153',
     type: 'paper',
   },
-  // anycalib-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // anycalib-2025: added 2026-10-06.
   // arXiv 2503.12701 (ICCV 2025). Single in-the-wild image; pinhole, Brown-Conrady and
   // Kannala-Brandt models.
   {
@@ -11926,7 +11720,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.12701',
     type: 'paper',
   },
-  // khoshelham-kinect-2012: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // khoshelham-kinect-2012: added 2026-10-06.
   // Sensors 12(2), 2012. Random error "ranges from a few millimeters up to about 4 cm at the maximum
   // range of the sensor."
   {
@@ -11938,7 +11732,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.3390/s120201437',
     type: 'paper',
   },
-  // herrera-depth-color-2012: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // herrera-depth-color-2012: added 2026-10-06.
   // IEEE TPAMI 34(10), 2012. Crossref byline prints "Janne Heikkila" without the diaeresis.
   {
     id: 'herrera-depth-color-2012',
@@ -11949,7 +11743,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TPAMI.2012.125',
     type: 'paper',
   },
-  // camera-depth-models-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // camera-depth-models-2025: added 2026-10-06.
   // arXiv 2509.02530. "CDMs achieve nearly simulation-level accuracy in depth prediction".
   {
     id: 'camera-depth-models-2025',
@@ -11960,7 +11754,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.02530',
     type: 'paper',
   },
-  // park-martin-1994: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/classical/perception.citations.ts.
+  // park-martin-1994: added 2026-10-06.
   // IEEE T-RA 10(5), 1994. Closed-form exact and least-squares AX=XB solutions via Lie theory.
   {
     id: 'park-martin-1994',
@@ -11971,7 +11765,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.326576',
     type: 'paper',
   },
-  // daniilidis-1999: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/classical/perception.citations.ts.
+  // daniilidis-1999: added 2026-10-06.
   // IJRR 18(3), 1999. Simultaneous rotation and translation via SVD.
   {
     id: 'daniilidis-1999',
@@ -11982,7 +11776,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/02783649922066213',
     type: 'paper',
   },
-  // apriltag-2011: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // apriltag-2011: added 2026-10-06.
   // ICRA 2011. "allowing full 6 DOF localization of features from a single image".
   {
     id: 'apriltag-2011',
@@ -11993,7 +11787,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA.2011.5979561',
     type: 'paper',
   },
-  // opencv-hand-eye-docs-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/classical/perception.citations.ts.
+  // opencv-hand-eye-docs-2026: added 2026-10-06.
   // calibrateHandEye: "A minimum of 2 motions with non parallel rotation axes are necessary ... So
   // at least 3 different poses are required, but it is strongly recommended to use many more poses."
   // docs.opencv.org returned 403 to the generic UA on 2026-10-04; the same text was matched in
@@ -12007,7 +11801,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html',
     type: 'docs',
   },
-  // moveit-hand-eye-tutorial-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // moveit-hand-eye-tutorial-2026: added 2026-10-06.
   // "The calibration will improve significantly with a few more samples, and will typically plateau
   // after about 12 or 15 samples." Matched 2026-10-04.
   {
@@ -12019,7 +11813,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://moveit.picknik.ai/main/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html',
     type: 'docs',
   },
-  // dream-2019: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // dream-2019: added 2026-10-06.
   // arXiv 1911.09231 (ICRA 2020). Single-frame accuracy "comparable to that of classic off-line
   // hand-eye calibration using multiple frames."
   {
@@ -12032,7 +11826,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1911.09231',
     type: 'paper',
   },
-  // easyhec-2023: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // easyhec-2023: added 2026-10-06.
   // arXiv 2305.01191; IEEE RA-L 8 (2023) 7234-7241.
   {
     id: 'easyhec-2023',
@@ -12044,7 +11838,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2305.01191',
     type: 'paper',
   },
-  // kalib-2024: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // kalib-2024: added 2026-10-06.
   // arXiv 2408.10562. Prerequisites: "the robot's kinematic chain and a predefined reference point
   // on the robot."
   {
@@ -12056,7 +11850,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2408.10562',
     type: 'paper',
   },
-  // hydra-hand-eye-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // hydra-hand-eye-2025: added 2026-10-06.
   // arXiv 2504.20584. "5 mm in task space" against "7 mm in task space".
   {
     id: 'hydra-hand-eye-2025',
@@ -12067,7 +11861,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2504.20584',
     type: 'paper',
   },
-  // drhec-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // drhec-2026: added 2026-10-06.
   // arXiv 2609.36779; IEEE Trans. Instrumentation and Measurement 75 (2026), Art. 7505816. 88.9%
   // grasping, +46.3 points over EasyHeC (authors' claim).
   {
@@ -12080,7 +11874,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.36779',
     type: 'paper',
   },
-  // humanoid-geometric-calibration-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // humanoid-geometric-calibration-2025: added 2026-10-06.
   // arXiv 2507.16369. 31 optimal postures; RMS error reduced by a factor of 2.3 against the
   // manufacturer's model.
   {
@@ -12092,7 +11886,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.16369',
     type: 'paper',
   },
-  // omnicalib-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // omnicalib-2026: added 2026-10-06.
   // arXiv 2609.19582. Left-wrist correction 10.56 mm and 1.74 degrees relative to CAD; writes only
   // supported corrections.
   {
@@ -12104,7 +11898,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.19582',
     type: 'paper',
   },
-  // ieee-1588-2019: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // ieee-1588-2019: added 2026-10-06.
   // IEEE SA standard page, matched 2026-10-04: "The protocol supports synchronization accuracy and
   // precision in the sub-microsecond range". Board approval 2019-11-07; published 2020-06-16.
   {
@@ -12116,7 +11910,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://standards.ieee.org/ieee/1588/6825/',
     type: 'docs',
   },
-  // realtime-vla-v2-2026: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // realtime-vla-v2-2026: added 2026-10-06.
   // arXiv 2603.26360. Delay table for the DOS W1 rig (RealSense D435, Airbot Play): t_camera 55 ms,
   // t_proprio 50 ms, t_motion 150 ms.
   {
@@ -12128,7 +11922,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.26360',
     type: 'paper',
   },
-  // atkeson-an-hollerbach-1986: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // atkeson-an-hollerbach-1986: added 2026-10-06.
   // IJRR 5(3), 1986. Identified parameters beat CAD-derived predictions.
   {
     id: 'atkeson-an-hollerbach-1986',
@@ -12139,7 +11933,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/027836498600500306',
     type: 'paper',
   },
-  // swevers-excitation-1997: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // swevers-excitation-1997: added 2026-10-06.
   // IEEE T-RA 13(5), 1997. Finite Fourier series excitation optimized for parameter uncertainty.
   {
     id: 'swevers-excitation-1997',
@@ -12150,7 +11944,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.631234',
     type: 'paper',
   },
-  // gaz-panda-dynamics-2019: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // gaz-panda-dynamics-2019: added 2026-10-06.
   // IEEE RA-L 4(4), 2019. First identification of the Panda's dynamic coefficients, friction model
   // and feasible parameters.
   {
@@ -12162,7 +11956,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/LRA.2019.2931248',
     type: 'paper',
   },
-  // spi-active-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // spi-active-2025: added 2026-10-06.
   // arXiv 2505.14266. "outperforming baselines by 42-63% in various locomotion tasks."
   {
     id: 'spi-active-2025',
@@ -12173,7 +11967,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.14266',
     type: 'paper',
   },
-  // bjelonic-sim2real-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // bjelonic-sim2real-2025: added 2026-10-06.
   // arXiv 2509.06342; IJRR 2026. Three primary platforms plus ten more robots, without randomization
   // of dynamic parameters.
   {
@@ -12186,7 +11980,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.06342',
     type: 'paper',
   },
-  // calib-all-2025: domain pass 2026-10-06, from drafts/classical/calibration.citations.ts.
+  // calib-all-2025: added 2026-10-06.
   // arXiv 2511.17001 ("CalibAll"). 16 datasets, 4 robot platforms, about 97K calibrated episodes.
   {
     id: 'calib-all-2025',
@@ -12197,7 +11991,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.17001',
     type: 'paper',
   },
-  // fbs-2020: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // fbs-2020: added 2026-10-06.
   // Official free electronic edition, Version v3.1.5 (2020-07-24), linked from fbswiki.org; PDF text
   // read 2026-10-04. Chapter epigraph: "Based on a survey of over eleven thousand controllers in the
   // refining, chemicals and pulp and paper industries, 97% of regulatory controllers utilize a PID
@@ -12213,7 +12007,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://fbswiki.org/wiki/index.php/Main_Page',
     type: 'docs',
   },
-  // berkeley-humanoid-2024: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // berkeley-humanoid-2024: added 2026-10-06.
   // arXiv 2407.21781 v1 2024-07-31. HTML body: "The RL policy executes at 50 Hz, the state estimator
   // at 1 kHz, and the PD controller at 25 kHz."
   {
@@ -12226,8 +12020,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.21781',
     type: 'paper',
   },
-  // koenemann-2015: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
-  // Crossref 10.1109/IROS.2015.7353843 (IROS 2015); byline printed with initials. Pack quote: "It is
+  // koenemann-2015: added 2026-10-06.
+  // Crossref 10.1109/IROS.2015.7353843 (IROS 2015); byline printed with initials. Quote: "It is
   // the first time that such a whole-body model predictive controller is applied in real-time on a
   // complex dynamic robot."
   {
@@ -12239,8 +12033,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/IROS.2015.7353843',
     type: 'paper',
   },
-  // neunert-2018: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
-  // Crossref 10.1109/LRA.2018.2800124 (IEEE RA-L 2018). Pack quote: "allows for running the
+  // neunert-2018: added 2026-10-06.
+  // Crossref 10.1109/LRA.2018.2800124 (IEEE RA-L 2018). Quote: "allows for running the
   // nonlinear Optimal Control solver at rates up to 190 Hz on a quadruped for a time horizon of half
   // a second."
   {
@@ -12252,7 +12046,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/LRA.2018.2800124',
     type: 'paper',
   },
-  // dial-mpc-2024: domain pass 2026-10-06, from drafts/classical/control.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // dial-mpc-2024: added 2026-10-06.
   // arXiv 2409.15610 v1 2024-09-23 (submitted to ICRA 2025). "outperforms reinforcement learning
   // (RL) policies by $50\%$ in challenging climbing tasks without any training"; "To the best of our
   // knowledge, DIAL-MPC is the first training-free method that optimizes over full-order quadruped
@@ -12267,8 +12061,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.15610',
     type: 'paper',
   },
-  // escande-2014: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
-  // Crossref 10.1177/0278364914521306 (IJRR 2014). Pack quote: "can consider inequalities at any
+  // escande-2014: added 2026-10-06.
+  // Crossref 10.1177/0278364914521306 (IJRR 2014). Quote: "can consider inequalities at any
   // level while running at the typical control frequency on whole-body size problems."
   {
     id: 'escande-2014',
@@ -12279,8 +12073,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/0278364914521306',
     type: 'paper',
   },
-  // kuindersma-2015: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
-  // Crossref 10.1007/s10514-015-9479-3 (Autonomous Robots, 2015). Pack quote: "we describe several
+  // kuindersma-2015: added 2026-10-06.
+  // Crossref 10.1007/s10514-015-9479-3 (Autonomous Robots, 2015). Quote: "we describe several
   // novel applications of convex, mixed-integer, and sparse nonlinear optimization to problems
   // ranging from footstep placement to whole-body planning and control."
   {
@@ -12292,7 +12086,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1007/s10514-015-9479-3',
     type: 'paper',
   },
-  // geiger-impedance-2025: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // geiger-impedance-2025: added 2026-10-06.
   // arXiv 2509.19696 v1 2025-09-24. "adapt impedance online through directional stiffness and
   // damping modulation"; "Deployed in real-time torque control on a KUKA LBR iiwa, the approach
   // enables smooth obstacle traversal and generalizes to unseen tasks, achieving 100% success in
@@ -12307,10 +12101,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.19696',
     type: 'paper',
   },
-  // hartmann-iso-2026: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
-  // Crossref 10.1016/j.rineng.2026.110486 (Results in Engineering, 2026). Pack quote: "the full
+  // hartmann-iso-2026: added 2026-10-06.
+  // Crossref 10.1016/j.rineng.2026.110486 (Results in Engineering, 2026). Quote: "the full
   // normative assimilation of the technical specification ISO/TS 15066". The Elsevier page returned
-  // 403 and Crossref carries no abstract on 2026-10-04; relies on the pack researcher's read.
+  // 403 and Crossref carries no abstract on 2026-10-04; relies on an earlier reading of the page.
   {
     id: 'hartmann-iso-2026',
     title: 'Evolution of safety requirements in industrial robotics: Comparative analysis of ISO 10218-1/2 (2011 vs. 2025) and integration of ISO/TS 15066',
@@ -12320,7 +12114,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1016/j.rineng.2026.110486',
     type: 'paper',
   },
-  // safety-filter-2023: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // safety-filter-2023: added 2026-10-06.
   // arXiv 2309.05837 v1 2023-09-11 (Annual Review of Control, Robotics, and Autonomous Systems).
   // "emerging data-driven approaches tend to lack well-understood guarantees, which can result in
   // unpredictable catastrophic failures"; "This article provides a review of safety filter
@@ -12335,7 +12129,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2309.05837',
     type: 'paper',
   },
-  // ishihara-2024: domain pass 2026-10-06, from drafts/classical/control.citations.ts.
+  // ishihara-2024: added 2026-10-06.
   // arXiv 2409.08488 v1 2024-09-13. "The simulation-to-real gap problem and the high computational
   // burden of whole-body Model Predictive Control (whole-body MPC) continue to present challenges";
   // "an augmented model using a deep residual network is trained by model-based reinforcement
@@ -12350,7 +12144,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.08488',
     type: 'paper',
   },
-  // dierking-2026: domain pass 2026-10-06, from drafts/classical/control.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // dierking-2026: added 2026-10-06.
   // arXiv 2606.20712 v1 2026-06-16 (ICRA 2026 workshop). "deploy it on a Franka Research 3"; "global
   // physics parameters provide feedback that is too weak for reliable exploitation at typical
   // replanning frequencies".
@@ -12364,7 +12158,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.20712',
     type: 'paper',
   },
-  // salisbury-roth-1983: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // salisbury-roth-1983: added 2026-10-06.
   // ASME J. Mechanisms, Transmissions, and Automation in Design 105(1), 1983. Crossref byline: J. K.
   // Salisbury, B. Roth.
   {
@@ -12376,7 +12170,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1115/1.3267342',
     type: 'paper',
   },
-  // han-trinkle-li-2000: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // han-trinkle-li-2000: added 2026-10-06.
   // IEEE T-RA 16(6), 2000. Friction cones cast as LMIs; force-closure and force-optimization
   // problems as convex programs.
   {
@@ -12388,7 +12182,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.897778',
     type: 'paper',
   },
-  // kao-lynch-burdick-2016: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // kao-lynch-burdick-2016: added 2026-10-06.
   // Springer Handbook of Robotics, 2nd ed. (2016), chapter 37. Friction limit surface constructed
   // for a soft contact.
   {
@@ -12400,7 +12194,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1007/978-3-319-32552-1_37',
     type: 'paper',
   },
-  // dexonomy-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // dexonomy-2025: added 2026-10-06.
   // arXiv 2504.18829 (RSS 2025). 10.7k objects, 9.5M grasps, 31 GRASP types.
   {
     id: 'dexonomy-2025',
@@ -12412,7 +12206,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2504.18829',
     type: 'paper',
   },
-  // graspqp-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // graspqp-2025: added 2026-10-06.
   // arXiv 2508.15002. Simplified force-closure analysis "tend[s] to converge to power grasps".
   {
     id: 'graspqp-2025',
@@ -12423,7 +12217,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.15002',
     type: 'paper',
   },
-  // liu-closure-lp-1999: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // liu-closure-lp-1999: added 2026-10-06.
   // IEEE T-RA 15(1), 1999. Origin-in-hull query as ray shooting, dual to an LP. Crossref byline:
   // Yun-Hui Liu.
   {
@@ -12435,7 +12229,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.744611',
     type: 'paper',
   },
-  // task-wrench-boundary-2023: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // task-wrench-boundary-2023: added 2026-10-06.
   // arXiv 2309.13586. Task Wrench Space versus Grasp Wrench Space objective.
   {
     id: 'task-wrench-boundary-2023',
@@ -12446,7 +12240,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2309.13586',
     type: 'paper',
   },
-  // zheng-qian-2005: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // zheng-qian-2005: added 2026-10-06.
   // IJRR 24(4), 2005. "Friction uncertainty and contact position uncertainty may have a disastrous
   // effect on the closure properties of grasps."
   {
@@ -12458,7 +12252,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/0278364905049469',
     type: 'paper',
   },
-  // differentiable-force-closure-2021: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // differentiable-force-closure-2021: added 2026-10-06.
   // arXiv 2104.09194 (RA-L). Tests force closure "within milliseconds".
   {
     id: 'differentiable-force-closure-2021',
@@ -12470,7 +12264,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2104.09194',
     type: 'paper',
   },
-  // kirkpatrick-mishra-yap-1992: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // kirkpatrick-mishra-yap-1992: added 2026-10-06.
   // Discrete & Computational Geometry 7, 1992 (STOC 1990 conference version:
   // https://doi.org/10.1145/100216.100261). Quantitative Steinitz theorem as a notion of efficiency
   // for closure grasps.
@@ -12483,7 +12277,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1007/BF02187843',
     type: 'paper',
   },
-  // pokorny-kragic-2013: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // pokorny-kragic-2013: added 2026-10-06.
   // IROS 2013. l-edge polyhedral cone approximation; Lipschitz continuity of the quality measure.
   {
     id: 'pokorny-kragic-2013',
@@ -12494,7 +12288,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/IROS.2013.6696854',
     type: 'paper',
   },
-  // firmgrasp-2026: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // firmgrasp-2026: added 2026-10-06.
   // arXiv 2607.25049. "53% of the nominally force-closed grasps lose closure in the adverse friction
   // tail" / ranking probability "only 0.53 in the shake test".
   {
@@ -12506,7 +12300,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.25049',
     type: 'paper',
   },
-  // weisz-allen-2012: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // weisz-allen-2012: added 2026-10-06.
   // ICRA 2012. The most pose-error-robust grasp is usually not the highest- epsilon grasp.
   {
     id: 'weisz-allen-2012',
@@ -12517,7 +12311,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA.2012.6224697',
     type: 'paper',
   },
-  // rubert-grasp-metrics-2017: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // rubert-grasp-metrics-2017: added 2026-10-06.
   // IROS 2017. Good prediction "critically depends on using a combination of metrics as input
   // features."
   {
@@ -12529,7 +12323,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/IROS.2017.8202167',
     type: 'paper',
   },
-  // li-sastry-1988: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // li-sastry-1988: added 2026-10-06.
   // IEEE J. Robotics and Automation 4(1), 1988. Crossref byline: Z. Li, S.S. Sastry. Tasks modeled
   // as ellipsoids in wrench space.
   {
@@ -12541,7 +12335,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/56.769',
     type: 'paper',
   },
-  // borst-task-wrench-2004: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // borst-task-wrench-2004: added 2026-10-06.
   // ICRA 2004. Drawbacks "derive from the non-uniformity of the wrench space, composed of force and
   // torque dimensions."
   {
@@ -12553,7 +12347,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ROBOT.2004.1307170',
     type: 'paper',
   },
-  // frogger-2023: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // frogger-2023: added 2026-10-06.
   // arXiv 2302.13687 (IROS 2023). Min-weight metric; "median synthesis time of 0.834s".
   {
     id: 'frogger-2023',
@@ -12565,7 +12359,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2302.13687',
     type: 'paper',
   },
-  // dexnet-4-2019: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts; also drafts/data-hardware/industrial-deployment.citations.ts.
+  // dexnet-4-2019: added 2026-10-06.
   // Science Robotics 4(26), 2019 (Dex-Net 4.0). Bins of up to 25 novel objects, >95% reliability,
   // >300 mean picks per hour.
   {
@@ -12577,7 +12371,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/scirobotics.aau4984',
     type: 'paper',
   },
-  // graspnet-1billion-2020: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // graspnet-1billion-2020: added 2026-10-06.
   // CVPR 2020. 97,280 RGB-D images, over one billion grasp poses, analytic evaluation.
   {
     id: 'graspnet-1billion-2020',
@@ -12588,7 +12382,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/CVPR42600.2020.01146',
     type: 'paper',
   },
-  // dexgraspnet-2-2024: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // dexgraspnet-2-2024: added 2026-10-06.
   // arXiv 2410.23004 (CoRL 2024). 427 million grasps; 90.7% real-world dexterous grasping in
   // cluttered scenes.
   {
@@ -12601,7 +12395,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.23004',
     type: 'paper',
   },
-  // graspgen-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // graspgen-2025: added 2026-10-06.
   // arXiv 2507.13097 (NVIDIA). Over 53 million grasps; labels by simulated shaking in Isaac.
   {
     id: 'graspgen-2025',
@@ -12612,7 +12406,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.13097',
     type: 'paper',
   },
-  // bodex-2024: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // bodex-2024: added 2026-10-06.
   // arXiv 2412.16490 (ICRA 2025). 8-vertex pyramidal cones; over 49 grasps per second on a single
   // 3090 GPU.
   {
@@ -12625,7 +12419,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2412.16490',
     type: 'paper',
   },
-  // dexevolve-2026: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // dexevolve-2026: added 2026-10-06.
   // arXiv 2602.15201. Analytic synthesis "often yield[s] physically infeasible grasps that need to
   // be filtered in high-fidelity simulators".
   {
@@ -12637,7 +12431,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.15201',
     type: 'paper',
   },
-  // grasp-distance-fields-2026: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // grasp-distance-fields-2026: added 2026-10-06.
   // arXiv 2608.00600. Median 94% of synthesized quality margin retained; 0.09 ms per QP solve within
   // a 20 ms control interval.
   {
@@ -12649,7 +12443,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.00600',
     type: 'paper',
   },
-  // get-a-grip-2024: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // get-a-grip-2024: added 2026-10-06.
   // arXiv 2410.23701. 3.5M grasps on 4.3K objects; most methods degrade when deployed on hardware.
   {
     id: 'get-a-grip-2024',
@@ -12660,7 +12454,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.23701',
     type: 'paper',
   },
-  // robustdexgrasp-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // robustdexgrasp-2025: added 2026-10-06.
   // arXiv 2504.05287 (CoRL 2025). "Trained in simulation ... 94.6% across 512 real objects".
   {
     id: 'robustdexgrasp-2025',
@@ -12672,7 +12466,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2504.05287',
     type: 'paper',
   },
-  // graspvla-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // graspvla-2025: added 2026-10-06.
   // arXiv 2505.03233. SynGrasp-1B, a billion-frame synthetic grasping dataset.
   {
     id: 'graspvla-2025',
@@ -12683,7 +12477,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.03233',
     type: 'paper',
   },
-  // dexgraspvla-2025: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // dexgraspvla-2025: added 2026-10-06.
   // arXiv 2502.20900. "90+% dexterous grasping success rate under thousands of challenging unseen
   // cluttered scenes."
   {
@@ -12695,7 +12489,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.20900',
     type: 'paper',
   },
-  // touch-dexterous-grasping-2026: domain pass 2026-10-06, from drafts/classical/grasp-planning.citations.ts.
+  // touch-dexterous-grasping-2026: added 2026-10-06.
   // arXiv 2609.24068. Vision plus wrench and taxel feedback: 24/25 against 14/25 for vision only.
   {
     id: 'touch-dexterous-grasping-2026',
@@ -12706,7 +12500,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.24068',
     type: 'paper',
   },
-  // corke-dh-2007: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // corke-dh-2007: added 2026-10-06.
   // Crossref byline prints "P.I. Corke". Standard and modified DH from one string of elementary
   // transforms.
   {
@@ -12718,7 +12512,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TRO.2007.896765',
     type: 'paper',
   },
-  // okamura-park-1996: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // okamura-park-1996: added 2026-10-06.
   // Robotica 14(4), 1996. POE parameters vary smoothly with the joint axes, unlike DH parameters.
   {
     id: 'okamura-park-1996',
@@ -12729,7 +12523,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1017/S0263574700019810',
     type: 'paper',
   },
-  // brockett-1984: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // brockett-1984: added 2026-10-06.
   // Mathematical Theory of Networks and Systems, Springer LNCIS vol. 58 (1984). Crossref carries no
   // issued year for the chapter; 1984 is the volume's publication year.
   {
@@ -12741,7 +12535,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1007/BFb0031048',
     type: 'paper',
   },
-  // urdf-dataset-2023: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // urdf-dataset-2023: added 2026-10-06.
   // arXiv 2308.00514 (IEEE RA-L 2024): 322 URDF files, 195 unique robots.
   {
     id: 'urdf-dataset-2023',
@@ -12752,7 +12546,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2308.00514',
     type: 'paper',
   },
-  // yoshikawa-1985: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // yoshikawa-1985: added 2026-10-06.
   // IJRR 4(2), 1985. Proposes the manipulability measure.
   {
     id: 'yoshikawa-1985',
@@ -12763,7 +12557,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/027836498500400201',
     type: 'paper',
   },
-  // siciliano-slotine-1991: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // siciliano-slotine-1991: added 2026-10-06.
   // ICAR '91. Task-priority framework for highly redundant systems.
   {
     id: 'siciliano-slotine-1991',
@@ -12774,7 +12568,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICAR.1991.240390',
     type: 'paper',
   },
-  // nakamura-hanafusa-1986: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // nakamura-hanafusa-1986: added 2026-10-06.
   // ASME JDSMC 108(3), 1986. Introduces the singularity-robust inverse.
   {
     id: 'nakamura-hanafusa-1986',
@@ -12785,7 +12579,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1115/1.3143764',
     type: 'paper',
   },
-  // raghavan-roth-1993: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // raghavan-roth-1993: added 2026-10-06.
   // ASME J. Mechanical Design 115(3), 1993. Crossref byline: M. Raghavan, B. Roth. General 6R IK as
   // one minimum-degree polynomial.
   {
@@ -12797,7 +12591,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1115/1.2919218',
     type: 'paper',
   },
-  // manocha-canny-1994: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // manocha-canny-1994: added 2026-10-06.
   // IEEE T-RA 10(5), 1994. "The average running time of the algorithm, for most cases, is 11
   // milliseconds on an IBM RS/6000 workstation."
   {
@@ -12809,7 +12603,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.326569',
     type: 'paper',
   },
-  // ikfast-diankov-2010: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // ikfast-diankov-2010: added 2026-10-06.
   // PhD thesis, CMU-RI-TR-10-29, August 2010 (IKFast). "on the order of 6 microseconds" against "on
   // the order of 10 milliseconds".
   {
@@ -12821,7 +12615,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.ri.cmu.edu/publications/automated-construction-of-robotic-manipulation-programs/',
     type: 'paper',
   },
-  // trac-ik-2015: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // trac-ik-2015: added 2026-10-06.
   // IEEE-RAS Humanoids 2015. KDL false negatives; TRAC-IK alternative.
   {
     id: 'trac-ik-2015',
@@ -12832,7 +12626,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/HUMANOIDS.2015.7363472',
     type: 'paper',
   },
-  // curobo-2023: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/motion-planning.citations.ts.
+  // curobo-2023: added 2026-10-06.
   // arXiv 2310.17274 v1 2023-10-26. "a collision-free IK solver that can solve over 7000 queries/s".
   {
     id: 'curobo-2023',
@@ -12843,7 +12637,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2310.17274',
     type: 'paper',
   },
-  // pyroki-2025: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // pyroki-2025: added 2026-10-06.
   // arXiv 2505.03728. "PyRoki can be 1.4-1.7x faster and converges to lower errors than cuRobo".
   {
     id: 'pyroki-2025',
@@ -12854,7 +12648,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.03728',
     type: 'paper',
   },
-  // ikflow-2021: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // ikflow-2021: added 2026-10-06.
   // arXiv 2111.08933 (IEEE RA-L 2022). "2000 solutions in under 10ms", "within 10 millimeters and 2
   // degrees of an exact solution".
   {
@@ -12866,7 +12660,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2111.08933',
     type: 'paper',
   },
-  // rl-action-spaces-2026: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // rl-action-spaces-2026: added 2026-10-06.
   // arXiv 2606.18594. Joint velocity best for vision-based picking and pushing among four action
   // spaces.
   {
@@ -12878,7 +12672,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.18594',
     type: 'paper',
   },
-  // latent-action-diffusion-2025: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
+  // latent-action-diffusion-2025: added 2026-10-06.
   // arXiv 2506.14608 (ICRA 2026). "up to 25.3% improved manipulation success rates".
   {
     id: 'latent-action-diffusion-2025',
@@ -12889,7 +12683,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.14608',
     type: 'paper',
   },
-  // gmr-retargeting-2025: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // gmr-retargeting-2025: added 2026-10-06.
   // arXiv 2510.02252 (ICRA 2026). Retargeting artifacts reduce tracking policy robustness.
   {
     id: 'gmr-retargeting-2025',
@@ -12900,7 +12694,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.02252',
     type: 'paper',
   },
-  // rep-103-2010: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // rep-103-2010: added 2026-10-06.
   // ROS Enhancement Proposal 103 (Active, 2010). ros.org served a bot challenge to the researchers;
   // quotes were read from the official REP source, ros-infrastructure/rep, rep-0103.rst.
   {
@@ -12912,7 +12706,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.ros.org/reps/rep-0103.html',
     type: 'docs',
   },
-  // rep-105-2010: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // rep-105-2010: added 2026-10-06.
   // ROS Enhancement Proposal 105 (Active, 2010). Quotes read from the official REP source,
   // ros-infrastructure/rep, rep-0105.rst.
   {
@@ -12924,7 +12718,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.ros.org/reps/rep-0105.html',
     type: 'docs',
   },
-  // tf-library-2013: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts; also drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // tf-library-2013: added 2026-10-06.
   // IEEE TePRA 2013. Frame bookkeeping as a common source of bugs.
   {
     id: 'tf-library-2013',
@@ -12935,8 +12729,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TePRA.2013.6556373',
     type: 'paper',
   },
-  // lerobot-so101-docs-2026: domain pass 2026-10-06, from drafts/classical/kinematics.citations.ts.
-  // LeRobot SO-101 page, read 2026-10-02 for the source pack: leader and follower calibration; 6x
+  // lerobot-so101-docs-2026: added 2026-10-06.
+  // LeRobot SO-101 page, read 2026-10-02: leader and follower calibration; 6x
   // STS3215 motors with 1/345 gearing.
   {
     id: 'lerobot-so101-docs-2026',
@@ -12947,7 +12741,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://huggingface.co/docs/lerobot/so101',
     type: 'docs',
   },
-  // solovey-complexity-2020: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // solovey-complexity-2020: added 2026-10-06.
   // arXiv 2003.03632 v1 2020-03-07; chapter for the Encyclopedia of Robotics. PDF text: "the problem
   // is PSPACE-hard for a planar mechanical linkage robot with multiple links ( Hopcroft et al 1984a
   // ) and for for a multi-arm robot in a 3-dimensional polyhedral environment ( Reif 1979 )"; "a
@@ -12962,7 +12756,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2003.03632',
     type: 'paper',
   },
-  // mcvamp-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // mcvamp-2026: added 2026-10-06.
   // arXiv 2604.13323 v1 2026-04-14. "Current state-of-the-art methods can take tens of seconds to
   // solve these tasks for complex systems such as humanoid robots"; "CPU SIMD-accelerated
   // manifold-constrained motion planner"; "Our approach achieves up to 100-1000x speed-ups over the
@@ -12977,7 +12771,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2604.13323',
     type: 'paper',
   },
-  // flask-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // flask-2026: added 2026-10-06.
   // arXiv 2603.16059 v1 2026-03-17; comment: accepted at Transactions on Robotics. "requires solving
   // either challenging two-point boundary value problems (BVPs) or propagating robot dynamics";
   // "differentially flat robot systems"; "closed-form dynamically feasible trajectory"; "requiring
@@ -12992,8 +12786,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.16059',
     type: 'paper',
   },
-  // rrt-connect-2000: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
-  // Crossref 10.1109/ROBOT.2000.844730 (ICRA 2000); byline printed with initials. Pack quote: "The
+  // rrt-connect-2000: added 2026-10-06.
+  // Crossref 10.1109/ROBOT.2000.844730 (ICRA 2000); byline printed with initials. Quote: "The
   // method works by incrementally building two rapidly-exploring random trees (RRTs) rooted at the
   // start and the goal configurations."
   {
@@ -13005,7 +12799,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ROBOT.2000.844730',
     type: 'paper',
   },
-  // orthey-review-2023: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // orthey-review-2023: added 2026-10-06.
   // arXiv 2309.13119 v1 2023-09-22; accepted for Annual Review of Control, Robotics, and Autonomous
   // Systems vol. 7 (2024). Abstract: "compared on 24 challenging planning problems"; HTML body:
   // "RRT-Connect has the best overall success rate".
@@ -13019,7 +12813,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2309.13119',
     type: 'paper',
   },
-  // vamp-2023: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // vamp-2023: added 2026-10-06.
   // arXiv 2309.14545 v1 2023-09-25 (submitted to ICRA 2024). "performance improvements of more than
   // 500x over the state-of-the-art, bringing planning times into the range of microseconds and
   // solution rates into the range of kilohertz, without specialized hardware"; "exploit fine-grained
@@ -13035,7 +12829,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2309.14545',
     type: 'paper',
   },
-  // prrtc-2025: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // prrtc-2025: added 2026-10-06.
   // arXiv 2503.06757 v1 2025-03-09. "co-designed for GPU acceleration across the entire algorithm";
   // "pRRTC achieves as much as a 10x speedup on constrained reaching tasks with a 5.4x reduction in
   // standard deviation".
@@ -13049,7 +12843,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.06757',
     type: 'paper',
   },
-  // ompl-2-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // ompl-2-2026: added 2026-10-06.
   // arXiv 2605.29301 v1 2026-05-28. "we introduce OMPL 2.0, a major evolution of the library that
   // targets real-time motion planning through hardware acceleration".
   {
@@ -13062,7 +12856,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.29301',
     type: 'paper',
   },
-  // ompl-release-notes-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // ompl-release-notes-2026: added 2026-10-06.
   // Live page read 2026-10-04: "OMPL 2.0.0 (April 6, 2026)"; "Added VAMP (Vector-Accelerated Motion
   // Planning) as an optional high-performance backend for collision checking and motion validation
   // VAMP leverages SIMD instructions to accelerate forward kinematics and collision detection,
@@ -13078,7 +12872,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://ompl.kavrakilab.org/releaseNotes.html',
     type: 'docs',
   },
-  // fmt-star-2013: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // fmt-star-2013: added 2026-10-06.
   // arXiv 1306.3532 v1 2013-06-15 (later IJRR). "the extra mathematical flexibility of this approach
   // allows for convergence rate bounds--the first in the field of optimal sampling-based motion
   // planning".
@@ -13092,7 +12886,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1306.3532',
     type: 'paper',
   },
-  // bit-star-2017: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // bit-star-2017: added 2026-10-06.
   // arXiv 1707.01888 v1 2017-07-06; journal ref IJRR 39(5):543-567, 2020. "Its search is ordered by
   // potential solution quality, as in A*, and its approximation improves indefinitely with
   // additional computational time, as in RRT*."
@@ -13106,7 +12900,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1707.01888',
     type: 'paper',
   },
-  // aorrtc-2025: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // aorrtc-2025: added 2026-10-06.
   // arXiv 2505.10542 v1 2025-05-15; journal ref IEEE RA-L 10(12):13375-13382. "AORRTC finds initial
   // solutions as fast as RRT-Connect"; "AORRTC finds solutions to difficult high-DoF planning
   // problems in milliseconds where the other a.s.a.o. planners could not consistently find solutions
@@ -13121,7 +12915,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.10542',
     type: 'paper',
   },
-  // gcs-2022: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // gcs-2022: added 2026-10-06.
   // arXiv 2205.04422 v1 2022-05-09; journal version Science Robotics 2023, DOI
   // 10.1126/scirobotics.adf7843. arXiv abstract: "the convex relaxation of our programs is very
   // tight, and a cheap rounding of its solution is typically sufficient to design globally-optimal
@@ -13136,8 +12930,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2205.04422',
     type: 'paper',
   },
-  // chomp-ijrr-2013: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
-  // Crossref 10.1177/0278364913488805 (IJRR 2013). Pack quote: "It uses Hamiltonian Monte Carlo to
+  // chomp-ijrr-2013: added 2026-10-06.
+  // Crossref 10.1177/0278364913488805 (IJRR 2013). Quote: "It uses Hamiltonian Monte Carlo to
   // alleviate the problem of convergence to high-cost local minima (and for probabilistic
   // completeness), and is capable of respecting hard constraints along the trajectory."
   {
@@ -13149,8 +12943,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/0278364913488805',
     type: 'paper',
   },
-  // stomp-2011: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
-  // Crossref 10.1109/ICRA.2011.5980280 (ICRA 2011). Pack quote: "We experimentally show that the
+  // stomp-2011: added 2026-10-06.
+  // Crossref 10.1109/ICRA.2011.5980280 (ICRA 2011). Quote: "We experimentally show that the
   // stochastic nature of STOMP allows it to overcome local minima that gradient-based methods like
   // CHOMP can get stuck in."
   {
@@ -13162,8 +12956,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA.2011.5980280',
     type: 'paper',
   },
-  // trajopt-ijrr-2014: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
-  // Crossref 10.1177/0278364914528132 (IJRR 2014). Pack quote: "We consider motion planning for 7
+  // trajopt-ijrr-2014: added 2026-10-06.
+  // Crossref 10.1177/0278364914528132 (IJRR 2014). Quote: "We consider motion planning for 7
   // DOF robot arms, 18 DOF full-body robots, statically stable walking motion for the 34 DOF Atlas
   // humanoid robot, and physical experiments with the 18 DOF PR2."
   {
@@ -13175,7 +12969,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/0278364914528132',
     type: 'paper',
   },
-  // industrial-curobo-2025: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // industrial-curobo-2025: added 2026-10-06.
   // arXiv 2508.04146 v1 2025-08-06. Abstract: "including a 7th-axis gantry"; HTML body: "Planning
   // Time : cuRobo: 45 ± 8ms, MoveIt: 1,200 ± 400ms"; "Planning was performed in ROS2 environment
   // with RViz visualization using OMPL's RRTConnect planner."
@@ -13189,7 +12983,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.04146',
     type: 'paper',
   },
-  // mr-pop-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // mr-pop-2026: added 2026-10-06.
   // arXiv 2609.30644 v1 2026-09-25. "a GPU-based a.s.a.o. multi-robot planner"; "MR. POP also raises
   // the success rate of downstream motion optimizers (e.g., from 4% to 72%), by creating
   // high-quality, diverse seeds that help avoid local minima."
@@ -13203,8 +12997,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.30644',
     type: 'paper',
   },
-  // hauser-shortcut-2010: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
-  // Crossref 10.1109/ROBOT.2010.5509683 (ICRA 2010). Pack quote: "The heuristic repeatedly picks two
+  // hauser-shortcut-2010: added 2026-10-06.
+  // Crossref 10.1109/ROBOT.2010.5509683 (ICRA 2010). Quote: "The heuristic repeatedly picks two
   // points on the trajectory and attempts to replace the intermediate trajectory with a shorter,
   // collision-free segment."
   {
@@ -13216,7 +13010,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ROBOT.2010.5509683',
     type: 'paper',
   },
-  // moveit-trajectory-processing-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // moveit-trajectory-processing-2026: added 2026-10-06.
   // Live page read 2026-10-04: "The recommended algorithm as of January 2023 is
   // TimeOptimalTrajectoryGeneration (TOTG)." No individual byline; follows the registry precedent of
   // moveit-planning-scene-2026.
@@ -13229,7 +13023,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://moveit.picknik.ai/main/doc/concepts/trajectory_processing.html',
     type: 'docs',
   },
-  // moveit-time-parameterization-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // moveit-time-parameterization-2026: added 2026-10-06.
   // Live page read 2026-10-04: "A time parameterization algorithm such as TOTG calculates velocities
   // and accelerations for a trajectory, but none of the time parameterization algorithms support
   // jerk limits."; "As a further post-processing step, the Ruckig jerk-limited smoothing algorithm
@@ -13244,7 +13038,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://moveit.picknik.ai/main/doc/examples/time_parameterization/time_parameterization_tutorial.html',
     type: 'docs',
   },
-  // moveit-pro-10-1-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // moveit-pro-10-1-2026: added 2026-10-06.
   // Live page read 2026-10-04 (datePublished 2026-09-18). "Fixed the ProRRT shortcut stage
   // validating segments more coarsely than the planner's own step, which let paths pass through
   // obstacles between collision checks."; "Fixed ValidateTrajectory checking the wrong robot
@@ -13259,7 +13053,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.picknik.ai/release-notes/2026/09/18/10.1.0',
     type: 'docs',
   },
-  // mpinets-2022: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // mpinets-2022: added 2026-10-06.
   // arXiv 2210.12209 v1 2022-10-21 (CoRL 2022). "M$\pi$Nets are trained on over 3 million motion
   // planning problems in over 500,000 environments." Second author printed "Adithyavairan Murali" in
   // the arXiv record; kept as printed.
@@ -13273,7 +13067,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2210.12209',
     type: 'paper',
   },
-  // neural-mp-2024: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // neural-mp-2024: added 2026-10-06.
   // arXiv 2409.05864 v1 2024-09-09. "collects expert data from a motion planner, then distills it
   // into a reactive generalist policy. We then combine this with lightweight optimization to obtain
   // a safe path for real world deployment."; "improvement of 23%, 17% and 79% motion planning
@@ -13288,7 +13082,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.05864',
     type: 'paper',
   },
-  // deep-reactive-policy-2025: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // deep-reactive-policy-2025: added 2026-10-06.
   // arXiv 2509.06953 v1 2025-09-08. HTML body: "we replace AIT* with cuRobo as the expert motion
   // planner. Due to its GPU acceleration, cuRobo allows us to scale data generation to 10 million
   // expert trajectories."; "Sampling-based planners such as AIT* completely fail in dynamic
@@ -13305,8 +13099,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.06953',
     type: 'paper',
   },
-  // totg-2012: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
-  // Crossref 10.15607/rss.2012.viii.027 (RSS VIII, 2012). Pack quote: "This paper presents a novel
+  // totg-2012: added 2026-10-06.
+  // Crossref 10.15607/rss.2012.viii.027 (RSS VIII, 2012). Quote: "This paper presents a novel
   // method to generate the time-optimal trajectory that exactly follows a given differentiable
   // joint-space path within given bounds on joint accelerations and velocities."
   {
@@ -13318,7 +13112,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.15607/rss.2012.viii.027',
     type: 'paper',
   },
-  // ruckig-2021: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // ruckig-2021: added 2026-10-06.
   // arXiv 2105.04830 v1 2021-05-11 (RSS 2021). "We evaluate the robustness and real-time capability
   // of the proposed algorithm on a test suite with over 1,000,000,000 random trajectories as well as
   // in real-world applications."
@@ -13332,7 +13126,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2105.04830',
     type: 'paper',
   },
-  // curobo-v2-2026: domain pass 2026-10-06, from drafts/classical/motion-planning.citations.ts.
+  // curobo-v2-2026: added 2026-10-06.
   // arXiv 2603.05493 v1 2026-03-05 (NVIDIA technical report). "Current methods are fragmented: fast
   // planners output physically unexecutable trajectories"; "cuRoboV2 achieves 99.7% success under
   // 3kg payload (where baselines achieve only 72--77%)".
@@ -13346,7 +13140,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.05493',
     type: 'paper',
   },
-  // dope-2018: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // dope-2018: added 2026-10-06.
   // arXiv 1809.10790 abstract: "this is the first deep network trained only on synthetic data that
   // is able to achieve state-of-the-art performance on 6-DoF object pose estimation", "perform
   // competitively against a state-of-the-art network trained on a combination of real and synthetic
@@ -13362,7 +13156,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1809.10790',
     type: 'paper',
   },
-  // enebuse-2022: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // enebuse-2022: added 2026-10-06.
   // PLOS ONE 17(10): e0273261, published 2022-10-19 (article page and Crossref). Abstract: "the
   // simultaneous methods are more resistant to rotation noise, whereas the separate methods are
   // better at dealing with translation noise. Additionally, while increasing the robot rotation
@@ -13380,7 +13174,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1371/journal.pone.0273261',
     type: 'paper',
   },
-  // realsense-spinout-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // realsense-spinout-2025: added 2026-10-06.
   // Press release dated July 11, 2025 (datePublished 2025-07-11): "RealSense, a pioneer in
   // AI-powered computer vision, today announced its successful spinout from Intel Corporation and
   // the close of a $50 million Series A funding round."
@@ -13393,7 +13187,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.realsenseai.com/news-insights/news/realsense-completes-spin-out-from-intel-raises-50-million-to-accelerate-ai-powered-vision-for-robotics-and-biometrics/',
     type: 'press',
   },
-  // foundationstereo-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // foundationstereo-2025: added 2026-10-06.
   // arXiv 2501.09898 abstract: "a foundation model for stereo depth estimation designed to achieve
   // strong zero-shot generalization" and "we first construct a large-scale (1M stereo pairs)
   // synthetic training dataset featuring large diversity and high photorealism".
@@ -13407,7 +13201,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2501.09898',
     type: 'paper',
   },
-  // depth-pro-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // depth-pro-2024: added 2026-10-06.
   // arXiv 2410.02073 abstract: "The predictions are metric, with absolute scale, without relying on
   // the availability of metadata such as camera intrinsics. And the model is fast, producing a
   // 2.25-megapixel depth map in 0.3 seconds on a standard GPU."
@@ -13421,7 +13215,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.02073',
     type: 'paper',
   },
-  // prompt-depth-anything-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // prompt-depth-anything-2024: added 2026-10-06.
   // arXiv 2412.14015 abstract: "we use a low-cost LiDAR as the prompt to guide the Depth Anything
   // model for accurate metric depth output, achieving up to 4K resolution".
   {
@@ -13434,7 +13228,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2412.14015',
     type: 'paper',
   },
-  // transcg-2022: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // transcg-2022: added 2026-10-06.
   // arXiv 2202.08471 abstract: "ordinary depth sensors usually fail to produce accurate depth
   // information for transparent objects owing to the reflection and refraction of light" and
   // "contains 57,715 RGB-D images from 130 different scenes".
@@ -13448,7 +13242,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2202.08471',
     type: 'paper',
   },
-  // dreds-2022: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // dreds-2022: added 2026-10-06.
   // arXiv 2208.03792 abstract: "Commercial depth sensors usually generate noisy and missing depths,
   // especially on specular and transparent objects", "simulate an active stereo depth system using
   // physically based rendering", "130K photorealistic RGB images along with their simulated depths
@@ -13464,7 +13258,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2208.03792',
     type: 'paper',
   },
-  // mask-rcnn-2017: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // mask-rcnn-2017: added 2026-10-06.
   // arXiv 1703.06870 abstract: "The method, called Mask R-CNN, extends Faster R-CNN by adding a
   // branch for predicting an object mask in parallel with the existing branch for bounding box
   // recognition."
@@ -13478,7 +13272,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1703.06870',
     type: 'paper',
   },
-  // owlv2-2023: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // owlv2-2023: added 2026-10-06.
   // arXiv 2306.09683 abstract: "self-training, which uses an existing detector to generate
   // pseudo-box annotations on image-text pairs", "with OWL-ST, we can scale to over 1B examples" and
   // "With an L/14 architecture, OWL-ST improves AP on LVIS rare classes, for which the model has
@@ -13492,7 +13286,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2306.09683',
     type: 'paper',
   },
-  // grounding-dino-1-5-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // grounding-dino-1-5-2024: added 2026-10-06.
   // arXiv 2405.10300 abstract: "the Grounding DINO 1.5 Edge model, when optimized with TensorRT,
   // achieves a speed of 75.2 FPS while attaining a zero-shot performance of 36.2 AP on the
   // LVIS-minival benchmark".
@@ -13505,7 +13299,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2405.10300',
     type: 'paper',
   },
-  // dinov3-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // dinov3-2025: added 2026-10-06.
   // arXiv 2508.10104 abstract: "we introduce a new method called Gram anchoring, which effectively
   // addresses the known yet unsolved issue of dense feature maps degrading during long training
   // schedules".
@@ -13519,7 +13313,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.10104',
     type: 'paper',
   },
-  // sam3-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // sam3-2025: added 2026-10-06.
   // arXiv 2511.16719 abstract: "based on concept prompts, which we define as either short noun
   // phrases (e.g., "yellow school bus"), image exemplars, or a combination of both", "returns
   // segmentation masks and unique identities for all matching object instances", "a high-quality
@@ -13534,7 +13328,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.16719',
     type: 'paper',
   },
-  // grounded-sam-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // grounded-sam-2024: added 2026-10-06.
   // arXiv 2401.14159 abstract: "uses Grounding DINO as an open-set object detector to combine with
   // the segment anything model (SAM)" and "achieving 48.7 mean AP on SegInW (Segmentation in the
   // wild) zero-shot benchmark".
@@ -13547,7 +13341,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2401.14159',
     type: 'paper',
   },
-  // cnos-2023: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // cnos-2023: added 2026-10-06.
   // arXiv 2307.11067 abstract: "segment unseen objects in RGB images using their CAD models",
   // "Leveraging recent powerful foundation models, DINOv2 and Segment Anything, we create
   // descriptors and generate proposals", "matching proposals with reference descriptors created from
@@ -13563,7 +13357,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2307.11067',
     type: 'paper',
   },
-  // nocs-2019: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // nocs-2019: added 2026-10-06.
   // arXiv 1901.02970 abstract: "estimate the 6D pose and dimensions of unseen object instances" and
   // "our problem assumes that no exact object CAD models are available during either training or
   // testing time".
@@ -13577,7 +13371,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1901.02970',
     type: 'paper',
   },
-  // sam6d-2023: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // sam6d-2023: added 2026-10-06.
   // arXiv 2311.15707 abstract: "ISM takes SAM as an advanced starting point to generate all possible
   // object proposals" and "By treating pose estimation as a partial-to-partial point matching
   // problem" on "cluttered RGB-D images".
@@ -13591,7 +13385,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2311.15707',
     type: 'paper',
   },
-  // any6d-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // any6d-2025: added 2026-10-06.
   // arXiv 2503.18673 abstract: "requires only a single RGB-D anchor image to estimate both the 6D
   // pose and size of unknown objects in novel scenes".
   {
@@ -13604,7 +13398,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.18673',
     type: 'paper',
   },
-  // sam3d-2025: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // sam3d-2025: added 2026-10-06.
   // arXiv 2511.16624 abstract: "predicting geometry, texture, and layout from a single image" and
   // "with at least a 5:1 win rate in human preference tests on real-world objects and scenes".
   {
@@ -13616,7 +13410,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.16624',
     type: 'paper',
   },
-  // bop-2020: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // bop-2020: added 2026-10-06.
   // arXiv 2009.07378 abstract: "Methods based on deep neural networks have finally caught up with
   // methods based on point pair features, which were dominating previous editions of the challenge."
   // The 2023 report defers threshold grids to this report (as the original page states).
@@ -13630,7 +13424,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2009.07378',
     type: 'paper',
   },
-  // cosypose-2020: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // cosypose-2020: added 2026-10-06.
   // arXiv 2008.08465 abstract: "solving an object-level bundle adjustment problem that refines the
   // poses of cameras and objects to minimize the reprojection error in all views".
   {
@@ -13643,7 +13437,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2008.08465',
     type: 'paper',
   },
-  // bop-2024: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
+  // bop-2024: added 2026-10-06.
   // arXiv 2504.02812 abstract: "the best 2024 method for model-based 6D localization of unseen
   // objects (FreeZeV2.1) achieves 22% higher accuracy on BOP-Classic-Core than the best 2023 method
   // (GenFlow), and is only 4% behind the best 2023 method for seen objects (GPose2023) although
@@ -13661,8 +13455,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2504.02812',
     type: 'paper',
   },
-  // hutchinson-hager-corke-1996: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
-  // Crossref 10.1109/70.538972 (IEEE T-RA 12(5), 1996); byline printed with initials. Pack quote:
+  // hutchinson-hager-corke-1996: added 2026-10-06.
+  // Crossref 10.1109/70.538972 (IEEE T-RA 12(5), 1996); byline printed with initials. Quote:
   // "We then present a taxonomy of visual servo control systems. The two major classes of systems,
   // position-based and image-based systems, are then discussed in detail."
   {
@@ -13674,8 +13468,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.538972',
     type: 'paper',
   },
-  // bateux-2018: domain pass 2026-10-06, from drafts/classical/perception.citations.ts.
-  // Crossref 10.1109/ICRA.2018.8461068 (ICRA 2018). Pack quote: "A convolutional neural network is
+  // bateux-2018: added 2026-10-06.
+  // Crossref 10.1109/ICRA.2018.8461068 (ICRA 2018). Quote: "A convolutional neural network is
   // fine-tuned to estimate the relative pose between the current and desired images and a pose-based
   // visual servoing control law is considered to reach the desired pose."
   {
@@ -13687,7 +13481,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA.2018.8461068',
     type: 'paper',
   },
-  // ros2-distributions-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-distributions-2026: added 2026-10-06.
   // Distribution table: Lyrical Luth released May 22, 2026, EOL May 2031; Jazzy EOL May 2029; Humble
   // EOL May 2027; "Nodes are not guaranteed to be able to communicate across distributions."
   {
@@ -13699,7 +13493,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/lyrical/Releases.html',
     type: 'docs',
   },
-  // ros-llm-2024: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros-llm-2024: added 2026-10-06.
   // arXiv 2406.19741; published as Nature Machine Intelligence 8, 313-325 (2026). Executes ROS
   // actions/services from LLM output.
   {
@@ -13711,7 +13505,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2406.19741',
     type: 'paper',
   },
-  // ros2-dds-design-2014: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-dds-design-2014: added 2026-10-06.
   // ROS 2 design article by William Woodall, written 2014-06 (modified 2019-07). "Control over
   // several parameters of reliability, what DDS calls Quality of Service (QoS) ...".
   {
@@ -13723,7 +13517,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://design.ros2.org/articles/ros_on_dds.html',
     type: 'docs',
   },
-  // ros2-latency-2021: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-latency-2021: added 2026-10-06.
   // arXiv 2101.02074. "end-to-end latency strongly depends on the used DDS middleware" and "ROS2 can
   // lead to 50% latency overhead".
   {
@@ -13735,7 +13529,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2101.02074',
     type: 'paper',
   },
-  // ros2-kilted-2025: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-kilted-2025: added 2026-10-06.
   // Kilted Kaiju release notes (May 2025): "The rmw_zenoh_cpp is now considered Tier 1."; ros2 bag
   // play --message-order {received,sent}.
   {
@@ -13747,7 +13541,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/lyrical/Releases/Release-Kilted-Kaiju.html',
     type: 'docs',
   },
-  // mcap-spec-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // mcap-spec-2026: added 2026-10-06.
   // MCAP message record: log_time "Time at which the message was recorded"; publish_time "Time at
   // which the message was published".
   {
@@ -13759,7 +13553,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://mcap.dev/spec',
     type: 'docs',
   },
-  // ros2-tracing-2022: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-tracing-2022: added 2026-10-06.
   // arXiv 2201.00393; IEEE RA-L 7(3), 6511-6518, July 2022. "the end-to-end message latency
   // overhead, when enabling all ROS 2 instrumentation, is on average 0.0033 ms".
   {
@@ -13772,7 +13566,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2201.00393',
     type: 'paper',
   },
-  // ros2-clock-design: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-clock-design: added 2026-10-06.
   // ROS 2 design article "Clock and Time" (Tully Foote). The page shows no date, so it is registered
   // as undated with the access date.
   {
@@ -13785,7 +13579,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://design.ros2.org/articles/clock_and_time.html',
     type: 'docs',
   },
-  // tf2-docs-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // tf2-docs-2026: added 2026-10-06.
   // "tf2 maintains the relationship between coordinate frames in a tree structure buffered in time
   // ..."; static transforms broadcast separately.
   {
@@ -13797,7 +13591,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/lyrical/ROS-Framework/interfaces/About-Tf2/About-Tf2.html',
     type: 'docs',
   },
-  // tf2-time-tutorial-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // tf2-time-tutorial-2026: added 2026-10-06.
   // "Once the timeout has been reached (fifty milliseconds in this case), an exception will be
   // raised only if the transform is still not available."
   {
@@ -13809,7 +13603,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/lyrical/ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Learning-About-Tf2-And-Time-Cpp.html',
     type: 'docs',
   },
-  // ros2-iron-mcap-2023: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/data-hardware/robot-learning-stack.citations.ts.
+  // ros2-iron-mcap-2023: added 2026-10-06.
   // Same release notes as the Lyrical-docs copy at /en/lyrical/Releases/Release-Iron-Irwini.html,
   // whose quote "This release switches to using mcap as the default file format for writing new
   // bags." was re-fetched 2026-10-04.
@@ -13822,7 +13616,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/iron/Releases/Release-Iron-Irwini.html',
     type: 'docs',
   },
-  // ros2-lifecycle-design-2015: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-lifecycle-design-2015: added 2026-10-06.
   // ROS 2 design article "Managed nodes" (Geoffrey Biggs, Tully Foote), written 2015-06, modified
   // 2021-02.
   {
@@ -13834,7 +13628,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://design.ros2.org/articles/node_lifecycle.html',
     type: 'docs',
   },
-  // ros2-realtime-docs-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-realtime-docs-2026: added 2026-10-06.
   // "we must avoid nondeterministic operations in the execution path, things like: pagefault events,
   // dynamic memory allocation/deallocation, and synchronization primitives that block indefinitely."
   {
@@ -13846,7 +13640,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/lyrical/Capabilities/Motion-planning/Real-Time-Programming.html',
     type: 'docs',
   },
-  // ros2-executors-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-executors-2026: added 2026-10-06.
   // EventsCBGExecutor (Lyrical onward) reduces CPU overhead; "there is no limit to the number of
   // events that can be added to the queue."
   {
@@ -13858,7 +13652,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/lyrical/ROS-Framework/client-libraries/About-Executors/About-Executors.html',
     type: 'docs',
   },
-  // ros2-buffer-backends-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-buffer-backends-2026: added 2026-10-06.
   // rosidl::Buffer: "the bytes of a uint8[] field can live in CPU memory, GPU memory, or any other
   // memory domain a vendor provides".
   {
@@ -13870,7 +13664,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/lyrical/ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends.html',
     type: 'docs',
   },
-  // isaac-ros-nitros-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // isaac-ros-nitros-2026: added 2026-10-06.
   // README: "NITROS is deprecated." / "Update 2026-09-21: Deprecated NITROS in favor of
   // rosidl::Buffer and the CUDA buffer backend".
   {
@@ -13882,7 +13676,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros',
     type: 'docs',
   },
-  // isaac-ros-rosidl-buffer-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // isaac-ros-rosidl-buffer-2026: added 2026-10-06.
   // "Copying those bytes to a CPU vector only to publish them, and then copying them back to the
   // device in a subscriber, adds latency and consumes CPU and memory bandwidth."
   {
@@ -13894,7 +13688,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://nvidia-isaac-ros.github.io/concepts/rosidl_buffer/index.html',
     type: 'docs',
   },
-  // smac-planner-2024: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/classical/scene-representation.citations.ts.
+  // smac-planner-2024: added 2026-10-06.
   // arXiv 2401.13078 (rev. 2025-05). "Smac Planner now powers thousands of robots worldwide"
   // (authors' claim).
   {
@@ -13906,7 +13700,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2401.13078',
     type: 'paper',
   },
-  // nav2-costmap-2d-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts; also drafts/classical/scene-representation.citations.ts.
+  // nav2-costmap-2d-2026: added 2026-10-06.
   // "a number of sensor processing plugins (AI outputs, depth sensor obstacle buffering, semantic
   // information, etc)".
   {
@@ -13918,7 +13712,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.nav2.org/lyrical/configuration_and_development/configuration_guide/core_servers/costmap_2d/',
     type: 'docs',
   },
-  // ros2-middleware-vendors-2026: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // ros2-middleware-vendors-2026: added 2026-10-06.
   // "While the different DDS implementations may be compatible in limited circumstances, this is not
   // guaranteed."
   {
@@ -13930,7 +13724,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.ros.org/en/lyrical/ROS-Framework/client-libraries/About-Different-Middleware-Vendors.html',
     type: 'docs',
   },
-  // noetic-eol-2025: domain pass 2026-10-06, from drafts/classical/ros2-for-ml-engineers.citations.ts.
+  // noetic-eol-2025: added 2026-10-06.
   // Canonical Ubuntu blog, August 2025: "As of May 2025, the Robot Operating System (ROS) Noetic
   // Ninjemys officially reached its end of life (EOL)."
   {
@@ -13942,7 +13736,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://ubuntu.com/blog/ros-noetic-is-eol-take-action-to-maintain-fleet-security',
     type: 'blog',
   },
-  // neural-fields-survey-2024: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // neural-fields-survey-2024: added 2026-10-06.
   // arXiv 2410.20220 abstract: "based on over 200 papers. First, we present four key Neural Fields
   // frameworks: Occupancy Networks, Signed Distance Fields, Neural Radiance Fields, and Gaussian
   // Splatting."
@@ -13955,8 +13749,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.20220',
     type: 'paper',
   },
-  // octomap-2013: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
-  // Crossref 10.1007/s10514-012-9321-0 (Autonomous Robots 34(3), 2013). Pack quote: "It explicitly
+  // octomap-2013: added 2026-10-06.
+  // Crossref 10.1007/s10514-012-9321-0 (Autonomous Robots 34(3), 2013). Quote: "It explicitly
   // represents not only occupied space, but also free and unknown areas."
   {
     id: 'octomap-2013',
@@ -13967,7 +13761,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1007/s10514-012-9321-0',
     type: 'paper',
   },
-  // cut3r-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // cut3r-2025: added 2026-10-06.
   // arXiv 2501.12387 abstract: "it can also infer unseen regions of the scene by probing at virtual,
   // unobserved views".
   {
@@ -13979,7 +13773,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2501.12387',
     type: 'paper',
   },
-  // voxblox-2016: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // voxblox-2016: added 2026-10-06.
   // arXiv 1611.03631 abstract: "We show that we can build TSDFs faster than Octomaps, and that it is
   // more accurate to build ESDFs out of TSDFs than occupancy maps."
   {
@@ -13992,7 +13786,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1611.03631',
     type: 'paper',
   },
-  // nvblox-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // nvblox-2023: added 2026-10-06.
   // arXiv 2311.00626 abstract: "achieving up to a 177x speed-up in surface reconstruction, and up to
   // a 31x improvement in distance field computation".
   {
@@ -14005,8 +13799,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2311.00626',
     type: 'paper',
   },
-  // voxel-hashing-2013: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
-  // Crossref 10.1145/2508363.2508374 (ACM Transactions on Graphics 32(6), 2013). Pack quote:
+  // voxel-hashing-2013: added 2026-10-06.
+  // Crossref 10.1145/2508363.2508374 (ACM Transactions on Graphics 32(6), 2013). Quote:
   // "Surface data is only stored densely where measurements are observed."
   {
     id: 'voxel-hashing-2013',
@@ -14017,7 +13811,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1145/2508363.2508374',
     type: 'paper',
   },
-  // nerfpp-2020: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // nerfpp-2020: added 2026-10-06.
   // arXiv 2010.07492 (v1 2020-10-15). Full text: "Such phenomena are encapsulated in the
   // shape-radiance ambiguity (Figure 1, left), wherein one can fit a set of training images
   // perfectly for an arbitrary incorrect geometry by a suitable choice of outgoing 2D radiance at
@@ -14033,7 +13827,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2010.07492',
     type: 'paper',
   },
-  // vggt-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // vggt-2025: added 2026-10-06.
   // arXiv 2503.11651 abstract: "directly infers all key 3D attributes of a scene, including camera
   // parameters, point maps, depth maps, and 3D point tracks, from one, a few, or hundreds of its
   // views" and "reconstructing images in under one second".
@@ -14047,7 +13841,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.11651',
     type: 'paper',
   },
-  // mapanything-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // mapanything-2025: added 2026-10-06.
   // arXiv 2509.13414 abstract: "ingests one or more images along with optional geometric inputs such
   // as camera intrinsics, poses, depth, or partial reconstructions, and then directly regresses the
   // metric 3D scene geometry and cameras".
@@ -14061,7 +13855,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.13414',
     type: 'paper',
   },
-  // pi3-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // pi3-2025: added 2026-10-06.
   // arXiv 2507.13347 abstract: "Previous methods often anchor their reconstructions to a designated
   // viewpoint, an inductive bias that can lead to instability and failures if the reference is
   // suboptimal."
@@ -14074,7 +13868,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.13347',
     type: 'paper',
   },
-  // depth-anything-3-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // depth-anything-3-2025: added 2026-10-06.
   // arXiv 2511.10647 abstract (authors' claim): "surpassing prior SOTA VGGT by an average of 44.3%
   // in camera pose accuracy and 25.1% in geometric accuracy".
   {
@@ -14086,7 +13880,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.10647',
     type: 'paper',
   },
-  // sugar-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // sugar-2023: added 2026-10-06.
   // arXiv 2311.12775 abstract: "a regularization term that encourages the gaussians to align well
   // with the surface of the scene" and "extract a mesh from the Gaussians using Poisson
   // reconstruction".
@@ -14099,7 +13893,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2311.12775',
     type: 'paper',
   },
-  // 2dgs-2024: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // 2dgs-2024: added 2026-10-06.
   // arXiv 2403.17888 abstract: "3DGS fails to accurately represent surfaces due to the multi-view
   // inconsistent nature of 3D Gaussians", "collapse the 3D volume into a set of 2D oriented planar
   // Gaussian disks" and "2D Gaussians provide view-consistent geometry".
@@ -14112,7 +13906,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.17888',
     type: 'paper',
   },
-  // phystwin-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts; also drafts/world-models/world-models-vs-simulators.citations.ts.
+  // phystwin-2025: added 2026-10-06.
   {
     id: 'phystwin-2025',
     title: 'PhysTwin: Physics-Informed Reconstruction and Simulation of Deformable Objects from Videos',
@@ -14122,7 +13916,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.17973',
     type: 'paper',
   },
-  // f3rm-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // f3rm-2023: added 2026-10-06.
   // arXiv 2308.07931 abstract: "leveraging distilled feature fields to combine accurate 3D geometry
   // with rich semantics from 2D foundation models" and "a few-shot learning method for 6-DOF
   // grasping and placing".
@@ -14136,9 +13930,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2308.07931',
     type: 'paper',
   },
-  // dbow2-2012: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // dbow2-2012: added 2026-10-06.
   // Crossref 10.1109/TRO.2012.2197158 (IEEE T-RO 28(5), 2012); Crossref prints the byline with
-  // initials. Pack quote: "The whole technique, including feature extraction, requires 22 ms/frame
+  // initials. Quote: "The whole technique, including feature extraction, requires 22 ms/frame
   // in a sequence with 26 300 images that is one order of magnitude faster than previous
   // approaches."
   {
@@ -14150,7 +13944,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TRO.2012.2197158',
     type: 'paper',
   },
-  // droid-slam-2021: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // droid-slam-2021: added 2026-10-06.
   // arXiv 2108.10869 abstract: "DROID-SLAM consists of recurrent iterative updates of camera pose
   // and pixelwise depth through a Dense Bundle Adjustment layer."
   {
@@ -14162,7 +13956,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2108.10869',
     type: 'paper',
   },
-  // anyloc-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // anyloc-2023: added 2026-10-06.
   // arXiv 2308.00688 abstract: "general-purpose feature representations derived from off-the-shelf
   // self-supervised models with no VPR-specific training", "(urban, outdoors, indoors, aerial,
   // underwater, and subterranean environments) without any re-training or fine-tuning" and "to
@@ -14177,7 +13971,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2308.00688',
     type: 'paper',
   },
-  // gnc-2019: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // gnc-2019: added 2026-10-06.
   // arXiv 1909.08605 abstract: "Although GNC's global optimality cannot be guaranteed, we
   // demonstrate the empirical robustness" and "Our solvers are robust to 70-80% of outliers,
   // outperform RANSAC".
@@ -14191,7 +13985,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1909.08605',
     type: 'paper',
   },
-  // splatam-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // splatam-2023: added 2026-10-06.
   // arXiv 2312.02126 abstract: "It utilizes a silhouette mask to elegantly capture the presence of
   // scene density." and "quickly determining if areas have been previously mapped".
   {
@@ -14204,7 +13998,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2312.02126',
     type: 'paper',
   },
-  // monogs-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // monogs-2023: added 2026-10-06.
   // arXiv 2312.06741 abstract: "Our method, which runs live at 3fps, utilises Gaussians as the only
   // 3D representation".
   {
@@ -14217,7 +14011,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2312.06741',
     type: 'paper',
   },
-  // mast3r-slam-2024: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts; also drafts/classical/state-estimation.citations.ts.
+  // mast3r-slam-2024: added 2026-10-06.
   {
     id: 'mast3r-slam-2024',
     title: 'MASt3R-SLAM: Real-Time Dense SLAM with 3D Reconstruction Priors',
@@ -14228,7 +14022,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2412.12392',
     type: 'paper',
   },
-  // slam3r-2024: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // slam3r-2024: added 2026-10-06.
   // arXiv 2412.09401 abstract: "all without explicitly solving any camera parameters" and
   // "maintaining real-time performance at 20+ FPS".
   {
@@ -14241,7 +14035,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2412.09401',
     type: 'paper',
   },
-  // vggt-slam-2025: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // vggt-slam-2025: added 2026-10-06.
   // arXiv 2505.12549 abstract: "the scene can only be reconstructed up to a 15-degrees-of-freedom
   // projective transformation of the true geometry".
   {
@@ -14253,8 +14047,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.12549',
     type: 'paper',
   },
-  // cartographer-2016: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
-  // Crossref 10.1109/ICRA.2016.7487258 (ICRA 2016). Pack quote: "We present the approach used in our
+  // cartographer-2016: added 2026-10-06.
+  // Crossref 10.1109/ICRA.2016.7487258 (ICRA 2016). Quote: "We present the approach used in our
   // backpack mapping platform which achieves real-time mapping and loop closure at a 5 cm
   // resolution."
   {
@@ -14266,7 +14060,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA.2016.7487258',
     type: 'paper',
   },
-  // hydra-2022: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // hydra-2022: added 2026-10-06.
   // arXiv 2201.13360 abstract: "these algorithms build a local Euclidean Signed Distance Function
   // (ESDF) around the current robot location, extract a topological map of places from the ESDF, and
   // then segment the places into rooms".
@@ -14280,7 +14074,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2201.13360',
     type: 'paper',
   },
-  // conceptfusion-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // conceptfusion-2023: added 2026-10-06.
   // arXiv 2302.07241 abstract: "We demonstrate that pixel-aligned open-set features can be fused
   // into 3D maps via traditional SLAM and multi-view fusion approaches."
   {
@@ -14293,7 +14087,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2302.07241',
     type: 'paper',
   },
-  // conceptgraphs-2023: domain pass 2026-10-06, from drafts/classical/scene-representation.citations.ts.
+  // conceptgraphs-2023: added 2026-10-06.
   // arXiv 2309.16650 abstract: "these approaches tend to produce maps with per-point feature
   // vectors, which do not scale well in larger environments".
   {
@@ -14305,7 +14099,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2309.16650',
     type: 'paper',
   },
-  // gordon-salmond-smith-1993: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // gordon-salmond-smith-1993: added 2026-10-06.
   // Crossref 10.1049/ip-f-2.1993.0015 (IEE Proc. F 140(2), 1993); byline printed with initials. Pack
   // quote: "The method is not restricted by assumptions of linearity or Gaussian noise: it may be
   // applied to any state transition or measurement model."
@@ -14318,9 +14112,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1049/ip-f-2.1993.0015',
     type: 'paper',
   },
-  // dellaert-mcl-1999: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // dellaert-mcl-1999: added 2026-10-06.
   // Crossref 10.1109/ROBOT.1999.772544 (ICRA 1999; Crossref carries no issued year, 1999 is the
-  // conference year); byline printed with initials. Pack quote: "We show experimentally that the
+  // conference year); byline printed with initials. Quote: "We show experimentally that the
   // resulting method is able to efficiently localize a mobile robot without knowledge of its
   // starting location."
   {
@@ -14332,9 +14126,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ROBOT.1999.772544',
     type: 'paper',
   },
-  // kalman-bucy-1961: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // kalman-bucy-1961: added 2026-10-06.
   // Crossref 10.1115/1.3658902 (J. Basic Engineering 83(1), 1961); byline printed with initials.
-  // Pack quote: "A nonlinear differential equation of the Riccati type is derived for the covariance
+  // Quote: "A nonlinear differential equation of the Riccati type is derived for the covariance
   // matrix of the optimal filtering error."
   {
     id: 'kalman-bucy-1961',
@@ -14345,7 +14139,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1115/1.3658902',
     type: 'paper',
   },
-  // julier-uhlmann-2004: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // julier-uhlmann-2004: added 2026-10-06.
   // Crossref 10.1109/JPROC.2003.823141 (Proc. IEEE 92(3), 2004); byline printed with initials. Pack
   // quote: "more than 35 years of experience in the estimation community has shown that is difficult
   // to implement, difficult to tune, and only reliable for systems that are almost linear on the
@@ -14359,8 +14153,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/JPROC.2003.823141',
     type: 'paper',
   },
-  // li-mourikis-2013: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
-  // Crossref 10.1177/0278364913481251 (IJRR 32(6), 2013). Pack quote: "we prove that both types of
+  // li-mourikis-2013: added 2026-10-06.
+  // Crossref 10.1177/0278364913481251 (IJRR 32(6), 2013). Quote: "we prove that both types of
   // EKF approaches are inconsistent, due to the way in which Jacobians are computed" / "which causes
   // the filters to underestimate the uncertainty in the state estimates".
   {
@@ -14372,7 +14166,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/0278364913481251',
     type: 'paper',
   },
-  // hartley-inekf-2019: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // hartley-inekf-2019: added 2026-10-06.
   // arXiv 1904.09251 v1 2019-04-19 (IJRR 2020). "unlike the standard EKF, neither the linearized
   // error dynamics nor the linearized observation model depend on the current state estimate".
   {
@@ -14385,7 +14179,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1904.09251',
     type: 'paper',
   },
-  // eqvio-2022: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // eqvio-2022: added 2026-10-06.
   // arXiv 2205.01980 v1 2022-05-04; journal ref IEEE T-RO 39(5):3567-3585, Oct. 2023. "the
   // equivariant filter (EqF) based on this Lie group is a consistent estimator for VIO with lower
   // linearisation error in the propagation of state dynamics".
@@ -14399,7 +14193,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2205.01980',
     type: 'paper',
   },
-  // gtsam-4-3-2026: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // gtsam-4-3-2026: added 2026-10-06.
   // GitHub release page read 2026-10-04 (published 2026-09-18). "GTSAM 4.3 moves to C++17 and modern
   // Eigen versions"; "GTSAM 4.3 introduces experimental CUDA acceleration for both bundle adjustment
   // and more general nonlinear optimization."; "EKF and invariant-EKF infrastructure, equivariant
@@ -14414,9 +14208,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/borglab/gtsam/releases/tag/4.3.0',
     type: 'docs',
   },
-  // rauch-tung-striebel-1965: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // rauch-tung-striebel-1965: added 2026-10-06.
   // Crossref 10.2514/3.3166 (AIAA Journal 3(8), 1965); Crossref prints the byline in capitals with
-  // initials. Pack quote: "Difference equations relating the estimates for the problems of filtering
+  // initials. Quote: "Difference equations relating the estimates for the problems of filtering
   // and smoothing are derived" / "A numerical example is included to show the advantage of smoothing
   // in reducing the errors in estimation."
   {
@@ -14428,8 +14222,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.2514/3.3166',
     type: 'paper',
   },
-  // grisetti-gmapping-2007: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
-  // Crossref 10.1109/TRO.2006.889486 (IEEE T-RO 23(1), 2007). Pack quote: "This approach uses a
+  // grisetti-gmapping-2007: added 2026-10-06.
+  // Crossref 10.1109/TRO.2006.889486 (IEEE T-RO 23(1), 2007). Quote: "This approach uses a
   // particle filter in which each particle carries an individual map of the environment."
   {
     id: 'grisetti-gmapping-2007',
@@ -14440,8 +14234,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TRO.2006.889486',
     type: 'paper',
   },
-  // msckf-2007: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
-  // Crossref 10.1109/ROBOT.2007.364024 (ICRA 2007). Pack quote: "This measurement model does not
+  // msckf-2007: added 2026-10-06.
+  // Crossref 10.1109/ROBOT.2007.364024 (ICRA 2007). Quote: "This measurement model does not
   // require including the 3D feature position in the state vector of the EKF and is optimal, up to
   // linearization errors."
   {
@@ -14453,7 +14247,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ROBOT.2007.364024',
     type: 'paper',
   },
-  // okvis-2014: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // okvis-2014: added 2026-10-06.
   // Crossref 10.1177/0278364914554813 (IJRR; Crossref issued 2014, issue 34(3) dated 2015). Pack
   // quote: "advancements in visual estimation suggest that nonlinear optimization offers superior
   // accuracy, while still tractable in complexity thanks to the sparsity of the underlying problem."
@@ -14466,7 +14260,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/0278364914554813',
     type: 'paper',
   },
-  // backprop-kf-2016: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // backprop-kf-2016: added 2026-10-06.
   // arXiv 1605.07148 v1 2016-05-23 (NIPS 2016). "the parameters of the latent state distribution are
   // directly optimized as a deterministic computation graph"; "raw camera images, which must be
   // processed using expressive nonlinear function approximators such as convolutional neural
@@ -14482,7 +14276,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1605.07148',
     type: 'paper',
   },
-  // tlio-2020: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // tlio-2020: added 2026-10-06.
   // arXiv 2007.01867 v1 2020-07-06 (IEEE RA-L). "This paper demonstrates a network that regresses 3D
   // displacement estimates and its uncertainty, giving us the ability to tightly fuse the relative
   // state measurement into a stochastic cloning EKF".
@@ -14496,7 +14290,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2007.01867',
     type: 'paper',
   },
-  // airio-2025: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // airio-2025: added 2026-10-06.
   // arXiv 2501.15659 v1 2025-01-26. "Combined with a data-driven IMU correction model (AirIMU) and
   // an uncertainty-aware Extended Kalman Filter (EKF), our approach ensures robust state estimation
   // under aggressive UAV maneuvers".
@@ -14510,7 +14304,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2501.15659',
     type: 'paper',
   },
-  // mac-vo-2024: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // mac-vo-2024: added 2026-10-06.
   // arXiv 2409.09479 v1 2024-09-14 (ICRA 2025). "we design a metrics-aware covariance model to
   // capture the spatial error during keypoint registration and the correlations between different
   // axes. Integrating this covariance model into pose graph optimization enhances the robustness and
@@ -14525,7 +14319,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.09479',
     type: 'paper',
   },
-  // tartan-imu-2025: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // tartan-imu-2025: added 2026-10-06.
   // CVF open-access PDF read 2026-10-04 (CVPR 2025); byline from the PDF. "a pre-trained foundation
   // model leverages over 100 hours of multi-platform data to establish general motion knowledge,
   // achieving 36% improvement in ATE over specialized models"; "allowing the model to continuously
@@ -14539,7 +14333,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Tartan_IMU_A_Light_Foundation_Model_for_Inertial_Positioning_in_CVPR_2025_paper.pdf',
     type: 'paper',
   },
-  // gait-2026: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // gait-2026: added 2026-10-06.
   // arXiv 2606.14160 v1 2026-06-12. "the proposed method learns this behavior without relying on an
   // explicit contact estimator or on explicit measurement updates based on a stationary contact
   // assumption"; "we conducted experiments on a Unitree Go1 robot"; "also improves performance over
@@ -14554,7 +14348,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.14160',
     type: 'paper',
   },
-  // planet-2018: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts; also drafts/world-models/latent-dynamics.citations.ts.
+  // planet-2018: added 2026-10-06.
   // "a multi-step variational inference objective".
   {
     id: 'planet-2018',
@@ -14565,8 +14359,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1811.04551',
     type: 'paper',
   },
-  // dreamerv3-nature-2025: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts; also drafts/world-models/latent-dynamics.citations.ts.
-  // Pack quote: "Dreamer learns a model of the environment and improves its behaviour by imagining
+  // dreamerv3-nature-2025: added 2026-10-06.
+  // Quote: "Dreamer learns a model of the environment and improves its behaviour by imagining
   // future scenarios."
   {
     id: 'dreamerv3-nature-2025',
@@ -14577,8 +14371,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1038/s41586-025-08744-2',
     type: 'paper',
   },
-  // li-mourikis-temporal-2014: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
-  // Crossref 10.1177/0278364913515286 (IJRR 33(7), 2014). Pack quote: "When fusing visual and
+  // li-mourikis-temporal-2014: added 2026-10-06.
+  // Crossref 10.1177/0278364913515286 (IJRR 33(7), 2014). Quote: "When fusing visual and
   // inertial measurements for motion estimation, each measurement's sampling time must be precisely
   // known." / "We show that the offset is locally identifiable, except in a small number of
   // degenerate motion cases".
@@ -14591,8 +14385,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/0278364913515286',
     type: 'paper',
   },
-  // li-rolling-shutter-2013: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
-  // Crossref 10.1109/ICRA.2013.6631248 (ICRA 2013). Pack quote: "the vast majority of consumer-grade
+  // li-rolling-shutter-2013: added 2026-10-06.
+  // Crossref 10.1109/ICRA.2013.6631248 (ICRA 2013). Quote: "the vast majority of consumer-grade
   // cameras use rolling-shutter sensors, which capture each row of pixels at a slightly different
   // time instant".
   {
@@ -14604,8 +14398,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA.2013.6631248',
     type: 'paper',
   },
-  // openvins-2020: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
-  // Crossref 10.1109/ICRA40945.2020.9196524 (ICRA 2020). Pack quote: "(i) on-manifold sliding window
+  // openvins-2020: added 2026-10-06.
+  // Crossref 10.1109/ICRA40945.2020.9196524 (ICRA 2020). Quote: "(i) on-manifold sliding window
   // Kalman filter, (ii) online camera intrinsic and extrinsic calibration, (iii) camera to inertial
   // sensor time offset calibration".
   {
@@ -14617,7 +14411,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA40945.2020.9196524',
     type: 'paper',
   },
-  // grandtour-2026: domain pass 2026-10-06, from drafts/classical/state-estimation.citations.ts.
+  // grandtour-2026: added 2026-10-06.
   // arXiv 2602.18164 v1 2026-02-20. "it includes high-precision ground-truth trajectories from
   // satellite-based RTK-GNSS and a Leica Geosystems total station"; "GrandTour represents the
   // largest open-access legged-robotics dataset to date".
@@ -14631,8 +14425,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.18164',
     type: 'paper',
   },
-  // eyerobot-2-2026: domain pass 2026-10-06, KOL intake note of Ken Goldberg, from drafts/classical/perception.citations.ts.
-  // Refresh 2026-10-06 against mission HEAD 8c34ffbb, KOL intake note of Ken Goldberg.
+  // eyerobot-2-2026: added 2026-10-06 via Ken Goldberg.
+  // Refreshed 2026-10-06.
   // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 2 Oct 2026).
   {
     id: 'eyerobot-2-2026',
@@ -14643,8 +14437,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.03710',
     type: 'paper',
   },
-  // forcetwin-2026: domain pass 2026-10-06, KOL intake note of Marco Hutter.
-  // KOL backlog step of 2026-10-07: abstract page and PDF first page fetched 2026-10-07; v1 submitted
+  // forcetwin-2026: added 2026-10-06 via Marco Hutter.
+  // Abstract page and PDF first page fetched 2026-10-07; v1 submitted
   // 18 September 2026. ETH Zurich, NVIDIA, Microsoft and University of Bonn.
   {
     id: 'forcetwin-2026',
@@ -14655,8 +14449,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.21751',
     type: 'paper',
   },
-  // particlesplat-2026: domain pass 2026-10-06, KOL intake note of Deepak Pathak.
-  // KOL backlog step of 2026-10-07: abstract page and PDF first page fetched 2026-10-07; v1 submitted
+  // particlesplat-2026: added 2026-10-06 via Deepak Pathak.
+  // Abstract page and PDF first page fetched 2026-10-07; v1 submitted
   // 16 September 2026. Robotics Institute, Carnegie Mellon University.
   {
     id: 'particlesplat-2026',
@@ -14667,8 +14461,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.19463',
     type: 'paper',
   },
-  // scenelm-2026: domain pass 2026-10-06, KOL intake note of Jitendra Malik.
-  // KOL backlog step of 2026-10-07: abstract page and PDF first page fetched 2026-10-07; v1 submitted
+  // scenelm-2026: added 2026-10-06 via Jitendra Malik.
+  // Abstract page and PDF first page fetched 2026-10-07; v1 submitted
   // 18 September 2026. Chalmers, Zenseact, Stanford, UC Berkeley and NVIDIA.
   {
     id: 'scenelm-2026',
@@ -14679,8 +14473,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.21400',
     type: 'paper',
   },
-  // tacdyn-wam-2026: domain pass 2026-10-06, KOL intake note of Cheng Chi.
-  // KOL backlog step of 2026-10-07: abstract page, HTML and PDF first page fetched 2026-10-07; v1 submitted
+  // tacdyn-wam-2026: added 2026-10-06 via Cheng Chi.
+  // Abstract page, HTML and PDF first page fetched 2026-10-07; v1 submitted
   // 30 September 2026. The paper places its Cheng Chi at Renmin University's School of Information; the
   // sentence credits the first and corresponding authors, both at Tsinghua University's AIR.
   {
@@ -14695,7 +14489,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.00638',
     type: 'paper',
   },
-  // amb3r-slam-2026: domain pass 2026-10-06, owner sweep item SR.R3 (also SE.R2), added 2026-10-08.
+  // amb3r-slam-2026: added 2026-10-06, added 2026-10-08.
   // Abstract page fetched 2026-10-08; v1 submitted 17 September 2026.
   {
     id: 'amb3r-slam-2026',
@@ -14706,7 +14500,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.19518',
     type: 'paper',
   },
-  // azure-kinect-sdk-retirement-2024: domain pass 2026-10-06, owner sweep item P.R5, added 2026-10-08.
+  // azure-kinect-sdk-retirement-2024: added 2026-10-06, added 2026-10-08.
   // The SDK repository's support page, pinned to commit 3c79d56 of 21 June 2024 ("Adding retirement
   // date for Azure Kinect DK Sensor SDK"), the commit that added the retirement section; read
   // 2026-10-08. Microsoft's linked end-of-production announcement sits behind a sign-in.
@@ -14719,7 +14513,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/3c79d56c2aa082d62ebae6ccf217191e6d4e2cfa/microsoft-support.md',
     type: 'docs',
   },
-  // genesis-handover-2026: domain pass 2026-10-06, KOL intake note of Marco Hutter, added 2026-10-08.
+  // genesis-handover-2026: added 2026-10-08 via Marco Hutter.
   // Abstract page and HTML full text fetched 2026-10-08; v1 submitted 6 October 2026, accepted to
   // CoRL 2026. ETH Zurich, Robotic Systems Lab.
   {
@@ -14731,7 +14525,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.08003',
     type: 'paper',
   },
-  // graspgen-x-2026: domain pass 2026-10-06, owner sweep item G.R2, added 2026-10-08.
+  // graspgen-x-2026: added 2026-10-06, added 2026-10-08.
   // Abstract page fetched 2026-10-08; v1 submitted 31 May 2026.
   {
     id: 'graspgen-x-2026',
@@ -14745,7 +14539,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.00998',
     type: 'paper',
   },
-  // intrinsic-ai-for-industry-challenge-2026: domain pass 2026-10-06, owner sweep item C.R3, added 2026-10-08.
+  // intrinsic-ai-for-industry-challenge-2026: added 2026-10-06, added 2026-10-08.
   // Intrinsic's recap of its own challenge, dated 22 September 2026, read 2026-10-08. The post names no
   // individual author, so the organisation stands as author.
   {
@@ -14756,7 +14550,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.intrinsic.ai/blog/posts/ai-for-industry-challenge',
     type: 'blog',
   },
-  // neural-motion-planner-survey-2026: domain pass 2026-10-06, owner sweep item MP.R4, added 2026-10-08.
+  // neural-motion-planner-survey-2026: added 2026-10-06, added 2026-10-08.
   // Abstract page fetched 2026-10-08; v1 submitted 25 March 2026. The venue is the arXiv journal
   // reference: IEEE Transactions on Automation Science and Engineering, vol. 23, pp. 4488-4531, 2026.
   {
@@ -14769,7 +14563,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.24318',
     type: 'paper',
   },
-  // bd-atlas-hand-2026: domain pass 2026-10-06, KOL intake note of Boston Dynamics, added 2026-10-09.
+  // bd-atlas-hand-2026: added 2026-10-09 via Boston Dynamics.
   // Boston Dynamics blog post, datePublished 2026-10-01T13:10:02Z in the page's JSON-LD, read
   // 2026-10-09. The byline is a site account, so the company stands as author.
   {
@@ -14780,8 +14574,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://bostondynamics.com/blog/robot-hands-for-modern-ai-and-real-work/',
     type: 'blog',
   },
-  // runway-gwm-robotics-eval-2026: domain pass 2026-10-06, KOL intake note of The Robot Report on
-  // Praxis-1, added 2026-10-09; the id is the one the owner's world-models evaluation draft uses.
+  // runway-gwm-robotics-eval-2026: added 2026-10-09 via The Robot Report on
+  // Praxis-1; the id is the one the world-models evaluation article uses.
   // Runway Research post dated 27 February 2026 on the page (datePublished 2026-02-27 in its JSON-LD),
   // byline Runway Robotics (Andy Chen, Lucas Eager Leavitt, Rik Heijdens, Robin Kahlow), read 2026-10-09.
   {
@@ -14793,8 +14587,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://runway.com/research/accelerating-robot-policy-evaluation',
     type: 'blog',
   },
-  // runway-praxis-1-2026: domain pass 2026-10-06, KOL intake note of The Robot Report on Praxis-1,
-  // added 2026-10-09. Runway Research post headed "Research · September 2026" (datePublished
+  // runway-praxis-1-2026: added 2026-10-09 via The Robot Report on
+  // Praxis-1. Runway Research post headed "Research · September 2026" (datePublished
   // 2026-09-30T17:00Z in its JSON-LD), no named author, read 2026-10-09.
   {
     id: 'runway-praxis-1-2026',
@@ -14805,7 +14599,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://runway.com/research/introducing-praxis-1',
     type: 'blog',
   },
-  // omniretarget-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // omniretarget-2025: added 2026-10-06.
   // arXiv 2509.26633 (v1 2025-09-30). Abstract: "A dominant paradigm for teaching humanoid robots
   // complex skills is to retarget human motions as kinematic references to train reinforcement
   // learning (RL) policies."
@@ -14818,7 +14612,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.26633',
     type: 'paper',
   },
-  // deepmimic-2018: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // deepmimic-2018: added 2026-10-06.
   // arXiv 1804.02717 (v1 2018-04-08). Abstract: "We show that well-known reinforcement learning (RL)
   // methods can be adapted to learn robust control policies capable of imitating a broad range of
   // example motion clips", "Our method handles keyframed motions, highly-dynamic actions such as
@@ -14833,7 +14627,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1804.02717',
     type: 'paper',
   },
-  // amass-2019: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // amass-2019: added 2026-10-06.
   // arXiv 1904.03278 (v1 2019-04-05). Abstract: "AMASS, a large and varied database of human motion
   // that unifies 15 different optical marker-based mocap datasets by representing them within a
   // common framework and parameterization" and "having more than 40 hours of motion data, spanning
@@ -14847,7 +14641,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1904.03278',
     type: 'paper',
   },
-  // pulse-2023: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // pulse-2023: added 2026-10-06.
   // arXiv 2310.04582 (v1 2023-10-06; ICLR 2024 Spotlight). Abstract: "we first learn a motion
   // imitator that can imitate all of human motion from a large, unstructured motion dataset. We then
   // create our motion representation by distilling skills directly from the imitator."
@@ -14861,7 +14655,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2310.04582',
     type: 'paper',
   },
-  // twist-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // twist-2025: added 2026-10-06.
   // arXiv 2505.02833 (v1 2025-05-05). Abstract: "We first generate reference motion clips by
   // retargeting human motion capture data to the humanoid robot. We then develop a robust, adaptive,
   // and responsive whole-body controller using a combination of reinforcement learning and behavior
@@ -14876,7 +14670,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.02833',
     type: 'paper',
   },
-  // exbody-2024: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // exbody-2024: added 2026-10-06.
   // arXiv 2402.16796 (v1 2024-02-26). Abstract: "encouraging the upper humanoid body to imitate a
   // reference motion, while relaxing the imitation constraint on its two legs and only requiring
   // them to follow a given velocity robustly".
@@ -14889,7 +14683,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2402.16796',
     type: 'paper',
   },
-  // kungfubot2-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // kungfubot2-2025: added 2026-10-06.
   // arXiv 2509.16638 (v1 2025-09-20). Abstract: "we present VMS, a unified whole-body controller
   // that enables humanoid robots to learn diverse and dynamic behaviors within a single policy", "an
   // Orthogonal Mixture-of-Experts (OMoE) architecture" and "stable performance over minute-long
@@ -14903,7 +14697,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.16638',
     type: 'paper',
   },
-  // humanup-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // humanup-2025: added 2026-10-06.
   // arXiv 2502.12152 (v1 2025-02-17; RSS 2025). Abstract: "enable a real-world G1 humanoid robot to
   // get up from two main situations that we considered: a) lying face up and b) lying face down".
   {
@@ -14916,7 +14710,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.12152',
     type: 'paper',
   },
-  // beyondmimic-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // beyondmimic-2025: added 2026-10-06.
   // arXiv 2508.08241 (v1 2025-08-11). Abstract: "mastering a wide range of radically agile
   // behaviors, including aerial cartwheels, spin-kicks, flip-kicks, and sprinting, with a single
   // setup and shared hyperparameters", "a unified latent diffusion model", "Leveraging classifier
@@ -14930,7 +14724,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.08241',
     type: 'paper',
   },
-  // hover-2024: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // hover-2024: added 2026-10-06.
   // arXiv 2410.21229 (v1 2024-10-28; ICRA 2025). Abstract: "We present the key insight that
   // full-body kinematic motion imitation can serve as a common abstraction for all these tasks" and
   // "a multi-mode policy distillation framework that consolidates diverse control modes into a
@@ -14945,13 +14739,13 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.21229',
     type: 'paper',
   },
-  // figure-s0-2026: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts; also drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // figure-s0-2026: added 2026-10-06.
   // Figure AI news post dated April 29, 2026 (no personal byline). "Helix's System 0 (S0), an AI
   // model for human-like whole-body control", "S0 now has a new capability: it is conditioned on
   // camera perception." and "The policy is trained end-to-end with reinforcement learning in
   // simulation, across thousands of randomized terrains, and the same network weights that learn to
   // climb procedurally generated staircases in sim now traverse real-world stairs on the robot."
-  // (company's own account) This draft relies on: "Until now, S0 reasoned only about the robot's own
+  // (company's own account) The article relies on: "Until now, S0 reasoned only about the robot's own
   // body - joint state, base motion, and proprioception."
   {
     id: 'figure-s0-2026',
@@ -14962,7 +14756,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.figure.ai/news/ramping-figure-03-production',
     type: 'blog',
   },
-  // sonic-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // sonic-2025: added 2026-10-06.
   // arXiv 2511.07820 (v1 2025-11-11); arXiv journal reference "Science Robotics 11 (117), eaed4592
   // (2026)" (DOI 10.1126/scirobotics.aed4592). Abstract: "network size (1.2M to 42M parameters),
   // dataset volume (100M+ frames from 700 hours of motion capture), and compute (21k GPU hours)" and
@@ -14978,8 +14772,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.07820',
     type: 'paper',
   },
-  // humanoidbench-2024: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts; also drafts/world-models/latent-dynamics.citations.ts.
-  // arXiv API check 2026-10-04: first submitted 2024-03-15, 5 authors. This draft relies on
+  // humanoidbench-2024: added 2026-10-06.
+  // arXiv API check 2026-10-04: first submitted 2024-03-15, 5 authors. The article relies on
   // (abstract, re-read 2026-10-04): "we present a high-dimensional, simulated robot learning
   // benchmark, HumanoidBench" and "state-of-the-art reinforcement learning algorithms struggle with
   // most tasks, whereas a hierarchical learning approach achieves superior performance when
@@ -14993,7 +14787,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.10506',
     type: 'paper',
   },
-  // wbc-motion-gen-2026: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // wbc-motion-gen-2026: added 2026-10-06.
   // arXiv 2604.17335 (v1 2026-04-19). Abstract: "We first train a diffusion model on retargeted
   // human motions for real-time prediction of terrain-aware reference motions", "we further
   // fine-tune the tracker with a frozen motion generator in a closed-loop setting" (to "improve
@@ -15009,7 +14803,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2604.17335',
     type: 'paper',
   },
-  // hdmi-2025: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
+  // hdmi-2025: added 2026-10-06.
   // arXiv 2509.16757 (v1 2025-09-20). Abstract: "learns whole-body humanoid-object interaction
   // skills directly from monocular RGB videos", "trains a reinforcement learning (RL) policy to
   // co-track robot and object states" and "HDMI achieves 67 consecutive door traversals and
@@ -15024,14 +14818,14 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.16757',
     type: 'paper',
   },
-  // bd-atlas-hard-work-2026: domain pass 2026-10-06, from drafts/rl-sim2real/humanoid-wbc.citations.ts; also drafts/rl-sim2real/legged-locomotion.citations.ts, drafts/rl-sim2real/reward-design-mpc.citations.ts, drafts/rl-sim2real/sim2real-transfer.citations.ts, drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // bd-atlas-hard-work-2026: added 2026-10-06.
   // Boston Dynamics blog, datePublished 2026-05-18. Byline on the page (re-read 2026-10-04): "This
   // article was written by Alberto Rodriguez, Director of Robot Behavior for Atlas, Shane
   // Rozen-Levy, Research Engineer, and Vinay Kamidi, Research Engineer." "All are rotary actuators
   // that are much easier to represent well in simulation, key to the high performance RL work with
   // proprioceptive feedback discussed above." and "Atlas uses reinforcement learning (RL) to learn
   // how to lift a fridge ... This is a combined control and perception problem, where perception is
-  // done implicitly from body proprioception." (company's own account) This draft relies on: "For
+  // done implicitly from body proprioception." (company's own account) The article relies on: "For
   // the fridge move, we started with a simple animation" and "the policy for moving the fridge was
   // trained for 50-70 pound loads, but the robot successfully moved a loaded fridge with a total
   // weight of more than 100 pounds".
@@ -15044,7 +14838,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://bostondynamics.com/blog/training-a-humanoid-robot-for-hard-work/',
     type: 'blog',
   },
-  // anymal-parkour-2023: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // anymal-parkour-2023: added 2026-10-06.
   // arXiv 2306.14874 (v1 2023-06-26; Science Robotics 9(88), 2024). Abstract: "training advanced
   // locomotion skills for several types of obstacles, such as walking, jumping, climbing, and
   // crouching, and then using a high-level policy to select and control those skills across the
@@ -15060,10 +14854,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2306.14874',
     type: 'paper',
   },
-  // agarwal-vision-2022: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // agarwal-vision-2022: added 2026-10-06.
   // arXiv 2211.07638 (CoRL 2022 oral) abstract: "first, we train a policy using reinforcement
   // learning with a cheap-to-compute variant of depth image and then in phase 2 distill it into the
-  // final policy that uses depth using supervised learning". This draft relies on (re-read
+  // final policy that uses depth using supervised learning". The article relies on (re-read
   // 2026-10-04): "we present the first end-to-end locomotion system capable of traversing stairs,
   // curbs, stepping stones, and gaps. We show this result on a medium-sized quadruped robot using a
   // single front-facing depth camera."
@@ -15077,7 +14871,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2211.07638',
     type: 'paper',
   },
-  // walk-these-ways-2022: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // walk-these-ways-2022: added 2026-10-06.
   // arXiv 2212.03238 (v1 2022-12-06; CoRL 2022 oral). PDF body (v1, Sec. 3): "θcmd = (θcmd1, θcmd2,
   // θcmd3) are the timing offsets between pairs of feet. These express gaits including pronking
   // (θcmd = (0.0, 0, 0)), trotting (θcmd = (0.5, 0, 0)), bounding, (θcmd = (0, 0.5, 0))" and "fcmd
@@ -15093,7 +14887,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2212.03238',
     type: 'paper',
   },
-  // alexander-1984: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // alexander-1984: added 2026-10-06.
   // Crossref 10.1177/027836498400300205 (IJRR 3(2):49-59, June 1984). Crossref abstract: "It is
   // shown that mammals of different sizes tend to move in dy namically similar fashion whenever
   // their Froude numbers u^2/gh are equal: here u is speed, g is the acceleration of free fall, and
@@ -15108,7 +14902,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1177/027836498400300205',
     type: 'paper',
   },
-  // margolis-rapid-2022: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // margolis-rapid-2022: added 2026-10-06.
   // arXiv 2205.02824 (v1 2022-05-05; RSS 2022). Abstract: "We present an end-to-end learned
   // controller that achieves record agility for the MIT Mini Cheetah, sustaining speeds up to 3.9
   // m/s." (authors' own claim)
@@ -15122,7 +14916,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2205.02824',
     type: 'paper',
   },
-  // siekmann-2020: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // siekmann-2020: added 2026-10-06.
   // arXiv 2011.01387 (v1 2020-11-02; ICRA 2021). Abstract: "a parametric reward function with
   // intuitive settings for all common bipedal gaits - standing, walking, hopping, running, and
   // skipping. Using this function we demonstrate successful sim-to-real transfer of the learned
@@ -15137,10 +14931,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2011.01387',
     type: 'paper',
   },
-  // radosavovic-2023: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // radosavovic-2023: added 2026-10-06.
   // arXiv 2303.03381 (v1 2023-03-06; Science Robotics 2024). Abstract: "Our controller is a causal
   // transformer that takes the history of proprioceptive observations and actions as input and
-  // predicts the next action." and "deploy it to the real world zero-shot". This draft also relies
+  // predicts the next action." and "deploy it to the real world zero-shot". The article also relies
   // on: "we present a fully learning-based approach for real-world humanoid locomotion".
   {
     id: 'radosavovic-2023',
@@ -15152,7 +14946,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2303.03381',
     type: 'paper',
   },
-  // li-cassie-2024: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // li-cassie-2024: added 2026-10-06.
   // arXiv 2401.16889 (v1 2024-01-30; IJRR 2024). Abstract: "Our RL-based controller incorporates a
   // novel dual-history architecture", "The resulting control policies can be successfully deployed
   // on Cassie" and "fast running with a demonstration of a 400-meter dash".
@@ -15166,10 +14960,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2401.16889',
     type: 'paper',
   },
-  // haarnoja-soccer-2023: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // haarnoja-soccer-2023: added 2026-10-06.
   // arXiv 2304.13653 (v1 2023-04-26; Science Robotics 2024) abstract: "We found that a combination
   // of sufficiently high-frequency control, targeted dynamics randomization, and perturbations
-  // during training in simulation enabled good-quality transfer." This draft relies on (re-read
+  // during training in simulation enabled good-quality transfer." The article relies on (re-read
   // 2026-10-04): "a low-cost, miniature humanoid robot" and "they walked 181% faster, turned 302%
   // faster, took 63% less time to get up, and kicked a ball 34% faster than a scripted baseline".
   {
@@ -15182,7 +14976,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2304.13653',
     type: 'paper',
   },
-  // humanoid-parkour-2024: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // humanoid-parkour-2024: added 2026-10-06.
   // arXiv 2406.10759 (v1 2024-06-15; CoRL 2024). Abstract: "an end-to-end vision-based
   // whole-body-control parkour policy for humanoid robots that overcomes multiple parkour skills
   // without any motion prior" and "the humanoid robot can jump on a 0.42m platform, leap over
@@ -15197,7 +14991,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2406.10759',
     type: 'paper',
   },
-  // hiking-wild-2026: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // hiking-wild-2026: added 2026-10-06.
   // arXiv 2601.07718 (v1 2026-01-12). Abstract: "mapping raw depth inputs and proprioception
   // directly to joint actions, without relying on external state estimation" and "our policy enables
   // robust traversal of complex terrains at speeds up to 2.5 m/s".
@@ -15210,7 +15004,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.07718',
     type: 'paper',
   },
-  // agility-wbc-2025: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts.
+  // agility-wbc-2025: added 2026-10-06.
   // Agility Robotics blog, "Published August 28, 2025" (no personal byline). "we've developed a
   // whole-body control foundation model for our humanoid robot, Digit", "This model is a relatively
   // small LSTM neural network with fewer than one million parameters, which is trained in NVIDIA's
@@ -15226,7 +15020,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.agilityrobotics.com/content/training-a-whole-body-control-foundation-model',
     type: 'blog',
   },
-  // acosta-2021: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // acosta-2021: added 2026-10-06.
   // arXiv 2110.00541 abstract: "Handling dynamic contact is the computational bottleneck for most
   // simulations" and "simulators capture inelastic impacts well while failing to capture elastic
   // impacts".
@@ -15240,8 +15034,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2110.00541',
     type: 'paper',
   },
-  // dreureka-2024: domain pass 2026-10-06, from drafts/rl-sim2real/legged-locomotion.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts, drafts/world-models/generative-sim.citations.ts.
-  // arXiv API check 2026-10-04: first submitted 2024-06-04, 8 authors. This draft relies on
+  // dreureka-2024: added 2026-10-06.
+  // arXiv API check 2026-10-04: first submitted 2024-06-04, 8 authors. The article relies on
   // (abstract, re-read 2026-10-04): "automatically constructs suitable reward functions and domain
   // randomization distributions to support real-world transfer" and "quadruped balancing and walking
   // atop a yoga ball".
@@ -15255,7 +15049,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2406.01967',
     type: 'paper',
   },
-  // bear-2019: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // bear-2019: added 2026-10-06.
   // arXiv 1906.00949 abstract: "Bootstrapping error is due to bootstrapping from actions that lie
   // outside of the training data distribution, and it accumulates via the Bellman backup operator."
   {
@@ -15268,7 +15062,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1906.00949',
     type: 'paper',
   },
-  // real-orl-2022: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // real-orl-2022: added 2026-10-06.
   // arXiv 2210.06479 abstract: "6500+ trajectories collected over 800+ robot hours and 270+ human
   // labor hour" and "ORL and imitation learning prefer different action spaces, and that ORL
   // algorithms can generalize from leveraging offline heterogeneous data sources and outperform
@@ -15282,7 +15076,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2210.06479',
     type: 'paper',
   },
-  // d4rl-2020: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // d4rl-2020: added 2026-10-06.
   // arXiv 2004.07219 abstract: "datasets generated via hand-designed controllers and human
   // demonstrators, multitask datasets where an agent performs different tasks in the same
   // environment, and datasets collected with mixtures of policies".
@@ -15295,7 +15089,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2004.07219',
     type: 'paper',
   },
-  // cog-2020: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // cog-2020: added 2026-10-06.
   // arXiv 2010.14500 abstract: "even when the prior data does not actually succeed at solving the
   // new task, it can still be utilized for learning a better policy" and "composing four robotic
   // skills in a row: picking, placing, drawer opening, and grasping, where a +1/0 sparse reward is
@@ -15310,7 +15104,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2010.14500',
     type: 'paper',
   },
-  // time-limits-2017: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // time-limits-2017: added 2026-10-06.
   // arXiv 1712.00378 (ICML 2018, PMLR 80) abstract: "explain why not doing so can cause state
   // aliasing and invalidation of experience replay" and, for time limits used only to aid training,
   // "bootstrapping from the value of the state at the end of each partial episode".
@@ -15324,7 +15118,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1712.00378',
     type: 'paper',
   },
-  // ptr-2022: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts; also drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // ptr-2022: added 2026-10-06.
   // arXiv 2210.05178 abstract: "PTR is the first RL method that succeeds at learning new tasks in a
   // new domain on a real WidowX robot with as few as 10 task demonstrations".
   {
@@ -15336,7 +15130,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2210.05178',
     type: 'paper',
   },
-  // park-bottleneck-2024: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // park-bottleneck-2024: added 2026-10-06.
   // arXiv 2406.09329 (NeurIPS 2024) abstract: "the choice of a policy extraction algorithm
   // significantly affects the performance and scalability of offline RL, often more so than the
   // value learning objective" and "a big barrier to improving offline RL performance is often
@@ -15351,7 +15145,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2406.09329',
     type: 'paper',
   },
-  // rankq-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // rankq-2026: added 2026-10-06.
   // arXiv 2605.11151 abstract: "this essentially acts as a behavior cloning anchor and can hinder
   // downstream online policy improvement when dataset actions are suboptimal", "a self-supervised
   // multi-term ranking loss" and "increasing real-world cube stacking success from 43.1% to 88.9%
@@ -15365,7 +15159,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.11151',
     type: 'paper',
   },
-  // flow-q-learning-2025: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // flow-q-learning-2025: added 2026-10-06.
   // arXiv 2502.02538 (ICML 2025) abstract: "training an expressive one-step policy with RL, rather
   // than directly guiding an iterative flow policy to maximize values" and "strong performance
   // across 73 challenging state- and pixel-based OGBench and D4RL tasks".
@@ -15379,7 +15173,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.02538',
     type: 'paper',
   },
-  // horizon-reduction-2025: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // horizon-reduction-2025: added 2026-10-06.
   // arXiv 2506.04168 (NeurIPS 2025) abstract: "using datasets up to 1000x larger than typical
   // offline RL datasets", "many existing offline RL algorithms exhibit poor scaling behavior,
   // saturating well below the maximum performance" and "long horizons indeed present a fundamental
@@ -15394,7 +15188,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.04168',
     type: 'paper',
   },
-  // robo-valuerl-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // robo-valuerl-2026: added 2026-10-06.
   // arXiv 2607.09866 abstract: "Across 240 hours of offline demonstrations and over 3,000 online
   // rollout trajectories, our extensive experiments show that downstream performance is strongly
   // associated with value reliability.", "allowing value-guided offline RL to scale more effectively
@@ -15409,7 +15203,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.09866',
     type: 'paper',
   },
-  // co-rft-2025: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // co-rft-2025: added 2026-10-06.
   // arXiv 2508.02219 abstract: "fine-tuning VLA models using a limited set of demonstrations (30 to
   // 60 samples)" and "CO-RFT outperforms previous supervised methods, achieving a 57% improvement in
   // success rate and a 22.3% reduction in cycle time".
@@ -15422,7 +15216,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.02219',
     type: 'paper',
   },
-  // paine-hparam-2020: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // paine-hparam-2020: added 2026-10-06.
   // arXiv 2007.09055 abstract: "1) offline RL algorithms are not robust to hyperparameter choices,
   // 2) factors such as the offline RL algorithm and method for estimating Q values can have a big
   // impact on hyperparameter selection, and 3) when we control those factors carefully, we can
@@ -15436,7 +15230,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2007.09055',
     type: 'paper',
   },
-  // offline-rl-workflow-2021: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // offline-rl-workflow-2021: added 2026-10-06.
   // arXiv 2109.10813 (CoRL 2021) abstract: "Our workflow is derived from a conceptual understanding
   // of the behavior of conservative offline RL algorithms and cross-validation in supervised
   // learning", "producing effective policies without any online tuning" and "for three tasks on two
@@ -15451,7 +15245,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2109.10813',
     type: 'paper',
   },
-  // rvs-2021: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // rvs-2021: added 2026-10-06.
   // arXiv 2112.10751 abstract: "simply maximizing likelihood with a two-layer feedforward MLP is
   // competitive with state-of-the-art results of substantially more complex methods based on TD
   // learning or sequence modeling with Transformers", "choosing which information to condition on
@@ -15465,7 +15259,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2112.10751',
     type: 'paper',
   },
-  // edac-2021: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // edac-2021: added 2026-10-06.
   // arXiv 2110.01548 (NeurIPS 2021) abstract: "the clipped Q-learning, a technique widely used in
   // online RL, can be leveraged to successfully penalize OOD data points with high prediction
   // uncertainties".
@@ -15479,7 +15273,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2110.01548',
     type: 'paper',
   },
-  // score-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // score-2026: added 2026-10-06.
   // arXiv 2606.27475 abstract: "constrains RL in simulation to the support of a generative policy
   // pretrained on real data" and "Across eight real-world dexterous multi-fingered robotic
   // manipulation tasks, SCORE improves average success rate from 37.8% to 89.9%, compared to 59.5%
@@ -15493,7 +15287,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.27475',
     type: 'paper',
   },
-  // trifinger-offline-2023: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // trifinger-offline-2023: added 2026-10-06.
   // arXiv 2307.15690 (ICLR 2023) abstract: "the option to execute learned policies on a real-world
   // robotic system and a simulation for efficient debugging" and "provide a reproducible
   // experimental setup for offline reinforcement learning on real systems".
@@ -15507,7 +15301,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2307.15690',
     type: 'paper',
   },
-  // cal-ql-2023: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts; also drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // cal-ql-2023: added 2026-10-06.
   // arXiv 2303.05479 (NeurIPS 2023) abstract: "existing offline RL methods tend to behave poorly
   // during fine-tuning", "Cal-QL can be implemented on top of the conservative Q learning (CQL) for
   // offline RL within a one-line code change" and "outperforms state-of-the-art methods on 9/11
@@ -15522,7 +15316,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2303.05479',
     type: 'paper',
   },
-  // wsrl-2024: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // wsrl-2024: added 2026-10-06.
   // arXiv 2412.07762 (ICLR 2025) abstract: "we show that retaining offline data is unnecessary as
   // long as we use a properly-designed online RL approach for fine-tuning offline RL
   // initializations" and "continued training on offline data is mostly useful for preventing a
@@ -15537,7 +15331,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2412.07762',
     type: 'paper',
   },
-  // dong-q-pretrain-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // dong-q-pretrain-2026: added 2026-10-06.
   // arXiv 2607.27203 abstract: "naive Q-function pretraining often provides little benefit over
   // random initialization" and "the Q-function learned during pretraining targets the pretrained
   // policy's Q-function, not the Q-function that online fine-tuning converges to".
@@ -15550,7 +15344,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.27203',
     type: 'paper',
   },
-  // bora-2026: domain pass 2026-10-06, from drafts/rl-sim2real/offline-rl.citations.ts.
+  // bora-2026: added 2026-10-06.
   // arXiv 2605.30226 abstract: "reuses the learned critic for frozen-base residual adaptation",
   // "Online robot rollouts and human corrections are mixed with offline data to update only a
   // lightweight residual actor, avoiding full-model fine-tuning." and "With only 20 online
@@ -15564,7 +15358,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.30226',
     type: 'paper',
   },
-  // mujoco-overview-docs-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // mujoco-overview-docs-2026: added 2026-10-06.
   // MuJoCo documentation, Overview page, fetched 2026-10-04: "Initially developed by Roboti LLC, it
   // was acquired and made freely available by Google DeepMind in October 2021, and open sourced in
   // May 2022."
@@ -15577,7 +15371,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://mujoco.readthedocs.io/en/stable/overview.html',
     type: 'docs',
   },
-  // mjx-docs-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // mjx-docs-2026: added 2026-10-06.
   // MuJoCo documentation, MJX page, fetched 2026-10-04: "MJX-JAX runs on: Nvidia and AMD GPUs, Apple
   // Silicon, and Google Cloud TPUs. A Warp implementation of MuJoCo (MJX-Warp) optimizes performance
   // specifically for NVIDIA GPUs" and "MJX-Warp resolves key performance bottlenecks exhibited in
@@ -15592,7 +15386,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://mujoco.readthedocs.io/en/stable/mjx.html',
     type: 'docs',
   },
-  // mjlab-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // mjlab-2026: added 2026-10-06.
   // arXiv 2601.22074 abstract: "mjlab adopts the manager-based API introduced by Isaac Lab, where
   // users compose modular building blocks for observations, rewards, and events, and pairs it with
   // MuJoCo Warp for GPU-accelerated physics".
@@ -15606,7 +15400,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.22074',
     type: 'paper',
   },
-  // sapg-2024: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // sapg-2024: added 2026-10-06.
   // arXiv 2407.20230 (ICML 2024 oral) abstract: "we show that current RL methods, e.g. PPO, fail to
   // ingest the benefit of parallelized environments beyond a certain point and their performance
   // saturates".
@@ -15620,7 +15414,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.20230',
     type: 'paper',
   },
-  // beukman-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // beukman-2026: added 2026-10-06.
   // arXiv 2603.06009 (accepted to RLC 2026) abstract: "increasing the number of parallel
   // environments is a simple way to avoid these plateaus by simultaneously altering both these
   // factors" and "scaling PPO to more than 1M parallel environments enables monotonic performance
@@ -15635,7 +15429,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.06009',
     type: 'paper',
   },
-  // pql-2023: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts; also drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // pql-2023: added 2026-10-06.
   // arXiv 2307.12983 (ICML 2023) abstract: "a Parallel $Q$-Learning (PQL) scheme that outperforms
   // PPO in wall-clock time while maintaining superior sample efficiency of off-policy learning" and
   // "$Q$-learning can be scaled to \textit{tens of thousands of parallel environments}".
@@ -15649,7 +15443,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2307.12983',
     type: 'paper',
   },
-  // fasttd3-2025: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts; also drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // fasttd3-2025: added 2026-10-06.
   // arXiv 2505.22642 abstract: "FastTD3 solves a range of HumanoidBench tasks in under 3 hours on a
   // single A100 GPU, while remaining stable during training."
   {
@@ -15662,7 +15456,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.22642',
     type: 'paper',
   },
-  // orbit-2023: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // orbit-2023: added 2026-10-06.
   // arXiv 2301.04195 (v1 2023-01-10; IEEE RA-L 8(6), 2023). Abstract: "We present Orbit, a unified
   // and modular framework for robot learning powered by NVIDIA Isaac Sim." Isaac Lab (arXiv
   // 2511.04831v1, Acknowledgments): "The development of Isaac Lab initiated from the Orbit framework
@@ -15677,7 +15471,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2301.04195',
     type: 'paper',
   },
-  // dextrah-g-2024: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // dextrah-g-2024: added 2026-10-06.
   // arXiv 2407.02274 abstract: "a depth-based dexterous grasping policy trained entirely in
   // simulation that combines reinforcement learning, geometric fabrics, and teacher-student
   // distillation" and "enables a 23 motor arm-hand robot". Isaac Lab (arXiv 2511.04831v1, Sec.
@@ -15693,7 +15487,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.02274',
     type: 'paper',
   },
-  // isaac-lab-3-ea-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // isaac-lab-3-ea-2026: added 2026-10-06.
   // GitHub release v3.0.0-EA, published 2026-09-16T22:34:03Z, fetched 2026-10-04: "This release is
   // built for Isaac Sim 6.1, Python 3.12, PyTorch 2.11, NVIDIA Warp 1.16, and Newton 1.5.2." and
   // "General Availability is targeted toward the end of October 2026."
@@ -15706,11 +15500,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-EA',
     type: 'docs',
   },
-  // newton-lf-2025: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts; also drafts/world-models/world-models-vs-simulators.citations.ts.
+  // newton-lf-2025: added 2026-10-06.
   // Linux Foundation press release fetched 2026-10-04: dated 29 September 2025 (SAN JOSE, Calif.,
   // Sept. 29, 2025); "Built on NVIDIA Warp and OpenUSD, Newton delivers GPU-accelerated simulation
   // with a flexible, extensible architecture that supports multiple physics solvers. This enables
-  // complex, contact-rich robot behaviors". This draft also relies on: "today welcomed Newton, an
+  // complex, contact-rich robot behaviors". The article also relies on: "today welcomed Newton, an
   // open source, GPU-accelerated, extensible physics engine" and "Co-developed by Disney Research,
   // Google DeepMind, and NVIDIA".
   {
@@ -15722,7 +15516,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.linuxfoundation.org/press/linux-foundation-announces-contribution-of-newton-by-disney-research-google-deepmind-and-nvidia-to-accelerate-open-robot-learning',
     type: 'press',
   },
-  // nvidia-warp-repo-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // nvidia-warp-repo-2026: added 2026-10-06.
   // NVIDIA/warp README (H1 "NVIDIA Warp"), fetched 2026-10-04: "Warp is a Python framework for
   // GPU-accelerated simulation, robotics, and machine learning."
   {
@@ -15734,7 +15528,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/NVIDIA/warp',
     type: 'docs',
   },
-  // newton-repo-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // newton-repo-2026: added 2026-10-06.
   // newton-physics/newton README (H1 "Newton"), fetched 2026-10-04: "Newton extends and generalizes
   // Warp's (deprecated) warp.sim module, and integrates MuJoCo Warp as its primary backend. Newton
   // emphasizes GPU-based computation, OpenUSD support, differentiability, and user-defined
@@ -15748,7 +15542,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/newton-physics/newton',
     type: 'docs',
   },
-  // isaac-sim-v6-1-0-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/parallel-sim-rl framework status
+  // isaac-sim-v6-1-0-2026: added 2026-10-06 for rl-sim2real/parallel-sim-rl framework status
   // (first-party replacement for the forum announcement isaac-sim-6-1-ga-2026). GitHub release v6.1.0,
   // published 2026-09-10T02:27:28Z, fetched 2026-10-07: "Isaac Sim 6.1.0 GA".
   {
@@ -15760,7 +15554,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/isaac-sim/IsaacSim/releases/tag/v6.1.0',
     type: 'docs',
   },
-  // isaac-sim-6-1-release-notes-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/parallel-sim-rl framework
+  // isaac-sim-6-1-release-notes-2026: added 2026-10-06 for rl-sim2real/parallel-sim-rl framework
   // status (first-party replacement for the forum announcement isaac-sim-6-1-ga-2026). Release notes, section
   // "6.1.0 GA", fetched 2026-10-07: "Updated the experimental Newton integration to Newton 1.5.0." and "Added
   // support for hydroelastic contacts."; "Added beta System Identification tools for headless and interactive
@@ -15774,8 +15568,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.isaacsim.omniverse.nvidia.com/6.1.0/overview/release_notes.html',
     type: 'docs',
   },
-  // newton-v1-6-0-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/parallel-sim-rl Newton row (README §7
-  // Newton 1.6). GitHub release v1.6.0, published 2026-09-10T14:37:28Z, fetched 2026-10-07: "Newton v1.6.0 is a
+  // newton-v1-6-0-2026: added 2026-10-06 for the rl-sim2real/parallel-sim-rl Newton row
+  // (Newton 1.6). GitHub release v1.6.0, published 2026-09-10T14:37:28Z, fetched 2026-10-07: "Newton v1.6.0 is a
   // feature release following v1.5.1."; "CUDA collision work is faster across broad-phase, narrow-phase, and
   // deterministic contact processing."; "Experimental: graph-friendly robot control."; "An opt-in compliant ALM
   // mode for `SolverVBD` covers contacts, structural joints, drives, and limits."
@@ -15788,7 +15582,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/newton-physics/newton/releases/tag/v1.6.0',
     type: 'docs',
   },
-  // vbd-2024: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // vbd-2024: added 2026-10-06.
   // arXiv 2403.06321 abstract: "We introduce vertex block descent, a block coordinate descent
   // solution for the variational form of implicit Euler through vertex-level Gauss-Seidel
   // iterations." and "This forms a physics solver that can achieve numerical convergence with
@@ -15803,7 +15597,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.06321',
     type: 'paper',
   },
-  // elandt-2019: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // elandt-2019: added 2026-10-06.
   // arXiv 1904.11433 (IROS 2019 camera-ready revision) abstract: "The model combines and generalizes
   // two ideas: a bed of springs (an "elastic foundation") and hydrostatic pressure." and "When two
   // objects nominally overlap, a contact surface is defined where the two pressure fields are
@@ -15820,7 +15614,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1904.11433',
     type: 'paper',
   },
-  // mjwarp-docs-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // mjwarp-docs-2026: added 2026-10-06.
   // MuJoCo documentation, MJWarp page, fetched 2026-10-04: "MJWarp is optimized for throughput: the
   // total number of simulation steps per unit time whereas MuJoCo is optimized for latency: time for
   // one simulation step." Authors follow the mujoco_warp README ("maintained by Google DeepMind and
@@ -15834,7 +15628,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://mujoco.readthedocs.io/en/latest/mjwarp/',
     type: 'docs',
   },
-  // gpusimbench-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // gpusimbench-2026: added 2026-10-06.
   // arXiv 2607.13059 (accepted by IROS 2026) abstract: "mainstream GPU-based robotic simulators
   // (e.g., Isaac Lab, Genesis)" and "we unveil and quantify the inherent non-determinism introduced
   // by GPU-batched execution, characterized by significant run-to-run and inter-environment
@@ -15849,7 +15643,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.13059',
     type: 'paper',
   },
-  // mujoco-warp-repo-2026: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // mujoco-warp-repo-2026: added 2026-10-06.
   // google-deepmind/mujoco_warp README (H1 "MuJoCo Warp (MJWarp)"), fetched 2026-10-04: "MJWarp is
   // maintained by Google DeepMind and NVIDIA as part of the Newton project." and "Differentiability
   // via Warp is not yet available."
@@ -15862,7 +15656,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/google-deepmind/mujoco_warp',
     type: 'docs',
   },
-  // shac-2022: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts.
+  // shac-2022: added 2026-10-06.
   // arXiv 2204.07137 (ICLR 2022) abstract: "applying it to the challenging high-dimensional problem
   // of muscle-actuated locomotion with a large action space, achieving a greater than 17x reduction
   // in training time over the best-performing established RL algorithm".
@@ -15876,7 +15670,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2204.07137',
     type: 'paper',
   },
-  // schwarke-2024: domain pass 2026-10-06, from drafts/rl-sim2real/parallel-sim-rl.citations.ts; also drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // schwarke-2024: added 2026-10-06.
   // arXiv 2404.02887 (v1 2024-04-03; CoRL 2025) abstract: "we propose a differentiable contact model
   // designed to provide informative gradients while maintaining high physical fidelity" and "this
   // represents the first successful sim-to-real transfer of a legged locomotion policy learned
@@ -15891,7 +15685,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2404.02887',
     type: 'paper',
   },
-  // specification-gaming-2020: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // specification-gaming-2020: added 2026-10-06.
   // Google DeepMind blog dated April 21, 2020; byline "Victoria Krakovna, Jonathan Uesato, Vladimir
   // Mikulik, Matthew Rahtz, Tom Everitt, Ramana Kumar, Zac Kenton, Jan Leike, Shane Legg".
   // "Specification gaming is a behaviour that satisfies the literal specification of an objective
@@ -15905,7 +15699,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://deepmind.google/blog/specification-gaming-the-flip-side-of-ai-ingenuity/',
     type: 'blog',
   },
-  // fey-athletic-2025: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // fey-athletic-2025: added 2026-10-06.
   // arXiv 2502.10894 (v1 2025-02-15). Abstract: "training solely with task rewards introduces two
   // major challenges: these rewards are prone to exploitation (reward hacking)", "the Unsupervised
   // Actuator Net (UAN), which leverages real-world data to bridge the sim-to-real gap for complex
@@ -15919,7 +15713,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.10894',
     type: 'paper',
   },
-  // mapl-2026: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // mapl-2026: added 2026-10-06.
   // arXiv 2606.25398 (v1 2026-06-24). Abstract: "MAPL prompts a large language model to compare
   // trajectories independently along semantically meaningful criteria" and "Across four quadruped
   // locomotion environments, MAPL trains policies using only LLM-generated preferences and achieves
@@ -15933,7 +15727,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.25398',
     type: 'paper',
   },
-  // eurekaverse-2024: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // eurekaverse-2024: added 2026-10-06.
   // arXiv 2411.01775 (v1 2024-11-04; CoRL 2024). Abstract: "environments are often naturally
   // represented as code", "uses LLMs to sample progressively more challenging, diverse, and
   // learnable environments for skill training" and "can successfully transfer to the real-world,
@@ -15948,7 +15742,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2411.01775',
     type: 'paper',
   },
-  // mppi-whole-body-2024: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // mppi-whole-body-2024: added 2026-10-06.
   // arXiv 2409.10469 (v1 2024-09-16). Abstract: "climbing over a box whose height is comparable to
   // the robot" and "To our knowledge, this is the first successful deployment of whole-body
   // sampling-based MPC on real-world legged robot hardware." (authors' own claim)
@@ -15961,14 +15755,14 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.10469',
     type: 'paper',
   },
-  // miller-spot-2025: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // miller-spot-2025: added 2026-10-06.
   // arXiv 2504.17857 abstract: "We utilize Wasserstein Distance and Maximum Mean Discrepancy to
   // quantify the distributional dissimilarity of data collected on hardware and in simulation to
   // measure our sim2real gap. We use these measures as a scoring function for the Covariance Matrix
   // Adaptation Evolution Strategy to optimize simulated parameters that are unknown or difficult to
-  // measure from Spot." This draft relies on (abstract): "We deploy policies capable of over 5.2ms
+  // measure from Spot." The article relies on (abstract): "We deploy policies capable of over 5.2ms
   // locomotion, more than triple Spots default controller maximum speed" ("5.2ms" as printed; the
-  // draft writes 5.2 m/s and attributes the claim to the authors).
+  // article writes 5.2 m/s and attributes the claim to the authors).
   {
     id: 'miller-spot-2025',
     title: 'High-Performance Reinforcement Learning on Spot: Optimizing Simulation Parameters with Distributional Measures',
@@ -15979,7 +15773,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2504.17857',
     type: 'paper',
   },
-  // grandia-2022: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // grandia-2022: added 2026-10-06.
   // arXiv 2208.08373 (v1 2022-08-17). Abstract: "a complete perception, planning, and control
   // pipeline, that can optimize motions for all degrees of freedom of the robot in real-time", "a
   // sequence of convex inequality constraints is extracted as local approximations of foothold
@@ -15994,7 +15788,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2208.08373',
     type: 'paper',
   },
-  // schramm-2025: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // schramm-2025: added 2026-10-06.
   // arXiv 2511.19204 (v1 2025-11-24; ICRA 2026). Abstract: "enables emergent locomotion without
   // relying on handcrafted gait patterns or predefined contact sequences", "discovers diverse motion
   // patterns, ranging from trotting to galloping" and "This sample efficiency enables real-time
@@ -16009,7 +15803,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.19204',
     type: 'paper',
   },
-  // mpc-gps-2015: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // mpc-gps-2015: added 2026-10-06.
   // arXiv 1509.06791 (v1 2015-09-22). Abstract: "MPC is used to generate data at training time,
   // under full state observations provided by an instrumented training environment", "at a fraction
   // of the computational cost of MPC" and "learning obstacle avoidance policies for a simulated
@@ -16023,7 +15817,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1509.06791',
     type: 'paper',
   },
-  // dtc-2023: domain pass 2026-10-06, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
+  // dtc-2023: added 2026-10-06.
   // arXiv 2309.15462 (v1 2023-09-27). Abstract: "Our approach utilizes a model-based planner to roll
   // out a reference motion during training. A deep neural network policy is trained in simulation,
   // aiming to track the optimized footholds." and "we demonstrate superior robustness in the
@@ -16037,7 +15831,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2309.15462',
     type: 'paper',
   },
-  // ibarz-2021: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // ibarz-2021: added 2026-10-06.
   // arXiv 2102.02915 (v1 2021-02-04; journal reference "International Journal of Robotics Research
   // (IJRR), February 2021"). Abstract: "we present a number of case studies involving robotic deep
   // RL" and "an overview of other outstanding challenges, many of which are unique to the real-world
@@ -16053,12 +15847,12 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2102.02915',
     type: 'paper',
   },
-  // tang-drl-survey-2025: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // tang-drl-survey-2025: added 2026-10-06.
   // Crossref 10.1146/annurev-control-030323-022510 (Annual Review of Control, Robotics, and
   // Autonomous Systems 8, 2025). annualreviews.org returned 403 to automated fetches; the quote was
   // matched in the abstract of the arXiv version (2408.03539) on 2026-10-04: "Robotics problems,
   // however, pose fundamental difficulties for the application of RL, stemming from the complexity
-  // and cost of interacting with the physical world." This draft relies on (arXiv 2408.03539
+  // and cost of interacting with the physical world." The article relies on (arXiv 2408.03539
   // abstract): "emphasizing the need for stable and sample-efficient real-world RL paradigms".
   {
     id: 'tang-drl-survey-2025',
@@ -16069,10 +15863,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1146/annurev-control-030323-022510',
     type: 'paper',
   },
-  // seo-2025: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // seo-2025: added 2026-10-06.
   // arXiv 2512.01996 abstract: "enables rapid training of humanoid locomotion policies in just 15
   // minutes with a single RTX 4090 GPU" and "a simple and practical recipe based on off-policy RL
-  // algorithms". This draft also relies on: "We demonstrate rapid end-to-end learning of humanoid
+  // algorithms". The article also relies on: "We demonstrate rapid end-to-end learning of humanoid
   // locomotion controllers on Unitree G1 and Booster T1 robots under strong domain randomization".
   {
     id: 'seo-2025',
@@ -16083,7 +15877,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.01996',
     type: 'paper',
   },
-  // walk-in-the-park-2022: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // walk-in-the-park-2022: added 2026-10-06.
   // arXiv 2208.07860 (v1 2022-08-16). Abstract: "lead to learning quadruped locomotion in only 20
   // minutes in the real world" (model-free RL, per the title).
   {
@@ -16095,7 +15889,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2208.07860',
     type: 'paper',
   },
-  // bcq-2018: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // bcq-2018: added 2026-10-06.
   // arXiv 1812.02900 (v1 2018-12-07; ICML 2019). Abstract: "due to errors introduced by
   // extrapolation, standard off-policy deep reinforcement learning algorithms, such as DQN and DDPG,
   // are incapable of learning with data uncorrelated to the distribution under the current policy,
@@ -16110,7 +15904,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1812.02900',
     type: 'paper',
   },
-  // leave-no-trace-2017: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // leave-no-trace-2017: added 2026-10-06.
   // arXiv 1711.06782 (v1 2017-11-18). Abstract: "simultaneously learns a forward and reset policy,
   // with the reset policy resetting the environment for a subsequent attempt", "By learning a value
   // function for the reset policy, we can automatically determine when the forward policy is about
@@ -16125,7 +15919,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1711.06782',
     type: 'paper',
   },
-  // vaprl-2021: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // vaprl-2021: added 2026-10-06.
   // arXiv 2107.12931 (v1 2021-07-27). Abstract: "We observe that VaPRL reduces the interventions
   // required by three orders of magnitude compared to episodic RL" and "on a variety of simulated
   // robotics problems". Same group as autonomous-rl-2022 (Sharma, Gupta, Levine, Hausman, Finn).
@@ -16138,7 +15932,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2107.12931',
     type: 'paper',
   },
-  // ref-hil-2026: domain pass 2026-10-06, from drafts/rl-sim2real/rl-for-robotics.citations.ts.
+  // ref-hil-2026: added 2026-10-06.
   // arXiv 2609.37131 (v1 2026-09-29). Abstract: "ReF-HIL reaches 90% autonomous success in only
   // 18-63 minutes of active training and achieves final success rates of 91.7-100%." (authors' own
   // figures)
@@ -16151,7 +15945,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.37131',
     type: 'paper',
   },
-  // jakobi-1995: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // jakobi-1995: added 2026-10-06.
   // Springer chapter page (doi 10.1007/3-540-59496-5_337) fetched 2026-10-04, abstract: "The level
   // of correspondence varied according to how much noise was used in the simulation, with very good
   // results achieved when realistic quantities were applied." Crossref: LNCS, pp. 704-720, 1995
@@ -16165,10 +15959,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1007/3-540-59496-5_337',
     type: 'paper',
   },
-  // openai-dactyl-2018: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts; also drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // openai-dactyl-2018: added 2026-10-06.
   // arXiv 1808.00177 abstract: "Our method does not rely on any human demonstrations, but many
   // behaviors found in human manipulation emerge naturally, including finger gaiting, multi-finger
-  // coordination, and the controlled use of gravity." arXiv lists OpenAI as first author. This draft
+  // coordination, and the controlled use of gravity." arXiv lists OpenAI as first author. The article
   // relies on: "we randomize many of the physical properties of the system like friction
   // coefficients and an object's appearance. Our policies transfer to the physical robot despite
   // being trained entirely in simulation."
@@ -16181,7 +15975,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1808.00177',
     type: 'paper',
   },
-  // chen-dr-theory-2021: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // chen-dr-theory-2021: added 2026-10-06.
   // arXiv 2110.03239 abstract: "We provide sharp bounds on the sim-to-real gap -- the difference
   // between the value of policy returned by domain randomization and the value of an optimal policy
   // for the real world." and "Our theory also highlights the importance of using memory (i.e.,
@@ -16196,7 +15990,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2110.03239',
     type: 'paper',
   },
-  // learning-by-cheating-2019: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // learning-by-cheating-2019: added 2026-10-06.
   // arXiv 1912.12294 (CoRL 2019) abstract: "We first train an agent that has access to privileged
   // information." and "In the second stage, the privileged agent acts as a teacher that trains a
   // purely vision-based sensorimotor agent."
@@ -16210,7 +16004,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1912.12294',
     type: 'paper',
   },
-  // asymmetric-ac-2017: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // asymmetric-ac-2017: added 2026-10-06.
   // arXiv 1710.06542 abstract: "employing an actor-critic training algorithm in which the critic is
   // trained on full states while the actor (or policy) gets rendered images as input".
   {
@@ -16223,7 +16017,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1710.06542',
     type: 'paper',
   },
-  // viral-2025: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // viral-2025: added 2026-10-06.
   // arXiv 2511.15200 abstract: "scaling simulation to tens of GPUs (up to 64) makes both teacher and
   // student training reliable, while low-compute regimes often fail" and "the resulting RGB-based
   // policy performs continuous loco-manipulation for up to 54 cycles".
@@ -16237,7 +16031,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.15200',
     type: 'paper',
   },
-  // up-osi-2017: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // up-osi-2017: added 2026-10-06.
   // arXiv 1702.02453 (RSS 2017) abstract: "uses the recent state and action history of the system to
   // predict the dynamics model parameters mu. The value of mu from the Online System Identification
   // is then provided as input to the control policy".
@@ -16251,7 +16045,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1702.02453',
     type: 'paper',
   },
-  // tan-quadruped-2018: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // tan-quadruped-2018: added 2026-10-06.
   // arXiv 1804.10332 abstract: "We improve the simulation using system identification, developing an
   // accurate actuator model and simulating latency. We learn robust controllers by randomizing the
   // physical environments, adding perturbations and designing a compact observation space."
@@ -16265,8 +16059,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1804.10332',
     type: 'paper',
   },
-  // rialto-2024: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts; also drafts/world-models/generative-sim.citations.ts.
-  // arXiv API check 2026-10-04: first submitted 2024-03-06, 7 authors. This draft relies on
+  // rialto-2024: added 2026-10-06.
+  // arXiv API check 2026-10-04: first submitted 2024-03-06, 7 authors. The article relies on
   // (abstract): "robustifying real-world imitation learning policies via reinforcement learning in
   // "digital twin" simulation environments constructed on the fly from small amounts of real-world
   // data" and "RialTo increases (over 67%) in policy robustness".
@@ -16279,7 +16073,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.03949',
     type: 'paper',
   },
-  // softbody-splat-eval-2025: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // softbody-splat-eval-2025: added 2026-10-06.
   // arXiv 2511.04665 abstract: "constructs soft-body digital twins from real-world videos and
   // renders robots, objects, and environments with photorealistic fidelity using 3D Gaussian
   // Splatting" and "demonstrating that simulated rollouts correlate strongly with real-world
@@ -16294,7 +16088,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.04665',
     type: 'paper',
   },
-  // polaris-2025: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts, drafts/world-models/evaluation.citations.ts.
+  // polaris-2025: added 2026-10-06.
   {
     id: 'polaris-2025',
     title: 'PolaRiS: Scalable Real-to-Sim Evaluations for Generalist Robot Policies',
@@ -16304,7 +16098,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.16881',
     type: 'paper',
   },
-  // kadian-2019: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // kadian-2019: added 2026-10-06.
   // arXiv 1912.06321 (IEEE RA-L 2020) abstract: "We find that SRCC for Habitat as used for the
   // CVPR19 challenge is low (0.18 for the success metric)"; "AI agents learning to exploit simulator
   // imperfections, abusing collision dynamics to 'slide' along walls"; "improving $SRCC_{Succ}$ from
@@ -16319,7 +16113,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1912.06321',
     type: 'paper',
   },
-  // sim-real-cotraining-2025: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // sim-real-cotraining-2025: added 2026-10-06.
   {
     id: 'sim-real-cotraining-2025',
     title: 'Sim-and-Real Co-Training: A Simple Recipe for Vision-Based Robotic Manipulation',
@@ -16329,7 +16123,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.24361',
     type: 'paper',
   },
-  // lei-cotraining-2026: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // lei-cotraining-2026: added 2026-10-06.
   // arXiv 2604.13645 abstract: "We investigate the mechanism of sim-and-real co-training through
   // theoretical analysis and empirical study, and identify two intrinsic effects governing
   // performance. The first, "structured representation alignment", ... plays a primary role in
@@ -16344,7 +16138,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2604.13645',
     type: 'paper',
   },
-  // industreal-2023: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // industreal-2023: added 2026-10-06.
   // arXiv 2305.17110 (RSS 2023) abstract: "we propose 1) simulation-aware policy updates, 2)
   // signed-distance-field rewards, and 3) sampling-based curricula" and "We then propose 4) a
   // policy-level action integrator to minimize error at policy deployment time."
@@ -16358,7 +16152,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2305.17110',
     type: 'paper',
   },
-  // actuator-reality-shaping-2026: domain pass 2026-10-06, from drafts/rl-sim2real/sim2real-transfer.citations.ts.
+  // actuator-reality-shaping-2026: added 2026-10-06.
   // arXiv 2607.02205 abstract: "Instead of modifying the simulator to match the real world, our
   // method shapes the closed-loop behavior of physical actuators to match the idealized second-order
   // reference dynamics used in simulation."
@@ -16372,7 +16166,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.02205',
     type: 'paper',
   },
-  // nvidia-simready-2026: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // nvidia-simready-2026: added 2026-10-06.
   // NVIDIA Glossary page (undated; read 2026-10-04): "These include physics properties such as mass,
   // friction, inertia tensors, collision, and geometry; semantic labels such as object class,
   // function, and material type; and behavioral metadata such as articulation limits, actuator
@@ -16386,7 +16180,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nvidia.com/en-us/glossary/simready/',
     type: 'docs',
   },
-  // fazeli-2017: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // fazeli-2017: added 2026-10-06.
   // arXiv 1710.04979 abstract: "establish a task specific upper bound on the performance of the
   // models and the rigid-body contact model paradigm" and "the care that should be taken in
   // parameter selection, which are ultimately difficult to give a physical interpretation".
@@ -16399,7 +16193,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1710.04979',
     type: 'paper',
   },
-  // factory-2022: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // factory-2022: added 2026-10-06.
   // arXiv 2205.03532 abstract: "accurately, efficiently, and robustly simulating the range of
   // contact-rich interactions in assembly remains a longstanding challenge" and "including
   // simultaneous simulation of 1000 nut-and-bolt interactions".
@@ -16413,7 +16207,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2205.03532',
     type: 'paper',
   },
-  // visual-dexterity-2022: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // visual-dexterity-2022: added 2026-10-06.
   // arXiv 2211.11744 (v1 2022-11-21; Science Robotics 8(84), 2023). Abstract: "with the median
   // reorientation time being close to seven seconds" and "Our hardware platform only uses
   // open-source components that cost less than five thousand dollars."
@@ -16427,7 +16221,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2211.11744',
     type: 'paper',
   },
-  // dextrah-rgb-2024: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // dextrah-rgb-2024: added 2026-10-06.
   // arXiv 2412.01791 abstract: "To our knowledge, this is the first work that is able to demonstrate
   // robust sim2real transfer of an end2end RGB-based policy for complex, dynamic, contact-rich tasks
   // such as dexterous grasping."
@@ -16440,7 +16234,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2412.01791',
     type: 'paper',
   },
-  // automate-2024: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // automate-2024: added 2026-10-06.
   // arXiv 2407.08028 abstract: "a generalist policy that jointly solves 20 assemblies with an 80%+
   // success rate" and "zero-shot sim-to-real transfer that achieves similar (or better) performance
   // than simulation".
@@ -16453,7 +16247,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.08028',
     type: 'paper',
   },
-  // sparr-2026: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // sparr-2026: added 2026-10-06.
   // arXiv 2602.23253 abstract: "Compared to the state-of-the-art zero-shot sim-to-real methods,
   // SPARR improves success rates by 38.4% while reducing cycle time by 29.7%."
   {
@@ -16465,7 +16259,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.23253',
     type: 'paper',
   },
-  // zhao-force-grasp-2026: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // zhao-force-grasp-2026: added 2026-10-06.
   // arXiv 2601.02778 abstract: "a computationally fast tactile simulation", "a current-to-torque
   // calibration", "actuator dynamics modeling" and "the first demonstration of controllable grasping
   // on a multi-finger dexterous hand trained entirely in simulation and transferred zero-shot on
@@ -16479,7 +16273,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.02778',
     type: 'paper',
   },
-  // simtoolreal-2026: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // simtoolreal-2026: added 2026-10-06.
   // arXiv 2602.16863 abstract: "prior approaches typically require substantial engineering effort to
   // model objects and tune reward functions for each task", "train a single RL policy", "matching
   // the performance of specialist RL policies trained on specific target objects and tasks" and
@@ -16493,7 +16287,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.16863',
     type: 'paper',
   },
-  // doorman-2025: domain pass 2026-10-06, from drafts/rl-sim2real/why-rl-locomotion.citations.ts.
+  // doorman-2025: added 2026-10-06.
   // arXiv 2512.01061 (v1 2025-11-30; CVPR 2026). Abstract: "achieves robust zero-shot performance
   // across diverse door types and outperforms human teleoperators by up to 31.7% in task completion
   // time" and "using pure RGB perception".
@@ -16507,8 +16301,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.01061',
     type: 'paper',
   },
-  // needlework-2026: domain pass 2026-10-06, KOL intake note of Shuran Song, from drafts/rl-sim2real/offline-rl.citations.ts.
-  // Refresh 2026-10-06 against mission HEAD 8c34ffbb, KOL intake note of Shuran Song.
+  // needlework-2026: added 2026-10-06 via Shuran Song.
+  // Refreshed 2026-10-06.
   // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 1 Oct 2026). Comment: submitted to ICLR 2027.
   {
     id: 'needlework-2026',
@@ -16519,8 +16313,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.02339',
     type: 'paper',
   },
-  // bver-2026: domain pass 2026-10-06, KOL intake note of Marco Hutter, from drafts/rl-sim2real/reward-design-mpc.citations.ts.
-  // Refresh 2026-10-06 against mission HEAD 8c34ffbb, KOL intake note of Marco Hutter.
+  // bver-2026: added 2026-10-06 via Marco Hutter.
+  // Refreshed 2026-10-06.
   // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 2 Oct 2026).
   {
     id: 'bver-2026',
@@ -16531,8 +16325,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.03395',
     type: 'paper',
   },
-  // hitter-2025: domain pass 2026-10-06, KOL intake note of Chris Paxton, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
-  // Refresh 2026-10-06, primary source named in the KOL intake note of Chris Paxton.
+  // hitter-2025: added 2026-10-06 via Chris Paxton.
+  // Refreshed 2026-10-06; primary source named by Chris Paxton.
   // arXiv abstract page read 2026-10-06 (v1 28 Aug 2025, v2 4 Sep 2025): "up to 106 consecutive shots with a human opponent".
   {
     id: 'hitter-2025',
@@ -16543,8 +16337,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.21043',
     type: 'paper',
   },
-  // latent-tennis-2026: domain pass 2026-10-06, KOL intake note of Chris Paxton, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
-  // Refresh 2026-10-06, primary source named in the KOL intake note of Chris Paxton.
+  // latent-tennis-2026: added 2026-10-06 via Chris Paxton.
+  // Refreshed 2026-10-06; primary source named by Chris Paxton.
   // arXiv abstract page read 2026-10-06 (v1 13 Mar 2026): LATENT, deployed on the Unitree G1, "stably sustain multi-shot rallies with human players".
   {
     id: 'latent-tennis-2026',
@@ -16555,8 +16349,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.12686',
     type: 'paper',
   },
-  // paxton-robot-sports-2026: domain pass 2026-10-06, KOL intake note of Chris Paxton, from drafts/rl-sim2real/humanoid-wbc.citations.ts.
-  // Refresh 2026-10-06, KOL intake note of Chris Paxton. Newsletter post dated 3 October 2026,
+  // paxton-robot-sports-2026: added 2026-10-06 via Chris Paxton.
+  // Refreshed 2026-10-06. Newsletter post dated 3 October 2026,
   // fetched 2026-10-06: "many of these systems still use external motion trackers to perceive the ball".
   // Same venue string as paxton-autonomous-trucks-2026.
   {
@@ -16568,7 +16362,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://itcanthink.substack.com/p/what-do-robot-sports-teach-us',
     type: 'blog',
   },
-  // gr00t-n1-7-release-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/humanoid-wbc dates (GR00T N1.7).
+  // gr00t-n1-7-release-2026: added 2026-10-06 for rl-sim2real/humanoid-wbc dates (GR00T N1.7).
   // GitHub release "n1.7 release" (tag n1.7-release), published 2026-04-18T14:45:14Z, fetched 2026-10-07:
   // "Early Access n1.7 release".
   {
@@ -16580,7 +16374,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/NVIDIA/Isaac-GR00T/releases/tag/n1.7-release',
     type: 'docs',
   },
-  // q2rl-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/rl-for-robotics and rl-sim2real/offline-rl (Q2RL, 2026-10-08).
+  // q2rl-2026: added 2026-10-06 for rl-sim2real/rl-for-robotics and rl-sim2real/offline-rl (Q2RL, 2026-10-08).
   // arXiv 2605.05172 abstract (v3 27 Jun 2026; comments: "Robotics: Science and Systems, 2026"): "Q-Estimation
   // extracts a Q-function from a BC policy using a few interaction steps with the environment, followed by online RL
   // with (2) Q-Gating, which switches between BC and RL policy actions based on their respective Q-values" and
@@ -16596,7 +16390,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.05172',
     type: 'paper',
   },
-  // insertanything-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/why-rl-locomotion (InsertAnything, 2026-10-08).
+  // insertanything-2026: added 2026-10-06 for rl-sim2real/why-rl-locomotion (InsertAnything, 2026-10-08).
   // arXiv 2609.24511 abstract (v1 21 Sep 2026): "A single policy trained only on a simulated hexagonal insertion task
   // achieved an overall success rate of 95.0% across eight unseen real-world insertion tasks."
   {
@@ -16608,7 +16402,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.24511',
     type: 'paper',
   },
-  // zest-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/sim2real-transfer, legged-locomotion, humanoid-wbc and reward-design-mpc (ZEST, 2026-10-08).
+  // zest-2026: added 2026-10-06 for rl-sim2real/sim2real-transfer, legged-locomotion, humanoid-wbc and reward-design-mpc (ZEST, 2026-10-08).
   // arXiv 2602.00401 abstract (v1 30 Jan 2026): "trains policies via reinforcement learning from diverse sources --
   // high-fidelity motion capture, noisy monocular video, and non-physics-constrained animation -- and deploys them to
   // hardware zero-shot", "avoiding contact labels, reference or observation windows, state estimators, and extensive
@@ -16632,7 +16426,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.00401',
     type: 'paper',
   },
-  // fetchman-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/humanoid-wbc (FetchMan, 2026-10-08).
+  // fetchman-2026: added 2026-10-06 for rl-sim2real/humanoid-wbc (FetchMan, 2026-10-08).
   // arXiv 2608.17027 abstract (v2 29 Aug 2026): "deploy it zero-shot on a real Unitree G1, where our single-object
   // reach-and-pick policy walks to and grasps a target across unseen scenes at 73.3% success".
   {
@@ -16644,7 +16438,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.17027',
     type: 'paper',
   },
-  // sleiman-wbmpc-2021: domain pass 2026-10-06, owner sweep item rl-sim2real/reward-design-mpc (Sleiman 2021, 2026-10-08).
+  // sleiman-wbmpc-2021: added 2026-10-06 for rl-sim2real/reward-design-mpc (Sleiman 2021, 2026-10-08).
   // arXiv 2103.00946 abstract (v1 1 Mar 2021; comments: RA-L and ICRA 2021): "unifies dynamic locomotion and
   // manipulation tasks by formulating a single multi-contact optimal control problem", "could be solved on the robot's
   // onboard computer in real-time within a model predictive control scheme" and "while pushing/pulling a heavy
@@ -16659,12 +16453,12 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2103.00946',
     type: 'paper',
   },
-  // rai-iros-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/reward-design-mpc (RAI IROS 2026 whole-body MPC, 2026-10-08).
+  // rai-iros-2026: added 2026-10-06 for rl-sim2real/reward-design-mpc (RAI IROS 2026 whole-body MPC, 2026-10-08).
   // RAI Institute blog, datePublished 2026-09-25, fetched 2026-10-08 (HTTP 200), entry "Whole-Body Model Predictive
   // Control for Spin-Aware Quadrupedal Table Tennis": "a novel continuous-time model predictive controller (MPC) for
   // agile full-body control of a quadrupedal robot equipped with an arm", "We demonstrate the system on hardware with a
   // Spot quadruped" and "aim and return balls with varying spin types" and "the system is able to rally with human
-  // players". The KOL queue note of 2026-09-25 on the same round-up is consumed by this entry.
+  // players". This entry also covers the note of 2026-09-25 on the same round-up.
   {
     id: 'rai-iros-2026',
     title: 'IROS 2026 Publication Round-Up',
@@ -16674,7 +16468,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://rai-inst.com/resources/blog/iros-2026-publication-round-up/',
     type: 'blog',
   },
-  // bd-atlas-ces-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/legged-locomotion (Atlas product launch, 2026-10-08).
+  // bd-atlas-ces-2026: added 2026-10-06 for rl-sim2real/legged-locomotion (Atlas product launch, 2026-10-08).
   // Boston Dynamics news post, datePublished 2026-01-05, fetched 2026-10-08 (HTTP 200): "LAS VEGAS (Jan. 5, 2026) –
   // Boston Dynamics, the global leader in mobile robotics, unveiled the product version of its new Atlas robot at the
   // Consumer Electronics Show in Las Vegas today", "The company will begin production of the new Atlas robots at its
@@ -16689,7 +16483,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/',
     type: 'press',
   },
-  // gu-humanoid-review-2026: domain pass 2026-10-06, owner sweep item rl-sim2real/legged-locomotion (Science Robotics review, 2026-10-08).
+  // gu-humanoid-review-2026: added 2026-10-06 for rl-sim2real/legged-locomotion (Science Robotics review, 2026-10-08).
   // Crossref 10.1126/scirobotics.aed3973, read 2026-10-08: "Evolution of humanoid locomotion control", Science
   // Robotics 11(117), published 19 Aug 2026, 13 authors from Yan Gu to Koushil Sreenath. Abstract: "The locomotion
   // control of humanoids has evolved from classical model–based methods to reinforcement learning powered by
@@ -16706,7 +16500,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/scirobotics.aed3973',
     type: 'paper',
   },
-  // resgac-2026: domain pass 2026-10-06, KOL intake note of Guanya Shi (rl-sim2real/humanoid-wbc, ResGAC; disposition of 2026-10-08).
+  // resgac-2026: added 2026-10-06 via Guanya Shi (rl-sim2real/humanoid-wbc, ResGAC, 2026-10-08).
   // arXiv 2610.09479 abstract (v1 7 Oct 2026): "combines geometric admittance control (GAC) with residual
   // reinforcement learning", "ResGAC is validated on a real Unitree G1 humanoid" and "ResGAC achieves 90% success in
   // a standing peg-in-hole task compared with 50% for SONIC". PDF author block: Guanya Shi, Amazon FAR and Carnegie
@@ -16720,7 +16514,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.09479',
     type: 'paper',
   },
-  // roborender-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu (rl-sim2real/sim2real-transfer, RoboRender; disposition of 2026-10-08).
+  // roborender-2026: added 2026-10-06 via Jiajun Wu (rl-sim2real/sim2real-transfer, RoboRender, 2026-10-08).
   // arXiv 2610.09254 abstract (v1 7 Oct 2026): "a framework that converts simulated trajectories into photorealistic
   // RGB videos for policy learning" and "policies trained on RoboRender-generated data achieve a 71% average success
   // rate, outperforming raw simulation renderings and conventional visual domain randomization by approximately 7.1x
@@ -16734,7 +16528,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.09254',
     type: 'paper',
   },
-  // workhorse-2026: domain pass 2026-10-06, KOL intake note of Pieter Abbeel (rl-sim2real/humanoid-wbc, Workhorse; disposition of 2026-10-08).
+  // workhorse-2026: added 2026-10-06 via Pieter Abbeel (rl-sim2real/humanoid-wbc, Workhorse, 2026-10-08).
   // arXiv 2610.09117 abstract (v1 6 Oct 2026): "A visual planner predicts five-link targets", "A reinforcement-learning
   // whole-body tracker follows them on the robot", "Both policies train separately on the same recorded human poses,
   // without retargeting" and "In a simulated copy of the demonstration room, the system completes box sorting in 77 %
@@ -16748,7 +16542,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.09117',
     type: 'paper',
   },
-  // 1x-world-model-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // 1x-world-model-2024: added 2026-10-06.
   // 1X page fetched 2026-10-04: dated SEP 17 '24, byline Jack Monas, Eric Jang.
   {
     id: '1x-world-model-2024',
@@ -16759,7 +16553,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.1x.tech/discover/1x-world-model',
     type: 'blog',
   },
-  // 1x-world-model-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // 1x-world-model-2025: added 2026-10-06.
   // 1X page fetched 2026-10-04: dated JUN 16 '25, byline "AI Team"; the page title is also "1X World
   // Model" (Redwood AI evaluation post).
   {
@@ -16771,7 +16565,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.1x.tech/discover/redwood-ai-world-model',
     type: 'blog',
   },
-  // dreamdojo-2026: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // dreamdojo-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-02-06, 30 authors.
   {
     id: 'dreamdojo-2026',
@@ -16782,7 +16576,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.06949',
     type: 'paper',
   },
-  // dreamgen-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // dreamgen-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-05-19, 28 authors.
   {
     id: 'dreamgen-2025',
@@ -16793,7 +16587,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.12705',
     type: 'paper',
   },
-  // fvd-content-bias-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // fvd-content-bias-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-04-18, 5 authors.
   {
     id: 'fvd-content-bias-2024',
@@ -16805,7 +16599,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2404.12391',
     type: 'paper',
   },
-  // gvl-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // gvl-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-11-07, 18 authors.
   {
     id: 'gvl-2024',
@@ -16816,7 +16610,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2411.04549',
     type: 'paper',
   },
-  // irasim-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // irasim-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-06-20, 6 authors.
   {
     id: 'irasim-2024',
@@ -16828,7 +16622,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2406.14540',
     type: 'paper',
   },
-  // physics-iq-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // physics-iq-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-01-14, 5 authors.
   {
     id: 'physics-iq-2025',
@@ -16839,7 +16633,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2501.09038',
     type: 'paper',
   },
-  // physics-iq-verified-2026: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // physics-iq-verified-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-06-17, 7 authors.
   {
     id: 'physics-iq-verified-2026',
@@ -16850,10 +16644,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.18943',
     type: 'paper',
   },
-  // robolab-2026: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/world-models/evaluation.citations.ts.
-  // Same id as drafts/world-models/evaluation.citations.ts; keep one entry when merging. arXiv
-  // journal ref: Robotics: Science and Systems XXII, Sydney, Australia, 2026 (venue as in the
-  // world-models entry).
+  // robolab-2026: added 2026-10-06.
+  // arXiv journal ref: Robotics: Science and Systems XXII, Sydney, Australia, 2026 (venue as
+  // in the world-models entry).
   {
     id: 'robolab-2026',
     title: 'RoboLab: A High-Fidelity Simulation Benchmark for Analysis of Task Generalist Policies',
@@ -16864,7 +16657,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2604.09860',
     type: 'paper',
   },
-  // video-physical-law-2024: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // video-physical-law-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-11-04, 8 authors.
   {
     id: 'video-physical-law-2024',
@@ -16876,7 +16669,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2411.02385',
     type: 'paper',
   },
-  // world-in-world-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // world-in-world-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-10-20, 17 authors.
   {
     id: 'world-in-world-2025',
@@ -16888,7 +16681,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.18135',
     type: 'paper',
   },
-  // worldarena-2026: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // worldarena-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-02-09, 21 authors.
   {
     id: 'worldarena-2026',
@@ -16899,8 +16692,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.08971',
     type: 'paper',
   },
-  // worldeval-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/world-models/evaluation.citations.ts.
-  // Same id as drafts/world-models/evaluation.citations.ts; keep one entry when merging.
+  // worldeval-2025: added 2026-10-06.
   {
     id: 'worldeval-2025',
     title: 'WorldEval: World Model as Real-World Robot Policies Evaluator',
@@ -16910,7 +16702,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.19017',
     type: 'paper',
   },
-  // worldgym-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // worldgym-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-05-31, 6 authors.
   {
     id: 'worldgym-2025',
@@ -16921,7 +16713,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.00613',
     type: 'paper',
   },
-  // worldmodelbench-2025: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // worldmodelbench-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-02-28, 13 authors.
   {
     id: 'worldmodelbench-2025',
@@ -16932,7 +16724,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.20694',
     type: 'paper',
   },
-  // x2real-2026: domain pass 2026-10-06, from drafts/world-models/evaluation.citations.ts.
+  // x2real-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-09-23, 26 authors.
   {
     id: 'x2real-2026',
@@ -16943,7 +16735,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.27449',
     type: 'paper',
   },
-  // 3d-gen-embodied-survey-2026: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // 3d-gen-embodied-survey-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-04-29, 9 authors.
   {
     id: '3d-gen-embodied-survey-2026',
@@ -16954,7 +16746,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2604.26509',
     type: 'paper',
   },
-  // articulate-anything-2024: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // articulate-anything-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-10-03, 10 authors.
   {
     id: 'articulate-anything-2024',
@@ -16966,7 +16758,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.13882',
     type: 'paper',
   },
-  // cosmos-transfer1-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // cosmos-transfer1-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-03-18, 41 author fields; the second, ":" from
   // the arXiv byline "NVIDIA: Hassan Abu Alhaija, …", is not an author and was removed in
   // verification (40 entries).
@@ -16979,7 +16771,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.14492',
     type: 'paper',
   },
-  // digital-cousins-2024: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // digital-cousins-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-10-09, 8 authors.
   {
     id: 'digital-cousins-2024',
@@ -16991,7 +16783,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.07408',
     type: 'paper',
   },
-  // gensim-2023: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // gensim-2023: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2023-10-02, 9 authors.
   {
     id: 'gensim-2023',
@@ -17002,7 +16794,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2310.01361',
     type: 'paper',
   },
-  // infinigen-articulated-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // infinigen-articulated-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-05-15, 15 authors.
   {
     id: 'infinigen-articulated-2025',
@@ -17013,7 +16805,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.10755',
     type: 'paper',
   },
-  // maniskill3-2024: domain pass 2026-10-06, from drafts/data-hardware/robot-learning-stack.citations.ts; also drafts/world-models/generative-sim.citations.ts.
+  // maniskill3-2024: added 2026-10-06.
   {
     id: 'maniskill3-2024',
     title: 'ManiSkill3: GPU Parallelized Robotics Simulation and Rendering for Generalizable Embodied AI',
@@ -17023,7 +16815,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.00425',
     type: 'paper',
   },
-  // mimicgen-2023: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // mimicgen-2023: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2023-10-26, 8 authors.
   {
     id: 'mimicgen-2023',
@@ -17035,7 +16827,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2310.17596',
     type: 'paper',
   },
-  // objaverse-2022: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // objaverse-2022: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2022-12-15, 10 authors.
   {
     id: 'objaverse-2022',
@@ -17046,7 +16838,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2212.08051',
     type: 'paper',
   },
-  // physx-3d-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // physx-3d-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-07-16, 4 authors.
   {
     id: 'physx-3d-2025',
@@ -17058,7 +16850,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.12465',
     type: 'paper',
   },
-  // procthor-2022: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // procthor-2022: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2022-06-14, 11 authors.
   {
     id: 'procthor-2022',
@@ -17069,8 +16861,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2206.06994',
     type: 'paper',
   },
-  // robotwin-2-2025: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/world-models/generative-sim.citations.ts.
-  // Same id as drafts/world-models/generative-sim.citations.ts; keep one entry when merging.
+  // robotwin-2-2025: added 2026-10-06.
   {
     id: 'robotwin-2-2025',
     title: 'RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong Domain Randomization for Robust Bimanual Robotic Manipulation',
@@ -17080,7 +16871,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.18088',
     type: 'paper',
   },
-  // scalable-real2sim-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // scalable-real2sim-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-03-01, 5 authors.
   {
     id: 'scalable-real2sim-2025',
@@ -17091,7 +16882,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.00370',
     type: 'paper',
   },
-  // scenesmith-2026: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // scenesmith-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-02-09, 5 authors.
   {
     id: 'scenesmith-2026',
@@ -17103,7 +16894,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.09153',
     type: 'paper',
   },
-  // skillmimicgen-2024: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // skillmimicgen-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-10-24, 4 authors.
   {
     id: 'skillmimicgen-2024',
@@ -17114,7 +16905,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.18907',
     type: 'paper',
   },
-  // steerable-scene-generation-2025: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // steerable-scene-generation-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-05-07, 5 authors.
   {
     id: 'steerable-scene-generation-2025',
@@ -17125,7 +16916,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.04831',
     type: 'paper',
   },
-  // text2reward-2023: domain pass 2026-10-06, from drafts/world-models/generative-sim.citations.ts.
+  // text2reward-2023: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2023-09-20, 8 authors.
   {
     id: 'text2reward-2023',
@@ -17137,13 +16928,13 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2309.11489',
     type: 'paper',
   },
-  // 1x-world-model-2026: domain pass 2026-10-06, from drafts/world-models/generative-video.citations.ts.
+  // 1x-world-model-2026: added 2026-10-06.
   // 1X blog fetched 2026-10-04: CMS date 2026-01-12; "The 1XWM backbone is built upon a 14B
   // generative video model"; "We train on 900 hours of egocentric human video"; "We then fine-tune
   // on 70 hours of robot data"; "running 30 times each"; success chart shows "0 DRAW SMILEY 0 POUR
   // CEREAL"; "the 1XWM backbone takes 11 seconds to run ... Each inference generates 5 seconds of
   // real-time video, and the IDM takes 1 second". No personal byline; corporate author as in the
-  // pack.
+  // research notes.
   {
     id: '1x-world-model-2026',
     title: '1X World Model | From Video to Action: A New Way Robots Learn',
@@ -17153,7 +16944,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.1x.tech/discover/world-model-self-learning',
     type: 'blog',
   },
-  // gr-3-2025: domain pass 2026-10-06, from drafts/world-models/generative-video.citations.ts.
+  // gr-3-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-07-21, 21 authors.
   {
     id: 'gr-3-2025',
@@ -17164,7 +16955,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2507.15493',
     type: 'paper',
   },
-  // lingbot-va-2026: domain pass 2026-10-06, from drafts/world-models/generative-video.citations.ts.
+  // lingbot-va-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-01-29, 12 authors.
   {
     id: 'lingbot-va-2026',
@@ -17175,7 +16966,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.21998',
     type: 'paper',
   },
-  // rise-2026: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // rise-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-02-11, 13 authors.
   {
     id: 'rise-2026',
@@ -17187,7 +16978,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.11075',
     type: 'paper',
   },
-  // unisim-2023: domain pass 2026-10-06, from drafts/world-models/generative-video.citations.ts.
+  // unisim-2023: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2023-10-09, 7 authors.
   {
     id: 'unisim-2023',
@@ -17198,7 +16989,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2310.06114',
     type: 'paper',
   },
-  // wam-robustness-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // wam-robustness-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-03-23, 14 authors.
   {
     id: 'wam-robustness-2026',
@@ -17209,7 +17000,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.22078',
     type: 'paper',
   },
-  // ami-labs-launch-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // ami-labs-launch-2026: added 2026-10-06.
   // AMI Labs updates page fetched 2026-10-04: "March 10, 2026 - Updates: Official launch"; "$1.03B
   // USD (~€890M)"; "operating in Paris, New York, Montreal and Singapore from day one."
   {
@@ -17221,7 +17012,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://amilabs.xyz/updates',
     type: 'blog',
   },
-  // byol-2020: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // byol-2020: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2020-06-13, 14 authors.
   {
     id: 'byol-2020',
@@ -17232,7 +17023,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2006.07733',
     type: 'paper',
   },
-  // dino-wm-2024: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // dino-wm-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-11-07, 4 authors.
   {
     id: 'dino-wm-2024',
@@ -17243,7 +17034,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2411.04983',
     type: 'paper',
   },
-  // ijepa-2023: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // ijepa-2023: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2023-01-19, 8 authors.
   {
     id: 'ijepa-2023',
@@ -17255,7 +17046,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2301.08243',
     type: 'paper',
   },
-  // intphys2-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // intphys2-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-06-11, 6 authors.
   {
     id: 'intphys2-2025',
@@ -17266,7 +17057,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.09849',
     type: 'paper',
   },
-  // intuitive-physics-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // intuitive-physics-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-02-17, 8 authors.
   {
     id: 'intuitive-physics-2025',
@@ -17277,7 +17068,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.11831',
     type: 'paper',
   },
-  // jepa-implicit-bias-2024: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // jepa-implicit-bias-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-07-03, 7 authors.
   {
     id: 'jepa-implicit-bias-2024',
@@ -17288,7 +17079,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.03475',
     type: 'paper',
   },
-  // jepa-vla-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // jepa-vla-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-02-12, 7 authors.
   {
     id: 'jepa-vla-2026',
@@ -17299,7 +17090,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.11832',
     type: 'paper',
   },
-  // jepa-wam-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // jepa-wam-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-08-10, 9 authors.
   {
     id: 'jepa-wam-2026',
@@ -17310,7 +17101,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.09381',
     type: 'paper',
   },
-  // jepa-wm-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // jepa-wm-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-12-30, 5 authors.
   {
     id: 'jepa-wm-2025',
@@ -17321,7 +17112,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.24497',
     type: 'paper',
   },
-  // lecun-ami-techcrunch-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // lecun-ami-techcrunch-2025: added 2026-10-06.
   // TechCrunch fetched 2026-10-04: byline Julie Bort, December 19, 2025; quotes LeCun: "I'm the
   // Executive Chairman. And Alex LeBrun is transitioning from CEO of Nabla to CEO of AMI Labs!"
   {
@@ -17333,7 +17124,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://techcrunch.com/2025/12/19/yann-lecun-confirms-his-new-world-model-startup-reportedly-seeks-5b-valuation/',
     type: 'press',
   },
-  // lejepa-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // lejepa-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-11-11, 2 authors.
   {
     id: 'lejepa-2025',
@@ -17344,7 +17135,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.08544',
     type: 'paper',
   },
-  // lejepa-world-model-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // lejepa-world-model-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-05-25, 3 authors.
   {
     id: 'lejepa-world-model-2026',
@@ -17355,7 +17146,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.26379',
     type: 'paper',
   },
-  // leworldmodel-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // leworldmodel-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-03-13, 5 authors.
   {
     id: 'leworldmodel-2026',
@@ -17366,7 +17157,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.19312',
     type: 'paper',
   },
-  // meta-vjepa2-blog-2025: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // meta-vjepa2-blog-2025: added 2026-10-06.
   // Meta AI blog fetched 2026-10-04: dated June 11, 2025; "V-JEPA 2 is a 1.2 billion-parameter
   // model"; "success rates of 65% [en dash] 80% for pick-and-placing new objects in new and unseen
   // environments".
@@ -17379,7 +17170,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/',
     type: 'blog',
   },
-  // muzero-2019: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // muzero-2019: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2019-11-19, 12 authors.
   {
     id: 'muzero-2019',
@@ -17390,7 +17181,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1911.08265',
     type: 'paper',
   },
-  // vjepa-2-1-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // vjepa-2-1-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-03-15, 9 authors.
   {
     id: 'vjepa-2-1-2026',
@@ -17401,7 +17192,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.14482',
     type: 'paper',
   },
-  // vla-jepa-2026: domain pass 2026-10-06, from drafts/world-models/jepa.citations.ts.
+  // vla-jepa-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-02-10, 9 authors.
   {
     id: 'vla-jepa-2026',
@@ -17412,7 +17203,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.10098',
     type: 'paper',
   },
-  // bmpc-2025: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // bmpc-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-03-24, 5 authors.
   {
     id: 'bmpc-2025',
@@ -17424,7 +17215,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.18871',
     type: 'paper',
   },
-  // compounding-error-2022: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // compounding-error-2022: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2022-03-17, 3 authors.
   {
     id: 'compounding-error-2022',
@@ -17435,7 +17226,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2203.09637',
     type: 'paper',
   },
-  // dreamerv2-2020: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // dreamerv2-2020: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2020-10-05, 4 authors.
   {
     id: 'dreamerv2-2020',
@@ -17447,7 +17238,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2010.02193',
     type: 'paper',
   },
-  // e2c-2015: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // e2c-2015: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2015-06-24, 4 authors.
   {
     id: 'e2c-2015',
@@ -17459,7 +17250,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1506.07365',
     type: 'paper',
   },
-  // ha-world-models-2018: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // ha-world-models-2018: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2018-03-27, 2 authors.
   {
     id: 'ha-world-models-2018',
@@ -17470,7 +17261,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1803.10122',
     type: 'paper',
   },
-  // hwm-2026: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // hwm-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-04-03, 11 authors.
   {
     id: 'hwm-2026',
@@ -17481,7 +17272,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2604.03208',
     type: 'paper',
   },
-  // masked-world-models-2022: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // masked-world-models-2022: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2022-06-28, 7 authors.
   {
     id: 'masked-world-models-2022',
@@ -17493,7 +17284,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2206.14244',
     type: 'paper',
   },
-  // mbpo-2019: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // mbpo-2019: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2019-06-19, 4 authors.
   {
     id: 'mbpo-2019',
@@ -17505,7 +17296,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1906.08253',
     type: 'paper',
   },
-  // mudreamer-2024: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // mudreamer-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-05-23, 2 authors.
   {
     id: 'mudreamer-2024',
@@ -17516,7 +17307,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2405.15083',
     type: 'paper',
   },
-  // newt-2025: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // newt-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-11-24, 3 authors.
   {
     id: 'newt-2025',
@@ -17527,7 +17318,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.19584',
     type: 'paper',
   },
-  // puppeteer-2024: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // puppeteer-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-05-28, 6 authors. Fix 2026-10-04: PDF byline
   // "Jyothir S V" (abs-page citation_author "S V, Jyothir"); the earlier "Jyothir S" truncated it.
   {
@@ -17539,7 +17330,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2405.18418',
     type: 'paper',
   },
-  // reset-free-driving-2026: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // reset-free-driving-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-04-09, 2 authors.
   // Claim audit 2026-10-07: v2 (6 October 2026) is retitled "ReBound: ..." and reports a different
   // study; the quoted "only TD-MPC2 consistently outperforms the MPPI baseline on the physical
@@ -17554,7 +17345,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2604.07672v1',
     type: 'paper',
   },
-  // rwm-u-2025: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // rwm-u-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-04-23, 3 authors.
   {
     id: 'rwm-u-2025',
@@ -17565,7 +17356,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2504.16680',
     type: 'paper',
   },
-  // steve-2018: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // steve-2018: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2018-07-04, 5 authors.
   {
     id: 'steve-2018',
@@ -17576,7 +17367,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1807.01675',
     type: 'paper',
   },
-  // td-m-pc2-2025: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // td-m-pc2-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-02-05, 4 authors. Fix 2026-10-04: the arXiv
   // title carries TeX "$^2$", which the reference list would print literally; the PDF title is
   // "TD-M(PC)²". normalizeTitle() reduces both to the same string.
@@ -17589,7 +17380,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.03550',
     type: 'paper',
   },
-  // value-equivalence-2020: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // value-equivalence-2020: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2020-11-06, 4 authors.
   {
     id: 'value-equivalence-2020',
@@ -17601,7 +17392,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2011.03506',
     type: 'paper',
   },
-  // wm-hallucination-2026: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // wm-hallucination-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-06-25, 2 authors.
   {
     id: 'wm-hallucination-2026',
@@ -17612,7 +17403,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.27326',
     type: 'paper',
   },
-  // wmp-2024: domain pass 2026-10-06, from drafts/world-models/latent-dynamics.citations.ts.
+  // wmp-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-09-25, 8 authors.
   {
     id: 'wmp-2024',
@@ -17623,7 +17414,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2409.16784',
     type: 'paper',
   },
-  // deep-visual-foresight-2016: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // deep-visual-foresight-2016: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2016-10-03, 2 authors.
   {
     id: 'deep-visual-foresight-2016',
@@ -17635,10 +17426,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1610.00696',
     type: 'paper',
   },
-  // dyna-1990: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // dyna-1990: added 2026-10-06.
   // Crossref check 2026-10-04: Machine Learning Proceedings 1990 (Elsevier), pages 216-224, single
   // author Richard S. Sutton. The publisher page and the open-access copy were unreachable (HTTP 403
-  // and 502), so the draft cites only what the title states.
+  // and 502), so the article cites only what the title states.
   {
     id: 'dyna-1990',
     title: 'Integrated Architectures for Learning, Planning, and Reacting Based on Approximating Dynamic Programming',
@@ -17648,7 +17439,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1016/B978-1-55860-141-3.50030-4',
     type: 'paper',
   },
-  // manip-wm-survey-2026: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // manip-wm-survey-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-05-27, 18 authors.
   {
     id: 'manip-wm-survey-2026',
@@ -17659,7 +17450,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.00113',
     type: 'paper',
   },
-  // mbrl-survey-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // mbrl-survey-2020: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2020-06-30, 4 authors.
   {
     id: 'mbrl-survey-2020',
@@ -17670,7 +17461,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2006.16712',
     type: 'paper',
   },
-  // me-trpo-2018: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // me-trpo-2018: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2018-02-28, 5 authors.
   {
     id: 'me-trpo-2018',
@@ -17681,7 +17472,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1802.10592',
     type: 'paper',
   },
-  // mopo-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // mopo-2020: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2020-05-27, 8 authors.
   {
     id: 'mopo-2020',
@@ -17693,7 +17484,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2005.13239',
     type: 'paper',
   },
-  // morel-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // morel-2020: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2020-05-12, 4 authors.
   {
     id: 'morel-2020',
@@ -17705,7 +17496,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2005.05951',
     type: 'paper',
   },
-  // objective-mismatch-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // objective-mismatch-2020: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2020-02-11, 4 authors.
   {
     id: 'objective-mismatch-2020',
@@ -17717,7 +17508,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2002.04523',
     type: 'paper',
   },
-  // pddm-2019: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // pddm-2019: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2019-09-25, 4 authors.
   {
     id: 'pddm-2019',
@@ -17728,7 +17519,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1909.11652',
     type: 'paper',
   },
-  // pets-2018: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // pets-2018: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2018-05-30, 4 authors.
   {
     id: 'pets-2018',
@@ -17740,7 +17531,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1805.12114',
     type: 'paper',
   },
-  // pilco-2015: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // pilco-2015: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2015-02-10, 3 authors.
   {
     id: 'pilco-2015',
@@ -17752,7 +17543,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1502.02860',
     type: 'paper',
   },
-  // ssrl-2024: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // ssrl-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-10-11, 3 authors.
   {
     id: 'ssrl-2024',
@@ -17763,7 +17554,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.09163',
     type: 'paper',
   },
-  // tossingbot-2019: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // tossingbot-2019: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2019-03-27, 5 authors.
   {
     id: 'tossingbot-2019',
@@ -17774,7 +17565,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1903.11239',
     type: 'paper',
   },
-  // visuospatial-foresight-2020: domain pass 2026-10-06, from drafts/world-models/model-based-robot-learning.citations.ts.
+  // visuospatial-foresight-2020: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2020-03-19, 9 authors.
   {
     id: 'visuospatial-foresight-2020',
@@ -17786,7 +17577,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2003.09044',
     type: 'paper',
   },
-  // amd-world-labs-2026: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // amd-world-labs-2026: added 2026-10-06.
   // AMD press release fetched 2026-10-04: dated September 28, 2026 (GLOBE NEWSWIRE); "entered into a
   // definitive agreement to acquire World Labs"; "The all-stock transaction is valued at
   // approximately $8.2 billion and is expected to close by the end of 2026".
@@ -17799,7 +17590,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute',
     type: 'press',
   },
-  // marble-2025: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // marble-2025: added 2026-10-06.
   // World Labs blog fetched 2026-10-04: dated November 12, 2025, no personal byline; "Once
   // generated, 3D worlds can be exported as Gaussian splats, meshes, or videos"; "collider meshes,
   // which are low-fidelity meshes intended for coarse physics simulation".
@@ -17812,7 +17603,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.worldlabs.ai/blog/marble-world-model',
     type: 'blog',
   },
-  // nvidia-wam-blog-2026: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // nvidia-wam-blog-2026: added 2026-10-06.
   // NVIDIA Technical Blog fetched 2026-10-04: byline Moritz Reuss, Jun 15, 2026; "A WAM sits at the
   // overlap: it leverages a pretrained video/world-model backbone as a prior and predicts both
   // future states and robot actions"; "DreamZero ... reached 1750 Elo on the April 2026 RoboArena
@@ -17826,7 +17617,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://developer.nvidia.com/blog/pretrained-to-imagine-fine-tuned-to-act-the-rise-of-world-action-models/',
     type: 'blog',
   },
-  // physgaussian-2023: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // physgaussian-2023: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2023-11-20, 7 authors.
   {
     id: 'physgaussian-2023',
@@ -17838,7 +17629,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2311.12198',
     type: 'paper',
   },
-  // symbolic-operators-2021: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // symbolic-operators-2021: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2021-02-28, 5 authors.
   {
     id: 'symbolic-operators-2021',
@@ -17850,7 +17641,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2103.00589',
     type: 'paper',
   },
-  // visualpredicator-2024: domain pass 2026-10-06, from drafts/world-models/taxonomy.citations.ts.
+  // visualpredicator-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-10-30, 8 authors.
   {
     id: 'visualpredicator-2024',
@@ -17862,7 +17653,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.23156',
     type: 'paper',
   },
-  // cosmos-predict2-5-2025: domain pass 2026-10-06, from drafts/world-models/world-models-vs-simulators.citations.ts.
+  // cosmos-predict2-5-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-10-28, 90 author fields; the second, ":" from
   // the arXiv byline "NVIDIA: Arslan Ali, …", is not an author and was removed in verification (89
   // entries).
@@ -17875,7 +17666,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.00062',
     type: 'paper',
   },
-  // skyjepa-2026: domain pass 2026-10-06, owner sweep item world-models/jepa recency (SkyJEPA, README §6).
+  // skyjepa-2026: added 2026-10-06 for world-models/jepa recency (SkyJEPA).
   // arXiv API, fetched 2026-10-07: v1 22 June 2026, comment "Under Review", five authors. Abstract:
   // "we combine the learned model with a sampling-based optimal control solution to take advantage of its
   // predictive capabilities for real-time control on embedded hardware" and "Extensive open-loop and outdoor
@@ -17889,7 +17680,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.23444',
     type: 'paper',
   },
-  // h-jepa-2026: domain pass 2026-10-06, KOL intake note of Yann LeCun (world-models/jepa).
+  // h-jepa-2026: added 2026-10-06 via Yann LeCun (world-models/jepa).
   // Title, authors and abstract read through the arXiv API on 2026-10-06 (v1 5 Oct 2026).
   {
     id: 'h-jepa-2026',
@@ -17900,7 +17691,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.06805',
     type: 'paper',
   },
-  // pointworld-2026: domain pass 2026-10-06, owner sweep item world-models/taxonomy and world-models/model-based-robot-learning (PointWorld, 2026-10-08).
+  // pointworld-2026: added 2026-10-06 for world-models/taxonomy and world-models/model-based-robot-learning (PointWorld, 2026-10-08).
   // arXiv 2601.03782 abstract (v1 7 Jan 2026): "given one or few RGB-D images and a sequence of low-level robot action
   // commands, PointWorld forecasts per-pixel displacements in 3D that respond to the given actions", "totaling about 2M
   // trajectories and 500 hours", "With a real-time (0.1s) inference speed, PointWorld can be efficiently integrated in
@@ -17915,7 +17706,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.03782',
     type: 'paper',
   },
-  // simdist-2026: domain pass 2026-10-06, owner sweep item world-models/latent-dynamics, model-based-robot-learning and world-models-vs-simulators (SimDist, 2026-10-08).
+  // simdist-2026: added 2026-10-06 for world-models/latent-dynamics, model-based-robot-learning and world-models-vs-simulators (SimDist, 2026-10-08).
   // arXiv 2603.15759 abstract (v2 12 May 2026; comments: "Robotics: Science and Systems 2026"): "During real-world
   // adaptation, SimDist transfers the encoder, reward model, and value function learned in simulation, and updates only
   // the latent dynamics model using real-world prediction losses. This reduces adaptation to supervised system
@@ -17931,7 +17722,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.15759',
     type: 'paper',
   },
-  // worldsimprobe-2026: domain pass 2026-10-06, owner sweep item world-models/evaluation (WorldSimProbe, 2026-10-08).
+  // worldsimprobe-2026: added 2026-10-06 for world-models/evaluation (WorldSimProbe, 2026-10-08).
   // arXiv 2608.09298 abstract (v1 10 Aug 2026): "supplied actions must induce corresponding agent motion, and
   // environment responses must be grounded in that realized motion", "We evaluate six open-source ACWMs on more than
   // 18,000 instances across RoboTwin, ManiSkill, and LIBERO" and "World-SimProbe reveals systematic action-realization
@@ -17949,7 +17740,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.09298',
     type: 'paper',
   },
-  // levjepa-2026: domain pass 2026-10-06, owner sweep item world-models/jepa (LeVJEPA, 2026-10-08).
+  // levjepa-2026: added 2026-10-06 for world-models/jepa (LeVJEPA, 2026-10-08).
   // arXiv 2608.27395 abstract (v1 27 Aug 2026): "We introduce LeVJEPA, the first video encoder trained under LeJEPA's
   // collapse-free objective" and "At matched epochs on identical data, LeVJEPA matches or surpasses V-JEPA 2 across
   // ViT-S/B/L at 5.6 to 20.8x less pretraining compute".
@@ -17962,7 +17753,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.27395',
     type: 'paper',
   },
-  // worldlabs-atlas-2026: domain pass 2026-10-06, owner sweep item world-models/generative-sim (World Labs Atlas, 2026-10-08).
+  // worldlabs-atlas-2026: added 2026-10-06 for world-models/generative-sim (World Labs Atlas, 2026-10-08).
   // World Labs blog, dated September 1, 2026 on the page, fetched 2026-10-08 (HTTP 200): "Today we are introducing
   // Atlas, our next-generation world model" and "Atlas models space and time from input videos, reframing videos for
   // dramatic visual effects and enabling Real-to-Sim workflows for robotics" (the company's own description).
@@ -17975,7 +17766,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.worldlabs.ai/blog/atlas',
     type: 'blog',
   },
-  // genesis-world-2026: domain pass 2026-10-06, owner sweep item world-models/generative-sim (Genesis World, 2026-10-08).
+  // genesis-world-2026: added 2026-10-06 for world-models/generative-sim (Genesis World, 2026-10-08).
   // PyPI project page and JSON API, fetched 2026-10-08: version 1.4.3 uploaded 2026-09-30, summary "A universal and
   // generative physics engine". Description: "Genesis World is a simulation platform for physical AI developments. It
   // combines a unified multi-physics engine, a photo-realistic renderer (Nyx), and a cross-platform compiler (Quadrants)
@@ -17990,7 +17781,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://pypi.org/project/genesis-world/',
     type: 'docs',
   },
-  // cosmos-predict2-repo-2025: domain pass 2026-10-06, owner sweep item world-models/world-models-vs-simulators (archived Predict2, 2026-10-08).
+  // cosmos-predict2-repo-2025: added 2026-10-06 for world-models/world-models-vs-simulators (archived Predict2, 2026-10-08).
   // GitHub repository page, fetched 2026-10-08: "This repository was archived by the owner on Dec 3, 2025" and the
   // update notice "The latest version of our Cosmos-Predict is now live! Cosmos-Predict2.5 We recommend all users
   // migrate to the new version"; the GitHub API reports archived: true.
@@ -18003,7 +17794,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/nvidia-cosmos/cosmos-predict2',
     type: 'docs',
   },
-  // rethink-shutdown-2018: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
+  // rethink-shutdown-2018: added 2026-10-06.
   // IEEE Spectrum, published 2018-10-04 (article:published_time; fetched 2026-10-04), bylines Erico
   // Guizzo and Evan Ackerman: "After a long, 10-year run (the company was founded as Heartland
   // Robotics, remember ?) and US $150 million raised from investors, Rethink ran out of steam as
@@ -18017,7 +17808,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://spectrum.ieee.org/rethink-robotics-pioneer-of-collaborative-robots-shuts-down',
     type: 'press',
   },
-  // agibot-omdia-2026: domain pass 2026-10-06, from drafts/data-hardware/hardware-taxonomy.citations.ts; also drafts/frontier/bear-case.citations.ts.
+  // agibot-omdia-2026: added 2026-10-06.
   // Byline "The Robot Report Staff", published 2026-01-12 (read 2026-10-04): "Total annual shipments
   // reached approximately 13,000 units"; "AGIBOT shipped more than 5,100 humanoid robots during the
   // year, according to Omdia"; "that number also includes the number of mobile manipulators the
@@ -18031,7 +17822,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.therobotreport.com/agibot-makes-u-s-debut-with-more-than-5100-robots-shipped/',
     type: 'press',
   },
-  // sag-humanoid-shipments-2026: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
+  // sag-humanoid-shipments-2026: added 2026-10-06.
   // Smart Analytics Global, author Linda Sui, published 2026-08-10 (datePublished; fetched
   // 2026-10-04): "SAG reports global humanoid robot shipments surged 272% YoY to 19.1K units in 1H
   // 2026, with AGIBOT overtaking Unitree for the No. 1 position." Single analyst source.
@@ -18044,10 +17835,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://smartanalyticsglobal.com/global-humanoid-robot-shipments-2026-agibot-unitree/',
     type: 'press',
   },
-  // tesla-q2-2026-update: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; also drafts/frontier/reliability-gap.citations.ts.
+  // tesla-q2-2026-update: added 2026-10-06.
   // PDF created 22 July 2026 (read 2026-10-04): "We expanded the unsupervised operation area in
-  // Austin and launched unsupervised rides in Miami, Orlando and Tampa in July." Same id and fields
-  // as drafts/frontier/reliability-gap.citations.ts (same PDF; drop one copy when merging).
+  // Austin and launched unsupervised rides in Miami, Orlando and Tampa in July."
   {
     id: 'tesla-q2-2026-update',
     title: 'Q2 2026 Update',
@@ -18056,7 +17846,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q2-2026-Update.pdf',
     type: 'docs',
   },
-  // reuters-china-humanoid-ipo-2026: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
+  // reuters-china-humanoid-ipo-2026: added 2026-10-06.
   // Reuters wire dated Sept 21, 2026, "Writing by Eduardo Baptista". reuters.com returns 401 to curl
   // but renders (HTTP 200) through a browser fetch, re-read 2026-10-26 with the same text; SRN News
   // carries the wire verbatim (https://srnnews.com/china-slows-humanoid-robot-ipo-rush-as-hype-outruns-reality/).
@@ -18076,7 +17866,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.reuters.com/business/finance/china-slows-humanoid-robot-ipo-rush-hype-outruns-reality-2026-09-21/',
     type: 'press',
   },
-  // lighthill-1973: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
+  // lighthill-1973: added 2026-10-06.
   // Chilton Computing archive of the Science Research Council report (fetched 2026-10-04). The
   // survey is dated July 1972; the archive's overview says "The Lighthill Report was published early
   // in 1973." Quotes: "In no part of the field have the discoveries made so far produced the major
@@ -18092,7 +17882,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/p001.htm',
     type: 'docs',
   },
-  // levine-sporks-2025: domain pass 2026-10-06, from drafts/data-hardware/data-bottleneck.citations.ts; also drafts/frontier/competing-theses.citations.ts.
+  // levine-sporks-2025: added 2026-10-06.
   // Author's essay dated Jul 21, 2025 (read 2026-10-04). Commentary, cited as the author's argument.
   {
     id: 'levine-sporks-2025',
@@ -18103,7 +17893,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://sergeylevine.substack.com/p/sporks-of-agi',
     type: 'blog',
   },
-  // amazon-million-robots-2025: domain pass 2026-10-06, from drafts/data-hardware/industrial-deployment.citations.ts; also drafts/frontier/competing-theses.citations.ts.
+  // amazon-million-robots-2025: added 2026-10-06.
   // Published 2025-07-01 (page metadata), byline "Scott Dresser, VP, Amazon Robotics" (read
   // 2026-10-04): "We've just deployed our 1 millionth robot"; "more than 300 facilities worldwide";
   // DeepFleet improves "the travel time of our robotic fleet by 10%". Company-reported.
@@ -18116,7 +17906,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.aboutamazon.com/news/operations/amazon-million-robots-ai-foundation-model',
     type: 'press',
   },
-  // int-act-2025: domain pass 2026-10-06, from drafts/frontier/generalization.citations.ts.
+  // int-act-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-06-11, 4 authors.
   {
     id: 'int-act-2025',
@@ -18127,7 +17917,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.09930',
     type: 'paper',
   },
-  // star-gen-2025: domain pass 2026-10-06, from drafts/frontier/generalization.citations.ts.
+  // star-gen-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-03-03, 6 authors.
   {
     id: 'star-gen-2025',
@@ -18139,7 +17929,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.01238',
     type: 'paper',
   },
-  // colosseum-2024: domain pass 2026-10-06, from drafts/data-hardware/evaluation-crisis.citations.ts; also drafts/frontier/generalization.citations.ts.
+  // colosseum-2024: added 2026-10-06.
   // arXiv comment: RSS 2024.
   {
     id: 'colosseum-2024',
@@ -18151,7 +17941,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2402.08191',
     type: 'paper',
   },
-  // hj-reachability-2017: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // hj-reachability-2017: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2017-09-21, 4 authors.
   {
     id: 'hj-reachability-2017',
@@ -18163,7 +17953,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1709.07523',
     type: 'paper',
   },
-  // rapolicy-2026: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // rapolicy-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-09-19, 5 authors.
   {
     id: 'rapolicy-2026',
@@ -18174,7 +17964,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.22888',
     type: 'paper',
   },
-  // fail-detect-2025: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // fail-detect-2025: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2025-03-11, 10 authors.
   {
     id: 'fail-detect-2025',
@@ -18186,7 +17976,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.08558',
     type: 'paper',
   },
-  // sentinel-2024: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // sentinel-2024: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2024-10-06, 7 authors.
   {
     id: 'sentinel-2024',
@@ -18198,7 +17988,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.04640',
     type: 'paper',
   },
-  // agility-digit-5-2026: domain pass 2026-10-06, from drafts/data-hardware/industrial-deployment.citations.ts; also drafts/frontier/reliability-gap.citations.ts.
+  // agility-digit-5-2026: added 2026-10-06.
   // Read 2026-10-04: "Digit 4 has logged more than 65,000 hours of operational time"; at GXO's
   // Flowery Branch facility "Digit 4 reached a cumulative 100,000-tote milestone, maintaining
   // approximately 98% accuracy while on-task." Company-reported.
@@ -18211,7 +18001,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale',
     type: 'press',
   },
-  // bi-figure-livestream-2026: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // bi-figure-livestream-2026: added 2026-10-06.
   // Business Insider, byline Rya Jetha, published 2026-05-15 (fetched 2026-10-04): "Figure AI
   // reached its goal of running the robot for eight hours with "zero failures," Adcock said, and
   // decided to keep going. By the 24-hour mark on Thursday morning, the humanoids had sorted more
@@ -18226,7 +18016,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.businessinsider.com/figure-ai-turned-a-humanoid-sorting-packages-must-see-tv-2026-5',
     type: 'press',
   },
-  // hanley-zero-numerators-1983: domain pass 2026-10-06, from drafts/frontier/reliability-gap.citations.ts.
+  // hanley-zero-numerators-1983: added 2026-10-06.
   // Crossref metadata (2026-10-04): JAMA 249(13):1743, issued 1983-04-01. Authors from the
   // author-hosted PDF (https://jhanley.biostat.mcgill.ca/c607/ch08/zero_numerator.pdf): "James A.
   // Hanley and Abby Lippman-Hand". Quote: "This "rule of three" states that if none of n patients
@@ -18241,7 +18031,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1001/jama.1983.03330370053031',
     type: 'paper',
   },
-  // iso-iec-tr-5469-2024: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // iso-iec-tr-5469-2024: added 2026-10-06.
   // ISO catalogue entry via Wayback capture 20260928001954 (iso.org returns 403 to this host):
   // "ISO/IEC TR 5469:2024 Artificial intelligence - Functional safety and AI systems"; abstract:
   // "This document describes the properties, related risk factors, available methods and processes
@@ -18258,13 +18048,13 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.iso.org/standard/81283.html',
     type: 'docs',
   },
-  // hartmann-iso-10218-2026: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // hartmann-iso-10218-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-02-19, 5 authors. Abstract: "The analysis
   // reveals significant expansions in functional safety and cybersecurity, the introduction of new
   // classifications for robots and collaborative applications, and the normative integration of the
-  // technical specification ISO/TS 15066". Pack-frontier-2 outdated item 1 (TS 15066 is no longer
-  // only a supplement). The pack lists Results in Engineering 30 (2026), DOI
-  // 10.1016/j.rineng.2026.110486; arXiv states no venue, so none is set.
+  // technical specification ISO/TS 15066" (TS 15066 is no longer only a supplement). A journal
+  // version appears as Results in Engineering 30 (2026), DOI 10.1016/j.rineng.2026.110486; arXiv
+  // states no venue, so none is set.
   {
     id: 'hartmann-iso-10218-2026',
     title: 'Evolution of Safety Requirements in Industrial Robotics: Comparative Analysis of ISO 10218-1/2 (2011 vs. 2025) and Integration of ISO/TS 15066',
@@ -18274,7 +18064,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.17822',
     type: 'paper',
   },
-  // rr-ansi-r1506-2026: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // rr-ansi-r1506-2026: added 2026-10-06.
   // The Robot Report, byline "The Robot Report Staff", published 2026-01-13 (datePublished; fetched
   // 2026-10-04): "Parts 1 and 2: Approved on Aug. 21, 2025, these sections serve as a revision of
   // the previous ANSI/RIA R15.06-2012 standard. They represent the U.S. national adoption of
@@ -18290,7 +18080,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.therobotreport.com/now-available-full-403-page-ansi-a3-r15-06-2025-robot-safety-standard/',
     type: 'press',
   },
-  // layne-robot-fatalities-2023: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // layne-robot-fatalities-2023: added 2026-10-06.
   // Crossref metadata and Europe PMC abstract (PMID 36850052; read 2026-10-04): Am J Ind Med
   // 66(6):454-461, published 2023-02-27. Abstract: "There were 41 robot-related fatalities
   // identified by the keyword search during the 26-year period of this study"; "Most of the cases
@@ -18306,7 +18096,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1002/ajim.23470',
     type: 'paper',
   },
-  // luckcuck-formal-2019: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // luckcuck-formal-2019: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2018-06-29, 5 authors. Abstract: "Though commonly
   // used, testing and simulation alone are insufficient to ensure the correctness of, or provide
   // sufficient evidence for the certification of, autonomous robotics". arXiv journal_ref: "ACM
@@ -18321,7 +18111,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1807.00048',
     type: 'paper',
   },
-  // vlpsa-2026: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // vlpsa-2026: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2026-09-18, 4 authors. Abstract: "yielding a Control
   // Barrier Function (CBF) that is enforced through a CBF-QP safety filter over the full body";
   // "without retraining"; "increasing collision avoidance from 23.1% for the base pi_0.5 policy to
@@ -18335,7 +18125,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.22462',
     type: 'paper',
   },
-  // amlas-2021: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // amlas-2021: added 2026-10-06.
   // arXiv API check 2026-10-04: first submitted 2021-02-02, 6 authors. Abstract: "AMLAS comprises a
   // set of safety case patterns and a process for (1) systematically integrating safety assurance
   // into the development of ML components and (2) for generating the evidence base for explicitly
@@ -18349,7 +18139,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2102.01564',
     type: 'paper',
   },
-  // eu-machinery-regulation-2023: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // eu-machinery-regulation-2023: added 2026-10-06.
   // EUR-Lex ELI page of the Official Journal text (fetched 2026-10-04), Annex I Part A: "5. Safety
   // components with fully or partially self-evolving behaviour using machine learning approaches
   // ensuring safety functions." Recital: "the conformity assessment of a safety component or a
@@ -18367,7 +18157,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng',
     type: 'docs',
   },
-  // eu-ai-act-framework-2026: domain pass 2026-10-06, from drafts/frontier/safety-and-assurance.citations.ts.
+  // eu-ai-act-framework-2026: added 2026-10-06.
   // European Commission, Shaping Europe's digital future, "AI Act" policy page (fetched 2026-10-04):
   // "the rules for high-risk AI systems embedded into regulated products (Annex I) have an extended
   // transition period until 2 August 2028"; the AI Omnibus "was adopted on 19 November 2025, a
@@ -18381,7 +18171,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai',
     type: 'docs',
   },
-  // digit-360-2024: domain pass 2026-10-06, from drafts/data-hardware/hardware-taxonomy.citations.ts; also drafts/frontier/dexterity.citations.ts.
+  // digit-360-2024: added 2026-10-06.
   // Digit 360 (Meta FAIR). Abstract: "~8.3 million taxels"; "resolution of 1.01 mN and 1.27 mN"
   // (normal, shear).
   {
@@ -18393,13 +18183,13 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2411.02479',
     type: 'paper',
   },
-  // rr-sanctuary-tactile-2025: domain pass 2026-10-06, from drafts/frontier/dexterity.citations.ts.
+  // rr-sanctuary-tactile-2025: added 2026-10-06.
   // The Robot Report, byline Eugene Demaitre, published 2025-02-26 (article:published_time; fetched
   // 2026-10-04): "Phoenix's finger pads include a seven-cell touch sensor with micro-barometers,
   // like those made affordable in smartphones, Wells explained. They are sensitive to 5 millinewtons
   // (mN), which is getting close to human sensitivity of 3 mN." Also: "it chose hydraulics for their
-  // flow resolution, miniaturization, and sensitivity". Audit-directed primary replacement for the
-  // banned retailer page robozaps-phoenix-2026 (audit R1-a); not in a source pack.
+  // flow resolution, miniaturization, and sensitivity". Primary replacement for the banned
+  // retailer page robozaps-phoenix-2026.
   {
     id: 'rr-sanctuary-tactile-2025',
     title: 'Sanctuary AI integrates tactile sensors into Phoenix general purpose robots',
@@ -18409,8 +18199,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.therobotreport.com/sanctuary-ai-integrates-tactile-sensors-into-phoenix-general-purpose-robots/',
     type: 'press',
   },
-  // adcock-figure-livestream-2026: domain pass 2026-10-06, owner sweep item (secondary sources dropped for
-  // primaries): the vendor statement for the Figure livestream that frontier/reliability-gap and
+  // adcock-figure-livestream-2026: added 2026-10-06 as a primary in place of a secondary source:
+  // the vendor statement for the Figure livestream that frontier/reliability-gap and
   // frontier/competing-theses cited to figure-8hr-shift-2026 (TechTimes). Figure's CEO, read 2026-10-07 (X's public
   // embed data for the post record, a public mirror of the same post for the full long-post text): posted
   // 14 May 2026, 17:13 UTC; "Our original goal was an 8-hour run. After zero
@@ -18426,8 +18216,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://x.com/adcock_brett/status/2054973511572271172',
     type: 'blog',
   },
-  // unitree-prospectus-2026: domain pass 2026-10-06, owner sweep item (secondary sources dropped for
-  // primaries): the primary for the Unitree Q1 2026 profit figure that frontier/bear-case cited to
+  // unitree-prospectus-2026: added 2026-10-06 as a primary in place of a secondary source:
+  // the primary for the Unitree Q1 2026 profit figure that frontier/bear-case cited to
   // unitree-profit-2026 (TechTimes). Unitree's STAR Market IPO prospectus, hearing draft
   // (首次公开发行股票并在科创板上市招股说明书（上会稿）), dated 2026-05-25 on the Shanghai Stock Exchange; read
   // 2026-10-07 from the dated capture
@@ -18444,8 +18234,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://static.sse.com.cn/stock/disclosure/announcement/c/202605/002178_20260525_7RVL.pdf',
     type: 'docs',
   },
-  // unitree-dex5-1-2026: domain pass 2026-10-06, from drafts/frontier/dexterity.notes.md
-  // (figure flag; audit/frontier/dexterity.md item 2). Live product page read 2026-10-06 (HTTP 200):
+  // unitree-dex5-1-2026: added 2026-10-06. Live product page read 2026-10-06 (HTTP 200):
   // "20 Degrees of freedom (16 active+4)"; "Number of degrees of freedom 20"; a full spec sheet and
   // no price. Replaces the uncited Wikipedia "10-12" range on the dexterity hand table.
   {
@@ -18459,7 +18248,7 @@ export const CITATIONS: Citation[] = [
     "url": "https://www.unitree.com/Dex5-1/",
     "type": "docs"
   },
-  // mulligan-2026: domain pass 2026-10-06, KOL intake note of Perry Dong, added 2026-10-12.
+  // mulligan-2026: added 2026-10-12 via Perry Dong.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). Stanford University.
   {
     id: 'mulligan-2026',
@@ -18470,7 +18259,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.05882',
     type: 'paper',
   },
-  // ocbench-2026: domain pass 2026-10-06, KOL intake note of Sergey Levine, added 2026-10-12.
+  // ocbench-2026: added 2026-10-12 via Sergey Levine.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). UC Berkeley.
   {
     id: 'ocbench-2026',
@@ -18481,7 +18270,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07056',
     type: 'paper',
   },
-  // egolap-2026: domain pass 2026-10-06, KOL intake note of Dhruv Shah, added 2026-10-12.
+  // egolap-2026: added 2026-10-12 via Dhruv Shah.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Princeton University, Toyota
   // Research Institute and Physical Intelligence.
   {
@@ -18496,7 +18285,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.08726',
     type: 'paper',
   },
-  // eigendexplore-2026: domain pass 2026-10-06, KOL intake note of Shuran Song, added 2026-10-12.
+  // eigendexplore-2026: added 2026-10-12 via Shuran Song.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Stanford University.
   {
     id: 'eigendexplore-2026',
@@ -18507,7 +18296,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07681',
     type: 'paper',
   },
-  // openwam-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // openwam-2026: added 2026-10-12 via Jiajun Wu.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026; the comments say code and project page
   // were released June 4, 2026). Stanford University.
   {
@@ -18522,7 +18311,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07922',
     type: 'paper',
   },
-  // jepa-unstable-modes-2026: domain pass 2026-10-06, KOL intake note of Yann LeCun, added 2026-10-12.
+  // jepa-unstable-modes-2026: added 2026-10-12 via Yann LeCun.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Columbia University, New York
   // University and AMI Labs.
   {
@@ -18534,7 +18323,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07540',
     type: 'paper',
   },
-  // qf3-2026: domain pass 2026-10-06, KOL intake note of Pieter Abbeel, added 2026-10-12.
+  // qf3-2026: added 2026-10-12 via Pieter Abbeel.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). UC Berkeley and Amazon FAR.
   {
     id: 'qf3-2026',
@@ -18548,7 +18337,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.08789',
     type: 'paper',
   },
-  // robo-cop-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // robo-cop-2026: added 2026-10-12 via Jiajun Wu.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Stanford University and NVIDIA Research.
   {
     id: 'robo-cop-2026',
@@ -18559,7 +18348,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.09228',
     type: 'paper',
   },
-  // long-wam-2026: domain pass 2026-10-06, KOL intake note of Jim Fan (Linxi Fan), added 2026-10-12.
+  // long-wam-2026: added 2026-10-12 via Jim Fan (Linxi Fan).
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). NVIDIA, MIT, HKU and UCSD.
   {
     id: 'long-wam-2026',
@@ -18573,7 +18362,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.10528',
     type: 'paper',
   },
-  // ledger-2026: domain pass 2026-10-06, KOL intake note of Homanga Bharadhwaj, added 2026-10-12.
+  // ledger-2026: added 2026-10-12 via Homanga Bharadhwaj.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). Johns Hopkins University and the
   // Johns Hopkins University Applied Physics Laboratory.
   {
@@ -18585,7 +18374,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.10538',
     type: 'paper',
   },
-  // sgs-2026: domain pass 2026-10-06, KOL intake note of Abhishek Gupta, added 2026-10-12.
+  // sgs-2026: added 2026-10-12 via Abhishek Gupta.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 8 Oct 2026; comments: "CoRL 2026"). University of
   // Washington and NVIDIA.
   {
@@ -18600,7 +18389,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12465',
     type: 'paper',
   },
-  // lac-wm-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // lac-wm-2026: added 2026-10-12 via Jiajun Wu.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). Stanford University; work partly done
   // at Meta FAIR Robotics.
   {
@@ -18615,7 +18404,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.10846',
     type: 'paper',
   },
-  // luna-legged-2026: domain pass 2026-10-06, KOL intake note of Marco Hutter, added 2026-10-12.
+  // luna-legged-2026: added 2026-10-12 via Marco Hutter.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 8 Oct 2026; comments: "Proceeding to the IEEE
   // iSparo Conference 2026"). All authors at ETH Zurich.
   {
@@ -18630,7 +18419,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12276',
     type: 'paper',
   },
-  // visual-predicted-force-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // visual-predicted-force-2026: added 2026-10-12 via Jiajun Wu.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 3 Oct 2026). Harvard University, MIT,
   // University of Pennsylvania and Stanford University.
   {
@@ -18645,7 +18434,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.04741',
     type: 'paper',
   },
-  // fingers-as-legs-2026: domain pass 2026-10-06, KOL intake note of IEEE Spectrum (Edd Gent), added 2026-10-12;
+  // fingers-as-legs-2026: added 2026-10-12 via IEEE Spectrum (Edd Gent);
   // the Spectrum article was the lead and the paper is the source. arXiv abstract page and PDF read 2026-10-12
   // (HTTP 200; v1 15 Sep 2026). All authors at the Soft Robotics Lab, ETH Zurich.
   {
@@ -18657,7 +18446,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.17172',
     type: 'paper',
   },
-  // ariadne-2026: domain pass 2026-10-06, KOL intake note of Guanya Shi, added 2026-10-12.
+  // ariadne-2026: added 2026-10-12 via Guanya Shi.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026; comments: "Accepted at NeurIPS 2026").
   // Carnegie Mellon University, National University of Singapore, DEVCOM Army Research Laboratory and Harvard.
   {
@@ -18669,7 +18458,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.08863',
     type: 'paper',
   },
-  // mobilevista-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-12.
+  // mobilevista-2026: added 2026-10-12 via Jiajun Wu.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). Stanford University and Toyota
   // Research Institute.
   {
@@ -18684,7 +18473,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07511',
     type: 'paper',
   },
-  // trustworthy-physical-ai-2026: domain pass 2026-10-06, KOL intake note of Daniela Rus, added 2026-10-12.
+  // trustworthy-physical-ai-2026: added 2026-10-12 via Daniela Rus.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). A position paper; the article states
   // its framework as the authors' view. Scuola Superiore Sant'Anna, MIT CSAIL, Stanford, University of Tokyo,
   // Boston University and National University of Singapore.
@@ -18700,8 +18489,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07382',
     type: 'paper',
   },
-  // hiphi-2026: domain pass 2026-10-06, KOL intake note of IEEE Spectrum (sponsored Noitom Robotics listing),
-  // added 2026-10-12; the sponsored page was the lead and the paper is the source. arXiv abstract page and PDF
+  // hiphi-2026: added 2026-10-12 via IEEE Spectrum (sponsored Noitom Robotics listing);
+  // the sponsored page was the lead and the paper is the source. arXiv abstract page and PDF
   // read 2026-10-12 (HTTP 200; v1 17 Aug 2026, v2 8 Sep 2026; comments: "Accepted at CoRL 2026"). Noitom Robotics
   // with National University of Singapore, Tsinghua SIGS, HKUST and the University of Hong Kong.
   {
@@ -18716,7 +18505,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.16222',
     type: 'paper',
   },
-  // exploy-2026: domain pass 2026-10-06, KOL intake note of RAI Institute, added 2026-10-12.
+  // exploy-2026: added 2026-10-12 via RAI Institute.
   // RAI Institute blog post, datePublished 2026-10-07T14:21:30+00:00 in the page's JSON-LD, read 2026-10-12
   // (HTTP 200). The institute's own description of its own library, so the article attributes it to the institute.
   {
@@ -18728,9 +18517,9 @@ export const CITATIONS: Citation[] = [
     url: 'https://rai-inst.com/resources/blog/introducing-exploy-simplifying-rl-policy-deployment-in-autonomous-robotics/',
     type: 'blog',
   },
-  // Data-hardware domain pass and length cut, 2026-10-13: sources new to the seven data-hardware
-  // articles, each opened and read on 2026-10-13 against the sentence that cites it (audit/citations.md).
-  // egocentric-100k-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/data-bottleneck); fetched 2026-10-13 (HTTP 200).
+  // Sources new to the seven data-hardware articles in the 2026-10-13 revision, each opened and
+  // read on 2026-10-13 against the sentence that cites it.
+  // egocentric-100k-2025: added 2026-10-06 for data-hardware/data-bottleneck; fetched 2026-10-13 (HTTP 200).
   {
     id: 'egocentric-100k-2025',
     title: 'builddotai/Egocentric-100K (dataset card)',
@@ -18741,7 +18530,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://huggingface.co/datasets/builddotai/Egocentric-100K',
     type: 'docs',
   },
-  // interndata-a1-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/data-bottleneck, data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // interndata-a1-2025: added 2026-10-06 for data-hardware/data-bottleneck, data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'interndata-a1-2025',
     title: 'InternData-A1: Pioneering High-Fidelity Synthetic Data for Pre-training Generalist Policy',
@@ -18751,7 +18540,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.16651',
     type: 'paper',
   },
-  // kaplan-scaling-laws-2020: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/data-bottleneck); fetched 2026-10-13 (HTTP 200).
+  // kaplan-scaling-laws-2020: added 2026-10-06 for data-hardware/data-bottleneck; fetched 2026-10-13 (HTTP 200).
   {
     id: 'kaplan-scaling-laws-2020',
     title: 'Scaling Laws for Neural Language Models',
@@ -18761,7 +18550,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2001.08361',
     type: 'paper',
   },
-  // llama-4-model-card-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/data-bottleneck); fetched 2026-10-13 (HTTP 200).
+  // llama-4-model-card-2025: added 2026-10-06 for data-hardware/data-bottleneck; fetched 2026-10-13 (HTTP 200).
   {
     id: 'llama-4-model-card-2025',
     title: 'Llama 4 Model Card',
@@ -18771,7 +18560,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md',
     type: 'docs',
   },
-  // qwen3-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/data-bottleneck); fetched 2026-10-13 (HTTP 200).
+  // qwen3-2025: added 2026-10-06 for data-hardware/data-bottleneck; fetched 2026-10-13 (HTTP 200).
   {
     id: 'qwen3-2025',
     title: 'Qwen3 Technical Report',
@@ -18781,7 +18570,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.09388',
     type: 'paper',
   },
-  // sartor-robotics-scaling-2024: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/data-bottleneck); fetched 2026-10-13 (HTTP 200).
+  // sartor-robotics-scaling-2024: added 2026-10-06 for data-hardware/data-bottleneck; fetched 2026-10-13 (HTTP 200).
   {
     id: 'sartor-robotics-scaling-2024',
     title: 'Neural Scaling Laws in Robotics',
@@ -18791,7 +18580,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2405.14005',
     type: 'paper',
   },
-  // sunday-act1-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/data-bottleneck, data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // sunday-act1-2025: added 2026-10-06 for data-hardware/data-bottleneck, data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'sunday-act1-2025',
     title: 'ACT-1: A Robot Foundation Model Trained on Zero Robot Data',
@@ -18801,7 +18590,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.sunday.ai/blog/no-robot-data',
     type: 'blog',
   },
-  // ario-2024: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // ario-2024: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'ario-2024',
     title: 'All Robots in One: A New Standard and Unified Dataset for Versatile, General-Purpose Embodied Agents',
@@ -18811,7 +18600,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2408.10899',
     type: 'paper',
   },
-  // axis-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // axis-2026: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'axis-2026',
     title: 'AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation',
@@ -18821,7 +18610,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.21588',
     type: 'paper',
   },
-  // behavior-challenge-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // behavior-challenge-2025: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'behavior-challenge-2025',
     title: '2025 BEHAVIOR Challenge',
@@ -18831,7 +18620,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://behavior.stanford.edu/challenge/archive/2025/index.html',
     type: 'docs',
   },
-  // bridge-data-2021: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // bridge-data-2021: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'bridge-data-2021',
     title: 'Bridge Data: Boosting Generalization of Robotic Skills with Cross-Domain Datasets',
@@ -18841,7 +18630,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2109.13396',
     type: 'paper',
   },
-  // bridgedata-v2-project-page: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // bridgedata-v2-project-page: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'bridgedata-v2-project-page',
     title: 'BridgeData V2 (project page)',
@@ -18852,7 +18641,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://rail-berkeley.github.io/bridgedata/',
     type: 'docs',
   },
-  // cc-by-nc-sa-4-0-deed: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // cc-by-nc-sa-4-0-deed: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'cc-by-nc-sa-4-0-deed',
     title: 'Attribution-NonCommercial-ShareAlike 4.0 International',
@@ -18861,7 +18650,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
     type: 'docs',
   },
-  // datasheets-for-datasets-2018: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // datasheets-for-datasets-2018: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'datasheets-for-datasets-2018',
     title: 'Datasheets for Datasets',
@@ -18871,7 +18660,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1803.09010',
     type: 'paper',
   },
-  // droid-project-page: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // droid-project-page: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'droid-project-page',
     title: 'DROID: A Large-Scale In-the-Wild Robot Manipulation Dataset (project page)',
@@ -18882,8 +18671,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://droid-dataset.github.io/',
     type: 'docs',
   },
-  // fineart-2026: domain pass 2026-10-06, KOL intake note of Hugging Face LeRobot (dataset card of 2026-10-05),
-  // added 2026-10-15 for the data-hardware pass (data-hardware/datasets); the card was the lead and the paper is
+  // fineart-2026: added 2026-10-15 via Hugging Face LeRobot (dataset card of 2026-10-05) for
+  // data-hardware/datasets; the card was the lead and the paper is
   // the source. arXiv abstract page and HTML read 2026-10-15 (HTTP 200; v1 29 Sep 2026, v3 5 Oct 2026).
   {
     id: 'fineart-2026',
@@ -18894,7 +18683,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.36416',
     type: 'paper',
   },
-  // galaxea-open-world-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // galaxea-open-world-2025: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'galaxea-open-world-2025',
     title: 'Galaxea Open-World Dataset and G0 Dual-System VLA Model',
@@ -18904,7 +18693,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.00576',
     type: 'paper',
   },
-  // humanoid-everyday-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // humanoid-everyday-2025: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'humanoid-everyday-2025',
     title: 'Humanoid Everyday: A Comprehensive Robotic Dataset for Open-World Humanoid Manipulation',
@@ -18914,7 +18703,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.08807',
     type: 'paper',
   },
-  // language-table-2022: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // language-table-2022: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'language-table-2022',
     title: 'Interactive Language: Talking to Robots in Real Time',
@@ -18924,7 +18713,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2210.06407',
     type: 'paper',
   },
-  // lerobot-dataset-v3-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets, data-hardware/robot-learning-stack); fetched 2026-10-13 (HTTP 200).
+  // lerobot-dataset-v3-2025: added 2026-10-06 for data-hardware/datasets, data-hardware/robot-learning-stack; fetched 2026-10-13 (HTTP 200).
   {
     id: 'lerobot-dataset-v3-2025',
     title: 'LeRobotDataset:v3.0: Bringing large-scale datasets to lerobot',
@@ -18934,7 +18723,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://huggingface.co/blog/lerobot-datasets-v3',
     type: 'blog',
   },
-  // nvidia-physical-ai-dataset-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // nvidia-physical-ai-dataset-2025: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'nvidia-physical-ai-dataset-2025',
     title: 'NVIDIA Unveils Open Physical AI Dataset to Advance Robotics and Autonomous Vehicle Development',
@@ -18944,7 +18733,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://blogs.nvidia.com/blog/open-physical-ai-dataset/',
     type: 'blog',
   },
-  // rh20t-2023: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // rh20t-2023: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'rh20t-2023',
     title: 'RH20T: A Comprehensive Robotic Dataset for Learning Diverse Skills in One-Shot',
@@ -18954,7 +18743,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2307.00595',
     type: 'paper',
   },
-  // robocoin-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // robocoin-2025: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'robocoin-2025',
     title: 'RoboCOIN: An Open-Sourced Bimanual Robotic Data Collection for Integrated Manipulation',
@@ -18964,7 +18753,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.17441',
     type: 'paper',
   },
-  // robomind-2-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // robomind-2-2025: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'robomind-2-2025',
     title: 'RoboMIND 2.0: A Multimodal, Bimanual Mobile Manipulation Dataset for Generalizable Embodied Intelligence',
@@ -18974,7 +18763,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.24653',
     type: 'paper',
   },
-  // robomind-dataset-card: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/datasets); fetched 2026-10-13 (HTTP 200).
+  // robomind-dataset-card: added 2026-10-06 for data-hardware/datasets; fetched 2026-10-13 (HTTP 200).
   {
     id: 'robomind-dataset-card',
     title: 'x-humanoid-robomind/RoboMIND (dataset card)',
@@ -18985,7 +18774,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND',
     type: 'docs',
   },
-  // agarwal-statistical-precipice-2021: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // agarwal-statistical-precipice-2021: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'agarwal-statistical-precipice-2021',
     title: 'Deep Reinforcement Learning at the Edge of the Statistical Precipice',
@@ -18996,7 +18785,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2108.13264',
     type: 'paper',
   },
-  // autoeval-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis, data-hardware/robot-learning-stack); fetched 2026-10-13 (HTTP 200).
+  // autoeval-2025: added 2026-10-06 for data-hardware/evaluation-crisis, data-hardware/robot-learning-stack; fetched 2026-10-13 (HTTP 200).
   {
     id: 'autoeval-2025',
     title: 'AutoEval: Autonomous Evaluation of Generalist Robot Manipulation Policies in the Real World',
@@ -19006,7 +18795,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.24278',
     type: 'paper',
   },
-  // behavior-challenge-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // behavior-challenge-2026: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'behavior-challenge-2026',
     title: '2026 BEHAVIOR Challenge',
@@ -19016,7 +18805,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://behavior.stanford.edu/challenge/index.html',
     type: 'docs',
   },
-  // beyond-binary-success-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis, data-hardware/robot-learning-stack); fetched 2026-10-13 (HTTP 200).
+  // beyond-binary-success-2026: added 2026-10-06 for data-hardware/evaluation-crisis, data-hardware/robot-learning-stack; fetched 2026-10-13 (HTTP 200).
   {
     id: 'beyond-binary-success-2026',
     title: 'Beyond Binary Success: Sample-Efficient and Statistically Rigorous Robot Policy Comparison',
@@ -19026,7 +18815,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.13616',
     type: 'paper',
   },
-  // calvin-2021: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // calvin-2021: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'calvin-2021',
     title: 'CALVIN: A Benchmark for Language-Conditioned Policy Learning for Long-Horizon Robot Manipulation Tasks',
@@ -19036,7 +18825,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2112.03227',
     type: 'paper',
   },
-  // chatbot-arena-2024: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // chatbot-arena-2024: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'chatbot-arena-2024',
     title: 'Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference',
@@ -19046,7 +18835,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.04132',
     type: 'paper',
   },
-  // eval-actions-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // eval-actions-2026: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'eval-actions-2026',
     title: 'Eval-Actions: Fine-Grained Execution Quality Evaluation for Robotic Manipulation',
@@ -19056,7 +18845,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.18723',
     type: 'paper',
   },
-  // henderson-rl-matters-2018: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // henderson-rl-matters-2018: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'henderson-rl-matters-2018',
     title: 'Deep Reinforcement Learning that Matters',
@@ -19067,7 +18856,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1709.06560',
     type: 'paper',
   },
-  // robodojo-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis, data-hardware/robot-learning-stack); fetched 2026-10-13 (HTTP 200).
+  // robodojo-2026: added 2026-10-06 for data-hardware/evaluation-crisis, data-hardware/robot-learning-stack; fetched 2026-10-13 (HTTP 200).
   {
     id: 'robodojo-2026',
     title: 'RoboDojo: A Unified Sim-and-Real Benchmark for Comprehensive Evaluation of Generalist Robot Manipulation Policies',
@@ -19077,7 +18866,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.04434',
     type: 'paper',
   },
-  // simpler-project-page: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // simpler-project-page: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'simpler-project-page',
     title: 'Evaluating Real-World Robot Manipulation Policies in Simulation (SIMPLER project page)',
@@ -19088,7 +18877,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://simpler-env.github.io/',
     type: 'docs',
   },
-  // suresim-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // suresim-2025: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'suresim-2025',
     title: 'Reliable and Scalable Robot Policy Evaluation with Imperfect Simulators',
@@ -19098,7 +18887,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.04354',
     type: 'paper',
   },
-  // xpolicylab-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/evaluation-crisis); fetched 2026-10-13 (HTTP 200).
+  // xpolicylab-2026: added 2026-10-06 for data-hardware/evaluation-crisis; fetched 2026-10-13 (HTTP 200).
   {
     id: 'xpolicylab-2026',
     title: 'XPolicyLab: A Unified Standard and Open Ecosystem for Robot Policy Evaluation and Deployment',
@@ -19108,7 +18897,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.09892',
     type: 'paper',
   },
-  // 1x-neo-factory-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // 1x-neo-factory-2026: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: '1x-neo-factory-2026',
     title: 'NEO Factory | Building Your NEO',
@@ -19118,7 +18907,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.1x.tech/discover/neo-factory',
     type: 'blog',
   },
-  // 1x-neos-hands-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // 1x-neos-hands-2026: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: '1x-neos-hands-2026',
     title: 'NEO\'s Hands | An API to the Physical World',
@@ -19128,7 +18917,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.1x.tech/discover/neos-hands',
     type: 'blog',
   },
-  // 1x-order-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // 1x-order-2026: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: '1x-order-2026',
     title: 'Order NEO',
@@ -19139,7 +18928,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.1x.tech/order',
     type: 'docs',
   },
-  // aloha-2-2024: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy, data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // aloha-2-2024: added 2026-10-06 for data-hardware/hardware-taxonomy, data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'aloha-2-2024',
     title: 'ALOHA 2: An Enhanced Low-Cost Hardware for Bimanual Teleoperation',
@@ -19149,7 +18938,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2405.02292',
     type: 'paper',
   },
-  // bd-rmac-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy, data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
+  // bd-rmac-2026: added 2026-10-06 for data-hardware/hardware-taxonomy, data-hardware/industrial-deployment; fetched 2026-10-13 (HTTP 200).
   {
     id: 'bd-rmac-2026',
     title: 'Boston Dynamics Opens Robotics Metaplant Application Center to Train Humanoid Robots for Manufacturing Tasks',
@@ -19159,7 +18948,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://bostondynamics.com/news/boston-dynamics-opens-robotics-metaplant-application-center-to-train-humanoid-robots-for-manufacturing-tasks/',
     type: 'press',
   },
-  // fcc-covered-list-robots-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // fcc-covered-list-robots-2026: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'fcc-covered-list-robots-2026',
     title: 'FACT SHEET: FCC Updates Covered List to Include Foreign-Produced Advanced Robotic Devices and Power Inverters',
@@ -19169,7 +18958,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://docs.fcc.gov/public/attachments/DOC-423682A1.pdf',
     type: 'press',
   },
-  // figure-botq-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // figure-botq-2025: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'figure-botq-2025',
     title: 'BotQ: A High-Volume Manufacturing Facility for Humanoid Robots',
@@ -19179,7 +18968,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.figure.ai/news/botq',
     type: 'press',
   },
-  // hf-pollen-acquisition-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // hf-pollen-acquisition-2025: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'hf-pollen-acquisition-2025',
     title: 'Hugging Face to sell open-source robots thanks to Pollen Robotics acquisition',
@@ -19189,7 +18978,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition',
     type: 'blog',
   },
-  // ifr-service-robots-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy, data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
+  // ifr-service-robots-2026: added 2026-10-06 for data-hardware/hardware-taxonomy, data-hardware/industrial-deployment; fetched 2026-10-13 (HTTP 200).
   {
     id: 'ifr-service-robots-2026',
     title: 'Global Sales of Professional Service Robots Surge 24%',
@@ -19199,7 +18988,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://ifr.org/ifr-press-releases/news/global-sales-of-professional-service-robots-surge-24-percent',
     type: 'press',
   },
-  // noetix-bumi-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // noetix-bumi-2025: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'noetix-bumi-2025',
     title: 'Beijing startup Noetix Robotics launches \'consumer-grade\' humanoid robot at $1,400',
@@ -19209,7 +18998,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://roboticsandautomationnews.com/2025/10/22/beijing-startup-noetix-robotics-launches-consumer-grade-humanoid-robot-at-1400/95731/',
     type: 'press',
   },
-  // nvidia-jetson-faq: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // nvidia-jetson-faq: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'nvidia-jetson-faq',
     title: 'Jetson FAQ',
@@ -19220,7 +19009,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://developer.nvidia.com/embedded/faq',
     type: 'docs',
   },
-  // orca-hand-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // orca-hand-2025: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'orca-hand-2025',
     title: 'ORCA: An Open-Source, Reliable, Cost-Effective, Anthropomorphic Robotic Hand for Uninterrupted Dexterous Task Learning',
@@ -19231,7 +19020,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2504.04259',
     type: 'paper',
   },
-  // ruka-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // ruka-2025: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'ruka-2025',
     title: 'RUKA: Rethinking the Design of Humanoid Hands with Learning',
@@ -19241,7 +19030,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2504.13165',
     type: 'paper',
   },
-  // trossen-widowx-ai-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // trossen-widowx-ai-2026: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'trossen-widowx-ai-2026',
     title: 'WidowX AI Robotic Arm',
@@ -19252,7 +19041,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.trossenrobotics.com/widowx-ai',
     type: 'docs',
   },
-  // unitree-r1-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/hardware-taxonomy); fetched 2026-10-13 (HTTP 200).
+  // unitree-r1-2026: added 2026-10-06 for data-hardware/hardware-taxonomy; fetched 2026-10-13 (HTTP 200).
   {
     id: 'unitree-r1-2026',
     title: 'Unitree R1 Product Page',
@@ -19263,7 +19052,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.unitree.com/R1/',
     type: 'docs',
   },
-  // acemoglu-lelarge-restrepo-2020: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
+  // acemoglu-lelarge-restrepo-2020: added 2026-10-06 for data-hardware/industrial-deployment; fetched 2026-10-13 (HTTP 200).
   {
     id: 'acemoglu-lelarge-restrepo-2020',
     title: 'Competing with Robots: Firm-Level Evidence from France',
@@ -19273,7 +19062,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nber.org/papers/w26738',
     type: 'paper',
   },
-  // amazon-greenwood-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
+  // amazon-greenwood-2026: added 2026-10-06 for data-hardware/industrial-deployment; fetched 2026-10-13 (HTTP 200).
   {
     id: 'amazon-greenwood-2026',
     title: 'Amazon to Create 300 High-Paying Jobs at New Advanced Manufacturing Facility in Greenwood, Indiana',
@@ -19283,7 +19072,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://press.aboutamazon.com/job-creation-and-investment/2026/9/amazon-to-create-300-high-paying-jobs-at-new-advanced-manufacturing-facility-in-greenwood-indiana',
     type: 'press',
   },
-  // amazon-shreveport-2024: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
+  // amazon-shreveport-2024: added 2026-10-06 for data-hardware/industrial-deployment; fetched 2026-10-13 (HTTP 200).
   {
     id: 'amazon-shreveport-2024',
     title: 'Amazon unveils the next generation of fulfillment centers powered by AI and 10 times more robotics',
@@ -19293,7 +19082,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.aboutamazon.com/news/operations/amazon-fulfillment-center-robotics-ai',
     type: 'press',
   },
-  // amazon-stow-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
+  // amazon-stow-2025: added 2026-10-06 for data-hardware/industrial-deployment; fetched 2026-10-13 (HTTP 200).
   {
     id: 'amazon-stow-2025',
     title: 'Stow: Robotic Packing of Items into Fabric Pods',
@@ -19303,7 +19092,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.04572',
     type: 'paper',
   },
-  // autostore-q2-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
+  // autostore-q2-2026: added 2026-10-06 for data-hardware/industrial-deployment; fetched 2026-10-13 (HTTP 200).
   {
     id: 'autostore-q2-2026',
     title: 'AutoStore: Q2 2026 financial results',
@@ -19313,7 +19102,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.autostoresystem.com/investors/press-releases/autostore-q2-2026-financial-results-f35ed',
     type: 'press',
   },
-  // dauth-robots-germany-2021: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/industrial-deployment); publisher page returned HTTP 403; title, authors and abstract read from the Crossref record of the DOI.
+  // dauth-robots-germany-2021: added 2026-10-06 for data-hardware/industrial-deployment; publisher page returned HTTP 403; title, authors and abstract read from the Crossref record of the DOI.
   {
     id: 'dauth-robots-germany-2021',
     title: 'The Adjustment of Labor Markets to Robots',
@@ -19323,7 +19112,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1093/jeea/jvab012',
     type: 'paper',
   },
-  // koch-robots-firms-2021: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/industrial-deployment); publisher page returned HTTP 403; title, authors and abstract read from the Crossref record of the DOI.
+  // koch-robots-firms-2021: added 2026-10-06 for data-hardware/industrial-deployment; publisher page returned HTTP 403; title, authors and abstract read from the Crossref record of the DOI.
   {
     id: 'koch-robots-firms-2021',
     title: 'Robots and Firms',
@@ -19333,7 +19122,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1093/ej/ueab009',
     type: 'paper',
   },
-  // ocado-kroger-rns-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/industrial-deployment); fetched 2026-10-13 (HTTP 200).
+  // ocado-kroger-rns-2025: added 2026-10-06 for data-hardware/industrial-deployment; fetched 2026-10-13 (HTTP 200).
   {
     id: 'ocado-kroger-rns-2025',
     title: 'Update on Kroger Partnership',
@@ -19343,7 +19132,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.investegate.co.uk/announcement/rns/ocado-group--ocdo/update-on-kroger-partnership-/9277394',
     type: 'press',
   },
-  // cupid-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/robot-learning-stack); fetched 2026-10-13 (HTTP 200).
+  // cupid-2025: added 2026-10-06 for data-hardware/robot-learning-stack; fetched 2026-10-13 (HTTP 200).
   {
     id: 'cupid-2025',
     title: 'CUPID: Curating Data your Robot Loves with Influence Functions',
@@ -19353,7 +19142,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.19121',
     type: 'paper',
   },
-  // hidden-technical-debt-2015: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/robot-learning-stack); fetched 2026-10-13 (HTTP 200).
+  // hidden-technical-debt-2015: added 2026-10-06 for data-hardware/robot-learning-stack; fetched 2026-10-13 (HTTP 200).
   {
     id: 'hidden-technical-debt-2015',
     title: 'Hidden Technical Debt in Machine Learning Systems',
@@ -19363,7 +19152,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html',
     type: 'paper',
   },
-  // intrinsic-core-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/robot-learning-stack); fetched 2026-10-13 (HTTP 200).
+  // intrinsic-core-2026: added 2026-10-06 for data-hardware/robot-learning-stack; fetched 2026-10-13 (HTTP 200).
   {
     id: 'intrinsic-core-2026',
     title: 'Introducing Intrinsic Core: An open source approach to Physical AI',
@@ -19373,7 +19162,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.intrinsic.ai/blog/posts/introducing-intrinsic-core',
     type: 'blog',
   },
-  // qualcomm-picknik-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/robot-learning-stack); the page body is script-rendered; the release's JSON-LD headline, description and datePublished 2026-09-23 were read.
+  // qualcomm-picknik-2026: added 2026-10-06 for data-hardware/robot-learning-stack; the page body is script-rendered; the release's JSON-LD headline, description and datePublished 2026-09-23 were read.
   {
     id: 'qualcomm-picknik-2026',
     title: 'Qualcomm to Acquire PickNik to Advance the Future of Open Robotics and Physical AI',
@@ -19383,7 +19172,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.qualcomm.com/news/releases/2026/09/qualcomm-to-acquire-picknik-to-advance-the-future-of-open-roboti',
     type: 'press',
   },
-  // sirius-2022: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/robot-learning-stack); fetched 2026-10-13 (HTTP 200).
+  // sirius-2022: added 2026-10-06 for data-hardware/robot-learning-stack; fetched 2026-10-13 (HTTP 200).
   {
     id: 'sirius-2022',
     title: 'Robot Learning on the Job: Human-in-the-Loop Autonomy and Learning During Deployment',
@@ -19393,7 +19182,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2211.08416',
     type: 'paper',
   },
-  // airexo-2-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // airexo-2-2025: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'airexo-2-2025',
     title: 'AirExo-2: Scaling up Generalizable Robotic Imitation Learning with Low-Cost Exoskeletons',
@@ -19403,7 +19192,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.03081',
     type: 'paper',
   },
-  // apple-vision-pro-m5-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // apple-vision-pro-m5-2025: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'apple-vision-pro-m5-2025',
     title: 'Apple Vision Pro upgraded with the M5 chip and Dual Knit Band',
@@ -19413,7 +19202,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.apple.com/newsroom/2025/10/apple-vision-pro-upgraded-with-the-m5-chip-and-dual-knit-band/',
     type: 'press',
   },
-  // dexumi-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // dexumi-2025: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'dexumi-2025',
     title: 'DexUMI: Using Human Hand as the Universal Manipulation Interface for Dexterous Manipulation',
@@ -19423,7 +19212,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.21864',
     type: 'paper',
   },
-  // forcemimic-2024: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // forcemimic-2024: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'forcemimic-2024',
     title: 'ForceMimic: Force-Centric Imitation Learning with Force-Motion Capture System for Contact-Rich Manipulation',
@@ -19433,7 +19222,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.07554',
     type: 'paper',
   },
-  // hifi-umi-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // hifi-umi-2026: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'hifi-umi-2026',
     title: 'HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone',
@@ -19443,7 +19232,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2607.25895',
     type: 'paper',
   },
-  // homie-2025: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // homie-2025: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'homie-2025',
     title: 'HOMIE: Humanoid Loco-Manipulation with Isomorphic Exoskeleton Cockpit',
@@ -19453,7 +19242,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.13013',
     type: 'paper',
   },
-  // meta-quest-3s-2024: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // meta-quest-3s-2024: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'meta-quest-3s-2024',
     title: 'Introducing Meta Quest 3S, Our Most Affordable Mixed Reality Headset',
@@ -19463,7 +19252,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://about.fb.com/news/2024/09/meta-quest-3s-our-most-affordable-mixed-reality-headset/',
     type: 'press',
   },
-  // open-teach-2024: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // open-teach-2024: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'open-teach-2024',
     title: 'OPEN TEACH: A Versatile Teleoperation System for Robotic Manipulation',
@@ -19473,7 +19262,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2403.07870',
     type: 'paper',
   },
-  // roboturk-2018: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // roboturk-2018: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'roboturk-2018',
     title: 'RoboTurk: A Crowdsourcing Platform for Robotic Skill Learning through Imitation',
@@ -19484,7 +19273,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1811.02790',
     type: 'paper',
   },
-  // seed-umi-2026: domain pass 2026-10-06, owner sweep item for the data-hardware pass of 2026-10-13 (data-hardware/teleop-rigs); fetched 2026-10-13 (HTTP 200).
+  // seed-umi-2026: added 2026-10-06 for data-hardware/teleop-rigs; fetched 2026-10-13 (HTTP 200).
   {
     id: 'seed-umi-2026',
     title: 'SEED-UMI: Sharing the Exoskeleton between human and robot for onE-to-one Dexterous demonstration',
@@ -19494,11 +19283,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.11753',
     type: 'paper',
   },
-  // Adjacent domain pass and length cut, 2026-10-14 (opus-pass-adjacent): the registry entries the four
-  // adjacent articles cite for the first time. Each source was re-fetched on 2026-10-14 and the passages quoted
-  // in its comment re-read (DOI records through Crossref, OpenAlex or Semantic Scholar where the publisher page
-  // refuses fetches). The earlier evidence came from the drafting and verification lanes of 2026-10-04 and 05.
-  // alphabet-q1-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // Sources the four adjacent articles cite for the first time in the 2026-10-14 revision. Each source was
+  // re-fetched on 2026-10-14 and the passages quoted in its comment re-read (DOI records through Crossref,
+  // OpenAlex or Semantic Scholar where the publisher page refuses fetches). The first reading was on
+  // 2026-10-04 and 05.
+  // alphabet-q1-2026: added 2026-10-06; re-read 2026-10-14.
   // Dated Apr 29, 2026, byline Sundar Pichai (read 2026-10-04): "That makes six new cities so far in
   // 2026, and operations in 11 major U.S. cities in total. Waymo also surpassed 500,000 fully
   // autonomous rides per week, doubling in less than a year."
@@ -19511,7 +19300,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q1-2026/',
     type: 'blog',
   },
-  // stanley-2006: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // stanley-2006: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata and abstract (read 2026-10-04): "This article describes the robot Stanley,
   // which won the 2005 DARPA Grand Challenge."; "The robot's software system relied predominately on
   // state-of-the-art artificial intelligence technologies, such as machine learning and
@@ -19525,13 +19314,12 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1002/rob.20147',
     type: 'paper',
   },
-  // waymo-foundation-model-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // waymo-foundation-model-2025: added 2026-10-06; re-read 2026-10-14.
   // Dated December 9, 2025, byline Waymo AI Team (read 2026-10-04): "Its innovative architecture
   // provides significant benefits over the pure end-to-end or modular approaches."; "The Waymo
   // Foundation Model employs a Think Fast and Think Slow (also known as System 1 and System 2)
   // architecture"; the Sensor Fusion Encoder "fuses camera, lidar, and radar inputs over time"; the
-  // Driving VLM is "Trained using Gemini". Needs ORGANIZATION_CHIP_NAMES entry ['Waymo AI Team',
-  // 'Waymo'] (see drafts/ORG-CHIP-NAMES-d.md).
+  // Driving VLM is "Trained using Gemini".
   {
     id: 'waymo-foundation-model-2025',
     title: 'Demonstrably Safe AI For Autonomous Driving',
@@ -19541,7 +19329,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://waymo.com/blog/2025/12/demonstrably-safe-ai-for-autonomous-driving',
     type: 'blog',
   },
-  // waymo-ai-lessons-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // waymo-ai-lessons-2026: added 2026-10-06; re-read 2026-10-14.
   // Dated August 26, 2026, byline Srikanth Thirumalai (read 2026-10-04): "By combining inputs from
   // cameras, lidar, and radar, the Waymo Driver creates a rich, redundant world view that no single
   // sensor can replicate."; "simply replaying recorded data, known as open-loop simulation, is
@@ -19556,7 +19344,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://waymo.com/blog/2026/08/10ailessons',
     type: 'blog',
   },
-  // bevformer-2022: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // bevformer-2022: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment "Accepted to ECCV 2022". Abstract (read 2026-10-04): "achieves the new
   // state-of-the-art 56.9% in terms of NDS metric on the nuScenes test set, which is 9.0 points
   // higher than previous best arts and on par with the performance of LiDAR-based baselines".
@@ -19570,7 +19358,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2203.17270',
     type: 'paper',
   },
-  // nuscenes-2020: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // nuscenes-2020: added 2026-10-06; re-read 2026-10-14.
   // arXiv v1 2019; comment "CVPR 2020 camera ready". Abstract (read 2026-10-04): "the first dataset
   // to carry the full autonomous vehicle sensor suite: 6 cameras, 5 radars and 1 lidar, all with
   // full 360 degree field of view. nuScenes comprises 1000 scenes, each 20s long".
@@ -19584,7 +19372,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1903.11027',
     type: 'paper',
   },
-  // occ3d-2023: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // occ3d-2023: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment "Accepted to NeurIPS 2023". Abstract (read 2026-10-04): "Existing methods
   // typically focus on estimating 3D bounding boxes, neglecting finer geometric details and
   // struggling to handle general, out-of-vocabulary objects."
@@ -19598,7 +19386,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2304.14365',
     type: 'paper',
   },
-  // waymo-open-motion-2021: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // waymo-open-motion-2021: added 2026-10-06; re-read 2026-10-14.
   // arXiv record with no venue, full author list. Abstract (read 2026-10-04): "With over 100,000
   // scenes, each 20 seconds long at 10 Hz, our new dataset contains more than 570 hours of unique
   // data over 1750 km of roadways."
@@ -19611,7 +19399,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2104.10133',
     type: 'paper',
   },
-  // motionlm-2023: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // motionlm-2023: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment "To appear at ... ICCV 2023". Abstract (read 2026-10-04): "we represent continuous
   // trajectories as sequences of discrete motion tokens and cast multi-agent motion prediction as a
   // language modeling task over this domain".
@@ -19625,7 +19413,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2309.16534',
     type: 'paper',
   },
-  // boss-urban-challenge-2008: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // boss-urban-challenge-2008: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata and abstract (read 2026-10-04): "A three-layer planning system combines
   // mission, behavioral, and motion planning to drive in urban environments."; in "the 85-km Urban
   // Challenge Final Event, Boss demonstrated some of its capabilities, qualifying first and winning
@@ -19639,7 +19427,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1002/rob.20255',
     type: 'paper',
   },
-  // nuplan-2021: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // nuplan-2021: added 2026-10-06; re-read 2026-10-14.
   // arXiv record with no venue, full author list. Abstract (read 2026-10-04): "we propose the
   // world's first closed-loop ML-based planning benchmark for autonomous driving"; "This has led
   // previous works to use open-loop evaluation with L2-based metrics, which are not suitable for
@@ -19653,7 +19441,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2106.11810',
     type: 'paper',
   },
-  // dauner-misconceptions-2023: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // dauner-misconceptions-2023: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment "CoRL 2023". Abstract (read 2026-10-04): "revealing the limitations of
   // learning-based methods in complex real-world scenarios and the value of simple rule-based priors
   // such as centerline selection through lane graph search algorithms"; "we propose an extremely
@@ -19669,7 +19457,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2306.07962',
     type: 'paper',
   },
-  // navsim-2024: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // navsim-2024: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment "NeurIPS 2024 Datasets and Benchmarks". Abstract (read 2026-10-04): "open-loop
   // evaluation with real data is easy, but these results do not reflect closed-loop performance";
   // "simple methods with moderate compute requirements such as TransFuser can match recent
@@ -19684,10 +19472,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2406.15349',
     type: 'paper',
   },
-  // waymo-year-in-review-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // waymo-year-in-review-2025: added 2026-10-06; re-read 2026-10-14.
   // Dated December 10, 2025, byline The Waymo Team (read 2026-10-04): "By the end of 2025, we more
   // than tripled our annual volume to 15 million rides, surpassing 20 million lifetime rides to
-  // date." Needs ORGANIZATION_CHIP_NAMES entry ['The Waymo Team', 'Waymo'].
+  // date."
   {
     id: 'waymo-year-in-review-2025',
     title: 'Delivering more for our riders in a year of incredible growth',
@@ -19697,13 +19485,12 @@ export const CITATIONS: Citation[] = [
     url: 'https://waymo.com/blog/2025/12/2025-year-in-review',
     type: 'blog',
   },
-  // un-ads-regulation-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // un-ads-regulation-2026: added 2026-10-06; re-read 2026-10-14.
   // Dated 24 June 2026, no byline (read 2026-10-04): "A UN vehicle standards forum has approved the
   // first global regulations for fully autonomous driving systems (ADS)"; "adopted on Wednesday by
   // the UN Economic Commission for Europe's (UNECE) World Forum for Harmonization of Vehicle
   // Regulations"; "manufacturers must ensure test environments, including virtual testing tools,
   // meet strict credibility criteria and demonstrate that their ADS poses no unreasonable risk".
-  // Needs ORGANIZATION_CHIP_NAMES entry ['UN News', 'UN News'].
   {
     id: 'un-ads-regulation-2026',
     title: 'New global rules clear the road for driverless vehicles',
@@ -19713,7 +19500,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://news.un.org/en/story/2026/06/1167797',
     type: 'press',
   },
-  // nhtsa-av-framework-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // nhtsa-av-framework-2026: added 2026-10-06; re-read 2026-10-14.
   // Full text via the Federal Register API (read 2026-10-04): "On April 24, 2025, DOT and NHTSA
   // announced a new automated vehicle (AV) framework"; NHTSA has "streamlined its Standing General
   // Order on crash reporting"; "On March 16, 2026, NHTSA published two NPRMs proposing to amend the
@@ -19728,8 +19515,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.federalregister.gov/documents/2026/07/31/2026-15483/av-framework-updates-and-request-for-comments-on-interim-guidance',
     type: 'docs',
   },
-  // nhtsa-zoox-exemption-2026: domain pass 2026-10-06, owner sweep item "No purpose-built vehicle or regulatory
-  // path" (adjacent/autonomous-vehicles, added 2026-10-14). Federal Register document 2026-15485, published 31 July
+  // nhtsa-zoox-exemption-2026: added 2026-10-14 for adjacent/autonomous-vehicles (a purpose-built
+  // vehicle and its regulatory path). Federal Register document 2026-15485, published 31 July
   // 2026, full text read 2026-10-14 (HTTP 200): "NHTSA is granting an exemption to Zoox, Inc. (Zoox) to allow it
   // to manufacture and deploy commercially a passenger car, which is equipped with an Automated Driving System
   // (ADS)"; it covers "certain requirements in eight FMVSS"; "Zoox is permitted to manufacture vehicles pursuant
@@ -19745,7 +19532,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.federalregister.gov/documents/2026/07/31/2026-15485/zoox-grant-of-temporary-exemption-from-portions-of-various-requirements-of-the-federal-motor-vehicle',
     type: 'docs',
   },
-  // wod-e2e-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // wod-e2e-2025: added 2026-10-06; re-read 2026-10-14.
   // arXiv record with no venue, full author list. Abstract (read 2026-10-04): "WOD-E2E contains
   // 4,021 driving segments (approximately 12 hours), specifically curated for challenging long-tail
   // scenarios that that are rare in daily life with an occurring frequency of less than 0.03%."
@@ -19758,7 +19545,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.26125',
     type: 'paper',
   },
-  // gaia-2-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // gaia-2-2025: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment "Technical Report", full author list. Abstract (read 2026-10-04): "It generates
   // high-resolution, spatiotemporally consistent multi-camera videos"; "GAIA-2 enables scalable
   // simulation of both common and rare driving scenarios".
@@ -19772,7 +19559,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.20523',
     type: 'paper',
   },
-  // waymo-recall-25e084-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // waymo-recall-25e084-2025: added 2026-10-06; re-read 2026-10-14.
   // Recall report PDF, submission date Dec 10, 2025 (read 2026-10-04): "Total number of potentially
   // involved: 3,067"; "Waymo vehicles that were stopped or stopping for a school bus with its red
   // lights flashing and/or the stop arm extended would proceed again before the school bus had
@@ -19787,7 +19574,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://static.nhtsa.gov/odi/rcl/2025/RCLRPT-25E084-7732.pdf',
     type: 'docs',
   },
-  // waymo-recall-26e026-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // waymo-recall-26e026-2026: added 2026-10-06; re-read 2026-10-14.
   // Recall report PDF, submission date May 06, 2026 (read 2026-10-04): "Total number of potentially
   // involved: 3,791"; "the Waymo AV may slow but not stop in response to detecting a potentially
   // untraversable flooded lane"; mitigation targets "a flooded, higher-speed roadway". Filed by
@@ -19801,7 +19588,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://static.nhtsa.gov/odi/rcl/2026/RCLRPT-26E026-6527.pdf',
     type: 'docs',
   },
-  // iihs-waymo-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // iihs-waymo-2026: added 2026-10-06; re-read 2026-10-14.
   // Dated July 23, 2026, no byline (read 2026-10-04): "Per vehicle mile traveled (VMT), Waymo's
   // driverless vehicles deployed in San Francisco, Phoenix, Los Angeles and Austin were involved in
   // 68% fewer crashes than human drivers"; "The sample was restricted to crashes that a person would
@@ -19816,11 +19603,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.iihs.org/news/detail/waymos-driverless-cars-crash-less-often-than-people',
     type: 'press',
   },
-  // ca-dmv-av-miles-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // ca-dmv-av-miles-2026: added 2026-10-06; re-read 2026-10-14.
   // Release dated February 20, 2026 (read 2026-10-04): "They are intended to provide insight into
   // the operational activities of each permit holder and are not designed for comparative analysis
   // across companies."; "Disengagement reporting is not required for AV operations conducted under
-  // deployment permits." Needs ORGANIZATION_CHIP_NAMES entry ['California DMV', 'California DMV'].
+  // deployment permits."
   {
     id: 'ca-dmv-av-miles-2026',
     title: 'Autonomous Vehicle Permit Holders in California Logged More Than 9 Million Test Miles Between December 1, 2024 and November 30, 2025',
@@ -19830,7 +19617,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.dmv.ca.gov/portal/news-and-media/autonomous-vehicle-permit-holders-in-california-logged-more-than-9-million-test-miles-between-december-1-2024-and-november-30-2025/',
     type: 'press',
   },
-  // waymo-safety-hub-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // waymo-safety-hub-2026: added 2026-10-06; re-read 2026-10-14.
   // Live hub (read 2026-10-04): "Through June 2026, Waymo has driven 271.3M rider-only miles without
   // a human driver"; compared with "the average human driver over the same distance in our operating
   // cities": "95% Fewer serious injury or worse crashes (55 fewer)"; "82% Fewer injury-causing
@@ -19845,8 +19632,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://waymo.com/safety/impact/',
     type: 'docs',
   },
-  // baidu-q2-2026: domain pass 2026-10-06, owner sweep item "No non-US operator" (adjacent/autonomous-vehicles,
-  // added 2026-10-14). Baidu's Q2 2026 results release as filed with the SEC (Form 6-K, exhibit 99.1; the IR page
+  // baidu-q2-2026: added 2026-10-14 for adjacent/autonomous-vehicles (a non-US operator). Baidu's Q2 2026 results release as filed with the SEC (Form 6-K, exhibit 99.1; the IR page
   // returns HTTP 403 to fetches), read 2026-10-14: dateline "BEIJING, China, August 18, 2026"; "To date, Apollo
   // Go's global footprint has reached 28 cities"; its fleets "have accumulated over 350 million autonomous
   // kilometers", including "over 240 million fully driverless autonomous kilometers". Company-reported.
@@ -19859,7 +19645,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.sec.gov/Archives/edgar/data/0001329099/000119312526355431/d112854dex991.htm',
     type: 'docs',
   },
-  // aurora-driverless-launch-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // aurora-driverless-launch-2025: added 2026-10-06; re-read 2026-10-14.
   // Dated May 01, 2025 (read 2026-10-04): "Following the closure of its safety case, Aurora began
   // regular driverless customer deliveries between Dallas and Houston this week. To date, the Aurora
   // Driver has completed over 1,200 miles without a driver." Author written as "Aurora" so the chip
@@ -19873,7 +19659,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://ir.aurora.tech/news-events/press-releases/detail/119/aurora-begins-commercial-driverless-trucking-in-texas-ushering-in-a-new-era-of-freight',
     type: 'press',
   },
-  // aurora-q2-2026: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // aurora-q2-2026: added 2026-10-06; re-read 2026-10-14.
   // PDF created 29 July 2026 (read 2026-10-04): "the Aurora Driver completed nearly 440,000
   // driverless miles since launch through the end of June, maintaining a 100% on-time performance
   // record and zero Aurora Driver-attributed collisions"; "we are already fully allocated to exit
@@ -19887,7 +19673,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://ir.aurora.tech/_assets/_96c9b7d74f0ede7f00e7204fc7db7913/aurora/db/956/10045/shareholder_letter/26Q2+Shareholder+Letter.pdf',
     type: 'press',
   },
-  // nhtsa-cruise-consent-2024: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // nhtsa-cruise-consent-2024: added 2026-10-06; re-read 2026-10-14.
   // The live nhtsa.gov page returns 403; read from the dated capture (read 2026-10-04): "September
   // 30, 2024 | Washington, DC"; "Two of these reports failed to disclose the post-crash details of
   // an Oct. 2, 2023, crash in which a Cruise vehicle equipped with an ADS and operating without a
@@ -19902,7 +19688,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://web.archive.org/web/20241229044938/https://www.nhtsa.gov/press-releases/consent-order-cruise-crash-reporting',
     type: 'press',
   },
-  // gm-cruise-refocus-2024: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // gm-cruise-refocus-2024: added 2026-10-06; re-read 2026-10-14.
   // The live news.gm.com page returns 403; read from the dated capture (read 2026-10-04): "GM will
   // no longer fund Cruise's robotaxi development work given the considerable time and resources that
   // would be needed to scale the business, along with an increasingly competitive robotaxi market."
@@ -19916,7 +19702,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://web.archive.org/web/20241210215436/https://news.gm.com/home.detail.html/Pages/news/us/en/2024/dec/1210-gm.html',
     type: 'press',
   },
-  // waymo-scaling-laws-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // waymo-scaling-laws-2025: added 2026-10-06; re-read 2026-10-14.
   // arXiv technical report with no venue, full author list. Abstract (read 2026-10-04): "Using a 500
   // thousand hours driving dataset, we demonstrate that, similar to language modeling, model
   // performance improves as a power-law function of the total compute budget"; "Most interestingly,
@@ -19930,7 +19716,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2506.08228',
     type: 'paper',
   },
-  // rad-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // rad-2025: added 2026-10-06; re-read 2026-10-14.
   // arXiv record with no venue, full author list. Abstract (read 2026-10-04): "Existing end-to-end
   // autonomous driving (AD) algorithms typically follow the Imitation Learning (IL) paradigm, which
   // faces challenges such as causal confusion and an open-loop gap."; "we construct a photorealistic
@@ -19945,7 +19731,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2502.13144',
     type: 'paper',
   },
-  // alpamayo-r1-2025: domain pass 2026-10-06, from drafts/adjacent/autonomous-vehicles.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // alpamayo-r1-2025: added 2026-10-06; re-read 2026-10-14.
   // arXiv record with no venue, full author list (43 names; the abs page lists a stray ":" after
   // "NVIDIA", dropped here). Abstract (read 2026-10-04): "performance remains brittle in
   // safety-critical long-tail scenarios where supervision is sparse"; "On-vehicle road tests confirm
@@ -19959,7 +19745,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.00088',
     type: 'paper',
   },
-  // monorace-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // monorace-2026: added 2026-10-06; re-read 2026-10-14.
   // Abstract: "uses a monocular, rolling-shutter camera and IMU"; "won the 2025 Abu Dhabi Autonomous
   // Drone Racing Competition (A2RL), outperforming all competing AI teams and three human world
   // champion pilots in a direct knockout tournament"; "foregoes inner loop controllers by directly
@@ -19973,7 +19759,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.15222',
     type: 'paper',
   },
-  // faessler-flatness-2018: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // faessler-flatness-2018: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata; abstract (arXiv 1712.02402 via Semantic Scholar, read 2026-10-04): "we prove
   // that the dynamical model of a quadrotor subject to linear rotor drag effects is differentially
   // flat in its position and heading".
@@ -19986,7 +19772,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/LRA.2017.2776353',
     type: 'paper',
   },
-  // mahony-multirotor-2012: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // mahony-multirotor-2012: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (read 2026-10-04). Abstract not open; the article sentence rests on the title.
   {
     id: 'mahony-multirotor-2012',
@@ -19997,7 +19783,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/MRA.2012.2206474',
     type: 'paper',
   },
-  // mellinger-minimum-snap-2011: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // mellinger-minimum-snap-2011: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (read 2026-10-04). Abstract not open; the article sentence rests on the title.
   {
     id: 'mellinger-minimum-snap-2011',
@@ -20008,7 +19794,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA.2011.5980409',
     type: 'paper',
   },
-  // lee-se3-control-2010: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // lee-se3-control-2010: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (read 2026-10-04). Abstract not open; the article sentence rests on the title.
   {
     id: 'lee-se3-control-2010',
@@ -20019,7 +19805,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/CDC.2010.5717652',
     type: 'paper',
   },
-  // foehn-time-optimal-2021: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // foehn-time-optimal-2021: added 2026-10-06; re-read 2026-10-14.
   // Crossref summary (read 2026-10-04): "A solution for time-optimal quadrotor trajectory planning
   // through optimization outperforms professional human pilots in racing."
   {
@@ -20031,7 +19817,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/scirobotics.abh1221',
     type: 'paper',
   },
-  // ac-mpc-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // ac-mpc-2026: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (title prints an en dash in Actor[dash]Critic); abstract (arXiv 2306.09852 via
   // Semantic Scholar, read 2026-10-04): "The key idea is to embed a differentiable MPC within an
   // actor[dash]critic RL framework"; "achieves the same superhuman performance as state-of-the-art
@@ -20045,7 +19831,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TRO.2025.3644945',
     type: 'paper',
   },
-  // tudelft-a2rl-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // tudelft-a2rl-2025: added 2026-10-06; re-read 2026-10-14.
   // Dated 15 April 2025, no individual byline (read 2026-10-04): "beating three former DCL world
   // champions and reaching flight speeds up to 95.8 km/h"; Swift's win "occurred in a flight lab
   // environment, where conditions, hardware, and the track were still controlled by the
@@ -20060,7 +19846,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.tudelft.nl/en/2025/lr/autonomous-drone-from-tu-delft-defeats-human-champions-in-historic-racing-first',
     type: 'press',
   },
-  // a2rl-2026-final: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // a2rl-2026-final: added 2026-10-06; re-read 2026-10-14.
   // Dated Jan 23 2026, no individual byline (read 2026-10-04): "Minchan Kim [dash] World FPV
   // Champion, narrowly claimed victory in the Human vs AI finale"; a showdown "that remained tied at
   // four wins apiece. In the final run, Kim maintained his lead as the autonomous drone struck a
@@ -20074,7 +19860,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://a2rl.io/news/45/A2RL-Drone-Championship-Sets-the-Pace-for-AI-in-Autonomous-Flight',
     type: 'press',
   },
-  // green-generalization-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // green-generalization-2026: added 2026-10-06; re-read 2026-10-14.
   // Abstract: "current methods fail to generalize; policies trained on specific environments often
   // crash immediately in unseen configurations"; "a 7.4x improvement in generalization over the
   // state-of-the-art approaches".
@@ -20087,7 +19873,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.27348',
     type: 'paper',
   },
-  // vins-mono-2018: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // vins-mono-2018: added 2026-10-06; re-read 2026-10-14.
   // Abstract (arXiv 1708.03852 via Semantic Scholar, read 2026-10-04): "One camera and one low-cost
   // inertial measurement unit (IMU) form a monocular visual-inertial system (VINS), which is the
   // minimum sensor suite (in size, weight, and power) for the metric six degrees-of-freedom (DOF)
@@ -20101,7 +19887,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TRO.2018.2853729',
     type: 'paper',
   },
-  // px4-2015: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // px4-2015: added 2026-10-06; re-read 2026-10-14.
   // Abstract via Semantic Scholar (read 2026-10-04): "Our microcontroller-based execution
   // environment has substantially lower latency and better hardware connectivity than a typical
   // Robotics Linux system and is therefore well suited for fast, high rate control tasks."
@@ -20114,7 +19900,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/ICRA.2015.7140074',
     type: 'paper',
   },
-  // falanga-event-avoidance-2020: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // falanga-event-avoidance-2020: added 2026-10-06; re-read 2026-10-14.
   // Crossref summary (read 2026-10-04): "Micro-aerial vehicles dodge fast-moving objects using only
   // onboard sensing and computation."
   {
@@ -20126,7 +19912,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/scirobotics.aaz9712',
     type: 'paper',
   },
-  // racevla-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // racevla-2025: added 2026-10-06; re-read 2026-10-14.
   // Abstract: "Experiments revealed an average velocity of 1.04 m/s, with a maximum speed of 2.02
   // m/s".
   {
@@ -20138,7 +19924,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.02572',
     type: 'paper',
   },
-  // cognitivedrone-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // cognitivedrone-2025: added 2026-10-06; re-read 2026-10-14.
   // Abstract: "a racing-oriented model (RaceVLA) achieves an overall success rate of 31.3%, the base
   // CognitiveDrone model reaches 59.6%, and CognitiveDrone-R1 attains a success rate of 77.2%".
   {
@@ -20150,7 +19936,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2503.01378',
     type: 'paper',
   },
-  // deep-drone-acrobatics-2020: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // deep-drone-acrobatics-2020: added 2026-10-06; re-read 2026-10-14.
   // arXiv journal reference: RSS 2020. Abstract: "We train the policy entirely in simulation by
   // leveraging demonstrations from an optimal controller that has access to privileged information";
   // "accelerations of up to 3g".
@@ -20164,7 +19950,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2006.05768',
     type: 'paper',
   },
-  // geles-pixels-2024: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // geles-pixels-2024: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata; abstract on the RSS proceedings page (read 2026-10-04): "Like professional
   // drone-racing pilots, our system does not use explicit state estimation and leverages the same
   // control commands humans use (collective thrust and body rates)."
@@ -20177,7 +19963,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.15607/RSS.2024.XX.082',
     type: 'paper',
   },
-  // dream-to-fly-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // dream-to-fly-2025: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment field: accepted to IEEE ICRA 2026. Abstract: "In contrast to model-free methods
   // like PPO or SAC, which are sample-inefficient and struggle in this setting, our approach
   // acquires drone racing skills from pixels."
@@ -20191,7 +19977,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2501.14377',
     type: 'paper',
   },
-  // zhang-diff-physics-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // zhang-diff-physics-2025: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata; preprint arXiv 2407.10648 ("Back to Newton's Laws ..."), whose abstract
   // reads: "navigates at speeds up to 20 m/s"; "deployed on a budget-friendly $21 computer";
   // "autonomous coordination without communication or centralized planning".
@@ -20204,7 +19990,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1038/s42256-025-01048-0',
     type: 'paper',
   },
-  // ego-swarm-2021: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // ego-swarm-2021: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment field: accepted by ICRA 2021. Abstract: "agents generate safe, smooth, and
   // dynamically feasible trajectories in only several milliseconds using an unreliable trajectory
   // sharing network".
@@ -20218,7 +20004,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2011.04183',
     type: 'paper',
   },
-  // geles-marl-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // geles-marl-2026: added 2026-10-06; re-read 2026-10-14.
   // Abstract: "Through league-based self-play"; "Our agents outperform a champion-level human pilot
   // in multi-player races at speeds exceeding 22 m/s, while simultaneously reducing collision rates
   // by 50 % compared to state-of-the-art single-agent baselines."
@@ -20231,7 +20017,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.22748',
     type: 'paper',
   },
-  // spectrum-ukraine-autonomy-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // spectrum-ukraine-autonomy-2026: added 2026-10-06; re-read 2026-10-14.
   // Published 2026-03-24 (read 2026-10-04): development "is careening toward AI-based systems that
   // enable drones to navigate by recognizing features in the terrain, lock on to and chase targets
   // without an operator's guidance, and eventually exchange information with each other through mesh
@@ -20245,10 +20031,10 @@ export const CITATIONS: Citation[] = [
     url: 'https://spectrum.ieee.org/autonomous-drone-warfare',
     type: 'press',
   },
-  // zipline-safety-facts: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // zipline-safety-facts: added 2026-10-06; re-read 2026-10-14.
   // Undated fact sheet (read 2026-10-14): "Since our first commercial delivery in 2016"; "Flown more than 140
   // million commercial autonomous miles since we started"; "Made more than 3 million deliveries." The figures
-  // rose from 135 million and 2.5 million after the drafting lane read the page on 2026-10-04. Company-reported.
+  // rose from 135 million and 2.5 million after the first reading on 2026-10-04. Company-reported.
   {
     id: 'zipline-safety-facts',
     title: 'Safety Facts',
@@ -20259,7 +20045,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.zipline.com/about/zipline-safety-fact-sheet',
     type: 'docs',
   },
-  // zipline-2m-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // zipline-2m-2026: added 2026-10-06; re-read 2026-10-14.
   // "Written by Team Zipline Published on January 21, 2026" (read 2026-10-04): "surpassed two
   // million commercial deliveries"; "U.S. deliveries have grown by approximately 15% week over week
   // for the last seven months". Company-reported.
@@ -20272,7 +20058,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.zipline.com/newsroom/zipline-surpasses-2-million-deliveries-raises-more-than-600m-to-power-next-phase-of-growth-and-expands-operations-to-houston-and-phoenix',
     type: 'press',
   },
-  // wing-walmart-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // wing-walmart-2026: added 2026-10-06; re-read 2026-10-14.
   // "Written by Wing Team Published Jun 8, 2026" (read 2026-10-04): "With well over one million
   // commercial deliveries completed"; "a network of over 270 locations to reach more than 40 million
   // Americans by 2027". Company-reported.
@@ -20285,7 +20071,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://wing.com/news/wing-and-walmart-seven-new-markets-drone-delivery',
     type: 'press',
   },
-  // walmart-drone-1m-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // walmart-drone-1m-2026: added 2026-10-06; re-read 2026-10-14.
   // Dated May 29, 2026, no byline (read 2026-10-04): drone capabilities "across 66 stores in four
   // states serving five metro markets". Company-reported.
   {
@@ -20297,7 +20083,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://corporate.walmart.com/news/2026/05/29/walmart-celebrates-1-million-drone-deliveries-marking-a-major-milestone-in-customer-convenience',
     type: 'press',
   },
-  // faa-part-108-nprm-2025: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // faa-part-108-nprm-2025: added 2026-10-06; re-read 2026-10-14.
   // Read via the Federal Register API 2026-10-04 (the HTML page asks for a browser check): "This
   // action proposes performance-based regulations to enable the design and operation of unmanned
   // aircraft systems (UAS) at low altitudes beyond visual line of sight (BVLOS)"; "a predictable and
@@ -20311,7 +20097,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.federalregister.gov/documents/2025/08/07/2025-14992/normalizing-unmanned-aircraft-systems-beyond-visual-line-of-sight-operations',
     type: 'docs',
   },
-  // faa-part-108-reopen-2026: domain pass 2026-10-06, from drafts/adjacent/drones.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // faa-part-108-reopen-2026: added 2026-10-06; re-read 2026-10-14.
   // Read via the Federal Register API 2026-10-04: comments close 2026-02-11; "FAA seeks additional
   // comments on the electronic conspicuity and right-of-way topics identified in this notice."
   {
@@ -20323,7 +20109,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.federalregister.gov/documents/2026/01/28/2026-01644/normalizing-unmanned-aircraft-systems-beyond-visual-line-of-sight-operations-reopening-of-comment',
     type: 'docs',
   },
-  // jpl-ipn-pnt-2024: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // jpl-ipn-pnt-2024: added 2026-10-06; re-read 2026-10-14.
   // Byline and date from the report PDF (read 2026-10-04): "The one-way-light-time delay with Mars
   // is between 4 minutes to 20 minutes and thus real-time communications with Earth is not possible.
   // Mars spacecraft cannot rely on Earth for real-time commanding and must be more autonomous in
@@ -20337,7 +20123,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://ipnpr.jpl.nasa.gov/progress_report/42-237/42-237A.pdf',
     type: 'paper',
   },
-  // enav-perseverance-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // enav-perseverance-2026: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata; abstract via Semantic Scholar (read 2026-10-04): "with only a single-core CPU
   // with extremely limited computing resources"; "increased the average daily driving distance by an
   // order of magnitude compared to its predecessors"; "As of the 1312th Martian day since landing,
@@ -20352,7 +20138,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TFR.2025.3636366',
     type: 'paper',
   },
-  // mer-mobility-software-2006: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // mer-mobility-software-2006: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (no issued date; conference year 2006); abstract via OpenAlex (read
   // 2026-10-04): "given autonomous control over multiple aspects of mobility"; "goal-based driving
   // (goto waypoint)"; "reactive checks" and "predictive checks"; "From January 2004 through October
@@ -20367,7 +20153,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/AERO.2006.1655723',
     type: 'paper',
   },
-  // sheridan-time-delay-1993: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // sheridan-time-delay-1993: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata; abstract via OpenAlex (read 2026-10-04): "Space teleoperations have tended to
   // deal with the problem of time delay by avoiding it and not attempting to teleoperate from the
   // ground."
@@ -20380,7 +20166,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.258052',
     type: 'paper',
   },
-  // mer-visual-odometry-2007: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // mer-visual-odometry-2007: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata and abstract (read 2026-10-04): "successfully demonstrated a robotic Visual
   // Odometry capability on another world for the first time"; "During the first 2 years of
   // operations, Visual Odometry evolved from an \"extra credit\" capability into a critical vehicle
@@ -20394,7 +20180,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1002/rob.20184',
     type: 'paper',
   },
-  // mars-global-localization-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // mars-global-localization-2026: added 2026-10-06; re-read 2026-10-14.
   // Credit NASA/JPL-Caltech, image addition date 02/18/2026, no byline (read 2026-10-04): "enabling
   // the rover to pinpoint its location on Mars on Feb. 2, 2026"; "compares panoramic navcam shots to
   // MRO orbital imagery"; "the algorithm takes about two minutes to pinpoint the rover's location to
@@ -20408,7 +20194,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://science.nasa.gov/photojournal/mars-global-localization-pinpoints-perseverances-location/',
     type: 'press',
   },
-  // perseverance-ai-drive-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // perseverance-ai-drive-2026: added 2026-10-06; re-read 2026-10-14.
   // Dated Jan 30, 2026, no byline (read 2026-10-04): "the team leveraged a type of generative AI
   // called vision-language models"; the AI analysed "the high-resolution orbital imagery from the
   // HiRISE" camera "and terrain-slope data from digital elevation models"; "verifying over 500,000
@@ -20424,7 +20210,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-completes-first-ai-planned-drive-on-mars/',
     type: 'press',
   },
-  // pixl-adaptive-sampling-2024: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // pixl-adaptive-sampling-2024: added 2026-10-06; re-read 2026-10-14.
   // Dated Jul 16, 2024, source line Jet Propulsion Laboratory, no byline (read 2026-10-04; the
   // jpl.nasa.gov copy returns 403): "This marks the first time AI has been used on Mars to make
   // autonomous decisions based on real-time analysis of rock composition."; "Called \"adaptive
@@ -20438,7 +20224,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/heres-how-ai-is-changing-nasas-mars-rover-science/',
     type: 'press',
   },
-  // ingenuity-investigation-2024: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // ingenuity-investigation-2024: added 2026-10-06; re-read 2026-10-14.
   // Dated Dec 11, 2024, no byline (read 2026-10-04): "we have one we believe is most likely: Lack of
   // surface texture gave the navigation system too little information to work with."
   {
@@ -20450,7 +20236,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nasa.gov/missions/mars-2020-perseverance/ingenuity-helicopter/nasa-performs-first-aircraft-accident-investigation-on-another-world/',
     type: 'press',
   },
-  // moxie-sciadv-2022: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // moxie-sciadv-2022: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata and abstract (read 2026-10-04); the title prints a dash after "(MOXIE)"
   // (written here as a colon). "is the first demonstration of ISRU on another planet, producing
   // oxygen by solid oxide electrolysis of carbon dioxide in the martian atmosphere"; "producing
@@ -20465,7 +20251,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/sciadv.abp8636',
     type: 'paper',
   },
-  // hancock-prime1-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // hancock-prime1-2026: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (30 authors, issued 2026-07-01); gold open access. Abstract via OpenAlex (read
   // 2026-10-04): "the lander came to rest on its side within a small crater approximately 500 m away
   // from the intended landing site"; "the mission ended approximately 12 hr after touchdown";
@@ -20480,7 +20266,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.3847/PSJ/ae732f',
     type: 'paper',
   },
-  // blue-ghost-lister-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // blue-ghost-lister-2025: added 2026-10-06; re-read 2026-10-14.
   // Dated March 14, 2025, no byline (read 2026-10-04): "Following a successful landing on March 2";
   // "All NASA payloads have successfully powered on, collected science data, and operated on the
   // surface of the Moon."; LISTER "is now the deepest robotic planetary subsurface thermal probe,
@@ -20494,7 +20280,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nasa.gov/blogs/missions/2025/03/14/nasa-science-data-received-blue-ghost-captures-eclipse-from-moon/',
     type: 'blog',
   },
-  // space-manipulator-review-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // space-manipulator-review-2025: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata and abstract (read 2026-10-04): "on-orbit servicing (OOS) tasks, such as
   // satellite repair, space debris removal, refueling, and upgrades"; "with a focus on their
   // implementation in 2 operational modes: free-floating and free-flying"; "the pre-capture phase,
@@ -20509,7 +20295,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.34133/space.0291',
     type: 'paper',
   },
-  // umetani-yoshida-1989: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // umetani-yoshida-1989: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata; abstract via OpenAlex (read 2026-10-04): "taking dynamical interaction
   // between the manipulator arm and the base satellite into account"; "introducing the momentum
   // conservation law into the formulation and a novel Jacobian matrix in generalized form for space
@@ -20523,7 +20309,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.34766',
     type: 'paper',
   },
-  // rotex-1993: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // rotex-1993: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (title as Crossref prints it); abstract via OpenAlex (read 2026-10-04): "In
   // early 1993 the space robot technology experiment ROTEX was flown with space-shuttle Columbia. A
   // multisensory robot onboard the spacecraft successfully worked in autonomous modes, teleoperated
@@ -20538,7 +20324,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/70.258056',
     type: 'paper',
   },
-  // boeing-orbital-express-2007: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // boeing-orbital-express-2007: added 2026-10-06; re-read 2026-10-14.
   // Dated Apr 17, 2007 (read 2026-10-04): "Using its robotic manipulator arm, ASTRO placed a battery
   // on NextSat. The battery was successfully integrated into NextSat's power system following the
   // transfer."; "a Defense Advanced Research Projects Agency-led effort consisting of the Boeing
@@ -20552,7 +20338,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://boeing.mediaroom.com/2007-04-17-Boeing-Orbital-Express-Conducts-First-Autonomous-Spacecraft-to-Spacecraft-Fluid-and-Component-Transfer',
     type: 'press',
   },
-  // rsgs-mrv-launch-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // rsgs-mrv-launch-2026: added 2026-10-06; re-read 2026-10-14.
   // Dated Jul 22, 2026, byline Colleen Wouters (read 2026-10-04; Northrop Grumman's own release
   // returns 403): "Northrop Grumman's Mission Robotic Vehicle hosting the NASA-supported Robotic
   // Servicing of Geosynchronous Satellites (RSGS) payload launched aboard a SpaceX Falcon 9 rocket
@@ -20569,7 +20355,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nasa.gov/technology/robotic-servicing-mission-launches-with-nasa-support/',
     type: 'press',
   },
-  // esa-space-environment-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // esa-space-environment-2026: added 2026-10-06; re-read 2026-10-14.
   // No byline or page date; the 2026 edition of the annual report (read 2026-10-04): "Active debris
   // removal is required to stop the growth of the number of objects over time that is caused by
   // space debris causing new debris on their own through collisions (Kessler syndrome)." Author
@@ -20583,7 +20369,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2026',
     type: 'docs',
   },
-  // adras-j-deorbit-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // adras-j-deorbit-2026: added 2026-10-06; re-read 2026-10-14.
   // Posted March 25, 2026 (read 2026-10-04): "After 293 days of mission life in orbit, the world's
   // first commercial debris inspection satellite begins controlled deorbit."
   {
@@ -20595,7 +20381,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.astroscale.com/en/news/astroscales-adras-j-mission-completes-operations-begins-deorbit',
     type: 'press',
   },
-  // adras-j2-isar-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // adras-j2-isar-2026: added 2026-10-06; re-read 2026-10-14.
   // Posted September 1, 2026 (read 2026-10-04): "ADRAS-J2 aims to become the world's first mission
   // to capture and remove an existing piece of large orbital debris."; "The mission is targeted for
   // launch in Japan's fiscal year 2027 (April 2027 to March 2028)"; target "an upper-stage rocket
@@ -20609,7 +20395,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.astroscale.com/en/news/astroscale-japan-selects-isar-aerospace-to-launch-adras-j2',
     type: 'press',
   },
-  // swift-boost-update-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // swift-boost-update-2026: added 2026-10-06; re-read 2026-10-14.
   // Release 26-067, Aug 19, 2026 (read 2026-10-04): "Due to an ongoing commercial spacecraft
   // attitude control issue, NASA and Katalyst Space announced Wednesday the LINK spacecraft will not
   // capture or boost an agency satellite"; "LINK still will attempt to conduct rendezvous and
@@ -20624,7 +20410,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nasa.gov/news-release/nasa-updates-next-steps-for-commercial-swift-boost-mission/',
     type: 'press',
   },
-  // banerjee-warm-starts-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // banerjee-warm-starts-2025: added 2026-10-06; re-read 2026-10-14.
   // arXiv comment: "Accepted to 2025 International Conference on Space Robotics (iSpaRo)". Abstract
   // (read 2026-10-04): "the first in-space demonstration of using machine learning-based warm starts
   // for accelerating trajectory optimization for the Astrobee free-flying robot onboard the
@@ -20642,7 +20428,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2505.05588',
     type: 'paper',
   },
-  // apiary-astrobee-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // apiary-astrobee-2025: added 2026-10-06; re-read 2026-10-14.
   // arXiv journal reference iSpaRo 2025. Abstract (read 2026-10-04): "On Tuesday, May 27th 2025 the
   // APIARY team conducted the first ever, to our knowledge, RL control of a free-flyer in space
   // using the NASA Astrobee robot on-board the International Space Station (ISS)."; the policy was
@@ -20658,7 +20444,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.03729',
     type: 'paper',
   },
-  // space-robotics-bench-2025: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // space-robotics-bench-2025: added 2026-10-06; re-read 2026-10-14.
   // Preprint, full author list. Abstract (read 2026-10-04): "The adoption of robot learning in this
   // domain is severely hindered by the prohibitive cost of technology demonstrations and the limited
   // availability of data."
@@ -20671,7 +20457,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2509.23328',
     type: 'paper',
   },
-  // ai-space-robot-ops-review-2026: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // ai-space-robot-ops-review-2026: added 2026-10-06; re-read 2026-10-14.
   // Preprint (15 September 2026), full author list. Abstract (read 2026-10-04): "their transfer to
   // space is constrained by scarce mission data, space-specific dynamics and sensing conditions,
   // limited onboard resources, and stringent safety requirements".
@@ -20684,7 +20470,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.16880',
     type: 'paper',
   },
-  // ai4mars-2021: domain pass 2026-10-06, from drafts/adjacent/space.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // ai4mars-2021: added 2026-10-06; re-read 2026-10-14.
   // CVF open-access record and abstract (read 2026-10-04): "consisting of 326K semantic segmentation
   // full image labels on 35K images from Curiosity, Opportunity, and Spirit rovers, collected
   // through crowdsourcing"; "We trained a DeepLabv3 model on the AI4Mars training dataset and
@@ -20698,7 +20484,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://openaccess.thecvf.com/content/CVPR2021W/AI4Space/html/Swan_AI4MARS_A_Dataset_for_Terrain-Aware_Autonomous_Driving_on_Mars_CVPRW_2021_paper.html',
     type: 'paper',
   },
-  // intuitive-q2-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // intuitive-q2-2026: added 2026-10-06; re-read 2026-10-14.
   // Read 2026-10-04: "grew its da Vinci surgical system installed base to 11,710 systems as of June
   // 30, 2026, an increase of 12% compared with 10,488"; "Da Vinci procedures grew approximately
   // 15%"; "placed 468 da Vinci surgical systems"; "placements included 246 da Vinci 5 systems".
@@ -20712,7 +20498,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.globenewswire.com/news-release/2026/07/16/3328793/0/en/intuitive-announces-second-quarter-earnings.html',
     type: 'press',
   },
-  // attanasio-autonomy-2021: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // attanasio-autonomy-2021: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata and abstract (read 2026-10-04): "At level 0, where the bulk of commercial
   // platforms are, the robot has no decision autonomy. At level 1, the robot can provide cognitive
   // and physical assistance to the surgeon, while at level 2, it can autonomously perform a surgical
@@ -20726,7 +20512,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1146/annurev-control-062420-090543',
     type: 'paper',
   },
-  // kwoh-ct-robot-1988: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // kwoh-ct-robot-1988: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (read 2026-10-04). The abstract is not open; the article sentence rests on the
   // title only.
   {
@@ -20738,7 +20524,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/10.1354',
     type: 'paper',
   },
-  // marescaux-telesurgery-2001: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // marescaux-telesurgery-2001: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata (read 2026-10-04), published 2001-09-27. The article sentence rests on the
   // title only.
   {
@@ -20750,7 +20536,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1038/35096636',
     type: 'paper',
   },
-  // davinci5-cardiac-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // davinci5-cardiac-2026: added 2026-10-06; re-read 2026-10-14.
   // Read 2026-10-04 (the isrg.intuitive.com copy was unreachable here): "has cleared the da Vinci 5
   // system for certain cardiac procedures"; "selected thoracoscopically-assisted cardiac surgical
   // procedures using non-force feedback instruments"; "Cardiac surgery was the first specialty
@@ -20764,7 +20550,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.globenewswire.com/news-release/2026/01/26/3225716/7637/en/Da-Vinci-5-Cleared-for-Cardiac-Procedures.html',
     type: 'press',
   },
-  // awad-force-feedback-2024: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // awad-force-feedback-2024: added 2026-10-06; re-read 2026-10-14.
   // Abstract via Europe PMC (PMC11458697, read 2026-10-04): "Twenty-eight surgeons"; retraction,
   // dissection and suturing "on inanimate or ex-vivo models"; "The maximal force exerted ... was
   // decreased by 36%, 41%, and 55% with the use of FFB at the "High" sensitivity setting".
@@ -20777,11 +20563,11 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1007/s00464-024-11131-z',
     type: 'paper',
   },
-  // kneuertz-dv5-force-2025: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // kneuertz-dv5-force-2025: added 2026-10-06; re-read 2026-10-14.
   // Crossref title has a dash after "surgery" (written here as a colon). Abstract (read 2026-10-04):
   // "Data from 444 procedures by 73 unique surgeons were analyzed."; "Median forces decreased
   // progressively with higher FFB settings (off, 1.79 N vs. low, 1.67 N vs. medium, 1.45 N vs. high,
-  // 1.32 N, p < 0.001)." The pack notes several authors work for or consult for Intuitive.
+  // 1.32 N, p < 0.001)." The research notes record that several authors work for or consult for Intuitive.
   {
     id: 'kneuertz-dv5-force-2025',
     title: 'Force in robotic thoracic surgery: a one year analysis of DaVinci 5 force feedback',
@@ -20791,7 +20577,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1007/s11701-025-02781-9',
     type: 'paper',
   },
-  // chang-dv5-colorectal-2025: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // chang-dv5-colorectal-2025: added 2026-10-06; re-read 2026-10-14.
   // Abstract via Europe PMC (read 2026-10-04): "Among 68 surgeries"; "FFB does decrease the total
   // amount of force applied without significantly affecting primary outcomes like bowel function and
   // LOS."
@@ -20804,7 +20590,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1016/j.amjsurg.2025.116518',
     type: 'paper',
   },
-  // cmr-45000-patients-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // cmr-45000-patients-2026: added 2026-10-06; re-read 2026-10-14.
   // Read 2026-10-04: "more than 45,000 patients worldwide have now been treated using the Versius";
   // "positioning CMR as the second most widely used robotic surgery platform globally"; "hospitals
   // across more than 30 countries". Company-reported.
@@ -20817,7 +20603,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.globenewswire.com/news-release/2026/03/26/3262907/0/en/cmr-surgical-announces-45-000-patients-treated-globally-as-robotic-assisted-surgery-company-makes-its-u-s-debut.html',
     type: 'press',
   },
-  // medtronic-hugo-clearance-2025: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // medtronic-hugo-clearance-2025: added 2026-10-06; re-read 2026-10-14.
   // Read 2026-10-04: "indicated for use in minimally invasive urologic surgical procedures including
   // prostatectomy, nephrectomy, and cystectomy"; used "in more than 30 countries across 5
   // continents".
@@ -20830,7 +20616,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://news.medtronic.com/2025-12-03-Medtronic-announces-FDA-clearance-of-Hugo-TM-robotic-assisted-surgery-system-for-urologic-surgical-procedures',
     type: 'press',
   },
-  // medtronic-hugo-first-us-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // medtronic-hugo-first-us-2026: added 2026-10-06; re-read 2026-10-14.
   // Read 2026-10-04: "Urology has led the way in adoption of robotic technology, with about 80% of
   // urologic abdominal surgeries in the U.S. today conducted with the assistance of a robotic
   // system."
@@ -20843,7 +20629,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://news.medtronic.com/2026-02-17-Medtronic-announces-first-surgery-with-Hugo-TM-robotic-assisted-surgery-system-in-the-U-S-performed-at-Cleveland-Clinic',
     type: 'press',
   },
-  // medtronic-hugo-510k-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // medtronic-hugo-510k-2026: added 2026-10-06; re-read 2026-10-14.
   // Dated Jun 3, 2026 (read 2026-10-04); the title states the filings.
   {
     id: 'medtronic-hugo-510k-2026',
@@ -20854,7 +20640,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://news.medtronic.com/2026-06-03-Medtronic-submits-510-k-filings-to-expand-Hugo-TM-robotic-assisted-surgery-system-into-general-and-gynecologic-specialties-in-the-United-States',
     type: 'press',
   },
-  // jnj-ottava-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // jnj-ottava-2026: added 2026-10-06; re-read 2026-10-14.
   // Read 2026-10-04: "has granted De Novo authorization for the OTTAVA Robotic Surgical System, the
   // world's first table-integrated soft tissue robotic system"; ten listed general-surgery
   // procedures; "occupies 30[dash]50% less space than traditional boom- and cart-mounted systems".
@@ -20868,7 +20654,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.jnj.com/media-center/press-releases/johnson-johnson-receives-fda-market-authorization-in-the-u-s-for-its-ottava-robotic-surgical-system',
     type: 'press',
   },
-  // sheetz-adoption-2020: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // sheetz-adoption-2020: added 2026-10-06; re-read 2026-10-14.
   // Abstract via Europe PMC (read 2026-10-04): "169 404 patients"; "The use of robotic surgery
   // increased from 1.8% in 2012 to 15.1% in 2018".
   {
@@ -20880,7 +20666,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1001/jamanetworkopen.2019.18911',
     type: 'paper',
   },
-  // alemzadeh-adverse-events-2016: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // alemzadeh-adverse-events-2016: added 2026-10-06; re-read 2026-10-14.
   // Abstract via Europe PMC (read 2026-10-04): MAUDE "from 2000 to 2013"; "144 deaths (1.4% of the
   // 10,624 reports), 1,391 patient injuries (13.1%), and 8,061 device malfunctions (75.9%) were
   // reported."
@@ -20893,7 +20679,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1371/journal.pone.0151470',
     type: 'paper',
   },
-  // rolarr-2017: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // rolarr-2017: added 2026-10-06; re-read 2026-10-14.
   // Abstract via Europe PMC (read 2026-10-04): "among 471 patients with rectal adenocarcinoma"; "19
   // of 236 patients (8.1%) in the robotic-assisted laparoscopic group and 28 of 230 patients (12.2%)
   // in the conventional laparoscopic group"; "P = .16".
@@ -20906,7 +20692,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1001/jama.2017.7219',
     type: 'paper',
   },
-  // saeidi-laparoscopic-2022: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // saeidi-laparoscopic-2022: added 2026-10-06; re-read 2026-10-14.
   // Crossref abstract (read 2026-10-04): "allows the operator to select among autonomously generated
   // surgical plans"; "in vivo autonomous robotic laparoscopic surgery for intestinal anastomosis on
   // porcine models over a 1-week survival period"; "outperforms expert surgeons' manual technique
@@ -20920,7 +20706,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/scirobotics.abj2908',
     type: 'paper',
   },
-  // srt-h-2025: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // srt-h-2025: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata; first author printed "Ji Woong (Brian) Kim". Preprint arXiv 2505.10251, whose
   // abstract reads: "The high-level planner plans in language space, generating task-level or
   // corrective instructions"; "a 100% success rate across eight unseen ex vivo gallbladders,
@@ -20934,7 +20720,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/scirobotics.adt5254',
     type: 'paper',
   },
-  // haidegger-autonomy-2019: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // haidegger-autonomy-2019: added 2026-10-06; re-read 2026-10-14.
   // Crossref metadata; abstract via Semantic Scholar (read 2026-10-04): "investigates the major
   // barriers of development presented by the lack of autonomy benchmarks and standards. The emerging
   // safety standard environment is presented, as a key enabling factor to the commercialization of
@@ -20948,7 +20734,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1109/TMRB.2019.2913282',
     type: 'paper',
   },
-  // srt-2024: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // srt-2024: added 2026-10-06; re-read 2026-10-14.
   // Abstract: "we introduce a relative action formulation which enables successful policy training
   // and deployment using its approximate kinematics data"; "the large repository of clinical data
   // ... may be directly utilized for robot learning without further corrections".
@@ -20961,7 +20747,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.12998',
     type: 'paper',
   },
-  // open-h-embodiment-2026: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // open-h-embodiment-2026: added 2026-10-06; re-read 2026-10-14.
   // arXiv lists "Open-H-Embodiment Consortium", a stray ":" entry, then 214 named authors; the ":"
   // entry is dropped. Abstract: "spanning more than 50 institutions"; platforms incl. "CMR Versius",
   // "da Vinci", "dVRK", "Moon Surgical Maestro"; GR00T-H "(25% of trials vs. 0% for all others)" and
@@ -20975,7 +20761,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2604.21017',
     type: 'paper',
   },
-  // maier-hein-sds-2022: domain pass 2026-10-06, from drafts/adjacent/surgical.citations.ts; adjacent pass of 2026-10-14, re-fetched and re-read 2026-10-14.
+  // maier-hein-sds-2022: added 2026-10-06; re-read 2026-10-14.
   // Crossref title has a dash after "science" (written here as a colon). Abstract via Europe PMC
   // (read 2026-10-04): "translational success stories are still lacking in surgery"; topics "(1)
   // infrastructure for data acquisition, storage and access in the presence of regulatory
@@ -20989,7 +20775,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1016/j.media.2021.102306',
     type: 'paper',
   },
-  // paxton-iros-2026: domain pass 2026-10-06, KOL intake note of Chris Paxton, added 2026-10-20. Newsletter post dated
+  // paxton-iros-2026: added 2026-10-20 via Chris Paxton. Newsletter post dated
   // 12 October 2026 (datePublished 2026-10-12T14:08:38Z), fetched 2026-10-20 (HTTP 200). The post names his
   // employer: "My team at Agility Robotics".
   {
@@ -21001,7 +20787,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://itcanthink.substack.com/p/dexterity-is-the-frontier-thoughts',
     type: 'blog',
   },
-  // fact-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-20. arXiv abstract page and PDF read
+  // fact-2026: added 2026-10-20 via Jiajun Wu. arXiv abstract page and PDF read
   // 2026-10-20 (HTTP 200; v1 13 Oct 2026). University of Michigan, Stanford University and Microsoft Research.
   {
     id: 'fact-2026',
@@ -21012,7 +20798,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.19155',
     type: 'paper',
   },
-  // dsp-2026: domain pass 2026-10-06, KOL intake note of Jitendra Malik, added 2026-10-20. arXiv abstract page and
+  // dsp-2026: added 2026-10-20 via Jitendra Malik. arXiv abstract page and
   // PDF read 2026-10-20 (HTTP 200; v1 15 Oct 2026). Amazon Frontier AI & Robotics (FAR) and the University of
   // Maryland, College Park.
   {
@@ -21024,7 +20810,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.22340',
     type: 'paper',
   },
-  // pantact-2026: domain pass 2026-10-06, KOL intake note of Shuran Song, added 2026-10-20. arXiv abstract page
+  // pantact-2026: added 2026-10-20 via Shuran Song. arXiv abstract page
   // and PDF read 2026-10-20 (HTTP 200; v1 8 Oct 2026). Stanford University, Amazon FAR and Carnegie Mellon
   // University.
   {
@@ -21039,7 +20825,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12558',
     type: 'paper',
   },
-  // imprint-2026: KOL intake note of Homanga Bharadhwaj, added 2026-10-21. arXiv abstract page and PDF read
+  // imprint-2026: added 2026-10-21 via Homanga Bharadhwaj. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 9 Oct 2026). Amazon FAR, Carnegie Mellon University, The University of Texas at Austin
   // and Johns Hopkins University.
   {
@@ -21054,7 +20840,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.14406',
     type: 'paper',
   },
-  // commgap-2026: KOL intake note of Jiajun Wu, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // commgap-2026: added 2026-10-21 via Jiajun Wu. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 13 Oct 2026). Stanford University. The arXiv title's "Human--VLA" is set with an en dash.
   {
     id: 'commgap-2026',
@@ -21065,7 +20851,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.17746',
     type: 'paper',
   },
-  // chronos-policy-2026: KOL intake note of Shuran Song, added 2026-10-21. arXiv abstract page and PDF read
+  // chronos-policy-2026: added 2026-10-21 via Shuran Song. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 9 Oct 2026). Stanford University.
   {
     id: 'chronos-policy-2026',
@@ -21076,7 +20862,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.13929',
     type: 'paper',
   },
-  // discrete-actions-2026: KOL intake note of Guanya Shi, added 2026-10-21. arXiv abstract page and PDF read
+  // discrete-actions-2026: added 2026-10-21 via Guanya Shi. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 14 Oct 2026). Carnegie Mellon University and Amazon FAR.
   {
     id: 'discrete-actions-2026',
@@ -21090,7 +20876,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.20429',
     type: 'paper',
   },
-  // robota-embed-2026: KOL intake note of Jim Fan (Linxi Fan), added 2026-10-21. arXiv abstract page and PDF read
+  // robota-embed-2026: added 2026-10-21 via Jim Fan (Linxi Fan). arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 14 Oct 2026). NVIDIA, MIT, UC Berkeley, University of Oxford and Carnegie Mellon
   // University.
   {
@@ -21106,7 +20892,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.19495',
     type: 'paper',
   },
-  // steertuning-2026: KOL intake note of Lerrel Pinto, added 2026-10-21. arXiv abstract page and PDF read
+  // steertuning-2026: added 2026-10-21 via Lerrel Pinto. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 13 Oct 2026). New York University.
   {
     id: 'steertuning-2026',
@@ -21120,7 +20906,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18711',
     type: 'paper',
   },
-  // worldoracle-2026: KOL intake note of Yuke Zhu, added 2026-10-21. arXiv abstract page and v1 and v2 PDFs read
+  // worldoracle-2026: added 2026-10-21 via Yuke Zhu. arXiv abstract page and v1 and v2 PDFs read
   // 2026-10-21 (HTTP 200; v1 13 Oct 2026, v2 16 Oct 2026, numbers identical). AgiBot, NVIDIA, Princeton University,
   // University of Texas at Austin and University of Toronto.
   {
@@ -21136,7 +20922,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18826',
     type: 'paper',
   },
-  // ge-sim-2-2026: KOL intake note of Yuke Zhu (WorldOracle), added 2026-10-21. Cited for the AgiBot authorship of a
+  // ge-sim-2-2026: added 2026-10-21 via Yuke Zhu (WorldOracle). Cited for the AgiBot authorship of a
   // model WorldOracle scores. arXiv abstract page and PDF first pages read 2026-10-21 (HTTP 200; v1 26 May 2026).
   // AgiBot, BUAA, LV-NUS Lab and TJU.
   {
@@ -21151,7 +20937,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.27491',
     type: 'paper',
   },
-  // fomo-dex-2026: KOL intake note of Jitendra Malik, added 2026-10-21. arXiv abstract page and PDF read
+  // fomo-dex-2026: added 2026-10-21 via Jitendra Malik. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 12 Oct 2026). Amazon FAR and Carnegie Mellon University.
   {
     id: 'fomo-dex-2026',
@@ -21162,7 +20948,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.17161',
     type: 'paper',
   },
-  // i3l-2026: KOL intake note of Jiajun Wu, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // i3l-2026: added 2026-10-21 via Jiajun Wu. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 13 Oct 2026). Stanford University and Lambda Inc.
   {
     id: 'i3l-2026',
@@ -21176,7 +20962,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.17748',
     type: 'paper',
   },
-  // fly-by-code-2026: KOL intake note of Guanya Shi, added 2026-10-21. arXiv abstract page and PDF read
+  // fly-by-code-2026: added 2026-10-21 via Guanya Shi. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 8 Oct 2026). Seoul National University, Carnegie Mellon University, University of
   // Maryland, College Park, All Purpose AI and Kyung Hee University.
   {
@@ -21192,7 +20978,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12549',
     type: 'paper',
   },
-  // mind-temporal-gap-2026: KOL intake note of Daniela Rus, added 2026-10-21. arXiv abstract page and PDF read
+  // mind-temporal-gap-2026: added 2026-10-21 via Daniela Rus. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 8 Oct 2026). MIT CSAIL and University of Haifa.
   {
     id: 'mind-temporal-gap-2026',
@@ -21203,7 +20989,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12575',
     type: 'paper',
   },
-  // primoretarget-2026: KOL intake note of Xue Bin Peng, added 2026-10-21. arXiv abstract page and PDF read
+  // primoretarget-2026: added 2026-10-21 via Xue Bin Peng. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200). Simon Fraser University, FieldAI, NVIDIA and Alberta Machine Intelligence Institute.
   // v1 8 Oct 2026.
   {
@@ -21217,7 +21003,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12642',
     type: 'paper',
   },
-  // walk-like-this-2026: KOL intake note of Marco Hutter, added 2026-10-21. arXiv abstract page and PDF read
+  // walk-like-this-2026: added 2026-10-21 via Marco Hutter. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200). Disney Research Zürich and ETH Zürich; CoRL 2026. v1 13 Oct 2026.
   {
     id: 'walk-like-this-2026',
@@ -21230,7 +21016,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18147',
     type: 'paper',
   },
-  // robosimstudio-2026: KOL intake note of Ken Goldberg, added 2026-10-21. arXiv abstract page and v1 and v2 PDFs
+  // robosimstudio-2026: added 2026-10-21 via Ken Goldberg. arXiv abstract page and v1 and v2 PDFs
   // read 2026-10-21 (HTTP 200). University of California, Berkeley and NVIDIA. v1 13 Oct 2026, v2 14 Oct 2026.
   // The PDF title omits "for Human and Agent", which the abstract-page title includes.
   {
@@ -21245,7 +21031,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18835',
     type: 'paper',
   },
-  // lehami-2026: KOL intake note of Yann LeCun, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // lehami-2026: added 2026-10-21 via Yann LeCun. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 11 Oct 2026). Courant Institute, New York University; Brown University; AMI Labs.
   {
     id: 'lehami-2026',
@@ -21256,7 +21042,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.15267',
     type: 'paper',
   },
-  // caster-2026: KOL intake note of Homanga Bharadhwaj, added 2026-10-21. arXiv abstract page and PDF read
+  // caster-2026: added 2026-10-21 via Homanga Bharadhwaj. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 8 Oct 2026). Virginia Tech and Johns Hopkins University.
   {
     id: 'caster-2026',
@@ -21267,7 +21053,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12567',
     type: 'paper',
   },
-  // metagensim-2026: KOL intake note of Danfei Xu, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // metagensim-2026: added 2026-10-21 via Danfei Xu. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 14 Oct 2026; CoRL 2026). Georgia Institute of Technology.
   {
     id: 'metagensim-2026',
@@ -21278,7 +21064,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.19479',
     type: 'paper',
   },
-  // t2z-2026: KOL intake note of Jiajun Wu, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // t2z-2026: added 2026-10-21 via Jiajun Wu. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 15 Oct 2026). Stanford University, CMU, Toyota Research Institute and University of Southern
   // California.
   {
@@ -21293,7 +21079,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.22364',
     type: 'paper',
   },
-  // rax-2026: KOL intake note of Pieter Abbeel, added 2026-10-24. arXiv abstract page and PDF read 2026-10-24
+  // rax-2026: added 2026-10-24 via Pieter Abbeel. arXiv abstract page and PDF read 2026-10-24
   // (HTTP 200; v1 15 Oct 2026). Harvard University, NVIDIA, UC Berkeley, MIT and Stanford University.
   {
     id: 'rax-2026',
@@ -21308,8 +21094,8 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.22496',
     type: 'paper',
   },
-  // coevolve-2026: KOL intake note filed under Cheng Chi, added 2026-10-24. The paper's Cheng Chi is at Renmin
-  // University of China, not the intake source; integrated on its own merit. arXiv abstract page and v1 and v2 PDFs
+  // coevolve-2026: added 2026-10-24 via Cheng Chi. The paper's Cheng Chi is at Renmin
+  // University of China, not the person who pointed to it; added on its own merit. arXiv abstract page and v1 and v2 PDFs
   // read 2026-10-24 (HTTP 200; v1 16 Oct 2026, v2 19 Oct 2026, same text). Peking University, Renmin University of
   // China, Beijing XYZ Embodied AI and BAAI.
   {
@@ -21321,7 +21107,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.23288',
     type: 'paper',
   },
-  // stopwatch-2026: KOL intake note of Pieter Abbeel, added 2026-10-24. arXiv abstract page and PDF read 2026-10-24
+  // stopwatch-2026: added 2026-10-24 via Pieter Abbeel. arXiv abstract page and PDF read 2026-10-24
   // (HTTP 200; v1 16 Oct 2026). Amazon FAR, New York University, UC Berkeley and Carnegie Mellon University.
   {
     id: 'stopwatch-2026',
@@ -21332,7 +21118,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.23841',
     type: 'paper',
   },
-  // supermimic-2026: KOL intake note of Pieter Abbeel, added 2026-10-25. arXiv abstract page and PDF read
+  // supermimic-2026: added 2026-10-25 via Pieter Abbeel. arXiv abstract page and PDF read
   // 2026-10-25 (HTTP 200). UC Berkeley. v1 20 Oct 2026.
   {
     id: 'supermimic-2026',
@@ -21343,7 +21129,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.28480',
     type: 'paper',
   },
-  // fiber-2026: KOL intake note of Guanya Shi, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // fiber-2026: added 2026-10-25 via Guanya Shi. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Amazon FAR, Carnegie Mellon University and Stanford University. v2 20 Oct 2026.
   {
     id: 'fiber-2026',
@@ -21354,7 +21140,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24675',
     type: 'paper',
   },
-  // swap-2026: KOL intake note of Pieter Abbeel, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // swap-2026: added 2026-10-25 via Pieter Abbeel. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Carnegie Mellon University and Amazon FAR. v1 19 Oct 2026.
   {
     id: 'swap-2026',
@@ -21365,7 +21151,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.25711',
     type: 'paper',
   },
-  // embodyhoi-2026: KOL intake note of Guanya Shi, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // embodyhoi-2026: added 2026-10-25 via Guanya Shi. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Carnegie Mellon University. v1 19 Oct 2026.
   {
     id: 'embodyhoi-2026',
@@ -21376,7 +21162,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.27242',
     type: 'paper',
   },
-  // rubiks-quadruped-2026: KOL intake note of Marco Hutter, added 2026-10-25. arXiv abstract page and PDF read
+  // rubiks-quadruped-2026: added 2026-10-25 via Marco Hutter. arXiv abstract page and PDF read
   // 2026-10-25 (HTTP 200). ETH Zurich. v1 17 Oct 2026.
   {
     id: 'rubiks-quadruped-2026',
@@ -21390,7 +21176,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24610',
     type: 'paper',
   },
-  // offline-empowerment-2026: KOL intake note of Sergey Levine, added 2026-10-25. arXiv abstract page and PDF
+  // offline-empowerment-2026: added 2026-10-25 via Sergey Levine. arXiv abstract page and PDF
   // read 2026-10-25 (HTTP 200). UC Berkeley and Princeton University. v1 17 Oct 2026.
   {
     id: 'offline-empowerment-2026',
@@ -21401,7 +21187,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24461',
     type: 'paper',
   },
-  // ssio-2026: KOL intake note of Pieter Abbeel, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // ssio-2026: added 2026-10-25 via Pieter Abbeel. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Amazon FAR, Carnegie Mellon University, UC Berkeley, Stanford University and Penn State University.
   // v2 21 Oct 2026.
   {
@@ -21427,7 +21213,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.25988',
     type: 'paper',
   },
-  // humanoidpose-2026: KOL intake note of Marco Hutter, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // humanoidpose-2026: added 2026-10-25 via Marco Hutter. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). ETH Zurich. v1 18 Oct 2026.
   {
     id: 'humanoidpose-2026',
@@ -21438,7 +21224,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.25288',
     type: 'paper',
   },
-  // dreamcan-2026: KOL intake note of Jiajun Wu, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // dreamcan-2026: added 2026-10-25 via Jiajun Wu. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Stanford University, National University of Singapore, Harvard University and Northwestern
   // University. v1 18 Oct 2026.
   {
@@ -21459,7 +21245,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24981',
     type: 'paper',
   },
-  // aim-2026: KOL intake note of Dhruv Shah, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // aim-2026: added 2026-10-25 via Dhruv Shah. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Princeton University and Columbia University. v1 19 Oct 2026.
   {
     id: 'aim-2026',
@@ -21479,7 +21265,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.27387',
     type: 'paper',
   },
-  // pia-2026: KOL intake note of Xiaolong Wang, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // pia-2026: added 2026-10-25 via Xiaolong Wang. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Toyota Research Institute and UC San Diego. v1 19 Oct 2026.
   {
     id: 'pia-2026',
@@ -21499,7 +21285,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.26757',
     type: 'paper',
   },
-  // hurst-spectrum-2026: KOL intake note of IEEE Spectrum Robotics, added 2026-10-25. Article read 2026-10-25
+  // hurst-spectrum-2026: added 2026-10-25 via IEEE Spectrum Robotics. Article read 2026-10-25
   // (HTTP 200), published 2026-10-19. A first-person account by Agility Robotics' cofounder and chief robot
   // officer: cited only for his attributed design statements, never for a number.
   {
@@ -21511,7 +21297,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://spectrum.ieee.org/agility-robotics-digit-5-redesign',
     type: 'press',
   },
-  // maker-2025: convergence prose pass 2026-10-26 (frontier/reliability-gap, data-hardware/evaluation-crisis).
+  // maker-2025: added 2026-10-26 (frontier/reliability-gap, data-hardware/evaluation-crisis).
   // arXiv abstract and HTML v1 read 2026-10-26 (HTTP 200), v1 dated 2025-11-12. Sec. 3.1: "the
   // probability of generating it without error is exponentially decaying as the number of steps
   // increases" (Eq. 8, a product of per-step probabilities); Sec. 1: "a system with a 1% per-step
@@ -21536,7 +21322,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2511.09030',
     type: 'paper',
   },
-  // agibot-omdia-ranking-2026: convergence prose pass 2026-10-26 (data-hardware/hardware-taxonomy,
+  // agibot-omdia-ranking-2026: added 2026-10-26 (data-hardware/hardware-taxonomy,
   // frontier/bear-case). AgiBot's own release, datelined "SHANGHAI, CHINA, January 8, 2026", read
   // 2026-10-26 (HTTP 200): "Omdia reports that the global humanoid robot market entered a phase of
   // rapid growth in 2025, with total annual shipments reaching approximately 13,000 units"; "AGIBOT
@@ -21552,7 +21338,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.agibot.com/article/231/detail/33.html',
     type: 'press',
   },
-  // a3-r1506-2025-store: convergence prose pass 2026-10-26 (frontier/safety-and-assurance). A3 store
+  // a3-r1506-2025-store: added 2026-10-26 (frontier/safety-and-assurance). A3 store
   // page read 2026-10-26 through a browser fetch (HTTP 200; curl gets 403): "Published with all three
   // parts on October 29, 2025. 403 Pages. Parts 1 and 2 of ANSI/A3 R15.06-2025, approved August 21,
   // 2025, are a revision of ANSI/RIA R15.06-2012. ... Part 3, approved October 7, 2025."; "ANSI/A3
@@ -21568,7 +21354,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.automate.org/store/products/ansi-a3-r15-06-2025-american-national-standard-for-industrial-robots-and-robot-systems-safety-requirements-pdf-download',
     type: 'docs',
   },
-  // kroger-8k-ecommerce-2025: convergence prose pass 2026-10-26 (data-hardware/industrial-deployment).
+  // kroger-8k-ecommerce-2025: added 2026-10-26 (data-hardware/industrial-deployment).
   // Form 8-K Exhibit 99.1, "CINCINNATI – November 18, 2025", read on SEC EDGAR 2026-10-26 (HTTP 200):
   // "Kroger identified opportunities to optimize its fulfillment network by closing facilities in
   // Pleasant Prairie, Wis.; Frederick, Md.; and Groveland, Fla. in January, while monitoring the
@@ -21585,7 +21371,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.sec.gov/Archives/edgar/data/56873/000110465925113746/tm2531591d1_ex99-1.htm',
     type: 'press',
   },
-  // bjnews-noetix-bumi-2025: convergence prose pass 2026-10-26 (data-hardware/hardware-taxonomy).
+  // bjnews-noetix-bumi-2025: added 2026-10-26 (data-hardware/hardware-taxonomy).
   // Beijing News (Bei Ke Cai Jing), reporter Zhang Han, dated 2025-10-24 20:07, read 2026-10-26
   // (HTTP 200): "10月22日，人形机器人企业松延动力（北京）科技有限公司（以下简称：松延动力）发布业内首款
   // 万元级消费机器人“Bumi小布米”，身高约94cm，体重约12kg，自由度不小于21个"; "“Bumi小布米”首发价格为
