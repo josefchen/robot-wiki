@@ -131,7 +131,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Vision-Language-Action Models: RT-2 to OpenVLA',
     headTerm: 'vision-language-action models',
     description:
-      'Vision-language-action models from RT-1 and RT-2 to Octo and OpenVLA. OpenVLA decodes 7 action tokens per step and runs at about 6 Hz on one RTX 4090.',
+      'Vision-language-action models from RT-1 and RT-2 to Octo, OpenVLA and pi0. OpenVLA-OFT action chunks took OpenVLA from 4.2 to 109.7 actions a second.',
     queries: ['what is a VLA model', 'vision-language-action model'],
   },
   '/manipulation/pi-line/': {
@@ -149,10 +149,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['generalist robot policy', 'robot foundation model companies', 'Helix vs GR00T vs Gemini Robotics'],
   },
   '/manipulation/comparison-matrix/': {
-    title: 'VLA Model Architecture Matrix: RT-1 to Pi0.7',
+    title: 'VLA Model Architecture: 23 Policies Compared',
     headTerm: 'VLA model architecture',
     description:
-      'VLA model architecture across 18 robot policies, RT-1 to pi0.7, GR00T and Helix: action head, chunk horizon, control rate, backbone, hierarchy and weights.',
+      'VLA model architecture across 23 robot policies, RT-1 to pi0.7, GR00T 2 and Xiaomi-Robotics-1: action head, chunk horizon, control rate and weights.',
     queries: ['VLA model architecture', 'VLA architecture'],
   },
   '/manipulation/hierarchical/': {
