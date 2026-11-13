@@ -5,7 +5,7 @@ domain: manipulation
 slug: generalist-policies
 order: 6
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - gemini-robotics-2025
   - gemini-robotics-15-2025
@@ -62,60 +62,87 @@ seeAlso:
 
 import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-release-timeline';
 
-A generalist robot policy is one learned model trained for many tasks, often on several robot bodies <Cite id="tri-lbm-2025" />. Beyond the [VLA line](/manipulation/vla-models/) and [Physical Intelligence's π models](/manipulation/pi-line/) <Cite id="pi05-2025" /> <Cite id="pi06-model-card-2025" /> <Cite id="pi07-2026" />, the main 2026 efforts come from Google DeepMind, NVIDIA, Figure, AgiBot, Skild AI and Generalist AI.
+A generalist robot policy is one learned model trained for many tasks, often on several robot bodies <Cite id="tri-lbm-2025" />. Beyond the [VLA line](/manipulation/vla-models/) and [Physical Intelligence's π models](/manipulation/pi-line/) <Cite id="pi05-2025" /> <Cite id="pi06-model-card-2025" /> <Cite id="pi07-2026" />, the main efforts come from Google DeepMind, NVIDIA, Figure, AgiBot, Skild AI and Generalist AI.
 
 <Image id="gemini-robotics-apollo-franka-2025" />
 
 ## A slow thinker and a fast mover
 
-Most of these systems split control in two: a large web-trained model works out what to do a few times a second, and a smaller model turns that into motor commands many times a second. Figure's Helix, for example, runs its reasoning model at 7 to 9 Hz and its motion model at 200 Hz <Cite id="helix-2025" />; GR00T <Cite id="gr00t-n1-2025" />, Gemini Robotics <Cite id="gemini-robotics-2025" />, GO-2 <Cite id="agibot-go2-2026" /> and Skild <Cite id="skild-brain-2025" /> use variants. Disclosure varies more: GR00T publishes weights, most others only videos and success rates without trial counts or release terms.
+Most of these systems split control in two: a large web-trained model decides a few times a second, and a smaller one sends motor commands many times a second. Figure's Helix runs its reasoning model at 7 to 9 Hz and its motion model at 200 Hz <Cite id="helix-2025" />. GR00T publishes weights; most others publish videos and success rates without trial counts or release terms.
+
+Also: the same split in GR00T <Cite id="gr00t-n1-2025" />, Gemini Robotics <Cite id="gemini-robotics-2025" />, GO-2 <Cite id="agibot-go2-2026" />, Skild <Cite id="skild-brain-2025" />.
 
 <GeneralistReleaseTimeline className="my-6" />
 
-## Gemini Robotics
+## Gemini Robotics discloses results, not architecture
 
-DeepMind's March 2025 report introduced two models built on Gemini 2.0: Gemini Robotics-ER for spatial and temporal understanding, and Gemini Robotics, which builds on ER to produce robot actions <Cite id="gemini-robotics-2025" />. The launch post said it more than doubled other leading VLAs on a generalization benchmark <Cite id="gemini-robotics-blog-2025" />.
+DeepMind discloses continuous actions but no action head, chunk length, command rate, size or weight terms <Cite id="gemini-robotics-15-2025" /> <Cite id="gemini-robotics-2-2026" />.
 
 <Image id="gemini-robotics-aloha-dexterous-2025" />
 
-Version 1.5 (October 2025) thinks in words between actions, transfers motions across robot bodies and uses ER 1.5 as an orchestrator <Cite id="gemini-robotics-15-2025" />. In September 2025 ER 1.5 opened to developers and Gemini Robotics 1.5 to select partners <Cite id="gemini-robotics-15-blog-2025" />; On-Device (June 2025) had been DeepMind's first VLA offered for fine-tuning, to trusted testers <Cite id="gemini-robotics-on-device-2025" />. ER 1.6 reads gauges, zooming in and using code to estimate between marks <Cite id="gemini-robotics-er-1-6-2026" />.
+| Release | What it added |
+| --- | --- |
+| Gemini Robotics and ER, March 2025 <Cite id="gemini-robotics-2025" /> | Actions and spatial reasoning on Gemini 2.0; more than doubled other leading VLAs on a generalization benchmark <Cite id="gemini-robotics-blog-2025" /> |
+| On-Device, June 2025 <Cite id="gemini-robotics-on-device-2025" /> | DeepMind's first VLA offered for fine-tuning, to trusted testers |
+| 1.5, October 2025 <Cite id="gemini-robotics-15-2025" /> | Thinks in words between actions and transfers motions across bodies; ER 1.5 opened to developers <Cite id="gemini-robotics-15-blog-2025" /> |
+| ER 1.6 <Cite id="gemini-robotics-er-1-6-2026" /> | Reads gauges by zooming in and using code |
+| 2, July 2026 <Cite id="gemini-robotics-2-2026" /> | One checkpoint for Apollo 2 and Franka's two arms; On-Device 2 adapts in hours from under 200 examples; ER 2 detects success on raw video <Cite id="gemini-robotics-er-2-2026" /> |
+| 2.5, November 2026 <Cite id="gemini-robotics-2-5-2026" /> | 30 to 100% higher success across 200 tasks; 96% kitting parts on Mercedes-Benz lines |
 
-Gemini Robotics 2 (July 30, 2026) is a VLA, the reasoning model ER 2 and On-Device 2 for local use. One checkpoint runs the Apollo 2 humanoid and Franka's two-arm setup; On-Device 2 adapts to new two-arm robots in a few hours, typically from fewer than 200 examples <Cite id="gemini-robotics-2-2026" />. ER 2 adds success detection on raw video <Cite id="gemini-robotics-er-2-2026" />. DeepMind reports whole-body picking on Apollo at 76.3% from a shelf and 45.7% from the floor, and hand tasks from 92% for unscrewing a bulb to 32% for using a dustpan, without trial counts, and concludes "the multi-finger dexterous manipulation remains challenging" <Cite id="gemini-robotics-2-2026" />.
+On Apollo, Gemini Robotics 2 picked from a shelf 76.3% of the time and from the floor 45.7%, without trial counts <Cite id="gemini-robotics-2-2026" />.
 
-Gemini Robotics 2.5 (November 10, 2026), for partners, reports 30 to 100% higher success than earlier baselines across 200 tasks and 96% success kitting parts on Mercedes-Benz lines. It was developed with Gemini 4 Argon <Cite id="gemini-robotics-2-5-2026" />, a general model that scores 87% on the ERQA embodied-reasoning benchmark and can control an arm zero-shot <Cite id="gemini-4-argon-robotics-2026" />. DeepMind discloses continuous actions but no action head, chunk length, command rate, size or weight terms <Cite id="gemini-robotics-15-2025" /> <Cite id="gemini-robotics-2-2026" />. Its Veo-based [world-model](/world-models/) policy simulator is checked against more than 1,600 real trials of eight checkpoints <Cite id="veo-world-simulator-2025" />.
+Also: Gemini 4 Argon, 87% on ERQA <Cite id="gemini-4-argon-robotics-2026" />; a Veo-based [world-model](/world-models/) simulator checked against 1,600 real trials <Cite id="veo-world-simulator-2025" />.
 
-## GR00T: the open humanoid line
+## GR00T is the open humanoid line
 
-NVIDIA's GR00T N1 (March 2025) couples a <Term id="vision-language-model">VLM</Term> to a <Term id="flow-matching">flow-matching</Term> action head and published a 2-billion-parameter checkpoint <Cite id="gr00t-n1-2025" />. N1.5 keeps the VLM frozen in training <Cite id="gr00t-n1-5-2025" />, and N1.6 beat N1.5 in simulation and on three real robots, NVIDIA reports <Cite id="gr00t-n1-6-2025" />. N1.7 (April 18, 2026), a 3-billion-parameter checkpoint, describes robot and human motion alike as relative hand positions, and its pretraining adds 20,000 hours of EgoScale human video <Cite id="isaac-gr00t-repo-2026" /> <Cite id="egoscale-2026" />. Its code is Apache 2.0 and its weights carry the NVIDIA Open Model License <Cite id="isaac-gr00t-repo-2026" />.
+| Release | What changed |
+| --- | --- |
+| N1, March 2025 <Cite id="gr00t-n1-2025" /> | A <Term id="vision-language-model">VLM</Term> plus a <Term id="flow-matching">flow-matching</Term> action head; open 2-billion-parameter checkpoint |
+| N1.5 <Cite id="gr00t-n1-5-2025" /> | VLM frozen in training |
+| N1.6 <Cite id="gr00t-n1-6-2025" /> | Beat N1.5 in simulation and on three real robots, NVIDIA reports |
+| N1.7, April 2026 <Cite id="isaac-gr00t-repo-2026" /> | 3 billion parameters; human and robot motion as relative hand positions; 20,000 hours of EgoScale video <Cite id="egoscale-2026" />; Apache 2.0 code, NVIDIA Open Model License weights |
+| GR00T 2, November 2026 <Cite id="gr00t-2-2026" /> | A world action model: one diffusion transformer predicts video and actions |
 
-GR00T 2 (November 9, 2026) is a world action model: one diffusion transformer predicts future video and actions together. It pretrained on 402,730 hours of egocentric human video, 10,184 hours from handheld grippers and 23,500 hours of robot demonstrations. On 50 tasks absent from the target robot's data it succeeded 40% of the time zero-shot, and 95% after five demonstrations each, on tasks chosen because five sufficed. NVIDIA says code arrives in December <Cite id="gr00t-2-2026" />.
+GR00T 2 pretrained on 402,730 hours of egocentric human video, 10,184 hours from handheld grippers and 23,500 hours of robot demonstrations. On 50 tasks new to the target robot it succeeded 40% of the time zero-shot and 95% after five demonstrations, on tasks chosen because five sufficed <Cite id="gr00t-2-2026" />.
 
-## Figure Helix
+## Figure Helix bets on human video
 
-Helix (February 2025) has S2, an internet-pretrained VLM that writes a compact task representation, and S1, a visuomotor transformer that turns it, with images and body state, into wrist, finger, torso and head targets <Cite id="helix-2025" />. Helix 02 (January 2026) adds S0, a small whole-body controller issuing joint commands at 1 kHz. Figure says S0 trained entirely in simulation on over 1,000 hours of retargeted human motion and replaced 109,504 lines of hand-written C++; a four-minute dishwasher demonstration runs 61 actions without resets or help <Cite id="helix-02-2026" />. Neither post gives repeated-trial success rates or release terms <Cite id="helix-2025" /> <Cite id="helix-02-2026" />.
+Helix (February 2025) pairs S2, an internet-pretrained VLM that writes a compact task representation, with S1, a transformer that turns it into wrist, finger, torso and head targets <Cite id="helix-2025" />. Helix 02 (January 2026) adds S0, a 1 kHz whole-body controller that Figure says replaced 109,504 lines of hand-written C++. Neither post gives repeated-trial success rates or release terms <Cite id="helix-02-2026" />.
 
-Figure bets on human video. In September 2025 it reported robots trained only on egocentric human video navigating from commands like "go to the fridge" <Cite id="figure-go-big-2025" />. Its Index program (August 2026) counts over 16 million uploaded videos and commits over \$1 billion over 12 months to data and compute <Cite id="figure-index-2026" />, and Figure reports that Index pretraining, all else fixed, lifted Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />.
+Figure's Index program counts over 16 million uploaded videos and commits over \$1 billion over 12 months to data and compute <Cite id="figure-index-2026" />. Index pretraining lifted Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />.
 
-## AgiBot: GO-1 to GO-3
+Also: navigation learned from human video alone <Cite id="figure-go-big-2025" />.
 
-AgiBot's GO-1 (March 2025) learns a latent action model from consecutive video frames, so training can include unlabeled human video alongside data from several robots <Cite id="agibot-world-2025" />. It was open-sourced in September 2025, after the 1,003,672-trajectory AgiBot World Beta dataset <Cite id="agibot-world-repo" />. GO-2 targets what AgiBot calls a "Semantic-Actuation Gap": a slower System 2 writes structured action sequences, a faster System 1 combines them with live observations. AgiBot reports 98.5% average success on LIBERO, 86.6% zero-shot on the disturbed LIBERO-Plus and 82.9% on real robots for a model trained only in simulation, and claims to beat π0.5 and GR00T, without trial counts or versions <Cite id="agibot-go2-2026" />. Typical VLAs fall from 95% to below 30% on LIBERO-Plus <Cite id="libero-plus-2025" />. GO-3 Preview (November 2026) adds future-state prediction; AgiBot says it ranks first on three benchmarks and will be open-sourced by the end of 2026 <Cite id="agibot-go3-preview-2026" />.
+## AgiBot reports high scores without trial counts
 
-## Skild AI
+GO-1 (March 2025) learns a latent action model from consecutive video frames, so it can train on unlabeled human video <Cite id="agibot-world-2025" />. It was open-sourced in September 2025, after the 1,003,672-trajectory AgiBot World Beta dataset <Cite id="agibot-world-repo" />.
 
-Skild AI's January 14, 2026 [Series C](/market-map/) raised \$1.4 billion at a valuation above \$14 billion. Skild calls its model "omni-bodied", pretrained on simulation and internet video and able to control robots without prior knowledge of their body; it gives no architecture, benchmark protocol or weight terms <Cite id="skild-series-c-2026" />. A July 2025 note describes a slower manipulation and navigation policy feeding a faster one that outputs joint angles and torques <Cite id="skild-brain-2025" />, and a September 2025 post describes training on 100,000 simulated robots <Cite id="skild-omni-bodied-2025" />. S1 (August 18, 2026) learns in context: shown a video of a task, it performs it, and on unseen tasks of 4 to 8 minutes Skild reports 66% cumulative per-step success against 9% for language prompts <Cite id="skild-s1-2026" />. S1 then learned soccer through 140 years of simulated self-play before moving to a robot <Cite id="skild-self-play-2026" />, and reports passing \$100 million in annual recurring revenue <Cite id="skild-arr-2026" />.
+GO-2's slower System 2 writes structured action sequences for a faster System 1. AgiBot reports 98.5% on LIBERO and 86.6% zero-shot on the disturbed LIBERO-Plus, without trial counts or versions <Cite id="agibot-go2-2026" />; typical VLAs fall there from 95% to below 30% <Cite id="libero-plus-2025" />. GO-3 Preview (November 2026) adds future-state prediction and is promised as open source by the end of 2026 <Cite id="agibot-go3-preview-2026" />.
 
-## Generalist AI
+## Skild AI raised the most and shows the least
 
-Generalist AI says GEN-0 (November 2025) is pretrained on over 270,000 hours of [real-world manipulation data](/data-hardware/data-bottleneck/), growing by 10,000 hours a week <Cite id="generalist-gen0-2025" />. It reports that GEN-1 (April 2026), trained from scratch on half a million hours, reaches 99% average success on tasks where earlier models achieve 64%, with 1 hour of robot data per task <Cite id="generalist-gen1-2026" />, and that GEN-1.5 (August 2026) learns a task from one demonstration of 3 to 12 seconds, with 59% average one-shot success across 10 tasks <Cite id="gen-1-5-2026" />.
+Skild AI's January 2026 [Series C](/market-map/) raised \$1.4 billion at a valuation above \$14 billion. It calls its model "omni-bodied" and publishes no architecture, benchmark protocol or weight terms <Cite id="skild-series-c-2026" />. Shown a video of an unseen 4 to 8 minute task, S1 (August 2026) reached 66% cumulative per-step success, against 9% from language prompts <Cite id="skild-s1-2026" />.
 
-## Reading vendor claims
+Also: 100,000 simulated robots <Cite id="skild-omni-bodied-2025" />, soccer from 140 years of simulated self-play <Cite id="skild-self-play-2026" />, over \$100 million in annual recurring revenue <Cite id="skild-arr-2026" />.
 
-Most results above are self-reported. RoboArena ranks policies through double-blind pairwise trials at seven institutions, with more than 600 real-robot episodes across seven policies <Cite id="roboarena-2025" />, and TRI tests its Large Behavior Models in blind, randomized trials with statistical confidence <Cite id="tri-lbm-2025" />. Shared benchmarks now compare vendors: on NVIDIA's RoboLab-120, Runway reports 46.2% for its open-weight Praxis-1 against 28.0% for π0.5 <Cite id="runway-praxis-1-open-2026" />, and Apple reports that AMP1, a general-purpose AI model commanding the arm directly, reached 85.6% zero-shot against 49.2% for the leading VLA <Cite id="apple-amp1-2026" />.
+## Generalist AI bets on real-world data
+
+| Model | Data | Reported result |
+| --- | --- | --- |
+| GEN-0, November 2025 <Cite id="generalist-gen0-2025" /> | Over 270,000 hours of [real-world manipulation data](/data-hardware/data-bottleneck/) | Data growing by 10,000 hours a week |
+| GEN-1, April 2026 <Cite id="generalist-gen1-2026" /> | Half a million hours, from scratch | 99% average where earlier models reach 64%, with 1 hour of robot data per task |
+| GEN-1.5, August 2026 <Cite id="gen-1-5-2026" /> | One 3 to 12 second demonstration per task | 59% average one-shot success across 10 tasks |
+
+## Blind trials and shared benchmarks check the vendors
+
+Most results above are self-reported. RoboArena ranks policies through double-blind pairwise trials at seven institutions, over more than 600 real-robot episodes <Cite id="roboarena-2025" />. TRI tests its Large Behavior Models in blind, randomized trials with statistical confidence <Cite id="tri-lbm-2025" />.
 
 <Image id="roboarena-evaluation-2025" />
 
-## Learning from human video
+On NVIDIA's RoboLab-120, Runway reports 46.2% for its open Praxis-1 against 28.0% for π0.5 <Cite id="runway-praxis-1-open-2026" />. Apple's AMP1, a general-purpose AI model commanding the arm directly, reached 85.6% zero-shot against 49.2% for the leading VLA <Cite id="apple-amp1-2026" />.
 
-Physical Intelligence and Georgia Tech co-fine-tune π0.5 on human data, with 3D hand positions as actions, plus related robot data; transfer grows with the amount and variety of robot pretraining <Cite id="pi-human-to-robot-2025" />. EgoScale adds aligned human-robot mid-training and finds scale and alignment complementary <Cite id="egoscale-2026" />. [Cross-embodiment transfer](/manipulation/cross-embodiment/) compares them.
+## Human video transfers best after broad robot pretraining
 
-NYU's Steertuning (Lerrel Pinto and colleagues, October 2026) pretrains a diffusion policy on egocentric human video alone, then adapts it to a new task from 5 human demonstrations, 2 minutes of fine-tuning and steering toward the closest demonstration. On a mobile manipulator the authors report 71% average success over 12 new tasks; on three lab tasks it succeeded in 25 of 30 trials, against 7 with steering alone and none with the short fine-tune alone <Cite id="steertuning-2026" />.
+Physical Intelligence and Georgia Tech co-fine-tune π0.5 on human data, with 3D hand positions as actions; transfer grows with the amount and variety of robot pretraining <Cite id="pi-human-to-robot-2025" />. EgoScale finds scale and aligned human-robot mid-training complementary <Cite id="egoscale-2026" />. [Cross-embodiment transfer](/manipulation/cross-embodiment/) compares them.
+
+NYU's Steertuning pretrains a diffusion policy on human video alone, then adapts it from 5 human demonstrations, 2 minutes of fine-tuning and steering toward the closest demonstration. On three lab tasks it succeeded in 25 of 30 trials, against 7 with steering alone and none with the short fine-tune alone <Cite id="steertuning-2026" />.

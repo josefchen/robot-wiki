@@ -6,7 +6,7 @@ slug: robot-learning-roadmap
 order: 13
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - modern-robotics-2017
   - dagger-2011
@@ -53,7 +53,7 @@ seeAlso:
 
 import { DeltaFrame } from '@/components/interactive/delta-frame';
 
-This curriculum is a route into robot learning for machine-learning engineers, teaching each piece of robotics just before a policy experiment needs it. A 2025 open tutorial covers similar ground <Cite id="robot-learning-tutorial-2025" />.
+This curriculum teaches machine-learning engineers each piece of robotics just before a policy experiment needs it. A 2025 open tutorial covers similar ground <Cite id="robot-learning-tutorial-2025" />.
 
 <Image id="droid-in-the-wild-scenes-2024" />
 
@@ -80,46 +80,60 @@ This curriculum is a route into robot learning for machine-learning engineers, t
   takeaway="First show that the data, action format and success measure support a small closed-loop policy."
 />
 
-## Stage 1: frames and calibration
+## Stage 1: frames and calibration come first
 
-Start with [kinematics](/classical/kinematics/): which frame a pose or tool motion is written in, and where joint limits apply. *Modern Robotics* supplies the vocabulary <Cite id="modern-robotics-2017" />, and Tedrake warns that sloppy notation "will inevitably lead to confusion and bugs" <Cite id="tedrake-manipulation-2026" />. A drifting camera transform or timestamp mismatch can make a good policy look random, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next; Kalibr estimates sensor time offsets to better than one sample <Cite id="kalibr-2013" />.
+Learn [kinematics](/classical/kinematics/) first: which frame each pose is written in <Cite id="modern-robotics-2017" />. Sloppy notation "will inevitably lead to confusion and bugs" <Cite id="tedrake-manipulation-2026" />. A drifting camera transform makes a good policy look random, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next <Cite id="kalibr-2013" />.
 
 <DeltaFrame className="my-6" />
 
 <Image id="puma-500-deutsches-museum" />
 
-## Stage 2: data as a system
+## Stage 2: data is a system
 
-Each step of a robot dataset pairs synchronized observations with commanded and achieved actions, robot state, task, episode end and origin, and RLDS stores such episodes without loss <Cite id="rlds-2021" />. Of public [datasets](/data-hardware/datasets/), Open X-Embodiment pools 22 robots from 21 institutions <Cite id="open-x-embodiment-2023" />, and DROID holds 76k trajectories from 13 institutions <Cite id="droid-2024" />. By November 2026 the Hugging Face Hub held almost 300 TB of open robot data in LeRobot format <Cite id="lerobot-v0-7-2026" />, and LeRobot spans the [robot-learning stack](/data-hardware/robot-learning-stack/) from motors to dataset streaming <Cite id="lerobot-paper-2026" />.
+Each dataset step pairs synchronized observations, actions, state and task, which RLDS stores without loss <Cite id="rlds-2021" />. Replay ten episodes before scaling, checking timestamps, units and rotations. Past a threshold, variety beats volume <Cite id="lin-data-scaling-laws-2024" />.
 
-Record and replay ten episodes before scaling, checking timestamps, units and rotations. Past a threshold per environment or object, more demonstrations add little and variety matters more <Cite id="lin-data-scaling-laws-2024" />.
+| Public [datasets](/data-hardware/datasets/) | Scale |
+| --- | --- |
+| Open X-Embodiment | 22 robots from 21 institutions <Cite id="open-x-embodiment-2023" /> |
+| DROID | 76k trajectories from 13 institutions <Cite id="droid-2024" /> |
+| [LeRobot](/data-hardware/robot-learning-stack/) format, Hugging Face Hub | Almost 300 TB by November 2026 <Cite id="lerobot-v0-7-2026" />, with tools from motors to streaming <Cite id="lerobot-paper-2026" /> |
 
-## Stage 3: an imitation baseline
+## Stage 3: a small imitation baseline comes before scale
 
-[Behavior cloning](/manipulation/bc-foundations/) trains on the expert's states, then visits its own. DAgger showed why errors compound and why labels on the learner's own states fix this <Cite id="dagger-2011" />; HG-DAgger collects them by letting a person take over when the robot errs <Cite id="hg-dagger-2019" />. Start small, with one camera, task, action format and simple network, and debug alignment, normalization and reset variety before scaling. robomimic found results sensitive to design choices, demonstration quality and when training stops <Cite id="robomimic-2021" />. Then add structure over time: ACT predicts action chunks <Cite id="act-aloha-2023" />, and Diffusion Policy models the several valid ways to do a task <Cite id="diffusion-policy-2023" />.
+[Behavior cloning](/manipulation/bc-foundations/) errors compound once the learner visits its own states <Cite id="dagger-2011" />; HG-DAgger fixes them with human takeovers <Cite id="hg-dagger-2019" />. Start with one camera and one task; robomimic found results sensitive to such design choices <Cite id="robomimic-2021" />. Then add ACT's action chunks <Cite id="act-aloha-2023" /> or Diffusion Policy's multiple modes <Cite id="diffusion-policy-2023" />.
 
-## Stage 4: the action contract
+## Stage 4: the action format is a contract
 
-Among [action spaces](/manipulation/action-spaces/), joint positions belong to one mechanism, while tool-pose changes mean the same on arms with compatible controllers. Rounding each action number into a token handles fast, dexterous data poorly <Cite id="pi0-fast-2025" />, and in contact-rich RL, variable stiffness in tool space improved sample efficiency, energy use and safety <Cite id="martin-martin-2019" />. The format fixes labels, controller, failure modes and which robots can share data, so change it separately from the model.
+Joint positions belong to one mechanism; tool-pose changes carry across arms with compatible [action spaces](/manipulation/action-spaces/). Per-number action tokens handle fast data poorly <Cite id="pi0-fast-2025" />, and tool-space stiffness helped contact-rich RL <Cite id="martin-martin-2019" />. Change the format separately from the model.
 
-## Stage 5: pretrained models
+## Stage 5: pretrained models cut the data you need
 
-A [pretrained VLA](/manipulation/foundation-models/) helps when language, new objects or many tasks matter. OpenVLA made the recipe reproducible <Cite id="openvla-2024" />, π0 pretrains on over 10,000 hours of robot data <Cite id="pi0-2024" />, and SmolVLA trains on one GPU yet performs comparably to VLAs ten times larger <Cite id="smolvla-2025" />. In TRI's blind, randomized trials, pretraining taught new tasks with a fraction of the data <Cite id="tri-lbm-2025" />. NVIDIA reports five demonstrations per task and a 30-minute fine-tune on one RTX 5090 lifting GR00T 2 from 40% to 95% success on 50 new tasks <Cite id="gr00t-2-2026" />.
+A [pretrained VLA](/manipulation/foundation-models/) pays off with language, new objects or many tasks. In TRI's blind trials, pretraining taught new tasks with a fraction of the data <Cite id="tri-lbm-2025" />. Five demonstrations per task lifted GR00T 2 from 40% to 95% on 50 new tasks <Cite id="gr00t-2-2026" />.
 
-## Stage 6: evaluation
+| Model | Why it matters |
+| --- | --- |
+| OpenVLA | Reproducible open recipe <Cite id="openvla-2024" /> |
+| π0 | Over 10,000 hours of robot pretraining <Cite id="pi0-2024" /> |
+| SmolVLA | Trains on one GPU, comparable to VLAs ten times larger <Cite id="smolvla-2025" /> |
 
-Define success, failure, intervention, reset and timeout before the main run, and test familiar setups apart from ones with changed objects or lighting. Papers often omit run counts, starting conditions, success criteria or statistics <Cite id="kress-gazit-evaluation-2024" />, so report trial counts and uncertainty; STEP's sequential test needs up to 32% fewer trials <Cite id="optimal-stopping-2025" />. Measure latency: in simulation, 100 ms of delay nearly halved success on moving targets <Cite id="vla-lagbench-2026" />.
+## Stage 6: define success before the run
 
-Error on recorded data is a diagnostic; robot success under controlled changes is the measure. LIBERO-Plus perturbs LIBERO <Cite id="libero-2023" /> tasks in seven ways, such as viewpoint, lighting and sensor noise <Cite id="libero-plus-2025" />. SIMPLER's simulated scores correlate with real performance <Cite id="simpler-2024" />, and RoboArena's double-blind head-to-head trials rank generalists better than centralized evaluation <Cite id="roboarena-2025" />.
+Fix success, failure, reset and timeout before the main run, and report trial counts and uncertainty, which papers often omit <Cite id="kress-gazit-evaluation-2024" />. STEP's sequential test needs up to 32% fewer trials <Cite id="optimal-stopping-2025" />. Measure latency: 100 ms nearly halved simulated success on moving targets <Cite id="vla-lagbench-2026" />.
 
-## Stage 7: simulation and RL
+Robot success under controlled changes is the measure. LIBERO-Plus perturbs LIBERO <Cite id="libero-2023" /> tasks in seven ways, such as viewpoint and lighting <Cite id="libero-plus-2025" />.
 
-Simulation tests controllers and lets reward be optimized safely; domain randomization varies the simulation until reality looks like one more variation <Cite id="tobin-2017" />. Isaac Lab targets large-scale robot learning <Cite id="isaac-lab-2025" />, and its 3.0 release separates tasks from physics engines <Cite id="isaac-lab-3-0-2026" />. The hardware gap still has to be measured.
+Also: SIMPLER's sim-to-real correlation <Cite id="simpler-2024" />; RoboArena's double-blind rankings <Cite id="roboarena-2025" />.
+
+## Stage 7: RL needs rewards and resets
+
+Domain randomization varies the simulation until reality looks like one more variation <Cite id="tobin-2017" />. Isaac Lab <Cite id="isaac-lab-2025" /> 3.0 separates tasks from physics engines <Cite id="isaac-lab-3-0-2026" />.
 
 <Image id="robocasa-kitchens-2024" />
 
-Offline RL learns from logged data alone <Cite id="offline-rl-tutorial-2020" />. Online RL needs safe exploration, automatic resets and cheap evaluation, which SERL bundles with an off-policy learner <Cite id="serl-2024" />; without them, start with <Term id="imitation-learning">imitation learning</Term>. With them, real-arm [RL fine-tuning](/manipulation/rl-finetuning/) reached 100% success on precise tasks within 1 to 2.5 hours <Cite id="hil-serl-2024" />, and in simulation SimpleVLA-RL lifted OpenVLA-OFT, trained on one demonstration per task, from 48.9% to 96.9% average LIBERO success <Cite id="simplevla-rl-2025" />.
+Online RL needs safe exploration, automatic resets and cheap evaluation, which SERL bundles <Cite id="serl-2024" />. Without them, use <Term id="imitation-learning">imitation learning</Term> or offline RL on logged data <Cite id="offline-rl-tutorial-2020" />. With them, real-arm [RL fine-tuning](/manipulation/rl-finetuning/) hit 100% on precise tasks in 1 to 2.5 hours <Cite id="hil-serl-2024" />.
 
-## A practical sequence
+Also: SimpleVLA-RL, 48.9% to 96.9% on LIBERO from one demonstration per task <Cite id="simplevla-rl-2025" />.
 
-Build replayable data and a deterministic evaluation harness, then a behavior-cloning baseline. Add action chunks when the baseline needs them, a pretrained VLA for new objects and instructions, and RL once reward, coverage and resets are real. For deployment, [ROS 2](/classical/ros2-for-ml-engineers/) adds the production-grade features ROS 1 lacked <Cite id="ros2-science-robotics-2022" />.
+## The sequence: data, harness, baseline, then scale
+
+Build replayable data, an evaluation harness and a behavior-cloning baseline. Add chunks, a pretrained VLA, then RL once reward and resets are real. Deploy on [ROS 2](/classical/ros2-for-ml-engineers/), which adds the production features ROS 1 lacked <Cite id="ros2-science-robotics-2022" />.

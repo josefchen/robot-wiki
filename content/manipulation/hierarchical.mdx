@@ -5,7 +5,7 @@ domain: manipulation
 slug: hierarchical
 order: 8
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - saycan-2022
   - code-as-policies-2022
@@ -68,58 +68,62 @@ import { KeypointString } from '@/components/interactive/keypoint-string';
 
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
 
-Hierarchical approaches are robot architectures in which one level decides *what* to do next and another decides *how* to move. In 2022 the high level was a separate planner choosing from a skill library <Cite id="saycan-2022" />; by 2026 it can run inside the policy network, as in π0.5 <Cite id="pi05-2025" />, or as a separate orchestrator such as Gemini Robotics ER 2 <Cite id="gemini-robotics-2-2026" />.
+Hierarchical robot architectures split deciding *what* to do from deciding *how* to move. The high level began as a skill-picking planner <Cite id="saycan-2022" /> and now runs inside the policy, as in π0.5 <Cite id="pi05-2025" />, or beside it, as in Gemini Robotics ER 2 <Cite id="gemini-robotics-2-2026" />.
 
 <Image id="rt-h-language-corrections-2024" />
 
 <HierarchyTimescales className="my-6" />
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="separate planners" value="2022" note="SayCan, Code as Policies" accent />
-  <Stat label="keypoint interfaces" value="2024" note="MOKA, ReKep, RoboPoint" />
-  <Stat label="learned hierarchies" value="2025" note="Hi Robot, π0.5" />
-  <Stat label="multi-rate stacks" value="2026" note="Helix 02, GO-2, π0.7" />
-</div>
-
 ## SayCan: the planner picks a skill
 
-A language model asked "I spilled my drink, can you help?" can write a sensible plan that the robot has no way to carry out <Cite id="saycan-2022" />, and zero-shot plans from such models often fail to map to admissible actions <Cite id="huang-zero-shot-planners-2022" />. SayCan (2022) scores each skill in a supplied library twice: the language model rates its description as the next step, and an <Term id="affordance">affordance</Term> value, learned by reinforcement learning, estimates whether the skill can succeed from the current state. The product picks the skill, its description joins the prompt, and the loop repeats until a "done" option wins. The library bounds what the robot can do, the planner hears about the world only through those values, and the paper reports trouble reacting when a skill fails despite a high value <Cite id="saycan-2022" />.
+A language model can write a sensible plan that the robot cannot carry out <Cite id="saycan-2022" />, and zero-shot plans often fail to map to admissible actions <Cite id="huang-zero-shot-planners-2022" />. SayCan scores each skill in a library twice: the language model rates it as the next step, and a learned <Term id="affordance">affordance</Term> value estimates whether it can succeed from here. The product picks the skill, and the loop repeats until "done" wins <Cite id="saycan-2022" />.
 
-Inner Monologue closed the loop with language feedback such as success detection and scene descriptions <Cite id="inner-monologue-2022" />, and Text2Motion checks whether a whole skill sequence is geometrically feasible, solving 82% of long-horizon problems against 13% for earlier language planners <Cite id="text2motion-2023" />.
+Inner Monologue closed the loop with language feedback such as success detection <Cite id="inner-monologue-2022" />. Text2Motion checks whole skill sequences for geometric feasibility and solved 82% of long-horizon problems, against 13% for earlier language planners <Cite id="text2motion-2023" />.
 
 ## Code as Policies: the planner writes programs
 
-Code as Policies (2022) shows a code-writing language model example instructions paired with programs, then has it write Python that calls supplied perception and control functions. Missing functions are written recursively, and programs can use loops, conditionals, spatial arithmetic and feedback from perception. The method assumes feasible instructions and cannot check a program in advance; on real robots many failures traced to inaccurate object detections, and quantitative evaluation covered only a tabletop simulation <Cite id="code-as-policies-2022" />. VoxPoser's language model writes code that queries a <Term id="vision-language-model">VLM</Term> to build 3D maps of where the arm should and should not go, which a planner turns into closed-loop trajectories <Cite id="voxposer-2023" />.
+Code as Policies (2022) has a language model write Python that calls supplied perception and control functions, writing missing ones recursively. It cannot check a program in advance, and on real robots many failures traced to inaccurate object detections <Cite id="code-as-policies-2022" />. VoxPoser's generated code queries a <Term id="vision-language-model">VLM</Term> for 3D maps of where the arm should and should not go <Cite id="voxposer-2023" />.
 
 ## Coding agents return
 
-In late 2026 code-writing planners came back as coding agents that test and repair their own programs, usually leaving model weights fixed. RPG (UC Berkeley and Amazon FAR, October 2026) revises a symbolic skill library and its own instructions through practice in simulation: on held-out starts of 22 manipulation tasks, success rose from 28.6% to 95.0% after 15 rounds, and the frozen system succeeded in all 30 physical trials <Cite id="rpg-2026" />. SimEX builds a robot toolbox in simulation and corrects the simulator from a few physical trials; its authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id="simex-2026" />. ASENA gives agents sensor access, execution feedback and reusable skills <Cite id="asena-2026" />, EmbodiedSWE turns an agent's verified simulated solution into demonstrations for VLA training <Cite id="embodiedswe-2026" />, and RoboHarn-Evo updates reusable task knowledge from physical feedback <Cite id="roboharn-evo-2026" />.
+In late 2026 code-writing planners came back as coding agents that test and repair their own programs, usually with model weights fixed.
 
-RAX, from Yilun Du, Pieter Abbeel and colleagues (October 2026), gets no demonstrations, hand-built primitives or value functions; it explores online and compiles what worked into control programs. Across five simulation benchmarks its mean margin over the strongest prior learned policy was 37.4 points, using more than 100,000 US dollars of API credits <Cite id="rax-2026" />. CoEvolve (Peking University and Renmin University of China, October 2026) writes coordination code for two simulated Unitree G1 humanoids over frozen SONIC controllers, with a verifier checking each step. It finished 8 of 15 payload-carrying runs, while four adapted baselines finished none of their five; the authors call these comparisons descriptive because runtime settings differ <Cite id="coevolve-2026" />.
+| System | What the agent does | Result |
+| --- | --- | --- |
+| RPG <Cite id="rpg-2026" /> | Revises a skill library and its own instructions through simulated practice | 28.6% to 95.0% on held-out starts of 22 tasks; 30 of 30 physical trials |
+| SimEX <Cite id="simex-2026" /> | Builds a toolbox in simulation and corrects the simulator from real trials | Towel folding and barcode scanning from 10 minutes of real interaction |
+| RAX <Cite id="rax-2026" /> | Explores online without demonstrations and compiles what worked into programs | 37.4 points over the best prior learned policy, using over \$100,000 of API credits |
+| CoEvolve <Cite id="coevolve-2026" /> | Writes coordination code for two simulated Unitree G1 humanoids | 8 of 15 payload runs; four baselines finished none, under differing settings |
+| Apple AMP1 <Cite id="apple-amp1-2026" /> | Commands the arm with no grasping or placing skills supplied | 85.6% zero-shot on RoboLab-120 against 49.2% for a leading VLA; 104 of 108 real trials |
+| ChunkAct <Cite id="chunkact-2026" /> | Launches chains of primitives in one call | 2.9 times fewer model calls |
 
-Agents can also drive the arm themselves. Apple's AMP1 (November 2026) lets a general-purpose AI model command the manipulator with no grasping or placing skills supplied; it reached 85.6% zero-shot on RoboLab-120 against 49.2% for a leading VLA, and succeeded in 104 of 108 real trials <Cite id="apple-amp1-2026" />. ChunkAct launches chains of primitives in one call, using 2.9 times fewer model calls <Cite id="chunkact-2026" />, and AW-0 generates code, future video and actions as coupled streams in one model <Cite id="aw0-agentic-wam-2026" />. Ken Goldberg of UC Berkeley called agentic robotics "a fundamental shift in how robots are controlled" in November 2026 <Cite id="goldberg-agentic-robotics-2026" />.
+Also: ASENA <Cite id="asena-2026" />, EmbodiedSWE <Cite id="embodiedswe-2026" />, RoboHarn-Evo <Cite id="roboharn-evo-2026" />, AW-0 <Cite id="aw0-agentic-wam-2026" />, Ken Goldberg on agentic robotics <Cite id="goldberg-agentic-robotics-2026" />.
 
 ## Keypoints: the planner points
 
-From 2024, vision-language models handed the controller geometry instead of skill names: points in the image marking where to grasp, move and place. MOKA asks a pretrained VLM to choose grasp, function and target points, waypoints and motion attributes among candidates marked on segmented objects; depth from the [perception pipeline](/classical/perception/) lifts the points into the robot's frame, and a separate grasp and motion pipeline executes them without a full 6-DoF object pose <Cite id="moka-2024" />.
+From 2024, vision-language models handed the controller points in the image marking where to grasp, move and place. MOKA has a VLM choose grasp, function and target points among marked candidates. Depth from the [perception pipeline](/classical/perception/) lifts them into the robot's frame, with no full 6-DoF object pose <Cite id="moka-2024" />.
 
 <Image id="hamster-2d-paths-2025" />
 
-ReKep has GPT-4o write stage-by-stage constraints over keypoints, which a solver turns into replanned arm motion; its results rest on tracking and rigidity assumptions, and some evaluations use human annotations or disable tracking <Cite id="rekep-2024" />. RoboPoint trains a VLM to predict points where an action applies: on Where2Place's 100 real images it hit the target region 46.77% of the time against 29.06% for GPT-4o, averaged over three runs, and its robot runs add depth and a [motion planner](/classical/motion-planning/) <Cite id="robopoint-2024" />. RoboBrain 2.5 extends this to ordered 3D keypoints under physical constraints <Cite id="robobrain-25-2026" />.
+RoboPoint trains a VLM to predict such points; it hit the target region in 46.77% of Where2Place's 100 real images, against 29.06% for GPT-4o. Its robot runs add depth and a [motion planner](/classical/motion-planning/) <Cite id="robopoint-2024" />. ReKep has GPT-4o write keypoint constraints that a solver turns into replanned arm motion <Cite id="rekep-2024" />.
 
 <KeypointString className="my-6" />
 
-HAMSTER's VLM draws a rough 2D path for the gripper, averaging a 20-point success gain over OpenVLA across seven kinds of generalization <Cite id="hamster-2025" />. Gemini Robotics-ER predicts points, trajectories and grasps <Cite id="gemini-robotics-2025" />, and RT-Trajectory conditions policies on rough motion sketches from drawings, videos or automatic waypoint generators <Cite id="rt-trajectory-2023" />.
+HAMSTER's VLM draws a rough 2D path for the gripper, averaging a 20-point gain over OpenVLA across seven kinds of generalization <Cite id="hamster-2025" />.
 
-## Reasoning before acting
+Also: Gemini Robotics-ER's points and grasps <Cite id="gemini-robotics-2025" />, RT-Trajectory's motion sketches <Cite id="rt-trajectory-2023" />, RoboBrain 2.5's 3D keypoints <Cite id="robobrain-25-2026" />.
 
-A VLA can also plan inside itself by writing out its reasoning before moving. ECoT trains a <Term id="vision-language-action-model">VLA</Term> to write a task plan, the current subtask, a movement description, object boxes and the gripper's pixel position before its action tokens, using annotations generated for existing Bridge V2 data. Over 314 trials per approach it beat OpenVLA trained on the same data by 28 percentage points, 66% against 44% from the familiar camera view and 64% against 30% from a new one <Cite id="ecot-2024" />. Reasoning costs time: ECoT's main evaluation reuses its high-level reasoning for five steps, and the authors name reasoning tokens as a speed limit <Cite id="ecot-2024" />.
+## A VLA can reason before it acts
 
-RT-H first predicts a language motion such as "move arm forward" <Cite id="rt-h-2024" />, and CoT-VLA predicts a future image as a visual goal before a short action sequence, beating the best prior VLA by 17% on real tasks <Cite id="cot-vla-2025" />. MolmoAct writes depth-aware perception tokens and an editable trajectory trace before acting, reaching 86.6% average success on LIBERO <Cite id="molmoact-2025" />, and ACoT-VLA reasons through coarse reference trajectories and latent action priors <Cite id="acot-vla-2026" />. In Toyota Research Institute's 2026 co-training study, though, conditioning actions on chain-of-thought traces did not improve performance in simulation <Cite id="lbm-cotraining-2026" />.
+ECoT trains a <Term id="vision-language-action-model">VLA</Term> to write a plan, the current subtask, object boxes and the gripper's position before its action tokens. Over 314 trials per approach it beat OpenVLA on the same data by 28 points on average, 64% against 30% from a new camera view. Reasoning costs time, so ECoT reuses its high-level reasoning for five steps <Cite id="ecot-2024" />.
+
+CoT-VLA predicts a future image as a visual goal and beat the best prior VLA by 17% on real tasks <Cite id="cot-vla-2025" />. MolmoAct writes an editable trajectory trace before acting and reached 86.6% on LIBERO <Cite id="molmoact-2025" />. In Toyota Research Institute's 2026 study, conditioning actions on chain-of-thought traces did not help in simulation <Cite id="lbm-cotraining-2026" />.
+
+Also: RT-H's language motions <Cite id="rt-h-2024" />, ACoT-VLA's reference trajectories <Cite id="acot-vla-2026" />.
 
 ## Two speeds in one system
 
-The other reason to split is speed. A large VLM runs a few times a second, too slow for fingers, so many systems since 2025 pair a slow reasoning model with a fast motor model:
+A large VLM runs a few times a second, too slow for fingers, so many systems since 2025 pair a slow reasoning model with a fast motor model:
 
 | System | High level | Low level |
 | --- | --- | --- |
@@ -131,14 +135,18 @@ The other reason to split is speed. A large VLM runs a few times a second, too s
 
 <Image id="gr00t-n1-gr1-tasks-2025" />
 
-π0.5 puts both levels in one network: it predicts a language subtask and then actions conditioned on it, running the high level less often <Cite id="pi05-2025" />. Hi Robot trains a high-level VLM that turns open-ended instructions and spoken or typed corrections into simple commands for a low-level π0, rerunning each second or on new feedback, across table bussing, sandwich making and grocery shopping; its authors report missing high-level memory, low-level instruction violations and trouble recovering dropped objects <Cite id="hi-robot-2025" />. In π0.6-MEM the high level predicts the next subtask and an updated memory summary, and the low level acts on the subtask and a shorter history <Cite id="mem-2026" />. π0.7 can condition on subgoal images from a world model, generated in a separate thread <Cite id="pi07-2026" />, and VISTA's world-model planner raised the same VLA from 14% to 69% in new scenarios <Cite id="vista-2026" />.
+π0.5 puts both levels in one network: it predicts a language subtask, then actions conditioned on it <Cite id="pi05-2025" />. Hi Robot's high-level VLM turns open-ended instructions and spoken corrections into simple commands for a low-level π0, rerunning each second <Cite id="hi-robot-2025" />. In π0.6-MEM the high level also updates a memory summary <Cite id="mem-2026" />.
 
-## Orchestrators that call the policy
+π0.7 can condition on subgoal images from a world model <Cite id="pi07-2026" />, and VISTA's world-model planner raised the same VLA from 14% to 69% in new scenarios <Cite id="vista-2026" />.
 
-Other systems keep the high level as a separate model that calls the policy like a tool. Gemini Robotics 1.5 can reason in language before acting, and its agentic setup adds the ER 1.5 orchestrator, whose useful thinking budget depends on the task <Cite id="gemini-robotics-15-2025" />; Google made ER 1.5 broadly available as a high-level model that can call a VLA or user-defined functions <Cite id="gemini-robotics-er-15-dev-2025" />. In [Gemini Robotics 2](/manipulation/generalist-policies/), DeepMind calls ER 2 the robot's high-level brain, coordinating with the VLA over multi-minute tasks <Cite id="gemini-robotics-2-2026" />; Google says it hands motor execution to any lower-level VLA and scores 57.4% on progress classification <Cite id="gemini-robotics-er-2-2026" />. With Gemini Robotics 2.5, ER tracked a kitting workflow while the VLA moved Apollo 2's hands, reaching 96% success on Mercedes-Benz lines <Cite id="gemini-robotics-2-5-2026" />.
+## Orchestrators call the policy like a tool
 
-NVIDIA's GR00T 2 (November 2026) uses a reasoning agent as System 2 that calls the world action model as a tool and repairs dropped parts with code skills. With the agent, a YAM arm completed 97 or 98 of 100 assemblies of each of three toys, against 71 to 84 for the policy alone, and marking grasp and release points on the policy's camera view raised short what-and-where instruction success from 40% to 92% <Cite id="gr00t-2-2026" />. Robo-COP (Stanford and NVIDIA, October 2026) fine-tunes the VLA under an orchestrator during deployment, keeping each update only if it improves the skills it targeted. Mean held-out success rose from 64.8% to 73.8% across ten simulated RoboLab tasks, against 65.8% for a fixed schedule, and from 38.3% to 50.0% on three real tasks <Cite id="robo-cop-2026" />.
+Gemini Robotics 1.5 added the ER 1.5 orchestrator <Cite id="gemini-robotics-15-2025" />, which Google opened as a high-level model that can call a VLA or user-defined functions <Cite id="gemini-robotics-er-15-dev-2025" />. In [Gemini Robotics 2](/manipulation/generalist-policies/), ER 2 coordinates with the VLA over multi-minute tasks <Cite id="gemini-robotics-2-2026" /> and scores 57.4% on progress classification <Cite id="gemini-robotics-er-2-2026" />. With Gemini Robotics 2.5, ER tracked a kitting workflow while the VLA moved Apollo 2's hands, at 96% success on Mercedes-Benz lines <Cite id="gemini-robotics-2-5-2026" />.
 
-## Which design wins
+NVIDIA's GR00T 2 uses a reasoning agent that calls the world action model as a tool and repairs dropped parts with code skills. With it, a YAM arm completed 97 or 98 of 100 assemblies of each of three toys, against 71 to 84 for the policy alone <Cite id="gr00t-2-2026" />.
 
-[Both designs persist](/frontier/competing-theses/). In a controlled 2026 study on a real ALOHA robot, the best hierarchy placed 12 of 15 fruits, against 9 for a naive hierarchy and 3 for a flat VLA <Cite id="orchestrating-policies-2026" />. Hierarchy inside a network can fail too: in a waypoint pipeline adapted from π0.5, erasing waypoint endpoints barely changed success, and token-by-token planning took 57 VLM forward passes before the authors' fixes cut planning latency 8.7-fold <Cite id="fast-plans-2026" />.
+Robo-COP fine-tunes the VLA under an orchestrator during deployment, keeping an update only if it improves the skills it targeted. Success on three real tasks rose from 38.3% to 50.0% <Cite id="robo-cop-2026" />.
+
+## Neither design has won
+
+[Both designs persist](/frontier/competing-theses/). On a real ALOHA robot, the best hierarchy placed 12 of 15 fruits, against 9 for a naive hierarchy and 3 for a flat VLA <Cite id="orchestrating-policies-2026" />. Hierarchy inside a network can stall: token-by-token waypoint planning took 57 VLM forward passes until the authors cut latency 8.7-fold <Cite id="fast-plans-2026" />.
