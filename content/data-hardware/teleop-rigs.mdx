@@ -5,7 +5,7 @@ domain: data-hardware
 slug: teleop-rigs
 order: 4
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - act-aloha-2023
   - mobile-aloha-2024
@@ -71,7 +71,7 @@ import { UmiCollectionRates } from '@/components/interactive/umi-collection-rate
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-<Term id="teleoperation">Teleoperation</Term> rigs are the hardware a person moves to drive a robot, or a stand-in for one, while a demonstration is recorded. The closer a rig is to the robot, the more directly its data transfers; the further, the cheaper and faster collection gets. The largest corpora of 2026, over 100,000 hours each, came from wearable and handheld devices <Cite id="generalist-gen1-2026" /> <Cite id="xiaomi-robotics-1-2026" />.
+<Term id="teleoperation">Teleoperation</Term> rigs are the hardware a person moves to drive a robot, or a stand-in for one, while a demonstration is recorded. Rigs close to the robot give data that transfers directly, but 2026's largest corpora, over 100,000 hours each, came from wearable and handheld devices <Cite id="generalist-gen1-2026" /> <Cite id="xiaomi-robotics-1-2026" />.
 
 <Image id="inl-hot-cell-manipulators-2006" />
 
@@ -82,62 +82,95 @@ import { ExplainerFigure } from '@/components/explainers/explainer-figure';
   <Stat label="bimanual kit" value="$23,996" note="Trossen Stationary AI list price" />
 </div>
 
-## The comparison matrix
+## Every rig trades fidelity for scale
 
 <TeleopRigMatrix className="my-6 wide-measure" />
 
-Full VR system costs are unpublished. Meta launched the Quest 3S at \$299.99 in 2024 <Cite id="meta-quest-3s-2024" /> and now lists it from \$349.99 <Cite id="meta-quest-3s-page-2026" />.
+Full VR system costs are unpublished. The Meta Quest 3S launched at \$299.99 in 2024 <Cite id="meta-quest-3s-2024" /> and now lists from \$349.99 <Cite id="meta-quest-3s-page-2026" />.
 
-## Leader arms: demonstrations in the robot's own joints
+## Leader arms record in the robot's own joints
 
-In ALOHA, an operator moves leader arms that copy the robot's arms, so demonstrations are recorded directly in the robot's joint positions. ACT, the [action-chunking](/manipulation/action-chunking) policy built for it, learned six two-handed tasks from about 10 minutes of demonstrations each. It reached 84 to 96% success on four, 64% on taping and 20% on threading a velcro tie. The paper put the setup at \$18k, or \$20k with add-ons such as cameras <Cite id="act-aloha-2023" />.
+In ALOHA, an operator moves leader arms that copy the robot's, so demonstrations land directly in the robot's joint positions. ACT, the [action-chunking](/manipulation/action-chunking) policy built for it, learned six two-handed tasks from about 10 minutes of demonstrations each and reached 84 to 96% success on four. The setup cost \$18k, or \$20k with cameras and add-ons <Cite id="act-aloha-2023" />.
 
 <ExplainerFigure id="puppeteer" />
 
-Mobile ALOHA added a wheeled base; with 50 demonstrations per task and co-training on static ALOHA data, success rose by up to 90% on tasks such as sauteing shrimp <Cite id="mobile-aloha-2024" />. ALOHA 2's hardware designs are open source <Cite id="aloha-2-2024" />, and the line now sells as Trossen AI at \$23,995.95 for the two-armed Stationary AI, \$33,695.95 for Mobile AI and \$4,545.95 for a single WidowX AI arm <Cite id="trossen-ai-2026" />.
+Mobile ALOHA added a wheeled base, and co-training with static ALOHA data raised success by up to 90% at 50 demonstrations per task <Cite id="mobile-aloha-2024" />. ALOHA 2's designs are open source <Cite id="aloha-2-2024" />, and Trossen sells the two-armed Stationary AI for \$23,995.95 <Cite id="trossen-ai-2026" />.
 
-Each collector needs a workstation. In ALOHA Unleashed, 35 operators without researcher oversight collected over 26,000 episodes of 5 tasks on 10 robots over 8 months <Cite id="aloha-unleashed-2024" />; RT-1's 13 robots gathered about 130,000 episodes over 17 months <Cite id="rt1-2022" />.
+Each collector needs a workstation. ALOHA Unleashed's 35 operators collected over 26,000 episodes on 10 robots in 8 months <Cite id="aloha-unleashed-2024" />; RT-1's 13 robots gathered about 130,000 in 17 months <Cite id="rt1-2022" />.
 
-## GELLO: a cheap copy of the arm
+## GELLO copies the arm in printed parts
 
-GELLO shrinks the leader arm to a scaled replica of 3D-printed links and off-the-shelf motors whose joint readings map one-to-one onto robot commands. Parts cost under \$300 for the controller alone; designs exist for Franka, UR5 and xArm, and other arms need their own. In a 12-person study on five tasks with two UR5 arms, GELLO was more reliable and faster than VR controllers or a 3D spacemouse <Cite id="gello-2023" />.
+GELLO shrinks the leader to a scaled replica of 3D-printed links and off-the-shelf motors, whose joint readings map one-to-one onto robot commands. Parts cost under \$300, and each arm needs its own design. In a 12-person study, GELLO beat VR controllers and a 3D spacemouse on reliability and speed <Cite id="gello-2023" />.
 
 <KinematicTwin className="my-6" />
 
-A policy trained only on adapted data from the AirExo-2 arm exoskeleton performed comparably to one trained on teleoperated data <Cite id="airexo-2-2025" />, and HOMIE's \$500 humanoid cockpit pairs exoskeleton arms and motion-sensing gloves with pedal-controlled walking, finishing tasks in half the time of earlier systems <Cite id="homie-2025" />.
+Exoskeletons work too. A policy trained only on AirExo-2 data performed about as well as one trained on teleoperation <Cite id="airexo-2-2025" />. HOMIE's \$500 humanoid cockpit finishes tasks in half the time of earlier systems <Cite id="homie-2025" />.
 
-Leader arms can also take corrections. JoyLo+ (Stanford and Lambda, October 2026) motorizes GELLO-style leader arms to follow the running policy; touching a grip hands control to the operator. Its leader set for a Galaxea R1 Pro costs about \$2,515 in parts. On four household tasks with 25 trials each, 100 corrections over four retraining rounds raised average success 81 percentage points, 30 more than 100 extra demonstrations did <Cite id="i3l-2026" />.
+Leader arms can also take corrections. JoyLo+ motorizes GELLO-style leaders to follow the running policy until the operator grabs a grip, for about \$2,515 in parts. On four household tasks, 100 corrections raised average success 81 points, 30 more than 100 extra demonstrations did <Cite id="i3l-2026" />.
 
-## UMI: collection without a robot
+## UMI takes the robot out of collection
 
-UMI takes the robot out of collection. The operator holds a 3D-printed two-finger gripper with a wrist-mounted GoPro, and <Term id="slam">SLAM</Term>, which maps the scene while tracking the camera, recovers the gripper's path from the footage. The paper bills the gripper at \$73 and the GoPro and accessories at \$298, a \$371 rig <Cite id="umi-2024" />. Arranging cups, the project site reports 111 demonstrations an hour, against 35 with spacemouse teleoperation and 231 by bare hand <Cite id="umi-gripper-site-2024" />.
+The operator holds a 3D-printed two-finger gripper with a wrist-mounted GoPro, and <Term id="slam">SLAM</Term>, which maps the scene while tracking the camera, recovers the gripper's path. The rig costs \$371, \$73 for the gripper and \$298 for the camera kit <Cite id="umi-2024" />. Arranging cups, it records 111 demonstrations an hour against 35 by spacemouse <Cite id="umi-gripper-site-2024" />.
 
 <UmiCollectionRates className="my-6" />
 
 <Image id="umi-handheld-grippers-2024" />
 
-With actions recorded relative to the camera and timing matched to the robot's delays, UMI policies run without retraining on any arm with a compatible gripper and camera. The data lack a force channel <Cite id="umi-2024" />. ForceMimic adds one: its operator peeled a zucchini in 5 minutes, against over 13 with <Term id="force-feedback">force-feedback</Term> teleoperation <Cite id="forcemimic-2024" />. FOMI's scissor mechanism passes object forces to the operator's hands without force sensors and raised collection efficiency about 29% over the best handheld baseline on four contact-rich tasks <Cite id="fomi-2026" />. FACTR 2 estimates external joint torques from free-motion data, enabling force feedback on commodity arms without force sensors <Cite id="factr-2-2026" />.
+Actions are recorded relative to the camera and timed to the robot's delays, so UMI policies run unretrained on any arm with a compatible gripper and camera. The data carry no force <Cite id="umi-2024" />.
 
-Handheld data trains well. Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id="lin-data-scaling-laws-2024" />, and a policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id="hifi-umi-2026" />. NVIDIA's GR00T 2 pretrained on 10,184 hours of UMI demonstrations <Cite id="gr00t-2-2026" />, and AIRoA-0 learned bimanual tasks from 16,151 hours recorded with its open YUBI gripper, with no robot data <Cite id="airoa-0-paper-2026" />.
+| Force add-on | Result |
+| --- | --- |
+| ForceMimic | Zucchini peeled in 5 minutes, against over 13 with <Term id="force-feedback">force-feedback</Term> teleoperation <Cite id="forcemimic-2024" /> |
+| FOMI | Object forces reach the hand without force sensors; about 29% more efficient than the best handheld baseline <Cite id="fomi-2026" /> |
+| FACTR 2 | Force feedback on commodity arms from estimated joint torques <Cite id="factr-2-2026" /> |
 
-UMI-Live (October 2026) builds lidar-inertial sensing and compute into the gripper, removing external tracking <Cite id="umi-live-2026" />. A cheaper October 2026 design reads printed markers on a \$22 electronics-free glove with a \$122 head camera; adding 194 glove demonstrations to 48 teleoperated episodes lifted success from 10 to 17 of 25 trials, close to 172 teleoperated episodes alone (18 of 25) <Cite id="head-camera-umi-glove-2026" />. Pollen Robotics' open-source Grabette (July 2026), modeled on UMI, writes LeRobot datasets from about €490 in parts, and its motorized twin Gripette (about €120) executes the learned movements on a real or simulated arm <Cite id="grabette-2026" />.
+Handheld data trains well:
 
-## VR teleoperation: scale through headsets
+| Handheld corpus | Result |
+| --- | --- |
+| UMI, four collectors, one afternoon | About 90% success in new environments <Cite id="lin-data-scaling-laws-2024" /> |
+| HiFi-UMI only | Matched in-domain teleoperation across three backbones <Cite id="hifi-umi-2026" /> |
+| GR00T 2 pretraining | 10,184 hours of UMI demonstrations <Cite id="gr00t-2-2026" /> |
+| AIRoA-0 | Bimanual tasks from 16,151 hours with its open YUBI gripper, no robot data <Cite id="airoa-0-paper-2026" /> |
 
-In VR teleoperation the robot copies the operator's hand or controller poses through a <Term id="retargeting">retargeting</Term> layer that converts human motion into robot motion. Headsets scale across sites: in [DROID](/data-hardware/datasets), 50 operators at 13 institutions used Meta Quest 2 headsets on Franka Panda rigs to collect 76,000 trajectories totaling 350 hours, and <Term id="diffusion-policy">diffusion policies</Term> trained on that pool beat the next-best dataset by 22% in conditions like their training data <Cite id="droid-2024" />. RoboTurk's phone interface was statistically similar to VR controllers on task completion time <Cite id="roboturk-2018" />.
+| New handheld design | What changes |
+| --- | --- |
+| UMI-Live | Lidar-inertial sensing and compute in the gripper, no external tracking <Cite id="umi-live-2026" /> |
+| \$22 marker glove, \$122 head camera | 194 glove demos plus 48 teleoperated: 10 to 17 of 25 trials, near 172 teleoperated alone (18) <Cite id="head-camera-umi-glove-2026" /> |
+| Grabette | Open source, about €490 in parts, writes LeRobot datasets; its €120 twin Gripette replays them on an arm <Cite id="grabette-2026" /> |
 
-OPEN TEACH runs on a \$500 Meta Quest 3 <Cite id="open-teach-2024" />. Open-TeleVision shows the operator the robot's surroundings in stereo and mirrors arm and hand motion on humanoids <Cite id="open-television-2024" />. Bunny-VisionPro adds low-cost haptic feedback and keeps the retargeted arm clear of collisions and singular poses <Cite id="bunny-visionpro-2024" />. The Apple Vision Pro it runs on launched at \$3,499 <Cite id="apple-visionpro-price-2024" />, and the October 2025 M5 model keeps that price <Cite id="apple-vision-pro-m5-2025" />.
+## VR headsets scale across sites
 
-Vision-based systems track the operator's hand with cameras instead: DexPilot watches the bare hand <Cite id="dexpilot-2019" />, TeachNet maps hand depth images to robot joint angles <Cite id="teachnet-2018" />, AnyTeleop supports many arm, hand and camera setups <Cite id="anyteleop-2023" /> and Holo-Dex uses a headset's hand tracker <Cite id="holo-dex-2022" />. Human and robot arms share no kinematics, so every action passes through calibration and <Term id="inverse-kinematics">inverse kinematics</Term>, which turns a hand position into joint angles. [HumanPlus](/rl-sim2real/humanoid-wbc) shadows a person from one RGB camera and reaches 60 to 100% success with up to 40 demonstrations <Cite id="humanplus-2024" />.
+In VR teleoperation the robot copies the operator's hand or controller poses through a <Term id="retargeting">retargeting</Term> layer. In [DROID](/data-hardware/datasets), 50 operators at 13 institutions used Quest 2 headsets to collect 76,000 trajectories, 350 hours in all. <Term id="diffusion-policy">Diffusion policies</Term> trained on it beat the next-best dataset by 22% in familiar conditions <Cite id="droid-2024" />.
 
-## Gloves and wearables
+| System | What it adds |
+| --- | --- |
+| RoboTurk | A phone interface, statistically similar to VR controllers on completion time <Cite id="roboturk-2018" /> |
+| OPEN TEACH | Runs on a \$500 Meta Quest 3 <Cite id="open-teach-2024" /> |
+| Open-TeleVision | Stereo view of the robot's surroundings, mirrored arm and hand motion on humanoids <Cite id="open-television-2024" /> |
+| Bunny-VisionPro | Low-cost haptics; keeps the arm clear of collisions and singular poses <Cite id="bunny-visionpro-2024" /> |
 
-DexCap tracks the wrist and fingers with SLAM and electromagnetic sensors while capturing the scene in 3D, and transfers the motion to a robot hand <Cite id="dexcap-2024" />. DexUMI's hand exoskeleton gives direct haptic feedback and adapts human motion to what the robot hand can do, for an 86% average success rate <Cite id="dexumi-2025" />, and SEED-UMI collects data 3.0 times faster than exoskeleton-based teleoperation <Cite id="seed-umi-2026" />. Sunday's Skill Capture Glove matches its robot hand's geometry and sensors, and Sunday reports converting glove data to robot data with 90% success <Cite id="sunday-act1-2025" />. DITTO-X (Stanford and Columbia, September 2026) passes joint-level force and fingertip contact from the robot hand back to the operator, improving demonstration quality and throughput over a commercial hand-tracking glove <Cite id="ditto-x-2026" />. DexPort skips the glove: the operator carries the robot's own hand and picks finger skills, so collection and deployment share hardware <Cite id="dexport-2026" />.
+Apple Vision Pro launched at \$3,499 <Cite id="apple-visionpro-price-2024" />, and the October 2025 M5 model keeps that price <Cite id="apple-vision-pro-m5-2025" />.
 
-FOMO-Dex (Amazon FAR and CMU, October 2026) puts a force controller between the operator's glove and a 22-DoF robot hand that corrects only along selected directions. Four operators collected 30.7 minutes of successful screwdriving per hour, against 12.4 with stiff control, and policies cloned from 50 such demonstrations averaged 6.3 screw turns per episode over 10 trials, against 0.6 from stiff-control data <Cite id="fomo-dex-2026" />. PanTact (Stanford, Amazon FAR and CMU, October 2026) adds force-sensing patches on the demonstrator's forearms and knees to bimanual UMI grippers, recording where the body touches the scene. Trained on about 100 demonstrations per task, a Unitree G1 without body contact sensors grasped a small object and then embraced a bulky one in 17 of 20 trials; a baseline that tracked only the grippers consistently failed to support the bulky object <Cite id="pantact-2026" />.
+Camera systems track the bare hand instead. Human and robot arms share no kinematics, so every action passes through calibration and <Term id="inverse-kinematics">inverse kinematics</Term>, which turns a hand position into joint angles. [HumanPlus](/rl-sim2real/humanoid-wbc) shadows a person from one RGB camera and reaches 60 to 100% success with up to 40 demonstrations <Cite id="humanplus-2024" />.
 
-Boston Dynamics argues that wearables capture only proxy signals for controlling a dexterous hand, and that reinforcement learning in simulation is essential <Cite id="bd-atlas-hand-2026" />. EgoMimic found an extra hour of hand data worth more than an extra hour of robot data <Cite id="egomimic-2024" />, and wearable corpora grow: Apple's EgoDex recorded 829 hours with Vision Pro hand tracking <Cite id="egodex-2025" />, and Generalist AI reports over 270,000 hours for GEN-0 <Cite id="generalist-gen0-2025" />.
+Also: DexPilot <Cite id="dexpilot-2019" />, TeachNet <Cite id="teachnet-2018" />, AnyTeleop <Cite id="anyteleop-2023" />, Holo-Dex <Cite id="holo-dex-2022" />.
 
-## Choosing a rig
+## Gloves bring the fingers, and force makes them precise
+
+| Glove or wearable | Result |
+| --- | --- |
+| DexCap | SLAM and electromagnetic finger tracking with 3D scene capture <Cite id="dexcap-2024" /> |
+| DexUMI | Hand exoskeleton with haptic feedback; 86% average success <Cite id="dexumi-2025" /> |
+| SEED-UMI | Collects 3.0 times faster than exoskeleton teleoperation <Cite id="seed-umi-2026" /> |
+| Sunday Skill Capture Glove | Matches the robot hand; 90% glove-to-robot conversion, company-reported <Cite id="sunday-act1-2025" /> |
+| DITTO-X | Joint force and fingertip contact fed back; beats a commercial glove on quality and throughput <Cite id="ditto-x-2026" /> |
+| DexPort | The operator carries the robot's own hand <Cite id="dexport-2026" /> |
+
+FOMO-Dex puts a force controller between glove and robot hand: operators logged 30.7 minutes of successful screwdriving per hour, against 12.4 with stiff control. Its cloned policies averaged 6.3 screw turns per episode, against 0.6 <Cite id="fomo-dex-2026" />. PanTact adds force patches on the demonstrator's forearms and knees, and a Unitree G1 then embraced a bulky object in 17 of 20 trials <Cite id="pantact-2026" />.
+
+Boston Dynamics argues that wearables capture only proxy signals for a dexterous hand and that simulated reinforcement learning is essential <Cite id="bd-atlas-hand-2026" />. EgoMimic found an extra hour of hand data worth more than an extra hour of robot data <Cite id="egomimic-2024" />. Wearable corpora keep growing: 829 hours in Apple's EgoDex <Cite id="egodex-2025" />, over 270,000 for Generalist's GEN-0 <Cite id="generalist-gen0-2025" />.
+
+## Pick the gap you can afford
 
 Leader arms and GELLO leave the smallest gap between collection and deployment; UMI, gloves and headsets trade some of that match for scale across scenes, as DROID did <Cite id="droid-2024" />. [The Data Bottleneck](/data-hardware/data-bottleneck) covers what the extra hours buy.

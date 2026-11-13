@@ -5,7 +5,7 @@ domain: data-hardware
 slug: industrial-deployment
 order: 6
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - ifr-world-robotics-2025
   - ifr-china-five-year-plan-2026
@@ -64,45 +64,51 @@ seeAlso:
 import { DeploymentEconomics } from '@/components/interactive/deployment-economics';
 import { JamOverhead } from '@/components/motion/scenes/jam-overhead';
 
-Industrial deployment puts robots into factories and warehouses, where each installation must repay its cost. The International Federation of Robotics (IFR) counts a record 5 million industrial robots operating worldwide in 2025, after more than 600,000 installations that year, 59 percent of them in China <Cite id="ifr-world-robotics-2026-release" />.
+Industrial deployment puts robots into factories and warehouses, where each installation must repay its cost. The installed base reached a record 5 million industrial robots in 2025 <Cite id="ifr-world-robotics-2026-release" />.
 
 <Image id="bmw-leipzig-body-shop-spot-welding-2005" />
 
-## The payback arithmetic
+## A cell pays back when its labor covers its capital
 
-A robot cell, the robot plus everything built around it, pays for itself when the labor it replaces covers its capital cost. A simplified payback divides cell capital by the monthly value of that labor, leaving out the damage and throughput savings in EVST's full formula <Cite id="evst-cell-cost-2026" />.
+A robot cell is the robot plus everything built around it. The calculator divides cell capital by the monthly value of the labor it replaces, leaving out the damage and throughput savings in EVST's full formula <Cite id="evst-cell-cost-2026" />.
 
 <DeploymentEconomics className="my-6" />
 
 <JamOverhead className="my-6" />
 
-The example is hypothetical, and all seven of its inputs are assumptions. It also assumes 730 hours a month and a 60-month amortization period, counts modeled picks per elapsed hour including downtime, and judges payback against a 24-month horizon, the upper end of EVST's estimate for multi-shift palletizing cells <Cite id="evst-cell-cost-2026" />.
+Every input is an assumption. The model amortizes 730-hour months over 60 months and judges payback against 24 months, the top of EVST's multi-shift range <Cite id="evst-cell-cost-2026" />.
 
-## The jam rate is the lesson
+## Clearing time decides payback
 
-What a failure costs depends on how long it takes to clear. In the modeled example, with 15-second jam clearing, cutting per-pick success from 99.9 to 99 percent moves payback from 11.56 to 11.82 months, 2.2 percent longer. With 300-second clearing the same cut moves payback from 12.11 to 17.30 months, and modeled output falls 30 percent, from 542.9 to 380.0 picks per elapsed hour. At 99 percent success with a ten-second clearing for every failure, a cell loses (1 − 0.99) × 10 = 0.1 seconds per attempted pick. Amazon's stow system is designed to stow 80 percent of warehouse items at 300 units an hour, and a no-stow turnaway, when a storage pod leaves with nothing stowed, costs at least 12 seconds <Cite id="amazon-stow-2025" />.
+A failure costs what it takes to clear. With 15-second clearing, dropping per-pick success from 99.9 to 99 percent stretches payback 2.2 percent, from 11.56 to 11.82 months. With 300-second clearing the same drop moves payback from 12.11 to 17.30 months and cuts output 30 percent, to 380.0 picks an hour.
 
-The <Term id="intervention-rate">intervention rate</Term>, how often a person must step in, and the cost of each intervention together decide whether a cell ships. Physical Intelligence reports that training on deployment data, including expert corrections during autonomous runs, more than doubled throughput and roughly halved the failure rate on some of its hardest tasks <Cite id="pistar06-2025" />. Ken Goldberg proposes combining model-based engineering with model-free learning, so robots can do useful work, collect real-world data and use it to improve and learn adjacent skills; he still expects model-free AI eventually to enable fully general-purpose robots <Cite id="goldberg-data-gap-2025" />.
+The <Term id="intervention-rate">intervention rate</Term>, how often a person steps in, and the cost of each one decide whether a cell ships. Training on deployment data with expert corrections more than doubled Physical Intelligence's throughput on some of its hardest tasks <Cite id="pistar06-2025" />. Ken Goldberg would let robots do useful work while they collect the data to improve <Cite id="goldberg-data-gap-2025" />.
 
-Morgan Stanley's 2026 note on the humanoid industry's "PR problem", as reported by CNBC, describes [investors](/market-map) looking for real-world return on investment over polished demonstrations <Cite id="morgan-stanley-pr-problem-2026" />. Figure says its livestreamed logistics run lasted 200 hours <Cite id="helix-2-5-2026" />, but it was one task at one site, with [no published success rate](/data-hardware/evaluation-crisis). [The Reliability Gap](/frontier/reliability-gap) tracks the gap from demo to production, and [Autonomous Vehicles](/adjacent/autonomous-vehicles) the same question for driverless cars.
+Investors now want return on investment, not demos <Cite id="morgan-stanley-pr-problem-2026" />. Figure's livestreamed logistics run lasted 200 hours <Cite id="helix-2-5-2026" />, at one task and one site, with [no published success rate](/data-hardware/evaluation-crisis). [The Reliability Gap](/frontier/reliability-gap) tracks that distance; [Autonomous Vehicles](/adjacent/autonomous-vehicles) asks the same of driverless cars.
 
-## The metrics that decide a deployment
+## Pace, uptime and payback decide a deployment
 
-<Term id="cycle-time">Cycle time</Term> is the time required to produce a part or complete a process, measured for that operation <Cite id="lei-cycle-time-definition" />. <Term id="takt-time">Takt time</Term> is available production time divided by customer demand, and its purpose is to match production with demand <Cite id="lei-takt-time-definition" />. NASA distinguishes inherent availability, computed from <Term id="mean-time-between-failures">mean time between failures</Term> and mean time to repair alone, from operational availability, which adds administrative, logistics and preventive-maintenance time; uptime is time in an operable state <Cite id="nasa-availability-prediction-analysis" />.
+| Metric | What it measures |
+| --- | --- |
+| <Term id="cycle-time">Cycle time</Term> | Time one operation takes <Cite id="lei-cycle-time-definition" /> |
+| <Term id="takt-time">Takt time</Term> | Available production time divided by customer demand <Cite id="lei-takt-time-definition" /> |
+| Inherent availability | Uptime from <Term id="mean-time-between-failures">mean time between failures</Term> and repair time alone <Cite id="nasa-availability-prediction-analysis" /> |
+| Operational availability | Adds logistics, administrative and preventive-maintenance time <Cite id="nasa-availability-prediction-analysis" /> |
+| <Term id="payback-period">Payback period</Term> | System capital cost over monthly labor, damage and throughput value <Cite id="evst-cell-cost-2026" /> |
 
-The calculator's capital cost per modeled pick is robot price times the integration multiple, divided by modeled lifetime picks over a fixed amortization period, without running costs. The <Term id="payback-period">payback period</Term> is total system capital cost divided by monthly labor, reduced-damage and throughput value. EVST's guide estimates 12 to 24 months for multi-shift palletizing cells and 24 to 36 months for single-shift or lower-throughput operations <Cite id="evst-cell-cost-2026" />.
+EVST estimates payback at 12 to 24 months for multi-shift palletizing cells and 24 to 36 months for single-shift ones <Cite id="evst-cell-cost-2026" />.
 
-## The integrator's multiple
+## The arm is a third to half of the cell
 
-The robot arm is a minority of what a cell costs. EVST, a vendor quoting complete cells that publishes no fixed list prices, puts the robot at a third to half of total cell cost, and complete palletizing cells at two to three times the arm's price. Its July 2026 guide lists the rest: end-of-arm tooling, fencing and scanners, safety-rated controllers, installation, integration, commissioning, pattern programming, software licenses and any vision-guided picking <Cite id="evst-cell-cost-2026" />.
+EVST puts the robot at a third to half of total cell cost, so a complete palletizing cell runs two to three times the arm's price. The rest is tooling, guarding, safety controllers, integration, commissioning, programming, software and vision <Cite id="evst-cell-cost-2026" />.
 
 <Image id="kuka-bread-palletizing-bakery-2005" />
 
-Responsibility follows the integration. OSHA's Technical Manual, discussing the ANSI/RIA R15.06-2012 safety standard, says the <Term id="systems-integrator">systems integrator</Term> completes and documents the application's risk assessment before commissioning and gives the results to the employer; manufacturers or employers may also act as integrators. The employer remains responsible for a safe workplace, and a risk assessment alone does not establish that the application protects workers <Cite id="osha-otm-robots" />.
+The integrator owns the risk assessment. Under ANSI/RIA R15.06-2012, the <Term id="systems-integrator">systems integrator</Term> completes and documents it before commissioning and hands it to the employer, who stays responsible for a safe workplace <Cite id="osha-otm-robots" />.
 
-In an April 2026 outlook, Bessemer predicted that near-term value will go to vertically integrated, full-stack companies ahead of pure foundation-model developers, because deployment needs domain-specific data, fine-tuning in the target environment, hardware integration and operating infrastructure, and foundation models are not yet general enough to work out of the box <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="bessemer-robotics-2026" /></span>. Assembly also has to solve the contact itself: IndustReal combines signed-distance rewards, training curricula and an action integrator to transfer simulated pick, place and insertion policies to real hardware <Cite id="industreal-2023" />.
+Bessemer expects near-term value to go to full-stack companies, because deployment needs site data, local fine-tuning and hardware integration <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="bessemer-robotics-2026" /></span>. IndustReal moved simulated insertion policies onto real hardware <Cite id="industreal-2023" />.
 
-## What the installed base automates
+## The installed base repeats fixed motions
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="operational stock" value="5 million" note="industrial robots worldwide, 2025" accent />
@@ -110,48 +116,64 @@ In an April 2026 outlook, Bessemer predicted that near-term value will go to ver
   <Stat label="China share" value="59%" note="of global installations in 2025" />
 </div>
 
-IFR's World Robotics 2026, released September 24, 2026, puts 2025 growth at 9 percent for the operational stock and 11 percent for installations. China installed 354,000 units, and the United States, with almost 38,500 installations, passed Japan to become the second-largest market <Cite id="ifr-world-robotics-2026-release" />. A year earlier, World Robotics 2025 counted 4,663,698 robots in operation and 542,076 installations in 2024, 54 percent of them in China <Cite id="ifr-world-robotics-2025" /> <Cite id="ifr-china-five-year-plan-2026" />.
+The operational stock grew 9 percent in 2025. China installed 354,000 units, and the United States, at almost 38,500, passed Japan for second place <Cite id="ifr-world-robotics-2026-release" />. In 2024 the counts were 4,663,698 and 542,076, with 54 percent in China <Cite id="ifr-world-robotics-2025" /> <Cite id="ifr-china-five-year-plan-2026" />.
 
-Most of that base repeats fixed motions in fixed cells, with little perception. OSHA's Technical Manual lists uses including arc and resistance welding, painting and spraying, machine-tool loading and unloading, assembly, materials handling and packaging <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="osha-otm-robots" /></span>. In A3's North American order data for 2025, collaborative robots were 7,212 units worth \$241 million, 19.6 percent of the 36,766 robots ordered and 10.7 percent of the \$2.25 billion in order value; A3 began reporting them as a separate category in Q1 2025 <Cite id="a3-orders-2025" />.
+Most of these robots weld, paint, load machines, assemble and pack in fixed cells with little perception <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="osha-otm-robots" /></span>. Collaborative robots were 19.6 percent of the 36,766 robots ordered in North America in 2025, and 10.7 percent of the \$2.25 billion order value <Cite id="a3-orders-2025" />.
 
 ## Logistics is where learned systems enter
 
-<Term id="automated-storage-and-retrieval">Automated storage and retrieval</Term> replaces aisles and forklifts with high-bay racking and shuttles, and AutoStore reports about 2,000 systems in 68 countries <Cite id="autostore-q2-2026" />. <Term id="autonomous-mobile-robot">Autonomous mobile robots</Term> move cases and totes: transport and logistics robots sold 117,500 units in 2025, 47 percent of the almost 250,000 professional service robots shipped that year, a total up 24 percent on 2024 <Cite id="ifr-service-robots-2026" />. <Term id="goods-to-person">Goods-to-person</Term> stations bring the shelf to a stationary worker, which sets the productivity bar for automated piece picking.
+<Term id="automated-storage-and-retrieval">Automated storage and retrieval</Term> replaces aisles and forklifts with high-bay racks and shuttles; AutoStore reports about 2,000 systems in 68 countries <Cite id="autostore-q2-2026" />. <Term id="autonomous-mobile-robot">Autonomous mobile robots</Term> move cases and totes, and transport robots were 117,500 of the almost 250,000 professional service robots sold in 2025 <Cite id="ifr-service-robots-2026" />. <Term id="goods-to-person">Goods-to-person</Term> stations bring the shelf to a stationary worker and set the bar automated picking must beat.
 
-In October 2023 Amazon reported over 750,000 robots working with employees, its Sequoia system operating at one Houston fulfillment center and planned tests of Digit for tote recycling <span className="max-sm:[&_[role=tooltip]]:-translate-x-24"><Cite id="amazon-sequoia-digit-2023" /></span>. Its fleet overview, updated in June 2026, reports more than one million robots deployed since 2012, a cumulative total and not a simultaneous active-fleet count, with next-generation Proteus still a lab pilot <span className="max-sm:[&_[role=tooltip]]:-translate-x-4"><Cite id="amazon-robot-fleet-2026" /></span>. In September 2026 Amazon said its robots work across more than 300 facilities and assist with 75 percent of the customer orders it delivers <Cite id="amazon-greenwood-2026" />, and its DeepFleet model was set to improve fleet travel efficiency by 10 percent <Cite id="amazon-million-robots-2025" />.
+| What Amazon reports | Number |
+| --- | --- |
+| Robots working with employees, October 2023 | 750,000+, with Sequoia live in Houston <span className="max-sm:[&_[role=tooltip]]:-translate-x-24"><Cite id="amazon-sequoia-digit-2023" /></span> |
+| Robots deployed since 2012, cumulative | 1 million+ <span className="max-sm:[&_[role=tooltip]]:-translate-x-4"><Cite id="amazon-robot-fleet-2026" /></span> |
+| Facilities with robots, September 2026 | 300+, assisting 75% of orders <Cite id="amazon-greenwood-2026" /> |
+| DeepFleet gain in fleet travel efficiency | 10% <Cite id="amazon-million-robots-2025" /> |
+| Stored item types Vulcan picks and stows | about 75% <Cite id="amazon-vulcan-2026" /> |
+| Stows that succeeded, of 100,000+ attempts | 85.86% <Cite id="amazon-stow-2025" /> |
 
-Amazon's Vulcan picks and stows approximately 75 percent of the types of items stored at its fulfillment centers, at speeds comparable to front-line employees, and hands the rest to employees; the post reports no pick-success rate or independently validated reliability <Cite id="amazon-vulcan-2026" />. An Amazon Robotics paper on stowing into fabric pods does report outcomes: of over 100,000 attempts in a fulfillment center, 85.86 percent succeeded, 9.31 percent were unproductive and 4.83 percent were defects <Cite id="amazon-stow-2025" />.
+Only the stow paper reports failures: 9.31 percent unproductive, 4.83 percent defects <Cite id="amazon-stow-2025" />. Vulcan's post gives no success rate <Cite id="amazon-vulcan-2026" />.
 
-Symbotic's FY2025 Form 10-K reports about \$22.5 billion of backlog, meaning obligations under existing contracts not yet performed, at September 27, 2025, against \$2.246922 billion of revenue for the year. Its Walmart agreement, expanded in May 2022, covered all 42 regional distribution centers, with 50 systems in deployment and 48 operational systems under software maintenance and support contracts <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="symbotic-10k-2025" /></span>; in October 2026 the companies expanded the agreement to 25 US regional distribution centers, with an initial commitment of about \$6 billion over several years <Cite id="symbotic-walmart-2026" />. In November 2025 Kroger said it would close three automated fulfillment centers, in Wisconsin, Maryland and Florida, and expected about \$2.6 billion of impairment and related charges <Cite id="kroger-8k-ecommerce-2025" />; This is Money counted five remaining sites <Cite id="kroger-ocado-closures-2025" />. On December 5, 2025 Ocado and Kroger agreed a one-off \$350 million payment that also covers Kroger's decision not to proceed with Charlotte, and Ocado expects the closures to cut its FY26 fee revenue by about \$50 million <Cite id="ocado-kroger-rns-2025" />. Ocado Intelligent Automation now sells the same grid-robot warehouses into healthcare, third-party logistics and industrial parts <Cite id="ocado-oia-2026" />.
+Grid contracts are large and can unwind. Symbotic reported about \$22.5 billion of backlog against \$2.247 billion of FY2025 revenue, anchored by all 42 Walmart regional distribution centers <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="symbotic-10k-2025" /></span>. In October 2026 the two expanded the deal to 25 US regional centers, with an initial commitment of about \$6 billion <Cite id="symbotic-walmart-2026" />.
+
+Kroger is closing three automated fulfillment centers and expects about \$2.6 billion of impairment and related charges <Cite id="kroger-8k-ecommerce-2025" />; five sites remain <Cite id="kroger-ocado-closures-2025" />. Ocado takes a one-off \$350 million payment and about \$50 million less FY26 fee revenue <Cite id="ocado-kroger-rns-2025" />. It now sells the same grid warehouses into healthcare, third-party logistics and industrial parts <Cite id="ocado-oia-2026" />.
 
 <Image id="ocado-warehouse-grid-bots-2017" />
 
-## Humanoids in plants
+## Humanoids arrive in small numbers
 
-Humanoids are arriving in small numbers. IFR counts about 7,000 [full-size humanoids](/data-hardware/hardware-taxonomy) sold in 2025 and says most applications remain specialized and often require human teleoperation <Cite id="ifr-service-robots-2026" />. Analyst firm SAG estimates 16,500 shipped in the third quarter of 2026, up 347% on a year earlier: 4,900 from AgiBot, 4,500 from UBTECH and about 4,400 from Unitree <Cite id="sag-humanoid-shipments-q3-2026" />. UBTECH's own results report 921 full-size humanoids sold in the first half of 2026, for RMB 590.3 million <Cite id="ubtech-interim-2026" />.
+IFR counts about 7,000 [full-size humanoids](/data-hardware/hardware-taxonomy) sold in 2025, mostly in specialized jobs and often teleoperated <Cite id="ifr-service-robots-2026" />. SAG estimates 16,500 shipped in the third quarter of 2026, up 347% on a year earlier, led by AgiBot, UBTECH and Unitree <Cite id="sag-humanoid-shipments-q3-2026" />. UBTECH's own filing reports 921 sold in the first half of 2026, for RMB 590.3 million <Cite id="ubtech-interim-2026" />.
 
-Deployment figures come from the companies themselves:
+Every deployment figure is self-reported:
 
 | Robot and site | What the company reports |
 | --- | --- |
-| Agility Digit 4 | More than 65,000 operational hours; at GXO's Flowery Branch site, 100,000 totes at about 98 percent accuracy while on-task <Cite id="agility-digit-5-2026" /> |
-| Agility Digit, GXO at a SPANX facility | Robots-as-a-service agreement from June 2024, moving totes from other robots to conveyors <Cite id="agility-gxo-raas-2024" /> |
-| Figure, BMW (11 months) | Targets: an 84-second cycle, above 99 percent success per shift, zero interventions. Reported: 1,250+ hours of runtime and 90,000+ parts loaded, with no achieved rates <Cite id="figure-bmw-production-2025" /> |
-| Boston Dynamics Atlas, Hyundai | Training to sequence automotive parts at the Robotics Metaplant Application Center; component assembly expected by 2030 <Cite id="bd-rmac-2026" /> |
-| Tesla Optimus, Fremont | Production on high-volume lines reported in October 2026 <Cite id="tesla-q3-2026-update" /> |
+| Agility Digit 4 | 65,000+ operational hours; 100,000 totes at GXO Flowery Branch, about 98% accurate while on-task <Cite id="agility-digit-5-2026" /> |
+| Agility Digit, GXO at SPANX | Robots-as-a-service from June 2024, moving totes from robots to conveyors <Cite id="agility-gxo-raas-2024" /> |
+| Figure, BMW (11 months) | Targets: 84-second cycle, 99%+ success per shift, zero interventions. Reported: 1,250+ hours and 90,000+ parts, no achieved rates <Cite id="figure-bmw-production-2025" /> |
+| Boston Dynamics Atlas, Hyundai | Training to sequence parts; component assembly expected by 2030 <Cite id="bd-rmac-2026" /> |
+| Tesla Optimus, Fremont | On high-volume lines, October 2026 <Cite id="tesla-q3-2026-update" /> |
 
-The business is still small. Agility listed on Nasdaq on November 5, 2026, citing more than \$300 million in committed multi-year Digit 5 orders <Cite id="agility-nasdaq-listing-2026" />; its merger filing ties those orders to 1,000 robots on three-year service contracts and reports 2025 net sales of \$1.78 million, \$1.13 million of it from related parties <Cite id="agility-s4a-2026" />. Unitree's IPO prospectus shows first-quarter 2026 revenue growth slowing to 68.49%, from 332.64% a year earlier, and adjusted net profit falling 52.55% year on year <Cite id="unitree-prospectus-2026" />.
+The business is still small. Agility listed on Nasdaq on November 5, 2026, with more than \$300 million in committed Digit 5 orders <Cite id="agility-nasdaq-listing-2026" />, against 2025 net sales of \$1.78 million <Cite id="agility-s4a-2026" />. Unitree's first-quarter 2026 revenue growth slowed to 68.49%, from 332.64%, and adjusted net profit fell 52.55% <Cite id="unitree-prospectus-2026" />.
 
-Safety shapes the machines. Jonathan Hurst, Agility's cofounder and chief robot officer, wrote in IEEE Spectrum in October 2026 that in Digit 4's commercial deployments the robots had to work behind physical barriers, apart from people, to meet insurance and regulatory demands, which limited their usefulness. As a person approaches, Digit 5 is programmed to stop, set down its payload, sit on the floor and cut power to its motors before the person can touch it, which he calls "the only approach that makes sense as a first step". Its safety sensors and computers, larger battery and stronger motors added bulk, and Digit 5 can no longer run or jump as earlier versions could <Cite id="hurst-spectrum-2026" />. Batteries shape the operating cycle too: UBTECH says Walker S2 swaps its batteries autonomously within three minutes <Cite id="ubtech-walker-s2-2026" />, and AgiBot lists quick battery replacement and charging for A2 <Cite id="agibot-a2-2026" />.
+Safety rules shape the machine. Insurers and regulators kept Digit 4 behind barriers, so Digit 5 sets down its load, sits and cuts motor power before a person can touch it. The added bulk means it can no longer run or jump <Cite id="hurst-spectrum-2026" />.
 
-## Brownfield versus greenfield
+Also: Walker S2 three-minute battery swap <Cite id="ubtech-walker-s2-2026" />, AgiBot A2 quick battery change <Cite id="agibot-a2-2026" />.
 
-A greenfield site is designed around the automation: floor loading, ceiling height, power, network and traffic lanes exist because the system needed them. Amazon's Shreveport fulfillment center was built with 10 times more robotics, and its Sequoia can hold more than 30 million items <Cite id="amazon-shreveport-2024" />. A <Term id="brownfield-deployment">brownfield deployment</Term> must fit the automation into a building that already runs. Symbotic says it can install its systems in phases while the existing warehouse keeps operating <Cite id="symbotic-10k-2025" />.
+## Old buildings must fit the robots in
 
-For robots that do not work beside people, OSHA describes fences, interlocked guards and presence-sensing devices during automatic operation, reduced-speed teaching with an enabling device, and lockout/tagout for maintenance <Cite id="osha-otm-robots" />. [Safety and Assurance](/frontier/safety-and-assurance) covers the wider obligations.
+A greenfield site is designed around its automation. Amazon built Shreveport with 10 times more robotics, and its Sequoia holds more than 30 million items <Cite id="amazon-shreveport-2024" />. A <Term id="brownfield-deployment">brownfield deployment</Term> goes into a running building; Symbotic says it can install in phases while the warehouse keeps operating <Cite id="symbotic-10k-2025" />.
 
-## The labor evidence, disagreement intact
+Robots that work apart from people need fences, interlocked guards and presence sensors, and lockout/tagout for maintenance <Cite id="osha-otm-robots" />. [Safety and Assurance](/frontier/safety-and-assurance) covers the rest.
 
-Daron Acemoglu and Pascual Restrepo find that one more robot per thousand workers cuts the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent, with losses concentrated in commuting zones exposed to industrial automation <Cite id="acemoglu-restrepo-2020" />. In Germany, robot-driven displacement in manufacturing was fully offset by new jobs in services, and the cost fell mostly on young workers entering the labor force <Cite id="dauth-robots-germany-2021" />. Spanish manufacturers that adopted robots raised output by 20 to 25 percent within four years and created net jobs at a rate of 10 percent <Cite id="koch-robots-firms-2021" />. French adopters also grew employment, at their competitors' expense, and the overall effect on industry employment was negative <Cite id="acemoglu-lelarge-restrepo-2020" />.
+## Robots cost jobs in some economies and add them in others
 
-The MIT Task Force on the Work of the Future, co-chaired by David Autor and David Mindell with Elisabeth Reynolds as executive director, found in 2020 no compelling evidence of a jobless future. It describes automation displacing some tasks and creating new work, shaped by economic incentives, policy choices and institutions <Cite id="mit-work-future-2020" />.
+| Country | Finding |
+| --- | --- |
+| United States | One more robot per 1,000 workers cuts the employment-to-population ratio 0.2 points and wages 0.42% <Cite id="acemoglu-restrepo-2020" /> |
+| Germany | Manufacturing losses fully offset by service jobs; young entrants bear the cost <Cite id="dauth-robots-germany-2021" /> |
+| Spain | Adopters raised output 20 to 25% within four years and created net jobs at 10% <Cite id="koch-robots-firms-2021" /> |
+| France | Adopters grew jobs at competitors' expense; industry employment fell <Cite id="acemoglu-lelarge-restrepo-2020" /> |
+
+MIT's Work of the Future task force found no compelling evidence of a jobless future in 2020: automation displaces some tasks and creates new work <Cite id="mit-work-future-2020" />.
