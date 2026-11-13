@@ -121,6 +121,7 @@ export {
   TeacherStudent,
   TeleopRigMatrix,
   TrainingTimeChart,
+  TrialTally,
   WbcDecomposition,
   WmDisambiguator,
   PolicyChunkingTable,

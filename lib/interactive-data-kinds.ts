@@ -692,6 +692,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // every mount self-labels as an illustrative probability model.
     kind: 'authored-model',
   },
+  'interactive:TrialTally': {
+    // Seeded trials of an illustrative 70% and 85% teaching pair with exact 95% intervals; "Illustrative teaching pair" status line.
+    kind: 'authored-model',
+  },
   'interactive:RewardShaping': {
     // "Twelve sliders set illustrative weights, not a pinned simulator".
     kind: 'authored-model',
