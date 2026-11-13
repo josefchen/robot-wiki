@@ -857,6 +857,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // The article's split rule on twenty illustrative episodes and one seeded random draw; "Schematic" status line.
     kind: 'schematic',
   },
+  'interactive:FreeFloatingArm': {
+    // Planar momentum conservation on Umetani and Yoshida's 1989 test-model masses; the lead-brick ballast is illustrative; "Model" status line.
+    kind: 'authored-model',
+  },
   'interactive:ScopeFollow': {
     // ScoPilot's camera following (Level 1 on Yang's scale) on an illustrative box trainer and peg drill; "Schematic" status line.
     kind: 'schematic',
