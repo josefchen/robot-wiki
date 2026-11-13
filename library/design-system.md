@@ -2,9 +2,9 @@
 
 Status: **locked v2.0**
 
-Owner: Josef Chen
+Maintainer: Josef Chen
 
-Authority: **owner-approved literal brand-v2**
+Authority: **approved literal brand-v2**
 
 Last revised: 23 August 2026
 
@@ -17,35 +17,35 @@ Approved visual references:
 
 When a reference, this specification, and an implementation detail appear to disagree, use this order:
 
-1. explicit owner decisions recorded in this file;
+1. explicit decisions recorded in this file;
 2. measurable requirements in [`library/design-integrity.md`](design-integrity.md);
 3. the two approved references;
 4. current implementation.
 
 Current implementation is never evidence that drift is acceptable.
 
-### Owner decision, 10 October 2026: the research-page standard
+### Decision, 10 October 2026: the research-page standard
 
-Josef replaced the brand-v2 visual identity on every page and every figure with the research-page standard in `PANTHEON-SPEC.md`: paper and ink, hairline 1 px rules, grayscale chart tones and one muted blue accent; DM Sans 400 for the display H1 and DM Sans 600 for section heads and the wordmark; Geist 16/1.62 for body and interface text; Geist Mono for numerals, code and readouts; a single top bar, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables. Wherever a brand-v2 section below disagrees, this decision governs.
+The research-page standard replaces the brand-v2 visual identity on every page and every figure: paper and ink, hairline 1 px rules, grayscale chart tones and one muted blue accent; DM Sans 400 for the display H1 and DM Sans 600 for section heads and the wordmark; Geist 16/1.62 for body and interface text; Geist Mono for numerals, code and readouts; a single top bar, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables. Wherever a brand-v2 section below disagrees, this decision governs.
 
 - The executable palette in section 5, its renderer mirror in `lib/design-tokens.ts` and the colour rows of `library/design-integrity.md` carry the new values.
 - Web pages load DM Sans, Geist and Geist Mono through `next/font/google`, self-hosted under `/_next/static/media/`. The Tektur binaries stay checked in for the offline Open Graph renderer only: no stylesheet declares Tektur and no runtime route requests either binary. The Tektur sections below describe that renderer. The type-role registry (`data/type-roles.json`) keeps its role ids and instances; each display instance now computes DM Sans at its registered weight with no variation-axis override, and the interface and reading roles share Geist. The type rows of `library/design-integrity.md` carry these values.
 - Surfaces are plain paper. The concrete micro-texture and the halftone dot field are retired from the material registry, and `material:paper` is the one material the site paints. The texture rules in section 9 no longer have a web surface to apply to. Each named representative surface (the home masthead, the article title sheet, the domain hub header, the A-Z and glossary headers, the search sheet, and the market-map and playground headers) declares that material through `materialAttributes()` in `lib/site-materials.ts`, whose contrast verdict is computed from the ink and paper tokens; no declaration sits on or inside the prose column.
-- Corners are square: every radius token is 0px and the code block's `--code-radius` (7px) is the one exception. No surface casts a shadow at any level; the radius ladder of section 8.1 and the raised and floating shadows of section 8.3 describe brand-v2 and are not used. The `/how-robots-work/` explainers keep their approved geometry (Josef, 12 October 2026).
+- Corners are square: every radius token is 0px and the code block's `--code-radius` (7px) is the one exception. No surface casts a shadow at any level; the radius ladder of section 8.1 and the raised and floating shadows of section 8.3 describe brand-v2 and are not used. The `/how-robots-work/` explainers keep their approved geometry (decided 12 October 2026).
 - Every rail and rule is a 1 px `--line` hairline; a current or active-interval rail is a 1 px ink rule, never an accent bar. Registered devices carry their registry purpose and owner on the element, and the site footer's top rule is the shared registered rail on every route.
 - Nothing outside an action, a compact control, media or a data figure paints a dark ground, and the site has no dark theme. Uppercase eyebrows and section heads keep `Robot Wiki`, Greek letters and units after a number in their written case (`lib/notation-case.ts`).
 - Public identity, descriptor, technical identifiers, routes, citations, data truth and accessibility obligations are unchanged.
 
-## 0. Worker execution contract
+## 0. Change procedure
 
-Before changing any page, component, visualization, navigation surface, social card, font, colour, texture, illustration, photograph, or generated visual asset, a worker MUST read this file and `library/design-integrity.md` completely and inspect both approved references.
+Before changing any page, component, visualization, navigation surface, social card, font, colour, texture, illustration, photograph, or generated visual asset, a contributor MUST read this file and `library/design-integrity.md` completely and inspect both approved references.
 
 - `MUST`, `MUST NOT`, and sealed `DI-*` criteria are release requirements.
 - Apply this direction literally across the whole product. Do not propose or preserve a parallel paper-system direction.
 - Preserve routes, content, citations, source meaning, data truth, accessibility, and working interactions.
-- Validation is autonomous. A worker MUST run the required tests, capture the required visual evidence, compare the rendered result with both references, and resolve drift without waiting for a human visual-review pass.
+- Validation is part of the change. A contributor MUST run the required tests, capture the required visual evidence, compare the rendered result with both references, and resolve drift before asking for review.
 - A shared visual change MUST update the executable tokens, affected primitives, Open Graph/X artwork, generated assets, and validation coverage together.
-- A locked foundation may change only with explicit owner approval. The decisions recorded here already have that approval and do not require re-confirmation.
+- A locked foundation may change only with the maintainer's explicit approval. The decisions recorded here already have that approval and do not require re-confirmation.
 - Technical identifiers remain stable unless a separate engineering task explicitly changes them.
 
 ## 1. Brand foundation
@@ -95,8 +95,8 @@ These are a system, not a menu of optional effects. Each product surface MUST ca
 
 | Concern | Canonical source |
 | --- | --- |
-| Owner-approved visual reference | `library/brand-reference-board.jpeg` |
-| Owner-approved article reference | `library/brand-reference-article.png` |
+| Approved visual reference | `library/brand-reference-board.jpeg` |
+| Approved article reference | `library/brand-reference-article.png` |
 | Brand, component, and interaction intent | `library/design-system.md` |
 | Measurable repository acceptance | `library/design-integrity.md` |
 | Runtime colour, type, spacing, shape, grid, and elevation tokens | `app/globals.css` |
@@ -243,14 +243,14 @@ The article reference is authoritative:
 
 ### 5.1 Core brand palette
 
-The values below are the owner decision of 10 October 2026 (`PANTHEON-SPEC.md`) and replace the brand-v2 lime and signal blue. Borders and rules use `--line` (`rgba(28, 28, 26, 0.14)`) and `--line-strong` (`rgba(28, 28, 26, 0.22)`), always 1 px.
+The values below are the decision of 10 October 2026 and replace the brand-v2 lime and signal blue. Borders and rules use `--line` (`rgba(28, 28, 26, 0.14)`) and `--line-strong` (`rgba(28, 28, 26, 0.22)`), always 1 px.
 
 | Token | Hex | Role |
 | --- | --- | --- |
 | `--color-ink` | `#1C1C1A` | Text, primary lines and data, primary actions, the focus ring |
 | `--color-graphite` | `#3F3F3B` | Dark chart series (`--chart-dark`), secondary dark marks |
 | `--color-concrete` | `#DEDEDB` | Light chart series (`--chart-background`), text selection |
-| `--color-paper` | `#FAFAF8` | The single page sheet, the very light warm grey of the owner's prototype |
+| `--color-paper` | `#FAFAF8` | The single page sheet, the very light warm grey of the original prototype |
 | `--color-white` | `#FFFFFF` | Labels on ink actions |
 | `--color-highlight` | `#A3A39E` | Medium chart series (`--chart-medium`), neutral emphasis |
 | `--color-signal` | `#3B6EA8` | The one muted blue accent: the highlighted series, registration, active information paths |
@@ -283,7 +283,7 @@ The website is light-led, not light-only.
 - Paper is the default page ground.
 - White is the default reading and component surface.
 - Ink or graphite dark surfaces are allowed as bounded instruments: code, media frames, and the 3D playground.
-- Figures, diagrams, scenes, charts and tool previews are not dark instruments. They belong to the page and draw on the paper ground inside the figure frame (13.4), including the home featured scene (owner decision of 2026-10-02, "figures belong to the page"). The graphite stage tokens are retired.
+- Figures, diagrams, scenes, charts and tool previews are not dark instruments. They belong to the page and draw on the paper ground inside the figure frame (13.4), including the home featured scene (decided 2026-10-02: figures belong to the page). The graphite stage tokens are retired.
 - Dark fills on actions and compact controls are governed by the action/control hierarchy and are excluded from the bounded-dark-instrument classification. A black primary button or compact ink active segment does not need to qualify as an instrument.
 - A dark instrument surface MUST have a clear boundary and MUST NOT turn the entire shell or article into a generic control-room theme.
 - Dark surfaces use paper/white text, concrete secondary marks, and restrained lime/blue signals.
@@ -470,7 +470,7 @@ Requirements:
 ### 10.5 Badges, chips, and status
 
 - Chips are for filters, compact provenance, state, or taxonomy.
-- Selected chips and filter tokens are unfilled and read in ink with a 1 px ink rule or underline (or a weight step of at least 200), plus a text, icon or shape confirmation and the semantic state (`aria-pressed`, `aria-selected` or native checked). No lime, colour fill, tint or rounded pill carries selection, and colour is never the only cue (owner decision of 10 October 2026, `DI-COMP-007`).
+- Selected chips and filter tokens are unfilled and read in ink with a 1 px ink rule or underline (or a weight step of at least 200), plus a text, icon or shape confirmation and the semantic state (`aria-pressed`, `aria-selected` or native checked). No lime, colour fill, tint or rounded pill carries selection, and colour is never the only cue (decision of 10 October 2026, `DI-COMP-007`).
 - Status chips use the dedicated status colours (green and red outcome marks only) with a text label.
 - Do not convert ordinary category or metadata prose into pill rows.
 
@@ -503,7 +503,7 @@ Requirements:
 - The shell MUST present `Robot Wiki`, not the technical identifier.
 - Desktop navigation uses a disciplined structural rail and preserves existing route hierarchy.
 - Active navigation uses ink and/or lime selection with an independent rule, weight, or marker.
-- The `Robot Wiki` wordmark itself is exempt from that treatment: no wordmark lockup — home hero, desktop sidebar, mobile header, mobile drawer, or footer — ever renders the lime active-interval rail or any other accent bar or highlight, including on `/` where the wordmark is the current-route item. `aria-current="page"` on the wordmark link is unaffected. Owner decision of 2026-09-25 (`owner-decision-no-wordmark-rail-20260925.md`); taxonomy and standalone navigation entries keep their rail exactly as before.
+- The `Robot Wiki` wordmark itself is exempt from that treatment: no wordmark lockup — home hero, desktop sidebar, mobile header, mobile drawer, or footer — ever renders the lime active-interval rail or any other accent bar or highlight, including on `/` where the wordmark is the current-route item. `aria-current="page"` on the wordmark link is unaffected. Decided 2026-09-25; taxonomy and standalone navigation entries keep their rail exactly as before.
 - Signal blue is reserved for keyboard focus and link behavior, not a default full navigation fill.
 - Navigation group labels use mono registration style sparingly.
 - The mobile header remains compact and keeps the wordmark legible.
@@ -576,7 +576,7 @@ Every explanatory figure, scene and tool preview uses one frame (`components/mot
 Both folds are closed at settle and keep their content in the served HTML. Nothing else sits between the stage and the next prose block.
 
 - The main view (header, stage, controls and caption at settle) carries no symbol and no bare unit: no Greek letter or one- or two-letter variable used as a quantity, no sub- or superscript, power or formula, no Hz, ms, rad or "/step". The same line may gloss one in plain words ("10 times a second (10 Hz)"). %, currency, dates, and kg, km, km/h, m, cm and mm after a number are everyday forms. Maths and units live in the article text or "How this was made". `lib/figure-main-view.ts` holds the pattern list.
-- Data marks use the stage role palette (`--role-*-stage`): the role hues darkened to at least 4.5:1 on paper. A figure uses one focus colour plus greys: the one muted accent, painted only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); the retired bright signal blue appears on no figure mark (owner decisions of 10 and 19 October 2026, `DI-VIZ-003`). Status colours mark status only. The constraint red appears only as a hatch. The mark group the annotation points at is the only one at full emphasis; the annotation and its leader take the dark-green highlight role, and lime at most haloes the one highlighted point.
+- Data marks use the stage role palette (`--role-*-stage`): the role hues darkened to at least 4.5:1 on paper. A figure uses one focus colour plus greys: the one muted accent, painted only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); the retired bright signal blue appears on no figure mark (decisions of 10 and 19 October 2026, `DI-VIZ-003`). Status colours mark status only. The constraint red appears only as a hatch. The mark group the annotation points at is the only one at full emphasis; the annotation and its leader take the dark-green highlight role, and lime at most haloes the one highlighted point.
 - Figure controls are the site's quiet controls: one hairline segmented row for named presets, hairline buttons with sans labels and no underline, and thin graphite sliders with plain labels. The selected option takes the research-page selected state: ink weight or a 1 px ink rule, never a colour fill or tint, and a reader's committed answer in a prediction step or self-check also carries the "Your pick" marker. Lime never fills a control. Reset lives in "Adjust more" unless the figure truly needs it in view.
 - No furniture that needs explaining sits on the stage: no "catalogue ends here" lines, "availability unverified" legends, inline source chips or "current generation" links. Sources go on the source line or in "How this was made", and details sit below the figure as page text, not as a card.
 - Stage text is IBM Plex Sans at 14px displayed, in at most three sizes across the frame (16px headline, 14px stage, caption and controls, 12px kicker and source). IBM Plex Mono is for numeric readouts only. Each axis has at most five labelled ticks.
@@ -585,7 +585,7 @@ Both folds are closed at settle and keep their content in the served HTML. Nothi
 - A guided beat runs only when the reader starts it, lasts 3 to 6 seconds and ends on the annotated frame with a plain hint.
 - The stage fits its content: no band wider than the plot and taller than 20% of the stage is empty.
 - Charts are drawn with the primitives in `components/motion/chart/`, which read the tokens.
-- Company marks sit on no plate: each is a single-ink silhouette of its official file, its alpha (or a reviewed luminance-derived mask) filled with the secondary ink token, so white and dark marks read alike and clear 3:1. No filter is registered (`DI-MAP-007`, owner decision of 19 October 2026). On `/credits/` the ink layer is the credited file's own `<img>`, with its registry alt and intrinsic width and height, drawn through the mask of itself and cropped to the artwork box, so the page fetches and names exactly the file it credits (`DI-IMG-005`).
+- Company marks sit on no plate: each is a single-ink silhouette of its official file, its alpha (or a reviewed luminance-derived mask) filled with the secondary ink token, so white and dark marks read alike and clear 3:1. No filter is registered (`DI-MAP-007`, decision of 19 October 2026). On `/credits/` the ink layer is the credited file's own `<img>`, with its registry alt and intrinsic width and height, drawn through the mask of itself and cropped to the artwork box, so the page fetches and names exactly the file it credits (`DI-IMG-005`).
 - Photographs use one 3:2 cover crop, one width per viewport, the figure caption style and the figure source line for credit.
 - A concept has one canonical visual. Another page links to it, or reuses it with a caption that names a different purpose.
 - `npm run check:figure-system` reads the static export and fails on reserved or hard-coded colours, text off the scale, figures outside the frame, a stage that is not the flat page surface or a dark, raised or floating plate inside a frame, a headline over 10 words, a kicker over 6, a caption over 25, a fold with another label and a symbol in the main view. It runs in `postbuild` and `vercel-build`. Every exported figure must pass. `--allowlist <file>` takes a temporary list of figures not yet migrated, one entry per figure; an entry that no longer matches a violation fails the check, so the list only shrinks. `npm run check:figure-system:plant` plants one violation of each rule into a copy of the export and fails unless the check names every one.
@@ -614,7 +614,7 @@ An interactive is an explanatory instrument.
 - Values are source-backed; unknowns read `not disclosed`.
 - Schematics label themselves.
 - First render is deterministic.
-- Keyboard controls, visible focus, a current-state description and a deterministic return to the default are mandatory. Where the figure has a reset control, activating it by keyboard restores the exact default state; where it has none, returning each changed control to its default value by keyboard restores the same default state, each control states its default in its visible readout, and a started run ends or can be stopped on the default frame (owner decision of 2 October 2026, no "Reset" unless it is truly needed; `DI-VIZ-007`).
+- Keyboard controls, visible focus, a current-state description and a deterministic return to the default are mandatory. Where the figure has a reset control, activating it by keyboard restores the exact default state; where it has none, returning each changed control to its default value by keyboard restores the same default state, each control states its default in its visible readout, and a started run ends or can be stopped on the default frame (decision of 2 October 2026, no "Reset" unless it is truly needed; `DI-VIZ-007`).
 - No autoplay teaching sequence, fake telemetry, decorative waveform, or fabricated progress.
 - Figures and interactives draw on the light page stage (13.4). Dark surfaces stay for code, media frames and the 3D playground (5.4).
 
@@ -672,7 +672,7 @@ An interactive is an explanatory instrument.
 
 ### 18.4 Required metadata
 
-Every external image or texture uses the owner-approved closed legal-basis enum and records creator/owner, official source URL, retrieval date, content hash, attribution, licence/permission reference, and byte/style preservation policy. Company marks use the distinct `official-identification-use` path, preserve official bytes/style, and are not redrawn in Robot Wiki style. Automation verifies those records and preservation predicates; it does not issue an independent legal opinion.
+Every external image or texture uses the approved closed legal-basis enum and records creator/owner, official source URL, retrieval date, content hash, attribution, licence/permission reference, and byte/style preservation policy. Company marks use the distinct `official-identification-use` path, preserve official bytes/style, and are not redrawn in Robot Wiki style. Automation verifies those records and preservation predicates; it does not issue an independent legal opinion.
 
 ## 19. Open Graph and X
 
@@ -684,7 +684,7 @@ Every external image or texture uses the owner-approved closed legal-basis enum 
 - The title remains legible in a small X timeline preview.
 - Cards may use paper or a bounded dark instrument region, but no generic screenshot collage, fake chart, tiny UI, or unlicensed image.
 - The required OG/X corpus is exactly 58 PNGs for the current 57 published articles plus the site card; the exact matrix is sealed in `library/design-integrity.md`. The separate search structured-image corpus contains the registered 4:3 and square variants and is not part of this OG/X count.
-- Non-article destinations use the site card unless the contract is deliberately revised after owner approval.
+- Non-article destinations use the site card unless the specification is deliberately revised with the maintainer's approval.
 - Regenerate the complete corpus after font, palette, identity, grid, or artwork changes.
 
 Satori or another offline renderer may mirror resolved font and colour values. Every mirror MUST be explicit and parity-tested.
@@ -776,7 +776,7 @@ This map assigns responsibility; it does not authorize route, content, citation,
 
 1. **Renderer mirrors.** Offline OG and WebGL renderers may repeat resolved values when they cannot consume CSS variables. Mirrors remain explicit and parity-tested.
 2. **Scientific scales.** A source-appropriate continuous colour scale may appear inside a labelled scientific visualization when the data requires it and an accessible equivalent exists.
-3. **Third-party identity.** Company marks keep their official files and shapes, drawn plate-less as single-ink silhouettes of their files in the secondary ink token; a file whose silhouette would be a block is replaced by an official transparent or one-colour version (§13.4, owner decision of 19 October 2026, after the owner visual audit of 2026-09-29 put them on one neutral plate).
+3. **Third-party identity.** Company marks keep their official files and shapes, drawn plate-less as single-ink silhouettes of their files in the secondary ink token; a file whose silhouette would be a block is replaced by an official transparent or one-colour version (§13.4, decision of 19 October 2026, after the visual audit of 2026-09-29 put them on one neutral plate).
 4. **Material assets.** Licensed material photography may contain natural tonal gradients; this does not permit decorative UI gradients.
 5. **Technical identifiers.** Stable strings such as `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain in technical contexts and are exempt only from public-display identity sweeps.
 
@@ -784,7 +784,7 @@ An exception is local. It does not create a general pattern.
 
 ## 26. Governance
 
-The owner decisions of 10 and 19 October 2026 supersede the original brand-v2 font, lime and bright-blue foundations. The active locked foundations are:
+The decisions of 10 and 19 October 2026 supersede the original brand-v2 font, lime and bright-blue foundations. The active locked foundations are:
 
 - public identity `Robot Wiki`;
 - exact descriptor;
@@ -796,22 +796,22 @@ The owner decisions of 10 and 19 October 2026 supersede the original brand-v2 fo
 - the two approved references;
 - truth, citation, accessibility, and route-preservation requirements.
 
-Changing a locked foundation requires explicit owner approval. For an approved change:
+Changing a locked foundation requires the maintainer's explicit approval. For an approved change:
 
 1. update this specification;
-2. update the measurable contract;
+2. update the measurable specification in `library/design-integrity.md`;
 3. update executable tokens and shared primitives;
 4. update all affected routes and states;
 5. update OG/X artwork and regenerate all 58 cards plus the registered search structured-image variants;
 6. update automated validation and zero-residue sweeps;
-7. run autonomous visual evidence review at every matrix row;
+7. run the automated visual comparison at every matrix row;
 8. leave no mixed-system residue.
 
-Workers MUST NOT stop at “tests pass.” They must compare rendered evidence with the approved references and fix visible drift.
+Contributors MUST NOT stop at “tests pass.” They must compare rendered evidence with the approved references and fix visible drift.
 
-## 27. Autonomous release review
+## 27. Release review
 
-A brand-v2 release is complete only when the worker:
+A brand-v2 release is complete only when its author:
 
 1. runs lint, typecheck, unit tests, production build, and the relevant browser suites;
 2. generates the complete 58-card OG/X corpus and the separate registered search structured-image corpus;
@@ -822,7 +822,7 @@ A brand-v2 release is complete only when the worker:
 7. runs named automated evidence for search loading/error, reduced motion, forced colours, literal 320 CSS px reflow, the sealed halved-CSS-viewport/DPR-2 200% zoom-equivalent profile, and injected 200% text-only resizing even where those states are not separate deep-screenshot rows;
 8. runs source and generated-output zero-residue sweeps;
 9. compares home, article, market map, playground, discovery, and social cards with both references;
-10. records pass/fail evidence and resolves every failure autonomously.
+10. records pass/fail evidence and resolves every failure.
 
 The exact 27-row matrix remains the mandatory deep screenshot matrix. It supplements rather than limits the registry-derived exhaustive sweeps. The five-route home/article/search/market-map/playground set is an iterative smoke set only and is never acceptable as final release evidence. The exact matrix, named suites, assertion-to-evidence mapping, and pass conditions live in `library/design-integrity.md`.
 
@@ -833,10 +833,10 @@ The rollout is sequential. A later milestone MUST NOT ship on top of an incomple
 ### Milestone 1 — Authority and validation migration
 
 - Land the two approved reference files.
-- Replace v1 authority with this v2 specification and sealed contract.
+- Replace v1 authority with this v2 specification and the sealed integrity specification.
 - Establish residue terms, evidence naming, the assertion-to-enforcement map, and registry-derived exhaustive sweep requirements.
 - Deliver `brand-v2.spec.ts` and `brand-v2-og.spec.ts`.
-- Milestone 1 starts from a clean tracked tree or records the exact Git tree hash, manifest root hashes, and pinned tool/runtime versions; creates registries, enforcement map, temporary/in-memory mutation tests where feasible, the checked-in reference-feature rubric, both new suites, and a static-export Playwright fixture/config using an existing dependency-free server or direct pinned dependency; then archives expected-red v1 drift. Required image/font/OCR tooling is direct/versioned or a checked-in deterministic script before any claim relies on it. Existing functional/accessibility gates stay green. Brand-v2 visual suites do not need to be green to close milestone 1; each assertion becomes green in its responsible later feature/milestone, and all are green by milestone 8.
+- Milestone 1 starts from a clean tracked tree or records the exact Git tree hash, manifest root hashes, and pinned tool/runtime versions; creates registries, enforcement map, temporary/in-memory mutation tests where feasible, the checked-in reference-feature rubric, both new suites, and a static-export Playwright fixture/config using an existing dependency-free server or direct pinned dependency; then archives expected-red v1 drift. Required image/font/OCR tooling is direct/versioned or a checked-in deterministic script before any claim relies on it. Existing functional/accessibility gates stay green. Brand-v2 visual suites do not need to be green to close milestone 1; each assertion becomes green in the later milestone responsible for it, and all are green by milestone 8.
 
 ### Milestone 2 — Foundations and shared primitives
 
@@ -880,7 +880,7 @@ The rollout is sequential. A later milestone MUST NOT ship on top of an incomple
 
 No milestone authorizes content, citation, data, route, or interaction regressions.
 
-## 29. First-pass review corrections (sealed)
+## 29. Review corrections (sealed)
 
 This section is approved brand-v2 authority and resolves ambiguities elsewhere in this file.
 
@@ -912,15 +912,15 @@ Controlled material treatment appears on registered representative web surfaces 
 
 Current baseline expectations are 52 interactive source files and 62 production mounts, but automation derives these populations and proves three-way equality with the registry. Every source and materially distinct mount receives the exact bounded state-case construction: each discrete option, slider min/default/max plus discontinuities/source anchors, reset/default/focus/meaningful hover/selected, one witness per implemented loading/error/empty/unavailable state, deterministic pairwise independent-control combinations, and only named higher-order cases. Expected and observed non-zero counts must match. Bounded mobile/desktop default/changed captures and contact-sheet review remain required. WebGL proves active context, nonblank deterministic model pixels, landmarks/kinematics/material colours, live reduced-motion manipulation, unavailable fallback, and deterministic DPR/resize/reset.
 
-Visual assets reconcile physical files, imports/CSS URLs, inline-SVG dependencies, registries, rendered use, and credits. The owner-approved legal-basis enum is closed; automation checks enum membership, official source URL, retrieval date, hashes, attribution fields, and byte/style preservation rather than issuing a legal opinion. Company marks use `official-identification-use`, contain fit, and no recolour/filter/distortion/crop; their one rendering is the plate-less single-ink mask of their file (§13.4). `unlicensed` is never an approved reusable-content licence. Favicon, manifest/touch icons, masks, inline symbols, and unused first-party symbol assets are swept.
+Visual assets reconcile physical files, imports/CSS URLs, inline-SVG dependencies, registries, rendered use, and credits. The approved legal-basis enum is closed; automation checks enum membership, official source URL, retrieval date, hashes, attribution fields, and byte/style preservation rather than issuing a legal opinion. Company marks use `official-identification-use`, contain fit, and no recolour/filter/distortion/crop; their one rendering is the plate-less single-ink mask of their file (§13.4). `unlicensed` is never an approved reusable-content licence. Favicon, manifest/touch icons, masks, inline symbols, and unused first-party symbol assets are swept.
 
 Route/metadata release truth is set equality among module registry, fixed-route registry, app inventory, export files, and metadata ledger: currently 57 articles plus 18 non-article public destinations = 75; 404 is separate. The sitemap is the exact 73-route indexable subset after the registered `/privacy/` and `/search/` noindex exceptions are removed. The ledger covers canonicals, JSON-LD, manifest, favicons/touch icons, theme-colour, indexing policy, and all OG/X fields.
 
-Evidence uses one common result/failure envelope plus source/build, browser-state, generated-image, and autonomous-comparison payloads. Non-applicable fields are omitted with typed `notApplicableReason`; multi-phase rows use ordered `steps[]` and `captures[]`; composite assertions map through `enforcementTargets[]`. Countable anti-bento, nested-frame, device-density/alignment, and reference-feature rubrics replace unstructured taste claims. Required fields are payload-specific and mutation-proven.
+Evidence uses one common result/failure envelope plus source/build, browser-state, generated-image, and automated-comparison payloads. Non-applicable fields are omitted with typed `notApplicableReason`; multi-phase rows use ordered `steps[]` and `captures[]`; composite assertions map through `enforcementTargets[]`. Countable anti-bento, nested-frame, device-density/alignment, and reference-feature rubrics replace unstructured taste claims. Required fields are payload-specific and mutation-proven.
 
-### 29.6 Bounded autonomous comparison and OG publication
+### 29.6 Bounded automated comparison and OG publication
 
-Milestone 1 checks in one executable reference-feature rubric. Contract literals override image text/hex variation. Cross-composition raw pixel similarity is prohibited; pixels may be compared only for deterministic same-input/same-output equality. Every applicable anchor passes independently:
+Milestone 1 checks in one executable reference-feature rubric. Specification literals override image text/hex variation. Cross-composition raw pixel similarity is prohibited; pixels may be compared only for deterministic same-input/same-output equality. Every applicable anchor passes independently:
 
 - identity and descriptor exactness, with web Tektur Variable and the registered static OG instance;
 - home/site-card identity at least `1.50×` the next supporting heading, article h1 at least `1.35×` body, and no desktop primary heading over three lines;

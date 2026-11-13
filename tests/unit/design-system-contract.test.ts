@@ -76,7 +76,7 @@ describe('canonical design-system documentation', () => {
   it('exists as an implementation contract rather than a short moodboard', () => {
     expect(spec.length).toBeGreaterThan(12_000);
     for (const heading of [
-      'Worker execution contract',
+      'Change procedure',
       'Brand foundation',
       'Identity and naming',
       'Typography',
@@ -87,7 +87,7 @@ describe('canonical design-system documentation', () => {
       'Visualizations and interactives',
       'Open Graph and X',
       'Anti-generic release bans',
-      'Autonomous release review',
+      'Release review',
     ]) {
       expect(spec, `missing design-system section: ${heading}`).toContain(
         heading,
@@ -95,7 +95,7 @@ describe('canonical design-system documentation', () => {
     }
     expect(spec).toContain('locked v2.0');
     expect(spec).toContain('No invented symbol');
-    expect(spec).toContain('Validation is autonomous');
+    expect(spec).toContain('Validation is part of the change');
     for (const reference of [
       'library/brand-reference-board.jpeg',
       'library/brand-reference-article.png',
@@ -126,10 +126,10 @@ describe('canonical design-system documentation', () => {
       expect(integrity).toContain(id);
     }
     expect(integrity).toContain('all 27 visual-evidence rows pass');
-    expect(integrity).toContain('No human approval step is required');
+    expect(integrity).toContain('Routine validation needs no separate sign-off');
   });
 
-  it('keeps contributor guidance and retained project-agent instructions wired to the same contracts', () => {
+  it('keeps contributor guidance and the retained project instructions wired to the same specs', () => {
     for (const text of [readme, ...(agents === null ? [] : [agents])]) {
       expect(text).toContain('library/design-system.md');
       expect(text).toContain('library/design-integrity.md');
@@ -355,7 +355,7 @@ describe('identity geometry and typography stay aligned', () => {
     expect(integrity).toContain('DI-TYPE-012');
   });
 
-  it('seals the v2 grid, surface, and autonomous-validation rules', () => {
+  it('seals the v2 grid, surface, and validation rules', () => {
     expect(spec).toContain('12-column desktop grid');
     expect(spec).toContain('8-column tablet grid');
     expect(spec).toContain('4-column mobile grid');
@@ -364,8 +364,8 @@ describe('identity geometry and typography stay aligned', () => {
       expect(spec).toContain(`| ${level} |`);
     }
     expect(spec).toContain('bounded dark instrument');
-    expect(spec).toContain('without waiting for a human visual-review pass');
-    expect(integrity).toContain('No human approval step is required');
+    expect(spec).toContain('resolve drift before asking for review');
+    expect(integrity).toContain('Routine validation needs no separate sign-off');
     for (const id of [
       'DI-GRID-001',
       'DI-SURF-001',

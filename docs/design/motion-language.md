@@ -7,7 +7,7 @@ inherits. The goal is the standard set by hand-animated explanatory
 mathematics videos: concrete objects that transform on a chalkboard while a
 sentence tells you what changed and why.
 
-Owner inputs, in order of authority:
+Sources, in order of authority:
 
 1. [`library/motion-language-spec-20260926.md`](../../library/motion-language-spec-20260926.md) — the binding spec.
 2. `motion-tokens.json` — the single source of truth every generator reads.
@@ -30,8 +30,8 @@ the language fixes three things once:
 Scenes, charts and tools draw on the page itself, inside the shared figure
 frame: header, stage, caption, legend, readout. The stage is the paper
 ground between one hairline rule above the frame and one below, with no
-fill, shadow or plate (owner decision of 2026-10-02, "figures belong to the
-page"). The retired graphite stage is not used anywhere, including the home
+fill, shadow or plate (decided 2026-10-02: figures belong to the
+page). The retired graphite stage is not used anywhere, including the home
 featured scene. The motion keeps the chalkboard feel: smooth easing, staged
 reveals and morphs.
 

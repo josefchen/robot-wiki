@@ -306,7 +306,7 @@
     "element": "ReliabilityThreshold",
     "decision": "remove",
     "teachingGoal": "Share the frontier's fixed-horizon compounding explanation on the home page.",
-    "reason": "Removed: the owner replaced the front page's featured scene with the 3D humanoid explainer on 13 October 2026, and the scene had no other mount, so it was retired."
+    "reason": "Removed: the front page's featured scene was replaced with the 3D humanoid explainer on 13 October 2026, and the scene had no other mount, so it was retired."
   },
   {
     "article": "home",
