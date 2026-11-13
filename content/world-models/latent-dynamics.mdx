@@ -5,7 +5,7 @@ domain: world-models
 slug: latent-dynamics
 order: 2
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - dreamer-2019
   - dreamerv3-2023
@@ -57,73 +57,101 @@ seeAlso:
 
 import { LatentImagination } from '@/components/interactive/latent-imagination';
 
-A <Term id="latent-dynamics">latent-dynamics</Term> world model compresses what a robot senses into a short list of numbers, its latent state, and learns how that state and the reward change under each action. The agent can then practice or plan inside that compressed imagination <Cite id="dreamer-2019" />.
+A <Term id="latent-dynamics">latent-dynamics</Term> world model compresses what a robot senses into a short list of numbers, its latent state, and learns how that state and the reward change under each action. The agent then practices or plans inside that imagination <Cite id="dreamer-2019" />.
 
 <Image id="tdmpc2-task-grid-2023" />
 
-It is one of six groups in the [taxonomy](/world-models/taxonomy/). Embed to Control learned locally linear latent dynamics from raw images in 2015 <Cite id="e2c-2015" />. Imagining is cheap, but each step drifts further from reality; in measured models, how fast this compounding error grows depends most on the system's own dynamics <Cite id="compounding-error-2022" />.
+It is one of six groups in the [taxonomy](/world-models/taxonomy/). Imagining is cheap, but each step drifts further from reality, and the system's own dynamics set how fast that error compounds <Cite id="compounding-error-2022" />.
 
 <LatentImagination className="my-6" />
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed configuration" accent />
   <Stat label="TD-MPC2 agent" value="317M" note="parameters; one offline agent, 80 tasks" />
   <Stat label="DayDreamer A1" value="~1 h" note="one real-world training run" />
-  <Stat label="DreamerV3 horizon" value="15 or 16" note="imagined steps ahead" />
 </div>
 
 <span id="the-rssm-a-state-you-can-dream-in" />
 ## Agents trained inside a recurrent latent model reached human-level Atari
 
-Ha and Schmidhuber trained an agent "entirely inside of its own hallucinated dream" and transferred it back to the real environment <Cite id="ha-world-models-2018" />. PlaNet planned from pixels with a latent model that has a predictable and a random part <Cite id="planet-2018" />. DreamerV3's Recurrent State-Space Model (RSSM) keeps a memory of the past beside a random state for what cannot be predicted, and learns to reconstruct its inputs and predict the reward and whether the episode continues <Cite id="dreamerv3-2023" />.
+DreamerV3's Recurrent State-Space Model (RSSM) pairs a memory of the past with a random state for what cannot be predicted. It learns to reconstruct its inputs and to predict the reward and whether the episode continues <Cite id="dreamerv3-2023" />.
 
-Dreamer's actor and critic, which choose and judge actions, train purely on imagined rollouts started from real states <Cite id="dreamer-2019" />. DreamerV2 was the first agent to reach human-level performance on the 55-task Atari benchmark by learning inside a separately trained world model <Cite id="dreamerv2-2020" />. IRIS <Cite id="iris-world-model-2022" /> and TransDreamer, built for long memory <Cite id="transdreamer-2022" />, later replaced the recurrent core with a <Term id="transformer">transformer</Term>.
+Dreamer's actor and critic train purely on imagined rollouts started from real states <Cite id="dreamer-2019" />. DreamerV2 was the first agent to reach human level on the 55-task Atari benchmark by learning inside a world model <Cite id="dreamerv2-2020" />.
 
-## DreamerV3: one recipe across 150 tasks
+Also: training inside a dream <Cite id="ha-world-models-2018" />, PlaNet <Cite id="planet-2018" />, Embed to Control <Cite id="e2c-2015" />, <Term id="transformer">transformer</Term> cores in IRIS <Cite id="iris-world-model-2022" /> and TransDreamer <Cite id="transdreamer-2022" />.
 
-Reinforcement learning usually needs retuning for each domain; DreamerV3 ran more than 150 tasks across eight domains with fixed hyperparameters <Cite id="dreamerv3-2023" />. Its 2025 Nature article calls it, to the authors' knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula <Cite id="dreamerv3-nature-2025" />, in a simplified version with abstract crafting actions, faster block breaking and rewards for 12 milestones <Cite id="dreamerv3-2023" />.
+## DreamerV3 ran 150 tasks on one configuration
 
-DreamerV3 learned by playing; in 2025 Dreamer 4 became "the first agent to obtain diamonds in Minecraft purely from offline data", using a world model that runs in real time <Cite id="dreamer4-2025" />.
+DreamerV3 ran more than 150 tasks across eight domains with fixed hyperparameters <Cite id="dreamerv3-2023" />. Its 2025 Nature paper reports the first Minecraft diamonds collected from scratch without human data or curricula <Cite id="dreamerv3-nature-2025" />. The game was simplified, with faster block breaking and 12 milestone rewards <Cite id="dreamerv3-2023" />. Dreamer 4 then got diamonds purely from offline data, with a world model that runs in real time <Cite id="dreamer4-2025" />.
 
 <span id="td-mpc-and-td-mpc2-drop-the-decoder-plan-at-every-step" />
 ## TD-MPC2 drops the decoder and plans at every step
 
-Reconstructing pixels spends effort on details the task does not need. MuZero planned with a model predicting only "the reward, the action-selection policy, and the value function" <Cite id="muzero-2019" />, and value-equivalence theory argues that capacity is "better used to build models that are directly useful for value-based planning" <Cite id="value-equivalence-2020" />. TD-MPC predicts reward, value and the next latent state, and at every step scores sampled short action sequences with the model plus a learned estimate of what follows <Cite id="tdmpc-2022" />. TD-MPC2 adds candidates from a learned policy and starts each search from the last solution. One 317-million-parameter agent learned 80 tasks offline from the data of 240 single-task agents, and scores rose across five model sizes <Cite id="tdmpc2-2023" />.
+Reconstructing pixels spends effort on details the task does not need. MuZero planned with a model that predicts only reward, policy and value <Cite id="muzero-2019" />, and value-equivalence theory backs that choice <Cite id="value-equivalence-2020" />. TD-MPC predicts reward, value and the next latent state, and at every step scores short sampled action sequences with the model plus a learned value <Cite id="tdmpc-2022" />.
 
-Other models drop the pixel decoder differently, predicting value and action <Cite id="mudreamer-2024" />, learning from a separately trained masked autoencoder <Cite id="masked-world-models-2022" /> or learning prototypes that ignore distracting backgrounds <Cite id="dreamerpro-2021" />. world2vec (October 2026) reported faithful long-horizon dynamics with at least ten times fewer parameters than DreamerV3, TD-MPC2 or LeWM <Cite id="world2vec-2026" />.
+TD-MPC2 adds candidates from a learned policy and starts each search from the last solution. One 317-million-parameter agent learned 80 tasks offline from the data of 240 single-task agents, and scores rose across five model sizes <Cite id="tdmpc2-2023" />.
+
+| Model | Instead of a pixel decoder |
+| --- | --- |
+| MuDreamer | Predicts value and action <Cite id="mudreamer-2024" /> |
+| Masked world models | Learns from a separately trained masked autoencoder <Cite id="masked-world-models-2022" /> |
+| DreamerPro | Learns prototypes that ignore distracting backgrounds <Cite id="dreamerpro-2021" /> |
+| world2vec (Oct 2026) | Long-horizon dynamics with at least 10x fewer parameters than DreamerV3, TD-MPC2 or LeWM <Cite id="world2vec-2026" /> |
 
 <span id="daydreamer-imagination-on-physical-hardware" />
 ## DayDreamer taught a real quadruped to walk in about an hour
 
-DayDreamer, built on DreamerV2, learned online on four robots without a simulator. In about an hour of real training, a Unitree A1 quadruped learned to roll off its back, stand and walk; a person moved it back from the edge of the area. The model-free SAC algorithm only learned to roll over in that time <Cite id="daydreamer-2022" />. Dreamer's lead author, Danijar Hafner, has since left Google DeepMind for a stealth humanoid startup using model-based RL <Cite id="mittr-hafner-2026" />.
+DayDreamer, built on DreamerV2, learned online on four real robots with no simulator. In about an hour a Unitree A1 learned to roll off its back, stand and walk, while model-free SAC only learned to roll over <Cite id="daydreamer-2022" />. Dreamer's lead author, Danijar Hafner, has left Google DeepMind for a stealth humanoid startup built on model-based RL <Cite id="mittr-hafner-2026" />.
 
 <Image id="daydreamer-ur5-pick-place-2022" />
 
 <span id="the-horizon-problem" />
 ## Latent models imagine only 3 to 16 steps ahead
 
-Because errors compound, latent models look only briefly ahead: DreamerV3 and DayDreamer imagine 15 or 16 steps, depending on how the horizon is counted <Cite id="dreamerv3-2023" /> <Cite id="dreamerv3-nature-2025" /> <Cite id="daydreamer-2022" />. TD-MPC2 plans 3 steps and lets its value estimate cover the rest <Cite id="tdmpc2-2023" />. MBPO keeps model rollouts short and "branched from real data" <Cite id="mbpo-2019" />, and STEVE varies the horizon per example to limit model error <Cite id="steve-2018" />.
+Errors compound, so latent models look briefly ahead. DreamerV3 and DayDreamer imagine 15 or 16 steps <Cite id="dreamerv3-2023" /> <Cite id="dreamerv3-nature-2025" /> <Cite id="daydreamer-2022" />, and TD-MPC2 plans 3 and lets its value estimate cover the rest <Cite id="tdmpc2-2023" />.
 
-Hierarchy helps. HWM stacks world models at several time scales and lifted real Franka pick-and-place from 0% to 70% <Cite id="hwm-2026" />. Puppeteer has a high-level world-model agent command a lower-level controller on a simulated humanoid <Cite id="puppeteer-2024" />. VQ-WM plans over discrete latent states that a feedback controller then reaches, and solved a physical Tower of Hanoi puzzle in every trial from short play data <Cite id="vq-wm-2026" />. Scale alone does not remove errors: a 350-million-parameter model trained on 427 hours across 210 tasks still hallucinated <Cite id="wm-hallucination-2026" />.
+Hierarchy stretches the reach:
+
+| Method | Structure | Result |
+| --- | --- | --- |
+| HWM | World models at several time scales | Real Franka pick-and-place from 0% to 70% <Cite id="hwm-2026" /> |
+| Puppeteer | A world-model agent commands a low-level controller | Simulated humanoid <Cite id="puppeteer-2024" /> |
+| VQ-WM | Plans over discrete states a feedback controller reaches | Physical Tower of Hanoi solved in every trial <Cite id="vq-wm-2026" /> |
+
+Scale does not remove the errors: a 350-million-parameter model trained on 427 hours across 210 tasks still hallucinated <Cite id="wm-hallucination-2026" />.
+
+Also: short branched rollouts in MBPO <Cite id="mbpo-2019" />, per-example horizons in STEVE <Cite id="steve-2018" />.
 
 <span id="successors-and-open-limits" />
 ## Simulation-trained world models now transfer to real legged robots
 
-A world model can also learn from a physics simulator and then replace it. Robotic World Model (RWM) predicts observations far ahead by feeding its own predictions back in. Policies trained inside it transferred zero-shot to ANYmal D and Unitree G1 robots, even under pushes, though safe online learning on hardware remains open <Cite id="robotic-world-model-2025" />. RWM-U adds uncertainty estimates and trains policies "entirely from offline datasets" for a real quadruped and humanoid <Cite id="rwm-u-2025" />. SimDist pretrains in simulation, updates only the latent dynamics on hardware, and kept improving where prior methods stalled <Cite id="simdist-2026" />.
+A world model can learn from a physics simulator and then replace it. Policies trained inside Robotic World Model (RWM), which feeds its own predictions back in, transferred zero-shot to ANYmal D and Unitree G1 robots, even under pushes <Cite id="robotic-world-model-2025" />.
 
-SuperMimic (October 2026) fits one differentiable world model, one that training signals can flow back through, to logged humanoid simulator data. In 3 hours on one GPU it surpassed a motion-tracking baseline trained for 7 days on 128 GPUs, and its policy ran on a physical Unitree G1 <Cite id="supermimic-2026" />. DiffDreamer pairs a learned model of a drone's surroundings with a differentiable simulator of the drone, tested in proof-of-concept real flights <Cite id="diffdreamer-2026" />.
+| Method | How it learns | Real result |
+| --- | --- | --- |
+| RWM-U | Offline datasets only, with uncertainty estimates | A quadruped and a humanoid <Cite id="rwm-u-2025" /> |
+| SimDist | Pretrains in simulation, updates only the latent dynamics on hardware | Kept improving where prior methods stalled <Cite id="simdist-2026" /> |
+| SuperMimic (Oct 2026) | One differentiable model fit to logged humanoid simulator data | In 3 hours on 1 GPU beat a 7-day, 128-GPU tracking baseline; ran on a Unitree G1 <Cite id="supermimic-2026" /> |
+| DiffDreamer | A learned model of the surroundings plus a differentiable drone simulator | Proof-of-concept real flights <Cite id="diffdreamer-2026" /> |
 
 ## Refinements to latent planning bring uneven gains
 
-Dream-MPC refines proposed action sequences along the gradient of predicted return, penalizing uncertainty. It replaced the planner in pretrained TD-MPC2 and BMPC agents on 24 simulated tasks, including humanoid tasks from HumanoidBench <Cite id="humanoidbench-2024" />. Over three seeds the BMPC variant raised the interquartile mean, the average of the middle half of scores, by 26.7%, while the TD-MPC2 variant did not consistently match the original planner <Cite id="dream-mpc-2026" />. BMPC itself learns its policy by imitating the planner <Cite id="bmpc-2025" />.
+Dream-MPC refines proposed action sequences along the gradient of predicted return and penalizes uncertainty. Swapped into pretrained BMPC agents, it raised the interquartile mean over 24 simulated tasks, including HumanoidBench <Cite id="humanoidbench-2024" />, by 26.7%. In TD-MPC2 it did not consistently match the original planner <Cite id="dream-mpc-2026" />.
 
-TD-M(PC)² found that planner-generated data causes "persistent value overestimation" and fixed it with a policy constraint, gaining most on humanoids with 61 <Term id="degrees-of-freedom">degrees of freedom</Term> <Cite id="td-m-pc2-2025" />. Σ-LeWM (November 2026), a decoder-free model with two extra prediction losses, plans faster on two simulated manipulation tasks <Cite id="sigma-lewm-2026" />. Fast-WAM, a video world-action model, skips imagination at run time; it matched its imagine-then-act variants in simulation and cut latency on a real towel-folding task from 810 to 190 milliseconds <Cite id="fast-wam-2026" />.
+| Method | Change | Result |
+| --- | --- | --- |
+| BMPC | Learns its policy by imitating the planner | Base for Dream-MPC's gain <Cite id="bmpc-2025" /> |
+| TD-M(PC)² | Policy constraint against "persistent value overestimation" | Largest gains on humanoids with 61 <Term id="degrees-of-freedom">degrees of freedom</Term> <Cite id="td-m-pc2-2025" /> |
+| Σ-LeWM (Nov 2026) | Decoder-free, two extra prediction losses | Faster planning on two simulated manipulation tasks <Cite id="sigma-lewm-2026" /> |
+| Fast-WAM | Video world-action model that skips imagination at run time | Real towel-folding latency from 810 to 190 ms <Cite id="fast-wam-2026" /> |
 
 ## TD-MPC2's authors expect broad generalization to need far more tasks
 
-TD-MPC2's authors expect that broad generalization, such as transfer to new embodiments, "will likely require several orders of magnitude more tasks" <Cite id="tdmpc2-2023" />. In November 2025 the same group's Newt trained one language-conditioned world model across 200 tasks <Cite id="newt-2025" />. In simulation, one world model trained on up to 90 insertion tasks reached 56% zero-shot success on unseen parts, against 7% for a model-free baseline <Cite id="insertion-world-models-2026" />. DayDreamer's authors also report that long training wears robots out and needs human repair <Cite id="daydreamer-2022" />.
+TD-MPC2's authors expect broad generalization "will likely require several orders of magnitude more tasks" <Cite id="tdmpc2-2023" />. The same group's Newt trained one language-conditioned world model across 200 tasks <Cite id="newt-2025" />. In simulation, one model trained on up to 90 insertion tasks reached 56% zero-shot success on unseen parts, against 7% model-free <Cite id="insertion-world-models-2026" />.
 
 <span id="pick-the-models-role-before-its-architecture" />
 ## Imagination tolerates slow models; online planning needs predictable latency
 
-Imagination-only training, as in Dreamer, tolerates slow generation but can bias the policy without warning. Online planning, as in TD-MPC2, needs predictable latency and a fallback, and a planner that never changes its policy's proposal pays the model's cost for nothing. A latent model can also supply a representation: one simulation-trained world model predicted real legged-locomotion trajectories well enough to inform a separate controller <Cite id="wmp-2024" />. See the [model-based](/world-models/model-based-robot-learning/) and [evaluation](/world-models/evaluation/) guides.
+Training in imagination, as in Dreamer, tolerates a slow model but can bias the policy without warning. Online planning, as in TD-MPC2, needs predictable latency and a fallback. A latent model can also just supply a representation: one simulation-trained model predicted real legged trajectories well enough to inform a separate controller <Cite id="wmp-2024" />.
+
+See the [model-based](/world-models/model-based-robot-learning/) and [evaluation](/world-models/evaluation/) guides.

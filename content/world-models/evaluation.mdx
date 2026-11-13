@@ -6,7 +6,7 @@ slug: evaluation
 order: 7
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - world-model-survey-2026
   - genie-3-2025
@@ -56,7 +56,7 @@ import { EvalShiftTable } from '@/components/mdx/text-tables';
 import { ActionConditioning } from '@/components/interactive/action-conditioning';
 import { WorldModelEvaluationLadder } from '@/components/interactive/world-model-evaluation-ladder';
 
-World-model evaluation checks whether a robot <Term id="world-model">world model</Term> supports the decision it will be used for, from reacting correctly to one action to ranking policies as real trials do. Image quality misses this: on the Physics-IQ benchmark, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
+World-model evaluation tests whether a robot <Term id="world-model">world model</Term> supports the decision it drives. Image quality misses this: on Physics-IQ, physical understanding was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
 
 <Image id="simpler-real-vs-sim-2024" />
 
@@ -85,17 +85,21 @@ World-model evaluation checks whether a robot <Term id="world-model">world model
   takeaway="A policy evaluator must preserve the real policy ordering."
 />
 
-The central failure is action indifference: smooth, realistic futures that ignore the robot's action. A 2026 survey rates controllability above visual plausibility <Cite id="world-model-survey-2026" />, and the closed-loop World-in-World benchmark found it mattered more than visual quality for task success <Cite id="world-in-world-2025" />.
-
 <span id="start-with-the-intended-use" />
 ## Perception scores miss function, so each use needs its own test
 
-WorldArena scores 14 models separately as data engines, policy evaluators and action planners, reporting a "significant perception-functionality gap" <Cite id="worldarena-2026" />. NVIDIA reports DreamGen Bench video scores tracking downstream policy success <Cite id="dreamgen-2025" />. 1X saw unchanged policy weights degrade within days after subtle lighting or background changes <Cite id="1x-world-model-2024" />.
+The central failure is action indifference: realistic futures that ignore the action. Controllability beat visual quality for closed-loop task success <Cite id="world-in-world-2025" />, and a 2026 survey ranks it above plausibility <Cite id="world-model-survey-2026" />.
+
+WorldArena scored 14 models as data engines, evaluators and planners and found a "significant perception-functionality gap" <Cite id="worldarena-2026" />. 1X saw unchanged policy weights degrade within days after subtle lighting changes <Cite id="1x-world-model-2024" />.
+
+Also: DreamGen Bench, whose scores track policy success <Cite id="dreamgen-2025" />.
 
 <span id="level-1-one-step-action-sensitivity" />
 ## Level 1: open models often fail to follow a changed action
 
-Fix the frames, noise, prompt and history, change one action dimension, and check that the prediction changes. WorldEval found that raw action inputs often yield videos that ignore the actions <Cite id="worldeval-2025" />. Across six open models and more than 18,000 test cases, WorldSimProbe found actions systematically under-realized <Cite id="worldsimprobe-2026" />. WorldEcho adds actions beyond the expert data and finds that models trained on demonstrations break on them <Cite id="worldecho-2026" />.
+Change one action dimension, hold the rest fixed, and check that the prediction changes. In six open models over 18,000+ cases, WorldSimProbe found actions systematically under-realized <Cite id="worldsimprobe-2026" />.
+
+Also: WorldEval <Cite id="worldeval-2025" />, WorldEcho on actions outside the demonstrations <Cite id="worldecho-2026" />.
 
 <ActionConditioning defaultConditioning="weak" className="my-6" />
 
@@ -104,46 +108,69 @@ Fix the frames, noise, prompt and history, change one action dimension, and chec
 <span id="level-2-temporal-and-physical-consistency" />
 ## Level 2: pooled video metrics hide physical errors
 
-Roll the model forward on its own predictions, score task events such as grasp, slip and release, and report error per horizon. The common Fréchet Video Distance metric "increases only slightly with large temporal corruption" <Cite id="fvd-content-bias-2024" />. WorldModelBench uses 67,000 human labels to catch violations such as objects resizing <Cite id="worldmodelbench-2025" />. Video models trained on simple physics copied the closest training example out of distribution <Cite id="video-physical-law-2024" />. WMEval (October 2026) runs the same actions in a Unity simulation and the world model, measuring errors against true state <Cite id="wmeval-2026" />.
+Roll the model forward on its own predictions and score grasp and slip events per horizon. Fréchet Video Distance "increases only slightly with large temporal corruption" <Cite id="fvd-content-bias-2024" />.
+
+| Test | Method | Finding |
+| --- | --- | --- |
+| WorldModelBench | 67,000 human labels | Catches objects resizing <Cite id="worldmodelbench-2025" /> |
+| Physical-law study | Models trained on simple physics | Copy the closest training example out of distribution <Cite id="video-physical-law-2024" /> |
+| WMEval (Oct 2026) | Same actions in Unity and the model | Error against true state <Cite id="wmeval-2026" /> |
 
 <Image id="roboworld-bair-forcing-2026" />
 
 <span id="level-3-task-progress-scoring" />
 ## Level 3: the progress scorer needs its own test
 
-Evaluators such as WorldGym pair a video generator with a vision-language model that scores progress; test each half separately <Cite id="worldgym-2025" />. GVL improves such estimates by having the model order shuffled frames, across more than 300 real tasks <Cite id="gvl-2024" />. Runway and DreamDojo used human graders <Cite id="runway-gwm-robotics-eval-2026" /> <Cite id="dreamdojo-2026" />.
+WorldGym pairs a video generator with a vision-language progress scorer; test each half separately <Cite id="worldgym-2025" />. GVL sharpens such scores by ordering shuffled frames, over 300+ real tasks <Cite id="gvl-2024" />. Runway and DreamDojo used human graders <Cite id="runway-gwm-robotics-eval-2026" /> <Cite id="dreamdojo-2026" />.
 
 <span id="level-4-policy-ranking" />
 ## Level 4: the best simulators order policies as real trials do
 
-A policy evaluator must reproduce reality's ordering, measured as Pearson correlation r (1 is perfect) and Mean Maximum Rank Violation, MMRV (lower is better) <Cite id="runway-gwm-robotics-eval-2026" />. Real comparisons often use 10 to 50 trials, and adding trials after peeking inflates false positives; the STEP sequential test cuts trials by up to 32% <Cite id="optimal-stopping-2025" />.
+Agreement is scored as Pearson r (1 is perfect) and Mean Maximum Rank Violation, MMRV (lower is better) <Cite id="runway-gwm-robotics-eval-2026" />. The STEP sequential test cuts the 10 to 50 real trials a comparison needs by up to 32% <Cite id="optimal-stopping-2025" />.
 
 <Image id="roboarena-evaluation-2025" />
 
-Google DeepMind's Veo simulator ranked eight Gemini Robotics checkpoints against over 1,600 real evaluations at MMRV 0.03, though it underpredicted absolute success <Cite id="veo-world-simulator-2025" />. WorldGym reached r = 0.78 <Cite id="worldgym-2025" />, and NVIDIA reports r = 0.995 for DreamDojo <Cite id="dreamdojo-2026" />. PolaRiS found that Ctrl-World "produces heavy hallucinations during object interaction", mis-ranking policies at MMRV 0.22 <Cite id="polaris-2025" />. PhysCanvas, which adds touch, raised its correlation on four tasks from 0.602 to 0.885 with reward-model post-training <Cite id="physcanvas-2026" />.
+| Evaluator | Kind | Agreement with real trials |
+| --- | --- | --- |
+| Veo, 8 Gemini Robotics checkpoints | World model | MMRV 0.03 over 1,600+ real runs; underpredicts absolute success <Cite id="veo-world-simulator-2025" /> |
+| WorldGym | World model | r = 0.78 <Cite id="worldgym-2025" /> |
+| DreamDojo | World model | r = 0.995, NVIDIA's figure <Cite id="dreamdojo-2026" /> |
+| Ctrl-World, tested by PolaRiS | World model | MMRV 0.22, "heavy hallucinations" in contact <Cite id="polaris-2025" /> |
+| PhysCanvas, with touch | World model | r from 0.602 to 0.885 on 4 tasks after reward post-training <Cite id="physcanvas-2026" /> |
+| SimFoundry, scenes rebuilt from video | Physics simulator | r = 0.911, MMRV 0.018, 7 tasks, 5 policy types <Cite id="simfoundry-2026" /> |
+| PolaRiS | Physics simulator | r = 0.9 <Cite id="polaris-2025" /> |
+| X2Real | Physics simulator | r = 0.84 <Cite id="x2real-2026" /> |
 
-Physics simulation sets the bar. SimFoundry (June 2026), which simulates real scenes rebuilt from video, predicted real results across 7 tasks and 5 policy types at mean r = 0.911 and MMRV 0.018 <Cite id="simfoundry-2026" />; PolaRiS reports r = 0.9 <Cite id="polaris-2025" /> and X2Real 0.84 <Cite id="x2real-2026" />. Engines have artifacts too: an October 2026 audit traced objects ejected on RoboTwin to one collision constant, and fixing it raised container-task success from 89% to 98% <Cite id="simuguard-2026" />. WorldFailBench found that seven world models largely fail to reproduce why and when policies fail <Cite id="worldfailbench-2026" />.
+Physics simulation sets the bar but has artifacts: one collision constant ejected objects on RoboTwin; fixing it raised container-task success from 89% to 98% <Cite id="simuguard-2026" />. In WorldFailBench, seven world models largely failed to reproduce why and when policies fail <Cite id="worldfailbench-2026" />.
 
 <span id="level-5-closed-loop-usefulness" />
 ## Level 5: planning and fine-tuning in a world model improved outcomes
 
-Planning with IRASim raised Push-T goal overlap from 0.637 to 0.961 <Cite id="irasim-2024" />. Fine-tuning on Ctrl-World's imagined successes raised policy success by 44.7% <Cite id="ctrl-world-2025" />. Action-observation post-training helped more than a stronger pretrained video generator <Cite id="world-in-world-2025" />. SIMPLER's test, whether simulated and real performance correlate under matched conditions, applies to learned simulators too <Cite id="simpler-2024" />, and RoboArena widens real evaluation beyond one laboratory <Cite id="roboarena-2025" />.
+The last test puts the model in the loop and measures the real robot.
+
+| Use | Model | Result |
+| --- | --- | --- |
+| Planning | IRASim | Push-T goal overlap from 0.637 to 0.961 <Cite id="irasim-2024" /> |
+| Fine-tuning on imagined successes | Ctrl-World | Policy success up 44.7% <Cite id="ctrl-world-2025" /> |
+| Action-observation post-training | World-in-World | Beat a stronger pretrained generator <Cite id="world-in-world-2025" /> |
+
+Also: SIMPLER's sim-real correlation test <Cite id="simpler-2024" />, RoboArena's multi-lab real evaluation <Cite id="roboarena-2025" />.
 
 <span id="control-the-evaluation-shifts" />
 ## Saturated benchmarks hide robustness gaps
 
-Vary one factor at a time; a single "unseen" split can hide what breaks a policy. RoboLab-120 sorts 120 tasks along visual, procedural and relational axes and measures sensitivity to controlled perturbations <Cite id="robolab-2026" />. It is far from saturated: the best world-action model on it, by Runway's November 2026 count, succeeded in 46.2% of 1,200 episodes <Cite id="runway-praxis-1-open-2026" />.
+Vary one factor at a time; one "unseen" split hides what breaks a policy. Nearly all policies PolaRiS tested scored 90% to 95% on LIBERO, poorly correlated with real results <Cite id="polaris-2025" />; LIBERO-Plus perturbations exposed the gaps <Cite id="libero-plus-2025" />.
 
 <EvalShiftTable className="my-6" />
 
-LIBERO-Plus used such perturbations to uncover gaps that a saturated benchmark hid <Cite id="libero-plus-2025" />. PolaRiS found nearly all tested policies scoring 90% to 95% on LIBERO, poorly correlated with real performance <Cite id="polaris-2025" />.
+RoboLab-120 perturbs 120 tasks along visual, procedural and relational axes <Cite id="robolab-2026" />; its best world-action model succeeded in 46.2% of 1,200 episodes, per Runway <Cite id="runway-praxis-1-open-2026" />.
 
 <span id="leakage-and-circularity" />
 ## Disjoint data and blind trials guard against leakage
 
-World models may pretrain on benchmark video, and scorers may share the policy's backbone. Ctrl-World trains on DROID <Cite id="ctrl-world-2025" />, which spans 564 scenes <Cite id="droid-2024" />, and Runway's RoboArena ranking put a DROID-trained policy first <Cite id="runway-gwm-robotics-eval-2026" />. X2Real enforces "strictly disjoint training-evaluation pipelines" <Cite id="x2real-2026" />, and TRI compared policies in blind, randomized trials <Cite id="tri-lbm-2025" />.
+World models may pretrain on benchmark video. Ctrl-World trains on DROID's 564 scenes <Cite id="ctrl-world-2025" /> <Cite id="droid-2024" />, and Runway's RoboArena ranking put a DROID-trained policy first <Cite id="runway-gwm-robotics-eval-2026" />. X2Real keeps "strictly disjoint training-evaluation pipelines" <Cite id="x2real-2026" />; TRI ran blind, randomized trials <Cite id="tri-lbm-2025" />.
 
 <span id="the-minimum-credible-report" />
 ## A credible report pins the benchmark version and the real anchor
 
-Report the use case, action format, horizon and real anchor, separate generator error from scorer error, and name the benchmark version: Physics-IQ Verified refined 57.6% of samples and shifted rankings, with a rank correlation of only 0.46 to the original <Cite id="physics-iq-verified-2026" />. By 1X's arithmetic, with a 15% real gap between two policies, a 70%-accurate world model picks the better one 90% of the time <Cite id="1x-world-model-2025" />.
+Report the use case, action format, horizon, real anchor and benchmark version. Physics-IQ Verified refined 57.6% of samples, and its rankings correlate only 0.46 with the original <Cite id="physics-iq-verified-2026" />. By 1X's arithmetic, a 70%-accurate world model picks the better of two policies 15% apart 90% of the time <Cite id="1x-world-model-2025" />.
