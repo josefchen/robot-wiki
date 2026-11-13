@@ -606,4 +606,11 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['months', 'jam-clearing'],
     text: 'Months to pay back rise with jam-clearing time. At 99% per-pick success they go from 11.8 months with 15-second clearing to 17.3 months with 300-second clearing; at 99.9% they reach 12.1 months at 300 seconds. The current case pays back in 11.6 months.',
   },
+  {
+    component: 'GearRatioBench',
+    file: 'components/interactive/gear-ratio-bench.tsx',
+    route: '/data-hardware/hardware-taxonomy/',
+    quantityNames: ['newton-meters', 'turns a minute'],
+    text: 'With the leg, 5.8 to 1 cassette (MIT Cheetah leg actuator, one planetary stage), the teaching motor gives 14 newton-meters at the joint, enough to hold about 6 kg on a 25 cm lever, a top speed of 517 turns a minute, and a motor that feels 34 times heavier to anything pushing the joint from outside.',
+  },
 ];

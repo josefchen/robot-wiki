@@ -90,6 +90,7 @@ export {
   ExpoFtResults,
   FlowMatchingTrajectory,
   FrictionTransfer,
+  GearRatioBench,
   GaitDiagram,
   GraspWrenchLab,
   HandMotionShare,

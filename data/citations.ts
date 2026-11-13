@@ -23919,6 +23919,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Generalist Team', 'Generalist Team'],
   ['Genesis AI', 'Genesis AI'],
   ['Google DeepMind', 'Google DeepMind'],
+  ['Harmonic Drive LLC', 'Harmonic Drive'],
   ['Hugging Face', 'Hugging Face'],
   ['IEEE Standards Association', 'IEEE Standards Association'],
   ['International Federation of Robotics', 'International Federation of Robotics'],

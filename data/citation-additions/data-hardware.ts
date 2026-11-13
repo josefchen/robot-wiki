@@ -349,4 +349,35 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18873',
     type: 'paper',
   },
+  // wensing-cheetah-actuator-2017: author's proof PDF (mit.edu/~pwensing) read 2026-11-13; DOI printed on it.
+  {
+    id: 'wensing-cheetah-actuator-2017',
+    title: 'Proprioceptive Actuator Design in the MIT Cheetah: Impact Mitigation and High-Bandwidth Physical Interaction for Dynamic Legged Robots',
+    authors: ['Patrick M. Wensing', 'Albert Wang', 'Sangok Seok', 'David Otten', 'Jeffrey Lang', 'Sangbae Kim'],
+    year: 2017,
+    venue: 'IEEE Transactions on Robotics',
+    url: 'https://doi.org/10.1109/TRO.2016.2640183',
+    type: 'paper',
+  },
+  // agiloped-2025: arXiv Atom API and HTML read 2026-11-13 (v1 11 Sep 2025; IEEE ARM 2025).
+  {
+    id: 'agiloped-2025',
+    title: 'AGILOped: Agile Open-Source Humanoid Robot for Research',
+    authors: ['Grzegorz Ficht', 'Luis Denninger', 'Sven Behnke'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2509.09364',
+    url: 'https://arxiv.org/abs/2509.09364',
+    type: 'paper',
+  },
+  // harmonic-drive-csf-catalog-2026: catalog PDF read 2026-11-13 (TI-26108 REV 1, "correct as of July 2026").
+  {
+    id: 'harmonic-drive-csf-catalog-2026',
+    title: 'Speed Reducers for Precision Motion Control: Reducer Catalog, Component Sets CSG/CSF, Engineering Data',
+    authors: ['Harmonic Drive LLC'],
+    year: 2026,
+    venue: 'Harmonic Drive LLC',
+    url: 'https://www.harmonicdrive.net/_hd/content/documents1/CSG-CSF_Component.pdf',
+    type: 'docs',
+  },
 ];
