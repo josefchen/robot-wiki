@@ -635,10 +635,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     kind: 'authored-model',
   },
   'interactive:FrictionTransfer': {
-    // Deterministic transfer model over a trained-mu policy sweep. The
-    // rendered takeaway self-labels ("Authored toy, not measured robot
-    // data"), so VIZ-006 holds. Both success curves share the value role,
-    // so no single lead series is registered.
+    // Deterministic transfer model over a trained-mu policy sweep, drawn as
+    // a floor test bed. The rendered takeaway self-labels ("Illustrative,
+    // not measured robot data"), so VIZ-006 holds. The drawing plots no
+    // series, so no lead series is registered.
     kind: 'authored-model',
   },
   'interactive:GaitDiagram': {

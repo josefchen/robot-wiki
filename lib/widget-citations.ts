@@ -103,6 +103,7 @@ export const WIDGET_CITATION_IDS = {
   DroneDeliveryCounts: () => [...DELIVERY_SOURCES],
   TrajectoryStitching: () => ['offline-rl-vs-bc-2022', 'cog-2020'],
   ActuatorGap: () => ['hwangbo-2019'],
+  FrictionTransfer: () => ['tobin-2017', 'peng-2018'],
   RetargetingGap: () => ['gmr-retargeting-2025', 'h2o-2024'],
   RobotsPerGpu: () => ['rudin-2021', 'isaac-gym-2021'],
   TerrainCurriculum: () => ['rudin-2021'],
