@@ -1,11 +1,11 @@
 ---
 title: "Action Chunking (ACT and ALOHA)"
-description: "Why robot policies predict a burst of future moves instead of one, how ACT made it standard, and how chunks are stitched together without jerks."
+description: "Why robot policies predict a burst of future moves instead of one, and how ACT made it standard."
 domain: manipulation
 slug: action-chunking
 order: 2
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - dagger-2011
   - act-aloha-2023
@@ -50,86 +50,88 @@ seeAlso:
   - "manipulation/rl-finetuning"
   - "manipulation/pi-line"
 ---
-
 import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
 import { LatencyComparison } from '@/components/interactive/latency-comparison';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 
-<Term id="action-chunking">Action chunking</Term> means a robot policy predicts a short sequence of future actions, a chunk, instead of one move at a time <Cite id="act-aloha-2023" />. The term comes from psychology, where grouping actions into one unit makes them cheaper to store and perform <Cite id="act-aloha-2023" /> <Cite id="lai-action-chunking-2022" />.
+With <Term id="action-chunking">action chunking</Term>, a robot policy predicts a short burst of future actions, a chunk, instead of one move at a time <Cite id="act-aloha-2023" />. Fewer decisions mean fewer slips.
 
 <Image id="aloha-unleashed-tasks-2024" />
 
-## Why chunking works
+## Fewer decisions, fewer slips
 
-A policy that picks one move at a time makes thousands of decisions per task, and each slip can lead somewhere no demonstration covered. In [behavior cloning](/manipulation/bc-foundations/) the resulting cost can grow with the square of task length; <Term id="dagger">DAgger</Term>, which has the expert label states the robot reaches, makes the growth linear when one wrong action costs only a bounded amount <Cite id="dagger-2011" />. Chunking instead makes fewer decisions: k actions per prediction cut their number k-fold <Cite id="act-aloha-2023" />. For continuous actions, theory says smooth deterministic imitators can see errors grow exponentially <Cite id="simchowitz-continuous-il-2025" />, which chunking avoids in stable systems <Cite id="zhang-chunking-exploration-2025" />.
+A policy that picks one move at a time makes thousands of decisions per task, and each slip can carry it where no demonstration went. In [behavior cloning](/manipulation/bc-foundations/) that cost can grow with the square of task length; <Term id="dagger">DAgger</Term> makes it linear <Cite id="dagger-2011" />. Chunks of k actions cut the decisions k-fold <Cite id="act-aloha-2023" />.
 
-Experiments in 2026 found that account incomplete. Lazzati, Levine and colleagues (August 2026) ruled out shorter horizons, smoother motion and better representations; chunked policies gain because each action can draw on earlier observations and because they act like an ensemble of models <Cite id="lazzati-why-chunking-2026" />. Zeng, Tedrake and colleagues (August 2026) found that executing long stretches open-loop, without new observations, mainly helps short-memory policies copy history-dependent demonstrations; with enough memory, replanning every step did best <Cite id="open-loop-revisited-2026" />. Injecting small errors across twelve tasks, Goyal (October 2026) found few states where they reliably shrink <Cite id="chunking-stability-measure-2026" />.
+With continuous actions, smooth deterministic imitators can let errors grow exponentially <Cite id="simchowitz-continuous-il-2025" />, and chunking prevents that in stable systems <Cite id="zhang-chunking-exploration-2025" />. Three 2026 studies found this account incomplete.
+
+| Study | Finding |
+| --- | --- |
+| Lazzati, Levine et al., Aug 2026 <Cite id="lazzati-why-chunking-2026" /> | Chunks gain by drawing on earlier observations and acting like an ensemble, not from shorter horizons or smoother motion |
+| Zeng, Tedrake et al., Aug 2026 <Cite id="open-loop-revisited-2026" /> | Open-loop stretches mainly help short-memory policies; with enough memory, replanning every step did best |
+| Goyal, Oct 2026 <Cite id="chunking-stability-measure-2026" /> | Across twelve tasks, few states reliably shrink injected errors |
+
+Also: the term's origin in psychology <Cite id="lai-action-chunking-2022" />.
 
 ## ACT made chunking standard
 
-Action Chunking with Transformers (ACT, 2023) was introduced with ALOHA, a low-cost two-arm [teleoperation rig](/data-hardware/teleop-rigs/), and learned tasks such as opening a translucent condiment cup from 10 minutes of demonstrations, two seconds of motion per prediction <Cite id="act-aloha-2023" />. People repeat a motion slightly differently, so ACT is a <Term id="cvae">conditional variational autoencoder</Term>: training summarizes each demonstrated chunk as a hidden "style" variable, and at test time the policy decodes a chunk from camera images and joint positions with that variable set to zero. Without this, success on human demonstrations fell from 35.3% to 2%, while scripted data barely changed <Cite id="act-aloha-2023" />.
+Action Chunking with Transformers (ACT, 2023) came with ALOHA, a low-cost two-arm [teleoperation rig](/data-hardware/teleop-rigs/), and learned to open a translucent condiment cup from 10 minutes of demonstrations <Cite id="act-aloha-2023" />.
+
+People repeat a motion slightly differently, so ACT is a <Term id="cvae">conditional variational autoencoder</Term>: it compresses each demonstrated chunk into a style variable, set to zero at test time. Without it, success on human demonstrations fell from 35.3% to 2% <Cite id="act-aloha-2023" />.
 
 <Image id="aloha-2-workcell-2024" />
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+<div className="my-6 grid grid-cols-3 gap-4">
   <Stat label="chunk size k" value="100" note="2 s of motion per prediction" />
   <Stat label="control rate" value="50 Hz" />
-  <Stat label="model size" value="~80M" note="parameters" />
   <Stat label="success at k=100" value="44%" note="1% at k=1, in simulation" accent />
 </div>
 
-<Card title="ACT reference configuration" className="my-6">
-  <KeyValue
-    items={[
-      { key: 'observations', value: '4 RGB cameras plus joint positions' },
-      { key: 'action space', value: '14-dim continuous, two 6-DoF ViperX arms plus grippers' },
-      { key: 'training objective', value: 'L1 reconstruction plus KL on the style latent' },
-      { key: 'test-time latent', value: 'z fixed to zero (deterministic decode)' },
-      { key: 'execution', value: 'temporal ensembling over overlapping chunks' },
-    ]}
-  />
-</Card>
+| ACT reference setting | Value |
+| --- | --- |
+| Observations | 4 RGB cameras plus joint positions |
+| Actions | 14-dim continuous: two 6-DoF ViperX arms plus grippers |
+| Training loss | L1 reconstruction plus KL on the style latent |
+| Model size | About 80M parameters |
 
-## Choosing the chunk size
+## Chunk size trades error against reaction time
 
 <ChunkSizeCurve className="my-6" />
 
-Chunk size trades error against reaction time. Over two simulated tasks without ensembling, ACT's success rose from 1% with single actions to 44% with chunks of 100 and dipped at 200 and 400, near open-loop control; two other methods followed suit <Cite id="act-aloha-2023" />. Small chunks bring back <Term id="compounding-error">compounding error</Term>, and large ones react slowly to surprises <Cite id="bidirectional-decoding-2024" />. The best length depends on the task; in flow-based VLAs success rises, then falls, as more of each chunk is executed <Cite id="autohorizon-2026" />. PACE, which picks it on the fly, lifted real ALOHA and Franka success from 50.7% to 70.4% <Cite id="pace-2026" />, and Mixture of Horizons blends several lengths in one model through a learned gate <Cite id="moh-2025" />.
+Small chunks bring back <Term id="compounding-error">compounding error</Term>; large ones react slowly to surprises <Cite id="bidirectional-decoding-2024" />. ACT's success peaked at chunks of 100 and dipped at 200 and 400 <Cite id="act-aloha-2023" />, and flow-based VLAs rise and fall the same way <Cite id="autohorizon-2026" />.
 
-## Stitching chunks together
+Choosing the length on the fly lifted real ALOHA and Franka success from 50.7% to 70.4% with PACE <Cite id="pace-2026" />. Mixture of Horizons blends lengths through a learned gate <Cite id="moh-2025" />.
 
-Jumping from one chunk to the next can jerk the arm. ACT's reference code uses <Term id="temporal-ensembling">temporal ensembling</Term>: it queries the policy every step, so overlapping chunks each propose the current action, and averages them with weights $w_i = \exp(-m \cdot i)$, $m = 0.01$, where $i = 0$ is the oldest, so older predictions count most <Cite id="act-reference-2023" />; the best decay varies by task <Cite id="bidirectional-decoding-2024" />.
+## Overlapping chunks are averaged into one action
+
+Switching chunks abruptly jerks the arm. ACT's code uses <Term id="temporal-ensembling">temporal ensembling</Term>: it queries the policy every step and averages the overlapping predictions <Cite id="act-reference-2023" />. The weights $w_i = \exp(-m \cdot i)$, $m = 0.01$, favor the oldest ($i = 0$); the best decay varies by task <Cite id="bidirectional-decoding-2024" />.
 
 <Image id="temporal-ensembling" />
 
-```python title="temporal_ensembling.py"
-# ACT reference convention: preds contains current-step predictions already
-# selected and ordered oldest-to-newest. Index 0 is the oldest retained
-# prediction, not "zero chunks ago". Reference m=0.01. This helper does not
-# reproduce ACT's raw-buffer nonzero occupancy filter.
-def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
-    weights = np.exp(-m * np.arange(len(preds)))   # w_i = exp(-m * i)
-    weights /= weights.sum()
-    return np.tensordot(weights, np.stack(preds), axes=1)
-```
+## Real-Time Chunking keeps the committed moves
 
-Averaging backfires when consecutive chunks choose different strategies, say left and right around an obstacle <Cite id="bidirectional-decoding-2024" />, or when the model is slow. <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats [the hand-off](/manipulation/realtime-execution/) as inpainting: it freezes the actions that will run while the next chunk is computed and fills in the rest. With π0.5 under 100 or 200 milliseconds of added delay, temporal ensembling triggered protective stops, while RTC held average throughput without retraining <Cite id="real-time-chunking-2025" />, over six tasks of ten episodes each <Cite id="pi-real-time-chunking-blog-2025" />.
+Averaging fails when consecutive chunks go opposite ways around an obstacle <Cite id="bidirectional-decoding-2024" />, or when the model is slow. <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats [the hand-off](/manipulation/realtime-execution/) as inpainting: it freezes the actions that run during computation and fills in the rest. With π0.5 under 100 or 200 ms of added delay, ensembling triggered protective stops while RTC held throughput <Cite id="real-time-chunking-2025" /> <Cite id="pi-real-time-chunking-blog-2025" />.
 
 <LatencyComparison className="my-6" />
 
-## Timing when the world moves
+With moving objects, background replanning helped only while planned actions never ran out <Cite id="libero-dynamic-2026" />. LeRobot ships RTC <Cite id="lerobot-rtc-docs" />.
 
-A training-time variant matched RTC with less computation <Cite id="training-time-rtc-2025" />, REMAC corrects chunks to match what the cameras now see <Cite id="remac-2026" />, and A2C2's per-step corrections beat RTC by 23 points in the Kinetix simulator <Cite id="a2c2-2025" />. The LeRobot library ships RTC for Pi0, Pi0.5 and SmolVLA <Cite id="lerobot-rtc-docs" />.
-
-Moving objects raise the stakes. On LIBERO-Dynamic (October 2026), timing and horizon changed one policy's behavior, and background replanning helped only while planned actions never ran out <Cite id="libero-dynamic-2026" />. Without retraining, PTS replays each planned path faster, raising π0.5's throughput on the LIBERO benchmark by 33% under added latency <Cite id="path-preserving-time-scaling-2026" />. ODEAction (November 2026) drops chunk boundaries, generating each action from the last with a learned differential equation <Cite id="odeaction-2026" />.
+| Method | What it does |
+| --- | --- |
+| Training-time RTC <Cite id="training-time-rtc-2025" /> | Matches RTC with less computation |
+| REMAC <Cite id="remac-2026" /> | Corrects chunks to match what the cameras now see |
+| A2C2 <Cite id="a2c2-2025" /> | Per-step corrections; beats RTC by 23 points in the Kinetix simulator |
+| PTS <Cite id="path-preserving-time-scaling-2026" /> | Replays each planned path faster: π0.5 throughput up 33% on LIBERO under added latency, no retraining |
+| ODEAction, Nov 2026 <Cite id="odeaction-2026" /> | Drops chunk boundaries; a learned differential equation generates each action from the last |
 
 ## Every major policy now chunks
 
-RT-1 predicted one action per step <Cite id="rt1-2022" />; [diffusion](/manipulation/diffusion-policy/), flow and vision-language-action policies now all chunk <Cite id="dehp-2026" />. Octo's ALOHA example predicts 64 actions and executes 12 <Cite id="octo-2024" />, and π0.7 predicts 50 and executes 15 or 25 <Cite id="pi07-2026" />. [π0](/manipulation/pi-line/) generates chunks by <Term id="flow-matching">flow matching</Term> <Cite id="pi0-2024" /> and π0.5 adds FAST tokens <Cite id="pi05-2025" />, though the open openpi code supports only the flow-matching head <Cite id="openpi-repo-2024" />. GR00T N1 adopted ACT-style chunks of 16 <Cite id="gr00t-n1-2025" /> and GR00T N1.7 uses 40 <Cite id="isaac-gr00t-repo-2026" />, while Figure's Helix 02 sends full-body targets 200 times a second to a 1 kHz actuator loop <Cite id="helix-02-2026" />.
+RT-1 predicted one action per step <Cite id="rt1-2022" />; [diffusion](/manipulation/diffusion-policy/), flow and vision-language-action policies now all chunk <Cite id="dehp-2026" />. [π0](/manipulation/pi-line/) generates chunks by <Term id="flow-matching">flow matching</Term> <Cite id="pi0-2024" />; π0.5 adds FAST tokens <Cite id="pi05-2025" />, but openpi ships only the flow head <Cite id="openpi-repo-2024" />.
 
 <PolicyChunkingTable className="my-6" />
 
-Chunks also hide computing time:
+Also: Octo <Cite id="octo-2024" />, π0.7 <Cite id="pi07-2026" />, GR00T N1 <Cite id="gr00t-n1-2025" />, GR00T N1.7 <Cite id="isaac-gr00t-repo-2026" />, Helix 02 <Cite id="helix-02-2026" />.
+
+Chunks also hide inference time.
 
 | System | Time per prediction | Detail |
 | --- | --- | --- |
@@ -139,6 +141,6 @@ Chunks also hide computing time:
 
 <span id="where-the-idea-travels-next" />
 
-## Chunking on mobile robots and in RL
+## Chunking moved to mobile robots and RL
 
-Mobile ALOHA moved the recipe to a wheeled two-arm robot, where co-training with static ALOHA data raised success substantially <Cite id="mobile-aloha-2024" />. ALOHA Unleashed scaled it to over 26,000 real demonstrations for 5 tasks with a diffusion policy <Cite id="aloha-unleashed-2024" />. In [RL fine-tuning](/manipulation/rl-finetuning/), Q-chunking learns over whole chunks, for better exploration and unbiased multi-step value estimates <Cite id="q-chunking-2025" />.
+Mobile ALOHA put the recipe on a wheeled two-arm robot, and co-training with static ALOHA data raised its success <Cite id="mobile-aloha-2024" />. ALOHA Unleashed scaled it to over 26,000 real demonstrations for 5 tasks <Cite id="aloha-unleashed-2024" />. In [RL fine-tuning](/manipulation/rl-finetuning/), Q-chunking learns values over whole chunks for better exploration <Cite id="q-chunking-2025" />.

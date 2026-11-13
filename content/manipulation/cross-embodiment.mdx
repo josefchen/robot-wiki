@@ -5,7 +5,7 @@ domain: manipulation
 slug: cross-embodiment
 order: 11
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - act-aloha-2023
   - pi0-2024
@@ -68,7 +68,7 @@ import { HandMotionShare } from '@/components/interactive/hand-motion-share';
 
 import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
 
-<Term id="cross-embodiment">Cross-embodiment transfer</Term> trains one policy on data from bodies with different joints, controls and cameras, or moves it to a body it has never seen. No robot has enough data alone: Open X-Embodiment pools 22 kinds of robot <Cite id="open-x-embodiment-2023" />, and human video adds a body whose actions must be estimated from images <Cite id="egoscale-2026" />.
+<Term id="cross-embodiment">Cross-embodiment transfer</Term> trains one policy on data from bodies with different joints, controls and cameras, or moves it to an unseen body. No robot has enough data alone: Open X-Embodiment pools 22 robot types <Cite id="open-x-embodiment-2023" />, and human video adds a body whose actions must be estimated <Cite id="egoscale-2026" />.
 
 <Image id="open-x-embodiment-overview-2023" />
 
@@ -83,52 +83,87 @@ import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodi
 
 ## Human video now outweighs robot data
 
-GR00T 2 pretrains on 402,730 hours of first-person human video, 10,184 hours from the handheld UMI gripper <Cite id="umi-2024" /> and 23,500 hours of robot teleoperation <Cite id="gr00t-2-2026" />; 100,000 hours of the human video are open <Cite id="human-1m-100k-2026" />. π0's 10,000 hours are robot data from 7 configurations and 68 tasks, with open OXE, DROID <Cite id="droid-2024" /> and Bridge <Cite id="bridgedata-v2-2023" /> data adding 9.1% by timesteps <Cite id="pi0-2024" />.
+GR00T 2's pretraining mix <Cite id="gr00t-2-2026" />:
 
-[Data quality](/data-hardware/data-bottleneck/) varies: Moritz Reuss judged in October 2025 that "OXE is mostly low-quality data" <Cite id="oxe-quality-critique-2026" />, and Re-Mix's learned mixture weights beat uniform ones by 38% on average <Cite id="remix-2024" />. In Toyota Research Institute's study of 89 policies, co-training across robots improved generalization to new conditions and tasks <Cite id="lbm-cotraining-2026" />.
+| Source | Hours |
+| --- | --- |
+| First-person human video | 402,730, of which 100,000 are open <Cite id="human-1m-100k-2026" /> |
+| Robot teleoperation | 23,500 |
+| Handheld UMI gripper <Cite id="umi-2024" /> | 10,184 |
+
+Open data, including DROID <Cite id="droid-2024" /> and Bridge <Cite id="bridgedata-v2-2023" />, adds 9.1% by timesteps to π0's 10,000 robot hours <Cite id="pi0-2024" />.
+
+[Data quality](/data-hardware/data-bottleneck/) varies: Moritz Reuss judged in October 2025 that "OXE is mostly low-quality data" <Cite id="oxe-quality-critique-2026" />, and Re-Mix's learned mixture weights beat uniform ones by 38% on average <Cite id="remix-2024" />. In TRI's study of 89 policies, co-training across robots improved generalization to new conditions and tasks <Cite id="lbm-cotraining-2026" />.
 
 ## One action format for many bodies
 
-A gripper and a humanoid hand take different commands, which must fit one model. π0 pads every action to the largest robot's 18 dimensions <Cite id="pi0-2024" />. Octo shares one hand-motion format across 25 <Term id="open-x-embodiment">OXE</Term> datasets and adds small heads for new robots <Cite id="octo-2024" />; CrossFormer trains on 900K unaligned trajectories from 20 embodiments <Cite id="crossformer-2024" />. HPT maps each robot's sensors to a few shared tokens across 52 datasets <Cite id="hpt-2024" />, and X-VLA gives each data source a learned prompt that tells the shared model which robot it is reading <Cite id="x-vla-2025" />. LAP writes low-level actions as words and reports over 50% average zero-shot success on unseen robots, about twice the strongest prior <Term id="vision-language-action-model">VLAs</Term> <Cite id="lap-2026" />. CIALLO adapts from one recording of 10 seconds or less and beat fully fine-tuned π0 on two real arms, 76.7% to 70.0% with 20 demonstrations per task <Cite id="ciallo-2026" />.
+A gripper and a humanoid hand need different commands in one model. π0 pads every action to the largest robot's 18 dimensions <Cite id="pi0-2024" />.
+
+| Model | How it shares actions |
+| --- | --- |
+| Octo <Cite id="octo-2024" /> | One hand-motion format across 25 <Term id="open-x-embodiment">OXE</Term> datasets, small heads for new robots |
+| CrossFormer <Cite id="crossformer-2024" /> | Trains on 900K unaligned trajectories from 20 embodiments |
+| HPT <Cite id="hpt-2024" /> | Maps each robot's sensors to a few shared tokens, across 52 datasets |
+| X-VLA <Cite id="x-vla-2025" /> | A learned prompt per data source tells the model which robot it is reading |
+| LAP <Cite id="lap-2026" /> | Low-level actions as words: over 50% average zero-shot success on unseen robots, about twice the strongest prior <Term id="vision-language-action-model">VLAs</Term> |
+| CIALLO <Cite id="ciallo-2026" /> | Adapts from one recording of 10 seconds or less; beat fully fine-tuned π0 on two real arms, 76.7% to 70.0%, with 20 demonstrations per task |
 
 ## Motion Transfer: one checkpoint, three robots
 
-Gemini Robotics 1.5 trains on Internet data and on data from ALOHA, a low-cost two-armed teleoperation rig <Cite id="act-aloha-2023" />, a two-armed Franka and Apptronik's Apollo humanoid. Its Motion Transfer recipe helps on tasks shown only on another robot, less so for Apollo, and one checkpoint drives all three, though the report omits how bodies are aligned <Cite id="gemini-robotics-15-2025" />. DeepMind says tasks shown only to ALOHA 2 "just work" on the other two robots, and vice versa <Cite id="gemini-robotics-15-blog-2025" />.
+Gemini Robotics 1.5 trains one checkpoint on Internet data, ALOHA <Cite id="act-aloha-2023" />, a two-armed Franka and Apptronik's Apollo humanoid. Its Motion Transfer recipe helps on tasks shown only on another robot, less so for Apollo; the report omits how bodies are aligned <Cite id="gemini-robotics-15-2025" />. DeepMind says tasks shown only to ALOHA 2 "just work" on the other two, and vice versa <Cite id="gemini-robotics-15-blog-2025" />.
 
-The first On-Device model, trained only on ALOHA, was adapted to Franka and Apollo <Cite id="gemini-robotics-on-device-2025" />, and DeepMind says On-Device 2 adapts to new two-armed robots in a few hours, typically from fewer than 200 examples <Cite id="gemini-robotics-2-2026" />. Gemini Robotics 2.5 runs on Apollo 2 and the two-gripper Franka Duo, and 96% is reported for Apollo 2 kitting parts at Mercedes-Benz <Cite id="gemini-robotics-2-5-2026" />.
+On-Device, trained only on ALOHA, was adapted to Franka and Apollo <Cite id="gemini-robotics-on-device-2025" />; DeepMind says On-Device 2 adapts to new two-armed robots in hours from under 200 examples <Cite id="gemini-robotics-2-2026" />. Gemini Robotics 2.5 reports 96% for Apollo 2 kitting parts at Mercedes-Benz <Cite id="gemini-robotics-2-5-2026" />.
 
 ## Relative motion links robot and human hands
 
-Motion relative to the hand's current pose can be shared by robots and people. GR00T N1 used body-specific encoders <Cite id="gr00t-n1-2025" />; N1.6 moved most robots to actions relative to the current state, which NVIDIA found smoother and more accurate <Cite id="gr00t-n1-6-2025" />, and N1.7 shares relative <Term id="end-effector">end-effector</Term> motion between humans and robots, calling it key to cross-embodiment performance <Cite id="isaac-gr00t-repo-2026" />.
+GR00T N1 used body-specific encoders <Cite id="gr00t-n1-2025" />; N1.6 moved most robots to state-relative actions, smoother and more accurate per NVIDIA <Cite id="gr00t-n1-6-2025" />. N1.7 shares relative <Term id="end-effector">end-effector</Term> motion between humans and robots and calls it key to cross-embodiment performance <Cite id="isaac-gr00t-repo-2026" />.
 
 <HandMotionShare className="my-6" />
 
 <Image id="egoscale-human-to-robot-2026" />
 
-EgoScale uses relative wrist motion and <Term id="retargeting">retargets</Term> 21 human hand keypoints to the 22-joint Sharpa hand, with per-body adapters around a shared network <Cite id="egoscale-2026" />. Morphometric Imitation retargets reconstructed hand-object interactions across [hand shapes](/frontier/dexterity/) and refines them with residual RL, reaching 89.3% zero-shot success on a Sharpa hand in 300 real trials <Cite id="morphometric-imitation-2026" />.
+EgoScale <Term id="retargeting">retargets</Term> 21 human hand keypoints to the 22-joint Sharpa hand <Cite id="egoscale-2026" />. Morphometric Imitation retargets hand-object interactions across [hand shapes](/frontier/dexterity/), refines them with residual RL and reached 89.3% zero-shot success on a Sharpa hand over 300 real trials <Cite id="morphometric-imitation-2026" />.
 
-## Making robots look alike
+## Image edits make robots look alike
 
-Bodies also differ on camera. Mirage masks the new robot and paints in the familiar one in real time <Cite id="mirage-2024" />. RoVi-Aug synthesizes images with other robots and viewpoints, works zero-shot on an unseen robot, and raises success by up to 30% when co-trained <Cite id="rovi-aug-2024" />. Shadow replaces the robot in the image with a composite segmentation mask <Cite id="shadow-2025" />.
+Mirage masks the new robot and paints in the familiar one in real time <Cite id="mirage-2024" />. RoVi-Aug synthesizes other robots and viewpoints and adds up to 30% success when co-trained <Cite id="rovi-aug-2024" />; Shadow swaps the robot for a composite segmentation mask <Cite id="shadow-2025" />.
 
-## Latent actions as a shared interface
+## Latent actions need no robot labels
 
-A latent action is a learned code for the change between two video frames, needing no robot labels. LAPA pretrains a VLA on such codes before robot fine-tuning, and even human video alone transfers positively <Cite id="lapa-2025" />. A multi-view latent action model found a second camera worth more than four extra embodiments, and gained 20% on hardware from human-hand demonstrations over 850 rollouts <Cite id="multiview-lam-2026" />. Latent Action Diffusion aligns human-hand, robot-hand and gripper actions <Cite id="latent-action-diffusion-2025" />. LAC-WM conditions a world model on shared latent actions; used to pick a VLA's chunks on five unseen LIBERO <Cite id="libero-2023" /> tasks, it raised success from 82.4% to 92.0% <Cite id="lac-wm-2026" />.
+A latent action is a learned code for the change between two video frames. LAPA pretrains a VLA on such codes before robot fine-tuning, and even human video alone transfers positively <Cite id="lapa-2025" />.
+
+| Model | Result |
+| --- | --- |
+| Multi-view latent action model <Cite id="multiview-lam-2026" /> | A second camera was worth more than four extra embodiments; 20% gain on hardware from human-hand demonstrations, over 850 rollouts |
+| Latent Action Diffusion <Cite id="latent-action-diffusion-2025" /> | Aligns human-hand, robot-hand and gripper actions |
+| LAC-WM <Cite id="lac-wm-2026" /> | A world model on shared latent actions picks a VLA's chunks: 82.4% to 92.0% on five unseen LIBERO tasks <Cite id="libero-2023" /> |
 
 ## Recipes for learning from people
 
-Simar Kareer's EgoMimic treated human and robot data alike and found an extra hour of hand data worth more than one of robot data <Cite id="egomimic-2024" />. Kareer and Physical Intelligence colleagues fine-tuned π0.5 <Cite id="pi05-2025" /> on human data, 3D hand positions serving as actions, plus relevant robot data; they report about twice the performance on four scenarios present only in human data, without trial counts <Cite id="pi-human-to-robot-2025" />.
+EgoMimic treated human and robot data alike and found an extra hour of hand data worth more than one of robot data <Cite id="egomimic-2024" />. Physical Intelligence fine-tuned π0.5 <Cite id="pi05-2025" /> on human data, with 3D hand positions as actions, plus relevant robot data. It reports about twice the performance on four human-only scenarios, without trial counts <Cite id="pi-human-to-robot-2025" />.
 
 <Image id="phantom-human-video-robot-2025" />
 
-EgoScale finds a middle stage on aligned human-robot data, between human-video pretraining and robot post-training, helps most <Cite id="egoscale-2026" />. H-RDT adapts a human-video model through modular action layers <Cite id="h-rdt-2025" />, and EgoBridge aligns human and robot representations for a 44% absolute gain <Cite id="egobridge-2025" />. Open-HumanWAM pretrains on 50,000 hours of first-person video and reports in simulation that success rises log-linearly with hours <Cite id="open-humanwam-2026" />. EgoLAP routes human and robot trajectories through a shared language-action chain, reaching 80.1% mean task progress on two-armed YAM robots <Cite id="egolap-2026" />.
+EgoScale finds that a middle stage on aligned human-robot data, between human-video pretraining and robot post-training, helps most <Cite id="egoscale-2026" />.
 
-## What human data buys
+| Recipe | Result |
+| --- | --- |
+| H-RDT <Cite id="h-rdt-2025" /> | Adapts a human-video model through modular action layers |
+| EgoBridge <Cite id="egobridge-2025" /> | Aligns human and robot representations: 44% absolute gain |
+| Open-HumanWAM <Cite id="open-humanwam-2026" /> | 50,000 hours of first-person video; simulated success rises log-linearly with hours |
+| EgoLAP <Cite id="egolap-2026" /> | Shared language-action chain for human and robot trajectories: 80.1% mean task progress on two-armed YAM robots |
 
-Phantom needs no robot data: it paints out the human arm, overlays a rendered robot and reaches up to 92% success zero-shot <Cite id="phantom-2025" />. Masquerade turns everyday human video into robot video and fine-tunes on 50 [robot demonstrations](/data-hardware/teleop-rigs/) per task, beating baselines by 5 to 6 times <Cite id="masquerade-2026" />. Figure says Index human-video pretraining raised Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />, and Generalist's GEN-1 pretrains on over half a million hours from wearables alone <Cite id="generalist-gen1-2026" />.
+## Human video alone can teach robots
 
-In GR00T 2 tests, a two-handed robot taught a chemistry-lab task only by gloved humans lined a funnel with filter paper in 65% of trials, and a YAM arm taught only with UMI or DexUMI <Cite id="dexumi-2025" /> devices sorted 86% of conveyor items, against 28% for GR00T 1.7 and 0% for π0.5 <Cite id="gr00t-2-2026" /> <Cite id="nvidia-corl-gr00t-2-2026" />.
+| System | Result |
+| --- | --- |
+| Phantom <Cite id="phantom-2025" /> | No robot data: paints out the human arm, overlays a rendered robot, up to 92% zero-shot success |
+| Masquerade <Cite id="masquerade-2026" /> | Everyday human video turned into robot video, plus 50 [robot demonstrations](/data-hardware/teleop-rigs/) per task: 5 to 6 times the baselines |
+| Helix 2.5 <Cite id="helix-2-5-2026" /> | Index human-video pretraining lifted zero-shot success in 30 unseen homes from 9% to 56%, per Figure |
+| GEN-1 <Cite id="generalist-gen1-2026" /> | Pretrains on over half a million hours from wearables alone |
+
+In GR00T 2 tests, a two-handed robot taught only by gloved humans lined a funnel with filter paper in 65% of trials. A YAM arm taught only with UMI or DexUMI <Cite id="dexumi-2025" /> devices sorted 86% of conveyor items, against 28% for GR00T 1.7 and 0% for π0.5 <Cite id="gr00t-2-2026" /> <Cite id="nvidia-corl-gr00t-2-2026" />.
 
 ## More bodies beat more data per body
 
-Across about 1,000 procedurally generated walking bodies, adding embodiments generalized more broadly than adding data on fixed ones <Cite id="embodiment-scaling-2025" />. Skild reports a model trained on 100,000 simulated robots and tested zero-shot on new ones <Cite id="skild-omni-bodied-2025" />; its Steel solver simulates mixed batches of robots and tasks at 13.0 times PhysX's peak throughput <Cite id="skild-steel-2026" />.
+Across about 1,000 generated walking bodies, adding embodiments generalized more broadly than adding data on fixed ones <Cite id="embodiment-scaling-2025" />. Skild reports a model trained on 100,000 simulated robots and tested zero-shot on new ones <Cite id="skild-omni-bodied-2025" />. Its Steel solver simulates mixed batches of robots and tasks at 13.0 times PhysX's peak throughput <Cite id="skild-steel-2026" />.

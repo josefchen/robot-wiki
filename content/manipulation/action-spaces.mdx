@@ -6,7 +6,7 @@ slug: action-spaces
 order: 14
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - modern-robotics-2017
   - act-aloha-2023
@@ -59,7 +59,7 @@ import { ImpedancePress } from '@/components/interactive/impedance-press';
 
 import { ActionSpaceTable } from '@/components/mdx/text-tables';
 
-An action space is the format of the numbers a policy outputs and the agreement with the robot's controller about what they mean. It decides what the network learns, what the controller handles, how often the policy runs and whether robots can share data. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id="open-x-embodiment-2023" />.
+An action space is the format of the numbers a policy outputs, plus the controller's agreement on what they mean. It decides what the network learns and whether robots can share data.
 
 <Image id="action-space-study-platforms-2026" />
 
@@ -88,44 +88,86 @@ An action space is the format of the numbers a policy outputs and the agreement 
 
 ## The contract has four parts
 
-A full contract names coordinates (joints, tool or object frame), meaning (target, change, velocity, force or controller setting), timing (rate, horizon, stale predictions) and execution (smoothing, clipping, conversion to joints, safety limits). DROID records commands in several action spaces <Cite id="droid-2024" />, and robosuite's controllers span several <Cite id="robosuite-2020" />.
+| Part | What it fixes |
+| --- | --- |
+| Coordinates | Joints, tool frame or object frame |
+| Meaning | Target, change, velocity, force or controller setting |
+| Timing | Rate, horizon, stale predictions |
+| Execution | Smoothing, clipping, conversion to joints, safety limits |
 
-The label alone does not fix the contract. On three contact-rich Factory assembly tasks <Cite id="factory-2022" />, changing only the physical scale of joint-position actions moved median success by 0.645 to 1.000, so the study's authors ask papers to report the full execution pathway <Cite id="same-label-interface-2026" />.
+A label alone does not fix it. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id="open-x-embodiment-2023" />. On three Factory assembly tasks <Cite id="factory-2022" />, changing only the scale of joint-position actions moved median success by 0.645 to 1.000 <Cite id="same-label-interface-2026" />.
+
+Also: DROID's recorded action spaces <Cite id="droid-2024" />, robosuite <Cite id="robosuite-2020" />.
 
 ## Joint actions are simple but tied to one robot
 
-Joint actions say where each motor goes. ACT, a common imitation baseline, predicts chunks of absolute joint and gripper targets for two ViperX arms <Cite id="act-aloha-2023" />, but the same shoulder angle moves different arms differently. Joint velocity targets drift when integrated; the [kinematics module](/classical/kinematics/) maps joint angles to tool position <Cite id="modern-robotics-2017" />. In locomotion RL, joint-angle targets with local feedback beat raw torques for learning speed, robustness and motion quality <Cite id="peng-action-space-2016" />.
+Joint actions say where each motor goes, and the same shoulder angle moves different arms differently. ACT predicts chunks of absolute joint and gripper targets for two ViperX arms <Cite id="act-aloha-2023" />. In locomotion RL, joint-angle targets with local feedback learned faster and moved better than raw torques <Cite id="peng-action-space-2016" />.
+
+Also: [joint-to-tool kinematics](/classical/kinematics/) <Cite id="modern-robotics-2017" />.
 
 ## Tool motion can be shared across arms
 
-Cartesian actions say what the tool does: move 2 cm left. A change from the current pose means the same on arms with different joints, given a controller to convert it. Khatib's 1987 operational space formulation controls motion and force in these coordinates <Cite id="khatib-1987" />. Euler angles and quaternions jump discontinuously as network outputs, while 6D formats do not <Cite id="rotation-continuity-2018" />.
+Cartesian actions say what the tool does: move 2 cm left. A change from the current pose means the same on any arm whose controller converts it, as in Khatib's operational space formulation <Cite id="khatib-1987" />. Use a 6D rotation format: Euler angles and quaternions jump discontinuously as network outputs <Cite id="rotation-continuity-2018" />.
 
-UMI's handheld grippers record motion relative to the current pose, which suits any robot <Cite id="umi-2024" />. GR00T N1.6 found relative actions smoother and more accurate than absolute ones but prone to error build-up on small datasets <Cite id="gr00t-n1-6-2025" />; N1.7 shares relative tool motion between humans and robots <Cite id="isaac-gr00t-repo-2026" />. Matched VLA pretraining tests found one tool-relative format critical for cross-embodiment transfer <Cite id="vla-scaling-alignment-2026" />.
+| System | Relative tool motion |
+| --- | --- |
+| UMI <Cite id="umi-2024" /> | Handheld grippers record motion relative to the current pose, usable on any robot |
+| GR00T N1.6 <Cite id="gr00t-n1-6-2025" /> | Smoother and more accurate than absolute actions, but errors build up on small datasets |
+| GR00T N1.7 <Cite id="isaac-gr00t-repo-2026" /> | Shared between humans and robots |
+| Matched VLA pretraining <Cite id="vla-scaling-alignment-2026" /> | One tool-relative format was critical for cross-embodiment transfer |
 
-## Force and stiffness for contact
+## Force and stiffness handle contact
 
-Torque actions command forces directly; Levine et al. mapped raw images to motor torques <Cite id="levine-visuomotor-2015" />. They need fast control and a safety layer; Franka's interface takes torque commands at 1 kHz <Cite id="franka-fci-docs" />. FACTR 2 estimates external joint torques on arms without force sensors, and its force-informed training beat prior force-aware policies by over 17% in task progress <Cite id="factr-2-2026" />.
+Torque actions command forces directly and need fast control plus a safety layer; Franka's interface takes torques at 1 kHz <Cite id="franka-fci-docs" />. Levine et al. mapped raw images to motor torques <Cite id="levine-visuomotor-2015" />. FACTR 2 estimates external joint torques without force sensors and beat prior force-aware policies by over 17% in task progress <Cite id="factr-2-2026" />.
 
 <Image id="adaptive-compliance-tasks-2024" />
 
-Impedance actions sit between: the policy sets a target pose and a stiffness, and the controller pulls toward it like a spring. Hogan judged position or force control alone inadequate <Cite id="hogan-1985" />; task-space impedance needed the fewest samples against torque, joint PD and inverse dynamics <Cite id="varin-action-spaces-2019" />, variable impedance in tool space improved sample efficiency, energy use and safety in RL <Cite id="martin-martin-2019" />, and Adaptive Compliance Policy beat position-only policies by over 50% <Cite id="acp-2024" />.
+Impedance actions sit between: the policy sets a target pose and a stiffness, and the controller pulls toward it like a spring. Hogan judged position or force control alone inadequate <Cite id="hogan-1985" />.
+
+| Study | Impedance result |
+| --- | --- |
+| Varin et al. <Cite id="varin-action-spaces-2019" /> | Task-space impedance needed the fewest samples against torque, joint PD and inverse dynamics |
+| Martín-Martín et al. <Cite id="martin-martin-2019" /> | Variable tool-space impedance improved RL sample efficiency, energy use and safety |
+| Adaptive Compliance Policy <Cite id="acp-2024" /> | Beat position-only policies by over 50% |
 
 <ImpedancePress className="my-6" />
 
 ## Chunks change the time axis
 
-An <Term id="action-chunking">action chunk</Term> predicts several steps per inference, which helped ACT and two retrofitted baselines <Cite id="act-aloha-2023" /> ([action chunking](/manipulation/action-chunking/)). Diffusion Policy executes the first part of a predicted horizon, then replans <Cite id="diffusion-policy-2023" />. Chunks go stale when contact changes the scene, which replanning, averaging and real-time chunk replacement address <Cite id="real-time-chunking-2025" /> ([real-time execution](/manipulation/realtime-execution/)).
+An <Term id="action-chunking">action chunk</Term> predicts several steps per inference, which helped ACT and two other baselines <Cite id="act-aloha-2023" /> ([action chunking](/manipulation/action-chunking/)). Diffusion Policy runs the start of each predicted horizon, then replans <Cite id="diffusion-policy-2023" />. Chunks go stale when contact changes the scene, and [real-time chunk replacement](/manipulation/realtime-execution/) fixes that <Cite id="real-time-chunking-2025" />.
 
-GEN-1.5 outputs 100 Hz trajectories <Cite id="gen-1-5-2026" />, Helix 02 sends 1 kHz joint commands beneath 200 Hz targets <Cite id="helix-02-2026" />, and T-Rex lets fast touch signals drive a variable-rate policy, beating the strongest baseline by over 30% on 12 delicate tasks <Cite id="t-rex-2026" />. ODE Policy learns how the action changes and integrates each command from the last, so the trajectory is continuous by construction <Cite id="ode-policy-2026" />.
+| System | Timing |
+| --- | --- |
+| GEN-1.5 <Cite id="gen-1-5-2026" /> | 100 Hz trajectories |
+| Helix 02 <Cite id="helix-02-2026" /> | 1 kHz joint commands beneath 200 Hz targets |
+| T-Rex <Cite id="t-rex-2026" /> | Touch drives a variable-rate policy; over 30% above the strongest baseline on 12 delicate tasks |
+| ODE Policy <Cite id="ode-policy-2026" /> | Integrates each command from the last, so the trajectory is continuous |
 
-## Tokens or continuous numbers
+## Actions are tokens or continuous numbers
 
-RT-2 <Cite id="rt2-2023" /> and OpenVLA write actions as vocabulary tokens; OpenVLA rounds each of seven numbers to one of 256 values <Cite id="openvla-2024" />. Rounding limits resolution, and one token at a time is slow. BEAST's fixed-length B-spline tokens decode in parallel <Cite id="beast-2025" />, and FAST compresses a chunk's frequency components, far outperforming per-number rounding, with a universal tokenizer trained on 1M real robot trajectories <Cite id="pi0-fast-2025" />. ReAT builds each token from the error earlier ones leave, and on LIBERO <Cite id="libero-2023" /> 4 tokens beat 8-token baselines <Cite id="reat-2026" />. LAP writes tool motions as short phrases <Cite id="lap-2026" />.
+RT-2 <Cite id="rt2-2023" /> and OpenVLA write actions as vocabulary tokens; OpenVLA rounds each of seven numbers to one of 256 values <Cite id="openvla-2024" />. Rounding limits resolution, and token-by-token decoding is slow.
 
-Continuous heads skip tokens: OpenVLA-OFT's continuous actions and parallel decoding lifted LIBERO success from 76.5% to 97.1% <Cite id="openvla-oft-2025" />, and Figure says Helix outputs continuous control <Cite id="helix-2025" />. Naively added continuous experts harm training speed and knowledge transfer, which [knowledge insulation](/manipulation/knowledge-insulation/) addresses <Cite id="knowledge-insulation-paper-2025" />. In one PaliGemma <Cite id="paligemma-2024" /> VLA tested on simulated RoboCasa <Cite id="robocasa-2024" /> over five seeds, binned and continuous flow heads reached 53.9% and 52.7%, one-pass continuous regression 38.8%, and one-pass binned prediction 27.1%, which guidance raised to 49.2% <Cite id="discrete-actions-2026" />.
+| Tokenizer | What it does |
+| --- | --- |
+| BEAST <Cite id="beast-2025" /> | Fixed-length B-spline tokens that decode in parallel |
+| FAST <Cite id="pi0-fast-2025" /> | Compresses a chunk's frequency components; far beats per-number rounding, with a universal tokenizer from 1M real trajectories |
+| ReAT <Cite id="reat-2026" /> | Builds each token from the error earlier ones leave; 4 tokens beat 8-token baselines on LIBERO <Cite id="libero-2023" /> |
+| LAP <Cite id="lap-2026" /> | Writes tool motions as short phrases |
 
-## Choosing an action space
+OpenVLA-OFT's continuous actions and parallel decoding lifted LIBERO success from 76.5% to 97.1% <Cite id="openvla-oft-2025" />. Figure says Helix outputs continuous control <Cite id="helix-2025" />. Naively added continuous experts slow training and hurt knowledge transfer, which [knowledge insulation](/manipulation/knowledge-insulation/) fixes <Cite id="knowledge-insulation-paper-2025" />.
 
-Choose the lowest-level action the task needs and the platform runs safely. Across 13,000+ real rollouts and 500+ models, predicting changes from the current pose consistently helped, joint space favored stable control and tool space favored generalization <Cite id="action-space-design-2026" />. In one sim-to-real picking and pushing study, joint velocity beat the tested pose and joint-increment alternatives <Cite id="rl-action-spaces-2026" />.
+One study compared heads on a PaliGemma <Cite id="paligemma-2024" /> VLA in simulated RoboCasa <Cite id="robocasa-2024" />, over five seeds <Cite id="discrete-actions-2026" />.
+
+| Action head | Success |
+| --- | --- |
+| Binned flow | 53.9% |
+| Continuous flow | 52.7% |
+| One-pass binned, with guidance | 49.2% |
+| One-pass continuous regression | 38.8% |
+| One-pass binned | 27.1% |
+
+## Choose the lowest level the task needs
+
+Pick the lowest-level action that the platform runs safely. Across 13,000+ real rollouts and 500+ models, predicting changes from the current pose consistently helped; joint space favored stable control and tool space generalization <Cite id="action-space-design-2026" />. In sim-to-real picking and pushing, joint velocity beat pose and joint-increment actions <Cite id="rl-action-spaces-2026" />.
 
 <ActionSpaceTable className="my-6" />
