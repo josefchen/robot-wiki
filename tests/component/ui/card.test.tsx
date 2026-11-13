@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Card } from '@/components/ui/card';
 
-// Internal navigation must go through next/link (AGENTS.md convention:
+// Internal navigation must go through next/link (project convention:
 // next/link for internal routes, native <a> only for external links). The
 // mock keeps the anchor semantics (role/href assertions still work) while
 // recording every internal href Link is asked to render.

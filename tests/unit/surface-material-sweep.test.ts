@@ -72,9 +72,9 @@ describe('surface and material source sweep', () => {
     // Tailwind arbitrary radii: the code token is the one allowed value.
     // Two sources are named instead of rewritten because a continuity
     // record digests their bytes: the Eureka reward listing draws the same
-    // 7px code corner literally (the reader-first record), and the
+    // 7px code corner literally (the figure rewrite record), and the
     // training-time chart keeps a 1px corner on its 10px legend swatches
-    // (the archived parallel18 proof pins that file). A swatch is a data
+    // (an archived proof pins that file). A swatch is a data
     // mark, which DI-SURF-001 exempts.
     const named: ReadonlyArray<readonly [string, string]> = [
       ['components/interactive/eureka-loop.tsx', 'rounded-[7px]'],

@@ -57,7 +57,7 @@ const NON_MOUNT_FILES = new Set([
 /**
  * Word-boundary JSX check: "<ChartDescription" followed by whitespace, ">"
  * or "/>", so a renamed tag like <ChartDescriptionDisabled> does not
- * satisfy the sweep (the primitive feature's mutation proof caught exactly
+ * satisfy the sweep (the primitive's mutation proof caught exactly
  * that hole).
  */
 const MOUNT_PATTERN = /<ChartDescription(?=[\s>/])/g;

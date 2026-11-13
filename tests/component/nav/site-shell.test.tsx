@@ -331,7 +331,7 @@ describe('SiteShell', () => {
   });
 
   it('opens the same panel at every width, with no breakpoint hand-off', async () => {
-    // Successor of the drawer/sidebar hand-off tests: with no sidebar, the
+    // Replaces the drawer/sidebar hand-off tests: with no sidebar, the
     // panel is the taxonomy at every width, so the shell neither watches a
     // breakpoint nor refuses to open on a wide screen.
     // Every media query reports a match, as on a wide desktop screen.

@@ -28,7 +28,7 @@ export function DidYouKnow() {
           <li
             key={fact.id}
             data-did-you-know={fact.id}
-            className={'border-b border-border py-4' /* taste-skill-ignore: the research-page standard rules lists with 1px hairlines. */}
+            className={'border-b border-border py-4' /* The research-page standard rules lists with 1px hairlines. */}
           >
             {fact.before}
             <Link

@@ -7,8 +7,8 @@ import { cx } from '@/lib/utils';
 /**
  * The shell's search entry point. Submits to /search with the query in the
  * URL. Works without JS via the native GET form; with JS it
- * routes client-side. The structured-results group lands with the
- * foundation-search feature; this box is the stable contract.
+ * routes client-side. The structured-results group lives on the search
+ * page; this box is the stable contract.
  */
 type SearchBoxProps = {
   /** Prefix for element ids so sidebar and drawer instances never collide. */

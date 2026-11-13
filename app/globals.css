@@ -276,7 +276,7 @@
 .home-section {
   margin-top: 80px;
   padding-top: 18px;
-  border-top: 1px solid var(--line-strong); /* taste-skill-ignore: the research-page standard rules sections and lists with 1px hairlines (brand, AGENTS.md). */
+  border-top: 1px solid var(--line-strong); /* The research-page standard rules sections and lists with 1px hairlines (brand). */
 }
 
 .home-h2 {
@@ -430,7 +430,7 @@
   align-content: start;
   row-gap: 16px;
   padding-bottom: 28px;
-  border-bottom: 1px solid var(--line); /* taste-skill-ignore: the research-page standard rules sections and lists with 1px hairlines (brand, AGENTS.md). */
+  border-bottom: 1px solid var(--line); /* The research-page standard rules sections and lists with 1px hairlines (brand). */
 }
 
 .start-entry:last-child {
@@ -590,7 +590,7 @@
   grid-template-columns: minmax(0, 1fr);
   row-gap: 2px;
   padding-block: 14px;
-  border-bottom: 1px solid var(--line); /* taste-skill-ignore: the research-page standard rules sections and lists with 1px hairlines (brand, AGENTS.md). */
+  border-bottom: 1px solid var(--line); /* The research-page standard rules sections and lists with 1px hairlines (brand). */
 }
 
 .latest-row:first-child {
@@ -755,7 +755,7 @@
 .explore-visual {
   display: block;
   margin-bottom: 16px;
-  border-block: 1px solid var(--line); /* taste-skill-ignore: the research-page standard rules sections and lists with 1px hairlines (brand, AGENTS.md). */
+  border-block: 1px solid var(--line); /* The research-page standard rules sections and lists with 1px hairlines (brand). */
 }
 
 .explore-entry:hover .explore-visual > img {

@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-/** Public release trees omit private agent instructions; Next may regenerate
+/** Public release trees omit the project instruction file; Next may regenerate
  * its exact scaffold. A tracked project guide cannot disappear or degrade
  * to that scaffold. */
 export function projectInstructionText(bytes: Buffer | null, tracked: boolean): string | null {
