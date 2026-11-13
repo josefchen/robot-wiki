@@ -1,11 +1,11 @@
 ---
 title: "The Reliability Gap"
-description: "Why a robot that works 80% of the time is a demo and one that works 99.9% is a product, what is closing the gap, and what deployments actually report."
+description: "Why 80% success is a demo and 99.9% a product, what closes the gap, and what deployments report."
 domain: frontier
 slug: reliability-gap
 order: 1
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - bessemer-robotics-2026
   - pistar06-blog-2025
@@ -55,7 +55,7 @@ seeAlso:
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { DeploymentDashboard } from '@/components/interactive/deployment-dashboard';
 
-The reliability gap is the distance between how often a robot succeeds in a lab or demo and how often it must succeed to be useful. Bessemer Venture Partners (2026) calls 80% <Term id="success-rate">success</Term> a demo and 99.9% a product, and closing the gap "not a linear problem" <Cite id="bessemer-robotics-2026" />.
+The reliability gap is the distance between how often a robot succeeds in a demo and how often it must succeed to be useful. Bessemer Venture Partners calls 80% <Term id="success-rate">success</Term> a demo and 99.9% a product <Cite id="bessemer-robotics-2026" />.
 
 <Image id="amazon-swindon-slam-line-2025" />
 
@@ -68,7 +68,7 @@ The reliability gap is the distance between how often a robot succeeds in a lab 
 <span id="the-arithmetic-of-compounding" />
 ## At 99.9% per step, a 30-step task still fails about once in 34 runs
 
-A task is a chain of steps that succeeds only if every link holds. If each of $N$ steps succeeds independently with probability $p$, the task succeeds with probability $p^N$ <Cite id="maker-2025" />: at 99% per step, a 30-step task finishes about three runs in four. A success rate is therefore meaningless without the task's length, and papers often omit runs, starting conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />.
+A task succeeds only if every step does. With $N$ independent steps at probability $p$, it succeeds with probability $p^N$ <Cite id="maker-2025" />, so at 99% per step a 30-step task finishes three runs in four. A success rate means nothing without the task's length, and papers often omit runs, starting conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />.
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} presets="per-step-thresholds" descriptionVariant="reliability" className="my-6" />
 
@@ -76,64 +76,65 @@ A task is a chain of steps that succeeds only if every link holds. If each of $N
 
 ## Each mistake makes the next one likelier
 
-Real errors are worse, because a slip puts the robot somewhere its training data never showed, where the next slip is likelier: <Term id="compounding-error">compounding error</Term>. An imitator with per-step error $\varepsilon$ can make up to $T^2\varepsilon$ mistakes over $T$ steps <Cite id="dagger-2011" />, and smooth deterministic imitators of continuous actions can suffer error "exponentially larger, as a function of problem horizon" <Cite id="simchowitz-continuous-il-2025" />.
+A slip puts the robot where its training data never went, so the next slip is likelier: <Term id="compounding-error">compounding error</Term>. An imitator with per-step error $\varepsilon$ can make up to $T^2\varepsilon$ mistakes over $T$ steps <Cite id="dagger-2011" />, and smooth imitators of continuous actions can suffer error "exponentially larger" with horizon <Cite id="simchowitz-continuous-il-2025" />.
 
-In NVIDIA's GR00T 2 report (November 2026), an arm taught a toy dump-truck assembly from about 20 handheld demonstrations finished 1 of 10 trials, yet its average progress score was 81 out of 100 <Cite id="gr00t-2-2026" />: most steps went right, most runs failed. Holding 99% end-to-end over 50 steps needs about 99.98% per step, which no generalist policy publishes.
+In GR00T 2's report, an arm taught a toy truck assembly from about 20 demonstrations finished 1 of 10 trials while scoring 81 of 100 on progress <Cite id="gr00t-2-2026" />. Holding 99% end-to-end over 50 steps needs about 99.98% per step, which no generalist policy publishes.
 
 <span id="why-the-last-stretch-is-different" />
 ## The last stretch to 99.9% needs other tools
 
-Formal proof scales badly: Hamilton-Jacobi reachability, a standard method, faces "exponential computational complexity with respect to the number of state variables" <Cite id="hj-reachability-2017" />, and no deployed <Term id="vision-language-action-model">vision-language-action model</Term> publishes formal safety guarantees. Assurance rests on testing and monitoring ([evaluation crisis](/data-hardware/evaluation-crisis/)). Bessemer argues that the last 20% of the climb from 80% requires "fundamentally different approaches", such as tactile sensing and force feedback, and Lisa Yan of Argus Systems calls closing the gap between 99% and 99.9% "a steep hill climb that takes longer than most people realize" <Cite id="bessemer-robotics-2026" />.
+Formal proof scales badly: Hamilton-Jacobi reachability faces "exponential computational complexity with respect to the number of state variables" <Cite id="hj-reachability-2017" />. No deployed <Term id="vision-language-action-model">vision-language-action model</Term> publishes formal guarantees, so assurance rests on testing and monitoring ([evaluation crisis](/data-hardware/evaluation-crisis/)).
 
 <span id="what-is-closing-the-gap" />
 ## Practice on the job lifts single tasks above 90%
 
-The most direct fix is <Term id="reinforcement-learning">reinforcement learning</Term> on the robot's own attempts. Physical Intelligence reports that π*0.6 with Recap at least halves failure rates on hard tasks <Cite id="pistar06-blog-2025" />, with every task except diverse laundry in the 90%+ range <Cite id="pistar06-2025" />. HIL-SERL (2024) reached near-perfect success within 1 to 2.5 hours of training <Cite id="hil-serl-2024" />, RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks <Cite id="rl-100-2025" />, and Real-Time EXPO-FT lifted four dynamic tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />. In an October 2026 Tsinghua and AgiBot preprint, 96 robots pooling their executions raised phone packaging from 79.2% to 98.3% over 120 trials, though operators labeled outcomes and reset scenes <Cite id="collective-experience-learning-2026" />.
+<Term id="reinforcement-learning">Reinforcement learning</Term> on the robot's own attempts is the most direct fix, mostly one task at a time:
 
-Most are single-task specialists, though RL-100 keeps about 90% success when the environment and dynamics shift <Cite id="rl-100-2025" /> and RAPolicy raised five jointly trained tasks from 52% to 88% <Cite id="rapolicy-2026" />. Generalist AI reports that GEN-1 averages 99% on fine-tuned tasks where GEN-0 reached 64% <Cite id="generalist-gen1-2026" />.
+| System | Result |
+| --- | --- |
+| π*0.6 with Recap (2025) | At least halves failures on hard tasks <Cite id="pistar06-blog-2025" />; 90%+ on all but diverse laundry <Cite id="pistar06-2025" /> |
+| HIL-SERL (2024) | Near-perfect after 1 to 2.5 hours of training <Cite id="hil-serl-2024" /> |
+| RL-100 (2025) | 1,000 of 1,000 episodes across 8 tasks <Cite id="rl-100-2025" /> |
+| Real-Time EXPO-FT (2026) | Four dynamic tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" /> |
+| 96 pooled robots (2026) | Phone packaging from 79.2% to 98.3%, operators resetting scenes <Cite id="collective-experience-learning-2026" /> |
+| RAPolicy (2026) | Five jointly trained tasks from 52% to 88% <Cite id="rapolicy-2026" /> |
+| GEN-1 (2026) | 99% on fine-tuned tasks, against 64% for GEN-0 <Cite id="generalist-gen1-2026" /> |
 
 <span id="runtime-monitors-make-failures-visible-and-human-help-rescues-episodes" />
 ## Monitors flag failures, and help fixes them
 
-A runtime monitor flags a failure as it starts. FAIL-Detect learns this "from successful training data alone" <Cite id="fail-detect-2025" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id="sentinel-2024" />. Google DeepMind's ASIMOV-Agentic benchmark checks payload, reach and safety limits <Cite id="asimov-agentic-2026" />, and DeepMind calls Gemini Robotics ER 2 its safest robotics model on such benchmarks <Cite id="gemini-robotics-2-2026" />. Fixing the failure is a separate job: a language model can explain it and replan (REFLECT) <Cite id="reflect-robot-2023" />, a vision-language model can check plan constraints during execution (DoReMi) <Cite id="doremi-robot-2023" />, a second policy can steer back to safety (Recovery RL) <Cite id="recovery-rl-2020" />, or the arm can retrace and retry, which cut failures on simulated LIBERO-Long tasks by 19 to 48% (Backtrack) <Cite id="backtrack-vla-2026" />.
+A runtime monitor flags a failure as it starts. FAIL-Detect learns this "from successful training data alone" <Cite id="fail-detect-2025" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id="sentinel-2024" />. DeepMind's ASIMOV-Agentic checks payload, reach and safety limits <Cite id="asimov-agentic-2026" />, and Gemini Robotics ER 2 is its safest model on such tests <Cite id="gemini-robotics-2-2026" />.
 
-The best long-task results lean on help. From cluttered starts, GR00T 2 assembled three toys in 97 or more of 100 trials each only with corrective data and a repairing agent, against 71 to 84 without it, and in trash sorting the robot waited for its agent a median 38% of each episode <Cite id="gr00t-2-2026" />. People are the last backstop: π0.7 takes step-by-step language coaching <Cite id="pi07-blog-2026" />, HG-DAgger lets an expert take over <Cite id="hg-dagger-2019" />, and 1X offers NEO owners a remote expert for unfamiliar chores <Cite id="1x-neo-2026" />.
+| Fix | Method |
+| --- | --- |
+| A language model explains the failure and replans | REFLECT <Cite id="reflect-robot-2023" /> |
+| A vision-language model checks plan constraints | DoReMi <Cite id="doremi-robot-2023" /> |
+| A second policy steers back to safety | Recovery RL <Cite id="recovery-rl-2020" /> |
+| The arm retraces and retries, 19 to 48% fewer failures | Backtrack <Cite id="backtrack-vla-2026" /> |
+
+The best long-task results lean on help. GR00T 2 assembled three toys in 97 or more of 100 trials each only with corrective data and a repairing agent, against 71 to 84 without <Cite id="gr00t-2-2026" />.
+
+Also: language coaching <Cite id="pi07-blog-2026" />, expert takeover <Cite id="hg-dagger-2019" />, remote experts for NEO owners <Cite id="1x-neo-2026" />.
 
 <span id="what-is-actually-deployed" />
 ## Deployment records count hours and parts
 
-Companies publish hours and parts, rarely failures. Agility's November 2026 Nasdaq listing cites more than 65,000 hours of Digit operation <Cite id="agility-nasdaq-listing-2026" /> ([industrial deployment](/data-hardware/industrial-deployment/)) and about 98% on-task accuracy across 100,000 totes at one GXO site <Cite id="agility-digit-5-2026" />. Figure says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, with its 84-second cycle and over 99% placement accuracy stated as targets <Cite id="figure-bmw-production-2025" />. BMW told Fortune in 2025 and Forbes in October 2026 that one Figure robot worked at a time <Cite id="fortune-figure-bmw-2025" /> <Cite id="forbes-adcock-figure-2026" />. Tesla says Optimus production began on Fremont's high-volume lines, with no rate disclosed <Cite id="tesla-q3-2026-update" />.
+Companies publish hours and parts, rarely failures ([industrial deployment](/data-hardware/industrial-deployment/)):
+
+| Deployment | Reported |
+| --- | --- |
+| Agility Digit | 65,000+ hours <Cite id="agility-nasdaq-listing-2026" />; about 98% on-task over 100,000 totes at one GXO site <Cite id="agility-digit-5-2026" /> |
+| Figure at BMW | 1,250+ hours and 90,000+ parts in eleven months <Cite id="figure-bmw-production-2025" />; one robot at a time <Cite id="fortune-figure-bmw-2025" /> <Cite id="forbes-adcock-figure-2026" /> |
+| Tesla Optimus | Production on Fremont lines, no rate <Cite id="tesla-q3-2026-update" /> |
+| Figure livestream | Planned as one shift <Cite id="adcock-figure-livestream-2026" />, ran 200 hours <Cite id="helix-2-5-2026" />; a stuck robot reset <Cite id="bi-figure-livestream-2026" />; no success rate |
 
 <Image id="tesla-optimus-stockholm-2024" />
 
 <DeploymentDashboard className="my-6" />
 
-Figure's May 2026 package-sorting livestream, planned as one eight-hour shift <Cite id="adcock-figure-livestream-2026" />, ran 200 hours by Figure's account <Cite id="helix-2-5-2026" />; Business Insider reported a stuck robot triggering an automatic reset <Cite id="bi-figure-livestream-2026" />, and no success rate was published.
-
 <span id="what-solved-would-look-like" />
 ## Showing 99.9% takes about 3,000 straight successes
 
-With zero failures in $n$ trials, the 95% upper bound on the failure rate is still about ${3/n}$ <Cite id="hanley-zero-numerators-1983" />, so a 99.9% claim needs about 3,000 successes in a row. Real-robot comparisons often stop at 10 or 50 trials <Cite id="optimal-stopping-2025" />, and none of the vendor records above discloses a <Term id="mean-time-between-failures">mean time between failures</Term> or an intervention count. Toyota Research Institute's blind, randomized trials show the discipline needed <Cite id="tri-lbm-2025" />, and Waymo's crash-rate comparison rested on 56.7 million rider-only miles <Cite id="waymo-crash-rates-2025" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)). [Safety and assurance](/frontier/safety-and-assurance/) covers the standards a learned policy cannot be rated under.
+With zero failures in $n$ trials, the 95% upper bound on the failure rate is still about ${3/n}$ <Cite id="hanley-zero-numerators-1983" />, so a 99.9% claim needs about 3,000 successes in a row. Real-robot comparisons often stop at 10 or 50 trials <Cite id="optimal-stopping-2025" />, and no vendor above discloses a <Term id="mean-time-between-failures">mean time between failures</Term>.
 
-<SelfCheck
-  prompt="Each of your system's 30 steps succeeds 99% of the time, and a customer needs 99% end-to-end success. A vendor offers a runtime monitor that detects failures as they start. Does detection alone demonstrate the required reliability?"
-  options={[
-    {
-      value: 'monitor-closes',
-      label: 'Yes: detecting failures means most affected episodes still complete, so the system meets the target',
-      why: "Detecting a failure is different from completing the task. A safe stop, a recovery and a human intervention are different outcomes to report separately."
-    },
-    {
-      value: 'monitor-no',
-      label: "No. Detection needs a tested response, and the complete system needs an end-to-end evaluation",
-      why: 'A detector and a recovery controller do different jobs. Establish the rate by evaluating completed tasks under defined conditions and reporting every intervention, human help included.'
-    },
-    {
-      value: 'human-coach',
-      label: 'No, so put a human coach on every episode instead',
-      why: 'Coaching helps, as π0.7 shows, but the customer needs the rate with the coach removed. A coached episode does not show the system reaching 99% on its own.'
-    }
-  ]}
-  answer="monitor-no"
-  takeaway="Detection, recovery and policy improvement have different roles; report completed tasks and interventions for the whole system."
-/>
+Toyota Research Institute's blind, randomized trials show the discipline needed <Cite id="tri-lbm-2025" />, and Waymo's crash-rate comparison rested on 56.7 million rider-only miles <Cite id="waymo-crash-rates-2025" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)). [Safety and assurance](/frontier/safety-and-assurance/) covers the standards a learned policy cannot be rated under.

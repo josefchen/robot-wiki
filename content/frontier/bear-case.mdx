@@ -5,7 +5,7 @@ domain: frontier
 slug: bear-case
 order: 5
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - brooks-dexterity-2025
   - brooks-scorecard-2026
@@ -60,11 +60,11 @@ import { FundingHumanoidCounts } from '@/components/interactive/funding-humanoid
 
 import { MilestonesWatchlist } from '@/components/interactive/milestones-watchlist';
 
-The bear case argues that robot learning will repeat earlier AI winters: money arrives on demonstrations, evidence of useful work lags, and funding runs out before robots are reliable enough to sell. Crunchbase counted \$9.9B of robotics venture funding in the third quarter of 2026 alone, more than double a year earlier <Cite id="crunchbase-robotics-q3-2026" />.
+The bear case says robot learning will repeat earlier AI winters: money arrives on demonstrations, useful work lags, and funding runs out before robots are reliable enough to sell. Crunchbase counted \$9.9B of robotics venture funding in the third quarter of 2026, more than double a year earlier <Cite id="crunchbase-robotics-q3-2026" />.
 
 <Image id="asimo-miraikan-2016" />
 
-Eight milestones would settle the argument. For one of them, reinforcement learning above 99% across a broad task set, RL-100 and π*0.6 report some of the highest published per-task reliabilities <Cite id="rl-100-2025" /> <Cite id="pistar06-2025" />.
+Eight milestones would settle it. RL-100 and π*0.6 report some of the highest published per-task reliabilities toward one of them, reinforcement learning above 99% <Cite id="rl-100-2025" /> <Cite id="pistar06-2025" />.
 
 <MilestonesWatchlist className="my-6 wide-measure" />
 
@@ -77,52 +77,80 @@ Eight milestones would settle the argument. For one of them, reinforcement learn
 <span id="the-skeptic-record" />
 ## Brooks calls the dexterity forecasts fantasy, and Morgan Stanley asks for ROI
 
-Rodney Brooks, co-founder of iRobot and Rethink Robotics, calls expecting practical humanoid dexterity from current methods within decades "pure fantasy thinking", because training on video gives a robot no sense of force ([dexterity](/frontier/dexterity/)) <Cite id="brooks-dexterity-2025" />. His January 2026 scorecard predicts deployable dexterity "will remain pathetic compared to human hands" beyond 2036, and walking humanoids too unsafe near people without new mechanical systems <Cite id="brooks-scorecard-2026" />. He has written that economy-changing technologies each "took over 50 years of continuous at scale deployment" (August 2026) <Cite id="brooks-four-time-scales-2026" /> and that current machine learning "may run out of steam" (November) <Cite id="brooks-does-until-2026" />. His Rethink raised \$150 million and closed in 2018 when sales fell short <Cite id="rethink-shutdown-2018" />.
+Rodney Brooks calls practical humanoid dexterity from current methods within decades "pure fantasy thinking", because video carries no sense of force ([dexterity](/frontier/dexterity/)) <Cite id="brooks-dexterity-2025" />. His January 2026 scorecard says deployable dexterity "will remain pathetic compared to human hands" beyond 2036 <Cite id="brooks-scorecard-2026" />. The iRobot co-founder's Rethink Robotics raised \$150 million and closed in 2018 when sales fell short <Cite id="rethink-shutdown-2018" />.
+
+Also: Brooks on 50-year deployment cycles <Cite id="brooks-four-time-scales-2026" />, on machine learning running out of steam <Cite id="brooks-does-until-2026" />.
 
 <Image id="roomba-870-2014" />
 
-Morgan Stanley's July 2026 note says humanoids have a "PR problem", framed as worker substitutes instead of tools for hazardous or labor-constrained work, and that investors "are increasingly looking for tangible evidence of real-world return on investment" <Cite id="morgan-stanley-pr-problem-2026" />.
+Morgan Stanley's July 2026 note says humanoids have a "PR problem" and that investors "are increasingly looking for tangible evidence of real-world return on investment" <Cite id="morgan-stanley-pr-problem-2026" />.
 
 <span id="unit-economics" />
 ## Revenue is still small next to losses
 
-Unitree's Q1 2026 adjusted net profit fell 52.55% year over year, per its STAR Market prospectus <Cite id="unitree-prospectus-2026" />. Agility's merger filings show \$1.8 million of 2025 revenue against a \$138.1 million net loss, with more than half the revenue from five robots bought by one investor <Cite id="bi-agility-ipo-2026" />. Bessemer expects industry data costs above \$3B over the next two years and calls capital the moat <Cite id="bessemer-robotics-2026" /> ([industrial deployment](/data-hardware/industrial-deployment/)).
+Agility's merger filings show \$1.8 million of 2025 revenue against a \$138.1 million net loss, with over half the revenue from five robots one investor bought <Cite id="bi-agility-ipo-2026" />. Unitree's Q1 2026 adjusted net profit fell 52.55% <Cite id="unitree-prospectus-2026" />. Bessemer expects data costs above \$3B over two years and calls capital the moat <Cite id="bessemer-robotics-2026" /> ([industrial deployment](/data-hardware/industrial-deployment/)).
 
 <span id="the-demo-to-deployment-gap" />
 ## Vendor hours and shipment counts do not document productive work
 
-Agility reports more than 65,000 hours of Digit operation <Cite id="agility-nasdaq-listing-2026" /> and Figure reports 1,250+ hours at BMW Spartanburg by November 2025 <Cite id="figure-bmw-production-2025" />, but neither counts autonomous units or supervised time ([evaluation crisis](/data-hardware/evaluation-crisis/)), and BMW told Forbes that only one Figure robot worked at a time <Cite id="forbes-adcock-figure-2026" />.
+Agility reports 65,000+ hours of Digit operation <Cite id="agility-nasdaq-listing-2026" /> and Figure 1,250+ hours at BMW Spartanburg <Cite id="figure-bmw-production-2025" />, but neither counts autonomous units or supervised time ([evaluation crisis](/data-hardware/evaluation-crisis/)). BMW told Forbes only one Figure robot worked at a time <Cite id="forbes-adcock-figure-2026" />.
 
-Omdia counted about 13,000 humanoids shipped in 2025 <Cite id="agibot-omdia-ranking-2026" /> <Cite id="agibot-omdia-2026" />, SAG 19.1K in the first half of 2026 <Cite id="sag-humanoid-shipments-2026" />, and the IFR about 7,000 full-size humanoids sold in 2025 <Cite id="ifr-service-robots-2026" />. Tesla says Optimus production began in Fremont <Cite id="tesla-q3-2026-update" />, but Elon Musk put outside deliveries around the end of 2027 and called the hand the hardest hardware problem <Cite id="tesla-q3-2026-call" />.
+| Tracker | Humanoid count |
+| --- | --- |
+| Omdia | About 13,000 shipped in 2025 <Cite id="agibot-omdia-ranking-2026" /> <Cite id="agibot-omdia-2026" /> |
+| SAG | 19.1K shipped in the first half of 2026 <Cite id="sag-humanoid-shipments-2026" /> |
+| IFR | About 7,000 full-size humanoids sold in 2025 <Cite id="ifr-service-robots-2026" /> |
+
+Tesla says Optimus production began in Fremont <Cite id="tesla-q3-2026-update" />, but Elon Musk put outside deliveries near the end of 2027 and called the hand the hardest problem <Cite id="tesla-q3-2026-call" />.
 
 <span id="the-capital-cycle" />
 ## Robotics funding passed 23 billion dollars by June 2026, and China repriced first
 
-Crunchbase put 2026 robotics funding at \$18.8B by late June <Cite id="crunchbase-robotics-funding-2026" />, and a newsletter put it above \$23B by early June on PitchBook's broader tally <Cite id="robotics-funding-23b-2026" />. Bessemer argues there is "no robotics bubble" and the sector is "structurally underinvested", while conceding "some valuations are stretched" <Cite id="bessemer-robotics-2026" />. Brooks calls some humanoid hype "downright delusional" <Cite id="brooks-scorecard-2026" />, and Morgan Stanley makes no bubble call <Cite id="morgan-stanley-pr-problem-2026" /> ([competing theses](/frontier/competing-theses/)).
+Crunchbase put 2026 robotics funding at \$18.8B by late June <Cite id="crunchbase-robotics-funding-2026" />, and PitchBook's broader tally passed \$23B by early June <Cite id="robotics-funding-23b-2026" />. Bessemer calls the sector "structurally underinvested" while conceding "some valuations are stretched" <Cite id="bessemer-robotics-2026" />. Brooks calls some humanoid hype "downright delusional" <Cite id="brooks-scorecard-2026" />; Morgan Stanley makes no bubble call <Cite id="morgan-stanley-pr-problem-2026" /> ([competing theses](/frontier/competing-theses/)).
 
 <FundingHumanoidCounts className="my-6" />
 
-On September 21, 2026, Reuters reported Chinese regulators slowing humanoid listings after Unitree's shares rose more than fivefold on debut and then fell 55% from their peak, and quoted a venture capitalist on 30% to 50% valuation cuts for some private projects <Cite id="reuters-china-humanoid-ipo-2026" />. In late October, after a 65% rise in seven trading days, Unitree itself warned investors of valuation risks <Cite id="caixin-unitree-valuation-2026" />.
+After Unitree's shares rose more than fivefold on debut and fell 55% from the peak, Chinese regulators slowed humanoid listings <Cite id="reuters-china-humanoid-ipo-2026" />. In late October, after a 65% rise in seven trading days, Unitree warned investors of valuation risks <Cite id="caixin-unitree-valuation-2026" />.
 
 <span id="how-a-winter-would-happen" />
 ## Three hypothetical failures could start a winter
 
-The precedent is Britain's 1973 Lighthill report, which found progress in building robots "even more disappointing" than in the rest of AI <Cite id="lighthill-1973" />.
+The precedent is Britain's 1973 Lighthill report, which found robot-building progress "even more disappointing" than the rest of AI <Cite id="lighthill-1973" />.
 
-The [reliability gap](/frontier/reliability-gap/) could outlast patience. Bessemer says the last 20% "takes longer than most timelines assume", and Lisa Yan of Argus Systems calls 99% to 99.9% "a steep hill climb" <Cite id="bessemer-robotics-2026" />; if that takes five more years of task-by-task engineering, 2026 funds will be judged on pilots. The data thesis could plateau: if ten times the data stops buying <Term id="success-rate">success-rate</Term> gains, new science is needed, such as touch, contact-faithful simulation or world models ([data bottleneck](/data-hardware/data-bottleneck/)). Ken Goldberg's 100,000-year data gap is the timing version: he accepts data-driven methods "will eventually produce general purpose robots" and asks when <Cite id="goldberg-data-gap-2025" />.
+| Failure | What it would mean |
+| --- | --- |
+| The [reliability gap](/frontier/reliability-gap/) outlasts patience | The last 20% "takes longer than most timelines assume" <Cite id="bessemer-robotics-2026" />, and 2026 funds get judged on pilots |
+| Data stops paying | Ten times the data buys no <Term id="success-rate">success-rate</Term> gain, so touch, contact-faithful simulation or world models must supply it ([data bottleneck](/data-hardware/data-bottleneck/)) |
+| The humanoid form is wrong | Task-specific systems keep winning on cost per task <Cite id="brooks-dexterity-2025" /> |
 
-Or the humanoid form could be wrong: if task-specific systems keep winning cost per task, the humanoid thesis behind most of the capital collapses, as Brooks's "pure fantasy thinking" line predicts <Cite id="brooks-dexterity-2025" />.
+Ken Goldberg grants that data-driven methods "will eventually produce general purpose robots"; his 100,000-year data gap asks when <Cite id="goldberg-data-gap-2025" />.
 
 <span id="the-watchlist" />
 ## As of November 2026, none of the eight milestones is met
 
-The counter-evidence is progress short of the bars. In unseen homes, π0.5 cleaned kitchens and bedrooms <Cite id="pi05-2025" />, and Figure reported 56% zero-shot success in 30 unseen homes, against 9% without its Index pretraining <Cite id="helix-2-5-2026" />. Generalist reports 99% average success against earlier models' 64%, though "not all tasks" reach those rates <Cite id="generalist-gen1-2026" />. RoboArena, RoboChallenge and ManipulationNet build shared evaluation <Cite id="roboarena-2025" /> <Cite id="robochallenge-2025" /> <Cite id="manipulationnet-2026" />, and the best full-task success in the simulated BEHAVIOR Challenge rose from 12% to 48% in a year <Cite id="behavior-challenge-2026-results" />.
+Progress still falls short of the bars:
 
-Figure's Helix 02 reads fingertip tactile sensors <Cite id="helix-02-2026" />, T-Rex beats its strongest baseline by over 30% though most <Term id="vision-language-action-model">VLA</Term> models still "overlook the tactile modality" <Cite id="t-rex-2026" />, and LingBot-Touch feeds touch readings into VLAs such as π0.5 <Cite id="lingbot-touch-2026" />. Surveys name [contact modeling](/rl-sim2real/sim2real-transfer/) a key source of the <Term id="sim-to-real-gap">sim-to-real gap</Term>, "particularly problematic in contact-rich tasks like robotic manipulation" <Cite id="reality-gap-survey-2026" />.
+| Result | Reported |
+| --- | --- |
+| π0.5 | Cleaned kitchens and bedrooms in unseen homes <Cite id="pi05-2025" /> |
+| Figure Helix | 56% zero-shot success in 30 unseen homes, against 9% without Index pretraining <Cite id="helix-2-5-2026" /> |
+| Generalist GEN-1 | 99% average success against earlier models' 64%, though "not all tasks" reach it <Cite id="generalist-gen1-2026" /> |
+| BEHAVIOR Challenge | Best full-task simulated success up from 12% to 48% in a year <Cite id="behavior-challenge-2026-results" /> |
+
+Touch is arriving. Figure's Helix 02 reads fingertip tactile sensors <Cite id="helix-02-2026" />, and LingBot-Touch feeds touch into <Term id="vision-language-action-model">VLA</Term> models such as π0.5 <Cite id="lingbot-touch-2026" />. T-Rex beats its strongest baseline by over 30%, though most VLAs still "overlook the tactile modality" <Cite id="t-rex-2026" />.
+
+Surveys name [contact modeling](/rl-sim2real/sim2real-transfer/) a key source of the <Term id="sim-to-real-gap">sim-to-real gap</Term>, "particularly problematic in contact-rich tasks" <Cite id="reality-gap-survey-2026" />.
+
+Also, shared evaluation: RoboArena <Cite id="roboarena-2025" />, RoboChallenge <Cite id="robochallenge-2025" />, ManipulationNet <Cite id="manipulationnet-2026" />.
 
 <span id="what-would-prove-the-bears-wrong" />
 ## Four measurable results would falsify the bear case
 
 <BearCaseLock className="my-6" />
 
-A verified deployment of 10,000 humanoids doing documented work would break the commercial premise, now measured in vendor-recorded hours <Cite id="agility-digit-production" /> <Cite id="figure-bmw-production-2025" />. One policy above 90% across more than ten unseen homes would break the generalization premise <Cite id="helix-2-5-2026" /> ([generalization](/frontier/generalization/)). Cost-per-task parity with task-specific machines would break the form-factor premise <Cite id="brooks-dexterity-2025" />. A real-world <Term id="scaling-law">scaling law</Term> for success rate across tasks would break the plateau premise; EgoScale's law is fit to validation loss <Cite id="egoscale-2026" />, and Lin et al. find a "roughly power-law relationship" for single-task generalization <Cite id="lin-data-scaling-laws-2024" />.
+| Result | Premise it breaks |
+| --- | --- |
+| A verified deployment of 10,000 humanoids doing documented work | Commercial, now measured in vendor-recorded hours <Cite id="agility-digit-production" /> <Cite id="figure-bmw-production-2025" /> |
+| One policy above 90% across more than ten unseen homes | [Generalization](/frontier/generalization/) <Cite id="helix-2-5-2026" /> |
+| Cost-per-task parity with task-specific machines | Form factor <Cite id="brooks-dexterity-2025" /> |
+| A real-world <Term id="scaling-law">scaling law</Term> for success rate across tasks | Plateau: EgoScale's law fits validation loss <Cite id="egoscale-2026" />, and Lin et al. find a "roughly power-law relationship" for single-task generalization <Cite id="lin-data-scaling-laws-2024" /> |
