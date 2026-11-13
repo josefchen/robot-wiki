@@ -663,6 +663,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // "Illustrative compounding-error toy" with an amplified recurrence.
     kind: 'authored-model',
   },
+  'interactive:GearRatioBench': {
+    // A teaching motor through three real gear ratios (5.8, 36 and 100 to 1): torque times ratio, speed over ratio, inertia times ratio squared; "Teaching motor" status line.
+    kind: 'authored-model',
+  },
   'interactive:MotionPantograph': {
     // Motion scaling as a reducing pantograph: an authored stroke divided exactly by the scale; "Illustrative" status line.
     kind: 'authored-model',

@@ -133,6 +133,9 @@ export const FundingHumanoidCounts = dynamic(() =>
 export const GaitDiagram = dynamic(() =>
   import('@/components/interactive/gait-diagram').then((m) => m.GaitDiagram),
 );
+export const GearRatioBench = dynamic(() =>
+  import('@/components/interactive/gear-ratio-bench').then((m) => m.GearRatioBench),
+);
 export const GeneralistReleaseTimeline = dynamic(() =>
   import('@/components/interactive/generalist-release-timeline').then((m) => m.GeneralistReleaseTimeline),
 );

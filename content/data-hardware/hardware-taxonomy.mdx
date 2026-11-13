@@ -5,7 +5,7 @@ domain: data-hardware
 slug: hardware-taxonomy
 order: 3
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - so-arm100-repo-2026
   - seeed-so-arm101-pro-2026
@@ -74,6 +74,9 @@ citations:
   - intel-robotics-platform
   - fcc-da-26-1130
   - fcc-da-26-1181
+  - wensing-cheetah-actuator-2017
+  - agiloped-2025
+  - harmonic-drive-csf-catalog-2026
 seeAlso:
   - "frontier/dexterity"
   - "rl-sim2real/humanoid-wbc"
@@ -84,6 +87,8 @@ import { HardwareGuide } from '@/components/interactive/hardware-guide';
 import { HardwarePriceLadder } from '@/components/interactive/hardware-price-ladder';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
+import { GearRatioBench } from '@/components/interactive/gear-ratio-bench';
 
 Robot-learning hardware is the physical platform a learned policy runs on: arms, humanoids, dexterous hands, touch sensors and the onboard computers that run the policy. Listed prices run from about \$122 in parts for an SO-101 arm <Cite id="so-arm100-repo-2026" /> to \$29,900 for a Unitree H2 humanoid <Cite id="unitree-h2-2026" />.
 
@@ -130,6 +135,12 @@ Joint counts depend on configuration: Fourier lists up to 55 actuators for GR-3 
 Hyundai Motor Group plans 25,000 Atlas units for its plants and a US factory able to build 30,000 robots a year, and in September 2026 Boston Dynamics began training Atlas at a Hyundai plant in Georgia <Cite id="bd-rmac-2026" />. 1X reported capacity for 10,000 NEOs a year in April 2026 <Cite id="1x-neo-factory-2026" />. Figure builds its third-generation humanoid for high-volume manufacturing <Cite id="figure-03-2025" /> at BotQ, whose first line can make up to 12,000 a year <Cite id="figure-botq-2025" />. Agility plans general availability of Digit 5, unveiled in September 2026, by the end of 2027 <Cite id="agility-digit-5-2026" />. Tesla said in July 2026 that its first Fremont Optimus builds would collect training data <Cite id="tesla-q2-2026-update" />, and in October reported production on high-volume lines there <Cite id="tesla-q3-2026-update" />.
 
 <Image id="atlas-darpa-frontview-2013" />
+
+## Gear ratio sets how a joint behaves
+
+A joint's gear ratio multiplies its motor's torque and divides its speed by the same number. It also multiplies the motor's inertia, as felt at the joint, by that number squared <Cite id="wensing-cheetah-actuator-2017" />. Fast [legged robots](/rl-sim2real/legged-locomotion) keep it low. The MIT Cheetah's legs use one 5.8 to 1 planetary stage, so an impact can push a leg back and the robot can control foot forces from its motor currents, with no force sensor <Cite id="wensing-cheetah-actuator-2017" />. The AGILOped humanoid uses 36 to 1 two-stage planetary actuators in every joint <Cite id="agiloped-2025" />. Strain-wave gears fit reductions of 30 to 160 times into a compact unit with no backlash, but the maker lists up to 4.5 newton-meters of push at the output of one 100 to 1 model before its motor side turns <Cite id="harmonic-drive-csf-catalog-2026" />.
+
+<GearRatioBench className="my-6" />
 
 ## Hands, bundled and standalone
 
