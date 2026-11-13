@@ -186,7 +186,7 @@ describe('FundingTimeline roving keyboard access', () => {
     // The row opens the company's details (MarketMap's sheet) and is marked.
     expect(figure.getAttribute('aria-expanded')).toBe('true');
     expect(figure.getAttribute('aria-controls')).toBe('market-map-company');
-    // Marked in the research-page selected state (DI-MAP-003): a 1 px ink
+    // Marked in the research-page selected state: a 1 px ink
     // rule and the name in semibold, with no fill,
     // tint or accent bar on the row or its button.
     const row = figure.closest('li')!;

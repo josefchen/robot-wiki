@@ -40,7 +40,7 @@ function tile(id: string): HTMLElement {
 }
 
 /**
- * The research-page selected state (DI-MAP-003): the open
+ * The research-page selected state: the open
  * company's tile reads in ink weight on a 1 px ink rule with no fill, tint
  * or accent bar, and every other tile keeps the same 1 px rule, transparent,
  * so selection does not move the layout.
@@ -443,7 +443,7 @@ describe('MarketMap', () => {
     }
   }, 60_000);
 
-  it('shows a round caveat with its source on the card (DI-MAP-009)', async () => {
+  it('shows a round caveat with its source on the card', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(tile('figure-ai'));
@@ -468,7 +468,7 @@ describe('MarketMap', () => {
     expect(sheet('Genesis AI').querySelector('[data-round-caveat]')).toBeNull();
   }, TIMEOUT);
 
-  it('keeps a reported raise visible without promoting it to a round (DI-MAP-009)', async () => {
+  it('keeps a reported raise visible without promoting it to a round', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(tile('clone-robotics'));
@@ -495,7 +495,7 @@ describe('MarketMap', () => {
     expect(clone).not.toHaveTextContent('$0');
   }, TIMEOUT);
 
-  it('keeps same-round contradictions visible on the card (DI-MAP-009)', async () => {
+  it('keeps same-round contradictions visible on the card', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     const crunchbase =

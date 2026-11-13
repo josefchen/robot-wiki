@@ -173,7 +173,7 @@ describe('ControlLoopBudget', () => {
   });
 });
 
-describe('ControlLoopBudget series encoding (DI-VIZ-002/004)', () => {
+describe('ControlLoopBudget series encoding', () => {
   it('draws a machine, not plotted series, so it has no series to name', () => {
     const { container } = render(<ControlLoopBudget />);
     expect(Object.keys(seriesEncodings(container))).toEqual([]);

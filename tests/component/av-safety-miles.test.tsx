@@ -136,7 +136,7 @@ describe('AvSafetyMiles served HTML', () => {
   });
 });
 
-describe('AvSafetyMiles series encoding (DI-VIZ-002/004)', () => {
+describe('AvSafetyMiles series encoding', () => {
   it('names every plotted series in the plot and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(SAFETY_BENCHMARKS.map((b) => b.id).sort());

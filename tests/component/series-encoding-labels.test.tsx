@@ -5,7 +5,7 @@ import { labelledSeriesIds, seriesLabelNames, type SeriesLabelEvidence } from '@
 import { legendSeriesIds, seriesEncodingViolations, seriesEncodings, seriesLabels, seriesNames } from '../helpers/series-encoding';
 
 /**
- * Planted figures for the jsdom side of DI-VIZ-004: a series is labelled
+ * Planted figures for the jsdom side of a series is labelled
  * only by visible rendered text tied to it, never by a marker attribute on
  * the series. Each plant is one plotted line plus whatever claims to name it.
  */
@@ -33,7 +33,7 @@ function LegendPlant({ item }: { item: ReactNode }) {
 
 const UNLABELLED = 'series "tree" has neither a legend entry nor an in-plot label';
 
-describe('series-encoding helper: only visible rendered text labels a series (DI-VIZ-004)', () => {
+describe('series-encoding helper: only visible rendered text labels a series', () => {
   it('fails a series that carries the old marker attribute and no text', () => {
     const { container } = render(
       <Plant series={<polyline data-series="tree" data-series-labelled="" points="0,0 10,10" fill="none" stroke="currentColor" />} />,

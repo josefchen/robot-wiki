@@ -48,7 +48,7 @@ describe('MpcVsRl', () => {
       'Plans ahead',
       'Learned by practice',
     ]);
-    // The table has a name for a reader who lands on it (DI-ART-008).
+    // The table has a name for a reader who lands on it.
     expect(screen.getByRole('table', { name: 'Which robot stays up after each surprise' })).toBe(screen.getByTestId('mpc-verdicts'));
     // The note says why the planning robot falls, and its robot is the one at full ink, lying on its back.
     const note = container.querySelector('[data-figure-annotation]');

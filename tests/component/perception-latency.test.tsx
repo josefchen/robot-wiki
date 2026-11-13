@@ -241,7 +241,7 @@ describe('latency corridor model', () => {
   });
 });
 
-describe('PerceptionLatency series encoding (DI-VIZ-002/004)', () => {
+describe('PerceptionLatency series encoding', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<PerceptionLatency />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['avoidance-maneuver', 'perception-latency']);

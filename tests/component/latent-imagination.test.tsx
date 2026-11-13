@@ -172,7 +172,7 @@ describe('LatentImagination', () => {
   });
 });
 
-describe('LatentImagination series encoding (DI-VIZ-002/004)', () => {
+describe('LatentImagination series encoding', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<LatentImagination />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['deviation', 'typical-range']);

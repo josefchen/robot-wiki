@@ -69,7 +69,7 @@ describe('ScannedTwinCheck served HTML', () => {
   });
 });
 
-describe('ScannedTwinCheck series encoding (DI-VIZ-002/004)', () => {
+describe('ScannedTwinCheck series encoding', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['correlation', 'other']);

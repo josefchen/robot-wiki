@@ -200,7 +200,7 @@ describe('EgoScaleScaling', () => {
   });
 });
 
-describe('EgoScaleScaling series encoding (DI-VIZ-003/004)', () => {
+describe('EgoScaleScaling series encoding', () => {
   it('draws the classified lead series at settle, with data marks the presets move along', () => {
     const { container } = render(<EgoScaleScaling />);
     const lead = INTERACTIVE_DATA_CLASSIFICATION['interactive:EgoScaleScaling'].leadSeriesId;

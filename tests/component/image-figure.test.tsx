@@ -98,8 +98,7 @@ describe('ImageRef (registry resolver)', () => {
 });
 
 /**
- * The brand-v2 figure treatment (DI-ART-004, DI-ART-005,
- * DI-ART-006, DI-IMG-003). A schematic draws on the light page
+ * The figure treatment. A schematic draws on the light page
  * stage and says what it is; a photograph is not a schematic, and neither
  * loses its caption or its credit to the change.
  */
@@ -224,7 +223,7 @@ describe('figure treatment by kind', () => {
   });
 
   it('draws a credited mark as its own registered <img>, masked in the one ink', () => {
-    // /credits credits the file itself (DI-IMG-005): the mark's ink layer
+    // /credits credits the file itself: the mark's ink layer
     // is that file's <img>, with the registry alt and intrinsic size, and it
     // paints only the ink through the mask of its own file, cropped to the
     // measured artwork box (engineai-logo has one; nvidia-logo fills its file).

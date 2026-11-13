@@ -248,7 +248,7 @@ describe('AdvantageScrubber', () => {
     expect(read()).toMatch(/dashed arc/);
   });
 
-describe('AdvantageScrubber series encoding (DI-VIZ-002/004)', () => {
+describe('AdvantageScrubber series encoding', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<AdvantageScrubber />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['low', 'value']);

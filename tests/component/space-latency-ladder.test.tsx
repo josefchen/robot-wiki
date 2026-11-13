@@ -118,7 +118,7 @@ describe('SpaceLatencyLadder served HTML', () => {
   });
 });
 
-describe('SpaceLatencyLadder series encoding (DI-VIZ-002/004)', () => {
+describe('SpaceLatencyLadder series encoding', () => {
   it('names every plotted series in the plot and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(DELAY_ROWS.map((r) => r.id).sort());
