@@ -5,7 +5,7 @@ domain: classical
 slug: scene-representation
 order: 7
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - moravec-elfes-1985
   - curless-levoy-1996
@@ -84,39 +84,47 @@ import { LoopClosure } from '@/components/interactive/loop-closure';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Scene representation is what a robot keeps in memory about the space around it, in a form that planners, controllers and other consumers can query <Cite id="cadena-2016" />. The options run from point clouds and occupancy grids to distance fields, meshes and neural fields such as radiance fields and Gaussian splats <Cite id="cadena-2016" /><Cite id="neural-fields-survey-2024" />. The choice decides which questions the robot can answer, and how fast.
+Scene representation is a robot's memory of its surroundings, from point clouds and occupancy grids to distance fields and neural fields, in a form planners can query <Cite id="cadena-2016" /><Cite id="neural-fields-survey-2024" />. The format decides which questions the robot can answer, and how fast.
 
 <Image id="ouster-lidar-point-cloud-sf" />
 
-## The ladder, and what each rung can answer
+## Each format answers different questions
 
 <SceneRepresentationLadder className="my-6" />
 
-Picture a home robot sent to fetch a mug from the kitchen. Its path planner asks whether a patch of floor is free, its grasp planner asks which way the mug's surface faces, and a simulator rendering training images asks what the room looks like from a spot the camera never visited. No single representation answers all three well. Cadena and colleagues judge representations by storage size, construction cost and usefulness for the task <Cite id="cadena-2016" />.
+A home robot fetching a mug asks whether the floor is free, which way the mug's surface faces, and what the room looks like from a spot it never visited. No single format answers all three well. Cadena and colleagues judge formats by storage, construction cost and usefulness for the task <Cite id="cadena-2016" />.
 
-### Point clouds and occupancy grids
+### Occupancy grids know what nobody has seen
 
-A <Term id="point-cloud">point cloud</Term> is an unordered set of 3D points, so a network such as PointNet must give the same answer in any point order <Cite id="pointnet-2017" />. A point cloud cannot tell empty space from space nobody has looked at. An <Term id="occupancy-grid">occupancy grid</Term> adds that distinction. Moravec and Elfes projected wide-angle sonar readings onto a 2D grid: each reading marked the beam's interior as probably empty and the cells near the measured range as possibly occupied, and overlapping readings refined each cell toward unknown, probably empty or probably occupied <Cite id="moravec-elfes-1985" />. OctoMap carries the three states into 3D in compressed octrees <Cite id="octomap-2013" />.
+A <Term id="point-cloud">point cloud</Term> is an unordered set of 3D points <Cite id="pointnet-2017" />, and it cannot tell empty space from unobserved space. An <Term id="occupancy-grid">occupancy grid</Term> can: Moravec and Elfes marked each sonar beam's interior probably empty and its far end possibly occupied, and overlapping readings refined each cell <Cite id="moravec-elfes-1985" />. OctoMap carries the three states into 3D in compressed octrees <Cite id="octomap-2013" />.
 
 <ExplainerFigure id="mug" />
 
-### Signed-distance fields
+### Signed-distance fields tell a planner how far to push
 
-A <Term id="signed-distance-field">signed distance function</Term> stores, at each point, the distance to the nearest surface, with the sign saying which side the point is on. That is exactly what a planner pushing a trajectory away from obstacles needs. Curless and Levoy fuse many depth images into one weighted signed distance function and recover the surface where it crosses zero <Cite id="curless-levoy-1996" />. KinectFusion did this live, fusing 640×480 Kinect depth frames at 30 Hz on a commodity GPU while tracking each frame against the growing model; a large flat wall filling the view could make tracking drift or fail, and its truncated field (TSDF) is exact only near the surface <Cite id="kinectfusion-2011" />. Voxel hashing stores data only near observed surfaces instead of allocating one fixed volume for the whole scene <Cite id="voxel-hashing-2013" />.
+A <Term id="signed-distance-field">signed distance function</Term> stores the distance to the nearest surface, signed by side, which is what a planner pushing a trajectory off obstacles needs. Curless and Levoy fuse depth images into one weighted field and take the surface at its zero crossing <Cite id="curless-levoy-1996" />. KinectFusion did it live, fusing 640×480 Kinect depth at 30 Hz on a commodity GPU <Cite id="kinectfusion-2011" />.
 
 <Image id="kinect-xbox-360-sensor" />
 
-Voxblox builds TSDFs faster than OctoMap builds maps, then derives full Euclidean distance fields (ESDFs) from them incrementally, more accurately than from occupancy <Cite id="voxblox-2016" />. On GPUs, nvblox reports up to 177x faster surface reconstruction and 31x faster distance-field computation <Cite id="nvblox-2023" />.
+| Method | Gain |
+| --- | --- |
+| Voxel hashing | Stores data only near observed surfaces <Cite id="voxel-hashing-2013" /> |
+| Voxblox | Builds TSDFs faster than OctoMap builds maps and derives Euclidean distance fields from them incrementally <Cite id="voxblox-2016" /> |
+| nvblox | On GPU, up to 177x faster reconstruction and 31x faster distance fields <Cite id="nvblox-2023" /> |
 
-### Meshes, and then neural fields
+### Neural fields render views nobody captured
 
-A mesh adds connectivity, giving each face a normal and a surface that can be rendered, but it leaves holes where nothing was observed, and filling them invents geometry <Cite id="curless-levoy-1996" />.
+A mesh adds faces with normals but leaves holes where nothing was seen, and filling them invents geometry <Cite id="curless-levoy-1996" />. NeRF fits a <Term id="neural-radiance-field">neural radiance field</Term> to posed photographs, and differentiable rendering lets image error drive the fit <Cite id="nerf-2020" />. <Term id="gaussian-splatting">3D Gaussian splatting</Term> fits small semi-transparent blobs instead and renders 1080p in real time on an A6000 <Cite id="3dgs-2023" />.
 
-NeRF fits a <Term id="neural-radiance-field">neural radiance field</Term> to a static scene from photographs with known camera poses. A network predicts density from position and color from position and viewing direction, and rendering is differentiable, so image error drives the fit <Cite id="nerf-2020" />. NeRF++ adapts it to 360-degree captures of unbounded scenes <Cite id="nerfpp-2020" />, and Instant NGP cut the cost with a multiresolution hash encoding and small networks, rendering a large 360-degree scene at 10 frames per second on one RTX 3090 <Cite id="instant-ngp-2022" />. <Term id="gaussian-splatting">3D Gaussian splatting</Term> instead fits a cloud of small colored, semi-transparent blobs (Gaussians) and draws them by blending, reporting real-time 1080p rendering on an A6000 GPU <Cite id="3dgs-2023" />; the open gsplat library trains such models with up to 4 times less memory <Cite id="gsplat-2024" />.
+| Method | Adds |
+| --- | --- |
+| NeRF++ | Unbounded 360-degree scenes <Cite id="nerfpp-2020" /> |
+| Instant NGP | Hash encoding: a large 360-degree scene at 10 frames per second on one RTX 3090 <Cite id="instant-ngp-2022" /> |
+| gsplat | Open splat training with up to 4 times less memory <Cite id="gsplat-2024" /> |
 
-### Geometry straight from images
+### Networks now predict geometry straight from images
 
-Feed-forward networks now predict geometry in one pass, without per-scene optimization or, often, known cameras:
+Feed-forward networks predict geometry in one pass, without per-scene optimization or, often, known cameras:
 
 | Model | Input | Output |
 | --- | --- | --- |
@@ -130,21 +138,41 @@ Feed-forward networks now predict geometry in one pass, without per-scene optimi
 
 ## A radiance field is geometry for rendering
 
-The [world-models taxonomy](/world-models/taxonomy) treats a splat reconstruction as a learned renderer: appearance is learned, physics is not. In the original 3DGS, a blob's opacity is a blending weight for images, with no free, occupied or unknown label, and the paper leaves mesh extraction open <Cite id="3dgs-2023" />. SuGaR aligned Gaussians with surfaces and extracted meshes from them <Cite id="sugar-2023" />, and 2D Gaussian Splatting uses flat oriented disks with extra regularizers to improve surfaces <Cite id="2dgs-2024" />.
+A splat is a learned renderer: appearance is learned, physics is not, as the [world-models taxonomy](/world-models/taxonomy) puts it. In the original 3DGS a blob's opacity is a blending weight, with no free, occupied or unknown label <Cite id="3dgs-2023" />. Also: SuGaR's meshes from surface-aligned Gaussians <Cite id="sugar-2023" />, 2D Gaussian Splatting's flat disks <Cite id="2dgs-2024" />.
 
-Simulators therefore pair splats for appearance with separate physics. SplatSim renders with splats while PyBullet supplies physics, and its authors report zero-shot real-world transfer of diffusion policies on four rigid-body tasks, after manual robot segmentation and alignment <Cite id="splatsim-2024" />. In RoboGSim's closed-loop evaluator a policy acts on splat-rendered images while Isaac Sim handles inverse kinematics and contact <Cite id="robogsim-2024" />, and Isaac Sim now loads splat reconstructions as OpenUSD particle fields drawn alongside ordinary polygons <Cite id="isaac-sim-nurec-docs-2026" />.
+Simulators therefore pair splats for appearance with separate physics.
 
-Other fields serve a planner directly. Dex-NeRF renders depth for transparent objects from learned density, where a RealSense camera failed to compute depth for most transparent objects tested <Cite id="dex-nerf-2021" />. F3RM distills 2D foundation-model features into a 3D feature field so language and a few demonstrations can guide grasping and placing <Cite id="f3rm-2023" />. ParticleSplat, from Deepak Pathak (Carnegie Mellon) and colleagues (September 2026), encodes multi-view images into latent particles that decode to 3D Gaussians; object masks emerge without labels, moving a particle moves its object, and the representation improved downstream manipulation <Cite id="particlesplat-2026" />.
+| System | Physics from | Result |
+| --- | --- | --- |
+| SplatSim | PyBullet | Zero-shot real transfer of diffusion policies on four rigid-body tasks <Cite id="splatsim-2024" /> |
+| RoboGSim | Isaac Sim, for inverse kinematics and contact | Closed-loop policy evaluation on splat-rendered images <Cite id="robogsim-2024" /> |
+| Isaac Sim | Its own engine | Loads splats as OpenUSD particle fields beside polygons <Cite id="isaac-sim-nurec-docs-2026" /> |
 
-## SLAM: the system that builds the map
+Other fields serve a planner directly.
 
-A robot entering an unknown kitchen has neither a map nor an exact position, and needs each to get the other. Simultaneous localization and mapping (SLAM) builds both at once. Cadena and colleagues separate a sensor-specific front end, which turns raw measurements into constraints on the robot's poses and landmarks, from a back end that solves for the most likely map and trajectory and feeds results back to check loop closures <Cite id="cadena-2016" />. [State estimation](/classical/state-estimation) covers the inference machinery: Square Root SAM solves the trajectory and map as one sparse least-squares problem <Cite id="dellaert-kaess-2006" />, and iSAM2 updates it incrementally, though a large loop closure can cost as much as a full solve <Cite id="kaess-2012" />.
+| Field | Use |
+| --- | --- |
+| Dex-NeRF | Depth for transparent objects, where a RealSense failed on most of those tested <Cite id="dex-nerf-2021" /> |
+| F3RM | Foundation-model features in 3D, so language and a few demonstrations guide grasping <Cite id="f3rm-2023" /> |
+| ParticleSplat (2026) | Latent particles that decode to Gaussians; masks emerge without labels, and moving a particle moves its object <Cite id="particlesplat-2026" /> |
+
+## SLAM builds the map and the position together
+
+A robot in an unknown kitchen needs a map to localize and a position to map, so simultaneous localization and mapping (SLAM) builds both. A sensor-specific front end turns measurements into constraints on poses and landmarks; a back end solves for the most likely map and trajectory <Cite id="cadena-2016" />. Square Root SAM solves it as one sparse least-squares problem <Cite id="dellaert-kaess-2006" />, and iSAM2 updates it incrementally <Cite id="kaess-2012" />.
 
 <Image id="velodyne-hdl64-lidar-2009" />
 
-Front ends either track distinctive features or work on raw pixel brightness. ORB-SLAM (2015) tracks ORB features, triangulates matches and refines them in local bundle adjustment; its DBoW2 vocabulary proposes relocalization and loop candidates that then need geometric checks <Cite id="orb-slam-2015" />. DBoW2 builds a vocabulary tree from binary features and rejects places that look similar but do not fit geometrically <Cite id="dbow2-2012" />. ORB-SLAM3 adds stereo, RGB-D and visual-inertial modes; it starts a new map after persistent tracking loss and merges maps only after geometric checks, with low texture its main failure case and slow motion able to delay inertial start-up <Cite id="orb-slam3-2021" />. Direct Sparse Odometry skips feature detection and minimizes brightness error over sampled pixels, so it can use any region with a brightness gradient, including near-blank walls, and gains from calibrating exposure, vignetting and camera response <Cite id="dso-2018" />. Cartographer does the same job for 2D LiDAR, matching scans to submaps to find loop closures as it maps <Cite id="cartographer-2016" />.
+Front ends track features or work on raw brightness. [State estimation](/classical/state-estimation) covers the back end.
 
-Learned SLAM systems keep the classical skeleton and swap in learned parts:
+| Front end | How it works |
+| --- | --- |
+| ORB-SLAM (2015) | Tracks ORB features, refines them by local bundle adjustment, proposes loops with DBoW2 <Cite id="orb-slam-2015" /> |
+| DBoW2 | A vocabulary tree of binary features; rejects look-alikes that fail geometric checks <Cite id="dbow2-2012" /> |
+| ORB-SLAM3 | Adds stereo, RGB-D and visual-inertial modes; low texture is its main failure <Cite id="orb-slam3-2021" /> |
+| Direct Sparse Odometry | Minimizes brightness error, so it uses any gradient, even on near-blank walls <Cite id="dso-2018" /> |
+| Cartographer | Matches 2D LiDAR scans to submaps <Cite id="cartographer-2016" /> |
+
+Learned SLAM keeps the classical skeleton and swaps in learned parts:
 
 | System | What is learned or new | Note |
 | --- | --- | --- |
@@ -159,24 +187,40 @@ Learned SLAM systems keep the classical skeleton and swap in learned parts:
 | VGGT-SLAM 2.0 (2026) | Redesigned factor graph | About 23% less pose error on TUM; online on a ground robot's Jetson Thor <Cite id="vggt-slam-2-2026" /> |
 | AMB3R-SLAM (2026) | Light tracking front end, hierarchical back end | Consistency over long trajectories <Cite id="amb3r-slam-2026" /> |
 
-### Loop closure and the danger of look-alike places
+### A false loop closure does more harm than a missed one
 
-Every odometry method drifts. Returning to a mapped place lets the robot pull its whole trajectory back into line; revisiting landmarks can reduce drift and in some cases correct it, and visual-inertial methods drift less than wheel odometry to begin with <Cite id="cadena-2016" />. ORB-SLAM checks a <Term id="loop-closure">loop closure</Term> geometrically, then spreads the correction along the trajectory with a pose-graph optimization <Cite id="orb-slam-2015" />.
+Every odometry method drifts, and returning to a mapped place pulls the whole trajectory back into line <Cite id="cadena-2016" />. ORB-SLAM checks a <Term id="loop-closure">loop closure</Term> geometrically, then spreads the correction with pose-graph optimization <Cite id="orb-slam-2015" />.
 
 <LoopClosure className="my-6" />
 
-<Term id="place-recognition">Place recognition</Term> asks whether the current view matches a stored place. Light, season and viewpoint change one place's appearance, while different places can look alike, which is perceptual aliasing <Cite id="lowry-2016-place-recognition" />; two rooms can look identical to a 2D laser yet differ to a camera <Cite id="cadena-2016" />. AnyLoc builds place descriptors from frozen self-supervised features without training for the task <Cite id="anyloc-2023" />. A false match can corrupt the back end's estimates, while a missed one only discards useful information. Robust losses and loop-closure checks limit the damage, though failures that depend on the initial guess remain <Cite id="cadena-2016" />; graduated non-convexity sharpens a robust objective step by step and needed no initial guess in the problems tested <Cite id="gnc-2019" />. Smoothing suits loop closure, because correcting the past requires keeping it. Cadena and colleagues contrast sparse landmark maps with dense models for obstacle avoidance, and note that severe lighting changes defeat bag-of-words matching while active range cameras work in dark, blank scenes within their range limits <Cite id="cadena-2016" />.
+<Term id="place-recognition">Place recognition</Term> fails both ways: one place changes with light and season, and different places look alike <Cite id="lowry-2016-place-recognition" />. A false match can corrupt the back end, while a missed one only loses information <Cite id="cadena-2016" />. Graduated non-convexity sharpens a robust objective step by step and needed no initial guess in the problems tested <Cite id="gnc-2019" />.
 
-## The deployed answer: costmaps and two planners
+Also: AnyLoc's place descriptors from frozen self-supervised features <Cite id="anyloc-2023" />.
 
-Mobile robots mostly navigate on a <Term id="costmap">costmap</Term>: occupancy from the map and live sensors, inflated by the robot's footprint so the robot can be planned as a point. Lu, Hershberger and Smart's layered costmaps stack separate layers, such as the static map, sensed obstacles and inflation, into one master 2D costmap <Cite id="layered-costmaps-2014" />. Navigation2, built on ROS 2, uses one: a global planner computes a shortest route, and a separate controller computes the local path and commands <Cite id="nav2-2020" />. One default matters: its `track_unknown_space` option is false, which treats unknown space as free, so keeping the unknown state requires enabling it <Cite id="nav2-costmap-2d-2026" />. The algorithms are those of [motion planning](/classical/motion-planning) on a 2D grid.
+## Mobile robots navigate on costmaps
+
+Mobile robots mostly plan on a <Term id="costmap">costmap</Term>: occupancy inflated by the robot's footprint, so the robot can be planned as a point. Layered costmaps stack the static map, sensed obstacles and inflation into one 2D grid <Cite id="layered-costmaps-2014" />. Navigation2 uses one, with a global planner for the route and a controller for local commands <Cite id="nav2-2020" />.
+
+Its `track_unknown_space` option defaults to false, which treats unknown space as free <Cite id="nav2-costmap-2d-2026" />.
 
 ## A representation is a service contract
 
-Each consumer asks a different question of the map. Localization needs stable landmarks <Cite id="cadena-2016" />, collision checking needs occupied volume with a conservative update rule <Cite id="octomap-2013" />, grasping needs surface pose and identity, and rendering needs appearance <Cite id="cadena-2016" />, while [perception](/classical/perception) locates objects in the current frame <Cite id="conceptgraphs-2023" />.
+Each consumer asks the map a different question. Localization needs stable landmarks and rendering needs appearance <Cite id="cadena-2016" />, collision checking needs occupied volume with a conservative update rule <Cite id="octomap-2013" />, and [perception](/classical/perception) locates objects in the current frame <Cite id="conceptgraphs-2023" />.
 
-Scene graphs stack several answers in one structure. Hydra builds a local distance field in real time, extracts a map of places from it and groups places into rooms <Cite id="hydra-2022" />. MoMa-SG (2026) adds what manipulation needs, such as a drawer's axis and which objects sit in which containers <Cite id="moma-sg-2026" />, and Maggio, Hauser, Carlone and colleagues (October 2026) built a foundation-model scene graph from one uncalibrated camera into a full mobile-manipulation stack with change detection, repeated mapping sessions, navigable paths and grasping <Cite id="found-it-mobile-manipulation-2026" />. ConceptFusion fuses foundation-model features into a 3D map that text, images, audio or geometry can query, without extra training <Cite id="conceptfusion-2023" />.
+Scene graphs stack several answers in one structure.
 
-Some maps are now text. SceneLM, from Jitendra Malik (UC Berkeley), Marco Pavone and colleagues (September 2026), keeps the whole map as a structured list of objects that one vision-language model edits after each image; on language-grounded retrieval and localization benchmarks it performed competitively with complete mapping pipelines with a map 6 to 12 times more compact, and ran online on an edge computer aboard a quadruped <Cite id="scenelm-2026" />. Ledger, from Shravan Chaudhari, Homanga Bharadhwaj and colleagues at Johns Hopkins (October 2026), keeps a persistent 3D memory of objects from a person's egocentric video: where each rested, how it moved and a short description, kept after it leaves view. A language model answering from these text records, without images, raised GPT-5.4's HD-EPIC accuracy from 29.7% to 42.6%, and on Ego4D the memory located objects with a median error of 0.99 m where it returned predictions <Cite id="ledger-2026" />.
+| Scene graph | Adds |
+| --- | --- |
+| Hydra | A real-time distance field, then places, then rooms <Cite id="hydra-2022" /> |
+| MoMa-SG (2026) | A drawer's axis, and which objects sit in which containers <Cite id="moma-sg-2026" /> |
+| Maggio, Hauser, Carlone and colleagues (2026) | A full mobile-manipulation stack from one uncalibrated camera, with change detection <Cite id="found-it-mobile-manipulation-2026" /> |
+| ConceptFusion | Foundation-model features that text, images, audio or geometry can query <Cite id="conceptfusion-2023" /> |
 
-A deployed map states its frame, timestamp, resolution, unknown-state convention, update rate and when it expires. In MoveIt 2, the planning scene holds the robot's current state, model and world for collision checking <Cite id="moveit-planning-scene-2026" />, and attached or removed objects must reach it before the arm moves; the [ROS 2 guide](/classical/ros2-for-ml-engineers) covers transforms and the planning scene. A scene representation says what is present now. A world model must also say how actions change it, as the [simulator comparison](/world-models/world-models-vs-simulators) explains.
+Some maps are now text.
+
+| Text map | Result |
+| --- | --- |
+| SceneLM (2026) | One VLM edits an object list after each image; competitive on language-grounded retrieval with a map 6 to 12 times smaller, online on a quadruped <Cite id="scenelm-2026" /> |
+| Ledger (2026) | Persistent object memory from egocentric video; lifted GPT-5.4 on HD-EPIC from 29.7% to 42.6%, 0.99 m median error on Ego4D <Cite id="ledger-2026" /> |
+
+A deployed map states its frame, timestamp, resolution, unknown-state convention, update rate and expiry. In MoveIt 2, attached or removed objects must reach the planning scene before the arm moves <Cite id="moveit-planning-scene-2026" />. A world model must also say how actions change the scene, as the [simulator comparison](/world-models/world-models-vs-simulators) explains.

@@ -5,7 +5,7 @@ domain: classical
 slug: kinematics
 order: 1
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - lavalle-2006
   - whitney-1969
@@ -59,81 +59,69 @@ import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Kinematics is the geometry of robot motion, leaving out forces. <Term id="forward-kinematics">Forward kinematics</Term> says where the hand is for given joint angles. <Term id="inverse-kinematics">Inverse kinematics</Term> finds joint angles that put the hand at a chosen pose, and may find none, one or many <Cite id="modern-robotics-2017" />. Controllers, motion planners and learned policies all rely on it.
+Kinematics is the geometry of robot motion. <Term id="forward-kinematics">Forward kinematics</Term> finds the hand from the joint angles; <Term id="inverse-kinematics">inverse kinematics</Term> finds joint angles for a hand pose, and may find none, one or many <Cite id="modern-robotics-2017" />.
 
 <Image id="ur16e-cobot-arm-2020" />
 
 <PlanarFkArm className="my-6" />
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="DH parameters per joint" value="4" note="theta, d, a, alpha" />
-  <Stat label="SO-101 arm joints" value="5" note="plus a gripper, in the 3D playground" />
-  <Stat label="playground IK tolerance" value="±0.5mm" note="solver residual target" />
-  <Stat label="joints in the planar arm" value="3" note="shoulder, elbow, wrist" />
-</div>
+## Forward kinematics has one answer, found by multiplication
 
-## Forward kinematics: one answer, by multiplication
-
-Picture an arm reaching for a cup. [The arm is a chain](/how-robots-work/#arm) of rigid links joined by joints, each with its own coordinate frame, so finding the gripper means walking out from the base. One matrix $T$ places each frame relative to the last: a rotation $R$ (which way it faces) and a translation $p$ (where its origin sits) <Cite id="modern-robotics-2017" />:
+[The arm is a chain](/how-robots-work/#arm) of rigid links, and one matrix $T$ places each link's frame relative to the last, with rotation $R$ and translation $p$ <Cite id="modern-robotics-2017" />:
 
 $$
 T = \begin{bmatrix} R & p \\ 0 & 1 \end{bmatrix}
 $$
 
-Multiplying one per joint, base to tool, gives the gripper's pose for joint angles $q_1$ to $q_n$ <Cite id="modern-robotics-2017" />:
+Multiplying one per joint, base to tool, gives the gripper's pose <Cite id="modern-robotics-2017" />:
 
 $$
 T_0^{n}(q) = T_0^1(q_1)\,T_1^2(q_2)\,\cdots\,T_{n-1}^{n}(q_n)
 $$
 
-In a flat arm, each link of length $l_i$ points along the sum of the joint angles before it, and the hand sits where the links end <Cite id="lavalle-2006" />:
+## Four numbers per joint describe an arm
 
-$$
-x = \sum_{i=1}^{n} l_i \cos\left(q_1 + \cdots + q_i\right) \qquad y = \sum_{i=1}^{n} l_i \sin\left(q_1 + \cdots + q_i\right)
-$$
+The <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term> uses four numbers per joint: how far it turns ($\theta_i$) and slides ($d_i$), and how far away ($a_i$) and how tilted ($\alpha_i$) the next axis is <Cite id="denavit-hartenberg-1955" /> <Cite id="lavalle-2006" />.
 
-So each set of joint angles gives exactly one hand pose.
-
-## Writing an arm down
-
-The <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term>, built on a 1955 notation for mechanisms <Cite id="denavit-hartenberg-1955" />, uses four per joint: how far the joint turns ($\theta_i$) and slides ($d_i$) along its axis, and how far away ($a_i$) and how tilted ($\alpha_i$) the next axis is <Cite id="lavalle-2006" />. Standard and modified variants place the frames differently <Cite id="corke-dh-2007" />.
 <DhParameterTable className="my-6" />
 
-The four numbers misbehave when neighbouring axes are nearly parallel <Cite id="modern-robotics-2017" />. Brockett's 1984 product-of-exponentials formula treats each joint as a screw motion about a fixed axis <Cite id="brockett-1984" />; its parameters change smoothly with the arm <Cite id="okamura-park-1996" />, and the Modern Robotics textbook uses it <Cite id="modern-robotics-2017" />.
+They misbehave when neighboring axes are nearly parallel <Cite id="modern-robotics-2017" />; Brockett's product of exponentials, a screw motion per joint, changes smoothly instead <Cite id="brockett-1984" /> <Cite id="okamura-park-1996" />.
 
 <Image id="puma-560-nasa-ames" />
 
-Most robots ship as a URDF (Unified Robot Description Format) file giving each joint an origin and an axis, as the playground's SO-101 arm does <Cite id="so-arm100-repo-2026" /> <Cite id="urdf-dataset-2023" />. Version 1.2 added acceleration and jerk limits <Cite id="urdfdom-versions-2026" />, read by Pinocchio 4.1 (July 2026) <Cite id="pinocchio-4-1-2026" />.
+Most robots ship as a URDF file giving each joint an origin and an axis <Cite id="urdf-dataset-2023" />, like the [3D playground](/playground)'s SO-101 arm <Cite id="so-arm100-repo-2026" />.
 
-## The Jacobian: small joint motions, small hand motions
+Also: modified DH <Cite id="corke-dh-2007" />, URDF 1.2 <Cite id="urdfdom-versions-2026" />, Pinocchio 4.1 <Cite id="pinocchio-4-1-2026" />.
 
-If the elbow turns slightly, which way does the cup move? The <Term id="jacobian">Jacobian</Term> $J(q)$ answers for every joint: it turns joint speeds $\dot{q}$ into hand speed $\dot{x}$, and column $i$ is the motion joint $i$ alone would give the hand <Cite id="modern-robotics-2017" /> <Cite id="siciliano-robotics-2009" />:
+## The Jacobian maps joint speed to hand speed
+
+The <Term id="jacobian">Jacobian</Term> $J(q)$ turns joint speeds into hand speed; column $i$ is the motion joint $i$ alone gives the hand <Cite id="modern-robotics-2017" /> <Cite id="siciliano-robotics-2009" />:
 
 $$
 \dot{x} = J(q)\,\dot{q}
 $$
 
-To press with force $F$ at the hand, the joints supply torques $\tau = J^{T}(q)\,F$ <Cite id="modern-robotics-2017" />. Whitney's 1969 resolved motion rate control ran the map backwards, turning a commanded hand speed into joint speeds with $J^{-1}$ <Cite id="whitney-1969" />.
+Its transpose maps a hand force $F$ to joint torques, $\tau = J^{T}F$ <Cite id="modern-robotics-2017" />; Whitney's 1969 resolved-rate control inverted it <Cite id="whitney-1969" />.
 
-## Singularities and spare joints
+## At a singularity the arm loses a direction
 
-At a singularity the arm loses a direction: fully stretched, it cannot push its hand farther out. The Jacobian loses rank, and nearby a modest hand speed can demand unbounded joint speeds <Cite id="modern-robotics-2017" />. Yoshikawa's 1985 manipulability measure scores how freely the hand can move in a pose <Cite id="yoshikawa-1985" />.
+Fully stretched, an arm cannot push its hand farther out: the Jacobian loses rank, and nearby joint speeds blow up <Cite id="modern-robotics-2017" />.
 
-A seven-joint arm has more joints than placing a cup needs. The pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$ lets it spend the spare freedom on goals such as avoiding joint limits <Cite id="modern-robotics-2017" />, ranked below the hand's task in Siciliano and Slotine's task-priority scheme <Cite id="siciliano-slotine-1991" />. Near a singularity the pseudoinverse itself turns unstable <Cite id="buss-ik-survey-2009" />, so singularity-robust inverses <Cite id="nakamura-hanafusa-1986" /> and damped least squares <Cite id="wampler-1986" /> accept a little hand error to keep joint motions small.
+A seven-joint arm spends spare freedom on goals like avoiding joint limits through the pseudoinverse $J^{+}$ <Cite id="modern-robotics-2017" />. Near a singularity the pseudoinverse turns unstable <Cite id="buss-ik-survey-2009" />, so damped least squares trades a little hand error for small joint motions <Cite id="wampler-1986" />.
 
-## Inverse kinematics: many answers, or none
+Also: manipulability <Cite id="yoshikawa-1985" />, task priority <Cite id="siciliano-slotine-1991" />, singularity-robust inverses <Cite id="nakamura-hanafusa-1986" />.
 
-Inverse kinematics seeks joint angles $q$ whose forward kinematics $k(q)$ lands on a target pose $x_d$. The cup may be reachable elbow up or elbow down, a seven-joint arm has endless ways to reach it, and an out-of-reach cup has none <Cite id="modern-robotics-2017" />.
+## Inverse kinematics has many answers, or none
+
+Inverse kinematics seeks joints $q$ whose forward kinematics $k(q)$ hits a target pose $x_d$. A cup may be reachable elbow up, elbow down, endlessly with seven joints, or not at all <Cite id="modern-robotics-2017" />.
 
 <ExplainerFigure id="reaching" />
 
-Some arms have a formula, such as six-joint arms whose wrist axes meet at a point <Cite id="modern-robotics-2017" />. Any arm of six rotating joints reduces to one polynomial in one joint angle <Cite id="raghavan-roth-1993" />, which Manocha and Canny solved in 11 ms on average in 1994 <Cite id="manocha-canny-1994" />. The general method iterates: guess the joints, measure the gap $\Delta x$ to the target, take the joint step $\Delta q$ the Jacobian says will close it, repeat <Cite id="modern-robotics-2017" />:
+Six-joint arms whose wrist axes meet at a point have a formula <Cite id="modern-robotics-2017" />. Any six-joint revolute arm reduces to one polynomial, solved in 11 ms on average <Cite id="raghavan-roth-1993" /> <Cite id="manocha-canny-1994" />. The general method iterates on the gap $\Delta x$ to the target <Cite id="modern-robotics-2017" />:
 
 $$
 \Delta q = J^{+}(q)\,\Delta x
 $$
-
-Formulas are fastest but fit one arm; the other solvers trade speed for generality.
 
 | Solver | Kind | Reported result |
 | --- | --- | --- |
@@ -145,16 +133,18 @@ Formulas are fastest but fit one arm; the other solvers trade speed for generali
 | cuRoboV2 (2026) | GPU | 99.6% collision-free on a humanoid with 48 degrees of freedom; prior methods failed entirely <Cite id="curobo-v2-2026" /> |
 | IKFlow (2021) | Learned sampler | 2,000 solutions in under 10 ms, within 10 mm and 2 degrees <Cite id="ikflow-2021" /> |
 
-The [3D playground](/playground) solves IK on the SO-101 arm <Cite id="so-arm100-repo-2026" />.
+## Learned policies inherit this geometry
 
-## Kinematics inside learned policies
+ACT's [action chunks](/manipulation/action-chunking) hold 14 joint targets for two arms <Cite id="act-aloha-2023" />; OpenVLA predicts a 7-number hand action <Cite id="openvla-2024" />. Across 13,000 real rollouts, relative actions helped, joint space favored stability and hand space favored generalization <Cite id="action-space-design-2026" />.
 
-A learned policy outputs joint targets or a hand pose, so it inherits this geometry. [Action chunking](/manipulation/action-chunking) with ACT predicts 14 joint targets for two six-joint arms and their grippers <Cite id="act-aloha-2023" />; OpenVLA predicts a 7-number hand action for one arm <Cite id="openvla-2024" />. Diffusion Policy did consistently better with positions than velocities <Cite id="diffusion-policy-2023" />.
+Quaternions and Euler angles are discontinuous for networks; 5D and 6D rotations are continuous <Cite id="rotation-continuity-2018" />.
 
-A 2026 study of more than 13,000 real rollouts and 500 models found that relative (delta) actions consistently helped, joint space favored stability and hand space favored generalization <Cite id="action-space-design-2026" />. GR00T N1 decodes actions per robot <Cite id="gr00t-n1-2025" />, while N1.7 shares one relative hand action space across robot and human data <Cite id="isaac-gr00t-repo-2026" />. Quaternions and Euler angles are discontinuous and hard for networks to learn, while 5D and 6D rotation representations are continuous <Cite id="rotation-continuity-2018" />.
+Also: Diffusion Policy <Cite id="diffusion-policy-2023" />, GR00T N1 <Cite id="gr00t-n1-2025" />, GR00T N1.7 <Cite id="isaac-gr00t-repo-2026" />.
 
-## Treat coordinate frames as an API
+## Coordinate frames are an API
 
-A hand action must name its frame, units, rotation format and whether it is absolute or relative; a joint action, its joint order, signs and limits. ROS REP 103 makes frames right-handed, x forward, y left, z up <Cite id="rep-103-2010" />. REP 105 separates the drifting `odom` frame from the `map` frame, which can jump <Cite id="rep-105-2010" />, and the tf library tracks how frames relate over time <Cite id="tf-library-2013" />.
+A hand [action](/manipulation/action-spaces) must name its frame, units, rotation format and whether it is relative. REP 103 makes ROS frames right-handed, x forward, y left, z up <Cite id="rep-103-2010" />; REP 105 separates the drifting `odom` frame from the jumping `map` <Cite id="rep-105-2010" />.
 
-Geometry must also match across machines. A <Term id="teleoperation">teleoperation</Term> leader arm such as GELLO copies its target arm's kinematic structure <Cite id="gello-2023" />, and retargeting artifacts such as foot sliding make humanoid tracking policies less robust <Cite id="gmr-retargeting-2025" />. LeRobot calibrates SO-101 leader and follower arms to read the same values in the same pose, so a network trained on one works on another <Cite id="lerobot-so101-docs-2026" />. See [calibration](/classical/calibration) and [action spaces](/manipulation/action-spaces).
+Geometry must match across machines. LeRobot [calibrates](/classical/calibration) SO-101 arms to read the same values in the same pose, so a network trained on one works on another <Cite id="lerobot-so101-docs-2026" />. The GELLO <Term id="teleoperation">teleoperation</Term> leader copies its target arm's structure <Cite id="gello-2023" />.
+
+Also: tf <Cite id="tf-library-2013" />, humanoid retargeting <Cite id="gmr-retargeting-2025" />.

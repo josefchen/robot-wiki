@@ -6,7 +6,7 @@ slug: calibration
 order: 8
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - zhang-2000-calibration
   - shiu-ahmad-1989
@@ -61,7 +61,7 @@ import { HandEyePoses } from '@/components/interactive/hand-eye-poses';
 
 import { TimeOffsetMiss } from '@/components/interactive/time-offset-miss';
 
-Robot calibration estimates the parameters that make a robot's measurements and commands agree with the physical world. Classical kinematic calibration has four steps: model, measure, identify and correct <Cite id="roth-mooring-ravani-1987" />. Learned policies inherit every calibration error.
+Calibration makes a robot's measurements and commands agree with the world: model, measure, identify, correct <Cite id="roth-mooring-ravani-1987" />. A learned policy inherits every error it leaves.
 
 <Image id="leica-laser-tracker-ats600" />
 
@@ -88,48 +88,66 @@ Robot calibration estimates the parameters that make a robot's measurements and 
   takeaway="Systematic, geometry-dependent misses are calibration evidence; measure the transform before changing the learner."
 />
 
-## The calibration chain
+## A wrong link anywhere moves the grasp
 
-Between the pixel where a policy sees a mug and the gripper reaching for it lie <Term id="camera-intrinsics">camera intrinsics</Term>, depth alignment, the camera mount (extrinsics), joint zeroes, link and tool dimensions, payload, timing and actuator response. An error in any link misplaces the grasp: even with FoundationPose tracking the object <Cite id="foundationpose-2024" />, a wrong camera transform sends the hand astray, and [visual servoing](/classical/perception) <Cite id="espiau-1992" /> needs consistent frames.
+Between the pixel where a policy sees a mug and the gripper reaching for it sit <Term id="camera-intrinsics">camera intrinsics</Term>, depth, the camera mount, joint zeroes, tool dimensions, timing and actuator response. A wrong camera transform misses even with FoundationPose tracking the object <Cite id="foundationpose-2024" />.
+
+Also: [visual servoing](/classical/perception) <Cite id="espiau-1992" />.
 
 <CalibrationChain className="my-6" />
 
-## Camera intrinsics
+## The camera model must match the lens and the depth sensor
 
-Intrinsics turn a pixel into a ray through focal lengths, the image center and lens distortion. Zhang's method recovers them from a flat pattern held at a few unknown angles <Cite id="zhang-2000-calibration" />, and Kannala and Brandt's generic model covers wide-angle and fisheye lenses <Cite id="kannala-brandt-2006" />. Refit after any focus, resolution or crop change, and judge it by held-out reprojection error, which automatic image filtering cut by 25% in a 2026 study <Cite id="reproducible-intrinsics-2026" />. AnyCalib calibrates pinhole, fisheye and other lens models from a single image <Cite id="anycalib-2025" />.
+Intrinsics map a pixel to a ray. Zhang's method recovers them from a flat pattern at a few angles <Cite id="zhang-2000-calibration" />. Refit after any focus or crop change, judged by held-out reprojection error <Cite id="reproducible-intrinsics-2026" />.
 
-## Depth is a measurement model
+Stereo depth error grows with the square of distance <Cite id="realsense-tuning-2026" />, and shiny surfaces saturate the image <Cite id="realsense-d400-datasheet-2026" />. Kinect's error reaches about 4 cm at full range <Cite id="khoshelham-kinect-2012" />.
 
-Stereo depth error grows with the square of distance, and repeating patterns make matches ambiguous <Cite id="realsense-tuning-2026" />; shiny surfaces can saturate the image <Cite id="realsense-d400-datasheet-2026" />. Kinect's random error grows from a few millimeters to about 4 cm at maximum range <Cite id="khoshelham-kinect-2012" />, and a joint depth-and-color calibration with a depth-distortion model beat the manufacturer's <Cite id="herrera-depth-color-2012" />.
+Also: fisheye lenses <Cite id="kannala-brandt-2006" />, single-image AnyCalib <Cite id="anycalib-2025" />, Kinect depth distortion <Cite id="herrera-depth-color-2012" />.
 
-## Hand-eye calibration
+## Hand-eye calibration solves AX = XB
 
-Hand-eye calibration finds where the camera sits relative to the gripper or base. Shiu and Ahmad cast it as $AX = XB$, relating known arm motions $A$ to the camera's observed motions $B$ through the unknown mount $X$ <Cite id="shiu-ahmad-1989" />. Tsai and Lenz <Cite id="tsai-lenz-1989" /> and Park and Martin <Cite id="park-martin-1994" /> gave closed-form solutions, and Daniilidis's dual quaternions solve rotation and translation together <Cite id="daniilidis-1999" />.
+Hand-eye calibration locates the camera on the gripper. Shiu and Ahmad cast it as $AX = XB$, with arm motions $A$, camera motions $B$ and the unknown mount $X$ <Cite id="shiu-ahmad-1989" />. Tsai and Lenz solved it in closed form <Cite id="tsai-lenz-1989" />.
 
 <Image id="baxter-gripper-wrist-camera" />
 
-OpenCV needs at least three poses with non-parallel rotation axes and recommends many more <Cite id="opencv-hand-eye-docs-2026" />; MoveIt reports accuracy leveling off after about 12 to 15 samples <Cite id="moveit-hand-eye-tutorial-2026" />.
+It needs at least three poses about non-parallel axes <Cite id="opencv-hand-eye-docs-2026" />; accuracy levels off near 12 to 15 <Cite id="moveit-hand-eye-tutorial-2026" />.
 
 <HandEyePoses className="my-6" />
 
-Markerless methods, which recognize the robot itself, now rival calibration targets. DREAM's single-image accuracy matches multi-frame offline calibration <Cite id="dream-2019" />, Kalib tracks one point on the robot <Cite id="kalib-2024" />, and Hydra reaches 5 mm task-space accuracy against 7 mm for classical methods <Cite id="hydra-hand-eye-2025" />. DRHeC reports 88.9% grasp success on a UR5e, 46.3 points above EasyHeC <Cite id="drhec-2026" /> <Cite id="easyhec-2023" />, and AnchorHEC (November 2026) calibrates wrist and fixed cameras together, with 86.4% less simulated translation error than reconstruction baselines <Cite id="anchorhec-2026" />.
+Markerless methods recognize the robot itself and now rival targets.
 
-## Kinematic and tool calibration
+| Method | Result |
+| --- | --- |
+| DREAM | One image matches multi-frame offline calibration <Cite id="dream-2019" /> |
+| Kalib | Tracks a single point on the robot <Cite id="kalib-2024" /> |
+| Hydra | 5 mm task-space accuracy, against 7 mm for classical methods <Cite id="hydra-hand-eye-2025" /> |
+| DRHeC | 88.9% grasp success on a UR5e, 46.3 points above EasyHeC <Cite id="drhec-2026" /> <Cite id="easyhec-2023" /> |
+| AnchorHEC | Wrist and fixed cameras together, 86.4% less simulated translation error <Cite id="anchorhec-2026" /> |
 
-Manufacturing errors and joint flex shift real arms from nominal [kinematics](/classical/kinematics) <Cite id="modern-robotics-2017" />. Nguyen and colleagues calibrated a humanoid from 31 chosen postures, cutting its RMS error 2.3-fold against the manufacturer's model <Cite id="humanoid-geometric-calibration-2025" />. OmniCalib found CAD wrist-camera extrinsics off by up to 10.56 mm and 1.74 degrees, and writes back only corrections its observability checks support <Cite id="omnicalib-2026" />. Double-support stances cut one humanoid's held-out foot-height errors from 8.03 to 1.43 mm <Cite id="humanoid-joint-offset-2026" />.
+Also: closed form by Park and Martin <Cite id="park-martin-1994" />, dual quaternions <Cite id="daniilidis-1999" />.
 
-## Time calibration
+## Real arms drift from their nominal kinematics
 
-A camera frame 50 ms late shows the gripper where it was 50 ms ago; paired with a fresh joint reading, it puts the grasp 5 mm off per 10 cm a second of arm speed. On one RealSense D435 and Airbot Play rig, Realtime-VLA V2 measured camera, joint-reading and motion delays of 55, 50 and 150 ms <Cite id="realtime-vla-v2-2026" />. SyncHeC (November 2026) estimates hand-eye pose and camera latency together from one 6.5 s motion, and compensating the offset raised policy success by 8.1 points over 1,800 matched trial pairs <Cite id="synchec-2026" />. Kalibr also estimates time offsets with spatial transforms <Cite id="kalibr-2013" />, and IEEE 1588 syncs networked clocks to sub-microsecond accuracy <Cite id="ieee-1588-2019" />.
+Manufacturing errors and joint flex shift real arms from nominal [kinematics](/classical/kinematics) <Cite id="modern-robotics-2017" />. Calibrating a humanoid from 31 postures cut its RMS error 2.3-fold <Cite id="humanoid-geometric-calibration-2025" />, and OmniCalib found CAD camera values off by up to 10.56 mm <Cite id="omnicalib-2026" />.
+
+Also: humanoid joint offsets <Cite id="humanoid-joint-offset-2026" />.
+
+## A late frame misses by speed times delay
+
+A frame 50 ms late shows the gripper where it was, so at 10 cm a second the grasp lands 5 mm off. A RealSense rig measured 55 ms of camera delay <Cite id="realtime-vla-v2-2026" />, and compensating such delay raised policy success by 8.1 points <Cite id="synchec-2026" />.
 
 <TimeOffsetMiss className="my-6" />
 
-## Dynamics and actuator calibration
+Also: Kalibr time offsets <Cite id="kalibr-2013" />, IEEE 1588 clock sync <Cite id="ieee-1588-2019" />.
 
-In sim-to-real work this is system identification. Atkeson, An and Hollerbach identified load and link inertias and beat CAD-derived predictions <Cite id="atkeson-an-hollerbach-1986" />, and Gaz and colleagues first identified the Franka Panda's dynamics, joint friction and physically feasible parameters <Cite id="gaz-panda-dynamics-2019" />. Swevers and colleagues design repeating test motions so measurements can be averaged over cycles <Cite id="swevers-excitation-1997" />.
+## Actuator response must be measured
 
-Hwangbo and colleagues found actuator dynamics central to ANYmal's sim-to-real gap and learned an actuator network from measurements <Cite id="hwangbo-2019" />. SPI-Active, choosing identification data actively, beat baselines by 42 to 63% in locomotion transfer <Cite id="spi-active-2025" />. Without measured response, policy error and tracking error look the same.
+Without a measured actuator response, policy error and tracking error look the same. Hwangbo and colleagues learned ANYmal's actuator dynamics from measurements <Cite id="hwangbo-2019" />. SPI-Active, choosing that data actively, beat baselines by 42 to 63% in locomotion transfer <Cite id="spi-active-2025" />.
 
-## Drift and ownership
+Also: identified inertias <Cite id="atkeson-an-hollerbach-1986" />, Franka Panda dynamics <Cite id="gaz-panda-dynamics-2019" />, periodic excitation <Cite id="swevers-excitation-1997" />.
 
-DROID's per-session checkerboard calibrations were not always accurate; it provides camera-to-base calibrations for about 36,000 scenes <Cite id="droid-2024" />. Most public datasets lack extrinsics; CalibAll recovered them for about 97,000 episodes across 16 datasets <Cite id="calib-all-2025" />. Store each calibration with hardware serials, camera settings, tool, software version, date, procedure and residuals, and recalibrate after a remount, a collision, or a tool or firmware change.
+## Calibrations drift, so store them with their evidence
+
+Most public datasets lack extrinsics; CalibAll recovered them for about 97,000 episodes <Cite id="calib-all-2025" />. Store each calibration with serials, settings, software version and residuals; recalibrate after a remount, collision or tool change.
+
+Also: DROID's per-session checkerboards <Cite id="droid-2024" />.
