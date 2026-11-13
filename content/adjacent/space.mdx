@@ -5,7 +5,7 @@ domain: adjacent
 slug: space
 order: 4
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - aegis-curiosity-2017
   - perseverance-autonomy-2023
@@ -79,71 +79,83 @@ import { OrbitalServicingTable } from '@/components/mdx/orbital-servicing-table'
 
 import { FreeFloatingArm } from '@/components/interactive/free-floating-arm';
 
-Space robotics builds and operates robots beyond Earth, from planetary rovers to station arms and satellite servicers. A signal needs 4 to 20 minutes to reach Mars <Cite id="jpl-ipn-pnt-2024" />, so rovers mostly drive themselves <Cite id="enav-perseverance-2026" />, and commercial servicers have docked with satellites in orbit since 2020 <Cite id="mev1-servicing-2025" />.
+Space robotics builds and operates robots beyond Earth, from planetary rovers to station arms and satellite servicers. A signal takes 4 to 20 minutes to reach Mars <Cite id="jpl-ipn-pnt-2024" />, so rovers mostly drive themselves <Cite id="enav-perseverance-2026" />, and commercial servicers have docked with satellites since 2020 <Cite id="mev1-servicing-2025" />.
 
 <Image id="perseverance-selfie-rochette-2021" />
 
-## Autonomy paced by the speed of light
+## Light delay makes rovers drive themselves
 
-A rover cannot be steered live. Sheridan's 1993 review found that space teleoperation tended to avoid time delay by not teleoperating from the ground <Cite id="sheridan-time-delay-1993" />, and NASA and JPL rovers have driven with onboard autonomy since 2004, when the Mars Exploration Rovers layered goal-based driving over safety checks; they drove over 11,000 m combined by October 2005 <Cite id="mer-mobility-software-2006" />. They were the first robots to use visual odometry, tracking their own motion from camera images, on another world, and within two years it grew from an "extra credit" capability into a critical vehicle safety system <Cite id="mer-visual-odometry-2007" />.
+A rover cannot be steered live. Sheridan's 1993 review found that space <Term id="teleoperation">teleoperation</Term> avoided delay by not teleoperating from the ground <Cite id="sheridan-time-delay-1993" />. NASA's Mars Exploration Rovers drove with onboard autonomy from 2004, over 11,000 m by October 2005 <Cite id="mer-mobility-software-2006" />, and within two years their visual odometry became a critical safety system <Cite id="mer-visual-odometry-2007" />.
 
-Each mission added autonomy in small, checked steps. In Perseverance's first Mars year its AutoNav system evaluated the terrain for 88 percent of the 17.7 km driven, against Opportunity's previous record of 2.4 km over fourteen years, and set rover records of 699.9 m without humans reviewing the imagery and 347.7 m in one Mars day <Cite id="perseverance-autonomy-2023" />. Its navigation software, ENav, runs on a single-core CPU; it raised average daily driving distance by an order of magnitude and by October 28, 2024 had evaluated about 90 percent of 32.1 km <Cite id="enav-perseverance-2026" />. Since February 2026 Perseverance can [fix its own position](/classical/state-estimation/) by matching its panoramas to orbital imagery, within 25 cm in about two minutes <Cite id="mars-global-localization-2026" />.
+Perseverance's AutoNav judged the terrain for 88 percent of the 17.7 km it drove in its first Mars year; Opportunity's record was 2.4 km over fourteen years <Cite id="perseverance-autonomy-2023" />. Its ENav software runs on a single-core CPU and raised daily driving by an order of magnitude <Cite id="enav-perseverance-2026" />. Since February 2026 the rover can [fix its own position](/classical/state-estimation/) by matching panoramas to orbital imagery, within 25 cm in about two minutes <Cite id="mars-global-localization-2026" />.
 
 ## Rovers that plan, choose and fly
 
-AI on Earth has started planning drives. In December 2025 JPL used [vision-language models](/manipulation/vla-models/) to generate Perseverance waypoints from orbital imagery and slope data; after a digital twin checked over 500,000 telemetry variables, the rover drove 210 m on December 8 and 246 m two days later <Cite id="perseverance-ai-drive-2026" />. Researchers also predict wheel slip from terrain type, in simulation <Cite id="traversability-slip-2023" />, or detect it from motion sensors and wheel encoders at a planetary analog site <Cite id="proprioceptive-slip-2022" />.
+In December 2025 JPL had [vision-language models](/manipulation/vla-models/) plan Perseverance's waypoints from orbital imagery and slope data. A digital twin checked over 500,000 telemetry variables, and the rover drove 210 m, then 246 m two days later <Cite id="perseverance-ai-drive-2026" />.
 
-Onboard software also picks science targets. On Curiosity since 2016, AEGIS has increased science return by choosing targets for the ChemCam laser spectrometer <Cite id="aegis-curiosity-2017" />; on Perseverance it picks SuperCam targets right after long drives, without waiting for Earth <Cite id="perseverance-autonomy-2023" />. In 2024 NASA described PIXL's "adaptive sampling" as the first use of AI on Mars to make autonomous decisions from real-time rock composition analysis <Cite id="pixl-adaptive-sampling-2024" />.
+Onboard software picks science targets. AEGIS has aimed Curiosity's ChemCam laser since 2016 <Cite id="aegis-curiosity-2017" /> and picks Perseverance's SuperCam targets right after long drives <Cite id="perseverance-autonomy-2023" />. NASA calls PIXL's adaptive sampling the first AI on Mars to decide from real-time rock chemistry <Cite id="pixl-adaptive-sampling-2024" />.
 
-On April 19, 2021, Ingenuity made the first powered, controlled flight on another planet, in air at about one percent of Earth's surface pressure <Cite id="ingenuity-first-flight-2021" />. Designed for five flights over thirty days, it flew 72 times in almost three years before NASA ended the mission in January 2024 <Cite id="ingenuity-mission-end-2024" />. NASA's investigation named the likeliest cause of its final crash: a lack of surface texture gave its navigation system too little information <Cite id="ingenuity-investigation-2024" />.
+On April 19, 2021, Ingenuity made the first powered, controlled flight on another planet <Cite id="ingenuity-first-flight-2021" />. Built for five flights, it flew 72 in almost three years <Cite id="ingenuity-mission-end-2024" />. NASA's likeliest cause for its final crash is ground too featureless for its navigation <Cite id="ingenuity-investigation-2024" />.
 
 <Image id="ingenuity-mastcam-z-closeup-2021" />
 
-## Living off the land
+Also: wheel-slip prediction from terrain <Cite id="traversability-slip-2023" />, slip detection from wheel sensors <Cite id="proprioceptive-slip-2022" />.
 
-Missions aim to make supplies on site, <Term id="in-situ-resource-utilization">in-situ resource utilization</Term> (ISRU). MOXIE, on Perseverance, first demonstrated it on another planet by making oxygen from the atmosphere's carbon dioxide; a scaled-up version could make the tens of tons of oxygen an ascent rocket needs on Mars instead of launching hundreds of tons from Earth <Cite id="moxie-sciadv-2022" />. Across sixteen runs to September 2023, MOXIE produced 122 grams of oxygen, peaking at 12 grams per hour at 98 percent purity or better, about twice NASA's original goals <Cite id="moxie-completion-2023" />.
+## Mars oxygen worked; lunar digging is harder
+
+<Term id="in-situ-resource-utilization">In-situ resource utilization</Term>, making supplies on site, first worked on another planet with MOXIE, which made oxygen from Martian carbon dioxide <Cite id="moxie-sciadv-2022" />. Across sixteen runs it made 122 g, peaking at 12 g per hour at 98 percent purity, about twice NASA's goals <Cite id="moxie-completion-2023" />.
 
 <Image id="moxie-installation-perseverance-2020" />
 
-Scaling up means drilling and moving abrasive soil in vacuum and cold. NASA's PRIME-1 suite reached the lunar south pole on Intuitive Machines' IM-2 lander, Athena, in March 2025, but Athena came down on its side in a crater about 400 to 500 m from its target and operated for 10 to 12 hours of the ten days planned. Honeybee Robotics' one-meter TRIDENT drill moved as commanded but could not reach the ground <Cite id="prime-1-lunar-2025" /><Cite id="hancock-prime1-2026" />. Firefly's Blue Ghost, which landed on March 2, 2025, four days before Athena, ran all its NASA payloads, and its LISTER probe dug with gas to 1 m, the deepest robotic planetary subsurface thermal probe yet <Cite id="blue-ghost-lister-2025" />.
+NASA's PRIME-1 reached the lunar south pole in March 2025 on Athena, which landed on its side and worked 10 to 12 hours of the ten days planned. Its TRIDENT drill moved as commanded but never reached the ground <Cite id="prime-1-lunar-2025" /><Cite id="hancock-prime1-2026" />. Firefly's Blue Ghost ran every NASA payload, and its LISTER probe dug to 1 m, the deepest robotic planetary thermal probe yet <Cite id="blue-ghost-lister-2025" />.
 
-## Next on the surface
+## Learned walking is tested on Earth first
 
-JAXA's MMX launched on October 20, 2026 to bring back a sample of the Martian moon Phobos <Cite id="jaxa-mmx-launch-2026" />, carrying Idefix, a rover built by DLR and CNES, due to land around the turn of 2028 to 2029 <Cite id="dlr-idefix-2026" />. China postponed Chang'e-7, a lunar south-pole mission with a rover and a hopper, from its August 2026 window <Cite id="xinhua-change7-delay-2026" /><Cite id="planetary-change7" />.
+ETH Zurich's ANYmal-D and Magnecko crossed lunar soil simulant in the ESA/DLR LUNA hall in 2025, slowed by sinkage, slip, dust and harsh light <Cite id="luna-legged-2026" />. In simulation, humanoid policies trained for Earth fell under lunar gravity, and Moon-trained ones fell on Earth <Cite id="casadesus-humanoid-moon-2026" />.
 
-Learned walking is tested on Earth first. In 2025 ETH Zurich's ANYmal-D and Magnecko quadrupeds crossed loose lunar soil simulant and crater-like terrain in the ESA/DLR LUNA facility in Cologne, but sinkage, slip, dust and perception failures in harsh light all degraded performance <Cite id="luna-legged-2026" />. In a 2026 simulation study, humanoid walking policies trained for Earth often fell under lunar gravity, and Moon-trained ones fell on Earth <Cite id="casadesus-humanoid-moon-2026" />. For caves, PLGRIM ties local risk-aware planning to exploration goals and was tested in Mars-analog lava tubes <Cite id="plgrim-2021" />, while jumping legged robots <Cite id="mars-jumping-2023" /> and ReachBot's extendable limbs <Cite id="reachbot-melt-2024" /> remain mission concepts.
+JAXA's MMX launched on October 20, 2026 to return a Phobos sample <Cite id="jaxa-mmx-launch-2026" />, carrying the DLR and CNES rover Idefix <Cite id="dlr-idefix-2026" />. China postponed Chang'e-7, a lunar south-pole rover and hopper, from August 2026 <Cite id="xinhua-change7-delay-2026" /><Cite id="planetary-change7" />.
 
-## Orbital robotics: servicing and removal
+Also: cave planner PLGRIM <Cite id="plgrim-2021" />, jumping legs <Cite id="mars-jumping-2023" />, ReachBot <Cite id="reachbot-melt-2024" />.
 
-<Term id="on-orbit-servicing">On-orbit servicing</Term> covers repairing, refueling and upgrading satellites and removing debris <Cite id="space-manipulator-review-2025" />. A servicer must match the target's orbit, then dock with it or grab it. In free fall an arm and its satellite push each other around, so swinging the arm turns the satellite the other way; in 1989 Umetani and Yoshida derived a way to control such arms from conservation of momentum <Cite id="umetani-yoshida-1989" />, and a 2025 review covers capture from vision-based estimation to stabilizing the pair afterward <Cite id="space-manipulator-review-2025" />.
+## In orbit, an arm pushes its own satellite
+
+<Term id="on-orbit-servicing">On-orbit servicing</Term> means repairing, refueling and upgrading satellites and removing debris <Cite id="space-manipulator-review-2025" />. In free fall, swinging an arm turns its satellite the other way. Umetani and Yoshida derived how to control such arms from conservation of momentum in 1989 <Cite id="umetani-yoshida-1989" />.
 
 <FreeFloatingArm className="my-6" />
 
 <OrbitalServicingTable className="my-6 wide-measure" />
 
-ROTEX flew on Space Shuttle Columbia in early 1993, worked autonomously, under astronaut teleoperation and under ground control, and grasped free-floating objects <Cite id="rotex-1993" />. Japan's ETS-VII demonstrated autonomous rendezvous and docking between two satellites in 1998, with flight experiments for a 2 m, six-jointed arm <Cite id="ets-vii-ard-2001" /><Cite id="ets-vii-robot-2001" />. In DARPA's 2007 Orbital Express, the ASTRO servicer autonomously captured NextSat and transferred propellant and a battery to it over four months <Cite id="orbital-express-2008" /><Cite id="boeing-orbital-express-2007" />. On the International Space Station the 17 m Canadarm2 assembled the station and still grapples arriving cargo ships <Cite id="canadarm2-csa-2024" />, and Dextre, a two-armed robot riding it, replaces exterior equipment including 100 kg batteries by <Term id="teleoperation">teleoperation</Term> from the ground <Cite id="dextre-csa-2024" />.
+ROTEX grasped free-floating objects aboard Space Shuttle Columbia in 1993 <Cite id="rotex-1993" />.
+
+Also: ETS-VII <Cite id="ets-vii-ard-2001" /><Cite id="ets-vii-robot-2001" />, Orbital Express <Cite id="orbital-express-2008" /><Cite id="boeing-orbital-express-2007" />, Canadarm2 <Cite id="canadarm2-csa-2024" />, Dextre <Cite id="dextre-csa-2024" />, Mission Robotic Vehicle <Cite id="rsgs-mrv-launch-2026" />.
 
 <Image id="dextre-canadarm2-iss-2017" />
 
-## Commercial servicing and debris
+## Debris does not cooperate
 
-In 2020 Northrop Grumman's MEV-1 made the first docking of two commercial spacecraft in orbit, capturing Intelsat 901 above geosynchronous altitude and returning it to service. After five years it undocked, the first such undocking in that orbit, and moved to its next mission <Cite id="mev1-servicing-2025" />. On July 21, 2026, Northrop Grumman's Mission Robotic Vehicle launched with the DARPA-funded RSGS payload, twin robotic arms built by the U.S. Naval Research Laboratory, to install small propulsion modules that extend satellites' lives <Cite id="rsgs-mrv-launch-2026" />.
+ESA's 2026 report says active removal is required to stop collisions multiplying debris <Cite id="esa-space-environment-2026" />. ADRAS-J closed to 15 m of a discarded upper stage, then aborted on its own after an attitude anomaly <Cite id="adras-j-15m-2024" />, and began its controlled deorbit by March 2026 <Cite id="adras-j-deorbit-2026" />. ADRAS-J2 targets fiscal 2027 to capture and remove a 3 t upper stage <Cite id="adras-j2-isar-2026" />.
 
-Debris does not cooperate, and ESA's 2026 report states that active removal is required to stop collisions multiplying debris <Cite id="esa-space-environment-2026" />. In 2024 Astroscale's ADRAS-J, flying for JAXA, inspected a discarded rocket upper stage and closed to about 15 m, nearer than any commercial spacecraft had come to debris, before its collision-avoidance system aborted on its own after an unexpected attitude anomaly <Cite id="adras-j-15m-2024" />. By March 25, 2026 it had begun a controlled deorbit after 293 days in orbit <Cite id="adras-j-deorbit-2026" />. ADRAS-J2 targets launch in Japan's fiscal year 2027 to capture and remove an upper stage of about 3 t <Cite id="adras-j2-isar-2026" />.
+Some servicers never reach their target. NASA dropped OSAM-1, meant to refuel an unprepared satellite, in March 2024 over technical, cost and schedule problems <Cite id="osam1-discontinued-2024" />. LINK's planned boost of the Swift telescope was canceled in August 2026 <Cite id="swift-boost-update-2026" />, and Swift re-entered on November 4 <Cite id="nasa-swift-reentry-2026" />.
 
-Some missions end before they fly. NASA discontinued OSAM-1, meant to refuel a satellite not designed for it, in March 2024, citing technical, cost and schedule challenges and what it called a community evolution away from refueling unprepared spacecraft <Cite id="osam1-discontinued-2024" />. In August 2026 NASA and Katalyst canceled the LINK servicer's planned boost of Swift, launched in 2004, over an attitude-control issue on the commercial spacecraft <Cite id="swift-boost-update-2026" />, and Swift re-entered over Indonesia on November 4, 2026 <Cite id="nasa-swift-reentry-2026" />. On October 29 NASA asked industry how it might boost, service or safely deorbit the Hubble Space Telescope <Cite id="nasa-hubble-rfi-2026" />.
+On October 29, 2026 NASA asked industry how it might boost, service or safely deorbit Hubble <Cite id="nasa-hubble-rfi-2026" />.
 
-## What robot learning takes from space
+## Space forces robots to act alone
 
-Space forces what manipulation can postpone: acting alone, with no one to reset the robot. Perception latency of tens of milliseconds caps a [drone's](/adjacent/drones/) safe speed <Cite id="falanga-latency-2019" />; Mars delays run to minutes, so spacecraft there must handle surprises without real-time commands from Earth <Cite id="jpl-ipn-pnt-2024" />.
+Manipulation can postpone working with no one to reset the robot; space cannot. Tens of milliseconds cap a [drone's](/adjacent/drones/) safe speed <Cite id="falanga-latency-2019" />, while Mars delays run to minutes, so spacecraft there handle surprises without real-time commands <Cite id="jpl-ipn-pnt-2024" />.
 
 <SpaceLatencyLadder className="my-6" />
 
-Learned control has just begun to fly, aboard the ISS on NASA's Astrobee free-flying robots. In 2025 Banerjee and colleagues reported the first in-space test of learned warm starts, a network's first guess at a trajectory that a solver then refines while enforcing safety; it cut solver iterations by 60 percent with rotational dynamics and 50 percent with familiar obstacles <Cite id="banerjee-warm-starts-2025" />. On May 27, 2025, the Naval Research Laboratory's APIARY team ran what it calls the first reinforcement-learning control of a free-flyer in space, with a policy trained in randomized simulation <Cite id="apiary-astrobee-2025" />. Training can even run on board: Elena Sorina Lupu, Soon-Jo Chung and colleagues trained a thermal image model on a small CubeSat and used it to point the spacecraft at the Moon, in 12 experiments over about a year <Cite id="lupu-learning-in-orbit-2026" />.
+Learned control has just begun to fly.
+
+| Test | Platform | Result |
+| --- | --- | --- |
+| Learned warm starts, 2025 <Cite id="banerjee-warm-starts-2025" /> | Astrobee, ISS | Solver iterations cut 60% with rotation, 50% with familiar obstacles |
+| APIARY, May 2025 <Cite id="apiary-astrobee-2025" /> | Astrobee, ISS | First reinforcement-learning control of a free-flyer in space |
+| Training on board, 2026 <Cite id="lupu-learning-in-orbit-2026" /> | CubeSat | A thermal image model trained in orbit pointed the craft at the Moon in 12 experiments |
 
 ## Data is the bottleneck
 
-The Space Robotics Bench authors say costly demonstrations and limited data severely hinder robot learning in space <Cite id="space-robotics-bench-2025" />, and a September 2026 review adds space-specific dynamics and sensing, limited onboard computing and stringent safety requirements <Cite id="ai-space-robot-ops-review-2026" />. Much of the available data is rendered or crowdsourced:
+Costly demonstrations and scarce data hinder robot learning in space <Cite id="space-robotics-bench-2025" />, on top of odd dynamics, small onboard computers and strict safety rules <Cite id="ai-space-robot-ops-review-2026" />. Most data is rendered or crowdsourced.
 
 | Dataset or tool | What it provides |
 | --- | --- |
@@ -154,4 +166,4 @@ The Space Robotics Bench authors say costly demonstrations and limited data seve
 | SPARK (2021) | Simulated color and depth images labeled by spacecraft or debris class <Cite id="spark-2021" /> |
 | SurRender (2021) | Ray tracer spanning celestial distances and fine target detail <Cite id="surrender-2021" /> |
 
-Space shares its [reliability](/frontier/reliability-gap/) bar with [surgical robotics](/adjacent/surgical/), and its practice is to add autonomy in small, verified steps, as AEGIS and the digital-twin check on AI-planned drives did <Cite id="aegis-curiosity-2017" /><Cite id="perseverance-ai-drive-2026" />.
+Space shares its [reliability](/frontier/reliability-gap/) bar with [surgical robotics](/adjacent/surgical/): add autonomy in small, verified steps, as AEGIS and the digital-twin check did <Cite id="aegis-curiosity-2017" /><Cite id="perseverance-ai-drive-2026" />.

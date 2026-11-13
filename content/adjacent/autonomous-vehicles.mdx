@@ -1,11 +1,11 @@
 ---
 title: "Autonomous Vehicles"
-description: "How self-driving software works, why robotaxis at scale have not solved driving, and what robot learning took from autonomous vehicles."
+description: "How self-driving software works, why scale has not solved driving, and what robot learning took from it."
 domain: adjacent
 slug: autonomous-vehicles
 order: 1
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - alvinn-1988
   - no-hands-across-america-1995
@@ -100,43 +100,47 @@ import { AvSafetyMiles } from '@/components/interactive/av-safety-miles';
 
 import { AvStackTable } from '@/components/mdx/av-stack-table';
 
-Autonomous vehicles are cars and trucks whose software perceives the road, predicts what other road users will do, plans a path and steers. By October 2026 Waymo robotaxis had driven more than 300 million fully autonomous miles <Cite id="alphabet-q3-2026" />. For robot learning, driving is the neighbor that already has fleets, regulators, recalls and a public crash record.
+Autonomous vehicles are cars and trucks whose software perceives the road, predicts other road users, plans a path and steers. Waymo robotaxis passed 300 million fully autonomous miles by October 2026 <Cite id="alphabet-q3-2026" />, and driving is the robot-learning neighbor that already has fleets, recalls and a public crash record.
 
 <Image id="waymo-jaguar-ipace-san-francisco-2023" />
 
-ALVINN, a 1988 neural network trained on simulated roads, steered a van from camera and laser range-finder images <Cite id="alvinn-1988" />; by 1991 it learned to drive in under five minutes by watching a human <Cite id="pomerleau-1991" />. In 1995 CMU's RALPH steered 2,797 of 2,849 miles across the US while researchers worked the pedals <Cite id="no-hands-across-america-1995" />, and Stanley won the 2005 DARPA Grand Challenge with software built mainly on machine learning and probabilistic reasoning <Cite id="stanley-2006" />.
+## Driving splits into four stages
 
-## The driving stack
-
-A production vehicle splits driving into four stages, perception, prediction, planning and control, each with its own models, metrics and failure modes <Cite id="uniad-2023" /><Cite id="paden-2016" />.
+Production vehicles run perception, prediction, planning and control as separate stages <Cite id="uniad-2023" /><Cite id="paden-2016" />.
 
 <AvStackTable className="my-6" />
 
-### Perception
+Also: early learned drivers ALVINN, 1988 <Cite id="alvinn-1988" />, ALVINN in five minutes, 1991 <Cite id="pomerleau-1991" />, RALPH across the US, 1995 <Cite id="no-hands-across-america-1995" />, Stanley, 2005 <Cite id="stanley-2006" />.
 
-Perception answers where everything is and what it is. Waymo's encoder fuses camera, <Term id="lidar">lidar</Term> and radar inputs over time <Cite id="waymo-foundation-model-2025" />, and Waymo argues that no single sensor can replicate that redundant view <Cite id="waymo-ai-lessons-2026" />. BEVFormer, which turns camera images alone into a bird's-eye map, matched lidar-based baselines on the nuScenes test set <Cite id="bevformer-2022" />. Lidar detectors differ mainly in how they arrange the <Term id="point-cloud">point cloud</Term>, as columns, small cubes or object centers <Cite id="pointpillars-2018" /><Cite id="pv-rcnn-2019" /><Cite id="centerpoint-2020" />.
+### Perception fuses every sensor
+
+Waymo fuses camera, <Term id="lidar">lidar</Term> and radar over time <Cite id="waymo-foundation-model-2025" /> and says no single sensor can replace that redundancy <Cite id="waymo-ai-lessons-2026" />. Camera-only BEVFormer matched lidar baselines on the nuScenes test set <Cite id="bevformer-2022" />.
+
+Also: <Term id="point-cloud">point-cloud</Term> detectors PointPillars <Cite id="pointpillars-2018" />, PV-RCNN <Cite id="pv-rcnn-2019" />, CenterPoint <Cite id="centerpoint-2020" />.
 
 <Image id="waymo-roof-sensor-suite-2025" />
 
-### Prediction
+### Prediction keeps several futures
 
-Prediction forecasts what every other road user will do over the next several seconds. The future branches: a pedestrian may cross or wait, and a predictor that averages the two forecasts a path through neither. Early predictors drew the map and recent motion as a top-down image; VectorNet (2020) instead fed lanes and tracks to a graph network as line segments, and matched or beat the image version with over 70 percent fewer parameters and an order of magnitude less computation <Cite id="vectornet-2020" />. Later predictors keep several candidate futures with their uncertainty <Cite id="multipath-2019" /><Cite id="lanegcn-2020" /><Cite id="trajectron-plus-plus-2020" /><Cite id="wayformer-2022" /><Cite id="motion-transformer-2022" />, and MotionLM writes the motion of several agents as tokens, the way a language model writes words <Cite id="motionlm-2023" />.
+A pedestrian may cross or wait, and the average of the two is neither. VectorNet read lanes and tracks as line segments and matched image-based predictors with over 70 percent fewer parameters <Cite id="vectornet-2020" />. MotionLM writes several agents' motion as tokens, like words <Cite id="motionlm-2023" />.
 
-### Planning and control
+Also: multi-future predictors MultiPath <Cite id="multipath-2019" />, LaneGCN <Cite id="lanegcn-2020" />, Trajectron++ <Cite id="trajectron-plus-plus-2020" />, Wayformer <Cite id="wayformer-2022" />, Motion Transformer <Cite id="motion-transformer-2022" />.
 
-Planning decides the lane, speed and path for the next few seconds. CMU's Boss won the 2007 DARPA Urban Challenge with a three-layer planner for mission, behavior and motion <Cite id="boss-urban-challenge-2008" />, a split Paden's survey also uses <Cite id="paden-2016" /> ([motion planning](/classical/motion-planning/)).
+### Planning needs more than copying drivers
+
+CMU's Boss won the 2007 DARPA Urban Challenge with a three-layer planner for mission, behavior and motion <Cite id="boss-urban-challenge-2008" />, the split Paden's survey uses <Cite id="paden-2016" /> ([motion planning](/classical/motion-planning/)).
 
 <Image id="cmu-boss-urban-challenge-winner" />
 
-Copying human drivers was not enough. ChauffeurNet, Waymo's 2018 imitative planner, found standard <Term id="behavior-cloning">behavior cloning</Term> on 30 million examples insufficient. Its fix was to train on perturbed versions of the expert's driving, which create situations such as collisions or leaving the road, with added losses that penalize those events <Cite id="chauffeurnet-2018" />, a remedy for <Term id="covariate-shift">covariate shift</Term> that manipulation later rediscovered ([behavior cloning foundations](/manipulation/bc-foundations/)). On nuPlan, the first closed-loop benchmark for machine-learned planning <Cite id="nuplan-2021" />, a simple planner built on rule-based priors won the 2023 challenge, and its authors found learned planners limited in complex scenarios <Cite id="dauner-misconceptions-2023" />.
+Waymo's ChauffeurNet found <Term id="behavior-cloning">behavior cloning</Term> on 30 million examples insufficient, so it trained on perturbed expert driving with losses that penalize collisions <Cite id="chauffeurnet-2018" />. Manipulation later rediscovered that cure for <Term id="covariate-shift">covariate shift</Term> ([behavior cloning foundations](/manipulation/bc-foundations/)).
 
-Control then turns the path into steering, brake and throttle and holds the car on it despite disturbances, tire limits and actuator delay, using methods from pure pursuit to <Term id="mpc">model-predictive control</Term> <Cite id="paden-2016" />. Even a learned planner's trajectory is tracked by a classical [controller](/classical/control/).
+Control tracks the path with methods from pure pursuit to <Term id="mpc">model-predictive control</Term>, even behind a learned planner <Cite id="paden-2016" /> ([control](/classical/control/)).
 
-### One network or four
+### Simple planners still match end-to-end networks
 
-Each hand-off between stages is a lossy summary that later stages cannot undo. <Term id="end-to-end-driving">End-to-end</Term> systems train perception and planning together to avoid that loss, while modular designs are easier to interpret and debug <Cite id="e2e-ad-survey-2024" />. UniAD kept the four tasks but trained them as one network <Cite id="uniad-2023" />, and Waymo's EMMA, built on a multimodal large language model such as Gemini, maps raw camera data to driving outputs written as text <Cite id="emma-2024" />.
+Every hand-off between stages loses information, so <Term id="end-to-end-driving">end-to-end</Term> systems train the stages together; modular ones are easier to debug <Cite id="e2e-ad-survey-2024" />. UniAD trains all four as one network <Cite id="uniad-2023" />, and EMMA writes driving outputs as text <Cite id="emma-2024" />.
 
-NAVSIM was built because scores on recorded driving do not reflect closed-loop performance, and on it a simple method, TransFuser, matched large end-to-end architectures such as UniAD <Cite id="navsim-2024" />. Waymo says its own foundation model has significant benefits over both pure end-to-end and modular approaches <Cite id="waymo-foundation-model-2025" />. Public benchmarks have moved from labeled frames toward closed-loop simulation.
+In closed loop, a planner built on rule-based priors won the 2023 nuPlan challenge <Cite id="nuplan-2021" /><Cite id="dauner-misconceptions-2023" />, and on NAVSIM the simple TransFuser matched UniAD <Cite id="navsim-2024" />.
 
 | Benchmark | Year | What it tests |
 | --- | --- | --- |
@@ -154,7 +158,7 @@ NAVSIM was built because scores on recorded driving do not reflect closed-loop p
 
 ## Robotaxis run at scale
 
-Waymo says it gave 15 million rides in 2025 <Cite id="waymo-year-in-review-2025" />. Other operators publish less, and each reports a different unit.
+Waymo gave 15 million rides in 2025 <Cite id="waymo-year-in-review-2025" />. Every operator reports a different unit.
 
 | Operator | Service | Reported scale |
 | --- | --- | --- |
@@ -164,56 +168,84 @@ Waymo says it gave 15 million rides in 2025 <Cite id="waymo-year-in-review-2025"
 | Pony.ai | Robotaxi fleet <Cite id="pony-q2-2026" /> | 1,975 vehicles by June 2026 <Cite id="pony-q2-2026" /> |
 | Aurora | Driverless trucks, Dallas to Houston, since May 2025 <Cite id="aurora-driverless-launch-2025" /> | Over 500,000 commercial driverless miles by September 2026 <Cite id="aurora-q3-2026" /> |
 
-Aurora reported zero collisions attributed to its system through June 2026 <Cite id="aurora-q2-2026" />; with production about six weeks behind plan, it expects to pass 200 driverless trucks by the end of February 2027 <Cite id="aurora-q3-2026" />.
+Aurora reported zero collisions attributed to its system through June 2026 <Cite id="aurora-q2-2026" /> and expects more than 200 driverless trucks by the end of February 2027 <Cite id="aurora-q3-2026" />.
 
 ### The long tail still causes recalls
 
-Scale has not solved driving because of the <Term id="long-tail">long tail</Term>: situations that are individually rare and collectively decisive, such as an officer waving cars through a red light. No driving log holds enough of any one to learn from. Waymo's WOD-E2E benchmark gathers 4,021 segments, about 12 hours, of scenarios occurring less than 0.03 percent of the time <Cite id="wod-e2e-2025" />.
+The <Term id="long-tail">long tail</Term> is the mass of rare situations, such as an officer waving cars through a red light, that no log holds enough of to learn from. Waymo's WOD-E2E benchmark gathers 4,021 segments, about 12 hours, of scenarios rarer than 0.03 percent <Cite id="wod-e2e-2025" />.
 
-In December 2025 Waymo recalled software on 3,067 vehicles that resumed driving past school buses with red lights flashing or stop arms extended <Cite id="waymo-recall-25e084-2025" />. On November 6, 2026, NHTSA opened a query into whether the fix worked, since most incidents it had identified came after the November 17, 2025 remedy date <Cite id="nhtsa-rq26006-2026" />. In May 2026 Waymo recalled 3,791 vehicles that could slow but not stop for an untraversable flooded lane on higher-speed roads <Cite id="waymo-recall-26e026-2026" />.
+| Date | Action | Defect |
+| --- | --- | --- |
+| Dec 2025 | Waymo recall, 3,067 vehicles | Drove on past school buses with red lights flashing <Cite id="waymo-recall-25e084-2025" /> |
+| May 2026 | Waymo recall, 3,791 vehicles | Slowed but did not stop for a flooded lane <Cite id="waymo-recall-26e026-2026" /> |
+| Nov 2026 | NHTSA query | Most school-bus incidents came after the fix <Cite id="nhtsa-rq26006-2026" /> |
 
-One response is to generate rare events. Waymo's World Model (February 2026), built on Google DeepMind's Genie 3, generates camera and lidar data to rehearse events "from a tornado to a casual encounter with an elephant" <Cite id="waymo-world-model-2026" />. Wayve's GAIA-2 does the same for multi-camera video <Cite id="gaia-2-2025" />. Whether such models cover the tail or only their training data is open, as it is for [generative video](/world-models/generative-video/).
+Waymo's World Model, built on Genie 3, generates camera and lidar data for rare events "from a tornado to a casual encounter with an elephant" <Cite id="waymo-world-model-2026" />. Wayve's GAIA-2 does the same for video <Cite id="gaia-2-2025" />. Whether they reach past their training data is open ([generative video](/world-models/generative-video/)).
 
 ## Proving safety is a measurement problem
 
-Kalra and Paddock's 2016 RAND study found that test driving alone would need hundreds of millions of miles, sometimes hundreds of billions <Cite id="kalra-paddock-2016" />. Mobileye's Responsibility-Sensitive Safety instead writes safe following and side distances as an explicit model <Cite id="rss-2017" />. Koopman argues that "safe enough" also requires no risk hot spots, standards conformance and accountability <Cite id="koopman-safe-enough-2026" />.
+Test driving alone would need hundreds of millions of miles, sometimes hundreds of billions, RAND found <Cite id="kalra-paddock-2016" />. Mobileye's Responsibility-Sensitive Safety writes safe distances as an explicit model instead <Cite id="rss-2017" />, and Koopman adds accountability and no risk hot spots to "safe enough" <Cite id="koopman-safe-enough-2026" />.
 
 <AvSafetyMiles className="my-6" />
 
-Waymo's peer-reviewed 2025 study of 56.7 million rider-only miles through January 2025, against human drivers in the same vehicle types, roads and places, found significantly fewer crashes with any reported injury, an airbag deployment or a suspected serious injury, and 96 percent fewer vehicle-to-vehicle intersection crashes with injury <Cite id="waymo-crash-rates-2025" />. Through June 2026 Waymo counts 95 percent fewer serious-injury-or-worse crashes and 82 percent fewer injury-causing crashes than human drivers <Cite id="waymo-safety-hub-2026" />. An independent IIHS study found 68 percent fewer police-reportable crashes per mile than human drivers in the same areas <Cite id="iihs-waymo-2026" /><Cite id="iihs-rise-of-machines-2026" />.
+Waymo crashes far less than human drivers on the same roads.
 
-For most operators the denominator is missing. US companies must report crashes but not the miles they log <Cite id="iihs-waymo-2026" />, though Tesla now publishes its robotaxi collisions alongside its driverless mileage <Cite id="tesla-robotaxi-safety-2026" /> and NHTSA has streamlined the reporting order <Cite id="nhtsa-av-framework-2026" />. California's DMV says its disengagement reports are not designed for comparing companies, and deployment-permit operations need not report them <Cite id="ca-dmv-av-miles-2026" />.
+| Study | Scope | Result |
+| --- | --- | --- |
+| Waymo, peer-reviewed, 2025 | 56.7 million rider-only miles | 96% fewer injury crashes between vehicles at intersections <Cite id="waymo-crash-rates-2025" /> |
+| Waymo safety hub | Through June 2026 | 95% fewer serious-injury crashes, 82% fewer injury crashes <Cite id="waymo-safety-hub-2026" /> |
+| IIHS, independent, 2026 | Same areas as human drivers | 68% fewer police-reportable crashes per mile <Cite id="iihs-waymo-2026" /><Cite id="iihs-rise-of-machines-2026" /> |
+
+Most operators publish no denominator: US companies must report crashes but not miles <Cite id="iihs-waymo-2026" />. Tesla now pairs its robotaxi collisions with mileage <Cite id="tesla-robotaxi-safety-2026" />. California says its disengagement reports cannot compare companies <Cite id="ca-dmv-av-miles-2026" />.
 
 ## Regulators set the terms
 
-SAE J3016 defines six levels of driving automation, 0 through 5 <Cite id="sae-j3016-2021" />. Waymo calls improving a level 2 driver-assist system toward full autonomy "a false summit" <Cite id="waymo-ai-lessons-2026" />. Every deployed level 4 system runs inside an <Term id="operational-design-domain">operational design domain</Term>, a defined set of places, roads, speeds and weather.
+SAE J3016 defines six levels of automation, 0 through 5 <Cite id="sae-j3016-2021" />, and Waymo calls pushing level 2 driver assist toward full autonomy "a false summit" <Cite id="waymo-ai-lessons-2026" />. Every deployed level 4 system runs inside an <Term id="operational-design-domain">operational design domain</Term>, a defined set of places, roads, speeds and weather.
 
-On June 24, 2026, the UNECE World Forum for Harmonization of Vehicle Regulations adopted the first global regulation for fully driverless systems <Cite id="un-ads-regulation-2026" /><Cite id="unece-ads-press-2026" />. Makers must show that their test environments, virtual ones included, meet strict credibility criteria, and present a <Term id="safety-case">safety case</Term> that the system poses no unreasonable risk <Cite id="unece-ads-press-2026" />; Aurora closed its own safety case before going driverless <Cite id="aurora-driverless-launch-2025" />. In the US, NHTSA announced an AV framework on April 24, 2025, and on March 16, 2026 proposed amending safety standards for vehicles without manual controls <Cite id="nhtsa-av-framework-2026" />. In July 2026 it exempted Zoox's purpose-built robotaxi from parts of eight standards for two years and up to 2,500 vehicles in any 12-month period <Cite id="nhtsa-zoox-exemption-2026" />, and Zoox began charging fares in Las Vegas <Cite id="amazon-q3-2026" />.
+| Date | Regulator | Rule |
+| --- | --- | --- |
+| June 2026 | UNECE | First global rule for driverless systems: credible virtual tests and a <Term id="safety-case">safety case</Term> <Cite id="un-ads-regulation-2026" /><Cite id="unece-ads-press-2026" /> |
+| March 2026 | NHTSA | Proposed standards for cars without manual controls; streamlined crash reporting <Cite id="nhtsa-av-framework-2026" /> |
+| July 2026 | NHTSA | Zoox robotaxi exempt from parts of eight standards, up to 2,500 a year for two years <Cite id="nhtsa-zoox-exemption-2026" /> |
+| October 2026 | FMCSA | Level 4 trucks may use cab-mounted beacons for five years <Cite id="fmcsa-aurora-beacons-2026" /> |
 
-Trucks raise the stakes: Chris Paxton argued in September 2026 that their potential for catastrophic failure is much higher, since they need far longer to stop, and the law required roadside warning devices an unoccupied truck could not set out <Cite id="paxton-autonomous-trucks-2026" />. In October 2026 the Federal Motor Carrier Safety Administration let level 4 trucks use cab-mounted warning beacons instead, for five years <Cite id="fmcsa-aurora-beacons-2026" />.
+Aurora closed its safety case before going driverless <Cite id="aurora-driverless-launch-2025" />, and Zoox began charging fares in Las Vegas <Cite id="amazon-q3-2026" />. Trucks take far longer to stop, and an empty cab could not set out the roadside warning devices the law required, Chris Paxton noted <Cite id="paxton-autonomous-trucks-2026" />.
 
-## Two failures on public roads
+## Uber and Cruise failed on public roads
 
-On March 18, 2018, an Uber test vehicle in Tempe, Arizona killed a pedestrian pushing a bicycle across a road at night. The system detected her 5.6 seconds before impact, classified her in turn as a vehicle, an unknown object and a bicyclist, and never predicted her path correctly. It judged a collision imminent 1.2 seconds before impact, but its design ruled out emergency braking for crash mitigation alone and relied on the operator, who was streaming a television show <Cite id="ntsb-uber-2019" />. Every layer failed at once, the correlated-safeguard problem of the [reliability gap](/frontier/reliability-gap/).
+In 2018 an Uber test car in Tempe, Arizona killed a pedestrian walking a bicycle at night. It saw her 5.6 seconds out, kept reclassifying her, and left emergency braking to an operator who was streaming a television show <Cite id="ntsb-uber-2019" />. Every layer failed at once ([reliability gap](/frontier/reliability-gap/)).
 
-On October 2, 2023, a driverless Cruise vehicle dragged a pedestrian about 20 feet. Under a September 2024 consent order Cruise agreed to a \$1.5 million penalty for crash reports that omitted those details <Cite id="nhtsa-cruise-consent-2024" />; that December GM stopped funding Cruise's robotaxi work, citing the time and resources scaling would need <Cite id="gm-cruise-refocus-2024" />.
+In 2023 a driverless Cruise car dragged a pedestrian about 20 feet. Cruise agreed to a \$1.5 million penalty for crash reports that left this out <Cite id="nhtsa-cruise-consent-2024" />, and GM stopped funding its robotaxis that December <Cite id="gm-cruise-refocus-2024" />.
 
-## What robot learning took from driving
+## Robot learning borrowed driving's tools
 
-<Term id="dagger">DAgger</Term>, the standard fix for covariate shift, was demonstrated steering a car in a 3D racing game; it makes mistakes grow linearly with task length instead of quadratically <Cite id="dagger-2011" />. The Waymo Open Dataset set the pattern of shared perception benchmarks <Cite id="waymo-open-dataset-2020" />. Open X-Embodiment pools over a million real robot trajectories from 22 embodiments <Cite id="open-x-embodiment-2023" />, while Waymo's <Term id="scaling-law">scaling</Term> study used 500,000 hours of driving and found forecasting and planning improve as a power law in compute, closed-loop metrics included <Cite id="waymo-scaling-laws-2025" /> ([data bottleneck](/data-hardware/data-bottleneck/)). RAD goes past imitation, training driving policies by reinforcement learning inside photorealistic <Term id="gaussian-splatting">Gaussian splatting</Term> replicas of real places, and reports a 3x lower collision rate <Cite id="rad-2025" />.
+Driving gave robot learning four tools ([data bottleneck](/data-hardware/data-bottleneck/)).
+
+| Tool | What driving showed | Source |
+| --- | --- | --- |
+| <Term id="dagger">DAgger</Term> | Fixes covariate shift; errors grow linearly with task length, not quadratically | Racing-game car <Cite id="dagger-2011" /> |
+| Shared benchmarks | Set the pattern for shared datasets; Open X-Embodiment pools a million robot trajectories from 22 embodiments <Cite id="open-x-embodiment-2023" /> | Waymo Open Dataset <Cite id="waymo-open-dataset-2020" /> |
+| <Term id="scaling-law">Scaling laws</Term> | Forecasting and planning improve as a power law in compute | 500,000 hours of driving <Cite id="waymo-scaling-laws-2025" /> |
+| RL in <Term id="gaussian-splatting">Gaussian splatting</Term> | Training inside replicas of real places cuts collisions threefold | RAD <Cite id="rad-2025" /> |
 
 ## Driving models are becoming VLAs
 
-EMMA, co-trained on planning, detection and road-graph tasks <Cite id="emma-2024" />, is a <Term id="vision-language-action-model">vision-language-action model</Term> whose body is a car. A late-2025 survey splits driving VLAs into single networks and dual systems, in which a slow vision-language model deliberates over fast, safety-critical execution <Cite id="vla-ad-survey-2026" />. Waymo's foundation model is a dual "Think Fast and Think Slow" design: a sensor-fusion encoder for rapid reactions beside a driving model trained using Gemini <Cite id="waymo-foundation-model-2025" />, mirroring [hierarchical](/manipulation/hierarchical/) manipulation and the case for [knowledge insulation](/manipulation/knowledge-insulation/). NVIDIA reports its Alpamayo-R1 runs onboard at 99 ms latency <Cite id="alpamayo-r1-2025" />.
+EMMA is a <Term id="vision-language-action-model">vision-language-action model</Term> whose body is a car <Cite id="emma-2024" />. Driving VLAs are single networks or dual systems, with a slow vision-language model over fast execution <Cite id="vla-ad-survey-2026" />, the shape of [hierarchical](/manipulation/hierarchical/) manipulation.
 
-These models do not reliably act on what they see or say, three October 2026 studies found. Six open video-language models tested at MIT CSAIL answered "forward" for all 200 simulated clips of a car reversing, until fine-tuning fixed it <Cite id="mind-temporal-gap-2026" />. Matteo Cercola, Marco Pavone and colleagues found that NVIDIA's Alpamayo-1.5 encodes hazards in its path but sets its speed mostly from its own speed history <Cite id="cercola-binding-gap-2026" />. Rewriting the reasoning text of four driving VLAs changed their planned paths far less than blanking the camera, Gabriel Manalu and colleagues found <Cite id="manalu-reasoning-coupling-2026" />.
+Waymo pairs a fast sensor-fusion encoder with a driving model trained using Gemini <Cite id="waymo-foundation-model-2025" /> ([knowledge insulation](/manipulation/knowledge-insulation/)). NVIDIA's Alpamayo-R1 runs onboard at 99 ms <Cite id="alpamayo-r1-2025" />.
 
-## What does not transfer
+These models do not reliably act on what they see or say.
 
-A car has two controls, steering and speed, governed by tire friction and well-studied models. A manipulator moves dozens of joints while making and breaking contact, so the model-predictive control that tracks a car's path <Cite id="paden-2016" /> has no clean purchase on a robot wiping a table ([why RL won locomotion](/rl-sim2real/why-rl-locomotion/)).
+| Study, October 2026 | Test | Finding |
+| --- | --- | --- |
+| MIT CSAIL <Cite id="mind-temporal-gap-2026" /> | 200 clips of a car reversing | Six video-language models answered "forward" every time, until fine-tuned |
+| Cercola, Pavone and colleagues <Cite id="cercola-binding-gap-2026" /> | NVIDIA Alpamayo-1.5 | Hazards shape its path; its own speed history sets its speed |
+| Manalu and colleagues <Cite id="manalu-reasoning-coupling-2026" /> | Four driving VLAs | Rewriting the reasoning moved paths far less than blanking the camera |
 
-Waymo says replaying recorded data in open-loop simulation is insufficient <Cite id="waymo-ai-lessons-2026" />, while manipulation still reports short-horizon success on small trial counts ([evaluation crisis](/data-hardware/evaluation-crisis/)). A driving simulator has no contact to model, and Waymo says its World Model helps it scale safely <Cite id="waymo-world-model-2026" />; robot learning tries the same with Genie-class models whose range of actions remains constrained <Cite id="genie-3-2025" />.
+## Contact does not transfer
 
-## What is still open
+A car has two controls, steering and speed, under well-studied tire models. A manipulator moves dozens of joints while making and breaking contact, where the control that tracks a car <Cite id="paden-2016" /> has no clean purchase ([why RL won locomotion](/rl-sim2real/why-rl-locomotion/)).
 
-The open questions are whether dual-system driving VLAs settle into the shape of hierarchical manipulation systems <Cite id="vla-ad-survey-2026" />, whether generative simulators extend from appearance into contact, and whether robotics adopts the safety cases of driving, from RSS <Cite id="rss-2017" /> to credibility rules for virtual testing <Cite id="unece-ads-press-2026" />. [Drones](/adjacent/drones/) covers flight, where a policy trained in simulation has already beaten human champions.
+Waymo calls open-loop replay insufficient <Cite id="waymo-ai-lessons-2026" />, yet manipulation still reports short tasks on few trials ([evaluation crisis](/data-hardware/evaluation-crisis/)). A driving simulator has no contact to model, and Waymo says its World Model helps it scale safely <Cite id="waymo-world-model-2026" />. Genie-class models for robots still offer a narrow range of actions <Cite id="genie-3-2025" />.
+
+Open: whether driving VLAs converge on hierarchical manipulation <Cite id="vla-ad-survey-2026" />, and whether robotics adopts driving's safety cases, from RSS <Cite id="rss-2017" /> to credibility rules for virtual tests <Cite id="unece-ads-press-2026" />. [Drones](/adjacent/drones/) covers flight, where a sim-trained policy has beaten human champions.
