@@ -5,7 +5,7 @@ domain: rl-sim2real
 slug: humanoid-wbc
 order: 6
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - phc-2023
   - h2o-2024
@@ -75,38 +75,40 @@ import { RetargetingGap } from '@/components/interactive/retargeting-gap';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-<Term id="whole-body-control">Humanoid whole-body control</Term> means moving every joint of a humanoid robot together, from ankles to fingertips, so it can walk, keep its balance and use its hands at once. The leading method trains a controller in simulation to copy human motion <Term id="retargeting">retargeted</Term>, or adapted, to the robot's body <Cite id="omniretarget-2025" />.
+<Term id="whole-body-control">Humanoid whole-body control</Term> moves every joint of a humanoid at once, ankles to fingertips, so it can walk, balance and use its hands together. The leading method trains a controller in simulation to copy human motion <Term id="retargeting">retargeted</Term> to the robot's body <Cite id="omniretarget-2025" />.
 
 <Image id="atlas-electric-hyundai-goyang-2026" />
 
 <WbcDecomposition className="my-6" />
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="Figure's balance layer" value="1 kHz" note="a thousand updates a second" accent />
   <Stat label="Simulated training worlds" value="200,000+" note="run in parallel for Figure's S0" />
   <Stat label="Robot bodies, one model" value="3" note="Gemini Robotics 2" />
-  <Stat label="Hand degrees of freedom" value="22" note="SharpaWave hand, same model" />
 </div>
 
-## How motion tracking works
+## Motion tracking turns human clips into a motor layer
 
-A person's movement already shows how to shift weight while stepping and reaching. In motion tracking, people are recorded with motion capture, each clip is mapped onto the robot's skeleton, and <Term id="reinforcement-learning">reinforcement learning</Term> in simulation trains a policy to follow the clip without falling. H2O first dropped clips that a simulated imitator could not follow, since some ask for moves the robot cannot make <Cite id="h2o-2024" /> <Cite id="pulse-2023" />.
+Motion tracking maps recorded human clips onto the robot's skeleton and uses <Term id="reinforcement-learning">reinforcement learning</Term> in simulation to follow them without falling. H2O first dropped clips that a simulated imitator could not follow <Cite id="h2o-2024" /> <Cite id="pulse-2023" />.
 
-DeepMimic (2018) used the method on animated characters and a simulated Atlas <Cite id="deepmimic-2018" />. PHC (2023) imitated 98.9% of 11,313 clips from AMASS, an archive that unifies 15 motion-capture datasets <Cite id="amass-2019" />, and its simulated avatars recovered from falls <Cite id="phc-2023" />. The payoff is a reusable motor layer: one HOVER policy takes a walking velocity or arm joint angles without retraining <Cite id="hover-2024" />, and a human operator or a vision-language-action model can drive the same SONIC controller <Cite id="sonic-2025" />.
+PHC imitated 98.9% of 11,313 clips from AMASS, an archive of 15 motion-capture datasets <Cite id="amass-2019" /> <Cite id="phc-2023" />. One HOVER policy takes a walking velocity or arm joint angles without retraining <Cite id="hover-2024" />, and a person or a vision-language-action model can drive the same SONIC controller <Cite id="sonic-2025" />.
+
+Also: DeepMimic on animated characters <Cite id="deepmimic-2018" />.
 
 <Image id="motion-capture-session-hyderabad-2026" />
 
-## From animation to real robots
+## Trackers reached real humanoids in 2024
 
-From 2024 labs moved trackers onto real humanoids, mostly Unitree's H1 and G1. An early use was <Term id="teleoperation">teleoperation</Term>: H2O let a person drive an H1 by moving in front of an ordinary camera <Cite id="h2o-2024" />. HumanPlus used such shadowing to collect demonstrations, then trained the robot by <Term id="behavior-cloning">behavior cloning</Term> to put on a shoe and walk or fold a sweatshirt alone, at 60 to 100% success from up to 40 demonstrations per task <Cite id="humanplus-2024" />.
+H2O let a person drive a Unitree H1 by moving in front of an ordinary camera, a form of <Term id="teleoperation">teleoperation</Term> <Cite id="h2o-2024" />. HumanPlus recorded that shadowing and used <Term id="behavior-cloning">behavior cloning</Term> to reach 60 to 100% success from up to 40 demonstrations per task <Cite id="humanplus-2024" />.
 
-Most systems train by <Term id="teacher-student-distillation">teacher-student distillation</Term>: a teacher learns in simulation with information a real robot cannot sense, and a student learns to copy it from the robot's own joint readings <Cite id="omnih2o-2024" /> <Cite id="exbody2-2024" /> <Cite id="gmt-2025" />. The remaining question was breadth. KungfuBot trained one policy per motion; its hardware test was ten Tai Chi trials with the robot's base held fixed <Cite id="kungfubot-2025" />; BeyondMimic ran cartwheels, flip-kicks and sprints from one shared setup on real hardware without fine-tuning <Cite id="beyondmimic-2025" />.
+Most trackers use <Term id="teacher-student-distillation">teacher-student distillation</Term>: a teacher learns with information the robot cannot sense, and a student copies it from joint readings <Cite id="omnih2o-2024" /> <Cite id="exbody2-2024" /> <Cite id="gmt-2025" />. BeyondMimic ran cartwheels, flip-kicks and sprints from one shared setup on real hardware without fine-tuning <Cite id="beyondmimic-2025" />.
 
 | System | Robot | What it added |
 | --- | --- | --- |
 | OmniH2O (2024) | H1 | Head and hand goals; a learned policy can drive it <Cite id="omnih2o-2024" /> |
 | ExBody (2024) | H1 | Upper body imitates, legs follow a velocity <Cite id="exbody-2024" /> |
 | ExBody2 (2024) | G1 | Walks, squats and dances <Cite id="exbody2-2024" /> |
+| KungfuBot (2025) | G1 | One policy per motion; Tai Chi with the base held fixed <Cite id="kungfubot-2025" /> |
 | ASAP (2025) | G1 | Jumps, after correcting the simulator with real data ([sim-to-real](/rl-sim2real/sim2real-transfer)) <Cite id="asap-2025" /> |
 | TWIST (2025) | G1 | One network for teleoperated whole-body skills <Cite id="twist-2025" /> |
 | GMT (2025) | G1 | One controller for many motions <Cite id="gmt-2025" /> |
@@ -114,57 +116,72 @@ Most systems train by <Term id="teacher-student-distillation">teacher-student di
 | HumanUP (2025) | G1 | Gets up from lying face up or face down <Cite id="humanup-2025" /> |
 | ZEST (2026) | Atlas, G1, Spot | Skills from motion capture, video and animation <Cite id="zest-2026" /> |
 
-## Three ways to split the work
+## Three companies split deciding from balancing
 
-A tracker keeps the robot upright but does not decide what to do. On the simulated HumanoidBench tasks, a hierarchy built on robust low-level skills such as walking beat standard reinforcement learning <Cite id="humanoidbench-2024" />, and LeVERB and WholeBodyVLA put a vision-language model above a learned controller <Cite id="leverb-2025" /> <Cite id="wholebodyvla-2025" />. In 2026 Figure, NVIDIA and Google DeepMind shipped whole-body systems that draw the line between deciding and balancing in three places.
+A tracker keeps the robot upright but does not choose what to do. On simulated HumanoidBench, a hierarchy over robust skills beat flat reinforcement learning <Cite id="humanoidbench-2024" />. In 2026 Figure, NVIDIA and Google DeepMind each drew the line between deciding and balancing in a different place.
+
+Also: language models over a controller, LeVERB <Cite id="leverb-2025" /> and WholeBodyVLA <Cite id="wholebodyvla-2025" />.
 
 ### Figure Helix 02: three layers
 
-In Figure's Helix 02 (January 2026), S2 interprets the scene and the instruction; S1 turns camera views, fingertip touch and body sensing into whole-body joint targets 200 times a second; S0, a network of 10 million parameters, sends motor commands 1,000 times a second. S0 learned from over 1,000 hours of retargeted human motion in more than 200,000 parallel simulated worlds, and its showcase is a four-minute dishwasher unload and reload <Cite id="helix-02-2026" />. Figure later gave S0 camera input <Cite id="figure-s0-2026" />. Helix 2.5, pretrained on Figure's Index dataset of human behavior, succeeded on 56% of blind trials in 30 unfamiliar homes, against 9% when trained from scratch <Cite id="helix-2-5-2026" />.
+In Helix 02 (January 2026), S2 reads the scene and the instruction, S1 outputs whole-body joint targets 200 times a second, and S0 drives the motors 1,000 times a second. S0, a 10-million-parameter network, learned from over 1,000 hours of retargeted human motion in more than 200,000 parallel simulated worlds <Cite id="helix-02-2026" />. Helix 2.5, pretrained on human-behavior data, succeeded in 56% of blind trials in 30 unfamiliar homes, against 9% from scratch <Cite id="helix-2-5-2026" />.
+
+Also: S0 with camera input <Cite id="figure-s0-2026" />.
 
 ### NVIDIA GR00T and SONIC: a VLA steering a separate controller
 
-GR00T N1.7, in early access since 18 April 2026 <Cite id="gr00t-n1-7-release-2026" />, is a 3-billion-parameter <Term id="vision-language-action-model">vision-language-action model</Term> (VLA) whose <Term id="latent-action">latent action</Term> tokens NVIDIA's separate GEAR-SONIC controller decodes 50 times a second into joint commands for legs, arms and hands <Cite id="isaac-gr00t-repo-2026" /> <Cite id="groot-wbc-2026" />. SONIC, scaled from 1.2 million to 42 million parameters on 700 hours of motion capture, improved steadily with more compute and more varied data <Cite id="sonic-2025" />.
+GR00T N1.7 is a 3-billion-parameter <Term id="vision-language-action-model">vision-language-action model</Term> (VLA), in early access since 18 April 2026 <Cite id="gr00t-n1-7-release-2026" />. NVIDIA's separate GEAR-SONIC controller decodes its <Term id="latent-action">latent action</Term> tokens 50 times a second into joint commands <Cite id="isaac-gr00t-repo-2026" /> <Cite id="groot-wbc-2026" />. SONIC kept improving as it grew from 1.2 million to 42 million parameters on 700 hours of motion capture <Cite id="sonic-2025" />.
 
-GR00T 2 (November 2026) keeps the split: its 2-billion-parameter Turbo version predicts future video and actions together and steers SONIC from the G1's onboard computer, at 124 milliseconds per prediction. NVIDIA reports it served popcorn in all 48 trials and cleared a table in 93% <Cite id="gr00t-2-2026" />.
+GR00T 2 (November 2026) keeps the split: its 2-billion-parameter Turbo model steers SONIC from the G1's onboard computer and served popcorn in all 48 trials <Cite id="gr00t-2-2026" />.
 
 <Image id="unitree-robots-japan-mobility-show-2025" />
 
 ### Google DeepMind Gemini Robotics 2: one model, feet to fingertips
 
-Google DeepMind's Gemini Robotics 2 (30 July 2026) controls Apptronik's Apollo 2 "from feet to fingertips", fetching and shelving a watering can, and the same checkpoint runs Apollo 2 with a second hand type and a two-armed Franka Duo with grippers. DeepMind reports adapting to new two-armed robots in a few hours, usually from fewer than 200 examples <Cite id="gemini-robotics-2-2026" />. Gemini Robotics 2.5 (10 November 2026) reports 30 to 100% higher success than earlier baselines across 200 tasks, and 96% kitting car parts in a proof of concept on Mercedes-Benz production lines <Cite id="gemini-robotics-2-5-2026" />.
+Gemini Robotics 2 (30 July 2026) controls Apptronik's Apollo 2 "from feet to fingertips", and the same checkpoint runs a two-armed Franka Duo. It adapts to a new two-armed robot in a few hours, usually from fewer than 200 examples <Cite id="gemini-robotics-2-2026" />. Gemini Robotics 2.5 (10 November 2026) kitted car parts at 96% in a Mercedes-Benz proof of concept <Cite id="gemini-robotics-2-5-2026" />.
 
 <ExplainerFigure id="humanoid" />
 
 <span id="the-gemini-robotics-2-numbers-as-published" />
 ## Whole-body skills still trail gripper skills
 
-On Apollo 2 with Inspire hands, picking objects averaged 76.3% success from a shelf, 68.4% from a table and 45.7% from the floor, against 89.6% for precise insertion with grippers on the Franka Duo. These rates average several tasks per category. Single-task rates on the SharpaWave hand ranged from 92% for unscrewing a light bulb to 32% for using a dustpan, and DeepMind says multi-finger manipulation "remains challenging" <Cite id="gemini-robotics-2-2026" />.
+On Apollo 2 with Inspire hands, picking averaged 76.3% from a shelf, 68.4% from a table and 45.7% from the floor, against 89.6% for precise insertion with Franka grippers. Single tasks on the SharpaWave hand ranged from 92% for unscrewing a light bulb to 32% for using a dustpan. DeepMind says multi-finger manipulation "remains challenging" <Cite id="gemini-robotics-2-2026" />.
 
 <HumanoidPickHeight className="my-6" />
 
 <Gr2ResultsTable className="my-6" />
 
-DeepMind also says its robots "have more to advance in movement speed" <Cite id="gemini-robotics-2-2026" />.
-
 ## A tracker needs a planner
 
-A tracker only follows motion. Something else must invent motion that fits the task, and letting that slower model drive the joints works badly. In SWAP (Carnegie Mellon and Amazon FAR, October 2026), a diffusion model proposed collision-free motions; steered at run time and carried out by an RL tracker, they succeeded 88.3% of the time over five simulated tasks, against 17.4% when the diffusion output drove the joints directly; a real G1, with motion capture for localization, succeeded in 18 of 25 trials <Cite id="swap-2026" />. FIBER plans 5 times a second in the command space of a frozen controller that balances 50 times a second. Across 128 simulated variations per task it reached 42.0%, against 11.6% for replaying the experts' projected commands and 95.4% for the experts themselves; trained only in simulation, it managed 6, 4 and 2 of 10 real G1 trials on box pickup, door opening and grasping <Cite id="fiber-2026" />.
+A planner must invent the motion a tracker follows, and it works best through the tracker. In SWAP, letting the planner drive the joints directly dropped success from 88.3% to 17.4% <Cite id="swap-2026" />.
 
-Other planners work from human video <Cite id="hdmi-2025" />, from the terrain ahead <Cite id="wbc-motion-gen-2026" />, from skills written as code by AI agents <Cite id="metatron-2026" /> or from the same human poses the tracker learned from <Cite id="workhorse-2026" />. OneSteer steers its tracker with task costs and passed under a 1.1 m bar in four of five real attempts using onboard LiDAR <Cite id="onesteer-2026" />. For precise hand work, ResGAC adds compliant force control and a learned correction, reaching 90% on a real standing peg-in-hole task against 50% for SONIC <Cite id="resgac-2026" />.
+| Method | How it plans | Result |
+| --- | --- | --- |
+| SWAP (2026) | Diffusion proposes collision-free motions; an RL tracker executes | 88.3% over five simulated tasks <Cite id="swap-2026" /> |
+| FIBER (2026) | 5 Hz plans over a frozen 50 Hz controller | 42.0% in simulation, against 11.6% replayed and 95.4% for experts <Cite id="fiber-2026" /> |
+| OneSteer (2026) | Task costs steer the tracker | Passed under a 1.1 m bar in 4 of 5 real tries <Cite id="onesteer-2026" /> |
+| ResGAC (2026) | Compliant force control plus a learned correction | 90% on real peg-in-hole, against 50% for SONIC <Cite id="resgac-2026" /> |
 
-Perception is the next limit. Camera-based policies trained only in simulation kept walking and handling objects for up to 54 cycles <Cite id="viral-2025" /> or walked to and grasped objects in unseen scenes 73.3% of the time <Cite id="fetchman-2026" />, and an Atlas policy trained for 50 to 70 pound loads, sensing them through its own body, moved a fridge of over 100 pounds <Cite id="bd-atlas-hard-work-2026" />. HITTER returned up to 106 consecutive table-tennis shots against a human <Cite id="hitter-2025" /> and LATENT sustained tennis rallies <Cite id="latent-tennis-2026" />, though Chris Paxton of Agility Robotics noted in October 2026 that many such systems still see the ball through external motion trackers <Cite id="paxton-robot-sports-2026" />.
+Also: planners from human video <Cite id="hdmi-2025" />, the terrain ahead <Cite id="wbc-motion-gen-2026" />, agent-written skill code <Cite id="metatron-2026" /> and human poses <Cite id="workhorse-2026" />.
+
+Perception is the next limit. Many sports demos still see the ball through external motion trackers, Chris Paxton of Agility Robotics noted <Cite id="paxton-robot-sports-2026" />. Camera policies trained only in simulation walked to and grasped objects in unseen scenes 73.3% of the time <Cite id="fetchman-2026" />.
+
+Also: 54 camera-only work cycles <Cite id="viral-2025" />, 106-shot table tennis <Cite id="hitter-2025" />, tennis rallies <Cite id="latent-tennis-2026" />, Atlas moving a 100-pound fridge <Cite id="bd-atlas-hard-work-2026" />.
 
 ## Retargeting loses information
 
-Copying human joint angles onto a robot with different proportions leaves its feet floating or sinking into the floor. Such artifacts significantly reduce tracking robustness, especially for fast or long motions <Cite id="gmr-retargeting-2025" />, and noisy references led to training with a fall-recovery curriculum <Cite id="robust-tracking-2026" />.
+Human joint angles copied onto a robot with different proportions leave its feet floating or sunk into the floor. The artifacts hurt tracking most on fast or long motions <Cite id="gmr-retargeting-2025" />, and noisy references led one team to train with a fall-recovery curriculum <Cite id="robust-tracking-2026" />.
 
 <RetargetingGap className="my-6" />
 
-Two October 2026 methods fix retargeting itself. PriMoRetarget places the feet first, then contacts, then the rest of the pose. On two-person interactions it kept 78.8% of hand contacts, and a simulated G1 trained on its output tracked 93.6% of motions, against 35.2% and 72.8% for the strongest baseline, PHC; collaboration between several robots stayed harder, at 62.6% <Cite id="primoretarget-2026" />. EmbodyHOI checks during generation that the robot can reach each hand position, cutting G1 wrist error from 8.9 cm to 0.6 cm and raising simulated task success from 68% to 79%, at 32 times the sampling cost <Cite id="embodyhoi-2026" />.
+Two October 2026 methods fix retargeting: PriMoRetarget places the feet, then contacts, then the pose. A simulated G1 trained on its output tracked 93.6% of motions, against 72.8% for the best baseline <Cite id="primoretarget-2026" />. EmbodyHOI checks reach during generation, cutting G1 wrist error from 8.9 cm to 0.6 cm at 32 times the sampling cost <Cite id="embodyhoi-2026" />.
 
-## Where the field is heading
+## Training is getting cheaper; balance has no settled home
 
-Training trackers is getting cheaper. UC Berkeley's SuperMimic (October 2026) learns through a differentiable <Term id="world-model">world model</Term>; it passed the released SONIC checkpoint's score after 3 hours on one GPU, where SONIC trained for 7 days on 128, though on different GPU models and with about 2.3 times less motion data <Cite id="supermimic-2026" />. ∇Mimic, differentiating through the simulator, reached the best reported world-model score on 40 LAFAN1 motion clips in 20 minutes instead of 1.2 hours, in simulation <Cite id="nabla-mimic-2026" />, and LooperMuscle closed much of the gap to standard <Term id="ppo">PPO</Term> training in about 45 minutes, where PPO needs about 6 hours <Cite id="loopermuscle-2026" />.
+| Method | Result |
+| --- | --- |
+| SuperMimic (2026), through a differentiable <Term id="world-model">world model</Term> | Passed SONIC's score in 3 hours on one GPU; SONIC took 7 days on 128 <Cite id="supermimic-2026" /> |
+| ∇Mimic (2026), through the simulator | Best world-model score on 40 LAFAN1 clips in 20 minutes instead of 1.2 hours <Cite id="nabla-mimic-2026" /> |
+| LooperMuscle (2026) | Near <Term id="ppo">PPO</Term> in about 45 minutes; PPO needs about 6 hours <Cite id="loopermuscle-2026" /> |
 
-The open design question is where balance belongs. Figure and NVIDIA keep [balance](/how-robots-work/#upright) and contact beneath the foundation model, behind tracked joint targets or a latent command <Cite id="helix-02-2026" /> <Cite id="isaac-gr00t-repo-2026" /> <Cite id="gr00t-2-2026" />. DeepMind puts them inside one policy <Cite id="gemini-robotics-2-2026" />.
+Figure and NVIDIA keep [balance](/how-robots-work/#upright) and contact beneath the foundation model, behind joint targets or a latent command <Cite id="helix-02-2026" /> <Cite id="isaac-gr00t-repo-2026" /> <Cite id="gr00t-2-2026" />. DeepMind puts them inside one policy <Cite id="gemini-robotics-2-2026" />.
