@@ -53,6 +53,7 @@ seeAlso:
   - "world-models/generative-sim"
 ---
 import { EvalShiftTable } from '@/components/mdx/text-tables';
+import { ActionConditioning } from '@/components/interactive/action-conditioning';
 import { WorldModelEvaluationLadder } from '@/components/interactive/world-model-evaluation-ladder';
 
 World-model evaluation checks whether a robot <Term id="world-model">world model</Term> supports the decision it will be used for, from reacting correctly to one action to ranking policies as real trials do. Image quality misses this: on the Physics-IQ benchmark, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
@@ -95,6 +96,10 @@ WorldArena scores 14 models separately as data engines, policy evaluators and ac
 ## Level 1: open models often fail to follow a changed action
 
 Fix the frames, noise, prompt and history, change one action dimension, and check that the prediction changes. WorldEval found that raw action inputs often yield videos that ignore the actions <Cite id="worldeval-2025" />. Across six open models and more than 18,000 test cases, WorldSimProbe found actions systematically under-realized <Cite id="worldsimprobe-2026" />. WorldEcho adds actions beyond the expert data and finds that models trained on demonstrations break on them <Cite id="worldecho-2026" />.
+
+<ActionConditioning defaultConditioning="weak" className="my-6" />
+
+<FigureReuse className="-mt-4" href="/world-models/generative-video/" page="Generative Video World Models">Here the console runs the Level 1 test: the same start, two different moves, and a dial for how far apart the two futures are. The figure is taught in</FigureReuse>
 
 <span id="level-2-temporal-and-physical-consistency" />
 ## Level 2: pooled video metrics hide physical errors
