@@ -77,6 +77,8 @@ import { SpaceLatencyLadder } from '@/components/interactive/space-latency-ladde
 
 import { OrbitalServicingTable } from '@/components/mdx/orbital-servicing-table';
 
+import { FreeFloatingArm } from '@/components/interactive/free-floating-arm';
+
 Space robotics builds and operates robots beyond Earth, from planetary rovers to station arms and satellite servicers. A signal needs 4 to 20 minutes to reach Mars <Cite id="jpl-ipn-pnt-2024" />, so rovers mostly drive themselves <Cite id="enav-perseverance-2026" />, and commercial servicers have docked with satellites in orbit since 2020 <Cite id="mev1-servicing-2025" />.
 
 <Image id="perseverance-selfie-rochette-2021" />
@@ -113,7 +115,9 @@ Learned walking is tested on Earth first. In 2025 ETH Zurich's ANYmal-D and Magn
 
 ## Orbital robotics: servicing and removal
 
-<Term id="on-orbit-servicing">On-orbit servicing</Term> covers repairing, refueling and upgrading satellites and removing debris <Cite id="space-manipulator-review-2025" />. A servicer must match the target's orbit, then dock with it or grab it. In free fall an arm and its satellite push each other around; in 1989 Umetani and Yoshida derived a way to control such arms from conservation of momentum <Cite id="umetani-yoshida-1989" />, and a 2025 review covers capture from vision-based estimation to stabilizing the pair afterward <Cite id="space-manipulator-review-2025" />.
+<Term id="on-orbit-servicing">On-orbit servicing</Term> covers repairing, refueling and upgrading satellites and removing debris <Cite id="space-manipulator-review-2025" />. A servicer must match the target's orbit, then dock with it or grab it. In free fall an arm and its satellite push each other around, so swinging the arm turns the satellite the other way; in 1989 Umetani and Yoshida derived a way to control such arms from conservation of momentum <Cite id="umetani-yoshida-1989" />, and a 2025 review covers capture from vision-based estimation to stabilizing the pair afterward <Cite id="space-manipulator-review-2025" />.
+
+<FreeFloatingArm className="my-6" />
 
 <OrbitalServicingTable className="my-6 wide-measure" />
 

@@ -116,6 +116,7 @@ export {
   RrtExplorer,
   SafetyFilterFence,
   SceneSplit,
+  FreeFloatingArm,
   ScopeFollow,
   TeacherStudent,
   TeleopRigMatrix,

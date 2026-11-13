@@ -286,6 +286,9 @@ export const SceneRepresentationLadder = dynamic(() =>
 export const SceneSplit = dynamic(() =>
   import('@/components/interactive/scene-split').then((m) => m.SceneSplit),
 );
+export const FreeFloatingArm = dynamic(() =>
+  import('@/components/interactive/free-floating-arm').then((m) => m.FreeFloatingArm),
+);
 export const SpaceLatencyLadder = dynamic(() =>
   import('@/components/interactive/space-latency-ladder').then((m) => m.SpaceLatencyLadder),
 );
