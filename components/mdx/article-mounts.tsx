@@ -60,6 +60,7 @@ import {
   SceneRepresentationLadder as LazySceneRepresentationLadder,
   SpaceLatencyLadder as LazySpaceLatencyLadder,
   SurgicalAutonomyLadder as LazySurgicalAutonomyLadder,
+  TeacherStudent as LazyTeacherStudent,
   TerrainCurriculum as LazyTerrainCurriculum,
   ThesisExplorer as LazyThesisExplorer,
   TimeOffsetMiss as LazyTimeOffsetMiss,
@@ -119,7 +120,6 @@ export {
   SceneSplit,
   FreeFloatingArm,
   ScopeFollow,
-  TeacherStudent,
   TeleopRigMatrix,
   TrainingTimeChart,
   TrialTally,
@@ -197,6 +197,7 @@ export const ScannedTwinCheck = withCitationRecords('ScannedTwinCheck', LazyScan
 export const SceneRepresentationLadder = withCitationRecords('SceneRepresentationLadder', LazySceneRepresentationLadder);
 export const SpaceLatencyLadder = withCitationRecords('SpaceLatencyLadder', LazySpaceLatencyLadder);
 export const SurgicalAutonomyLadder = withCitationRecords('SurgicalAutonomyLadder', LazySurgicalAutonomyLadder);
+export const TeacherStudent = withCitationRecords('TeacherStudent', LazyTeacherStudent);
 export const TerrainCurriculum = withCitationRecords('TerrainCurriculum', LazyTerrainCurriculum);
 export const ThesisExplorer = withCitationRecords('ThesisExplorer', LazyThesisExplorer);
 export const TimeOffsetMiss = withCitationRecords('TimeOffsetMiss', LazyTimeOffsetMiss);

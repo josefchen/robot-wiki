@@ -107,6 +107,7 @@ export const WIDGET_CITATION_IDS = {
   RetargetingGap: () => ['gmr-retargeting-2025', 'h2o-2024'],
   RobotsPerGpu: () => ['rudin-2021', 'isaac-gym-2021'],
   TerrainCurriculum: () => ['rudin-2021'],
+  TeacherStudent: () => ['lee-2020'],
   NewtonSolvers: () => ['state-of-simulation-2026', 'newton-manipulation-blog-2026'],
   ReplayReuse: () => ['ppo-2017', 'sutton-barto-2018'],
   HindsightRelabel: () => ['her-2017'],

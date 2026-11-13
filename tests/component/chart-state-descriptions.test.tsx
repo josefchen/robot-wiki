@@ -26,7 +26,7 @@ import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 import { RrtExplorer } from '@/components/interactive/rrt-explorer';
 import { renderWithCitations } from '../helpers/widget-citations';
 
-const render = renderWithCitations('CrossEmbodimentStrategies', 'GeneralistReleaseTimeline', 'PiGenerationTimeline', 'HierarchyTimescales', 'MotInsulation');
+const render = renderWithCitations('CrossEmbodimentStrategies', 'GeneralistReleaseTimeline', 'PiGenerationTimeline', 'HierarchyTimescales', 'MotInsulation', 'TeacherStudent');
 
 function mockReducedMotion(matches = false) {
   window.matchMedia = vi.fn().mockImplementation((query: string) => ({
@@ -382,7 +382,7 @@ describe('state-form chart descriptions', () => {
     expect(moved).toMatch(/Latent-action hierarchy/);
   });
 
-  it('TeacherStudent describes the stacked panels and tracks degradation', () => {
+  it('TeacherStudent describes the contour gauge and tracks degradation', () => {
     const { container } = render(<TeacherStudent />);
     const { text } = assertDescribed(screen.getByRole('img'), container);
     expect(text).toMatch(/15 percent proprioceptive degradation/);
