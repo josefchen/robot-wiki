@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ControlLoopBudget } from '@/components/interactive/control-loop-budget';
@@ -45,13 +45,17 @@ describe('ControlLoopBudget', () => {
     const timingBasis = screen.getByText(/Computer timings are predictions from VLA-Perf, a robot timing study/);
     expect(timingBasis.closest('details')).toBeNull();
     expect(timingBasis).toHaveTextContent('values for other model sizes are illustrative.');
-    // 52.57 ms against 20 ms beats: the beats at 20 and 40 ms pass with no command.
-    expect(container.querySelectorAll('[data-clb-beat="missed"]')).toHaveLength(2);
-    expect(container.querySelectorAll('[data-clb-beat]')).toHaveLength(9);
-    const note = container.querySelectorAll('[data-figure-annotation]');
-    expect(note).toHaveLength(1);
-    expect(note[0].textContent).toBe(
-      'The arm needs a new commandevery fiftieth of a second; thiscomputer takes over twice as long',
+    // The beat feeder: 52.57 ms is 2.6 beats a stroke, so about 2 pockets in 5 carry a fresh order.
+    const drawing = screen.getByRole('img', { name: /beat feeder/i });
+    expect(drawing.getAttribute('aria-label')).toContain('takes 2.6 beats to stamp each token');
+    expect(drawing.getAttribute('aria-label')).toContain('Of the 11 pockets past the feeler, 4 hold a token: 19 of every 50 beats get a fresh order.');
+    expect(container.querySelectorAll('[data-testid="wheel-tokens"] [data-pocket]')).toHaveLength(20);
+    expect(container.querySelectorAll('[data-testid="wheel-tokens"] [data-pocket]:not([display="none"])')).toHaveLength(4);
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('This beat: fresh order · 19 of 50 beats a second get one');
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('the blue feeler drops in and the arm reuses its last order');
+    expect(container.querySelectorAll('.iso-solid[data-lit]').length).toBeGreaterThan(0);
+    expect(container.querySelector('[data-testid="feeler"]')!.querySelectorAll('.iso-solid[data-lit]')).toHaveLength(
+      container.querySelectorAll('.iso-solid[data-lit]').length,
     );
   });
 
@@ -59,17 +63,17 @@ describe('ControlLoopBudget', () => {
     const user = userEvent.setup();
     const { container } = render(<ControlLoopBudget />);
     await user.click(screen.getByRole('button', { name: 'Data-center computer' }));
-    expect(container.querySelectorAll('[data-clb-beat="missed"]')).toHaveLength(0);
+    expect(screen.getByRole('img', { name: /beat feeder/i }).getAttribute('aria-label')).toContain(
+      'Of the 11 pockets past the feeler, 11 hold a token: 50 of every 50 beats get a fresh order.',
+    );
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('50 of 50 beats a second get one');
     expect(verdict()).toHaveTextContent('closes at 50 Hz');
     expect(screen.getByTestId('control-time-comparison')).toHaveTextContent('Choosing a move takes 6.2 milliseconds; the arm has 20 milliseconds between commands. That is 0.3 times the available time.');
     expect(screen.getByTestId('hz-readout')).toHaveTextContent('163 Hz');
-    expect(container.querySelector('[data-figure-annotation]')?.textContent).toContain(
-      'answers before',
-    );
     // The slider still shows the robot's own computer on the teaching curve.
     expect(screen.getByTestId('latency-readout')).toHaveTextContent('52.6 ms');
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(container.querySelectorAll('[data-clb-beat="missed"]')).toHaveLength(2);
+    expect(container.querySelector('[data-readout]')).toHaveTextContent('19 of 50 beats a second get one');
   });
 
   it('defaults to the π0 anchor: 3.0B at 52.6 ms, missing the 50 Hz loop', () => {
@@ -170,15 +174,9 @@ describe('ControlLoopBudget', () => {
 });
 
 describe('ControlLoopBudget series encoding (DI-VIZ-002/004)', () => {
-  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+  it('draws a machine, not plotted series, so it has no series to name', () => {
     const { container } = render(<ControlLoopBudget />);
-    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['clb-inference', 'clb-overrun']);
-    // One label names the call, both its part inside the first beat and its hatched overrun.
-    expect(seriesNames(container)).toEqual({
-      'clb-inference': ['The brain working out the next move'],
-      'clb-overrun': ['The brain working out the next move'],
-    });
-    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(Object.keys(seriesEncodings(container))).toEqual([]);
     expect(container.querySelector('[data-series-labelled]')).toBeNull();
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
