@@ -38,7 +38,7 @@ describe('WbcDecomposition', () => {
     expect(diagram.querySelectorAll('[data-flow-arrow]')).toHaveLength(3);
     // The speeds on the stage are the selected company's own.
     expect(container.querySelector('[data-figure-frame="wbc-decomposition"]')).toHaveTextContent(
-      'Schematic; speeds as published by Figure AI',
+      "Schematic; Figure AI's published speeds",
     );
     const note = container.querySelectorAll('[data-figure-annotation]');
     expect(note).toHaveLength(1);

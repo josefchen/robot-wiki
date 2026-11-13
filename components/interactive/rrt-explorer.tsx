@@ -343,7 +343,7 @@ export function RrtExplorer({ className }: { className?: string }) {
           keys={[TREE_KEY]}
           hint={note.text}
           readout={readoutFor(iteration, goalReached)}
-          status="Illustrative: one run on a made-up map"
+          status="Illustrative: one run, made-up map"
           data-testid="rrt-stage-frame"
         >
           <Stage className="iso-stage">
@@ -413,11 +413,10 @@ export function RrtExplorer({ className }: { className?: string }) {
       method={
         <>
           <p>
-            A made-up scene with a fixed random seed. Each sampling attempt selects the goal with probability 1.5% and otherwise
-            samples uniformly; steps are capped at 2 world units. Each accepted step grows from the tree node
-            nearest a random sample, so the tree spreads into open space. Every iteration adds one node; with this
-            seed a branch first reaches the goal at iteration {goalIteration ?? total}, and the path it gives
-            measures {formatLength(result.pathLength)} units.
+            Each sampling attempt selects the goal with probability 1.5%, on a made-up map with a fixed seed and
+            steps capped at 2 world units. Each accepted step grows from the tree node nearest a random sample; a
+            branch first reaches the goal at iteration {goalIteration ?? total}, with a path of{' '}
+            {formatLength(result.pathLength)} units.
           </p>
           <ChartDescription
             id={descriptionId}

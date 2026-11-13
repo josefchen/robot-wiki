@@ -261,15 +261,13 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
           </div>
         </FigureStage>
       }
-      caption="Watch these eight: as of November 2026 five are partly there, and each one met would weaken the case that robotics is overhyped."
+      caption="Five of eight are partly there as of November 2026; each one met weakens the case that robotics is overhyped."
       method={
         <>
           <div>
             Each status is Robot Wiki&apos;s editorial call on published evidence, reviewed in
-            November 2026: &quot;partly there&quot; means a published result moves toward the
-            milestone without meeting its test; &quot;not yet&quot; means no inspected record does.
-            The table gives each milestone&apos;s original name, why it matters, the evidence behind
-            the call with its sources, and how we&apos;d know it had been met.
+            November 2026. &quot;Partly there&quot; means a result moves toward the milestone without
+            meeting its test; &quot;not yet&quot; means no inspected record does.
           </div>
           <TableScroll labelledBy={captionId} className="pt-1">
             <table className="w-full min-w-[640px] border-collapse text-left font-sans text-sm text-text">

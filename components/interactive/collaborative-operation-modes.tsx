@@ -179,22 +179,10 @@ function ForceBar({ force, shown }: { force: number; shown: boolean }) {
 function ModelAssumptions() {
   return (
     <p data-testid="model-assumptions">
-      Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S), the rough
-      early-draft approximation restated by Marvel and Norcross. Teaching choices: C ={' '}
-      {formatMetres(INTRUSION_MARGIN_M)}, selected at the normal-multibeam minimum, not a
-      universal margin (the paper also gives 1200 mm for a single-height beam and a conditional
-      two-handed-control reduction to 250 mm); constant robot deceleration{' '}
-      {ROBOT_DECELERATION_M_PER_S2} m/s², reusing an acceleration example rather than a measured
-      braking profile; robot default {formatSpeed(DEFAULT_ROBOT_SPEED_M_S)} and operator default{' '}
-      {formatSpeed(DEFAULT_HUMAN_SPEED_M_S)}, with both sliders choosing 0 to 2 m/s in 0.05 m/s
-      steps. The paper records both 1600 and 2000 mm/s, qualifies the 1600 option by separation
-      greater than 500 mm, allows direct measurement, and later urges considering 2000 mm/s; this
-      choice does not resolve that context. Also chosen: T_R = {REACTION_TIME_S} s (a 100 Hz period
-      is 0.01 s, not this delay), Z_R + Z_S = {formatMetres(POSITION_UNCERTAINTY_M)}, workcell
-      separation {formatMetres(WORKCELL_SEPARATION_M)}, and an energy-balance contact model with 4
-      kg effective mass and 25 kN/m stiffness. The existing force-limit label is{' '}
-      {CONTACT_LIMIT_LABEL}. These calculations are illustrative, not measurements or safety
-      certification.
+      Separation model: S = v_H(T_R + T_S) + v_R T_R + B + (C + Z_R + Z_S), as Marvel and Norcross
+      restate it, with C = {formatMetres(INTRUSION_MARGIN_M)}, T_R = {REACTION_TIME_S} s, Z_R + Z_S ={' '}
+      {formatMetres(POSITION_UNCERTAINTY_M)}, braking at {ROBOT_DECELERATION_M_PER_S2} m/s² and
+      both sliders choosing 0 to 2 m/s in 0.05 m/s steps. Illustrative, not a safety certification.
     </p>
   );
 }
@@ -686,7 +674,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           </div>
         </AnatomyStage>
       }
-      caption="A faster robot needs more room to stop; the cabinet dial shows its speed, and the dial beside the person shows contact force."
+      caption="The cabinet dial shows robot speed; the dial beside the person shows contact force."
       method={
         <>
           <p data-testid="mode-constraint">
@@ -724,17 +712,8 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             </p>
           )}
           <p>
-            &quot;Stops when you step in&quot; is a safety-rated monitored stop; &quot;You guide
-            it by hand&quot; is hand guiding; &quot;Keeps its distance&quot; is speed and
-            separation monitoring; &quot;Gentle enough to bump&quot; is power and force limiting.
-            In the drawing, a floor scanner guards a zone: the whole cell for a monitored stop, and
-            for separation monitoring a zone as long as the protective separation distance, its four
-            terms laid on the ruler from the tool. A run walks the mannequin in; when it crosses the
-            zone&apos;s edge the arm keeps moving for the reaction time, brakes, and stops with the
-            margin left between them. The bump gauge&apos;s pad stands in for a thigh, and its needle
-            holds the peak force of a bump at the robot&apos;s speed. Runs play {SLOW} times slower
-            than real time; where the walk starts, the tray and the fixture, and the guiding push
-            (0.15 m at 0.4 m/s) are the drawing&apos;s own choices.
+            The buttons are, in order, monitored stop, hand guiding, speed and separation monitoring, and
+            power and force limiting. Runs play {SLOW} times slower than real time.
           </p>
           <ModelAssumptions />
           <ChartDescription

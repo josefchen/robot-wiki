@@ -114,7 +114,6 @@ describe('CalibrationChain', () => {
     expect(method).toHaveTextContent('1.74 degrees');
     expect(method).toHaveTextContent('31 chosen postures');
     expect(method).toHaveTextContent('No source here reports a measured error for the tool offset');
-    expect(method).toHaveTextContent('storing each calibration together with its residuals');
     const hrefs = Array.from(method.querySelectorAll('a')).map((a) => a.getAttribute('href'));
     expect(hrefs).toEqual(records.map((record) => record.url));
   });

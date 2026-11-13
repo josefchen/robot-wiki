@@ -25,7 +25,6 @@ import {
   CARRIAGE_PARTS,
   DRAW_EVERY,
   FAR_TRUCK_PARTS,
-  FIELD_TAU,
   FOCUS,
   FOCUS_SAMPLE,
   FRONT_PARTS,
@@ -565,7 +564,7 @@ export function FlowMatchingTrajectory({
               {steps === 1 ? null : <> · one big jump averages {oneJump.toFixed(2)}</>}
             </>
           }
-          status="Inside an outlined area counts as a good move. The small dot is its exact target; the readout measures distance to that dot. Gray paths: other guesses. Red crosses: missed moves. Distances are illustrative, with no physical unit."
+          status="Illustrative model, unitless distances"
         >
           <div ref={stageRef}>
             <IsoFigure
@@ -587,27 +586,11 @@ export function FlowMatchingTrajectory({
       method={
         <>
           <p>
-            Flow matching turns a random guess into a move by following a learned field for a set
-            number of Euler integration steps. Each step samples the field once and goes straight,
-            so with one or two steps the path cuts the corner and lands short of the good move;
-            with five to ten it lands on it. On the field table a vane beside the stylus turns to
-            the field before every hop and the hop runs straight along it; the groove is the path
-            the field itself would trace, and each pocket is two spreads of the good moves wide.
-            The vanes in &quot;Adjust more&quot; show the learned field at τ = {FIELD_TAU},
-            halfway through the trip. Every
-            step costs one forward pass through the action expert, one bead on the counter, which
-            is why more steps are not free at a 50 Hz control rate.
-          </p>
-          <p>
-            Illustrative model, not a reimplementation: {field.samples.length} seeded noise samples
-            in 2 of the chunk&apos;s dimensions (action dimension 1 and action dimension 2) are carried
-            to two action modes along slightly bent, near-straight paths. The stage draws {drawn.length}{' '}
-            of them. The mean endpoint error is{' '}
-            <span data-testid="fm-step-method">k = {steps} Euler {steps === 1 ? 'step' : 'steps'}</span>
-            : {dispersion.toFixed(2)}, {regimeFor(steps)}; one step gives {oneJump.toFixed(2)}, ten
-            give {endpointDispersion(field, PI0_STEPS).toFixed(2)} and {MAX_STEPS} give{' '}
-            {endpointDispersion(field, MAX_STEPS).toFixed(2)}. π0 ran {PI0_STEPS} integration
-            steps; π0.6 and π0.7 run {PI06_STEPS}.
+            Each Euler step samples the learned field once and goes straight, so one or two steps
+            cut the corner and five to ten land. Illustrative model of {field.samples.length} seeded
+            samples in two action dimensions; at{' '}
+            <span data-testid="fm-step-method">k = {steps} Euler {steps === 1 ? 'step' : 'steps'}</span>{' '}
+            the mean endpoint error is {dispersion.toFixed(2)}.
           </p>
           <ChartDescription
             id={descriptionId}

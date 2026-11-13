@@ -70,7 +70,7 @@ export function ScannedTwinCheck({ className }: { className?: string }) {
       heading="A scanned twin predicted the real robot only after tuning"
       controls={<PresetGroup label="The scanned lab's simulator" presets={SIMS} value={simId} onChange={setSimId} testId="twin-sim" />}
       stage={
-        <FigureStage footer={<StageStatus>Tuning disabled unrealistic sliding along walls and random movement errors. Correlations as reported.</StageStatus>}>
+        <FigureStage footer={<StageStatus>Correlations as reported</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`A bar from 0 to 1 showing how well simulated success predicts real success: ${sim.text} with the simulator ${sim.label.toLowerCase()}, against ${other.text} ${simId === 'scanned' ? 'once tuned' : 'as scanned'}.`}
@@ -130,14 +130,9 @@ export function ScannedTwinCheck({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Kadian and colleagues compared how agents scored in a simulated, 3D-scanned copy of a lab with how the
-            same agents scored on the real robot. The correlation between the two was 0.18, because agents exploited
-            the simulator&apos;s collision dynamics; tuning the simulation parameters raised it to 0.844.
-          </div>
-          <div>
-            The bar shows the correlation for the chosen simulator and the dashed line the other. A scanned scene
-            copies how the lab looks; the figure&apos;s point is that its physics still has to be checked against the
-            real robot.
+            Kadian and colleagues compared agents&apos; scores in a 3D-scanned copy of a lab with their scores on the
+            real robot; agents exploited the simulator&apos;s collision dynamics until tuning fixed them. The bar is the
+            chosen simulator&apos;s correlation, the dashed line the other&apos;s.
           </div>
           <ChartDescription
             id={descriptionId}

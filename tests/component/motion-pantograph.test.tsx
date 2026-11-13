@@ -92,7 +92,7 @@ describe('MotionPantograph', () => {
     render(<MotionPantograph />);
     const id = screen.getByRole('img').getAttribute('aria-describedby');
     expect(document.getElementById(id ?? '')).toHaveTextContent(
-      /^The drawing is a reducing pantograph doing the same thing with four bars\./,
+      /^The drawing is a reducing pantograph that divides motion with four bars:/,
     );
   });
 

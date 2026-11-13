@@ -156,7 +156,7 @@ export function RobotsPerGpu({ className }: { className?: string }) {
           viewWidth={WIDTH}
           keys={[TILE_KEY]}
           readout={readoutFor(countId)}
-          status="Counts from the paper; one tile per 128 robots"
+          status="Paper's counts; one tile, 128 robots"
           data-testid="robots-stage"
           data-squares={squares}
         >
@@ -170,20 +170,12 @@ export function RobotsPerGpu({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="One graphics chip simulated 16,384 robots at once, where older simulators running on a computer's central processor typically ran 128."
+      caption="One graphics chip simulated 16,384 robots at once; CPU simulators typically ran 128."
       method={
         <>
           <div>
-            Isaac Gym kept the physics and the policy training on one GPU, passing simulation buffers straight to the
-            learning code without round trips through the CPU; its authors report 2 to 3 orders of magnitude
-            improvement over a CPU simulator feeding a GPU network. On it, Rudin and colleagues scaled from 128
-            robots, typical of CPU implementations, to 16,384 on one workstation GPU, and trained their deployment
-            policy with 4,096 robots in under 20 minutes.
-          </div>
-          <div>
-            The drawing is a graphics card with its cooler set aside. Each of the 128 tiles on its chip stands for
-            128 robots, so the first tile, under the magnifier, is the older processor count and the whole chip is the
-            paper&apos;s 16,384. The tiles are a way of counting; a real chip lays out its cores differently.
+            Isaac Gym kept physics and policy training on one GPU, and Rudin and colleagues scaled on it from 128
+            robots to 16,384. Each of the chip&apos;s 128 tiles counts 128 robots; a real chip lays out its cores differently.
           </div>
           <ChartDescription
             id={descriptionId}

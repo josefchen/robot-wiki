@@ -85,7 +85,7 @@ const RUN_RATIO = Math.round(MOST_RUNS.runs / LONG.runs);
 const shortest = Math.min(...OTHERS.map(secondsPerRun));
 const longestOther = Math.max(...OTHERS.map(secondsPerRun));
 
-const CAPTION = `About ${RUN_RATIO} times the runs, under twice the hours: FineART's attempts last much longer, averaging ${runLengthInWords(secondsPerRun(LONG))} versus under 20 seconds elsewhere.`;
+const CAPTION = `FineART's runs average ${runLengthInWords(secondsPerRun(LONG))}; every other dataset's runs average under 20 seconds.`;
 
 const DESCRIPTION = `Five robot datasets by runs and hours: ${DATASET_RUNS_HOURS.map(
   (d) => `${d.label} ${d.runs.toLocaleString('en-US')} runs and ${d.hours.toLocaleString('en-US')} hours`,
@@ -128,7 +128,7 @@ export function DatasetRunsHours({ className }: { className?: string }) {
       heading={`AgiBot World: ${RUN_RATIO} times FineART's runs, under twice its hours`}
       stage={
         <FigureStage>
-          <p className="m-0 font-sans text-sm text-text-dim">AgiBot World has about {RUN_RATIO} times FineART&apos;s recorded attempts, but under twice its hours. Each dot is a dataset; one run is one attempt.</p>
+          <p className="m-0 font-sans text-sm text-text-dim">Each dot is one dataset; one run is one recorded attempt.</p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Recorded runs against recorded hours for five robot datasets"
@@ -227,22 +227,8 @@ export function DatasetRunsHours({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Each point is one dataset&apos;s own totals: the runs it recorded (the papers say trajectories or
-            episodes) and the hours they add up to. Both rulers step by ten times. The run lengths are
-            hours times 3,600 divided by runs; the dashed line is where an average run lasts one minute.
-          </div>
-          <ul className="list-disc space-y-1 pl-5" data-testid="dataset-runs-hours-notes">
-            {DATASET_RUNS_HOURS.map((d) => (
-              <li key={d.id}>
-                {d.label}: {d.runsAsPrinted ? `${d.runsAsPrinted} runs as printed` : `${d.runs.toLocaleString('en-US')} runs`},{' '}
-                {d.hours.toLocaleString('en-US')} hours, about {runLengthInWords(secondsPerRun(d))} a run.
-              </li>
-            ))}
-          </ul>
-          <div>
-            RoboMIND&apos;s total mixes real and simulated runs, and AgiBot World is its Beta release.
-            BridgeData V2 is left off: it reports 60,096 trajectories but no total hours, and its 5 Hz
-            recording rate is stated for the teleoperated runs only, so any hours figure would be a guess.
+            Run length is hours times 3,600 divided by runs; the dashed line marks one-minute runs.
+            BridgeData V2 is left off because it reports no total hours.
           </div>
           <ChartDescription
             id={descriptionId}

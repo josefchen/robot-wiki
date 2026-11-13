@@ -719,14 +719,12 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           </span>
         </FigureStage>
       }
-      caption="Marking each step as helping or hurting traces failure to a crooked grip 20 seconds before the coffee-filter handle failed to lock."
+      caption="Tagging each step as helping or hurting traces the failed handle lock to a crooked grip 20 seconds earlier."
       method={
         <>
           <div>
-            Advantage is the change in the value score across a step: the score at its end minus the
-            score at its start. A step whose score rises is tagged high advantage (&ldquo;helped&rdquo;);
-            one whose score falls is tagged low advantage (&ldquo;hurt&rdquo;). The value score is drawn
-            as the chance the attempt ends well; this toy starts it at V = 30 on an arbitrary scale.
+            Advantage is the change in value score across a step, the chance the attempt ends well,
+            starting at V = 30 on an arbitrary scale.
           </div>
           <ul className="m-0! grid list-none gap-1.5 p-0!" data-testid="advantage-steps">
             {tagged.map((segment) => (
@@ -741,11 +739,8 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             ))}
           </ul>
           <div>
-            The episode follows the portafilter example in the Recap companion blog. The step scores,
-            the forty-second length and the twenty-second gap are illustrative, not a recorded
-            episode. Recap&apos;s own estimator also counts rewards, applies a task-dependent
-            threshold, forces human corrections positive and sometimes drops the indicator during
-            training. A value score is not the only possible signal for finding the cause.
+            The episode follows the Recap blog&apos;s portafilter example; its scores and timings are
+            illustrative, and Recap&apos;s own estimator is more involved.
           </div>
           {description}
         </>

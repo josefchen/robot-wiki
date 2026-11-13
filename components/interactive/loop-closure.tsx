@@ -15,7 +15,6 @@ import {
   CLOSE_SECONDS,
   DRIFT_RANGE,
   DRIFT_STEP,
-  DRIVEN_LEGS,
   JOINTS,
   LEG_M,
   OPENING_DRIFT,
@@ -193,9 +192,9 @@ export function LoopClosure({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Set how far each turn is off, then close the loop: recognizing the start spreads the correction across every recorded step."
+          hint="Set the turn error, then close the loop"
           readout={readout}
-          status="Illustrative course and drift. Faint floor circles mark where the robot truly stopped; each recorded step shares the correction."
+          status="Illustrative course and drift"
           data-testid="lc-stage"
         >
           <div data-testid="lc-drawing" data-drift={hundredth(table.drift)} data-share={hundredth(table.share)}>
@@ -234,31 +233,9 @@ export function LoopClosure({ className }: { className?: string }) {
       caption="Small turn errors bend the map, and recognizing the start spreads the correction across every recorded step."
       method={
         <>
-          <p>
-            A robot that maps as it drives places each pose from the one before, so every small error in a measured
-            turn bends the rest of the map and the drift grows with distance. Coming back to a place it has mapped and
-            recognizing it gives one more measurement: where that old place is from here. Once it is checked, it ties
-            the end of the map to its start, and the back end spreads the loop&apos;s error along the whole chain
-            instead of dumping it on the last pose, as monocular ORB-SLAM does with similarity alignment and Essential
-            Graph optimization. This works because smoothing keeps the past poses in the graph, free to move. A revisit
-            can reduce drift and in some cases correct it; it does not promise to remove all of it.
-          </p>
           <p id={drawingId}>
-            The drawing is a chain-map table. A printed floor plan shows a corridor around a block of rooms, with a ring
-            at every place the robot truly stopped. On it lies a jointed chain, the robot&apos;s map of its lap: a
-            steel link for every {LEG_M} m leg it drove, a pin on a glide puck for every pose it remembered, and a
-            torsion spring at every pin, its legs on posts on the two links, holding the turn it measured. The first
-            link is clamped to the start post. The last carries a small rover whose camera looks ahead at a ranging
-            pole beside the start, and the lit bar on its front is that view, one leg straight ahead, ending in a square
-            socket that fits the post&apos;s square spigot one way only. Closing the loop seats it, and every spring
-            gives by its share.
-          </p>
-          <p>
-            Illustrative: a loop of {DRIVEN_LEGS + 1} legs of {LEG_M} m around a block, and every measured turn short by
-            between 0.2 and 1.8 times the drift set, more on the early legs, averaging it. Each joint&apos;s share is the
-            smallest set of corrections, weighted alike, that puts the socket on the post facing the right way, solved
-            by repeated linearization as a pose-graph back end does. The springs are all alike, so they cannot tell
-            which turns were worse, and a little error stays.
+            The drawing is a chain-map table. Each {LEG_M} m leg is a link and each measured turn a spring, and
+            closing the loop makes every spring give by its share, as a pose-graph back end does.
           </p>
         </>
       }

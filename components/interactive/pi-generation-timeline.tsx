@@ -397,24 +397,15 @@ export function PiGenerationTimeline({
           </div>
         </FigureStage>
       }
-      caption="Physical Intelligence released a new model every few months, but only the first three are listed for download; the newest are offered through its API."
+      caption="Physical Intelligence ships a model every few months; only the first three are listed for download."
       method={
         <>
           <div>
-            Each name sits above the month its source was published, which is not always the month
-            a checkpoint was released. {besideWords} is listed beside the timeline rather than
-            plotted as a new model. Shaded bands mark calendar years and change at January.
+            &quot;Downloadable&quot; means listed in the openpi catalog at commit 215abfb, not
+            licensed; the pinned catalog ends at {frontier.name}.
           </div>
           <div>
-            &quot;Downloadable&quot; means listed in the openpi checkpoint catalog as pinned at
-            commit 215abfb; it says nothing about the license. The pinned catalog ends at{' '}
-            {frontier.name}.
-          </div>
-          <div>
-            {behind} model entries not in the pinned catalog have unverified weight availability:
-            missing from that list is not evidence of closed weights. Since October 13, 2026,
-            Physical Intelligence has offered its latest models for fine-tuning and hosted
-            inference through the Pi API beta.
+            {behind} model entries not in the pinned catalog have unverified weight availability.
           </div>
           <TableScroll labelledBy={tableCaptionId} className="pt-1">
             <table className="w-full min-w-[640px] border-collapse text-left font-sans text-sm text-text">

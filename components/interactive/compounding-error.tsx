@@ -51,7 +51,6 @@ import {
   accumulatedCost,
   bcBound,
   COMPOUNDING_GAIN,
-  DAGGER_CORRECTION,
   DAGGER_INTERVAL,
   daggerBound,
   DEVIATION_AXIS_TICKS,
@@ -565,8 +564,8 @@ export function CompoundingError({
           }
           status={
             dagger
-              ? `Groove: demonstrated path. The teacher corrects every ${DAGGER_INTERVAL} moves. Toy units have no assigned physical distance.`
-              : 'Groove: demonstrated path. Ink: robot path. Toy units have no assigned physical distance.'
+              ? `Toy model; corrections every ${DAGGER_INTERVAL} moves`
+              : 'Toy model. Groove: demonstrated path.'
           }
           data-testid="ce-stage-frame"
         >
@@ -584,23 +583,12 @@ export function CompoundingError({
           </IsoFigure>
         </AnatomyStage>
       }
-      caption={`Copying an expert for twice as long leaves the robot ${timesWords(ratio)} off course as its small slips accumulate.`}
+      caption={`Copying an expert for twice as long leaves the robot ${timesWords(ratio)} off course.`}
       method={
         <>
           <p>
-            Original deterministic toy, not a measured robot. Each move adds a small error to how far
-            the robot is off the taught path, and the error grows with that distance: the drift d
-            after each decision becomes d + ε(1 + {COMPOUNDING_GAIN}·d), with ε the per-step error
-            (now {epsilonPercent.toFixed(1)}%). The shaded gap sums the drift over every move. At 5%
-            it is 370 units over 120 moves and 1505 over 240: twice the task, about four times the
-            drift.
-          </p>
-          <p>
-            &quot;{chunkSize} moves per plan&quot; makes one decision every {chunkSize} moves (action
-            chunking), so errors enter less often. &quot;A teacher corrects it&quot; is DAgger-style
-            relabeling: every {DAGGER_INTERVAL} moves an expert removes{' '}
-            {Math.round(DAGGER_CORRECTION * 100)}% of the drift. Both are chosen illustration rules,
-            not implementations of either method.
+            Original toy: each decision turns drift d into d + ε(1 + {COMPOUNDING_GAIN}·d), and the
+            chunking and teacher modes are illustrative rules, not either method.
           </p>
           <ChartDescription
             id={`${uid}-rollout-description`}
@@ -620,12 +608,9 @@ export function CompoundingError({
             ]}
           />
           <p>
-            The chart below compares the summed drift with two illustrative reference curves from
-            Ross, Gordon and Bagnell (2011): εT(T+1)/2, the quadratic growth of plain copying, and
-            εT, the linear growth DAgger can reach under its assumptions. At T = {steps} they read{' '}
-            {formatUnits(bounds.bcAtT)} and {formatUnits(bounds.daggerAtT)}; final drift Δ(T) ={' '}
-            <span data-testid="final-deviation-readout">{formatUnits(rollout.finalDeviation)}</span>
-            . Neither curve bounds this trace.
+            The reference curves εT(T+1)/2 and εT follow Ross, Gordon and Bagnell (2011) and do not
+            bound this trace, whose final drift Δ(T) is{' '}
+            <span data-testid="final-deviation-readout">{formatUnits(rollout.finalDeviation)}</span>.
           </p>
           <div data-inset-plot><PlotStage
             viewBox={`0 0 ${WIDTH} ${BOUNDS_H}`}

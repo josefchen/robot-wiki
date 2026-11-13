@@ -519,7 +519,7 @@ describe('ImpedancePress', () => {
     expect(caption?.textContent?.replace(/\s+/g, ' ').trim()).toBe('Once the surface stops the tool, push equals stiffness times how far the target sits past it.');
     expect(stage.querySelector('[data-readout]')).toHaveTextContent('Medium · 2 marks past surface · push 4 dial marks');
     expect(screen.getByTestId('press-scale-definitions')).toHaveTextContent('Ruler: target gap. Dial: push.');
-    expect(stage.querySelector('[data-figure-status]')).toHaveTextContent('Schematic ruler and dial marks, with no physical units: springs give 1, 2 or 4 dial marks per ruler mark.');
+    expect(stage.querySelector('[data-figure-status]')).toHaveTextContent('Schematic marks, no physical units');
     const svg = drawing.querySelector('svg')!;
     expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
     expect(svg.textContent).toBe('');
@@ -539,7 +539,7 @@ describe('ImpedancePress', () => {
     render(<ImpedancePress />);
     const svg = screen.getByTestId('press-drawing').querySelector('svg')!;
     expect(document.getElementById(svg.getAttribute('aria-describedby') ?? '')).toHaveTextContent(
-      /^The press is that law made of parts\./,
+      /^The press is that law made of parts:/,
     );
   });
 
@@ -598,8 +598,8 @@ describe('ImpedancePress', () => {
 
   it('eases the crosshead to a new target', async () => {
     for (const [target, expected, hint] of [
-      [0.7, 'Medium · 0.7 marks past surface · push 1.4 dial marks', 'The surface stops the tool. Stiffness 2 times a target gap of 0.7 ruler marks gives 1.4 dial marks of push.'],
-      [2.3, 'Medium · 2.3 marks past surface · push 4.6 dial marks', 'The surface stops the tool. Stiffness 2 times a target gap of 2.3 ruler marks gives 4.6 dial marks of push.'],
+      [0.7, 'Medium · 0.7 marks past surface · push 1.4 dial marks', 'Stiffness 2 times a 0.7-mark target gap gives 1.4 dial marks of push.'],
+      [2.3, 'Medium · 2.3 marks past surface · push 4.6 dial marks', 'Stiffness 2 times a 2.3-mark target gap gives 4.6 dial marks of push.'],
       [-0.04, 'Medium · on the surface · no push', 'Target and tool meet the surface with no gap, so there is no push.'],
       [0.04, 'Medium · on the surface · no push', 'Target and tool meet the surface with no gap, so there is no push.'],
     ] as const) {

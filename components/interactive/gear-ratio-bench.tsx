@@ -10,13 +10,10 @@ import {
   DRIVES,
   HEIGHT,
   HIGH_DEG,
-  LEVER_M,
   LOW_DEG,
-  MOTOR,
   PARTS,
   PHONE_FIT,
   REST_DEG,
-  WEIGHT_KG,
   WIDTH,
   cassetteSvg,
   driveOf,
@@ -278,9 +275,9 @@ export function GearRatioBench({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="The blue lever is the joint; each weight is 5 kg · left dial: speed · right dial: how hard the joint is to push back"
+          hint="Blue lever is the joint · weights 5 kg · dials: speed and push-back"
           readout={readoutFor(drive)}
-          status="Teaching motor with three real gear ratios. Lifts are slowed for viewing."
+          status="Teaching model, real gear ratios"
           data-testid="gear-stage"
           data-drive={driveId}
         >
@@ -312,24 +309,9 @@ export function GearRatioBench({ className }: { className?: string }) {
       method={
         <>
           <p>
-            A gear ratio of N multiplies the motor&apos;s torque by N (less what the gears lose to friction) and divides its
-            speed by N. It also multiplies the rotor&apos;s inertia, as felt at the joint, by N squared, because the rotor
-            has to spin N times faster than the joint and its stored energy grows with the square of its speed. That is
-            why the push-back dial jumps from tens to thousands while the torque only grows about tenfold. The left dial reads the
-            joint&apos;s speed from 0 to 600 turns a minute; the right dial reads the push-back on a log scale, its long ticks
-            at 1, 10, 100, 1,000 and 10,000 times, each a step of ten.
-          </p>
-          <p>
-            The bench is a teaching model. One motor drives every cassette: {MOTOR.peakTorque} newton-meters peak torque
-            and {MOTOR.topSpeedRpm.toLocaleString('en-US')} turns a minute top speed, round numbers chosen for the bench,
-            with the rotor inertia of the MIT Cheetah&apos;s motor, 3.03 × 10⁻⁴ kg m². Wensing and colleagues report that
-            through their 5.8 to 1 planetary stage it is felt at the joint as 0.0102 kg m², the same ratio-squared rule
-            the right-hand dial uses. The ratios are real: the MIT Cheetah&apos;s single planetary stage, the 36 to 1
-            two-stage planetary actuator in every joint of the AGILOped humanoid, and a 100 to 1 Harmonic Drive CSF
-            strain-wave gear. Efficiencies are 95 and 90 percent for one and two planetary stages (teaching values) and
-            75 percent for the strain-wave gear, read off the maker&apos;s efficiency chart at room temperature. The weights
-            are what a {LEVER_M * 100} cm lever holds at peak torque, in whole {WEIGHT_KG} kg weights. Lifts run at each
-            joint&apos;s top speed slowed {SLOW} times, the same for every cassette.
+            A ratio of N multiplies torque by N, divides speed by N and multiplies the rotor&apos;s inertia, as felt at
+            the joint, by N squared. One teaching motor with the MIT Cheetah&apos;s rotor drives three real ratios: 5.8,
+            36 and 100 to 1.
           </p>
           <ChartDescription
             id={descriptionId}

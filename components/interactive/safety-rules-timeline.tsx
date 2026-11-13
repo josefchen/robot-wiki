@@ -68,7 +68,7 @@ const SERVICE = ruleOf(SERVICE_ROBOT_ID);
 const STANDALONE = ruleOf(STANDALONE_AI_ID);
 
 const CAPTION =
-  'Industrial standards were renewed in 2025 and the humanoid draft has no next date, while EU rules for learned safety parts start in 2027.';
+  'Industrial standards renewed in 2025; the humanoid draft has no next date; EU rules for learned safety parts start in 2027.';
 const DESCRIPTION = `Eight robot safety rules by date: ISO 10218 parts 1 and 2 were published on ${ISO.dateText}; the US adoption, ANSI/A3 R15.06-2025, was published with all three parts on ${US.dateText}; the humanoid committee draft ISO/CD 25785-1 closed its comment period on ${DRAFT.dateText}, with no date yet for its next stage; the EU's Digital Omnibus on AI entered into force on ${OMNIBUS.dateText}; the second edition of ISO 13482, for service robots, passed its final-draft ballot on ${SERVICE.dateText}; the EU Machinery Regulation, which lists machine-learning safety components, applies from ${MACHINERY.dateText}; the AI Act's rules for stand-alone high-risk AI apply from ${STANDALONE.dateText}; and its rules for high-risk AI in regulated products apply from ${AI_ACT.dateText}, the date by which the machinery delegated acts must apply.`;
 
 export function SafetyRulesTimeline({ className }: { className?: string }) {
@@ -179,8 +179,7 @@ export function SafetyRulesTimeline({ className }: { className?: string }) {
             ))}
           </PlotStage>
           <p className="font-sans text-sm leading-snug text-text-dim">
-            Separate 2028 AI Act rule: AI safety components or AI products requiring independent health or safety assessment under product laws.{' '}
-            Regulated products include machinery, medical devices and other product categories covered by EU safety laws.
+            Separate 2028 AI Act rule: AI in products that need independent safety checks.
           </p>
         </FigureStage>
       }
@@ -188,18 +187,10 @@ export function SafetyRulesTimeline({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Each date is from the rule&apos;s own record: ISO&apos;s catalog for the standards and the humanoid
-            draft, the A3 store for the US adoption, the corrected Official Journal text for the Machinery
-            Regulation and the European Commission&apos;s AI Act page. The Machinery Regulation lists safety
-            components with fully or partly self-evolving behavior using machine learning to perform safety
-            functions in Annex I Part A, and its recitals say a third party should assess them. A safety component
-            can be hardware or software sold independently to perform a safety function; failure can endanger
-            people. Annex I also covers such systems embedded in machinery, only in respect of those systems.
-            The humanoid draft&apos;s later stages carry no dates in ISO&apos;s catalog.
-            For the AI Act&apos;s product route to high-risk status, the AI must be a safety component or itself
-            a product under the laws listed in Annex I, and the product must require a third-party assessment
-            concerning health or safety. AI used only for non-safety assistance, efficiency or convenience is
-            excluded from that safety-component category.
+            Each date comes from the rule&apos;s own record: ISO&apos;s catalog, the A3 store, the Official
+            Journal and the Commission&apos;s AI Act page. For the AI Act&apos;s product route, the AI must be a
+            safety component or a product under Annex I, and the product must require a third-party assessment
+            concerning health or safety.
           </div>
           <ChartDescription
             id={descriptionId}

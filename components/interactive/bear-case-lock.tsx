@@ -154,7 +154,7 @@ export function BearCaseLock({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint="The plug turns only when all four pins sit on the lit line"
           readout={readoutFor(supposed, pose.turn)}
-          status="Pin status from the watchlist, November 2026; pin heights illustrative"
+          status="Watchlist status; heights illustrative"
           data-testid="bear-lock-stage-frame"
         >
           <div
@@ -182,28 +182,16 @@ export function BearCaseLock({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Each result answers one doubt (scale, new homes, cost or improvement), and all four must arrive to overturn skepticism; none had by November 2026."
+      caption="Each result answers one doubt, and all four must arrive to overturn skepticism; none had by November 2026."
       method={
         <>
           <p>
-            The bear case rests on four premises, and the article names the result that would break each: a
-            verified deployment of 10,000 humanoids doing documented work (commercial viability), one policy above
-            90% across more than ten unseen homes (generalization), a cost-per-task parity analysis (form factor),
-            and a real-world success-rate scaling law across tasks (the plateau). Each pin starts where the
-            bear-case watchlist above puts that result in November 2026: not met for the deployment and the cost
-            analysis, partial for the unseen homes and the scaling law. None is met.
+            Each pin starts at the watchlist&apos;s November 2026 call: not met for the deployment and the cost
+            analysis, partial for the unseen homes and the scaling law.
           </p>
           <p id={drawingId}>
-            The drawing is a pin-tumbler lock cut open in front of its pins, one stack per premise. A plug turns
-            only when the split between every key pin (dark) and its driver pin sits on the shear line, the
-            plug&apos;s top edge (lit). A result not yet shown leaves its key pin standing well above the line;
-            partial evidence leaves it closer; supposing the result arrives sets it on the line. With all four on
-            the line the plug turns, the key turns with it, and the bolt draws back out of its keeper.
-          </p>
-          <p>
-            Illustrative: the statuses are the watchlist&apos;s calls, but how high a pin stands only shows the
-            call, not how far the evidence is from the result. The lock does not weigh the premises against each
-            other; it shows that the four results are needed together.
+            The drawing is a pin-tumbler lock cut open in front of its pins, one stack per premise. The plug turns
+            only when every pin split sits on the lit shear line.
           </p>
         </>
       }

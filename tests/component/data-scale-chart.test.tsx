@@ -150,7 +150,7 @@ describe('honest unknown and hypothetical chart states', () => {
     render(<DataScaleChart />);
     expect(screen.getByTestId('projection-summary')).toHaveTextContent(/10,000 hours takes.*1,000,000 hours takes/i);
     // The projection is labelled as illustrative where the reader sees it.
-    expect(screen.getByText('Illustrative: chosen collection rates, not a measured farm.')).toBeInTheDocument();
+    expect(screen.getByText('Illustrative model')).toBeInTheDocument();
     expect(screen.getByTestId('rate-explanation')).toHaveTextContent(/targets.*authored hypothetical/i);
     expect(document.body.textContent).not.toMatch(/to OXE scale|100x OXE|DROID-measured|everything else is a published count/);
   });

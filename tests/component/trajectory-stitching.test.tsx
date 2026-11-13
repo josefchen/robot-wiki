@@ -34,7 +34,7 @@ describe('TrajectoryStitching', () => {
       "Learning from recordings joins two runs into one success",
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "Offline reinforcement learning can join the useful parts of two recorded runs into a route to the goal, which copying either run cannot do.",
+      "Offline reinforcement learning joins the useful parts of two recorded runs; copying either run misses the goal.",
     );
   });
 

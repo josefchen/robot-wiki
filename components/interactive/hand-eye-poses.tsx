@@ -64,7 +64,7 @@ export const irisGap = (poses: number) => (poses < MIN_POSES ? IRIS_OPEN_GAP : 3
 /** What the stage says under the drawing, by how far the count has come. */
 export function hintFor(poses: number): string {
   if (poses < MIN_POSES) return 'Too few poses: it needs turns about two different axes';
-  if (poses < 12) return 'Add poses and the iris closes as the doubt about where the camera sits shrinks; 1.0 is its size at three poses';
+  if (poses < 12) return 'More poses close the iris; 1.0 is its size at three poses';
   return 'Past about 12 poses the iris barely closes further';
 }
 
@@ -261,17 +261,8 @@ export function HandEyePoses({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Hand-eye calibration finds where the camera sits on the wrist by comparing how the arm moved with how
-            the target appeared to move. OpenCV needs at least two motions about non-parallel axes, so at least
-            three poses, and strongly recommends many more. MoveIt&apos;s tutorial reports that the calibration
-            improves significantly with a few more samples and typically plateaus after about 12 or 15.
-          </div>
-          <div>
-            The iris is illustrative: its gap around the camera shrinks with the square root of the number of motions
-            beyond the minimum, the usual behavior of a least-squares fit, drawn relative to its gap at three
-            poses. The rack&apos;s groove after the third hole marks the minimum, and its sunken strip under holes 12 to
-            15 marks where MoveIt reports the calibration levels off. Real accuracy also depends on how widely the poses spread and on noise. Validate the result
-            in robot coordinates, because image reprojection error alone does not close that loop.
+            OpenCV needs at least three poses about non-parallel axes, and MoveIt reports the fit levels off
+            after about 12 or 15. The iris is illustrative, shrinking with the square root of motions past the minimum.
           </div>
           <ChartDescription
             id={descriptionId}

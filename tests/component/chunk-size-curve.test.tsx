@@ -68,7 +68,7 @@ describe('ChunkSizeCurve', () => {
     const { container } = render(<ChunkSizeCurve />);
     const status = container.querySelector('[data-figure-status]');
     expect(status?.textContent).toMatch(STATUS_LABEL_VOCABULARY.source);
-    expect(status?.textContent).toMatch(/only the two dots have published numbers/i);
+    expect(status?.textContent).toMatch(/two dots measured/i);
   });
 
   it('places the two measured anchors at the published chunk sizes, a marker-radius dot each', () => {

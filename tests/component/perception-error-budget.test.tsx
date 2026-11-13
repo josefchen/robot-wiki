@@ -26,10 +26,10 @@ describe('PerceptionErrorBudget main view', () => {
       'A tiny camera tilt becomes a bigger miss farther away',
     );
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      'A camera tilted a fraction of a degree puts the hand beside the object; the 15 and 30 mm bands are teaching thresholds, not limits.',
+      'A camera tilted a fraction of a degree puts the hand beside the object.',
     );
     expect(container.querySelector('[data-figure-status]')).toHaveTextContent(
-      'Schematic: the tilt and the miss are drawn far larger than they are',
+      'Schematic, tilt exaggerated',
     );
   });
 

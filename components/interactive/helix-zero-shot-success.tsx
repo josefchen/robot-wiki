@@ -51,7 +51,7 @@ const HELIX = zeroShotOf(HELIX_ID);
 const SHORT_BY = SOLVED_BAR_PERCENT - HELIX;
 const BAR_X = f(sx(SOLVED_BAR_PERCENT));
 
-const CAPTION = `Figure graded three tasks in 30 homes absent from training with no partial credit; this article sets ${SOLVED_BAR_PERCENT}% as the bar for solved.`;
+const CAPTION = `Figure graded three tasks in 30 unseen homes with no partial credit; ${SOLVED_BAR_PERCENT}% is this article's bar for solved.`;
 const DESCRIPTION = `Zero-shot success on three whole-body tasks in 30 unseen homes, as Figure reports it: ${SCRATCH}% for a policy trained from scratch and ${HELIX}% for Helix 2.5, pretrained on Figure's Index human data, both trained on the same task data. Helix 2.5 sits ${SHORT_BY} points below the ${SOLVED_BAR_PERCENT}% bar this article sets for solved. Figure published no trial counts.`;
 
 export function HelixZeroShotSuccess({ className }: { className?: string }) {
@@ -177,11 +177,9 @@ export function HelixZeroShotSuccess({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Figure trained two policies on the same task data, one from random weights and one from the
-            Index-pretrained Helix 2.5 model, and ran both in 30 Bay Area homes where it had collected no data.
-            Figure reports one success rate for the three tasks together (tidying a living room, folding towels,
-            making a bed) and publishes no trial counts and no per-task rates. The {SOLVED_BAR_PERCENT} percent
-            line is the bar for solved that this article sets.
+            Figure trained both policies on the same task data, one from random weights and one from
+            Index-pretrained Helix 2.5, and ran them in 30 Bay Area homes it never collected in. It reports
+            one rate for the three tasks together, with no trial counts.
           </div>
           <ChartDescription
             id={descriptionId}

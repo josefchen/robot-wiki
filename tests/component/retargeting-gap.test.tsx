@@ -32,7 +32,7 @@ describe('RetargetingGap', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Motion retargeting');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Different proportions make copied human poses float or sink");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "Copying human joint angles onto a robot with shorter legs leaves its feet above the floor, and with longer legs, below it.",
+      "Copied human joint angles leave shorter robot legs above the floor and longer ones below it.",
     );
     const comparison = screen.getByText('shorter robot legs leave feet floating; longer legs make feet sink.');
     expect(comparison.closest('details')).toBeNull();

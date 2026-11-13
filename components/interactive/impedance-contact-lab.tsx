@@ -557,9 +557,9 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={STAGE_WIDTH}
-          hint={pressing ? 'Pressing, slowed for the eye' : 'Pick an arm and how stiff it is, then press: a force-controlled arm set soft enough spares the glass.'}
+          hint={pressing ? 'Pressing, slowed for the eye' : 'Pick an arm and how stiff it is, then press'}
           readout={stillReadout(hardware, run)}
-          status="The pointer records the peak push; the glass cracks above 25 newtons, the end of the shaded arc. Illustrative model, not measured. One newton is roughly the weight of 100 grams on Earth."
+          status="Illustrative model, not measured"
           data-testid="impedance-press"
           data-arm={hardware}
         >
@@ -600,21 +600,11 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
       method={
         <>
           <p>
-            An illustrative model, not measured: a {EFFECTIVE_MASS_KG} kg fingertip mass starts 0.5 mm above the
-            object and is commanded {depthMm} mm into it. The object is a stiff{' '}
-            {ENVIRONMENT_STIFFNESS_N_PER_M / 1000} kN/m contact spring that crushes at {CRUSH_LIMIT_N} N, at the
-            first bump or once settled. The arm that controls its own push runs an impedance law with stiffness K
-            (How stiff it is, {params.stiffnessKNPerM.toFixed(0)} N/m) and damping D (Calm the bounce,{' '}
-            {params.dampingNPerM.toFixed(0)} N·s/m). The arm with a built-in spring adds an{' '}
-            {SEA_SPRING_STIFFNESS_N_PER_M} N/m spring in series with the contact. The stiff arm, a geared arm
-            under position control, only follows its commanded position, so the force is whatever the position
-            error makes it. The press is drawn as a test stand: the gauge reads to {AXIS_MAX_N} N and a bigger push
-            rests on its stop pin; the head&apos;s travel and the spring&apos;s squeeze are drawn larger than they are,
-            and each press plays the 0.6 s contact slowed {PRESS.slow} times. For scale, the human
-            pain limit is about {Math.round(TRANSIENT_CONTACT_LIMIT_N / CRUSH_LIMIT_N)} times the crush force:{' '}
+            A {EFFECTIVE_MASS_KG} kg fingertip pressed {depthMm} mm into a{' '}
+            {ENVIRONMENT_STIFFNESS_N_PER_M / 1000} kN/m object that crushes at {CRUSH_LIMIT_N} N; the stiff arm only
+            follows position, so its position error sets the force. The human pain limit is about {Math.round(TRANSIENT_CONTACT_LIMIT_N / CRUSH_LIMIT_N)} times the crush force:{' '}
             <span data-testid="impedance-limit-label">{TRANSIENT_CONTACT_LIMIT_LABEL}</span>, measured with a
-            wedge-shaped impactor <CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />, used in place of the
-            paywalled ISO/TS 15066 table.
+            wedge-shaped impactor <CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />.
           </p>
           <ChartDescription
             id={descriptionId}

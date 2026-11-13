@@ -56,7 +56,6 @@ import {
   type LiveId,
   type Part,
   M as MISS_UNITS,
-  SCALE_MM,
   U as RAIL_UNITS,
 } from '@/components/iso/figures/tilt-miss-bench';
 
@@ -709,25 +708,13 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
   const referenceNote = (
     <>
       <span data-testid="perception-simplification-label">
-        The depth term here is modeled as range-independent, evaluated once
-        at a fixed {NOMINAL_RANGE_M.toFixed(1)} m standoff, so the percentage
-        you set converts to the same millimeters at every working distance.
-        This simplification isolates the chosen ray-to-plane term;
-        it does not describe how every real depth sensor changes with range.
-        Root-sum-of-squares is a teaching rule here: these slider values
-        are not established standard deviations, and the instrument does
+        Depth is a range-independent percentage at {NOMINAL_RANGE_M.toFixed(1)} m, the chosen ray-to-plane term.
+        Root-sum-of-squares is a teaching rule: the sliders are not established standard deviations, and it does
         not establish independence or a real-system error bound.
       </span>{' '}
-      The opaque-case floor borrows the ±{PUBLISHED_DEPTH_SPEC_PCT}% Z-accuracy
-      entry for D410/D415 and D43x at ranges up to 2 m, 80% ROI and HD
-      resolution. The datasheet&apos;s factory KPIs reflect typical conditions;
-      these active models use a texture-less white target, default 150 mW
-      laser power and auto exposure. This is not an opaque-object measurement
-      or a standard deviation <CiteRef id="realsense-d400-datasheet-2026" />.
-      The model chooses multipliers 1, 3 and 8 for its opaque, specular and
-      transparent cases; none is a measured material-specific floor. Its 15 mm
-      and 30 mm bands are teaching thresholds, not predictions of grasp
-      success or collision.
+      Opaque floor: the ±{PUBLISHED_DEPTH_SPEC_PCT}% spec for D410/D415 and D43x up to 2 m, 80% ROI, HD
+      resolution, white target, 150 mW, auto exposure; not an opaque-object measurement or a standard
+      deviation <CiteRef id="realsense-d400-datasheet-2026" />.
     </>
   );
 
@@ -760,25 +747,17 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           viewWidth={BENCH_WIDTH}
           hint="Slide the target away: the same tilt misses by more"
           readout={benchReadout(opening.tiltDeg, opening.distanceM)}
-          status="Schematic: the tilt and the miss are drawn far larger than they are"
+          status="Schematic, tilt exaggerated"
           data-testid="perception-bench"
         >
           <div ref={stageRef}>{sideView}</div>
         </AnatomyStage>
       }
-      caption="A camera tilted a fraction of a degree puts the hand beside the object; the 15 and 30 mm bands are teaching thresholds, not limits."
+      caption="A camera tilted a fraction of a degree puts the hand beside the object."
       method={
         <>
           <p>
-            The drawing is the hand-eye term of the budget: a line of sight tilted by an angle θ from the true one
-            misses by e = d · tan θ at distance d, about 1.7 mm at 10 cm and 17 mm at 1 m for one degree. At{' '}
-            {params.handEyeDeg.toFixed(1)} degrees and {distance.toFixed(2)} m the miss is {missMm.toFixed(2)} mm.
-            The tilt runs from 0 to 3 degrees in steps of 0.1 and the distance from 0.15 to 1.5 m in steps of
-            0.05 m; both open at 0.5. The drawing is an optical bench: the camera tilts in a yoke, set by the
-            micrometer under its tail, and its line of sight, the lit beam, lands on the scale of a target staff
-            that slides along the rail. The peg on the staff sits on the rail&apos;s own line, where the robot assumes
-            the camera looks. The miss is drawn {BENCH_MISS_SCALE} times steeper than the distance, so the drawn
-            tilt is far larger than the real one; a miss above {SCALE_MM} mm passes over the staff&apos;s top.
+            A sight line tilted by θ misses by d · tan θ at distance d, drawn {BENCH_MISS_SCALE} times steeper here.
           </p>
           <p>{referenceNote}</p>
           <ChartDescription

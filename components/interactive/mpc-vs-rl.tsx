@@ -281,12 +281,9 @@ export function MpcVsRl({ className }: { className?: string }) {
             <span data-testid="rl-compute">{CONTROLLERS.rl.compute}</span>.
           </p>
           <p>
-            Each surprise in the literature&apos;s terms:{' '}
-            {PERTURBATIONS.map((p) => `${PLAIN[p.id].name}, ${p.label}`).join('; ')}. The traces are an illustrative
-            model of the failure modes the literature reports, not measured hardware data: base-height deviation in
-            centimeters over {TRACE_STEPS} control steps, with the surprise at step {APPLY_STEP}. The drawing shows how
-            each response ends: standing for &quot;stays up&quot;, on its back for a fall, and sagging or slower
-            for a degraded response.
+            Illustrative traces, not hardware data: base-height deviation in centimeters over {TRACE_STEPS} control
+            steps, with the surprise at step {APPLY_STEP}. The surprises are{' '}
+            {PERTURBATIONS.map((p) => `${PLAIN[p.id].name} (${p.label})`).join(', ')}.
           </p>
           <p data-testid="mpc-annotation">{perturbation.mpc.annotation}</p>
           <p data-testid="rl-annotation">{perturbation.rl.annotation}</p>

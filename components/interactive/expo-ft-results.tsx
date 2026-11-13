@@ -112,7 +112,7 @@ export function ExpoFtResults({ className }: { className?: string }) {
       heading="EXPO-FT beats the alternatives on all four tasks"
       stage={
         <FigureStage>
-          <p className="m-0 font-sans text-sm text-text-dim">EXPO-FT leads every task with 30 successes out of 30 tries. Names identify training methods; π0.5 is the starting model, and noise a random move guess.</p>
+          <p className="m-0 font-sans text-sm text-text-dim">Successes out of 30 tries; π0.5 is the starting model.</p>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label="Successful trials out of 30 for five methods across four manipulation tasks"
@@ -238,36 +238,13 @@ export function ExpoFtResults({ className }: { className?: string }) {
           </PlotStage>
         </FigureStage>
       }
-      caption="EXPO-FT succeeded in all 30 tries on each of four tasks, beating every alternative; copying demonstrations alone managed 14 to 23 of 30."
+      caption="EXPO-FT succeeded in all 30 tries on each of four tasks; copying demonstrations alone managed 14 to 23 of 30."
       method={
         <>
           <div>
-            Each bar counts successful trials out of 30 on one task, from the comparison table in
-            the EXPO-FT paper (Dong et al., 2026). No value is derived or interpolated.
+            Each bar counts successful trials out of 30, copied from the EXPO-FT paper&apos;s
+            comparison table with nothing derived or interpolated.
           </div>
-          <ul className="m-0! grid list-none gap-1.5 p-0!" data-testid="expo-ft-methods">
-            <li className="my-0!">
-              <span className="font-medium text-text">SFT on π0.5</span>: supervised finetuning,
-              which copies demonstrations; it is the starting checkpoint EXPO-FT itself begins from.
-            </li>
-            <li className="my-0!">
-              <span className="font-medium text-text">HG-DAgger</span>: a person takes over when the
-              robot goes wrong, and the robot learns to copy those corrections.
-            </li>
-            <li className="my-0!">
-              <span className="font-medium text-text">DSRL</span>: keeps the base policy frozen and
-              runs reinforcement learning over the noise it starts from.
-            </li>
-            <li className="my-0!">
-              <span className="font-medium text-text">HIL-SERL</span>: reinforcement learning on the
-              robot from demonstrations, its own tries and human corrections.
-            </li>
-            <li className="my-0!">
-              <span className="font-medium text-text">EXPO-FT</span>: reinforcement learning on
-              π0.5 action chunks, where a small edit policy nudges sampled actions toward higher
-              value, with human teleoperation corrections during online training.
-            </li>
-          </ul>
           <ChartDescription
             id={descriptionId}
             form="table"

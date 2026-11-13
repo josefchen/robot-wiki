@@ -47,7 +47,7 @@ describe('SpaceLatencyLadder', () => {
     expect(kicker).toBe('Delays a robot works within');
     expect(heading).toBe('Signals to Mars and back take 8 to 40 minutes');
     expect(caption).toBe(
-      'A Mars rover waits thousands of times longer for Earth than a drone waits for its camera, so it must act alone.',
+      'A Mars rover waits thousands of times longer for Earth than a drone for its camera, so it acts alone.',
     );
     expect(words(kicker)).toBeLessThanOrEqual(6);
     expect(words(heading)).toBeLessThanOrEqual(10);

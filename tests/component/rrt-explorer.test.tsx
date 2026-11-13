@@ -417,7 +417,7 @@ describe('RrtExplorer main view', () => {
       "Rather than check every route, the robot's search grows random branches into open space until one reaches the goal.",
     );
     expect(container.querySelector('[data-figure-status]')).toHaveTextContent(
-      'Illustrative: one run on a made-up map',
+      'Illustrative: one run, made-up map',
     );
   });
 

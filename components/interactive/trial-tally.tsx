@@ -18,7 +18,6 @@ import {
   CURSORS,
   HEIGHT,
   JAWS,
-  MAX_TRIALS,
   PARTS,
   POLICIES,
   TRIAL_COUNTS,
@@ -469,16 +468,12 @@ export function TrialTally({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="With 10 trials each measured rate jumps from run to run and the ranges overlap; a few hundred trials set the 85% policy clearly apart."
+      caption="At 10 trials the ranges overlap; a few hundred trials set the 85% policy clearly apart."
       method={
         <>
           <p>
-            The two policies are an illustrative teaching pair, not measured robots: one truly succeeds 70% of the time,
-            the other 85%. Each run draws every trial from a seeded generator as an independent pass or failure at the
-            policy&apos;s true rate, so the same run always lands the same way. A run is one sequence of {MAX_TRIALS}{' '}
-            trials per policy; 10 or 50 trials read its start. The article&apos;s numbers set the presets: Snyder and
-            colleagues give 10 or 50 trials as examples of small feasible samples, and TRI ran 50 real rollouts per task,
-            policy and condition.
+            An illustrative pair, not measured robots: one policy truly succeeds 70% of the time, the other 85%. Each
+            trial is a seeded, independent pass or failure at the policy&apos;s true rate.
           </p>
           <p id={descriptionId}>
             The back row of tiles and the rule in front of it belong to the 70% policy, whose plate carries one bump;
@@ -496,14 +491,10 @@ export function TrialTally({ className }: { className?: string }) {
             Sources:{' '}
             <a data-brand-control-id="control:link-focus" href={SOURCES.tri.url} target="_blank" rel="noopener" className="underline-offset-2">
               TRI&apos;s Large Behavior Model study
-            </a>{' '}
-            (50 real rollouts per task, policy and condition, and the warning that many robotics papers may measure
-            statistical noise);{' '}
+            </a>,{' '}
             <a data-brand-control-id="control:link-focus" href={SOURCES.snyder.url} target="_blank" rel="noopener" className="underline-offset-2">
               Snyder and colleagues
-            </a>{' '}
-            (10 or 50 trials as small feasible samples; on one closely matched hardware pair, even an ideal sequential test
-            needed about 500 trials per policy to detect the gap 80% of the time).
+            </a>.
           </p>
         </>
       }

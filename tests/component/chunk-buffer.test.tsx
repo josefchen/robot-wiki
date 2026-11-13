@@ -93,7 +93,7 @@ describe('ChunkBuffer', () => {
     expect(screen.getByTestId('chunk-stage-frame').querySelector('[data-readout]')).toHaveTextContent('16 per chunk · the arm never waits');
     const svg = drawing.querySelector('svg')!;
     expect(svg).toHaveAccessibleName(/^A card feeder representing queued actions; the robot arm is not drawn\./);
-    expect(screen.getByTestId('chunk-stage-frame').querySelector('[data-anatomy-hint]')).toHaveTextContent('This card feeder represents the action queue. The robot arm is not drawn: empty belt slots show moments when it waits.');
+    expect(screen.getByTestId('chunk-stage-frame').querySelector('[data-anatomy-hint]')).toHaveTextContent('Card feeder as action queue. Empty belt slots: moments the arm waits.');
     expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
     expect(svg.textContent).toBe('');
     // The one lit part is the deck being played.
@@ -106,7 +106,7 @@ describe('ChunkBuffer', () => {
     render(<ChunkBuffer />);
     const svg = screen.getByTestId('chunk-drawing').querySelector('svg')!;
     expect(document.getElementById(svg.getAttribute('aria-describedby') ?? '')).toHaveTextContent(
-      /^The feeder is that arithmetic made of parts\./,
+      /^The feeder is that arithmetic made of parts:/,
     );
   });
 
@@ -219,7 +219,7 @@ describe('ChunkBuffer', () => {
       });
       expect(screen.getByTestId('chunk-drawing')).toHaveAttribute('data-left', '0');
       const stage = screen.getByTestId('chunk-stage-frame');
-      expect(stage).toHaveTextContent('Beside the upright ruler: no cards left from this reply.');
+      expect(stage).toHaveTextContent('Holder empty; illustrative, slowed 20×');
       expect(stage.querySelector('[data-readout]')).toHaveTextContent('13 per chunk · the arm never waits');
     } finally {
       vi.useRealTimers();

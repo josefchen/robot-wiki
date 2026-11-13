@@ -232,17 +232,8 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
         method={
           <>
             <div>
-              A robot pairs each camera photo with the arm position it reads when the photo arrives. If the photo
-              took 55 milliseconds to arrive, it shows the hand where it was 55 milliseconds earlier, so the gap is
-              the hand&apos;s speed times that delay. Realtime-VLA V2 measured delays of 55 milliseconds for the
-              camera, 50 for the joint readings and 150 for the motion on one RealSense D435 and Airbot Play rig; the
-              figure uses the camera delay.
-            </div>
-            <div>
-              The bench is illustrative: a gripper on a belt-driven rail, and a camera that aims a beam at where its
-              latest photo shows the gripper. Running, it moves slowed down twelve times. Time calibration
-              estimates the delay and subtracts it, so the photo is paired with the arm position at the moment it
-              was taken.
+              The gap is hand speed times the 55 millisecond camera delay Realtime-VLA V2 measured on a RealSense
+              D435 rig. The bench is illustrative and runs twelve times slower than life.
             </div>
             <ChartDescription
               id={descriptionId}

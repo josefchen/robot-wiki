@@ -30,7 +30,7 @@ describe('QosQueueAge', () => {
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Quality of Service');
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent("Ten queued pictures make the robot's view ⅓ second old");
     expect(container.querySelector('[data-figure-caption]')).toHaveTextContent(
-      "At 30 pictures a second, a queue of ten leaves the policy acting on a view a third of a second old.",
+      "At 30 pictures a second, a ten-picture queue hands the policy a view a third of a second old.",
     );
   });
 

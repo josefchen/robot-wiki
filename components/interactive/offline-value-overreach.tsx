@@ -348,9 +348,9 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Raise the caution to pull down the scores predicted for untried grips. Across: grip strength; up: score out of 100; pinned strip: prediction; thin curve: actual result."
+          hint="Raise the caution to pull down predicted scores for untried grips."
           readout={rest.readout}
-          status="Pins: recorded tries. Lit weight: actual score. Caution lowers untried predictions toward recorded results. Illustrative curves."
+          status="Illustrative curves"
           data-testid="overreach-stage"
         >
           <div ref={stageRef}>
@@ -380,18 +380,9 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
       method={
         <>
           <div>
-            The pins hold the learner&apos;s guess at the recorded tries of one grip at different strengths, where it
-            matches how well each worked. Between the pins the guess follows the real results; beyond the last pin
-            nothing checks it, and here it springs up. A learner that picks the best-looking strength then picks one
-            nobody tried, and the real result there is poor. Levine and colleagues name this the central difficulty
-            of offline reinforcement learning: the value function overrates actions the data never tested, and no
-            live trial corrects it.
-          </div>
-          <div>
-            Conservative Q-Learning marks down the value of actions outside the data while keeping the values of
-            the tried ones: on the board, the screws that press the free ends down. The slider sets how strongly;
-            here the choice returns to the tried range from {RETURN_AT} of {CAUTION_MAX}. Every curve is
-            illustrative, drawn to show the shape of the problem, not taken from a trained robot.
+            Across is grip strength, up is score out of 100; pins mark recorded tries, the strip is the prediction and
+            the thin curve the real result. Conservative Q-Learning presses untried predictions down, and the choice
+            returns to the tried range from {RETURN_AT} of {CAUTION_MAX}.
           </div>
           <ChartDescription
             id={descriptionId}

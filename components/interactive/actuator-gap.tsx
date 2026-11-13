@@ -346,9 +346,9 @@ export function ActuatorGap({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? 'Running, slowed for the eye' : 'Switch the motor model, then play the run; the lit crank is the simulated motor'}
+          hint={running ? 'Running, slowed for the eye' : 'Switch the motor model and play the run; the lit crank is simulated'}
           readout={stillReadout(model)}
-          status="Graph: time across, motor position upward. Blue: simulation; dark curve: real motor; faint step: target. Gap is their average position difference as a percent of the move. Illustrative responses; cited outcome."
+          status="Illustrative responses; cited outcome"
           data-testid="actuator-stage"
           data-outcome={model === 'ideal' ? 'falls' : 'walks'}
         >
@@ -384,21 +384,12 @@ export function ActuatorGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="A walking policy trained with ideal simulated motors fell at ANYmal's first step; modeling the real motors' response let it walk."
+      caption="A policy trained on ideal simulated motors fell at ANYmal's first step; modeling the real motors let it walk."
       method={
         <>
           <div>
-            ANYmal&apos;s joints are series-elastic: a spring sits between the motor and the leg, so a commanded move
-            arrives late and overshoots. Hwangbo and colleagues trained an actuator network that predicts each
-            joint&apos;s torque from its recent position errors and velocities, using data from exciting the real
-            legs and pushing the robot by hand, and used it in place of the motors in simulation. Policies trained
-            with ideal or analytical actuator models failed to take a single step without falling.
-          </div>
-          <div>
-            The bench is illustrative. The left drive turns its crank through a spring, like the real joint; the
-            right one is the simulator&apos;s twin, with a rigid coupling and the learned model as a cartridge in its
-            bay. The response curves on the recorder show the shape of a springy motor, not ANYmal&apos;s measured
-            response; running, the bench is slowed for the eye. The outcome under each model is the paper&apos;s.
+            Hwangbo and colleagues fitted a network to ANYmal&apos;s springy real joints and used it in place of the
+            simulated motors. On the recorder, blue is simulation, the dark curve the real motor, the faint step the target.
           </div>
           <ChartDescription
             id={descriptionId}

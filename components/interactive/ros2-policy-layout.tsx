@@ -458,7 +458,7 @@ export function Ros2PolicyLayout({ className }: { className?: string }) {
                   moves
                 </LegendItem>
               </InstrumentLegend>
-              <StageStatus>Schematic: one recommended layout, not a required one</StageStatus>
+              <StageStatus>Schematic: one recommended layout</StageStatus>
             </>
           }
         >
@@ -472,14 +472,9 @@ export function Ros2PolicyLayout({ className }: { className?: string }) {
       method={
         <>
           <div>
-            One robust layout for a learned-policy graph, as the article recommends: drivers, state assembly, a
-            policy server, a command gate, a controller bridge and a supervisor, each its own node. The drawing
-            names them in plain words:{' '}
-            {NODES.map((node) => `"${node.label}" is the ${node.name}`).join('; ')}. It leaves out two parts
-            to keep the chain to the motors in view:{' '}
+            Each part is its own node: {NODES.map((node) => `"${node.label}" is the ${node.name}`).join('; ')}.
+            Left out to keep the chain to the motors in view:{' '}
             {[SUPERVISOR, STORE_NAMES].map((node) => `the ${node.name}, a "${node.label}"`).join(', and ')}.
-            Each link below says in plain words what it carries, then names its ROS 2 interface, its QoS or
-            timing, and its source.
           </div>
           <ul data-testid="ros2-policy-edges" className="list-disc space-y-1.5 pl-5">
             {ALL_EDGES.map((edge) => (

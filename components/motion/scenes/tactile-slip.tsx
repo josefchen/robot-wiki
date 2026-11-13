@@ -9,7 +9,6 @@ import { beatSpans, locate, type SceneDefinition } from '@/components/motion/tim
 import { LegendItem } from '@/components/ui/instrument';
 import { Dots, Line, Solid, Wire } from '@/components/iso/react/draw';
 import {
-  DIAL_MM_PER_TURN,
   EXTRA_LOAD_N,
   FINGER_PARTS,
   GLASS_MOUTH,
@@ -22,7 +21,6 @@ import {
   GRIP_FACE,
   GRIP_HOLD_N,
   GRIP_REGRIP_N,
-  MU,
   PARTS,
   SIGHT,
   SLIP_DIAL_MATRIX,
@@ -90,14 +88,14 @@ export const TACTILE_SLIP_SCENE: SceneDefinition = {
     {
       id: 'recap',
       caption:
-        'When fingers block the camera, fingertip sensors still feel a slip and tighten the grip. Left dial: slip in millimeters. Right dial: grip in newtons.',
+        'Fingertip sensors feel the slip the camera misses and tighten the grip. Left dial: slip, mm. Right dial: grip, newtons.',
     },
   ],
 };
 
 /** The method note: what the scene is and what it does not claim. */
 export const TACTILE_SLIP_METHOD_NOTE =
-  'A schematic of contact feedback, drawn to show where the information is: not a sensor measurement, not a demonstrated recovery rate and not a dexterity claim for any hand. Source-scoped hardware claims, such as fingertip thresholds, are in the hand cards above and their table under "How this was made".';
+  'A schematic with authored forces: not a sensor measurement and not a demonstrated recovery rate.';
 
 const SPANS = beatSpans(TACTILE_SLIP_SCENE.beats);
 const progress = (t: number, index: number) =>
@@ -356,29 +354,8 @@ export function TactileSlip({ className }: { className?: string }) {
           style={{ backgroundColor: 'var(--role-measurement-graphic)' }} />}>fingertip sensor</LegendItem>
       </>}
       readout={({ beatIndex }) => READOUTS[beatIndex] ?? READOUTS[3]}
-      statusLine="Schematic. One newton is roughly the weight of 100 grams."
-      method={<>
-        <p>{TACTILE_SLIP_METHOD_NOTE}</p>
-        <p>
-          The drawing is a slip test stand. A parallel gripper hangs from a column and holds a glass between two
-          rubber fingertip pads, each with a grid of touch cells on its face. A camera on a post looks along the
-          line the fingers close on, so all it sees is the back of the near finger. A dial indicator rests its
-          plunger on the rim and reads how far the glass slides, one turn for {DIAL_MM_PER_TURN} mm; the dial on the
-          gripper reads how hard each pad presses.
-        </p>
-        <p>
-          The numbers are authored for the schematic. Two pads hold a glass by friction as long as twice the
-          friction coefficient ({MU}) times the grip is at least the glass&apos;s load. A {weightN().toFixed(2)} newton
-          glass held at {GRIP_HOLD_N} newtons a pad gets {holdingN(GRIP_HOLD_N).toFixed(1)} newtons of friction, just
-          enough. An extra {EXTRA_LOAD_N} newtons, as if the glass were knocked or topped up, is more than the grip can
-          hold, so the glass slides. The grip rises to {GRIP_REGRIP_N} newtons, and the glass stops where the friction
-          passes the load, at {catchGrip(LOAD_N).toFixed(2)} newtons a pad, {SLIP_MM} mm lower.
-        </p>
-        <p>The four steps, in order:</p>
-        <ol>
-          {TACTILE_SLIP_SCENE.beats.map((beat) => <li key={beat.id}>{beat.caption}</li>)}
-        </ol>
-      </>}
+      statusLine="Schematic"
+      method={<p>{TACTILE_SLIP_METHOD_NOTE}</p>}
       textAlternative={`${TACTILE_SLIP_SCENE.title}. ${TACTILE_SLIP_SCENE.beats.map((beat, index) => `Beat ${index + 1}: ${beat.caption}`).join(' ')} ${TACTILE_SLIP_METHOD_NOTE}`}
     />
   );

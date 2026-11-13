@@ -283,23 +283,13 @@ export function HandComparison({ className }: { className?: string }) {
           </div>
         </FigureStage>
       }
-      caption="No hand publishes both touch sensitivity and price; counts are independent joint motions, including passive ones; active means motor-driven."
+      caption="Counts are independent joint motions, passive ones included; active means motor-driven."
       method={
         <>
           <p>
-            &quot;Joint motions&quot; is the hand&apos;s degrees of freedom (DoF), the number
-            of independent joint motions, including passive ones. &quot;Lightest touch felt&quot; is the tactile
-            threshold, the smallest force a fingertip sensor registers: Sanctuary reports about
-            5 mN for the Phoenix fingerpads (about 0.5 gram-force), Figure reports 3 g (about
-            29 mN) for its fingertips. Every other value is one the maker has not published, shown
-            as not disclosed; no number is guessed.
-          </p>
-          <p>
-            Unitree&apos;s $29,900 is the list price of the whole H2 robot; the base model ships
-            with placeholder hands and the five-finger Dex5-1 hand is a paid option with no
-            published price, so the card shows the hand price as not disclosed and the
-            &quot;Lowest price&quot; order leaves the whole robot out. Shadow&apos;s
-            &euro;110,000 is its 2022 price including support.
+            Joint motions are degrees of freedom, passive ones included; lightest touch is the
+            smallest force a fingertip sensor registers. Gray values are unpublished, and
+            Unitree&apos;s $29,900 is the whole H2 robot.
           </p>
           <TableScroll labelledBy={captionId} className="pt-1">
             <table className="w-full min-w-[560px] border-collapse text-left font-sans text-sm text-text">

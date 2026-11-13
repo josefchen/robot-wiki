@@ -240,7 +240,7 @@ describe('PlanarFkArm', () => {
     const hand = planarForwardKinematics(LINK_LENGTHS, [...DEFAULT_ANGLES_DEG]).effector;
     expect(Number(swing.getAttribute('data-radius'))).toBeCloseTo(Math.hypot(hand.x, hand.y), 3);
     expect(container.querySelector('[data-anatomy-hint]')?.textContent).toBe(
-      "Turn a joint and everything beyond it swings along. Faint lines: the pose before the turn. Curved line: the pen's path during it",
+      "Faint lines: the pose before the turn. Curve: the pen's path",
     );
     expect(container.querySelector('[data-readout]')?.textContent).toBe(readoutFor([...DEFAULT_ANGLES_DEG]));
     // No words in the drawing: the hint, readout and caption carry them.

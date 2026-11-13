@@ -60,7 +60,7 @@ const DEATHS = benchmarkOf(FATALITY_ID);
 const INJURIES = benchmarkOf('injuries');
 const CRASHES = benchmarkOf('crashes');
 
-const CAPTION = "Driving 275 million miles without a death would show, at 95% confidence, that a fleet's death rate is no higher than US human drivers'.";
+const CAPTION = "Driving 275 million miles without a death shows, at 95% confidence, a death rate no higher than US human drivers'.";
 const DESCRIPTION = `Miles a driverless fleet must drive with no failure to show, with 95% confidence, that its failure rate is no higher than human drivers', from Kalra and Paddock's RAND study: ${DEATHS.printedText} miles against ${DEATHS.per100MillionMiles} deaths per 100 million miles, ${INJURIES.printedText} against ${INJURIES.per100MillionMiles} reported injuries and ${CRASHES.printedText} against ${CRASHES.per100MillionMiles} reported crashes. The deaths test would take a fleet of 100 cars driving around the clock about ${FLEET_YEARS} years. These are lower bounds that assume perfect driving.`;
 
 export function AvSafetyMiles({ className }: { className?: string }) {
@@ -190,22 +190,9 @@ export function AvSafetyMiles({ className }: { className?: string }) {
       method={
         <>
           <p data-testid="av-model-assumptions">
-            This is a hypothetical test with a fixed distance and zero deaths. The model assumes independent miles
-            with the same failure probability on every mile. The study&apos;s 2013 US benchmark includes all motor vehicles.
+            Each mile is an independent pass-or-fail trial against 2013 US rates, n = ln(1 − C) / ln(R), RAND&apos;s Eq. 2.
+            The {FLEET_YEARS} years assume 100 cars at 25 miles per hour, around the clock.
           </p>
-          <p data-testid="av-rare-event-explanation" className="font-sans text-sm leading-snug text-text">
-            Under the study&apos;s per-mile model, a fleet at the US benchmark rate would finish this many miles without a death only about 1 time in 20. A higher fatality rate makes that result still less likely.
-          </p>
-          <div>
-            Kalra and Paddock treat each mile as a trial that either fails or does not. If the chance of no
-            failure in a mile is R, the miles n that must pass without one to show the rate at confidence C are
-            n = ln(1 − C) / ln(R), their Eq. 2. The figure plots the first row of their Table 1, at C = 95%,
-            against the total rates of human drivers in the United States: {DEATHS.per100MillionMiles} deaths and{' '}
-            {INJURIES.per100MillionMiles} reported injuries per 100 million miles in 2013, and{' '}
-            {CRASHES.per100MillionMiles} reported crashes per 100 million miles. The {FLEET_YEARS} years assume 100
-            cars at 25 miles per hour, 24 hours a day. A fleet that has any failures needs more miles. Showing, with
-            80% power, that a fleet is 20% better than human drivers on deaths takes 11 billion miles, their row 3.
-          </div>
           <ChartDescription
             open
             id={descriptionId}

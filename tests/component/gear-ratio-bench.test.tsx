@@ -77,7 +77,7 @@ describe('GearRatioBench', () => {
     expect(screen.getByTestId('gear-drive-leg')).toHaveAttribute('aria-pressed', 'true');
     expect(container.querySelectorAll('.iso-solid[data-lit]')).toHaveLength(1);
     expect(container.querySelectorAll('svg text')).toHaveLength(0);
-    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('The blue lever is the joint; each weight is 5 kg · left dial: speed · right dial: how hard the joint is to push back');
+    expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Blue lever is the joint · weights 5 kg · dials: speed and push-back');
   });
 
   it('swaps to the strain-wave cassette and reads its torque, speed and push-back', () => {

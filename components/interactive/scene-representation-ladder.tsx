@@ -855,7 +855,7 @@ export function SceneRepresentationLadder({
                   </LegendItem>
                 ))}
               </InstrumentLegend>
-              <StageStatus>Schematic: a made-up room seen from above, not measured</StageStatus>
+              <StageStatus>Schematic: a made-up room, top view</StageStatus>
             </>
           }
         >
@@ -884,23 +884,14 @@ export function SceneRepresentationLadder({
           </div>
         </FigureStage>
       }
-      caption="Storage determines the questions a robot can answer; finer resolution adds detail and storage cost without adding new kinds of answers."
+      caption="Storage decides what a robot can ask; finer resolution only adds detail and cost."
       method={
         <>
           <p>
-            Synthetic scene: a 3.0 by 3.0 by 2.0 m cell holding a 2 cm post, a
-            transparent bottle and an occluder (the box), with the sensor (the
-            camera) at the near edge. Footprints come from declared storage
-            models, volumetric stores billed over the whole volume and surface
-            stores over the observed area only, which is why a narrow-band
-            signed-distance field holds fewer cells than the occupancy grid it
-            resembles and its cost grows more slowly as the spacing shrinks{' '}
-            <CiteRef id="curless-levoy-1996" />. The bottle is drawn{' '}
-            {TRANSPARENT_DEPTH_BIAS_CM} cm behind its true face, where a depth
-            sensor reports it, and the thin post survives only while the
-            spacing resolves it. Behind the occluder the occupancy grid keeps an
-            explicit unknown, where the Gaussian splat renders geometry nothing
-            measured <CiteRef id="moravec-elfes-1985" />.
+            A synthetic 3.0 by 3.0 by 2.0 m room: volumetric stores pay for the whole volume, surface stores
+            only for observed surfaces <CiteRef id="curless-levoy-1996" />. The bottle sits{' '}
+            {TRANSPARENT_DEPTH_BIAS_CM} cm behind its true face, where depth reports it; behind the box the occupancy
+            grid keeps an explicit unknown <CiteRef id="moravec-elfes-1985" />.
           </p>
           <p data-testid="scene-live-summary" aria-live="polite">
             {selected.article === 'a' ? 'A' : 'An'} {selected.name} stores:{' '}

@@ -205,7 +205,6 @@ export function PerceptionLatency({ className }: { className?: string }) {
   const tAvoid = outcome.avoidanceTimeS;
   const speed = outcome.maxSpeedMs;
   const camera = cameraFor(latencyMs);
-  const agilityName = AGILITY_NAMES[String(agility) as AgilityId] ?? `${agility}`;
   const detent = Math.max(0, AGILITY_STEPS.indexOf(agility as (typeof AGILITY_STEPS)[number]));
 
   // The settings ease: the riders slide, the needle swings, the knobs and the wheel turn.
@@ -469,7 +468,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
               {cameraWords} · {swerveWords} · top safe speed <span data-testid="speedometer-reading">{`about ${speedKmh} km/h`}</span>
             </>
           }
-          status="Model from the study; the rig is illustrative"
+          status="Study model; illustrative rig"
           data-testid="perception-latency-stage"
         >
           <IsoFigure
@@ -482,44 +481,22 @@ export function PerceptionLatency({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="A drone only sees so far ahead; every split-second its vision takes is distance flown blind, which caps how fast it can safely go."
+      caption="Every split-second the camera takes is distance flown blind, and that blind distance caps the safe speed."
       method={
         <>
           <p>
-            Model, from Falanga, Kim and Scaramuzza: maximum speed = range / (latency + 2 sqrt(r / u)),
-            where the range is the {rangeM} m the camera can see, r = {OBSTACLE_RADIUS_M} m is how far
-            the drone must move sideways to clear the obstacle, and u is how hard it can accelerate
-            sideways. The fastest safe speed is the one at which the swerve ends exactly at the wall,
-            so no margin is left after the swerve.
-          </p>
-          <p>
-            The rig is illustrative. The gauge board in front is to scale along the corridor: the lit
-            rider is the stretch flown before the camera reports (speed times delay), the plain one the
-            swerve. The drone and its sideways throw are drawn larger than that scale. A run plays
-            {` ${SLOW} `}times slower than the real flight; the carriage starts {Math.abs(START_X / UNITS_PER_M).toFixed(1)} m before the
-            gate, and the timer wheel on it runs down the camera&apos;s delay before the spring pack throws
-            the drone sideways.
-          </p>
-          <p>
-            Swerve settings, as sideways acceleration: Gentle 10 m/s² (about {(10 / G).toFixed(1)} g),
-            Standard, the study&apos;s value, 25 m/s² (about {(25 / G).toFixed(1)} g), Hard 50 m/s²
-            (about {(50 / G).toFixed(1)} g), Extreme 200 m/s² (about {(200 / G).toFixed(1)} g).
+            Model, from Falanga, Kim and Scaramuzza: maximum speed = range / (latency + 2 sqrt(r / u)), with a {rangeM} m
+            range and r = {OBSTACLE_RADIUS_M} m of sideways clearance.
           </p>
           <p data-testid="reference-latencies">
-            Reference latencies from the study ({rangeM} m sensing range):{' '}
+            Study values:{' '}
             {SENSORS.map((s, i) => (
               <span key={s.id}>
                 {i > 0 && '; '}
                 {s.name} {presetMs(s.latencyS)} ms
               </span>
             ))}
-            . The event-camera delay is the one at which the study&apos;s formula gives its reported 31.03 m/s
-            on a hard swerve; the study&apos;s table prints it as 0.012 s. &quot;Ordinary camera&quot; is the stereo
-            frame camera and &quot;Faster camera&quot; is the event camera; the camera-delay slider under
-            &quot;Adjust more&quot; sets any latency from 0 to {INTERACTIVE_MAX_LATENCY_MS} ms.
-          </p>
-          <p>
-            The same budget on a time axis, at the current settings ({agilityName} swerve):
+            ; swerves from Gentle 10 m/s² (about {(10 / G).toFixed(1)} g) to Extreme 200 m/s² (about {(200 / G).toFixed(1)} g).
           </p>
           <ul className="m-0! grid list-none gap-0.5 p-0!">
             <Reading label="Lost to latency, before control acts" testId="latency-readout" value={formatSeconds(latencyS)} />

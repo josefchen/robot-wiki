@@ -195,10 +195,10 @@ function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }) {
 
 /** The note under the console: what the reader should take from the two futures. */
 function noteLines(sameAction: boolean, diverged: boolean): readonly [string, string] {
-  if (sameAction) return ['Same command twice:', 'the same future, by definition'];
+  if (sameAction) return ['Same command twice:', 'same future'];
   return diverged
-    ? ['Two commands, two different futures:', 'the model is listening']
-    : ['Same future for both commands:', 'the model ignored the robot'];
+    ? ['Two different futures:', 'the model listens']
+    : ['Same future:', 'it ignored the robot'];
 }
 
 const calm = () => typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness();
@@ -408,7 +408,7 @@ export function ActionConditioning({
   const stage = (
     <AnatomyStage
       viewWidth={WIDTH}
-      story={<p className="font-sans text-sm leading-snug text-text-dim">The upper dial shows how far apart the two futures are, in toy units; 0 means identical. The lower dial rates how realistic the pictures look, from 0 to 1.</p>}
+      story={<p className="font-sans text-sm leading-snug text-text-dim">Upper dial: how far apart the futures are. Lower dial: how realistic they look.</p>}
       // The drawing holds no words, so the screens are named here, under it.
       hint={
         <>
@@ -424,7 +424,7 @@ export function ActionConditioning({
         </>
       }
       readout={readout}
-      status="Illustrative: hand-set futures and realism scores; one distance unit is the full travel of the block or gripper."
+      status="Illustrative model, hand-set futures"
       data-testid="action-conditioning-stage"
       data-source-frame={playing ?? 'rest'}
     >
@@ -498,34 +498,13 @@ export function ActionConditioning({
         </>
       }
       stage={stage}
-      caption="A video model can look realistic and still ignore what the robot does; for planning, the imagined future must change when the action does."
+      caption="A realistic video model can still ignore the robot; for planning, the future must change with the action."
       method={
         <>
           <p>
-            The photo standing on top of the console is the shared start: a block on a table, a gripper above
-            it and a goal zone on the left. Each screen plays what a video model imagines after one command,
-            with the {ROLLOUT_STEPS} imagined frames drawn on top of each other, earlier ones faint. The command
-            comes from the lever on the desk in front of the screen: left for push left, right for push right,
-            back for lift.
-          </p>
-          <p>
-            A model that listens is the console with both plugs seated, so it slides the block
-            for a push and raises the gripper for a lift. A model that ignores the action is the console with the
-            plugs pulled: it imagines the block drifting toward the goal for every command, because that is what
-            most successful task videos show.
-          </p>
-          <p>
-            What tells the two models apart is action sensitivity, the upper dial between the screens: the
-            average distance between the two imagined futures, frame by frame, with block position and gripper
-            height each measured from 0 to 1. Above {threshold}, the long mark at the top of its scale, the
-            futures genuinely differ. For the current pair it is{' '}
-            <span data-testid="sensitivity-readout">{score}</span>. Visual realism, the lower dial, is held at{' '}
-            <span data-testid="realism-readout">{realism}</span> for both models on purpose: both draw equally
-            sharp video, so realism alone cannot show whether a model follows the action.
-          </p>
-          <p>
-            The futures are hand-set for this toy, not produced by a trained video model, and the plug stands for
-            how strongly a model uses the action, not for a real connector.
+            Action sensitivity is the average distance between the two imagined futures, now{' '}
+            <span data-testid="sensitivity-readout">{score}</span>; above {threshold} they differ. Realism stays at{' '}
+            <span data-testid="realism-readout">{realism}</span> for both models, and the futures are hand-set.
           </p>
           <ChartDescription
             id={descriptionId}

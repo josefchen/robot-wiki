@@ -22,7 +22,6 @@ import {
   MARS_AVERAGE_ROUND_TRIP_MINUTES,
   MARS_ID,
   MARS_ONE_WAY_MINUTES,
-  MONOCULAR_SECONDS,
   MOON_ID,
   SPACE_LATENCY_SOURCES,
   delayOf,
@@ -66,7 +65,7 @@ const MOON = delayOf(MOON_ID);
 const MARS = delayOf(MARS_ID);
 
 const CAPTION =
-  'A Mars rover waits thousands of times longer for Earth than a drone waits for its camera, so it must act alone.';
+  'A Mars rover waits thousands of times longer for Earth than a drone for its camera, so it acts alone.';
 const DESCRIPTION = `Three delays on a compressed scale. The labeled ticks are one second, one minute and one hour: each is 60 times the previous one. A drone's stereo camera needs ${CAMERA.readout} from an obstacle coming into view to the start of a dodge, by Falanga and colleagues' bounds. A signal to the Moon and back takes ${MOON.readout}, and to Mars and back ${MARS.readout}, twice JPL's one-way ${MARS_ONE_WAY_MINUTES[0]} to ${MARS_ONE_WAY_MINUTES[1]} minutes. JPL says the Mars delay rules out driving a rover from Earth and motivates autonomy.`;
 
 export function SpaceLatencyLadder({ className }: { className?: string }) {
@@ -178,14 +177,10 @@ export function SpaceLatencyLadder({ className }: { className?: string }) {
       method={
         <>
           <div>
-            JPL&apos;s 2024 progress report on navigation at the Moon and Mars gives a two-way delay of{' '}
-            {GEO_ROUND_TRIP_SECONDS} seconds to geostationary orbit, {MOON.lowSeconds} seconds to the Moon and{' '}
-            {MARS_AVERAGE_ROUND_TRIP_MINUTES} minutes on average to Mars, and a one-way light time to Mars of{' '}
-            {MARS_ONE_WAY_MINUTES[0]} to {MARS_ONE_WAY_MINUTES[1]} minutes as the planets move. The Mars bar doubles
-            that one-way range. The camera bar is Falanga, Kim and Scaramuzza&apos;s bound for a quadrotor&apos;s
-            stereo camera: {CAMERA.lowSeconds} seconds, the frame period of the fastest sensor they found, to{' '}
-            {CAMERA.highSeconds} seconds, a datasheet latency. Their monocular camera, {MONOCULAR_SECONDS[0]} to{' '}
-            {MONOCULAR_SECONDS[1]} seconds, falls inside it.
+            JPL&apos;s 2024 navigation report gives two-way delays of {GEO_ROUND_TRIP_SECONDS} seconds to geostationary
+            orbit, {MOON.lowSeconds} seconds to the Moon and {MARS_AVERAGE_ROUND_TRIP_MINUTES} minutes on average to Mars;
+            the Mars bar doubles its one-way {MARS_ONE_WAY_MINUTES[0]} to {MARS_ONE_WAY_MINUTES[1]} minutes. The camera
+            bar is Falanga, Kim and Scaramuzza&apos;s stereo bound, {CAMERA.lowSeconds} to {CAMERA.highSeconds} seconds.
           </div>
           <ChartDescription
             open

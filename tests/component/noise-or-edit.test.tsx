@@ -25,7 +25,7 @@ describe('NoiseOrEdit', () => {
     expect(drawing).toHaveAttribute('data-edit', '0');
     expect(drawing).toHaveAttribute('data-landed', 'short');
     expect(readout()).toHaveTextContent('Steered noise only · peg lands short');
-    expect(screen.getByTestId('noise-or-edit-stage-frame')).toHaveTextContent("Noise is a random starting guess for a move. An edit shifts the final movement beyond the wheel's range. Illustrative mechanism.");
+    expect(screen.getByTestId('noise-or-edit-stage-frame')).toHaveTextContent('Illustrative mechanism');
     const svg = drawing.querySelector('svg')!;
     expect(svg.querySelectorAll('text, title, desc, foreignObject, tspan')).toHaveLength(0);
     expect(svg.textContent).toBe('');

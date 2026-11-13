@@ -20,7 +20,6 @@ import {
   CYCLE_SECONDS,
   FLOOR_UNITS,
   HEIGHT,
-  HOLE_UNITS,
   PARTS,
   WIDTH,
   clipFor,
@@ -264,7 +263,7 @@ export function ContactGeometry({
             </span>
           }
           readout={benchReadout(settled ? errorMm : shownMm, settled)}
-          status="Illustrative, not measured; gaps drawn larger than real"
+          status="Illustrative; gaps drawn larger"
           data-testid="cg-stage"
         >
           <Stage className="iso-stage">
@@ -324,23 +323,13 @@ export function ContactGeometry({
           </Stage>
         </AnatomyStage>
       }
-      caption="Simulators never get surfaces exactly right; legs adjust step by step, but a tight-fitting part leaves almost no room for error."
+      caption="Simulators never get surfaces right: legs adjust step by step, but a tight-fitting part leaves almost no room for error."
       method={
         <>
           <p>
-            Both fixtures take the same contact-model error, epsilon: how far the simulator&apos;s idea of a
-            surface is from the real one. The drawing is a test bench. One knob at its front sets the error: its
-            shaft runs along the bench to a gearbox at each fixture, so the same turn lowers the floor and moves the
-            hole. At the left a four-legged robot stands with
-            its hind feet on a deck, where the simulator puts the floor, and steps its front feet down to a lift
-            plate, the real floor, which a screw jack lowers by the error; the legs reach it until the drop passes
-            the {formatMm(loco.toleranceMm)} a gait absorbs, and past that the robot pitches forward onto the
-            plate. At the right a gripper lowers the lit peg where the simulator puts the hole, and a cross-slide
-            moves the real hole by the same error. A ruler at each station reads its gap, the tolerance marked by
-            the longest tick. Gaps are drawn larger than real so a couple of millimeters shows at all: the floor
-            at {FLOOR_UNITS} drawing units a millimeter, the hole at {HOLE_UNITS}, whose shift stops growing at
-            four clearances. The slider under &quot;Adjust more&quot; sets any error from {MIN_ERROR_MM} to{' '}
-            {MAX_ERROR_MM} mm, and each change runs the test again.
+            One knob sets a single contact-model error that lowers the real floor under the robot&apos;s front feet and
+            moves the real hole under the peg by the same amount. Gaps are drawn larger than real, and the contact
+            counts and patch sizes are illustrative, not solver output.
           </p>
           <InstrumentReadout>
             Exact error: <span data-testid="error-readout">{error}</span>
@@ -361,10 +350,6 @@ export function ContactGeometry({
               </li>
             ))}
           </ul>
-          <p>
-            The contact counts and patch radii are illustrative, not one simulator&apos;s solver output; the 20 mm
-            walking tolerance and the 0.5 mm insertion clearance are representative physical scales.
-          </p>
           <ChartDescription
             id={descriptionId}
             form="state"

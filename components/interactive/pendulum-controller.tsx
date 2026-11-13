@@ -37,7 +37,6 @@ import { PartView } from '@/components/iso/part-view';
 import { Dots, Line, Solid } from '@/components/iso/react/draw';
 import { Stage } from '@/components/iso/react/live';
 import {
-  DEG_PER_NM,
   PARTS,
   VIEW_BOX,
   WIDTH,
@@ -520,24 +519,14 @@ export function PendulumController({
           </InstrumentReadout>
         </>
       }
-      caption="Balancing robots constantly measure their lean and push back; if the push is too gentle, nothing else can save them."
+      caption="Balancing robots measure their lean and push back; if the push is too gentle, no other gain saves them."
       method={
         <>
           <p>
-            A deterministic simulation: a 1 kg point mass on a massless 1 m rod, released 12 degrees off upright,
-            with the motor&apos;s torque applied at the pivot and capped at 40 N·m. A small off-center load adds a
-            constant 0.8 N·m that tips the pole right. The motor pushes back with u = −(Kp·θ + Ki·∫θ + Kd·θ̇): P
-            reacts to the lean, I removes the steady lean the load leaves, and D damps the swing. Linearized about
-            upright, the pole can only be held upright when Kp exceeds m·g·l = {PENDULUM_PARAMS.gravity.toFixed(2)}{' '}
-            N·m per radian, so below it no I or D setting helps. Too gentle sets Kp to 9.5: the pole sags until the
-            motor&apos;s push matches gravity&apos;s pull, about 50 degrees off upright. Strong enough sets the stock
-            25. On the gauge both needles sweep {DEG_PER_NM} degrees per N·m from one zero: the long one is the
-            motor&apos;s torque, the short one gravity&apos;s pull on the leaning pole plus the load&apos;s 0.8 N·m, so
-            the pole can only come back while the long needle is past the short one. On the dial plate a printed band
-            marks upright within 10 degrees and another marks past 60 degrees, where the lab calls the pole fallen; the
-            faint ink is the weight&apos;s path over the last two seconds. The balance problem follows Tedrake&apos;s
-            Underactuated Robotics, chapters 2 and 3; the PID structure follows Åström and Murray&apos;s Feedback
-            Systems.
+            A deterministic simulation of a 1 kg mass on a 1 m rod, released 12 degrees off upright under a
+            0.8 N·m load. Below Kp = m·g·l = {PENDULUM_PARAMS.gravity.toFixed(2)} N·m per radian, no I or D setting
+            holds it. Sources: Tedrake&apos;s Underactuated Robotics, chapters 2 and 3; Åström and Murray&apos;s
+            Feedback Systems.
           </p>
           <ChartDescription
             id={descriptionId}

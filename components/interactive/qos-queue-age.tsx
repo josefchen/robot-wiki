@@ -317,7 +317,7 @@ export function QosQueueAge({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? `Running, slowed about ${SLOW} times` : 'Choose how many pictures the queue keeps; blue marks the picture handed to the policy'}
+          hint={running ? `Running, slowed about ${SLOW} times` : 'Choose the queue depth; blue marks the picture handed to the policy'}
           readout={restReadout(depth)}
           status="Illustrative camera rate"
           data-testid="qos-stage-frame"
@@ -357,26 +357,12 @@ export function QosQueueAge({ className }: { className?: string }) {
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="At 30 pictures a second, a queue of ten leaves the policy acting on a view a third of a second old."
+      caption="At 30 pictures a second, a ten-picture queue hands the policy a view a third of a second old."
       method={
         <>
           <div>
-            The ROS 2 default Quality of Service profile keeps the last 10 messages and delivers them reliably,
-            in order. The sensor-data profile uses best effort and a smaller queue, because a fresh reading
-            matters more than a complete one. When the camera sends pictures faster than the model can use
-            them, a reliable queue of 10 stays full, and the model is always handed the oldest of the 10.
-          </div>
-          <div>
-            The figure assumes a camera sending 30 pictures a second and a model slower than that, both
-            illustrative, so the picture used is the queue depth divided by 30 seconds old. Log message age at
-            the policy boundary to catch it.
-          </div>
-          <div>
-            The bench is illustrative: the camera drops each picture as a card into the slot it stands over, an
-            indexer moves the row one slot toward the model per camera frame, and the model&apos;s gantry lifts
-            the oldest card out. The camera stands as many slots from the model as the queue keeps pictures, so
-            its pointer reads the age on the scale, one tick a frame and a long tick every tenth of a second.
-            Running, the bench is slowed about {SLOW} times.
+            The default profile keeps the last 10 messages reliably, so a full queue always hands a slower model
+            the oldest. At an illustrative 30 pictures a second, that picture is the depth divided by 30 seconds old.
           </div>
           <ChartDescription
             id={descriptionId}

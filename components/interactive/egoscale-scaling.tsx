@@ -35,7 +35,6 @@ import {
   MAX_HORIZON_HOURS,
   MEASURED_MAX_HOURS,
   MEASURED_MIN_HOURS,
-  R_SQUARED,
   SLIDER_MAX,
   SLIDER_MIN,
   SOLVED_BAR_SCORE,
@@ -612,33 +611,12 @@ export function EgoScaleScaling({
           </PlotStage>
         </FigureStage>
       }
-      caption="Training on more first-person human video made robots finish more tasks, but the study stopped at 20,000 hours, so further gains are unproven."
+      caption="More human video meant more finished tasks; the study stopped at 20,000 hours, so further gains are unproven."
       method={
         <>
-          <p>
-            EgoScale (Zheng et al. 2026) pretrained one robot model on 1k, 2k, 4k, 10k and 20k
-            hours of first-person (egocentric) human video, then post-trained each on robot tasks
-            with a 22-DoF dexterous hand. Average task completion rose from 0.30 at 1k hours to
-            0.71 at 20k; the dots are those five reported scores. The paper states that it does
-            not extrapolate beyond the measured range.
-          </p>
           <p data-testid="scaling-legend">
-            The line is a least-squares log-linear fit through the five scores, an editorial
-            completion fit ({PUBLIC_IDENTITY}, R&sup2; ={' '}
-            {COMPLETION_FIT.rSquared.toFixed(2)}), not the paper&apos;s law. It reads 0.89 at
-            100k hours, crosses the 0.90 solved bar near{' '}
-            {Math.round(solvedBarCrossingHours() / 1000)}k hours and passes 100% near{' '}
-            {Math.round(impossibleHours / 1000)}k hours, which is impossible. The hours axis is
-            logarithmic. The solved bar is this article&apos;s criterion: one policy above 90%
-            success across many unseen homes with no per-site data.
-          </p>
-          <p>
-            The paper&apos;s published law is about validation loss (MSE on held-out human
-            video): L = 0.024 &minus; 0.003 ln D, D in thousands of hours, R&sup2; = {R_SQUARED},
-            over the five scales. &quot;Show the paper&apos;s error measure&quot; in
-            &quot;Adjust more&quot; draws it above the completion panel. Past 20k hours both
-            panels then show a scenario band, a scenario bracket between the law holding and a
-            plateau at the last measured value, not a confidence interval.
+            Dots are EgoScale&apos;s five reported scores; the line is an editorial completion fit
+            ({PUBLIC_IDENTITY}, R&sup2; = {COMPLETION_FIT.rSquared.toFixed(2)}), not the paper&apos;s law.
           </p>
           <p>
             At the current setting ({formatHours(horizon)}): loss{' '}
@@ -653,9 +631,8 @@ export function EgoScaleScaling({
             {pastImpossible ? '; the curve must bend before then' : ''}.
           </p>
           <p data-testid="scaling-caveat">
-            EgoScale (2026) fits the law to held-out human-video validation loss, a proxy that
-            correlates with downstream robot performance without establishing real-world success
-            rate across unseen environments.
+            The paper&apos;s law fits validation loss, a proxy, not real-world success rate; past 20k
+            hours the band is a scenario bracket, not a confidence interval.
           </p>
           <ChartDescription
             id={descriptionId}

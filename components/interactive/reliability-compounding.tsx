@@ -130,8 +130,8 @@ const CAPTIONS: Record<Variant, string> = {
   prediction:
     'A long job only works if every step works, so a robot that rarely slips still fails long tasks.',
   reliability:
-    'Even a robot that rarely slips usually fails a long chore, which is why each step must be almost perfect.',
-  home: 'Even a robot that rarely slips usually fails a long chore, which is why each step must be almost perfect.',
+    'Even a robot that rarely slips usually fails a long chore, so each step must be almost perfect.',
+  home: 'Even a robot that rarely slips usually fails a long chore, so each step must be almost perfect.',
 };
 
 const DEFAULT_MIN_PER_STEP_PERCENT = 50;
@@ -524,7 +524,7 @@ export function ReliabilityCompounding({
               of jobs finish
             </>
           }
-          status="Illustrative: a simple model, not a measured robot."
+          status="Illustrative model"
           data-testid="marble-run-stage"
         >
           <IsoFigure
@@ -550,23 +550,10 @@ export function ReliabilityCompounding({
       method={
         <>
           <p>
-            This is an illustrative probability model, computed rather than measured on a robot. A
-            job (an episode) is a chain of steps (decisions), and it finishes only if every step
-            goes right. If each step succeeds with the same probability p, independently of the
-            others, a job of n steps finishes with probability p^n. At the current setting that is
-            ({perStep.toFixed(3)})^{steps} = {successPct}. Real failures are rarely independent,
-            so treat the curve as a teaching model, not a forecast.
-          </p>
-          <p>
-            The drawing is a marble run of {GATES} trapdoor gates, ten to a rail; the first {armed}{' '}
-            are armed as the job&apos;s steps and the rest are pinned shut. A hundred marbles, one
-            job each, roll from the hopper. Each armed gate passes the share p of the marbles that
-            reach it, rounded to whole marbles, so after k gates round(100 p^k) are still rolling, and
-            the finish tray holds the readout&apos;s share as whole jobs out of 100 (now{' '}
-            <span data-testid="finished-marbles">{finished}</span>). Which marble drops at which
-            gate is a fixed shuffle of the release order; the counts do not depend on it. A run plays
-            in about ten seconds, not to scale. Working backwards, a job that must finish with
-            probability q over n steps needs each step to succeed with probability q^(1/n).
+            A job of n independent steps, each right with probability p, finishes with probability
+            p^n: now ({perStep.toFixed(3)})^{steps} = {successPct}. Each armed gate passes the share p
+            of the marbles reaching it, so <span data-testid="finished-marbles">{finished}</span> of
+            100 finish.
           </p>
           <ChartDescription
             id={descriptionId}

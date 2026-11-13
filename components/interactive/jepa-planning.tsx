@@ -315,18 +315,18 @@ export function JepaPlanning({
     </g>
   );
 
-  const note = `Each step tries ${candidateCount} moves and keeps the one that lands closest to the goal; more options make a straighter path`;
+  const note = `Each step tries ${candidateCount} moves and keeps the one closest to the goal`;
   const plane = (
     <AnatomyStage
       viewWidth={TABLE_WIDTH}
-      story={<p className="font-sans text-sm leading-snug text-text-dim">Each point on the table is a number summary of a cup-and-gripper picture; nearby points mean similar scenes. The dial shows how much of the starting distance to the goal is left.</p>}
+      story={<p className="font-sans text-sm leading-snug text-text-dim">Each point summarizes a picture; nearby points mean similar scenes. The dial shows distance left.</p>}
       hint={
         <span data-testid="plan-note" data-figure-annotation="">
           {note}
         </span>
       }
       readout={reached ? `goal reached after ${steps} moves` : `move ${steps} · ${gapNow}% of the distance left · ${candidateCount} tried`}
-      status="Illustrative: a toy model, not learned robot features."
+      status="Illustrative toy, not learned features"
       data-testid="jepa-planning-stage"
       data-source-step={steps}
     >
@@ -437,57 +437,17 @@ export function JepaPlanning({
         </>
       }
       stage={plane}
-      caption="Without drawing any picture, the robot predicts where each move takes a summary of the scene and keeps the one closest to the goal."
+      caption="Drawing no picture, the robot predicts where each move takes its scene summary and keeps the one nearest the goal."
       method={
         <>
-          <p>
-            JEPA, short for joint-embedding predictive architecture, does not predict the next picture
-            pixel by pixel. It turns each camera picture into a compact summary, a short list of numbers
-            called a latent or embedding, and learns to predict how that summary changes when the robot
-            acts. V-JEPA 2-AC plans this way: it compares the summary of what the camera sees now with the
-            summary of a goal picture and picks the actions that shrink the difference.
-          </p>
           <p data-testid="no-decoder-note">
             No pixel decoder is used to select V-JEPA 2-AC control actions; this toy plans over synthetic
-            two-dimensional points and loads no trained encoder or predictor. Each goal is a fixed point
-            standing in for an encoded goal picture, and the table is the plane turned so the start-to-pick
-            direction runs along it, which changes no distance.
+            two-dimensional points and loads no trained encoder or predictor.
           </p>
           <p>
-            On the planning table, the ring at the left is the summary of the picture the camera sees now and
-            the target at the right is the summary of the goal picture; both pictures stand on the easels in
-            front. The table is the toy plane at one uniform scale, so every distance on it keeps its
-            proportion.
-          </p>
-          <p>
-            The probe head stands on the current summary and sets out one feeler for each move it
-            tries, each ending on a pin. The lit pin sits exactly where the model predicts the kept move lands,
-            closest to the target, and &quot;Plan next move&quot; carries the head along its feeler.
-            Prick marks show where the head really ended up, and the dial on the controller reads the
-            distance left.
-          </p>
-          <p>
-            The model&apos;s other moves bunch into narrow wings, so for display their pins are spread
-            evenly from 20 degrees past the kept move to 100 degrees either side of the goal direction.
-            Each pin keeps its side, the common reach and its order, so the spread changes no pin&apos;s
-            rank and the lit one stays the closest.
-          </p>
-          <p>
-            Each planning step tries {candidateCount} moves, scores each by the straight-line distance
-            from where it is predicted to land to the goal, d = &radic;((x &minus; x<sub>goal</sub>)&sup2;
-            + (y &minus; y<sub>goal</sub>)&sup2;), keeps the closest and carries it out. The real move lands
-            slightly off the predicted one, by a fixed 5% of the distance left, so the robot plans again
-            from where it actually is. The distance is now{' '}
-            <span data-testid="distance-readout">{formatDistance(distance)}</span> after{' '}
-            <span data-testid="step-readout">{steps}</span> planning steps, against{' '}
-            {formatDistance(initialDistance)} at the start.
-          </p>
-          <p>
-            With few options even the best one points well away from the goal, so the path zigzags; with
-            many it heads almost straight there. The toy prescribes this by construction, so it measures
-            nothing about a real robot. The paper scores moves by the L1 distance between predicted and
-            goal feature maps and searches with the Cross-Entropy Method, using 800 samples and ten
-            refinement iterations a step (arXiv:2506.09985, Section 3.2).
+            The distance is now <span data-testid="distance-readout">{formatDistance(distance)}</span> after{' '}
+            <span data-testid="step-readout">{steps}</span> planning steps, against {formatDistance(initialDistance)} at
+            the start; the paper scores 800 sampled moves a step (arXiv:2506.09985, Section 3.2).
           </p>
           <div data-inset-plot>{strip}</div>
           <ChartDescription

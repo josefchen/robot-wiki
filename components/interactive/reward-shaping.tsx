@@ -509,9 +509,9 @@ export function RewardShaping({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Pick a scoring rule to see the walk change; the lit fader is the rule in charge"
+          hint="Pick a scoring rule; the lit fader is the weight in charge"
           readout={<span data-testid="walk-readout"><ReadoutText>{WALK[behaviorId]}</ReadoutText></span>}
-          status="Illustrative teaching model. No policy is trained here."
+          status="Illustrative model"
           data-walk={behaviorId}
         >
           <div className="iso-stage">
@@ -539,14 +539,12 @@ export function RewardShaping({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Robots learning by trial and error do whatever earns points; the scoring rules, not hand-written steps, decide what kind of walk emerges."
+      caption="A robot learning by trial and error does whatever earns points, so the scoring rules decide its walk."
       method={
         <>
           <p>
-            This is a local teaching model, not a trained robot. Its score adds up twelve illustrative reward terms:
-            each term has a fixed size and a weight, rewards count up and penalties count down, and the sum is the
-            weighted total per step. The terms, weights and sizes are teaching choices, not a source configuration or
-            the paper reward.
+            A local teaching model, not a trained robot: the score is a weighted sum of twelve illustrative reward
+            terms. Fixed rules on the torque, air-time and action-rate weights pick the drawn walk.
           </p>
           <InstrumentReadout className="flex flex-wrap gap-x-4 gap-y-1">
             <span>
@@ -565,37 +563,6 @@ export function RewardShaping({ className }: { className?: string }) {
           <span className="block tabular-nums" data-testid="phase-readout" aria-live={playing ? 'off' : 'polite'} aria-atomic="true">
             Preview phase: <span ref={(el) => void (r.phase = el)}>{'0%'}</span>
           </span>
-          <p>
-            Three rules pick a failure category, checked in this order. Chatter (the legs jitter) when the
-            action-rate penalty is near zero. Freeze (the robot stands still) when the torque penalty reaches{' '}
-            {ATTRACTOR_WEIGHT_MIN} and also {ATTRACTOR_DOMINANCE_RATIO} times the velocity-tracking weight. Prance (it
-            bounces in place) when foot air time passes the same two bars. Otherwise the robot trots. These are
-            chosen classification rules and drawn poses, not trained policies, measured control frequencies or
-            actuator-damage predictions. The preview phase is how far the drawing is through one stride; Play loops
-            it until Stop brings it back to where it started (with reduced motion, Play steps through one stride and
-            stops there), and Step moves it on by {Math.round(PHASE_STEP * 100)} percent. At phase 0 the bounce is drawn at its top
-            and the jitter at its widest, so a changed walk shows before Play.
-          </p>
-          <p>
-            The drawing is a mixing desk wired to a treadmill bay. Each of its twelve faders is one weight, in the
-            order of the sliders, from 0 at the front of its slot to {formatWeight(WEIGHT_MAX)} at the back; a dot
-            beside each slot marks the balanced score. The lit fader is the one in charge of the walk: velocity
-            tracking while the trot holds, otherwise the weight that tipped it. The robot&apos;s feet and body follow
-            the same drawn poses, and the belt runs only while it walks.
-          </p>
-          <p>
-            The four scoring rules each change one weight of the balanced score: &quot;Too strict on effort&quot;
-            sets the torque penalty to {formatWeight(WEIGHT_MAX)}, &quot;Loves high steps&quot; sets foot air time
-            to {formatWeight(WEIGHT_MAX)}, and &quot;Ignores jerky moves&quot; sets the action-rate penalty to{' '}
-            {formatWeight(WEIGHT_MIN)}.
-          </p>
-          <ul className="m-0! grid list-none gap-0.5 p-0!">
-            {TERMS.map((term) => (
-              <li key={term.id}>
-                {term.label}: default weight {formatWeight(term.defaultWeight)}. {term.blurb}
-              </li>
-            ))}
-          </ul>
           <ChartDescription
             id={descriptionId}
             form="state"

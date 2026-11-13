@@ -202,7 +202,7 @@ export function SceneSplit({
           viewWidth={WIDTH}
           hint="Raised against the lit rail: the test set; a card's shape is its scene"
           readout={readoutFor(mode)}
-          status="Schematic: 20 illustrative episodes and one random draw"
+          status="Schematic"
           data-testid="split-stage-frame"
         >
           <IsoFigure
@@ -253,22 +253,13 @@ export function SceneSplit({
           </IsoFigure>
         </AnatomyStage>
       }
-      caption="Each card is one recorded run; holding out whole scenes keeps the test honest, while a random split leaves every test scene in training."
+      caption="Hold out whole scenes; a random split leaves every test scene in training."
       method={
         <>
-          <p>
-            The article&apos;s rule for the training schema: split by the factor you claim to generalize across,
-            because random episode splits can leak near-identical scenes and operators. Hold out environments for
-            environment generalization, tasks for task generalization and embodiments for cross-embodiment claims.
-          </p>
           <p id={drawingId}>
             The rack is schematic: {EPISODES} episodes, {PER_SCENE} recorded in each of {SCENES} scenes, and a test set
-            of {TEST_SIZE}. The random split is one seeded draw: it takes test episodes from{' '}
-            {scenesWord(leakOf(testSetOf('random')).testScenes.length)}, and each of them keeps episodes in training. That
-            is not luck. Of the {RANDOM_DRAWS.toLocaleString('en-US')} ways to draw {TEST_SIZE} test episodes from{' '}
-            {EPISODES}, only {DRAWS_HOLDING_A_SCENE_OUT} take a whole scene, so nearly every random split tests on scenes
-            the model also trained on. Holding out scene 4 is one of those {DRAWS_HOLDING_A_SCENE_OUT}, chosen on
-            purpose.
+            of {TEST_SIZE}. Of the {RANDOM_DRAWS.toLocaleString('en-US')} ways to draw {TEST_SIZE} test episodes, only{' '}
+            {DRAWS_HOLDING_A_SCENE_OUT} take a whole scene.
           </p>
           <p data-testid="split-summary">
             {mode === 'random'

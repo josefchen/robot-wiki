@@ -214,9 +214,9 @@ export function ExcavatorPractice({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Pick the minutes of practice to see the misses shrink. Blue ink: where the shovel went. Faint lines: five learned models' guesses; a wider fan means more disagreement."
+          hint="Pick minutes of practice. Blue ink: the shovel's path. Faint lines: five models' guesses."
           readout={readoutFor(practice, s, tracing)}
-          status="Checkpoints from the paper; the path and the guesses' spread are illustrative"
+          status="Paper checkpoints; illustrative path"
           data-testid="excavator-stage-frame"
         >
           <div
@@ -239,32 +239,14 @@ export function ExcavatorPractice({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Learning a model of its own arm, the excavator tracked paths after 20 minutes as well as controllers trained on 100 to 150."
+      caption="Learning a model of its own arm, the excavator needed 20 minutes to match controllers trained on 100 to 150."
       method={
         <>
-          <p>
-            Canales, Nan, Hutter and Ruiz-del-Solar learned a model of an 11.5-ton Menzi Muck M445 walking
-            excavator&apos;s arm from scratch on the machine itself, with no demonstrations and no simulator. Its
-            sensors measure the joints but not the oil pressures or the valves&apos; inner state, so the model reads a short history
-            of joint positions and valve commands. The model is an ensemble of five networks, refitted after every
-            ten trajectories; a sampling-based planner tries thousands of command sequences through it every
-            control cycle and sends the first command of the best one.
-          </p>
           <p id={drawingId}>
-            The drawing is that loop on a practice yard. A stylus on the shovel inks where the shovel really went
-            (blue) against the path engraved on the board, and five faint lines ahead of it are the five models&apos;
-            guesses of where it goes next. The trainer&apos;s dial counts minutes of practice; its band marks the
-            100 to 150 minutes of machine data the earlier learned controllers were given. The paper&apos;s
-            snapshots show large misses after 3 minutes, the path followed more closely after 10 and consistent
-            tracking after 20. After 20 minutes the shovel tracked its timed path 2.7 cm off on average, against 2.8
-            and 4.5 cm for the earlier controllers; after 40 minutes every objective kept it under a centimeter off
-            the path on average.
-          </p>
-          <p>
-            Illustrative: the path, the misses drawn at 3 and 10 minutes (shaped like the paper&apos;s snapshots,
-            not measured) and how far the guesses fan out. At 20 and 40 minutes the misses are drawn at the
-            paper&apos;s mean errors, too small to see at this scale. The machine is drawn with its arm in one
-            plane, the telescopic extension sliding out as it reaches further.
+            The drawing shows the learning loop on a practice yard: five learned models guess the shovel&apos;s next move,
+            and a sampling-based planner picks commands through them. After 20 minutes the mean path error was
+            2.7 cm, against 2.8 and 4.5 cm for earlier controllers; the 3- and 10-minute misses are drawn, not
+            measured.
           </p>
         </>
       }

@@ -347,25 +347,11 @@ export function TeacherStudent({
       method={
         <>
           <p>
-            Teacher-student training: a teacher policy learns in simulation with privileged information, here the true
-            shape of the ground under the robot. A student policy then learns to act like the teacher from what the
-            real robot can sense, the joint angles and motor efforts its legs report, and has to work the ground out
-            from them. The drawing is a contour gauge on a test track. A carriage walks along the beam with a wheel on
-            the ground, the robot&apos;s leg; as it passes each of the {TERRAIN_CELLS} pins, the pin drops until it
-            touches the ground, so the row of blue pin heads is the profile felt so far, the student&apos;s guess. The
-            plate standing behind the heads is cut to the true ground the teacher was given, and every head should sit
-            on its edge. Noisy leg readings make a pin sit a little high or low; a missing reading is a pin that did not
-            drop and still hangs at the top of its travel. Heights are drawn far steeper than the track is long.
-          </p>
-          <p>
-            The readout&apos;s gap is the mean absolute error of the guess: for each of the {TERRAIN_CELLS} stretches of
-            ground, how far the guess sits from the true height, averaged. Where a reading is missing the model still
-            guesses, worse, and that guess counts in the average too. At {percent}% leg-reading noise the gap is{' '}
-            <span data-testid="mae-readout">{formatMeters(mae)}</span> ({gapCm(degradation)} cm), the made-up action
-            divergence, 2.2 times that gap, is <span data-testid="divergence-readout">{formatDivergence(divergence)}</span>,
-            and <span data-testid="occluded-readout">{missing}/{TERRAIN_CELLS}</span> readings are missing. The numbers
-            are an authored teaching model, not a trained teacher or student: the ground is chosen terrain, and the
-            guess is that terrain plus an error field that grows with the noise by construction.
+            An authored teaching model, not trained policies: the teacher gets the true ground, and the student&apos;s
+            guess is that ground plus an error that grows with leg-reading noise. At {percent}% noise the mean absolute
+            error is <span data-testid="mae-readout">{formatMeters(mae)}</span> ({gapCm(degradation)} cm), the made-up
+            action divergence is <span data-testid="divergence-readout">{formatDivergence(divergence)}</span>, and{' '}
+            <span data-testid="occluded-readout">{missing}/{TERRAIN_CELLS}</span> readings are missing.
           </p>
           <ChartDescription
             id={descriptionId}

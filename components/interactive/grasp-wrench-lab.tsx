@@ -640,46 +640,21 @@ export function GraspWrenchLab({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={OBJECT_W}
-          hint={testing ? 'Pulling toward each station in turn' : 'Drag a finger around the block; inside its wedge a finger can push without slipping, and lit pins mark the pulls the grip resists'}
+          hint={testing ? 'Pulling toward each station in turn' : 'Drag a finger; inside its wedge a finger can push without slipping'}
           readout={note}
-          status="Schematic: computed for an ideal block, not measured on a robot"
+          status="Schematic, computed for an ideal block"
           data-testid="grasp-stage-frame"
         >
           {objectView}
         </AnatomyStage>
       }
-      caption="Fingers on the top, right and bottom edges resist pulls from every direction; without the bottom finger, some pulls drag the block away."
+      caption="Top, right and bottom fingers resist pulls from every direction; without the bottom one, some pulls win."
       method={
         <>
           <p>
-            Seen on the test table, the block is a square of half side 1 and each fingertip is a point contact.
-            Friction lets a contact push anywhere inside its friction cone, drawn as the wedge on the block&apos;s
-            top at each fingertip, of half-angle arctan μ, but never pull; at μ{' '}
-            {mu.toFixed(2)} the half-angle is {halfAngle}°. The surface slider sets μ from 0.05 to 1.00.
-          </p>
-          <p>
-            The two edge forces of each cone, with their torque τ about the center measured per half side, are
-            the primitive wrenches (fx, fy, τ). Their convex hull is the grasp wrench space drawn under Adjust
-            more. Force closure holds exactly when the origin sits strictly inside the hull: the fingertips can
-            then balance any push or twist. The dial shows the Ferrari-Canny quality ε, the radius of the
-            largest origin-centered ball inside the hull. The dial rests on its zero stop exactly when ε = 0 and
-            the grip fails; any reading above that is a grip that holds. The three-finger grasp at μ 0.70
-            gives ε = 0.444; the dial reads full at ε = 1.00, which four fingertips at the edge midpoints reach
-            on the roughest surface.
-          </p>
-          <p>
-            The eight test forces act through the center, 45° apart: a cord tied to an eye bolt on the block&apos;s
-            edge, on the line through its center, pulls it toward each station on the rim in turn: the same force
-            as a push through the center from the opposite side. A pull counts as resisted when a non-negative mix of the primitive wrenches supplies
-            the opposite force with no net twist; its telltale pin then stands up, lit, and under force closure every
-            pin is up. A pull the grip cannot cancel drags the block toward the station during the test.
-          </p>
-          <p>
-            Contact positions run counterclockwise from 0.000 at the top-right corner of the square as the model
-            draws it, which is the far right corner on the table, so the edge midpoints are 0.125, 0.375, 0.625
-            and 0.875. Fingers 1, 2 and 3 start on the top, right and bottom edges, the tripod the article
-            describes, and each slider names the edge its finger is on. A dragged fingertip snaps to the 0.005
-            grid of the contact sliders; the pips on each finger&apos;s base give its number.
+            Each fingertip pushes inside a friction cone of half-angle arctan μ, and force closure holds when the
+            origin sits strictly inside the hull of the cones&apos; edge wrenches. The dial shows the Ferrari-Canny
+            quality, ε = 0.444 for the three-finger grasp at μ 0.70.
           </p>
           <InstrumentReadout>
             <span className="text-text-dim">contacts</span>{' '}

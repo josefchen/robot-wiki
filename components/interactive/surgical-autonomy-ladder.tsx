@@ -59,7 +59,7 @@ const RESEARCH_WORDS: Record<string, string> = {
 };
 
 const CAPTION =
-  'Every FDA-authorized surgical robot sits at level 0 or 1; everything higher is research on animals or on tissue removed from the body.';
+  'Every FDA-authorized surgical robot sits at level 0 or 1; everything higher is research in animals or excised tissue.';
 const DESCRIPTION = `Yang and colleagues' six levels of surgical autonomy, with the systems this article covers placed on them. The teleoperated platforms the FDA has authorized, from Intuitive, CMR, Medtronic and J&J, sit at level 0, and Moon Surgical's Maestro with ScoPilot at level 1. Research demonstrations sit higher: STAR suturing live pigs in 2016 at level 2, Yang's own example; Saeidi and colleagues' 2022 laparoscopic anastomosis in live pigs at level 3, because the operator picks among plans the robot generates; and SRT-H's 2025 clipping-and-cutting experiments on excised gallbladders at level 4, as its authors place it. No system in this comparison is at level 5.`;
 
 export function SurgicalAutonomyLadder({ className }: { className?: string }) {
@@ -155,11 +155,8 @@ export function SurgicalAutonomyLadder({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Yang and colleagues proposed the six levels in a 2017 Science Robotics editorial. The table names who
-            placed each system within that framework. In 2017, Yang described full autonomy as science fiction. Saeidi and colleagues name no level for
-            their 2022 system: the operator selecting among plans the robot generates is Yang&apos;s definition of
-            level 3, so that placement is this article&apos;s. SRT-H&apos;s authors also put CyberKnife radiosurgery
-            and Veebot blood sampling at level 4, both in rigid, structured settings.
+            Yang and colleagues proposed the six levels in 2017; the table names who placed each system. Saeidi and
+            colleagues name no level, so their level 3, the operator picking among robot plans, is this article&apos;s placement.
           </div>
           <ChartDescription
             open

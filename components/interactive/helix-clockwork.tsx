@@ -171,9 +171,9 @@ export function HelixClockwork({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint={running ? `Running ${SLOWDOWN} times slower than real time` : "Figure's Helix 02: 200 joint targets each second (lit hand), 1,000 whole-body control steps (other hand): five steps per target."}
+          hint={running ? `Running ${SLOWDOWN} times slower than real time` : "Lit hand: 200 joint targets a second. Other hand: 1,000 control steps."}
           readout={readoutFor(ms)}
-          status={`Each control step sends motor commands for balance and coordination. Schematic, ${SLOWDOWN} times slower`}
+          status={`Schematic, ${SLOWDOWN} times slower`}
           data-testid="clockwork-stage-frame"
         >
           <div className="grid gap-2 pb-4 font-sans text-[14px] leading-normal text-text" data-testid="clockwork-rate-comparison">
@@ -219,27 +219,16 @@ export function HelixClockwork({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption={`Figure's Helix 02 sets joint targets ${S1_HZ} times a second, and its whole-body controller acts ${S0_HZ.toLocaleString('en-US')} times a second: ${STEPS_PER_TARGET} steps per target.`}
+      caption={`Helix 02 sets joint targets ${S1_HZ} times a second; its whole-body controller acts ${S0_HZ.toLocaleString('en-US')} times, ${STEPS_PER_TARGET} steps per target.`}
       method={
         <>
           <p>
-            Figure describes Helix 02 as three learned layers. S2 interprets the scene and the instruction and
-            sequences behaviors; S1 turns what the robot senses into full-body joint targets at {S1_HZ} Hz; S0, the
-            whole-body controller, runs at 1 kHz. A joint target therefore lasts 5 milliseconds, and in that time the
-            controller acts {STEPS_PER_TARGET} times. Figure gives no rate for S2, so it is not drawn.
+            Figure describes three learned layers: S2 sequences behaviors, S1 sets joint targets at {S1_HZ} Hz and S0
+            controls the whole body at 1 kHz. Figure gives no rate for S2, so it is not drawn.
           </p>
           <p id={drawingId}>
-            The drawing is a clock movement doing the same counting. The balance and the pallet fork let the escape
-            wheel advance one tooth per control step, and its hand moves one division of the outer ring. Four pins on
-            the escape wheel&apos;s arbor trip a lever once every fifth tooth, and the lever&apos;s pawl jumps the
-            four-point star wheel by one point: its hand, the lit one, moves to the next of its four marks, a new
-            joint target. The mainspring barrel and the third wheel power the train.
-          </p>
-          <p>
-            Schematic: only the two rates come from Figure. The clockwork, the 20 milliseconds shown and the
-            alignment of the two clocks (each target landing on a control step) are illustrative, and the clock runs{' '}
-            {SLOWDOWN} times slower than real time so each tick can be seen. Figure does not say what S0 does with
-            each target between updates; the figure shows only how often each layer acts.
+            The drawing is a clock movement doing the same counting. The escape wheel ticks once per control step,
+            and every fifth tick jumps the lit hand to a new joint target.
           </p>
         </>
       }

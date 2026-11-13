@@ -53,13 +53,7 @@ import {
   type Part,
   type Slot,
 } from '@/components/iso/figures/jam-recorder-desk';
-import {
-  AMORTIZATION_MONTHS,
-  DEFAULT_INPUTS,
-  PAYBACK_TARGET_MONTHS,
-  ROBOT_HOURS_PER_MONTH,
-  computeEconomics,
-} from '@/lib/deployment-economics';
+import { DEFAULT_INPUTS, computeEconomics } from '@/lib/deployment-economics';
 
 const SUCCESS = 99;
 const QUICK_SECONDS = DEFAULT_INPUTS.jamClearSeconds;
@@ -357,41 +351,18 @@ export function JamOverhead({ className }: { className?: string }) {
         ? <>Pays for itself in {months(QUICK.paybackMonths)} months with quick fixes</>
         : <>Pays for itself in {months(QUICK.paybackMonths)} months with quick fixes,{' '}
           {months(jamOverheadFrame(SPANS[beatIndex].end).outputs.paybackMonths)} with slow ones</>)}
-      statusLine="Illustrative: chosen inputs, not a measured cell."
+      statusLine="Illustrative model"
       method={
         <>
           <p>
-            Both hours come from the cell economics calculator above, with its seven authored
-            defaults except per-pick success, set to {SUCCESS}%: robot cost{' '}
-            {DEFAULT_INPUTS.robotCost.toLocaleString('en-US')} USD, integration multiple{' '}
-            {DEFAULT_INPUTS.integrationMultiple}x, a {DEFAULT_INPUTS.cycleTimeSeconds}-second
-            cycle, {DEFAULT_INPUTS.uptimePercent}% uptime and a {DEFAULT_INPUTS.wageUsdPerHour} USD
-            hourly wage. Only the jam-clearing time changes: {QUICK_SECONDS} s against{' '}
-            {SLOW_SECONDS} s. Downtime is the {100 - DEFAULT_INPUTS.uptimePercent}% of the hour the
-            cell is not up.
+            Both hours run the calculator above at its defaults and {SUCCESS}% per-pick success.
+            Only the jam-clearing time changes: {QUICK_SECONDS} s against {SLOW_SECONDS} s.
           </p>
           <p>
             Quick fixes: {QUICK.timeBreakdown.jamClearing.toFixed(0)} s of jam clearing per elapsed
             hour, {QUICK.netPicksPerHour.toFixed(1)} picks/h, payback {months(QUICK.paybackMonths)} mo.
             Slow fixes: {SLOW.timeBreakdown.jamClearing.toFixed(0)} s of jam clearing,{' '}
             {SLOW.netPicksPerHour.toFixed(1)} picks/h, payback {months(SLOW.paybackMonths)} mo.
-          </p>
-          <p>
-            The drawing is a control desk for the two cells. Each door carries a 60-minute
-            circular chart recorder whose paper turns once an hour; the pen rides the outer ring
-            while the robot picks, the middle ring while a person clears a failed pick and the
-            inner ring while the cell is down for upkeep. Each hour is laid out as runs of 100 good
-            picks, each followed by one fix, with the last partial run split in the same ratio and
-            the downtime at the end, so the inked arcs add up to the calculator&apos;s time split.
-            The counter under each chart counts good picks ({Math.floor(QUICK.netPicksPerHour)} and{' '}
-            {Math.floor(SLOW.netPicksPerHour)} in the hour) and the timer beside it shows how long
-            each fix takes.
-          </p>
-          <p>
-            Illustrative cell, not observed economics or a financial forecast. The seven authored
-            inputs and the {ROBOT_HOURS_PER_MONTH}-hour month, {AMORTIZATION_MONTHS}-month
-            amortization and {PAYBACK_TARGET_MONTHS}-month verdict assumptions are stated with the
-            calculator above.
           </p>
         </>
       }

@@ -31,7 +31,7 @@ describe('EurekaLoop', () => {
   it('describes the drawing with the method paragraph that explains the bench', () => {
     render(<EurekaLoop />);
     const id = screen.getByTestId('eureka-stage').getAttribute('aria-describedby');
-    expect(document.getElementById(id ?? '')).toHaveTextContent(/^The drawing is that loop as a bench\. Each round's rules are punched into a card/);
+    expect(document.getElementById(id ?? '')).toHaveTextContent(/^The drawing is that loop as a bench, replayed with made-up data: each round's reward rules are punched into a card/);
   });
 
   it('draws the loop as a bench with no words: each round\'s card, its run on the ribbon and its robot', async () => {

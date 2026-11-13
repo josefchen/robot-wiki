@@ -251,9 +251,9 @@ export function RetargetingGap({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Change the leg length: with the same joint angles, shorter legs float and longer legs sink."
+          hint="Change the leg length and watch the lit foot."
           readout={rest.readout}
-          status="Lit: the robot foot meant to touch the floor. Illustrative bodies."
+          status="Illustrative bodies"
           data-testid="retargeting-stage"
         >
           <p className="font-sans text-sm leading-snug text-text">
@@ -280,19 +280,12 @@ export function RetargetingGap({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Copying human joint angles onto a robot with shorter legs leaves its feet above the floor, and with longer legs, below it."
+      caption="Copied human joint angles leave shorter robot legs above the floor and longer ones below it."
       method={
         <>
           <div>
-            Motion data from people is retargeted to a robot before a whole-body policy learns to track it. The
-            simplest copy keeps the person&apos;s joint angles and hip height; on a robot with shorter legs the feet
-            then float, and with longer legs they sink into the floor. Retargeting studies report artifacts such as
-            foot sliding and self-penetration that significantly reduce tracking-policy robustness, particularly for
-            dynamic or long sequences. H2O filters out retargeted motions that a privileged imitator cannot track.
-          </div>
-          <div>
-            The bodies, the walking pose and the 90 cm hip height are illustrative; no robot&apos;s measurements are
-            drawn. On the frame, the gauge&apos;s scale reads centimeters at that hip height.
+            The simplest copy keeps the person&apos;s joint angles and 90 cm hip height. The lit foot should touch the
+            floor, and the gauge reads centimeters.
           </div>
           <ChartDescription
             id={descriptionId}

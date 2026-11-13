@@ -122,7 +122,7 @@ export function NewtonSolvers({ className }: { className?: string }) {
       heading="One simulation toolkit, specialist programs for each material"
       controls={<PresetGroup label="What is being simulated" presets={MATERIALS} value={materialId} onChange={setMaterialId} testId="newton-material" />}
       stage={
-        <FigureStage footer={<StageStatus>Solvers calculate motion. VBD (vertex block descent) adjusts cloth points in turns. MPM (material point method) moves particles on a grid; &quot;implicit&quot; solves them together. Four of eight programs, schematically.</StageStatus>}>
+        <FigureStage footer={<StageStatus>Four of eight solvers, schematic</StageStatus>}>
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             aria-label={`Four materials above four solvers, joined through one Newton interface: ${material.label.toLowerCase()} go to ${solverName(material)}.`}
@@ -193,16 +193,9 @@ export function NewtonSolvers({ className }: { className?: string }) {
       method={
         <>
           <div>
-            Newton is an open-source GPU physics engine co-developed by Disney Research, Google DeepMind and NVIDIA,
-            with MuJoCo Warp as its primary backend. NVIDIA&apos;s overview lists eight solvers behind one interface:
-            MuJoCo and Featherstone in generalized coordinates; SemiImplicit, XPBD and Kamino in maximal coordinates;
-            VBD for rigid bodies, particles, cloth and soft bodies; implicit MPM for particle-based continuum
-            materials; and Style3D cloth. The release post credits Kamino with closed-chain mechanisms and couples a
-            VBD cable solver two-way with MuJoCo Warp.
-          </div>
-          <div>
-            The drawing shows four of the eight, one per material. Sand is this figure&apos;s example of a
-            particle-based continuum material; the overview does not name it.
+            NVIDIA&apos;s overview lists eight solvers behind one interface, among them VBD (vertex block descent) for
+            cloth and implicit MPM (material point method) for continuum materials. The drawing shows four; sand is
+            this figure&apos;s example, not the overview&apos;s.
           </div>
           <ChartDescription
             id={descriptionId}

@@ -255,26 +255,13 @@ export function ScopeFollow({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="At level 1, ScoPilot handles one supervised task: aiming the camera at the instrument tip while the surgeon still moves every instrument."
+      caption="At level 1, ScoPilot only aims the camera at the instrument tip; the surgeon still moves every instrument."
       method={
         <>
-          <p>
-            Yang and colleagues place a robot that assists under the surgeon&apos;s continuous control at level 1, one
-            step above a teleoperated system that only follows the surgeon&apos;s hands. Moon Surgical&apos;s ScoPilot,
-            cleared in March 2025, is such a step: on demand, the laparoscope held by its Maestro arm follows a chosen
-            instrument tip, and the surgeon steers the view without letting go of the instruments.
-          </p>
           <p id={drawingId}>
-            The drawing is a box trainer on a bench. Two instruments, the surgeon&apos;s hands, enter through ports in
-            the soft pad over the peg board, and a laparoscope enters through a third, clamped to a two-link robot arm
-            on a column. The pale pool on the board, lit, is what the scope sees. Every port is a fixed pivot, so each
-            outside end swings opposite its tip. With following on, the arm turns the scope about its port to keep the
-            pool on the right instrument&apos;s tip; with it off, the scope stays where it was put, and the tip can
-            leave the picture.
-          </p>
-          <p>
-            Schematic: the trainer, the drill and the arm are illustrative, and no number is claimed. How ScoPilot
-            finds the tip is not drawn; the arm here simply aims the scope at it.
+            The drawing is a box trainer: two instruments and a robot-held laparoscope enter through fixed ports, and the
+            lit pool is what the scope sees. With following on, the arm turns the scope to keep the pool on the right
+            instrument&apos;s tip; with it off, the tip can leave the picture.
           </p>
         </>
       }

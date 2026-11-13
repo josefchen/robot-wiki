@@ -351,7 +351,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${HARDWARE.length} hardware entries across arms, humanoids, hands, sensors and compute; the filters above narrow the list, and clicking the Entry, Category, Price or DoF heading sorts it. DoF is degrees of freedom, the joints a robot moves independently. Figures a source does not publish read not disclosed and sort last, every price carries an as-of date, and price filters use the low end of a range.`}
+          caption={`${HARDWARE.length} hardware entries; filter or sort them. Unpublished figures read not disclosed, and every price is dated.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'category', direction: 'asc' }}

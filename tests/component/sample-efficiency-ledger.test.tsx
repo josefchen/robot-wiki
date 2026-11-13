@@ -55,7 +55,6 @@ describe('SampleEfficiencyLedger', () => {
     render(<SampleEfficiencyLedger />);
     const label = screen.getByTestId('sample-simplification-label');
     expect(label).toHaveTextContent(/perfect parallelism/i);
-    expect(label).toHaveTextContent(/not a measured mean/i);
     expect(label).toHaveTextContent(/Robot-hours are not parallel wall time/i);
     expect(label).toHaveTextContent(/bands do not rule algorithms in or out/i);
     expect(label).not.toHaveTextContent(/ran at about 4\.0/i);

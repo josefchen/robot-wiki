@@ -171,7 +171,7 @@ export function PolicyChunkingTable() {
   return (
     <Table
       interactiveId="PolicyChunkingTable"
-      caption="Every policy here after RT-1 predicts a chunk; each action horizon and rate is its source's own setup, so values do not compare directly."
+      caption="Every policy after RT-1 predicts a chunk. Each action horizon and rate is its source's own setup."
       columns={COLUMNS}
       rows={ROWS}
       initialSort={{ key: 'year', direction: 'asc' }}

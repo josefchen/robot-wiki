@@ -61,7 +61,7 @@ describe('ActionConditioning', () => {
     expect(screen.getByTestId('lever-b').style.transform).toBe(leverCss('lift'));
     expect(screen.getByRole('img', { name: /push left and lift gripper, from a video model that listens to the action/i })).toBeInTheDocument();
     expect(screen.getByTestId('action-note')).toHaveTextContent(/two different futures/i);
-    expect(screen.getByTestId('action-note')).toHaveTextContent(/the model is listening/i);
+    expect(screen.getByTestId('action-note')).toHaveTextContent(/the model listens/i);
     expect(sensitivity()).toBeCloseTo(0.419, 3);
     expect(finalBlockX('a')).not.toBe(finalBlockX('b'));
   });
@@ -74,7 +74,7 @@ describe('ActionConditioning', () => {
     expect(ignores()).toHaveAttribute('aria-pressed', 'true');
     expect(sensitivity()).toBeLessThan(0.3);
     expect(Math.abs(finalBlockX('a') - finalBlockX('b'))).toBeLessThan(5);
-    expect(screen.getByTestId('action-note')).toHaveTextContent(/same future for both commands/i);
+    expect(screen.getByTestId('action-note')).toHaveTextContent(/same future/i);
     expect(screen.getByTestId('action-note')).toHaveTextContent(/ignored the robot/i);
     expect(screen.getByTestId('realism-readout')).toHaveTextContent('0.91');
     // The ignoring model is the console with both plugs pulled; the meters read the same scores the method names.

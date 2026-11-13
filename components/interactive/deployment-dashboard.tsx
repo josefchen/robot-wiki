@@ -266,21 +266,13 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
           )}
         </FigureStage>
       }
-      caption="None of these numbers has been checked by an outside auditor, so read them as what companies say, not proven performance."
+      caption="Every number is a company's own report; no outside auditor has checked any of them."
       method={
         <>
           <p>
-            Each bar is the work a company reports for its humanoid robots. The scale grows by ten
-            times at each tick, so 200 hours and 65,000 hours fit on one line.
-          </p>
-          <p>
-            &quot;{DEPLOYMENT_STATUS_LABEL.verified}&quot; means the figure traces to a cited
-            company document at that document&apos;s own date; the hours and parts are vendor
-            reports, and no independent audit is claimed. &quot;{DEPLOYMENT_STATUS_LABEL.claimed}
-            &quot; marks a vendor demonstration without a published deployment metric. The records
-            come from each document at its own date, not from one common snapshot. Tesla reports
-            no hours or production rate: Optimus production began in Fremont, but building robots
-            is not deployed work.
+            Each bar is a company&apos;s reported work on a log scale, ten times per tick.
+            &quot;{DEPLOYMENT_STATUS_LABEL.verified}&quot; traces to a cited company document at its own
+            date; &quot;{DEPLOYMENT_STATUS_LABEL.claimed}&quot; marks a vendor demo with no deployment metric.
           </p>
           <TableScroll labelledBy={captionId} className="pt-1">
             <table className="w-full min-w-[480px] border-collapse text-left font-sans text-sm text-text">

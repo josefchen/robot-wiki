@@ -242,7 +242,7 @@ export function ChunkSizeCurve({
                 success, <span data-testid="chunk-decisions-readout">{decisions}</span>{' '}
                 {decisions === 1 ? 'decision' : 'decisions'} per {episodeSteps}-move task
               </StageReadout>
-              <StageStatus>Only the two dots have published numbers; the line and dashed taper are illustrative estimates.</StageStatus>
+              <StageStatus>Two dots measured; rest illustrative</StageStatus>
             </>
           }
         >
@@ -336,21 +336,12 @@ export function ChunkSizeCurve({
           </PlotStage>
         </FigureStage>
       }
-      caption="Fewer decisions means fewer chances to slip: deciding 4 times per task instead of 400 made a simulated robot far more reliable."
+      caption="Deciding 4 times per task instead of 400 made a simulated robot far more reliable."
       method={
         <>
           <p>
-            Chunk size k is how many moves the robot commits to per decision. The two dots are ACT&apos;s
-            own ablation (Zhao et al., 2023): 1% success at k = 1 and 44% at k = 100, the mean of two
-            simulated tasks, Cube Transfer and Bimanual Insertion, each trained on scripted and on human
-            demonstrations with temporal ensembling disabled. The paper plots the other chunk sizes it
-            trained but gives numbers only for these two. The line between them is an
-            interpolation drawn for reading, and the dashed line past k = 100 is an estimate: the paper
-            reports a slight decline at k = 200 and k = 400 without exact numbers.
-          </p>
-          <p>
-            The ticks count decisions in a {episodeSteps}-step episode, 8 s of motion at 50 Hz: one per
-            step at k = 1, and {episodeSteps} / k rounded up otherwise. The x axis is logarithmic.
+            The dots are ACT&apos;s ablation, two simulated tasks without ensembling: 1% success at k = 1, 44%
+            at k = 100. The line between is an interpolation, and the dashed taper is an estimate.
           </p>
           <ChartDescription
             id={descriptionId}
@@ -368,7 +359,7 @@ export function ChunkSizeCurve({
           />
         </>
       }
-      source="Measured points: ACT ablation (Zhao et al., 2023), mean of two simulated tasks. The taper past 100 moves per plan is an estimate."
+      source="ACT ablation (Zhao et al., 2023), mean of two simulated tasks."
     />
   );
 }
