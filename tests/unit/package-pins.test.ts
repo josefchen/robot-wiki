@@ -61,12 +61,12 @@ describe('scaffold npm scripts', () => {
 });
 
 // Guards the environment-trap wiring: the bare dev command must stay inside
-// the mission port range (3200-3299; 3000 and 3100 are off-limits), and the
+// the project's dev port range (3200-3299; 3000 and 3100 are off-limits), and the
 // sync-conflict prune must run before every typecheck and every build, the
 // generated OG tree must be cleaned before builds and standalone regeneration,
 // and the export prune must stay wired into postbuild before search indexing.
 describe('environment-trap script wiring', () => {
-  it('pins the dev server to port 3200 so the bare command cannot leave the mission range', () => {
+  it('pins the dev server to port 3200 so the bare command cannot leave the project range', () => {
     expect(pkg.scripts.dev).toBe('next dev -p 3200');
   });
 

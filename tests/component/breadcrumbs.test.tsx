@@ -14,7 +14,7 @@ import {
  */
 
 // The visual trail uses the same trailing-slash hrefs as the BreadcrumbList
-// structured data (consistency nit, rebrand-wiki scrutiny).
+// structured data (a consistency fix).
 const ARTICLE_TRAIL: BreadcrumbItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Manipulation & Learned Policies', href: '/manipulation/' },

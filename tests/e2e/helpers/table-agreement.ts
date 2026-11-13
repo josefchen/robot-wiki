@@ -4,7 +4,7 @@
  * matching rules are unit-testable against fixtures captured from the
  * rendered export (tests/unit/table-agreement.test.ts).
  *
- * Contract text being implemented (contract/educational-ux.md):
+ * The chart-table agreement rule being implemented:
  * "(a) The first and last row of the table carry the endpoint x-values of
  * the plotted range, matching the first and last x-axis tick labels
  * rendered in the SVG, or lying inside them with no rendered tick outside

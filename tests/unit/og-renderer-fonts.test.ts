@@ -28,8 +28,8 @@ const source = (path: string): string =>
 
 describe('OG renderer font delivery contract', () => {
   it('registers only first-party role families (DI-TYPE-001)', () => {
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): the web roles moved to DM Sans, Geist and Geist Mono, and
+    // Updated for the research-page standard of 10 October
+    // 2026: the web roles moved to DM Sans, Geist and Geist Mono, and
     // the cards keep their vendored offline faces, which each role records
     // as its OG family. A face must serve its role's OG family.
     const roleFamilies = new Map(

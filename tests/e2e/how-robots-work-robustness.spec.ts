@@ -214,7 +214,7 @@ test.describe('how robots work: robustness', () => {
       await tabAround();
     }
     for (const name of ['prev', 'next', 'dot', 'control', 'guess', 'self-check']) expect(reached, `Tab reaches ${name}`).toContain(name);
-    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the focus ring
+    // Updated for the research-page standard of 10 October 2026: the focus ring
     // moved from the brand-v2 signal blue to ink, still one ring style for every stop.
     expect([...rings]).toEqual(['solid rgb(28, 28, 26)']);
   });

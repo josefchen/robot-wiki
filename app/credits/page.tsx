@@ -136,7 +136,7 @@ export default function CreditsPage() {
           own text and original diagrams are licensed CC BY 4.0.
         </p>
         {/* Author identity: the /credits occurrence of the
-            owner-supplied name, byte-identical with meta[name=author] and
+            author's name, byte-identical with meta[name=author] and
             the footer occurrence, linked to the external profile. */}
         <p className="mt-5 font-serif text-base leading-[1.62] text-text">
           Written and maintained by{' '}

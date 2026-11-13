@@ -30,7 +30,7 @@ const OUT = join(process.cwd(), 'out');
  * prefers-color-scheme branch, so a route reporting anything else is either
  * unthemed or has been given a ground of its own.
  *
- * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * Updated for the research-page standard of 10 October 2026:
  * the paper #FAFAF8 replaces the brand-v2 ground #F5F6F7, at the same exact
  * equality.
  */
@@ -150,8 +150,8 @@ test.describe('registry-driven axe + console sweep', () => {
   });
 
   test('the three typefaces resolve on home and a module page', async ({ page }) => {
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): DM Sans (the H1 display), Geist (interface and article
+    // Updated for the research-page standard of 10 October
+    // 2026: DM Sans (the H1 display), Geist (interface and article
     // prose) and Geist Mono (numerals and code) replace IBM Plex Sans,
     // Newsreader and IBM Plex Mono. Each family must lead its stack, and
     // names match whole, so Geist Mono cannot pass for Geist. Article prose

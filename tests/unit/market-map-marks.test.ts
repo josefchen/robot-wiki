@@ -175,8 +175,8 @@ describe('mark geometry', () => {
 describe('withheld marks', () => {
   it('withholds exactly the one file that shows another company’s mark', () => {
     // Nimble's and Farm-ng's files were replaced by their official marks on
-    // 19 October 2026 (Farm-ng's from the archived farm-ng.com, by the owner
-    // session's decision); ARI never published a mark.
+    // 19 October 2026 (Farm-ng's from the archived farm-ng.com); ARI never
+    // published a mark.
     expect(Object.keys(WITHHELD_MARKS).sort()).toEqual(['assured-robot-intelligence-logo']);
     expect(withheldMark('nimble-robotics-logo')).toBeNull();
     expect(withheldMark('farm-ng-logo')).toBeNull();

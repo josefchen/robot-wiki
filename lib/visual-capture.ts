@@ -1,6 +1,6 @@
 /**
- * The capture test's page-side census, ported from the owner's visual-audit
- * capture script (owner-visual-audit-20260929/capture.cjs): the same
+ * The capture test's page-side census, ported from the visual-audit
+ * capture script of 29 September 2026 (capture.cjs): the same
  * selectors, the same 160x90 floor, outermost visuals only, and the same
  * manifest fields. The functions below run inside the page through
  * page.evaluate, so each one is self-contained.

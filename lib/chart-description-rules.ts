@@ -5,7 +5,7 @@
  * DOM text beside the chart. The gate enforces four mechanical properties
  * on the authored sentence; everything judgment-based (does it name the
  * shape and the x-value where the behaviour changes) is a code-review
- * item, not a gate item, and the feature brief says so explicitly.
+ * item, not a gate item, by design.
  *
  * Four checks, all pure functions over strings:
  *   1. at least two digit-bearing tokens (a description without numbers

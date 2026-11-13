@@ -7,10 +7,10 @@
 
 /*
  * Robot Wiki runtime tokens (Tailwind v4 CSS-first), the Pantheon
- * research-page standard (owner decision of 2026-10-10, PANTHEON-SPEC.md).
+ * research-page standard (decided 10 October 2026).
  * Paper and ink, hairline 1px rules, grayscale chart colours and one muted
  * blue accent. The page is a single paper sheet in the very light warm grey
- * of the owner's prototype (#fafaf8): there is no second "reading surface"
+ * of the original prototype (#fafaf8): there is no second "reading surface"
  * colour, and the only inset is --paper-deep.
  *
  * The spec's own names live on :root below (--paper, --ink, --line, ...);

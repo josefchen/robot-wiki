@@ -24,9 +24,9 @@ import { ogCardCorpus, openSealedCardTree } from '@/lib/og-card-corpus';
  * they cannot be read as per-article data.
  *
  * Superseded: the v1 fixed 8x12 grid of 34px cells is no longer an oracle,
- * and neither is the brand-v2 32px lattice field. Owner-approved successor
- * (research-page standard, Josef, 10 October 2026: "Surfaces are plain
- * paper"): the website paints `.engineering-grid` as plain paper, so the
+ * and neither is the brand-v2 32px lattice field. Since the research-page
+ * standard of 10 October 2026 (surfaces are plain paper)
+ * the website paints `.engineering-grid` as plain paper, so the
  * card paints no lattice, and the clauses that graded the lattice now grade
  * every device the card does paint: the frame rails, their registration
  * crosses and the section rules.

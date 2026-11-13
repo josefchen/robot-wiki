@@ -31,7 +31,7 @@ describe('Cite', () => {
     );
   });
 
-  // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard):
+  // Updated for the research-page standard of 10 October 2026:
   // the floating tooltip is retired. Outside an article the metadata stays
   // the link's accessible description; inside one it is the sidenote
   // (tests/component/ui/cite-placement.test.tsx).

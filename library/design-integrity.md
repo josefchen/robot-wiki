@@ -541,7 +541,7 @@ The site card at row 1 MUST be used by exactly these 18 non-article destinations
 
 The search structured-image corpus is separate from OG/X: it contains exactly 114 article assets, one 1200×900 4:3 image and one 1200×1200 square image for each of the same 57 article owners, under `/structured-images/<domain>/<slug>-4x3.png` and `/structured-images/<domain>/<slug>-square.png`. Those assets are referenced by article structured data and image sitemap entries; no site-card variants exist in that directory.
 
-The generator MUST also derive the registry population and fail if registry truth no longer equals this sealed 57-article list. A future publish requires an owner-approved contract update before the expected OG/X corpus can exceed 58.
+The generator MUST also derive the registry population and fail if registry truth no longer equals this sealed 57-article list. A future publish requires an approved matrix update before the expected OG/X corpus can exceed 58.
 
 ## 21. Zero-residue sweeps
 

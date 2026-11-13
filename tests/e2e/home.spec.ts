@@ -6,14 +6,13 @@ import { forEachInOwnContext } from './helpers/per-route-context';
 
 /**
  * Structural contract for the home front page. Encodes the measurable
- * bounds from library/design-integrity.md and
- * contract/foundation-navigation.md: a dense contents index instead of a
+ * bounds from library/design-integrity.md and the navigation
+ * rules: a dense contents index instead of a
  * card grid, the humanoid scene beside the name in the first screen, the
  * three explore entries, bounded bordered boxes and micro-labels, no
  * overview paragraph, and the reading guide on /about/.
  *
- * Owner-approved successor (Josef, 12 November 2026, the home redesign:
- * "don't be afraid to make radical changes"): the robot is now the first
+ * Updated for the home redesign of 12 November 2026: the robot is now the first
  * screen and the contents its index below, so the pins that held all seven
  * domain links above the fold and the scene below them
  * within 1200px move to the new first screen at the same
@@ -156,7 +155,7 @@ test.describe('home page', () => {
   test('the wordmark holds its locked type scale at both stated viewports (DI-TYPE-006)', async ({
     page,
   }) => {
-    // library/design-integrity.md DI-TYPE-006, as the owner decision
+    // library/design-integrity.md DI-TYPE-006, as the decision
     // of 10 October 2026 (the research-page standard) restated it: the
     // shared DM Sans 400 display h1, 40-48px at 375 and 84-92px at 1440,
     // line height 0.90-0.96, at the registered home-wordmark instance
@@ -454,7 +453,7 @@ test.describe('home page', () => {
     await expect(index.locator('[data-contents-domain]')).toHaveCount(7);
   });
 
-  // Owner-approved successor (Josef, 2026-11-12, the home redesign): the
+  // Updated for the home redesign of 12 November 2026: the
   // 375px masthead is the lockup, then the search and its counts, then the
   // scene; the first section after it opens on its 1px hairline rule with
   // its heading under it. Each relation is pinned at one-decimal precision.
@@ -508,14 +507,14 @@ test.describe('home page', () => {
     expect(overflow).toBeLessThanOrEqual(0);
   });
 
-  // Owner-approved successor (Josef, 2026-10-10, the research-page
-  // standard; the dot grid was removed in 9154d672): the old pin read the
+  // Updated for the research-page standard of 10 October 2026
+  // (the dot grid was removed in 9154d672): the old pin read the
   // one .engineering-grid field as the locked device (32px #D9DADB SVG tile
   // on white, a 208px column, two 1px axes and an 8px signal-blue point
   // sharing one centre). The locked title sheet is now plain paper: no grid
   // node or registered dot-grid device, the exact paper ground #FAFAF8 with
   // no texture or frame on the sheet, the declared `material:paper`.
-  // Owner-approved successor (Josef, 2026-11-12, the home redesign): the
+  // Updated for the home redesign of 12 November 2026: the
   // one image the sheet paints is the scene's own poster, inside the
   // explainer; the lockup and the search hold the four columns left of the
   // axis, the search below the descriptor, and the scene the eight to its
@@ -594,8 +593,8 @@ test.describe('home page', () => {
     expect(Math.abs(stage.top - h1.top)).toBeLessThanOrEqual(12);
   });
 
-  // Owner-approved successor (Josef, 2026-10-10, the research-page
-  // standard; the dot grid was removed in 9154d672): the old pin read
+  // Updated for the research-page standard of 10 October 2026
+  // (the dot grid was removed in 9154d672): the old pin read
   // "exactly one svg-grid background on /, the title sheet's
   // .engineering-grid, never on body, main, article or prose, and none on
   // any other route". On the same derived population no route paints an

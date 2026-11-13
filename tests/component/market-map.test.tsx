@@ -40,7 +40,7 @@ function tile(id: string): HTMLElement {
 }
 
 /**
- * The research-page selected state (DI-MAP-003 successor): the open
+ * The research-page selected state (DI-MAP-003): the open
  * company's tile reads in ink weight on a 1 px ink rule with no fill, tint
  * or accent bar, and every other tile keeps the same 1 px rule, transparent,
  * so selection does not move the layout.

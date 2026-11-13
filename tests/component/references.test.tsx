@@ -82,8 +82,8 @@ describe('References', () => {
     ).toBe('ref-act-aloha-2023');
   });
 
-  // Successor (2026-10-13, drift repair under library/design-system.md, "no
-  // repeated eyebrow clutter"): the uncited entries sit under one
+  // Changed 2026-10-13 to match library/design-system.md, "no
+  // repeated eyebrow clutter": the uncited entries sit under one
   // sentence-case "Further reading" heading instead of each carrying a
   // tracked-capitals badge. Same strength: every declared-but-not-inline
   // entry is still marked, and no cited entry is.

@@ -8,7 +8,7 @@
  * default, rendered as written and exempt from the suffix. Each title leads
  * with the head term, the H1 topic or the first intent query, and each
  * description contains the head term. Article and hub entries start from
- * the owner sweep's proposals and keep only what the page itself says;
+ * the SEO review's proposals and keep only what the page itself says;
  * where a proposal already carries the H1 topic or its abbreviation, that
  * phrase is the head term. `queries` are the intent queries the domain report
  * lists for the page, first query first. `scripts/check-seo.ts` holds the

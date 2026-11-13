@@ -309,8 +309,8 @@ describe('state-form chart descriptions', () => {
   it('LatentImagination track describes the drift and tracks the look-ahead', () => {
     const { container } = render(<LatentImagination />);
     const { text } = assertDescribed(
-      // Successor of the bench-and-template name: the drawing is named in one
-      // clause (owed-figures slice of 2026-10-26).
+      // Replaces the bench-and-template name: the drawing is named in one
+      // clause (figure update of 2026-10-26).
       screen.getByRole('img', { name: /imagined track \d+ steps? ahead/i }),
       container,
     );

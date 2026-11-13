@@ -28,7 +28,7 @@ export function enableAnalyticsForEnvironment(
 
 /**
  * Single indexing switch (off before go-public, on after).
- * The owner's go-public decision of 2026-08-16 set it to true: app/robots.ts
+ * The go-public decision of 2026-08-16 set it to true: app/robots.ts
  * permits crawling and the root layout attaches no site-wide noindex meta.
  * Flipping it back to false would restore a blanket Disallow plus noindex on
  * every page. /404 and the internal /search utility stay noindex in either

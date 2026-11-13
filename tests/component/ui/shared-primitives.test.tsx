@@ -58,7 +58,7 @@ describe('shared primitives', () => {
       'data-brand-control-id',
       'control:selection',
     );
-    // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard):
+    // Updated for the research-page standard of 10 October 2026:
     // selection is an ink rule and weight, not a colour fill.
     expect(selected).toHaveClass('border-ink', 'font-medium', 'text-ink');
     expect(selected).not.toHaveClass('bg-selection');

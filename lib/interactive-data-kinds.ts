@@ -59,7 +59,7 @@ export type DataPaintToken =
   | 'pattern';
 
 /**
- * The research-page palette (app/globals.css, owner decision of 10 October
+ * The research-page palette (app/globals.css, decided 10 October
  * 2026), keyed by `#RRGGBB`. Browsers serialise a computed colour with or
  * without spaces depending on who reads it, so every lookup goes through
  * `paintHex` and never through the string it was given.
@@ -292,7 +292,7 @@ export const STATUS_LABEL_VOCABULARY = {
 
 /**
  * The frozen-evidence boundary for DI-VIZ-006 (and the lead-series
- * clause of DI-VIZ-003). Empty since the status-label closeout: the
+ * clause of DI-VIZ-003). Empty since the status labels were finished: the
  * five formerly unlabeled instruments (gait-diagram, planar-fk-arm,
  * pendulum-controller, impedance-contact-lab, reliability-compounding)
  * now carry an in-frame STATUS_LABEL_VOCABULARY label on every mount,
@@ -617,8 +617,8 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   'interactive:EgoScaleScaling': {
     // The EgoScale law with a scenario band "not a confidence interval".
     // Lead: the completion fit, the one line the main view draws and the
-    // presets move along. The reader-first rewrite (fb57886c, owner
-    // decision of 2 October 2026: two visible controls, everything else in
+    // presets move along. The figure rewrite of 2 October 2026 (fb57886c:
+    // two visible controls, everything else in
     // "Adjust more") moved the loss law behind its "Show the paper's error
     // measure" toggle, so it no longer renders by default.
     kind: 'authored-model',

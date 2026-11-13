@@ -2,12 +2,12 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 /**
- * The sealed OG/X matrix, read from the contract itself.
+ * The sealed OG/X matrix, read from the spec itself.
  *
  * `library/design-integrity.md` §20 lists every exported card and the
  * route that owns it, and the destinations that share the site card. The
  * generator has to fail when registry truth stops equalling that list
- * (§20: "A future publish requires an owner-approved contract update"), so
+ * (§20: "A future publish requires an approved matrix update"), so
  * the list is parsed from the sealed document rather than restated in code
  * where it could be edited to agree with whatever the registry says.
  */
@@ -130,7 +130,7 @@ export function ogMatrixDrift(
   }
   for (const [cardId, cardPath] of derived) {
     if (!sealed.has(cardId)) {
-      drift.push(`registry card ${cardId} (${cardPath}) is not in the sealed matrix; an owner-approved contract update must add it first`);
+      drift.push(`registry card ${cardId} (${cardPath}) is not in the sealed matrix; an approved matrix update must add it first`);
     }
   }
   return drift;

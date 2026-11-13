@@ -28,7 +28,7 @@ import { cx } from '@/lib/utils';
 const INSTRUMENT_SIGNATURE = 'instrument-frame';
 
 /*
- * Figure controls (owner-approved figure standard, 10 October 2026) are
+ * Figure controls (figure standard of 10 October 2026) are
  * text: a small muted text action for Replay, Step and Reset, the one
  * action that starts a figure in ink, and text tabs for choices, muted at
  * rest and ink over a 1 px underline when chosen, separated by hairlines.

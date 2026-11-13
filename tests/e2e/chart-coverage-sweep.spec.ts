@@ -7,8 +7,9 @@ import { forEachInOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
- * Corpus closers for the chart-description milestone (036,
- * 037, 040's 375px half). Population is derived from the module registry,
+ * Corpus-wide chart-description checks (coverage, specific and unique
+ * descriptions, WmDisambiguator text, and the 375px half of the overflow
+ * check). Population is derived from the module registry,
  * never typed as a literal article list.
  *
  * The axe and console halves of the 375px check live in axe-registry-sweep.spec.ts,

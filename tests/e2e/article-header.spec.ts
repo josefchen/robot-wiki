@@ -68,8 +68,8 @@ function expectedCitationCount(domain: string, slug: string): number {
 }
 
 async function displayedReadingMinutes(page: Page): Promise<number> {
-  // Owner-approved successor (Josef, 2026-10-10, the research-page
-  // standard): the monospace <dl> became one meta line, "Updated … · N min
+  // Updated for the research-page standard of 10 October
+  // 2026: the monospace <dl> became one meta line, "Updated … · N min
   // read · N sources", with the same data hooks.
   const text = (await page.locator('[data-article-meta] [data-header-reading-minutes]').textContent()) ?? '';
   const match = /^(\d+)\s*min read$/.exec(text.trim());
@@ -78,7 +78,7 @@ async function displayedReadingMinutes(page: Page): Promise<number> {
 }
 
 /**
- * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * Updated for the research-page standard of 10 October 2026:
  * from 1200 px each citation's sidenote stands in the margin beside the
  * prose. A note is the citation's apparatus, as the hover tooltip it
  * replaced was, and the reading-time measure leaves it out
@@ -284,8 +284,8 @@ test.describe('Article header metadata', () => {
     );
   });
 
-  // Owner-approved successor (Josef, 2026-10-10, the research-page
-  // standard): the line is muted Geist below the lead, not monospace. Quiet
+  // Updated for the research-page standard of 10 October
+  // 2026: the line is muted Geist below the lead, not monospace. Quiet
   // and small is now measured: smaller than the body text and in the muted
   // ink, never the full ink.
   test('the metadata renders quiet and small: muted, smaller than the body, no badges, no emoji', async ({

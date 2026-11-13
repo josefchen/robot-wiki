@@ -8,13 +8,13 @@
  * sees and the files on disk can never drift apart:
  *
  *   - articleCardPath(domain, slug): '/og/<domain>/<slug>.png'. The slug
- *     rides in the URL path so a validator can attribute a card to its
+ *     rides in the URL path so a checker can attribute a card to its
  *     article from the URL alone.
  *   - siteCardPath: '/og/robot-wiki.png', the one card the non-article
  *     destinations share. Byte-distinct from every article asset by
  *     construction (different canvas).
  *   - ogImageAltForModule / siteOgImageAlt: the og:image:alt strings.
- *     Card text carries no em-dash or en-dash (mission zero-dash rule).
+ *     Card text carries no em-dash or en-dash (the site-wide zero-dash rule).
  *   - articleOgImage / siteOgImage: absolute apex-origin URLs plus the
  *     declared 1200x630 dimensions, for Metadata openGraph.images.
  *   - largeCardTwitter: the twitter block every route re-declares. A

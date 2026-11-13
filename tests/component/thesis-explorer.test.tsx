@@ -35,7 +35,7 @@ describe('ThesisExplorer', () => {
       const scope = within(screen.getByTestId(`thesis-card-${thesis.id}`));
       expect(scope.getByRole('button', { name: plainThesisName(thesis.id) })).toBeInTheDocument();
       expect(scope.getByText(/wrong/)).toHaveAttribute('data-thesis-wrong-if');
-      // Approved successor (owner, 10 October 2026, figure standard): a card
+      // Updated for the figure standard of 10 October 2026: a card
       // carries its number in the mono face and no pictogram.
       const card = screen.getByTestId(`thesis-card-${thesis.id}`);
       expect(card.querySelector('svg')).toBeNull();

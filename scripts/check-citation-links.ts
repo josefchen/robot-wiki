@@ -4,7 +4,7 @@
  * Checks every `url` in data/citations.ts with a real browser user agent,
  * following redirects, and reports which links are dead, bot-blocked, or
  * inconclusive. This catches link rot in the citation registry before a
- * reader (or a validator sampling a reference) does.
+ * reader (or a reviewer sampling a reference) does.
  *
  * The sweep is built to keep a clean floor of zero unexplained entries, so
  * that any line in the output is real signal:
@@ -290,7 +290,6 @@ async function main(): Promise<void> {
   // a single passing fetch is not evidence the intermittent failure went
   // away). Only a purely 'blocked' exception — a deterministic bot-wall —
   // can be declared stale by a URL that now answers 200.
-  // Root cause recorded in library/content-quality.md (mission library).
   const staleExceptions = results
     .filter((r) => r.verdict === 'live' && exceptionsById.has(r.id))
     .filter((r) => {

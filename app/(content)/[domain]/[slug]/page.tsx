@@ -193,7 +193,7 @@ export default async function ModulePage({ params }: { params: Params }) {
   // links (the domain crumb is what makes /<domain>/ reachable from every
   // article), the article itself is the non-linked trailing crumb. The
   // same trail is emitted as BreadcrumbList structured data, with the same
-  // trailing-slash hrefs (consistency nit, rebrand-wiki scrutiny).
+  // trailing-slash hrefs (a consistency fix).
   const breadcrumbTrail = [
     { label: 'Home', href: '/' },
     { label: DOMAIN_META[entry.domain].name, href: `/${entry.domain}/` },
@@ -215,7 +215,7 @@ export default async function ModulePage({ params }: { params: Params }) {
     // data-pagefind-body scopes the prose search index to the module
     // content (header + body) and excludes the surrounding nav chrome and
     // the generated References bibliography. data-prose-column is the
-    // named handle for the article sheet: validators measuring the
+    // named handle for the article sheet: checks measuring the
     // full-width rules resolve it here instead of by ancestor heuristics.
     // The sheet's grid (contents rail, 960px column, sidenote margin) lives
     // in app/globals.css.

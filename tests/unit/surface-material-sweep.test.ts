@@ -14,9 +14,9 @@ import { describe, expect, it } from 'vitest';
  * yet is caught before it ships. Each exception names the one place it is
  * allowed and why, and the population of swept files is asserted non-empty.
  *
- * The /how-robots-work/ explainers (components/explainers/) are frozen by
- * owner decision (Josef, 12 October 2026: "i love the how robots work
- * section!") and are reported by the rendered audit, not restyled here.
+ * The /how-robots-work/ explainers (components/explainers/) are frozen
+ * (decided 12 October 2026) and are reported by the rendered audit, not
+ * restyled here.
  */
 
 const ROOT = process.cwd();

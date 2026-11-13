@@ -3,7 +3,7 @@ import { expect, type Page } from '@playwright/test';
 /**
  * Opens the site navigation panel from the top bar's "Articles" button.
  *
- * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * Updated for the research-page standard of 10 October 2026:
  * the persistent sidebar is gone. The taxonomy navigation, with its groups,
  * links and current-route state, lives in the panel this button opens at
  * every width (tests/e2e/navigation.spec.ts). Specs that read the sidebar
