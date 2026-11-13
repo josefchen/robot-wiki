@@ -7955,7 +7955,7 @@ export const CITATIONS: Citation[] = [
     // DOI verified via Crossref 2026-08-20: IROS 2019, Macau. Crossref
     // authors: Roberto Martin-Martin, Michelle A. Lee, Rachel Gardner,
     // Silvio Savarese, Jeannette Bohg, Animesh Garg (the 2026-08-20 audit
-    // corrected two fabricated given names: "Josef" and "Munhee").
+    // corrected two wrong given names: "Josef" and "Munhee").
     id: 'martin-martin-2019',
     title:
       'Variable Impedance Control in End-Effector Space: An Action Space for Reinforcement Learning in Contact-Rich Tasks',
@@ -11454,7 +11454,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2601.00675',
     type: 'paper',
   },
-  // ecomem-2026: added 2026-10-06 via Jiajun Wu.
+  // ecomem-2026: added 2026-10-06.
   // Abstract page fetched 2026-10-06; submitted 30 September 2026.
   {
     id: 'ecomem-2026',
@@ -11465,7 +11465,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.00801',
     type: 'paper',
   },
-  // rpg-2026: added 2026-10-06 via Pieter Abbeel.
+  // rpg-2026: added 2026-10-06.
   // Abstract page fetched 2026-10-06; submitted 1 October 2026.
   {
     id: 'rpg-2026',
@@ -11586,7 +11586,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.12406',
     type: 'paper',
   },
-  // recova-2026: added 2026-10-06 via Linxi Fan.
+  // recova-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 1 October 2026. UC San Diego, UT Austin and NVIDIA.
   {
     id: 'recova-2026',
@@ -11600,7 +11600,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.01178',
     type: 'paper',
   },
-  // rebarsim-2026: added 2026-10-06 via Abhishek Gupta.
+  // rebarsim-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 17 September 2026. University of Washington, McGill
   // University and Princeton University; corresponding author Yi Shao (McGill).
   {
@@ -11615,7 +11615,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.20477',
     type: 'paper',
   },
-  // seeq-2026: added 2026-10-06 via Aviral Kumar.
+  // seeq-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 18 September 2026, v2 27 September 2026. Carnegie Mellon University.
   {
     id: 'seeq-2026',
@@ -11628,7 +11628,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.22085',
     type: 'paper',
   },
-  // bilinear-flow-policy-2026: added 2026-10-06 via Abhishek Gupta.
+  // bilinear-flow-policy-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 5 October 2026. Georgia Institute of Technology,
   // Toyota Research Institute and University of Washington.
   {
@@ -11643,7 +11643,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.05765',
     type: 'paper',
   },
-  // ditto-x-2026: added 2026-10-06 via Jiajun Wu.
+  // ditto-x-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 30 September 2026, v2 5 October 2026. Stanford University and
   // Columbia University.
   {
@@ -11658,7 +11658,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.00781',
     type: 'paper',
   },
-  // gott-2026: added 2026-10-06 via Pieter Abbeel.
+  // gott-2026: added 2026-10-06.
   // Abstract and HTML fetched 2026-10-06; v1 submitted 2 October 2026. Amazon FAR, UC San Diego, UC Berkeley
   // and University of Chicago.
   {
@@ -14425,7 +14425,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2602.18164',
     type: 'paper',
   },
-  // eyerobot-2-2026: added 2026-10-06 via Ken Goldberg.
+  // eyerobot-2-2026: added 2026-10-06.
   // Refreshed 2026-10-06.
   // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 2 Oct 2026).
   {
@@ -14437,7 +14437,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.03710',
     type: 'paper',
   },
-  // forcetwin-2026: added 2026-10-06 via Marco Hutter.
+  // forcetwin-2026: added 2026-10-06.
   // Abstract page and PDF first page fetched 2026-10-07; v1 submitted
   // 18 September 2026. ETH Zurich, NVIDIA, Microsoft and University of Bonn.
   {
@@ -14449,7 +14449,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.21751',
     type: 'paper',
   },
-  // particlesplat-2026: added 2026-10-06 via Deepak Pathak.
+  // particlesplat-2026: added 2026-10-06.
   // Abstract page and PDF first page fetched 2026-10-07; v1 submitted
   // 16 September 2026. Robotics Institute, Carnegie Mellon University.
   {
@@ -14461,7 +14461,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.19463',
     type: 'paper',
   },
-  // scenelm-2026: added 2026-10-06 via Jitendra Malik.
+  // scenelm-2026: added 2026-10-06.
   // Abstract page and PDF first page fetched 2026-10-07; v1 submitted
   // 18 September 2026. Chalmers, Zenseact, Stanford, UC Berkeley and NVIDIA.
   {
@@ -14473,7 +14473,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.21400',
     type: 'paper',
   },
-  // tacdyn-wam-2026: added 2026-10-06 via Cheng Chi.
+  // tacdyn-wam-2026: added 2026-10-06.
   // Abstract page, HTML and PDF first page fetched 2026-10-07; v1 submitted
   // 30 September 2026. The paper places its Cheng Chi at Renmin University's School of Information; the
   // sentence credits the first and corresponding authors, both at Tsinghua University's AIR.
@@ -14513,7 +14513,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/3c79d56c2aa082d62ebae6ccf217191e6d4e2cfa/microsoft-support.md',
     type: 'docs',
   },
-  // genesis-handover-2026: added 2026-10-08 via Marco Hutter.
+  // genesis-handover-2026: added 2026-10-08.
   // Abstract page and HTML full text fetched 2026-10-08; v1 submitted 6 October 2026, accepted to
   // CoRL 2026. ETH Zurich, Robotic Systems Lab.
   {
@@ -14563,7 +14563,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.24318',
     type: 'paper',
   },
-  // bd-atlas-hand-2026: added 2026-10-09 via Boston Dynamics.
+  // bd-atlas-hand-2026: added 2026-10-09.
   // Boston Dynamics blog post, datePublished 2026-10-01T13:10:02Z in the page's JSON-LD, read
   // 2026-10-09. The byline is a site account, so the company stands as author.
   {
@@ -16301,7 +16301,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.01061',
     type: 'paper',
   },
-  // needlework-2026: added 2026-10-06 via Shuran Song.
+  // needlework-2026: added 2026-10-06.
   // Refreshed 2026-10-06.
   // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 1 Oct 2026). Comment: submitted to ICLR 2027.
   {
@@ -16313,7 +16313,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.02339',
     type: 'paper',
   },
-  // bver-2026: added 2026-10-06 via Marco Hutter.
+  // bver-2026: added 2026-10-06.
   // Refreshed 2026-10-06.
   // Title, authors and abstract read on the arXiv abstract page on 2026-10-06 (v1 2 Oct 2026).
   {
@@ -16325,7 +16325,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.03395',
     type: 'paper',
   },
-  // hitter-2025: added 2026-10-06 via Chris Paxton.
+  // hitter-2025: added 2026-10-06.
   // Refreshed 2026-10-06; primary source named by Chris Paxton.
   // arXiv abstract page read 2026-10-06 (v1 28 Aug 2025, v2 4 Sep 2025): "up to 106 consecutive shots with a human opponent".
   {
@@ -16337,7 +16337,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2508.21043',
     type: 'paper',
   },
-  // latent-tennis-2026: added 2026-10-06 via Chris Paxton.
+  // latent-tennis-2026: added 2026-10-06.
   // Refreshed 2026-10-06; primary source named by Chris Paxton.
   // arXiv abstract page read 2026-10-06 (v1 13 Mar 2026): LATENT, deployed on the Unitree G1, "stably sustain multi-shot rallies with human players".
   {
@@ -16349,7 +16349,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.12686',
     type: 'paper',
   },
-  // paxton-robot-sports-2026: added 2026-10-06 via Chris Paxton.
+  // paxton-robot-sports-2026: added 2026-10-06.
   // Refreshed 2026-10-06. Newsletter post dated 3 October 2026,
   // fetched 2026-10-06: "many of these systems still use external motion trackers to perceive the ball".
   // Same venue string as paxton-autonomous-trucks-2026.
@@ -16500,7 +16500,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1126/scirobotics.aed3973',
     type: 'paper',
   },
-  // resgac-2026: added 2026-10-06 via Guanya Shi (rl-sim2real/humanoid-wbc, ResGAC, 2026-10-08).
+  // resgac-2026: added 2026-10-06.
   // arXiv 2610.09479 abstract (v1 7 Oct 2026): "combines geometric admittance control (GAC) with residual
   // reinforcement learning", "ResGAC is validated on a real Unitree G1 humanoid" and "ResGAC achieves 90% success in
   // a standing peg-in-hole task compared with 50% for SONIC". PDF author block: Guanya Shi, Amazon FAR and Carnegie
@@ -16514,7 +16514,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.09479',
     type: 'paper',
   },
-  // roborender-2026: added 2026-10-06 via Jiajun Wu (rl-sim2real/sim2real-transfer, RoboRender, 2026-10-08).
+  // roborender-2026: added 2026-10-06.
   // arXiv 2610.09254 abstract (v1 7 Oct 2026): "a framework that converts simulated trajectories into photorealistic
   // RGB videos for policy learning" and "policies trained on RoboRender-generated data achieve a 71% average success
   // rate, outperforming raw simulation renderings and conventional visual domain randomization by approximately 7.1x
@@ -16528,7 +16528,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.09254',
     type: 'paper',
   },
-  // workhorse-2026: added 2026-10-06 via Pieter Abbeel (rl-sim2real/humanoid-wbc, Workhorse, 2026-10-08).
+  // workhorse-2026: added 2026-10-06.
   // arXiv 2610.09117 abstract (v1 6 Oct 2026): "A visual planner predicts five-link targets", "A reinforcement-learning
   // whole-body tracker follows them on the robot", "Both policies train separately on the same recorded human poses,
   // without retargeting" and "In a simulated copy of the demonstration room, the system completes box sorting in 77 %
@@ -17680,7 +17680,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2606.23444',
     type: 'paper',
   },
-  // h-jepa-2026: added 2026-10-06 via Yann LeCun (world-models/jepa).
+  // h-jepa-2026: added 2026-10-06.
   // Title, authors and abstract read through the arXiv API on 2026-10-06 (v1 5 Oct 2026).
   {
     id: 'h-jepa-2026',
@@ -18248,7 +18248,7 @@ export const CITATIONS: Citation[] = [
     "url": "https://www.unitree.com/Dex5-1/",
     "type": "docs"
   },
-  // mulligan-2026: added 2026-10-12 via Perry Dong.
+  // mulligan-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). Stanford University.
   {
     id: 'mulligan-2026',
@@ -18259,7 +18259,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.05882',
     type: 'paper',
   },
-  // ocbench-2026: added 2026-10-12 via Sergey Levine.
+  // ocbench-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). UC Berkeley.
   {
     id: 'ocbench-2026',
@@ -18270,7 +18270,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07056',
     type: 'paper',
   },
-  // egolap-2026: added 2026-10-12 via Dhruv Shah.
+  // egolap-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Princeton University, Toyota
   // Research Institute and Physical Intelligence.
   {
@@ -18285,7 +18285,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.08726',
     type: 'paper',
   },
-  // eigendexplore-2026: added 2026-10-12 via Shuran Song.
+  // eigendexplore-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Stanford University.
   {
     id: 'eigendexplore-2026',
@@ -18296,7 +18296,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07681',
     type: 'paper',
   },
-  // openwam-2026: added 2026-10-12 via Jiajun Wu.
+  // openwam-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026; the comments say code and project page
   // were released June 4, 2026). Stanford University.
   {
@@ -18311,7 +18311,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07922',
     type: 'paper',
   },
-  // jepa-unstable-modes-2026: added 2026-10-12 via Yann LeCun.
+  // jepa-unstable-modes-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Columbia University, New York
   // University and AMI Labs.
   {
@@ -18323,7 +18323,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07540',
     type: 'paper',
   },
-  // qf3-2026: added 2026-10-12 via Pieter Abbeel.
+  // qf3-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). UC Berkeley and Amazon FAR.
   {
     id: 'qf3-2026',
@@ -18337,7 +18337,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.08789',
     type: 'paper',
   },
-  // robo-cop-2026: added 2026-10-12 via Jiajun Wu.
+  // robo-cop-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 6 Oct 2026). Stanford University and NVIDIA Research.
   {
     id: 'robo-cop-2026',
@@ -18348,7 +18348,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.09228',
     type: 'paper',
   },
-  // long-wam-2026: added 2026-10-12 via Jim Fan (Linxi Fan).
+  // long-wam-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). NVIDIA, MIT, HKU and UCSD.
   {
     id: 'long-wam-2026',
@@ -18362,7 +18362,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.10528',
     type: 'paper',
   },
-  // ledger-2026: added 2026-10-12 via Homanga Bharadhwaj.
+  // ledger-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). Johns Hopkins University and the
   // Johns Hopkins University Applied Physics Laboratory.
   {
@@ -18374,7 +18374,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.10538',
     type: 'paper',
   },
-  // sgs-2026: added 2026-10-12 via Abhishek Gupta.
+  // sgs-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 8 Oct 2026; comments: "CoRL 2026"). University of
   // Washington and NVIDIA.
   {
@@ -18389,7 +18389,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12465',
     type: 'paper',
   },
-  // lac-wm-2026: added 2026-10-12 via Jiajun Wu.
+  // lac-wm-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 7 Oct 2026). Stanford University; work partly done
   // at Meta FAIR Robotics.
   {
@@ -18404,7 +18404,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.10846',
     type: 'paper',
   },
-  // luna-legged-2026: added 2026-10-12 via Marco Hutter.
+  // luna-legged-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 8 Oct 2026; comments: "Proceeding to the IEEE
   // iSparo Conference 2026"). All authors at ETH Zurich.
   {
@@ -18419,7 +18419,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12276',
     type: 'paper',
   },
-  // visual-predicted-force-2026: added 2026-10-12 via Jiajun Wu.
+  // visual-predicted-force-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 3 Oct 2026). Harvard University, MIT,
   // University of Pennsylvania and Stanford University.
   {
@@ -18434,7 +18434,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.04741',
     type: 'paper',
   },
-  // fingers-as-legs-2026: added 2026-10-12 via IEEE Spectrum (Edd Gent);
+  // fingers-as-legs-2026: added 2026-10-12;
   // the Spectrum article was the lead and the paper is the source. arXiv abstract page and PDF read 2026-10-12
   // (HTTP 200; v1 15 Sep 2026). All authors at the Soft Robotics Lab, ETH Zurich.
   {
@@ -18446,7 +18446,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2609.17172',
     type: 'paper',
   },
-  // ariadne-2026: added 2026-10-12 via Guanya Shi.
+  // ariadne-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026; comments: "Accepted at NeurIPS 2026").
   // Carnegie Mellon University, National University of Singapore, DEVCOM Army Research Laboratory and Harvard.
   {
@@ -18458,7 +18458,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.08863',
     type: 'paper',
   },
-  // mobilevista-2026: added 2026-10-12 via Jiajun Wu.
+  // mobilevista-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). Stanford University and Toyota
   // Research Institute.
   {
@@ -18473,7 +18473,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07511',
     type: 'paper',
   },
-  // trustworthy-physical-ai-2026: added 2026-10-12 via Daniela Rus.
+  // trustworthy-physical-ai-2026: added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). A position paper; the article states
   // its framework as the authors' view. Scuola Superiore Sant'Anna, MIT CSAIL, Stanford, University of Tokyo,
   // Boston University and National University of Singapore.
@@ -18489,7 +18489,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.07382',
     type: 'paper',
   },
-  // hiphi-2026: added 2026-10-12 via IEEE Spectrum (sponsored Noitom Robotics listing);
+  // hiphi-2026: added 2026-10-12;
   // the sponsored page was the lead and the paper is the source. arXiv abstract page and PDF
   // read 2026-10-12 (HTTP 200; v1 17 Aug 2026, v2 8 Sep 2026; comments: "Accepted at CoRL 2026"). Noitom Robotics
   // with National University of Singapore, Tsinghua SIGS, HKUST and the University of Hong Kong.
@@ -18505,7 +18505,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2608.16222',
     type: 'paper',
   },
-  // exploy-2026: added 2026-10-12 via RAI Institute.
+  // exploy-2026: added 2026-10-12.
   // RAI Institute blog post, datePublished 2026-10-07T14:21:30+00:00 in the page's JSON-LD, read 2026-10-12
   // (HTTP 200). The institute's own description of its own library, so the article attributes it to the institute.
   {
@@ -20775,7 +20775,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1016/j.media.2021.102306',
     type: 'paper',
   },
-  // paxton-iros-2026: added 2026-10-20 via Chris Paxton. Newsletter post dated
+  // paxton-iros-2026: added 2026-10-20. Newsletter post dated
   // 12 October 2026 (datePublished 2026-10-12T14:08:38Z), fetched 2026-10-20 (HTTP 200). The post names his
   // employer: "My team at Agility Robotics".
   {
@@ -20787,7 +20787,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://itcanthink.substack.com/p/dexterity-is-the-frontier-thoughts',
     type: 'blog',
   },
-  // fact-2026: added 2026-10-20 via Jiajun Wu. arXiv abstract page and PDF read
+  // fact-2026: added 2026-10-20. arXiv abstract page and PDF read
   // 2026-10-20 (HTTP 200; v1 13 Oct 2026). University of Michigan, Stanford University and Microsoft Research.
   {
     id: 'fact-2026',
@@ -20798,7 +20798,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.19155',
     type: 'paper',
   },
-  // dsp-2026: added 2026-10-20 via Jitendra Malik. arXiv abstract page and
+  // dsp-2026: added 2026-10-20. arXiv abstract page and
   // PDF read 2026-10-20 (HTTP 200; v1 15 Oct 2026). Amazon Frontier AI & Robotics (FAR) and the University of
   // Maryland, College Park.
   {
@@ -20810,7 +20810,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.22340',
     type: 'paper',
   },
-  // pantact-2026: added 2026-10-20 via Shuran Song. arXiv abstract page
+  // pantact-2026: added 2026-10-20. arXiv abstract page
   // and PDF read 2026-10-20 (HTTP 200; v1 8 Oct 2026). Stanford University, Amazon FAR and Carnegie Mellon
   // University.
   {
@@ -20825,7 +20825,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12558',
     type: 'paper',
   },
-  // imprint-2026: added 2026-10-21 via Homanga Bharadhwaj. arXiv abstract page and PDF read
+  // imprint-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 9 Oct 2026). Amazon FAR, Carnegie Mellon University, The University of Texas at Austin
   // and Johns Hopkins University.
   {
@@ -20840,7 +20840,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.14406',
     type: 'paper',
   },
-  // commgap-2026: added 2026-10-21 via Jiajun Wu. arXiv abstract page and PDF read 2026-10-21
+  // commgap-2026: added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 13 Oct 2026). Stanford University. The arXiv title's "Human--VLA" is set with an en dash.
   {
     id: 'commgap-2026',
@@ -20851,7 +20851,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.17746',
     type: 'paper',
   },
-  // chronos-policy-2026: added 2026-10-21 via Shuran Song. arXiv abstract page and PDF read
+  // chronos-policy-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 9 Oct 2026). Stanford University.
   {
     id: 'chronos-policy-2026',
@@ -20862,7 +20862,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.13929',
     type: 'paper',
   },
-  // discrete-actions-2026: added 2026-10-21 via Guanya Shi. arXiv abstract page and PDF read
+  // discrete-actions-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 14 Oct 2026). Carnegie Mellon University and Amazon FAR.
   {
     id: 'discrete-actions-2026',
@@ -20876,7 +20876,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.20429',
     type: 'paper',
   },
-  // robota-embed-2026: added 2026-10-21 via Jim Fan (Linxi Fan). arXiv abstract page and PDF read
+  // robota-embed-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 14 Oct 2026). NVIDIA, MIT, UC Berkeley, University of Oxford and Carnegie Mellon
   // University.
   {
@@ -20892,7 +20892,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.19495',
     type: 'paper',
   },
-  // steertuning-2026: added 2026-10-21 via Lerrel Pinto. arXiv abstract page and PDF read
+  // steertuning-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 13 Oct 2026). New York University.
   {
     id: 'steertuning-2026',
@@ -20906,7 +20906,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18711',
     type: 'paper',
   },
-  // worldoracle-2026: added 2026-10-21 via Yuke Zhu. arXiv abstract page and v1 and v2 PDFs read
+  // worldoracle-2026: added 2026-10-21. arXiv abstract page and v1 and v2 PDFs read
   // 2026-10-21 (HTTP 200; v1 13 Oct 2026, v2 16 Oct 2026, numbers identical). AgiBot, NVIDIA, Princeton University,
   // University of Texas at Austin and University of Toronto.
   {
@@ -20922,7 +20922,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18826',
     type: 'paper',
   },
-  // ge-sim-2-2026: added 2026-10-21 via Yuke Zhu (WorldOracle). Cited for the AgiBot authorship of a
+  // ge-sim-2-2026: added 2026-10-21. Cited for the AgiBot authorship of a
   // model WorldOracle scores. arXiv abstract page and PDF first pages read 2026-10-21 (HTTP 200; v1 26 May 2026).
   // AgiBot, BUAA, LV-NUS Lab and TJU.
   {
@@ -20937,7 +20937,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.27491',
     type: 'paper',
   },
-  // fomo-dex-2026: added 2026-10-21 via Jitendra Malik. arXiv abstract page and PDF read
+  // fomo-dex-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 12 Oct 2026). Amazon FAR and Carnegie Mellon University.
   {
     id: 'fomo-dex-2026',
@@ -20948,7 +20948,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.17161',
     type: 'paper',
   },
-  // i3l-2026: added 2026-10-21 via Jiajun Wu. arXiv abstract page and PDF read 2026-10-21
+  // i3l-2026: added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 13 Oct 2026). Stanford University and Lambda Inc.
   {
     id: 'i3l-2026',
@@ -20962,7 +20962,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.17748',
     type: 'paper',
   },
-  // fly-by-code-2026: added 2026-10-21 via Guanya Shi. arXiv abstract page and PDF read
+  // fly-by-code-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 8 Oct 2026). Seoul National University, Carnegie Mellon University, University of
   // Maryland, College Park, All Purpose AI and Kyung Hee University.
   {
@@ -20978,7 +20978,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12549',
     type: 'paper',
   },
-  // mind-temporal-gap-2026: added 2026-10-21 via Daniela Rus. arXiv abstract page and PDF read
+  // mind-temporal-gap-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 8 Oct 2026). MIT CSAIL and University of Haifa.
   {
     id: 'mind-temporal-gap-2026',
@@ -20989,7 +20989,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12575',
     type: 'paper',
   },
-  // primoretarget-2026: added 2026-10-21 via Xue Bin Peng. arXiv abstract page and PDF read
+  // primoretarget-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200). Simon Fraser University, FieldAI, NVIDIA and Alberta Machine Intelligence Institute.
   // v1 8 Oct 2026.
   {
@@ -21003,7 +21003,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12642',
     type: 'paper',
   },
-  // walk-like-this-2026: added 2026-10-21 via Marco Hutter. arXiv abstract page and PDF read
+  // walk-like-this-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200). Disney Research Zürich and ETH Zürich; CoRL 2026. v1 13 Oct 2026.
   {
     id: 'walk-like-this-2026',
@@ -21016,7 +21016,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18147',
     type: 'paper',
   },
-  // robosimstudio-2026: added 2026-10-21 via Ken Goldberg. arXiv abstract page and v1 and v2 PDFs
+  // robosimstudio-2026: added 2026-10-21. arXiv abstract page and v1 and v2 PDFs
   // read 2026-10-21 (HTTP 200). University of California, Berkeley and NVIDIA. v1 13 Oct 2026, v2 14 Oct 2026.
   // The PDF title omits "for Human and Agent", which the abstract-page title includes.
   {
@@ -21031,7 +21031,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18835',
     type: 'paper',
   },
-  // lehami-2026: added 2026-10-21 via Yann LeCun. arXiv abstract page and PDF read 2026-10-21
+  // lehami-2026: added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 11 Oct 2026). Courant Institute, New York University; Brown University; AMI Labs.
   {
     id: 'lehami-2026',
@@ -21042,7 +21042,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.15267',
     type: 'paper',
   },
-  // caster-2026: added 2026-10-21 via Homanga Bharadhwaj. arXiv abstract page and PDF read
+  // caster-2026: added 2026-10-21. arXiv abstract page and PDF read
   // 2026-10-21 (HTTP 200; v1 8 Oct 2026). Virginia Tech and Johns Hopkins University.
   {
     id: 'caster-2026',
@@ -21053,7 +21053,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12567',
     type: 'paper',
   },
-  // metagensim-2026: added 2026-10-21 via Danfei Xu. arXiv abstract page and PDF read 2026-10-21
+  // metagensim-2026: added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 14 Oct 2026; CoRL 2026). Georgia Institute of Technology.
   {
     id: 'metagensim-2026',
@@ -21064,7 +21064,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.19479',
     type: 'paper',
   },
-  // t2z-2026: added 2026-10-21 via Jiajun Wu. arXiv abstract page and PDF read 2026-10-21
+  // t2z-2026: added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
   // (HTTP 200; v1 15 Oct 2026). Stanford University, CMU, Toyota Research Institute and University of Southern
   // California.
   {
@@ -21079,7 +21079,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.22364',
     type: 'paper',
   },
-  // rax-2026: added 2026-10-24 via Pieter Abbeel. arXiv abstract page and PDF read 2026-10-24
+  // rax-2026: added 2026-10-24. arXiv abstract page and PDF read 2026-10-24
   // (HTTP 200; v1 15 Oct 2026). Harvard University, NVIDIA, UC Berkeley, MIT and Stanford University.
   {
     id: 'rax-2026',
@@ -21094,7 +21094,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.22496',
     type: 'paper',
   },
-  // coevolve-2026: added 2026-10-24 via Cheng Chi. The paper's Cheng Chi is at Renmin
+  // coevolve-2026: added 2026-10-24. The paper's Cheng Chi is at Renmin
   // University of China, not the person who pointed to it; added on its own merit. arXiv abstract page and v1 and v2 PDFs
   // read 2026-10-24 (HTTP 200; v1 16 Oct 2026, v2 19 Oct 2026, same text). Peking University, Renmin University of
   // China, Beijing XYZ Embodied AI and BAAI.
@@ -21107,7 +21107,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.23288',
     type: 'paper',
   },
-  // stopwatch-2026: added 2026-10-24 via Pieter Abbeel. arXiv abstract page and PDF read 2026-10-24
+  // stopwatch-2026: added 2026-10-24. arXiv abstract page and PDF read 2026-10-24
   // (HTTP 200; v1 16 Oct 2026). Amazon FAR, New York University, UC Berkeley and Carnegie Mellon University.
   {
     id: 'stopwatch-2026',
@@ -21118,7 +21118,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.23841',
     type: 'paper',
   },
-  // supermimic-2026: added 2026-10-25 via Pieter Abbeel. arXiv abstract page and PDF read
+  // supermimic-2026: added 2026-10-25. arXiv abstract page and PDF read
   // 2026-10-25 (HTTP 200). UC Berkeley. v1 20 Oct 2026.
   {
     id: 'supermimic-2026',
@@ -21129,7 +21129,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.28480',
     type: 'paper',
   },
-  // fiber-2026: added 2026-10-25 via Guanya Shi. arXiv abstract page and PDF read 2026-10-25
+  // fiber-2026: added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Amazon FAR, Carnegie Mellon University and Stanford University. v2 20 Oct 2026.
   {
     id: 'fiber-2026',
@@ -21140,7 +21140,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24675',
     type: 'paper',
   },
-  // swap-2026: added 2026-10-25 via Pieter Abbeel. arXiv abstract page and PDF read 2026-10-25
+  // swap-2026: added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Carnegie Mellon University and Amazon FAR. v1 19 Oct 2026.
   {
     id: 'swap-2026',
@@ -21151,7 +21151,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.25711',
     type: 'paper',
   },
-  // embodyhoi-2026: added 2026-10-25 via Guanya Shi. arXiv abstract page and PDF read 2026-10-25
+  // embodyhoi-2026: added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Carnegie Mellon University. v1 19 Oct 2026.
   {
     id: 'embodyhoi-2026',
@@ -21162,7 +21162,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.27242',
     type: 'paper',
   },
-  // rubiks-quadruped-2026: added 2026-10-25 via Marco Hutter. arXiv abstract page and PDF read
+  // rubiks-quadruped-2026: added 2026-10-25. arXiv abstract page and PDF read
   // 2026-10-25 (HTTP 200). ETH Zurich. v1 17 Oct 2026.
   {
     id: 'rubiks-quadruped-2026',
@@ -21176,7 +21176,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24610',
     type: 'paper',
   },
-  // offline-empowerment-2026: added 2026-10-25 via Sergey Levine. arXiv abstract page and PDF
+  // offline-empowerment-2026: added 2026-10-25. arXiv abstract page and PDF
   // read 2026-10-25 (HTTP 200). UC Berkeley and Princeton University. v1 17 Oct 2026.
   {
     id: 'offline-empowerment-2026',
@@ -21187,7 +21187,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24461',
     type: 'paper',
   },
-  // ssio-2026: added 2026-10-25 via Pieter Abbeel. arXiv abstract page and PDF read 2026-10-25
+  // ssio-2026: added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Amazon FAR, Carnegie Mellon University, UC Berkeley, Stanford University and Penn State University.
   // v2 21 Oct 2026.
   {
@@ -21213,7 +21213,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.25988',
     type: 'paper',
   },
-  // humanoidpose-2026: added 2026-10-25 via Marco Hutter. arXiv abstract page and PDF read 2026-10-25
+  // humanoidpose-2026: added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). ETH Zurich. v1 18 Oct 2026.
   {
     id: 'humanoidpose-2026',
@@ -21224,7 +21224,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.25288',
     type: 'paper',
   },
-  // dreamcan-2026: added 2026-10-25 via Jiajun Wu. arXiv abstract page and PDF read 2026-10-25
+  // dreamcan-2026: added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Stanford University, National University of Singapore, Harvard University and Northwestern
   // University. v1 18 Oct 2026.
   {
@@ -21245,7 +21245,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24981',
     type: 'paper',
   },
-  // aim-2026: added 2026-10-25 via Dhruv Shah. arXiv abstract page and PDF read 2026-10-25
+  // aim-2026: added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Princeton University and Columbia University. v1 19 Oct 2026.
   {
     id: 'aim-2026',
@@ -21265,7 +21265,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.27387',
     type: 'paper',
   },
-  // pia-2026: added 2026-10-25 via Xiaolong Wang. arXiv abstract page and PDF read 2026-10-25
+  // pia-2026: added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
   // (HTTP 200). Toyota Research Institute and UC San Diego. v1 19 Oct 2026.
   {
     id: 'pia-2026',
@@ -21285,7 +21285,7 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.26757',
     type: 'paper',
   },
-  // hurst-spectrum-2026: added 2026-10-25 via IEEE Spectrum Robotics. Article read 2026-10-25
+  // hurst-spectrum-2026: added 2026-10-25. Article read 2026-10-25
   // (HTTP 200), published 2026-10-19. A first-person account by Agility Robotics' cofounder and chief robot
   // officer: cited only for his attributed design statements, never for a number.
   {
