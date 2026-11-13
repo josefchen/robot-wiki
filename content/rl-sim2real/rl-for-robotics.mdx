@@ -5,7 +5,7 @@ domain: rl-sim2real
 slug: rl-for-robotics
 order: 1
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - sutton-barto-2018
   - rudin-2021
@@ -75,21 +75,21 @@ import { ReplayReuse } from '@/components/interactive/replay-reuse';
 
 import { HindsightRelabel } from '@/components/interactive/hindsight-relabel';
 
-Reinforcement learning (RL) trains a robot by trial and error: it acts, receives a numerical reward for how well that went, and adjusts its <Term id="policy">policy</Term> to earn more <Cite id="sutton-barto-2018" />. In robotics the method is shaped by the price of each try, nearly free in GPU simulation <Cite id="isaac-gym-2021" /> <Cite id="rudin-2021" /> and costly on a real machine.
+Reinforcement learning (RL) trains a robot by trial and error: it acts, gets a numerical reward, and adjusts its <Term id="policy">policy</Term> to earn more <Cite id="sutton-barto-2018" />. In robotics the price of each try shapes the method: nearly free in GPU simulation <Cite id="isaac-gym-2021" /> <Cite id="rudin-2021" />, costly on a real machine.
 
 <Image id="daydreamer-a1-push-recovery-2022" />
 
-## What each try costs
+## Every try costs time on hardware
 
-An RL method is limited by how many environment steps, one action and its result, it can afford. In simulation thousands of robots step at once and reset themselves; on hardware each step takes real time and wear, and each episode needs a reset <Cite id="rudin-2021" /> <Cite id="haarnoja-walk-2019" />.
+An RL method is limited by how many environment steps it can afford. Simulation steps thousands of robots at once and resets them; hardware spends real time and wear on every step and needs a reset per episode <Cite id="rudin-2021" /> <Cite id="haarnoja-walk-2019" />.
 
 <SampleEfficiencyLedger className="my-6" />
 
-Reviews of robot RL list real-world problems that games and simulated benchmarks rarely face <Cite id="ibarz-2021" />, and call stable, sample-efficient real-world RL a priority <Cite id="tang-drl-survey-2025" />.
+Reviews call stable, sample-efficient real-world RL a priority <Cite id="tang-drl-survey-2025" /> and list problems that games rarely pose <Cite id="ibarz-2021" />.
 
-## Two ways to spend experience
+## On-policy discards data; off-policy reuses it
 
-An <Term id="on-policy">on-policy</Term> method learns only from data its current policy just produced, then discards it; PPO takes several update passes over each fresh batch where plain policy gradient takes one <Cite id="ppo-2017" />. An <Term id="off-policy">off-policy</Term> method keeps every try in a <Term id="replay-buffer">replay buffer</Term> and reuses it. Most off-policy methods build on <Term id="q-learning">Q-learning</Term>, which estimates how good each action is and learns from the best next action, even one never taken <Cite id="sutton-barto-2018" />.
+An <Term id="on-policy">on-policy</Term> method learns only from data its current policy just produced, then discards it; PPO takes several update passes over each batch <Cite id="ppo-2017" />. An <Term id="off-policy">off-policy</Term> method keeps every try in a <Term id="replay-buffer">replay buffer</Term>. Most build on <Term id="q-learning">Q-learning</Term>, which learns from the best next action, even one never taken <Cite id="sutton-barto-2018" />.
 
 <ReplayReuse className="my-6" />
 
@@ -99,50 +99,77 @@ An <Term id="on-policy">on-policy</Term> method learns only from data its curren
 | TD3 (2018) | Curbed DDPG's overestimated action values <Cite id="td3-2018" /> |
 | SAC (2018) | Rewards acting as randomly as the task allows, for steadier learning <Cite id="sac-2018" /> |
 
-### Why simulation made PPO the default
+### Simulation made PPO the default
 
-With thousands of simulated robots, tries are cheap and stability is scarce. SAC's authors credit on-policy training with stability at the price of "poor sample complexity" <Cite id="sac-2018" />. Rudin and colleagues trained the four-legged ANYmal with 4,096 simulated robots in under twenty minutes on one GPU, over 122,880 steps per second <Cite id="rudin-2021" /> ([parallel simulation](/rl-sim2real/parallel-sim-rl)).
+With thousands of simulated robots, tries are cheap and stability is scarce <Cite id="sac-2018" />. Rudin and colleagues trained ANYmal with 4,096 simulated robots in under twenty minutes on one GPU, using [parallel simulation](/rl-sim2real/parallel-sim-rl) <Cite id="rudin-2021" />.
 
 <Image id="isaac-gym-allegro-envs-2021" />
 
-Off-policy methods used data better but ran slower by the clock, so most GPU-simulation work used PPO <Cite id="pql-2023" />. That gap has closed. Parallel Q-Learning beat PPO in wall-clock time <Cite id="pql-2023" />; FastTD3 <Cite id="fasttd3-2025" /> and FastSAC trained humanoid walking that worked on real robots in 15 minutes on one gaming GPU <Cite id="seo-2025" />. In 2026 SAC matched PPO across seven legged robots using PPO's own rewards <Cite id="rsl-rl-sac-2026" />, and FlashSAC beat PPO on more than 60 tasks in 10 simulators <Cite id="flashsac-2026" />.
+Off-policy methods used data better but ran slower by the clock, so most GPU-simulation work used PPO. That gap has closed <Cite id="pql-2023" />.
+
+| Method | Result |
+| --- | --- |
+| Parallel Q-Learning | Beat PPO in wall-clock time <Cite id="pql-2023" /> |
+| FastTD3, FastSAC | Humanoid walking for real robots in 15 minutes on one gaming GPU <Cite id="fasttd3-2025" /> <Cite id="seo-2025" /> |
+| SAC (2026) | Matched PPO on seven legged robots with PPO's own rewards <Cite id="rsl-rl-sac-2026" /> |
+| FlashSAC | Beat PPO on more than 60 tasks in 10 simulators <Cite id="flashsac-2026" /> |
 
 ## Real robots count tries in hours
 
-<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="Minitaur walking" value="160k steps" note="about two real-world hours" accent />
-  <Stat label="A1 walking" value="1 h" note="DayDreamer, no simulator" />
-  <Stat label="QT-Opt grasping" value="580k grasps" note="about 800 robot hours, 7 robots" />
-  <Stat label="hand-eye grasping" value="about 800k attempts" note="two months, 6 to 14 robots" />
-</div>
+<Term id="sample-efficiency">Sample efficiency</Term>, the experience a method needs, decides whether real-robot learning takes an afternoon or a season. Grasping takes far longer than walking.
 
-<Term id="sample-efficiency">Sample efficiency</Term>, the experience a method needs, decides whether real-robot learning takes an afternoon or a season. A small Minitaur quadruped learned to walk from 160,000 steps, about two hours including resets <Cite id="haarnoja-walk-2019" />. DayDreamer, which practices inside a learned world model, taught a Unitree A1 to roll over, stand and walk in one hour without a simulator, with people stepping in at the edge of the area <Cite id="daydreamer-2022" />. A Walk in the Park needed 20 minutes and a carefully tuned controller <Cite id="walk-in-the-park-2022" />, and an 11.5-ton excavator learned sub-centimeter path tracking in 40 minutes <Cite id="excavator-mbrl-2026" />. Grasping took far longer: QT-Opt used over 580,000 attempts on seven robots in about 800 robot hours <Cite id="qt-opt-2018" />, and a 2016 study that trained a supervised grasp predictor used about 800,000 over two months <Cite id="levine-hand-eye-2016" />.
+| Robot | Task | Experience |
+| --- | --- | --- |
+| Minitaur | Walking | 160,000 steps, about two hours with resets <Cite id="haarnoja-walk-2019" /> |
+| Unitree A1 | Roll over, stand, walk, in a learned world model | One hour, no simulator <Cite id="daydreamer-2022" /> |
+| Quadruped (A Walk in the Park) | Walking, with a tuned controller | 20 minutes <Cite id="walk-in-the-park-2022" /> |
+| 11.5-ton excavator | Sub-centimeter path tracking | 40 minutes <Cite id="excavator-mbrl-2026" /> |
+| Seven arms (QT-Opt) | Grasping | 580,000 attempts, about 800 robot hours <Cite id="qt-opt-2018" /> |
+| 6 to 14 arms | Supervised grasp prediction (2016) | About 800,000 attempts over two months <Cite id="levine-hand-eye-2016" /> |
 
-## Offline reinforcement learning
+## Offline RL learns from a fixed log
 
-<Term id="offline-reinforcement-learning">Offline reinforcement learning</Term> learns from a fixed log of past experience <Cite id="offline-rl-tutorial-2020" />, so it can reuse robot [datasets](/data-hardware/datasets). The danger is optimism: the policy favors actions the log never shows, their estimated values are wrongly high, and no fresh data corrects them <Cite id="offline-rl-tutorial-2020" />. BCQ showed this stops standard off-policy algorithms from learning on fixed data <Cite id="bcq-2018" />. The fixes keep the policy near the data: CQL pushes down values of unseen actions <Cite id="cql-2020" />, IQL never evaluates them <Cite id="iql-2022" />, and TD3+BC adds an imitation term <Cite id="td3-bc-2021" />. Q-Transformer beat earlier offline and imitation methods on a large real-robot suite <Cite id="q-transformer-2023" />, and offline data can speed up later learning <Cite id="ptr-2022" /> <Cite id="cal-ql-2023" /> <Cite id="rlpd-2023" />.
+<Term id="offline-reinforcement-learning">Offline reinforcement learning</Term> learns from a log of past experience, so it can reuse robot [datasets](/data-hardware/datasets) <Cite id="offline-rl-tutorial-2020" />. Its danger is optimism: actions the log never shows get wrongly high values, and no fresh data corrects them <Cite id="offline-rl-tutorial-2020" />. BCQ showed this breaks standard off-policy algorithms on fixed data <Cite id="bcq-2018" />.
 
-### Does any of this beat behavior cloning on robot data?
+| Fix | How it stays near the data |
+| --- | --- |
+| CQL | Pushes down the values of unseen actions <Cite id="cql-2020" /> |
+| IQL | Never evaluates them <Cite id="iql-2022" /> |
+| TD3+BC | Adds an imitation term <Cite id="td3-bc-2021" /> |
 
-On human demonstrations, often not. The robomimic study found that neither BCQ nor CQL did well, while behavior cloning with memory of recent steps was strong <Cite id="robomimic-2021" />. Kumar and colleagues showed that offline RL can beat imitation when the data covers the optimal policy, while on purely expert data the two match in the worst case <Cite id="offline-rl-vs-bc-2022" />. So [behavior cloning](/manipulation/bc-foundations) is the simpler start for teleoperation data, though newer real-robot results favor RL: policies fine-tuned on RL-generated data beat the same policies trained on human demonstrations by up to 40% <Cite id="rldg-2024" />, and Physical Intelligence's RECAP, offline RL for a VLA model, more than doubled throughput on some of the hardest tasks <Cite id="pistar06-2025" />.
+Q-Transformer beat earlier offline and imitation methods on a large real-robot suite <Cite id="q-transformer-2023" />.
 
-## Sparse reward, and learning from failure
+Also: offline pretraining that speeds up later learning, PTR <Cite id="ptr-2022" />, Cal-QL <Cite id="cal-ql-2023" />, RLPD <Cite id="rlpd-2023" />.
 
-If reward comes only on success, a robot that never succeeds learns nothing. Shaping the reward is one answer ([reward design](/rl-sim2real/reward-design-mpc)). <Term id="hindsight-experience-replay">Hindsight experience replay</Term> (HER) is another: it stores each attempt again as if the goal had been a state the robot reached later, so a missed push still teaches how to push <Cite id="her-2017" />.
+### On demonstrations, behavior cloning often wins
+
+On human demonstrations, [behavior cloning](/manipulation/bc-foundations) with memory of recent steps was strong in robomimic, while BCQ and CQL did poorly <Cite id="robomimic-2021" />. Offline RL wins when the data covers the optimal policy; on purely expert data the two match in the worst case <Cite id="offline-rl-vs-bc-2022" />.
+
+Newer real-robot results favor RL. Policies fine-tuned on RL-generated data beat the same policies trained on human demonstrations by up to 40% <Cite id="rldg-2024" />. RECAP, offline RL for a VLA model, more than doubled throughput on some of the hardest tasks <Cite id="pistar06-2025" />.
+
+## Hindsight relabeling learns from failure
+
+If reward comes only on success, a robot that never succeeds learns nothing. [Reward shaping](/rl-sim2real/reward-design-mpc) is one answer; <Term id="hindsight-experience-replay">hindsight experience replay</Term> (HER) stores each attempt again as if a state reached later had been the goal <Cite id="her-2017" />.
 
 <HindsightRelabel className="my-6" />
 
-With HER, DDPG learned pushing, sliding and pick-and-place on a simulated Fetch arm where DDPG alone failed, and the pick-and-place policy worked on a real Fetch without fine-tuning. The tasks had help, such as half the pick-and-place episodes starting with the box grasped, and HER needs a reward it can recompute for any goal <Cite id="her-2017" />.
+With HER, DDPG learned pushing, sliding and pick-and-place on a simulated Fetch arm where DDPG alone failed, and the pick-and-place policy worked on a real Fetch without fine-tuning <Cite id="her-2017" />.
 
-## The reset problem
+## Real episodes need resets
 
-A simulated episode restarts itself <Cite id="autonomous-rl-2022" />; a real one ends wherever the robot is, and something must put things back <Cite id="leave-no-trace-2017" />. Zhu and colleagues asked for real-world RL that learns from raw sensors, needs no instrumented rewards and no human resets; their D'Claw hand trained unattended, though evaluation included manual resets <Cite id="real-world-rl-ingredients-2020" />. Leave No Trace learns a reset policy and aborts before states it cannot undo <Cite id="leave-no-trace-2017" />, and VaPRL cut interventions in simulated tasks by practicing from chosen starting points <Cite id="vaprl-2021" />. <Term id="reset-free-learning">Reset-free</Term> MTRF chained a valve and a pipe task on a robot hand with no manual resets, though it relied on a designer's task graph, supplied rewards, motion capture, scripted arm motion and a person placing objects <Cite id="reset-free-rl-2021" />.
+A simulated episode restarts itself <Cite id="autonomous-rl-2022" />; a real one ends wherever the robot is <Cite id="leave-no-trace-2017" />.
 
-FIND (September 2026) lets a vision-language agent look at the scene each attempt leaves and pick the next task, favoring those with low recent success. With a frozen π0.5 policy and residual off-policy RL, success on eight real tasks rose from 55% to 71.9%; one run logged 456 episodes in six hours with 30 recovery interventions <Cite id="find-2026" />.
+| Method | Approach | Result |
+| --- | --- | --- |
+| Zhu et al. | Raw sensors, no instrumented rewards, no human resets | A D'Claw hand trained unattended <Cite id="real-world-rl-ingredients-2020" /> |
+| Leave No Trace | A learned reset policy that aborts before irreversible states | <Cite id="leave-no-trace-2017" /> |
+| VaPRL | Practice from chosen starting points | Fewer interventions in simulated tasks <Cite id="vaprl-2021" /> |
+| MTRF | <Term id="reset-free-learning">Reset-free</Term> chaining of tasks | Valve and pipe tasks on a hand, no manual resets <Cite id="reset-free-rl-2021" /> |
+| FIND | A vision-language agent picks the next task from the scene | Eight real tasks from 55% to 71.9%; 456 episodes in six hours with 30 interventions <Cite id="find-2026" /> |
 
 ## Real-robot RL reaches near-perfect reliability
 
-The usual recipe starts from a few demonstrations, learns off-policy on the robot and lets a person step in when it goes wrong <Cite id="serl-2024" /> <Cite id="hil-serl-2024" />. HIL-SERL reports 100% success in 100 trials per task, 10 of 10 for whole IKEA assembly, after one to two and a half hours of training for nearly all tasks, counting scripted motion and stops <Cite id="hil-serl-2024" /> <Cite id="hil-serl-scirobotics-2025" />. RL-100 (Science Robotics, July 2026) reports 1,000 successes in 1,000 episodes across eight tasks, from pouring to box folding, under its authors' own protocol <Cite id="rl-100-2025" /> <Cite id="rl-100-scirobotics-2026" />; Johannes A. Stork argued in the same issue that real-world learning can take manipulation beyond imitation <Cite id="stork-beyond-imitation-2026" />.
+The recipe starts from a few demonstrations, learns off-policy on the robot and lets a person step in <Cite id="serl-2024" /> <Cite id="hil-serl-2024" />. HIL-SERL reports 100% success in 100 trials per task, including whole IKEA assembly, after one to two and a half hours of training <Cite id="hil-serl-2024" /> <Cite id="hil-serl-scirobotics-2025" />. RL-100 reports 1,000 successes in 1,000 episodes across eight tasks, from pouring to box folding <Cite id="rl-100-2025" /> <Cite id="rl-100-scirobotics-2026" />.
 
 | System | Reported result |
 | --- | --- |
@@ -153,6 +180,8 @@ The usual recipe starts from a few demonstrations, learns off-policy on the robo
 | ReF-HIL (2026) | 90% success after 18 to 63 minutes of active training <Cite id="ref-hil-2026" /> |
 | ACCRUE (2026) | 31.0% to 68.5% less training time on assembly sequences <Cite id="accrue-2026" /> |
 
-## Where the field is heading
+Also: Stork on learning beyond imitation <Cite id="stork-beyond-imitation-2026" />.
 
-Korniak and colleagues improved one generalist policy online across many tasks at once, with gains on tasks left out of online training; value-based RL was critical to that transfer <Cite id="generalist-rl-improvement-2026" />. [RL fine-tuning](/manipulation/rl-finetuning) covers RL on vision-language-action policies, such as online PPO for π0 and π0.5 <Cite id="pi-rl-2026" /> and residual specialists <Cite id="pld-2026" />. DROID <Cite id="droid-2024" /> and Open X-Embodiment <Cite id="open-x-embodiment-2023" /> offer large demonstration sets but no rewards, so offline RL on them needs labels added. [Why RL won locomotion](/rl-sim2real/why-rl-locomotion) and [sim-to-real transfer](/rl-sim2real/sim2real-transfer) cover the simulation route.
+## Generalist policies are the next target
+
+Korniak and colleagues improved one generalist policy online across many tasks at once, with gains on tasks left out of online training <Cite id="generalist-rl-improvement-2026" />. [RL fine-tuning](/manipulation/rl-finetuning) covers online PPO for π0 and π0.5 <Cite id="pi-rl-2026" /> and residual specialists <Cite id="pld-2026" />. DROID <Cite id="droid-2024" /> and Open X-Embodiment <Cite id="open-x-embodiment-2023" /> offer demonstrations without rewards, so offline RL on them needs added labels.
