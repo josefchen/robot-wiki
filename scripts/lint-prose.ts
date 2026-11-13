@@ -20,7 +20,7 @@
  * its exact quote text is masked in both halves, and an entry whose quote
  * matches no scanned content is reported [STALE] so the list stays honest.
  *
- * Exits non-zero on any finding. Run standalone (npm run lint-prose) or
+ * Exits non-zero on any finding. Run standalone (node scripts/lint-prose.ts) or
  * via validate:content (prebuild, --source-only: the source tree is what
  * exists before a build, and a stale out/ from an earlier build must not
  * fail the prebuild for defects already fixed in source) and via postbuild
@@ -132,8 +132,7 @@ if (reportOnly) {
 }
 
 // --- 2. Banned markers over MDX prose. ---
-// --content-dir <path> points the source sweeps at another tree, so the
-// structural-floor plant can run this exact CLI over a planted copy.
+// --content-dir <path> points the source sweeps at another tree.
 const contentDirAt = process.argv.indexOf('--content-dir');
 const contentDir = contentDirAt >= 0 && process.argv[contentDirAt + 1]
   ? process.argv[contentDirAt + 1]

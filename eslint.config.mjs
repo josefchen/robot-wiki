@@ -7,9 +7,6 @@ const eslintConfig = defineConfig([
   ...nextTs,
   globalIgnores([
     '.next/**',
-    // Isolated build dir of the draft-probe propagation test
-    // (tests/propagation/); transient build output like .next.
-    '.next-probe/**',
     'out/**',
     // Generated mirror of out/pagefind for Next.js/Vercel delivery.
     // Keep linting the first-party search code and build-search script.

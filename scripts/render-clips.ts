@@ -15,10 +15,9 @@
  *      artifact exceeds the budget.
  *
  * This runs on the machine that renders clips, by hand. No build, deploy
- * or CI step ever invokes it (pinned by
- * tests/unit/motion-clip-build-isolation.test.ts).
+ * or CI step ever invokes it.
  *
- *   npm run clips:render
+ *   node scripts/render-clips.ts
  */
 import { execFileSync } from 'node:child_process';
 import {

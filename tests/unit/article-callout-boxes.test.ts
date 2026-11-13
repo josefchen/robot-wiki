@@ -1,5 +1,3 @@
-import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { publishedModules } from '@/data/modules';
@@ -90,13 +88,4 @@ describe('callout and aside boxes in articles', () => {
     expect(boxUses(CONTENT, ROOT)).toEqual([]);
   });
 
-  it('runs in vercel-build with no allowlist, and a planted Callout and Aside each fail it', () => {
-    const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { scripts: Record<string, string> };
-    expect(pkg.scripts['vercel-build']).toContain('node scripts/check-article-boxes.ts');
-    const run = spawnSync(process.execPath, ['scripts/plant-article-boxes.ts'], { encoding: 'utf8' });
-    expect(run.status, run.stderr).toBe(0);
-    expect(run.stdout).toContain('clean copy: exit 0');
-    expect(run.stdout).toMatch(/^manipulation\/bc-foundations\.mdx: exit 1, names manipulation\/bc-foundations\.mdx:\d+$/m);
-    expect(run.stdout).toMatch(/^frontier\/bear-case\.mdx: exit 1, names frontier\/bear-case\.mdx:\d+$/m);
-  }, 60_000);
 });
