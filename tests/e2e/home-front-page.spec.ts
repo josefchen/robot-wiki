@@ -21,7 +21,7 @@ import {
  * Served from the static export, because the counts, the
  * featured pick and the dates are fixed when the page is built.
  *
- * Owner-approved successor (Josef, 12 November 2026, the home redesign):
+ * Updated for the home redesign of 12 November 2026:
  * the humanoid scene moved into the first screen beside the name, the one
  * featured article became four "Start here" entries with pictures, "Recently
  * updated" became "Latest" with readable dates and editor notes, and the
@@ -387,7 +387,7 @@ test.describe('home front page', () => {
     });
   });
 
-  // Owner-approved successor (Josef, 12 November 2026, the home redesign):
+  // Updated for the home redesign of 12 November 2026:
   // home prose is everything but article titles, the three facts and
   // navigation labels, and it holds 250 words or fewer even with a full
   // ten-word note on every "Latest" row.
@@ -447,8 +447,8 @@ test.describe('home front page', () => {
     expect(graphics.filter(({ kind }) => kind === 'ornament')).toEqual([]);
     expect(graphics.some(({ kind }) => kind === 'featured-scene')).toBe(true);
     expect(graphics.filter(({ kind }) => kind === 'article-picture')).toHaveLength(4);
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): the one brand highlight is still the masthead's source
+    // Updated for the research-page standard of 10 October
+    // 2026: the one brand highlight is still the masthead's source
     // count, now set on the meta line in the page's own type instead of a
     // lime <mark>, so no <mark> and no fill remain in <main>.
     const highlight = main.locator('[data-brand-highlight]');

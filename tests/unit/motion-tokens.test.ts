@@ -32,8 +32,8 @@ describe('motion tokens', () => {
   });
 
   it('pins the stage and light variants byte-for-byte to the spec table', () => {
-    // Owner-approved successor (owner directive of 2026-10-10 02:00, figures
-    // to the Pantheon research-page standard): the role palette retires as
+    // Updated for the figure standard of 10 October 2026 (figures follow
+    // the research-page standard): the role palette retires as
     // series colours. Roles paint ink and the grayscale chart steps, and the
     // highlight role is the figure's one muted blue accent. It replaces the
     // 2026-10-02 13:15 table of seven darkened hues and the lime halo.

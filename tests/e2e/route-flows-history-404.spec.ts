@@ -114,8 +114,8 @@ test.describe('browser history restores route and focus', () => {
     await gotoSettled(page, `${BASE}/manipulation/`);
     // The sidebar never unmounts, so the clicked link keeps focus across
     // the whole history step: nothing was lost, so nothing may be moved.
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): the old pin clicked the persistent sidebar's "Action
+    // Updated for the research-page standard of 10 October
+    // 2026: the old pin clicked the persistent sidebar's "Action
     // Chunking (ACT and ALOHA)" link. The sidebar is gone and the Articles
     // panel unmounts as its link navigates, so the persistent chrome link is
     // now the top bar's "How robots work", which never unmounts either.
@@ -137,8 +137,8 @@ test.describe('browser history restores route and focus', () => {
     await gotoSettled(page, `${BASE}/manipulation/action-chunking/`);
     // The breadcrumb trail is the wiki's own way back (Home › Domain ›
     // Article); using it and returning must land focus on the article.
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): the old pin jumped by the trail's "Home" crumb. Since
+    // Updated for the research-page standard of 10 October
+    // 2026: the old pin jumped by the trail's "Home" crumb. Since
     // 9154d672 the eyebrow trail holds only the domain ancestor (the full
     // trail is the BreadcrumbList JSON-LD), so the jump is that crumb.
     await page
@@ -182,8 +182,8 @@ test.describe('unknown routes render the styled 404', () => {
       page.getByRole('link', { name: 'Back to the wiki home' }),
     ).toBeVisible();
     // Standard site chrome intact: the taxonomy sidebar is still there.
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): the old pin read the taxonomy sidebar at rest; the same
+    // Updated for the research-page standard of 10 October
+    // 2026: the old pin read the taxonomy sidebar at rest; the same
     // taxonomy nav now opens from the top bar's Articles button.
     await openArticlesPanel(page);
     await expect(
@@ -235,8 +235,8 @@ test.describe('chrome destinations are reachable by clicking alone', () => {
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(`${BASE}/`);
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): the old pins clicked the persistent sidebar's taxonomy
+    // Updated for the research-page standard of 10 October
+    // 2026: the old pins clicked the persistent sidebar's taxonomy
     // links, its "#sidebar-search-input" and its "#sidebar-rail" wordmark.
     // The same taxonomy links and search box live in the Articles panel,
     // which closes as a link navigates and is reopened for each step; the

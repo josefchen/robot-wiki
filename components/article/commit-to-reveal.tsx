@@ -108,7 +108,7 @@ export interface CommitToRevealProps {
 
 /**
  * Which author-facing surface this mount is. Selects the stable region
- * hook MDX validators select on. Internal: the named exports set it, MDX
+ * hook the MDX checks select on. Internal: the named exports set it, MDX
  * authors never pass it.
  */
 type CommitRegion = 'self-check' | 'predict';

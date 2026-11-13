@@ -37,7 +37,7 @@ const GROUPS = [
 ];
 
 /**
- * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * Updated for the research-page standard of 10 October 2026:
  * the persistent sidebar and the hamburger are gone. The taxonomy lives in
  * the panel the top bar's "Articles" button opens at every width, so the
  * desktop checks open it first and read the same groups, links and states
@@ -167,8 +167,8 @@ test.describe('navigation shell', () => {
     await expect(
       page.getByRole('link', { name: 'Skip to content' }),
     ).toBeFocused();
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): the one top bar puts the wordmark left of "Articles", so
+    // Updated for the research-page standard of 10 October
+    // 2026: the one top bar puts the wordmark left of "Articles", so
     // the home link is the next stop and the trigger the one after it.
     await page.keyboard.press('Tab');
     await expect(

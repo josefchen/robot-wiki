@@ -138,7 +138,7 @@ describe('countVisibleWords: disclosures mirror Chromium innerText', () => {
     // Measured in headless Chromium 2026-08-19 (visual-details-summary-probe):
     // innerText "alpha beta", 2 tokens. Chromium renders only the first
     // direct-child <summary> of a closed <details>; the second is absent.
-    // The orchestrator's independent measurement returned the same numbers.
+    // A second, independent measurement returned the same numbers.
     const markup =
       '<details><summary>alpha beta</summary><summary>gamma delta</summary></details>';
     expect(countVisibleWords(markup)).toBe(2);

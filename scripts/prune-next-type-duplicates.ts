@@ -5,7 +5,7 @@
  * lib/sync-duplicates.ts) from the Next.js generated type directories that
  * tsconfig includes (.next/types and .next/dev/types). A duplicate landing
  * there breaks `npm run typecheck` with duplicate declarations (observed
- * 2026-08-07, and again at session start on 2026-08-11 and 2026-08-14),
+ * 2026-08-07, and again on 2026-08-11 and 2026-08-14),
  * and `next typegen` rewrites its own files without removing the ghosts,
  * so the sweep runs as the `pretypecheck` npm hook, before typegen. It
  * runs as `prebuild` for the same reason: `next build` regenerates

@@ -25,8 +25,8 @@
  * truth comes from deriving the varying clause at render time inside the
  * component, which this Node gate cannot see.
  *
- * Exits non-zero on any finding. Proved by mutation in the feature
- * handoff: removed description, banned opener, one-digit description and
+ * Exits non-zero on any finding. Proved by mutation: a removed
+ * description, banned opener, one-digit description and
  * a digit-normalised duplicate each fail the gate naming the component,
  * and the restored tree passes.
  */

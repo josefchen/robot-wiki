@@ -6,8 +6,8 @@
  * multicolour badges. Drawn as files, a white mark vanishes on the paper and
  * every colour fights the page's one accent; the old answer, a mid-grey
  * plate under a black-and-white threshold, turned the map into a hundred
- * grey chips (owner review of 19 October 2026: "the market map has weird
- * background and borders"). Here the file is never painted. Its alpha
+ * grey chips with odd backgrounds and borders (reviewed 19 October 2026).
+ * Here the file is never painted. Its alpha
  * channel is the mask of one element filled with the secondary ink token
  * (`--color-text-dim`, the tile's quiet line), so a white mark and a dark
  * mark read the same, nothing sits behind either, and no colour is

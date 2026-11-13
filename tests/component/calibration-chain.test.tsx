@@ -129,7 +129,7 @@ describe('CalibrationChain', () => {
       const swatch = entry.querySelector('svg path');
       const marks = Array.from(stage.querySelectorAll(`[data-series="${series}"] path[fill="none"]`));
       expect(marks.length, series ?? '').toBe(2);
-      // Owner-approved successor (figure standard of 2026-10-10): the series
+      // Updated for the figure standard of 10 October 2026: the series
       // are grayscale, so the camera links are dashed and the arm's are
       // solid; each swatch carries the dash of the marks it names.
       for (const mark of marks) {

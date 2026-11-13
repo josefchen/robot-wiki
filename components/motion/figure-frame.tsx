@@ -10,7 +10,7 @@ import { cx } from '@/lib/utils';
  * readouts and the scene timeline live on the stage, so nothing else sits
  * between the stage and the prose that follows it.
  *
- * On the page (owner-approved figure standard, 10 October 2026) the frame
+ * On the page (figure standard of 10 October 2026) the frame
  * is a 1 px hairline box with no fill: the controls, then the drawing,
  * then a hairline rule and the caption block. The caption block opens
  * with "Figure N." in ink, numbered per page by a CSS counter, followed by

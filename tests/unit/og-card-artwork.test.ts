@@ -99,8 +99,8 @@ describe('registered grid devices', () => {
     }
   });
 
-  // Owner-approved successor (research-page standard, Josef, 10 October
-  // 2026: "Surfaces are plain paper"): this pinned the card lattice to the
+  // Updated for the research-page standard of 10 October 2026 (surfaces
+  // are plain paper): this pinned the card lattice to the
   // 32px `.engineering-grid` tile. The website now paints that class as
   // plain paper, so the card follows it with no lattice, and the geometry
   // pin moves from the lattice pitch to the spacing ladder.

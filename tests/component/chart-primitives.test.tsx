@@ -17,8 +17,8 @@ import {
 import tokens from '@/motion-tokens.json';
 import { ChartFixtureFigure } from '../fixtures/figure-system/chart-fixture';
 
-// Owner-approved successor (owner directive of 2026-10-10 02:00, figures to
-// the Pantheon research-page standard): structure paints the figure palette's
+// Updated for the figure standard of 10 October 2026 (figures follow the
+// research-page standard): structure paints the figure palette's
 // custom properties (ink, muted, the hairline) next to the role tokens.
 const TOKEN_PAINT = /^(none|url\(#[\w-]+\)|var\(--(role-[a-z]+-stage|color-[a-z-]+|ink|muted|line|line-strong|chart-(?:background|medium|dark))\))$/;
 
@@ -44,7 +44,7 @@ describe('chart primitives on the light page stage', () => {
   });
 
   it('reads every size from the motion tokens', () => {
-    // Successor (2026-10-10 figure standard): a 1.5 px trace and a 1 px dashed
+    // Updated for the figure standard of 10 October 2026: a 1.5 px trace and a 1 px dashed
     // reference, painted at CSS pixels by stage.css whatever the stage scale.
     expect(CHART_STROKE.trace).toBe(1.5);
     expect(CHART_STROKE.reference).toBe(1);
@@ -67,7 +67,7 @@ describe('chart primitives on the light page stage', () => {
     const axes = fixture().querySelector('[data-chart-axes]')!;
     const lines = [...axes.querySelectorAll('line')];
     expect(lines.length).toBeGreaterThan(0);
-    // Successor (2026-10-10 figure standard): axis and tick lines are ink;
+    // Updated for the figure standard of 10 October 2026: axis and tick lines are ink;
     // grid lines are the page hairline.
     for (const line of lines) {
       expect(line.getAttribute('stroke')).toBe(

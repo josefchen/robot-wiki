@@ -57,7 +57,7 @@ describe('search titles', () => {
   it('gives every domain a unique robotics-specific title and snippet', () => {
     const titles = DOMAINS.map(domainSeoTitle);
     expect(new Set(titles).size).toBe(DOMAINS.length);
-    // The owner's rl-sim2real title names no robot; its description does.
+    // The rl-sim2real title names no robot; its description does.
     for (const domain of DOMAINS) {
       const { title, description } = routeSeoProfile(`/${domain}/`);
       expect(`${title} ${description}`, domain).toMatch(/robot/i);

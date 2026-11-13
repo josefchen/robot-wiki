@@ -52,7 +52,7 @@ export const DEVICE_REGISTRATION: Readonly<
 };
 
 /*
- * Research-page standard (owner decision of 2026-10-10, PANTHEON-SPEC.md):
+ * Research-page standard (decided 10 October 2026):
  * every rail and rule is a 1px hairline in the --line token, the same rule
  * the page draws everywhere else, and a current state is a 1px ink rule,
  * never a thick or coloured accent bar. The registration cross keeps the

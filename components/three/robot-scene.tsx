@@ -888,7 +888,7 @@ export default function RobotScene({
       shadows="percentage"
       camera={{ position: [...HOME_VIEW.position], fov: 30, near: 0.01, far: 20 }}
       // The camera rig moves it to the home view for the stage's width.
-      // preserveDrawingBuffer lets e2e tests and validators read pixels and
+      // preserveDrawingBuffer lets e2e tests and visual checks read pixels and
       // screenshot the canvas reliably.
       gl={{ antialias: true, preserveDrawingBuffer: true }}
       onCreated={(state) => {

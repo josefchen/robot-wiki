@@ -157,7 +157,7 @@
 .explainers.in-article .step-text,
 .explainers.in-article .summary .sentence { font-size: 16px; }
 /*
- * The owner freeze that lets the viewer's controls keep their frozen state
+ * The design freeze that lets the viewer's controls keep their frozen state
  * paint covers only /how-robots-work/ and home. In an article they paint
  * hover and pressed as the figure system's own actions and tabs do. The
  * figure frame resolves --wash to paper (no tinted panels on the light

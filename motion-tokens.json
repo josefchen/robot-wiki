@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Single source of truth for the site motion language. Generated into lib/motion-tokens.ts (TypeScript), components/motion/motion-tokens.css (CSS custom properties), and scripts/motion/motion_theme.py (offline clip theme). Edit this file, then run npm run generate:motion-tokens. The binding design input is docs/design/motion-language.md; the palette, stroke and type values follow the owner-approved figure standard of 10 October 2026 (paper and ink, hairlines, grayscale series, one muted blue accent).",
+  "description": "Single source of truth for the site motion language. Generated into lib/motion-tokens.ts (TypeScript), components/motion/motion-tokens.css (CSS custom properties), and scripts/motion/motion_theme.py (offline clip theme). Edit this file, then run npm run generate:motion-tokens. The binding design input is docs/design/motion-language.md; the palette, stroke and type values follow the figure standard of 10 October 2026 (paper and ink, hairlines, grayscale series, one muted blue accent).",
   "palette": {
     "note": "The figure palette, written into motion-tokens.css as low-specificity fallbacks for the page-level custom properties of the same names. A role or stage colour that equals one of these hexes resolves to its var(), so the page palette repaints every figure.",
     "ink": "#1C1C1A",

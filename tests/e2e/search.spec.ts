@@ -29,8 +29,8 @@ test.describe('search shell', () => {
     page,
   }) => {
     await page.goto('/');
-    // Owner-approved successor (Josef, 2026-10-10, the research-page
-    // standard): the old pin typed into the persistent sidebar's search box
+    // Updated for the research-page standard of 10 October
+    // 2026: the old pin typed into the persistent sidebar's search box
     // at rest; the shell's search box, with the same "Search" label, now
     // lives in the Articles panel opened from the top bar.
     await openArticlesPanel(page);

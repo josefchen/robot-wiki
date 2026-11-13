@@ -8,7 +8,7 @@ import { OG_MATRIX_SOURCE, ogMatrixDrift, parseOgMatrix, readOgMatrix } from '@/
 /**
  * DI-OG-001 and DI-OG-006: the sealed OG/X matrix in
  * library/design-integrity.md §20 is the corpus population, and registry
- * truth has to keep equalling it until an owner-approved contract update.
+ * truth has to keep equalling it until an approved matrix update.
  */
 const ROOT = process.cwd();
 const MARKDOWN = readFileSync(join(ROOT, OG_MATRIX_SOURCE), 'utf8');
@@ -34,7 +34,7 @@ describe('the sealed OG/X matrix', () => {
     const matrix = readOgMatrix(ROOT);
     const corpus = ogCardCorpus(ROOT).map(({ cardId, cardPath }) => ({ cardId, cardPath }));
     expect(ogMatrixDrift(matrix, [...corpus, { cardId: 'frontier/new-draft', cardPath: '/og/frontier/new-draft.png' }])).toEqual([
-      expect.stringMatching(/frontier\/new-draft .* is not in the sealed matrix; an owner-approved contract update/),
+      expect.stringMatching(/frontier\/new-draft .* is not in the sealed matrix; an approved matrix update/),
     ]);
     expect(ogMatrixDrift(matrix, corpus.slice(0, -1))).toEqual([
       expect.stringMatching(/is not in the registry corpus/),

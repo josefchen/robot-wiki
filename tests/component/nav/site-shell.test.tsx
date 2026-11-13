@@ -37,7 +37,7 @@ function drawerTabStops(dialog: HTMLElement): HTMLElement[] {
 /**
  * Regions the shell makes inert while the drawer holds the viewport.
  *
- * Owner-approved successor (Josef, 2026-10-10, the Pantheon standard): the
+ * Updated for the research-page standard of 10 October 2026: the
  * persistent desktop sidebar and the hamburger header are gone. The shell is
  * one top bar (wordmark left, "Articles" and "How robots work" right), and
  * "Articles" opens the same taxonomy panel at every width, so there is no
@@ -248,14 +248,14 @@ describe('SiteShell', () => {
     const dialog = await openDrawer(user);
     const lockup = within(dialog).getByRole('link', { name: PUBLIC_IDENTITY });
     expect(lockup).toHaveAttribute('aria-current', 'page');
-    // The owner decision of 2026-09-25 keeps aria-current on the wordmark
+    // The decision of 2026-09-25 keeps aria-current on the wordmark
     // but excludes it from the lime active-interval rail and every other
     // accent device, so no brand device may render inside it at all.
     expect(lockup.querySelector('[data-brand-device-id]')).toBeNull();
   });
 
   it('keeps every wordmark lockup free of brand devices on home', async () => {
-    // Regression for the owner decision of 2026-09-25: the wordmark never
+    // Regression for the decision of 2026-09-25: the wordmark never
     // carries an active rail or any other accent bar. Every lockup the shell
     // renders (top bar, panel and footer) carries the shell-wordmark role,
     // and each is checked for any brand device descendant, so a highlight
@@ -287,7 +287,7 @@ describe('SiteShell', () => {
 
   it('keeps every wordmark lockup free of brand devices on an inner route, while the taxonomy entry keeps aria-current', async () => {
     // The same regression one route deep: the wordmark exemption holds when
-    // the lockup is not the current-route item. Successor (2026-10-10): the
+    // the lockup is not the current-route item. Since 10 October 2026 the
     // matching taxonomy entry keeps aria-current, ink and one weight step,
     // and the lime active-interval rail is retired with the rest of the
     // brand-v2 accent bars.

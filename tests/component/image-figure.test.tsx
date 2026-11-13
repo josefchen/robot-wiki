@@ -123,8 +123,8 @@ describe('figure treatment by kind', () => {
 
     const label = figure.querySelector('[data-figure-label]')!;
     expect(label.textContent).toBe('Original schematic');
-    // A word label, so the sans at the 12 px stage size (owner-approved
-    // successor, figure standard of 2026-10-10; it was 14 px); mono is
+    // A word label, so the sans at the 12 px stage size (figure standard
+    // of 10 October 2026; it was 14 px); mono is
     // kept for numeric readouts.
     expect(label.className).toContain('font-sans');
     expect(label.className).toContain('text-[12px]');

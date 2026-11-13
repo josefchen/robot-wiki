@@ -3,7 +3,7 @@
  * generator renders (scripts/generate-og-cards.ts). No node-only imports
  * here so the geometry is unit-testable under Vitest.
  *
- * Research-page composition (library/design-system.md owner decision of
+ * Research-page composition (library/design-system.md, decision of
  * 10 October 2026, §19): a plain paper ground framed by four 1px concrete
  * hairline rails, one signal-blue registration cross on each rail
  * intersection, and on the article card hairline section rules under the

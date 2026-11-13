@@ -332,7 +332,7 @@ describe('isGenuineHit', () => {
   });
 
   it('admits a genuine hit for a hyphenated query over split content words', () => {
-    // The scrutiny finding (misc-hardening-3): normalizing the query token
+    // A review finding: normalizing the query token
     // to alphanumerics-only produced 'actionconditioned', which can never
     // prefix-match the content words ['action', 'conditioned'], so
     // hyphenated queries were silently dropped even when Pagefind matched.

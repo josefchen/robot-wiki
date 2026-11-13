@@ -6,7 +6,7 @@ import { OG_RENDERER_FACES } from '@/lib/og-renderer-fonts';
 import { readProjectInstructionText } from '../helpers/project-instructions';
 
 /**
- * The design system is load-bearing documentation: Factory agents read it,
+ * The design system is load-bearing documentation: contributors read it,
  * while the product executes the values in CSS, React, and the offline OG
  * renderer. These checks catch the cheap but damaging form of drift where
  * every file remains locally valid while the identity stops being one system.
@@ -22,13 +22,13 @@ const badge = read('components/ui/badge.tsx');
 const callout = read('components/ui/callout.tsx');
 const globals = read('app/globals.css');
 const ogArtwork = read('lib/og-card-artwork.ts');
-// The playground's WebGL palette lives in its stage-look module (owner
-// request of 2026-10-19: the playground takes the light clay look of the
+// The playground's WebGL palette lives in its stage-look module (since
+// 2026-10-19 the playground takes the light clay look of the
 // /how-robots-work/ explainers); robot-scene.tsx paints from it.
 const playgroundLook = read('components/three/stage-look.ts');
 const nextEnv = read('next-env.d.ts');
 
-// Owner-approved successor (Josef, 2026-10-10, the Pantheon standard): the
+// Updated for the research-page standard of 10 October 2026: the
 // sealed palette is paper and ink, grayscale chart tones and one muted blue
 // accent, in place of the brand-v2 lime and signal blue.
 const palette = {
@@ -159,7 +159,7 @@ describe('design tokens stay aligned', () => {
         `--color-${name}: ${value};`,
       );
     }
-    // Owner-approved successor (Josef, 2026-10-10): focus and links are ink,
+    // Updated for the research-page standard of 10 October 2026: focus and links are ink,
     // selection is the light grey tone, and the focus ring is 1 px.
     expect(globals).toContain('--color-focus: var(--color-ink);');
     expect(globals).toContain('--color-link: var(--color-ink);');
@@ -246,7 +246,7 @@ describe('design tokens stay aligned', () => {
   });
 
   it('uses semantic warning colour in warning primitives', () => {
-    // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard):
+    // Updated for the research-page standard of 10 October 2026:
     // badges lost their outline box and the callout its coloured left bar,
     // so the warning colour now lives on the text alone ("border-warn
     // text-warn" became "text-warn"; "border-l-warn" is gone). The accent
@@ -376,8 +376,8 @@ describe('identity geometry and typography stay aligned', () => {
     ]) {
       expect(integrity).toContain(id);
     }
-    // The research-page successors of the grid and surface rows (owner
-    // decision of 10 October 2026), each at the brand-v2 row's strength.
+    // The research-page versions of the grid and surface rows (decided
+    // 10 October 2026), each at the brand-v2 row's strength.
     const row = (id: string) => integrity.split('\n').find((line) => line.startsWith(`| \`${id}\``)) ?? '';
     expect(row('DI-GRID-001')).toContain('within 4px of a line of that frame');
     expect(row('DI-GRID-002')).toContain('on every generated card');
@@ -471,7 +471,7 @@ describe('identity geometry and typography stay aligned', () => {
     expect(frictionTransfer).not.toMatch(/green/i);
     expect(jepaChart).toContain('two-dimensional points and loads no trained encoder or predictor');
     // The JEPA figure is a planning table drawn with the isometric figure kit
-    // (owner directive of 2026-10-12). The current summary is the probe head
+    // (since 2026-10-12). The current summary is the probe head
     // and the walked path is the scribed trail of prick marks, each its own
     // group, drawn in the kit's ink tones; the one lit part is the kept
     // feeler and its pin, never the path or the head. The distance strip in

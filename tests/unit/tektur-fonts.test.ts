@@ -23,8 +23,8 @@ const source = (path: string): string =>
   readFileSync(join(ROOT, path), 'utf8');
 
 describe('Tektur font delivery contract', () => {
-  // Owner-approved successor (Josef, 2026-10-10, the research-page
-  // standard): the web roles are DM Sans, Geist and Geist Mono; the offline
+  // Updated for the research-page standard of 10 October
+  // 2026: the web roles are DM Sans, Geist and Geist Mono; the offline
   // OG renderer keeps static Tektur and IBM Plex Mono, recorded per role.
   it('registers exactly four first-party families (DI-TYPE-001)', () => {
     expect(FIRST_PARTY_TYPE_ROLES).toEqual([
@@ -72,7 +72,7 @@ describe('Tektur font delivery contract', () => {
     const layout = source('app/layout.tsx');
     const globalCss = source('app/globals.css');
     const renderBoundary = source('lib/og-card-render-boundary.ts');
-    // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard):
+    // Updated for the research-page standard of 10 October 2026:
     // web pages load DM Sans, Geist and Geist Mono through next/font/google
     // and no longer load Tektur in any form; Tektur stays for the offline
     // OG renderer, whose static TTF no web source names.

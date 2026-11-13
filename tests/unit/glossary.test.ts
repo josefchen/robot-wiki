@@ -47,7 +47,7 @@ describe('glossaryTermSchema', () => {
 });
 
 describe('GLOSSARY coverage', () => {
-  // Raised batch by batch as terms land; the feature target is 25+.
+  // Raised batch by batch as terms land; the target is 25+.
   it('covers the recurring jargon: at least 25 cited terms', () => {
     expect(GLOSSARY.length).toBeGreaterThanOrEqual(25);
   });

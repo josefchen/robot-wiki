@@ -16,7 +16,7 @@ export const PUBLIC_DESCRIPTOR =
   'Citation-first encyclopedia of modern robot learning.';
 
 /**
- * Site identity, supplied verbatim by the owner on 2026-08-20. Do not
+ * Site identity, as the author wrote it on 2026-08-20. Do not
  * reword, embellish, or paraphrase these strings: the author name renders
  * in three places that must stay byte-identical after whitespace collapse
  * (meta[name=author] on every route, the site footer on every route, and
@@ -25,7 +25,7 @@ export const PUBLIC_DESCRIPTOR =
  */
 export const AUTHOR_NAME = 'Josef Chen';
 export const AUTHOR_HANDLE = '@josefchen';
-/** The bio's wording as the owner revised it on 2026-10-15 (a full sentence in the first person). */
+/** The bio's wording as the author revised it on 2026-10-15 (a full sentence in the first person). */
 export const AUTHOR_BIO =
   'I spent three years building and deploying robots at KAIKAKU (acquired by REEF)';
 /**

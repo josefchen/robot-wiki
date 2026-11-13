@@ -64,7 +64,7 @@ describe('ArticleHeader', () => {
     );
   });
 
-  // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard): the
+  // Updated for the research-page standard of 10 October 2026: the
   // monospace <dl> of labelled values became one muted meta line,
   // "Updated 8 August 2026 · 14 min read · 6 sources", with the source count
   // linked to the References list. The values and their data hooks are

@@ -141,8 +141,8 @@ describe('rehypeCitePunctuation', () => {
     const wraps = wrappers(tree);
     expect(wraps).toHaveLength(1);
     expect(wraps[0].children).toEqual([cite('b'), text('.')]);
-    // Successor (launch sweep, 2026-10-15, under the owner's "extremely
-    // premium" bar of 12 Oct): two chips written with nothing between them
+    // Changed in the launch review of 2026-10-15: two chips written with
+    // nothing between them
     // printed their numbers as one ("⁷⁸" on /world-models/jepa/), so the
     // adjacent stack takes the space a written stack has.
     expect(tree.children).toEqual([cite('a'), text(' '), wraps[0]]);
@@ -301,7 +301,7 @@ describe('rehypeCitePunctuation', () => {
     expect(wraps).toHaveLength(2);
     expect(wraps[0].children).toEqual([cite('a'), text('.')]);
     expect(wraps[1].children).toEqual([cite('b'), text(';')]);
-    // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard): a
+    // Updated for the research-page standard of 10 October 2026: a
     // citation is a superscript set against the word it annotates, so the
     // authored space before a chip is dropped (" Mid " became " Mid").
     expect(tree.children).toEqual([wraps[0], text(' Mid'), wraps[1]]);

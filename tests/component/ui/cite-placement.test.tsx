@@ -4,7 +4,7 @@ import { CitationNumbersProvider } from '@/components/article/citation-numbers';
 import { Cite } from '@/components/ui/cite';
 
 /*
- * Owner-approved successor (Josef, 2026-10-10, the Pantheon standard). The
+ * Updated for the research-page standard of 10 October 2026. The
  * floating citation tooltip, and with it every placement rule this file used
  * to pin (above or below, viewport clamping, sticky-header avoidance, scroll
  * and resize listeners, the scrollable overflow box), is retired. A citation
