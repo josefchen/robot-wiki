@@ -1,11 +1,11 @@
 ---
 title: "The Data Bottleneck"
-description: "Robot datasets hold thousands of hours, while language models train on trillions of tokens. Scaling laws, human video and simulation are routes around the gap."
+description: "Robot datasets hold thousands of hours while language models train on trillions of tokens, so recent robot models pretrain mostly on recordings of people."
 domain: data-hardware
 slug: data-bottleneck
 order: 1
 status: published
-lastReviewed: "2026-11-12"
+lastReviewed: "2026-11-13"
 citations:
   - gpt3-2020
   - llama-3-2024
@@ -72,45 +72,53 @@ seeAlso:
 import { DataScaleChart } from '@/components/interactive/data-scale-chart';
 import { ScalingLawsTable } from '@/components/mdx/scaling-laws-table';
 
-The data bottleneck is the shortage of robot training data. The language model Llama 4 Scout trained on about 40 trillion tokens (word pieces) <Cite id="llama-4-model-card-2025" />; the largest [public robot datasets](/data-hardware/datasets) hold a few thousand hours <Cite id="droid-2024" /> <Cite id="agibot-world-2025" />. Recent robot models pretrain mostly on recordings of people instead <Cite id="gr00t-2-2026" /> <Cite id="generalist-gen1-2026" />.
+The data bottleneck is the shortage of robot training data, and it is why recent robot models pretrain mostly on recordings of people <Cite id="gr00t-2-2026" /> <Cite id="generalist-gen1-2026" />. Llama 4 Scout trained on about 40 trillion tokens <Cite id="llama-4-model-card-2025" />; the largest [public robot datasets](/data-hardware/datasets) hold a few thousand hours <Cite id="droid-2024" /> <Cite id="agibot-world-2025" />.
 
 ## Robot data has no web to crawl
 
 <span id="two-data-universes-nine-orders-of-magnitude-apart" />
 
-Text for language models already exists. GPT-3 trained on 300 billion tokens in 2020 <Cite id="gpt3-2020" />, Llama 3 on over 15 trillion in 2024 <Cite id="llama-3-2024" /> and Qwen3 on 36 trillion <Cite id="qwen3-2025" />, a scale the open FineWeb corpus rebuilds from 96 web snapshots <Cite id="fineweb-2024" />. Robot data must be made, usually by a paid <Term id="teleoperation">teleoperation</Term> operator driving the robot for every hour. Ken Goldberg of UC Berkeley calls the difference a 100,000-year data gap <Cite id="goldberg-data-gap-2025" />.
+Language-model text already exists: Qwen3 trained on 36 trillion tokens <Cite id="qwen3-2025" />, a scale the open FineWeb corpus rebuilds from 96 web snapshots <Cite id="fineweb-2024" />. Robot data must be made by a paid <Term id="teleoperation">teleoperation</Term> operator driving the robot. Ken Goldberg of UC Berkeley calls the difference a 100,000-year data gap <Cite id="goldberg-data-gap-2025" />.
 
-DROID shows the cost: fifty collectors used 18 robots at 13 institutions for 12 months to record 76,000 successful trajectories, 350 hours, plus about 16,000 failed ones outside that count <Cite id="droid-2024" />.
+DROID took fifty collectors, 18 robots, 13 institutions and 12 months to record 350 hours <Cite id="droid-2024" />.
 
 <PredictThenReveal
   prompt="In an authored hypothetical, each collection rig yields 7 productive hours a year. With 10 rigs, roughly how long until they reach a target of 10,000 hours?"
   options={[
     {
       value: 'few-decades',
-      label: 'Around two decades, which needs roughly 500 farm-hours a year instead of 70',
-      why: 'Twenty years would require 500 hours a year across the whole farm. This scenario produces only 10 times 7, or 70 hours a year, so it takes much longer.'
+      label: 'About two decades',
+      why: 'Twenty years needs 500 hours a year. Ten rigs at 7 hours each give 70.'
     },
     {
       value: 'few-years',
-      label: 'Only a few years, on the assumption that each rig collects hundreds of hours a year',
-      why: 'That assumes a higher collection rate than the question supplies. The dedicated-farm hypothetical uses 1,000 hours per rig-year; at 10 rigs, it reaches 10,000 hours in one year.'
+      label: 'A few years',
+      why: 'Only at a higher rate: the full-time farm, 1,000 hours per rig-year, gets there in one year.'
     },
     {
       value: 'century-plus',
-      label: 'Well over a century, on the order of 140 years at that throughput',
-      why: 'The arithmetic is 10,000 hours divided by 70 hours a year, roughly 143 years. Both the rate and target are authored hypothetical inputs. Neither measures DROID productivity or OXE duration.',
+      label: 'Well over a century',
+      why: '10,000 hours at 70 hours a year is about 143 years. Rate and target are authored inputs, not DROID measurements.',
       anchorHref: '#two-data-universes-nine-orders-of-magnitude-apart',
       anchorLabel: 'the hours axis',
     }
   ]}
   answer="century-plus"
   revealHint="10 part-time robots: 70 hours a year, 143 years to 10,000 hours. Switch to the full-time farm and it takes one year."
-  takeaway="For the same 10,000-hour hypothetical target, 10 rigs take about 143 years at 7 hours per rig-year and one year at 1,000 hours per rig-year. The result depends on the assumed rate."
+  takeaway="Ten rigs take about 143 years at 7 hours per rig-year and one year at 1,000."
 >
   <DataScaleChart defaultRigs={10} defaultRate="droid-measured" className="mt-3" />
 </PredictThenReveal>
 
-Counting episodes flatters a dataset. AgiBot World's 1,001,552 trajectories last about 11 seconds each and total 2,976 hours <Cite id="agibot-world-2025" />, and <Term id="open-x-embodiment">Open X-Embodiment</Term> pools over a million trajectories from 22 kinds of robot <Cite id="open-x-embodiment-2023" />. Automation helps only in part: in Levine and colleagues' grasping study, robots gathered unlabeled attempts, but people refilled the bins and started the system <Cite id="levine-hand-eye-2018" />. Larger training sets remain modest: about 1,700 mixed hours for Toyota Research Institute's Large Behavior Models <Cite id="tri-lbm-2025" />, 10,000 robot hours plus public sets including Bridge for π0 <Cite id="pi0-2024" /> <Cite id="bridgedata-v2-2023" />, and 15,060 curated hours from 12 robot types for Meituan's MR0 (November 2026) <Cite id="meituan-mr0-2026" />.
+Counting episodes flatters a dataset: AgiBot World's 1,001,552 trajectories last about 11 seconds each and total 2,976 hours <Cite id="agibot-world-2025" />. The largest robot training sets stay small:
+
+| Model | Robot data | Source |
+| --- | --- | --- |
+| TRI Large Behavior Models | About 1,700 mixed hours | <Cite id="tri-lbm-2025" /> |
+| π0 | 10,000 hours, plus public sets such as Bridge | <Cite id="pi0-2024" /> <Cite id="bridgedata-v2-2023" /> |
+| Meituan MR0 (November 2026) | 15,060 curated hours from 12 robot types | <Cite id="meituan-mr0-2026" /> |
+
+Also: <Term id="open-x-embodiment">Open X-Embodiment</Term> <Cite id="open-x-embodiment-2023" />, robot-collected grasps <Cite id="levine-hand-eye-2018" />, GPT-3 <Cite id="gpt3-2020" />, Llama 3 <Cite id="llama-3-2024" />.
 
 <Image id="droid-in-the-wild-scenes-2024" />
 
@@ -123,49 +131,68 @@ Counting episodes flatters a dataset. AgiBot World's 1,001,552 trajectories last
 
 ## Scaling laws favor variety over repetition
 
-A <Term id="scaling-law">scaling law</Term> is a predictable curve linking performance to data, model size or compute. Language models follow power laws in each <Cite id="kaplan-scaling-laws-2020" />, and a meta-analysis of 327 robotics papers found them in robotics too <Cite id="sartor-robotics-scaling-2024" />. What matters is which data to add.
+A <Term id="scaling-law">scaling law</Term> is a predictable curve linking performance to data, model size or compute. Language models follow power laws in each <Cite id="kaplan-scaling-laws-2020" />, and a meta-analysis of 327 robotics papers found them in robotics too <Cite id="sartor-robotics-scaling-2024" />.
 
-Lin and colleagues tested this for <Term id="imitation-learning">imitation learning</Term>, in which a robot copies demonstrations. Over more than 40,000 demonstrations and 15,000 real-world test runs, success with new environments and objects rose as a rough power law in the number of environments and objects in training, while demonstrations per environment stopped helping past about 50. Their recipe, 32 environments with 50 demonstrations each, reached about 90% success with unseen objects, and four operators collected it in one afternoon <Cite id="lin-data-scaling-laws-2024" />.
+In <Term id="imitation-learning">imitation learning</Term>, where a robot copies demonstrations, more environments raise success on new objects, and demonstrations per environment stop helping past about 50. Lin and colleagues' 32 environments with 50 demonstrations each reached about 90% on unseen objects, collected by four operators in one afternoon <Cite id="lin-data-scaling-laws-2024" />.
 
 <Image id="umi-test-environments-2024" />
 
-Shi and colleagues reached a similar answer on AgiBot World data: more kinds of task mattered more than more demonstrations per task. Pretraining on high-quality data from one robot type transferred to other robots and scaled better in fine-tuning than [multi-embodiment](/manipulation/cross-embodiment) pretraining. Operator variety hurt, because people move in different styles and the recorded speeds for one action spread widely. Correcting for it gave the GO-1-Pro model a 15% gain, which the authors equate to 2.5 times more pretraining data <Cite id="diversity-scaling-2025" />.
+On AgiBot World data, task variety beat demonstrations per task, and operator variety hurt. Correcting for operators' styles gave GO-1-Pro a 15% gain, which the authors equate to 2.5 times more pretraining data <Cite id="diversity-scaling-2025" />.
 
 <ScalingLawsTable className="my-6" />
 
-## Learning from people instead of robots
+## Recording people is the main way around
 
-The main route around the bottleneck is to record people. With UMI an operator holds a 3D-printed gripper fitted with a GoPro camera, and policies trained on the recordings run on real arms with no further training <Cite id="umi-2024" />. Japan's AI Robot Association trained AIRoA-0 on 16,151 hours from its handheld YUBI grippers; across ten tasks it averaged 78% success, against 27% for the best of four other models post-trained on the same data <Cite id="airoa-0-2026" />.
+With UMI an operator holds a 3D-printed gripper fitted with a GoPro, and the trained policies run on real arms with no further training <Cite id="umi-2024" />. Japan's AIRoA-0, trained on 16,151 hours from handheld YUBI grippers, averaged 78% success on ten tasks against 27% for the best of four rivals post-trained on the same data <Cite id="airoa-0-2026" />.
 
-Apple's EgoDex recorded 829 hours of Vision Pro hand tracking across 194 tasks <Cite id="egodex-2025" />, and Build AI's Egocentric-100K holds 100,405 hours of head-mounted video of manual labor <Cite id="egocentric-100k-2025" />. Older video corpora carry weaker labels than recorded actions: none in Ego4D's 3,670 hours <Cite id="ego4d-2022" />, narration, automatic transcripts, timed steps and caption templates in EPIC-KITCHENS <Cite id="epic-kitchens-2018" />, HowTo100M <Cite id="howto100m-2019" />, COIN <Cite id="coin-video-2019" /> and Something-Something <Cite id="something-video-2017" />, and paired first- and third-person views in Ego-Exo4D <Cite id="ego-exo4d-2023" />.
+| Human corpus | Hours | What it holds |
+| --- | --- | --- |
+| Apple EgoDex | 829 | Vision Pro hand tracking across 194 tasks <Cite id="egodex-2025" /> |
+| Ego4D | 3,670 | Video with no action labels <Cite id="ego4d-2022" /> |
+| EgoScale | 20,854 | Egocentric video labeled with actions <Cite id="egoscale-2026" /> |
+| Open-HumanWAM (November 2026) | 50,000 | Released corpus; simulated robot success rose log-linearly with hours <Cite id="open-humanwam-2026" /> |
+| Build AI Egocentric-100K | 100,405 | Head-mounted video of manual labor <Cite id="egocentric-100k-2025" /> |
 
-EgoScale trained a [vision-language-action model](/manipulation/foundation-models) on 20,854 hours of egocentric video labeled with actions, over twenty times earlier efforts; validation loss fell log-linearly as human data grew, tracking real-robot performance, and human pretraining plus a short aligned human-robot stage raised average <Term id="success-rate">success rate</Term> by 54% over no pretraining on a 22-degree-of-freedom hand <Cite id="egoscale-2026" />. EgoMimic found an extra hour of hand data worth more than an extra hour of robot data <Cite id="egomimic-2024" />. With Open-HumanWAM's released 50,000-hour corpus (November 2026), simulated robot success rose log-linearly with pretraining hours <Cite id="open-humanwam-2026" />.
+Human data follows scaling laws too: the validation loss of EgoScale's [vision-language-action model](/manipulation/foundation-models) fell log-linearly with human hours, tracking real-robot performance. With a short aligned human-robot stage, that pretraining raised average <Term id="success-rate">success rate</Term> 54% over none on a 22-degree-of-freedom hand <Cite id="egoscale-2026" />. EgoMimic found an hour of hand data worth more than an hour of robot data <Cite id="egomimic-2024" />.
 
-Touch and whole-body motion can be recorded too. FACT (Stanford, Michigan and Microsoft Research, October 2026) pretrained mostly on about 2,000 hours of human demonstrations with tactile gloves. On seven two-handed tasks it averaged 41.4% success, against 8.6% for T-Rex and 1.4% for π0.5 fine-tuned on the same data; without the gloves' force readings it opened a test-tube cap in none of ten trials instead of eight <Cite id="fact-2026" />. HiPHI (CoRL 2026) holds 617.5 hours of motion capture from 132 performers; retargeted to a Unitree G1 humanoid, its motions beat AMASS <Cite id="amass-2019" />, LAFAN1 <Cite id="lafan1-2021" />, Motion-X++ <Cite id="motion-x-plus-plus-2025" /> and BONES-SEED in simulated tracking at a matched 3-hour budget, and policies trained on them ran, crawled and carried a box on a real G1 <Cite id="hiphi-2026" />.
+Touch and whole-body motion can be recorded too. FACT pretrained mostly on about 2,000 hours of tactile-glove demonstrations and averaged 41.4% on seven two-handed tasks, against 1.4% for π0.5 fine-tuned on the same data <Cite id="fact-2026" />. HiPHI's 617.5 hours of motion capture beat four public motion sets in simulated tracking, and its policies ran, crawled and carried a box on a real Unitree G1 <Cite id="hiphi-2026" />.
+
+Also: weakly labeled video, EPIC-KITCHENS <Cite id="epic-kitchens-2018" />, HowTo100M <Cite id="howto100m-2019" />, COIN <Cite id="coin-video-2019" />, Something-Something <Cite id="something-video-2017" />, Ego-Exo4D <Cite id="ego-exo4d-2023" />; motion sets, AMASS <Cite id="amass-2019" />, LAFAN1 <Cite id="lafan1-2021" />, Motion-X++ <Cite id="motion-x-plus-plus-2025" />.
 
 ## Company corpora reach half a million hours
 
-The largest corpora belong to companies, and their sizes are self-reported. NVIDIA's GR00T 2 (November 2026) pretrained on 402,730 hours of egocentric video of people at work, 10,184 hours of handheld UMI demonstrations and 23,500 hours of robot teleoperation, so robots supplied about 5%; NVIDIA opened 100,000 hours of the human video as Human-1M-100K <Cite id="gr00t-2-2026" />. Generalist AI reports over 270,000 hours of manipulation data for GEN-0, growing by 10,000 hours a week, with results that improve predictably with pretraining data and compute <Cite id="generalist-gen0-2025" />. For GEN-1 it reports over half a million hours from low-cost wearable devices on people, with no robot data in the base model <Cite id="generalist-gen1-2026" />. Xiaomi reports that Xiaomi-Robotics-1, pretrained on over 100,000 hours from handheld UMI devices, improved with data and model scale <Cite id="xiaomi-robotics-1-2026" />. Sunday reports converting glove recordings into ACT-1 robot data with 90% success <Cite id="sunday-act1-2025" />, and Figure reports navigation learned from egocentric human video alone <Cite id="figure-go-big-2025" />.
+The largest corpora belong to companies and are self-reported. NVIDIA opened 100,000 hours of GR00T 2's human video as Human-1M-100K <Cite id="gr00t-2-2026" />.
 
-## Generated and simulated data
+| Company model | Reported data | Source |
+| --- | --- | --- |
+| NVIDIA GR00T 2 (November 2026) | 402,730 h human video, 10,184 h UMI, 23,500 h teleoperation: robots about 5% | <Cite id="gr00t-2-2026" /> |
+| Generalist GEN-0 | 270,000+ h, growing 10,000 h a week; results improve predictably with data and compute | <Cite id="generalist-gen0-2025" /> |
+| Generalist GEN-1 | 500,000+ h from wearables on people, no robot data in the base model | <Cite id="generalist-gen1-2026" /> |
+| Xiaomi-Robotics-1 | 100,000+ h from handheld UMI devices; improved with data and model scale | <Cite id="xiaomi-robotics-1-2026" /> |
+| Sunday ACT-1 | Glove recordings converted to robot data, 90% success | <Cite id="sunday-act1-2025" /> |
+| Figure | Navigation learned from egocentric human video alone | <Cite id="figure-go-big-2025" /> |
 
-Simulation compresses months of interaction into hours but brings the <Term id="sim-to-real-gap">sim-to-real gap</Term>, the loss of skill on a real robot ([parallel sim RL](/rl-sim2real/parallel-sim-rl)). GR00T N1 simulated the equivalent of 6,500 hours of human demonstration in 11 hours <Cite id="gr00t-n1-2025" />, and co-training with simulation raised real-world performance by 38% on average <Cite id="sim-real-cotraining-2025" />. A model pretrained only on the synthetic InternData-A1 matched the official π0 on 49 simulated, 5 real and 4 long-horizon dexterous tasks <Cite id="interndata-a1-2025" />. Generative models instead multiply real data: GenAug used image-text models to vary tabletop scenes and objects <Cite id="genaug-2023" />, and the 2026 methods below start from a few real examples.
+## Simulation and generation multiply real data
+
+Simulation compresses months into hours but brings the <Term id="sim-to-real-gap">sim-to-real gap</Term>, the loss of skill on a real robot ([parallel sim RL](/rl-sim2real/parallel-sim-rl)). GR00T N1 simulated 6,500 hours' worth of human demonstration in 11 hours <Cite id="gr00t-n1-2025" />, and co-training with simulation raised real-world performance 38% on average <Cite id="sim-real-cotraining-2025" />. A model pretrained only on synthetic InternData-A1 matched the official π0 on 49 simulated and 5 real tasks <Cite id="interndata-a1-2025" />.
+
+Generative models stretch a few real examples, as GenAug did for tabletop scenes <Cite id="genaug-2023" />. The 2026 methods:
 
 | Method | Starts from | Reported result |
 | --- | --- | --- |
-| GRAIL (NVIDIA, UCLA, 2026) | 3D assets and video models | Trained only on its 20,000+ sequences: 84% pick-up success on a Unitree G1 (five objects, ten trials each), 90% on stairs <Cite id="grail-2026" /> |
-| HumanoidMimicGen (NVIDIA, UT Austin, 2026) | A few demonstrations, moved to new object poses | Average success on four real tasks up from 0.51 to 0.71 <Cite id="humanoidmimicgen-2026" /> |
-| PRISM (Amazon FAR, Berkeley, CMU, 2026) | A few real videos, expanded into hundreds | Ran on a real humanoid with no real-world fine-tuning <Cite id="prism-humanoid-2026" /> |
-| DexAgent (Stanford, Columbia, 2026) | One human video, turned into simulated trajectories | 3.5 times the baselines' success across eleven real tasks <Cite id="dexagent-2026" /> |
-| MobileVISTA (Stanford, TRI, 2026) | Demonstrations at one base pose | Book stacking with the base moved up to 15 cm: 13 of 25, against at most 2 for three baselines; at the original pose 18 of 25, against 24 and 25 <Cite id="mobilevista-2026" /> |
-| Dexterity from Supervised Play (Amazon FAR, Maryland, 2026) | 15 minutes of human play on a 22-joint hand | Simulated cube turning: 91.4% of 128 trials, where the standard reinforcement learning method PPO needed about 490 times the data for 86.7%; 90.0% on the real hand <Cite id="dsp-2026" /> |
+| GRAIL (NVIDIA, UCLA) | 3D assets and video models | Trained only on its sequences: 84% pick-up and 90% stairs on a Unitree G1 <Cite id="grail-2026" /> |
+| HumanoidMimicGen (NVIDIA, UT Austin) | A few demonstrations, moved to new object poses | Four real tasks: 0.51 to 0.71 success <Cite id="humanoidmimicgen-2026" /> |
+| PRISM (Amazon FAR, Berkeley, CMU) | A few real videos, expanded into hundreds | Real humanoid, no real-world fine-tuning <Cite id="prism-humanoid-2026" /> |
+| DexAgent (Stanford, Columbia) | One human video | 3.5 times the baselines' success on eleven real tasks <Cite id="dexagent-2026" /> |
+| MobileVISTA (Stanford, TRI) | Demonstrations at one base pose | Base moved up to 15 cm: 13 of 25 against at most 2; at the original pose 18 of 25 against 24 and 25 <Cite id="mobilevista-2026" /> |
+| Dexterity from Supervised Play (Amazon FAR, Maryland) | 15 minutes of human play on a 22-joint hand | Cube turning: 91.4% in simulation, where PPO needed 490 times the data for 86.7%; 90.0% on the real hand <Cite id="dsp-2026" /> |
 
-Most rest on a few tasks and tens of trials, and MobileVISTA's generated variety helped away from the recorded pose but cost success at it.
+## Real data stays necessary
 
-## Is real data still necessary?
+Sergey Levine of Physical Intelligence argues that real data is indispensable for robots to generalize as broadly as language models <Cite id="levine-sporks-2025" />. A copied policy meets <Term id="covariate-shift">covariate shift</Term> once it acts alone: small errors carry it into states its data never showed ([behavior cloning foundations](/manipulation/bc-foundations)). Goldberg instead proposes "agentic robotics": AI agents that write and test robot programs in simulation <Cite id="goldberg-agentic-robotics-2026" />.
 
-Sergey Levine of Physical Intelligence argued in July 2025 that real data is indispensable if robot models are to generalize in the physical world as broadly as language models do in the virtual one <Cite id="levine-sporks-2025" />. A copied policy also meets <Term id="covariate-shift">covariate shift</Term> once it acts alone: small errors carry it into states its data never showed ([behavior cloning foundations](/manipulation/bc-foundations)). In November 2026 Goldberg proposed another way around the gap, "agentic robotics": AI agents writing and testing robot programs in simulation <Cite id="goldberg-agentic-robotics-2026" />.
+## Count data claims in hours
 
-## How to read the field's data claims
+Convert every count to hours. GraspGen's 53 million simulated grasps <Cite id="graspgen-2025" /> and GraspVLA's billion rendered frames <Cite id="graspvla-2025" /> are not hours at all. The breakdown by environment, object, task and operator outweighs the hour count <Cite id="diversity-scaling-2025" />.
 
-Convert everything to hours: AgiBot World's million trajectories are 2,976 hours, less than Ego4D's 3,670 hours of passive video <Cite id="ego4d-2022" />. Check what a count measures: GraspGen releases over 53 million simulated grasps <Cite id="graspgen-2025" />, while GraspVLA's SynGrasp-1B counts a billion rendered frames <Cite id="graspvla-2025" />. Ask for the breakdown by environment, object, task and operator, which outweighs the hour count <Cite id="diversity-scaling-2025" />. Treat company-reported scale as a claim until the data or an audit is public: AgiBot World's 30% improvement over Open X-Embodiment pretraining has no independent replication <Cite id="agibot-world-2025" />.
+Company scale is a claim until the data or an audit is public. AgiBot World's 30% gain over Open X-Embodiment pretraining has no independent replication <Cite id="agibot-world-2025" />.
