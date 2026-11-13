@@ -1,66 +1,111 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
-import { InstrumentFigure, PlotStage, PresetGroup, type Preset } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
-import { CHART_STROKE, CHART_STRUCTURE, CHART_TYPE, StageAnnotation, roleColour } from '@/components/motion/chart';
-import { usePlayback } from '@/components/motion/use-eased-value';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
+import { InstrumentFigure, InstrumentReset, PresetGroup, type Preset } from '@/components/ui/instrument';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
+import { Dots, IsoFigure, Line, Solid } from '@/components/iso/react/draw';
+import { asksForStillness, follow, useInView, useLoop } from '@/components/iso/react/live';
+import type { SolidPaths } from '@/components/iso/iso-kit';
+import {
+  CLEAR_S,
+  HEAD_PARTS,
+  HEIGHT,
+  NEEDLE_HUB,
+  PARTS,
+  PEGS,
+  PLOW_PARTS,
+  ROUNDS,
+  STEP,
+  TIMELINES,
+  WIDTH,
+  cardAt,
+  headShift,
+  needleAt,
+  plowShift,
+  pocketMarks,
+  poseAt,
+  readoutOf,
+  usableBatches,
+  type LearnerId,
+  type Part,
+  type Pose,
+} from '@/components/iso/figures/replay-carousel';
 
 /**
- * ReplayReuse: two ways to spend a transition. An on-policy learner such
- * as PPO may only learn from data its current policy produced, so each
- * batch is collected, used for a few passes and discarded. An off-policy
- * learner keeps every batch in a replay buffer, because Q-learning can
- * improve one policy from data another produced, and each update can draw
- * on all of it.
+ * ReplayReuse: two ways to spend a batch of experience, drawn as a card
+ * reader with a carousel (components/iso/figures/replay-carousel.ts).
  *
- * The one control picks the learner. Choosing replays six collection
- * rounds on the motion curve: the batches arrive one by one, and the lines
- * into the update show which batches it may learn from. Reduced motion and
- * the served HTML show the sixth round. The batches are illustrative; the
- * two update rules are PPO's and Q-learning's.
+ * An on-policy learner such as PPO may only learn from data its current
+ * policy produced, so each batch is used and discarded. An off-policy
+ * learner keeps every batch, because Q-learning can improve one policy from
+ * data another produced, so each update can draw on all of it.
+ *
+ * Each batch is a punched card that slides down the ramp under the reading
+ * head (the one lit part). With fresh experience only, the plow is down:
+ * after the read the turntable indexes and the card goes down the chute into
+ * the waste bin. Reusing saved experience, the plow is raised: the card
+ * stays in its pocket, and each round the turntable carries every stored
+ * card back under the head. The counter dial raises a peg for every batch
+ * collected and points its needle at how many the learner learns from.
+ *
+ * The one control picks the learner and plays the six rounds; an idle tour
+ * replays them while nobody touches the figure and it is on screen. The
+ * served HTML, reduced motion and the end of every run show the last read of
+ * round six. The batches are illustrative; the two rules are PPO's and
+ * Q-learning's.
  */
 
-type LearnerId = 'on' | 'off';
+export { ROUNDS, usableBatches };
+export type { LearnerId };
+
 const LEARNERS: readonly Preset<LearnerId>[] = [
   { id: 'on', label: 'Use fresh experience' },
   { id: 'off', label: 'Reuse saved experience' },
 ];
 export const DEFAULT_LEARNER: LearnerId = 'on';
-export const ROUNDS = 6;
 
-/** Batches the latest update may learn from after `round` rounds. */
-export const usableBatches = (learner: LearnerId, round: number) => (learner === 'on' ? Math.min(1, round) : round);
+/** Seconds the figure waits before its first tour, and after each run before it plays again. */
+export const FIRST_IDLE_S = 1.4;
+export const HOLD_S = 4.5;
 
-const WIDTH = 340;
-const HEIGHT = 192;
-const SLOT = 44;
-const GAP = 10;
-const ROW_LEFT = (WIDTH - (ROUNDS * SLOT + (ROUNDS - 1) * GAP)) / 2;
-const BLOCK_TOP = 58;
-const BLOCK_HEIGHT = 26;
-const UPDATE_TOP = 134;
-const UPDATE_WIDTH = 120;
-const UPDATE_HEIGHT = 26;
-const slotX = (k: number) => ROW_LEFT + k * (SLOT + GAP);
-const f = (v: number) => Number(v.toFixed(2));
-
-const STATEMENT: Record<LearnerId, string> = {
-  on: 'On-policy uses a batch, then discards it',
-  off: 'Off-policy keeps old batches for reuse',
-};
-const ROW_NOTE: Record<LearnerId, string> = {
-  on: 'dashed batches are gone',
-  off: 'none are thrown away',
-};
+/** The pose a run ends on, which the server draws. */
+export const stillPose = (learner: LearnerId) => poseAt(learner, TIMELINES[learner].still);
 
 function describe(learner: LearnerId): string {
   return learner === 'on'
     ? `After ${ROUNDS} rounds of collecting, an on-policy learner like PPO updates from only the newest batch, ${usableBatches('on', ROUNDS)} of ${ROUNDS}, and has discarded the other ${ROUNDS - 1} after a few passes each; an off-policy learner would still hold all ${ROUNDS}.`
     : `After ${ROUNDS} rounds of collecting, an off-policy learner like SAC keeps all ${usableBatches('off', ROUNDS)} batches in a replay buffer and every update can learn from any of them; an on-policy learner would use only the newest ${usableBatches('on', ROUNDS)}.`;
+}
+
+function drawingLabel(learner: LearnerId): string {
+  return learner === 'on'
+    ? `A card reader. Each of ${ROUNDS} batches of robot experience is a punched card that slides down a ramp under the reading head. With fresh experience only, the plow pushes each card off the turntable after one read and it drops down a chute into the waste bin: the bin holds ${ROUNDS - 1} cards, the head reads only the newest, and the counter dial points at 1 of ${ROUNDS}.`
+    : `A card reader. Each of ${ROUNDS} batches of robot experience is a punched card that slides down a ramp under the reading head. Reusing saved experience, the plow is raised, every card stays on the turntable and the turntable carries each one back under the head: the head reads all ${ROUNDS}, and the counter dial points at ${ROUNDS} of ${ROUNDS}.`;
+}
+
+function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNode {
+  if (part.kind === 'solid') {
+    return <Solid paths={part.paths} tone={part.tone} lit={part.lit} crease={part.crease} inner={part.inner ? <Line d={part.inner} tone="faint" /> : undefined} />;
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  return <Dots points={part.points} size={part.size} tone={part.tone} />;
+}
+const partsView = (parts: readonly Part[]) => parts.map((part, index) => (part.kind === 'slot' ? null : <PartView key={index} part={part} />));
+
+const EMPTY: SolidPaths = { fill: '', outline: '', crease: '', top: '', shades: ['', '', '', ''] };
+const r1 = (value: number) => Math.round(value * 10) / 10;
+
+/** What the server and the first render draw for each card and the marks, from a pose. */
+function firstDraw(pose: Pose) {
+  const cards = Array.from({ length: ROUNDS }, (_, index) => {
+    const card = pose.cards.find((c) => c.k === index + 1);
+    const parts = card ? cardAt(card.k, card.place) : { card: EMPTY, holes: '' };
+    return { where: card ? (card.inBin ? 'bin' : 'table') : 'none', parts, opacity: card?.opacity ?? 0 };
+  });
+  return { cards, marks: pocketMarks(pose.turn) };
 }
 
 export function ReplayReuse({ className }: { className?: string }) {
@@ -70,17 +115,181 @@ export function ReplayReuse({ className }: { className?: string }) {
   const ppo = citationFor('ppo-2017');
   const suttonBarto = citationFor('sutton-barto-2018');
   const [learner, setLearner] = useState<LearnerId>(DEFAULT_LEARNER);
-  const [progress, play] = usePlayback(1400);
-  const accent = roleColour('highlight');
-  const arrived = progress * ROUNDS;
-  const round = Math.max(1, Math.min(ROUNDS, Math.ceil(arrived - 1e-6)));
-  const done = progress >= 1;
-  const updateX = WIDTH / 2;
+  const end = stillPose(learner);
 
-  const choose = (id: LearnerId) => {
-    setLearner(id);
-    play();
+  // The pose the server draws; the live loop moves everything from there on.
+  const [first] = useState(() => firstDraw(stillPose(DEFAULT_LEARNER)));
+  const rootRef = useRef<HTMLDivElement>(null);
+  const tableRefs = useRef<Array<SVGGElement | null>>([]);
+  const binRefs = useRef<Array<SVGGElement | null>>([]);
+  const marksRef = useRef<SVGPathElement>(null);
+  const pinsRef = useRef<SVGGElement>(null);
+  const headRef = useRef<SVGGElement>(null);
+  const plowRef = useRef<SVGGElement>(null);
+  const needleRef = useRef<SVGPathElement>(null);
+  const pegRefs = useRef<Array<SVGGElement | null>>([]);
+  const readoutRef = useRef<HTMLSpanElement | null>(null);
+
+  const run = useRef({
+    learner: DEFAULT_LEARNER as LearnerId,
+    clock: TIMELINES[DEFAULT_LEARNER].still,
+    playing: false,
+    idle: 0,
+    toured: false,
+    held: false,
+    plow: 0,
+    needle: usableBatches(DEFAULT_LEARNER, ROUNDS),
+    pegs: Array.from({ length: ROUNDS }, () => 1),
+    shown: stillPose(DEFAULT_LEARNER),
+    from: null as Pose | null,
+    last: 0,
+  });
+
+  const draw = useCallback((pose: Pose) => {
+    const s = run.current;
+    const marks = pocketMarks(pose.turn);
+    marksRef.current?.setAttribute('d', marks.outline);
+    pinsRef.current?.querySelectorAll('circle').forEach((dot, index) => {
+      const point = marks.pins[index];
+      if (!point) return;
+      dot.setAttribute('cx', String(r1(point[0])));
+      dot.setAttribute('cy', String(r1(point[1])));
+    });
+    for (let index = 0; index < ROUNDS; index++) {
+      const card = pose.cards.find((c) => c.k === index + 1);
+      const table = tableRefs.current[index];
+      const bin = binRefs.current[index];
+      const target = card ? (card.inBin ? bin : table) : null;
+      for (const group of [table, bin]) {
+        if (!group) continue;
+        if (group !== target) {
+          group.setAttribute('display', 'none');
+          continue;
+        }
+        const { card: paths, holes } = cardAt(card!.k, card!.place);
+        group.removeAttribute('display');
+        group.setAttribute('opacity', String(Math.round(card!.opacity * 1000) / 1000));
+        writeSolid(group.querySelector<SVGGElement>('.iso-solid'), paths);
+        group.querySelector('[data-holes]')?.setAttribute('d', holes);
+      }
+      table?.setAttribute('data-where', card ? (card.inBin ? 'bin' : 'table') : 'none');
+    }
+    headRef.current?.setAttribute('transform', headShift(pose.dip));
+    plowRef.current?.setAttribute('transform', plowShift(s.plow));
+    needleRef.current?.setAttribute('d', needleAt(s.needle));
+    pegRefs.current.forEach((peg, index) => peg?.setAttribute('opacity', String(Math.round(s.pegs[index]! * 1000) / 1000)));
+    const root = rootRef.current;
+    if (root) {
+      root.dataset.arrived = String(pose.arrived);
+      root.dataset.usable = String(pose.usable);
+    }
+    if (readoutRef.current) readoutRef.current.textContent = readoutOf(pose);
+    s.shown = pose;
+  }, []);
+
+  /** The pose at the run's clock: while the run clears, the cards drawn before fade away. */
+  const poseNow = useCallback((): Pose => {
+    const s = run.current;
+    if (s.clock >= CLEAR_S || !s.from) return poseAt(s.learner, s.clock);
+    const u = s.clock / CLEAR_S;
+    const fade = 1 - u * u * (3 - 2 * u);
+    const from = s.from;
+    const square = Math.round(from.turn / STEP) * STEP;
+    return {
+      turn: from.turn + (square - from.turn) * (1 - fade),
+      dip: from.dip * fade,
+      arrived: 0,
+      usable: 0,
+      cards: from.cards.map((card) => ({ ...card, opacity: card.opacity * fade })),
+    };
+  }, []);
+
+  const visible = useInView(rootRef);
+  const kick = useLoop((dt, calm) => {
+    const s = run.current;
+    const line = TIMELINES[s.learner];
+    if (calm) {
+      s.playing = false;
+      s.clock = line.still;
+    } else if (s.playing) {
+      // The run's clock follows the wall clock, so a slow device plays the rounds at their true pace.
+      const now = performance.now();
+      const step = s.last ? Math.min(0.25, (now - s.last) / 1000) : dt;
+      s.last = now;
+      s.clock = Math.min(line.still, s.clock + step);
+      if (s.clock >= line.still) {
+        s.playing = false;
+        s.idle = 0;
+        s.from = null;
+      }
+    } else if (!s.held) {
+      // The idle tour: nobody is pointing at or working the figure, so it plays the six rounds again.
+      s.idle += dt;
+      if (s.idle >= (s.toured ? HOLD_S : FIRST_IDLE_S)) {
+        s.toured = true;
+        s.from = s.shown;
+        s.clock = 0;
+        s.playing = true;
+      }
+    }
+    const pose = poseNow();
+    s.plow = follow(s.plow, s.learner === 'off' ? 1 : 0, dt, 0.3, calm);
+    s.needle = follow(s.needle, pose.usable, dt, 0.3, calm);
+    s.pegs = s.pegs.map((value, index) => follow(value, pose.arrived > index ? 1 : 0, dt, 0.18, calm));
+    draw(pose);
+    if (!s.playing) s.last = 0;
+    if (calm) return false;
+    return true;
+  }, visible);
+
+  // Under reduced motion the loop stops once still; a change of learner draws the still pose at once.
+  const choose = (next: LearnerId) => {
+    setLearner(next);
+    const s = run.current;
+    s.from = s.shown;
+    s.learner = next;
+    s.clock = 0;
+    s.playing = true;
+    s.toured = true;
+    if (typeof window.matchMedia === 'function' && asksForStillness()) {
+      s.playing = false;
+      s.clock = TIMELINES[next].still;
+      s.plow = next === 'off' ? 1 : 0;
+      const pose = stillPose(next);
+      s.needle = pose.usable;
+      s.pegs = s.pegs.map((_, index) => (pose.arrived > index ? 1 : 0));
+      draw(pose);
+    }
+    kick();
   };
+
+  const reset = () => {
+    setLearner(DEFAULT_LEARNER);
+    const s = run.current;
+    s.learner = DEFAULT_LEARNER;
+    s.playing = false;
+    s.from = null;
+    s.idle = 0;
+    s.clock = TIMELINES[DEFAULT_LEARNER].still;
+    s.plow = 0;
+    s.needle = usableBatches(DEFAULT_LEARNER, ROUNDS);
+    s.pegs = s.pegs.map(() => 1);
+    draw(stillPose(DEFAULT_LEARNER));
+    kick();
+  };
+
+  // Pointing at the figure, focusing it or pressing in it holds the idle tour back; it resumes a while after.
+  const hold = (held: boolean) => {
+    run.current.held = held;
+    run.current.idle = 0;
+  };
+  const touched = () => {
+    run.current.idle = 0;
+  };
+
+  useEffect(() => {
+    readoutRef.current = rootRef.current?.closest('[data-figure-frame]')?.querySelector<HTMLSpanElement>('[data-readout]') ?? null;
+  }, []);
 
   return (
     <InstrumentFigure
@@ -89,90 +298,102 @@ export function ReplayReuse({ className }: { className?: string }) {
       kicker="On-policy and off-policy"
       heading="Off-policy learners reuse experience; on-policy ones discard it"
       controls={<PresetGroup label="The learner" presets={LEARNERS} value={learner} onChange={choose} testId="replay-learner" />}
+      adjust={<InstrumentReset onClick={reset} />}
       stage={
-        <FigureStage footer={<StageStatus>Fresh-only learning discards each batch after use; learning from saved experience can reuse earlier batches. Both learn movement rules from experience. The batches shown are illustrative.</StageStatus>}>
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`${ROUNDS} batches of robot experience, collected one per round, above the policy update. ${learner === 'on' ? 'The update learns from the newest batch only; the older batches were thrown away.' : `The update can learn from all ${ROUNDS} batches, kept in a replay buffer.`}`}
-            aria-describedby={descriptionId}
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint="The lit head reads each card; the plow sends it to the bin or leaves it on the turntable to come round again"
+          readout={readoutOf(end)}
+          status="Illustrative teaching model: six batches of experience; the two rules are PPO's and Q-learning's."
+          data-testid="replay-stage-frame"
+        >
+          <div
+            ref={rootRef}
             data-testid="replay-stage"
             data-learner={learner}
-            data-usable={usableBatches(learner, round)}
+            data-arrived={ROUNDS}
+            data-usable={usableBatches(DEFAULT_LEARNER, ROUNDS)}
+            onPointerEnter={() => hold(true)}
+            onPointerLeave={() => hold(false)}
+            onPointerDown={touched}
+            onFocus={() => hold(true)}
+            onBlur={() => hold(false)}
           >
-            <StageAnnotation x={ROW_LEFT} y={16} lines={[STATEMENT[learner]]} />
-            <text x={ROW_LEFT} y={BLOCK_TOP - 14} fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
-              {ROW_NOTE[learner]}
-            </text>
-            {learner === 'off' && done ? (
-              <g data-testid="replay-buffer">
-                <rect
-                  x={ROW_LEFT - 5}
-                  y={BLOCK_TOP - 5}
-                  width={ROUNDS * SLOT + (ROUNDS - 1) * GAP + 10}
-                  height={BLOCK_HEIGHT + 10}
-                  fill="none"
-                  stroke={accent}
-                  strokeWidth={CHART_STROKE.structure}
-                />
-              </g>
-            ) : null}
-            {Array.from({ length: ROUNDS }, (_, k) => {
-              const appear = Math.max(0, Math.min(1, arrived - k));
-              if (appear <= 0) return null;
-              const newest = k === round - 1;
-              const usable = learner === 'off' || newest;
-              const x = slotX(k);
-              return (
-                <g key={k} data-batch={k + 1} data-usable={usable || undefined} opacity={f(appear)}>
-                  <rect
-                    x={x}
-                    y={BLOCK_TOP}
-                    width={SLOT}
-                    height={BLOCK_HEIGHT}
-                    fill={usable ? accent : MOTION_STAGE.background}
-                    stroke={usable ? accent : CHART_STRUCTURE.labelSecondary}
-                    strokeWidth={CHART_STROKE.structure}
-                    strokeDasharray={usable ? undefined : '3 3'}
-                  />
-                  <text
-                    x={f(x + SLOT / 2)}
-                    y={BLOCK_TOP + BLOCK_HEIGHT / 2 + 4}
-                    textAnchor="middle"
-                    fontSize={CHART_TYPE.tickPx}
-                    fill={usable ? MOTION_STAGE.background : CHART_STRUCTURE.labelSecondary}
-                  >
-                    {k + 1}
-                  </text>
-                  {usable ? (
-                    <line
-                      x1={f(x + SLOT / 2)}
-                      y1={BLOCK_TOP + BLOCK_HEIGHT}
-                      x2={f(updateX + (k - (ROUNDS - 1) / 2) * 12)}
-                      y2={UPDATE_TOP}
-                      stroke={accent}
-                      strokeWidth={CHART_STROKE.structure + 0.5}
-                    />
-                  ) : null}
-                </g>
-              );
-            })}
-            <rect
-              x={updateX - UPDATE_WIDTH / 2}
-              y={UPDATE_TOP}
-              width={UPDATE_WIDTH}
-              height={UPDATE_HEIGHT}
-              fill={MOTION_STAGE.background}
-              stroke={CHART_STRUCTURE.axes}
-              strokeWidth={CHART_STROKE.structure}
-            />
-            <text x={updateX} y={UPDATE_TOP + UPDATE_HEIGHT / 2 + 4} textAnchor="middle" fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.label}>
-              learns how to act
-            </text>
-            <text data-testid="replay-count" x={updateX} y={HEIGHT - 6} textAnchor="middle" fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.label}>
-              {`learns from ${usableBatches(learner, round)} of ${round} ${round === 1 ? 'batch' : 'batches'}`}
-            </text>
-          </PlotStage>
-        </FigureStage>
+            <IsoFigure width={WIDTH} height={HEIGHT} label={drawingLabel(learner)} describedBy={descriptionId}>
+              {PARTS.map((part, index) => {
+                if (part.kind !== 'slot') return <PartView key={index} part={part} />;
+                if (part.slot === 'marks') {
+                  return (
+                    <g key="marks">
+                      <path ref={marksRef} className="iso-line" data-tone="faint" d={first.marks.outline} />
+                      <g ref={pinsRef} className="iso-dots" data-tone="mid">
+                        {first.marks.pins.map(([x, y], n) => (
+                          <circle key={n} cx={r1(x)} cy={r1(y)} r={0.45} />
+                        ))}
+                      </g>
+                    </g>
+                  );
+                }
+                if (part.slot === 'tableCards' || part.slot === 'binCards') {
+                  const inBin = part.slot === 'binCards';
+                  return (
+                    <g key={part.slot} data-testid={inBin ? 'replay-bin-cards' : 'replay-table-cards'}>
+                      {first.cards.map((card, index) => {
+                        const here = card.where === (inBin ? 'bin' : 'table');
+                        return (
+                          <g
+                            key={index}
+                            ref={(el) => {
+                              (inBin ? binRefs : tableRefs).current[index] = el;
+                            }}
+                            data-card={index + 1}
+                            data-where={inBin ? undefined : card.where}
+                            display={here ? undefined : 'none'}
+                            opacity={here ? card.opacity : 0}
+                          >
+                            <LiveSolid paths={here ? card.parts.card : EMPTY} tone="hi" />
+                            <path className="iso-line" data-tone="lo" data-holes="" d={here ? card.parts.holes : ''} />
+                          </g>
+                        );
+                      })}
+                    </g>
+                  );
+                }
+                if (part.slot === 'plow') {
+                  return (
+                    <g key="plow" ref={plowRef} data-testid="replay-plow" transform={plowShift(0)}>
+                      {partsView(PLOW_PARTS)}
+                    </g>
+                  );
+                }
+                if (part.slot === 'head') {
+                  return (
+                    <g key="head" ref={headRef} transform={headShift(1)}>
+                      {partsView(HEAD_PARTS)}
+                    </g>
+                  );
+                }
+                return (
+                  <g key="dial" data-testid="replay-dial">
+                    {PEGS.map((peg, index) => (
+                      <g
+                        key={index}
+                        ref={(el) => {
+                          pegRefs.current[index] = el;
+                        }}
+                        data-peg={index + 1}
+                      >
+                        <Solid paths={peg} tone="mid" />
+                      </g>
+                    ))}
+                    <Solid paths={NEEDLE_HUB} tone="mid" />
+                    <path ref={needleRef} className="iso-line" data-tone="hi" data-free="end" style={{ strokeWidth: 1.1 }} d={needleAt(usableBatches(DEFAULT_LEARNER, ROUNDS))} />
+                  </g>
+                );
+              })}
+            </IsoFigure>
+          </div>
+        </AnatomyStage>
       }
       caption="A policy is the robot's learned rule for acting; on-policy training discards each batch after use, off-policy training keeps and reuses it."
       method={
@@ -186,6 +407,13 @@ export function ReplayReuse({ className }: { className?: string }) {
             An off-policy method improves one policy from data another produced, so experience piles up in a replay
             buffer. Underneath is Q-learning, which fits the value of a state and action and can learn from any
             recorded step.
+          </div>
+          <div>
+            The drawing is that rule made of parts. Each batch is a punched card, and a read is the lit head dropping
+            its pins onto it. With fresh experience only, the plow is down and pushes each card off the turntable into
+            the bin once it has been read. Reusing saved experience, the plow is raised, the cards stay in their
+            pockets, and every round the turntable brings each stored card back under the head. The dial raises a peg
+            for each batch collected and points at how many of them the learner learns from.
           </div>
           <div>
             The batches are illustrative. With thousands of simulated robots, steps are nearly free and PPO&apos;s

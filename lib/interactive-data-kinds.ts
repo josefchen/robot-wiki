@@ -838,7 +838,7 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     kind: 'schematic',
   },
   'interactive:ReplayReuse': {
-    // "Illustrative batches"; the on-policy discard and off-policy replay rules are PPO's and Q-learning's.
+    // Six illustrative batches as punched cards on a card reader with a carousel; the on-policy discard and off-policy replay rules are PPO's and Q-learning's; "Illustrative teaching model" status line.
     kind: 'schematic',
   },
   'interactive:Ros2Interfaces': {
