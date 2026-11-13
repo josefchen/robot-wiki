@@ -257,7 +257,7 @@ describe('CompoundingError served HTML', () => {
   });
 });
 
-describe('CompoundingError series encoding (DI-VIZ-002/004)', () => {
+describe('CompoundingError series encoding', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<CompoundingError />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['linear-reference', 'quadratic-reference', 'summed-deviation']);

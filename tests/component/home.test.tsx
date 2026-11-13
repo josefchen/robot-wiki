@@ -75,7 +75,7 @@ describe('Home page', () => {
     const box = within(form).getByRole('searchbox', {
       name: 'Search articles, sources and glossary',
     }) as HTMLInputElement;
-    // DI-COMP-004: the name comes from one persistent visible label, not
+    // the name comes from one persistent visible label, not
     // from an aria-label or the placeholder.
     expect(box).not.toHaveAttribute('aria-label');
     expect(box).not.toHaveAttribute('aria-labelledby');

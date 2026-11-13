@@ -208,7 +208,7 @@ describe('DeploymentEconomics component', () => {
   });
 });
 
-describe('DeploymentEconomics series encoding (DI-VIZ-002/004)', () => {
+describe('DeploymentEconomics series encoding', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = mount();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['economics-downtime', 'economics-jam-clearing', 'economics-productive']);

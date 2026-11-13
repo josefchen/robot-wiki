@@ -107,7 +107,7 @@ describe('DroneChampionsTimeline served HTML', () => {
   });
 });
 
-describe('DroneChampionsTimeline series encoding (DI-VIZ-002/004)', () => {
+describe('DroneChampionsTimeline series encoding', () => {
   it('names every plotted series in the plot and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(RACING_CONTESTS.map((c) => c.id).sort());

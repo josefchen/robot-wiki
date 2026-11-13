@@ -502,7 +502,7 @@ describe('RrtExplorer served HTML', () => {
   });
 });
 
-describe('RrtExplorer series encoding (DI-VIZ-002/004)', () => {
+describe('RrtExplorer series encoding', () => {
   beforeEach(() => mockReducedMotion(false));
 
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {

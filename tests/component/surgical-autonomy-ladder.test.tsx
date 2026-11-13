@@ -124,7 +124,7 @@ describe('SurgicalAutonomyLadder served HTML', () => {
   });
 });
 
-describe('SurgicalAutonomyLadder series encoding (DI-VIZ-002/004)', () => {
+describe('SurgicalAutonomyLadder series encoding', () => {
   it('names both kinds of evidence in the plot and tells them apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['authorized', 'research']);

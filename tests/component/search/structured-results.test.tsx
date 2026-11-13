@@ -212,7 +212,7 @@ describe('SearchInterface structured results', () => {
 
     await user.click(screen.getByRole('button', { name: /^Companies$/i }));
     // Selection is a visual marker plus an independent marker plus
-    // semantics, never colour alone (DI-DISC-003). Since the
+    // semantics, never colour alone. Since the
     // research-page standard of 10 October 2026 the lime fill
     // became a text tab, the pressed one in ink on a 1px ink underline.
     const companies = screen.getByRole('button', { name: /^Companies$/i });

@@ -97,7 +97,7 @@ describe('HelixZeroShotSuccess served HTML', () => {
   });
 });
 
-describe('HelixZeroShotSuccess series encoding (DI-VIZ-002/004)', () => {
+describe('HelixZeroShotSuccess series encoding', () => {
   it('names every plotted series in the plot and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(HELIX_ZERO_SHOT.map((r) => r.id).sort());
