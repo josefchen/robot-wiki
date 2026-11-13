@@ -535,7 +535,7 @@ A standard Next.js build on Vercel (without `output: 'export'`) also produces st
 - ISR/PPR features require server infrastructure
 - You lose the guarantee of zero functions
 
-With `output: 'export'`, the build **fails loudly** if any route requires server features, enforcing the static-only constraint. This is the safer choice for a mission that explicitly wants "zero serverless functions."
+With `output: 'export'`, the build **fails loudly** if any route requires server features, enforcing the static-only constraint. This is the safer choice for a site that explicitly wants "zero serverless functions."
 
 ### Gotchas
 
@@ -575,7 +575,7 @@ All 13 stack components verified working together. No fundamental incompatibilit
 
 7. **Franka Panda mesh format**: The Franka description repo uses DAE (Collada) visual meshes (11-18 MB each) and Xacro-based URDF. Shipping the Franka would require converting DAE → GLB+Draco and processing Xacro → URDF. More work than the SO-101 (which has ready-to-use STL + URDF).
 
-## Guidance for implementation workers
+## Implementation notes
 
 ### MDX + App Router
 
