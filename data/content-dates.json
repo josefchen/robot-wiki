@@ -10,7 +10,7 @@
     },
     "adjacent/space": {
       "published": "2026-08-15T18:35:31+01:00",
-      "modified": "2026-11-12T20:29:38+00:00"
+      "modified": "2026-11-13T04:49:08+00:00"
     },
     "adjacent/surgical": {
       "published": "2026-08-15T17:23:56+01:00",
@@ -62,11 +62,11 @@
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T20:01:27+01:00",
-      "modified": "2026-11-12T20:31:03+00:00"
+      "modified": "2026-11-13T04:49:08+00:00"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T18:27:43+01:00",
-      "modified": "2026-11-12T20:55:05+00:00"
+      "modified": "2026-11-13T04:49:08+00:00"
     },
     "data-hardware/industrial-deployment": {
       "published": "2026-08-22T21:24:51+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-12T23:21:59+00:00"
+      "modified": "2026-11-13T04:49:08+00:00"
     },
     "/manipulation/": {
       "modified": "2026-11-12T23:21:59+00:00"
@@ -264,7 +264,7 @@
       "modified": "2026-11-12T21:35:46+00:00"
     },
     "/glossary/": {
-      "modified": "2026-11-12T23:21:59+00:00"
+      "modified": "2026-11-13T04:49:08+00:00"
     },
     "/credits/": {
       "modified": "2026-11-12T21:10:48+00:00"

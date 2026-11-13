@@ -60,7 +60,7 @@
     "minutes": 7
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 1830,
+    "words": 1822,
     "minutes": 9
   },
   "rl-sim2real/why-rl-locomotion": {
@@ -72,11 +72,11 @@
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 2015,
+    "words": 2034,
     "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 2067,
+    "words": 2079,
     "minutes": 10
   },
   "rl-sim2real/humanoid-wbc": {
@@ -132,16 +132,16 @@
     "minutes": 10
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3420,
-    "minutes": 17
+    "words": 3678,
+    "minutes": 18
   },
   "data-hardware/teleop-rigs": {
     "words": 2222,
     "minutes": 11
   },
   "data-hardware/evaluation-crisis": {
-    "words": 2080,
-    "minutes": 10
+    "words": 2200,
+    "minutes": 11
   },
   "data-hardware/industrial-deployment": {
     "words": 2490,
@@ -224,7 +224,7 @@
     "minutes": 11
   },
   "adjacent/space": {
-    "words": 2223,
-    "minutes": 11
+    "words": 2347,
+    "minutes": 12
   }
 }
