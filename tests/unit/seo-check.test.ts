@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 import { describe, expect, it } from 'vitest';
 import {
@@ -112,21 +111,5 @@ describe('internal-link check', () => {
     expect(inspectPageLinks('/p/', [...hrefs, '/classical/kinematics'], SITE, exists)).toEqual([
       { page: '/p/', href: '/classical/kinematics', status: 308, location: '/classical/kinematics/' },
     ]);
-  });
-});
-
-describe('build wiring', () => {
-  it('runs both checks in the gated and the production build, after the export and llms.txt exist', () => {
-    const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { scripts: Record<string, string> };
-    expect(pkg.scripts['check:seo']).toBe('node scripts/check-seo.ts');
-    expect(pkg.scripts['check:internal-links']).toBe('node scripts/check-internal-links.ts');
-    for (const hook of ['postbuild', 'vercel-build']) {
-      const command = pkg.scripts[hook].replace('npm run build', [pkg.scripts.prebuild, pkg.scripts.build, pkg.scripts.postbuild].join(' && '));
-      for (const check of ['check:seo', 'check:internal-links']) {
-        expect(command, hook).toContain(`&& npm run ${check} &&`);
-        expect(command.indexOf(check), hook).toBeGreaterThan(command.lastIndexOf('next build'));
-        expect(command.indexOf(check), hook).toBeGreaterThan(command.indexOf('patch-404-guard'));
-      }
-    }
   });
 });

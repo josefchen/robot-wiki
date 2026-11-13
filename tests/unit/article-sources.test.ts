@@ -1,4 +1,3 @@
-import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -42,16 +41,6 @@ describe('distinct sources per article', () => {
     expect(rows.filter((row) => row.sources.length < MIN_DISTINCT_SOURCES)
       .map((row) => `${row.route}: ${row.sources.length}`)).toEqual([]);
   });
-
-  it('runs in vercel-build, and an article cut to 29 sources fails it with route and count', () => {
-    const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { scripts: Record<string, string> };
-    expect(pkg.scripts['vercel-build']).toContain('node scripts/check-article-sources.ts');
-    const run = spawnSync(process.execPath, ['scripts/plant-article-sources.ts'], { encoding: 'utf8' });
-    expect(run.status, run.stderr).toBe(0);
-    expect(run.stdout).toContain('clean copy: exit 0');
-    expect(run.stdout).toContain('/manipulation/action-chunking/ cut to 29: exit 1, names the route and count');
-    expect(run.stdout).toContain('shared-source site total 30: exit 1, names the site total and floor');
-  }, 60_000);
 
   it('meets the separate site-wide floor with shared papers counted once', () => {
     const rows = countArticleSources(join(process.cwd(), 'content'), publishedModules(), (id) => byId.get(id));

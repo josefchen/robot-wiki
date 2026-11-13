@@ -20,10 +20,6 @@ export default defineConfig({
     include: ['tests/**/*.test.{ts,tsx}'],
     exclude: [
       'tests/e2e/**',
-      // tests/propagation flips the real module registry and adds a probe
-      // content file mid-run, which races the real-repo validator tests in
-      // a parallel suite. It runs standalone via npm run test:propagation.
-      'tests/propagation/**',
       'node_modules/**',
       '.next/**',
       'out/**',

@@ -19,10 +19,9 @@
 # shaping library is built the same way through its own no-x11 option.
 #
 # The venv lives on the machine that renders clips, never on the
-# deployment platform: no build step invokes it (pinned by
-# tests/unit/motion-clip-build-isolation.test.ts).
+# deployment platform: no build step invokes it.
 #
-#   bash scripts/motion/setup-venv.sh        (or: npm run clips:venv)
+#   bash scripts/motion/setup-venv.sh
 set -euo pipefail
 
 cd "$(dirname "$0")/../.."

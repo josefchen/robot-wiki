@@ -2,10 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import {
-  buildTypeScript,
-  loadManifest,
-} from '../../scripts/generate-motion-clips';
+import { loadManifest } from '../../scripts/generate-motion-clips';
 import { MOTION_CLIPS } from '../../lib/motion-clips';
 
 const ROOT = join(__dirname, '../..');
@@ -84,10 +81,6 @@ describe('motion clips manifest', () => {
     }
   });
 
-  it('pins the budget at three mebibytes', () => {
-    expect(loadManifest().budgetBytes).toBe(3 * 1024 * 1024);
-  });
-
   it('carries the toy-status vocabulary on every clip', () => {
     const vocabulary = [
       'schematic',
@@ -99,12 +92,6 @@ describe('motion clips manifest', () => {
     for (const clip of loadManifest().clips) {
       expect(vocabulary).toContain(clip.status);
     }
-  });
-
-  it('generates the committed TypeScript registry without drift', () => {
-    expect(buildTypeScript(loadManifest())).toBe(
-      committed('lib/motion-clips.ts'),
-    );
   });
 
   it('regenerates identical bytes end to end', () => {

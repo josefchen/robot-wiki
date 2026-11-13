@@ -9,10 +9,9 @@ import { describe, expect, it } from 'vitest';
  * rewrites the working-tree file to the dev type path. A developer who
  * commits that variant makes every clean `npm run typecheck` and
  * `npm run build` rewrite the file back, dirtying the tree between the two
- * mode directories. The working-tree check in design-system-contract.test
- * catches the edit before it is committed; this check catches the commit
- * itself, because once typegen has restored the working tree the committed
- * dev variant is invisible to a plain file read.
+ * mode directories. This check reads the committed blob, because once
+ * typegen has restored the working tree the committed dev variant is
+ * invisible to a plain file read.
  */
 const committedNextEnv = execFileSync('git', ['show', 'HEAD:next-env.d.ts'], {
   cwd: process.cwd(),
