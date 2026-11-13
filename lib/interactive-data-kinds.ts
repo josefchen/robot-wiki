@@ -709,7 +709,7 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     kind: 'authored-model',
   },
   'interactive:TeacherStudent': {
-    // The caption self-labels ("In this authored toy").
+    // Authored terrain and error model drawn as a contour gauge; the status line self-labels ("Illustrative teaching model").
     kind: 'authored-model',
   },
   'interactive:TerrainCurriculum': {

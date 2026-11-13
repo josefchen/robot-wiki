@@ -1,85 +1,72 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
+import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReset,
-  LegendItem,
-  PlotStage,
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
-import { RobotDog, type DogFeet } from '@/components/motion/robot-dog';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { PartView } from '@/components/iso/part-view';
+import { Dots, IsoFigure, Solid } from '@/components/iso/react/draw';
+import { asksForStillness, follow, useInView, useLoop, useReadout } from '@/components/iso/react/live';
+import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_VIEW_WIDTH,
-  DirectLabel,
-  LegendSwatch,
-  StageAnnotation,
-  roleColour,
-} from '@/components/motion/chart';
+  CARRIAGE,
+  HEADS,
+  HEIGHT,
+  LOWER_PINS,
+  PARK,
+  PARTS,
+  PHONE_FIT,
+  WIDTH,
+  carriageShift,
+  follower,
+  pinRest,
+  pinShift,
+  pinX,
+  upperPin,
+} from '@/components/iso/figures/contour-gauge-track';
 import {
   DEFAULT_DEGRADATION,
-  TERRAIN,
   TERRAIN_CELLS,
-  TERRAIN_MAX,
-  TERRAIN_MIN,
   actionDivergence,
   formatDivergence,
   formatMeters,
   occludedCells,
-  proprioReadings,
-  reconstruction,
   reconstructionMae,
 } from '@/lib/sim2real';
 
 /**
- * TeacherStudent: an authored illustration motivated by input mismatch.
- * The real ground is a side-view profile of the chosen terrain; the
- * student's guess is that terrain plus a constructed error field, drawn
- * dashed on the same ground, with a gap wherever a leg reading is lost.
- * The strip under the ground is the normalized terrain plus seeded noise
- * the legs report. Reconstruction does not infer terrain from those bars.
- * No teacher or student is trained; the discrepancy readout is 2.2*MAE,
- * not a paper's empirical result.
+ * TeacherStudent: teacher-student training, drawn as a contour gauge on a
+ * test track (components/iso/figures/contour-gauge-track.ts).
  *
- * Height reads as height: higher ground is drawn higher, for the real
- * profile and the guess alike. The cells under the profile are shaded by
- * the same height, darker for higher, so shade and height never disagree.
+ * In simulation the teacher is given the true ground. The student that
+ * runs on the real robot never is: it has to work the ground out from what
+ * its legs feel. On the gauge, a carriage walks the track with a wheel on
+ * the ground, and each of 24 pins drops onto the ground as it passes; the
+ * row of pin heads (the one lit part) is the student's guess, and the plate
+ * behind them is cut to the truth the teacher had. Leg-reading noise makes
+ * pins sit high or low, and a missing reading is a pin that did not drop.
+ *
+ * The numbers are the authored teaching model in lib/sim2real.ts: chosen
+ * terrain, a constructed error field that grows with the noise and seeded
+ * missing readings. No teacher or student is trained. Changing the noise
+ * sends the carriage along the track once to read the ground again. Until
+ * the reader touches it, an idle tour steps through the three presets; it
+ * waits while the figure is off screen, never runs under reduced motion,
+ * and stops for good at the reader's first touch.
  */
-
-const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 204;
-const PLOT_LEFT = 8;
-const PLOT_RIGHT = 332;
-const CELL_W = (PLOT_RIGHT - PLOT_LEFT) / TERRAIN_CELLS;
-
-/** The ground profile: lowest terrain at GROUND_BOTTOM, highest RISE above it. */
-const GROUND_BOTTOM = 150;
-const GROUND_RISE = 46;
-const STRIP = { labelY: 176, baseline: 200, maxHeight: 18 } as const;
-
-/** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
-const f = (v: number) => Number(v.toFixed(2));
-
-/** The cell the note's leader points at: a kept reading on the first rise. */
-const POINTER_CELL = 2;
-
-const cellX = (i: number) => f(PLOT_LEFT + (i + 0.5) * CELL_W);
-/** Ground shade per cell: darker cells are higher terrain, on a quiet grey ramp. */
-const cellShade = (h: number) => f(0.05 + 0.13 * ((h - TERRAIN_MIN) / (TERRAIN_MAX - TERRAIN_MIN)));
-const groundY = (h: number) => f(GROUND_BOTTOM - ((h - TERRAIN_MIN) / (TERRAIN_MAX - TERRAIN_MIN)) * GROUND_RISE);
 
 type NoiseId = 'clean' | 'some' | 'very';
 
-const NOISE_PRESETS: { id: NoiseId; label: string; degradation: number }[] = [
+export const NOISE_PRESETS: { id: NoiseId; label: string; degradation: number }[] = [
   { id: 'clean', label: 'Clean', degradation: 0 },
   { id: 'some', label: 'Some noise', degradation: DEFAULT_DEGRADATION },
   { id: 'very', label: 'Very noisy', degradation: 0.6 },
@@ -88,35 +75,29 @@ const NOISE_PRESETS: { id: NoiseId; label: string; degradation: number }[] = [
 const presetFor = (degradation: number): NoiseId | null =>
   NOISE_PRESETS.find((p) => Math.abs(p.degradation - degradation) < 1e-9)?.id ?? null;
 
-/** Runs of consecutive kept cells, so a lost reading leaves a gap in the guess. */
-function keptRuns(occluded: readonly boolean[]): number[][] {
-  const runs: number[][] = [];
-  let run: number[] = [];
-  occluded.forEach((lost, i) => {
-    if (lost) {
-      if (run.length) runs.push(run);
-      run = [];
-    } else {
-      run.push(i);
-    }
-  });
-  if (run.length) runs.push(run);
-  return runs;
-}
+/** The average gap between the guess and the true ground, in centimeters with one decimal. */
+export const gapCm = (degradation: number) => (reconstructionMae(degradation) * 100).toFixed(1);
+const missingCount = (degradation: number) => occludedCells(degradation).filter(Boolean).length;
 
-/** A four-legged robot standing on the real ground, its feet on cells 17 to 21. */
-function StandingDog() {
-  const foot = (i: number) => [cellX(i), f(groundY(TERRAIN[i]) - 1)] as const;
-  const feet: DogFeet = [foot(18), foot(17), foot(21), foot(20)];
-  const hipY = f(Math.min(...feet.map(([, y]) => y)) - 34);
-  return <RobotDog rear={f(cellX(17) + 3)} front={f(cellX(20) + 3)} hipY={hipY} feet={feet} segment={21} />;
+/** The live readout: how far the guess is from the real ground, and how many readings went missing. */
+export function readoutFor(degradation: number): string {
+  const missing = missingCount(degradation);
+  const lost = missing === 0 ? 'no readings missing' : `${missing} of ${TERRAIN_CELLS} readings missing`;
+  if (reconstructionMae(degradation) < 0.0005) return `Guess matches the real ground · ${lost}`;
+  return `Guess off the real ground by ${gapCm(degradation)} cm on average · ${lost}`;
 }
+/** What the readout says while the carriage is reading the ground. */
+export const WALKING = 'Reading the ground through its legs';
 
-function annotationLines(degradation: number): string[] {
-  if (degradation === 0) return ['No ground view: clean leg readings', "match the ground's shape"];
-  if (degradation <= 0.2) return ['No ground view: its leg readings', "nearly reveal the ground's shape"];
-  return ['No ground view: noisy leg readings', 'give a poorer ground-shape guess'];
-}
+/** The one line under the drawing that says what to watch. */
+export const HINT = 'The blue pin heads are the robot’s guess of the ground · the plate behind them is cut to the true ground';
+
+/** The idle tour: clean readings, very noisy ones, then back to some noise. */
+export const TOUR: readonly NoiseId[] = ['clean', 'very', 'some'];
+const TOUR_START_MS = 1400;
+const TOUR_HOLD_MS = 4600;
+/** How fast the carriage walks the track, in drawing units a second. */
+const WALK_SPEED = 190;
 
 export function TeacherStudent({
   defaultDegradation = DEFAULT_DEGRADATION,
@@ -125,21 +106,122 @@ export function TeacherStudent({
   defaultDegradation?: number;
   className?: string;
 }) {
-  const descriptionId = `${useId()}-description`;
+  const uid = useId();
+  const descriptionId = `${uid}-description`;
+  const citationFor = useCitationLookup();
+  const lee = citationFor('lee-2020');
   const [degradation, setDegradation] = useState(defaultDegradation);
 
-  const readings = proprioReadings(degradation);
-  const occluded = occludedCells(degradation);
-  const recon = reconstruction(degradation);
   const mae = reconstructionMae(degradation);
   const divergence = actionDivergence(degradation);
-  const occludedCount = occluded.filter(Boolean).length;
+  const missing = missingCount(degradation);
   const percent = Math.round(degradation * 100);
-  const guessColour = roleColour('state');
-  const readingColour = roleColour('measurement');
-  const ink = CHART_STRUCTURE.label;
+  const rest = pinRest(degradation);
 
-  const groundPoints = TERRAIN.map((h, i) => `${cellX(i)},${groundY(h)}`).join(' ');
+  // ------------------------------------------------------------ the gauge in motion
+  const { anchor, say } = useReadout<SVGGElement>();
+  /** What the server and the first render draw; the loop moves the parts from there on. */
+  const [first] = useState(() => pinRest(defaultDegradation));
+  const lowerRefs = useRef<(SVGGElement | null)[]>([]);
+  const upperRefs = useRef<(SVGGElement | null)[]>([]);
+  const headRefs = useRef<(SVGGElement | null)[]>([]);
+  const carriageRef = useRef<SVGGElement | null>(null);
+  const rodRef = useRef<SVGGElement | null>(null);
+  const wheelRef = useRef<SVGGElement | null>(null);
+  const hubRef = useRef<SVGPathElement | null>(null);
+  const axleRef = useRef<SVGGElement | null>(null);
+  const motion = useRef({
+    tips: [...first.tip],
+    goals: [...first.tip],
+    target: [...first.tip],
+    x: PARK.right as number,
+    dest: PARK.right as number,
+    walking: false,
+    degradation: defaultDegradation,
+  });
+  const visible = useInView(anchor);
+
+  const kick = useLoop((dt, calm) => {
+    const m = motion.current;
+    if (m.walking) {
+      const step = WALK_SPEED * dt;
+      m.x = calm || Math.abs(m.dest - m.x) <= step ? m.dest : m.x + Math.sign(m.dest - m.x) * step;
+      const rightward = m.dest > PARK.left;
+      for (let i = 0; i < TERRAIN_CELLS; i++) {
+        if (rightward ? m.x >= pinX(i) : m.x <= pinX(i)) m.goals[i] = m.target[i]!;
+      }
+      if (m.x === m.dest) m.walking = false;
+    }
+    let moving = m.walking;
+    for (let i = 0; i < TERRAIN_CELLS; i++) {
+      const before = m.tips[i]!;
+      const now = follow(before, m.goals[i]!, dt, 0.09, calm);
+      m.tips[i] = now;
+      if (now !== m.goals[i]) moving = true;
+      if (now === before && !m.walking) continue;
+      const shift = pinShift(now);
+      lowerRefs.current[i]?.setAttribute('transform', shift);
+      headRefs.current[i]?.setAttribute('transform', shift);
+      writeSolid(upperRefs.current[i] ?? null, upperPin(i, now));
+    }
+    carriageRef.current?.setAttribute('transform', carriageShift(m.x));
+    const feel = follower(m.x);
+    writeSolid(rodRef.current, feel.rod);
+    writeSolid(wheelRef.current, feel.wheel);
+    hubRef.current?.setAttribute('d', feel.hub);
+    axleRef.current?.querySelector('circle')?.setAttribute('cx', feel.axle[0].toFixed(1));
+    axleRef.current?.querySelector('circle')?.setAttribute('cy', feel.axle[1].toFixed(1));
+    say(moving ? WALKING : readoutFor(m.degradation));
+    return moving;
+  }, visible);
+
+  useEffect(() => {
+    const m = motion.current;
+    if (m.degradation === degradation) return;
+    m.degradation = degradation;
+    m.target = pinRest(degradation).tip;
+    // The carriage walks to the other end of the track, re-reading every pin as it passes.
+    if (!m.walking) m.dest = m.x > 0 ? PARK.left : PARK.right;
+    m.walking = true;
+    kick();
+  }, [degradation, kick]);
+
+  // ------------------------------------------------------------ the idle tour
+  const tourOver = useRef(false);
+  const tourStep = useRef(0);
+  const touched = () => {
+    tourOver.current = true;
+  };
+  useEffect(() => {
+    if (!visible || asksForStillness()) return;
+    let timer = 0;
+    const next = (delay: number) => {
+      timer = window.setTimeout(() => {
+        const focusInside = anchor.current?.closest('[data-figure-frame]')?.contains(document.activeElement) ?? false;
+        if (tourOver.current || focusInside) {
+          tourOver.current = true;
+          return;
+        }
+        const id = TOUR[tourStep.current % TOUR.length];
+        setDegradation(NOISE_PRESETS.find((p) => p.id === id)!.degradation);
+        tourStep.current += 1;
+        next(TOUR_HOLD_MS);
+      }, delay);
+    };
+    if (!tourOver.current) next(TOUR_START_MS);
+    return () => window.clearTimeout(timer);
+  }, [visible, anchor]);
+
+  const choose = (value: number) => {
+    touched();
+    setDegradation(value);
+  };
+
+  const lost = missing === 0 ? 'every pin dropped onto the ground' : `${missing} of ${TERRAIN_CELLS} pins did not drop`;
+  const label = `A contour gauge over a test track. A comb of ${TERRAIN_CELLS} pins hangs from a bridge over a strip of bumpy ground; each pin dropped until it touched the ground, so the row of blue pin heads is the student's guess of the ground. Behind the heads stands the teacher's plate, its edge cut to the true ground. At ${percent} percent leg-reading noise ${lost}, and the guess is off by ${gapCm(degradation)} cm on average.`;
+  const description = `At ${percent} percent proprioceptive degradation the student's guess of the teacher's terrain is off by ${formatMeters(mae)} on average, action divergence ${formatDivergence(divergence)}, with ${missing} of ${TERRAIN_CELLS} leg readings missing; on the contour gauge each pin head is one point of the guess, set against the teacher's plate cut to the true ground.`;
+
+  const feel = follower(PARK.right);
 
   return (
     <InstrumentFigure
@@ -152,199 +234,167 @@ export function TeacherStudent({
           label="Sensor noise"
           presets={NOISE_PRESETS}
           value={presetFor(degradation)}
-          onChange={(id) => setDegradation(NOISE_PRESETS.find((p) => p.id === id)!.degradation)}
+          onChange={(id) => choose(NOISE_PRESETS.find((p) => p.id === id)!.degradation)}
           testId="ts-noise"
         />
       }
       adjust={
         <>
           <ControlField className="w-full basis-full content-start sm:max-w-sm">
-            <ControlLabel htmlFor="ts-degradation" value={`${percent}%`}>
-              Proprioceptive degradation
+            <ControlLabel htmlFor={`${uid}-noise`} value={`${percent}%`}>
+              Leg-reading noise
             </ControlLabel>
             <input
-              id="ts-degradation"
+              id={`${uid}-noise`}
               type="range"
               data-brand-control-id="control:input"
               min={0}
               max={100}
               step={1}
               value={percent}
-              onChange={(e) => setDegradation(Number(e.target.value) / 100)}
-              aria-label={`Proprioceptive degradation, currently ${Math.round(degradation * 100)} percent`}
+              onPointerDown={touched}
+              onKeyDown={touched}
+              onChange={(e) => choose(Number(e.target.value) / 100)}
+              aria-label={`Leg-reading noise, the proprioceptive degradation, currently ${percent} percent`}
+              aria-valuetext={`${percent} percent: ${readoutFor(degradation)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
             <SliderEnds low="clean" high="every reading lost" />
           </ControlField>
-          <InstrumentReset onClick={() => setDegradation(defaultDegradation)} />
+          <InstrumentReset onClick={() => choose(defaultDegradation)} />
         </>
       }
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem series="terrain" swatch={<GroundSwatch />}>
-                  real ground
-                </LegendItem>
-                <LegendItem series="reconstruction" swatch={<LegendSwatch role="state" mark="dash" />}>
-                  student&apos;s guess
-                </LegendItem>
-                <LegendItem series="readings" swatch={<LegendSwatch role="measurement" mark="bar" />}>
-                  what its legs feel
-                </LegendItem>
-              </InstrumentLegend>
-              <StageStatus>Dotted gaps are missing leg readings. Grey legs are the far pair. Illustrative, not measured.</StageStatus>
-            </>
-          }
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={HINT}
+          readout={readoutFor(degradation)}
+          status="Illustrative teaching model, not measured robot data"
+          data-testid="contour-gauge"
+          data-missing={missing}
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`A four-legged robot on real ground with the student's dashed guess of it at ${percent} percent degradation, ${occludedCount} of ${TERRAIN_CELLS} leg readings lost`}
-            aria-describedby={descriptionId}
-          >
-            <StageAnnotation
-              x={8}
-              y={16}
-              lines={annotationLines(degradation)}
-              target={[cellX(POINTER_CELL), f(groundY(recon[POINTER_CELL]) - 6)]}
-            />
-            <g data-testid="teacher-panel" data-series="terrain">
-              {/* One column per terrain cell, under the profile: higher cells are drawn
-                  higher and shaded darker, so height and shade say the same thing. */}
-              {TERRAIN.map((h, i) => (
-                <rect
-                  key={i}
-                  data-terrain-cell={i}
-                  x={f(PLOT_LEFT + i * CELL_W)}
-                  y={groundY(h)}
-                  width={f(CELL_W + 0.2)}
-                  height={f(GROUND_BOTTOM + 8 - groundY(h))}
-                  fill={ink}
-                  fillOpacity={cellShade(h)}
-                />
-              ))}
-              <polyline points={groundPoints} fill="none" stroke={ink} strokeWidth={CHART_STROKE.trace} strokeLinejoin="round" />
-            </g>
-            <StandingDog />
-            <g data-testid="recon-panel" data-series="reconstruction">
-              {keptRuns(occluded).map((run) =>
-                run.length === 1 ? (
-                  <line
-                    key={run[0]}
-                    x1={f(cellX(run[0]) - CELL_W / 3)}
-                    x2={f(cellX(run[0]) + CELL_W / 3)}
-                    y1={groundY(recon[run[0]])}
-                    y2={groundY(recon[run[0]])}
-                    stroke={guessColour}
-                    strokeWidth={CHART_STROKE.trace}
-                    strokeDasharray={CHART_STROKE.dash}
-                  />
-                ) : (
-                  <polyline
-                    key={run[0]}
-                    points={run.map((i) => `${cellX(i)},${groundY(recon[i])}`).join(' ')}
-                    fill="none"
-                    stroke={guessColour}
-                    strokeWidth={CHART_STROKE.trace}
-                    strokeDasharray={CHART_STROKE.dash}
-                    strokeLinejoin="round"
-                  />
-                ),
-              )}
-            </g>
-            <DirectLabel x={PLOT_LEFT} y={STRIP.labelY}>
-              what its legs feel
-            </DirectLabel>
-            <g data-testid="student-panel" data-series="readings">
-              {readings.map((v, i) => {
-                const x = f(PLOT_LEFT + i * CELL_W + 1);
-                if (occluded[i]) {
-                  // A lost reading is a short grey dashed stub in the same strip, so the
-                  // gap reads without the hue; the method names it.
+          <IsoFigure width={WIDTH} height={HEIGHT} fit={PHONE_FIT} label={label} describedBy={descriptionId}>
+            <g ref={anchor} onPointerDown={touched}>
+              {PARTS.map((part, index) => {
+                if (part.kind !== 'slot') return <PartView key={index} part={part} />;
+                if (part.slot === 'lower-pins') {
                   return (
-                    <line
-                      key={i}
-                      x1={x}
-                      x2={f(x + CELL_W - 3)}
-                      y1={STRIP.baseline - 1}
-                      y2={STRIP.baseline - 1}
-                      fill="none"
-                      stroke={CHART_STRUCTURE.axes}
-                      strokeWidth={CHART_STROKE.trace}
-                      strokeDasharray="2 2"
-                    />
+                    <g key="lower-pins" data-testid="lower-pins">
+                      {LOWER_PINS.map((paths, i) => (
+                        <g
+                          key={i}
+                          transform={pinShift(first.tip[i]!)}
+                          ref={(el) => {
+                            lowerRefs.current[i] = el;
+                          }}
+                        >
+                          <Solid paths={paths} tone="mid" />
+                        </g>
+                      ))}
+                    </g>
                   );
                 }
-                const h = Math.max(2, Math.min(STRIP.maxHeight, v * STRIP.maxHeight));
+                if (part.slot === 'follower') {
+                  return (
+                    <g key="follower" data-testid="follower">
+                      <LiveSolid ref={rodRef} paths={feel.rod} tone="mid" />
+                      <LiveSolid ref={wheelRef} paths={feel.wheel} tone="mid" />
+                      <path ref={hubRef} className="iso-line" data-tone="lo" d={feel.hub} />
+                      <g ref={axleRef}>
+                        <Dots points={[feel.axle]} size={0.6} />
+                      </g>
+                    </g>
+                  );
+                }
+                if (part.slot === 'upper-pins') {
+                  return (
+                    <g key="upper-pins" data-testid="pin-heads">
+                      {HEADS.map((paths, i) => (
+                        <g key={i} data-pin={i} data-missing={rest.missing[i] ? '' : undefined}>
+                          <LiveSolid
+                            ref={(el) => {
+                              upperRefs.current[i] = el;
+                            }}
+                            paths={upperPin(i, first.tip[i]!)}
+                            tone="mid"
+                          />
+                          <g
+                            transform={pinShift(first.tip[i]!)}
+                            ref={(el) => {
+                              headRefs.current[i] = el;
+                            }}
+                          >
+                            <Solid paths={paths} tone="hi" lit />
+                          </g>
+                        </g>
+                      ))}
+                    </g>
+                  );
+                }
                 return (
-                  <rect
-                    key={i}
-                    x={x}
-                    y={f(STRIP.baseline - h)}
-                    width={f(CELL_W - 3)}
-                    height={f(h)}
-                    fill={readingColour}
-                    opacity={0.55}
-                  />
+                  <g key="carriage" ref={carriageRef} transform={carriageShift(PARK.right)} data-testid="carriage">
+                    {CARRIAGE.map((piece, k) => (
+                      <PartView key={k} part={piece} />
+                    ))}
+                  </g>
                 );
               })}
             </g>
-          </PlotStage>
-        </FigureStage>
+          </IsoFigure>
+        </AnatomyStage>
       }
       caption="The robot cannot see the ground: it learns its shape from what its legs feel, even when those sensor readings are imperfect."
       method={
         <>
           <p>
-            Teacher-student training: a teacher policy learns in simulation with privileged information, here the
-            terrain heightfield under the robot. A student policy then learns to act like the teacher from
-            proprioception alone, the joint angles and motor efforts its legs report, and has to rebuild the ground
-            from them. Proprioceptive degradation adds noise to those readings and drops channels; a dropped
-            channel is a gray stub in the strip and a gap in the dashed guess.
+            Teacher-student training: a teacher policy learns in simulation with privileged information, here the true
+            shape of the ground under the robot. A student policy then learns to act like the teacher from what the
+            real robot can sense, the joint angles and motor efforts its legs report, and has to work the ground out
+            from them. The drawing is a contour gauge on a test track. A carriage walks along the beam with a wheel on
+            the ground, the robot&apos;s leg; as it passes each of the {TERRAIN_CELLS} pins, the pin drops until it
+            touches the ground, so the row of blue pin heads is the profile felt so far, the student&apos;s guess. The
+            plate standing behind the heads is cut to the true ground the teacher was given, and every head should sit
+            on its edge. Noisy leg readings make a pin sit a little high or low; a missing reading is a pin that did not
+            drop and still hangs at the top of its travel. Heights are drawn far steeper than the track is long.
           </p>
           <p>
-            Reconstruction error and action divergence rise by construction as degradation increases. The ground is chosen terrain, the leg readings are that terrain normalized plus seeded noise,
-            and the guess is the terrain plus an invented error field; it is not inferred from the strip. Higher
-            ground is drawn higher, with its height exaggerated. Darker cells are higher terrain: each of the 24
-            cells under the profile is shaded by its height, so the shade and the height agree.
-          </p>
-          <p>
-            Degradation {percent}%: reconstruction MAE{' '}
-            <span data-testid="mae-readout" style={{ color: guessColour }}>
-              {formatMeters(mae)}
-            </span>
-            , action divergence{' '}
-            <span data-testid="divergence-readout">{formatDivergence(divergence)}</span>, occluded channels{' '}
-            <span data-testid="occluded-readout">
-              {occludedCount}/{TERRAIN_CELLS}
-            </span>
+            The readout&apos;s gap is the mean absolute error of the guess: for each of the {TERRAIN_CELLS} stretches of
+            ground, how far the guess sits from the true height, averaged. Where a reading is missing the model still
+            guesses, worse, and that guess counts in the average too. At {percent}% leg-reading noise the gap is{' '}
+            <span data-testid="mae-readout">{formatMeters(mae)}</span> ({gapCm(degradation)} cm), the made-up action
+            divergence, 2.2 times that gap, is <span data-testid="divergence-readout">{formatDivergence(divergence)}</span>,
+            and <span data-testid="occluded-readout">{missing}/{TERRAIN_CELLS}</span> readings are missing. The numbers
+            are an authored teaching model, not a trained teacher or student: the ground is chosen terrain, and the
+            guess is that terrain plus an error field that grows with the noise by construction.
           </p>
           <ChartDescription
             id={descriptionId}
             form="state"
             open
-            summary="Current teacher-student gap"
-            description={`At ${percent} percent proprioceptive degradation the student reconstruction of the teacher terrain sits at ${formatMeters(mae)} MAE with action divergence ${formatDivergence(divergence)}, and ${occludedCount} of ${TERRAIN_CELLS} input channels are already lost as gaps; the drawing puts the privileged ground profile, the proprioceptive strip and that dashed reconstruction on one side view.`}
+            summary="The gap at this noise level"
+            description={description}
             states={[
-              { label: 'degradation', value: `${percent}%` },
-              { label: 'reconstruction MAE', value: formatMeters(mae) },
-              { label: 'action divergence', value: formatDivergence(divergence) },
-              { label: 'occluded channels', value: `${occludedCount}/${TERRAIN_CELLS}` },
+              { label: 'leg-reading noise', value: `${percent}%` },
+              { label: 'average gap', value: formatMeters(mae) },
+              { label: 'difference in the moves chosen', value: formatDivergence(divergence) },
+              { label: 'missing readings', value: `${missing}/${TERRAIN_CELLS}` },
             ]}
           />
         </>
       }
-      source="Illustrative terrain, repeatable sensor errors and a drawn ground estimate; no recorded readings or trained movement controller."
+      source={
+        <span data-testid="teacher-student-sources">
+          The idea, not these numbers: in{' '}
+          {lee ? (
+            <a data-brand-control-id="control:link-focus" href={lee.url} target="_blank" rel="noopener" className="underline-offset-2">
+              {lee.label}
+            </a>
+          ) : (
+            'Lee and colleagues'
+          )}
+          , a teacher with the true terrain trained a student that walked ANYmal robots on what their legs sensed alone.
+        </span>
+      }
     />
-  );
-}
-
-/** The real ground's legend swatch: the drawing's own solid ink line. */
-function GroundSwatch() {
-  return (
-    <svg aria-hidden="true" focusable="false" width={28} height={14} viewBox="0 0 28 14" className="shrink-0">
-      <path d="M1 7 H27" stroke={CHART_STRUCTURE.label} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" fill="none" />
-    </svg>
   );
 }

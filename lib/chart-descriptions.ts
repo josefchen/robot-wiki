@@ -534,7 +534,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/teacher-student.tsx',
     route: '/rl-sim2real/sim2real-transfer/',
     quantityNames: ['terrain', 'degradation'],
-    text: 'At 15 percent proprioceptive degradation the student reconstruction of the teacher terrain sits at 0.01 m MAE with action divergence 0.02, and 3 of 24 input channels are already lost as gaps; the drawing puts the privileged ground profile, the proprioceptive strip and that dashed reconstruction on one side view.',
+    text: "At 15 percent proprioceptive degradation the student's guess of the teacher's terrain is off by 0.01 m on average, action divergence 0.02, with 3 of 24 leg readings missing; on the contour gauge each pin head is one point of the guess, set against the teacher's plate cut to the true ground.",
   },
   {
     component: 'WbcDecomposition',
