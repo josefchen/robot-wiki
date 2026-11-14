@@ -123,7 +123,7 @@ const ROWS: MethodRow[] = [
     evidence: 'preprint',
     open: true,
     sourceIds: ["dsrl-2025","dsrl-site-2025","dsrl-repo-2025","expo-ft-2026"],
-    opennessNote: "The DSRL project site links code for its Robomimic, Gym, WidowX and π0 experiments; the main repository links base-policy checkpoints and has no license file.",
+    opennessNote: "The DSRL project site links code for its Robomimic, Gym, WidowX and π0 experiments; the Robomimic/Gym repository links base-policy checkpoints and has no license file.",
   },
 ];
 
