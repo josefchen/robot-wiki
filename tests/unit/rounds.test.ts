@@ -298,10 +298,19 @@ describe('totals', () => {
     // Tangent Robotics, 4.5M (its release states no currency) and Maven
     // Robotics, 100M. The Genrobot Series A also left out has no amount.
     // CMR Surgical's approximately 400M is agreed, not closed, and Shield
-    // is still raising its 1B Series H.
+    // is still raising its 1B Series H. Shandong UBTECH's 13.9M is stored in
+    // yuan, as its source announces it, and Motion's own post gives USD 2M
+    // where the compiled list had EUR.
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
     expect(total(usdOnly)).toBe(
-      15_478_200_000 - 250_000_000 - 4_500_000 - 100_000_000 - 400_000_000 - 1_000_000_000,
+      15_478_200_000 -
+        250_000_000 -
+        4_500_000 -
+        100_000_000 -
+        400_000_000 -
+        1_000_000_000 -
+        13_900_000 +
+        2_000_000,
     );
   });
 
