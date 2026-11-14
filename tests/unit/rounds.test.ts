@@ -206,6 +206,16 @@ describe('the window', () => {
     expect(plotDate({ date: '2026-09-03', datePrecision: 'day' })).toBe('2026-09-03');
   });
 
+  it('never plots a row after the as-of date', () => {
+    expect(plotDate({ date: '2026-11', datePrecision: 'month' }, '2026-11-14')).toBe('2026-11-14');
+    expect(plotDate({ date: '2026-11', datePrecision: 'month' }, '2026-11-15')).toBe('2026-11-15');
+    expect(plotDate({ date: '2026-11', datePrecision: 'month' }, '2026-11-30')).toBe('2026-11-15');
+    expect(plotDate({ date: '2026', datePrecision: 'year' }, '2026-03-01')).toBe('2026-03-01');
+    for (const row of [...ROUNDS, ...LISTINGS, ...UK_EUROPE_2026_EARLIER]) {
+      expect(plotDate(row) <= ROUNDS_AS_OF, row.key).toBe(true);
+    }
+  });
+
   it('marks a month that straddles the window start as unconfirmed', () => {
     expect(windowMembership({ date: '2026-07', datePrecision: 'month' })).toBe('unconfirmed');
     expect(windowMembership({ date: '2026-08', datePrecision: 'month' })).toBe('in');
