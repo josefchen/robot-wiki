@@ -46,7 +46,6 @@
       "wdth": 100,
       "cssClass": "font-display-page",
       "definedIn": [
-        "app/now/page.tsx",
         "app/(content)/[domain]/page.tsx",
         "app/a-z/page.tsx",
         "app/credits/page.tsx",
