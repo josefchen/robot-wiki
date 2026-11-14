@@ -56,7 +56,7 @@ export default function AboutPage() {
           {DOMAIN_META['world-models'].name} to the{' '}
           {DOMAIN_META.classical.name} underneath. The Market Map and the
           Robotics now page record the industry as sourced data; investment
-          advice is out of scope.
+          advice is excluded.
         </p>
       </header>
 
