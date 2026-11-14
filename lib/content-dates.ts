@@ -9,14 +9,14 @@ import dates from '../data/content-dates.json' with { type: 'json' };
  * rewrites the file; `tests/unit/content-dates.test.ts` holds it to git.
  */
 export type ContentDateRecord = {
-  /** ISO 8601 commit time of the commit that added the file. */
+  /** Commit time of the commit that added the file, ISO 8601 in UTC. */
   published: string;
-  /** ISO 8601 commit time of the latest non-whitespace change. */
+  /** Commit time of the latest non-whitespace change, ISO 8601 in UTC. */
   modified: string;
 };
 
 export type RouteDateRecord = {
-  /** ISO 8601 commit time of the latest non-whitespace change to any source. */
+  /** Commit time of the latest non-whitespace change to any source, in UTC. */
   modified: string;
 };
 
@@ -103,11 +103,30 @@ export function articleDatePublished(
   return calendarDate(record.published);
 }
 
-/** The calendar date of an ISO timestamp, in the offset it was written in. */
+const ISO_INSTANT = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/;
+
+/**
+ * An ISO timestamp as the same instant in UTC, to the second:
+ * `2026-11-15T02:45:02+08:00` is `2026-11-14T18:45:02Z`. A timestamp with
+ * no offset is refused: it would be read in the zone of whichever machine
+ * builds the site.
+ */
+export function utcTimestamp(timestamp: string): string {
+  const time = ISO_INSTANT.test(timestamp) ? Date.parse(timestamp) : Number.NaN;
+  if (Number.isNaN(time)) {
+    throw new Error(`${timestamp} is not an ISO 8601 timestamp with an offset`);
+  }
+  return new Date(time).toISOString().replace(/\.\d{3}Z$/, 'Z');
+}
+
+/**
+ * The calendar date of an ISO timestamp in UTC, whatever offset it was
+ * written in. Git writes a commit time in the committer's zone, so the
+ * first ten characters of an evening commit made east of Greenwich name
+ * the next day.
+ */
 export function calendarDate(timestamp: string): string {
-  const match = /^\d{4}-\d{2}-\d{2}/.exec(timestamp);
-  if (!match) throw new Error(`${timestamp} is not an ISO 8601 timestamp`);
-  return match[0];
+  return utcTimestamp(timestamp).slice(0, 10);
 }
 
 export function articleModifiedAt(domain: string, slug: string): string {

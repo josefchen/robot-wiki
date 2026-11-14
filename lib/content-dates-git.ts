@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { utcTimestamp } from './content-dates.ts';
 
 /**
  * Reads article change dates out of git. Only the generator and the test that
@@ -26,24 +27,27 @@ function changesOnlyWhitespace(root: string, commit: string, path: string): bool
 }
 
 /**
- * The commit time of the latest commit that changed non-whitespace content
- * in `path`, or null when the file has no history yet. Commits are visited
- * in git's own history order with its default simplification, which is what
- * `git log -1 -- <path>` reports before whitespace-only edits are skipped.
+ * The commit time, in UTC, of the latest commit that changed non-whitespace
+ * content in `path`, or null when the file has no history yet. Commits are
+ * visited in git's own history order with its default simplification, which
+ * is what `git log -1 -- <path>` reports before whitespace-only edits are
+ * skipped. Git prints `%cI` in the committer's zone, and the day a page
+ * shows must not depend on where the commit was made.
  */
 export function gitModifiedAt(root: string, path: string): string | null {
   const log = git(root, ['log', '--format=%H%x09%cI', '--', path]);
   for (const line of log.split('\n').filter(Boolean)) {
     const [commit, timestamp] = line.split('\t');
-    if (!changesOnlyWhitespace(root, commit, path)) return timestamp;
+    if (!changesOnlyWhitespace(root, commit, path)) return utcTimestamp(timestamp);
   }
   return null;
 }
 
-/** The commit time of the commit that added `path`, following renames. */
+/** The commit time, in UTC, of the commit that added `path`, following renames. */
 export function gitAddedAt(root: string, path: string): string | null {
   const log = git(root, ['log', '--follow', '--diff-filter=A', '--format=%cI', '--', path]);
-  return log.split('\n').filter(Boolean).at(-1) ?? null;
+  const added = log.split('\n').filter(Boolean).at(-1);
+  return added ? utcTimestamp(added) : null;
 }
 
 /** The latest of {@link gitModifiedAt} over several files or directories. */
@@ -63,14 +67,7 @@ export function hasUncommittedChange(root: string, path: string): boolean {
   return !onlyWhitespace(git(root, ['diff', '-w', '--numstat', 'HEAD', '--', path]));
 }
 
-/** Local time with its UTC offset, the form `git log --format=%cI` prints. */
-export function localIsoTimestamp(date: Date): string {
-  const pad = (value: number) => String(Math.abs(value)).padStart(2, '0');
-  const offset = -date.getTimezoneOffset();
-  const sign = offset >= 0 ? '+' : '-';
-  return (
-    `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}` +
-    `T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}` +
-    `${sign}${pad(Math.trunc(offset / 60))}:${pad(offset % 60)}`
-  );
+/** The current time in UTC, the form of every stamp in the dates file. */
+export function utcNow(date: Date = new Date()): string {
+  return utcTimestamp(date.toISOString());
 }
