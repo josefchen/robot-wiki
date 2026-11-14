@@ -78,10 +78,13 @@ describe('headline totals', () => {
 });
 
 describe('top of the page', () => {
-  it('ends the lead sentence on the as-of date and states the window from the module', () => {
+  it('leaves the lead open for the header to close on the date, and states the window from the module', () => {
     const lead = roundsLeadSentence();
-    expect(lead.endsWith('14 November 2026.')).toBe(true);
-    expect(lead).toContain(`${ROUNDS_WINDOW_DAYS} days`);
+    expect(lead).toBe(
+      `Robotics funding rounds, listings, acquisitions and shutdowns over the last ${ROUNDS_WINDOW_DAYS} days, each linked to its source`,
+    );
+    expect(lead).not.toMatch(/[.,;:!?]\s*$/);
+    expect(lead).not.toMatch(/\d{4}/);
   });
 
   it('gives every section a unique id', () => {

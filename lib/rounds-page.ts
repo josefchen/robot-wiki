@@ -79,11 +79,14 @@ export function count(n: number, one: string, many: string): string {
   return `${n} ${n === 1 ? one : many}`;
 }
 
-/** The lead sentence under the title; it ends on the as-of date. */
-export function roundsLeadSentence(asOf: string = ROUNDS_AS_OF): string {
+/**
+ * The lead sentence under the title, without its full stop: the shared page
+ * header closes it on the as-of date.
+ */
+export function roundsLeadSentence(): string {
   return (
-    'Robotics funding rounds, listings, acquisitions and shutdowns, each linked to its source, ' +
-    `over the ${ROUNDS_WINDOW_DAYS} days to ${formatLongDate(asOf)}.`
+    `Robotics funding rounds, listings, acquisitions and shutdowns over the last ${ROUNDS_WINDOW_DAYS} days, ` +
+    'each linked to its source'
   );
 }
 

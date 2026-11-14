@@ -18,7 +18,10 @@ export type SiteSection = {
 
 export const MARKET_SECTION: SiteSection = {
   label: 'Market',
-  pages: [{ label: 'Market map', route: '/market-map/' }],
+  pages: [
+    { label: 'Market map', route: '/market-map/' },
+    { label: 'Recent rounds', route: '/market-map/rounds/' },
+  ],
 };
 
 export const SITE_SECTIONS: readonly SiteSection[] = [MARKET_SECTION];

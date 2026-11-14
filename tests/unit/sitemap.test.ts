@@ -60,9 +60,11 @@ describe('sitemap', () => {
     for (const entry of entries) {
       expect(entry.lastModified, entry.url).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     }
+    const articles = new Set(publishedModules().map((m) => `/${m.domain}/${m.slug}/`));
     const routes = entries
       .map((entry) => entry.url.slice(SITE_URL.length))
-      .filter((path) => path.split('/').filter(Boolean).length < 2 || path === '/');
+      .filter((path) => !articles.has(path));
+    expect(routes).toContain('/market-map/rounds/');
     expect(new Set(routes)).toEqual(
       new Set([...Object.keys(ROUTE_SOURCES)]),
     );

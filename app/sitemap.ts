@@ -13,6 +13,7 @@ export const dynamic = 'force-static';
 export const SITEMAP_STANDALONE_PATHS = [
   '/now/',
   '/market-map/',
+  '/market-map/rounds/',
   '/playground/',
   '/how-robots-work/',
   '/glossary/',

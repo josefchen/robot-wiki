@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { PageHeader } from '@/components/data-page/page-header';
 import { RoundsFigure } from '@/components/rounds/rounds-figure';
 import { ContextLines, MonthRow, RoundsHeadline } from '@/components/rounds/rounds-summary';
 import {
@@ -11,6 +12,7 @@ import {
   RoundsTable,
   UkEuropeTable,
 } from '@/components/rounds/rounds-tables';
+import { ROUNDS_AS_OF } from '@/data/rounds';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import {
   ROUNDS_PAGE_PATH,
@@ -24,6 +26,7 @@ import {
   type RoundsPageSectionId,
 } from '@/lib/rounds-page';
 import { routeSeoProfile } from '@/lib/seo-profiles';
+import { MARKET_SECTION } from '@/lib/site-sections';
 import { webPageJsonLd } from '@/lib/structured-data';
 
 const profile = routeSeoProfile(ROUNDS_PAGE_PATH);
@@ -31,9 +34,6 @@ const profile = routeSeoProfile(ROUNDS_PAGE_PATH);
 export const metadata: Metadata = {
   title: profile.title,
   description: profile.description,
-  // Not in the sitemap until the market section's shared header lands, so
-  // not indexed until then either (scripts/check-seo.ts holds the two together).
-  robots: { index: false, follow: true },
   // og:title is the h1: the page name has no entry in the social-title map.
   openGraph: routeOpenGraph(ROUNDS_PAGE_TITLE),
   twitter: routeTwitter(ROUNDS_PAGE_TITLE),
@@ -83,28 +83,17 @@ export default function RecentRoundsPage() {
           }),
         }}
       />
-      <header>
-        <h1 data-tektur-role="page-h1" className="font-display-page display-h1">
-          {ROUNDS_PAGE_TITLE}
-        </h1>
-        <p className="mt-3 max-w-[40rem] font-sans text-[16px] leading-[1.6] text-text">
-          {roundsLeadSentence()}
-        </p>
-        <nav aria-label="On this page" className="mt-6">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 font-sans text-[14px] leading-6">
-            {ROUNDS_PAGE_SECTIONS.map((section) => (
-              <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
-                  className="text-text-dim underline decoration-1 underline-offset-4 hover:text-text"
-                >
-                  {section.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+      {/* Search indexes the header only, as on the market map; the tables
+          would return this page for every company name. */}
+      <div data-pagefind-body>
+        <PageHeader
+          title={ROUNDS_PAGE_TITLE}
+          lead={roundsLeadSentence()}
+          asOf={ROUNDS_AS_OF}
+          section={{ ...MARKET_SECTION, current: ROUNDS_PAGE_PATH }}
+          anchors={ROUNDS_PAGE_SECTIONS}
+        />
+      </div>
 
       <RoundsHeadline />
 
