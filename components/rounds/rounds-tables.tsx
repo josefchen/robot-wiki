@@ -206,34 +206,41 @@ export function CorporateEventsTable() {
   );
 }
 
-/** Lead investors with two or more rounds; each company links to its row in the rounds table. */
+/**
+ * Lead investors with two or more rounds; each company links to its row in
+ * the rounds table. The companies sit under the investor's name, so the
+ * table is two columns wide and fits a phone without scrolling.
+ */
 export function InvestorsTable() {
   return (
     <StaticTable
       captionId="investors-caption"
       caption="Lead investors: rounds led or co-led, closed rounds in the window only. Spellings of one firm are counted together."
-      columns={[{ label: 'Investor' }, { label: 'Rounds', numeric: true }, { label: 'Companies' }]}
-      minWidth="min-w-[30rem]"
-      className="max-w-[52rem]"
+      columns={[{ label: 'Investor and companies' }, { label: 'Rounds', numeric: true }]}
+      minWidth="w-full"
+      className="max-w-[40rem]"
     >
       {investorRows().map((row) => (
         <tr key={row.investor} data-investor-row={row.investor}>
-          <td className="text-text">{row.investor}</td>
-          <td className="text-right font-mono tabular-nums text-text">{row.rounds}</td>
           <td className="text-text">
-            {row.companies.map((c, i) => (
-              <span key={c.key}>
-                {i > 0 ? ', ' : null}
-                <a
-                  data-investor-link={c.key}
-                  href={`#${roundAnchor(c.key)}`}
-                  className="underline decoration-1 underline-offset-2"
-                >
-                  {c.company}
-                </a>
-              </span>
-            ))}
+            {row.investor}
+            <span className="mt-0.5 block font-sans text-[13px] leading-[1.5] text-text-dim">
+              {row.companies.map((c, i) => (
+                <span key={c.key}>
+                  {i > 0 ? ', ' : null}
+                  <a
+                    data-investor-link={c.key}
+                    data-brand-control-id="control:link-focus"
+                    href={`#${roundAnchor(c.key)}`}
+                    className="underline decoration-1 underline-offset-2 hover:text-text"
+                  >
+                    {c.company}
+                  </a>
+                </span>
+              ))}
+            </span>
           </td>
+          <td className="w-[5rem] text-right font-mono tabular-nums text-text">{row.rounds}</td>
         </tr>
       ))}
     </StaticTable>
