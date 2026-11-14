@@ -82,7 +82,7 @@
     },
     "frontier/bear-case": {
       "published": "2026-08-12T18:33:06+02:00",
-      "modified": "2026-11-13T14:28:03Z"
+      "modified": "2026-11-14T13:10:59Z"
     },
     "frontier/competing-theses": {
       "published": "2026-08-12T18:33:06+02:00",
@@ -90,7 +90,7 @@
     },
     "frontier/dexterity": {
       "published": "2026-08-12T18:33:06+02:00",
-      "modified": "2026-11-14T12:33:48Z"
+      "modified": "2026-11-14T21:10:53+08:00"
     },
     "frontier/generalization": {
       "published": "2026-08-12T18:33:06+02:00",
@@ -126,7 +126,7 @@
     },
     "manipulation/diffusion-policy": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T13:10:59Z"
     },
     "manipulation/foundation-models": {
       "published": "2026-09-24T21:27:51+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-14T12:33:48Z"
+      "modified": "2026-11-14T13:10:59Z"
     },
     "/manipulation/": {
       "modified": "2026-11-13T15:15:57+08:00"

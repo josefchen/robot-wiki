@@ -8,7 +8,7 @@
     "minutes": 9
   },
   "manipulation/diffusion-policy": {
-    "words": 1027,
+    "words": 1029,
     "minutes": 5
   },
   "manipulation/vla-models": {
@@ -204,7 +204,7 @@
     "minutes": 9
   },
   "frontier/bear-case": {
-    "words": 1341,
+    "words": 1350,
     "minutes": 7
   },
   "frontier/safety-and-assurance": {
