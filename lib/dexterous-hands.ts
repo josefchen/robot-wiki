@@ -53,6 +53,9 @@ export type DexterousHand = {
   /** Optional second source when one document cannot cover the row. */
   secondarySourceId?: string;
   secondarySourceLabel?: string;
+  /** Optional source for the tactile figure when neither source above gives it. */
+  tactileSourceId?: string;
+  tactileSourceLabel?: string;
   /** Currency of the figures, e.g. "Apr 2026". */
   asOf: string;
 };
@@ -100,7 +103,7 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     costSort: null,
     bet: 'vision-tactile',
     tradeoff:
-      'A 3-gram fingertip threshold, the only maker in this table that puts the number on its own product page, plus palm cameras for in-hand vision; the 16 DoF figure is the Figure 02 hand, and Figure 03\'s count is not disclosed.',
+      'A 3-gram fingertip threshold that Figure publishes itself, plus palm cameras for in-hand vision; the 16 DoF figure is the Figure 02 hand, and Figure 03\'s count is not disclosed.',
     sourceId: 'helix-02-2026',
     sourceLabel: 'Figure AI',
     secondarySourceId: 'figure-02-2024',
@@ -134,19 +137,22 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     dofDisplay: '20',
     dofSort: 20,
     actuation: 'Tendon-driven electric, 20 DC motors, 24 joints',
-    tactileDisplay: null,
-    tactileSort: null,
+    tactileDisplay: 'approx. 0.2 N',
+    tactileNote: '≈200 mN',
+    tactileSort: 200,
     costDisplay: '€110,000',
     costNote: '2022',
     costSort: 110000,
     bet: 'research-platform',
     tradeoff:
-      'The two-decade research benchmark: 100+ sensors at 1 kHz and tactile fingertips standard, but priced for labs at €110,000 with no published force-threshold figure.',
+      'The two-decade research benchmark: 100+ sensors at up to 1 kHz and two tactile fingertips standard that sense from about 0.2 N, but priced for labs at €110,000.',
     sourceId: 'shadow-dexterous-hand-2026',
     sourceLabel: 'Shadow Robot',
     secondarySourceId: 'shadow-hand-cost-2022',
     secondarySourceLabel: 'Shadow cost blog',
-    asOf: 'Dec 2022',
+    tactileSourceId: 'shadow-sensors-2026',
+    tactileSourceLabel: 'Shadow sensors',
+    asOf: 'Nov 2026',
   },
   {
     id: 'unitree-h2',

@@ -136,6 +136,18 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2611.06673',
     type: 'paper',
   },
+  {
+    // Verified against the live page (2026-11-14): "The STF contains 17
+    // taxels each providing a 3D response, sensitive to both normal and
+    // tangential forces from about 0.2N to 20N"; the comparison table lists
+    // the STF as available on the Dexterous Hand Series.
+    id: 'shadow-sensors-2026',
+    title: 'Sensors',
+    authors: ['Shadow Robot'],
+    year: 2026,
+    url: 'https://shadowrobot.com/sensors/',
+    type: 'docs',
+  },
   // generalization
   {
     id: 'behavior-challenge-2026-results',

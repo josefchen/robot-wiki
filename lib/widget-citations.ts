@@ -68,9 +68,9 @@ export const WIDGET_CITATION_IDS = {
     GENERALIST_RELEASES.map((release) => release.citationId),
   HandComparison: () =>
     DEXTEROUS_HANDS.flatMap((hand) =>
-      hand.secondarySourceId
-        ? [hand.sourceId, hand.secondarySourceId]
-        : [hand.sourceId],
+      [hand.sourceId, hand.secondarySourceId, hand.tactileSourceId].filter(
+        (id): id is string => Boolean(id),
+      ),
     ),
   HierarchyTimescales: () => HIERARCHY_SYSTEMS.map((system) => system.citationId),
   MotInsulation: () => [KNOWLEDGE_INSULATION_CITATION_ID],
