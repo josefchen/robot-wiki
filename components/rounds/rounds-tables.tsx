@@ -8,6 +8,7 @@ import {
   type InvestorNote,
 } from '@/data/rounds';
 import { formatLongDate } from '@/lib/dates';
+import { cx } from '@/lib/utils';
 import { monthUnconfirmedRounds, roundsInWindow, ukAndEuropeRounds } from '@/lib/rounds';
 import {
   byDateDesc,
@@ -54,6 +55,16 @@ const ROUND_COLUMNS: readonly ColumnHead[] = [
   { label: 'Source' },
 ];
 
+/**
+ * Under 1280 px the round tables scroll in their frame, so the leads and
+ * notes columns get room enough that a long note or a list of six leads
+ * leaves no blank band under the company. From 1280 px the table fits the
+ * frame and the columns share its width.
+ */
+const ROUND_TABLE_WIDTH = 'min-w-[100rem] xl:min-w-[72rem]';
+const LEADS_WIDTH = 'min-w-[19rem] xl:min-w-0';
+const NOTES_WIDTH = 'min-w-[32rem] xl:min-w-[12rem]';
+
 /** The notes a round carries: why it is borderline, and its own note. */
 function RoundNotes({ round }: { round: FundingEvent }) {
   return (
@@ -82,11 +93,11 @@ function RoundRow({ round, anchored }: { round: FundingEvent; anchored: boolean 
       <AmountCell event={round} />
       <TextCell>{round.round}</TextCell>
       <TextCell>{round.valuation}</TextCell>
-      <td className={round.leadInvestors.length > 0 ? 'text-text' : 'text-[13px] text-text-dim'}>
+      <td className={cx(LEADS_WIDTH, round.leadInvestors.length > 0 ? 'text-text' : 'text-[13px] text-text-dim')}>
         {leadsText(round)}
         {round.leadUnconfirmed ? <Mark>lead unconfirmed</Mark> : null}
       </td>
-      <td className="min-w-[12rem] text-text">
+      <td className={cx(NOTES_WIDTH, 'text-text')}>
         {round.whatTheyBuild === 'not disclosed' ? (
           <span className="text-[13px] text-text-dim">not disclosed</span>
         ) : (
@@ -106,7 +117,7 @@ export function RoundsTable() {
       captionId="rounds-table-caption"
       caption={`Rounds in the window, newest first. ${REPORTED_NOTE} ${FX_NOTE}`}
       columns={ROUND_COLUMNS}
-      minWidth="min-w-[72rem]"
+      minWidth={ROUND_TABLE_WIDTH}
     >
       {roundsInWindow().map((round) => (
         <RoundRow key={round.key} round={round} anchored />
@@ -122,7 +133,7 @@ export function MonthUnconfirmedTable() {
       captionId="month-unconfirmed-caption"
       caption={`Rounds dated only to a month that may predate the window; not in the figure or any total. ${REPORTED_NOTE}`}
       columns={ROUND_COLUMNS}
-      minWidth="min-w-[72rem]"
+      minWidth={ROUND_TABLE_WIDTH}
     >
       {monthUnconfirmedRounds().map((round) => (
         <RoundRow key={round.key} round={round} anchored={false} />
