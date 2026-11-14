@@ -65,6 +65,16 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.21453',
     type: 'paper',
   },
+  {
+    id: 'implied-harm-vla-2026',
+    title: 'What the Guard Misses, the Robot Executes: Implied Harm in VLA Instructions',
+    authors: ['Sripad Karne', 'Arjun Balaji'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.05818',
+    url: 'https://arxiv.org/abs/2610.05818',
+    type: 'paper',
+  },
   // dexterity
   {
     id: 'holson-pi-deep-dive-2026',
