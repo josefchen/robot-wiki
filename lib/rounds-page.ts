@@ -179,16 +179,23 @@ export function eventDateText(event: Pick<FundingEvent, 'date' | 'datePrecision'
 
 const REGION_NAMES = new Intl.DisplayNames(['en'], { type: 'region' });
 
+/** Codes whose standard English name is longer than a place line needs. */
+const SHORT_REGION_NAMES: Readonly<Record<string, string>> = { HK: 'Hong Kong' };
+
 /** "United Kingdom" for "GB"; anything that is not a two-letter code passes through. */
 export function countryName(code: string): string {
-  return /^[A-Z]{2}$/.test(code) ? (REGION_NAMES.of(code) ?? code) : code;
+  if (!/^[A-Z]{2}$/.test(code)) return code;
+  return SHORT_REGION_NAMES[code] ?? REGION_NAMES.of(code) ?? code;
 }
 
 const NOT_DISCLOSED = 'not disclosed';
 
-/** "Munich, Germany", "Germany", or "not disclosed" when neither is known. */
+/**
+ * "Munich, Germany", "Germany", or "not disclosed" when neither is known. A
+ * city that is its own country (Singapore, Hong Kong) is named once.
+ */
 export function placeText(city: string, country: string): string {
-  const parts = [city, countryName(country)].filter((p) => p !== NOT_DISCLOSED);
+  const parts = [...new Set([city, countryName(country)])].filter((p) => p !== NOT_DISCLOSED);
   return parts.length > 0 ? parts.join(', ') : NOT_DISCLOSED;
 }
 

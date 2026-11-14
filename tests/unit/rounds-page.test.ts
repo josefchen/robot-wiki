@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { CORPORATE_EVENTS, MARKET_CONTEXT, ROUNDS_AS_OF, type FundingEvent } from '@/data/rounds';
+import {
+  CORPORATE_EVENTS,
+  LISTINGS,
+  MARKET_CONTEXT,
+  ROUNDS,
+  ROUNDS_AS_OF,
+  UK_EUROPE_2026_EARLIER,
+  type FundingEvent,
+} from '@/data/rounds';
 import { EUR_REFERENCE_RATES } from '@/data/fx-rates';
 import {
   closedRoundsInWindow,
@@ -120,6 +128,23 @@ describe('cell text', () => {
     expect(placeText('Munich', 'DE')).toBe('Munich, Germany');
     expect(placeText('not disclosed', 'DE')).toBe('Germany');
     expect(placeText('not disclosed', 'not disclosed')).toBe('not disclosed');
+  });
+
+  it('names a city that is its own country once, and Hong Kong by its short name', () => {
+    expect(countryName('HK')).toBe('Hong Kong');
+    expect(placeText('Hong Kong', 'HK')).toBe('Hong Kong');
+    expect(placeText('Singapore', 'SG')).toBe('Singapore');
+    expect(placeText('not disclosed', 'HK')).toBe('Hong Kong');
+  });
+
+  it('prints every place in the module as a name, never a code or a repeat', () => {
+    const records = [...ROUNDS, ...LISTINGS, ...CORPORATE_EVENTS, ...UK_EUROPE_2026_EARLIER];
+    for (const { key, city, country } of records) {
+      const place = placeText(city, country);
+      expect(place, key).not.toMatch(/\b[A-Z]{2}\b|SAR/);
+      const parts = place.split(', ');
+      expect(new Set(parts).size, key).toBe(parts.length);
+    }
   });
 
   it('prints an amount as announced, with the dollar conversion only for other currencies', () => {
