@@ -31,7 +31,6 @@ import { modules } from '@/data/modules';
 import { CITATIONS } from '@/data/citations';
 import { GLOSSARY } from '@/data/glossary';
 import { COMPANIES } from '@/data/companies';
-import { COMPANY_LOGO_IDS } from '@/data/company-logos';
 
 /**
  * Imagery pipeline: the Zod schema is the licence gate, and the validator's
@@ -400,27 +399,6 @@ describe('validateContent imagery check', () => {
     ).toBe(true);
   });
 
-  it('counts a logo looked up by company name as published usage and rejects an unknown logo id', () => {
-    writeArticle('no imagery here');
-    const viaName = validateContent({
-      ...baseOpts(),
-      namedLogos: [{ name: 'nvidia', logo: validEntry.id }],
-    }).filter((issue) => issue.message.toLowerCase().includes('image'));
-    expect(viaName).toEqual([]);
-
-    const unknown = validateContent({
-      ...baseOpts(),
-      namedLogos: [{ name: 'ghost', logo: 'ghost-logo' }],
-    });
-    expect(
-      unknown.some((issue) =>
-        issue.file === 'data/company-logos.ts' &&
-        issue.message.includes('ghost-logo') &&
-        issue.message.includes('not in the image registry'),
-      ),
-    ).toBe(true);
-  });
-
   it('fails on a schema-invalid registry entry, naming the id and the problem', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
     const broken = { ...validEntry, licence: 'made-up-licence' } as unknown as SiteImage;
@@ -479,7 +457,6 @@ describe('the shipped registry', () => {
       terms: GLOSSARY,
       images: IMAGES,
       companies: COMPANIES,
-      namedLogos: Object.entries(COMPANY_LOGO_IDS).map(([name, logo]) => ({ name, logo })),
       imageSources: [
         {
           label: 'app/page.tsx',

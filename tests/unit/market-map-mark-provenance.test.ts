@@ -9,8 +9,8 @@ import { CompanyDetail } from '@/components/market-map/company-card';
 import { CompanyLogo } from '@/components/market-map/company-logo';
 import { COMPANIES } from '@/data/companies';
 import { COMPANY_LOGO_IDS } from '@/data/company-logos';
-import { attributionText, creditNoun, legalBasis, licenceLabel } from '@/data/images';
-import { LOGO_IMAGES } from '@/data/logo-images';
+import { attributionText, creditNoun, getImage, legalBasis, licenceLabel } from '@/data/images';
+import { LOGO_IMAGES, PENDING_LOGO_IMAGES } from '@/data/logo-images';
 import { getCompanyLogo } from '@/data/logos';
 import { pngDimensions } from '@/lib/png-decode';
 import {
@@ -79,7 +79,7 @@ function intrinsicRatio(file: string): number {
 
 const joined = (id: string) => ({
   id,
-  record: LOGO_IMAGES.find((image) => image.id === id),
+  record: [...LOGO_IMAGES, ...PENDING_LOGO_IMAGES].find((image) => image.id === id),
   asset: getCompanyLogo(id),
   placement: MARK_PLACEMENT[id],
 });
@@ -91,9 +91,10 @@ const companyMarks = COMPANIES.filter((company) => company.logo !== null).map((c
 
 /**
  * Marks the market pages find by company name (data/company-logos.ts) that
- * no market-map row carries. They meet the same provenance checks; only the
- * CompanyLogo rendering, which takes a market-map row, is checked on the
- * rows alone.
+ * no market-map row carries. No published page draws them yet, so they are
+ * pending (PENDING_LOGO_IMAGES), outside IMAGES and off /credits. They meet
+ * the same provenance checks; only the rendered credit and the CompanyLogo
+ * rendering are checked on the drawn marks alone.
  */
 const namedMarks = [...new Set(Object.values(COMPANY_LOGO_IDS))]
   .filter((id) => !companyMarks.some((mark) => mark.id === id))
@@ -109,7 +110,8 @@ describe('market-map mark provenance, mark by mark', () => {
     // row or to a name the market pages look up.
     expect(namedMarks.length).toBeGreaterThan(0);
     expect(new Set(marks.map((mark) => mark.id)).size).toBe(marks.length);
-    expect(marks.map((mark) => mark.id).sort()).toEqual(LOGO_IMAGES.map((image) => image.id).sort());
+    expect(companyMarks.map((mark) => mark.id).sort()).toEqual(LOGO_IMAGES.map((image) => image.id).sort());
+    expect(namedMarks.map((mark) => mark.id)).toEqual(PENDING_LOGO_IMAGES.map((image) => image.id).sort());
     for (const mark of marks) {
       const owner = mark.company?.id ?? 'named';
       expect(mark.record, `${owner}: registry record for ${mark.id}`).toBeDefined();
@@ -140,6 +142,11 @@ describe('market-map mark provenance, mark by mark', () => {
         `Logo: ${record!.creator} / ${record!.sourceName}. Licence: ${licenceLabel(record!)}.`,
       );
       if (withheldMark(id)) continue;
+      // A pending mark has no credit to give until a page draws it.
+      if (namedMarks.some((mark) => mark.id === id)) {
+        expect(getImage(id), `${id} stays off /credits`).toBeUndefined();
+        continue;
+      }
       const { container, unmount } = render(createElement(ImageRef, { id }));
       const credit = container.querySelector('[data-image-credit]');
       expect(credit, id).not.toBeNull();

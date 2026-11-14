@@ -8,10 +8,17 @@
  * the page then sets the name as text. A name in neither list returns
  * undefined.
  *
+ * Coverage: every company in the November 2026 public-markets pack (listed,
+ * left out, debuts, IPO watch, AI labs) and the companies behind the 40
+ * largest rounds in the funding pack. Smaller rounds are listed only where
+ * the company already has a market-map mark; the rest return undefined and
+ * are set as text.
+ *
  * Names are matched after `normalizeCompanyName`: case, accents,
- * punctuation and a trailing legal form (Inc., Co., Ltd. and the like) do
- * not matter, and `&` and `+` read as words. Each entry lists the name as
- * the research and filings spell it and its common variants.
+ * punctuation, a trailing legal form (Inc., Co., Ltd. and the like) and a
+ * trailing Hong Kong "- W" marker do not matter, and `&` and `+` read as
+ * words. Each entry lists the name as the research and filings spell it and
+ * its common variants.
  *
  * A parent is shown under its own mark. A subsidiary's mark (Amazon
  * Robotics, Google DeepMind, Boston Dynamics) never stands in for its
@@ -35,6 +42,7 @@ const LEGAL_FORM =
 /** Lowercase, accents and punctuation stripped, a trailing legal form dropped. */
 export function normalizeCompanyName(name: string): string {
   let key = name
+    .replace(/\s+-\s*W$/, '')
     .normalize('NFKD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
@@ -47,40 +55,59 @@ export function normalizeCompanyName(name: string): string {
 }
 
 const WITH_LOGO: readonly LogoEntry[] = [
-  // Marks already registered for the market map.
-  { names: ['ABB'], logo: 'abb-logo' },
+  // Marks already registered for the market map. ABB Robotics, the division
+  // SoftBank Group is buying, carries the ABB mark on its own pages.
+  { names: ['ABB', 'ABB Robotics', 'ABB Robotics (to SoftBank Group)', 'ABB Robotics (SoftBank purchase, China part blocked)'], logo: 'abb-logo' },
+  { names: ['AgiBot', 'AgiBot (Zhiyuan Robotics)', 'Zhiyuan Robotics'], logo: 'agibot-logo' },
   { names: ['Agile Robots'], logo: 'agile-robots-logo' },
   { names: ['Agility Robotics', 'Agility'], logo: 'agility-robotics-logo' },
+  { names: ['Applied Intuition'], logo: 'applied-intuition-logo' },
+  { names: ['Automata'], logo: 'automata-logo' },
   { names: ['Bedrock Robotics', 'Bedrock'], logo: 'bedrock-robotics-logo' },
   { names: ['CMR Surgical'], logo: 'cmr-surgical-logo' },
   { names: ['D-Robotics'], logo: 'd-robotics-logo' },
+  { names: ['Deep Robotics', 'Deep Robotics (Hangzhou Yunshenchu)', 'Hangzhou Yunshenchu'], logo: 'deep-robotics-logo' },
   { names: ['Eka Robotics', 'Eka'], logo: 'eka-robotics-logo' },
+  { names: ['EngineAI'], logo: 'engineai-logo' },
+  { names: ['Field AI', 'FieldAI'], logo: 'field-ai-logo' },
+  { names: ['Formic'], logo: 'formic-logo' },
   { names: ['Foundry Robotics'], logo: 'foundry-robotics-logo' },
+  { names: ['Galbot'], logo: 'galbot-logo' },
   { names: ['Geek+', 'Geekplus'], logo: 'geek-plus-logo' },
+  { names: ['Generalist AI'], logo: 'generalist-ai-logo' },
   { names: ['Harmonic Drive Systems', 'Harmonic Drive'], logo: 'harmonic-drive-logo' },
   { names: ['Humanoid (SKL Robotics)', 'Humanoid', 'SKL Robotics'], logo: 'humanoid-uk-logo' },
   { names: ['Intuitive Surgical', 'Intuitive'], logo: 'intuitive-surgical-logo' },
   { names: ['Knightscope'], logo: 'knightscope-logo' },
   { names: ['Leaderdrive', 'Leader Harmonious Drive Systems'], logo: 'leaderdrive-logo' },
+  { names: ['Leju Robotics', 'Leju Robotics (Leju Intelligent, Shenzhen)', 'Leju Intelligent'], logo: 'leju-robotics-logo' },
+  { names: ['LimX Dynamics'], logo: 'limx-dynamics-logo' },
   { names: ['Nabtesco'], logo: 'nabtesco-logo' },
+  { names: ['Noetix Robotics', 'Noetix Robotics (Songyan Power Beijing Technology)', 'Songyan Power'], logo: 'noetix-robotics-logo' },
   { names: ['NVIDIA'], logo: 'nvidia-logo' },
+  { names: ['OpenAI'], logo: 'openai-logo' },
+  { names: ['Physical Intelligence'], logo: 'physical-intelligence-logo' },
   { names: ['Rainbow Robotics'], logo: 'rainbow-robotics-logo' },
+  { names: ['RobCo'], logo: 'robco-logo' },
   { names: ['Robotphoenix'], logo: 'robotphoenix-logo' },
   { names: ['Serve Robotics', 'Serve'], logo: 'serve-robotics-logo' },
   { names: ['Symbotic'], logo: 'symbotic-logo' },
   { names: ['Tesla'], logo: 'tesla-logo' },
   { names: ['Tutor Intelligence'], logo: 'tutor-intelligence-logo' },
   { names: ['UBTech Robotics', 'UBTECH'], logo: 'ubtech-logo' },
-  { names: ['Unitree Robotics', 'Unitree'], logo: 'unitree-logo' },
+  { names: ['Unitree Robotics', 'Unitree', 'Unitree Robotics (Yushu Technology)', 'Yushu Technology'], logo: 'unitree-logo' },
+  { names: ['Wandercraft'], logo: 'wandercraft-logo' },
+  { names: ['X Square Robot'], logo: 'x-square-robot-logo' },
+  { names: ['XDOF'], logo: 'xdof-logo' },
+  { names: ['1X Technologies', '1X'], logo: '1x-technologies-logo' },
   { names: ['Zhejiang Sanhua', 'Sanhua', 'Sanhua Intelligent Controls'], logo: 'sanhua-logo' },
   { names: ['Zipline'], logo: 'zipline-logo' },
 
   // Listed companies and the parents shown off the scale.
   { names: ['Accuray'], logo: 'accuray-logo' },
-  { names: ['AeroVironment'], logo: 'aerovironment-logo' },
   { names: ['Alphabet'], logo: 'alphabet-logo' },
   { names: ['AMC Robotics'], logo: 'amc-robotics-logo' },
-  { names: ['Amicro Technology', 'Amicro'], logo: 'amicro-logo' },
+  { names: ['Amicro Technology', 'Amicro', 'Amicro Technology (Eeasy Tech)', 'Eeasy Tech'], logo: 'amicro-logo' },
   { names: ['Applied Aerospace & Defense'], logo: 'applied-aerospace-defense-logo' },
   { names: ['Aurora Innovation', 'Aurora'], logo: 'aurora-innovation-logo' },
   { names: ['Bigwave Robotics'], logo: 'bigwave-robotics-logo' },
@@ -102,13 +129,12 @@ const WITH_LOGO: readonly LogoEntry[] = [
   { names: ['Excelland Robotics', 'Excelland', 'Uditech'], logo: 'excelland-robotics-logo' },
   { names: ['Exail Technologies', 'Exail'], logo: 'exail-logo' },
   { names: ['Exyn Technologies', 'Exyn'], logo: 'exyn-logo' },
-  { names: ['Galaxis Technology', 'Galaxis'], logo: 'galaxis-logo' },
+  { names: ['Galaxis Technology', 'Galaxis', 'Zhejiang Galaxis Technology'], logo: 'galaxis-logo' },
   { names: ['Globus Medical'], logo: 'globus-medical-logo' },
   { names: ['Guardforce AI'], logo: 'guardforce-ai-logo' },
   { names: ['Hesai Group', 'Hesai'], logo: 'hesai-logo' },
   { names: ['Hiwin Technologies', 'HIWIN'], logo: 'hiwin-logo' },
   { names: ['Hon Hai Precision (Foxconn)', 'Hon Hai Precision Industry', 'Hon Hai Precision', 'Hon Hai', 'Foxconn'], logo: 'foxconn-logo' },
-  { names: ['Hyundai Motor', 'Hyundai'], logo: 'hyundai-logo' },
   { names: ['Johnson & Johnson'], logo: 'johnson-and-johnson-logo' },
   { names: ['Jungheinrich'], logo: 'jungheinrich-logo' },
   { names: ['Kaierda Welding Robot', 'Kaierda'], logo: 'kaierda-logo' },
@@ -155,7 +181,6 @@ const WITH_LOGO: readonly LogoEntry[] = [
   { names: ['SS Innovations International', 'SS Innovations', 'SSII'], logo: 'ss-innovations-logo' },
   { names: ['Swarmer'], logo: 'swarmer-logo' },
   { names: ['Sysmex'], logo: 'sysmex-logo' },
-  { names: ['Techman Robot', 'Techman'], logo: 'techman-robot-logo' },
   { names: ['Teradyne'], logo: 'teradyne-logo' },
   { names: ['Tinavi Medical', 'Tinavi'], logo: 'tinavi-logo' },
   { names: ['UISEE Technologies', 'UISEE'], logo: 'uisee-logo' },
@@ -166,7 +191,6 @@ const WITH_LOGO: readonly LogoEntry[] = [
   { names: ['Yaskawa Electric', 'Yaskawa'], logo: 'yaskawa-logo' },
   { names: ['Yijiahe Technology', 'Yijiahe'], logo: 'yijiahe-logo' },
   { names: ['Yujin Robot'], logo: 'yujin-robot-logo' },
-  { names: ['Yunji Technology', 'Yunji'], logo: 'yunji-logo' },
   { names: ['Yushin'], logo: 'yushin-logo' },
   { names: ['Zhaowei Machinery & Electronics', 'Zhaowei'], logo: 'zhaowei-logo' },
   { names: ['Zhejiang Shuanghuan Driveline', 'Shuanghuan'], logo: 'shuanghuan-logo' },
@@ -193,68 +217,86 @@ const WITH_LOGO: readonly LogoEntry[] = [
   { names: ['Watney'], logo: 'watney-logo' },
 ];
 
-const ICON_ONLY = 'Its brand record holds only an icon, with no wordmark that names the company at map size.';
-const OPAQUE_ONLY = 'Its brand record holds only artwork on an opaque background, which draws as a solid block.';
-const NO_RECORD = 'No brand record was found for the company.';
+const EMBLEM = 'No official wordmark was found; its emblem alone does not name the company.';
+const OPAQUE = 'No official logo on a transparent ground was found.';
+const NONE = 'No official logo file was found.';
+const STOCK_CODE = 'Much of its official logo is its stock code, which leaves the name too small to read at map size.';
+const UNCOLLECTED = 'No official logo has been collected yet.';
 
 const WITHOUT_LOGO: readonly NoLogoEntry[] = [
-  { names: ['Amazon'], reason: 'Its brand record holds only app icons on solid tiles; Amazon Robotics’ mark is a subsidiary’s and does not stand in.' },
-  { names: ['AutoStore'], reason: ICON_ONLY },
-  { names: ['BRILS'], reason: NO_RECORD },
-  { names: ['Cambridge Aerospace'], reason: ICON_ONLY },
-  { names: ['Cosmo Robotics'], reason: 'Its brand record shows ExoAtlet, a product brand, not the company’s own name.' },
-  { names: ['Daihen'], reason: 'Its wordmark sits in a filled box that draws as a solid block.' },
-  { names: ['Direct Drive Tech'], reason: 'The file in its brand record draws as a single character, not a legible mark.' },
-  { names: ['Dream Labs'], reason: NO_RECORD },
-  { names: ['Efort Intelligent Equipment', 'Efort'], reason: OPAQUE_ONLY },
-  { names: ['Enigma'], reason: NO_RECORD },
-  { names: ['Estun Automation', 'Estun'], reason: 'Its brand record holds no logo file.' },
-  { names: ['FBR'], reason: OPAQUE_ONLY },
-  { names: ['Fanuc'], reason: OPAQUE_ONLY },
-  { names: ['Gravis Robotics'], reason: OPAQUE_ONLY },
-  { names: ['Hexagon'], reason: ICON_ONLY },
-  { names: ['Horizon Robotics'], reason: ICON_ONLY },
-  { names: ['Huayan Robotics'], reason: ICON_ONLY },
-  { names: ['Husqvarna'], reason: ICON_ONLY },
-  { names: ['ICON'], reason: OPAQUE_ONLY },
-  { names: ['ideaForge Technology', 'ideaForge'], reason: ICON_ONLY },
-  { names: ['Keli Sensing'], reason: 'Its logo file is mostly its stock code; the name is too small to read at map size.' },
-  { names: ['Kawasaki Heavy Industries', 'Kawasaki'], reason: 'Its wordmark sits on a filled badge that draws as a solid block; otherwise only an icon.' },
-  { names: ['LG Electronics', 'LG'], reason: 'Its brand record holds only the round face icon, which draws as a filled disc.' },
-  { names: ['Medtronic'], reason: 'Its brand record holds only round badge icons, which draw as filled discs.' },
-  { names: ['Midea Group', 'Midea'], reason: 'Its wordmark is on an opaque background; otherwise only an icon.' },
-  { names: ['Minth Group', 'Minth'], reason: 'Its wordmark is too small beside its badge to read at map size.' },
-  { names: ['Nauticus Robotics'], reason: ICON_ONLY },
-  { names: ['Ningbo ZhongDa Leader', 'ZhongDa Leader'], reason: OPAQUE_ONLY },
-  { names: ['Palladyne AI'], reason: ICON_ONLY },
-  { names: ['Pony AI'], reason: ICON_ONLY },
-  { names: ['Poseidon Aerospace'], reason: ICON_ONLY },
-  { names: ['Reliable Robotics'], reason: ICON_ONLY },
-  { names: ['Renishaw'], reason: OPAQUE_ONLY },
-  { names: ['RoboSense'], reason: 'Its brand record holds only icons, which draw as filled shapes.' },
-  { names: ['RoboTechnik'], reason: ICON_ONLY },
-  { names: ['Robostar'], reason: NO_RECORD },
-  { names: ['Robotis'], reason: OPAQUE_ONLY },
-  { names: ['Rokae Robotics', 'Rokae'], reason: OPAQUE_ONLY },
-  { names: ['Schaeffler'], reason: 'Its brand record holds only icons, which draw as filled shapes.' },
-  { names: ['Seyond'], reason: 'Its logo sets the name in small vertical type that cannot be read at map size.' },
-  { names: ['Shenzhen Inovance', 'Inovance'], reason: OPAQUE_ONLY },
-  { names: ['Siasun Robot & Automation', 'Siasun'], reason: 'Its brand record holds no logo file.' },
-  { names: ['Siemens'], reason: OPAQUE_ONLY },
-  { names: ['SMC'], reason: 'Its brand record holds only an icon whose small wordmark cannot be read at map size.' },
-  { names: ['Stereotaxis'], reason: ICON_ONLY },
-  { names: ['Stryker'], reason: 'Its brand record holds only a wordmark on an opaque background and app icons.' },
-  { names: ['Sudo Technology (Suduo)', 'Sudo Technology', 'Suduo'], reason: 'The only brand record under the name belongs to an unrelated software company.' },
-  { names: ['Swancor Advanced Materials', 'Swancor'], reason: 'Half of its wordmark sits in a filled box that draws as a solid block.' },
-  { names: ['T-Robotics'], reason: NO_RECORD },
-  { names: ['Topstar Technology', 'Topstar'], reason: OPAQUE_ONLY },
-  { names: ['UFORCE'], reason: NO_RECORD },
-  { names: ['Veeda AI', 'Veeda'], reason: OPAQUE_ONLY },
-  { names: ['Warp Sciences'], reason: NO_RECORD },
-  { names: ['WeRide'], reason: ICON_ONLY },
-  { names: ['Xiaomi'], reason: 'Its brand record holds only app icons on solid tiles.' },
-  { names: ['Yuil Robotics'], reason: NO_RECORD },
-  { names: ['Zimmer Biomet'], reason: 'Its wordmark sits on a filled banner that draws as a solid block.' },
+  { names: ['AeroVironment'], reason: 'Its official logo sets the name in small type under the AV emblem and beside a tagline, too small to read at map size.' },
+  { names: ['AITMC Ventures'], reason: UNCOLLECTED },
+  { names: ['AL Robot'], reason: UNCOLLECTED },
+  { names: ['Amazon'], reason: 'No official Amazon wordmark on a transparent ground was found; the Amazon Robotics mark is a subsidiary’s and does not stand in.' },
+  { names: ['Anthropic'], reason: UNCOLLECTED },
+  { names: ['AutoStore'], reason: EMBLEM },
+  { names: ['BRILS'], reason: NONE },
+  { names: ['Cambridge Aerospace'], reason: EMBLEM },
+  { names: ['Changzhou Microintelligence'], reason: UNCOLLECTED },
+  { names: ['Cosmo Robotics'], reason: 'The only official mark found is ExoAtlet, a product brand, not the company’s name.' },
+  { names: ['Daihen'], reason: 'Its official wordmark sits in a filled box that would draw as a solid block.' },
+  { names: ['Direct Drive Tech'], reason: 'The only official logo file found draws as a single character, not a legible mark.' },
+  { names: ['Dream Labs'], reason: NONE },
+  { names: ['Duke Robotics'], reason: UNCOLLECTED },
+  { names: ['Efort Intelligent Equipment', 'Efort'], reason: OPAQUE },
+  { names: ['Enigma'], reason: NONE },
+  { names: ['Estun Automation', 'Estun', 'Estun Automation (H shares)'], reason: NONE },
+  { names: ['FBR'], reason: OPAQUE },
+  { names: ['Fanuc'], reason: OPAQUE },
+  { names: ['FireFly Robotics'], reason: UNCOLLECTED },
+  { names: ['Garuda Aerospace'], reason: UNCOLLECTED },
+  { names: ['Gravis Robotics'], reason: OPAQUE },
+  { names: ['Hai Robotics', 'Hai Robotics Innovation Group'], reason: UNCOLLECTED },
+  { names: ['Hexagon'], reason: EMBLEM },
+  { names: ['Horizon Robotics'], reason: EMBLEM },
+  { names: ['Huayan Robotics'], reason: EMBLEM },
+  { names: ['Husqvarna'], reason: EMBLEM },
+  { names: ['Hyundai Motor', 'Hyundai'], reason: EMBLEM },
+  { names: ['ICON'], reason: OPAQUE },
+  { names: ['ideaForge Technology', 'ideaForge'], reason: EMBLEM },
+  { names: ['IPLUSMOBOT', 'Zhejiang IPLUSMOBOT Technology'], reason: UNCOLLECTED },
+  { names: ['Keli Sensing'], reason: STOCK_CODE },
+  { names: ['Kawasaki Heavy Industries', 'Kawasaki'], reason: 'Its official wordmark sits on a filled badge that would draw as a solid block.' },
+  { names: ['LG Electronics', 'LG'], reason: 'The only official mark found is the round face emblem, which would draw as a filled disc.' },
+  { names: ['Medtronic'], reason: 'The only official marks found are round badges, which would draw as filled discs.' },
+  { names: ['Midea Group', 'Midea'], reason: OPAQUE },
+  { names: ['Minth Group', 'Minth'], reason: 'Its official wordmark is too small beside its badge to read at map size.' },
+  { names: ['Nauticus Robotics'], reason: EMBLEM },
+  { names: ['Ningbo ZhongDa Leader', 'ZhongDa Leader'], reason: OPAQUE },
+  { names: ['Palladyne AI'], reason: EMBLEM },
+  { names: ['Pony AI'], reason: EMBLEM },
+  { names: ['Poseidon Aerospace'], reason: EMBLEM },
+  { names: ['Reliable Robotics'], reason: EMBLEM },
+  { names: ['Renishaw'], reason: OPAQUE },
+  { names: ['RoboSense'], reason: 'The only official marks found are emblems, which would draw as filled shapes.' },
+  { names: ['RoboTechnik'], reason: EMBLEM },
+  { names: ['Robostar'], reason: NONE },
+  { names: ['Robotis'], reason: OPAQUE },
+  { names: ['Rokae Robotics', 'Rokae'], reason: OPAQUE },
+  { names: ['Schaeffler'], reason: 'The only official marks found are emblems, which would draw as filled shapes.' },
+  { names: ['Seyond'], reason: 'Its official logo sets the name in small vertical type that cannot be read at map size.' },
+  { names: ['Shenzhen Inovance', 'Inovance'], reason: OPAQUE },
+  { names: ['Siasun Robot & Automation', 'Siasun'], reason: NONE },
+  { names: ['Siemens'], reason: OPAQUE },
+  { names: ['SMC'], reason: 'The only official mark found is an emblem whose small wordmark cannot be read at map size.' },
+  { names: ['Standard Robots', 'Standard Robots (Wuxi)'], reason: UNCOLLECTED },
+  { names: ['Stereotaxis'], reason: EMBLEM },
+  { names: ['Stryker'], reason: OPAQUE },
+  { names: ['Sudo Technology (Suduo)', 'Sudo Technology', 'Suduo'], reason: 'No official logo was found; the only one under the name belongs to an unrelated software company.' },
+  { names: ['Swancor Advanced Materials', 'Swancor'], reason: 'Half of its official wordmark sits in a filled box that would draw as a solid block.' },
+  { names: ['T-Robotics'], reason: NONE },
+  { names: ['Techman Robot', 'Techman'], reason: EMBLEM },
+  { names: ['Tianjin Chenxing Technology', 'Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.)', 'Atomrobot'], reason: UNCOLLECTED },
+  { names: ['Topstar Technology', 'Topstar', 'Guangdong Topstar Technology'], reason: OPAQUE },
+  { names: ['UFORCE'], reason: NONE },
+  { names: ['Veeda AI', 'Veeda'], reason: OPAQUE },
+  { names: ['Warp Sciences'], reason: NONE },
+  { names: ['WB Electronics'], reason: UNCOLLECTED },
+  { names: ['WeRide'], reason: EMBLEM },
+  { names: ['Xiaomi'], reason: 'The only official marks found are app icons on solid tiles.' },
+  { names: ['Yuil Robotics'], reason: NONE },
+  { names: ['Yunji Technology', 'Yunji'], reason: STOCK_CODE },
+  { names: ['Zimmer Biomet'], reason: 'Its official wordmark sits on a filled banner that would draw as a solid block.' },
 ];
 
 function index<E extends { names: readonly string[] }, T>(entries: readonly E[], value: (entry: E) => T): Record<string, T> {

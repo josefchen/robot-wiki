@@ -8,8 +8,10 @@ import {
   logoIdFor,
   normalizeCompanyName,
 } from '@/data/company-logos';
-import { LOGO_IMAGES } from '@/data/logo-images';
+import { IMAGES } from '@/data/images';
+import { LOGO_IMAGES, PENDING_LOGO_IMAGES } from '@/data/logo-images';
 import { getCompanyLogo } from '@/data/logos';
+import { imageSchema } from '@/data/schemas/image';
 import { withheldMark } from '@/lib/market-map-marks';
 
 const repoRoot = join(import.meta.dirname, '../..');
@@ -17,7 +19,9 @@ const repoRoot = join(import.meta.dirname, '../..');
 /**
  * Every company the public-companies and funding pages name, spelled as the
  * November 2026 research lists them: the listed companies, the parents left
- * off the scaled map, and the companies behind the 40 largest rounds.
+ * off the scaled map, the debuts, the IPO watch, the AI labs, and the
+ * companies behind the 40 largest rounds. Smaller rounds are covered only
+ * where the company already has a market-map mark (FUNDING_WITH_MAP_MARKS).
  */
 const PAGE_COMPANIES = [
   'Intuitive Surgical',
@@ -217,6 +221,53 @@ const PAGE_COMPANIES = [
   'Enigma',
   'Poseidon Aerospace',
   'Mecka AI',
+  // Debuts, as that table spells them.
+  'Estun Automation (H shares)',
+  'Zhejiang Galaxis Technology',
+  'Amicro Technology (Eeasy Tech)',
+  'Unitree Robotics (Yushu Technology)',
+  // IPO watch.
+  'Hai Robotics Innovation Group Co., Ltd. - W',
+  'Standard Robots (Wuxi) Co., Ltd.',
+  'Zhejiang IPLUSMOBOT Technology Co., Ltd.',
+  'Orbbec Inc. - W',
+  'Guangdong Topstar Technology Co., Ltd.',
+  'Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.)',
+  'Changzhou Microintelligence',
+  'AL Robot',
+  'Deep Robotics (Hangzhou Yunshenchu)',
+  'Leju Robotics (Leju Intelligent, Shenzhen)',
+  'AgiBot',
+  'Galbot',
+  'X Square Robot',
+  'LimX Dynamics',
+  'Noetix Robotics (Songyan Power Beijing Technology)',
+  'EngineAI',
+  'FireFly Robotics',
+  'Duke Robotics',
+  'Garuda Aerospace',
+  'AITMC Ventures',
+  'WB Electronics',
+  'ABB Robotics (to SoftBank Group)',
+  // AI labs beside the listed table.
+  'Anthropic, PBC',
+  'OpenAI',
+];
+
+/** Smaller funding rounds whose company already has a market-map mark. */
+const FUNDING_WITH_MAP_MARKS = [
+  'ABB Robotics (SoftBank purchase, China part blocked)',
+  'Generalist AI',
+  '1X Technologies',
+  'Wandercraft',
+  'XDOF',
+  'AgiBot (Zhiyuan Robotics)',
+  'FieldAI',
+  'Physical Intelligence',
+  'Applied Intuition',
+  'RobCo',
+  'Formic',
+  'Automata',
 ];
 
 describe('normalizeCompanyName', () => {
@@ -238,7 +289,7 @@ describe('normalizeCompanyName', () => {
 
 describe('company logo lookup', () => {
   it('points every name at a registered, drawable mark whose file is on disk', () => {
-    const registered = new Set(LOGO_IMAGES.map((image) => image.id));
+    const registered = new Set([...LOGO_IMAGES, ...PENDING_LOGO_IMAGES].map((image) => image.id));
     for (const [name, id] of Object.entries(COMPANY_LOGO_IDS)) {
       expect(registered.has(id), `${name}: ${id}`).toBe(true);
       const asset = getCompanyLogo(id);
@@ -255,19 +306,51 @@ describe('company logo lookup', () => {
     for (const key of Object.keys(NO_LOGO)) expect(key in COMPANY_LOGO_IDS, key).toBe(false);
   });
 
-  it('gives every no-logo entry a reason a reader can be shown', () => {
+  it('gives every no-logo entry a reason a reader can be shown, in terms of the mark', () => {
     for (const [name, reason] of Object.entries(NO_LOGO)) {
       expect(reason, name).toMatch(/^[A-Z].{20,}\.$/);
       expect(reason, name).not.toMatch(/[—–]/);
+      expect(reason, name).not.toMatch(/brand record|brand\.dev|fetch/i);
+      expect(reason, name).toMatch(/official/);
     }
   });
 
+  it('applies one legibility rule to every company', () => {
+    // An emblem with no wordmark never stands in for the name.
+    for (const name of ['Hyundai Motor', 'Techman Robot', 'AutoStore', 'WeRide']) {
+      expect(companyLogo(name), name).toEqual({ logo: null, reason: companyLogo('AutoStore')!.reason });
+    }
+    // Nor does a logo given over to its stock code.
+    expect(companyLogo('Yunji Technology')).toEqual(companyLogo('Keli Sensing'));
+    expect(companyLogo('Yunji Technology')!.logo).toBeNull();
+    expect(companyLogo('AeroVironment')!.logo).toBeNull();
+  });
+
   it('covers every company the market pages name, with a mark or a reason', () => {
-    expect(PAGE_COMPANIES).toHaveLength(197);
-    const missing = PAGE_COMPANIES.filter((name) => companyLogo(name) === undefined);
+    expect(PAGE_COMPANIES).toHaveLength(225);
+    expect(new Set(PAGE_COMPANIES).size).toBe(PAGE_COMPANIES.length);
+    const missing = [...PAGE_COMPANIES, ...FUNDING_WITH_MAP_MARKS].filter((name) => companyLogo(name) === undefined);
     expect(missing).toEqual([]);
+    for (const name of FUNDING_WITH_MAP_MARKS) expect(logoIdFor(name), name).not.toBeNull();
     const marked = PAGE_COMPANIES.filter((name) => logoIdFor(name) !== null);
-    expect(marked.length).toBeGreaterThan(130);
+    expect(marked.length).toBeGreaterThan(140);
+  });
+
+  it('keeps marks no published page draws off /credits, each still a valid registry entry', () => {
+    const lookedUp = new Set(Object.values(COMPANY_LOGO_IDS));
+    const imageIds = new Set(IMAGES.map((image) => image.id));
+    expect(PENDING_LOGO_IMAGES.length).toBeGreaterThan(0);
+    for (const image of PENDING_LOGO_IMAGES) {
+      expect(imageSchema.safeParse(image).success, image.id).toBe(true);
+      expect(imageIds.has(image.id), `${image.id} is not in IMAGES`).toBe(false);
+      expect(lookedUp.has(image.id), `${image.id} is looked up by a name`).toBe(true);
+      expect(existsSync(join(repoRoot, 'public', image.file)), image.file).toBe(true);
+      // Credited to the brand profile the file came from, not the company site.
+      expect(image.sourceName, image.id).toMatch(/^Brand\.dev profile of [a-z0-9.-]+\.[a-z]+$/);
+      expect(image.sourceUrl, image.id).toMatch(/^https:\/\/media\.brand\.dev\/[\w-]+\.(?:png|svg|webp|jpe?g)$/);
+      expect(image.caption, image.id).toMatch(/ logo from its brand profile, used on the market pages\.$/);
+      expect(image.alt, image.id).not.toMatch(/website/);
+    }
   });
 
   it('resolves a company under its common variants', () => {
@@ -279,11 +362,14 @@ describe('company logo lookup', () => {
     expect(logoIdFor('Smith+Nephew')).toBe(logoIdFor('Smith & Nephew'));
     expect(logoIdFor('DURR')).toBe('durr-logo');
     expect(logoIdFor('Seiko Epson Corporation')).toBe('epson-logo');
+    // A Hong Kong "- W" marker is not part of the name.
+    expect(logoIdFor('Orbbec Inc. - W')).toBe('orbbec-logo');
+    expect(normalizeCompanyName('Hai Robotics Innovation Group Co., Ltd. - W')).toBe('hai robotics innovation group');
   });
 
   it('shows a parent under its own mark, never a subsidiary or product brand', () => {
     expect(logoIdFor('Alphabet')).toBe('alphabet-logo');
-    expect(logoIdFor('Hyundai Motor')).toBe('hyundai-logo');
+    expect(logoIdFor('Samsung Electronics')).toBe('samsung-logo');
     expect(logoIdFor('Mobileye')).toBe('mobileye-logo');
     expect(logoIdFor('OneRobotics')).toBe('onerobotics-logo');
     expect(logoIdFor('Mitsubishi Electric')).toBe('mitsubishi-electric-logo');
