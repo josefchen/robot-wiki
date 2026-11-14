@@ -12,7 +12,7 @@
     "minutes": 5
   },
   "manipulation/vla-models": {
-    "words": 1330,
+    "words": 1334,
     "minutes": 7
   },
   "manipulation/pi-line": {
@@ -20,7 +20,7 @@
     "minutes": 7
   },
   "manipulation/generalist-policies": {
-    "words": 1347,
+    "words": 1350,
     "minutes": 7
   },
   "manipulation/comparison-matrix": {
@@ -28,7 +28,7 @@
     "minutes": 8
   },
   "manipulation/hierarchical": {
-    "words": 1479,
+    "words": 1488,
     "minutes": 7
   },
   "manipulation/rl-finetuning": {
@@ -56,7 +56,7 @@
     "minutes": 6
   },
   "manipulation/foundation-models": {
-    "words": 1150,
+    "words": 1152,
     "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
@@ -200,7 +200,7 @@
     "minutes": 7
   },
   "frontier/competing-theses": {
-    "words": 1722,
+    "words": 1726,
     "minutes": 9
   },
   "frontier/bear-case": {

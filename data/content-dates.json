@@ -82,11 +82,11 @@
     },
     "frontier/bear-case": {
       "published": "2026-08-12T18:33:06+02:00",
-      "modified": "2026-11-14T13:10:59Z"
+      "modified": "2026-11-14T21:48:34+08:00"
     },
     "frontier/competing-theses": {
       "published": "2026-08-12T18:33:06+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T13:48:44Z"
     },
     "frontier/dexterity": {
       "published": "2026-08-12T18:33:06+02:00",
@@ -126,19 +126,19 @@
     },
     "manipulation/diffusion-policy": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-14T13:10:59Z"
+      "modified": "2026-11-14T21:48:34+08:00"
     },
     "manipulation/foundation-models": {
       "published": "2026-09-24T21:27:51+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T13:48:44Z"
     },
     "manipulation/generalist-policies": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T13:48:44Z"
     },
     "manipulation/hierarchical": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T13:48:44Z"
     },
     "manipulation/knowledge-insulation": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -162,7 +162,7 @@
     },
     "manipulation/vla-models": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T13:48:44Z"
     },
     "rl-sim2real/humanoid-wbc": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-14T13:10:59Z"
+      "modified": "2026-11-14T13:48:44Z"
     },
     "/manipulation/": {
       "modified": "2026-11-13T15:15:57+08:00"
