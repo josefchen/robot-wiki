@@ -17,18 +17,19 @@ import {
 import { cx } from '@/lib/utils';
 import { SourceLink, SourceTypeMark } from './source-mark';
 
-/** The pinned first column: it stays in view while the rest scrolls on a phone. */
-const PINNED = 'sticky left-0 z-[1] bg-bg';
 const ROW = 'border-b border-border last:border-b-0';
 const DIM = 'text-[13px] leading-[1.45] text-text-dim';
 const HEAD = 'text-left text-[13px] font-semibold';
 /**
- * On a phone a three-column table scrolls in its own box: the pinned first
- * column (7.5rem) and the second (13.5rem) fit a 342 px column together, so
- * the first two read without scrolling.
+ * On a phone a row's subject leaves its column for a line of its own above
+ * the two sides, so both sides read without sideways scrolling. The side
+ * that comes first on a phone keeps the table's edge padding and sits close
+ * under the subject line.
  */
-const PHONE_COLUMN = 'w-[13.5rem] sm:w-auto';
-const PHONE_MIN_WIDTH = 'min-w-[34.5rem] sm:min-w-full';
+const SUBJECT_LINE = 'sm:hidden';
+const SUBJECT_COLUMN = 'hidden sm:table-cell';
+const PHONE_FIRST = 'max-sm:pl-1!';
+const UNDER_SUBJECT = 'max-sm:pt-1!';
 
 function DateText({ iso, className }: { iso: string; className?: string }) {
   return (
@@ -51,24 +52,14 @@ function Reported({ when }: { when: boolean }) {
  * One table in its own scroll region, named by the section heading, with
  * the note on the reported mark when a row carries it.
  */
-function NowTable({
-  labelledBy,
-  minWidth,
-  note,
-  children,
-}: {
-  labelledBy: string;
-  minWidth: string;
-  note: boolean;
-  children: ReactNode;
-}) {
+function NowTable({ labelledBy, note, children }: { labelledBy: string; note: boolean; children: ReactNode }) {
   return (
     <>
       {/* relative: the visually hidden source titles are absolutely
           positioned, and without a containing block inside the scroll box
           they would widen the page on a phone. */}
-      <TableScroll labelledBy={labelledBy} className="relative mt-6 [container-type:inline-size]">
-        <table className={cx('booktabs', minWidth)}>{children}</table>
+      <TableScroll labelledBy={labelledBy} className="relative mt-6">
+        <table className="booktabs min-w-full">{children}</table>
       </TableScroll>
       {note ? (
         <p data-reported-note="" className={cx(DIM, 'mt-3')}>
@@ -93,7 +84,7 @@ export function WhatChangedTable({ rows, labelledBy }: { rows: readonly Developm
     </>
   );
   return (
-    <NowTable labelledBy={labelledBy} minWidth="min-w-full" note={rows.some(developmentReported)}>
+    <NowTable labelledBy={labelledBy} note={rows.some(developmentReported)}>
       <thead>
         <tr>
           <th scope="col" className={cx(HEAD, 'hidden w-[7.5rem] sm:table-cell')}>Date</th>
@@ -142,7 +133,7 @@ function Evidence({ evidence, label, defaultLabel }: { evidence: OpenQuestion['e
         {when ? (
           <time dateTime={when} className="font-mono tabular-nums">{formatStatedDate(side.published)}</time>
         ) : (
-          side.published
+          `date ${side.published}`
         )}
         <Reported when={side.sourceType === 'reported'} />
       </span>
@@ -188,7 +179,7 @@ function Quote({ position }: { position: Position }) {
 /** The named people on one argument, side by side group, inside its question's row. */
 function Positions({ argument }: { argument: NowArgument }) {
   return (
-    <div data-linked-argument={argument.id} className="sticky left-0 max-w-[100cqw]">
+    <div data-linked-argument={argument.id}>
       <div className={cx(DIM, 'mb-2')}>{argument.title}, in named people&apos;s words</div>
       <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
         {positionsBySide(argument).flatMap((group) =>
@@ -222,26 +213,30 @@ export function OpenQuestionsTable({
   return (
     <NowTable
       labelledBy={labelledBy}
-      minWidth={PHONE_MIN_WIDTH}
       note={rows.some(({ question, argument }) => questionReported(question, argument))}
     >
       <thead>
         <tr>
-          <th scope="col" className={cx(HEAD, PINNED, 'w-[7.5rem] sm:w-[13rem]')}>Question</th>
-          <th scope="col" className={cx(HEAD, PHONE_COLUMN)}>Best evidence for</th>
-          <th scope="col" className={cx(HEAD, PHONE_COLUMN)}>Best evidence against</th>
+          <th scope="col" className={cx(HEAD, SUBJECT_COLUMN, 'w-[13rem]')}>Question</th>
+          <th scope="col" className={cx(HEAD, PHONE_FIRST)}>Best evidence for</th>
+          <th scope="col" className={HEAD}>Best evidence against</th>
         </tr>
       </thead>
       {rows.map(({ question, argument }) => (
         <tbody key={question.id} data-now-row={question.id} className={ROW}>
-          <tr>
-            <th scope="row" className={cx(PINNED, 'text-left font-medium')}>
+          <tr className={SUBJECT_LINE}>
+            <th scope="rowgroup" colSpan={2} className="pb-0! text-left font-medium">
               {question.question}
             </th>
-            <td>
+          </tr>
+          <tr>
+            <th scope="row" className={cx(SUBJECT_COLUMN, 'text-left font-medium')}>
+              {question.question}
+            </th>
+            <td className={cx(PHONE_FIRST, UNDER_SUBJECT)}>
               <Evidence evidence={question.evidenceFor} label={question.labels.for} defaultLabel="for" />
             </td>
-            <td>
+            <td className={UNDER_SUBJECT}>
               <Evidence evidence={question.evidenceAgainst} label={question.labels.against} defaultLabel="against" />
             </td>
           </tr>
@@ -263,7 +258,6 @@ export function ArgumentsTable({ rows, labelledBy }: { rows: readonly NowArgumen
   return (
     <NowTable
       labelledBy={labelledBy}
-      minWidth="min-w-full"
       note={rows.some((argument) => argument.positions.some((position) => position.sourceType === 'reported'))}
     >
       <thead>
@@ -332,7 +326,11 @@ function GapValue({ gap, side }: { gap: DeliveryGap; side: 'promised' | 'deliver
   );
 }
 
-/** The gap's pages; with two, each carries the date of the side it backs on the line below, so two pages on one host read apart. */
+/**
+ * The gap's pages; with two, each carries the date of the side it backs on
+ * the line below, so two pages on one host read apart. A reported mark
+ * always takes the line under its link.
+ */
 function GapSources({ gap }: { gap: DeliveryGap }) {
   const sources = gapSources(gap);
   const dates = [gap.promised.said, gap.delivered.asOf];
@@ -340,7 +338,12 @@ function GapSources({ gap }: { gap: DeliveryGap }) {
     <span key={source.sourceUrl} className={cx('block', index > 0 && 'mt-1')}>
       {index > 0 ? <span className="sr-only">, </span> : null}
       <SourceLink url={source.sourceUrl} title={source.sourceTitle} />
-      <Reported when={source.sourceType === 'reported'} />
+      {source.sourceType === 'reported' ? (
+        <>
+          <span className="sr-only"> </span>
+          <SourceTypeMark type="reported" className="mt-0.5 block" />
+        </>
+      ) : null}
       {sources.length > 1 ? (
         <DateText iso={dates[index]} className="block text-[12px] text-text-dim" />
       ) : null}
@@ -348,36 +351,49 @@ function GapSources({ gap }: { gap: DeliveryGap }) {
   ));
 }
 
+function GapSubject({ gap }: { gap: DeliveryGap }) {
+  return (
+    <>
+      {gap.who}
+      <span className={cx(DIM, 'mt-1 block font-normal')}>{gap.unit}</span>
+    </>
+  );
+}
+
 /**
  * "Announced against delivered": who, the headline with the date it was
- * given, what the cited page counts as delivered, as of when, and the
- * sources. On a phone the date and sources sit in the delivered cell.
+ * given, what the cited page shows so far, as of when, and the sources. On
+ * a phone the date and sources sit in the delivered cell.
  */
 export function GapsTable({ rows, labelledBy }: { rows: readonly DeliveryGap[]; labelledBy: string }) {
   return (
-    <NowTable labelledBy={labelledBy} minWidth={PHONE_MIN_WIDTH} note={rows.some(gapReported)}>
+    <NowTable labelledBy={labelledBy} note={rows.some(gapReported)}>
       <thead>
         <tr>
-          <th scope="col" className={cx(HEAD, PINNED, 'w-[7.5rem] sm:w-[10rem]')}>Who</th>
-          <th scope="col" className={cx(HEAD, PHONE_COLUMN)}>Headline number</th>
-          <th scope="col" className={cx(HEAD, PHONE_COLUMN)}>Delivered</th>
+          <th scope="col" className={cx(HEAD, SUBJECT_COLUMN, 'w-[10rem]')}>Who</th>
+          <th scope="col" className={cx(HEAD, PHONE_FIRST)}>Headline number</th>
+          <th scope="col" className={HEAD}>Delivered</th>
           <th scope="col" className={cx(HEAD, 'hidden w-[6.5rem] sm:table-cell')}>As of</th>
           <th scope="col" className={cx(HEAD, 'hidden w-[9rem] sm:table-cell')}>Source</th>
         </tr>
       </thead>
-      <tbody>
-        {rows.map((gap) => (
-          <tr key={gap.id} data-now-row={gap.id} className={ROW}>
-            <th scope="row" className={cx(PINNED, 'text-left font-medium')}>
-              {gap.who}
-              <span className={cx(DIM, 'mt-1 block font-normal')}>{gap.unit}</span>
+      {rows.map((gap) => (
+        <tbody key={gap.id} data-now-row={gap.id} className={ROW}>
+          <tr className={SUBJECT_LINE}>
+            <th scope="rowgroup" colSpan={2} className="pb-0! text-left font-medium">
+              <GapSubject gap={gap} />
             </th>
-            <td>
+          </tr>
+          <tr>
+            <th scope="row" className={cx(SUBJECT_COLUMN, 'text-left font-medium')}>
+              <GapSubject gap={gap} />
+            </th>
+            <td className={cx(PHONE_FIRST, UNDER_SUBJECT)}>
               <GapValue gap={gap} side="promised" />
               <span className="mt-1 block">{gap.promised.what}</span>
               <DateText iso={gap.promised.said} className="mt-1 block text-text-dim" />
             </td>
-            <td>
+            <td className={UNDER_SUBJECT}>
               <DateText iso={gap.delivered.asOf} className="mb-1 block sm:hidden" />
               <GapValue gap={gap} side="delivered" />
               <span className={cx('block', gap.delivered.value !== null && 'mt-1')}>{gap.delivered.what}</span>
@@ -392,8 +408,8 @@ export function GapsTable({ rows, labelledBy }: { rows: readonly DeliveryGap[]; 
               <GapSources gap={gap} />
             </td>
           </tr>
-        ))}
-      </tbody>
+        </tbody>
+      ))}
     </NowTable>
   );
 }

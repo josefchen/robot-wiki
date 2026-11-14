@@ -9,6 +9,7 @@ import {
   trajectoryHeadline,
   trajectoryPositions,
   trajectorySources,
+  uniqueByUrl,
 } from '@/lib/now-page';
 import { cx } from '@/lib/utils';
 import { SourceLink, SourceTypeMark } from './source-mark';
@@ -146,41 +147,63 @@ function TrajectoryRow({ row }: { row: ResolvedTrajectory }) {
   );
 }
 
+/**
+ * An end's period and label for the method note, each said once: where one
+ * contains the other only the longer is kept. A label stands as its own
+ * sentence, so its capital starts one.
+ */
+function methodWhen(end: Pick<ResolvedEnd, 'period' | 'label'>): string {
+  if (end.label.includes(end.period)) return end.label;
+  if (end.period.includes(end.label)) return end.period;
+  return `${end.period}. ${end.label}`;
+}
+
+function MethodEnd({ row, which, value }: { row: ResolvedTrajectory; which: 'earlier' | 'later'; value: ResolvedEnd }) {
+  const note = endNote(row.id, which);
+  const sources = uniqueByUrl(value.sources);
+  // A note on a page the end already lists keeps its sentence and drops the repeat link.
+  const noteLinked = note !== null && !sources.some((source) => source.sourceUrl === note.sourceUrl);
+  return (
+    <li data-method-end={which}>
+      {which === 'earlier' ? 'Earlier' : 'Now'}: <span className="font-mono tabular-nums">{value.display}</span>,{' '}
+      <span data-method-when="">{methodWhen(value)}</span>.{' '}
+      {sources.map((source, index) => (
+        <span key={source.sourceUrl}>
+          {index > 0 ? '; ' : null}
+          <SourceLink url={source.sourceUrl} title={source.sourceTitle} label={source.sourceTitle} />
+          {source.sourceType === 'reported' ? <> <SourceTypeMark type={source.sourceType} /></> : null}
+        </span>
+      ))}
+      {note ? (
+        <span data-end-note={which} className="block">
+          {note.text}
+          {noteLinked ? (
+            <>
+              :{' '}
+              <SourceLink url={note.sourceUrl} title={note.sourceTitle} label={note.sourceTitle} />
+              {note.sourceType === 'reported' ? <> <SourceTypeMark type={note.sourceType} /></> : null}
+            </>
+          ) : (
+            '.'
+          )}
+        </span>
+      ) : null}
+    </li>
+  );
+}
+
 function MethodRow({ row }: { row: ResolvedTrajectory }) {
-  const end = (which: 'earlier' | 'later', value: ResolvedEnd) => {
-    const note = endNote(row.id, which);
-    return (
-      <li>
-        {which === 'earlier' ? 'Earlier' : 'Now'}: <span className="font-mono tabular-nums">{value.display}</span>,{' '}
-        {value.period}, {value.label}.{' '}
-        {value.sources.map((source, index) => (
-          <span key={`${source.sourceUrl}-${index}`}>
-            {index > 0 ? '; ' : null}
-            <SourceLink url={source.sourceUrl} title={source.sourceTitle} label={source.sourceTitle} />
-            {source.sourceType === 'reported' ? <> <SourceTypeMark type={source.sourceType} /></> : null}
-          </span>
-        ))}
-        {note ? (
-          <span data-end-note={which} className="block">
-            {note.text}:{' '}
-            <SourceLink url={note.sourceUrl} title={note.sourceTitle} label={note.sourceTitle} />
-            {note.sourceType === 'reported' ? <> <SourceTypeMark type={note.sourceType} /></> : null}
-          </span>
-        ) : null}
-      </li>
-    );
-  };
   return (
     <li data-method-row={row.id}>
       <div className="text-text">{row.title}</div>
-      <div>Measured by {row.measuredBy}.</div>
+      <div data-method-measured="">{row.measuredBy}.</div>
       <ul className="mt-1 space-y-1">
-        {end('earlier', row.earlier)}
-        {end('later', row.later)}
+        <MethodEnd row={row} which="earlier" value={row.earlier} />
+        <MethodEnd row={row} which="later" value={row.later} />
         {row.alongside.map((beside) => (
           <li key={beside.label}>
-            Beside them: <span className="font-mono tabular-nums">{beside.display}</span>, {beside.period},{' '}
-            {beside.label}.
+            Beside them: <span className="font-mono tabular-nums">{beside.display}</span>,{' '}
+            <span data-method-when="">{methodWhen(beside)}</span>.
           </li>
         ))}
         {row.note ? (
