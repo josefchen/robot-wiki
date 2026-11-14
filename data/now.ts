@@ -142,8 +142,8 @@ const RUNWAY: Source = {
   sourceType: 'primary',
 };
 const GXO: Source = {
-  sourceUrl: 'https://finance.yahoo.com/technology/ai/articles/gxo-apptronik-expand-partnership-scale-120000586.html',
-  sourceTitle: 'GXO and Apptronik Expand Partnership to Scale Humanoid Deployment (GXO release via GlobeNewswire, 12 Nov 2026)',
+  sourceUrl: 'https://gxo.com/news_article/gxo-apptronik-expand-humanoid-robotics-partnership/',
+  sourceTitle: 'GXO and Apptronik Expand Partnership to Scale Humanoid Deployment (GXO, 12 Nov 2026)',
   sourceType: 'primary',
 };
 const CENTCOM: Source = {
@@ -152,8 +152,8 @@ const CENTCOM: Source = {
   sourceType: 'primary',
 };
 const KODIAK_DTL: Source = {
-  sourceUrl: 'https://finance.yahoo.com/technology/ai/articles/kodiak-ai-dtl-transport-reach-130000642.html',
-  sourceTitle: 'Kodiak AI and DTL Transport Reach Historic Agreement To Deploy 75 Driverless Trucks (Kodiak release via GlobeNewswire, 28 Oct 2026)',
+  sourceUrl: 'https://kodiak.ai/news/deal-marks-first-ever-binding-commitment-by-a-long',
+  sourceTitle: 'Kodiak AI and DTL Transport Reach Historic Agreement To Deploy 75 Driverless Trucks As Part of Commercial Driver-As-A-Service Rollout (Kodiak AI, 28 Oct 2026)',
   sourceType: 'primary',
 };
 const TESLA_Q3_2026: Source = {
@@ -252,7 +252,7 @@ const AURORA_Q3: Source = {
   sourceType: 'primary',
 };
 const MAY_MOBILITY: Source = {
-  sourceUrl: 'https://www.prnewswire.com/news-releases/may-mobility-plans-to-bring-autonomous-volkswagen-id-buzz-vehicles-to-global-robotaxi-platforms-302936992.html',
+  sourceUrl: 'https://maymobility.com/en/news/may-mobility-plans-to-bring-autonomous-volkswagen-id-buzz-vehicles-to-global-robotaxi-platforms',
   sourceTitle: 'May Mobility Plans to Bring Autonomous Volkswagen ID. Buzz Vehicles to Global Robotaxi Platforms (May Mobility, 12 Nov 2026)',
   sourceType: 'primary',
 };
@@ -780,7 +780,7 @@ export const DEVELOPMENTS: readonly Development[] = [
     doesNotMean: 'Trucks running driverless now; the release gives no start date',
     ...KODIAK_DTL,
     wording:
-      'Kodiak signs historic agreement with DTL Transport Inc. to deploy the Kodiak Driver, Kodiak’s autonomous driving system, in 75 driverless trucks owned and operated by DTL. Deal marks first-ever binding commitment by a long-haul trucking carrier to commercially operate driverless trucks within their own fleet',
+      'Deal marks first-ever binding commitment by a long-haul trucking carrier to commercially operate driverless trucks within their own fleet | today announced a historic agreement with DTL Transport Inc., (“DTL”) a California long-haul freight company, to deploy the Kodiak Driver, Kodiak’s autonomous driving system, in 75 driverless trucks owned and operated by DTL.',
   },
   {
     id: 'optimus-production-fremont',
