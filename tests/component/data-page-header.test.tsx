@@ -16,7 +16,7 @@ import { MARKET_SECTION, type SiteSection } from '@/lib/site-sections';
 const THREE_PAGES: SiteSection = {
   label: 'Market',
   pages: [
-    { label: 'Private companies', route: '/market-map/' },
+    { label: 'Market map', route: '/market-map/' },
     { label: 'Public companies', route: '/market-map/public/' },
     { label: 'Recent rounds', route: '/market-map/rounds/' },
   ],
@@ -24,7 +24,7 @@ const THREE_PAGES: SiteSection = {
 
 const ONE_PAGE: SiteSection = {
   label: 'Market',
-  pages: [{ label: 'Private companies', route: '/market-map/' }],
+  pages: [{ label: 'Market map', route: '/market-map/' }],
 };
 
 const ANCHORS = [
@@ -158,7 +158,7 @@ describe('PageHeader', () => {
     const section = screen.getByRole('navigation', { name: 'Market' });
     const items = within(section).getAllByRole('listitem');
     expect(items.map((item) => item.textContent)).toEqual([
-      'Private companies',
+      'Market map',
       'Public companies',
       'Recent rounds',
     ]);
@@ -173,7 +173,7 @@ describe('PageHeader', () => {
 
     const links = within(section).getAllByRole('link');
     expect(links.map((link) => [link.textContent, route(link)])).toEqual([
-      ['Private companies', '/market-map/'],
+      ['Market map', '/market-map/'],
       ['Recent rounds', '/market-map/rounds/'],
     ]);
     expect(section.querySelector('a[href^="/market-map/public"]')).toBeNull();
@@ -208,7 +208,7 @@ describe('PageHeader', () => {
       expect(screen.queryByRole('navigation')).toBeNull();
       expect(screen.queryByRole('link')).toBeNull();
       expect(container.querySelector('[aria-current]')).toBeNull();
-      expect(container.textContent).not.toContain('Private companies');
+      expect(container.textContent).not.toContain('Market map');
       unmount();
     }
   });
@@ -281,7 +281,7 @@ describe('the market map page header', () => {
       expect(title.textContent).toBe('Market Map');
       expect(header.firstElementChild).toBe(title);
       expect(lead(container).textContent).toBe(
-        `${COMPANIES.length} companies in six segments, each with its latest round and the sources behind its figures, as of ${formatLongDate(MARKET_MAP_AS_OF)}.`,
+        `${COMPANIES.length} companies in six segments, each with its latest disclosed round or its status, and the sources behind its figures, as of ${formatLongDate(MARKET_MAP_AS_OF)}.`,
       );
       // The header sits in the page's one searchable, material-declaring block.
       const body = header.parentElement!;
@@ -296,7 +296,7 @@ describe('the market map page header', () => {
       } else {
         expect(section).not.toBeNull();
         const marked = section!.querySelector('[aria-current="page"]')!;
-        expect(marked.textContent).toBe('Private companies');
+        expect(marked.textContent).toBe('Market map');
         expect(
           Array.from(section!.querySelectorAll('a')).map(route),
         ).not.toContain('/market-map/');
