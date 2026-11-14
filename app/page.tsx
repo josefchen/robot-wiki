@@ -7,7 +7,7 @@ import { LatestChanges } from '@/components/home/latest-changes';
 import { StartHere } from '@/components/home/start-here';
 import { materialAttributes } from '@/lib/site-materials';
 import { startHere } from '@/lib/featured-article';
-import { homeCounts } from '@/lib/home-counts';
+import { formatCount, homeCounts } from '@/lib/home-counts';
 import { latestChanges } from '@/lib/home-updates';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
@@ -79,11 +79,11 @@ export default function Home() {
           <HomeSearch />
           {/* Counted from the registries at build time. */}
           <p data-home-counts className="meta-line home-counts">
-            <span>{counts.articles} articles</span>
+            <span>{formatCount(counts.articles)} articles</span>
             <span aria-hidden="true"> · </span>
-            <span data-brand-highlight="home-source-count">{counts.sources} sources</span>
+            <span data-brand-highlight="home-source-count">{formatCount(counts.sources)} sources</span>
             <span aria-hidden="true"> · </span>
-            <span>{counts.glossaryTerms} glossary terms</span>
+            <span>{formatCount(counts.glossaryTerms)} glossary terms</span>
           </p>
         </div>
       </section>
