@@ -7,9 +7,11 @@ import { COMPANIES } from '../../data/companies';
 import { GLOSSARY } from '../../data/glossary';
 import { HOME_FEATURED_PICKS } from '../../data/home-featured';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '../../data/modules';
+import { DEVELOPMENTS } from '../../data/now';
 import { FEATURED_DEK_MAX_WORDS } from '../../lib/featured-article';
 import { homeCounts } from '../../lib/home-counts';
 import { UPDATE_NOTE_MAX_WORDS, latestChanges } from '../../lib/home-updates';
+import { latestDevelopments } from '../../lib/now';
 import {
   CONTENT_CORRECTION_URL,
   PUBLIC_DESCRIPTOR,
@@ -56,12 +58,13 @@ const words = (value: string) => value.split(/\s+/).filter(Boolean);
 const squash = (value: string) => value.replace(/\s+/g, ' ').trim();
 const trimSlash = (href: string) => href.replace(/\/$/, '');
 
-/** The six blocks the front page permits in <main>, in order. */
+/** The seven blocks the front page permits in <main>, in order. */
 const HOME_BLOCKS = [
   'Introduction',
   'Contents',
   'Start here',
   'Also in the wiki',
+  'Robotics now',
   'Latest',
   'How this wiki is made',
 ];
@@ -446,9 +449,37 @@ test.describe('home front page', () => {
     });
   });
 
-  // Home prose is everything but article titles and navigation labels, and
-  // it holds 250 words or fewer even with a full ten-word note on every
-  // "Latest" row.
+  test('"Robotics now" lists the five newest primary-source developments, each with its date, sentence and source, and the one link to /now/', async ({
+    page,
+  }) => {
+    const main = await home(page);
+    const block = main.getByRole('region', { name: 'Robotics now' });
+    const rows = await block.getByRole('listitem').evaluateAll((items) =>
+      items.map((item) => ({
+        id: item.getAttribute('data-development') ?? '',
+        date: item.querySelector('time')?.getAttribute('datetime') ?? '',
+        text: item.querySelector('[data-development-text]')?.textContent ?? '',
+        sources: [...item.querySelectorAll('a')].map((a) => a.getAttribute('href') ?? ''),
+      })),
+    );
+    const expected = latestDevelopments(5);
+    expect(expected.every((row) => row.sourceType === 'primary')).toBe(true);
+    expect(rows).toEqual(
+      expected.map((row) => ({ id: row.id, date: row.date, text: row.what, sources: [row.sourceUrl] })),
+    );
+    const dates = rows.map(({ date }) => date);
+    expect([...dates].sort().reverse()).toEqual(dates);
+    const toNow = main.locator('a[href="/now/"]');
+    await expect(toNow).toHaveCount(1);
+    await expect(block.locator('a[href="/now/"]')).toHaveText(new RegExp(`^All ${DEVELOPMENTS.length} developments since `));
+    await toNow.click();
+    await expect(page).toHaveURL(/\/now\/$/);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Robotics now');
+  });
+
+  // Home prose is everything but article titles, navigation labels and the
+  // rows of "Robotics now" (data, like the titles), and it holds 250 words
+  // or fewer even with a full ten-word note on every "Latest" row.
   test('<main> holds 250 words of prose or fewer beside article titles and navigation, and nothing drawn', async ({
     page,
   }) => {
@@ -458,6 +489,7 @@ test.describe('home front page', () => {
       let titles = 0;
       let navigation = 0;
       for (const a of el.querySelectorAll('a')) {
+        if (a.closest('[data-development]')) continue;
         const href = a.getAttribute('href') ?? '';
         if (/^\/[a-z0-9-]+\/[a-z0-9-]+\/?$/.test(href)) titles += count((a as HTMLElement).innerText);
         else if (/^\/[a-z0-9-]+\/?$/.test(href)) navigation += count((a as HTMLElement).innerText);
@@ -466,7 +498,11 @@ test.describe('home front page', () => {
         (sum, note) => sum + count((note as HTMLElement).innerText),
         0,
       );
-      return { prose: count((el as HTMLElement).innerText) - titles - navigation, notes };
+      const developments = [...el.querySelectorAll('[data-development]')].reduce(
+        (sum, row) => sum + count((row as HTMLElement).innerText),
+        0,
+      );
+      return { prose: count((el as HTMLElement).innerText) - titles - navigation - developments, notes };
     });
     const room = 5 * UPDATE_NOTE_MAX_WORDS - counted.notes;
     expect(counted.prose + room, `${counted.prose} words of prose, room for ${room} more in notes`).toBeLessThanOrEqual(250);
@@ -508,7 +544,7 @@ test.describe('home front page', () => {
     expect(await highlight.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe('rgba(0, 0, 0, 0)');
   });
 
-  test('home holds only the six front-page blocks and none of the removed texts', async ({
+  test('home holds only the seven front-page blocks and none of the removed texts', async ({
     page,
   }) => {
     const main = await home(page);
