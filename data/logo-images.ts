@@ -2009,4 +2009,2038 @@ export const LOGO_IMAGES: SiteImage[] = [
     // unchanged. File SHA-256 54fd5266460a605667c52d74654763e4d58463d1d401e8b9210bc88a5883a7cc, retrieved
     // 2026-11-12. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
+  {
+    id: 'procept-biorobotics-logo',
+    file: '/images/logos/procept-biorobotics.png',
+    alt: 'PROCEPT BioRobotics wordmark from the official website',
+    caption: 'PROCEPT BioRobotics logo from the official website, used on the market pages.',
+    sourceName: 'PROCEPT BioRobotics official website',
+    sourceUrl: 'https://procept-biorobotics.com/',
+    creator: 'PROCEPT BioRobotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://procept-biorobotics.com/',
+    retrieved: '2026-11-14',
+    width: 202,
+    height: 50,
+    // Official mark: the logo listed for procept-biorobotics.com in its brand record, served as
+    // https://media.brand.dev/7fdb7c6d-ee0c-46e1-b939-d3b2ffbf6af3.png and saved unchanged. File SHA-256
+    // 802df476fd752b41a3ba444c9a0d195e1b9b1d3cff90d7d759973cfa43f2a83f, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'microbot-medical-logo',
+    file: '/images/logos/microbot-medical.svg',
+    alt: 'Microbot Medical wordmark with its orange arc from the official website',
+    caption: 'Microbot Medical logo from the official website, used on the market pages.',
+    sourceName: 'Microbot Medical official website',
+    sourceUrl: 'https://microbotmedical.com/',
+    creator: 'Microbot Medical',
+    licence: 'unlicensed',
+    licenceUrl: 'https://microbotmedical.com/',
+    retrieved: '2026-11-14',
+    width: 480,
+    height: 170,
+    // Official mark: the logo listed for microbotmedical.com in its brand record, served as
+    // https://media.brand.dev/03804aee-99fc-4382-abd4-f924f81dc82a.svg and saved unchanged. File SHA-256
+    // 2549096fac6c685313cd1d6189271f2c1809d24b976ca4adf754e07995fd24e0, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'ss-innovations-logo',
+    file: '/images/logos/ss-innovations.png',
+    alt: 'SS Innovations S mark and SSii wordmark from the official website',
+    caption: 'SS Innovations logo from the official website, used on the market pages.',
+    sourceName: 'SS Innovations official website',
+    sourceUrl: 'https://ssinnovations.com/',
+    creator: 'SS Innovations',
+    licence: 'unlicensed',
+    licenceUrl: 'https://ssinnovations.com/',
+    retrieved: '2026-11-14',
+    width: 124,
+    height: 60,
+    // Official mark: the logo listed for ssinnovations.com in its brand record, served as
+    // https://media.brand.dev/e0a86211-ff4d-4516-8273-9276968119ec.png and saved unchanged. File SHA-256
+    // 7b29bad0fd3e1ff251cad5303d65e29dfefe86ed297a4596134f3f4d44bf67f2, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'johnson-and-johnson-logo',
+    file: '/images/logos/johnson-and-johnson.svg',
+    alt: 'Johnson & Johnson wordmark from the official website',
+    caption: 'Johnson & Johnson logo from the official website, used on the market pages.',
+    sourceName: 'Johnson & Johnson official website',
+    sourceUrl: 'https://jnj.com/',
+    creator: 'Johnson & Johnson',
+    licence: 'unlicensed',
+    licenceUrl: 'https://jnj.com/',
+    retrieved: '2026-11-14',
+    width: 308,
+    height: 30,
+    // Official mark: the logo listed for jnj.com in its brand record, served as
+    // https://media.brand.dev/53bbe85f-369d-4ffd-a835-8ea50a927d3f.svg and saved unchanged. File SHA-256
+    // 4a2b19e761a80353bb69c543b1479a9aaf9eae2d1423f8750286e9b73c2d4595, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'globus-medical-logo',
+    file: '/images/logos/globus-medical.png',
+    alt: 'Globus Medical globe mark and wordmark from the official website',
+    caption: 'Globus Medical logo from the official website, used on the market pages.',
+    sourceName: 'Globus Medical official website',
+    sourceUrl: 'https://globusmedical.com/',
+    creator: 'Globus Medical',
+    licence: 'unlicensed',
+    licenceUrl: 'https://globusmedical.com/',
+    retrieved: '2026-11-14',
+    width: 1005,
+    height: 219,
+    // Official mark: the logo listed for globusmedical.com in its brand record, served as
+    // https://media.brand.dev/89dc02d2-670e-4ada-a747-74cf5e9313e4.png and saved unchanged. File SHA-256
+    // 867ca1a508e756fb4a23b0fab4aa91fb4c7d939d42312b26ae820cb68d2f1e58, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'lifeward-logo',
+    file: '/images/logos/lifeward.svg',
+    alt: 'Lifeward wordmark with its leaf mark from the official website',
+    caption: 'Lifeward logo from the official website, used on the market pages.',
+    sourceName: 'Lifeward official website',
+    sourceUrl: 'https://golifeward.com/',
+    creator: 'Lifeward',
+    licence: 'unlicensed',
+    licenceUrl: 'https://golifeward.com/',
+    retrieved: '2026-11-14',
+    width: 261,
+    height: 87,
+    // Official mark: the logo listed for golifeward.com in its brand record, served as
+    // https://media.brand.dev/b5e8f680-a5c0-4a3a-934c-f64b824917cb.svg and saved unchanged. File SHA-256
+    // 8db296db9e5add23b10ac8e85274b8e02373f9fe713c259152cce2a97fcdd5bb, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'myomo-logo',
+    file: '/images/logos/myomo.png',
+    alt: 'Myomo wordmark with the line my own motion from the official website',
+    caption: 'Myomo logo from the official website, used on the market pages.',
+    sourceName: 'Myomo official website',
+    sourceUrl: 'https://myomo.com/',
+    creator: 'Myomo',
+    licence: 'unlicensed',
+    licenceUrl: 'https://myomo.com/',
+    retrieved: '2026-11-14',
+    width: 1251,
+    height: 320,
+    // Official mark: the logo listed for myomo.com in its brand record, served as
+    // https://media.brand.dev/2c8497bb-cd12-4cd9-88e9-be6cd1e20a17.png and saved unchanged. File SHA-256
+    // 4d0b3f2559b8531016e72868c0073193db66585d96fd8ef7950e76c5dfeb8f5d, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'alphabet-logo',
+    file: '/images/logos/alphabet.png',
+    alt: 'Alphabet wordmark from the official website',
+    caption: 'Alphabet logo from the official website, used on the market pages.',
+    sourceName: 'Alphabet official website',
+    sourceUrl: 'https://abc.xyz/',
+    creator: 'Alphabet',
+    licence: 'unlicensed',
+    licenceUrl: 'https://abc.xyz/',
+    retrieved: '2026-11-14',
+    width: 800,
+    height: 194,
+    // Official mark: the logo listed for abc.xyz in its brand record, served as
+    // https://media.brand.dev/1cd3a86b-8fb0-4f34-b40b-dc609f96655d.png and saved unchanged. File SHA-256
+    // fd06ce5686c3f6fd93476ba3551a6caae68364a2c1c7624139565606029ebdda, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'teradyne-logo',
+    file: '/images/logos/teradyne.png',
+    alt: 'Teradyne wordmark from the official website',
+    caption: 'Teradyne logo from the official website, used on the market pages.',
+    sourceName: 'Teradyne official website',
+    sourceUrl: 'https://teradyne.com/',
+    creator: 'Teradyne',
+    licence: 'unlicensed',
+    licenceUrl: 'https://teradyne.com/',
+    retrieved: '2026-11-14',
+    width: 432,
+    height: 65,
+    // Official mark: the logo listed for teradyne.com in its brand record, served as
+    // https://media.brand.dev/683098cb-d7aa-4b33-b1b8-ab67f94ab285.png and saved unchanged. File SHA-256
+    // d9043c787485bf2454e326b5612416d9bc0b6a719ae568173603878bd17465c5, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'rockwell-automation-logo',
+    file: '/images/logos/rockwell-automation.svg',
+    alt: 'Rockwell Automation RA badge and wordmark from the official website',
+    caption: 'Rockwell Automation logo from the official website, used on the market pages.',
+    sourceName: 'Rockwell Automation official website',
+    sourceUrl: 'https://rockwellautomation.com/',
+    creator: 'Rockwell Automation',
+    licence: 'unlicensed',
+    licenceUrl: 'https://rockwellautomation.com/',
+    retrieved: '2026-11-14',
+    width: 1715,
+    height: 396,
+    // Official mark: the logo listed for rockwellautomation.com in its brand record, served as
+    // https://media.brand.dev/4631db48-2026-450d-8b6f-f2f8719e40aa.svg and saved unchanged. File SHA-256
+    // 0463cd68a11c78d70b50ba7e2d873710f42042e11548709b5b968d4b7eb867de, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'richtech-robotics-logo',
+    file: '/images/logos/richtech-robotics.svg',
+    alt: 'Richtech Robotics wordmark from the official website',
+    caption: 'Richtech Robotics logo from the official website, used on the market pages.',
+    sourceName: 'Richtech Robotics official website',
+    sourceUrl: 'https://richtechrobotics.com/',
+    creator: 'Richtech Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://richtechrobotics.com/',
+    retrieved: '2026-11-14',
+    width: 1531,
+    height: 327,
+    // Official mark: the logo listed for richtechrobotics.com in its brand record, served as
+    // https://media.brand.dev/326c6a5b-5787-4a14-978e-5356e057ac50.svg and saved unchanged. File SHA-256
+    // d9eb677f63ae02326846006bcc63902514447dcc93951738575723055dc5f970, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'ouster-logo',
+    file: '/images/logos/ouster.svg',
+    alt: 'Ouster mark and wordmark from the official website',
+    caption: 'Ouster logo from the official website, used on the market pages.',
+    sourceName: 'Ouster official website',
+    sourceUrl: 'https://ouster.com/',
+    creator: 'Ouster',
+    licence: 'unlicensed',
+    licenceUrl: 'https://ouster.com/',
+    retrieved: '2026-11-14',
+    width: 133,
+    height: 18,
+    // Official mark: the logo listed for ouster.com in its brand record, served as
+    // https://media.brand.dev/7e634aaf-9164-41e6-8145-2fc5c9c477db.svg and saved unchanged. File SHA-256
+    // 6f1cb255c58350fa053807e4cecee96e7935d6dbad1d0e40bca5536fd8c2b762, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'hesai-logo',
+    file: '/images/logos/hesai.svg',
+    alt: 'Hesai wordmark from the official website',
+    caption: 'Hesai logo from the official website, used on the market pages.',
+    sourceName: 'Hesai official website',
+    sourceUrl: 'https://hesaitech.com/',
+    creator: 'Hesai',
+    licence: 'unlicensed',
+    licenceUrl: 'https://hesaitech.com/',
+    retrieved: '2026-11-14',
+    width: 157,
+    height: 32,
+    // Official mark: the logo listed for hesaitech.com in its brand record, served as
+    // https://media.brand.dev/877fcd6a-97ab-4a35-bf55-8d444cbe24b2.svg and saved unchanged. File SHA-256
+    // 964cb97e89d81a3f5d1478331e0b49e64328d541c460adc15e68df60c4b445ea, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'aurora-innovation-logo',
+    file: '/images/logos/aurora-innovation.svg',
+    alt: 'Aurora wordmark from the official website',
+    caption: 'Aurora logo from the official website, used on the market pages.',
+    sourceName: 'Aurora official website',
+    sourceUrl: 'https://aurora.tech/',
+    creator: 'Aurora',
+    licence: 'unlicensed',
+    licenceUrl: 'https://aurora.tech/',
+    retrieved: '2026-11-14',
+    width: 110,
+    height: 31,
+    // Official mark: the logo listed for aurora.tech in its brand record, served as
+    // https://media.brand.dev/7a2b53df-97a9-40a3-b56d-3417911b651e.svg and saved unchanged. File SHA-256
+    // d50c6a1ecf26183cbbe2e1b95d049e7ea9c99478a175384a03c5b414e6e82d93, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'kodiak-logo',
+    file: '/images/logos/kodiak.svg',
+    alt: 'Kodiak wordmark from the official website',
+    caption: 'Kodiak logo from the official website, used on the market pages.',
+    sourceName: 'Kodiak official website',
+    sourceUrl: 'https://kodiak.ai/',
+    creator: 'Kodiak',
+    licence: 'unlicensed',
+    licenceUrl: 'https://kodiak.ai/',
+    retrieved: '2026-11-14',
+    width: 250,
+    height: 60,
+    // Official mark: the logo listed for kodiak.ai in its brand record, served as
+    // https://media.brand.dev/65b63196-9ed8-4e1d-a3d2-c24b119c7243.svg and saved unchanged. File SHA-256
+    // e66fb92084288e4bcb823c3a560c8af775c8e4cd3df758051e5db4f2cd71c611, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'mobileye-logo',
+    file: '/images/logos/mobileye.svg',
+    alt: 'Mobileye m mark and wordmark from the official website',
+    caption: 'Mobileye logo from the official website, used on the market pages.',
+    sourceName: 'Mobileye official website',
+    sourceUrl: 'https://mobileye.com/',
+    creator: 'Mobileye',
+    licence: 'unlicensed',
+    licenceUrl: 'https://mobileye.com/',
+    retrieved: '2026-11-14',
+    width: 160,
+    height: 31,
+    // Official mark: the logo listed for mobileye.com in its brand record, served as
+    // https://media.brand.dev/94bdb088-c16e-46a1-b8f0-52ecbde73bdd.svg and saved unchanged. File SHA-256
+    // deebde32b82e01849ecea611580a9abca51119556d1260640b12c998013b39f2, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'ehang-logo',
+    file: '/images/logos/ehang.png',
+    alt: 'EHang wordmark with its Chinese name from the official website',
+    caption: 'EHang logo from the official website, used on the market pages.',
+    sourceName: 'EHang official website',
+    sourceUrl: 'https://ehang.com/',
+    creator: 'EHang',
+    licence: 'unlicensed',
+    licenceUrl: 'https://ehang.com/',
+    retrieved: '2026-11-14',
+    width: 153,
+    height: 18,
+    // Official mark: the logo listed for ehang.com in its brand record, served as
+    // https://media.brand.dev/d9b52796-c204-43e1-8481-2f485b602345.png and saved unchanged. File SHA-256
+    // 933c76ff07e1fc9b9e107374bb6bc1d4790d673d1e66ebdd927f24260ab7c82b, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'aerovironment-logo',
+    file: '/images/logos/aerovironment.png',
+    alt: 'AeroVironment AV mark and wordmark from the official website',
+    caption: 'AeroVironment logo from the official website, used on the market pages.',
+    sourceName: 'AeroVironment official website',
+    sourceUrl: 'https://avinc.com/',
+    creator: 'AeroVironment',
+    licence: 'unlicensed',
+    licenceUrl: 'https://avinc.com/',
+    retrieved: '2026-11-14',
+    width: 452,
+    height: 119,
+    // Official mark: the logo listed for avinc.com in its brand record, served as
+    // https://media.brand.dev/46bec391-409b-4a0e-a6a2-31804fc08ff6.png and saved unchanged. File SHA-256
+    // 5ba769e331e6727100c34356cf63cd5c03a7ce8a5213271e74167f66b5f30bc7, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'kratos-logo',
+    file: '/images/logos/kratos.png',
+    alt: 'Kratos wordmark from the official website',
+    caption: 'Kratos Defense logo from the official website, used on the market pages.',
+    sourceName: 'Kratos Defense official website',
+    sourceUrl: 'https://kratosdefense.com/',
+    creator: 'Kratos Defense',
+    licence: 'unlicensed',
+    licenceUrl: 'https://kratosdefense.com/',
+    retrieved: '2026-11-14',
+    width: 4320,
+    height: 4320,
+    // Official mark: the logo listed for kratosdefense.com in its brand record, served as
+    // https://media.brand.dev/bc7a13de-f14c-4705-bc59-fd8e362ca542.png and saved unchanged. File SHA-256
+    // c4980f902a9d2ff2ede8dbe27460bf397686df61668fe9682277d4a07e8e8cd5, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'red-cat-logo',
+    file: '/images/logos/red-cat.png',
+    alt: 'Red Cat wordmark from the official website',
+    caption: 'Red Cat logo from the official website, used on the market pages.',
+    sourceName: 'Red Cat official website',
+    sourceUrl: 'https://redcatholdings.com/',
+    creator: 'Red Cat',
+    licence: 'unlicensed',
+    licenceUrl: 'https://redcatholdings.com/',
+    retrieved: '2026-11-14',
+    width: 232,
+    height: 68,
+    // Official mark: the logo listed for redcatholdings.com in its brand record, served as
+    // https://media.brand.dev/d5d557c5-a8f0-4f28-bb15-314d8016a2c1.png and saved unchanged. File SHA-256
+    // 15fd0440ff1d49814127eb9f65adb4a4bfabd7bae235f98f2829e1d1a4ed9818, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'ondas-logo',
+    file: '/images/logos/ondas.png',
+    alt: 'Ondas wordmark from the official website',
+    caption: 'Ondas logo from the official website, used on the market pages.',
+    sourceName: 'Ondas official website',
+    sourceUrl: 'https://ondas.com/',
+    creator: 'Ondas',
+    licence: 'unlicensed',
+    licenceUrl: 'https://ondas.com/',
+    retrieved: '2026-11-14',
+    width: 164,
+    height: 24,
+    // Official mark: the logo listed for ondas.com in its brand record, served as
+    // https://media.brand.dev/d0d999fc-6c11-4a59-9117-7de6b35b75d2.png and saved unchanged. File SHA-256
+    // 56eded10cba59adcedb3867078ef721f849b273611e1bdf39161ba44e69f4bc0, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'unusual-machines-logo',
+    file: '/images/logos/unusual-machines.png',
+    alt: 'Unusual Machines U mark and wordmark from the official website',
+    caption: 'Unusual Machines logo from the official website, used on the market pages.',
+    sourceName: 'Unusual Machines official website',
+    sourceUrl: 'https://unusualmachines.com/',
+    creator: 'Unusual Machines',
+    licence: 'unlicensed',
+    licenceUrl: 'https://unusualmachines.com/',
+    retrieved: '2026-11-14',
+    width: 166,
+    height: 41,
+    // Official mark: the logo listed for unusualmachines.com in its brand record, served as
+    // https://media.brand.dev/8b34bcb2-f699-4686-8323-488a407f034e.png and saved unchanged. File SHA-256
+    // 271f2104ad694826d584d9a7af1cc947143e8f9303b1ed8ec462176b013e1584, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'draganfly-logo',
+    file: '/images/logos/draganfly.png',
+    alt: 'Draganfly wordmark from the official website',
+    caption: 'Draganfly logo from the official website, used on the market pages.',
+    sourceName: 'Draganfly official website',
+    sourceUrl: 'https://draganfly.com/',
+    creator: 'Draganfly',
+    licence: 'unlicensed',
+    licenceUrl: 'https://draganfly.com/',
+    retrieved: '2026-11-14',
+    width: 418,
+    height: 94,
+    // Official mark: the logo listed for draganfly.com in its brand record, served as
+    // https://media.brand.dev/fc88e749-8e4b-423d-b7b3-328e55349e2a.png and saved unchanged. File SHA-256
+    // a72fb5bf2546ab4032c957537747980719e075dcbf9c178fae02127968f9db57, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'xtend-logo',
+    file: '/images/logos/xtend.svg',
+    alt: 'XTEND wordmark from the official website',
+    caption: 'XTEND logo from the official website, used on the market pages.',
+    sourceName: 'XTEND official website',
+    sourceUrl: 'https://xtend.me/',
+    creator: 'XTEND',
+    licence: 'unlicensed',
+    licenceUrl: 'https://xtend.me/',
+    retrieved: '2026-11-14',
+    width: 148,
+    height: 32,
+    // Official mark: the logo listed for xtend.me in its brand record, served as
+    // https://media.brand.dev/c1c88188-6bda-4dde-9e26-00f966cc3f2b.svg and saved unchanged. File SHA-256
+    // ec8e41f2333ed2b5c86201afe31b65a38d816e7a7cbe4d7e0892acf435bc0b36, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'exyn-logo',
+    file: '/images/logos/exyn.png',
+    alt: 'Exyn bracket mark and wordmark from the official website',
+    caption: 'Exyn logo from the official website, used on the market pages.',
+    sourceName: 'Exyn official website',
+    sourceUrl: 'https://exyn.com/',
+    creator: 'Exyn',
+    licence: 'unlicensed',
+    licenceUrl: 'https://exyn.com/',
+    retrieved: '2026-11-14',
+    width: 300,
+    height: 68,
+    // Official mark: the logo listed for exyn.com in its brand record, served as
+    // https://media.brand.dev/f0d7179d-14e5-4a7d-b7f7-c0987701f821.png and saved unchanged. File SHA-256
+    // 549a67e4c035999ace25c6af383e79fc00264a54d526d56c61e2471360090b95, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'guardforce-ai-logo',
+    file: '/images/logos/guardforce-ai.png',
+    alt: 'Guardforce AI G mark and GFAI wordmark from the official website',
+    caption: 'Guardforce AI logo from the official website, used on the market pages.',
+    sourceName: 'Guardforce AI official website',
+    sourceUrl: 'https://guardforceai.com/',
+    creator: 'Guardforce AI',
+    licence: 'unlicensed',
+    licenceUrl: 'https://guardforceai.com/',
+    retrieved: '2026-11-14',
+    width: 508,
+    height: 152,
+    // Official mark: the logo listed for guardforceai.com in its brand record, served as
+    // https://media.brand.dev/3d9ffc43-b263-436b-8f1c-b514e65bdc0b.png and saved unchanged. File SHA-256
+    // f9d16b64eb1ee43cfeb717e7bb383bf1468eaaae08a346596ebddef8a2b8b891, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'xpeng-logo',
+    file: '/images/logos/xpeng.svg',
+    alt: 'XPENG X mark and wordmark from the official website',
+    caption: 'XPENG logo from the official website, used on the market pages.',
+    sourceName: 'XPENG official website',
+    sourceUrl: 'https://xpeng.com/',
+    creator: 'XPENG',
+    licence: 'unlicensed',
+    licenceUrl: 'https://xpeng.com/',
+    retrieved: '2026-11-14',
+    width: 148,
+    height: 20,
+    // Official mark: the logo listed for xpeng.com in its brand record, served as
+    // https://media.brand.dev/35787c70-67ec-47ca-a22b-0653936a2ff3.svg and saved unchanged. File SHA-256
+    // 664eafc0ddc4bbe96e2fcf45202fa8815506d7a5e07064d2f2d12722954d1467, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'yaskawa-logo',
+    file: '/images/logos/yaskawa.svg',
+    alt: 'Yaskawa wordmark from the official website',
+    caption: 'Yaskawa logo from the official website, used on the market pages.',
+    sourceName: 'Yaskawa official website',
+    sourceUrl: 'https://yaskawa-global.com/',
+    creator: 'Yaskawa',
+    licence: 'unlicensed',
+    licenceUrl: 'https://yaskawa-global.com/',
+    retrieved: '2026-11-14',
+    width: 182,
+    height: 33,
+    // Official mark: the logo listed for yaskawa-global.com in its brand record, served as
+    // https://media.brand.dev/55480998-e361-48bc-9ad8-46d554a43556.svg and saved unchanged. File SHA-256
+    // 3ceaa6383fbd39e550853ba60de499d2b11fc5d71d989a962ecaa1499b4a0667, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'daifuku-logo',
+    file: '/images/logos/daifuku.svg',
+    alt: 'Daifuku wordmark with the line Automation that Inspires from the official website',
+    caption: 'Daifuku logo from the official website, used on the market pages.',
+    sourceName: 'Daifuku official website',
+    sourceUrl: 'https://daifuku.com/',
+    creator: 'Daifuku',
+    licence: 'unlicensed',
+    licenceUrl: 'https://daifuku.com/',
+    retrieved: '2026-11-14',
+    width: 223,
+    height: 69,
+    // Official mark: the logo listed for daifuku.com in its brand record, served as
+    // https://media.brand.dev/6650d68f-6bd6-4ac6-a82b-041c3083edc5.svg and saved unchanged. File SHA-256
+    // b9ce176ddfc3f115c37d5158ac62444da24b0aabcc6ac4b88d24b388c52fde17, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'omron-logo',
+    file: '/images/logos/omron.svg',
+    alt: 'Omron wordmark from the official website',
+    caption: 'Omron logo from the official website, used on the market pages.',
+    sourceName: 'Omron official website',
+    sourceUrl: 'https://omron.com/',
+    creator: 'Omron',
+    licence: 'unlicensed',
+    licenceUrl: 'https://omron.com/',
+    retrieved: '2026-11-14',
+    width: 160,
+    height: 32,
+    // Official mark: the logo listed for omron.com in its brand record, served as
+    // https://media.brand.dev/4209f339-5f2b-4a1d-aaa6-c2ff338e78d3.svg and saved unchanged. File SHA-256
+    // dbb93322d662c6c2224416d5ab706c61233b56f314f0816f4ec40998d0facc2a, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'epson-logo',
+    file: '/images/logos/epson.svg',
+    alt: 'Epson wordmark from the official website',
+    caption: 'Epson logo from the official website, used on the market pages.',
+    sourceName: 'Epson official website',
+    sourceUrl: 'https://global.epson.com/',
+    creator: 'Epson',
+    licence: 'unlicensed',
+    licenceUrl: 'https://global.epson.com/',
+    retrieved: '2026-11-14',
+    width: 283,
+    height: 100,
+    // Official mark: the logo listed for global.epson.com in its brand record, served as
+    // https://media.brand.dev/93e71ad4-9e4c-4c86-82a2-5a47016429b6.svg and saved unchanged. File SHA-256
+    // 4a768b44784fbc607136f5fdbb7ba7017fb6940fb3c2e6efc66a94d88e594a23, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'yamaha-motor-logo',
+    file: '/images/logos/yamaha-motor.png',
+    alt: 'Yamaha tuning fork emblem and wordmark from the official website',
+    caption: 'Yamaha Motor logo from the official website, used on the market pages.',
+    sourceName: 'Yamaha Motor official website',
+    sourceUrl: 'https://global.yamaha-motor.com/',
+    creator: 'Yamaha Motor',
+    licence: 'unlicensed',
+    licenceUrl: 'https://global.yamaha-motor.com/',
+    retrieved: '2026-11-14',
+    width: 500,
+    height: 173,
+    // Official mark: the logo listed for global.yamaha-motor.com in its brand record, served as
+    // https://media.brand.dev/6ba244c3-9a2a-4c87-b926-918908f013d5.png and saved unchanged. File SHA-256
+    // 2b39f04703dce69d0de978cd660e1e5d2aa2de6ad174490b329be55f5d3564f0, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'nachi-fujikoshi-logo',
+    file: '/images/logos/nachi-fujikoshi.png',
+    alt: 'Nachi wordmark with its Japanese name from the official website',
+    caption: 'Nachi-Fujikoshi logo from the official website, used on the market pages.',
+    sourceName: 'Nachi-Fujikoshi official website',
+    sourceUrl: 'https://nachi-fujikoshi.co.jp/',
+    creator: 'Nachi-Fujikoshi',
+    licence: 'unlicensed',
+    licenceUrl: 'https://nachi-fujikoshi.co.jp/',
+    retrieved: '2026-11-14',
+    width: 263,
+    height: 135,
+    // Official mark: the logo listed for nachi-fujikoshi.co.jp in its brand record, served as
+    // https://media.brand.dev/6173b2e8-149c-4112-b08d-3d13bae6775f.png and saved unchanged. File SHA-256
+    // f70f5651ab7cc8e8092c8a1b572dbb673cf3814323f4c79662bd16958a3dab3c, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'mitsubishi-electric-logo',
+    file: '/images/logos/mitsubishi-electric.svg',
+    alt: 'Mitsubishi Electric three diamond mark and wordmark from the official website',
+    caption: 'Mitsubishi Electric logo from the official website, used on the market pages.',
+    sourceName: 'Mitsubishi Electric official website',
+    sourceUrl: 'https://mitsubishielectric.com/',
+    creator: 'Mitsubishi Electric',
+    licence: 'unlicensed',
+    licenceUrl: 'https://mitsubishielectric.com/',
+    retrieved: '2026-11-14',
+    width: 109,
+    height: 46,
+    // Official mark: the logo listed for mitsubishielectric.com in its brand record, served as
+    // https://media.brand.dev/9e4b6ff3-1524-483d-bd3d-895e33be172b.svg and saved unchanged. File SHA-256
+    // aeb6589f8b129b9a54011ca5f1de3bf6f5b2ca8d067a395eef55af5d0baf73e1, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'softbank-group-logo',
+    file: '/images/logos/softbank-group.svg',
+    alt: 'SoftBank Group mark and wordmark from the official website',
+    caption: 'SoftBank Group logo from the official website, used on the market pages.',
+    sourceName: 'SoftBank Group official website',
+    sourceUrl: 'https://group.softbank/',
+    creator: 'SoftBank Group',
+    licence: 'unlicensed',
+    licenceUrl: 'https://group.softbank/',
+    retrieved: '2026-11-14',
+    width: 157,
+    height: 37,
+    // Official mark: the logo listed for group.softbank in its brand record, served as
+    // https://media.brand.dev/316714f9-e640-4769-9110-ea502131ace5.svg and saved unchanged. File SHA-256
+    // 8da1a3265c5e7f47bf048eb8285b2d54972215c58f086950e08e28438c0a74de, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'cyberdyne-logo',
+    file: '/images/logos/cyberdyne.svg',
+    alt: 'Cyberdyne C mark and wordmark from the official website',
+    caption: 'Cyberdyne logo from the official website, used on the market pages.',
+    sourceName: 'Cyberdyne official website',
+    sourceUrl: 'https://cyberdyne.jp/',
+    creator: 'Cyberdyne',
+    licence: 'unlicensed',
+    licenceUrl: 'https://cyberdyne.jp/',
+    retrieved: '2026-11-14',
+    width: 180,
+    height: 40,
+    // Official mark: the logo listed for cyberdyne.jp in its brand record, served as
+    // https://media.brand.dev/af0e15f9-1212-4737-a6b5-541018d0b109.svg and saved unchanged. File SHA-256
+    // 02b7ef86e1d8246a5ebb379fb0f5701c659bfa2703d29f7b30c446835828b8ef, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'doosan-robotics-logo',
+    file: '/images/logos/doosan-robotics.svg',
+    alt: 'Doosan wordmark used by Doosan Robotics from the official website',
+    caption: 'Doosan Robotics logo from the official website, used on the market pages.',
+    sourceName: 'Doosan Robotics official website',
+    sourceUrl: 'https://doosanrobotics.com/',
+    creator: 'Doosan Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://doosanrobotics.com/',
+    retrieved: '2026-11-14',
+    width: 127,
+    height: 18,
+    // Official mark: the logo listed for doosanrobotics.com in its brand record, served as
+    // https://media.brand.dev/314af4e7-03ba-482e-9fc2-732a112e3df7.svg and saved unchanged. File SHA-256
+    // ce7d21cceb3bfdd4815c6d540dbf1e6d066183002fa240a2cb816ddaa8cdc3c3, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'hyundai-logo',
+    file: '/images/logos/hyundai.svg',
+    alt: 'Hyundai stylized H emblem from the official website',
+    caption: 'Hyundai Motor logo from the official website, used on the market pages.',
+    sourceName: 'Hyundai Motor official website',
+    sourceUrl: 'https://hyundai.com/',
+    creator: 'Hyundai Motor',
+    licence: 'unlicensed',
+    licenceUrl: 'https://hyundai.com/',
+    retrieved: '2026-11-14',
+    width: 39,
+    height: 20,
+    // Official mark: the logo listed for hyundai.com in its brand record, served as
+    // https://media.brand.dev/f39be59d-e1fa-4782-9219-8e498c51a8c5.svg and saved unchanged. File SHA-256
+    // d1550f3d12ed04498fb85f65cb6d7f4daa3256f1471c2cc97e154dc937048417, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'samsung-logo',
+    file: '/images/logos/samsung.svg',
+    alt: 'Samsung wordmark from the official website',
+    caption: 'Samsung logo from the official website, used on the market pages.',
+    sourceName: 'Samsung official website',
+    sourceUrl: 'https://samsung.com/',
+    creator: 'Samsung',
+    licence: 'unlicensed',
+    licenceUrl: 'https://samsung.com/',
+    retrieved: '2026-11-14',
+    width: 130,
+    height: 29,
+    // Official mark: the logo listed for samsung.com in its brand record, served as
+    // https://media.brand.dev/27acd877-7dbd-4835-ade1-268c1ebc919c.svg and saved unchanged. File SHA-256
+    // fd8acc5b0fa8c55ac88d461541b25f61e3e869c8c553671eaec8b96abe301d08, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'yujin-robot-logo',
+    file: '/images/logos/yujin-robot.png',
+    alt: 'Yujin Robot wordmark with its robot figure from the official website',
+    caption: 'Yujin Robot logo from the official website, used on the market pages.',
+    sourceName: 'Yujin Robot official website',
+    sourceUrl: 'https://yujinrobot.com/',
+    creator: 'Yujin Robot',
+    licence: 'unlicensed',
+    licenceUrl: 'https://yujinrobot.com/',
+    retrieved: '2026-11-14',
+    width: 258,
+    height: 86,
+    // Official mark: the logo listed for yujinrobot.com in its brand record, served as
+    // https://media.brand.dev/7ad12fa3-ac0f-47c6-b1de-811678faf245.png and saved unchanged. File SHA-256
+    // 2e72788b2b2ed05be55470ca584b90e45969eda3db890a40a831f4e0a437f818, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'neuromeka-logo',
+    file: '/images/logos/neuromeka.png',
+    alt: 'Neuromeka N mark and wordmark from the official website',
+    caption: 'Neuromeka logo from the official website, used on the market pages.',
+    sourceName: 'Neuromeka official website',
+    sourceUrl: 'https://neuromeka.com/',
+    creator: 'Neuromeka',
+    licence: 'unlicensed',
+    licenceUrl: 'https://neuromeka.com/',
+    retrieved: '2026-11-14',
+    width: 418,
+    height: 60,
+    // Official mark: the logo listed for neuromeka.com in its brand record, served as
+    // https://media.brand.dev/307bf5db-a2f3-4d6a-9cf7-ecf5a6ec342a.png and saved unchanged. File SHA-256
+    // 8ad83eb95673d7fd4f3e462bf50399ef4800227bfd96b4c3f4e057c71173655f, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'curexo-logo',
+    file: '/images/logos/curexo.png',
+    alt: 'Curexo mark and wordmark from the official website',
+    caption: 'Curexo logo from the official website, used on the market pages.',
+    sourceName: 'Curexo official website',
+    sourceUrl: 'https://curexo.com/',
+    creator: 'Curexo',
+    licence: 'unlicensed',
+    licenceUrl: 'https://curexo.com/',
+    retrieved: '2026-11-14',
+    width: 160,
+    height: 40,
+    // Official mark: the logo listed for curexo.com in its brand record, served as
+    // https://media.brand.dev/bd417d1a-e69a-4ae4-b120-bb9f5abe973d.png and saved unchanged. File SHA-256
+    // a0ab120c4b8dab7fee3fdbdf4b320f8eda6c4f342afc75ab3081fb5321815501, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'clobot-logo',
+    file: '/images/logos/clobot.png',
+    alt: 'Clobot cloud mark and wordmark from the official website',
+    caption: 'Clobot logo from the official website, used on the market pages.',
+    sourceName: 'Clobot official website',
+    sourceUrl: 'https://clobot.co.kr/',
+    creator: 'Clobot',
+    licence: 'unlicensed',
+    licenceUrl: 'https://clobot.co.kr/',
+    retrieved: '2026-11-14',
+    width: 468,
+    height: 105,
+    // Official mark: the logo listed for clobot.co.kr in its brand record, served as
+    // https://media.brand.dev/6687a7f4-570f-4b72-9a7a-62b1a6dd9c29.png and saved unchanged. File SHA-256
+    // 17d1993e68ac811e9c8990c6b4f3dad73db7c9f2d788fede685d080369c56aa0, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'spg-logo',
+    file: '/images/logos/spg.png',
+    alt: 'SPG wordmark from the official website',
+    caption: 'SPG logo from the official website, used on the market pages.',
+    sourceName: 'SPG official website',
+    sourceUrl: 'https://spg.co.kr/',
+    creator: 'SPG',
+    licence: 'unlicensed',
+    licenceUrl: 'https://spg.co.kr/',
+    retrieved: '2026-11-14',
+    width: 328,
+    height: 160,
+    // Official mark: the logo listed for spg.co.kr in its brand record, served as
+    // https://media.brand.dev/dac0db21-d89c-4236-9cbb-25dd7fd28bc4.png and saved unchanged. File SHA-256
+    // d556f179dea29a570da5493d8f957795b9b3a8443e33de937f8fdb78bd1eea36, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'hiwin-logo',
+    file: '/images/logos/hiwin.svg',
+    alt: 'HIWIN wordmark from the official website',
+    caption: 'HIWIN logo from the official website, used on the market pages.',
+    sourceName: 'HIWIN official website',
+    sourceUrl: 'https://hiwin.tw/',
+    creator: 'HIWIN',
+    licence: 'unlicensed',
+    licenceUrl: 'https://hiwin.tw/',
+    retrieved: '2026-11-14',
+    width: 122,
+    height: 24,
+    // Official mark: the logo listed for hiwin.tw in its brand record, served as
+    // https://media.brand.dev/38370fb2-8a58-4473-aa13-6c0fd2e0731c.svg and saved unchanged. File SHA-256
+    // 16d9b834e771fe72d527d906f0421c13f3e10c31b774934a01489d050c5edc43, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'techman-robot-logo',
+    file: '/images/logos/techman-robot.png',
+    alt: 'Techman Robot TM mark from the official website',
+    caption: 'Techman Robot logo from the official website, used on the market pages.',
+    sourceName: 'Techman Robot official website',
+    sourceUrl: 'https://tm-robot.com/',
+    creator: 'Techman Robot',
+    licence: 'unlicensed',
+    licenceUrl: 'https://tm-robot.com/',
+    retrieved: '2026-11-14',
+    width: 106,
+    height: 64,
+    // Official mark: the logo listed for tm-robot.com in its brand record, served as
+    // https://media.brand.dev/6341af95-825c-48fc-928e-6dd8023ff71b.png and saved unchanged. File SHA-256
+    // 288553e153da49f24d94b5769b128b25e936b76c53a0f6c6c4a50f5d40d87118, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'roborock-logo',
+    file: '/images/logos/roborock.svg',
+    alt: 'Roborock wordmark from the official website',
+    caption: 'Roborock logo from the official website, used on the market pages.',
+    sourceName: 'Roborock official website',
+    sourceUrl: 'https://roborock.com/',
+    creator: 'Roborock',
+    licence: 'unlicensed',
+    licenceUrl: 'https://roborock.com/',
+    retrieved: '2026-11-14',
+    width: 105,
+    height: 15,
+    // Official mark: the logo listed for roborock.com in its brand record, served as
+    // https://media.brand.dev/ea820036-fab9-4e57-87bf-35f2a4b97ae5.svg and saved unchanged. File SHA-256
+    // 5a0ce21081956993afb81dfee2ac0cc6779fdab72634ffd47aaa6e959b8e4f35, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'ecovacs-logo',
+    file: '/images/logos/ecovacs.png',
+    alt: 'Ecovacs wordmark from the official website',
+    caption: 'Ecovacs logo from the official website, used on the market pages.',
+    sourceName: 'Ecovacs official website',
+    sourceUrl: 'https://ecovacs.com/',
+    creator: 'Ecovacs',
+    licence: 'unlicensed',
+    licenceUrl: 'https://ecovacs.com/',
+    retrieved: '2026-11-14',
+    width: 176,
+    height: 50,
+    // Official mark: the logo listed for ecovacs.com in its brand record, served as
+    // https://media.brand.dev/20e4cd23-015c-4e99-aab1-0bd47cdfbe5e.png and saved unchanged. File SHA-256
+    // 1f31da0902af5fa9b9ea54a7555d0189f173a46c772c95b87ba9a95ca144e0db, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'tinavi-logo',
+    file: '/images/logos/tinavi.png',
+    alt: 'Tinavi wordmark from the official website',
+    caption: 'Tinavi logo from the official website, used on the market pages.',
+    sourceName: 'Tinavi official website',
+    sourceUrl: 'https://tinavi.com/',
+    creator: 'Tinavi',
+    licence: 'unlicensed',
+    licenceUrl: 'https://tinavi.com/',
+    retrieved: '2026-11-14',
+    width: 139,
+    height: 30,
+    // Official mark: the logo listed for tinavi.com in its brand record, served as
+    // https://media.brand.dev/10bd4bc7-0957-48c3-afc5-ae3b1fcabf2e.png and saved unchanged. File SHA-256
+    // 6bb20cc22ee00f59e2748301cc51765449820f365c4cd26de50ed982ba2cc451, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'orbbec-logo',
+    file: '/images/logos/orbbec.svg',
+    alt: 'Orbbec dot mark and wordmark from the official website',
+    caption: 'Orbbec logo from the official website, used on the market pages.',
+    sourceName: 'Orbbec official website',
+    sourceUrl: 'https://orbbec.com/',
+    creator: 'Orbbec',
+    licence: 'unlicensed',
+    licenceUrl: 'https://orbbec.com/',
+    retrieved: '2026-11-14',
+    width: 240,
+    height: 45,
+    // Official mark: the logo listed for orbbec.com in its brand record, served as
+    // https://media.brand.dev/feb5a872-2e91-4638-99bb-cf1882a86afc.svg and saved unchanged. File SHA-256
+    // 919204ec4409bcd9ab3fd4fc7c2f300cb4fd22e16f0e598b79b858bbb5c2b9e9, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'yijiahe-logo',
+    file: '/images/logos/yijiahe.svg',
+    alt: 'Yijiahe round mark and wordmark from the official website',
+    caption: 'Yijiahe logo from the official website, used on the market pages.',
+    sourceName: 'Yijiahe official website',
+    sourceUrl: 'https://yijiahe.com/',
+    creator: 'Yijiahe',
+    licence: 'unlicensed',
+    licenceUrl: 'https://yijiahe.com/',
+    retrieved: '2026-11-14',
+    width: 320,
+    height: 122,
+    // Official mark: the logo listed for yijiahe.com in its brand record, served as
+    // https://media.brand.dev/750c0275-d605-4fda-9315-b9699cca3559.svg and saved unchanged. File SHA-256
+    // 5f5cc812f7e698ab52aceea58e16cd2f783054c13f37f6ec591628fa6b279c3c, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'dobot-logo',
+    file: '/images/logos/dobot.svg',
+    alt: 'Dobot hexagon mark and wordmark from the official website',
+    caption: 'Dobot logo from the official website, used on the market pages.',
+    sourceName: 'Dobot official website',
+    sourceUrl: 'https://dobot-robots.com/',
+    creator: 'Dobot',
+    licence: 'unlicensed',
+    licenceUrl: 'https://dobot-robots.com/',
+    retrieved: '2026-11-14',
+    width: 90,
+    height: 30,
+    // Official mark: the logo listed for dobot-robots.com in its brand record, served as
+    // https://media.brand.dev/ff904a27-88e6-450e-80a1-34d1d75172a2.svg and saved unchanged. File SHA-256
+    // f44d5d7c7579d3221005e124b35706d9d593d82cbb173e11ba57e29545e401b6, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'microport-medbot-logo',
+    file: '/images/logos/microport-medbot.png',
+    alt: 'MedBot mark and wordmark from the official website',
+    caption: 'MicroPort MedBot logo from the official website, used on the market pages.',
+    sourceName: 'MicroPort MedBot official website',
+    sourceUrl: 'https://medbotsurgical.com/',
+    creator: 'MicroPort MedBot',
+    licence: 'unlicensed',
+    licenceUrl: 'https://medbotsurgical.com/',
+    retrieved: '2026-11-14',
+    width: 241,
+    height: 67,
+    // Official mark: the logo listed for medbotsurgical.com in its brand record, served as
+    // https://media.brand.dev/204ea133-d752-4fa2-9b8a-092727a17786.png and saved unchanged. File SHA-256
+    // 4272c895e7998411daaa78d2f7611cf073ad28f58f02b51111196e6eaa2bf673, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'ldrobot-logo',
+    file: '/images/logos/ldrobot.png',
+    alt: 'LDROBOT wordmark with the line Move Smarter from the official website',
+    caption: 'LDROBOT logo from the official website, used on the market pages.',
+    sourceName: 'LDROBOT official website',
+    sourceUrl: 'https://ldrobot.com/',
+    creator: 'LDROBOT',
+    licence: 'unlicensed',
+    licenceUrl: 'https://ldrobot.com/',
+    retrieved: '2026-11-14',
+    width: 830,
+    height: 205,
+    // Official mark: the logo listed for ldrobot.com in its brand record, served as
+    // https://media.brand.dev/915a522d-02d3-48b3-8577-bb9104a3743e.png and saved unchanged. File SHA-256
+    // 8e802df8ac8ce7cb55b480c95b5b62db8d0ee9f933c74899482a188cd1665b61, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'uisee-logo',
+    file: '/images/logos/uisee.svg',
+    alt: 'UISEE wordmark with its Chinese name from the official website',
+    caption: 'UISEE logo from the official website, used on the market pages.',
+    sourceName: 'UISEE official website',
+    sourceUrl: 'https://uisee.com/',
+    creator: 'UISEE',
+    licence: 'unlicensed',
+    licenceUrl: 'https://uisee.com/',
+    retrieved: '2026-11-14',
+    width: 147,
+    height: 48,
+    // Official mark: the logo listed for uisee.com in its brand record, served as
+    // https://media.brand.dev/a833cd66-2522-413e-a718-24959718d725.svg and saved unchanged. File SHA-256
+    // c85ea6941525cfd75827c07787ca61e820e3b5b6a3d3d3fc38837ac89de403f9, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'seer-robotics-logo',
+    file: '/images/logos/seer-robotics.svg',
+    alt: 'Seer Robotics wordmark from the official website',
+    caption: 'Seer Robotics logo from the official website, used on the market pages.',
+    sourceName: 'Seer Robotics official website',
+    sourceUrl: 'https://seer-group.com/',
+    creator: 'Seer Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://seer-group.com/',
+    retrieved: '2026-11-14',
+    width: 252,
+    height: 28,
+    // Official mark: the logo listed for seer-group.com in its brand record, served as
+    // https://media.brand.dev/e3e93a62-bd14-4160-8b5f-13fbe4a7c519.svg and saved unchanged. File SHA-256
+    // dabd65fc6900a796456f1446fe0ad69eb238db746b9c5e6b7bec5b818d719554, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'laifual-logo',
+    file: '/images/logos/laifual.png',
+    alt: 'Laifual Drive wordmark with its Chinese name from the official website',
+    caption: 'Laifual Drive logo from the official website, used on the market pages.',
+    sourceName: 'Laifual Drive official website',
+    sourceUrl: 'https://laifual.com/',
+    creator: 'Laifual Drive',
+    licence: 'unlicensed',
+    licenceUrl: 'https://laifual.com/',
+    retrieved: '2026-11-14',
+    width: 217,
+    height: 102,
+    // Official mark: the logo listed for laifual.com in its brand record, served as
+    // https://media.brand.dev/8e9621f9-f9bd-4ba1-8d06-ff14ca32fb00.png and saved unchanged. File SHA-256
+    // a02bb58a35f3d507ba58398fe3963ad9bb8c46664cda294f3a43df3bf4231a96, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'momenta-logo',
+    file: '/images/logos/momenta.png',
+    alt: 'Momenta M mark and wordmark from the official website',
+    caption: 'Momenta logo from the official website, used on the market pages.',
+    sourceName: 'Momenta official website',
+    sourceUrl: 'https://momenta.ai/',
+    creator: 'Momenta',
+    licence: 'unlicensed',
+    licenceUrl: 'https://momenta.ai/',
+    retrieved: '2026-11-14',
+    width: 549,
+    height: 67,
+    // Official mark: the logo listed for momenta.ai in its brand record, served as
+    // https://media.brand.dev/fac1f32f-018b-4828-afaa-52665a331cf9.png and saved unchanged. File SHA-256
+    // 9b7b0be7d2b3e86d0e1abdca2058766627df8669f9be41798972bd7f951f2158, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'mech-mind-logo',
+    file: '/images/logos/mech-mind.png',
+    alt: 'Mech Mind mark and wordmark from the official website',
+    caption: 'Mech-Mind logo from the official website, used on the market pages.',
+    sourceName: 'Mech-Mind official website',
+    sourceUrl: 'https://mech-mind.com/',
+    creator: 'Mech-Mind',
+    licence: 'unlicensed',
+    licenceUrl: 'https://mech-mind.com/',
+    retrieved: '2026-11-14',
+    width: 1336,
+    height: 512,
+    // Official mark: the logo listed for mech-mind.com in its brand record, served as
+    // https://media.brand.dev/ad84400a-d4a1-4007-a3d9-5e66dc53e501.png and saved unchanged. File SHA-256
+    // 515515ab4ab84886e7ba3a6733919568c8a162a6b5351eb66148fe528e1f9a73, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'camsense-logo',
+    file: '/images/logos/camsense.svg',
+    alt: 'Camsense wordmark with its Chinese name from the official website',
+    caption: 'Camsense logo from the official website, used on the market pages.',
+    sourceName: 'Camsense official website',
+    sourceUrl: 'https://camsense.cn/',
+    creator: 'Camsense',
+    licence: 'unlicensed',
+    licenceUrl: 'https://camsense.cn/',
+    retrieved: '2026-11-14',
+    width: 548,
+    height: 176,
+    // Official mark: the logo listed for camsense.cn in its brand record, served as
+    // https://media.brand.dev/1a8c4c4e-502a-4e29-aab0-0e7300a22644.svg and saved unchanged. File SHA-256
+    // 97187e53d5515fd929606a626450e951baaecf812ae5bafbec0da8a86366f4af, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'amicro-logo',
+    file: '/images/logos/amicro.png',
+    alt: 'Amicro wordmark with its Chinese name from the official website',
+    caption: 'Amicro logo from the official website, used on the market pages.',
+    sourceName: 'Amicro official website',
+    sourceUrl: 'https://amicro.com.cn/',
+    creator: 'Amicro',
+    licence: 'unlicensed',
+    licenceUrl: 'https://amicro.com.cn/',
+    retrieved: '2026-11-14',
+    width: 1664,
+    height: 471,
+    // Official mark: the logo listed for amicro.com.cn in its brand record, served as
+    // https://media.brand.dev/a24e140c-99a8-46cb-bf58-d79330db0d95.png and saved unchanged. File SHA-256
+    // b764564b1b1d80d4b8d87ba927d3f85c6564a2ed5e3deca69364df62485e9dcf, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'cidi-logo',
+    file: '/images/logos/cidi.png',
+    alt: 'CiDi wordmark from the official website',
+    caption: 'CiDi logo from the official website, used on the market pages.',
+    sourceName: 'CiDi official website',
+    sourceUrl: 'https://cidi.ai/',
+    creator: 'CiDi',
+    licence: 'unlicensed',
+    licenceUrl: 'https://cidi.ai/',
+    retrieved: '2026-11-14',
+    width: 161,
+    height: 55,
+    // Official mark: the logo listed for cidi.ai in its brand record, served as
+    // https://media.brand.dev/eadd3750-218a-477b-990a-c24f5be14e4f.png and saved unchanged. File SHA-256
+    // 64a0c5c8061c21d872b93406f3c11ebd3933f910f7549aad00060bde5da13fc0, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'kardex-logo',
+    file: '/images/logos/kardex.svg',
+    alt: 'Kardex wordmark from the official website',
+    caption: 'Kardex logo from the official website, used on the market pages.',
+    sourceName: 'Kardex official website',
+    sourceUrl: 'https://kardex.com/',
+    creator: 'Kardex',
+    licence: 'unlicensed',
+    licenceUrl: 'https://kardex.com/',
+    retrieved: '2026-11-14',
+    width: 144,
+    height: 33,
+    // Official mark: the logo listed for kardex.com in its brand record, served as
+    // https://media.brand.dev/e9b2c604-ab5a-4eff-a0e3-382927c7f3c5.svg and saved unchanged. File SHA-256
+    // aa8ba4f7082615b3d4847eac82e63d0f9547c12297171076f9a8c9086600825d, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'kion-group-logo',
+    file: '/images/logos/kion-group.png',
+    alt: 'KION Group wordmark from the official website',
+    caption: 'KION Group logo from the official website, used on the market pages.',
+    sourceName: 'KION Group official website',
+    sourceUrl: 'https://kiongroup.com/',
+    creator: 'KION Group',
+    licence: 'unlicensed',
+    licenceUrl: 'https://kiongroup.com/',
+    retrieved: '2026-11-14',
+    width: 143,
+    height: 51,
+    // Official mark: the logo listed for kiongroup.com in its brand record, served as
+    // https://media.brand.dev/a62f468d-e2cc-4858-8041-3f6a44ae301f.png and saved unchanged. File SHA-256
+    // 83daf68882a6e179dcaed631203784e0b8c135efe1f60ecbecc0fbc502a9dd98, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'jungheinrich-logo',
+    file: '/images/logos/jungheinrich.svg',
+    alt: 'Jungheinrich wordmark with its arrow from the official website',
+    caption: 'Jungheinrich logo from the official website, used on the market pages.',
+    sourceName: 'Jungheinrich official website',
+    sourceUrl: 'https://jungheinrich.com/',
+    creator: 'Jungheinrich',
+    licence: 'unlicensed',
+    licenceUrl: 'https://jungheinrich.com/',
+    retrieved: '2026-11-14',
+    width: 194,
+    height: 29,
+    // Official mark: the logo listed for jungheinrich.com in its brand record, served as
+    // https://media.brand.dev/73a39ead-3b3f-48d5-b1f1-b75f10257e19.svg and saved unchanged. File SHA-256
+    // 2f58e94909e00aaedb37001d0c12ac74e6fc206871bf510d7a7d49250c7793df, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'ocado-group-logo',
+    file: '/images/logos/ocado-group.svg',
+    alt: 'Ocado Group hexagon mark and wordmark from the official website',
+    caption: 'Ocado Group logo from the official website, used on the market pages.',
+    sourceName: 'Ocado Group official website',
+    sourceUrl: 'https://ocadogroup.com/',
+    creator: 'Ocado Group',
+    licence: 'unlicensed',
+    licenceUrl: 'https://ocadogroup.com/',
+    retrieved: '2026-11-14',
+    width: 120,
+    height: 44,
+    // Official mark: the logo listed for ocadogroup.com in its brand record, served as
+    // https://media.brand.dev/836e50d2-74c4-4287-8868-e83b7309d5db.svg and saved unchanged. File SHA-256
+    // f894c01dc291e2d15a60c321b1e86d20945c6b4de1c592b6379a66954e7991ec, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'smith-and-nephew-logo',
+    file: '/images/logos/smith-and-nephew.png',
+    alt: 'Smith+Nephew wordmark from the official website',
+    caption: 'Smith+Nephew logo from the official website, used on the market pages.',
+    sourceName: 'Smith+Nephew official website',
+    sourceUrl: 'https://smith-nephew.com/',
+    creator: 'Smith+Nephew',
+    licence: 'unlicensed',
+    licenceUrl: 'https://smith-nephew.com/',
+    retrieved: '2026-11-14',
+    width: 235,
+    height: 32,
+    // Official mark: the logo listed for smith-nephew.com in its brand record, served as
+    // https://media.brand.dev/6e1e848b-1b16-49c7-b004-625aaeaf94e6.png and saved unchanged. File SHA-256
+    // 5d4922735a84dd125868c9ad2be1ac73f59bc2c27a639cdb8de5500826def53d, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'exail-logo',
+    file: '/images/logos/exail.svg',
+    alt: 'Exail wordmark from the official website',
+    caption: 'Exail logo from the official website, used on the market pages.',
+    sourceName: 'Exail official website',
+    sourceUrl: 'https://exail.com/',
+    creator: 'Exail',
+    licence: 'unlicensed',
+    licenceUrl: 'https://exail.com/',
+    retrieved: '2026-11-14',
+    width: 88,
+    height: 31,
+    // Official mark: the logo listed for exail.com in its brand record, served as
+    // https://media.brand.dev/6968f2e5-339e-4e3a-a44a-b2bef6072e6c.svg and saved unchanged. File SHA-256
+    // e65456b6888b8e9897a0bc5719e2f6c15e94ae642f5b42b7c190feb6e10516a9, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'parrot-logo',
+    file: '/images/logos/parrot.svg',
+    alt: 'Parrot wordmark from the official website',
+    caption: 'Parrot logo from the official website, used on the market pages.',
+    sourceName: 'Parrot official website',
+    sourceUrl: 'https://parrot.com/',
+    creator: 'Parrot',
+    licence: 'unlicensed',
+    licenceUrl: 'https://parrot.com/',
+    retrieved: '2026-11-14',
+    width: 97,
+    height: 25,
+    // Official mark: the logo listed for parrot.com in its brand record, served as
+    // https://media.brand.dev/3ef05fce-27f8-4e29-adbd-c1c8ee5f2067.svg and saved unchanged. File SHA-256
+    // b6bfee9ba5601ec45e2b4eca5ba4edef70b4cbdea3886f06f634415f13bc0e9c, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'maytronics-logo',
+    file: '/images/logos/maytronics.svg',
+    alt: 'Maytronics wordmark from the official website',
+    caption: 'Maytronics logo from the official website, used on the market pages.',
+    sourceName: 'Maytronics official website',
+    sourceUrl: 'https://maytronics.com/',
+    creator: 'Maytronics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://maytronics.com/',
+    retrieved: '2026-11-14',
+    width: 150,
+    height: 36,
+    // Official mark: the logo listed for maytronics.com in its brand record, served as
+    // https://media.brand.dev/45340560-1c21-43f9-b26f-f635a919969d.svg and saved unchanged. File SHA-256
+    // 2959a743e4121ce02657a744d918a5fb2218712607693aff427ae40e25db3a04, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'kraken-robotics-logo',
+    file: '/images/logos/kraken-robotics.svg',
+    alt: 'Kraken Robotics octopus mark and wordmark from the official website',
+    caption: 'Kraken Robotics logo from the official website, used on the market pages.',
+    sourceName: 'Kraken Robotics official website',
+    sourceUrl: 'https://krakenrobotics.com/',
+    creator: 'Kraken Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://krakenrobotics.com/',
+    retrieved: '2026-11-14',
+    width: 473,
+    height: 131,
+    // Official mark: the logo listed for krakenrobotics.com in its brand record, served as
+    // https://media.brand.dev/1af0fb8b-7ea9-4cea-a1da-77cd39ddae00.svg and saved unchanged. File SHA-256
+    // 0d10a0e99f12e7861792a5866b29573f10e5b5e33f2e8a96c353fedb7884b779, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'scott-technology-logo',
+    file: '/images/logos/scott-technology.svg',
+    alt: 'Scott triangle mark and wordmark from the official website',
+    caption: 'Scott Technology logo from the official website, used on the market pages.',
+    sourceName: 'Scott Technology official website',
+    sourceUrl: 'https://scottautomation.com/',
+    creator: 'Scott Technology',
+    licence: 'unlicensed',
+    licenceUrl: 'https://scottautomation.com/',
+    retrieved: '2026-11-14',
+    width: 201,
+    height: 40,
+    // Official mark: the logo listed for scottautomation.com in its brand record, served as
+    // https://media.brand.dev/dc96c1b8-1d5c-4283-958d-256f2025f8d9.svg and saved unchanged. File SHA-256
+    // 9628b229b2979f29f22fd00aada7d8e711000976954a08c606d22dd075e785aa, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'yushin-logo',
+    file: '/images/logos/yushin.svg',
+    alt: 'Yushin wordmark from the official website',
+    caption: 'Yushin logo from the official website, used on the market pages.',
+    sourceName: 'Yushin official website',
+    sourceUrl: 'https://yushin.com/',
+    creator: 'Yushin',
+    licence: 'unlicensed',
+    licenceUrl: 'https://yushin.com/',
+    retrieved: '2026-11-14',
+    width: 182,
+    height: 43,
+    // Official mark: the logo listed for yushin.com in its brand record, served as
+    // https://media.brand.dev/11f64e91-a65d-4887-b842-25af6614d45d.svg and saved unchanged. File SHA-256
+    // e83289bd29b155ccd997760fc8e576da4c7732e1c5f94416e3477aa0c4fa9ec4, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'keyence-logo',
+    file: '/images/logos/keyence.svg',
+    alt: 'Keyence wordmark from the official website',
+    caption: 'Keyence logo from the official website, used on the market pages.',
+    sourceName: 'Keyence official website',
+    sourceUrl: 'https://keyence.com/',
+    creator: 'Keyence',
+    licence: 'unlicensed',
+    licenceUrl: 'https://keyence.com/',
+    retrieved: '2026-11-14',
+    width: 91,
+    height: 16,
+    // Official mark: the logo listed for keyence.com in its brand record, served as
+    // https://media.brand.dev/2d754d2a-638a-4c75-ad2d-192f43e5d1a9.svg and saved unchanged. File SHA-256
+    // 0ccd044c487892468ea7423789da3e64afc7b82418b95f2c386fdc67a9343eec, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'foxconn-logo',
+    file: '/images/logos/foxconn.svg',
+    alt: 'Foxconn H mark and wordmark with its Chinese name from the official website',
+    caption: 'Foxconn logo from the official website, used on the market pages.',
+    sourceName: 'Foxconn official website',
+    sourceUrl: 'https://foxconn.com/',
+    creator: 'Foxconn',
+    licence: 'unlicensed',
+    licenceUrl: 'https://foxconn.com/',
+    retrieved: '2026-11-14',
+    width: 128,
+    height: 26,
+    // Official mark: the logo listed for foxconn.com in its brand record, served as
+    // https://media.brand.dev/762ad498-119b-481c-8b51-f06e246406bf.svg and saved unchanged. File SHA-256
+    // d82b49e8f424c2604117307a1ae71dd99fa6089f3e85ec615e0956ca0ccfb3c2, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'sysmex-logo',
+    file: '/images/logos/sysmex.png',
+    alt: 'Sysmex mark and wordmark with its line from the official website',
+    caption: 'Sysmex logo from the official website, used on the market pages.',
+    sourceName: 'Sysmex official website',
+    sourceUrl: 'https://sysmex.com/',
+    creator: 'Sysmex',
+    licence: 'unlicensed',
+    licenceUrl: 'https://sysmex.com/',
+    retrieved: '2026-11-14',
+    width: 2437,
+    height: 434,
+    // Official mark: the logo listed for sysmex.com in its brand record, served as
+    // https://media.brand.dev/e8941572-9a72-402a-b3e7-033d75547ff1.png and saved unchanged. File SHA-256
+    // 89078f84846348cd4492bf3bef401eb91aff2fa9e1d04ab3d7f00377b27ad268, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'tuopu-logo',
+    file: '/images/logos/tuopu.png',
+    alt: 'Tuopu mark and wordmark with its Chinese name from the official website',
+    caption: 'Tuopu logo from the official website, used on the market pages.',
+    sourceName: 'Tuopu official website',
+    sourceUrl: 'https://tuopu.com/',
+    creator: 'Tuopu',
+    licence: 'unlicensed',
+    licenceUrl: 'https://tuopu.com/',
+    retrieved: '2026-11-14',
+    width: 392,
+    height: 72,
+    // Official mark: the logo listed for tuopu.com in its brand record, served as
+    // https://media.brand.dev/ccbb4e1d-71e0-4efe-b429-70df499415d4.png and saved unchanged. File SHA-256
+    // cb9d293f0555fc6c8f818a65bd3a332d589bbf23648a61e3a13c3ffea5b4521a, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'leadshine-logo',
+    file: '/images/logos/leadshine.png',
+    alt: 'Leadshine round mark and wordmark from the official website',
+    caption: 'Leadshine logo from the official website, used on the market pages.',
+    sourceName: 'Leadshine official website',
+    sourceUrl: 'https://leadshine.com/',
+    creator: 'Leadshine',
+    licence: 'unlicensed',
+    licenceUrl: 'https://leadshine.com/',
+    retrieved: '2026-11-14',
+    width: 828,
+    height: 200,
+    // Official mark: the logo listed for leadshine.com in its brand record, served as
+    // https://media.brand.dev/122e8dfd-6a25-4bdf-92ee-97ae4a71450c.png and saved unchanged. File SHA-256
+    // 58bc0adaaa5f2da8a82a410dbe9f5c161fb8df30525fca09aaf30f6ad6397590, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'cognex-logo',
+    file: '/images/logos/cognex.png',
+    alt: 'Cognex wordmark from the official website',
+    caption: 'Cognex logo from the official website, used on the market pages.',
+    sourceName: 'Cognex official website',
+    sourceUrl: 'https://cognex.com/',
+    creator: 'Cognex',
+    licence: 'unlicensed',
+    licenceUrl: 'https://cognex.com/',
+    retrieved: '2026-11-14',
+    width: 293,
+    height: 36,
+    // Official mark: the logo listed for cognex.com in its brand record, served as
+    // https://media.brand.dev/96035c1a-778e-46ba-87cb-daa1000e7ffc.png and saved unchanged. File SHA-256
+    // d95ba1d91e6593e489ce4cdaf704bbe9a34d73b0207d31f7fa9509db28a862e2, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'durr-logo',
+    file: '/images/logos/durr.svg',
+    alt: 'Dürr boxed wordmark from the official website',
+    caption: 'Dürr logo from the official website, used on the market pages.',
+    sourceName: 'Dürr official website',
+    sourceUrl: 'https://durr.com/',
+    creator: 'Dürr',
+    licence: 'unlicensed',
+    licenceUrl: 'https://durr.com/',
+    retrieved: '2026-11-14',
+    width: 102,
+    height: 48,
+    // Official mark: the logo listed for durr.com in its brand record, served as
+    // https://media.brand.dev/340646b9-c3cb-42d2-a496-25604a777f29.svg and saved unchanged. File SHA-256
+    // edbf5f1af04973c59963712e3c9fb95d63f53fd15a72b045ddaccb9c5dd4d071, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'accuray-logo',
+    file: '/images/logos/accuray.png',
+    alt: 'Accuray wordmark from the official website',
+    caption: 'Accuray logo from the official website, used on the market pages.',
+    sourceName: 'Accuray official website',
+    sourceUrl: 'https://accuray.com/',
+    creator: 'Accuray',
+    licence: 'unlicensed',
+    licenceUrl: 'https://accuray.com/',
+    retrieved: '2026-11-14',
+    width: 454,
+    height: 55,
+    // Official mark: the logo listed for accuray.com in its brand record, served as
+    // https://media.brand.dev/46b85e46-cc1d-4af2-9b8c-2d060d79143c.png and saved unchanged. File SHA-256
+    // e8c0f9dbea25d23e465c2aa60fd63f4976d552491bc09e190bd9f151a47a2898, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'hadrian-logo',
+    file: '/images/logos/hadrian.svg',
+    alt: 'Hadrian wordmark from the official website',
+    caption: 'Hadrian logo from the official website, used on the market pages.',
+    sourceName: 'Hadrian official website',
+    sourceUrl: 'https://hadrian.co/',
+    creator: 'Hadrian',
+    licence: 'unlicensed',
+    licenceUrl: 'https://hadrian.co/',
+    retrieved: '2026-11-14',
+    width: 174,
+    height: 29,
+    // Official mark: the logo listed for hadrian.co in its brand record, served as
+    // https://media.brand.dev/8fd96b7d-6dd3-453c-8066-c01f13637cf6.svg and saved unchanged. File SHA-256
+    // a00e2533a07b3b9d7cbc6ed9616042aea86d9fce3b1826cb8142891222e38961, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'shield-ai-logo',
+    file: '/images/logos/shield-ai.svg',
+    alt: 'Shield AI mark and wordmark from the official website',
+    caption: 'Shield AI logo from the official website, used on the market pages.',
+    sourceName: 'Shield AI official website',
+    sourceUrl: 'https://shield.ai/',
+    creator: 'Shield AI',
+    licence: 'unlicensed',
+    licenceUrl: 'https://shield.ai/',
+    retrieved: '2026-11-14',
+    width: 137,
+    height: 30,
+    // Official mark: the logo listed for shield.ai in its brand record, served as
+    // https://media.brand.dev/f5d0609d-8b65-4b4f-bf1c-93e5523c7c8f.svg and saved unchanged. File SHA-256
+    // bf97d017d4025b67c627bfa7e8ac87b2eb4c9347854fc0619568d97b0783427f, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'mach-industries-logo',
+    file: '/images/logos/mach-industries.svg',
+    alt: 'Mach Industries wordmark from the official website',
+    caption: 'Mach Industries logo from the official website, used on the market pages.',
+    sourceName: 'Mach Industries official website',
+    sourceUrl: 'https://machindustries.com/',
+    creator: 'Mach Industries',
+    licence: 'unlicensed',
+    licenceUrl: 'https://machindustries.com/',
+    retrieved: '2026-11-14',
+    width: 84,
+    height: 26,
+    // Official mark: the logo listed for machindustries.com in its brand record, served as
+    // https://media.brand.dev/422a77a4-f6a5-4266-908d-4df03104ba4b.svg and saved unchanged. File SHA-256
+    // d62f451ddc19e80ae3b73f78b9ac98e7a93924ca9943d35b94b61f2f68db326f, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'tekever-logo',
+    file: '/images/logos/tekever.png',
+    alt: 'TEKEVER wordmark from the official website',
+    caption: 'TEKEVER logo from the official website, used on the market pages.',
+    sourceName: 'TEKEVER official website',
+    sourceUrl: 'https://tekever.com/',
+    creator: 'TEKEVER',
+    licence: 'unlicensed',
+    licenceUrl: 'https://tekever.com/',
+    retrieved: '2026-11-14',
+    width: 1149,
+    height: 162,
+    // Official mark: the logo listed for tekever.com in its brand record, served as
+    // https://media.brand.dev/17f4a47e-3e54-4b5b-a784-e01bba6de25b.png and saved unchanged. File SHA-256
+    // fb7d0d6767104ab88341c1b948013e17d5a2da80694a392c02469c66f1e2bc5b, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'path-robotics-logo',
+    file: '/images/logos/path-robotics.svg',
+    alt: 'Path Robotics P mark and wordmark from the official website',
+    caption: 'Path Robotics logo from the official website, used on the market pages.',
+    sourceName: 'Path Robotics official website',
+    sourceUrl: 'https://path-robotics.com/',
+    creator: 'Path Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://path-robotics.com/',
+    retrieved: '2026-11-14',
+    width: 337,
+    height: 59,
+    // Official mark: the logo listed for path-robotics.com in its brand record, served as
+    // https://media.brand.dev/ad77fe37-21ad-4d7a-a932-50ccf06d5809.svg and saved unchanged. File SHA-256
+    // 98cea5bbcfadae074110c0814e819bfb53a5541fb09c2a944a7be0efe017a660, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'moove-logo',
+    file: '/images/logos/moove.svg',
+    alt: 'Moove wordmark from the official website',
+    caption: 'Moove logo from the official website, used on the market pages.',
+    sourceName: 'Moove official website',
+    sourceUrl: 'https://moove.io/',
+    creator: 'Moove',
+    licence: 'unlicensed',
+    licenceUrl: 'https://moove.io/',
+    retrieved: '2026-11-14',
+    width: 467,
+    height: 77,
+    // Official mark: the logo listed for moove.io in its brand record, served as
+    // https://media.brand.dev/5deb5e4a-6073-4963-9d3d-2fc3f5a21f8b.svg and saved unchanged. File SHA-256
+    // 455a2c07b8911ac3095cc5c0dad49888d95dbd487fbaa3ebaa9a56ff447d250b, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'neros-logo',
+    file: '/images/logos/neros.svg',
+    alt: 'Neros N mark and wordmark from the official website',
+    caption: 'Neros logo from the official website, used on the market pages.',
+    sourceName: 'Neros official website',
+    sourceUrl: 'https://neros.tech/',
+    creator: 'Neros',
+    licence: 'unlicensed',
+    licenceUrl: 'https://neros.tech/',
+    retrieved: '2026-11-14',
+    width: 110,
+    height: 25,
+    // Official mark: the logo listed for neros.tech in its brand record, served as
+    // https://media.brand.dev/fcdd8720-8245-4be4-ab31-04ae570aac03.svg and saved unchanged. File SHA-256
+    // 5bab4f01978af57e258af6b6b911c9ec7b3a1377ebf691c8b73e50471ee7768b, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'autonomous-solutions-logo',
+    file: '/images/logos/autonomous-solutions.png',
+    alt: 'ASI mark and wordmark from the official website',
+    caption: 'Autonomous Solutions logo from the official website, used on the market pages.',
+    sourceName: 'Autonomous Solutions official website',
+    sourceUrl: 'https://asirobots.com/',
+    creator: 'Autonomous Solutions',
+    licence: 'unlicensed',
+    licenceUrl: 'https://asirobots.com/',
+    retrieved: '2026-11-14',
+    width: 1070,
+    height: 512,
+    // Official mark: the logo listed for asirobots.com in its brand record, served as
+    // https://media.brand.dev/a52ff70f-89d3-4d90-aa40-1e8a69d78399.png and saved unchanged. File SHA-256
+    // ab5618c413ca01abfd51d6dfde172f79af8d6271d3f395a499d9b733a253882c, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'gatik-logo',
+    file: '/images/logos/gatik.svg',
+    alt: 'Gatik mark and wordmark from the official website',
+    caption: 'Gatik logo from the official website, used on the market pages.',
+    sourceName: 'Gatik official website',
+    sourceUrl: 'https://gatik.ai/',
+    creator: 'Gatik',
+    licence: 'unlicensed',
+    licenceUrl: 'https://gatik.ai/',
+    retrieved: '2026-11-14',
+    width: 170,
+    height: 43,
+    // Official mark: the logo listed for gatik.ai in its brand record, served as
+    // https://media.brand.dev/1bda0d70-8fbe-4a62-9f28-f0daf3b9e879.svg and saved unchanged. File SHA-256
+    // 54cd8457e6cd0db732b83a38c1dd16adbf4e82cbdf02257273ee34143ca6d6ce, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'lyte-logo',
+    file: '/images/logos/lyte.png',
+    alt: 'Lyte triangle mark and wordmark from the official website',
+    caption: 'Lyte logo from the official website, used on the market pages.',
+    sourceName: 'Lyte official website',
+    sourceUrl: 'https://lyte.ai/',
+    creator: 'Lyte',
+    licence: 'unlicensed',
+    licenceUrl: 'https://lyte.ai/',
+    retrieved: '2026-11-14',
+    width: 915,
+    height: 512,
+    // Official mark: the logo listed for lyte.ai in its brand record, served as
+    // https://media.brand.dev/5c413d1f-4f98-4e1f-ba5c-dec61baed3f5.png and saved unchanged. File SHA-256
+    // 250a0115a219387f6fc32343c8cf6369662c1458be35fc433571be418b951713, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'sima-ai-logo',
+    file: '/images/logos/sima-ai.png',
+    alt: 'SiMa.ai mark and wordmark from the official website',
+    caption: 'SiMa.ai logo from the official website, used on the market pages.',
+    sourceName: 'SiMa.ai official website',
+    sourceUrl: 'https://sima.ai/',
+    creator: 'SiMa.ai',
+    licence: 'unlicensed',
+    licenceUrl: 'https://sima.ai/',
+    retrieved: '2026-11-14',
+    width: 1981,
+    height: 465,
+    // Official mark: the logo listed for sima.ai in its brand record, served as
+    // https://media.brand.dev/d2bbaf02-5bee-4502-aabd-1d059fb62432.png and saved unchanged. File SHA-256
+    // c586de04e450e4e3c55537e4ff632a56317001b97a61bdb73a1296714d6bd56c, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'mmi-logo',
+    file: '/images/logos/mmi.png',
+    alt: 'MMI mark and wordmark with its line from the official website',
+    caption: 'Medical Microinstruments logo from the official website, used on the market pages.',
+    sourceName: 'Medical Microinstruments official website',
+    sourceUrl: 'https://mmimicro.com/',
+    creator: 'Medical Microinstruments',
+    licence: 'unlicensed',
+    licenceUrl: 'https://mmimicro.com/',
+    retrieved: '2026-11-14',
+    width: 810,
+    height: 349,
+    // Official mark: the logo listed for mmimicro.com in its brand record, served as
+    // https://media.brand.dev/bc7057fc-96ca-4fea-9651-fb8e6133d372.png and saved unchanged. File SHA-256
+    // ac045ae287c73e2861898e768de28ce176167ff04c069afa64622c7235509d7a, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'parallel-systems-logo',
+    file: '/images/logos/parallel-systems.svg',
+    alt: 'Parallel wordmark from the official website',
+    caption: 'Parallel Systems logo from the official website, used on the market pages.',
+    sourceName: 'Parallel Systems official website',
+    sourceUrl: 'https://moveparallel.com/',
+    creator: 'Parallel Systems',
+    licence: 'unlicensed',
+    licenceUrl: 'https://moveparallel.com/',
+    retrieved: '2026-11-14',
+    width: 223,
+    height: 53,
+    // Official mark: the logo listed for moveparallel.com in its brand record, served as
+    // https://media.brand.dev/bf238748-be8c-49f0-8c52-0774fe91f742.svg and saved unchanged. File SHA-256
+    // deca5b10260f76e5cc09249f6f06d4bc2226f9edbcca77b07d1ea53bd02cea07, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'genrobot-logo',
+    file: '/images/logos/genrobot.png',
+    alt: 'GenRobot.AI wordmark from the official website',
+    caption: 'GenRobot.AI logo from the official website, used on the market pages.',
+    sourceName: 'GenRobot.AI official website',
+    sourceUrl: 'https://genrobot.ai/',
+    creator: 'GenRobot.AI',
+    licence: 'unlicensed',
+    licenceUrl: 'https://genrobot.ai/',
+    retrieved: '2026-11-14',
+    width: 640,
+    height: 74,
+    // Official mark: the logo listed for genrobot.ai in its brand record, served as
+    // https://media.brand.dev/d759028a-b259-4be6-8d69-bb9382ce5c14.png and saved unchanged. File SHA-256
+    // 89f99ca2de5c461f9bd30f2f2321bb0234c3f845b5236b6c224b72ae159b4121, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'multiply-labs-logo',
+    file: '/images/logos/multiply-labs.png',
+    alt: 'Multiply Labs cube mark and wordmark from the official website',
+    caption: 'Multiply Labs logo from the official website, used on the market pages.',
+    sourceName: 'Multiply Labs official website',
+    sourceUrl: 'https://multiplylabs.com/',
+    creator: 'Multiply Labs',
+    licence: 'unlicensed',
+    licenceUrl: 'https://multiplylabs.com/',
+    retrieved: '2026-11-14',
+    width: 2056,
+    height: 512,
+    // Official mark: the logo listed for multiplylabs.com in its brand record, served as
+    // https://media.brand.dev/96598351-770a-49e5-8736-568256ac62a0.png and saved unchanged. File SHA-256
+    // b5c3c465a350dd33cdb09eae67c9687743a505a2cef2e77d8656aeb03a77ea81, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'mecka-logo',
+    file: '/images/logos/mecka.svg',
+    alt: 'Mecka square mark and wordmark from the official website',
+    caption: 'Mecka AI logo from the official website, used on the market pages.',
+    sourceName: 'Mecka AI official website',
+    sourceUrl: 'https://mecka.ai/',
+    creator: 'Mecka AI',
+    licence: 'unlicensed',
+    licenceUrl: 'https://mecka.ai/',
+    retrieved: '2026-11-14',
+    width: 568,
+    height: 138,
+    // Official mark: the logo listed for mecka.ai in its brand record, served as
+    // https://media.brand.dev/4fc99a13-653f-4e67-b5bc-1080642ad621.svg and saved unchanged. File SHA-256
+    // c9aa08f163979356acbb91fc078b1665edd6dfbb1f01149e04ce2a9b33c66978, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'swarmer-logo',
+    file: '/images/logos/swarmer.svg',
+    alt: 'Swarmer chevron mark and wordmark from the official website',
+    caption: 'Swarmer logo from the official website, used on the market pages.',
+    sourceName: 'Swarmer official website',
+    sourceUrl: 'https://getswarmer.com/',
+    creator: 'Swarmer',
+    licence: 'unlicensed',
+    licenceUrl: 'https://getswarmer.com/',
+    retrieved: '2026-11-14',
+    width: 131,
+    height: 20,
+    // Official mark: the logo listed for getswarmer.com in its brand record, served as
+    // https://media.brand.dev/bfaf1101-26f1-4d48-85be-d8f8cbc4f387.svg and saved unchanged. File SHA-256
+    // 0b633e45fc7a903336c875b6127df4faeeb3d26a58ba26d5a92e3eac657ab984, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'amc-robotics-logo',
+    file: '/images/logos/amc-robotics.png',
+    alt: 'AMC Robotics wordmark from the official website',
+    caption: 'AMC Robotics logo from the official website, used on the market pages.',
+    sourceName: 'AMC Robotics official website',
+    sourceUrl: 'https://amcx.ai/',
+    creator: 'AMC Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://amcx.ai/',
+    retrieved: '2026-11-14',
+    width: 840,
+    height: 210,
+    // Official mark: the logo listed for amcx.ai in its brand record, served as
+    // https://media.brand.dev/373719b0-14fd-4cb9-99ef-0c5d14b77196.png and saved unchanged. File SHA-256
+    // a350d9b7c43ca8140a79e504b3f9af0580e2d083fd57c022c72508a3246ae323, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'kaierda-logo',
+    file: '/images/logos/kaierda.png',
+    alt: 'Kaierda wordmark with its Chinese name from the official website',
+    caption: 'Kaierda logo from the official website, used on the market pages.',
+    sourceName: 'Kaierda official website',
+    sourceUrl: 'https://kaierda.cn/',
+    creator: 'Kaierda',
+    licence: 'unlicensed',
+    licenceUrl: 'https://kaierda.cn/',
+    retrieved: '2026-11-14',
+    width: 142,
+    height: 52,
+    // Official mark: the logo listed for kaierda.cn in its brand record, served as
+    // https://media.brand.dev/479f5aa6-cdf4-4d32-aa91-69c51dda3bb1.png and saved unchanged. File SHA-256
+    // 987e7205621fa740e72ca6e6b52d21c19446b8f4c4e0398beef5927932b1c02a, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'yunji-logo',
+    file: '/images/logos/yunji.png',
+    alt: 'Yunji Technology mark and wordmark with its stock code from the official website',
+    caption: 'Yunji Technology logo from the official website, used on the market pages.',
+    sourceName: 'Yunji Technology official website',
+    sourceUrl: 'https://yunjichina.com.cn/',
+    creator: 'Yunji Technology',
+    licence: 'unlicensed',
+    licenceUrl: 'https://yunjichina.com.cn/',
+    retrieved: '2026-11-14',
+    width: 881,
+    height: 152,
+    // Official mark: the logo listed for yunjichina.com.cn in its brand record, served as
+    // https://media.brand.dev/2236f0e2-da75-4652-9aa6-d4fc980009f7.png and saved unchanged. File SHA-256
+    // e262977e039084628ddb511ded85f755aeb2e6d6153f3be193d8f582124743cb, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'edge-medical-logo',
+    file: '/images/logos/edge-medical.svg',
+    alt: 'Edge Medical wordmark from the official website',
+    caption: 'Edge Medical logo from the official website, used on the market pages.',
+    sourceName: 'Edge Medical official website',
+    sourceUrl: 'https://edgemed.cn/',
+    creator: 'Edge Medical',
+    licence: 'unlicensed',
+    licenceUrl: 'https://edgemed.cn/',
+    retrieved: '2026-11-14',
+    width: 842,
+    height: 317,
+    // Official mark: the logo listed for edgemed.cn in its brand record, served as
+    // https://media.brand.dev/372ecca2-b498-49c0-b7f3-6ea3b61ba2e8.svg and saved unchanged. File SHA-256
+    // 716cfd0b7f56912a6ff4c04a5fd199b266365e171b91fdbf012ab63ecbfbbe26, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'eacon-logo',
+    file: '/images/logos/eacon.png',
+    alt: 'EACON wordmark with its Chinese name from the official website',
+    caption: 'EACON logo from the official website, used on the market pages.',
+    sourceName: 'EACON official website',
+    sourceUrl: 'https://eacon.com/',
+    creator: 'EACON',
+    licence: 'unlicensed',
+    licenceUrl: 'https://eacon.com/',
+    retrieved: '2026-11-14',
+    width: 1949,
+    height: 198,
+    // Official mark: the logo listed for eacon.com in its brand record, served as
+    // https://media.brand.dev/b78b9a6d-4818-4c06-ad81-fd09e5c2ec1e.png and saved unchanged. File SHA-256
+    // 3f9c3f63dd9e95da77e2ca597d9a228a3c6ecc286711286bb71232caa842266d, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'excelland-robotics-logo',
+    file: '/images/logos/excelland-robotics.svg',
+    alt: 'Excelland Robotics mark and wordmark with its Chinese name from the official website',
+    caption: 'Excelland Robotics logo from the official website, used on the market pages.',
+    sourceName: 'Excelland Robotics official website',
+    sourceUrl: 'https://uditech.com.cn/',
+    creator: 'Excelland Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://uditech.com.cn/',
+    retrieved: '2026-11-14',
+    width: 131,
+    height: 33,
+    // Official mark: the logo listed for uditech.com.cn in its brand record, served as
+    // https://media.brand.dev/eb5418f4-9976-4eff-ab08-2f9f93b0c6d7.svg and saved unchanged. File SHA-256
+    // 14e71031d8c709eec25f062c8c32c0274fa793c9f0efc94a6aa39bbbd0bc4cf3, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'bigwave-robotics-logo',
+    file: '/images/logos/bigwave-robotics.png',
+    alt: 'Bigwave Robotics wave mark and wordmark from the official website',
+    caption: 'Bigwave Robotics logo from the official website, used on the market pages.',
+    sourceName: 'Bigwave Robotics official website',
+    sourceUrl: 'https://bigwaverobotics.com/',
+    creator: 'Bigwave Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://bigwaverobotics.com/',
+    retrieved: '2026-11-14',
+    width: 596,
+    height: 78,
+    // Official mark: the logo listed for bigwaverobotics.com in its brand record, served as
+    // https://media.brand.dev/5e89726a-4aba-476b-97b3-861a915f8d8c.png and saved unchanged. File SHA-256
+    // 500853dd80e9d447fa06ed5eae1fd12432f234fa7d9386ad8a75030e6652dbf9, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'shuanghuan-logo',
+    file: '/images/logos/shuanghuan.png',
+    alt: 'Shuanghuan double ring mark and wordmark from the official website',
+    caption: 'Shuanghuan logo from the official website, used on the market pages.',
+    sourceName: 'Shuanghuan official website',
+    sourceUrl: 'https://gearsnet.com/',
+    creator: 'Shuanghuan',
+    licence: 'unlicensed',
+    licenceUrl: 'https://gearsnet.com/',
+    retrieved: '2026-11-14',
+    width: 204,
+    height: 37,
+    // Official mark: the logo listed for gearsnet.com in its brand record, served as
+    // https://media.brand.dev/50400879-4be1-4060-87ad-74ad89857b9a.png and saved unchanged. File SHA-256
+    // f61bcfbad2daf22bacbccf3b82e29e230106bb081a73fedd056425c8a75b78f7, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'zhaowei-logo',
+    file: '/images/logos/zhaowei.png',
+    alt: 'Zhaowei wordmark with its gear and Chinese name from the official website',
+    caption: 'Zhaowei logo from the official website, used on the market pages.',
+    sourceName: 'Zhaowei official website',
+    sourceUrl: 'https://szzhaowei.net/',
+    creator: 'Zhaowei',
+    licence: 'unlicensed',
+    licenceUrl: 'https://szzhaowei.net/',
+    retrieved: '2026-11-14',
+    width: 1182,
+    height: 153,
+    // Official mark: the logo listed for szzhaowei.net in its brand record, served as
+    // https://media.brand.dev/1329637e-0860-476b-ba95-26827031673a.png and saved unchanged. File SHA-256
+    // 6afe85334152b53cdaf063c08108647483c82a11b0fffcf6d88c3ca0df017bad, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'applied-aerospace-defense-logo',
+    file: '/images/logos/applied-aerospace-defense.webp',
+    alt: 'Applied Aerospace & Defense star mark and wordmark from the official website',
+    caption: 'Applied Aerospace & Defense logo from the official website, used on the market pages.',
+    sourceName: 'Applied Aerospace & Defense official website',
+    sourceUrl: 'https://applied-ad.com/',
+    creator: 'Applied Aerospace & Defense',
+    licence: 'unlicensed',
+    licenceUrl: 'https://applied-ad.com/',
+    retrieved: '2026-11-14',
+    width: 1437,
+    height: 512,
+    // Official mark: the logo listed for applied-ad.com in its brand record, served as
+    // https://media.brand.dev/77f37087-7a39-4467-8936-d932163eba2f.webp and saved unchanged. File SHA-256
+    // 77dcf44a08c295cb267cca979a0413ecd7a20252eadda1b1c16328fe49d34c79, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'onerobotics-logo',
+    file: '/images/logos/onerobotics.svg',
+    alt: 'OneRobotics wordmark from the official website',
+    caption: 'OneRobotics logo from the official website, used on the market pages.',
+    sourceName: 'OneRobotics official website',
+    sourceUrl: 'https://onerobot.com/',
+    creator: 'OneRobotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://onerobot.com/',
+    retrieved: '2026-11-14',
+    width: 200,
+    height: 26,
+    // Official mark: the logo listed for onerobot.com in its brand record, served as
+    // https://media.brand.dev/6d179368-a1b6-4c30-a574-ce1451573975.svg and saved unchanged. File SHA-256
+    // 367c7655d1d2547188a61ac71418a97ff5a7b45df1630d31cf498739c3adcd28, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'galaxis-logo',
+    file: '/images/logos/galaxis.png',
+    alt: 'Galaxis wordmark from the official website',
+    caption: 'Galaxis logo from the official website, used on the market pages.',
+    sourceName: 'Galaxis official website',
+    sourceUrl: 'https://galaxis-tech.com/',
+    creator: 'Galaxis',
+    licence: 'unlicensed',
+    licenceUrl: 'https://galaxis-tech.com/',
+    retrieved: '2026-11-14',
+    width: 279,
+    height: 50,
+    // Official mark: the logo listed for galaxis-tech.com in its brand record, served as
+    // https://media.brand.dev/3b9c55c8-3754-4079-b24e-9951bcf88a53.png and saved unchanged. File SHA-256
+    // cb049474e25c812d886723c2055fd4f2d99781fe1c42ecfd74196adc456ee379, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'maven-robotics-logo',
+    file: '/images/logos/maven-robotics.svg',
+    alt: 'Maven wordmark from the official website',
+    caption: 'Maven Robotics logo from the official website, used on the market pages.',
+    sourceName: 'Maven Robotics official website',
+    sourceUrl: 'https://mavenrobotics.ai/',
+    creator: 'Maven Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://mavenrobotics.ai/',
+    retrieved: '2026-11-14',
+    width: 1708,
+    height: 781,
+    // Official mark: the logo listed for mavenrobotics.ai in its brand record, served as
+    // https://media.brand.dev/59c8cb2b-be89-4c08-97c0-3b76014fec55.svg and saved unchanged. File SHA-256
+    // 0983c01fc68440efd85e48ef171914844ab6c8896bc32d83aed993c6185ebba8, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'watney-logo',
+    file: '/images/logos/watney.svg',
+    alt: 'Watney wordmark from the official website',
+    caption: 'Watney logo from the official website, used on the market pages.',
+    sourceName: 'Watney official website',
+    sourceUrl: 'https://watney.com/',
+    creator: 'Watney',
+    licence: 'unlicensed',
+    licenceUrl: 'https://watney.com/',
+    retrieved: '2026-11-14',
+    width: 130,
+    height: 16,
+    // Official mark: the logo listed for watney.com in its brand record, served as
+    // https://media.brand.dev/8655e0d2-6c68-4ed5-9e7a-68b3acf8b4bd.svg and saved unchanged. File SHA-256
+    // c8a6a0933edd57632b1b1811f3e0b25ea2176246f23f032147b72b2ed8f264df, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'atoms-logo',
+    file: '/images/logos/atoms.svg',
+    alt: 'Atoms wordmark from the official website',
+    caption: 'Atoms logo from the official website, used on the market pages.',
+    sourceName: 'Atoms official website',
+    sourceUrl: 'https://atoms.co/',
+    creator: 'Atoms',
+    licence: 'unlicensed',
+    licenceUrl: 'https://atoms.co/',
+    retrieved: '2026-11-14',
+    width: 537,
+    height: 74,
+    // Official mark: the logo listed for atoms.co in its brand record, served as
+    // https://media.brand.dev/2be0a95b-1c9e-40c1-a946-72eec00dda4b.svg and saved unchanged. File SHA-256
+    // 583574ad607d96a52c8d532e735eef1e4cb38d80900938b08fc486e63b780b0a, retrieved 2026-11-14. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
+  },
 ];

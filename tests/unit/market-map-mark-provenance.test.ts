@@ -8,6 +8,7 @@ import { ImageRef } from '@/components/mdx/image-ref';
 import { CompanyDetail } from '@/components/market-map/company-card';
 import { CompanyLogo } from '@/components/market-map/company-logo';
 import { COMPANIES } from '@/data/companies';
+import { COMPANY_LOGO_IDS } from '@/data/company-logos';
 import { attributionText, creditNoun, legalBasis, licenceLabel } from '@/data/images';
 import { LOGO_IMAGES } from '@/data/logo-images';
 import { getCompanyLogo } from '@/data/logos';
@@ -23,8 +24,8 @@ import {
 } from '@/lib/market-map-marks';
 
 /**
- * The provenance of every company mark the market map can draw
- *, joined record by record from each company's `logo`:
+ * The provenance of every company mark the market pages can draw, joined
+ * record by record from each company's `logo` and from the name lookup:
  * the registry entry that credits it (data/logo-images.ts), the slim lookup
  * the map reads (data/logos.ts), its measured placement and any withholding
  * (lib/market-map-marks.ts), and the bytes on disk.
@@ -76,27 +77,44 @@ function intrinsicRatio(file: string): number {
   throw new Error(`${file}: no intrinsic size`);
 }
 
-const marks = COMPANIES.filter((company) => company.logo !== null).map((company) => {
-  const id = company.logo!;
-  return {
-    company,
-    id,
-    record: LOGO_IMAGES.find((image) => image.id === id),
-    asset: getCompanyLogo(id),
-    placement: MARK_PLACEMENT[id],
-  };
+const joined = (id: string) => ({
+  id,
+  record: LOGO_IMAGES.find((image) => image.id === id),
+  asset: getCompanyLogo(id),
+  placement: MARK_PLACEMENT[id],
 });
+
+const companyMarks = COMPANIES.filter((company) => company.logo !== null).map((company) => ({
+  company,
+  ...joined(company.logo!),
+}));
+
+/**
+ * Marks the market pages find by company name (data/company-logos.ts) that
+ * no market-map row carries. They meet the same provenance checks; only the
+ * CompanyLogo rendering, which takes a market-map row, is checked on the
+ * rows alone.
+ */
+const namedMarks = [...new Set(Object.values(COMPANY_LOGO_IDS))]
+  .filter((id) => !companyMarks.some((mark) => mark.id === id))
+  .sort()
+  .map((id) => ({ company: null, ...joined(id) }));
+
+const marks = [...companyMarks, ...namedMarks];
 
 describe('market-map mark provenance, mark by mark', () => {
   it('joins every company mark to one registry record, lookup and placement', () => {
     expect(marks.length).toBeGreaterThan(0);
-    // One mark per company, and every registered mark belongs to a company.
+    // One mark per company, and every registered mark belongs to a company
+    // row or to a name the market pages look up.
+    expect(namedMarks.length).toBeGreaterThan(0);
     expect(new Set(marks.map((mark) => mark.id)).size).toBe(marks.length);
     expect(marks.map((mark) => mark.id).sort()).toEqual(LOGO_IMAGES.map((image) => image.id).sort());
     for (const mark of marks) {
-      expect(mark.record, `${mark.company.id}: registry record for ${mark.id}`).toBeDefined();
-      expect(mark.asset, `${mark.company.id}: lookup entry for ${mark.id}`).toBeDefined();
-      expect(mark.placement, `${mark.company.id}: measured placement for ${mark.id}`).toBeDefined();
+      const owner = mark.company?.id ?? 'named';
+      expect(mark.record, `${owner}: registry record for ${mark.id}`).toBeDefined();
+      expect(mark.asset, `${owner}: lookup entry for ${mark.id}`).toBeDefined();
+      expect(mark.placement, `${owner}: measured placement for ${mark.id}`).toBeDefined();
       expect(mark.asset!.file, mark.id).toBe(mark.record!.file);
     }
   });
@@ -160,10 +178,11 @@ describe('market-map mark provenance, mark by mark', () => {
   });
 
   it('withholds exactly one mark, by its full hash, and never draws it', () => {
-    const withheld = marks.filter(({ id }) => withheldMark(id) !== null);
+    const withheld = companyMarks.filter(({ id }) => withheldMark(id) !== null);
     expect(withheld.map(({ id }) => id)).toEqual(Object.keys(WITHHELD_MARKS));
     expect(withheld).toHaveLength(1);
-    for (const mark of marks) {
+    for (const mark of namedMarks) expect(withheldMark(mark.id), mark.id).toBeNull();
+    for (const mark of companyMarks) {
       const entry = withheldMark(mark.id);
       for (const preset of ['tile', 'sheet'] as const) {
         const { container, unmount } = render(

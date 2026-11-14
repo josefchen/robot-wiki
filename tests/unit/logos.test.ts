@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { COMPANIES } from '@/data/companies';
+import { COMPANY_LOGO_IDS } from '@/data/company-logos';
 import { IMAGES } from '@/data/images';
 import { LOGO_IMAGES } from '@/data/logo-images';
 import { companyLogoIds, getCompanyLogo } from '@/data/logos';
@@ -9,7 +10,8 @@ import { companyLogoIds, getCompanyLogo } from '@/data/logos';
 /**
  * The market-map client reads data/logos.ts, not data/images.ts. These
  * checks keep the slim lookup honest against the full registry and keep
- * every company.logo pointed at a real mark.
+ * every company.logo, and every logo the market pages look up by company
+ * name (data/company-logos.ts), pointed at a real mark.
  */
 
 const repoRoot = join(import.meta.dirname, '../..');
@@ -35,13 +37,14 @@ describe('market-map logo lookup', () => {
     }
   });
 
-  it('covers every company.logo and nothing else', () => {
+  it('covers every company.logo and every logo looked up by name, and nothing else', () => {
     const used = [
-      ...new Set(
-        COMPANIES.map((company) => company.logo).filter(
+      ...new Set([
+        ...COMPANIES.map((company) => company.logo).filter(
           (id): id is string => id !== null,
         ),
-      ),
+        ...Object.values(COMPANY_LOGO_IDS),
+      ]),
     ].sort();
     expect(companyLogoIds().sort()).toEqual(used);
   });
