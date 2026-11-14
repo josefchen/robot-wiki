@@ -1,7 +1,7 @@
 /**
  * Funding rounds, listings, acquisitions and shutdowns in robotics for the
- * 120 days to ROUNDS_AS_OF, with the earlier 2026 UK and Europe rounds, the
- * Europe investor list and third-party counts. Feeds /market-map/rounds/.
+ * 120 days to ROUNDS_AS_OF, with the earlier 2026 UK and Europe rounds, notes
+ * on four European investors and third-party counts. Feeds /market-map/rounds/.
  *
  * Rules:
  *   - Amounts are as announced, in the announced currency. Nothing here is
@@ -1392,25 +1392,6 @@ export const ROUNDS: readonly FundingEvent[] = [
     sourceTitle: 'Lyte Raises $165 Million Series C Led by Maverick Silicon to Give Robots a Trustworthy View of the World',
   },
   {
-    key: 'wandercraft-talks-2026-09-02',
-    company: 'Wandercraft',
-    status: 'talks',
-    sourceType: 'reported',
-    date: '2026-09-02',
-    datePrecision: 'day',
-    round: 'not disclosed',
-    amount: 100_000_000,
-    currency: 'EUR',
-    valuation: 'EUR 750M pre-money (reported)',
-    leadInvestors: [],
-    city: 'Paris',
-    country: 'FR',
-    sector: 'humanoids',
-    whatTheyBuild: 'self-balancing exoskeletons and Calvin humanoid',
-    sourceUrl: 'https://bloomberg.com/news/articles/2026-09-02/renault-backed-wandercraft-seeks-100-million-in-new-funding',
-    sourceTitle: 'Renault-Backed Wandercraft Seeks €100 Million in New Funding',
-  },
-  {
     key: 'ubtech-joint-modules-2026-09-03',
     company: 'UBTECH Robotics',
     status: 'closed',
@@ -1544,25 +1525,6 @@ export const ROUNDS: readonly FundingEvent[] = [
     sourceTitle: 'Bulwark Dynamics Raises $6.8M to Build Autonomous Landing Craft',
   },
   {
-    key: 'mistral-robotics-chief-talks-2026-09-09',
-    company: 'Unnamed startup of Mistral\'s former robotics chief',
-    status: 'talks',
-    sourceType: 'reported',
-    date: '2026-09-09',
-    datePrecision: 'day',
-    round: 'not disclosed',
-    amount: 200_000_000,
-    currency: 'EUR',
-    valuation: 'not disclosed',
-    leadInvestors: [],
-    city: 'Paris',
-    country: 'FR',
-    sector: 'foundation-models',
-    whatTheyBuild: 'robotics AI',
-    sourceUrl: 'https://sifted.eu/articles/physical-ai-startups-to-watch-according-to-vcs',
-    sourceTitle: 'Exclusive: Mistral robotics chief seeks €200m for new startup',
-  },
-  {
     key: 'atom-jp-talks-2026-09-10',
     company: 'Atom (アトム)',
     status: 'talks',
@@ -1673,14 +1635,16 @@ export const ROUNDS: readonly FundingEvent[] = [
     round: 'not disclosed',
     amount: 700_000_000,
     currency: 'USD',
-    valuation: 'about USD 3.7B (reported)',
+    valuation: 'USD 3.7B including the new money (reported)',
     leadInvestors: [],
     city: 'London',
     country: 'GB',
     sector: 'simulation-data',
-    whatTheyBuild: 'world models for robotics and simulation',
-    sourceUrl: 'https://techfundingnews.com/emulate-deepmind-spinout-700m-3-7bn-valuation-index-lightspeed',
-    sourceTitle: 'DeepMind’s Genie creators launch Emulate, seeking $700M',
+    whatTheyBuild: 'world models for games, virtual worlds and robot training',
+    sourceUrl: 'https://madrobot.blog/2026/09/17/emulate-deepmind-genie-spinout-700m-3-7bn-valuation/',
+    sourceTitle:
+      'A month-old AI start-up with no product is about to be worth $3.7 billion (MAD Robot, citing the Financial Times)',
+    note: 'Up to USD 700M, per the Financial Times; Index Ventures and Lightspeed Venture Partners are set to co-lead.',
   },
   {
     key: 'treble-2026-09-17',
@@ -2032,6 +1996,7 @@ export const ROUNDS: readonly FundingEvent[] = [
     whatTheyBuild: 'robotic contract manufacturing of complex hardware',
     sourceUrl: 'https://roboticsroundup.substack.com/p/robotics-roundup-34-october-2026',
     sourceTitle: 'Robotics Roundup #34: October 2026 (F-Prime Capital)',
+    note: 'The company\'s site, foundryrobotics.ai, carries the headline "Foundry Raises $100M Series A" with no date or lead.',
   },
   {
     key: 'fort-2026-10',
@@ -3224,17 +3189,18 @@ export const LISTINGS: readonly FundingEvent[] = [
     sourceType: 'primary',
     date: '2026-09-03',
     datePrecision: 'day',
-    round: 'SPAC merger (JFB Construction Holdings)',
+    round: 'Business combination (JFB Construction Holdings)',
     amount: 110_000_000,
     currency: 'USD',
     valuation: 'not disclosed',
     leadInvestors: [],
-    city: 'not disclosed',
-    country: 'IL',
+    city: 'Tampa, Fla.',
+    country: 'US',
     sector: 'drones-defense',
-    whatTheyBuild: 'drone and ground-robot operating system (XOS)',
+    whatTheyBuild: 'drones, robots and the XOS operating system for defense and security',
     sourceUrl: 'https://globenewswire.com/news-release/2026/09/03/3356320/0/en/xtend-reality-expansion-ltd-and-jfb-construction-holdings-complete-business-combination-raising-110-million-in-total-capital.html',
     sourceTitle: 'XTEND Reality Expansion Ltd. and JFB Construction Holdings Complete Business Combination, Raising $110 Million in Total Capital',
+    note: 'Total capital per the headline; JFB delivered about USD 67.7M against its USD 60M minimum closing cash.',
   },
   {
     key: 'elroy-air-pipe-2026-09-24',
@@ -3369,7 +3335,7 @@ export const CORPORATE_EVENTS: readonly CorporateEvent[] = [
     whatTheyBuild: 'surgical robotics',
     sourceUrl: 'https://globenewswire.com/news-release/2026/09/01/3353906/0/en/enovis-invests-in-innovation-with-binding-offer-to-acquire-ecential-robotics-a-leading-developer-of-enabling-technologies-and-surgical-robotics.html',
     sourceTitle: 'Enovis Invests in Innovation with Binding Offer to Acquire eCential Robotics',
-    note: 'EUR 155M is a reported figure; the release gives no price.',
+    note: 'Upfront enterprise value, plus up to EUR 35M on milestones; a binding offer expected to close by the end of 2026.',
   },
   {
     key: 'swarmer-ratel-2026-09-10',
@@ -3463,7 +3429,7 @@ export const CORPORATE_EVENTS: readonly CorporateEvent[] = [
     company: 'FF Robotics (FFAI\'s robotics business)',
     acquirer: 'FF EAI Robotics Ecosystem',
     sourceType: 'primary',
-    date: '2026-10-23',
+    date: '2026-10-26',
     datePrecision: 'day',
     amount: 'not disclosed',
     currency: null,
@@ -3474,7 +3440,7 @@ export const CORPORATE_EVENTS: readonly CorporateEvent[] = [
     sourceUrl: 'https://finance.yahoo.com/technology/ai/articles/ff-eai-robotics-ecosystem-ffr-210000572.html',
     sourceTitle:
       'FF EAI Robotics Ecosystem (FFR) Completes Acquisition of FFAI Robotics Business (the company\'s PR Newswire release, syndicated by Yahoo Finance)',
-    note: 'Closed on 23 Oct 2026 and announced on 26 Oct; paid in shares, with no value stated.',
+    note: 'Closed on 23 Oct 2026; paid in shares, with no value stated.',
   },
   {
     key: 'shield-ai-echodyne-2026-11-05',
@@ -3730,7 +3696,7 @@ export const UK_EUROPE_2026_EARLIER: readonly FundingEvent[] = [
   },
 ];
 
-/** The owner's Europe investor list: what each firm did in robotics in 2026. */
+/** Four European investors: what each did in robotics in 2026. */
 export const EUROPE_INVESTORS: readonly InvestorNote[] = [
   {
     key: 'inv-plural-upside-2026',
