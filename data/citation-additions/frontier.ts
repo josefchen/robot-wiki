@@ -53,6 +53,20 @@ export const ADDITIONS: Citation[] = [
     type: 'paper',
   },
   {
+    id: 'inspect-robots-2026',
+    title: 'Inspect Robots: Evaluating the Capabilities and Safety of Embodied AI',
+    authors: [
+      'Christopher Leet', 'Achu Menon', 'Sravanthi Machcha', 'Sabrina Zou', 'Aayushya Patel',
+      'Aditya Kumar Singh', 'Anish Kr Singh', 'Galaba Vamsi', 'Javin Ahuja', 'Sai Asish Yamani',
+      'Tushar Anand', 'Vedang Alle', 'Zihan Jack Zhang', 'Tzu Kit Chan', 'Jay Chooi',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.06306',
+    url: 'https://arxiv.org/abs/2610.06306',
+    type: 'paper',
+  },
+  {
     id: 'carryon-harness-2026',
     title: 'CarryOn: A Dual-Loop Harness for Personalized and Reliable Robot Assistance',
     authors: [
