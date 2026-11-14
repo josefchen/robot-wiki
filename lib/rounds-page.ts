@@ -3,7 +3,7 @@
  * figure: its sections, the headline totals, the coverage bands, the month
  * row, table cell text and the tracker lines. Every number comes from
  * data/rounds.ts through lib/rounds.ts; nothing here is typed by hand except
- * the coverage thresholds, which restate the research behind the list.
+ * the two coverage thresholds below.
  *
  * Tested in tests/unit/rounds-page.test.ts.
  */
@@ -50,10 +50,10 @@ export const ROUNDS_PAGE_SECTIONS = [
 export type RoundsPageSectionId = (typeof ROUNDS_PAGE_SECTIONS)[number]['id'];
 
 /**
- * Where the list stops being close to complete (research, 14 November 2026,
- * gap 1): above `nearComplete` outside China; from `regional` to
- * `nearComplete` in the United States and Europe only; below `regional`,
- * examples.
+ * Where the list stops being close to complete: above `nearComplete` it is
+ * close to complete outside China; from `regional` to `nearComplete` it is
+ * good for the United States and Europe and thin for China; below `regional`
+ * it holds examples.
  */
 export const COVERAGE_THRESHOLDS_USD = { nearComplete: 100_000_000, regional: 50_000_000 } as const;
 
@@ -132,7 +132,7 @@ export function headlineText(facts: HeadlineFacts = headlineFacts()): {
   };
 }
 
-/** How complete the list is, no stronger than the research says; one paragraph. */
+/** How complete the list is at each amount band; one paragraph. */
 export function coverageText(): string {
   const high = formatUsd(COVERAGE_THRESHOLDS_USD.nearComplete);
   const mid = formatUsd(COVERAGE_THRESHOLDS_USD.regional);

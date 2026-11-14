@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   title: STANDALONE_SEO_TITLES.marketMap,
   description: STANDALONE_SEO_DESCRIPTIONS.marketMap,
   // Full card blocks restated: a route-level object replaces the
-  // layout's for the same key (no deep merge). og:title is the search
-  // title without the templated '| Robot Wiki' suffix.
+  // layout's for the same key (no deep merge). The page name keys the
+  // social title.
   openGraph: routeOpenGraph(pageName),
   twitter: routeTwitter(pageName),
 };
