@@ -91,7 +91,7 @@ const ROWS: Thesis[] = [
         citationIds: ['helix-02-2026'],
       },
       {
-        text: 'In a November 2026 Mercedes-Benz pilot, DeepMind\'s reasoning model tracked the workflow while Gemini Robotics 2.5 controlled an Apptronik humanoid kitting parts at 96% success.',
+        text: 'In a Mercedes-Benz proof of concept, DeepMind\'s reasoning model tracked the workflow while Gemini Robotics 2.5 controlled an Apptronik humanoid kitting parts at 96% success.',
         citationIds: ['gemini-robotics-2-5-2026'],
       },
       {

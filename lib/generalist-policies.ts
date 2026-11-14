@@ -256,7 +256,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     weightsNote: 'Rolling out to robotics partners from November 10, 2026; weight downloads and licensing terms are not disclosed.',
     provenance: 'blog',
     capability:
-      'DeepMind reports 30% to 100% higher success than earlier baselines, depending on the task, and 96% success kitting parts with Apollo 2 humanoids on Mercedes-Benz lines.',
+      'DeepMind reports 30% to 100% higher success than earlier baselines, depending on the task, and 96% success kitting parts with Apollo 2 humanoids in a Mercedes-Benz proof of concept.',
     citationId: 'gemini-robotics-2-5-2026',
   },
 ];
