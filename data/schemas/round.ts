@@ -85,13 +85,18 @@ const fundingEventObjectSchema = z
     sourceTitle: z.string().min(1),
     /** The source gives a floor ("over", "more than"); the true figure is higher. */
     amountIsFloor: z.literal(true).optional(),
+    /** The source gives the figure as approximate ("about", "approximately"). */
+    amountIsApproximate: z.literal(true).optional(),
     /** The figure includes debt as well as equity. */
     includesDebt: z.literal(true).optional(),
     /** Robotics by some definitions only; the reason is shown on the page. */
     borderline: z.string().min(1).optional(),
     /** Sources disagree on the lead or only press names one; not counted as a lead. */
     leadUnconfirmed: z.literal(true).optional(),
-    /** One short clause, only on flagged rows or where sources conflict. */
+    /**
+     * One short clause, on floor, debt and lead-unconfirmed rows or where sources conflict.
+     * A borderline row carries its reason in `borderline` and needs no note.
+     */
     note: z.string().min(1).optional(),
   })
   .strict();
@@ -106,8 +111,7 @@ function refineFundingEvent(event: FundingEventShape, ctx: z.RefinementCtx): voi
       message: `${event.key}: date ${event.date} does not match precision ${event.datePrecision}`,
     });
   }
-  const flagged =
-    event.amountIsFloor || event.includesDebt || event.borderline || event.leadUnconfirmed;
+  const flagged = event.amountIsFloor || event.includesDebt || event.leadUnconfirmed;
   if (flagged && !event.note) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
@@ -115,11 +119,18 @@ function refineFundingEvent(event: FundingEventShape, ctx: z.RefinementCtx): voi
       message: `${event.key}: a flagged row needs a note`,
     });
   }
-  if (event.amountIsFloor && event.amount === NOT_DISCLOSED) {
+  if (event.amountIsFloor && event.amountIsApproximate) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['amountIsApproximate'],
+      message: `${event.key}: an amount is a floor or approximate, not both`,
+    });
+  }
+  if ((event.amountIsFloor || event.amountIsApproximate) && event.amount === NOT_DISCLOSED) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
       path: ['amountIsFloor'],
-      message: `${event.key}: a floor needs an amount`,
+      message: `${event.key}: a floor or approximate figure needs an amount`,
     });
   }
 }

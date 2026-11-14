@@ -74,10 +74,10 @@ describe('rounds data', () => {
     }
   });
 
-  it('holds the pack rows by kind, less Moove and Tangent Robotics', () => {
+  it('holds the pack rows by kind, less Moove, Tangent, Maven and the Genrobot Series A', () => {
     // Pack: 147 rounds and 15 reported, 7 listings, 14 corporate events,
     // 11 earlier UK and Europe rows, 4 investor and 4 context rows.
-    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 2);
+    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 4);
     expect(ROUNDS.filter((r) => r.status === 'unconfirmed')).toHaveLength(4);
     expect(ROUNDS.filter((r) => r.status === 'talks')).toHaveLength(11);
     expect(LISTINGS).toHaveLength(7);
@@ -142,12 +142,38 @@ describe('rounds data', () => {
     }
   });
 
-  it('puts a note on every flagged row', () => {
+  it('puts a note on every floor, debt and lead-unconfirmed row', () => {
     for (const row of [...ROUNDS, ...LISTINGS, ...UK_EUROPE_2026_EARLIER]) {
-      if (row.amountIsFloor || row.includesDebt || row.borderline || row.leadUnconfirmed) {
+      if (row.amountIsFloor || row.includesDebt || row.leadUnconfirmed) {
         expect(row.note, row.key).toBeTruthy();
       }
     }
+  });
+
+  it('never repeats the borderline reason in the note', () => {
+    const borderline = [...ROUNDS, ...LISTINGS, ...UK_EUROPE_2026_EARLIER].filter(
+      (r) => r.borderline,
+    );
+    expect(borderline.length).toBeGreaterThan(0);
+    for (const row of borderline) {
+      expect(row.borderline!.length, row.key).toBeGreaterThan(0);
+      if (row.note) {
+        expect(row.note.toLowerCase(), row.key).not.toContain(row.borderline!.toLowerCase());
+      }
+    }
+  });
+
+  it('marks an amount as a floor or approximate, never both, and only with a figure', () => {
+    const approximate = [...ROUNDS, ...LISTINGS, ...UK_EUROPE_2026_EARLIER].filter(
+      (r) => r.amountIsApproximate,
+    );
+    expect(approximate.length).toBeGreaterThan(0);
+    for (const row of approximate) {
+      expect(row.amountIsFloor, row.key).toBeUndefined();
+      expect(typeof row.amount, row.key).toBe('number');
+    }
+    const both = { ...approximate[0], amountIsFloor: true as const };
+    expect(fundingEventSchema.safeParse(both).success).toBe(false);
   });
 
   it('keeps announced only on listings and the earlier rows closed', () => {
@@ -256,12 +282,14 @@ describe('totals', () => {
     expect(totalRaisedUsd({ strict: true })).toBeCloseTo(totalRaisedUsd() - total(borderline), 2);
   });
 
-  it('matches the pack sum of USD rounds, less the two rows left out', () => {
+  it('matches the pack sum of USD rounds, less the rows left out', () => {
     // The pack states USD 15.48B (15,478.2M) for closed USD rounds in the window.
-    // Left out here: Moove, USD 250M (its source page gives another date) and
-    // Tangent Robotics, 4.5M (its release states no currency).
+    // Left out here: Moove, USD 250M (its source page gives another date),
+    // Tangent Robotics, 4.5M (its release states no currency) and Maven
+    // Robotics, 100M (its release could not be opened). The Genrobot Series A
+    // also left out has no amount.
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
-    expect(total(usdOnly)).toBe(15_478_200_000 - 250_000_000 - 4_500_000);
+    expect(total(usdOnly)).toBe(15_478_200_000 - 250_000_000 - 4_500_000 - 100_000_000);
   });
 
   it('counts statuses, reported sources and size bands from the same rows', () => {
