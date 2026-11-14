@@ -63,13 +63,15 @@ export interface FigureRound {
   label: string;
 }
 
+/** Later than any row's date, so plotDate returns the unclamped mid-point. */
+const NO_CLAMP = '9999-12-31';
+
 /** Where a round's dot sits: its day, the 15th of its month, never after `asOf`. */
 export function figurePlotDate(
   event: Pick<FundingEvent, 'date' | 'datePrecision'>,
   asOf: string = ROUNDS_AS_OF,
 ): string {
-  const day = plotDate(event);
-  return day > asOf ? asOf : day;
+  return plotDate(event, asOf);
 }
 
 function amountText(event: FundingEvent, usd: number): string {
@@ -115,7 +117,7 @@ export function figureRounds(
       segment: SECTOR_SEGMENT[event.sector],
       hollow: HOLLOW_STATUSES.includes(event.status),
       monthOnly: event.datePrecision === 'month',
-      clamped: plotted !== plotDate(event),
+      clamped: plotted !== plotDate(event, NO_CLAMP),
       label: `${event.company} ${amountText(event, usd)}`,
     });
   }

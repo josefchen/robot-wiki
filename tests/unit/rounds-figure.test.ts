@@ -177,9 +177,10 @@ describe('rounds figure: what is drawn', () => {
     for (const r of drawn) expect(r.plotted <= ROUNDS_AS_OF).toBe(true);
     const clamped = drawn.filter((r) => r.clamped);
     const expected = inWindow.filter(
-      (e) => e.datePrecision === 'month' && plotDate(e) > ROUNDS_AS_OF && (amountUsd(e) ?? 0) >= FLOOR_USD,
+      (e) => e.datePrecision === 'month' && `${e.date}-15` > ROUNDS_AS_OF && (amountUsd(e) ?? 0) >= FLOOR_USD,
     );
     expect(clamped.map((r) => r.key).sort()).toEqual(expected.map((e) => e.key).sort());
+    for (const r of clamped) expect(plotDate(inWindow.find((e) => e.key === r.key)!)).toBe(r.plotted);
     for (const r of clamped) expect(r.plotted).toBe(ROUNDS_AS_OF);
   });
 
