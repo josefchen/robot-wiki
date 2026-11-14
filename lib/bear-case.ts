@@ -74,7 +74,7 @@ const ROWS: Milestone[] = [
       'The reliability-gap test: reinforcement learning closes the gap to 99%+ one task at a time today; whether it does so across many tasks at once decides if the gap is engineering or science.',
     status: 'partial',
     statusDetail:
-      'RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks, and π*0.6 passed 90% on three production-style tasks; both produce per-task specialists, and neither claims transfer to unseen tasks. Generalist reports 99% average success for GEN-1, a company figure from a recipe that is not RL-specific, and says not all tasks reach that rate.',
+      'RL-100 reports 100% success across evaluated trials, 1,000 of 1,000 episodes on eight real-robot tasks, and π*0.6 passed 90% on three production-style tasks; both produce per-task specialists, and neither claims transfer to unseen tasks. Generalist reports 99% average success for GEN-1, a company figure from a recipe that is not RL-specific, and says not all tasks reach that rate.',
     howWeKnow:
       'Published results showing better than 99% success across more than twenty diverse tasks from a single training recipe.',
     citationIds: ['rl-100-2025', 'pistar06-2025', 'generalist-gen1-2026'],
