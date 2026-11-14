@@ -22,9 +22,9 @@ export const HOME_DOMAIN_SUMMARIES: Record<Domain, string> = {
 
 /**
  * The contents index: every domain, its one-line scope, then every
- * published article in it as a plain link, in registry order. On a phone the
- * articles run inline, so the index stays short; from a tablet up they stand
- * one to a line in columns, read like the contents of a book.
+ * published article in it as a plain link, in registry order, one title to
+ * a line. The domains run in one column on a phone and in up to four on a
+ * desktop, read like the contents of a book.
  *
  * Each domain's name and scope share one element, and the article list is
  * its sibling.
@@ -47,10 +47,9 @@ export function ContentsIndex() {
               </IntentLink>
               <span className="contents-scope">{HOME_DOMAIN_SUMMARIES[domain]}</span>
             </p>
-            <ul aria-label={`${DOMAIN_META[domain].name} articles`} className="home-run contents-list">
-              {articles.map((entry, index) => (
+            <ul aria-label={`${DOMAIN_META[domain].name} articles`} className="contents-list">
+              {articles.map((entry) => (
                 <li key={entry.slug}>
-                  {index > 0 ? ' ' : null}
                   <IntentLink
                     data-brand-control-id="control:link-focus"
                     href={`/${domain}/${entry.slug}/`}

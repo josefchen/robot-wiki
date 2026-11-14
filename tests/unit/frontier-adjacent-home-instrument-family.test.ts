@@ -73,15 +73,16 @@ describe('frontier/adjacent/home instruments use the shared instrument family', 
     expect(domainInteractiveSources().size).toBeGreaterThan(0);
   });
 
-  it('reads the home route as mounting its one scene and no interactive instrument', () => {
-    // An empty home population is the front page's design, so the scene
-    // import is checked too: a regex that matched nothing would also be empty.
-    // Home's one scene is the featured 3D explainer, and no motion scene.
+  it('reads the home route as mounting no scene and no interactive instrument', () => {
+    // An empty home population is the front page's design, so the imports
+    // home does make are checked too: a regex that matched nothing would
+    // also be empty. Home is words alone: its own components, and no
+    // explainer, 3D kit or motion scene.
     expect([...homeInteractiveSources()]).toEqual([]);
     const home = readFileSync(join(ROOT, 'app', 'page.tsx'), 'utf8');
-    expect(home).toMatch(/from\s+['"]@\/components\/home\/featured-explainer['"]/);
-    expect(home.match(/<FeaturedExplainer\b/g)).toHaveLength(1);
-    expect(home).not.toMatch(/from\s+['"]@\/components\/motion\/scenes\//);
+    expect(home.match(/from\s+['"]@\/components\/home\/[a-z-]+['"]/g)).toHaveLength(6);
+    expect(home).not.toMatch(/FeaturedExplainer/);
+    expect(home).not.toMatch(/from\s+['"]@\/components\/(explainers|three|motion\/scenes)\//);
   });
 
   it('mounts the shared instrument frame in every domain-derived interactive', () => {
