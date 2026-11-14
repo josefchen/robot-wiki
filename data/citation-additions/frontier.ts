@@ -225,6 +225,21 @@ export const ADDITIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against arXiv v3 (2026-11-14): real Shadow Dexterous Hand
+    // Lite, 16 binary contact channels plus joint encoders, no vision; one
+    // continuous trial of 225 consecutive 180-degree rotations; over 10
+    // hardware trials the C3 policy averages 34.75 full rotations, 5.00 with
+    // tactile input switched off (C3-TacOff).
+    id: 'blind-baoding-2026',
+    title: 'No Eyes, No Problem: What Does Touch Contribute to Blind Baoding Ball Manipulation?',
+    authors: ['Ayush Deshmukh', 'Nalin Agarwal', 'Elle Miller', 'Sethu Vijayakumar'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.23438',
+    url: 'https://arxiv.org/abs/2610.23438',
+    type: 'paper',
+  },
+  {
     // Verified against the live page (2026-11-14): "The STF contains 17
     // taxels each providing a 3D response, sensitive to both normal and
     // tangential forces from about 0.2N to 20N"; the comparison table lists
