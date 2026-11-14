@@ -20,7 +20,9 @@ import {
   LABEL_CAP,
   PHONE_MAX_WIDTH,
   RING_STROKE,
+  amountIsCeiling,
   bySize,
+  ceilingText,
   drawOrder,
   figurePlotDate,
   figureRounds,
@@ -199,7 +201,51 @@ describe('rounds figure: what is drawn', () => {
 });
 
 describe('rounds figure: labels', () => {
-  const order = [...figureRounds().drawn].sort(bySize);
+  const order = figureRounds().drawn.filter((r) => !r.ceiling).sort(bySize);
+
+  it('reads a ceiling from a note that opens "Up to" and the stored amount, in its currency', () => {
+    const usd = { amount: 700_000_000, currency: 'USD' as const };
+    expect(amountIsCeiling({ ...usd, note: 'Up to USD 700M, per a newspaper.' })).toBe(true);
+    expect(amountIsCeiling({ amount: 5_300_000_000, currency: 'USD', note: 'Up to USD 5.3B: more.' })).toBe(true);
+    expect(amountIsCeiling({ ...usd, note: 'Up to USD 600M, per a newspaper.' })).toBe(false);
+    expect(amountIsCeiling({ ...usd, note: 'Up to EUR 700M.' })).toBe(false);
+    expect(amountIsCeiling({ ...usd, note: 'Up to about USD 700M.' })).toBe(false);
+    expect(amountIsCeiling({ ...usd, note: 'Plus up to USD 700M on milestones.' })).toBe(false);
+    expect(amountIsCeiling(usd)).toBe(false);
+    expect(amountIsCeiling({ amount: 'not disclosed', currency: 'USD', note: 'Up to USD 700M.' })).toBe(false);
+  });
+
+  it('draws a ceiling at its amount, labels it "up to" and never places that label', () => {
+    const drawn = figureRounds().drawn;
+    const largest = [...drawn].sort(bySize)[0];
+    const event = roundsInWindow().find((e) => e.key === largest.key)!;
+    // Whole millions at or above the largest amount, so it stays the largest round.
+    const amount = Math.ceil(largest.usd / 1e6) * 1e6;
+    const marked = figureRounds([{ ...event, note: `Up to USD ${amount / 1e6}M, as reported.`, currency: 'USD', amount }]).drawn[0];
+    expect(marked).toMatchObject({ ceiling: true, usd: amount, label: `${largest.company} up to ${formatUsd(amount)}` });
+    const rounds = drawn.map((r) => (r.key === largest.key ? marked : r));
+    for (const width of Object.values(LAYOUTS)) {
+      const layout = roundsFigureLayout(width, rounds);
+      expect(layout.dots.some((d) => d.round.key === largest.key)).toBe(true);
+      expect(layout.labels.some((l) => l.key === largest.key), String(width)).toBe(false);
+      expect(layout.labels.length).toBeGreaterThan(0);
+      expect(layout.firstUnplaced?.key).not.toBe(largest.key);
+    }
+    expect(ceilingText([marked])).toBe(` ${largest.company} (up to ${formatUsd(amount)}) sits at that ceiling and carries no label.`);
+    expect(ceilingText([])).toBe('');
+  });
+
+  it('leaves every ceiling in the data unlabeled and prints no label amount bare', () => {
+    const drawn = figureRounds().drawn;
+    for (const r of drawn) {
+      const event = roundsInWindow().find((e) => e.key === r.key)!;
+      if (/^Up to /.test(event.note ?? '') && !event.amountIsApproximate) expect(r.ceiling, r.key).toBe(true);
+    }
+    for (const width of Object.values(LAYOUTS)) {
+      const keys = new Set(roundsFigureLayout(width).labels.map((l) => l.key));
+      for (const r of drawn.filter((d) => d.ceiling)) expect(keys.has(r.key), `${r.key} at ${width}`).toBe(false);
+    }
+  });
 
   for (const [name, width] of Object.entries(LAYOUTS)) {
     const layout = roundsFigureLayout(width);
@@ -298,6 +344,8 @@ describe('rounds figure: words computed from the rows', () => {
     expect(text).toContain(`${facts.monthOnly} rounds dated only to a month`);
     if (layout.firstUnplaced) expect(text).toContain(layout.firstUnplaced.label);
     expect(text).toContain(`${facts.reported} of them`);
+    expect(facts.ceilings.map((r) => r.key)).toEqual(figureRounds().drawn.filter((r) => r.ceiling).sort(bySize).map((r) => r.key));
+    expect(text).toContain(ceilingText(facts.ceilings));
   });
 
   it('registers the computed description, which passes the chart-description rules', () => {

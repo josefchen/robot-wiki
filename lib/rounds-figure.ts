@@ -17,7 +17,7 @@
  *
  * Tested in tests/unit/rounds-figure.test.ts.
  */
-import { ROUNDS_AS_OF, type FundingEvent, type RoundStatus } from '@/data/rounds.ts';
+import { ROUNDS_AS_OF, type Currency, type FundingEvent, type RoundStatus } from '@/data/rounds.ts';
 import { FX_RATES_DATE } from '@/data/fx-rates.ts';
 import { formatLongDate } from '@/lib/dates.ts';
 import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens.ts';
@@ -59,6 +59,8 @@ export interface FigureRound {
   monthOnly: boolean;
   /** A month-only row whose 15th falls after the as-of date. */
   clamped: boolean;
+  /** The amount is a ceiling ("up to"): the dot sits at it and is never labeled. */
+  ceiling: boolean;
   /** Company and amount, as printed beside the dot. */
   label: string;
 }
@@ -74,8 +76,27 @@ export function figurePlotDate(
   return plotDate(event, asOf);
 }
 
+const CEILING_NOTE = /^Up to ([A-Z]{3}) (\d+(?:\.\d+)?)([MB])\b/;
+
+/**
+ * The stored amount is a ceiling: the row's note opens "Up to" and that same
+ * amount in the row's currency ("Up to USD 700M, per the Financial Times").
+ * The schema has no ceiling flag; the note is the field that says so.
+ */
+export function amountIsCeiling(event: {
+  amount: number | string;
+  currency: Currency | null;
+  note?: string;
+}): boolean {
+  if (typeof event.amount !== 'number' || !event.note) return false;
+  const match = CEILING_NOTE.exec(event.note);
+  if (!match || match[1] !== event.currency) return false;
+  return Math.round(Number(match[2]) * (match[3] === 'B' ? 1e9 : 1e6)) === event.amount;
+}
+
 function amountText(event: FundingEvent, usd: number): string {
   const amount = formatUsd(usd);
+  if (amountIsCeiling(event)) return `up to ${amount}`;
   if (event.amountIsFloor) return `over ${amount}`;
   if (event.amountIsApproximate) return `about ${amount}`;
   return amount;
@@ -118,6 +139,7 @@ export function figureRounds(
       hollow: HOLLOW_STATUSES.includes(event.status),
       monthOnly: event.datePrecision === 'month',
       clamped: plotted !== plotDate(event, NO_CLAMP),
+      ceiling: amountIsCeiling(event),
       label: `${event.company} ${amountText(event, usd)}`,
     });
   }
@@ -178,6 +200,8 @@ export interface RoundsFigureFacts {
   belowFloor: FundingEvent[];
   monthOnly: number;
   clamped: number;
+  /** Drawn rounds whose amount is a ceiling, largest first; never labeled. */
+  ceilings: FigureRound[];
   totalUsd: number;
   fxDate: string;
   largestClosed: FigureRound;
@@ -204,6 +228,7 @@ export function roundsFigureFacts(): RoundsFigureFacts {
     belowFloor,
     monthOnly: drawn.filter((r) => r.monthOnly).length,
     clamped: drawn.filter((r) => r.clamped).length,
+    ceilings: drawn.filter((r) => r.ceiling).sort(bySize),
     totalUsd: totalRaisedUsd(),
     fxDate: FX_RATES_DATE,
     largestClosed,
@@ -294,6 +319,15 @@ export function labelsText(layout: Pick<RoundsFigureLayout, 'labels' | 'cap' | '
   return `${placed}, the most this width takes. No label touches a dot, an axis label or another label.`;
 }
 
+/** The sentence on unlabeled ceilings, with a leading space; empty when there are none. */
+export function ceilingText(ceilings: readonly FigureRound[]): string {
+  if (ceilings.length === 0) return '';
+  const names = listText(ceilings.map((r) => `${r.company} (up to ${formatUsd(r.usd)})`));
+  return ceilings.length === 1
+    ? ` ${names} sits at that ceiling and carries no label.`
+    : ` ${names} sit at those ceilings and carry no labels.`;
+}
+
 /** The paragraphs of the "How this was made" fold. */
 export function methodParagraphs(
   facts: RoundsFigureFacts,
@@ -314,7 +348,7 @@ export function methodParagraphs(
       `${count(floorNames.length, 'round', 'rounds')} under the ${formatUsd(FLOOR_USD)} floor` +
       `${floorNames.length > 0 ? ` (${listText(floorNames)})` : ''}. They stay in the tables, and the closed ones in the totals.`,
     `${count(facts.monthOnly, 'round', 'rounds')} dated only to a month ${facts.monthOnly === 1 ? 'sits' : 'sit'} on its 15th${clamped}.`,
-    labelsText(layout),
+    labelsText(layout) + ceilingText(facts.ceilings),
     `Amounts in other currencies are converted to US dollars at the European Central Bank's euro reference rates of ` +
       `${formatLongDate(facts.fxDate)}. The segments are the market map's six; each round's sector maps onto one of them.`,
   ];
@@ -677,7 +711,8 @@ export function roundsFigureLayout(
   // The largest rounds in order. A depth-first search over each label's
   // first few clean spots, in preference order, keeps the longest run of
   // labels found; an earlier label moves only when that lets a later one in.
-  const order = [...dots].sort((a, b) => bySize(a.round, b.round));
+  // A ceiling is not a raise, so its dot carries no label.
+  const order = dots.filter((d) => !d.round.ceiling).sort((a, b) => bySize(a.round, b.round));
   let labels: PlacedLabel[] = [];
   let visits = 0;
   const search = (placed: PlacedLabel[]): boolean => {
