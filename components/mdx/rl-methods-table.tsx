@@ -121,9 +121,9 @@ const ROWS: MethodRow[] = [
     result:
       "19/30 average on EXPO-FT's four-task comparison; its own evaluation demonstrates real-world autonomous improvement of diffusion policies and pretrained generalists",
     evidence: 'preprint',
-    open: null,
-    sourceIds: ["dsrl-2025","expo-ft-2026"],
-    opennessNote: "The inspected DSRL abstract does not state a code or weight release.",
+    open: true,
+    sourceIds: ["dsrl-2025","dsrl-site-2025","dsrl-repo-2025","expo-ft-2026"],
+    opennessNote: "The DSRL project site links code for its Robomimic, Gym, WidowX and π0 experiments; the main repository links base-policy checkpoints and has no license file.",
   },
 ];
 

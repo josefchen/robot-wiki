@@ -272,4 +272,27 @@ export const ADDITIONS: Citation[] = [
     url: 'https://www.dyna.co/dyna-2',
     type: 'blog',
   },
+  // rl-finetuning methods table, 2026-11-14. Project page read 2026-11-14: links "Code (Robomimic/Gym/WidowX)"
+  // to github.com/ajwagen/dsrl and "Code (π0)" to github.com/nakamotoo/dsrl_pi0; same eight authors as dsrl-2025.
+  {
+    id: 'dsrl-site-2025',
+    title: 'Steering Your Diffusion Policy with Latent Space Reinforcement Learning: project page',
+    authors: [
+      'Andrew Wagenmaker', 'Mitsuhiko Nakamoto', 'Yunchu Zhang', 'Seohong Park', 'Waleed Yagoub',
+      'Anusha Nagabandi', 'Abhishek Gupta', 'Sergey Levine',
+    ],
+    year: 2025,
+    url: 'https://diffusion-steering.github.io/',
+    type: 'docs',
+  },
+  // rl-finetuning methods table, 2026-11-14. GitHub API read 2026-11-14: one commit, 8d21b9c (5 Aug 2025),
+  // license null. README links the base diffusion-policy checkpoints for the Robomimic and Gym experiments.
+  {
+    id: 'dsrl-repo-2025',
+    title: 'DSRL official implementation (8d21b9c)',
+    authors: ['ajwagen'],
+    year: 2025,
+    url: 'https://github.com/ajwagen/dsrl/tree/8d21b9cf55459f022c0e769bca1343edd9d30e5a',
+    type: 'docs',
+  },
 ];
