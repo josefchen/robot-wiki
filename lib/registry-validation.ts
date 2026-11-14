@@ -30,10 +30,12 @@ import type { ZodType } from 'zod';
 import { COMPANIES } from '../data/companies.ts';
 import { DATASETS } from '../data/datasets.ts';
 import { METHODS } from '../data/methods.ts';
+import { ROUNDS } from '../data/rounds.ts';
 import { TELEOP_RIGS } from '../data/teleop-rigs.ts';
 import { companySchema } from '../data/schemas/company.ts';
 import { datasetSchema } from '../data/schemas/dataset.ts';
 import { methodSchema } from '../data/schemas/method.ts';
+import { fundingEventSchema } from '../data/schemas/round.ts';
 import { teleopRigSchema } from '../data/schemas/teleop-rig.ts';
 import { MILESTONES } from './bear-case.ts';
 import { milestonesSchema } from './bear-case-schema.ts';
@@ -57,6 +59,7 @@ const CLIENT_REGISTRIES: readonly RegistryCheck[] = [
     schema: companySchema.array(),
   },
   { name: 'lib/bear-case.ts MILESTONES', rows: MILESTONES, schema: milestonesSchema },
+  { name: 'data/rounds.ts ROUNDS', rows: ROUNDS, schema: fundingEventSchema.array() },
 ];
 
 let validated = false;
