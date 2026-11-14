@@ -4,8 +4,9 @@
  * scale, the figure's headline and text description, and source labels.
  * Every count the page states is computed here from the rows.
  */
-import { DELIVERY_GAPS, DEVELOPMENTS, DEVELOPMENTS_FROM, NOW_AS_OF } from '../data/now.ts';
-import type { Cited, DeliveryGap, Development } from '../data/now.ts';
+import { DELIVERY_GAPS, DEVELOPMENTS, DEVELOPMENTS_FROM, NOW_AS_OF, TRAJECTORIES } from '../data/now.ts';
+import type { Cited, DeliveryGap, Development, Trajectory } from '../data/now.ts';
+import type { StatedEnd } from '../data/schemas/now.ts';
 import { NOW_ARGUMENTS, OPEN_QUESTIONS } from '../data/now-debates.ts';
 import type { NowArgument, OpenQuestion } from '../data/now-debates.ts';
 import { formatLongDate } from './dates.ts';
@@ -94,12 +95,22 @@ export function trajectoryDescription(rows: readonly ResolvedTrajectory[] = reso
   return `Of ${rows.length} measures, ${up} rose and ${down} fell from the earlier value to the latest value: ${ends}.`;
 }
 
+export type EndNote = NonNullable<StatedEnd['note']>;
+
+/** A stated end's note: a second page's reading of that end, shown beside it. */
+export function endNote(rowId: string, which: 'earlier' | 'later', rows: readonly Trajectory[] = TRAJECTORIES): EndNote | null {
+  const end = rows.find((row) => row.id === rowId)?.[which];
+  return end?.basis === 'stated' ? (end.note ?? null) : null;
+}
+
 /** Every page a trajectory rests on, once each, in order of first use. */
 export function trajectorySources(row: ResolvedTrajectory): Cited[] {
+  const notes = [endNote(row.id, 'earlier'), endNote(row.id, 'later')].filter((note) => note !== null);
   const cited: Cited[] = [
     ...row.earlier.sources,
     ...row.later.sources,
     ...row.alongside.flatMap((end) => end.sources),
+    ...notes,
     ...(row.ratio ? [row.ratio] : []),
     ...(row.note ? [row.note] : []),
   ];
@@ -135,6 +146,11 @@ export function questionsWithArguments(
 /** Does any source of a development rest on a report rather than its own page? */
 export function developmentReported(row: Development): boolean {
   return row.sourceType === 'reported' || (row.alsoCited ?? []).some((cited) => cited.sourceType === 'reported');
+}
+
+/** The pages a gap rests on, once each: the headline's, then the delivered side's. */
+export function gapSources(gap: DeliveryGap): Cited[] {
+  return uniqueByUrl([gap.promised, gap.delivered]);
 }
 
 export function gapReported(gap: DeliveryGap): boolean {
