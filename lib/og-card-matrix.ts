@@ -28,6 +28,7 @@ export const SITE_CARD_DESTINATIONS = [
   '/',
   '/a-z/',
   '/market-map/',
+  '/market-map/rounds/',
   '/playground/',
   '/how-robots-work/',
   '/glossary/',
