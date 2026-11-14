@@ -76,8 +76,10 @@ describe('rounds data', () => {
 
   it('holds the pack rows by kind, less Moove, Tangent, Maven and the Genrobot Series A', () => {
     // Pack: 147 rounds and 15 reported, 7 listings, 14 corporate events,
-    // 11 earlier UK and Europe rows, 4 investor and 4 context rows.
-    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 4);
+    // 11 earlier UK and Europe rows, 4 investor and 4 context rows. CMR
+    // Surgical's round is agreed, not closed, so it moves to announced.
+    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 4 - 1);
+    expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(1);
     expect(ROUNDS.filter((r) => r.status === 'unconfirmed')).toHaveLength(4);
     expect(ROUNDS.filter((r) => r.status === 'talks')).toHaveLength(11);
     expect(LISTINGS).toHaveLength(7);
@@ -176,8 +178,10 @@ describe('rounds data', () => {
     expect(fundingEventSchema.safeParse(both).success).toBe(false);
   });
 
-  it('keeps announced only on listings and the earlier rows closed', () => {
-    for (const row of ROUNDS) expect(row.status, row.key).not.toBe('announced');
+  it('keeps announced to listings and the agreed CMR investment, and the earlier rows closed', () => {
+    expect(ROUNDS.filter((r) => r.status === 'announced').map((r) => r.key)).toEqual([
+      'cmr-surgical-stryker-2026-10-12',
+    ]);
     for (const row of UK_EUROPE_2026_EARLIER) expect(row.status, row.key).toBe('closed');
     for (const row of LISTINGS) expect(['closed', 'announced']).toContain(row.status);
   });
@@ -286,10 +290,12 @@ describe('totals', () => {
     // The pack states USD 15.48B (15,478.2M) for closed USD rounds in the window.
     // Left out here: Moove, USD 250M (its source page gives another date),
     // Tangent Robotics, 4.5M (its release states no currency) and Maven
-    // Robotics, 100M. The Genrobot Series A
-    // also left out has no amount.
+    // Robotics, 100M. The Genrobot Series A also left out has no amount.
+    // CMR Surgical's approximately 400M is agreed, not closed.
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
-    expect(total(usdOnly)).toBe(15_478_200_000 - 250_000_000 - 4_500_000 - 100_000_000);
+    expect(total(usdOnly)).toBe(
+      15_478_200_000 - 250_000_000 - 4_500_000 - 100_000_000 - 400_000_000,
+    );
   });
 
   it('counts statuses, reported sources and size bands from the same rows', () => {
@@ -348,7 +354,7 @@ describe('UK and Europe', () => {
     expect(keys.has('emulate-talks-2026-09-17')).toBe(false);
   });
 
-  it('finds the 16 UK rounds of the window the pack names', () => {
+  it('finds the UK rounds of the window the pack names, less the agreed CMR investment', () => {
     const uk = closedRoundsInWindow()
       .filter((r) => r.country === 'GB')
       .map((r) => r.key.replace(/-2026.*$/, ''))
@@ -358,7 +364,6 @@ describe('UK and Europe', () => {
         'bioliberty',
         'cambridge-aerospace',
         'cloudnc',
-        'cmr-surgical-stryker',
         'danu',
         'extend-robotics',
         'humanoid',
