@@ -56,6 +56,10 @@
       "published": "2026-08-09T21:01:27+02:00",
       "modified": "2026-11-15T00:03:25+08:00"
     },
+    "data-hardware/data-market": {
+      "published": "2026-11-14T20:02:42Z",
+      "modified": "2026-11-14T20:02:42Z"
+    },
     "data-hardware/datasets": {
       "published": "2026-08-09T21:01:27+02:00",
       "modified": "2026-11-15T00:03:25+08:00"
@@ -70,7 +74,7 @@
     },
     "data-hardware/industrial-deployment": {
       "published": "2026-08-22T23:06:38+02:00",
-      "modified": "2026-11-14T19:31:32Z"
+      "modified": "2026-11-15T04:02:37+08:00"
     },
     "data-hardware/robot-learning-stack": {
       "published": "2026-09-24T21:27:51+02:00",
@@ -98,7 +102,7 @@
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T18:33:06+02:00",
-      "modified": "2026-11-14T19:31:32Z"
+      "modified": "2026-11-15T04:02:37+08:00"
     },
     "frontier/safety-and-assurance": {
       "published": "2026-08-22T23:06:38+02:00",
@@ -231,28 +235,28 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-14T19:31:32Z"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/manipulation/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/classical/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/rl-sim2real/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/world-models/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/frontier/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/data-hardware/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/adjacent/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/market-map/": {
       "modified": "2026-11-15T03:31:23+08:00"
@@ -264,7 +268,7 @@
       "modified": "2026-11-13T13:50:10+08:00"
     },
     "/glossary/": {
-      "modified": "2026-11-14T23:18:44+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/credits/": {
       "modified": "2026-11-15T03:31:23+08:00"
@@ -273,10 +277,10 @@
       "modified": "2026-11-13T11:01:06+08:00"
     },
     "/about/": {
-      "modified": "2026-11-13T13:50:10+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     },
     "/a-z/": {
-      "modified": "2026-11-14T23:18:44+08:00"
+      "modified": "2026-11-14T20:02:42Z"
     }
   }
 }
