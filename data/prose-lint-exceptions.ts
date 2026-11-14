@@ -28,6 +28,17 @@ import type { QuotationException } from '../lib/prose-lint.ts';
 
 export const PROSE_LINT_EXCEPTIONS: QuotationException[] = [
   {
+    id: 'keerthanpg-2120215927820357727',
+    quote:
+      'As a researcher it is quite surreal to see robotics go from not working at all, to inventing VLAs, to now real-world usage across the world — quite some way in just the last few years.',
+    reason:
+      "Keerthana Gopalakrishnan's own sentence, quoted verbatim on /now/ under the argument on what counts as a deployment. The em dash is her punctuation, not our prose; a quote is never reworded.",
+    verifiedBy:
+      'The post at x.com/keerthanpg/status/2120215927820357727, read through the api.fxtwitter.com mirror of its text, has U+2014 exactly where the registry entry has it.',
+    verifiedOn: '2026-11-14',
+    sourceUrl: 'https://x.com/keerthanpg/status/2120215927820357727',
+  },
+  {
     id: 'hogan-1985',
     quote:
       'Impedance Control: An Approach to Manipulation: Part I—Theory',

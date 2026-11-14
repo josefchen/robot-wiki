@@ -112,6 +112,7 @@ export interface ValidateContentOptions {
 // DOMAINS, so adding a domain to the taxonomy can never desynchronise the
 // prebuild validator's allowlist.
 const DEFAULT_STATIC_ROUTES = [
+  '/now',
   '/',
   '/search',
   '/market-map',

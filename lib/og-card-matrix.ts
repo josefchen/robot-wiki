@@ -24,6 +24,7 @@ export type OgMatrix = {
 
 /** Every route that is not an article shares the site card. */
 export const SITE_CARD_DESTINATIONS = [
+  '/now/',
   '/',
   '/a-z/',
   '/market-map/',
