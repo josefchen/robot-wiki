@@ -12,11 +12,14 @@ import {
   ROUNDS_PAGE_PATH,
   ROUNDS_PAGE_SECTIONS,
   ROUNDS_PAGE_TITLE,
+  COVERAGE_OMISSION,
+  coverageText,
   formatTotalUsd,
   investorRows,
   monthCells,
   roundAnchor,
   roundsLeadSentence,
+  sourceHost,
 } from '@/lib/rounds-page';
 
 afterEach(cleanup);
@@ -164,6 +167,29 @@ describe('/market-map/rounds/ page', () => {
       expect(marks.includes(round.status), round.key).toBe(round.status !== 'closed');
       expect(marks.includes('lead unconfirmed'), round.key).toBe(Boolean(round.leadUnconfirmed));
     }
+  });
+
+  it('prints an unconfirmed lead with no name as "lead unconfirmed" alone', () => {
+    const container = renderPage();
+    const rows = bodyRows(container, 'rounds-table-caption');
+    const leadsColumn = 4;
+    const unnamed = roundsInWindow().filter((r) => r.leadInvestors.length === 0);
+    expect(unnamed.some((r) => r.leadUnconfirmed)).toBe(true);
+    for (const [i, round] of roundsInWindow().entries()) {
+      if (round.leadInvestors.length > 0) continue;
+      const cell = rows[i].cells[leadsColumn].textContent;
+      expect(cell, round.key).toBe(round.leadUnconfirmed ? 'lead unconfirmed' : 'none named');
+    }
+  });
+
+  it('names the known miss in the coverage paragraph and links its source', () => {
+    const container = renderPage();
+    const paragraph = container.querySelector('[data-coverage]')!;
+    const { beforeLink, afterLink } = coverageText();
+    expect(paragraph.textContent).toContain(`${beforeLink} (${sourceHost(COVERAGE_OMISSION.sourceUrl)})${afterLink}`);
+    const link = paragraph.querySelector('a[data-source-link]')!;
+    expect(link).toHaveAttribute('href', COVERAGE_OMISSION.sourceUrl);
+    expect(link).toHaveAttribute('rel', 'noopener');
   });
 
   it('mounts the figure, whose registered description now renders here', () => {

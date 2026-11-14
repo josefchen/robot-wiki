@@ -94,8 +94,17 @@ function RoundRow({ round, anchored }: { round: FundingEvent; anchored: boolean 
       <TextCell>{round.round}</TextCell>
       <TextCell>{round.valuation}</TextCell>
       <td className={cx(LEADS_WIDTH, round.leadInvestors.length > 0 ? 'text-text' : 'text-[13px] text-text-dim')}>
-        {leadsText(round)}
-        {round.leadUnconfirmed ? <Mark>lead unconfirmed</Mark> : null}
+        {round.leadUnconfirmed && round.leadInvestors.length === 0 ? (
+          // No named lead and an unconfirmed one: say so once, not "none named" beside it.
+          <span data-mark="lead unconfirmed" className="whitespace-nowrap font-mono text-[12px]">
+            lead unconfirmed
+          </span>
+        ) : (
+          <>
+            {leadsText(round)}
+            {round.leadUnconfirmed ? <Mark>lead unconfirmed</Mark> : null}
+          </>
+        )}
       </td>
       <td className={cx(NOTES_WIDTH, 'text-text')}>
         {round.whatTheyBuild === 'not disclosed' ? (

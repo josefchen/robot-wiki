@@ -1,5 +1,6 @@
 import {
   contextSentence,
+  COVERAGE_OMISSION,
   coverageText,
   formatTotalUsd,
   headlineFacts,
@@ -19,6 +20,7 @@ import { Mark, SourceLink } from './rounds-cells';
 export function RoundsHeadline() {
   const facts = headlineFacts();
   const text = headlineText(facts);
+  const coverage = coverageText();
   return (
     <div data-testid="rounds-headline" className="mt-10 max-w-[48rem]">
       <dl className="grid gap-x-12 gap-y-5 sm:grid-cols-[auto_minmax(0,1fr)]">
@@ -37,8 +39,10 @@ export function RoundsHeadline() {
           <dd className="mt-2 max-w-[22rem] font-sans text-[14px] leading-[1.5] text-text-dim">{text.full}</dd>
         </div>
       </dl>
-      <p className="mt-6 max-w-[40rem] font-sans text-[15px] leading-[1.6] text-text">
-        {text.reported} {coverageText()}
+      <p data-coverage="" className="mt-6 max-w-[40rem] font-sans text-[15px] leading-[1.6] text-text">
+        {text.reported} {coverage.beforeLink} (
+        <SourceLink url={COVERAGE_OMISSION.sourceUrl} title={COVERAGE_OMISSION.sourceTitle} />)
+        {coverage.afterLink}
       </p>
     </div>
   );
