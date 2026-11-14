@@ -399,6 +399,27 @@ describe('validateContent imagery check', () => {
     ).toBe(true);
   });
 
+  it('counts a logo looked up by company name as published usage and rejects an unknown logo id', () => {
+    writeArticle('no imagery here');
+    const viaName = validateContent({
+      ...baseOpts(),
+      namedLogos: [{ name: 'nvidia', logo: validEntry.id }],
+    }).filter((issue) => issue.message.toLowerCase().includes('image'));
+    expect(viaName).toEqual([]);
+
+    const unknown = validateContent({
+      ...baseOpts(),
+      namedLogos: [{ name: 'ghost', logo: 'ghost-logo' }],
+    });
+    expect(
+      unknown.some((issue) =>
+        issue.file === 'data/company-logos.ts' &&
+        issue.message.includes('ghost-logo') &&
+        issue.message.includes('not in the image registry'),
+      ),
+    ).toBe(true);
+  });
+
   it('fails on a schema-invalid registry entry, naming the id and the problem', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
     const broken = { ...validEntry, licence: 'made-up-licence' } as unknown as SiteImage;

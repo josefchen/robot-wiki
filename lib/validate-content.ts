@@ -44,6 +44,8 @@
  *      rendered set, and /credits cannot drift apart. A company.logo id
  *      counts as published usage (the market-map page renders it) and an
  *      unknown logo id fails the same way an unregistered <Image> does.
+ *      A logo the market pages look up by company name
+ *      (data/company-logos.ts) counts the same way.
  *      The id gate scans drafts too (an unknown id should fail before
  *      publish), but only published modules, the static sources, and
  *      company logo fields count as usage: an image referenced only by a
@@ -102,6 +104,12 @@ export interface ValidateContentOptions {
    * id fails the same way an unregistered <Image> does.
    */
   companies?: ReadonlyArray<{ id: string; logo: string | null }>;
+  /**
+   * Logos the market pages look up by company name (data/company-logos.ts).
+   * Each is a published usage of that image-registry id, and an unknown id
+   * fails the same way an unknown company.logo does.
+   */
+  namedLogos?: ReadonlyArray<{ name: string; logo: string }>;
   /** Non-module routes that internal links may target. */
   staticRoutes?: readonly string[];
 }
@@ -502,6 +510,17 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
         );
       } else {
         usedImageIds.add(company.logo);
+      }
+    }
+
+    for (const named of opts.namedLogos ?? []) {
+      if (!imageIds.has(named.logo)) {
+        push(
+          'data/company-logos.ts',
+          `company name "${named.name}" logo "${named.logo}" is not in the image registry`,
+        );
+      } else {
+        usedImageIds.add(named.logo);
       }
     }
 
