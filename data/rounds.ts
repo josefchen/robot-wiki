@@ -306,6 +306,7 @@ export const ROUNDS: readonly FundingEvent[] = [
     whatTheyBuild: 'self-driving truck systems',
     sourceUrl: 'https://asia.nikkei.com/business/startups/japanese-self-driving-truck-venture-t2-raises-30m',
     sourceTitle: 'Japanese self-driving truck venture T2 raises $30m',
+    amountIsApproximate: true,
   },
   {
     key: 'humanoid-2026-07-21',
@@ -836,6 +837,8 @@ export const ROUNDS: readonly FundingEvent[] = [
     whatTheyBuild: 'agricultural robots',
     sourceUrl: 'https://uktech.news/agtech/agtech-robotics-group-versatile-robotx-raises-1m-20260817',
     sourceTitle: 'Agtech robotics group Versatile RobotX raises £1m',
+    amountIsFloor: true,
+    note: 'Reported as more than GBP 1M, equity and grants combined.',
   },
   {
     key: 'dexmal-talks-2026-08-21',
@@ -1356,6 +1359,7 @@ export const ROUNDS: readonly FundingEvent[] = [
     whatTheyBuild: 'laser counter-drone systems (FASTLIGHT)',
     sourceUrl: 'https://tech.eu/2026/09/01/inleap-photonics-raises-eur20m-to-expand-laser-counter-drone-systems',
     sourceTitle: 'INLEAP Photonics raises €20M',
+    amountIsApproximate: true,
   },
   {
     key: 'aitan-2026-09-02',
@@ -1868,6 +1872,8 @@ export const ROUNDS: readonly FundingEvent[] = [
     whatTheyBuild: 'autonomous drones and mission control software',
     sourceUrl: 'https://roboticsroundup.substack.com/p/robotics-roundup-34-october-2026',
     sourceTitle: 'Robotics Roundup #34: October 2026 (F-Prime Capital)',
+    amountIsFloor: true,
+    note: 'Reported as more than EUR 28M.',
   },
   {
     key: 'buntar-2026-10',
@@ -2024,6 +2030,7 @@ export const ROUNDS: readonly FundingEvent[] = [
     whatTheyBuild: 'safety hardware and software for robots',
     sourceUrl: 'https://roboticsroundup.substack.com/p/robotics-roundup-34-october-2026',
     sourceTitle: 'Robotics Roundup #34: October 2026 (F-Prime Capital)',
+    amountIsApproximate: true,
   },
   {
     key: 'multiply-labs-2026-10',
@@ -3715,6 +3722,8 @@ export const UK_EUROPE_2026_EARLIER: readonly FundingEvent[] = [
     whatTheyBuild: 'dexterous fruit-harvesting robots',
     sourceUrl: 'https://dogtooth.tech/2026/07/08/embodied-ai-pioneer-dogtooth-attracts-14m-funding-to-scale-dexterous-robotic-harvesting-business/',
     sourceTitle: 'Embodied AI pioneer Dogtooth attracts £14M funding',
+    amountIsFloor: true,
+    note: 'The release gives more than GBP 14M.',
   },
 ];
 
