@@ -80,7 +80,7 @@ describe('/market-map/rounds/ page', () => {
     expect(within(section).getAllByRole('link').map(route)).toEqual(
       MARKET_SECTION.pages.filter((p) => p.route !== ROUNDS_PAGE_PATH).map((p) => p.route),
     );
-    expect(route(within(section).getByRole('link', { name: 'Private companies' }))).toBe('/market-map/');
+    expect(route(within(section).getByRole('link', { name: 'Market map' }))).toBe('/market-map/');
   });
 
   it('resolves every in-page anchor to an element', () => {

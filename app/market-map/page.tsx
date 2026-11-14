@@ -12,18 +12,17 @@ import {
   STANDALONE_SEO_TITLES,
 } from '@/lib/seo';
 
-const title = 'Private robotics companies';
-// The route's name in the site navigation, which keys its social title.
-const pageName = 'Market Map';
+const title = 'Market Map';
 
 export const metadata: Metadata = {
   title: STANDALONE_SEO_TITLES.marketMap,
   description: STANDALONE_SEO_DESCRIPTIONS.marketMap,
   // Full card blocks restated: a route-level object replaces the
-  // layout's for the same key (no deep merge). The page name keys the
-  // social title.
-  openGraph: routeOpenGraph(pageName),
-  twitter: routeTwitter(pageName),
+  // layout's for the same key (no deep merge). og:title is the plain
+  // page title so the card matches the rendered h1
+  // instead of the templated '| Robot Wiki' document title.
+  openGraph: routeOpenGraph(title),
+  twitter: routeTwitter(title),
 };
 
 export default function MarketMapPage() {
