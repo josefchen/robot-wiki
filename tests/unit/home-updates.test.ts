@@ -38,6 +38,30 @@ describe('"Latest" on home', () => {
     expect(latestChanges(5)).toHaveLength(5);
   });
 
+  it('dates a change by its UTC day and keeps the note written for that day', () => {
+    // 02:45 on 15 Nov in Singapore is 18:45 on 14 Nov in UTC.
+    const dates = at({ 'frontier/reliability-gap': '2026-11-15T02:45:02+08:00' });
+    const updates: ArticleUpdate[] = [
+      { date: '2026-11-14', domain: 'frontier', slug: 'reliability-gap', note: 'New deployment numbers.' },
+    ];
+    const [first] = latestChanges(1, updates, dates);
+    expect(first).toMatchObject({
+      slug: 'reliability-gap',
+      date: '2026-11-14',
+      note: 'New deployment numbers.',
+    });
+  });
+
+  it('dates no note and no row after today in UTC', () => {
+    const today = new Date().toISOString().slice(0, 10);
+    for (const update of ARTICLE_UPDATES) {
+      expect(update.date <= today, `${update.domain}/${update.slug} ${update.date}`).toBe(true);
+    }
+    for (const change of latestChanges(5)) {
+      expect(change.date <= today, `${change.href} ${change.date}`).toBe(true);
+    }
+  });
+
   it('shows a note that names the latest change, and moves the article to the note\'s date', () => {
     const dates = at({
       'frontier/reliability-gap': '2026-11-01T10:00:00+01:00',

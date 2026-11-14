@@ -11,15 +11,16 @@ import {
   gitModifiedAt,
   gitModifiedAtAny,
   hasUncommittedChange,
-  localIsoTimestamp,
+  utcNow,
 } from '../lib/content-dates-git.ts';
 
-// Rewrites data/content-dates.json from git history. An article or route
-// whose source holds an uncommitted text change is stamped with the current
-// time, so the commit that lands the change and the regenerated file agree to
-// the day; rerun after committing to record the exact commit time.
+// Rewrites data/content-dates.json from git history, every time in UTC. An
+// article or route whose source holds an uncommitted text change is stamped
+// with the current time, so the commit that lands the change and the
+// regenerated file agree to the day; rerun after committing to record the
+// exact commit time.
 const root = process.cwd();
-const now = localIsoTimestamp(new Date());
+const now = utcNow();
 const articles: Record<string, { published: string; modified: string }> = {};
 const routes: Record<string, { modified: string }> = {};
 const pending: string[] = [];

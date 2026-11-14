@@ -8,7 +8,7 @@ import { homeCopyProblems } from './home-copy.ts';
  * "Latest" on home: the articles changed most recently, each with the
  * editor's note on what changed where data/updates.ts has one.
  *
- * An article's date is the day git records for its latest change. A note
+ * An article's date is the UTC day git records for its latest change. A note
  * dated on or after that day names that change, so the article takes the
  * note and its date; an older note described an earlier change and is not
  * shown. An article with no note still appears, dated by git.
