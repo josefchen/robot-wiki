@@ -7,7 +7,7 @@ import { ArticleHeader } from '@/components/article/article-header';
 import { ArticleToc } from '@/components/article/article-toc';
 import { CitationNumbersProvider } from '@/components/article/citation-numbers';
 import { ARTICLE_START_ID, articleOutline } from '@/lib/article-outline';
-import { CorrectionLink } from '@/components/article/correction-link';
+import { ArticleEnd } from '@/components/article/article-end';
 import { MathStylesheet } from '@/components/article/math-stylesheet';
 import { LinkedFrom, SeeAlso } from '@/components/article/article-links';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
@@ -301,7 +301,7 @@ export default async function ModulePage({ params }: { params: Params }) {
       <SeeAlso entries={seeAlsoEntries} />
       <LinkedFrom entries={linkedFromEntries} />
       <References entries={references} />
-      <CorrectionLink articleTitle={entry.title} />
+      <ArticleEnd entry={entry} />
       {/* KaTeX's stylesheet, on the pages that typeset math only. It renders
           no markup: its stylesheet link is hoisted into the head. */}
       {mod.usesMath ? <MathStylesheet /> : null}
