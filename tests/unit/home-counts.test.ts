@@ -4,7 +4,9 @@ import { describe, expect, it } from 'vitest';
 import { CITATIONS, getCitation } from '@/data/citations';
 import { GLOSSARY } from '@/data/glossary';
 import { publishedModules } from '@/data/modules';
+import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '@/data/now';
 import { citedSourceIds, homeCounts } from '@/lib/home-counts';
+import { readableDate } from '@/lib/home-updates';
 import { moduleSource } from '@/lib/module-source';
 
 describe('home counts', () => {
@@ -13,6 +15,15 @@ describe('home counts', () => {
   it('counts published articles and glossary terms from their registries', () => {
     expect(counts.articles).toBe(publishedModules().length);
     expect(counts.glossaryTerms).toBe(GLOSSARY.length);
+  });
+
+  it('counts the developments of Robotics now and takes their first day from the same data', () => {
+    expect(counts.developments).toBe(DEVELOPMENTS.length);
+    expect(counts.developments).toBeGreaterThan(0);
+    expect(counts.developmentsSince).toBe(readableDate(DEVELOPMENTS_FROM));
+    expect(counts.developmentsSince).toMatch(/^\d{1,2} [A-Z][a-z]{2} \d{4}$/);
+    // No development is dated before the day the count is said to start on.
+    for (const row of DEVELOPMENTS) expect(row.date >= DEVELOPMENTS_FROM, row.id).toBe(true);
   });
 
   it('counts each cited source once, and only registered sources', () => {

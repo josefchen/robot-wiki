@@ -12,13 +12,11 @@ import Home from '@/app/page';
 import { EXPLAINER_ORDER } from '@/components/explainers/catalog';
 import { COMPANIES } from '@/data/companies';
 import { HOME_FEATURED_PICKS } from '@/data/home-featured';
+import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '@/data/now';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '@/data/modules';
 import { GLOSSARY } from '@/data/glossary';
 import { citedSourceIds, homeCounts } from '@/lib/home-counts';
-import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '@/data/now';
 import { latestChanges, readableDate } from '@/lib/home-updates';
-import { latestDevelopments } from '@/lib/now';
-import { sourceHost } from '@/lib/now-page';
 import {
   CONTENT_CORRECTION_URL,
   PUBLIC_DESCRIPTOR,
@@ -37,7 +35,7 @@ function region(name: RegExp) {
 describe('Home page', () => {
   beforeEach(() => mockPush.mockClear());
 
-  it('holds its seven sections in order, each named by its own heading', () => {
+  it('holds its six sections in order, each named by its own heading', () => {
     render(<Home />);
     const main = document.body.firstElementChild as HTMLElement;
     const sections = [...main.querySelectorAll(':scope > section')].map((section) => {
@@ -52,7 +50,6 @@ describe('Home page', () => {
       'Contents',
       'Start here',
       'Also in the wiki',
-      'Robotics now',
       'Latest',
       'How this wiki is made',
     ]);
@@ -164,11 +161,12 @@ describe('Home page', () => {
     expect(screen.queryByRole('region', { name: /featured article/i })).toBeNull();
   });
 
-  it('names the five parts of the site that are not articles, each a plain link and a line counted from its registry', () => {
+  it('names the six parts of the site that are not articles, each a plain link and a line counted from its registry', () => {
     render(<Home />);
     const also = region(/^also in the wiki$/i);
     const counts = homeCounts();
     const expected = [
+      ['now', 'Robotics now', '/now', `${DEVELOPMENTS.length} developments since ${readableDate(DEVELOPMENTS_FROM)}.`],
       ['how-robots-work', 'How robots work', '/how-robots-work', `${EXPLAINER_ORDER.length} short explainers`],
       ['market-map', 'Market map', '/market-map', `${COMPANIES.length} companies`],
       ['playground', 'Playground', '/playground', 'robot arm'],
@@ -187,38 +185,9 @@ describe('Home page', () => {
     }
     expect(counts.explainers).toBe(EXPLAINER_ORDER.length);
     expect(counts.companies).toBe(COMPANIES.length);
+    expect(counts.developments).toBe(DEVELOPMENTS.length);
+    expect(counts.developmentsSince).toBe(readableDate(DEVELOPMENTS_FROM));
     expect(EXPLAINER_ORDER).toHaveLength(12);
-  });
-
-  it('lists the five newest primary-source developments, each with its date, its sentence and its source, and one link to /now/', () => {
-    render(<Home />);
-    const block = region(/^robotics now$/i);
-    const items = within(block).getAllByRole('listitem');
-    const expected = latestDevelopments(5);
-    expect(expected).toHaveLength(5);
-    expect(items.map((item) => item.getAttribute('data-development'))).toEqual(expected.map((row) => row.id));
-    items.forEach((item, index) => {
-      const row = expected[index];
-      expect(row.sourceType).toBe('primary');
-      const time = item.querySelector('time');
-      expect(time?.getAttribute('datetime')).toBe(row.date);
-      expect(time?.textContent).toBe(readableDate(row.date));
-      expect(item.querySelector('[data-development-text]')?.textContent).toBe(row.what);
-      const links = within(item).getAllByRole('link');
-      expect(links).toHaveLength(1);
-      expect(links[0].getAttribute('href')).toBe(row.sourceUrl);
-      expect(links[0].textContent).toBe(`${sourceHost(row.sourceUrl)}: ${row.sourceTitle}`);
-      expect(links[0].getAttribute('rel')).toContain('noopener');
-    });
-    const dates = expected.map((row) => row.date);
-    expect([...dates].sort().reverse()).toEqual(dates);
-    // One link to the page, on home as a whole, named from the data.
-    const toNow = [...document.querySelectorAll('a')].filter((a) => path(a.getAttribute('href')) === '/now');
-    expect(toNow).toHaveLength(1);
-    expect(block.contains(toNow[0])).toBe(true);
-    expect(toNow[0].textContent).toBe(
-      `All ${DEVELOPMENTS.length} developments since ${readableDate(DEVELOPMENTS_FROM)}`,
-    );
   });
 
   it('lists the five latest changes with readable dates and any editor note', () => {
