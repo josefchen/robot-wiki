@@ -74,17 +74,17 @@ describe('rounds data', () => {
     }
   });
 
-  it('holds the pack rows by kind, less Moove, Tangent, Maven and the Genrobot Series A', () => {
-    // Pack: 147 rounds and 15 reported, 7 listings, 14 corporate events,
-    // 11 earlier UK and Europe rows, 4 investor and 4 context rows. Agreed,
-    // not closed, so announced: CMR Surgical's round and Shield's Series H
-    // (both closed in the pack) and FieldAI's term sheet (unconfirmed in the
-    // pack). Kraken's source dates it to July only, so it leaves the earlier
-    // rows for the July month-only rounds.
+  it('holds the compiled rows by kind, less those left out', () => {
+    // Compiled: 147 closed rounds and 4 unconfirmed, 7 listings, 14 corporate
+    // events, 11 earlier UK and Europe rows, 4 investor and 4 context rows.
+    // Left out: Moove, Tangent, Maven and the Genrobot Series A. Agreed, not
+    // closed, so announced: CMR Surgical's round, Shield's Series H and
+    // FieldAI's term sheet (compiled as unconfirmed). Kraken's source dates it
+    // to July only, so it leaves the earlier rows for the July month-only rounds.
     expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 4 - 2 + 1);
     expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(3);
     expect(ROUNDS.filter((r) => r.status === 'unconfirmed')).toHaveLength(4 - 1);
-    expect(ROUNDS.filter((r) => r.status === 'talks')).toHaveLength(11);
+    expect(ROUNDS.filter((r) => r.status === 'talks')).toHaveLength(9);
     expect(LISTINGS).toHaveLength(7);
     expect(CORPORATE_EVENTS.filter((r) => r.kind === 'acquisition')).toHaveLength(10);
     expect(CORPORATE_EVENTS.filter((r) => r.kind === 'blocked')).toHaveLength(1);
@@ -292,8 +292,8 @@ describe('totals', () => {
     expect(totalRaisedUsd({ strict: true })).toBeCloseTo(totalRaisedUsd() - total(borderline), 2);
   });
 
-  it('matches the pack sum of USD rounds, less the rows left out', () => {
-    // The pack states USD 15.48B (15,478.2M) for closed USD rounds in the window.
+  it('matches the compiled sum of USD rounds, less the rows left out', () => {
+    // The compiled list states USD 15.48B (15,478.2M) for closed USD rounds in the window.
     // Left out here: Moove, USD 250M (its source page gives another date),
     // Tangent Robotics, 4.5M (its release states no currency) and Maven
     // Robotics, 100M. The Genrobot Series A also left out has no amount.
@@ -361,7 +361,7 @@ describe('UK and Europe', () => {
     expect(keys.has('emulate-talks-2026-09-17')).toBe(false);
   });
 
-  it('finds the UK rounds of the window the pack names, less the agreed CMR investment', () => {
+  it('finds the UK rounds of the window, less the agreed CMR investment', () => {
     const uk = closedRoundsInWindow()
       .filter((r) => r.country === 'GB')
       .map((r) => r.key.replace(/-2026.*$/, ''))

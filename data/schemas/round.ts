@@ -3,8 +3,8 @@ import { httpsUrlSchema, slugSchema } from './shared.ts';
 
 /**
  * Records of the funding rounds data (data/rounds.ts): rounds, listings,
- * acquisitions and shutdowns, the earlier 2026 UK and Europe rounds, the
- * Europe investor list and third-party counts.
+ * acquisitions and shutdowns, the earlier 2026 UK and Europe rounds, notes
+ * on four European investors and third-party counts.
  *
  * Amounts stay as announced, in the announced currency; lib/rounds.ts
  * converts. An amount no source states is "not disclosed"; a field that
@@ -178,7 +178,7 @@ export const corporateEventSchema = z
     }
   });
 
-/** One firm on the owner's Europe investor list and what it did in robotics in 2026. */
+/** One European investor and what it did in robotics in 2026. */
 export const investorNoteSchema = z
   .object({
     key: slugSchema,
