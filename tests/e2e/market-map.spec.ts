@@ -109,7 +109,18 @@ test.describe('market map visualization', () => {
     await expect(page.getByRole('heading', { name: /^Components/ })).toContainText(
       String(countWhere((c) => c.segment === 'components-hardware')),
     );
-    await expect(page.getByText(`as of ${formatLongDate(MARKET_MAP_AS_OF)}`, { exact: false })).toBeVisible();
+    // The date shows where it always did, under the filters, and the page
+    // lead now ends on the same date in the same format.
+    const asOf = `as of ${formatLongDate(MARKET_MAP_AS_OF)}`;
+    await expect(page.locator('[data-as-of]')).toBeVisible();
+    await expect(page.locator('[data-as-of]')).toContainText(asOf);
+    const lead = page.locator('header[data-page-header] [data-page-lead]');
+    await expect(lead).toBeVisible();
+    await expect(lead).toHaveText(
+      `${COMPANY_COUNT} companies in six segments, each with its latest round and the sources behind its figures, ${asOf}.`,
+    );
+    // One page in the Market section today, so the header links nowhere.
+    await expect(page.locator('header[data-page-header] a')).toHaveCount(0);
     // At desktop width the six segments sit side by side: every segment
     // heading starts on the same line, so the whole landscape reads at once.
     const tops = await page.locator('[data-segment] > h2').evaluateAll((headings) =>
