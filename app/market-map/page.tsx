@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import { PageHeader } from '@/components/data-page/page-header';
 import { MarketMap } from '@/components/market-map/market-map';
 import { COMPANIES } from '@/data/companies';
+import { MARKET_MAP_AS_OF } from '@/lib/market-map';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { materialAttributes } from '@/lib/site-materials';
+import { MARKET_SECTION } from '@/lib/site-sections';
 import { marketMapJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
@@ -41,16 +44,12 @@ export default function MarketMapPage() {
           instead of the entity row. */}
       {/* The market-map representative surface declares its material. */}
       <div data-pagefind-body {...materialAttributes('paper')} className="material-paper">
-        <h1
-          data-tektur-role="page-h1"
-          className="font-display-page display-h1"
-        >
-          Market Map
-        </h1>
-        <p className="mt-3 max-w-[40rem] font-sans text-[16px] leading-[1.6] text-text">
-          {COMPANIES.length} companies in six segments. Select one for its
-          latest round and the sources behind each figure.
-        </p>
+        <PageHeader
+          title={title}
+          lead={`${COMPANIES.length} companies in six segments, each with its latest round and the sources behind its figures`}
+          asOf={MARKET_MAP_AS_OF}
+          section={{ ...MARKET_SECTION, current: '/market-map/' }}
+        />
       </div>
       <div className="mt-8">
         <MarketMap companies={COMPANIES} />
