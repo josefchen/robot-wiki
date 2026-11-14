@@ -13,6 +13,7 @@ import {
   ROUNDS_PAGE_SECTIONS,
   ROUNDS_PAGE_TITLE,
   COVERAGE_OMISSION,
+  byDateDesc,
   coverageText,
   formatTotalUsd,
   investorRows,
@@ -166,6 +167,22 @@ describe('/market-map/rounds/ page', () => {
       expect(marks.includes('reported'), round.key).toBe(round.sourceType === 'reported');
       expect(marks.includes(round.status), round.key).toBe(round.status !== 'closed');
       expect(marks.includes('lead unconfirmed'), round.key).toBe(Boolean(round.leadUnconfirmed));
+    }
+  });
+
+  it('prints a flagged amount with its word in the rounds and corporate tables', () => {
+    const container = renderPage();
+    const amountCell = (row: HTMLTableRowElement) => row.querySelector('[data-amount]')!.textContent!;
+    const corporate = byDateDesc(CORPORATE_EVENTS);
+    expect(corporate.some((e) => e.amountIsApproximate)).toBe(true);
+    for (const [i, row] of bodyRows(container, 'corporate-caption').entries()) {
+      expect(amountCell(row).startsWith('about '), corporate[i].key).toBe(Boolean(corporate[i].amountIsApproximate));
+    }
+    const rounds = roundsInWindow();
+    expect(rounds.some((r) => r.amountIsFloor)).toBe(true);
+    for (const [i, row] of bodyRows(container, 'rounds-table-caption').entries()) {
+      expect(amountCell(row).startsWith('over '), rounds[i].key).toBe(Boolean(rounds[i].amountIsFloor));
+      expect(amountCell(row).startsWith('about '), rounds[i].key).toBe(Boolean(rounds[i].amountIsApproximate));
     }
   });
 
