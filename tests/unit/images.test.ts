@@ -31,6 +31,7 @@ import { modules } from '@/data/modules';
 import { CITATIONS } from '@/data/citations';
 import { GLOSSARY } from '@/data/glossary';
 import { COMPANIES } from '@/data/companies';
+import { COMPANY_LOGO_IDS } from '@/data/company-logos';
 
 /**
  * Imagery pipeline: the Zod schema is the licence gate, and the validator's
@@ -478,6 +479,7 @@ describe('the shipped registry', () => {
       terms: GLOSSARY,
       images: IMAGES,
       companies: COMPANIES,
+      namedLogos: Object.entries(COMPANY_LOGO_IDS).map(([name, logo]) => ({ name, logo })),
       imageSources: [
         {
           label: 'app/page.tsx',
