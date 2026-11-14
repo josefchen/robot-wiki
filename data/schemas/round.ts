@@ -37,7 +37,7 @@ export const roundSectorSchema = z.enum([
 /**
  * `closed`: the round or listing completed. `unconfirmed`: a close claimed by
  * one unconfirmed source or seen only in a Form D. `talks`: a raise being
- * sought or negotiated. `announced`: a listing agreed but not completed.
+ * sought or negotiated. `announced`: a round or listing agreed but not completed.
  */
 export const roundStatusSchema = z.enum(['closed', 'unconfirmed', 'talks', 'announced']);
 
