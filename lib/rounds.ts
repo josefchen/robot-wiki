@@ -117,11 +117,18 @@ export function dateSpan(event: Pick<FundingEvent, 'date' | 'datePrecision'>): {
   return { first: `${event.date}-01-01`, last: `${event.date}-12-31` };
 }
 
-/** Where a month-only row sits on a time axis: the 15th. Day rows sit on their day. */
-export function plotDate(event: Pick<FundingEvent, 'date' | 'datePrecision'>): string {
+/**
+ * Where a row sits on a time axis. Day rows sit on their day; a month-only row
+ * on the 15th and a year-only row on 1 July, or on the as-of date when that
+ * comes first, so no row plots after the data's last day.
+ */
+export function plotDate(
+  event: Pick<FundingEvent, 'date' | 'datePrecision'>,
+  asOf: string = ROUNDS_AS_OF,
+): string {
   if (event.datePrecision === 'day') return event.date;
-  if (event.datePrecision === 'month') return `${event.date}-15`;
-  return `${event.date}-07-01`;
+  const mid = event.datePrecision === 'month' ? `${event.date}-15` : `${event.date}-07-01`;
+  return mid < asOf ? mid : asOf;
 }
 
 export type WindowMembership = 'in' | 'out' | 'unconfirmed';
