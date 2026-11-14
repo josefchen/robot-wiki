@@ -87,7 +87,7 @@ test.describe('market map visualization', () => {
     const response = await page.goto(ROUTE);
     expect(response?.ok()).toBe(true);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Market Map' }),
+      page.getByRole('heading', { level: 1, name: 'Private robotics companies' }),
     ).toBeVisible();
     await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     await expect(tiles(page)).toHaveCount(COMPANY_COUNT);
@@ -119,8 +119,14 @@ test.describe('market map visualization', () => {
     await expect(lead).toHaveText(
       `${COMPANY_COUNT} companies in six segments, each with its latest disclosed round or status and the sources behind it, ${asOf}.`,
     );
-    // One page in the Market section today, so the header links nowhere.
-    await expect(page.locator('header[data-page-header] a')).toHaveCount(0);
+    // The Market section's two pages: this one marked, the rounds linked.
+    const section = page.getByRole('navigation', { name: 'Market' });
+    await expect(section.locator('[aria-current="page"]')).toHaveText('Private companies');
+    await expect(section.getByRole('link')).toHaveCount(1);
+    await expect(section.getByRole('link', { name: 'Recent rounds' })).toHaveAttribute(
+      'href',
+      '/market-map/rounds/',
+    );
     // At desktop width the six segments sit side by side: every segment
     // heading starts on the same line, so the whole landscape reads at once.
     const tops = await page.locator('[data-segment] > h2').evaluateAll((headings) =>

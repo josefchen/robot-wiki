@@ -59,6 +59,12 @@ export const ROUTE_SOURCES: Readonly<Record<string, readonly string[]>> = {
   '/adjacent/': HUB_SOURCES,
   '/now/': ['app/now/page.tsx', 'data/now.ts', 'data/now-debates.ts'],
   '/market-map/': ['app/market-map/page.tsx', 'data/companies.ts', 'data/logos.ts'],
+  '/market-map/rounds/': [
+    'app/market-map/rounds/page.tsx',
+    'components/rounds',
+    'data/rounds.ts',
+    'data/fx-rates.ts',
+  ],
   '/playground/': ['app/playground/page.tsx'],
   '/how-robots-work/': ['app/how-robots-work/page.tsx', 'components/explainers'],
   '/glossary/': ['app/glossary/page.tsx', 'data/glossary.ts', 'data/citations.ts'],

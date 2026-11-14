@@ -1,11 +1,15 @@
 import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import RecentRoundsPage, { metadata } from '@/app/market-map/rounds/page';
+import sitemap from '@/app/sitemap';
 import { CORPORATE_EVENTS, EUROPE_INVESTORS, LISTINGS, ROUNDS_AS_OF } from '@/data/rounds';
 import { CHART_DESCRIPTIONS } from '@/lib/chart-descriptions';
 import { formatLongDate } from '@/lib/dates';
 import { monthUnconfirmedRounds, roundsInWindow, totalRaisedUsd, ukAndEuropeRounds } from '@/lib/rounds';
+import { SITE_URL } from '@/lib/site';
+import { MARKET_SECTION } from '@/lib/site-sections';
 import {
+  ROUNDS_PAGE_PATH,
   ROUNDS_PAGE_SECTIONS,
   ROUNDS_PAGE_TITLE,
   formatTotalUsd,
@@ -39,12 +43,17 @@ const TABLES: [string, number][] = [
 ];
 
 describe('/market-map/rounds/ page', () => {
-  it('opens with the title, a lead that ends on the as-of date, and links to every section', () => {
+  it('opens with the shared header: title, lead ending on the as-of date, and links to every section', () => {
     const container = renderPage();
-    expect(screen.getByRole('heading', { level: 1, name: ROUNDS_PAGE_TITLE })).toBeInTheDocument();
-    const lead = screen.getByText(roundsLeadSentence());
-    expect(lead.textContent!.endsWith(`${formatLongDate(ROUNDS_AS_OF)}.`)).toBe(true);
-    const nav = screen.getByRole('navigation', { name: 'On this page' });
+    const header = container.querySelector<HTMLElement>('header[data-page-header]')!;
+    const title = within(header).getByRole('heading', { level: 1, name: ROUNDS_PAGE_TITLE });
+    expect(header.firstElementChild).toBe(title);
+    expect(header.querySelector('[data-page-lead]')!.textContent).toBe(
+      `${roundsLeadSentence()}, as of ${formatLongDate(ROUNDS_AS_OF)}.`,
+    );
+    expect(header.parentElement).toHaveAttribute('data-pagefind-body');
+    expect(container.querySelectorAll('h1')).toHaveLength(1);
+    const nav = within(header).getByRole('navigation', { name: 'On this page' });
     const hrefs = within(nav)
       .getAllByRole('link')
       .map((a) => a.getAttribute('href'));
@@ -56,6 +65,22 @@ describe('/market-map/rounds/ page', () => {
         within(target as HTMLElement).getByRole('heading', { level: 2, name: section.label }),
       ).toBeInTheDocument();
     }
+  });
+
+  it('marks itself current in the Market section and links every other page of it', () => {
+    const container = renderPage();
+    const header = container.querySelector<HTMLElement>('header[data-page-header]')!;
+    const section = within(header).getByRole('navigation', { name: MARKET_SECTION.label });
+    expect(within(section).getAllByRole('listitem')).toHaveLength(MARKET_SECTION.pages.length);
+    const marked = section.querySelector('[aria-current="page"]')!;
+    expect(marked.tagName).toBe('SPAN');
+    expect(marked.textContent).toBe('Recent rounds');
+    // next/link drops the trailing slash outside the app's config.
+    const route = (a: Element) => (a.getAttribute('href') ?? '').replace(/\/?$/, '/');
+    expect(within(section).getAllByRole('link').map(route)).toEqual(
+      MARKET_SECTION.pages.filter((p) => p.route !== ROUNDS_PAGE_PATH).map((p) => p.route),
+    );
+    expect(route(within(section).getByRole('link', { name: 'Private companies' }))).toBe('/market-map/');
   });
 
   it('resolves every in-page anchor to an element', () => {
@@ -148,8 +173,9 @@ describe('/market-map/rounds/ page', () => {
     expect(screen.getByText(entry.text)).toBeInTheDocument();
   });
 
-  it('stays out of search until the page has its sitemap line, and shares its h1 as og:title', () => {
-    expect(metadata.robots).toEqual({ index: false, follow: true });
+  it('is indexable, listed in the sitemap, and shares its h1 as og:title', () => {
+    expect(metadata.robots).toBeUndefined();
+    expect(sitemap().map((entry) => entry.url)).toContain(`${SITE_URL}${ROUNDS_PAGE_PATH}`);
     expect((metadata.openGraph as { title: string }).title).toBe(ROUNDS_PAGE_TITLE);
   });
 });
