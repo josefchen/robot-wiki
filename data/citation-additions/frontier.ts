@@ -205,6 +205,26 @@ export const ADDITIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against arXiv v3 (2026-11-14): N0-VTLA post-trained on 50
+    // teleoperated demonstrations per task, with and without TouchScale
+    // mid-training; four real contact-rich tasks, 20 trials each; average
+    // success 22.5% without mid-training, 57.5% with it.
+    id: 'touchscale-2026',
+    title: 'TouchScale: 500 Hours of Human Vision and Touch for Visual-Tactile Learning',
+    authors: [
+      'Dayou Li', 'Hao Wang', 'Qianqian Yang', 'Zihao Zhu', 'Haoquan Fang', 'Ziyao Zeng', 'Yan Han',
+      'Zihan Wang', 'Yan Wang', 'Baoru Huang', 'Dilin Wang', 'Kenji Shimada', 'Yiyue Luo',
+      'Manling Li', 'Teresa Lv', 'Mustafa Mukadam', 'Rakesh Ranjan', 'Ruohan Zhang', 'Qi He',
+      'Changliu Liu', 'Xu Chen', 'Marco Pavone', 'Bangya Liu', 'Jiachen Li', 'Masayoshi Tomizuka',
+      'Zhiwen Fan',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.10288',
+    url: 'https://arxiv.org/abs/2610.10288',
+    type: 'paper',
+  },
+  {
     // Verified against the live page (2026-11-14): "The STF contains 17
     // taxels each providing a 3D response, sensitive to both normal and
     // tangential forces from about 0.2N to 20N"; the comparison table lists
