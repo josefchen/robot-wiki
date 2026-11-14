@@ -286,7 +286,7 @@ describe('totals', () => {
     // The pack states USD 15.48B (15,478.2M) for closed USD rounds in the window.
     // Left out here: Moove, USD 250M (its source page gives another date),
     // Tangent Robotics, 4.5M (its release states no currency) and Maven
-    // Robotics, 100M (its release could not be opened). The Genrobot Series A
+    // Robotics, 100M. The Genrobot Series A
     // also left out has no amount.
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
     expect(total(usdOnly)).toBe(15_478_200_000 - 250_000_000 - 4_500_000 - 100_000_000);
