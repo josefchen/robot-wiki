@@ -54,9 +54,9 @@ export default function AboutPage() {
           Robot Wiki covers modern robot learning, from{' '}
           {DOMAIN_META.manipulation.name} and{' '}
           {DOMAIN_META['world-models'].name} to the{' '}
-          {DOMAIN_META.classical.name} underneath. The Market Map and Robotics
-          now record the industry as data, each row sourced; the wiki excludes
-          investment advice.
+          {DOMAIN_META.classical.name} underneath. The Market Map and the
+          Robotics now page record the industry as sourced data; investment
+          advice is out of scope.
         </p>
       </header>
 
