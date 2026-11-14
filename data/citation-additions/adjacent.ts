@@ -180,8 +180,7 @@ export const ADDITIONS: Citation[] = [
   {
     // Abstract page (v1, 11 Nov 2026) read 2026-11-14: "built entirely from purchasable parts for
     // about USD 137,000"; two UR5e arms hold da Vinci X/Xi instruments, a UR5 holds the endoscope.
-    // No arXiv HTML; the authors' docs/bom/bom.csv (github.com/MRE-Lab-UMD/arts) sums to about
-    // USD 136,000 before its unpriced rows, with each UR5e at a quoted USD 30,000.
+    // The authors' docs/bom/bom.csv (github.com/MRE-Lab-UMD/arts) quotes each UR5e at USD 30,000.
     id: 'arts-surgical-platform-2026',
     title: 'ARTS: An Open-Source, Reproducible Three-Arm Platform for Autonomy Research in Minimally Invasive Surgery',
     authors: [
