@@ -440,4 +440,17 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.41857',
     type: 'paper',
   },
+  // arXiv HTML, 2610.03137v1 submitted 2026-10-02, fetched 2026-11-14: Table 1, SLIM trial mean 0.003 for plain LeWM
+  // (0.98 on PushT at the trained horizon) against 0.348 with the inverse-dynamics loss; abstract, "its latent is
+  // nearly action-insensitive" and the loss "raises success from 0.003 to 0.35".
+  {
+    id: 'jepa-plannable-2026',
+    title: 'Keeping JEPA World Models Plannable When Little of the Frame Moves',
+    authors: ['Florian Strohm', 'Patrick Wagner', 'Jannik Schwab', 'Marco Huber'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.03137',
+    url: 'https://arxiv.org/abs/2610.03137',
+    type: 'paper',
+  },
 ];
