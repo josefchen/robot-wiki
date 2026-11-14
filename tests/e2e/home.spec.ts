@@ -380,8 +380,9 @@ test.describe('home page', () => {
       if (stop.where !== 'chrome' && stop.where !== 'Introduction' && stop.where !== 'contents') break;
     }
     const inMain = stops.filter(({ where }) => where !== 'chrome');
-    // The chrome comes first and is short: the skip link and the top bar.
-    expect(stops.findIndex(({ where }) => where !== 'chrome')).toBeLessThanOrEqual(5);
+    // The chrome comes first and is short: the skip link, the wordmark and
+    // the top bar's four entries.
+    expect(stops.findIndex(({ where }) => where !== 'chrome')).toBe(6);
     // Then the search box and its button, and nothing else in the introduction.
     expect(inMain.slice(0, 2).map(({ where, id }) => `${where}:${id}`)).toEqual([
       'Introduction:home-search-input',
