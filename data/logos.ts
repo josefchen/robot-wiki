@@ -5,7 +5,9 @@
  * would ship the whole image registry (article photographs included) into
  * that chunk. This module carries only the fields the mark needs: file path
  * and intrinsic size. Provenance stays in data/logo-images.ts and is
- * concatenated into IMAGES for /credits and the validator.
+ * concatenated into IMAGES for /credits and the validator. Marks no
+ * published page draws yet (PENDING_LOGO_IMAGES) are listed here too and
+ * stay out of IMAGES until one does.
  */
 export type CompanyLogoAsset = {
   file: string;
@@ -150,7 +152,6 @@ const COMPANY_LOGOS: Record<string, CompanyLogoAsset> = {
   'kodiak-logo': { file: '/images/logos/kodiak.svg', width: 250, height: 60 },
   'mobileye-logo': { file: '/images/logos/mobileye.svg', width: 160, height: 31 },
   'ehang-logo': { file: '/images/logos/ehang.png', width: 153, height: 18 },
-  'aerovironment-logo': { file: '/images/logos/aerovironment.png', width: 452, height: 119 },
   'kratos-logo': { file: '/images/logos/kratos.png', width: 4320, height: 4320 },
   'red-cat-logo': { file: '/images/logos/red-cat.png', width: 232, height: 68 },
   'ondas-logo': { file: '/images/logos/ondas.png', width: 164, height: 24 },
@@ -170,7 +171,6 @@ const COMPANY_LOGOS: Record<string, CompanyLogoAsset> = {
   'softbank-group-logo': { file: '/images/logos/softbank-group.svg', width: 157, height: 37 },
   'cyberdyne-logo': { file: '/images/logos/cyberdyne.svg', width: 180, height: 40 },
   'doosan-robotics-logo': { file: '/images/logos/doosan-robotics.svg', width: 127, height: 18 },
-  'hyundai-logo': { file: '/images/logos/hyundai.svg', width: 39, height: 20 },
   'samsung-logo': { file: '/images/logos/samsung.svg', width: 130, height: 29 },
   'yujin-robot-logo': { file: '/images/logos/yujin-robot.png', width: 258, height: 86 },
   'neuromeka-logo': { file: '/images/logos/neuromeka.png', width: 418, height: 60 },
@@ -178,7 +178,6 @@ const COMPANY_LOGOS: Record<string, CompanyLogoAsset> = {
   'clobot-logo': { file: '/images/logos/clobot.png', width: 468, height: 105 },
   'spg-logo': { file: '/images/logos/spg.png', width: 328, height: 160 },
   'hiwin-logo': { file: '/images/logos/hiwin.svg', width: 122, height: 24 },
-  'techman-robot-logo': { file: '/images/logos/techman-robot.png', width: 106, height: 64 },
   'roborock-logo': { file: '/images/logos/roborock.svg', width: 105, height: 15 },
   'ecovacs-logo': { file: '/images/logos/ecovacs.png', width: 176, height: 50 },
   'tinavi-logo': { file: '/images/logos/tinavi.png', width: 139, height: 30 },
@@ -233,7 +232,6 @@ const COMPANY_LOGOS: Record<string, CompanyLogoAsset> = {
   'swarmer-logo': { file: '/images/logos/swarmer.svg', width: 131, height: 20 },
   'amc-robotics-logo': { file: '/images/logos/amc-robotics.png', width: 840, height: 210 },
   'kaierda-logo': { file: '/images/logos/kaierda.png', width: 142, height: 52 },
-  'yunji-logo': { file: '/images/logos/yunji.png', width: 881, height: 152 },
   'edge-medical-logo': { file: '/images/logos/edge-medical.svg', width: 842, height: 317 },
   'eacon-logo': { file: '/images/logos/eacon.png', width: 1949, height: 198 },
   'excelland-robotics-logo': { file: '/images/logos/excelland-robotics.svg', width: 131, height: 33 },

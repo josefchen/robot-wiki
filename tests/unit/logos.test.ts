@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { COMPANIES } from '@/data/companies';
 import { COMPANY_LOGO_IDS } from '@/data/company-logos';
 import { IMAGES } from '@/data/images';
-import { LOGO_IMAGES } from '@/data/logo-images';
+import { LOGO_IMAGES, PENDING_LOGO_IMAGES } from '@/data/logo-images';
 import { companyLogoIds, getCompanyLogo } from '@/data/logos';
 
 /**
@@ -17,18 +17,20 @@ import { companyLogoIds, getCompanyLogo } from '@/data/logos';
 const repoRoot = join(import.meta.dirname, '../..');
 
 describe('market-map logo lookup', () => {
-  it('stays in lockstep with logo-images.ts and IMAGES', () => {
+  it('stays in lockstep with logo-images.ts and IMAGES, with pending marks kept out of IMAGES', () => {
     const slimIds = companyLogoIds().sort();
     const logoIds = LOGO_IMAGES.map((image) => image.id).sort();
+    const pendingIds = PENDING_LOGO_IMAGES.map((image) => image.id).sort();
     const imageLogoIds = IMAGES.filter((image) =>
       image.file.startsWith('/images/logos/'),
     )
       .map((image) => image.id)
       .sort();
-    expect(slimIds).toEqual(logoIds);
-    expect(slimIds).toEqual(imageLogoIds);
+    expect(slimIds).toEqual([...logoIds, ...pendingIds].sort());
+    expect(imageLogoIds).toEqual(logoIds);
+    for (const id of pendingIds) expect(logoIds, id).not.toContain(id);
 
-    for (const image of LOGO_IMAGES) {
+    for (const image of [...LOGO_IMAGES, ...PENDING_LOGO_IMAGES]) {
       expect(getCompanyLogo(image.id)).toEqual({
         file: image.file,
         width: image.width,

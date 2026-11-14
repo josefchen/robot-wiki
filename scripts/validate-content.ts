@@ -14,7 +14,6 @@ import { findProseCitationYearDisagreements } from '../lib/prose-citation-years.
 import { GLOSSARY } from '../data/glossary.ts';
 import { IMAGES } from '../data/images.ts';
 import { COMPANIES } from '../data/companies.ts';
-import { COMPANY_LOGO_IDS } from '../data/company-logos.ts';
 import { companySegmentSchema } from '../data/schemas/company.ts';
 import { companyPopulationIssues } from '../lib/company-population.ts';
 import { roundSourceMembershipIssues } from '../lib/company-source-provenance.ts';
@@ -31,7 +30,6 @@ const issues = validateContent({
   terms: GLOSSARY,
   images: IMAGES,
   companies: COMPANIES,
-  namedLogos: Object.entries(COMPANY_LOGO_IDS).map(([name, logo]) => ({ name, logo })),
   // The home page is tsx rather than MDX, so it is scanned for ImageRef
   // usages too and any image it mounts meets the same unregistered-id gate.
   imageSources: [
