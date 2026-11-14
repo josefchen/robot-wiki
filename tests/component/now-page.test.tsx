@@ -3,8 +3,8 @@ import { describe, expect, it } from 'vitest';
 import NowPage from '@/app/now/page';
 import { DELIVERY_GAPS, TRAJECTORIES } from '@/data/now';
 import { NOW_ARGUMENTS } from '@/data/now-debates';
-import { developmentsNewestFirst } from '@/lib/now';
-import { NOW_SECTIONS, questionsWithArguments, standaloneArguments } from '@/lib/now-page';
+import { developmentsNewestFirst, formatGapValue } from '@/lib/now';
+import { NOW_SECTIONS, endNote, gapSources, questionsWithArguments, standaloneArguments } from '@/lib/now-page';
 
 function renderPage() {
   const { container } = render(<NowPage />);
@@ -90,6 +90,58 @@ describe('/now/', () => {
       for (const position of argument.positions) {
         expect(container.querySelectorAll(`[data-position="${position.id}"] q`), position.id).toHaveLength(1);
         expect(container.querySelector(`[data-position="${position.id}"] q`)?.textContent).toBe(position.quote);
+      }
+    }
+  });
+
+  it('prints each position’s side label, role and context from the data, beside its quote', () => {
+    const container = renderPage();
+    for (const argument of NOW_ARGUMENTS) {
+      for (const position of argument.positions) {
+        const cells = [...container.querySelectorAll<HTMLElement>(`[data-position="${position.id}"]`)];
+        const text = cells.map((cell) => cell.textContent).join(' ');
+        expect(text, position.id).toContain(position.side);
+        expect(text, position.id).toContain(position.role);
+        if (position.context) expect(text, position.id).toContain(position.context);
+      }
+    }
+  });
+
+  it('heads the gap table by what each column holds and follows each number with its kind', () => {
+    const container = renderPage();
+    const heads = [...container.querySelectorAll('#announced-against-delivered thead th')].map((th) => th.textContent);
+    expect(heads).toEqual(['Who', 'Headline number', 'Delivered', 'As of', 'Source']);
+    for (const gap of DELIVERY_GAPS) {
+      const row = container.querySelector(`[data-now-row="${gap.id}"]`)!;
+      for (const side of ['promised', 'delivered'] as const) {
+        const cell = row.querySelector(`[data-gap-value="${side}"]`)?.textContent ?? '';
+        const value = formatGapValue(gap, side);
+        const { countKind } = gap[side];
+        const expected =
+          gap[side].value === null ? (countKind === 'milestone' ? countKind : `${countKind}: ${value}`) : `${value} ${countKind}`;
+        expect(cell, `${gap.id} ${side}`).toBe(expected);
+      }
+      expect(row.textContent, gap.id).toContain(gap.unit);
+      expect(row.textContent, gap.id).toContain(gap.promised.what);
+      expect(row.textContent, gap.id).toContain(gap.delivered.what);
+      const links = [...row.querySelectorAll<HTMLAnchorElement>('td.hidden a[data-source-link]')].map((a) => a.getAttribute('href'));
+      expect(links, gap.id).toEqual(gapSources(gap).map((source) => source.sourceUrl));
+    }
+  });
+
+  it('shows a stated end’s note beside that end under How this was made', () => {
+    const container = renderPage();
+    for (const trajectory of TRAJECTORIES) {
+      const method = container.querySelector(`[data-method-row="${trajectory.id}"]`)!;
+      for (const which of ['earlier', 'later'] as const) {
+        const note = endNote(trajectory.id, which);
+        const shown = method.querySelector(`[data-end-note="${which}"]`);
+        if (note) {
+          expect(shown?.textContent, trajectory.id).toContain(note.text);
+          expect(shown?.querySelector('a[data-source-link]')?.getAttribute('href')).toBe(note.sourceUrl);
+        } else {
+          expect(shown, `${trajectory.id} ${which}`).toBeNull();
+        }
       }
     }
   });

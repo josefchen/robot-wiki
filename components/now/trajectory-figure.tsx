@@ -3,6 +3,7 @@ import { FigureFrame, FigureStage, FIGURE_TEXT_CLASS } from '@/components/motion
 import { motionRoleVar } from '@/lib/motion-tokens';
 import type { ResolvedEnd, ResolvedTrajectory } from '@/lib/now';
 import {
+  endNote,
   figureSourceCount,
   trajectoryDescription,
   trajectoryHeadline,
@@ -146,19 +147,29 @@ function TrajectoryRow({ row }: { row: ResolvedTrajectory }) {
 }
 
 function MethodRow({ row }: { row: ResolvedTrajectory }) {
-  const end = (which: 'earlier' | 'later', value: ResolvedEnd) => (
-    <li>
-      {which === 'earlier' ? 'Earlier' : 'Now'}: <span className="font-mono tabular-nums">{value.display}</span>,{' '}
-      {value.period}, {value.label}.{' '}
-      {value.sources.map((source, index) => (
-        <span key={`${source.sourceUrl}-${index}`}>
-          {index > 0 ? '; ' : null}
-          <SourceLink url={source.sourceUrl} title={source.sourceTitle} label={source.sourceTitle} />
-          {source.sourceType === 'reported' ? <> <SourceTypeMark type={source.sourceType} /></> : null}
-        </span>
-      ))}
-    </li>
-  );
+  const end = (which: 'earlier' | 'later', value: ResolvedEnd) => {
+    const note = endNote(row.id, which);
+    return (
+      <li>
+        {which === 'earlier' ? 'Earlier' : 'Now'}: <span className="font-mono tabular-nums">{value.display}</span>,{' '}
+        {value.period}, {value.label}.{' '}
+        {value.sources.map((source, index) => (
+          <span key={`${source.sourceUrl}-${index}`}>
+            {index > 0 ? '; ' : null}
+            <SourceLink url={source.sourceUrl} title={source.sourceTitle} label={source.sourceTitle} />
+            {source.sourceType === 'reported' ? <> <SourceTypeMark type={source.sourceType} /></> : null}
+          </span>
+        ))}
+        {note ? (
+          <span data-end-note={which} className="block">
+            {note.text}:{' '}
+            <SourceLink url={note.sourceUrl} title={note.sourceTitle} label={note.sourceTitle} />
+            {note.sourceType === 'reported' ? <> <SourceTypeMark type={note.sourceType} /></> : null}
+          </span>
+        ) : null}
+      </li>
+    );
+  };
   return (
     <li data-method-row={row.id}>
       <div className="text-text">{row.title}</div>

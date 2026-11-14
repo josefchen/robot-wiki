@@ -10,6 +10,7 @@ import {
   developmentReported,
   formatStatedDate,
   gapReported,
+  gapSources,
   questionReported,
   stated,
 } from '@/lib/now-page';
@@ -188,7 +189,7 @@ function Quote({ position }: { position: Position }) {
 function Positions({ argument }: { argument: NowArgument }) {
   return (
     <div data-linked-argument={argument.id} className="sticky left-0 max-w-[100cqw]">
-      <div className={cx(DIM, 'mb-2')}>{argument.title}: who argues it, in their own words</div>
+      <div className={cx(DIM, 'mb-2')}>{argument.title}, in named people&apos;s words</div>
       <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
         {positionsBySide(argument).flatMap((group) =>
           group.positions.map((position) => (
@@ -309,40 +310,68 @@ export function ArgumentsTable({ rows, labelledBy }: { rows: readonly NowArgumen
   );
 }
 
-function GapSide({ gap, side }: { gap: DeliveryGap; side: 'promised' | 'delivered' }) {
-  const entry = gap[side];
-  const date = side === 'promised' ? gap.promised.said : gap.delivered.asOf;
-  const showValue = entry.value !== null || entry.countKind !== 'milestone';
+/**
+ * A gap figure and what it counts, the kind in grey from the data: "1,079
+ * sold". A side with no figure gives its kind first, "in service: not
+ * disclosed"; a milestone has no figure, only its kind.
+ */
+function GapValue({ gap, side }: { gap: DeliveryGap; side: 'promised' | 'delivered' }) {
+  const { value, countKind } = gap[side];
   return (
-    <>
-      {showValue ? (
-        <span className="block">
-          <span className="text-text-dim">{entry.countKind}: </span>
-          <span className={cx('font-mono tabular-nums', entry.value === null ? 'text-text-dim' : 'text-text')}>
-            {formatGapValue(gap, side)}
-          </span>
+    <span data-gap-value={side} className="block">
+      {value === null ? (
+        <span className="text-text-dim">
+          {countKind}
+          {countKind === 'milestone' ? null : (
+            <>
+              : <span className="font-mono tabular-nums">{formatGapValue(gap, side)}</span>
+            </>
+          )}
         </span>
-      ) : null}
-      <span className="block">{entry.what}</span>
-      <span className={cx(DIM, 'mt-1 block')}>
-        <SourceLink url={entry.sourceUrl} title={entry.sourceTitle} />
-        {', '}
-        <DateText iso={date} className="text-text-dim" />
-        <Reported when={entry.sourceType === 'reported'} />
-      </span>
-    </>
+      ) : (
+        <>
+          <span className="font-mono tabular-nums text-text">{formatGapValue(gap, side)}</span>{' '}
+          <span className="text-text-dim">{countKind}</span>
+        </>
+      )}
+    </span>
   );
 }
 
-/** "Announced against delivered": who, the promise, what is delivered and as of when, each with its source. */
+/** The gap's pages; with two, each carries the date of the side it backs, so two pages on one host read apart. */
+function GapSources({ gap }: { gap: DeliveryGap }) {
+  const sources = gapSources(gap);
+  const dates = [gap.promised.said, gap.delivered.asOf];
+  return sources.map((source, index) => (
+    <span key={source.sourceUrl} className="block">
+      {index > 0 ? <span className="sr-only">, </span> : null}
+      <SourceLink url={source.sourceUrl} title={source.sourceTitle} />
+      {sources.length > 1 ? (
+        <>
+          {' '}
+          <DateText iso={dates[index]} className="text-[12px] text-text-dim" />
+        </>
+      ) : null}
+      <Reported when={source.sourceType === 'reported'} />
+    </span>
+  ));
+}
+
+/**
+ * "Announced against delivered": who, the headline number with the date it
+ * was given, what the newest source counts, as of when, and the sources. On
+ * a phone the date and sources sit in the delivered cell.
+ */
 export function GapsTable({ rows, labelledBy }: { rows: readonly DeliveryGap[]; labelledBy: string }) {
   return (
     <NowTable labelledBy={labelledBy} minWidth={PHONE_MIN_WIDTH} note={rows.some(gapReported)}>
       <thead>
         <tr>
-          <th scope="col" className={cx(HEAD, PINNED, 'w-[7.5rem] sm:w-[11rem]')}>Who</th>
-          <th scope="col" className={cx(HEAD, PHONE_COLUMN)}>Announced</th>
+          <th scope="col" className={cx(HEAD, PINNED, 'w-[7.5rem] sm:w-[10rem]')}>Who</th>
+          <th scope="col" className={cx(HEAD, PHONE_COLUMN)}>Headline number</th>
           <th scope="col" className={cx(HEAD, PHONE_COLUMN)}>Delivered</th>
+          <th scope="col" className={cx(HEAD, 'hidden w-[6.5rem] sm:table-cell')}>As of</th>
+          <th scope="col" className={cx(HEAD, 'hidden w-[9rem] sm:table-cell')}>Source</th>
         </tr>
       </thead>
       <tbody>
@@ -353,10 +382,23 @@ export function GapsTable({ rows, labelledBy }: { rows: readonly DeliveryGap[]; 
               <span className={cx(DIM, 'mt-1 block font-normal')}>{gap.unit}</span>
             </th>
             <td>
-              <GapSide gap={gap} side="promised" />
+              <GapValue gap={gap} side="promised" />
+              <span className="mt-1 block">{gap.promised.what}</span>
+              <DateText iso={gap.promised.said} className="mt-1 block text-text-dim" />
             </td>
             <td>
-              <GapSide gap={gap} side="delivered" />
+              <DateText iso={gap.delivered.asOf} className="mb-1 block sm:hidden" />
+              <GapValue gap={gap} side="delivered" />
+              <span className="mt-1 block">{gap.delivered.what}</span>
+              <span className={cx(DIM, 'mt-1 block sm:hidden')}>
+                <GapSources gap={gap} />
+              </span>
+            </td>
+            <td className="hidden sm:table-cell">
+              <DateText iso={gap.delivered.asOf} />
+            </td>
+            <td className="hidden text-[13px] sm:table-cell">
+              <GapSources gap={gap} />
             </td>
           </tr>
         ))}

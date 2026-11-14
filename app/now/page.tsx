@@ -96,7 +96,7 @@ export default function NowPage() {
 
       <Section
         id="open-questions"
-        lead={`${counts.questions} questions the evidence has not settled, with the best published result each way; under ${counts.questionsWithArguments} of them, named people argue the point in their own words.`}
+        lead={`${counts.questions} questions the evidence has not settled, with the best published result each way; under ${counts.questionsWithArguments} of them, what named people said on the same point, in their own words.`}
       >
         <OpenQuestionsTable rows={questionsWithArguments()} labelledBy={heading('open-questions')} />
       </Section>
@@ -110,7 +110,7 @@ export default function NowPage() {
 
       <Section
         id="announced-against-delivered"
-        lead={`${counts.gaps} promises and announced figures beside what has been delivered, each number named for what it counts.`}
+        lead={`In each of the ${counts.gaps} rows, the left number is what was announced, ordered or registered, and the right is what the newest source counts.`}
       >
         <GapsTable rows={DELIVERY_GAPS} labelledBy={heading('announced-against-delivered')} />
       </Section>

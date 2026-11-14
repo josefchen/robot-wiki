@@ -6,9 +6,11 @@ import { resolvedTrajectories, type ResolvedTrajectory } from '@/lib/now';
 import {
   NOW_SECTIONS,
   directionCounts,
+  endNote,
   figureSourceCount,
   formatDateSpan,
   formatStatedDate,
+  gapSources,
   nowPageCounts,
   questionsWithArguments,
   sourceHost,
@@ -86,6 +88,38 @@ describe('the figure headline and description', () => {
       const own = trajectorySources(trajectory).map((s) => s.sourceUrl);
       expect(new Set(own).size, trajectory.id).toBe(own.length);
       expect(own.length, trajectory.id).toBeGreaterThan(0);
+    }
+  });
+});
+
+describe('end notes and gap sources', () => {
+  it('returns a stated end’s note, and null for an end without one', () => {
+    for (const trajectory of TRAJECTORIES) {
+      for (const which of ['earlier', 'later'] as const) {
+        const end = trajectory[which];
+        const expected = end.basis === 'stated' ? (end.note ?? null) : null;
+        expect(endNote(trajectory.id, which), `${trajectory.id} ${which}`).toEqual(expected);
+      }
+    }
+    expect(TRAJECTORIES.some((trajectory) => endNote(trajectory.id, 'later') !== null)).toBe(true);
+    expect(endNote('no-such-row', 'later')).toBeNull();
+  });
+
+  it('counts an end note’s page among its row’s sources', () => {
+    for (const trajectory of rows) {
+      const urls = trajectorySources(trajectory).map((source) => source.sourceUrl);
+      for (const which of ['earlier', 'later'] as const) {
+        const note = endNote(trajectory.id, which);
+        if (note) expect(urls, trajectory.id).toContain(note.sourceUrl);
+      }
+    }
+  });
+
+  it('lists a gap’s pages once each, the headline’s first', () => {
+    for (const gap of DELIVERY_GAPS) {
+      const urls = gapSources(gap).map((source) => source.sourceUrl);
+      expect(urls[0], gap.id).toBe(gap.promised.sourceUrl);
+      expect(urls, gap.id).toEqual([...new Set([gap.promised.sourceUrl, gap.delivered.sourceUrl])]);
     }
   });
 });
