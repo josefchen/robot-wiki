@@ -6,6 +6,16 @@
 import type { Citation } from '../schemas/citation.ts';
 
 export const ADDITIONS: Citation[] = [
+  // reliability-gap and industrial-deployment
+  {
+    // Dated 2026-09-30; gives no count of robots retired.
+    id: 'figure-f02-decommission-2026',
+    title: 'F.02 Decommission',
+    authors: ['Figure AI'],
+    year: 2026,
+    url: 'https://www.figure.ai/news/f-02-decommission',
+    type: 'blog',
+  },
   // reliability-gap
   {
     id: 'tesla-q3-2026-update',
