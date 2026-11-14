@@ -116,6 +116,7 @@ const DEFAULT_STATIC_ROUTES = [
   '/',
   '/search',
   '/market-map',
+  '/market-map/rounds',
   '/playground',
   '/how-robots-work',
   '/glossary',

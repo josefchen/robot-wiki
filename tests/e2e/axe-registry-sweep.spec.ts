@@ -47,6 +47,7 @@ const ROUTES: string[] = [
   '/',
   ...DOMAINS.map((d) => `/${d}/`),
   '/market-map/',
+  '/market-map/rounds/',
   '/playground/',
   '/how-robots-work/',
   '/search/',
@@ -232,6 +233,7 @@ test.describe('responsive viewports', () => {
     ['/', 'home'],
     ['/manipulation/action-chunking/', 'prose module'],
     ['/market-map/', 'market map'],
+    ['/market-map/rounds/', 'recent rounds'],
     ['/playground/', 'playground'],
   ];
 

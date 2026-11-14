@@ -43,6 +43,13 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
       'Market map of over 100 robotics and embodied-AI companies in six segments, from humanoids to foundation models, with disclosed funding and its sources.',
     queries: [],
   },
+  '/market-map/rounds/': {
+    title: 'Robotics Funding Rounds of the Last 120 Days',
+    headTerm: 'robotics funding rounds',
+    description:
+      'Robotics funding rounds of the last 120 days, with listings, acquisitions and shutdowns: amounts, lead investors and a source for every row.',
+    queries: [],
+  },
   '/playground/': {
     title: '3D Kinematics Playground for a Robot Arm',
     headTerm: '3D kinematics playground',

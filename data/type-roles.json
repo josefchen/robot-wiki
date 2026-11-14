@@ -51,6 +51,7 @@
         "app/credits/page.tsx",
         "app/glossary/page.tsx",
         "app/how-robots-work/page.tsx",
+        "app/market-map/rounds/page.tsx",
         "app/not-found.tsx",
         "app/playground/page.tsx",
         "app/search/page.tsx",
