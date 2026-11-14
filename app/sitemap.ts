@@ -11,6 +11,7 @@ export const dynamic = 'force-static';
  * they stay out of the sitemap.
  */
 export const SITEMAP_STANDALONE_PATHS = [
+  '/now/',
   '/market-map/',
   '/playground/',
   '/how-robots-work/',

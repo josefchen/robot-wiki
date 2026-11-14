@@ -23,13 +23,6 @@ const profile = routeSeoProfile(NOW_PATH);
 export const metadata: Metadata = {
   title: profile.title,
   description: profile.description,
-  // Out of search until the page is listed in the sitemap and linked from
-  // the site; links on it may still be followed.
-  robots: {
-    index: false,
-    follow: true,
-    googleBot: { index: false, follow: true },
-  },
   // Full card blocks restated: a route-level object replaces the layout's
   // for the same key. og:title is the rendered h1.
   openGraph: routeOpenGraph(NOW_TITLE),
