@@ -1,12 +1,13 @@
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import NowPage from '@/app/now/page';
-import { DELIVERY_GAPS, TRAJECTORIES } from '@/data/now';
+import { DELIVERY_GAPS, NOW_AS_OF, TRAJECTORIES } from '@/data/now';
 import { NOW_ARGUMENTS, OPEN_QUESTIONS } from '@/data/now-debates';
 import { developmentsNewestFirst, formatGapValue, resolvedTrajectories } from '@/lib/now';
 import { isSourced } from '@/lib/now-debates';
 import {
   NOW_SECTIONS,
+  NOW_TITLE,
   endNote,
   gapSources,
   questionsWithArguments,
@@ -46,6 +47,21 @@ describe('/now/', () => {
   it('states the as-of date in the lead from the data', () => {
     const container = renderPage();
     expect(container.textContent).toContain('which way it is moving, as of 14 November 2026.');
+  });
+
+  it('opens with the shared data-page header: title, lead dated from the data, anchors, no section links', () => {
+    const container = renderPage();
+    const headers = [...container.querySelectorAll('[data-page-header]')];
+    expect(headers).toHaveLength(1);
+    const header = headers[0];
+    expect(container.querySelectorAll('h1')).toHaveLength(1);
+    expect(header.querySelector('h1')?.textContent).toBe(NOW_TITLE);
+    expect(header.querySelector('[data-page-lead] time')?.getAttribute('datetime')).toBe(NOW_AS_OF);
+    expect([...header.querySelectorAll('nav')].map((nav) => nav.getAttribute('aria-label'))).toEqual(['On this page']);
+    expect([...header.querySelectorAll('nav a')].map((a) => [a.getAttribute('href'), a.textContent])).toEqual(
+      NOW_SECTIONS.map((section) => [`#${section.id}`, section.title]),
+    );
+    expect(container.querySelector('[data-now-section]')?.previousElementSibling?.contains(header)).toBe(true);
   });
 
   it('gives each table exactly the rows its function returns, in that order', () => {

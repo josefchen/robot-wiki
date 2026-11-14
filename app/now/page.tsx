@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { PageHeader } from '@/components/data-page/page-header';
 import { ArgumentsTable, GapsTable, OpenQuestionsTable, WhatChangedTable } from '@/components/now/now-tables';
 import { TrajectoryFigure } from '@/components/now/trajectory-figure';
-import { DELIVERY_GAPS } from '@/data/now';
+import { DELIVERY_GAPS, NOW_AS_OF } from '@/data/now';
 import { developmentsNewestFirst, resolvedTrajectories } from '@/lib/now';
 import {
   NOW_PATH,
@@ -64,23 +65,12 @@ export default function NowPage() {
         }}
       />
       <div data-pagefind-body {...materialAttributes('paper')} className="material-paper">
-        <h1 data-tektur-role="page-h1" className="font-display-page display-h1">
-          {NOW_TITLE}
-        </h1>
-        <p className="mt-3 max-w-[40rem] font-sans text-[16px] leading-[1.6] text-text">
-          Where robotics stands and which way it is moving, as of {counts.asOf}.
-        </p>
-        <nav aria-label="On this page" className="mt-5">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 font-sans text-[13px] leading-5">
-            {NOW_SECTIONS.map((section) => (
-              <li key={section.id}>
-                <a href={`#${section.id}`} data-brand-control-id="control:link-focus" className="ink-link">
-                  {section.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <PageHeader
+          title={NOW_TITLE}
+          lead="Where robotics stands and which way it is moving"
+          asOf={NOW_AS_OF}
+          anchors={NOW_SECTIONS.map((section) => ({ id: section.id, label: section.title }))}
+        />
       </div>
 
       <Section id="where-it-is-heading">

@@ -169,7 +169,6 @@ export function questionReported(question: OpenQuestion, argument: NowArgument |
 export function nowPageCounts() {
   const linked = questionsWithArguments().filter(({ argument }) => argument !== null).length;
   return {
-    asOf: formatLongDate(NOW_AS_OF),
     developments: DEVELOPMENTS.length,
     developmentSpan: formatDateSpan(DEVELOPMENTS_FROM, NOW_AS_OF),
     questions: OPEN_QUESTIONS.length,
