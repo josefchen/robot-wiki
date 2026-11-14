@@ -39,7 +39,8 @@ function drawerTabStops(dialog: HTMLElement): HTMLElement[] {
  *
  * Updated for the research-page standard of 10 October 2026: the
  * persistent desktop sidebar and the hamburger header are gone. The shell is
- * one top bar (wordmark left, "Articles" and "How robots work" right), and
+ * one top bar (wordmark left, "Articles", "Now", "Market" and "How robots
+ * work" right), and
  * "Articles" opens the same taxonomy panel at every width, so there is no
  * sidebar region and no breakpoint hand-off. Every accessibility obligation
  * of the panel is kept below.
@@ -73,7 +74,7 @@ describe('SiteShell', () => {
     expect(within(main).getByText('Page body')).toBeInTheDocument();
   });
 
-  it('renders a top bar with the wordmark and exactly two text links', () => {
+  it('renders a top bar with the wordmark and exactly four text entries', () => {
     mockPathname = '/manipulation/action-chunking/';
     renderShell();
     const header = screen.getByRole('banner');
@@ -81,13 +82,23 @@ describe('SiteShell', () => {
     expect(wordmark).toHaveAttribute('href', '/');
     const site = within(header).getByRole('navigation', { name: 'Site' });
     const controls = [...site.querySelectorAll('a, button')];
-    expect(controls.map((control) => control.textContent)).toEqual([
-      'Articles',
+    // The link component writes the trailing slash only in the built site.
+    const address = (control: Element) => control.getAttribute('href')?.replace(/\/$/, '') ?? null;
+    expect(controls.map((control) => [control.tagName, control.textContent, address(control)])).toEqual([
+      ['BUTTON', 'Articles', null],
+      ['A', 'Now', '/now'],
+      ['A', 'Market', '/market-map'],
+      ['A', 'How robots work', '/how-robots-work'],
+    ]);
+    // On an article no entry claims the page.
+    expect(site.querySelectorAll('[aria-current]')).toHaveLength(0);
+    for (const control of controls) {
+      expect(control.className, control.textContent ?? '').not.toContain('underline');
+    }
+    // Only the longest entry leaves the bar on a phone.
+    expect(controls.filter((control) => control.className.includes('max-[480px]:hidden')).map((control) => control.textContent)).toEqual([
       'How robots work',
     ]);
-    expect(
-      within(site).getByRole('link', { name: 'How robots work' }),
-    ).toHaveAttribute('href', expect.stringMatching(/^\/how-robots-work\/?$/));
     // Nothing else in the bar: no search field, no icons, no taxonomy.
     expect(within(header).queryByRole('search')).toBeNull();
     expect(header.querySelectorAll('svg, img')).toHaveLength(0);
@@ -121,6 +132,34 @@ describe('SiteShell', () => {
     expect(
       screen.getByRole('link', { name: 'How robots work' }),
     ).toHaveAttribute('aria-current', 'page');
+  });
+
+  it.each([
+    ['/now/', 'Now', 'page'],
+    ['/now', 'Now', 'page'],
+    ['/market-map/', 'Market', 'page'],
+    ['/market-map/rounds/', 'Market', 'true'],
+    ['/how-robots-work/', 'How robots work', 'page'],
+  ])('on %s marks only "%s", the way the panel marks its current entry', (pathname, label, value) => {
+    mockPathname = pathname;
+    renderShell();
+    const site = within(screen.getByRole('banner')).getByRole('navigation', { name: 'Site' });
+    const marked = [...site.querySelectorAll('[aria-current]')];
+    expect(marked.map((entry) => [entry.textContent, entry.getAttribute('aria-current')])).toEqual([[label, value]]);
+    for (const entry of site.querySelectorAll('a')) {
+      const isCurrent = entry === marked[0];
+      for (const token of ['font-medium', 'underline', 'decoration-1', 'underline-offset-[3px]']) {
+        expect(entry.className.split(' ').includes(token), `${entry.textContent} ${token}`).toBe(isCurrent);
+      }
+      expect(entry.className.split(' ')).toContain('text-text');
+    }
+  });
+
+  it('does not mark an entry on a route that only shares its prefix', () => {
+    mockPathname = '/nowhere/';
+    renderShell();
+    const site = within(screen.getByRole('banner')).getByRole('navigation', { name: 'Site' });
+    expect(site.querySelectorAll('[aria-current]')).toHaveLength(0);
   });
 
   it('opens the panel from "Articles" with correct ARIA', async () => {

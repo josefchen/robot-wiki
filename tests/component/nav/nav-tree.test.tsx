@@ -54,6 +54,9 @@ describe('NavTree', () => {
       ).toBeInTheDocument();
     }
     expect(
+      within(nav).getByRole('link', { name: 'Robotics now' }),
+    ).toHaveAttribute('href', '/now');
+    expect(
       within(nav).getByRole('link', { name: 'Market Map' }),
     ).toHaveAttribute('href', '/market-map');
     expect(

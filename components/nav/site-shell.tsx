@@ -25,13 +25,38 @@ const DRAWER_TAB_STOPS =
 // box (WCAG 2.2 target size, the controls registry's 24px minimum).
 const topLink =
   'inline-flex min-h-6 items-center font-sans text-[14px] leading-none text-text transition-colors hover:text-text-dim';
+// The taxonomy panel's mark for the page being read.
+const topLinkCurrent = 'font-medium underline decoration-1 underline-offset-[3px]';
+
+/**
+ * The bar's destinations after "Articles", in reading order. A phone has
+ * room for the wordmark and three entries on one row, so the longest waits
+ * for 480px; the panel lists it at every width.
+ */
+const TOP_LINKS = [
+  { href: '/now/', label: 'Now', narrow: true },
+  { href: '/market-map/', label: 'Market', narrow: true },
+  { href: '/how-robots-work/', label: 'How robots work', narrow: false },
+] as const;
+
+/**
+ * `page` on the entry's own route, `true` on a page beneath it, nothing
+ * anywhere else.
+ */
+function currentAt(pathname: string, href: string): 'page' | 'true' | undefined {
+  const path = pathname.replace(/\/$/, '');
+  const base = href.replace(/\/$/, '');
+  if (path === base) return 'page';
+  return path.startsWith(`${base}/`) ? 'true' : undefined;
+}
 
 /**
  * The application shell of the Pantheon standard: one top bar with the
- * wordmark at left and two text links at right, a hairline under it once
+ * wordmark at left and four text entries at right, a hairline under it once
  * the page has scrolled, and nothing else. "Articles" opens the taxonomy
  * panel (search plus every domain and article), the same panel at every
- * width; "How robots work" goes to the explainer page.
+ * width; "Now", "Market" and "How robots work" go to their pages, and the
+ * one being read carries the panel's mark.
  *
  * Accessibility contract: the panel trigger reports aria-expanded and
  * aria-controls; opening moves focus into the panel and makes the page
@@ -110,8 +135,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
     setDrawerOpen(false);
   }
 
-  const onExplainer = pathname.startsWith('/how-robots-work');
-
   return (
     <>
       {/* History focus restoration lives in the shell (not the layout) so
@@ -165,14 +188,24 @@ export function SiteShell({ children }: { children: ReactNode }) {
             >
               Articles
             </button>
-            <IntentLink
-              href="/how-robots-work/"
-              aria-current={onExplainer ? 'page' : undefined}
-              data-brand-control-id="control:link-focus"
-              className={topLink}
-            >
-              How robots work
-            </IntentLink>
+            {TOP_LINKS.map((entry) => {
+              const current = currentAt(pathname, entry.href);
+              return (
+                <IntentLink
+                  key={entry.href}
+                  href={entry.href}
+                  aria-current={current}
+                  data-brand-control-id="control:link-focus"
+                  className={cx(
+                    topLink,
+                    !entry.narrow && 'max-[480px]:hidden',
+                    current && topLinkCurrent,
+                  )}
+                >
+                  {entry.label}
+                </IntentLink>
+              );
+            })}
           </nav>
         </header>
 

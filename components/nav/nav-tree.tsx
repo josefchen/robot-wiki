@@ -31,6 +31,7 @@ type NavTreeProps = {
 
 const TOP_LEVEL_ENTRIES = [
   { href: '/a-z', label: 'A-Z Index' },
+  { href: '/now', label: 'Robotics now' },
   { href: '/market-map', label: 'Market Map' },
   { href: '/playground', label: 'Playground' },
   { href: '/how-robots-work', label: 'How robots work' },
