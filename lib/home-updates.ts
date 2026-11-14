@@ -88,8 +88,10 @@ export function latestChanges(
           date: noted?.date ?? day,
           ...(noted ? { note: noted.note } : {}),
         } satisfies LatestChange,
-        // On one day, changes the editor noted lead, in the editor's order;
-        // the rest keep git's order. A noted day sorts as its end.
+        // On one day the later change leads, noted or not, so a note never
+        // pushes a newer change off the list. Changes git stamps with the
+        // same second keep the editor's order. A note dated after git's day
+        // sorts as the end of its own day.
         rank: noted ? updates.indexOf(noted) : Number.POSITIVE_INFINITY,
         order: noted && noted.date > day ? Date.parse(`${noted.date}T23:59:59Z`) : Date.parse(at),
       };
@@ -97,8 +99,8 @@ export function latestChanges(
     .sort(
       (left, right) =>
         right.change.date.localeCompare(left.change.date) ||
-        (left.rank === right.rank ? 0 : left.rank < right.rank ? -1 : 1) ||
         right.order - left.order ||
+        (left.rank === right.rank ? 0 : left.rank < right.rank ? -1 : 1) ||
         `${left.change.domain}/${left.change.slug}`.localeCompare(`${right.change.domain}/${right.change.slug}`),
     )
     .slice(0, count)
