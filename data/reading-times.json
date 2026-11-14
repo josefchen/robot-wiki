@@ -32,7 +32,7 @@
     "minutes": 7
   },
   "manipulation/rl-finetuning": {
-    "words": 2470,
+    "words": 2482,
     "minutes": 12
   },
   "manipulation/realtime-execution": {
@@ -112,7 +112,7 @@
     "minutes": 6
   },
   "world-models/model-based-robot-learning": {
-    "words": 1251,
+    "words": 1257,
     "minutes": 6
   },
   "world-models/evaluation": {

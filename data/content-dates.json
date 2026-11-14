@@ -86,7 +86,7 @@
     },
     "frontier/competing-theses": {
       "published": "2026-08-12T18:33:06+02:00",
-      "modified": "2026-11-14T13:48:44Z"
+      "modified": "2026-11-14T22:32:42+08:00"
     },
     "frontier/dexterity": {
       "published": "2026-08-12T18:33:06+02:00",
@@ -130,15 +130,15 @@
     },
     "manipulation/foundation-models": {
       "published": "2026-09-24T21:27:51+02:00",
-      "modified": "2026-11-14T13:48:44Z"
+      "modified": "2026-11-14T22:32:42+08:00"
     },
     "manipulation/generalist-policies": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-14T13:48:44Z"
+      "modified": "2026-11-14T22:32:42+08:00"
     },
     "manipulation/hierarchical": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-14T13:48:44Z"
+      "modified": "2026-11-14T22:32:42+08:00"
     },
     "manipulation/knowledge-insulation": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -162,7 +162,7 @@
     },
     "manipulation/vla-models": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-14T13:48:44Z"
+      "modified": "2026-11-14T22:32:42+08:00"
     },
     "rl-sim2real/humanoid-wbc": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -218,7 +218,7 @@
     },
     "world-models/model-based-robot-learning": {
       "published": "2026-09-24T21:27:51+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T14:32:49Z"
     },
     "world-models/taxonomy": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-14T13:48:44Z"
+      "modified": "2026-11-14T14:32:50Z"
     },
     "/manipulation/": {
       "modified": "2026-11-13T15:15:57+08:00"
@@ -264,7 +264,7 @@
       "modified": "2026-11-13T13:50:10+08:00"
     },
     "/glossary/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T14:32:50Z"
     },
     "/credits/": {
       "modified": "2026-11-13T15:15:57+08:00"
@@ -276,7 +276,7 @@
       "modified": "2026-11-13T13:50:10+08:00"
     },
     "/a-z/": {
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T14:32:50Z"
     }
   }
 }
