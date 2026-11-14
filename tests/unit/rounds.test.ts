@@ -76,20 +76,24 @@ describe('rounds data', () => {
 
   it('holds the pack rows by kind, less Moove, Tangent, Maven and the Genrobot Series A', () => {
     // Pack: 147 rounds and 15 reported, 7 listings, 14 corporate events,
-    // 11 earlier UK and Europe rows, 4 investor and 4 context rows. CMR
-    // Surgical's round is agreed, not closed, so it moves to announced.
-    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 4 - 1);
-    expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(1);
-    expect(ROUNDS.filter((r) => r.status === 'unconfirmed')).toHaveLength(4);
+    // 11 earlier UK and Europe rows, 4 investor and 4 context rows. Agreed,
+    // not closed, so announced: CMR Surgical's round and Shield's Series H
+    // (both closed in the pack) and FieldAI's term sheet (unconfirmed in the
+    // pack). Kraken's source dates it to July only, so it leaves the earlier
+    // rows for the July month-only rounds.
+    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 4 - 2 + 1);
+    expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(3);
+    expect(ROUNDS.filter((r) => r.status === 'unconfirmed')).toHaveLength(4 - 1);
     expect(ROUNDS.filter((r) => r.status === 'talks')).toHaveLength(11);
     expect(LISTINGS).toHaveLength(7);
     expect(CORPORATE_EVENTS.filter((r) => r.kind === 'acquisition')).toHaveLength(10);
     expect(CORPORATE_EVENTS.filter((r) => r.kind === 'blocked')).toHaveLength(1);
     expect(CORPORATE_EVENTS.filter((r) => r.kind === 'shutdown')).toHaveLength(3);
-    expect(UK_EUROPE_2026_EARLIER).toHaveLength(11);
+    expect(UK_EUROPE_2026_EARLIER).toHaveLength(11 - 1);
     expect(EUROPE_INVESTORS).toHaveLength(4);
     expect(MARKET_CONTEXT).toHaveLength(4);
-    expect(monthUnconfirmedRounds()).toHaveLength(12);
+    expect(monthUnconfirmedRounds()).toHaveLength(12 + 1);
+    expect(monthUnconfirmedRounds().map((r) => r.key)).toContain('kraken-technology-2026-07-13');
   });
 
   it('keeps every key unique across all exports', () => {
@@ -178,9 +182,11 @@ describe('rounds data', () => {
     expect(fundingEventSchema.safeParse(both).success).toBe(false);
   });
 
-  it('keeps announced to listings and the agreed CMR investment, and the earlier rows closed', () => {
-    expect(ROUNDS.filter((r) => r.status === 'announced').map((r) => r.key)).toEqual([
+  it('keeps announced to listings and the three agreed rounds, and the earlier rows closed', () => {
+    expect(ROUNDS.filter((r) => r.status === 'announced').map((r) => r.key).sort()).toEqual([
       'cmr-surgical-stryker-2026-10-12',
+      'fieldai-2026-10-02',
+      'shield-ai-series-h-2026-11-05',
     ]);
     for (const row of UK_EUROPE_2026_EARLIER) expect(row.status, row.key).toBe('closed');
     for (const row of LISTINGS) expect(['closed', 'announced']).toContain(row.status);
@@ -291,10 +297,11 @@ describe('totals', () => {
     // Left out here: Moove, USD 250M (its source page gives another date),
     // Tangent Robotics, 4.5M (its release states no currency) and Maven
     // Robotics, 100M. The Genrobot Series A also left out has no amount.
-    // CMR Surgical's approximately 400M is agreed, not closed.
+    // CMR Surgical's approximately 400M is agreed, not closed, and Shield
+    // is still raising its 1B Series H.
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
     expect(total(usdOnly)).toBe(
-      15_478_200_000 - 250_000_000 - 4_500_000 - 100_000_000 - 400_000_000,
+      15_478_200_000 - 250_000_000 - 4_500_000 - 100_000_000 - 400_000_000 - 1_000_000_000,
     );
   });
 
