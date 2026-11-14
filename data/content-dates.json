@@ -54,15 +54,15 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-09T21:01:27+02:00",
-      "modified": "2026-11-14T15:18:51Z"
+      "modified": "2026-11-15T00:03:25+08:00"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T21:01:27+02:00",
-      "modified": "2026-11-14T15:18:52Z"
+      "modified": "2026-11-15T00:03:25+08:00"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T21:01:27+02:00",
-      "modified": "2026-11-14T15:18:52Z"
+      "modified": "2026-11-15T00:03:25+08:00"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T21:01:27+02:00",
@@ -146,7 +146,7 @@
     },
     "manipulation/pi-line": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T16:03:34Z"
     },
     "manipulation/realtime-execution": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -206,7 +206,7 @@
     },
     "world-models/generative-video": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T16:03:34Z"
     },
     "world-models/jepa": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-14T15:18:52Z"
+      "modified": "2026-11-14T16:03:34Z"
     },
     "/manipulation/": {
       "modified": "2026-11-13T15:15:57+08:00"
