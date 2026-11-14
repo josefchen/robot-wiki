@@ -110,7 +110,7 @@ Knowledge Insulation trains both halves at once and blocks the expert's gradient
 
 ## π*0.6 learns from its own practice
 
-π0.6 folds laundry reliably and assembles boxes 20% of the time with no task fine-tuning <Cite id="pi06-model-card-2025" />. Fine-tuned, it averaged 52% in PI's Robot Olympics, where a VLM without robot pretraining scored zero <Cite id="pi-olympics-2025" />.
+π0.6 folds laundry reliably and assembles boxes 20% of the time with no task fine-tuning <Cite id="pi06-model-card-2025" />. Fine-tuned on 11 Robot Olympics tasks, it averaged 52% success on them, where a VLM without robot pretraining scored zero <Cite id="pi-olympics-2025" />.
 
 π*0.6 adds Recap. A value function labels each action, from demonstrations, corrections or autonomous runs, as an improvement or not, and the policy favors improvements <Cite id="pistar06-2025" />. Against offline RL plus demonstration fine-tuning, practice more than doubled espresso and laundry throughput and roughly halved failures <Cite id="pistar06-2025" />.
 
