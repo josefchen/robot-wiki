@@ -869,7 +869,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
       value: null,
       countKind: 'delivered',
       ...ONEX_DISCOVER,
-      wording: "JUL 09 '26 1X Welcoming Bill Nash as CFO",
+      wording: "NEO’s Hands | An API to the Physical World | JUL 09 '26",
     },
   },
   {
@@ -932,12 +932,12 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
     },
     delivered: {
       asOf: '2026-09-30',
-      what: 'An average of 917 robots made deliveries each day in Q3 2026',
+      what: 'An average of 917 robots, outdoor and indoor, made deliveries each day in Q3 2026',
       value: 917,
       countKind: 'daily active',
       ...SERVE_Q3,
       wording:
-        'Daily Active Robots (1) (3) 917 | The Company defines daily active robots as the average number of robots performing deliveries during the period.',
+        'Daily Active Robots (1) (3) 917 | The Company defines daily active robots as the average number of robots performing deliveries during the period. | The key metrics reported for the periods ended September 30, 2026 and June 30, 2026 are inclusive of the outdoor and indoor robot fleet.',
     },
   },
   {
@@ -1011,7 +1011,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   },
   {
     id: 'may-mobility-id-buzz',
-    who: 'May Mobility and Volkswagen',
+    who: 'May Mobility',
     unit: 'autonomous ID. Buzz vehicles',
     promised: {
       said: '2026-11-12',
