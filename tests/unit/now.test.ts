@@ -217,6 +217,14 @@ describe('TRAJECTORIES', () => {
     expect(row?.note?.text.toLowerCase()).toContain('no newer');
   });
 
+  it("keeps the AMP1 end's paper date and notes the leaderboard's own submission date", () => {
+    const end = TRAJECTORIES.find((r) => r.id === 'robolab-120-success')?.later;
+    if (end?.basis !== 'stated') throw new Error('AMP1 end must be stated');
+    expect(end.date).toBe(end.dateSource?.wording.includes('6 Nov 2026') ? '2026-11-06' : 'unexpected');
+    expect(end.note?.sourceUrl).toBe(end.sourceUrl);
+    expect(end.note?.wording).toContain('Submitted Oct 15, 2026');
+  });
+
   it('formats every unit and every end', () => {
     for (const unit of trajectoryUnitSchema.options) {
       expect(typeof TRAJECTORY_UNIT_FORMATS[unit], unit).toBe('function');

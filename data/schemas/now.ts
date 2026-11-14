@@ -101,6 +101,8 @@ export const statedEndSchema = z.object({
     .object({ successes: z.number().int().nonnegative(), total: z.number().int().positive() })
     .optional(),
   dateSource: dateSourceSchema,
+  /** A second page's reading of this end, shown beside it. */
+  note: z.object({ text: z.string().min(1), ...sourceFields }).optional(),
   ...sourceFields,
 });
 export type StatedEnd = z.infer<typeof statedEndSchema>;
@@ -181,11 +183,13 @@ export const countKindSchema = z.enum([
   'ordered (binding)',
   'ordered (non-binding)',
   'in service',
+  'deployed (cumulative)',
   'daily active',
   'paid rides',
   'all rides',
-  'fleet total',
   'target',
+  /** A path or outlook the speaker believes in, short of a stated target. */
+  'projected',
   'milestone',
 ]);
 export type CountKind = z.infer<typeof countKindSchema>;
@@ -202,7 +206,7 @@ const gapSideFields = {
 export const deliveryGapSchema = z.object({
   id: slugSchema,
   who: z.string().min(1),
-  /** The research pack's unit field, copied. */
+  /** What the count is of, in the source's terms. */
   unit: z.string().min(1),
   /** The promise or the announced figure. */
   promised: z.object({ said: isoDateSchema, ...gapSideFields }),
