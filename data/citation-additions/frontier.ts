@@ -185,6 +185,26 @@ export const ADDITIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against arXiv v1 (2026-11-14): Table 4 and appendix G.1, Ego
+    // Humanoid vision-only success 52.45% (Visual PT, touch discarded, same
+    // RGB data and compute) to 71.72% (1000H); 27 seen and 66 unseen trials
+    // per task. EgoVLA (arXiv 2507.12440) calls Ego Humanoid a simulation
+    // benchmark.
+    id: 'spark-0-2026',
+    title: 'Spark-0: Scaling Spatially Aligned Tactile Pretraining for Robot Dexterous Manipulation',
+    authors: [
+      'Tianxing Chen', 'Wenwei Lin', 'Chuqiao Lyu', 'Peicheng Xiang', 'Junyuan Tang', 'Tian Nian',
+      'Zijian Cai', 'Kehe Ye', 'Chenze Yu', 'Wenxuan Zhu', 'Eric J. Chen', 'Yan Qin', 'Yue Chen',
+      'Tongyu Wu', 'Junhao Gong', 'Kai-Chong Lei', 'Jiahao Zhang', 'Kailun Su', 'Qiwei Liang',
+      'Renjing Xu', 'Ping Luo', 'Wenbo Ding',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.22342',
+    url: 'https://arxiv.org/abs/2610.22342',
+    type: 'paper',
+  },
+  {
     // Verified against the live page (2026-11-14): "The STF contains 17
     // taxels each providing a 3D response, sensitive to both normal and
     // tangential forces from about 0.2N to 20N"; the comparison table lists
