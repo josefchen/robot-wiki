@@ -77,6 +77,15 @@ describe('/now/', () => {
     }
   });
 
+  it('names the earlier mark and the latest mark in a legend on the figure stage', () => {
+    const container = renderPage();
+    const legend = container.querySelector('[data-figure-frame="now-trajectories"] [data-figure-stage] [data-trajectory-legend]');
+    const items = [...(legend?.children ?? [])];
+    expect(items.map((item) => item.textContent?.trim())).toEqual(['Earlier value', 'Latest value']);
+    expect(items[0].querySelector('path')).not.toBeNull();
+    expect(items[1].querySelector('circle')).not.toBeNull();
+  });
+
   it('labels a computed end as computed', () => {
     const container = renderPage();
     const shipments = container.querySelector('[data-trajectory="humanoid-shipments"] [data-trajectory-end="earlier"]');
