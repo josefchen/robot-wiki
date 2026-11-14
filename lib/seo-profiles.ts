@@ -470,6 +470,13 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
       'Robot learning data bottleneck: how many hours of robot data exist in 2026, from DROID, AgiBot World and EgoScale to 100,000-hour private corpora.',
     queries: ['robot learning data bottleneck', 'how much data do robots need'],
   },
+  '/data-hardware/data-market/': {
+    title: 'Robot Training Data: Prices, Sellers, Wages',
+    headTerm: 'robot training data',
+    description:
+      'Robot training data sells by the hour: RMB 500 to 1,000 for real-robot data in China, list prices elsewhere, collector wages and open licenses.',
+    queries: ['robot training data cost per hour', 'robot data collection companies'],
+  },
   '/data-hardware/datasets/': {
     title: 'Robot Learning Datasets Compared (2026)',
     headTerm: 'robot learning datasets',

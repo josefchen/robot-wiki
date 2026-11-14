@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { deflateSync } from 'node:zlib';
 import { describe, expect, it } from 'vitest';
+import { publishedModules } from '@/data/modules';
 import { BRAND_COLORS } from '@/lib/design-tokens';
 import { OG_FRAME_INSET_PX, OG_TEXT_INSET_PX, cardPaintedColors } from '@/lib/og-card-artwork';
 import { ogCardCorpus, openSealedCardTree } from '@/lib/og-card-corpus';
@@ -82,7 +83,8 @@ const PAPER_RGBA = [
 
 describe('decoded Open Graph card pixels', { timeout: 120_000 }, () => {
   it('passes every shipped card: opaque, on its painted palette, devices at their registered pixels', () => {
-    expect(corpus).toHaveLength(58);
+    // The site card plus one card per published article.
+    expect(corpus).toHaveLength(publishedModules().length + 1);
     for (const { cardId, cardPath } of corpus) {
       const report = inspectCardPixels({
         png: readFileSync(join(ROOT, 'public', cardPath)),
