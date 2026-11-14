@@ -225,6 +225,15 @@ describe('TRAJECTORIES', () => {
     expect(end.note?.wording).toContain('Submitted Oct 15, 2026');
   });
 
+  it('labels the AMP1 end as a harness and names its model from a page that says so', () => {
+    const row = TRAJECTORIES.find((r) => r.id === 'robolab-120-success');
+    expect(row?.later.label).toMatch(/harness/);
+    expect(row?.later.label).toContain('Gemini 4 Argon');
+    expect(row?.note?.wording).toContain('Gemini 4 Argon, official leaderboard entry');
+    expect(row?.note?.text).toContain('85.6%');
+    expect(row?.note?.wording).toContain('85.6%');
+  });
+
   it('formats every unit and every end', () => {
     for (const unit of trajectoryUnitSchema.options) {
       expect(typeof TRAJECTORY_UNIT_FORMATS[unit], unit).toBe('function');
@@ -238,8 +247,8 @@ describe('TRAJECTORIES', () => {
 });
 
 describe('DEVELOPMENTS', () => {
-  it('holds at most 16 rows, all inside the window', () => {
-    expect(DEVELOPMENTS.length).toBeLessThanOrEqual(16);
+  it('holds the twelve that matter most, all inside the window', () => {
+    expect(DEVELOPMENTS).toHaveLength(12);
     for (const row of DEVELOPMENTS) {
       expect(row.date >= DEVELOPMENTS_FROM && row.date <= NOW_AS_OF, row.id).toBe(true);
     }
@@ -287,6 +296,22 @@ describe('DEVELOPMENTS', () => {
     const primary = DEVELOPMENTS.filter((row) => row.sourceType === 'primary').length;
     expect(latestDevelopments(DEVELOPMENTS.length)).toHaveLength(primary);
     expect(latestDevelopments(4)).toEqual(developmentsNewestFirst().filter((r) => r.sourceType === 'primary').slice(0, 4));
+  });
+
+  it('names AMP1 as a harness and the model it ran, from the paper and the project page', () => {
+    const row = DEVELOPMENTS.find((r) => r.id === 'amp1-robolab-120');
+    expect(row?.what).toMatch(/harness/);
+    expect(row?.what).not.toMatch(/AI model (drives|commands|commanding)/);
+    expect(row?.wording).toContain('AMP1, a reference harness');
+    expect(row?.what).toContain('Gemini 4 Argon');
+    expect(row?.alsoCited?.map((cited) => cited.wording).join(' ')).toContain('Gemini 4 Argon');
+  });
+
+  it("keeps the Mercedes-Benz 96% to DeepMind's proof of concept, with no metric the post and thread disagree on", () => {
+    const row = DEVELOPMENTS.find((r) => r.id === 'gemini-robotics-2-5');
+    expect(row?.doesNotMean).toContain('96%');
+    expect(row?.doesNotMean).toContain('proof of concept');
+    expect(row?.doesNotMean).not.toMatch(/success rate|accuracy/);
   });
 
   it('says simulation wherever a simulation benchmark score appears', () => {

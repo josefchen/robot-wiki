@@ -1,5 +1,5 @@
 import { ChartDescription } from '@/components/ui/chart-description';
-import { FigureFrame, FigureStage, FIGURE_TEXT_CLASS } from '@/components/motion/figure-frame';
+import { FigureFrame, FigureStage, FIGURE_TEXT_CLASS, StageLegend } from '@/components/motion/figure-frame';
 import { motionRoleVar } from '@/lib/motion-tokens';
 import type { ResolvedEnd, ResolvedTrajectory } from '@/lib/now';
 import {
@@ -230,6 +230,14 @@ export function TrajectoryFigure({ rows }: { rows: readonly ResolvedTrajectory[]
       heading={trajectoryHeadline(rows)}
       stage={
         <FigureStage>
+          <StageLegend data-trajectory-legend="" className="mb-5">
+            <span className="inline-flex items-center gap-1.5">
+              <CrossGlyph /> Earlier value
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <DotGlyph /> Latest value
+            </span>
+          </StageLegend>
           <ol
             aria-describedby={DESCRIPTION_ID}
             className="grid grid-cols-1 gap-x-10 md:grid-cols-2"

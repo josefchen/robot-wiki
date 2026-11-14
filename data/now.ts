@@ -6,8 +6,9 @@
  *     carries the page's own number; a computed end carries the stated
  *     inputs, and lib/now.ts derives its value. No derived number is typed
  *     here. The rows do not share an axis and are not ranked.
- *   - DEVELOPMENTS: what changed between 15 October and NOW_AS_OF, one
- *     sentence each, with what it means and what it does not mean.
+ *   - DEVELOPMENTS: the twelve changes between 15 October and NOW_AS_OF
+ *     that matter most, one sentence each, with what it means and what it
+ *     does not mean, four each for models, deployments and policy.
  *   - DELIVERY_GAPS: a promise or an announced figure against what has been
  *     delivered, each number labeled with what it counts.
  *
@@ -106,6 +107,13 @@ const AMP1_PAPER: Source = {
   sourceTitle: 'On Agentic Manipulation Policies (arXiv 2611.09892)',
   sourceType: 'primary',
 };
+const AMP1_PROJECT: Source = {
+  sourceUrl: 'https://apple-aiml-research.github.io/ml-amp/',
+  sourceTitle: 'On Agentic Manipulation Policies (Apple, project page)',
+  sourceType: 'primary',
+};
+const AMP1_PROJECT_WORDING =
+  "Gemini 4 Argon, official leaderboard entry over 3,000 episodes (85.6% over the paper's 1,200); 82.8% with Claude Opus 5.5, against 74.8% for Astranomy";
 const CRUNCHBASE: Source = {
   sourceUrl: 'https://news.crunchbase.com/venture/q3-2026-us-china-robotics-startup-funding-jumps-physical-ai-push',
   sourceTitle: 'Crunchbase Data Shows Q3 Robotics Startup Funding Jumps 185% As US And China Lead Physical AI Push (Crunchbase News, 27 Oct 2026)',
@@ -179,16 +187,6 @@ const MOFCOM_2026_58: Source = {
 const MOFCOM_2025_INDEX: Source = {
   sourceUrl: 'https://www.mofcom.gov.cn/zcfb/blgg/gg/2025/index.html',
   sourceTitle: 'MOFCOM announcements, 2025 (index of titles)',
-  sourceType: 'primary',
-};
-const FCC_DA_26_1203: Source = {
-  sourceUrl: 'https://docs.fcc.gov/public/attachments/DA-26-1203A1.pdf',
-  sourceTitle: 'DA 26-1203, Conditional Approval and Exemption of Certain UAS, Routers, Advanced Robotic Devices, and Power Inverters from FCC Covered List (FCC, 6 Nov 2026)',
-  sourceType: 'primary',
-};
-const FCC_FAQ: Source = {
-  sourceUrl: 'https://www.fcc.gov/covered-list-faqs-robots-inverters',
-  sourceTitle: 'FAQs on Recent Updates to FCC Covered List Regarding Foreign-Produced Advanced Robotic Devices and Power Inverters (FCC)',
   sourceType: 'primary',
 };
 const NHTSA_RQ26006: Source = {
@@ -484,7 +482,7 @@ export const TRAJECTORIES: readonly Trajectory[] = [
       basis: 'stated',
       date: '2026-11-06',
       period: 'AMP1, November 2026',
-      label: 'AMP1, a general AI model commanding the arm',
+      label: "Apple's harness on Gemini 4 Argon",
       value: 86.0,
       episodes: { successes: 2_579, total: 3_000 },
       ...ROBOLAB,
@@ -497,9 +495,9 @@ export const TRAJECTORIES: readonly Trajectory[] = [
       },
     },
     note: {
-      text: 'The AMP1 paper itself reports 85.6%',
-      ...AMP1_PAPER,
-      wording: 'On RoboLab-120, AMP1 reaches an 85.6\\% success rate zero-shot',
+      text: "Apple names Gemini 4 Argon as the model in this entry; the paper's 85.6% is over its own 1,200 episodes",
+      ...AMP1_PROJECT,
+      wording: AMP1_PROJECT_WORDING,
     },
   },
   {
@@ -618,9 +616,9 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'gxo-apptronik-letter-of-intent',
     date: '2026-11-12',
     area: 'deployments',
-    what: 'GXO and Apptronik signed a letter of intent to expand trials of Apollo humanoids in GXO warehouses.',
+    what: 'GXO and Apptronik signed a letter of intent to expand Apollo humanoid trials.',
     means: 'Trials in live warehouse operations begin in 2027',
-    doesNotMean: 'An order for 1,000 robots; that ceiling depends on agreed KPIs being met',
+    doesNotMean: 'An order for 1,000 robots; that ceiling depends on agreed KPIs',
     ...GXO,
     wording:
       'Beginning in 2027, the trials will validate the safety, security and technical requirements for scaled deployment | Subject to the success of the deployments and the ability to meet agreed performance, safety and operational KPIs, the companies intend to progress toward global rollout of up to 1,000 Apollo humanoid robots over the next four years',
@@ -629,8 +627,8 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'praxis-1-open-weights',
     date: '2026-11-11',
     area: 'models',
-    what: 'Runway released Praxis-1, a 27B parameter world action model, with open weights under Apache 2.0.',
-    means: 'Runway puts it first among world action models on RoboLab-120, at 46.2% in simulation',
+    what: 'Runway released Praxis-1, a 27B world action model, as Apache 2.0 open weights.',
+    means: 'Runway ranks it first among world action models on RoboLab-120, at 46.2%',
     doesNotMean: 'A real robot result; RoboLab-120 runs in a simulator',
     ...RUNWAY,
     wording:
@@ -640,9 +638,9 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'iso-13482-final-vote',
     date: '2026-11-11',
     area: 'policy',
-    what: 'ISO 13482, the safety standard for service robots, closed its final vote and is under publication.',
+    what: 'ISO 13482, the service robot safety standard, closed its final vote.',
     means: 'Edition 2 will replace ISO 13482:2014',
-    doesNotMean: 'A published standard yet; ISO lists up to seven weeks of final production steps',
+    doesNotMean: 'A published standard yet; that takes up to seven weeks',
     ...ISO_13482,
     wording:
       '50.60 2026-11-11 Close of voting. Proof returned by secretariat | 60.00 2026-11-11 International Standard under publication | Final production steps (up to seven weeks). Will replace ISO 13482:2014',
@@ -652,8 +650,8 @@ export const DEVELOPMENTS: readonly Development[] = [
     date: '2026-11-10',
     area: 'models',
     what: 'Google DeepMind released Gemini Robotics 2.5 to its robotics partners.',
-    means: 'DeepMind reports 30% to 100% higher success than previous baselines, by task type',
-    doesNotMean: 'A Mercedes-Benz deployment; its 96% success rate came from a proof of concept with no trial count',
+    means: 'DeepMind reports 30% to 100% higher success than previous baselines',
+    doesNotMean: 'A deployment; the 96% is from a Mercedes-Benz proof of concept',
     ...GEMINI_2_5,
     wording:
       'Gemini Robotics 2.5 is rolling out to our robotics partners. | Compared to previous baselines, Gemini Robotics 2.5 achieves a 30% to 100% higher success rate depending on the type of task | During a real-world proof-of-concept on Mercedes-Benz production lines, our models helped Apptronik’s Apollo 2 humanoid pick and pack automotive parts with a 96% success rate.',
@@ -662,9 +660,9 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'gr00t-2-release',
     date: '2026-11-10',
     area: 'models',
-    what: "NVIDIA released GR00T 2's tools and 100K hours of training data, with model weights due in December.",
-    means: 'The framework, simulation engine, annotation engine and hardware design are out now',
-    doesNotMean: 'Open weights today; the weights and X-Adapt recipes come in December',
+    what: "NVIDIA released GR00T 2's tools and 100K hours of training data.",
+    means: 'The framework, simulation and annotation engines and hardware design are out',
+    doesNotMean: 'Open weights today; weights and recipes come in December',
     ...GR00T_2_POST,
     wording:
       'We are releasing not only the model weights and X-Adapt recipes (coming December), but also our agentic framework, simulation engine, annotation engine, hardware design, and even training data (100K hours, that’s ~11 yrs of experience), all available today!',
@@ -673,9 +671,9 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'mofcom-2026-58-pause',
     date: '2026-11-09',
     area: 'policy',
-    what: 'China extended its pause on six export control announcements of 9 October 2025 to 10 January 2027.',
+    what: 'China extended its pause on six October 2025 export controls to 10 January 2027.',
     means: 'Announcements Nos. 55 to 58, 61 and 62 stay suspended from 11 November',
-    doesNotMean: 'Their repeal, or a pause on other controls; only the October 2025 announcements are paused',
+    doesNotMean: 'Their repeal, or a pause on any other export control',
     ...MOFCOM_2026_58,
     wording:
       '经批准，自2026年11月11日起至2027年1月10日，商务部、海关总署公告2025年第55号、56号、57号、58号，及商务部公告2025年第61号、62号继续暂停实施。',
@@ -699,30 +697,12 @@ export const DEVELOPMENTS: readonly Development[] = [
       "In October 2026, units of Ukraine's Defense Forces carried out a record 31,398 logistics and evacuation missions using ground robotic systems for the first time. | All ground robotic system missions are recorded in the DELTA combat system and verified by Brave1 specialists.",
   },
   {
-    id: 'fcc-abb-pantograph-exemptions',
-    date: '2026-11-06',
-    area: 'policy',
-    what: 'The FCC exempted ABB and Pantograph mobile robots from its Covered List for foreign-produced robots.',
-    means: 'Exempt models can still get FCC authorization, which covered new models cannot',
-    doesNotMean: 'A lasting clearance; it holds only while each company follows its onshoring plan',
-    ...FCC_DA_26_1203,
-    wording:
-      'ABB Robotics, LLC’s Autonomous Mobile Manipulators, Model Nos. AMMR G0540 and AMMR G1240, and its Autonomous Mobile Robot, Model No. P204V • Pantograph Industries, PBC’s Pandroid Robot Hardware | these exemptions from the FCC’s Covered List are subject to the companies’ continuing “compliance with the onshoring plan[s] outlined in [their] conditional approval application[s] and pursuant to updated vetting of [their] products.”',
-    alsoCited: [
-      {
-        ...FCC_FAQ,
-        wording:
-          'New models of devices on the Covered List are prohibited from receiving FCC authorization and are therefore prohibited from being imported or sold in the United States.',
-      },
-    ],
-  },
-  {
     id: 'nhtsa-rq26006-waymo',
     date: '2026-11-06',
     area: 'policy',
     what: "NHTSA opened a recall query into whether Waymo's school bus recall remedy worked.",
-    means: 'Most incidents in its earlier probe came after the November 2025 software remedy',
-    doesNotMean: 'A new recall or a defect finding; 2,895 is the population NHTSA lists',
+    means: 'Most incidents in its earlier probe came after the November 2025 remedy',
+    doesNotMean: "A new recall or defect finding; 2,895 is NHTSA's listed population",
     ...NHTSA_RQ26006,
     wording:
       'Date Opened: 11/06/2026 | Population: 2,895 | Of the total reported incidents identified during PE25013, a majority of the incidents occurred after the November 17, 2025 remedy date. ODI is opening this Recall Query (RQ) to assess the adequacy of the remedy for Recall 25E084',
@@ -731,29 +711,19 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'amp1-robolab-120',
     date: '2026-11-06',
     area: 'models',
-    what: 'In AMP1, a generalist AI model drives the robot arm; it scored 85.6% on RoboLab-120 in simulation.',
+    what: "In Apple's AMP1 harness, Gemini 4 Argon scored 85.6% on simulated RoboLab-120.",
     means: 'The authors also report 104 of 108 real-world trials succeeded zero-shot',
     doesNotMean: 'A result measured by anyone other than the authors',
     ...AMP1_PAPER,
     wording:
-      'agentic manipulation policies (AMPs), in which a generalist AI model commands the manipulator directly | On RoboLab-120, AMP1 reaches an 85.6\\% success rate zero-shot | The agent succeeds zero-shot in 104 of 108 real-world trials spanning twelve tasks and three robot instances',
-  },
-  {
-    id: 'agility-nasdaq-listing',
-    date: '2026-11-05',
-    area: 'money',
-    what: 'Agility Robotics began trading on Nasdaq as AGLT, citing more than $300 million of Digit 5 orders.',
-    means: 'About $465 million of gross capital from the merger and related financings',
-    doesNotMean: 'Digit 5 robots shipped; early customer access starts in the first half of 2027',
-    ...AGILITY_LISTING,
-    wording:
-      'More Than $300 Million in Multi-Year Digit 5 Orders | Business Combination and Related Financings Provide Approximately $465 Million in Gross Capital | Early customer access is expected to begin in the first half of 2027, with general availability targeted for the end of 2027.',
+      'We present AMP1, a reference harness that runs unchanged across single-arm, bimanual, and mobile manipulation. | On RoboLab-120, AMP1 reaches an 85.6\\% success rate zero-shot | The agent succeeds zero-shot in 104 of 108 real-world trials spanning twelve tasks and three robot instances',
+    alsoCited: [{ ...AMP1_PROJECT, wording: AMP1_PROJECT_WORDING }],
   },
   {
     id: 'centcom-unmanned-systems',
     date: '2026-11-04',
     area: 'deployments',
-    what: 'The War Department said it fielded over 25,000 unmanned and counter-drone systems to CENTCOM this year.',
+    what: 'CENTCOM received over 25,000 unmanned and counter-drone systems this year.',
     means: 'About $782 million this year, including over 1,300 one-way attack drones',
     doesNotMean: '25,000 drones; more than 24,000 are counter-drone systems',
     ...CENTCOM,
@@ -764,8 +734,8 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'proclamation-11077',
     date: '2026-10-28',
     area: 'policy',
-    what: 'Proclamation 11077 found robot and machinery imports threaten US security and ordered trade talks.',
-    means: 'Commerce and USTR must report on the talks within 180 days',
+    what: 'Proclamation 11077 found robot and machinery imports threaten US security.',
+    means: 'Commerce and USTR must report on trade talks within 180 days',
     doesNotMean: 'A tariff; tariffs, quotas and fees remain possible later',
     ...PROCLAMATION_11077,
     wording:
@@ -775,34 +745,12 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'kodiak-dtl-binding-deal',
     date: '2026-10-28',
     area: 'deployments',
-    what: 'DTL Transport signed a binding deal to run the Kodiak Driver in 75 driverless trucks that it owns.',
+    what: 'DTL Transport signed a binding deal to run the Kodiak Driver in 75 of its trucks.',
     means: 'Kodiak calls it the first binding commitment by a long-haul carrier',
     doesNotMean: 'Trucks running driverless now; the release gives no start date',
     ...KODIAK_DTL,
     wording:
       'Deal marks first-ever binding commitment by a long-haul trucking carrier to commercially operate driverless trucks within their own fleet | today announced a historic agreement with DTL Transport Inc., (“DTL”) a California long-haul freight company, to deploy the Kodiak Driver, Kodiak’s autonomous driving system, in 75 driverless trucks owned and operated by DTL.',
-  },
-  {
-    id: 'optimus-production-fremont',
-    date: '2026-10-21',
-    area: 'deployments',
-    what: 'Tesla said Optimus production began on its high-volume lines in Fremont.',
-    means: 'Tesla calls these its first production-quality bots; California capacity is at Early Ramp',
-    doesNotMean: 'Robots working for customers; Tesla gives no unit count',
-    ...TESLA_Q3_2026,
-    wording:
-      'Optimus production began in Fremont on our high-volume lines. The bots coming off this line are the first production-quality bots that we have manufactured. | California Optimus - Early Ramp',
-  },
-  {
-    id: 'supermimic-compute',
-    date: '2026-10-20',
-    area: 'models',
-    what: 'SuperMimic passed the return of a 128-GPU motion tracker after 3 hours of training on one GPU.',
-    means: 'The paper reports more than 1000x fewer GPU-hours; it is a CoRL 2026 oral',
-    doesNotMean: 'Training without a simulator; its world model is fit from simulator logs',
-    ...SUPERMIMIC_PAPER,
-    wording:
-      'In 3 hours on a single GPU, SuperMimic surpasses the return of a state-of-the-art motion tracker baseline trained for 7 days on 128 GPUs. It reduces GPU-hours by more than $1000\\times$ | one differentiable world model of their shared dynamics, fit from logged transitions of a standard rigid-body simulator | Comments: Accepted at CoRL 2026 (Oral).',
   },
 ];
 
