@@ -67,7 +67,7 @@ import { TactileSlip } from '@/components/motion/scenes/tactile-slip';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Dexterity is skilled <Term id="contact-rich-manipulation">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It is unsolved: a model Physical Intelligence fine-tuned on Benjie Holson's Humanoid Olympics tasks averaged 52% success on them <Cite id="pi-olympics-2025" />.
+Dexterity is skilled <Term id="contact-rich-manipulation">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It is unsolved: a model Physical Intelligence fine-tuned on 11 of Benjie Holson's Humanoid Olympics tasks averaged 52% success on them <Cite id="pi-olympics-2025" />.
 
 <Image id="uskin-tactile-allegro-hand-2021" />
 
@@ -77,7 +77,7 @@ The problem is old: by 1961 Heinrich Ernst had a computer-controlled hand stacki
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="hand receptors" value="17,000" note="low-threshold mechanoreceptors, ~1,000 per fingertip" accent />
-  <Stat label="best threshold" value="5 mN" note="Sanctuary's array; a human fingertip feels ~3 mN" />
+  <Stat label="best threshold" value="5 mN" note="Sanctuary's array, reported; a human finger feels ~3 mN" />
   <Stat label="research hand" value="€110k" note="Shadow Hand Plus, 2022, support included" />
 </div>
 
@@ -106,7 +106,7 @@ A camera can stand in for a force sensor. Haonan Chen and colleagues read grip f
 <span id="the-bet-on-touch" />
 ## The bet on touch: feel contact before it moves the object
 
-With video alone, says Jeremy Fishel of Sanctuary AI, a robot learns it touched something only after the collision has moved it <Cite id="sanctuary-tactile-2025" />. Sanctuary's Phoenix fingerpads sense about 5 mN, against roughly 3 mN for a human fingertip <Cite id="robozaps-phoenix-2026" />. Figure 03 fingertips detect three grams <Cite id="figure-03-2025" />, and Figure calls Helix 02 its first policies that depend on that touch <Cite id="helix-02-2026" />.
+With video alone, says Jeremy Fishel of Sanctuary AI, a robot learns it touched something only after the collision has moved it <Cite id="sanctuary-tactile-2025" />. Sanctuary's Phoenix fingerpads reportedly sense about 5 mN, against roughly 3 mN for a human finger <Cite id="robozaps-phoenix-2026" />. Figure 03 fingertips detect three grams <Cite id="figure-03-2025" />, and Figure calls Helix 02 its first policies that depend on that touch <Cite id="helix-02-2026" />.
 
 Touch beats a closer camera, and tactile-pretrained models beat their strongest baselines:
 
@@ -114,7 +114,7 @@ Touch beats a closer camera, and tactile-pretrained models beat their strongest 
 | --- | --- | --- |
 | Tactile vs. wrist camera (2026) | Same data and architecture, three contact-rich tasks | Finger arrays +31.7 to 60.0 points; wrist cameras +18.3 to 28.3 <Cite id="tactile-vs-wrist-camera-2026" /> |
 | Tactile cues study (2026) | 720 real trials | 57.8% without touch, 78.9% with it <Cite id="tactile-cues-study-2026" /> |
-| Sparsh-X (2025) | About a million Digit 360 contact interactions | +63% over tactile images end to end <Cite id="sparsh-x-2025" /> |
+| Sparsh-X (2025) | About a million Digit 360 contact interactions | +63% over tactile images end to end, on plug insertion <Cite id="sparsh-x-2025" /> |
 | LingBot-Touch (2026) | Robbyant, open source, three sensor types <Cite id="lingbot-touch-2026" /> | Four policies up 14 to 26 points, company-reported <Cite id="lingbot-touch-release-2026" /> |
 | TouchWorld (2026) | Tactile world model, six long-horizon tasks | 65%, 15.7 points over the best baseline <Cite id="touchworld-2026" /> |
 | T-Rex (2026) | Touch-reading VLA, 12 delicate-force tasks | Over 30% above the best baseline <Cite id="t-rex-2026" /> |
@@ -129,7 +129,7 @@ Touch does not finish the job. Gemini Robotics 2 drives the tactile 22-degree-of
 
 Tesla's 22-<Term id="degrees-of-freedom">degree-of-freedom</Term> tendon hand has the most articulation. Of the V3 design, Musk said "this one didn't actually work" <Cite id="teslarati-optimus-hand-2026" /> <Cite id="droids-optimus-v3-hand-2026" />, and he tied outside Optimus deliveries around the end of 2027 to solving it <Cite id="tesla-q3-2026-call" />. Sanctuary has the most sensitive disclosed touch and a working in-hand demo, and now sells software instead <Cite id="robozaps-phoenix-2026" />.
 
-Shadow's Dexterous Hand, the research benchmark for two decades, runs more than 100 sensors at 1 kHz <Cite id="shadow-dexterous-hand-2026" /> and cost €110,000 with support in 2022 <Cite id="shadow-hand-cost-2022" />. Unitree's H2 lists at \$29,900 with placeholder hands, and at \$100,000 with tactile Sharpa Wave hands <Cite id="robozaps-unitree-h2-2026" />.
+Shadow's Dexterous Hand, the research benchmark for two decades, runs more than 100 sensors at up to 1 kHz <Cite id="shadow-dexterous-hand-2026" /> and cost €110,000 with support in 2022 <Cite id="shadow-hand-cost-2022" />. Unitree's H2 lists at \$29,900 with placeholder hands, and at \$100,000 with tactile Sharpa Wave hands <Cite id="robozaps-unitree-h2-2026" />.
 
 Boston Dynamics built its new Atlas hand, with 13 actuated degrees of freedom and touch in fingertips and palm, to simulate accurately for reinforcement learning <Cite id="bd-atlas-hand-2026" />. At ETH Zurich a 738 g WUJI hand became the whole robot, crawling on its fingers <Cite id="fingers-as-legs-2026" />.
 
