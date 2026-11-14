@@ -178,6 +178,41 @@ export const ADDITIONS: Citation[] = [
     type: 'press',
   },
   {
+    // Abstract page (v1, 11 Nov 2026) read 2026-11-14: "built entirely from purchasable parts for
+    // about USD 137,000"; two UR5e arms hold da Vinci X/Xi instruments, a UR5 holds the endoscope.
+    // No arXiv HTML; the authors' docs/bom/bom.csv (github.com/MRE-Lab-UMD/arts) sums to about
+    // USD 136,000 before its unpriced rows, with each UR5e at a quoted USD 30,000.
+    id: 'arts-surgical-platform-2026',
+    title: 'ARTS: An Open-Source, Reproducible Three-Arm Platform for Autonomy Research in Minimally Invasive Surgery',
+    authors: [
+      'Jiawei Ge',
+      'Chunwoo Kim',
+      'Antony Goldenberg',
+      'Douglas McDonough',
+      'Justin Liao',
+      'Bo Ning',
+      'Sylvia Ladstaetter',
+      'Katya Van Anderlecht',
+      'Hao Ding',
+      'Laura Connolly',
+      'Ethan Kilmer',
+      'Francis Fan',
+      'Shouyue Hu',
+      'Tyler Salvador',
+      'Brendan Burkhart',
+      'Pit Henrich',
+      'Richard Cha',
+      'Tito Porras',
+      'Mathias Unberath',
+      'Kevin Cleary',
+      'Axel Krieger',
+    ],
+    year: 2026,
+    arxiv: '2611.15135',
+    url: 'https://arxiv.org/abs/2611.15135',
+    type: 'paper',
+  },
+  {
     id: 'stryker-cmr-2026',
     title: 'Stryker and CMR Surgical announce strategic alliance to advance robotic-assisted surgery',
     authors: ['Stryker'],
