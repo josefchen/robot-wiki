@@ -20,6 +20,7 @@ import {
 import {
   CONTEXT_KEYS,
   COVERAGE_THRESHOLDS_USD,
+  ROUNDS_PAGE_PATH,
   ROUNDS_PAGE_SECTIONS,
   amountText,
   contextSentence,
@@ -38,6 +39,7 @@ import {
   roundsLeadSentence,
   sourceHost,
 } from '@/lib/rounds-page';
+import { routeSeoProfile } from '@/lib/seo-profiles';
 
 describe('headline totals', () => {
   it('takes both totals and every count from lib/rounds.ts', () => {
@@ -85,6 +87,13 @@ describe('top of the page', () => {
     );
     expect(lead).not.toMatch(/[.,;:!?]\s*$/);
     expect(lead).not.toMatch(/\d{4}/);
+  });
+
+  it('states the window from the module in the search title and description', () => {
+    const profile = routeSeoProfile(ROUNDS_PAGE_PATH);
+    // The title is in title case: "Last 120 Days".
+    expect(profile.title.toLowerCase()).toContain(`${ROUNDS_WINDOW_DAYS} days`);
+    expect(profile.description).toContain(`${ROUNDS_WINDOW_DAYS} days`);
   });
 
   it('gives every section a unique id', () => {
