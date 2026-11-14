@@ -102,7 +102,7 @@
     },
     "frontier/safety-and-assurance": {
       "published": "2026-08-22T23:06:38+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T16:48:58Z"
     },
     "manipulation/action-chunking": {
       "published": "2026-08-07T23:41:23+02:00",
@@ -146,7 +146,7 @@
     },
     "manipulation/pi-line": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-14T16:03:34Z"
+      "modified": "2026-11-15T00:48:52+08:00"
     },
     "manipulation/realtime-execution": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -206,7 +206,7 @@
     },
     "world-models/generative-video": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-14T16:03:34Z"
+      "modified": "2026-11-15T00:48:52+08:00"
     },
     "world-models/jepa": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-14T16:03:34Z"
+      "modified": "2026-11-14T16:48:59Z"
     },
     "/manipulation/": {
       "modified": "2026-11-13T15:15:57+08:00"
