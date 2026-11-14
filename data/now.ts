@@ -472,11 +472,12 @@ export const TRAJECTORIES: readonly Trajectory[] = [
         basis: 'stated',
         date: '2026-11-14',
         period: 'Leaderboard, 14 November 2026',
-        label: 'Best learned policy (Lakeside)',
+        label: 'Best non-agentic policy (Lakeside)',
         value: 51.0,
         episodes: { successes: 1_531, total: 3_000 },
         ...ROBOLAB,
-        wording: '3 Lakeside LWM 1531 / 3000 25 eps/task 51.0 %',
+        wording:
+          'Approach: Agentic Non-Agentic | 1 AMP1 Agentic LM | 2 SenseNova-RoboRSI Agentic LM | 3 Lakeside LWM 1531 / 3000 25 eps/task 51.0 %',
       },
     ],
     later: {
@@ -489,6 +490,11 @@ export const TRAJECTORIES: readonly Trajectory[] = [
       ...ROBOLAB,
       wording: '1 AMP1 Agentic LM 2579 / 3000 25 eps/task 86.0 %',
       dateSource: { ...AMP1_PAPER, wording: 'Submitted on 6 Nov 2026' },
+      note: {
+        text: 'Dated by the paper; the leaderboard entry was submitted on 15 October 2026',
+        ...ROBOLAB,
+        wording: 'AMP1 Submission Submitted Oct 15, 2026 Frontier model agent as zero-shot manipulation policy',
+      },
     },
     note: {
       text: 'The AMP1 paper itself reports 85.6%',
@@ -559,7 +565,7 @@ export const TRAJECTORIES: readonly Trajectory[] = [
     title: 'Ukrainian ground robot missions per month',
     unit: 'missions per month',
     measuredBy: "Ukraine's Ministry of Defense, reported by Ukrinform",
-    caveat: 'Logistics and evacuation missions recorded in DELTA, which counts neither robots nor strike missions',
+    caveat: 'The figure counts logistics and evacuation missions, not robots or strike missions',
     earlier: {
       basis: 'stated',
       date: '2026-01-31',
@@ -667,16 +673,17 @@ export const DEVELOPMENTS: readonly Development[] = [
     id: 'mofcom-2026-58-pause',
     date: '2026-11-09',
     area: 'policy',
-    what: 'China extended its pause on six 2025 announcements, including rare earth export controls, to 10 January 2027.',
+    what: 'China extended its pause on six export control announcements of 9 October 2025 to 10 January 2027.',
     means: 'Announcements Nos. 55 to 58, 61 and 62 stay suspended from 11 November',
-    doesNotMean: 'Their repeal; the suspension runs only to 10 January 2027',
+    doesNotMean: 'Their repeal, or a pause on other controls; only the October 2025 announcements are paused',
     ...MOFCOM_2026_58,
     wording:
       '经批准，自2026年11月11日起至2027年1月10日，商务部、海关总署公告2025年第55号、56号、57号、58号，及商务部公告2025年第61号、62号继续暂停实施。',
     alsoCited: [
       {
         ...MOFCOM_2025_INDEX,
-        wording: '2025-10-09 商务部 海关总署公告2025年第57号 公布对部分中重稀土相关物项实施出口管制的决定',
+        wording:
+          '商务部公告2025第62号 公布对稀土相关技术实施出口管制的决定 2025-10-09 | 商务部公告2025第61号 公布对境外相关稀土物项实施出口管制的决定 2025-10-09 | 商务部 海关总署公告2025年第58号 公布对锂电池和人造石墨负极材料相关物项实施出口管制的决定 2025-10-09 | 商务部 海关总署公告2025年第57号 公布对部分中重稀土相关物项实施出口管制的决定 2025-10-09 | 商务部 海关总署公告2025年第56号 公布对部分稀土设备和原辅料相关物项实施出口管制的决定 2025-10-09 | 商务部 海关总署公告2025年第55号 公布对超硬材料相关物项实施出口管制的决定 2025-10-09',
       },
     ],
   },
@@ -828,9 +835,9 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
     unit: 'humanoid robots',
     promised: {
       said: '2025-01-30',
-      what: 'A path to 100,000 robots over four years with its two customers',
+      what: 'Believes there is a path to 100,000 robots over four years with its two customers',
       value: 100_000,
-      countKind: 'target',
+      countKind: 'projected',
       ...ADCOCK_PATH,
       wording: 'Between both customers, we believe there is a path to 100,000 robots over the next four years',
     },
@@ -846,14 +853,15 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   {
     id: '1x-neo',
     who: '1X NEO',
-    unit: 'NEO home humanoids delivered',
+    unit: 'NEOs shipped to customers',
     promised: {
       said: '2026-04-30',
       what: 'First NEOs to ship to customers in 2026',
       value: null,
       countKind: 'milestone',
       ...ONEX_FACTORY,
-      wording: 'We promised the first NEOs would ship in 2026, and we’re keeping that promise.',
+      wording:
+        'We promised the first NEOs would ship in 2026, and we’re keeping that promise. | package it up to ship to customers that paid good money for a life-changing experience',
     },
     delivered: {
       asOf: NOW_AS_OF,
@@ -866,24 +874,25 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   },
   {
     id: 'ubtech-walker-s2',
-    who: 'UBTECH Walker S',
-    unit: 'full-size humanoid robots',
+    who: 'UBTECH',
+    unit: 'units',
     promised: {
       said: '2025-11-17',
       what: 'Deliver 500 Walker S2 robots within 2025',
       value: 500,
       countKind: 'target',
       ...UBTECH_TARGET,
-      wording: 'This milestone moves the company toward its target of delivering 500 units within the year',
+      wording:
+        'UBTECH Humanoid Robot Walker S2 Begins Mass Production and Delivery | This milestone moves the company toward its target of delivering 500 units within the year',
     },
     delivered: {
       asOf: '2025-12-31',
-      what: 'Sold 1,079 full-size humanoids in 2025; the target counted deliveries and the result counts sales',
+      what: '1,079 units sold in 2025 across all full-size humanoid products, against a target for Walker S2 deliveries alone; the filing puts Walker S2 delivery at the 1,000-unit level',
       value: 1_079,
       countKind: 'sold',
       ...UBTECH_2025_RESULTS,
       wording:
-        'full-size embodied intelligent humanoid robot products and services for all scenarios achieved revenue of approximately RMB820 million | and achieved sales volume of 1,079 units',
+        'In 2025, full-size embodied intelligent humanoid robot products and services for all scenarios achieved revenue of approximately RMB820 million | and achieved sales volume of 1,079 units | The 1,000-unit-level small-scale mass production and delivery of the Walker S2 marks the maturity and stability of our manufacturing process.',
     },
   },
   {
@@ -911,13 +920,13 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   {
     id: 'serve-robots',
     who: 'Serve Robotics',
-    unit: 'daily active robots (average over Q3 2026)',
+    unit: 'robots',
     promised: {
       said: '2026-11-05',
       what: 'Has deployed more than 2,000 robots since 2021',
       value: 2_000,
       qualifier: 'more than',
-      countKind: 'fleet total',
+      countKind: 'deployed (cumulative)',
       ...SERVE_Q3,
       wording: 'Since spinning off from Uber in 2021, Serve has deployed more than 2,000 robots across the U.S.',
     },
@@ -934,19 +943,20 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   {
     id: 'agility-digit-5',
     who: 'Agility Digit 5',
-    unit: 'USD committed multi-year Digit 5 orders',
+    unit: 'USD in committed multi-year Digit 5 orders',
     promised: {
       said: '2026-11-05',
-      what: 'More than $300 million in committed multi-year orders for Digit 5',
+      what: 'More than $300 million in committed multi-year orders for Digit 5, subject to contractual milestones, product features and specifications',
       value: 300_000_000,
       qualifier: 'more than',
       countKind: 'ordered (committed)',
       ...AGILITY_LISTING,
-      wording: 'More Than $300 Million in Multi-Year Digit 5 Orders',
+      wording:
+        'The company has secured more than $300 million in committed multi-year orders for Digit® 5, its next-generation humanoid robot, subject to contractual milestones, product features and specifications.',
     },
     delivered: {
       asOf: '2026-11-05',
-      what: 'Digit 5 is not yet shipping; early customer access is expected in the first half of 2027',
+      what: 'Early customer access is expected in the first half of 2027, with general availability targeted for the end of 2027',
       value: null,
       countKind: 'delivered',
       ...AGILITY_LISTING,
@@ -965,7 +975,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
       countKind: 'target',
       ...GXO,
       wording:
-        'Subject to the success of the deployments and the ability to meet agreed performance, safety and operational KPIs, the companies intend to progress toward global rollout of up to 1,000 Apollo humanoid robots over the next four years',
+        'today announced that it has signed a Letter of Intent (LOI) with AI-powered robotics company | Subject to the success of the deployments and the ability to meet agreed performance, safety and operational KPIs, the companies intend to progress toward global rollout of up to 1,000 Apollo humanoid robots over the next four years',
     },
     delivered: {
       asOf: '2026-11-12',
@@ -973,16 +983,17 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
       value: null,
       countKind: 'in service',
       ...GXO,
-      wording: 'with initial deployment in North America in late 2027',
+      wording:
+        'Beginning in 2027, the trials will validate the safety, security and technical requirements for scaled deployment | with initial deployment in North America in late 2027',
     },
   },
   {
     id: 'charger-aurora-trucks',
     who: 'Charger Logistics and Aurora',
-    unit: 'trucks (non-binding MOU)',
+    unit: 'Aurora Driver-powered trucks (non-binding MOU)',
     promised: {
       said: '2026-10-28',
-      what: 'Own and operate 500 Aurora Driver trucks, under a non-binding memorandum',
+      what: 'Intends to own and operate 500 Aurora Driver-powered trucks, under a non-binding MOU',
       value: 500,
       countKind: 'ordered (non-binding)',
       ...AURORA_Q3,
@@ -1001,7 +1012,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   {
     id: 'may-mobility-id-buzz',
     who: 'May Mobility and Volkswagen',
-    unit: 'ID. Buzz robotaxis',
+    unit: 'autonomous ID. Buzz vehicles',
     promised: {
       said: '2026-11-12',
       what: 'More than 10,000 autonomous ID. Buzz vehicles deployed through 2031',
@@ -1023,7 +1034,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   {
     id: 'tesla-robotaxi-texas',
     who: 'Tesla Robotaxi in Texas',
-    unit: 'automated vehicles registered in Texas (Tesla / Waymo / Avride / Zoox)',
+    unit: 'Tesla Robotaxi vehicles registered in Texas',
     promised: {
       said: NOW_AS_OF,
       what: '1,303 Tesla vehicles in the Texas automated vehicle registry',
@@ -1044,7 +1055,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   {
     id: 'agibot-20000',
     who: 'AgiBot',
-    unit: 'robots produced (cumulative, all AgiBot models)',
+    unit: 'robots produced (cumulative)',
     promised: {
       said: '2026-09-24',
       what: 'Its 20,000th robot rolled off the production line',
@@ -1066,7 +1077,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
   {
     id: 'gr00t-2-weights',
     who: 'NVIDIA GR00T 2',
-    unit: 'open release',
+    unit: 'release of weights and code',
     promised: {
       said: '2026-11-10',
       what: 'Model weights and X-Adapt recipes in December',
