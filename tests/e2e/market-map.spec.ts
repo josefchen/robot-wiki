@@ -87,7 +87,7 @@ test.describe('market map visualization', () => {
     const response = await page.goto(ROUTE);
     expect(response?.ok()).toBe(true);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Private robotics companies' }),
+      page.getByRole('heading', { level: 1, name: 'Market Map' }),
     ).toBeVisible();
     await expect(page.getByText(`${COMPANY_COUNT} of ${COMPANY_COUNT} companies`)).toBeVisible();
     await expect(tiles(page)).toHaveCount(COMPANY_COUNT);
@@ -121,7 +121,7 @@ test.describe('market map visualization', () => {
     );
     // The Market section's two pages: this one marked, the rounds linked.
     const section = page.getByRole('navigation', { name: 'Market' });
-    await expect(section.locator('[aria-current="page"]')).toHaveText('Private companies');
+    await expect(section.locator('[aria-current="page"]')).toHaveText('Market map');
     await expect(section.getByRole('link')).toHaveCount(1);
     await expect(section.getByRole('link', { name: 'Recent rounds' })).toHaveAttribute(
       'href',

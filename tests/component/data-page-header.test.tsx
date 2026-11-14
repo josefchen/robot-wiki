@@ -278,7 +278,7 @@ describe('the market map page header', () => {
       const { container } = render(<MarketMapPage />);
       const header = container.querySelector('header[data-page-header]')!;
       const title = within(header as HTMLElement).getByRole('heading', { level: 1 });
-      expect(title.textContent).toBe('Private robotics companies');
+      expect(title.textContent).toBe('Market Map');
       expect(header.firstElementChild).toBe(title);
       expect(lead(container).textContent).toBe(
         `${COMPANIES.length} companies in six segments, each with its latest disclosed round or status and the sources behind it, as of ${formatLongDate(MARKET_MAP_AS_OF)}.`,
