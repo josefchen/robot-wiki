@@ -90,7 +90,7 @@
     },
     "frontier/dexterity": {
       "published": "2026-08-12T18:33:06+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T12:33:48Z"
     },
     "frontier/generalization": {
       "published": "2026-08-12T18:33:06+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-13T14:28:03Z"
+      "modified": "2026-11-14T12:33:48Z"
     },
     "/manipulation/": {
       "modified": "2026-11-13T15:15:57+08:00"
