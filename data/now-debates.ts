@@ -3,8 +3,7 @@
  * evidence each way, and the seven arguments the field had between 30 Sep
  * and 14 Nov 2026, each with named people in their own words.
  *
- * Sources: the trends, papers and discourse research of 14 Nov 2026. Every
- * evidence source, post and article below was opened again on 14 Nov 2026;
+ * Sources: the primary sources each row cites, opened 14 Nov 2026.
  * `passages` hold what each source says, and every quote is copied from the
  * post or article itself. Rules (data/schemas/now-debate.ts):
  *   - Evidence is a result or a filing, never an opinion; a side with
@@ -37,7 +36,7 @@ export const OPEN_QUESTIONS: OpenQuestion[] = [
     question: 'Does a general AI model become the robot policy?',
     labels: { for: 'for', against: 'against' },
     evidenceFor: {
-      text: 'NVIDIA measured GPT-6 Astra at 74.8% on RoboLab-120 in simulation, 23.8 points above the best leaderboard policy, at 13.37 s per call with the simulation paused.',
+      text: 'NVIDIA measured GPT-6 Astra at 74.8% on RoboLab-120 in simulation, 23.8 points above Lakeside, the best leaderboard policy at the time, at 13.37 s per call with the simulation paused.',
       sourceType: 'primary',
       sourceTitle: 'Astranomy: An Empirical Study of GPT-6 Astra as a native robot policy',
       sourceUrl: 'https://research.nvidia.com/labs/srl/projects/astranomy/',
@@ -174,7 +173,7 @@ export const OPEN_QUESTIONS: OpenQuestion[] = [
       checked: CHECKED,
     },
     evidenceAgainst: {
-      text: 'Skild AI says it passed $100 million in annual recurring revenue ten months after its first commercial deployment, with more than 60 paying customers.',
+      text: 'Skild AI says it passed $100 million in annual recurring revenue ten months after its first commercial deployment, with 60+ paying customers.',
       sourceType: 'primary',
       sourceTitle: 'The Hidden Pillar of Robotics',
       sourceUrl: 'https://www.skild.ai/blogs/skild-crosses-100m-arr',
@@ -285,12 +284,11 @@ export const NOW_ARGUMENTS: NowArgument[] = [
     title: 'General model as policy',
     question: 'Can a general AI model be the robot policy?',
     questionId: 'q-general-model-as-robot-policy',
-    sides: ['for', 'yes on score, no on speed', 'split: VLM for semantics, VLA for action', 'against'],
+    sides: ['for (reading of OpenAI)', 'yes on score, no on speed', 'split: VLM for semantics, VLA for action', 'against'],
     positions: [
       {
         id: 'guanya-shi-special-problem',
-        packKey: 'fortune-guanya-shi-2026-11-13',
-        side: 'for',
+        side: 'for (reading of OpenAI)',
         person: 'Guanya Shi',
         speaker: 'person',
         role: 'Assistant professor, Carnegie Mellon University Robotics Institute',
@@ -305,13 +303,12 @@ export const NOW_ARGUMENTS: NowArgument[] = [
           title: 'Exclusive: OpenAI disbands its stand-alone robotics team as its general models start running robots',
           publisher: 'Fortune',
         },
-        opened: 'reopened',
         checked: CHECKED,
-        context: 'Told Fortune, on OpenAI disbanding its stand-alone robotics team.',
+        context:
+          'His reading, told to Fortune, of how OpenAI sees robotics after disbanding its stand-alone robotics team; he added that smaller, specialized models are still needed on the robot’s own computer.',
       },
       {
         id: 'xuning-yang-astranomy',
-        packKey: 'x-xuningy-2110468153147089292',
         side: 'yes on score, no on speed',
         person: 'Jenai Xuning Yang',
         speaker: 'person',
@@ -323,12 +320,10 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-14',
         postedUtc: '2026-10-14T20:29:52Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
       {
         id: 'sergey-levine-semantics',
-        packKey: 'x-svlevine-2119672075589726281',
         side: 'split: VLM for semantics, VLA for action',
         person: 'Sergey Levine',
         speaker: 'person',
@@ -340,12 +335,10 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-09',
         postedUtc: '2026-11-09T06:02:59Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
       {
         id: 'dmytro-hrybov-latency',
-        packKey: 'x-dimentary-2114812408598606191',
         side: 'against',
         person: 'Dmytro Hrybov',
         speaker: 'person',
@@ -358,7 +351,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-26',
         postedUtc: '2026-10-26T20:12:24Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
     ],
@@ -372,7 +364,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
     positions: [
       {
         id: 'edward-johns-machenta',
-        packKey: 'x-Ed__Johns-2115030792720031996',
         side: 'simulation only',
         person: 'Edward Johns',
         speaker: 'person',
@@ -384,12 +375,10 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-27',
         postedUtc: '2026-10-27T10:40:11Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
       {
         id: 'qiayuan-liao-compute',
-        packKey: 'x-qiayuanliao-2112936040357130615',
         side: 'simulation / world model',
         person: 'Qiayuan Liao',
         speaker: 'person',
@@ -401,12 +390,11 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-21',
         postedUtc: '2026-10-21T15:56:23Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
+        context: 'On SuperMimic, which trains humanoid motion tracking inside a learned world model.',
       },
       {
         id: 'bernt-bornich-real-world-rl',
-        packKey: 'x-BerntBornich-2113592564427481567',
         side: 'real-world RL',
         person: 'Bernt Bornich',
         speaker: 'person',
@@ -418,7 +406,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-23',
         postedUtc: '2026-10-23T11:25:10Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
     ],
@@ -433,7 +420,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
     positions: [
       {
         id: 'yuke-zhu-robot-data',
-        packKey: 'x-yukez-2119880326705012949',
         side: 'human video',
         person: 'Yuke Zhu',
         speaker: 'person',
@@ -445,12 +431,10 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-09',
         postedUtc: '2026-11-09T19:50:30Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
       {
         id: 'chelsea-finn-flash-aloha',
-        packKey: 'x-chelseabfinn-2120913548284936306',
         side: 'neither teleop nor UMI: direct guidance',
         person: 'Chelsea Finn',
         speaker: 'person',
@@ -462,7 +446,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-12',
         postedUtc: '2026-11-12T16:16:09Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
     ],
@@ -476,7 +459,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
     positions: [
       {
         id: 'keerthana-gopalakrishnan-real-world',
-        packKey: 'x-keerthanpg-2120215927820357727',
         side: 'deployment',
         person: 'Keerthana Gopalakrishnan',
         speaker: 'person',
@@ -489,13 +471,11 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-10',
         postedUtc: '2026-11-10T18:04:03Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
         context: 'On the Mercedes-Benz footage Google DeepMind calls a proof of concept.',
       },
       {
         id: 'carolina-parada-proof-of-concept',
-        packKey: 'x-carolina_parada-2120184213429473550',
         side: 'pilot, not deployment',
         person: 'Carolina Parada',
         speaker: 'person',
@@ -508,12 +488,10 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-10',
         postedUtc: '2026-11-10T15:58:02Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
       {
         id: 'kyle-getsiv-no-broad-deployment',
-        packKey: 'x-GetsivKyle-2119613025963708599',
         side: 'no broad deployment yet',
         person: 'Kyle Getsiv',
         speaker: 'person',
@@ -525,7 +503,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-08',
         postedUtc: '2026-11-09T02:08:20Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
     ],
@@ -539,7 +516,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
     positions: [
       {
         id: 'remi-fabre-microduck-pilots',
-        packKey: 'x-RemiFabreRobot-2113710447912218861',
         side: 'discloses teleoperation',
         person: 'Remi Fabre',
         speaker: 'person',
@@ -551,25 +527,23 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-23',
         postedUtc: '2026-10-23T19:13:36Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
         context: 'On the four Microducks in the live demo with Jensen Huang.',
       },
       {
         id: 'jim-fan-keynote-autonomous',
-        packKey: 'x-DrJimFan-2119206373552685359',
         side: 'autonomous (own claim)',
         person: 'Jim Fan',
         speaker: 'person',
         role: 'Director of Robotics and Distinguished Scientist, NVIDIA; co-lead, GEAR lab',
-        quote: 'Autonomous.',
+        quote: 'Real. Autonomous. No speed up.',
+        wholePost: true,
         channel: 'x',
         handle: 'DrJimFan',
         postUrl: 'https://x.com/DrJimFan/status/2119206373552685359',
         postedDate: '2026-11-07',
         postedUtc: '2026-11-07T23:12:27Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
         context: 'His reply under his CoRL keynote teaser; not independently checked.',
       },
@@ -584,7 +558,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
     positions: [
       {
         id: 'runway-praxis-1-open-weights',
-        packKey: 'x-runwayml-2120533081182577116',
         side: 'open (Apache 2.0)',
         person: 'Runway',
         speaker: 'organization',
@@ -596,12 +569,10 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-11',
         postedUtc: '2026-11-11T15:04:18Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
       {
         id: 'yuke-zhu-gr00t-2-code',
-        packKey: 'x-yukez-2119880335228055920',
         side: 'open (code later)',
         person: 'Yuke Zhu',
         speaker: 'person',
@@ -613,13 +584,11 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-09',
         postedUtc: '2026-11-09T19:50:32Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
         context: 'Jim Fan says the weights are due in December too; the 100,000 hours of training data are out now.',
       },
       {
         id: 'physical-intelligence-api',
-        packKey: 'x-physical_int-2110115571681690051',
         side: 'closed (API)',
         person: 'Physical Intelligence',
         speaker: 'organization',
@@ -632,12 +601,10 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-13',
         postedUtc: '2026-10-13T21:08:51Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
       {
         id: 'kyle-getsiv-open-weights',
-        packKey: 'x-GetsivKyle-2119613180611854468',
         side: 'closing',
         person: 'Kyle Getsiv',
         speaker: 'person',
@@ -649,7 +616,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-08',
         postedUtc: '2026-11-09T02:08:57Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
     ],
@@ -664,7 +630,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
     positions: [
       {
         id: 'rebecca-torrence-pi-talks',
-        packKey: 'x-RebeccaTorrenc5-2115170488716829037',
         side: 'valuation ahead of revenue',
         person: 'Rebecca Torrence',
         speaker: 'person',
@@ -677,13 +642,12 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-27',
         postedUtc: '2026-10-27T19:55:17Z',
         sourceType: 'reported',
-        opened: 'reopened',
         checked: CHECKED,
-        context: 'Talks, not a closed round.',
+        context:
+          'Talks, not a closed round; her next post in the thread says Physical Intelligence is still pre-revenue, which is her statement, not a published figure.',
       },
       {
         id: 'elon-musk-tesla-value',
-        packKey: 'x-elonmusk-2111683964721037767',
         side: 'robots carry the valuation',
         person: 'Elon Musk',
         speaker: 'person',
@@ -695,12 +659,10 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-10-18',
         postedUtc: '2026-10-18T05:01:05Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
       },
       {
         id: 'lukas-ziegler-agile-robots',
-        packKey: 'x-lukas_m_ziegler-2120810253964951567',
         side: 'valuation backed by revenue',
         person: 'Lukas Ziegler',
         speaker: 'person',
@@ -712,7 +674,6 @@ export const NOW_ARGUMENTS: NowArgument[] = [
         postedDate: '2026-11-12',
         postedUtc: '2026-11-12T09:25:41Z',
         sourceType: 'primary',
-        opened: 'reopened',
         checked: CHECKED,
         context: 'On Agile Robots’ $500 million Series F at $8.5 billion.',
       },

@@ -23,8 +23,6 @@ export interface DebateCounts {
   positions: number;
   /** Positions whose source is a press report or a reporter's scoop. */
   reportedPositions: number;
-  /** Positions that rest on the research pack instead of a reopened post. */
-  positionsFromPack: number;
   /** Evidence sides with a source, and sides with nothing published. */
   sourcedEvidence: number;
   evidenceNonePublished: number;
@@ -32,12 +30,12 @@ export interface DebateCounts {
   linkedSubjects: number;
 }
 
-/** Arguments in the discourse pack's rank order. */
+/** Arguments in rank order, the most argued first. */
 export function argumentsByRank(args: readonly NowArgument[] = NOW_ARGUMENTS): NowArgument[] {
   return [...args].sort((a, b) => a.rank - b.rank);
 }
 
-/** Open questions in the trends pack's order. */
+/** Open questions in rank order. */
 export function questionsByRank(questions: readonly OpenQuestion[] = OPEN_QUESTIONS): OpenQuestion[] {
   return [...questions].sort((a, b) => a.rank - b.rank);
 }
@@ -94,26 +92,13 @@ export function debateCounts(
     arguments: args.length,
     positions: positions.length,
     reportedPositions: positions.filter((position) => position.sourceType === 'reported').length,
-    positionsFromPack: positions.filter((position) => position.opened === 'pack').length,
     sourcedEvidence: evidence.filter(isSourced).length,
     evidenceNonePublished: evidence.filter((side) => !isSourced(side)).length,
     linkedSubjects: args.filter((argument) => questionForArgument(argument, questions) !== null).length,
   };
 }
 
-/** The calendar date X shows a reader in US Eastern time for a UTC timestamp. */
-export function easternDate(utc: string): string {
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/New_York',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(new Date(utc));
-  const part = (type: string) => parts.find((candidate) => candidate.type === type)?.value ?? '';
-  return `${part('year')}-${part('month')}-${part('day')}`;
-}
-
-/** Every string written for the site (not quotes, passages, titles or the pack's side labels). */
+/** Every string written for the site: not quotes, names, passages or source titles. */
 export function siteCopy(
   questions: readonly OpenQuestion[] = OPEN_QUESTIONS,
   args: readonly NowArgument[] = NOW_ARGUMENTS,
@@ -127,7 +112,8 @@ export function siteCopy(
   const fromArguments = args.flatMap((argument) => [
     argument.title,
     argument.question,
-    ...argument.positions.flatMap((position) => (position.context ? [position.context] : [])),
+    ...argument.sides,
+    ...argument.positions.flatMap((position) => [position.role, ...(position.context ? [position.context] : [])]),
   ]);
   return [...fromQuestions, ...fromArguments];
 }

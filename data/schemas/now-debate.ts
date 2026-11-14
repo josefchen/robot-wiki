@@ -11,7 +11,8 @@ import { httpsUrlSchema, isoDateSchema, slugSchema } from './shared.ts';
  *   no sourced evidence is 'none published'.
  * - A quote is copied character for character from the post or article,
  *   one sentence at most, cut only at a sentence or word boundary, with no
- *   ellipsis. Paraphrase is never a quote.
+ *   ellipsis. A post too short to cut is stored whole and marked
+ *   `wholePost`, at most 60 characters. Paraphrase is never a quote.
  * - A quote reached through a press article is 'reported' and names the
  *   article. A figure from a press report or an analyst estimate is
  *   'reported'.
@@ -23,6 +24,7 @@ export const NONE_PUBLISHED = 'none published';
 export const NOT_DISCLOSED = 'not disclosed';
 export const NOT_STATED = 'not stated';
 export const QUOTE_MAX_LENGTH = 240;
+export const WHOLE_POST_MAX_LENGTH = 60;
 
 export const debateSourceTypeSchema = z.enum(['primary', 'reported']);
 
@@ -72,6 +74,13 @@ export const quoteSchema = z
   .max(QUOTE_MAX_LENGTH)
   .refine(isOneSentence, { message: 'a quote is one sentence with one terminal mark and no ellipsis' });
 
+/** A short post stored whole: at most 60 characters, no ellipsis. */
+export const wholePostQuoteSchema = z
+  .string()
+  .min(1)
+  .max(WHOLE_POST_MAX_LENGTH)
+  .refine((value) => !hasEllipsis(value), { message: 'a whole post carries no ellipsis' });
+
 /**
  * A date as precise as its source states it: YYYY, YYYY-MM or YYYY-MM-DD,
  * or 'not disclosed' for an undated page.
@@ -119,7 +128,7 @@ export const evidenceSchema = z.union([
   }),
 ]);
 
-/** One of the open questions (trends pack, section 3). */
+/** One of the open questions. */
 export const openQuestionSchema = z.object({
   id: slugSchema,
   rank: z.number().int().positive(),
@@ -134,15 +143,16 @@ export const openQuestionSchema = z.object({
 export const positionSchema = z
   .object({
     id: slugSchema,
-    /** The research pack's row key, for tracing the row back. */
-    packKey: z.string().min(1),
-    /** The pack's side label, one of the argument's sides. */
-    side: z.string().min(1),
+    /** One of the argument's sides. */
+    side: siteCopySchema,
     person: z.string().min(1),
     speaker: z.enum(['person', 'organization']),
-    /** Role as the pack records it, checked against the bio; 'not stated' when the bio gives none. */
-    role: z.string().min(1),
-    quote: quoteSchema,
+    /** Role as the bio or article states it; 'not stated' when it gives none. */
+    role: siteCopySchema,
+    /** One sentence (quoteSchema), or the whole post when `wholePost` is set. */
+    quote: z.string().min(1).max(QUOTE_MAX_LENGTH),
+    /** The quote is the entire post, too short to cut to one sentence. */
+    wholePost: z.literal(true).optional(),
     /** Where it was said: the post, or the article for a quote reached through the press. */
     channel: z.enum(['x', 'press']),
     /** X handle without the @; null for a quote reached through the press. */
@@ -154,13 +164,22 @@ export const positionSchema = z
     sourceType: debateSourceTypeSchema,
     /** The article a press quote came through. */
     article: z.object({ title: z.string().min(1), publisher: z.string().min(1) }).optional(),
-    /** 'reopened': the post or article was opened again on the checked date; 'pack': rests on the research pack. */
-    opened: z.enum(['reopened', 'pack']),
+    /** The date the post or article was opened and the quote compared with it. */
     checked: isoDateSchema,
     /** One clause of site copy where the quote needs its setting. */
     context: siteCopySchema.optional(),
   })
   .superRefine((position, ctx) => {
+    const quoteRule = position.wholePost ? wholePostQuoteSchema : quoteSchema;
+    if (!quoteRule.safeParse(position.quote).success) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['quote'],
+        message: position.wholePost
+          ? `${position.id}: a whole post is at most ${WHOLE_POST_MAX_LENGTH} characters, with no ellipsis`
+          : `${position.id}: a quote is one sentence with one terminal mark and no ellipsis`,
+      });
+    }
     if (position.channel === 'press') {
       if (position.sourceType !== 'reported') {
         ctx.addIssue({
@@ -202,7 +221,7 @@ export const positionSchema = z
     }
   });
 
-/** One of the arguments (discourse pack, ranked by how much the field argued it). */
+/** One of the arguments, ranked by how much the field argued it. */
 export const nowArgumentSchema = z
   .object({
     id: slugSchema,
@@ -211,8 +230,8 @@ export const nowArgumentSchema = z
     question: siteCopySchema.refine((value) => value.endsWith('?'), { message: 'a question ends in ?' }),
     /** The open question on the same subject, so the page shows the subject once. */
     questionId: slugSchema.optional(),
-    /** The pack's side labels, in display order. */
-    sides: z.array(z.string().min(1)).min(2),
+    /** The side labels, in display order. */
+    sides: z.array(siteCopySchema).min(2),
     positions: z.array(positionSchema).min(2).max(4),
   })
   .superRefine((argument, ctx) => {

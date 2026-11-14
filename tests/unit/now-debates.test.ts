@@ -3,6 +3,7 @@ import { NOW_ARGUMENTS, NOW_DEBATES_AS_OF, OPEN_QUESTIONS } from '@/data/now-deb
 import {
   NONE_PUBLISHED,
   QUOTE_MAX_LENGTH,
+  WHOLE_POST_MAX_LENGTH,
   evidenceSchema,
   hasEllipsis,
   isDashFree,
@@ -14,6 +15,7 @@ import {
   quoteSchema,
   siteCopySchema,
   terminalMarks,
+  wholePostQuoteSchema,
 } from '@/data/schemas/now-debate';
 import {
   NONE_PUBLISHED as LIB_NONE_PUBLISHED,
@@ -21,7 +23,6 @@ import {
   argumentForQuestion,
   argumentsByRank,
   debateCounts,
-  easternDate,
   isSourced,
   positionsBySide,
   questionForArgument,
@@ -37,6 +38,18 @@ const sourcedEvidence = OPEN_QUESTIONS.flatMap((question) =>
   [question.evidenceFor, question.evidenceAgainst].filter(isSourced),
 );
 const copy = siteCopy();
+
+/** The calendar date X shows a reader in US Eastern time for a UTC timestamp. */
+function easternDate(utc: string): string {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/New_York',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date(utc));
+  const part = (type: string) => parts.find((candidate) => candidate.type === type)?.value ?? '';
+  return `${part('year')}-${part('month')}-${part('day')}`;
+}
 
 function argument(id: string) {
   const row = NOW_ARGUMENTS.find((candidate) => candidate.id === id);
@@ -105,7 +118,7 @@ describe('now debates: schema', () => {
   });
 
   it('stores every quote as one sentence of at most 240 characters, with no ellipsis', () => {
-    for (const row of positions) {
+    for (const row of positions.filter((candidate) => !candidate.wholePost)) {
       expect(terminalMarks(row.quote), row.id).toBe(1);
       expect(hasEllipsis(row.quote), row.id).toBe(false);
       expect(row.quote.length, row.id).toBeLessThanOrEqual(QUOTE_MAX_LENGTH);
@@ -116,6 +129,25 @@ describe('now debates: schema', () => {
     expect(quoteSchema.safeParse('Robotics is finally just another sub area of ai').success).toBe(false);
     expect(quoteSchema.safeParse('A model trained entirely in simulation... without data.').success).toBe(false);
     expect(quoteSchema.safeParse(`${'word '.repeat(48)}end.`).success).toBe(false);
+  });
+
+  it('exempts only whole posts from the one-sentence rule, and holds them to 60 characters', () => {
+    const whole = positions.filter((row) => row.wholePost);
+    expect(whole.map((row) => [row.id, row.quote])).toEqual([
+      ['jim-fan-keynote-autonomous', 'Real. Autonomous. No speed up.'],
+    ]);
+    for (const row of whole) {
+      expect(row.quote.length, row.id).toBeLessThanOrEqual(WHOLE_POST_MAX_LENGTH);
+      expect(hasEllipsis(row.quote), row.id).toBe(false);
+    }
+    const [fan] = whole;
+    const unmarked: Record<string, unknown> = { ...fan };
+    delete unmarked.wholePost;
+    expect(positionSchema.safeParse(unmarked).success).toBe(false);
+    const long = { ...fan, quote: 'Real. Autonomous. No speed up. '.repeat(2).trim() };
+    expect(long.quote.length).toBeGreaterThan(WHOLE_POST_MAX_LENGTH);
+    expect(positionSchema.safeParse(long).success).toBe(false);
+    expect(wholePostQuoteSchema.safeParse('Real... Autonomous.').success).toBe(false);
   });
 
   it('resolves every questionId, and links each question at most once', () => {
@@ -130,8 +162,10 @@ describe('now debates: schema', () => {
     expect(nowDebatesSchema.safeParse(dangling).success).toBe(false);
   });
 
-  it('writes no dash in any site copy', () => {
+  it('writes no dash in any site copy, roles and side labels included', () => {
     expect(copy.length).toBeGreaterThan(40);
+    for (const row of NOW_ARGUMENTS) for (const side of row.sides) expect(copy).toContain(side);
+    for (const row of positions) expect(copy).toContain(row.role);
     for (const text of copy) {
       expect(isDashFree(text), text).toBe(true);
       expect(DASH_PATTERN.test(text), text).toBe(false);
@@ -270,16 +304,29 @@ describe('now debates: positions', () => {
     expect(positionSchema.safeParse(unnamed).success).toBe(false);
   });
 
-  it('reopened every post and article on the as-of date', () => {
-    for (const row of positions) {
-      expect(row.opened, row.id).toBe('reopened');
-      expect(row.checked, row.id).toBe(NOW_DEBATES_AS_OF);
-    }
+  it('checked every post and article on the as-of date', () => {
+    for (const row of positions) expect(row.checked, row.id).toBe(NOW_DEBATES_AS_OF);
+  });
+
+  it('files Guanya Shi as his reading of OpenAI, with his own view in the context', () => {
+    const shi = argument('general-models-as-policies').positions.find((row) => row.person === 'Guanya Shi');
+    expect(shi?.side).toBe('for (reading of OpenAI)');
+    expect(shi?.context).toMatch(/His reading.*how OpenAI sees robotics/);
+    expect(shi?.context).toMatch(/smaller, specialized models are still needed on the robot’s own computer/);
+  });
+
+  it('gives a short quote its subject and a side its reason', () => {
+    expect(argument('sim-vs-real').positions.find((row) => row.id === 'qiayuan-liao-compute')?.context).toMatch(
+      /SuperMimic.*humanoid motion tracking.*learned world model/,
+    );
+    expect(
+      argument('valuations-vs-revenue').positions.find((row) => row.id === 'rebecca-torrence-pi-talks')?.context,
+    ).toMatch(/pre-revenue, which is her statement, not a published figure/);
   });
 });
 
 describe('now debates: lib', () => {
-  it('orders arguments by the discourse pack rank and questions by the trends pack order', () => {
+  it('orders arguments and questions by rank', () => {
     expect(argumentsByRank().map((row) => row.id)).toEqual([
       'general-models-as-policies',
       'sim-vs-real',
@@ -296,7 +343,7 @@ describe('now debates: lib', () => {
   it('groups one argument’s positions by side, in the argument’s side order', () => {
     const groups = positionsBySide(argument('general-models-as-policies'));
     expect(groups.map((group) => [group.side, group.positions.map((row) => row.id)])).toEqual([
-      ['for', ['guanya-shi-special-problem']],
+      ['for (reading of OpenAI)', ['guanya-shi-special-problem']],
       ['yes on score, no on speed', ['xuning-yang-astranomy']],
       ['split: VLM for semantics, VLA for action', ['sergey-levine-semantics']],
       ['against', ['dmytro-hrybov-latency']],
@@ -329,7 +376,6 @@ describe('now debates: lib', () => {
       arguments: 7,
       positions: 21,
       reportedPositions: 2,
-      positionsFromPack: 0,
       sourcedEvidence: 16,
       evidenceNonePublished: 0,
       linkedSubjects: 3,
