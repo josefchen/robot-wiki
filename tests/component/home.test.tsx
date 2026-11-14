@@ -15,7 +15,7 @@ import { HOME_FEATURED_PICKS } from '@/data/home-featured';
 import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '@/data/now';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '@/data/modules';
 import { GLOSSARY } from '@/data/glossary';
-import { citedSourceIds, homeCounts } from '@/lib/home-counts';
+import { citedSourceIds, formatCount, homeCounts } from '@/lib/home-counts';
 import { latestChanges, readableDate } from '@/lib/home-updates';
 import {
   CONTENT_CORRECTION_URL,
@@ -67,9 +67,12 @@ describe('Home page', () => {
     expect(h1.textContent).toBe(PUBLIC_IDENTITY);
     expect(screen.getByText(PUBLIC_DESCRIPTOR)).toBeInTheDocument();
     const counts = document.querySelector('[data-home-counts]');
-    expect(counts?.textContent).toContain(`${publishedModules().length} articles`);
-    expect(counts?.textContent).toContain(`${citedSourceIds().size} sources`);
-    expect(counts?.textContent).toContain(`${GLOSSARY.length} glossary terms`);
+    expect(counts?.textContent).toContain(`${formatCount(publishedModules().length)} articles`);
+    expect(counts?.textContent).toContain(`${formatCount(citedSourceIds().size)} sources`);
+    expect(counts?.textContent).toContain(`${formatCount(GLOSSARY.length)} glossary terms`);
+    // A count of a thousand or more is grouped, never four digits in a row.
+    expect(formatCount(1771)).toBe('1,771');
+    expect(counts?.textContent).not.toMatch(/\d{4}/);
   });
 
   it('searches the wiki from a labelled box', async () => {

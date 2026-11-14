@@ -32,6 +32,11 @@ export type HomeCounts = {
   developmentsSince: string;
 };
 
+/** A count as the page prints it, thousands grouped: `1,771`. */
+export function formatCount(count: number): string {
+  return count.toLocaleString('en-US');
+}
+
 export function citedSourceIds(
   read: (domain: string, slug: string) => string = moduleSource,
 ): Set<string> {

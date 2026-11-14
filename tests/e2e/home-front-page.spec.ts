@@ -9,7 +9,7 @@ import { HOME_FEATURED_PICKS } from '../../data/home-featured';
 import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '../../data/now';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '../../data/modules';
 import { FEATURED_DEK_MAX_WORDS } from '../../lib/featured-article';
-import { homeCounts } from '../../lib/home-counts';
+import { formatCount, homeCounts } from '../../lib/home-counts';
 import { UPDATE_NOTE_MAX_WORDS, latestChanges } from '../../lib/home-updates';
 import {
   CONTENT_CORRECTION_URL,
@@ -119,8 +119,9 @@ test.describe('home front page', () => {
     // aria-hidden middots, so a screen reader hears the counts alone.
     const printed = squash(await page.locator('[data-home-counts]').innerText());
     expect(printed).toBe(
-      `${counts.articles} articles · ${counts.sources} sources · ${counts.glossaryTerms} glossary terms`,
+      `${formatCount(counts.articles)} articles · ${formatCount(counts.sources)} sources · ${formatCount(counts.glossaryTerms)} glossary terms`,
     );
+    expect(printed).not.toMatch(/\d{4}/);
     const separators = page.locator('[data-home-counts] > [aria-hidden="true"]');
     await expect(separators).toHaveCount(2);
     for (const text of await separators.allInnerTexts()) expect(text.trim()).toBe('·');
@@ -513,7 +514,7 @@ test.describe('home front page', () => {
     const highlight = main.locator('[data-brand-highlight]');
     await expect(highlight).toHaveCount(1);
     await expect(highlight).toHaveAttribute('data-brand-highlight', 'home-source-count');
-    await expect(highlight).toHaveText(/^\d+ sources$/);
+    await expect(highlight).toHaveText(/^\d{1,3}(,\d{3})* sources$/);
     await expect(main.locator('mark')).toHaveCount(0);
     expect(await highlight.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe('rgba(0, 0, 0, 0)');
   });
