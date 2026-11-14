@@ -3,11 +3,17 @@ import type { HomeCounts } from '@/lib/home-counts';
 
 /**
  * "Also in the wiki": the parts of the site that are not articles, each a
- * plain link and one line on what it holds. Every number is one of the
- * home counts.
+ * plain link and one line on what it holds. Every number and the one date
+ * come from the home counts.
  */
 export function AlsoHere({ counts }: { counts: HomeCounts }) {
   const entries = [
+    {
+      key: 'now',
+      href: '/now/',
+      title: 'Robotics now',
+      line: `${counts.developments} developments since ${counts.developmentsSince}.`,
+    },
     {
       key: 'how-robots-work',
       href: '/how-robots-work/',

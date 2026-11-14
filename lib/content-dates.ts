@@ -35,8 +35,7 @@ const HUB_SOURCES = ['app/(content)/[domain]/page.tsx', 'data/modules.ts'];
  * The files whose history dates each route that is not an article: the page
  * source plus the registries and data files it renders. Home renders article
  * text (the "Start here" titles, the counts and the "Latest" list), so the
- * whole content tree dates it too, with its picks, the editor's notes and
- * the developments of "Robotics now". The generated date file is never a
+ * whole content tree dates it too, with its picks and the editor's notes. The generated date file is never a
  * source: it changes each time it is regenerated, so it could not agree with
  * the date it records.
  */
@@ -47,7 +46,6 @@ export const ROUTE_SOURCES: Readonly<Record<string, readonly string[]>> = {
     'data/did-you-know.ts',
     'data/home-featured.ts',
     'data/updates.ts',
-    'data/now.ts',
     'data/citations.ts',
     'data/glossary.ts',
     'content',

@@ -4,13 +4,15 @@ import { getCitation } from '@/data/citations';
 import { COMPANIES } from '@/data/companies';
 import { GLOSSARY } from '@/data/glossary';
 import { publishedModules } from '@/data/modules';
+import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '@/data/now';
+import { readableDate } from '@/lib/home-updates';
 import { moduleSource } from '@/lib/module-source';
 import { WIDGET_CITATION_IDS } from '@/lib/widget-citations';
 
 /**
  * Every number the home page prints, each derived from its registry when
- * the page is built: the three counts under the search, and the explainers
- * and companies that "Also in the wiki" names.
+ * the page is built: the three counts under the search, and the explainers,
+ * companies and developments that "Also in the wiki" names.
  *
  * A source counts once however many pages cite it. The population is every
  * citation record a published page renders: the frontmatter `citations` of
@@ -25,6 +27,9 @@ export type HomeCounts = {
   glossaryTerms: number;
   explainers: number;
   companies: number;
+  developments: number;
+  /** The first day those developments cover, as home writes a date. */
+  developmentsSince: string;
 };
 
 export function citedSourceIds(
@@ -53,5 +58,7 @@ export function homeCounts(): HomeCounts {
     glossaryTerms: GLOSSARY.length,
     explainers: EXPLAINER_ORDER.length,
     companies: COMPANIES.length,
+    developments: DEVELOPMENTS.length,
+    developmentsSince: readableDate(DEVELOPMENTS_FROM),
   };
 }

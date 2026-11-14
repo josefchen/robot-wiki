@@ -7,7 +7,7 @@ import { forEachInOwnContext } from './helpers/per-route-context';
 /**
  * Structural contract for the home front page. Encodes the design
  * bounds and the navigation rules: a dense contents index instead of a
- * card grid, the contents under the name in the first screen, the five
+ * card grid, the contents under the name in the first screen, the six
  * entries that are not articles, bounded bordered boxes and micro-labels,
  * no overview paragraph, and the reading guide on /about/.
  *
@@ -309,12 +309,13 @@ test.describe('home page', () => {
     expect(top).toBeLessThan(450);
   });
 
-  test('"Also in the wiki" links the explainers, the market map, the playground, the glossary and the index as plain entries', async ({
+  test('"Also in the wiki" links Robotics now, the explainers, the market map, the playground, the glossary and the index as plain entries', async ({
     page,
   }) => {
     await page.goto('/');
     const also = page.getByRole('region', { name: 'Also in the wiki' });
     for (const [name, href] of [
+      ['Robotics now', /^\/now\/?$/],
       ['How robots work', /^\/how-robots-work\/?$/],
       ['Market map', /^\/market-map\/?$/],
       ['Playground', /^\/playground\/?$/],
@@ -325,8 +326,8 @@ test.describe('home page', () => {
       await expect(link).toBeVisible();
       expect(await link.getAttribute('href')).toMatch(href);
     }
-    // Five entries, one line of text under each, and no picture.
-    await expect(also.getByRole('listitem')).toHaveCount(5);
+    // Six entries, one line of text under each, and no picture.
+    await expect(also.getByRole('listitem')).toHaveCount(6);
     expect(await also.getByRole('img').count()).toBe(0);
     for (const line of await also.locator('li > p').allInnerTexts()) {
       expect(line.split(/\s+/).length).toBeGreaterThan(5);

@@ -4,10 +4,7 @@ import { ContentsIndex } from '@/components/home/contents-index';
 import { HomeSearch } from '@/components/home/home-search';
 import { HowMade } from '@/components/home/how-made';
 import { LatestChanges } from '@/components/home/latest-changes';
-import { RoboticsNow } from '@/components/home/robotics-now';
 import { StartHere } from '@/components/home/start-here';
-import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '@/data/now';
-import { latestDevelopments } from '@/lib/now';
 import { materialAttributes } from '@/lib/site-materials';
 import { startHere } from '@/lib/featured-article';
 import { homeCounts } from '@/lib/home-counts';
@@ -42,8 +39,7 @@ export const metadata: Metadata = {
  * and the way to each part of it. The first screen sets the name, the
  * descriptor, the search and the counts above the contents, every article
  * under its field. Below: where to start, the parts of the site that are
- * not articles, what changed lately in the field and in the wiki, and how
- * the wiki is kept. Scope,
+ * not articles, what changed lately and how the wiki is kept. Scope,
  * reading guidance and the citation caveat live on /about/.
  *
  * Every section is a direct child of <main>, and each one carries
@@ -53,7 +49,6 @@ export const metadata: Metadata = {
 export default function Home() {
   const counts = homeCounts();
   const entries = startHere();
-  const developments = latestDevelopments(5);
   const latest = latestChanges(5);
 
   return (
@@ -127,22 +122,8 @@ export default function Home() {
         <AlsoHere counts={counts} />
       </section>
 
-      {/* What changed in the field: the rows of /now/ that rest on a primary
-          source, chosen and ordered by lib/now.ts. */}
-      <section
-        aria-labelledby="now-heading"
-        data-pagefind-body
-        className="home-frame home-section home-rail"
-      >
-        <h2 id="now-heading" data-tektur-role="section-display" className="section-h2 home-h2">
-          Robotics now
-        </h2>
-        <RoboticsNow rows={developments} total={DEVELOPMENTS.length} since={DEVELOPMENTS_FROM} />
-      </section>
-
-      {/* What changed in the wiki. Dated by git (data/content-dates.json) or
-          by the editor's note in data/updates.ts, whichever names the latest
-          change. */}
+      {/* Dated by git (data/content-dates.json) or by the editor's note in
+          data/updates.ts, whichever names the latest change. */}
       <section
         aria-labelledby="latest-heading"
         data-pagefind-body
