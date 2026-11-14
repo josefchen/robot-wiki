@@ -74,12 +74,12 @@ describe('rounds data', () => {
     }
   });
 
-  it('holds the compiled rows by kind, less those left out', () => {
-    // Compiled: 147 closed rounds and 4 unconfirmed, 7 listings, 14 corporate
+  it('holds the first tally by kind, less the rows left out', () => {
+    // The first tally: 147 closed rounds and 4 unconfirmed, 7 listings, 14 corporate
     // events, 11 earlier UK and Europe rows, 4 investor and 4 context rows.
     // Left out: Moove, Tangent, Maven and the Genrobot Series A. Agreed, not
     // closed, so announced: CMR Surgical's round, Shield's Series H and
-    // FieldAI's term sheet (compiled as unconfirmed). Kraken's source dates it
+    // FieldAI's term sheet (unconfirmed in the first tally). Kraken's source dates it
     // to July only, so it leaves the earlier rows for the July month-only rounds.
     expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 4 - 2 + 1);
     expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(3);
@@ -120,6 +120,7 @@ describe('rounds data', () => {
       if (typeof row.amount === 'number') expect(row.amount, row.key).toBeGreaterThan(0);
       else if (row.kind === 'shutdown') expect(row.amount, row.key).toBe('n/a');
       else expect(row.amount, row.key).toBe('not disclosed');
+      if (row.amountIsApproximate) expect(typeof row.amount, row.key).toBe('number');
     }
   });
 
@@ -292,15 +293,15 @@ describe('totals', () => {
     expect(totalRaisedUsd({ strict: true })).toBeCloseTo(totalRaisedUsd() - total(borderline), 2);
   });
 
-  it('matches the compiled sum of USD rounds, less the rows left out', () => {
-    // The compiled list states USD 15.48B (15,478.2M) for closed USD rounds in the window.
+  it('matches the first tally of USD rounds, less the rows left out', () => {
+    // The first tally gave USD 15.48B (15,478.2M) for closed USD rounds in the window.
     // Left out here: Moove, USD 250M (its source page gives another date),
     // Tangent Robotics, 4.5M (its release states no currency) and Maven
     // Robotics, 100M. The Genrobot Series A also left out has no amount.
     // CMR Surgical's approximately 400M is agreed, not closed, and Shield
     // is still raising its 1B Series H. Shandong UBTECH's 13.9M is stored in
     // yuan, as its source announces it, and Motion's own post gives USD 2M
-    // where the compiled list had EUR.
+    // where the first tally had EUR.
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
     expect(total(usdOnly)).toBe(
       15_478_200_000 -

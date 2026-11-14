@@ -151,6 +151,8 @@ export const corporateEventSchema = z
     datePrecision: z.literal('day'),
     amount: optionalAmountSchema,
     currency: currencySchema.nullable(),
+    /** The source gives the price as approximate ("about", "approximately"). */
+    amountIsApproximate: z.literal(true).optional(),
     city: textOrAbsent,
     country: textOrAbsent,
     sector: roundSectorSchema,
