@@ -329,6 +329,15 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: "Venture funding raised by robotics startups, by Crunchbase's count, in billions of US dollars: 5.8 in 2020, 14.1 in 2021, 9 in 2022, 7 in 2023, 8.4 in 2024, a record 15 in 2025, then 18.8 in 2026 to 22 June. Humanoids counted: about 7,000 full-size humanoids sold in 2025 (IFR), and about 5,100 shipped in the first half of 2025 and 19,100 in the first half of 2026 (SAG). The funding covers every robotics startup, not only humanoid makers.",
   },
   {
+    // Computed in lib/rounds-figure.ts (roundsFigureDescription); a unit test keeps the two equal.
+    component: 'RoundsFigure',
+    file: 'components/rounds/rounds-figure.tsx',
+    route: '/market-map/rounds/',
+    unmounted: true,
+    quantityNames: ['rounds', 'US dollars'],
+    text: '146 funding rounds from 17 July 2026 to 14 November 2026, placed by date and by amount in US dollars on a log scale. 130 closed rounds raised $15B; Vertical applications drew $7.8B of it in 61 rounds, the most of the six segments, and the largest closed round was Atoms at $1.7B.',
+  },
+  {
     component: 'SafetyRulesTimeline',
     file: 'components/interactive/safety-rules-timeline.tsx',
     route: '/frontier/safety-and-assurance/',
