@@ -4556,9 +4556,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the robocasa.ai project page bibtex block
-    // (2026-08-08): 4 authors, ICLR 2026; no arXiv listing, so the entry
-    // links the hosted PDF.
+    // arXiv abs page read 2026-11-14: same title and 4 authors in order,
+    // v1 4 Mar 2026, comment "ICLR 2026". robocasa.ai now links this arXiv
+    // id as "Paper (RoboCasa365)" in place of the hosted ICLR PDF.
     id: 'robocasa365-2026',
     title:
       'RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots',
@@ -4570,7 +4570,8 @@ export const CITATIONS: Citation[] = [
     ],
     year: 2026,
     venue: 'ICLR 2026',
-    url: 'https://robocasa.ai/assets/robocasa365_iclr26.pdf',
+    arxiv: '2603.04356',
+    url: 'https://arxiv.org/abs/2603.04356',
     type: 'paper',
   },
   {
