@@ -558,4 +558,17 @@ export const ADDITIONS: Citation[] = [
     url: 'https://github.com/ros2/rmw_zenoh',
     type: 'docs',
   },
+  // arXiv HTML, 2610.05207v1 submitted 2026-10-04, fetched 2026-11-14: Table 3 (Replica ATE RMSE), uncalibrated
+  // average 0.002 m against 0.030 m for VGGT-SLAM 2.0; abstract, "from 0.030 m for the strongest feed-forward
+  // baseline to 0.002 m on the Replica dataset".
+  {
+    id: 'f2-slam-2026',
+    title: 'F² SLAM: Turning Feed-Forward Geometry into Persistent Factors for SLAM',
+    authors: ['Zhisong Xu', 'Fan Zhu', 'Jiawei Qian', 'Ziyu Chen', 'Zhenjun Zhao', 'Javier Civera'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.05207',
+    url: 'https://arxiv.org/abs/2610.05207',
+    type: 'paper',
+  },
 ];
