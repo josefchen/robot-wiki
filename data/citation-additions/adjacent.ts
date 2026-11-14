@@ -187,6 +187,30 @@ export const ADDITIONS: Citation[] = [
     type: 'press',
   },
   {
+    // Abstract page and HTML (v1, 20 Oct 2026) read 2026-11-14. Nine ex vivo porcine tongues,
+    // three cuts per method (Section 2.5). Thermal injury 246.56 against 515.43 um for the
+    // 2 mm/s fixed speed (Section 3.3); absolute margin error 0.69 against 1.68 mm for the
+    // 7 mm/s clinician speed (Section 3.1). Abstract: "reducing thermal injury by up to 52%,
+    // improving cut accuracy by up to 59%".
+    id: 'thermo-electrosurgery-2026',
+    title: 'Velocity Optimization via Thermal Imaging Enhances Autonomous Tumor Resection',
+    authors: [
+      'Naveed D. Riaziat',
+      'Jiawei Ge',
+      'Ethan Kilmer',
+      'Michael W. Mikula',
+      'Paul Maria Scheikl',
+      'Michael Kam',
+      'Leila J. Mady',
+      'Axel Krieger',
+      'Jeremy D. Brown',
+    ],
+    year: 2026,
+    arxiv: '2610.27562',
+    url: 'https://arxiv.org/abs/2610.27562',
+    type: 'paper',
+  },
+  {
     id: 'liang-humanoid-surgery-2026',
     title: 'In vivo feasibility study of humanoid robots in surgery',
     authors: [
