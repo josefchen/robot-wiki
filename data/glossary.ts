@@ -247,7 +247,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'retargeting',
     term: 'retargeting',
     definition:
-      'Retargeting is mapping motion recorded on one body, usually a human, onto a robot with different proportions and joint limits. The raw result can be physically impossible for the robot, so systems such as H2O and ASAP use reinforcement learning to keep it balanced.',
+      'Retargeting is mapping motion recorded on one body, usually a human, onto a robot with different proportions and joint limits. The raw result can be physically impossible, so H2O trains only on retargeted motions a simulated tracker can follow, and ASAP fine-tunes its policy in a simulator corrected with real-robot data.',
     citations: ['h2o-2024', 'asap-2025'],
   },
   {
