@@ -171,6 +171,20 @@ export const ADDITIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against arXiv v1 (2026-11-14): eight UniVTAC and eleven
+    // OpenViTac simulated tasks, 80 and 130 scene seeds per input setting;
+    // 93.8% and 81.8% with tactile images, 76.3% and 80.6% vision-only;
+    // strongest published specialists SimpleTouch 70.9%, OpenVTLA 68.7%.
+    id: 'astra-visuotactile-2026',
+    title: 'GPT-6 Astra Is a Native Visuo-Tactile Policy for Contact-Rich Manipulation',
+    authors: ['Chen Yang', 'Linzhe Shi', 'Hang Zhang', 'Mu Xu', 'Jiansheng Fan', 'Chen Wang'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.26846',
+    url: 'https://arxiv.org/abs/2610.26846',
+    type: 'paper',
+  },
+  {
     // Verified against the live page (2026-11-14): "The STF contains 17
     // taxels each providing a 3D response, sensitive to both normal and
     // tangential forces from about 0.2N to 20N"; the comparison table lists
