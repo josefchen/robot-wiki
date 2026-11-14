@@ -16,6 +16,7 @@ import {
   financialPeriod,
   firstDayChange,
   formatCny,
+  formatDof,
   formatProductPrice,
   formatProfileDate,
   formatQuantity,
@@ -23,6 +24,7 @@ import {
   grossProceedsFromTerms,
   groupStakes,
   growthBetween,
+  holdersInFilingOrder,
   marketValueAtOffer,
   netProceedsFromCosts,
   netProceedsOverPlan,
@@ -38,6 +40,7 @@ import {
   tenKToYuan,
   timelineNewestFirst,
   timelineOfKind,
+  topTenHolders,
   toYuan,
   voteShareFromVotes,
   yoyGrowth,
@@ -99,11 +102,13 @@ describe('Unitree profile: schema', () => {
 
   it('keeps the shop placeholders out of the prices', () => {
     for (const row of profile.products) {
-      expect([100_000, 90_000, 50_000], row.id).not.toContain(row.priceUsd);
+      expect([100_000, 90_000], row.id).not.toContain(row.priceUsd);
     }
     for (const id of ['a2', 'b2', 'b2-w', 'h2-plus', 'as2-edu', 'b1', 'h1']) {
       expect(formatProductPrice(product(id)), id).toBe('contact sales');
     }
+    expect(formatProductPrice(product('aliengo'))).toBe('USD 50,000');
+    expect(product('aliengo').note).toBeUndefined();
   });
 
   it('gives no holder votes without shares', () => {
@@ -159,9 +164,25 @@ describe('Unitree profile: schema', () => {
     expect(reported.sort()).toEqual(['cnpc-joint-venture', 'ipo-accepted', 'tianjin-subsidiary']);
   });
 
-  it('flags the one source that did not open', () => {
+  it('flags no row now that every source opens', () => {
     const flagged = profileRows(profile).filter(({ row }) => (row as { flag?: string }).flag);
-    expect(flagged.map(({ row }) => (row as { id?: string }).id)).toEqual(['us-dod-1260h']);
+    expect(flagged).toEqual([]);
+  });
+
+  it('dates the 1260H listing from its Federal Register notice', () => {
+    const row = profile.timeline.find((candidate) => candidate.id === 'us-dod-1260h');
+    expect(row?.date).toBe('2026-06-10');
+    expect(row?.sourceUrl).toMatch(/^https:\/\/www\.federalregister\.gov\/documents\/2026\/06\/10\/2026-11571\//);
+    expect(row?.sourceTitle).toContain('91 FR 35189');
+  });
+
+  it('keeps Chinese units out of reader-facing text', () => {
+    for (const { section, row } of profileRows(profile)) {
+      const text = row as { title?: string; note?: string; description?: string; notable?: string };
+      for (const value of [text.title, text.note, text.description, text.notable]) {
+        if (value) expect(value, section).not.toMatch(/[万亿元]/);
+      }
+    }
   });
 });
 
@@ -244,10 +265,22 @@ describe('Unitree profile: holders and votes', () => {
     expect(deepseek.stakeBeforePct).toBe('n/a');
   });
 
-  it('the ten largest holders own 64.3536% of shares, as filed', () => {
-    const topTen = [...profile.holders].sort((a, b) => b.stakeAfterPct - a.stakeAfterPct).slice(0, 10);
+  it('the filing’s top ten rows own 64.3536% of shares', () => {
+    const topTen = topTenHolders(profile.holders);
+    expect(topTen.map((row) => row.filingRow)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     const sum = topTen.reduce((total, row) => total + row.stakeAfterPct, 0);
     expect(sum.toFixed(4)).toBe('64.3536');
+  });
+
+  it('ranks holders by the filing’s row, not by their place in the profile', () => {
+    expect(listing.holderTableRows.value).toBe(56);
+    expect(holdersInFilingOrder(profile.holders).map((row) => row.filingRow)).toEqual([
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 21, 24, 30, 50,
+    ]);
+    expect(holder('galaxy-z').filingRow).toBe(20);
+    expect(holder('deepseek').filingRow).toBe(50);
+    const repeated = { ...profile, holders: [...profile.holders, { ...holder('deepseek'), id: 'copy' }] };
+    expect(companyProfileSchema.safeParse(repeated).success).toBe(false);
   });
 
   it('sums the named groups from their member rows', () => {
@@ -382,12 +415,40 @@ describe('Unitree profile: products', () => {
     }
   });
 
+  it('stores each trim’s spec where its page publishes one', () => {
+    const spec = (id: string) => {
+      const row = product(id);
+      return [formatDof(row.dof), formatQuantity(row.mass), formatQuantity(row.payload), row.payloadBasis ?? ''];
+    };
+    const walking = 'continuous walking';
+    expect(spec('go2-pro')).toEqual(['12', 'about 15 kg', 'about 8 kg', '']);
+    expect(spec('go2-x')).toEqual(['12', 'about 15 kg', 'about 8 kg', '']);
+    expect(spec('go2-edu')).toEqual(['12', 'about 15 kg', 'about 8 kg', '']);
+    expect(spec('as2-air')).toEqual(['12', 'about 20 kg', 'about 10 kg', walking]);
+    expect(spec('as2-pro')).toEqual(['12', 'about 20 kg', 'about 13 kg', walking]);
+    expect(spec('as2-x')).toEqual(['12', 'about 20 kg', 'about 15 kg', walking]);
+    expect(spec('as2-edu')).toEqual(['12', 'about 20 kg', 'about 15 kg', walking]);
+    expect(spec('as2-w-x')).toEqual(['16', 'about 25 kg', 'about 16 kg', walking]);
+    expect(spec('as2-w-edu')).toEqual(['16', 'about 25 kg', 'about 16 kg', walking]);
+    expect(spec('b2-ex-inspection').slice(0, 2)).toEqual(['12', 'about 170 kg']);
+    expect(spec('b2-w')).toEqual(['not disclosed', 'about 85 kg', 'over 40 kg', 'walking']);
+    expect(spec('a2')).toEqual(['12', 'about 42 kg', 'about 25 kg', walking]);
+    expect(spec('a2-w')).toEqual(['16', 'about 52 kg', 'about 25 kg', walking]);
+    for (const row of profile.products) {
+      if (row.type.includes('humanoid') && typeof row.payload === 'object') {
+        expect(row.payloadBasis, row.id).toMatch(/^per arm/);
+      }
+    }
+  });
+
   it('formats prices, masses and dates as the sources state them', () => {
     expect(formatProductPrice(product('g1'))).toBe('USD 13,500');
     expect(formatProductPrice(product('h1-2'))).toBe('not disclosed');
     expect(formatQuantity(product('g1').mass)).toBe('about 35 kg');
     expect(formatQuantity(product('h2-plus').mass)).toBe('about 68 kg');
     expect(formatQuantity(product('r1-7a').payload)).toBe('3 to 5 kg');
+    expect(formatQuantity(product('r1').payload)).toBe('about 3 to 5 kg');
+    expect(formatQuantity(product('dex5-1').payload)).toBe('3.5 kg');
     expect(formatProfileDate('2026-08-19')).toBe('19 Aug 2026');
     expect(formatProfileDate('2024-05')).toBe('May 2024');
     expect(formatProfileDate('2017')).toBe('2017');
@@ -411,7 +472,7 @@ describe('Unitree profile: timeline', () => {
     expect(timelineOfKind(profile.timeline, 'us-restriction').map((row) => row.date)).toEqual([
       '2026-10-28',
       '2026-07-28',
-      '2026-06-08',
+      '2026-06-10',
     ]);
     expect(timelineOfKind(profile.timeline, 'incident')).toEqual([]);
     expect(timelineOfKind(profile.timeline, ['listing', 'funding']).length).toBe(8);
@@ -433,6 +494,22 @@ describe('Unitree profile: timeline', () => {
       'Andreas Makris',
       'Kevin Finisterre',
     ]);
+    expect(security.get('sec-cve-2026-1442')?.credits).toEqual(['Andreas Makris']);
+    expect(security.get('sec-cve-2026-115995')?.credits).toEqual(['JasperXJY']);
+    expect(security.get('sec-cve-2026-115996')?.credits).toEqual(['JasperXJY']);
+    for (const row of security.values()) {
+      if (row.cves) expect(row.credits, row.id).not.toBe('not disclosed');
+    }
+  });
+
+  it('says the Go2 DDS fix covers one of the two CVEs', () => {
+    const row = profile.timeline.find((candidate) => candidate.id === 'sec-go2-dds');
+    const reply = row?.companyReply;
+    expect(typeof reply).toBe('object');
+    if (typeof reply === 'object') {
+      expect(reply.text).toContain('V1.1.13 addresses CVE-2026-27510');
+      expect(reply.text).toContain('CVE-2026-27509 will likely not be addressed in EDU versions');
+    }
   });
 });
 
@@ -448,14 +525,20 @@ describe('Unitree profile: software and provenance', () => {
     expect(repo('unitree_rl_lab')).toBe('Apache-2.0');
   });
 
+  it('counts every Hugging Face dataset, not a first page', () => {
+    const datasets = profile.software.find((row) => row.id === 'hf-datasets');
+    expect(datasets?.count).toBe(246);
+    expect(datasets?.countIsFloor).toBe(false);
+  });
+
   it('counts rows by source type', () => {
     const counts = countsBySourceType(profile);
     expect(counts.total).toBe(profileRows(profile).length);
     expect(counts.primary + counts.reported).toBe(counts.total);
-    expect(counts).toEqual({ primary: 215, reported: 5, total: 220 });
+    expect(counts).toEqual({ primary: 216, reported: 5, total: 221 });
     expect(rowCountsBySection(profile)).toEqual({
       company: 3,
-      listing: 14,
+      listing: 15,
       control: 6,
       holders: 15,
       financials: 7,
@@ -470,9 +553,9 @@ describe('Unitree profile: software and provenance', () => {
     });
   });
 
-  it('prices 30 trims, sends 16 to contact sales and leaves 16 not disclosed', () => {
+  it('prices 31 trims, sends 16 to contact sales and leaves 15 not disclosed', () => {
     const tally = (kind: string) =>
       profile.products.filter((row) => (row.priceUsd !== null ? 'price' : row.priceAbsent) === kind).length;
-    expect([tally('price'), tally('contact sales'), tally('not disclosed')]).toEqual([30, 16, 16]);
+    expect([tally('price'), tally('contact sales'), tally('not disclosed')]).toEqual([31, 16, 15]);
   });
 });
