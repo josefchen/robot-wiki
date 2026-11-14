@@ -238,23 +238,28 @@ test.describe('navigation shell', () => {
     );
   });
 
-  test('the featured scene on home is operable from the keyboard and resets', async ({ page }) => {
+  // Home no longer carries a scene; it links to the explainers, where the
+  // same humanoid scene runs. The keyboard pins moved there with it.
+  test('the humanoid scene home links to is operable from the keyboard and resets', async ({ page }) => {
     await page.goto('/');
-    const scene = page.locator('main [data-explainer-scene="humanoid"]');
+    const entry = page.locator('main [data-also="how-robots-work"]').getByRole('link');
+    await waitForHydration(entry);
+    await entry.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/\/how-robots-work\/?$/);
+    await page.goto('/how-robots-work/#humanoid');
+    const scene = page.locator('main [data-explainers]');
     const stepText = scene.locator('[data-step-text]');
     const readout = scene.locator('[data-readout]');
-    // The viewer reveals the start control once it has taken the stage.
-    const start = scene.getByRole('button', { name: 'Turn it in 3D' });
-    await expect(start).toBeVisible();
-    await waitForHydration(start);
-    await start.focus();
-    await page.keyboard.press('Enter');
     await page.waitForFunction(
-      () => (window as unknown as { __explainer?: { live: boolean } }).__explainer?.live === true,
+      () => {
+        const hook = (window as unknown as { __explainer?: { id: string; live: boolean } }).__explainer;
+        return hook?.id === 'humanoid' && hook.live === true;
+      },
       undefined,
       { timeout: 45_000 },
     );
-    await expect(readout).toContainText('1.32 metres');
+    await expect(readout).toContainText('1.32 meters');
     await scene.getByRole('button', { name: 'Next' }).focus();
     await page.keyboard.press('Enter');
     await expect(stepText).toContainText('It has 23 motors');
@@ -264,7 +269,7 @@ test.describe('navigation shell', () => {
     await scene.getByRole('button', { name: 'Step 1' }).focus();
     await page.keyboard.press('Enter');
     await expect(stepText).toHaveText('A humanoid is shaped like us so it can use our doors, stairs and tools.');
-    await expect(readout).toContainText('1.32 metres');
+    await expect(readout).toContainText('1.32 meters');
   });
 
   test('zero axe violations on a domain landing', async ({ page }) => {

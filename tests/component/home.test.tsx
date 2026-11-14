@@ -1,31 +1,27 @@
-import { render, screen, waitFor, within } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mockPush = vi.fn();
-const { startExplainers } = vi.hoisted(() => ({
-  startExplainers: vi.fn<(root: Element, embed?: unknown) => Promise<() => void>>(async () => () => {}),
-}));
 
 vi.mock('next/navigation', () => ({
   useRouter: () => ({ push: mockPush }),
 }));
-// The 3D kit needs WebGL; home's served markup and the viewer call are what this file checks.
-vi.mock('@/components/explainers/viewer', () => ({ startExplainers }));
-vi.mock('@/components/explainers/explainers.css', () => ({}));
 
 import Home from '@/app/page';
 import { EXPLAINER_ORDER } from '@/components/explainers/catalog';
-import { EXPLAINER_WORDS } from '@/components/explainers/words';
 import { COMPANIES } from '@/data/companies';
-import { DID_YOU_KNOW } from '@/data/did-you-know';
-import { HOME_FEATURED_PICKS, HOME_FEATURED_SCENE } from '@/data/home-featured';
-import { getImage } from '@/data/images';
+import { HOME_FEATURED_PICKS } from '@/data/home-featured';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '@/data/modules';
 import { GLOSSARY } from '@/data/glossary';
-import { citedSourceIds } from '@/lib/home-counts';
+import { citedSourceIds, homeCounts } from '@/lib/home-counts';
 import { latestChanges, readableDate } from '@/lib/home-updates';
-import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
+import {
+  CONTENT_CORRECTION_URL,
+  PUBLIC_DESCRIPTOR,
+  PUBLIC_IDENTITY,
+  REPOSITORY_URL,
+} from '@/lib/identity';
 
 /** next/link and jsdom disagree about trailing slashes; the path is what matters. */
 const path = (href: string | null) => (href ?? '').replace(/\/$/, '');
@@ -48,7 +44,14 @@ describe('Home page', () => {
         (labelledBy ? document.getElementById(labelledBy)?.textContent ?? '' : '')
       ).trim();
     });
-    expect(sections).toEqual(['Introduction', 'Start here', 'Latest', 'Contents', 'Did you know', 'Explore']);
+    expect(sections).toEqual([
+      'Introduction',
+      'Contents',
+      'Start here',
+      'Also in the wiki',
+      'Latest',
+      'How this wiki is made',
+    ]);
     // One h1, then the section heads, then the entries under them.
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
     const levels = [...document.querySelectorAll('h1, h2, h3, h4, h5, h6')].map((h) => Number(h.tagName[1]));
@@ -88,97 +91,24 @@ describe('Home page', () => {
     expect(mockPush).toHaveBeenCalledWith('/search/?q=diffusion%20policy');
   });
 
-  it('sets the humanoid explainer in the first section, on its poster, with no 3D kit until the reader starts it', async () => {
-    startExplainers.mockClear();
+  it('opens on words alone: no scene, picture or canvas anywhere in the page', () => {
     render(<Home />);
     const intro = region(/^introduction$/i);
-    const frame = within(intro).getByRole('group', { name: '3D explainer: Inside a humanoid' });
-    expect(frame).toHaveAttribute('data-explainer-scene', 'humanoid');
-    // The served stage is the explainer's poster and its first step as text.
-    const poster = within(frame).getAllByRole('img')[0];
-    expect(poster).toHaveAttribute('src', '/explainers/posters/humanoid.webp');
-    expect(poster).toHaveAttribute('alt', EXPLAINER_WORDS.humanoid.steps[0]);
-    expect(poster).toHaveAttribute('width');
-    expect(poster).toHaveAttribute('height');
-    expect(frame.querySelector('[data-step-text]')?.textContent).toBe(EXPLAINER_WORDS.humanoid.steps[0]);
-    // The stepper caption is the scene's description.
-    expect(document.getElementById(frame.getAttribute('aria-describedby') ?? '')).toBe(
-      frame.querySelector('[data-step-text]'),
-    );
-    expect(frame.querySelector('canvas')).toBeNull();
-    const start = frame.querySelector<HTMLButtonElement>('[data-x="start"]');
-    expect(start?.textContent).toBe(HOME_FEATURED_SCENE.startLabel);
-    // The stepper keeps its names.
-    expect(within(frame).getByRole('button', { name: 'Back' })).toBeDisabled();
-    expect(within(frame).getByRole('button', { name: 'Next' })).toBeInTheDocument();
-    // The viewer opens the one scene and waits for the start button.
-    await waitFor(() => expect(startExplainers).toHaveBeenCalledTimes(1));
-    expect(startExplainers).toHaveBeenCalledWith(frame.querySelector('[data-explainers]'), { scene: 'humanoid' });
-    const section = within(frame).getByRole('link', {
-      name: `All ${EXPLAINER_ORDER.length} explainers in How robots work`,
-    });
-    expect(path(section.getAttribute('href'))).toBe('/how-robots-work');
-    expect(EXPLAINER_ORDER).toHaveLength(12);
-  });
-
-  it('starts the reader at four editor picks, hottest first, each with its own picture, title and short dek', () => {
-    render(<Home />);
-    const start = region(/^start here$/i);
-    const entries = start.querySelectorAll('[data-start-here]');
-    expect([...entries].map((entry) => entry.getAttribute('data-start-here'))).toEqual([
-      'world-models/taxonomy',
-      'manipulation/vla-models',
-      'rl-sim2real/humanoid-wbc',
-      'frontier/reliability-gap',
+    // The introduction is the lockup and the search, and nothing else.
+    expect([...intro.children].filter((el) => el.tagName !== 'SCRIPT').map((el) => el.className)).toEqual([
+      'home-lockup',
+      'home-find',
     ]);
-    entries.forEach((entry, index) => {
-      const pick = HOME_FEATURED_PICKS[index];
-      const title = getModule(pick.domain, pick.slug)?.title ?? '';
-      const heading = within(entry as HTMLElement).getByRole('heading', { level: 3, name: title });
-      const link = within(heading).getByRole('link', { name: title });
-      expect(path(link.getAttribute('href'))).toBe(`/${pick.domain}/${pick.slug}`);
-      const dek = entry.querySelector('[data-featured-dek]')?.textContent ?? '';
-      expect(dek).toBe(pick.dek);
-      expect(words(dek).length).toBeLessThanOrEqual(14);
-      // The picture is the article's registered image, with real alt text and its size set.
-      const img = within(entry as HTMLElement).getByRole('img');
-      const registered = getImage(pick.imageId);
-      expect(img).toHaveAttribute('src', registered?.file);
-      expect(img).toHaveAttribute('width', String(registered?.width));
-      expect(img).toHaveAttribute('height', String(registered?.height));
-      expect(words(img.getAttribute('alt') ?? '').length).toBeGreaterThan(5);
-      // Every picture sits in the same 3:2 frame.
-      expect(pick.crop.width / pick.crop.height).toBeCloseTo(1.5, 2);
-      // Its credit names the creator and links the licence.
-      const credit = entry.querySelector('[data-image-credit]');
-      expect(credit?.textContent).toContain(registered?.creator);
-      expect(credit?.querySelector(`a[href="${registered?.licenceUrl}"]`)).not.toBeNull();
-    });
-    expect(screen.queryByRole('region', { name: /featured article/i })).toBeNull();
+    expect(document.querySelector('[data-explainer-scene], [data-explainers]')).toBeNull();
+    expect(document.querySelector('img, picture, svg, canvas, video')).toBeNull();
+    expect(intro.querySelector('button:not([type="submit"])')).toBeNull();
   });
 
-  it('lists the five latest changes with readable dates and any editor note', () => {
-    render(<Home />);
-    const latest = region(/^latest$/i);
-    const items = within(latest).getAllByRole('listitem');
-    const expected = latestChanges(5);
-    expect(items).toHaveLength(5);
-    items.forEach((item, index) => {
-      const change = expected[index];
-      const time = item.querySelector('time');
-      expect(time?.getAttribute('datetime')).toBe(change.date);
-      expect(time?.textContent).toBe(readableDate(change.date));
-      expect(time?.textContent).toMatch(/^\d{1,2} [A-Z][a-z]{2} \d{4}$/);
-      const link = within(item).getByRole('link');
-      expect(link).toHaveTextContent(change.title);
-      expect(path(link.getAttribute('href'))).toBe(`/${change.domain}/${change.slug}`);
-      expect(item.querySelector('[data-latest-note]')?.textContent).toBe(change.note);
-    });
-  });
-
-  it('lists every domain with its scope and every article as a plain link', () => {
+  it('lists every domain with its scope and every article as a plain link, first after the introduction', () => {
     render(<Home />);
     const contents = region(/^contents$/i);
+    expect(contents).toHaveAttribute('id', 'contents');
+    expect(contents.previousElementSibling).toBe(region(/^introduction$/i));
     for (const domain of DOMAINS) {
       const entry = contents.querySelector(`[data-contents-domain="${domain}"]`);
       expect(entry, domain).not.toBeNull();
@@ -200,46 +130,119 @@ describe('Home page', () => {
       );
       expect(list.querySelector('img, svg, [data-brand-surface-id]')).toBeNull();
     }
+    // Every published article, once, under the seven domains in registry order.
+    expect([...contents.querySelectorAll('[data-contents-domain]')].map((el) => el.getAttribute('data-contents-domain'))).toEqual([...DOMAINS]);
+    expect(contents.querySelectorAll('ul a')).toHaveLength(publishedModules().length);
   });
 
-  it('holds three cited facts, each linked to its article', () => {
+  it('starts the reader at four editor picks, hottest first, each with its title and short dek', () => {
     render(<Home />);
-    const facts = region(/did you know/i).querySelectorAll('[data-did-you-know]');
-    expect(facts).toHaveLength(3);
-    facts.forEach((fact, index) => {
-      const { domain, slug, citationId } = DID_YOU_KNOW[index];
-      const links = within(fact as HTMLElement).getAllByRole('link');
-      expect(links.map((link) => path(link.getAttribute('href')))).toContain(
-        `/${domain}/${slug}`,
-      );
-      expect(fact.querySelector(`[data-cite-id="${citationId}"]`)).not.toBeNull();
+    const start = region(/^start here$/i);
+    const entries = start.querySelectorAll('[data-start-here]');
+    expect([...entries].map((entry) => entry.getAttribute('data-start-here'))).toEqual([
+      'world-models/taxonomy',
+      'manipulation/vla-models',
+      'rl-sim2real/humanoid-wbc',
+      'frontier/reliability-gap',
+    ]);
+    entries.forEach((entry, index) => {
+      const pick = HOME_FEATURED_PICKS[index];
+      const title = getModule(pick.domain, pick.slug)?.title ?? '';
+      const heading = within(entry as HTMLElement).getByRole('heading', { level: 3, name: title });
+      const link = within(heading).getByRole('link', { name: title });
+      expect(path(link.getAttribute('href'))).toBe(`/${pick.domain}/${pick.slug}`);
+      const dek = entry.querySelector('[data-featured-dek]')?.textContent ?? '';
+      expect(dek).toBe(pick.dek);
+      expect(words(dek).length).toBeLessThanOrEqual(14);
+      // One link an entry: the title.
+      expect(within(entry as HTMLElement).getAllByRole('link')).toHaveLength(1);
+    });
+    expect(screen.queryByRole('region', { name: /featured article/i })).toBeNull();
+  });
+
+  it('names the five parts of the site that are not articles, each a plain link and a line counted from its registry', () => {
+    render(<Home />);
+    const also = region(/^also in the wiki$/i);
+    const counts = homeCounts();
+    const expected = [
+      ['how-robots-work', 'How robots work', '/how-robots-work', `${EXPLAINER_ORDER.length} short explainers`],
+      ['market-map', 'Market map', '/market-map', `${COMPANIES.length} companies`],
+      ['playground', 'Playground', '/playground', 'robot arm'],
+      ['glossary', 'Glossary', '/glossary', `${GLOSSARY.length} terms`],
+      ['a-z', 'A to Z index', '/a-z', `All ${publishedModules().length} articles`],
+    ] as const;
+    expect([...also.querySelectorAll('[data-also]')].map((el) => el.getAttribute('data-also'))).toEqual(
+      expected.map(([key]) => key),
+    );
+    for (const [key, name, href, line] of expected) {
+      const entry = also.querySelector(`[data-also="${key}"]`) as HTMLElement;
+      const link = within(entry).getByRole('heading', { level: 3, name }).querySelector('a');
+      expect(path(link?.getAttribute('href') ?? null)).toBe(href);
+      expect(within(entry).getAllByRole('link')).toHaveLength(1);
+      expect(entry.textContent).toContain(line);
+    }
+    expect(counts.explainers).toBe(EXPLAINER_ORDER.length);
+    expect(counts.companies).toBe(COMPANIES.length);
+    expect(EXPLAINER_ORDER).toHaveLength(12);
+  });
+
+  it('lists the five latest changes with readable dates and any editor note', () => {
+    render(<Home />);
+    const latest = region(/^latest$/i);
+    const items = within(latest).getAllByRole('listitem');
+    const expected = latestChanges(5);
+    expect(items).toHaveLength(5);
+    items.forEach((item, index) => {
+      const change = expected[index];
+      const time = item.querySelector('time');
+      expect(time?.getAttribute('datetime')).toBe(change.date);
+      expect(time?.textContent).toBe(readableDate(change.date));
+      expect(time?.textContent).toMatch(/^\d{1,2} [A-Z][a-z]{2} \d{4}$/);
+      const link = within(item).getByRole('link');
+      expect(link).toHaveTextContent(change.title);
+      expect(path(link.getAttribute('href'))).toBe(`/${change.domain}/${change.slug}`);
+      expect(item.querySelector('[data-latest-note]')?.textContent).toBe(change.note);
     });
   });
 
-  it('explores the explainers, the market map and the playground, each with a picture of itself', () => {
+  it('says how the wiki is made in three statements, each backed by a page or a form', () => {
     render(<Home />);
-    const explore = region(/^explore$/i);
-    const expected = [
-      ['how-robots-work', 'How robots work', '/how-robots-work'],
-      ['market-map', 'Market map', '/market-map'],
-      ['playground', 'Playground', '/playground'],
-    ] as const;
-    for (const [key, name, href] of expected) {
-      const entry = explore.querySelector(`[data-explore="${key}"]`) as HTMLElement;
-      const link = within(entry).getByRole('link', { name });
-      expect(path(link.getAttribute('href'))).toBe(href);
-      const picture = within(entry).getByRole('img');
-      expect(words(picture.getAttribute('alt') ?? picture.getAttribute('aria-label') ?? '').length).toBeGreaterThan(5);
-    }
-    // The playground's picture is the grey SO-101 arm of the reaching explainer, not the lime-marked one.
-    const arm = within(explore.querySelector('[data-explore="playground"]') as HTMLElement).getByRole('img');
-    expect(arm).toHaveAttribute('src', '/explainers/posters/reaching.webp');
-    const map = explore.querySelector('[data-explore="market-map"]') as HTMLElement;
-    expect(map.textContent).toContain(`${COMPANIES.length} companies`);
-    expect(map.querySelectorAll('.square')).toHaveLength(COMPANIES.length);
-    expect(explore.querySelector('[data-explore="how-robots-work"]')?.textContent).toContain(
-      `${EXPLAINER_ORDER.length} short explainers`,
-    );
+    const made = region(/^how this wiki is made$/i);
+    const statements = [...made.querySelectorAll('[data-made]')];
+    expect(statements.map((el) => el.getAttribute('data-made'))).toEqual(['sources', 'licenses', 'corrections']);
+    expect(statements.map((el) => el.querySelector('.home-statement')?.textContent)).toEqual([
+      'Every number has a source.',
+      'Text is CC BY 4.0, code is MIT.',
+      'Corrections are welcome.',
+    ]);
+    const links = within(made)
+      .getAllByRole('link')
+      .map((link) => [link.textContent, link.getAttribute('href')?.replace(/^(\/[a-z-]+)\/$/, '$1')]);
+    expect(links).toEqual([
+      ['Editorial policy', '/editorial-policy'],
+      ['Credits', '/credits'],
+      ['Source on GitHub', REPOSITORY_URL],
+      ['Report an error', CONTENT_CORRECTION_URL],
+    ]);
+    expect(CONTENT_CORRECTION_URL).toContain('template=content-correction.yml');
+  });
+
+  it('links only to routes the site has', () => {
+    render(<Home />);
+    const routes = new Set([
+      ...DOMAINS.map((domain) => `/${domain}`),
+      ...publishedModules().map((entry) => `/${entry.domain}/${entry.slug}`),
+      '/how-robots-work',
+      '/market-map',
+      '/playground',
+      '/glossary',
+      '/a-z',
+      '/editorial-policy',
+      '/credits',
+    ]);
+    const internal = [...document.querySelectorAll('a[href^="/"]')].map((a) => path(a.getAttribute('href')));
+    expect(internal.length).toBeGreaterThan(publishedModules().length);
+    for (const href of internal) expect(routes.has(href), href).toBe(true);
   });
 
   it('carries no reading guide, mission statement or old product name', () => {

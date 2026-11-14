@@ -1,14 +1,21 @@
 import { expect, test, type Page } from '@playwright/test';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { EXPLAINER_ORDER } from '../../components/explainers/catalog';
 import { DEVICE_REGISTRATION } from '../../components/ui/brand-device';
-import { HOME_FEATURED_PICKS, HOME_FEATURED_SCENE } from '../../data/home-featured';
+import { COMPANIES } from '../../data/companies';
+import { GLOSSARY } from '../../data/glossary';
+import { HOME_FEATURED_PICKS } from '../../data/home-featured';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '../../data/modules';
 import { FEATURED_DEK_MAX_WORDS } from '../../lib/featured-article';
 import { homeCounts } from '../../lib/home-counts';
 import { UPDATE_NOTE_MAX_WORDS, latestChanges } from '../../lib/home-updates';
-import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
+import {
+  CONTENT_CORRECTION_URL,
+  PUBLIC_DESCRIPTOR,
+  PUBLIC_IDENTITY,
+  REPOSITORY_URL,
+} from '../../lib/identity';
 import { forEachInOwnContext } from './helpers/per-route-context';
 import {
   startStaticExportServer,
@@ -19,14 +26,13 @@ import {
  * The encyclopedia front page
  * and the /about/ page that took home's scope statement and reading guide.
  * Served from the static export, because the counts, the
- * featured pick and the dates are fixed when the page is built.
+ * picks and the dates are fixed when the page is built.
  *
- * Updated for the home redesign of 12 November 2026:
- * the humanoid scene moved into the first screen beside the name, the one
- * featured article became four "Start here" entries with pictures, "Recently
- * updated" became "Latest" with readable dates and editor notes, and the
- * tools line became "Explore" with a picture each. Every pin below moved to
- * the new block at the same strength.
+ * Updated for the contents-first front page of 14 November 2026: the
+ * humanoid scene left the first screen and the contents took its place,
+ * "Start here" lost its pictures, and "Did you know" and "Explore" gave way
+ * to "Also in the wiki" and "How this wiki is made". Every pin below moved
+ * to the new block at the same strength.
  */
 
 let BASE: string;
@@ -53,20 +59,22 @@ const trimSlash = (href: string) => href.replace(/\/$/, '');
 /** The six blocks the front page permits in <main>, in order. */
 const HOME_BLOCKS = [
   'Introduction',
-  'Start here',
-  'Latest',
   'Contents',
-  'Did you know',
-  'Explore',
+  'Start here',
+  'Also in the wiki',
+  'Latest',
+  'How this wiki is made',
 ];
 
-/** Texts the 01:25 addendum removed from home. */
+/** Texts the 01:25 addendum removed from home, and the two blocks cut since. */
 const REMOVED_TEXTS = [
   /a citation is not a guarantee of verification/i,
   /the centre of gravity is robot learning/i,
   /how to read this wiki/i,
   /encyclopedia of modern robotics/i,
   /learning paths/i,
+  /did you know/i,
+  /turn it in 3d/i,
 ];
 
 async function home(page: Page, width = 1440, height = 900) {
@@ -120,7 +128,7 @@ test.describe('home front page', () => {
     const introText = await page
       .getByRole('region', { name: 'Introduction' })
       .innerText();
-    expect(introText).not.toMatch(/[\u2013\u2014]/);
+    expect(introText).not.toMatch(/[–—]/);
 
     const search = page.getByRole('searchbox', {
       name: 'Search articles, sources and glossary',
@@ -153,6 +161,7 @@ test.describe('home front page', () => {
   }) => {
     const main = await home(page);
     const contents = main.getByRole('region', { name: 'Contents' });
+    await expect(contents).toHaveAttribute('id', 'contents');
     const rows = contents.locator('[data-contents-domain]');
     await expect(rows).toHaveCount(DOMAINS.length);
     for (const domain of DOMAINS) {
@@ -187,7 +196,32 @@ test.describe('home front page', () => {
       }
     }
   });
-  test("starts the reader at the editor's four picks, each with its picture and a dek of 14 words or fewer", async ({
+
+  test('home links every article route in the sitemap, and no link on it leads to a missing page', async ({
+    page,
+  }) => {
+    const sitemap = await (await page.request.get(`${BASE}/sitemap.xml`)).text();
+    const routes = [...sitemap.matchAll(/<loc>https?:\/\/[^/]+(\/[^<]*)<\/loc>/g)].map(([, route]) => route);
+    const articles = routes.filter((route) => /^\/[a-z0-9-]+\/[a-z0-9-]+\/$/.test(route));
+    expect(articles.sort()).toEqual(
+      publishedModules()
+        .map((entry) => `/${entry.domain}/${entry.slug}/`)
+        .sort(),
+    );
+    await home(page);
+    const hrefs = await page.locator('a[href]').evaluateAll((anchors) => [
+      ...new Set(anchors.map((a) => a.getAttribute('href') ?? '')),
+    ]);
+    for (const route of articles) expect(hrefs, route).toContain(route);
+    const internal = hrefs.filter((href) => href.startsWith('/'));
+    expect(internal.length).toBeGreaterThan(articles.length);
+    for (const href of internal) {
+      const response = await page.request.get(`${BASE}${href}`);
+      expect(response.status(), href).toBe(200);
+    }
+  });
+
+  test("starts the reader at the editor's four picks, each a title and a dek of 14 words or fewer", async ({
     page,
   }) => {
     expect(`${HOME_FEATURED_PICKS[0].domain}/${HOME_FEATURED_PICKS[0].slug}`).toBe('world-models/taxonomy');
@@ -206,28 +240,27 @@ test.describe('home front page', () => {
       expect(words(dek).length).toBeLessThanOrEqual(FEATURED_DEK_MAX_WORDS);
       expect(FEATURED_DEK_MAX_WORDS).toBeLessThanOrEqual(14);
       expect(dek).not.toMatch(/\d/);
-      // A real picture, sized before it loads, so nothing shifts.
-      const img = entry.getByRole('img');
-      await img.scrollIntoViewIfNeeded();
-      await expect(img).toHaveAttribute('width', /\d+/);
-      await expect(img).toHaveAttribute('height', /\d+/);
-      await expect.poll(() => img.evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-      await expect(entry.locator('[data-image-credit] a')).toHaveCount(2);
+      // Words alone: the title is the entry's one link, and it has no picture.
+      await expect(entry.getByRole('link')).toHaveCount(1);
+      await expect(entry.locator('img, picture, svg')).toHaveCount(0);
     }
     const href = `/${HOME_FEATURED_PICKS[0].domain}/${HOME_FEATURED_PICKS[0].slug}/`;
     const response = await page.goto(`${BASE}${href}`);
     expect(response?.status(), href).toBe(200);
   });
 
-  test('sets the humanoid explainer beside the name on its poster and loads no 3D kit until the reader starts it', async ({
+  test('carries no scene and loads no 3D kit: the explainers are one text link with their count', async ({
     page,
   }) => {
+    const kit: string[] = [];
     const scripts: string[] = [];
     page.on('response', async (response) => {
       if (!/\/_next\/static\/chunks\/.+\.js/.test(response.url())) return;
+      scripts.push(response.url());
       const body = await response.text().catch(() => '');
-      // three.js's renderer is the one module that carries this message.
-      if (body.includes('THREE.WebGLRenderer')) scripts.push(response.url());
+      // three.js's renderer is the one module that carries this message; the
+      // explainer viewer is the one that sets this hook.
+      if (body.includes('THREE.WebGLRenderer') || body.includes('__explainer')) kit.push(response.url());
     });
     for (const [width, height] of [
       [390, 844],
@@ -235,116 +268,142 @@ test.describe('home front page', () => {
     ] as const) {
       const main = await home(page, width, height);
       await page.waitForLoadState('networkidle');
-      const intro = main.getByRole('region', { name: 'Introduction' });
-      const frame = intro.getByRole('group', { name: '3D explainer: Inside a humanoid' });
-      await expect(frame).toHaveAttribute('data-explainer-scene', HOME_FEATURED_SCENE.explainer);
-      const poster = frame.locator('[data-x="poster"]');
-      await expect(poster).toBeVisible();
-      await expect(poster).toHaveAttribute('src', '/explainers/posters/humanoid.webp');
-      expect(await poster.evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-      // The poster shows in the first screen at both widths.
-      const box = await poster.boundingBox();
-      expect(box!.y, `poster in the first screen at ${width}px`).toBeLessThan(height - 150);
-      await expect(frame.locator('canvas')).toHaveCount(0);
-      const start = frame.getByRole('button', { name: HOME_FEATURED_SCENE.startLabel });
-      await expect(start).toBeVisible();
-      expect(scripts, `three.js before the reader starts the scene at ${width}px`).toEqual([]);
+      await expect(main.locator('[data-explainer-scene], [data-explainers], canvas, img, picture, video')).toHaveCount(0);
+      // Scrolled to its end, the page has still asked for none of it.
+      await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+      await page.waitForLoadState('networkidle');
+      expect(scripts.length, `scripts loaded at ${width}px`).toBeGreaterThan(0);
+      expect(kit, `3D kit or explainer viewer on home at ${width}px`).toEqual([]);
+      expect(
+        await page.evaluate(() => '__explainer' in window),
+        `explainer hook at ${width}px`,
+      ).toBe(false);
     }
-
-    // The reader's tap loads the kit and brings the same scene to life.
-    const frame = page.getByRole('group', { name: '3D explainer: Inside a humanoid' });
-    await frame.getByRole('button', { name: HOME_FEATURED_SCENE.startLabel }).click();
-    await page.waitForFunction(
-      () => (window as unknown as { __explainer?: { id: string; live: boolean } }).__explainer?.live === true,
-      undefined,
-      { timeout: 45_000 },
-    );
-    expect(await page.evaluate(() => (window as unknown as { __explainer: { id: string } }).__explainer.id)).toBe('humanoid');
-    await expect(frame.locator('canvas')).toBeVisible();
-    await expect(frame.locator('[data-x="poster"]')).toBeHidden();
-    expect(scripts.length, 'three.js once the reader starts the scene').toBeGreaterThan(0);
-
-    const links = frame.getByRole('link');
+    const links = page.locator('main a[href="/how-robots-work/"]');
     await expect(links).toHaveCount(1);
-    await expect(links.nth(0)).toHaveText(`All ${EXPLAINER_ORDER.length} explainers in How robots work`);
-    await expect(links.nth(0)).toHaveAttribute('href', '/how-robots-work/');
+    await expect(links).toHaveText('How robots work');
+    await expect(page.locator('main [data-also="how-robots-work"]')).toContainText(
+      `${EXPLAINER_ORDER.length} short explainers you can turn in 3D.`,
+    );
+    const response = await page.goto(`${BASE}/how-robots-work/`);
+    expect(response?.status()).toBe(200);
   });
 
-  test('keeps the scene still under reduced motion until the reader starts it', async ({
+  test('nothing on the page moves, with or without reduced motion', async ({
     page,
   }) => {
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    await home(page);
-    await page.waitForLoadState('networkidle');
-    const frame = page.getByRole('group', { name: '3D explainer: Inside a humanoid' });
-    await frame.scrollIntoViewIfNeeded();
-    await page.waitForTimeout(1_000);
-    await expect(frame.locator('[data-x="poster"]')).toBeVisible();
-    await expect(frame.locator('canvas')).toHaveCount(0);
-    expect(
-      await page.evaluate(() => (window as unknown as { __explainer?: { live: boolean } }).__explainer?.live),
-    ).toBe(false);
-    // And the page itself runs no animation.
-    expect(await page.evaluate(() => document.getAnimations().filter((a) => a.playState === 'running').length)).toBe(0);
+    for (const reducedMotion of ['reduce', 'no-preference'] as const) {
+      await page.emulateMedia({ reducedMotion });
+      await home(page);
+      await page.waitForLoadState('networkidle');
+      const moving = async () =>
+        page.evaluate(() => document.getAnimations().filter((a) => a.playState === 'running').length);
+      expect(await moving(), `animations on load, ${reducedMotion}`).toBe(0);
+      await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight / 2));
+      await page.waitForTimeout(300);
+      expect(await moving(), `animations after scrolling, ${reducedMotion}`).toBe(0);
+    }
   });
 
-  test('"Did you know" holds three short facts, each cited and linked to the article that states it', async ({
+  test('"Also in the wiki" names the five parts that are not articles, each counted from its registry', async ({
     page,
     browser,
   }) => {
+    // Five pages, each opened in a context of its own.
+    test.setTimeout(60_000);
     const main = await home(page);
-    const block = main.getByRole('region', { name: 'Did you know' });
-    const facts = await block.locator('[data-did-you-know]').evaluateAll((items) =>
-      items.map((item) => {
-        const anchors = [...item.querySelectorAll('a')];
-        return {
-          // Rendered text, so the chip's label counts and its closed source
-          // card (display: none until hover or focus) does not.
-          text: (item as HTMLElement).innerText.replace(/\s+/g, ' ').trim(),
-          article: anchors[0]?.getAttribute('href') ?? '',
-          source: anchors.at(-1)?.getAttribute('href') ?? '',
-        };
-      }),
+    const block = main.getByRole('region', { name: 'Also in the wiki' });
+    const counts = homeCounts();
+    const entries = await block.locator('[data-also]').evaluateAll((items) =>
+      items.map((item) => ({
+        key: (item as HTMLElement).dataset.also ?? '',
+        links: [...item.querySelectorAll('a')].map((a) => a.getAttribute('href') ?? ''),
+        title: (item.querySelector('h3')?.textContent ?? '').trim(),
+        line: (item.querySelector('p')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
+        media: item.querySelectorAll('img, svg, picture, canvas').length,
+      })),
     );
-    expect(facts).toHaveLength(3);
-    for (const fact of facts) {
-      expect(words(fact.text).length, fact.text).toBeLessThanOrEqual(20);
-      expect(fact.article).toMatch(/^\/[a-z0-9-]+\/[a-z0-9-]+\/?$/);
-      expect(fact.source).toMatch(/^https?:\/\//);
-    }
-    // The article cites the same source the fact does.
-    await forEachInOwnContext(browser, facts, async (articlePage, fact) => {
-      await articlePage.goto(`${BASE}${fact.article}`);
-      expect(
-        await articlePage.locator(`main a[href="${fact.source}"]`).count(),
-        `${fact.article} cites ${fact.source}`,
-      ).toBeGreaterThan(0);
+    expect(entries).toEqual([
+      { key: 'how-robots-work', links: ['/how-robots-work/'], title: 'How robots work', line: `${EXPLAINER_ORDER.length} short explainers you can turn in 3D.`, media: 0 },
+      { key: 'market-map', links: ['/market-map/'], title: 'Market map', line: `${COMPANIES.length} companies, with the sources behind each figure.`, media: 0 },
+      { key: 'playground', links: ['/playground/'], title: 'Playground', line: 'Pose a small robot arm one joint at a time.', media: 0 },
+      { key: 'glossary', links: ['/glossary/'], title: 'Glossary', line: `${GLOSSARY.length} terms, each defined with its sources.`, media: 0 },
+      { key: 'a-z', links: ['/a-z/'], title: 'A to Z index', line: `All ${publishedModules().length} articles in one list.`, media: 0 },
+    ]);
+    expect(counts.explainers).toBe(EXPLAINER_ORDER.length);
+    expect(counts.companies).toBe(COMPANIES.length);
+    for (const entry of entries) expect(words(entry.line).length, entry.line).toBeLessThanOrEqual(10);
+    // Each entry opens a real page with its own h1.
+    await forEachInOwnContext(browser, entries, async (entryPage, entry) => {
+      const response = await entryPage.goto(`${BASE}${entry.links[0]}`);
+      expect(response?.status(), entry.links[0]).toBe(200);
+      await expect(entryPage.getByRole('heading', { level: 1 })).toBeVisible();
     });
   });
 
-  test('no citation chip in "Did you know" opens a line of its own, from 320 to 1440 px', async ({
+  test('"How this wiki is made" holds three statements, each backed by a page, the repository or the correction form', async ({
     page,
   }) => {
-    const facts = (await home(page, 320)).locator('[data-did-you-know]');
-    await expect(facts).toHaveCount(3);
-    const alone: string[] = [];
+    const main = await home(page);
+    const block = main.getByRole('region', { name: 'How this wiki is made' });
+    const statements = await block.locator('[data-made]').evaluateAll((items) =>
+      items.map((item) => ({
+        key: (item as HTMLElement).dataset.made ?? '',
+        statement: (item.querySelector('.home-statement')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
+        links: [...item.querySelectorAll('a')].map((a) => ({
+          text: (a.textContent ?? '').trim(),
+          href: a.getAttribute('href') ?? '',
+          rel: a.getAttribute('rel'),
+        })),
+      })),
+    );
+    expect(statements.map(({ key }) => key)).toEqual(['sources', 'licenses', 'corrections']);
+    expect(statements.map(({ statement }) => statement)).toEqual([
+      'Every number has a source.',
+      'Text is CC BY 4.0, code is MIT.',
+      'Corrections are welcome.',
+    ]);
+    expect(statements.flatMap(({ links }) => links)).toEqual([
+      { text: 'Editorial policy', href: '/editorial-policy/', rel: null },
+      { text: 'Credits', href: '/credits/', rel: null },
+      { text: 'Source on GitHub', href: REPOSITORY_URL, rel: 'noopener' },
+      { text: 'Report an error', href: CONTENT_CORRECTION_URL, rel: 'noopener' },
+    ]);
+    // The correction form is the template the repository ships.
+    expect(CONTENT_CORRECTION_URL).toBe(`${REPOSITORY_URL}/issues/new?template=content-correction.yml`);
+    expect(existsSync(join(process.cwd(), '.github', 'ISSUE_TEMPLATE', 'content-correction.yml'))).toBe(true);
+    // The pages and the licence files say what the statements say.
+    await page.goto(`${BASE}/editorial-policy/`);
+    await expect(page.locator('main')).toContainText('Every number and non-obvious claim is cited to its primary source');
+    await expect(page.locator('main')).toContainText('Corrections are welcome.');
+    await page.goto(`${BASE}/credits/`);
+    await expect(page.locator('main')).toContainText('licensed CC BY 4.0');
+    expect(readFileSync(join(process.cwd(), 'LICENSE'), 'utf8')).toMatch(/^MIT License/);
+    expect(readFileSync(join(process.cwd(), 'LICENSE-CONTENT'), 'utf8')).toContain('(CC BY 4.0)');
+  });
+
+  test('nothing overflows sideways and no count leaves its noun, from 320 to 1440 px', async ({
+    page,
+  }) => {
+    await home(page, 320);
+    const problems: string[] = [];
     for (let width = 320; width <= 1440; width += 4) {
       await page.setViewportSize({ width, height: 900 });
-      alone.push(
-        ...(await facts.evaluateAll(
-          (items, at) =>
-            items.flatMap((item) => {
-              const chip = item.querySelector('[data-cite-id]')!.getBoundingClientRect();
-              // A chip that opens a line has nothing of its fact to its left.
-              return chip.left <= item.getBoundingClientRect().left + 1
-                ? [`${(item as HTMLElement).dataset.didYouKnow} at ${at}px`]
-                : [];
-            }),
-          width,
-        )),
+      problems.push(
+        ...(await page.evaluate((at) => {
+          const found: string[] = [];
+          const overflow = document.documentElement.scrollWidth - window.innerWidth;
+          if (overflow > 0) found.push(`${overflow}px of sideways scroll at ${at}px`);
+          // A count and its noun stand on one line.
+          for (const item of document.querySelectorAll('[data-home-counts] > span:not([aria-hidden])')) {
+            const tops = new Set([...item.getClientRects()].map((rect) => Math.round(rect.top)));
+            if (tops.size > 1) found.push(`"${item.textContent}" split at ${at}px`);
+          }
+          return found;
+        }, width)),
       );
     }
-    expect(alone).toEqual([]);
+    expect(problems).toEqual([]);
   });
 
   test('"Latest" lists the five latest changes, each dated as its JSON-LD states or as its editor note', async ({
@@ -387,35 +446,33 @@ test.describe('home front page', () => {
     });
   });
 
-  // Updated for the home redesign of 12 November 2026:
-  // home prose is everything but article titles, the three facts and
-  // navigation labels, and it holds 250 words or fewer even with a full
-  // ten-word note on every "Latest" row.
-  test('<main> holds 250 words of prose or fewer beside article titles, facts and navigation, and no ornament', async ({
+  // Home prose is everything but article titles and navigation labels, and
+  // it holds 250 words or fewer even with a full ten-word note on every
+  // "Latest" row.
+  test('<main> holds 250 words of prose or fewer beside article titles and navigation, and nothing drawn', async ({
     page,
   }) => {
     const main = await home(page);
     const counted = await main.evaluate((el) => {
       const count = (text: string) => text.split(/\s+/).filter(Boolean).length;
       let titles = 0;
-      let facts = 0;
       let navigation = 0;
       for (const a of el.querySelectorAll('a')) {
-        if (a.closest('[data-did-you-know]')) continue;
         const href = a.getAttribute('href') ?? '';
         if (/^\/[a-z0-9-]+\/[a-z0-9-]+\/?$/.test(href)) titles += count((a as HTMLElement).innerText);
         else if (/^\/[a-z0-9-]+\/?$/.test(href)) navigation += count((a as HTMLElement).innerText);
       }
-      for (const fact of el.querySelectorAll('[data-did-you-know]')) facts += count((fact as HTMLElement).innerText);
       const notes = [...el.querySelectorAll('[data-latest-note]')].reduce(
         (sum, note) => sum + count((note as HTMLElement).innerText),
         0,
       );
-      return { prose: count((el as HTMLElement).innerText) - titles - facts - navigation, notes };
+      return { prose: count((el as HTMLElement).innerText) - titles - navigation, notes };
     });
     const room = 5 * UPDATE_NOTE_MAX_WORDS - counted.notes;
     expect(counted.prose + room, `${counted.prose} words of prose, room for ${room} more in notes`).toBeLessThanOrEqual(250);
 
+    // No picture, drawing, canvas or painted background anywhere in <main>:
+    // the page is type on paper.
     const registered = Object.keys(DEVICE_REGISTRATION).map((id) => `device:${id}`);
     const graphics = await page.evaluate((deviceIds) => {
       const mainElement = document.querySelector('main');
@@ -428,13 +485,8 @@ test.describe('home front page', () => {
         })
         .map((el) => {
           const device = el.closest('[data-brand-device-id]');
-          const control = el.closest('form');
           let kind = 'ornament';
-          if (el.closest('[data-motion-scene], [data-explainer-scene]')) kind = 'featured-scene';
-          else if (el.matches('img[data-image-id]') && el.closest('[data-start-here]')) kind = 'article-picture';
-          else if (el.matches('img') && el.closest('[data-explore]')) kind = 'explore-picture';
-          else if (control && control.getAttribute('aria-label')) kind = 'form-control-icon';
-          else if (
+          if (
             device &&
             deviceIds.includes(device.getAttribute('data-brand-device-id') ?? '') &&
             device.closest('[aria-hidden="true"]') &&
@@ -444,12 +496,9 @@ test.describe('home front page', () => {
           return { tag: el.tagName.toLowerCase(), kind };
         });
     }, registered);
-    expect(graphics.filter(({ kind }) => kind === 'ornament')).toEqual([]);
-    expect(graphics.some(({ kind }) => kind === 'featured-scene')).toBe(true);
-    expect(graphics.filter(({ kind }) => kind === 'article-picture')).toHaveLength(4);
-    // Updated for the research-page standard of 10 October
-    // 2026: the one brand highlight is still the masthead's source
-    // count, now set on the meta line in the page's own type instead of a
+    expect(graphics).toEqual([]);
+    // The one brand highlight is still the masthead's source
+    // count, set on the meta line in the page's own type instead of a
     // lime <mark>, so no <mark> and no fill remain in <main>.
     const highlight = main.locator('[data-brand-highlight]');
     await expect(highlight).toHaveCount(1);
@@ -474,8 +523,10 @@ test.describe('home front page', () => {
     );
     expect(blocks).toEqual(HOME_BLOCKS);
     expect(await main.locator(':scope > :not(section)').count()).toBe(0);
+    await expect(main.locator(':scope > section[data-pagefind-body]')).toHaveCount(HOME_BLOCKS.length);
     const text = await main.innerText();
     for (const removed of REMOVED_TEXTS) expect(text).not.toMatch(removed);
+    await expect(main.getByRole('region', { name: 'Explore' })).toHaveCount(0);
   });
 
   test('/about/ holds the scope statement, the reading guide and the citation caveat', async ({

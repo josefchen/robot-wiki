@@ -1,13 +1,16 @@
 import matter from 'gray-matter';
+import { EXPLAINER_ORDER } from '@/components/explainers/catalog';
 import { getCitation } from '@/data/citations';
+import { COMPANIES } from '@/data/companies';
 import { GLOSSARY } from '@/data/glossary';
 import { publishedModules } from '@/data/modules';
 import { moduleSource } from '@/lib/module-source';
 import { WIDGET_CITATION_IDS } from '@/lib/widget-citations';
 
 /**
- * The three counts printed under the home identity line, each derived from
- * its registry when the page is built.
+ * Every number the home page prints, each derived from its registry when
+ * the page is built: the three counts under the search, and the explainers
+ * and companies that "Also in the wiki" names.
  *
  * A source counts once however many pages cite it. The population is every
  * citation record a published page renders: the frontmatter `citations` of
@@ -20,6 +23,8 @@ export type HomeCounts = {
   articles: number;
   sources: number;
   glossaryTerms: number;
+  explainers: number;
+  companies: number;
 };
 
 export function citedSourceIds(
@@ -46,5 +51,7 @@ export function homeCounts(): HomeCounts {
     articles: publishedModules().length,
     sources: citedSourceIds().size,
     glossaryTerms: GLOSSARY.length,
+    explainers: EXPLAINER_ORDER.length,
+    companies: COMPANIES.length,
   };
 }
