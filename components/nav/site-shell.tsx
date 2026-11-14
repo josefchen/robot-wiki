@@ -25,13 +25,14 @@ const DRAWER_TAB_STOPS =
 // box (WCAG 2.2 target size, the controls registry's 24px minimum).
 const topLink =
   'inline-flex min-h-6 items-center font-sans text-[14px] leading-none text-text transition-colors hover:text-text-dim';
-// The taxonomy panel's mark for the page being read.
-const topLinkCurrent = 'font-medium underline decoration-1 underline-offset-[3px]';
+// The page being read: the underline alone. A heavier weight would widen
+// the entry and move its neighbours from page to page.
+const topLinkCurrent = 'underline decoration-1 underline-offset-[3px]';
 
 /**
  * The bar's destinations after "Articles", in reading order. A phone has
- * room for the wordmark and three entries on one row, so the longest waits
- * for 480px; the panel lists it at every width.
+ * room for the wordmark and three entries on one row, so the longest joins
+ * from 481px; the panel lists it at every width.
  */
 const TOP_LINKS = [
   { href: '/now/', label: 'Now', narrow: true },
@@ -56,7 +57,7 @@ function currentAt(pathname: string, href: string): 'page' | 'true' | undefined 
  * the page has scrolled, and nothing else. "Articles" opens the taxonomy
  * panel (search plus every domain and article), the same panel at every
  * width; "Now", "Market" and "How robots work" go to their pages, and the
- * one being read carries the panel's mark.
+ * one being read is underlined.
  *
  * Accessibility contract: the panel trigger reports aria-expanded and
  * aria-controls; opening moves focus into the panel and makes the page

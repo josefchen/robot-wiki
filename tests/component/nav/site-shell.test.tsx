@@ -140,7 +140,7 @@ describe('SiteShell', () => {
     ['/market-map/', 'Market', 'page'],
     ['/market-map/rounds/', 'Market', 'true'],
     ['/how-robots-work/', 'How robots work', 'page'],
-  ])('on %s marks only "%s", the way the panel marks its current entry', (pathname, label, value) => {
+  ])('on %s marks only "%s", with the underline and no change of weight', (pathname, label, value) => {
     mockPathname = pathname;
     renderShell();
     const site = within(screen.getByRole('banner')).getByRole('navigation', { name: 'Site' });
@@ -148,10 +148,15 @@ describe('SiteShell', () => {
     expect(marked.map((entry) => [entry.textContent, entry.getAttribute('aria-current')])).toEqual([[label, value]]);
     for (const entry of site.querySelectorAll('a')) {
       const isCurrent = entry === marked[0];
-      for (const token of ['font-medium', 'underline', 'decoration-1', 'underline-offset-[3px]']) {
+      for (const token of ['underline', 'decoration-1', 'underline-offset-[3px]']) {
         expect(entry.className.split(' ').includes(token), `${entry.textContent} ${token}`).toBe(isCurrent);
       }
       expect(entry.className.split(' ')).toContain('text-text');
+    }
+    // A weight on the current entry would change its width, and the bar
+    // would sit differently on each page.
+    for (const control of site.querySelectorAll('a, button')) {
+      expect(control.className, control.textContent ?? '').not.toMatch(/(^|\s)font-(medium|semibold|bold)(\s|$)/);
     }
   });
 
