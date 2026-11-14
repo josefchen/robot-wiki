@@ -56,12 +56,13 @@ const ROUND_COLUMNS: readonly ColumnHead[] = [
 ];
 
 /**
- * Under 1280 px the round tables scroll in their frame, so the leads and
- * notes columns get room enough that a long note or a list of six leads
+ * Under 1280 px the round tables scroll in their frame, so the valuation,
+ * leads and notes columns get room enough that a long valuation, note or list of six leads
  * leaves no blank band under the company. From 1280 px the table fits the
  * frame and the columns share its width.
  */
-const ROUND_TABLE_WIDTH = 'min-w-[100rem] xl:min-w-[72rem]';
+const ROUND_TABLE_WIDTH = 'min-w-[114rem] xl:min-w-[72rem]';
+const VALUATION_WIDTH = 'min-w-[14rem] xl:min-w-0';
 const LEADS_WIDTH = 'min-w-[19rem] xl:min-w-0';
 const NOTES_WIDTH = 'min-w-[32rem] xl:min-w-[12rem]';
 
@@ -92,7 +93,7 @@ function RoundRow({ round, anchored }: { round: FundingEvent; anchored: boolean 
       />
       <AmountCell event={round} />
       <TextCell>{round.round}</TextCell>
-      <TextCell>{round.valuation}</TextCell>
+      <TextCell className={VALUATION_WIDTH}>{round.valuation}</TextCell>
       <td className={cx(LEADS_WIDTH, round.leadInvestors.length > 0 ? 'text-text' : 'text-[13px] text-text-dim')}>
         {round.leadUnconfirmed && round.leadInvestors.length === 0 ? (
           // No named lead and an unconfirmed one: say so once, not "none named" beside it.
