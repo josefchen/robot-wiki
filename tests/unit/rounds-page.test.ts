@@ -163,6 +163,8 @@ describe('cell text', () => {
     const records = [...ROUNDS, ...LISTINGS, ...CORPORATE_EVENTS, ...UK_EUROPE_2026_EARLIER];
     for (const { key, city, country } of records) {
       const place = placeText(city, country);
+      expect(place.trim(), key).not.toBe('');
+      if (city === 'not disclosed' && country === 'not disclosed') expect(place, key).toBe('not disclosed');
       expect(place, key).not.toMatch(/\b[A-Z]{2}\b|SAR/);
       const parts = place.split(', ');
       expect(new Set(parts).size, key).toBe(parts.length);
@@ -178,6 +180,21 @@ describe('cell text', () => {
     const eur = amountText({ currency: 'EUR', amount: 100_000_000, amountIsApproximate: true });
     expect(eur.own).toBe('about EUR 100M');
     expect(eur.usd).toBe(`about $${Math.round(100 * EUR_REFERENCE_RATES.USD)}M`);
+  });
+
+  it('prints "about" before every approximate amount and "over" before every floor, from the flags', () => {
+    const funding = [...ROUNDS, ...LISTINGS, ...UK_EUROPE_2026_EARLIER];
+    const corporate = CORPORATE_EVENTS.map((e) => ({ ...e, currency: e.currency ?? 'USD' }));
+    expect(corporate.some((e) => e.amountIsApproximate)).toBe(true);
+    expect(funding.some((e) => e.amountIsFloor)).toBe(true);
+    for (const event of [...funding, ...corporate]) {
+      const { own, usd } = amountText(event);
+      const floor = 'amountIsFloor' in event && event.amountIsFloor === true;
+      expect(own.startsWith('about '), event.key).toBe(Boolean(event.amountIsApproximate));
+      expect(own.startsWith('over '), event.key).toBe(floor);
+      const word = (text: string) => /^(about|over) /.exec(text)?.[1] ?? null;
+      if (usd) expect(word(usd), event.key).toBe(word(own));
+    }
   });
 
   it('says what each corporate event is', () => {
