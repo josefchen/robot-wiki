@@ -17,6 +17,460 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2611.06817',
     type: 'paper',
   },
+  // Sources for data-hardware/data-market (The Robot Data Market), opened and checked 2026-11-14.
+  // pyrua-datafarm-2026: arXiv abstract and HTML read 2026-11-14 (v1 3 Nov 2026). "about $290 per usable
+  // hour of data by our calculation ... ($190–520 across the assumptions ...), before any robot, venue, or
+  // setup cost"; China "a quote we obtained ... about RMB 800 ($117) per hour"; generated data "$107 on
+  // average ... each further hour costs $81".
+  {
+    id: 'pyrua-datafarm-2026',
+    title: 'PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data',
+    authors: ['Kewei Zhang', 'Juncheng Ma', 'Guodong Lv', 'Duomin Wang', 'Feixiang Ruan', 'Ruiyang Si', 'Chuanrui Zhang', 'Yuxuan Chen', 'Hao Chen', 'Yichen Liu', 'Yintianrun Zhang', 'Yufan Deng', 'Enze Xie', 'Daquan Zhou'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.05320',
+    url: 'https://arxiv.org/abs/2611.05320',
+    type: 'paper',
+  },
+  // cls-data-price-investigation-2026: read 2026-11-14 (dated 2026-11-11). STAR Market Daily investigation,
+  // source line Cailian Press; byline names no reporter. Real-robot list price up to RMB 1,000, raw monocular
+  // data RMB 5 to 10 an hour (industry veteran Wang Jian), collector pay about RMB 8; Lingyu CEO Jin Ge's reference prices; >70 training grounds
+  // open and 40+ planned by June 2026; Shao Tianlan's September criticism.
+  {
+    id: 'cls-data-price-investigation-2026',
+    title: '具身数据采集价格迷雾调查：千元报价，8元时薪，差价去哪了？',
+    authors: ['财联社'],
+    year: 2026,
+    venue: '21st Century Business Herald, from Cailian Press (STAR Market Daily), 2026-11-11',
+    url: 'https://m.21jingji.com/article/20261111/herald/4fb59aec91c1d17ef8059497e7a2b001.html',
+    type: 'press',
+  },
+  // beijing-daily-data-collectors-2026: read 2026-11-14 (dated 2026-09-04). Jiyuan Zhihang pays
+  // "有效采集时薪为70元"; an agency-placed collector earned "每小时薪资15元". No reporter named.
+  {
+    id: 'beijing-daily-data-collectors-2026',
+    title: '具身智能产业发展打开灵活就业新通道',
+    authors: ['北京日报'],
+    year: 2026,
+    venue: 'Xinhuanet, from Beijing Daily, 2026-09-04',
+    url: 'https://www.news.cn/tech/20260904/8b947072714f4f3ebe72c7fb9a092c0f/c.html',
+    type: 'press',
+  },
+  // techxingqiu-data-collectors-2026: read 2026-11-14 from m.36kr.com (published 2026-07-13). Byline 林京,
+  // Tech Xingqiu, republished by 36Kr: collectors cost "时薪30元", resold at "300-500元/小时".
+  {
+    id: 'techxingqiu-data-collectors-2026',
+    title: '我给机器人当“燃料”：叠衣服时薪30元，卖数据估值150亿',
+    authors: ['林京'],
+    year: 2026,
+    venue: '36Kr, from Tech Xingqiu, 2026-07-13',
+    url: 'https://36kr.com/p/3893319165360899',
+    type: 'press',
+  },
+  // jiazi-data-collection-2026: read 2026-11-14 from m.36kr.com (published 2026-06-25). Byline 卫琳聪,
+  // Jiazi Guangnian, republished by 36Kr. Beijing humanoid center data lead 夏华林: capacity "十几万小时" a
+  // year, "一小时售价500到1000元", customers mainly leading robot firms and model companies, 120+ robots.
+  {
+    id: 'jiazi-data-collection-2026',
+    title: '具身数据采集产业链调查：被机器人采集的人',
+    authors: ['卫琳聪'],
+    year: 2026,
+    venue: '36Kr, from Jiazi Guangnian, 2026-06-25',
+    url: 'https://36kr.com/p/3868536772236297',
+    type: 'press',
+  },
+  // nbd-galaxea-data-cost-2026: read 2026-11-14 (dated 2026-06-17). Byline 每经记者 可杨. Galaxea CEO:
+  // human-centric collection RMB 50-100/h, robot-centric about RMB 250/h, industry average RMB 100-150/h.
+  {
+    id: 'nbd-galaxea-data-cost-2026',
+    title: '具身智能“卷”数据：行业共识质量为先 多样性和流通性仍有不足',
+    authors: ['可杨'],
+    year: 2026,
+    venue: 'Sina Finance, from National Business Daily, 2026-06-17',
+    url: 'https://finance.sina.com.cn/roll/2026-06-17/doc-inicrume5928552.shtml',
+    type: 'press',
+  },
+  // yicai-mifeng-2026: read 2026-11-14 (dated 2026-04-17). Yicai report, no reporter named. Mifeng CEO Yao
+  // Maoqing: real-robot data "每小时500元至1000元"; MEgo robot-free hardware; ten-million-hour ("千万小时级")
+  // data capacity in 2026.
+  {
+    id: 'yicai-mifeng-2026',
+    title: '智元生态再扩容，旗下觅蜂科技抢滩具身智能数据赛道',
+    authors: ['第一财经'],
+    year: 2026,
+    venue: 'Sina Tech, from Yicai, 2026-04-17',
+    url: 'https://finance.sina.com.cn/tech/roll/2026-04-17/doc-inhuuimk6582970.shtml',
+    type: 'press',
+  },
+  // huxiu-collection-centers-2026: read 2026-11-14 (dated 2026-09-20). Byline 易玉琴. 106 publicly disclosed
+  // centralized centers to August 2026, 84 operating without a stable business loop; real-robot data RMB
+  // 500-1,000/h, UMI-style RMB 300-400, simulated synthetic RMB 200-500; few repeat buyers.
+  {
+    id: 'huxiu-collection-centers-2026',
+    title: '遍地开花的数采中心，开始批量露馅',
+    authors: ['易玉琴'],
+    year: 2026,
+    venue: 'Huxiu, 2026-09-20',
+    url: 'https://www.huxiu.com/article/4892109.html',
+    type: 'press',
+  },
+  // cls-miit-data-cost-2026: read 2026-11-14 (dated 2026-11-08). Byline 付静, Cailian Press, republished by
+  // Huxiu. Li Shuai, deputy director of the AI center at MIIT's Fifth Electronics Research Institute, at
+  // Wuzhen: effective stock a million hours against demand of a hundred million; real-robot data costs RMB
+  // 500-1,000 an hour.
+  {
+    id: 'cls-miit-data-cost-2026',
+    title: '具身智能数据赛道“变天”',
+    authors: ['付静'],
+    year: 2026,
+    venue: 'Huxiu, from Cailian Press, 2026-11-08',
+    url: 'https://www.huxiu.com/article/4903954.html',
+    type: 'press',
+  },
+  // npr-robot-data-workers-2026: read 2026-11-14 (dated 2026-10-14). Objectways pays hundreds across India;
+  // one recorder earns "about $2.60 an hour".
+  {
+    id: 'npr-robot-data-workers-2026',
+    title: 'These workers help train robots who could one day steal their jobs',
+    authors: ['Diaa Hadid'],
+    year: 2026,
+    venue: 'NPR',
+    url: 'https://www.npr.org/2026/10/14/g-s1-146907/these-workers-help-train-robots-who-could-one-day-steal-their-jobs',
+    type: 'press',
+  },
+  // globe-gig-robot-data-2026: read 2026-11-14 (dated 2026-10-09). Atlas Capture US$2.86 and US$2.94 an hour
+  // of approved footage; Human Motion Data 38,000 h from 3,900 contributors, US$3 per approved hour; XDOF
+  // raised US$70-million this year, "arm farms" in Southeast Asia.
+  {
+    id: 'globe-gig-robot-data-2026',
+    title: 'Startups are hiring low-paid gig workers to train robots on manual labour',
+    authors: ['Joe Castaldo'],
+    year: 2026,
+    venue: 'The Globe and Mail',
+    url: 'https://www.theglobeandmail.com/business/article-startups-are-hiring-low-paid-gig-workers-to-train-robots-on-manual/',
+    type: 'press',
+  },
+  // mittr-micro1-gig-2026: read 2026-11-14 (dated 2026-04-01). A Micro1 recorder in Nigeria "is paid $15 an
+  // hour".
+  {
+    id: 'mittr-micro1-gig-2026',
+    title: 'The gig workers who are training humanoid robots at home',
+    authors: ['Michelle Kim'],
+    year: 2026,
+    venue: 'MIT Technology Review',
+    url: 'https://www.technologyreview.com/2026/04/01/1134863/humanoid-data-training-gig-economy-2026-breakthrough-technology/',
+    type: 'press',
+  },
+  // cnn-micro1-2026: read 2026-11-14 (dated 2026-04-04). Micro1: about 4,000 recorders in 71 countries
+  // sending more than 160,000 hours of video a month.
+  {
+    id: 'cnn-micro1-2026',
+    title: 'How filming your chores could train the android butlers of the future',
+    authors: ['Stephanie Yang'],
+    year: 2026,
+    venue: 'CNN Business',
+    url: 'https://www.cnn.com/2026/04/04/tech/humanoid-robot-training-jobs-intl-hnk-dst',
+    type: 'press',
+  },
+  // bi-robot-data-labor-2026: read 2026-11-14 (dated 2026-10-15). Shift pays more than 35,000 people, "up to
+  // $30 an hour", about $10 million paid out in 2026 (CEO Bercan Kilic).
+  {
+    id: 'bi-robot-data-labor-2026',
+    title: 'Inside the global race to train robots on human work',
+    authors: ['Rya Jetha'],
+    year: 2026,
+    venue: 'Business Insider',
+    url: 'https://www.businessinsider.com/ai-companies-human-workers-robot-training-data-2026-10',
+    type: 'press',
+  },
+  // scale-physical-ai-2025: read 2026-11-14 (dated 2025-09-24). "more than 100,000 production hours
+  // completed at our prototyping laboratory in San Francisco"; customers Physical Intelligence, Generalist
+  // AI, Cobot.
+  {
+    id: 'scale-physical-ai-2025',
+    title: 'Expanding Our Data Engine for Physical AI',
+    authors: ['Ben Levin'],
+    year: 2025,
+    venue: 'Scale AI blog',
+    url: 'https://scale.com/blog/physical-ai',
+    type: 'blog',
+  },
+  // mecka-series-b-2026: read 2026-11-14 (dated 2026-10-07; byline "Josh, Jason and the Mecka team"). Own
+  // multi-sensor hardware; run-rate revenue over $100 million in June 2026; "multiple Mag 7 companies".
+  {
+    id: 'mecka-series-b-2026',
+    title: 'Mecka raises $60M Series B led by Sequoia Capital',
+    authors: ['Mecka'],
+    year: 2026,
+    venue: 'Mecka news',
+    url: 'https://www.mecka.ai/news/series-b',
+    type: 'press',
+  },
+  // technode-genrobot-2026: read 2026-11-14 (dated 2026-11-02). $100 million Series A+, disclosed 2 November;
+  // recording systems for human demonstrations and the Matrix platform.
+  {
+    id: 'technode-genrobot-2026',
+    title: 'Robot-training data startup GenRobot AI raises $100 million in Series A+ funding',
+    authors: ['TechNode Feed'],
+    year: 2026,
+    venue: 'TechNode',
+    url: 'https://technode.com/2026/11/02/robot-training-data-startup-genrobot-ai-raises-100-million-in-series-a-funding/',
+    type: 'press',
+  },
+  // abc-130k-card-2026: Hugging Face card read 2026-11-14: 3,590.7 hours, 130,703 episodes on two-arm YAM
+  // stations, "Released under the Apache License 2.0", gated by accepted conditions; "the largest open-source
+  // robot teleoperation dataset".
+  {
+    id: 'abc-130k-card-2026',
+    title: 'ABC-130k',
+    authors: ['XDOF'],
+    year: 2026,
+    venue: 'Hugging Face dataset card',
+    url: 'https://huggingface.co/datasets/XDOF/ABC-130k',
+    type: 'docs',
+  },
+  // roboticscenter-marketplace: read 2026-11-14 (undated page; operator DeepAware, Inc., per the page's
+  // structured data). 26 datasets priced per recorded hour, 10-hour minimum: egocentric $90-270,
+  // teleoperation $450-1,200, handheld gripper $375-600, motion capture $250-900, hands and tactile
+  // $225-1,800.
+  {
+    id: 'roboticscenter-marketplace',
+    title: 'Robotics Data Marketplace: Buy Robot Training Data',
+    authors: ['Robotics Center'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'Robotics Center',
+    url: 'https://www.roboticscenter.ai/marketplace',
+    type: 'docs',
+  },
+  // restofworld-china-data-centers-2026: read 2026-11-14 (dated 2026-01-07). Citing Interact Analysis: by
+  // December more than 40 state-owned centers announced, about two dozen operating.
+  {
+    id: 'restofworld-china-data-centers-2026',
+    title: 'In Chinese data factories, workers teach humanoid robots boring tasks',
+    authors: ['Viola Zhou'],
+    year: 2026,
+    venue: 'Rest of World',
+    url: 'https://restofworld.org/2026/china-robots-training-centers-workers/',
+    type: 'press',
+  },
+  // standard-umi-collectors-2026: read 2026-11-14 (dated 2026-08-19; no reporter named). UMI data
+  // collectors offered "around 20 yuan (HK$22) an hour or 200 yuan a day"; at least 30 data-collection
+  // facilities by the end of 2025.
+  {
+    id: 'standard-umi-collectors-2026',
+    title: 'China’s embodied AI boom fuels demand for human-collected training data',
+    authors: ['The Standard'],
+    year: 2026,
+    venue: 'The Standard (Hong Kong)',
+    url: 'https://www.thestandard.com.hk/china/article/340377/Chinas-embodied-AI-boom-fuels-demand-for-human-collected-training-data',
+    type: 'press',
+  },
+  // interact-analysis-centers-2026: read 2026-11-14 (dated 2026-05-27). At end-April 2026 at least 90
+  // centers operating or planned, at least 64 of them operating; scope: state-backed centers plus larger
+  // company centers, no university labs.
+  {
+    id: 'interact-analysis-centers-2026',
+    title: '中国国内の90カ所超のヒューマノイドロボット向けデータ収集センターを総覧する',
+    authors: ['Interact Analysis'],
+    year: 2026,
+    venue: 'Interact Analysis on note, 2026-05-27',
+    url: 'https://note.com/interactanalysis/n/n0de3a347c001',
+    type: 'blog',
+  },
+  // sedaily-kimm-data-factory-2026: read 2026-11-14 (dated 2026-11-03). Byline printed "Cho Yun-Jin",
+  // recorded given name first so the chip prints the family name. KIMM operates 12 humanoids.
+  {
+    id: 'sedaily-kimm-data-factory-2026',
+    title: 'Korea Opens First Data Factory to Train Humanoid Robots',
+    authors: ['Yun-Jin Cho'],
+    year: 2026,
+    venue: 'Seoul Economic Daily',
+    url: 'https://en.sedaily.com/business/2026/11/03/korea-opens-first-data-factory-to-train-humanoid-robots',
+    type: 'press',
+  },
+  // latimes-encord-2026: read 2026-11-14 (dated 2026-05-31). "Encord charges clients up to $1,000 per hour
+  // for training data"; clients Toyota Research Institute and Weave.
+  {
+    id: 'latimes-encord-2026',
+    title: 'How Silicon Valley robot training and teleoperating startups are teaching humanoids to do everyday tasks',
+    authors: ['Nilesh Christopher'],
+    year: 2026,
+    venue: 'Los Angeles Times',
+    url: 'https://www.latimes.com/business/story/2026-05-31/how-silicon-valley-robot-training-teleoperating-startups-are-teaching-humanoids-to-do-everyday-tasks',
+    type: 'press',
+  },
+  // unidata-datarade-egocentric: read 2026-11-14 (undated listing). "starts at USD30,000 per purchase" for
+  // 4,050 hours; the per-hour figure in the article is the article's own division.
+  {
+    id: 'unidata-datarade-egocentric',
+    title: 'Egocentric Video Dataset: 4,050 Hours of First-Person Videos for Physical AI, Robotics & Egocentric Vision',
+    authors: ['Unidata'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'Datarade',
+    url: 'https://datarade.ai/data-products/egocentric-video-dataset-239-3-hours-for-egocentric-action-unidata',
+    type: 'docs',
+  },
+  // pi-robot-operator-posting: read 2026-11-14 (live posting). "Compensation: $25/hour".
+  {
+    id: 'pi-robot-operator-posting',
+    title: 'Robot Operator',
+    authors: ['Physical Intelligence'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'Physical Intelligence careers (Ashby)',
+    url: 'https://jobs.ashbyhq.com/physicalintelligence/eb3ed968-630f-429a-9e44-5508b77d554b',
+    type: 'docs',
+  },
+  // onex-senior-operator-posting: read 2026-11-14 (job-board copy; 1X's own page redirected). San Carlos,
+  // CA, "36-46 Hourly".
+  {
+    id: 'onex-senior-operator-posting',
+    title: 'Senior Operator - Data Collection (Day Shift)',
+    authors: ['1X Technologies'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'Built In San Francisco',
+    url: 'https://www.builtinsf.com/job/senior-operator-data-collection-day-shift/9043676',
+    type: 'docs',
+  },
+  // ay-robots-pricing: read 2026-11-14 (undated page). Operator pay: Beginner EUR 6-10, Skilled EUR 10-15,
+  // Expert EUR 15-22 an hour; rates vary by region.
+  {
+    id: 'ay-robots-pricing',
+    title: 'Pricing - Pay-Per-Hour Robot Teleoperation',
+    authors: ['AY-Robots'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'AY-Robots',
+    url: 'https://www.ay-robots.com/en/pricing',
+    type: 'docs',
+  },
+  // techcrunch-human-archive-2026: read 2026-11-14 (dated 2026-05-26). "base rate of $1 per hour"; more than
+  // 1,000 active headsets; $8.2 million raised.
+  {
+    id: 'techcrunch-human-archive-2026',
+    title: 'This startup is betting India’s gig economy can train the world’s robots',
+    authors: ['Ivan Mehta'],
+    year: 2026,
+    venue: 'TechCrunch',
+    url: 'https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/',
+    type: 'press',
+  },
+  // exylos-pricing-2026: read 2026-11-14 (dated 2026-09-18). "The published $30-$49 rates cover
+  // customer-specific production with exclusive dataset rights", per accepted hour.
+  {
+    id: 'exylos-pricing-2026',
+    title: 'EXYLOS VR Egocentric Dataset Pricing: Rates per Accepted Hour',
+    authors: ['Vadym Lorens'],
+    year: 2026,
+    venue: 'EXYLOS blog',
+    url: 'https://www.exylos.ai/blog/exylos-vr-egocentric-dataset-pricing/',
+    type: 'blog',
+  },
+  // xperience-10m-card-2026: Hugging Face card read 2026-11-14 (creator Ropedia; card citation year 2026).
+  // 10,000 hours; "released for research and other non-commercial uses"; access reviewed manually.
+  {
+    id: 'xperience-10m-card-2026',
+    title: 'Xperience-10M',
+    authors: ['Ropedia'],
+    year: 2026,
+    venue: 'Hugging Face dataset card',
+    url: 'https://huggingface.co/datasets/ropedia-ai/xperience-10m',
+    type: 'docs',
+  },
+  // open-humanwam-50k-card-2026: Hugging Face card read 2026-11-14. "This project's original contributions
+  // are released under the Apache License 2.0. The underlying third-party datasets remain subject to their
+  // original licenses and terms."
+  {
+    id: 'open-humanwam-50k-card-2026',
+    title: 'Open-HumanWAM-50K',
+    authors: ['DAGroup-PKU'],
+    year: 2026,
+    venue: 'Hugging Face dataset card',
+    url: 'https://huggingface.co/datasets/DAGroup-PKU/Open-HumanWAM-50K',
+    type: 'docs',
+  },
+  // egodex-repo: GitHub README read 2026-11-14 (github.com/apple/ml-egodex redirects here). 829 hours; "The
+  // dataset is available under CC-by-NC-ND terms."
+  {
+    id: 'egodex-repo',
+    title: 'EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video',
+    authors: ['Apple'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'GitHub repository apple-aiml-research/ml-egodex',
+    url: 'https://github.com/apple-aiml-research/ml-egodex',
+    type: 'docs',
+  },
+  // techtimes-tesla-optimus-data-2026: read 2026-11-14 (dated 2026-09-29). "According to The Information,
+  // Tesla has accumulated more than 500,000 hours of Optimus training data ... from a person familiar with
+  // the company's efforts rather than a public Tesla disclosure."
+  {
+    id: 'techtimes-tesla-optimus-data-2026',
+    title: 'Tesla’s Robot Future Runs Into a Human Problem: Some Workers Pushed Back on Training Optimus',
+    authors: ['Grace Hisona'],
+    year: 2026,
+    venue: 'TechTimes',
+    url: 'https://www.techtimes.co.uk/tesla-workers-optimus-training-data-production-1808825',
+    type: 'press',
+  },
+  // jd-data-center-2026: read 2026-11-14 (dated 2026-03-16, source Southern Finance). JD.com targets 5
+  // million hours of real-scene human video within a year and over 10 million within two.
+  {
+    id: 'jd-data-center-2026',
+    title: '京东将建成全球最大具身数据采集中心',
+    authors: ['南方财经网'],
+    year: 2026,
+    venue: 'Eastmoney, from Southern Finance, 2026-03-16',
+    url: 'https://finance.eastmoney.com/a/202603163673254172.html',
+    type: 'press',
+  },
+  // jiangsu-data-exchange-2026: read 2026-11-14 (dated 2026-01-06; reporter 万承源). Jiangsu Data Exchange's
+  // "全国首例具身智能数据集场内交易", about 25,000 structured records; no price given.
+  {
+    id: 'jiangsu-data-exchange-2026',
+    title: '全国首例具身智能数据集场内交易在江苏完成，可“培训”机器人保姆',
+    authors: ['万承源'],
+    year: 2026,
+    venue: 'Yangtse Evening Post (yzwb.net), 2026-01-06',
+    url: 'https://www.yzwb.net/news/jiangsu/202601/t20260106_308264.html',
+    type: 'press',
+  },
+  // robopilots-providers-2026: read 2026-11-14 (dated 2026-11-11). A competitor's review: RoboPilots "a
+  // starting price of $12 an hour"; OBI Services "from USD 4.95 an hour for large volumes".
+  {
+    id: 'robopilots-providers-2026',
+    title: 'Teleoperation service providers compared (2026): managed operators, data labs and software',
+    authors: ['RoboPilots'],
+    year: 2026,
+    venue: 'RoboPilots guides',
+    url: 'https://www.robopilots.ai/guides/teleoperation-service-providers',
+    type: 'blog',
+  },
+  // maxinsights-seed-2026: Business Wire release read 2026-11-14 on Yahoo Finance (corrected release dated
+  // 2026-10-26; announced 22 Oct). $30 million seed led by PeakXV; MaxGlove. No hour count.
+  {
+    id: 'maxinsights-seed-2026',
+    title: 'Waymo, Google and Microsoft Alums Raise $30M to Build the Data Layer for Physical AI',
+    authors: ['Maxinsights'],
+    year: 2026,
+    venue: 'Business Wire, via Yahoo Finance',
+    url: 'https://finance.yahoo.com/technology/ai/articles/waymo-google-microsoft-alums-raise-160000050.html',
+    type: 'press',
+  },
+  // ecb-reference-rates-2026-11-13: read 2026-11-14 (rates of 13 November 2026: US dollar 1.1052, Chinese
+  // yuan renminbi 7.3738 per euro, so RMB 1 = $0.1499).
+  {
+    id: 'ecb-reference-rates-2026-11-13',
+    title: 'Euro foreign exchange reference rates',
+    authors: ['European Central Bank'],
+    year: 2026,
+    venue: 'European Central Bank, rates of 13 November 2026',
+    url: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html',
+    type: 'docs',
+  },
   // airoa-0-2026: AIRoA news release read 2026-11-12 (dated 2026-11-06).
   {
     id: 'airoa-0-2026',

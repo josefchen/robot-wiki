@@ -450,6 +450,12 @@ const entries: Array<[Domain, string, string, string]> = [
     'From data capture to robot integration as one reproducible system.',
   ],
   [
+    'data-hardware',
+    'data-market',
+    'The Robot Data Market',
+    'Who sells robot training data and what an hour costs.',
+  ],
+  [
     'classical',
     'kinematics',
     'Kinematics',
@@ -609,6 +615,7 @@ const PUBLISHED = new Set([
   'data-hardware/evaluation-crisis',
   'data-hardware/industrial-deployment',
   'data-hardware/robot-learning-stack',
+  'data-hardware/data-market',
   'classical/kinematics',
   'classical/motion-planning',
   'classical/control',
