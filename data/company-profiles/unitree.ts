@@ -54,7 +54,14 @@ const SHOP = {
   sourceTitle: 'Unitree official online shop, product catalogue (shop.unitree.com, USD storefront)',
 } as const satisfies ProfileSource;
 
-const GITHUB_API = 'https://api.github.com/orgs/unitreerobotics/repos';
+const BOSCHKO_GO2 = {
+  sourceType: 'primary',
+  sourceUrl: 'https://boschko.ca/unitree-go2-rce/',
+  sourceTitle:
+    'From DDS Packets to Robot Shells: Two RCEs in Unitree Go2 Robot Dog (Boschko Security Blog, 26 Feb 2026)',
+} as const satisfies ProfileSource;
+
+const GITHUB_API ='https://api.github.com/orgs/unitreerobotics/repos';
 const HF_MODELS = {
   sourceType: 'primary',
   sourceUrl: 'https://huggingface.co/api/models?author=unitreerobotics',
@@ -125,6 +132,9 @@ function hfModel(
 }
 
 const ABOUT = 'about' as const;
+const ARM_MAX = 'per arm, maximum';
+const ARM_RATED = 'per arm, rated; peak about 15 kg';
+const WALKING = 'continuous walking';
 
 export const UNITREE_PROFILE: CompanyProfile = {
   slug: 'unitree',
@@ -135,7 +145,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     legalName: '宇树科技股份有限公司',
     founded: { value: '2016-08-26', ...PROSPECTUS, pageRef: '1-1-48' },
     founder: { value: 'Wang Xingxing', ...PROSPECTUS, pageRef: '1-1-48' },
-    hq: { value: 'Hangzhou', ...LISTING },
+    hq: { value: 'Hangzhou', ...LISTING, pageRef: 'p. 15' },
   },
 
   listing: {
@@ -159,6 +169,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       pageRef: 'p. 14',
     },
     onlineSubscriptionMultiple: { value: 8_288.82, ...ISSUE_RESULTS },
+    holderTableRows: { value: 56, ...LISTING, pageRef: 'pp. 20 to 24' },
     firstDay: { value: { date: '2026-08-19', open: 1_100, close: 845 }, ...PRICE_FEED },
     latestClose: { value: { date: '2026-11-13', close: 696 }, ...PRICE_FEED },
   },
@@ -174,10 +185,13 @@ export const UNITREE_PROFILE: CompanyProfile = {
     platformHolderIds: ['shanghai-yuyi'],
   },
 
-  // The listing announcement's share table before and after the IPO.
+  // 15 of the 56 rows in the listing announcement's shareholder table: the
+  // top ten, the other Meituan and HongShan vehicles, Tencent and DeepSeek.
+  // filingRow is the filing's own row number.
   holders: [
     {
       id: 'wang-xingxing',
+      filingRow: 1,
       name: '王兴兴',
       nameEn: 'Wang Xingxing',
       sharesTenK: 8_671.4964,
@@ -188,10 +202,11 @@ export const UNITREE_PROFILE: CompanyProfile = {
       votesAfterPct: 60.34,
       ...LISTING,
       pageRef: 'p. 20',
-      note: 'His 4,407.4296 万 class A shares carry ten votes each.',
+      note: 'His 44,074,296 class A shares carry ten votes each.',
     },
     {
       id: 'shanghai-yuyi',
+      filingRow: 2,
       name: '上海宇翼',
       nameEn: 'Shanghai Yuyi (staff incentive platform)',
       sharesTenK: 3_982.86,
@@ -205,6 +220,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'hanhai-information',
+      filingRow: 3,
       name: '汉海信息',
       nameEn: 'Hanhai Information Technology (Shanghai)',
       group: 'Meituan',
@@ -219,6 +235,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'ningbo-hongshan',
+      filingRow: 4,
       name: '宁波红杉',
       nameEn: 'Ningbo Hongshan Kesheng',
       group: 'HongShan',
@@ -233,6 +250,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'astrend-iv',
+      filingRow: 5,
       name: 'Astrend IV',
       nameEn: 'Astrend IV (Hong Kong) Alpha Limited',
       sharesTenK: 1_610.595,
@@ -246,6 +264,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'jingwei-no-1',
+      filingRow: 6,
       name: '经纬壹号',
       nameEn: 'Nanjing Jingwei Chuang No. 1',
       sharesTenK: 1_550.6316,
@@ -259,6 +278,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'jinshi-growth',
+      filingRow: 7,
       name: '金石成长',
       nameEn: 'Jinshi Growth',
       sharesTenK: 1_511.4204,
@@ -272,6 +292,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'beijing-robot-fund',
+      filingRow: 8,
       name: '机器人基金',
       nameEn: 'Beijing Robot Industry Development Investment Fund',
       sharesTenK: 1_392.804,
@@ -285,6 +306,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'jiaxing-huamao',
+      filingRow: 9,
       name: '嘉兴骅茂',
       nameEn: 'Jiaxing Huamao Equity Investment',
       sharesTenK: 1_160.2332,
@@ -298,6 +320,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'junwan-hongyi',
+      filingRow: 10,
       name: '君万弘毅',
       nameEn: 'Tianjin Junwan Hongyi',
       sharesTenK: 1_117.494,
@@ -311,6 +334,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'galaxy-z',
+      filingRow: 20,
       name: 'Galaxy Z',
       nameEn: 'Galaxy Z',
       group: 'Meituan',
@@ -325,6 +349,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'chengdu-longzhu',
+      filingRow: 21,
       name: '成都龙珠',
       nameEn: 'Chengdu Longzhu',
       group: 'Meituan',
@@ -339,6 +364,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'xiamen-yaheng',
+      filingRow: 24,
       name: '厦门雅恒',
       nameEn: 'Xiamen Yaheng',
       group: 'HongShan',
@@ -353,6 +379,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'tencent-technology',
+      filingRow: 30,
       name: '腾讯科技',
       nameEn: 'Tencent Technology (Shanghai)',
       sharesTenK: 217.917,
@@ -366,6 +393,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'deepseek',
+      filingRow: 50,
       name: '深度求索',
       nameEn: 'Hangzhou DeepSeek Artificial Intelligence Basic Technology Research',
       sharesTenK: 93.3399,
@@ -559,14 +587,16 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'g1', name: 'G1', family: 'G1', type: 'humanoid',
       priceUsd: 13_500, priceAbsent: null,
-      mass: { value: 35, unit: 'kg', qualifier: ABOUT }, dof: 23, payload: 'not disclosed',
+      mass: { value: 35, unit: 'kg', qualifier: ABOUT }, dof: 23,
+      payload: { value: 2, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       notable: '1,320 mm tall, about 2 h runtime',
       ...page('g1', 'g1'),
     },
     {
       id: 'g1-edu', name: 'G1 EDU', family: 'G1', type: 'humanoid',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 35, unit: 'kg', qualifier: 'at least' }, dof: { min: 23, max: 43 }, payload: 'not disclosed',
+      mass: { value: 35, unit: 'kg', qualifier: 'at least' }, dof: { min: 23, max: 43 },
+      payload: { value: 3, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       notable: 'Secondary development; DoF depends on waist, wrist and hand options',
       ...page('g1', 'g1'),
     },
@@ -580,27 +610,31 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'g1-plus', name: 'G1+', family: 'G1+', type: 'humanoid',
       priceUsd: 15_000, priceAbsent: null,
-      mass: { value: 35, unit: 'kg', qualifier: ABOUT }, dof: 25, payload: 'not disclosed',
+      mass: { value: 35, unit: 'kg', qualifier: ABOUT }, dof: 25,
+      payload: { value: 3, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       notable: 'Adds a 2 DoF neck; 1,340 mm tall',
       ...page('G1pl', 'G1pl'),
     },
     {
       id: 'g1-plus-edu', name: 'G1+ EDU', family: 'G1+', type: 'humanoid',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: 'not disclosed', dof: { min: 25, max: 45 }, payload: 'not disclosed',
+      mass: { value: 35, unit: 'kg', qualifier: 'at least' }, dof: { min: 25, max: 45 },
+      payload: { value: 4, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       ...page('G1pl', 'G1pl'),
     },
     {
       id: 'g1-d-standard', name: 'G1-D Standard', family: 'G1-D', type: 'wheeled humanoid',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 90, unit: 'kg', qualifier: ABOUT }, dof: 17, dofBasis: 'excluding end effector', payload: 'not disclosed',
+      mass: { value: 90, unit: 'kg', qualifier: ABOUT }, dof: 17, dofBasis: 'excluding end effector',
+      payload: { value: 3, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       ...page('G1-D', 'G1-D'),
       note: 'The prospectus gives about 50 kg.',
     },
     {
       id: 'g1-d-flagship', name: 'G1-D Flagship', family: 'G1-D', type: 'wheeled humanoid',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 90, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'excluding end effector', payload: 'not disclosed',
+      mass: { value: 90, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'excluding end effector',
+      payload: { value: 3, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       ...page('G1-D', 'G1-D'),
     },
     {
@@ -613,14 +647,16 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'h1-2', name: 'H1-2', family: 'H1-2', type: 'humanoid',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 70, unit: 'kg', qualifier: ABOUT }, dof: 27, payload: 'not disclosed',
+      mass: { value: 70, unit: 'kg', qualifier: ABOUT }, dof: 27,
+      payload: { value: 7, unit: 'kg', qualifier: ABOUT }, payloadBasis: 'per arm, rated; peak about 21 kg',
       notable: '6 DoF per leg and 7 per arm; about 178 cm',
       ...page('h1', 'h1'),
     },
     {
       id: 'h2', name: 'H2', family: 'H2', type: 'humanoid',
       priceUsd: 29_900, priceAbsent: null,
-      mass: { value: 70, unit: 'kg', qualifier: ABOUT }, dof: 31, payload: 'not disclosed',
+      mass: { value: 70, unit: 'kg', qualifier: ABOUT }, dof: 31,
+      payload: { value: 7, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_RATED,
       notable: '1,820 mm tall, about 3 h runtime',
       ...page('H2', 'H2'),
       note: 'Listed in the shop but not orderable.',
@@ -628,20 +664,23 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'h2-edu', name: 'H2 EDU', family: 'H2', type: 'humanoid',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 70, unit: 'kg', qualifier: ABOUT }, dof: 31, payload: 'not disclosed',
+      mass: { value: 70, unit: 'kg', qualifier: ABOUT }, dof: 31,
+      payload: { value: 7, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_RATED,
       ...page('H2', 'H2'),
     },
     {
       id: 'h2-x', name: 'H2-X', family: 'H2-X', type: 'humanoid',
       priceUsd: 25_400, priceAbsent: null,
-      mass: { value: 65, unit: 'kg', qualifier: 'at least' }, dof: 31, payload: 'not disclosed',
+      mass: { value: 65, unit: 'kg', qualifier: 'at least' }, dof: 31,
+      payload: { value: 7, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_RATED,
       notable: '1,725 mm tall; two hot-swap batteries',
       ...page('H2-X', 'H2-X'),
     },
     {
       id: 'h2-x-edu', name: 'H2-X EDU', family: 'H2-X', type: 'humanoid',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 65, unit: 'kg', qualifier: 'at least' }, dof: 31, payload: 'not disclosed',
+      mass: { value: 65, unit: 'kg', qualifier: 'at least' }, dof: 31,
+      payload: { value: 7, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_RATED,
       ...page('H2-X', 'H2-X'),
     },
     {
@@ -658,42 +697,50 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'h2-a-standard', name: 'H2-A Standard', family: 'H2-A', type: 'dual-arm',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 33.5, unit: 'kg' }, dof: 19, dofBasis: 'excluding end effector', payload: 'not disclosed',
+      mass: { value: 33.5, unit: 'kg' }, dof: 19, dofBasis: 'excluding end effector',
+      payload: { value: 7, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_RATED,
       notable: 'Fixed base',
       ...page('H2-D', 'H2-D'),
     },
     {
       id: 'h2-d-standard', name: 'H2-D Standard', family: 'H2-D', type: 'wheeled humanoid',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 148, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'excluding end effector', payload: 'not disclosed',
+      mass: { value: 148, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'excluding end effector',
+      payload: { value: 7, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_RATED,
       notable: 'Manual-move chassis with a 0.46 m lift',
       ...page('H2-D', 'H2-D'),
     },
     {
       id: 'h2-d-flagship', name: 'H2-D Flagship', family: 'H2-D', type: 'wheeled humanoid',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 120, unit: 'kg', qualifier: ABOUT }, dof: 20, dofBasis: 'excluding end effector', payload: 'not disclosed',
+      mass: { value: 120, unit: 'kg', qualifier: ABOUT }, dof: 20, dofBasis: 'excluding end effector',
+      payload: { value: 7, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_RATED,
       notable: 'Mobile chassis up to 1.5 m/s',
       ...page('H2-D', 'H2-D'),
     },
     {
       id: 'r1-air', name: 'R1 Air', family: 'R1', type: 'humanoid',
       priceUsd: 4_900, priceAbsent: null,
-      mass: { value: 27, unit: 'kg', qualifier: ABOUT }, dof: 20, payload: 'not disclosed',
+      mass: { value: 27, unit: 'kg', qualifier: ABOUT }, dof: 20,
+      payload: { value: 3, max: 5, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       notable: '1,230 mm tall; no secondary development',
       ...page('R1', 'R1'),
+      note: 'The page prints the arm payload in its arm joint torque row.',
     },
     {
       id: 'r1', name: 'R1', family: 'R1', type: 'humanoid',
       priceUsd: 5_900, priceAbsent: null,
-      mass: { value: 29, unit: 'kg', qualifier: ABOUT }, dof: 26, payload: 'not disclosed',
+      mass: { value: 29, unit: 'kg', qualifier: ABOUT }, dof: 26,
+      payload: { value: 3, max: 5, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       notable: 'Binocular camera, about 1 h runtime',
       ...page('R1', 'R1'),
+      note: 'The page prints the arm payload in its arm joint torque row.',
     },
     {
       id: 'r1-edu', name: 'R1 EDU', family: 'R1', type: 'humanoid',
       priceUsd: 10_500, priceAbsent: null,
-      mass: { value: 29, unit: 'kg', qualifier: ABOUT }, dof: { min: 26, max: 40 }, payload: 'not disclosed',
+      mass: { value: 29, unit: 'kg', qualifier: ABOUT }, dof: { min: 26, max: 40 },
+      payload: { value: 3, max: 5, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       ...SHOP,
       ...specFrom('R1', 'R1'),
       note: 'The product page says contact sales.',
@@ -701,7 +748,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'r1-a5', name: 'R1-A5', family: 'R1-D', type: 'dual-arm',
       priceUsd: 4_290, priceAbsent: null,
-      mass: { value: 11, unit: 'kg', qualifier: ABOUT }, dof: 15, dofBasis: 'with gripper', payload: 'not disclosed',
+      mass: { value: 11, unit: 'kg', qualifier: ABOUT }, dof: 15, dofBasis: 'with gripper',
+      payload: { value: 3, max: 5, unit: 'kg' }, payloadBasis: ARM_MAX,
       notable: 'Fixed base, 5 DoF arms; mass with external power',
       ...SHOP,
       ...specFrom('R1-D', 'R1-D'),
@@ -709,7 +757,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'r1-a7', name: 'R1-A7', family: 'R1-D', type: 'dual-arm',
       priceUsd: 4_890, priceAbsent: null,
-      mass: { value: 13, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'with gripper', payload: 'not disclosed',
+      mass: { value: 13, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'with gripper',
+      payload: { value: 3, max: 5, unit: 'kg' }, payloadBasis: ARM_MAX,
       notable: 'Fixed base, 7 DoF arms; mass with external power',
       ...SHOP,
       ...specFrom('R1-D', 'R1-D'),
@@ -717,7 +766,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'r1-a5-d-l2', name: 'R1-A5-D with L2 lidar', family: 'R1-D', type: 'dual-arm',
       priceUsd: 6_490, priceAbsent: null,
-      mass: { value: 30, unit: 'kg', qualifier: ABOUT }, dof: 18, dofBasis: 'with gripper', payload: 'not disclosed',
+      mass: { value: 30, unit: 'kg', qualifier: ABOUT }, dof: 18, dofBasis: 'with gripper',
+      payload: { value: 3, max: 5, unit: 'kg' }, payloadBasis: ARM_MAX,
       notable: 'Mobile base with a lift to 1,600 mm',
       ...SHOP,
       ...specFrom('R1-D', 'R1-D'),
@@ -725,7 +775,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'r1-a5-d-mid360', name: 'R1-A5-D with MID360 lidar', family: 'R1-D', type: 'dual-arm',
       priceUsd: 7_090, priceAbsent: null,
-      mass: { value: 30, unit: 'kg', qualifier: ABOUT }, dof: 18, dofBasis: 'with gripper', payload: 'not disclosed',
+      mass: { value: 30, unit: 'kg', qualifier: ABOUT }, dof: 18, dofBasis: 'with gripper',
+      payload: { value: 3, max: 5, unit: 'kg' }, payloadBasis: ARM_MAX,
       notable: 'Mobile base with a lift to 1,600 mm',
       ...SHOP,
       ...specFrom('R1-D', 'R1-D'),
@@ -733,7 +784,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'r1-a7-d-l2', name: 'R1-A7-D with L2 lidar', family: 'R1-D', type: 'dual-arm',
       priceUsd: 7_090, priceAbsent: null,
-      mass: { value: 32, unit: 'kg', qualifier: ABOUT }, dof: 22, dofBasis: 'with gripper', payload: 'not disclosed',
+      mass: { value: 32, unit: 'kg', qualifier: ABOUT }, dof: 22, dofBasis: 'with gripper',
+      payload: { value: 3, max: 5, unit: 'kg' }, payloadBasis: ARM_MAX,
       notable: 'Mobile base, 7 DoF arms',
       ...SHOP,
       ...specFrom('R1-D', 'R1-D'),
@@ -741,7 +793,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'r1-a7-d-mid360', name: 'R1-A7-D with MID360 lidar', family: 'R1-D', type: 'dual-arm',
       priceUsd: 7_690, priceAbsent: null,
-      mass: { value: 32, unit: 'kg', qualifier: ABOUT }, dof: 22, dofBasis: 'with gripper', payload: 'not disclosed',
+      mass: { value: 32, unit: 'kg', qualifier: ABOUT }, dof: 22, dofBasis: 'with gripper',
+      payload: { value: 3, max: 5, unit: 'kg' }, payloadBasis: ARM_MAX,
       notable: 'Mobile base, 7 DoF arms',
       ...SHOP,
       ...specFrom('R1-D', 'R1-D'),
@@ -758,21 +811,21 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'go2-pro', name: 'Go2 Pro', family: 'Go2', type: 'quadruped',
       priceUsd: 2_800, priceAbsent: null,
-      mass: { value: 15, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: { value: 8, unit: 'kg', qualifier: ABOUT },
+      mass: { value: 15, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors', payload: { value: 8, unit: 'kg', qualifier: ABOUT },
       notable: '0 to 3.5 m/s; 4G and voice',
       ...page('go2', 'go2'),
     },
     {
       id: 'go2-x', name: 'Go2 X', family: 'Go2', type: 'quadruped',
       priceUsd: 4_500, priceAbsent: null,
-      mass: { value: 15, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: { value: 8, unit: 'kg', qualifier: ABOUT },
+      mass: { value: 15, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors', payload: { value: 8, unit: 'kg', qualifier: ABOUT },
       notable: 'Up to about 5 m/s; works with a charging pile',
       ...page('go2', 'go2'),
     },
     {
       id: 'go2-edu', name: 'Go2 EDU', family: 'Go2', type: 'quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 15, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 15, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors', payload: { value: 8, unit: 'kg', qualifier: ABOUT },
       notable: 'Foot force sensors, depth camera, 2 to 4 h runtime',
       ...page('go2', 'go2'),
     },
@@ -786,7 +839,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'b2', name: 'B2', family: 'B2', type: 'quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 60, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: { value: 40, unit: 'kg', qualifier: 'over' },
+      mass: { value: 60, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed',
+      payload: { value: 40, unit: 'kg', qualifier: 'over' }, payloadBasis: WALKING,
       notable: 'IP67; over 6 m/s in a special configuration',
       ...page('b2', 'b2'),
       note: 'The prospectus rates it IP68.',
@@ -794,28 +848,31 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'b2-w', name: 'B2-W', family: 'B2-W', type: 'wheeled quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 85, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 85, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed',
+      payload: { value: 40, unit: 'kg', qualifier: 'over' }, payloadBasis: 'walking',
       notable: 'Up to 15 km/h in a special configuration; IP67',
       ...page('b2-w', 'b2-w'),
     },
     {
       id: 'b2-ex', name: 'B2-Ex chassis', family: 'B2-Ex', type: 'quadruped',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 130, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors', payload: 'not disclosed',
+      mass: { value: 130, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors',
+      payload: { value: 40, unit: 'kg' }, payloadBasis: 'continuous walking; 70 kg maximum',
       notable: 'Explosion protection Ex db mb IIB T4 Gb; IP66',
       ...page('B2-Ex', 'B2-Ex'),
     },
     {
       id: 'b2-ex-inspection', name: 'B2-Ex Inspection Solution', family: 'B2-Ex', type: 'quadruped',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 170, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 170, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors', payload: 'not disclosed',
       notable: 'Explosion protection Ex db eb ib mb IIB T4 Gb',
       ...page('B2-Ex', 'B2-Ex'),
     },
     {
       id: 'a2', name: 'A2', family: 'A2', type: 'quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 42, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors', payload: 'not disclosed',
+      mass: { value: 42, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors',
+      payload: { value: 25, unit: 'kg', qualifier: ABOUT }, payloadBasis: WALKING,
       notable: 'About 35 kg without battery; IP56',
       ...page('A2', 'A2'),
       note: 'The prospectus gives about 37 kg with battery and IP67.',
@@ -823,15 +880,17 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'a2-w', name: 'A2-W', family: 'A2-W', type: 'wheeled quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 52, unit: 'kg', qualifier: ABOUT }, dof: 16, dofBasis: 'joint motors', payload: 'not disclosed',
+      mass: { value: 52, unit: 'kg', qualifier: ABOUT }, dof: 16, dofBasis: 'joint motors',
+      payload: { value: 25, unit: 'kg', qualifier: ABOUT }, payloadBasis: WALKING,
       notable: 'About 45 kg without battery; IP56',
       ...page('A2-W', 'A2-W'),
     },
     {
       id: 'as2-air', name: 'As2 Air', family: 'As2', type: 'quadruped',
       priceUsd: 3_100, priceAbsent: null,
-      mass: { value: 20, unit: 'kg', qualifier: ABOUT }, dof: 12, payload: 'not disclosed',
-      notable: '0 to 3.0 m/s; IP54; no secondary development',
+      mass: { value: 20, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors',
+      payload: { value: 10, unit: 'kg', qualifier: ABOUT }, payloadBasis: WALKING,
+      notable: '0 to 3.0 m/s; no secondary development',
       ...SHOP,
       ...specFrom('As2', 'As2'),
       note: 'The product page says contact sales.',
@@ -839,8 +898,9 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'as2-pro', name: 'As2 Pro', family: 'As2', type: 'quadruped',
       priceUsd: 4_650, priceAbsent: null,
-      mass: { value: 20, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: 'not disclosed',
-      notable: '0 to 3.7 m/s',
+      mass: { value: 20, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors',
+      payload: { value: 13, unit: 'kg', qualifier: ABOUT }, payloadBasis: WALKING,
+      notable: '0 to 3.7 m/s; IP54',
       ...SHOP,
       ...specFrom('As2', 'As2'),
       note: 'The product page says contact sales.',
@@ -848,27 +908,31 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'as2-x', name: 'As2 X', family: 'As2', type: 'quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 20, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 20, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors',
+      payload: { value: 15, unit: 'kg', qualifier: ABOUT }, payloadBasis: WALKING,
       notable: 'Up to about 5 m/s; secondary development',
       ...page('As2', 'As2'),
     },
     {
       id: 'as2-edu', name: 'As2 EDU', family: 'As2', type: 'quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: 'not disclosed', dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 20, unit: 'kg', qualifier: ABOUT }, dof: 12, dofBasis: 'joint motors',
+      payload: { value: 15, unit: 'kg', qualifier: ABOUT }, payloadBasis: WALKING,
       ...page('As2', 'As2'),
     },
     {
       id: 'as2-w-x', name: 'As2-W X', family: 'As2-W', type: 'wheeled quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 25, unit: 'kg', qualifier: ABOUT }, dof: 16, payload: 'not disclosed',
+      mass: { value: 25, unit: 'kg', qualifier: ABOUT }, dof: 16, dofBasis: 'joint motors',
+      payload: { value: 16, unit: 'kg', qualifier: ABOUT }, payloadBasis: WALKING,
       notable: 'Up to about 6 m/s; IP54',
       ...page('As2-W', 'As2-W'),
     },
     {
       id: 'as2-w-edu', name: 'As2-W EDU', family: 'As2-W', type: 'wheeled quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 25, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 25, unit: 'kg', qualifier: ABOUT }, dof: 16, dofBasis: 'joint motors',
+      payload: { value: 16, unit: 'kg', qualifier: ABOUT }, payloadBasis: WALKING,
       ...page('As2-W', 'As2-W'),
     },
     {
@@ -888,7 +952,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'b1', name: 'B1', family: 'B1', type: 'quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 50, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: { value: 20, unit: 'kg', qualifier: 'over' },
+      mass: { value: 50, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed',
+      payload: { value: 20, unit: 'kg', qualifier: 'over' }, payloadBasis: WALKING,
       ...SHOP,
       specSourceUrl: PROSPECTUS.sourceUrl,
       specSourceTitle: PROSPECTUS.sourceTitle,
@@ -896,14 +961,13 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'aliengo', name: 'AlienGo', family: 'AlienGo', type: 'quadruped',
-      priceUsd: null, priceAbsent: 'not disclosed',
+      priceUsd: 50_000, priceAbsent: null,
       mass: { value: 21.5, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: 'not disclosed',
       notable: 'About 1.5 m/s',
       ...SHOP,
       specSourceUrl: PROSPECTUS.sourceUrl,
       specSourceTitle: PROSPECTUS.sourceTitle,
       specPageRef: '1-1-102',
-      note: 'The shop shows USD 50,000, which looks like a placeholder.',
     },
     {
       id: 'a1', name: 'A1', family: 'A1', type: 'quadruped',
@@ -949,7 +1013,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'dex1-1', name: 'Dex1-1', family: 'Dex1-1', type: 'gripper',
       priceUsd: 300, priceAbsent: null,
-      mass: { value: 550, unit: 'g' }, dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 550, unit: 'g' }, dof: 'not disclosed',
+      payload: { value: 5, unit: 'kg' }, payloadBasis: 'grasp load by friction; 20 kg form-fitting',
       notable: '5 to 120 N grip force; 90 mm stroke',
       ...SHOP,
       ...specFrom('Dex1-1', 'Dex1-1'),
@@ -970,7 +1035,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'dex5-1', name: 'Dex5-1', family: 'Dex5-1', type: 'hand',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 1_100, unit: 'g' }, dof: 20, dofBasis: '16 active', payload: 'not disclosed',
+      mass: { value: 1_100, unit: 'g' }, dof: 20, dofBasis: '16 active',
+      payload: { value: 3.5, unit: 'kg' }, payloadBasis: 'palm down, holding a 5 cm object',
       notable: '94 tactile sensors per hand',
       ...page('Dex5-1', 'Dex5-1'),
       note: 'The prospectus gives 1,000 g.',
@@ -1032,12 +1098,14 @@ export const UNITREE_PROFILE: CompanyProfile = {
       ...PROSPECTUS,
       pageRef: '1-1-282',
       companyReply: 'n/a',
+      note: 'The patent holder’s suit against the ruling was still pending when the prospectus was signed.',
     },
     {
       id: 'notice-2026-001',
       date: '2026-09-03',
       kind: 'corporate',
-      title: 'Registered capital rises to 40,446.4340 万元 and the company becomes a listed company',
+      title: 'Registered capital rises after the IPO and the company becomes a listed company',
+      amount: { amount: 40_446.434, unit: 'CNY10k' },
       sourceType: 'primary',
       sourceUrl:
         'https://www.unitree.com/disclosure/listedinfo/announcement/%E5%AE%87%E6%A0%91%E7%A7%91%E6%8A%80%20%E5%85%B3%E4%BA%8E%E5%8F%98%E6%9B%B4%E6%B3%A8%E5%86%8C%E8%B5%84%E6%9C%AC%E3%80%81%E5%85%AC%E5%8F%B8%E7%B1%BB%E5%9E%8B%E5%8F%8A%E4%BF%AE%E8%AE%A2%E3%80%8A%E5%85%AC%E5%8F%B8%E7%AB%A0%E7%A8%8B%E3%80%8B%E5%B9%B6%E5%8A%9E%E7%90%86%E5%B7%A5%E5%95%86%E5%8F%98%E6%9B%B4%E7%99%BB%E8%AE%B0%E7%9A%84%E5%85%AC%E5%91%8A.pdf',
@@ -1124,7 +1192,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       companyReply: 'n/a',
     },
     { id: 'ipo-committee', date: '2026-06-01', kind: 'listing', title: 'Exchange listing committee approves the IPO', ...ISSUE_RESULTS, companyReply: 'n/a' },
-    { id: 'ipo-registered', date: '2026-07-01', kind: 'listing', title: 'CSRC approves the IPO registration', ...LISTING, companyReply: 'n/a' },
+    { id: 'ipo-registered', date: '2026-07-01', kind: 'listing', title: 'CSRC approves the IPO registration', ...LISTING, pageRef: 'p. 11', companyReply: 'n/a' },
     {
       id: 'ipo-subscription',
       date: '2026-08-10',
@@ -1164,12 +1232,12 @@ export const UNITREE_PROFILE: CompanyProfile = {
       amount: { amount: 69_449.6968, unit: 'CNY10k' },
       postMoneyValuation: { amount: 127, unit: 'CNY100m' },
       ...PROSPECTUS,
-      pageRef: '1-1-58',
+      pageRef: '1-1-58, 1-1-59; valuation 1-1-39',
       companyReply: 'n/a',
     },
 
     // Products and models
-    { id: 'launch-laikago', date: '2017', kind: 'product', title: 'Laikago, the first commercial quadruped', launchOf: 'Laikago', ...PROSPECTUS, pageRef: '1-1-102', companyReply: 'n/a' },
+    { id: 'launch-laikago', date: '2017', kind: 'product', title: 'Laikago, its first motor-driven quadruped', launchOf: 'Laikago', ...PROSPECTUS, pageRef: '1-1-102', companyReply: 'n/a' },
     { id: 'launch-aliengo', date: '2019', kind: 'product', title: 'AlienGo quadruped', launchOf: 'AlienGo', ...PROSPECTUS, pageRef: '1-1-102', companyReply: 'n/a' },
     { id: 'launch-a1', date: '2020', kind: 'product', title: 'A1 quadruped', launchOf: 'A1', ...PROSPECTUS, pageRef: '1-1-102', companyReply: 'n/a' },
     { id: 'launch-go1', date: '2021', kind: 'product', title: 'Go1 consumer quadruped', launchOf: 'Go1', ...PROSPECTUS, pageRef: '1-1-102', companyReply: 'n/a' },
@@ -1179,7 +1247,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     { id: 'launch-b2', date: '2023', kind: 'product', title: 'B2 industrial quadruped', launchOf: 'B2', ...PROSPECTUS, pageRef: '1-1-102', companyReply: 'n/a' },
     { id: 'launch-l1', date: '2023', kind: 'product', title: 'L1 lidar', launchOf: 'L1', ...PROSPECTUS, pageRef: '1-1-104', companyReply: 'n/a' },
     { id: 'launch-l2', date: '2023', kind: 'product', title: 'L2 lidar', launchOf: 'L2', ...PROSPECTUS, pageRef: '1-1-104', companyReply: 'n/a' },
-    { id: 'launch-h1', date: '2023-08', kind: 'product', title: 'H1, the first full-size humanoid, goes on sale', launchOf: 'H1', ...PROSPECTUS, pageRef: '1-1-100', companyReply: 'n/a' },
+    { id: 'launch-h1', date: '2023-08', kind: 'product', title: 'H1, its first full-size humanoid, goes on sale', launchOf: 'H1', ...PROSPECTUS, pageRef: '1-1-100', companyReply: 'n/a' },
     { id: 'launch-b2-w', date: '2024', kind: 'product', title: 'B2-W wheeled quadruped', launchOf: 'B2-W', ...PROSPECTUS, pageRef: '1-1-102', companyReply: 'n/a' },
     { id: 'launch-g1', date: '2024-05', kind: 'product', title: 'G1 mid-size humanoid', launchOf: 'G1', ...PROSPECTUS, pageRef: '1-1-100', companyReply: 'n/a' },
     { id: 'launch-a2', date: '2025', kind: 'product', title: 'A2 mid-size industrial quadruped', launchOf: 'A2', ...PROSPECTUS, pageRef: '1-1-102', companyReply: 'n/a' },
@@ -1202,17 +1270,16 @@ export const UNITREE_PROFILE: CompanyProfile = {
     // United States restrictions
     {
       id: 'us-dod-1260h',
-      date: '2026-06-08',
+      date: '2026-06-10',
       kind: 'us-restriction',
       title: 'Pentagon adds Unitree to its Section 1260H list of Chinese military companies',
       sourceType: 'primary',
       sourceUrl:
-        'https://media.defense.gov/2026/Jun/08/2003945537/-1/-1/1/ENTITIES-IDENTIFIED-AS-CHINESE-MILITARY-COMPANIES-OPERATING-IN-THE-UNITED-STATES-IN-ACCORDANCE-WITH-SECTION-1260H.PDF',
+        'https://www.federalregister.gov/documents/2026/06/10/2026-11571/notice-of-availability-of-designation-of-chinese-military-companies',
       sourceTitle:
-        'Entities Identified as Chinese Military Companies Operating in the United States in Accordance with Section 1260H (US Department of Defense, 8 Jun 2026)',
-      flag: 'source-unreachable',
+        'Notice of Availability of Designation of Chinese Military Companies (Department of Defense, 91 FR 35189, Federal Register, 10 Jun 2026)',
       companyReply: 'no statement',
-      note: 'Grounds given: indirect SASAC ownership and its Little Giant designation.',
+      note: 'Signed 5 Jun 2026; grounds given are indirect SASAC ownership and its Little Giant designation.',
     },
     {
       id: 'us-fcc-covered-list',
@@ -1297,9 +1364,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       kind: 'security',
       title: 'Unitree opens its Security Response Center for vulnerability reports',
       credits: 'n/a',
-      sourceType: 'primary',
-      sourceUrl: 'https://boschko.ca/unitree-go2-rce/',
-      sourceTitle: 'From DDS Packets to Robot Shells (Boschko Security Blog, 26 Feb 2026)',
+      ...BOSCHKO_GO2,
       companyReply: 'n/a',
     },
     {
@@ -1309,16 +1374,11 @@ export const UNITREE_PROFILE: CompanyProfile = {
       title: 'Two Go2 root code execution flaws, through DDS and tampered app programs',
       cves: ['CVE-2026-27509', 'CVE-2026-27510'],
       credits: ['Olivier Laflamme', 'Ruikai'],
-      sourceType: 'primary',
-      sourceUrl: 'https://boschko.ca/unitree-go2-rce/',
-      sourceTitle:
-        'From DDS Packets to Robot Shells: Two RCEs in Unitree Robots (CVE-2026-27509 & CVE-2026-27510), Boschko Security Blog, 26 Feb 2026',
+      ...BOSCHKO_GO2,
       companyReply: {
-        text: 'Validated both and pushed fixes in V1.1.13 on 24 Feb 2026, per the researchers.',
-        sourceType: 'primary',
-        sourceUrl: 'https://boschko.ca/unitree-go2-rce/',
-        sourceTitle:
-          'From DDS Packets to Robot Shells: Two RCEs in Unitree Robots (CVE-2026-27509 & CVE-2026-27510), Boschko Security Blog, 26 Feb 2026',
+        text: 'Validated both; V1.1.13 addresses CVE-2026-27510, and CVE-2026-27509 will likely not be addressed in EDU versions, per the researchers.',
+        date: '2026-02-24',
+        ...BOSCHKO_GO2,
       },
     },
     {
@@ -1327,7 +1387,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       kind: 'security',
       title: 'Firmware updates can be altered and still trusted, on all current products',
       cves: ['CVE-2026-1442'],
-      credits: 'not disclosed',
+      credits: ['Andreas Makris'],
       ...cveRecord('CVE-2026-1442'),
       companyReply: 'no statement',
     },
@@ -1357,7 +1417,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       kind: 'security',
       title: 'Critical command injection in the Go2 chat_go volume control, fixed in 1.1.11.5',
       cves: ['CVE-2026-115995'],
-      credits: 'not disclosed',
+      credits: ['JasperXJY'],
       ...cveRecord('CVE-2026-115995'),
       companyReply: {
         text: 'Confirmed the flaw as its internal ticket #474, per the CVE record.',
@@ -1370,7 +1430,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       kind: 'security',
       title: 'Go2 chat_go client skips certificate validation',
       cves: ['CVE-2026-115996'],
-      credits: 'not disclosed',
+      credits: ['JasperXJY'],
       ...cveRecord('CVE-2026-115996'),
       companyReply: {
         text: 'Confirmed the flaw, per the CVE record.',
@@ -1436,14 +1496,14 @@ export const UNITREE_PROFILE: CompanyProfile = {
       name: 'Hugging Face datasets',
       kind: 'collection',
       url: 'https://huggingface.co/unitreerobotics',
-      description: 'Teleoperation datasets, among them G1 sets with the Dex1 and Dex3 hands',
+      description: 'Robot task datasets, mostly G1 sets, among them sets with the Dex1 and Dex3 hands',
       license: 'mixed',
-      count: 63,
-      countIsFloor: true,
+      count: 246,
+      countIsFloor: false,
       sourceType: 'primary',
       sourceUrl: 'https://huggingface.co/api/datasets?author=unitreerobotics',
       sourceTitle: 'Hugging Face API: datasets by unitreerobotics',
-      note: '61 of the 63 listed carry an Apache-2.0 tag.',
+      note: '245 of the 246 carry an Apache-2.0 tag; unitree_model carries none.',
     },
     {
       id: 'unibot-v1',
@@ -1462,7 +1522,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       name: 'MuJoCo Menagerie G1 model',
       kind: 'model',
       url: 'https://github.com/google-deepmind/mujoco_menagerie/tree/main/unitree_g1',
-      description: 'Simulation model of the G1 derived from Unitree’s public URDF',
+      description: 'Simulation model of the G1 derived from Unitree’s public MJCF description',
       license: 'BSD-3-Clause',
       publisher: 'Google DeepMind',
       sourceType: 'primary',

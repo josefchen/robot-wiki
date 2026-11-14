@@ -328,9 +328,17 @@ export function groupStakes(holders: readonly Holder[]): GroupStake[] {
   return [...groups.values()].sort((a, b) => b.stakeAfterPct - a.stakeAfterPct);
 }
 
-/** Holders by stake after the listing, largest first. */
-export function holdersByStake(holders: readonly Holder[]): Holder[] {
-  return [...holders].sort((a, b) => b.stakeAfterPct - a.stakeAfterPct);
+/**
+ * Holders in the filing's own row order. The profile keeps only some rows,
+ * so a holder's rank is its filing row, never its index here.
+ */
+export function holdersInFilingOrder(holders: readonly Holder[]): Holder[] {
+  return [...holders].sort((a, b) => a.filingRow - b.filingRow);
+}
+
+/** The holders the filing ranks in its top ten rows. */
+export function topTenHolders(holders: readonly Holder[]): Holder[] {
+  return holdersInFilingOrder(holders).filter((holder) => holder.filingRow <= 10);
 }
 
 // ── Dates and the timeline ────────────────────────────────────────────────

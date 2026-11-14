@@ -117,6 +117,8 @@ export const listingSchema = z.object({
   /** Market value at the offer price as the filing states it. */
   statedMarketValueAtOffer: fact(moneySchema),
   onlineSubscriptionMultiple: fact(z.number().positive()),
+  /** Rows in the filing's shareholder table after the listing; the profile keeps only some. */
+  holderTableRows: fact(z.number().int().positive()),
   firstDay: fact(
     z.object({
       date: isoDateSchema,
@@ -153,6 +155,8 @@ export const controlSchema = z.object({
 export const holderSchema = profileSourceSchema
   .extend({
     id: slugSchema,
+    /** The holder's row number in the filing's shareholder table. */
+    filingRow: z.number().int().positive(),
     /** The name as the filing gives it. */
     name: z.string().min(1),
     nameEn: z.string().min(1),
@@ -310,6 +314,8 @@ export const productSchema = profileSourceSchema
     dof: z.union([dofSchema, notDisclosedSchema, notApplicableSchema]),
     dofBasis: z.string().min(1).optional(),
     payload: z.union([quantitySchema, notDisclosedSchema, notApplicableSchema]),
+    /** What the payload measures, as the source labels it: walking load, per arm, grasp. */
+    payloadBasis: z.string().min(1).optional(),
     notable: z.string().min(1).optional(),
     /** Where the specification comes from when it is not the price source. */
     specSourceUrl: httpsUrlSchema.optional(),
@@ -442,6 +448,17 @@ export const companyProfileSchema = z
     software: z.array(softwareRowSchema),
   })
   .superRefine((profile, ctx) => {
+    const rows = new Set<number>();
+    for (const holder of profile.holders) {
+      if (holder.filingRow > profile.listing.holderTableRows.value || rows.has(holder.filingRow)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['holders'],
+          message: `${holder.id}: filing row ${holder.filingRow} is repeated or outside the table`,
+        });
+      }
+      rows.add(holder.filingRow);
+    }
     const holderIds = new Set(profile.holders.map((holder) => holder.id));
     for (const id of [profile.control.holderId, ...profile.control.platformHolderIds]) {
       if (!holderIds.has(id)) {
