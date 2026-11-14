@@ -237,6 +237,29 @@ export const ADDITIONS: Citation[] = [
     url: 'https://www.nature.com/articles/s41597-025-06526-z',
     type: 'paper',
   },
+  {
+    // Abstract page and HTML (v2, 30 Oct 2026) read 2026-11-14. Section 4.3: a draped
+    // abdominal phantom, 50 surgeon-defined presentations; Section 5.1: "grasps the retractor in
+    // 90 % of 50 surgeon-defined real presentations and preserves retraction at handoff in 78 %".
+    id: 'simretract-2026',
+    title: 'SimRetract: Zero-Shot Sim-to-Real Robotic Assistance for Retractor Take-Over in Open Surgery',
+    authors: [
+      'Xucheng Wang',
+      'Zhizhou Yang',
+      'Sung Eun Kim',
+      'Romain Hardy',
+      'Michael P. Sampson',
+      'Aakash Reddy',
+      'Ankit Pal',
+      'Xiaoman Zhang',
+      'Luyang Luo',
+      'Pranav Rajpurkar',
+    ],
+    year: 2026,
+    arxiv: '2610.38234',
+    url: 'https://arxiv.org/abs/2610.38234',
+    type: 'paper',
+  },
   // space
   {
     id: 'jaxa-mmx-launch-2026',
