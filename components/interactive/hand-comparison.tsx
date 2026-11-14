@@ -29,7 +29,8 @@ import { cx } from '@/lib/utils';
  * (degrees of freedom), the lightest touch it can feel (tactile
  * threshold) and its price. A spec the maker has not published shows as a
  * grey "not disclosed" stamp, so the pattern the module argues from is
- * visible at a glance: no hand publishes both touch and price.
+ * visible at a glance: only Shadow, a €110,000 research hand, publishes
+ * both touch and price.
  *
  * Unitree's $29,900 is the price of the whole H2 robot, not of a hand. Its
  * card shows the hand price as not disclosed with the whole-robot figure
@@ -43,11 +44,13 @@ const isWholeRobotPrice = (hand: DexterousHand) => hand.costNote === 'whole robo
 
 /**
  * Glosses for the touch thresholds, derived from the displayed figures:
- * 5 mN is about 0.5 gram-force; 3 g is the maker's own unit.
+ * 5 mN is about 0.5 gram-force; 3 g is the maker's own unit; 0.2 N is
+ * about 20 gram-force.
  */
 const TOUCH_GLOSS: Record<string, string> = {
   'sanctuary-phoenix': 'about half a gram',
   'figure-02-03': '3 grams',
+  'shadow-dexterous': 'about 20 grams',
 };
 
 const SORT_PRESETS: ReadonlyArray<{ id: HandSortKey; label: string }> = [
@@ -203,7 +206,7 @@ export function HandComparison({ className }: { className?: string }) {
       data-testid="hand-comparison"
       className={className}
       kicker="Dexterous hands"
-      heading="No hand here publishes both touch sensitivity and price"
+      heading="Only Shadow publishes both touch sensitivity and price"
       controls={
         <PresetGroup<HandSortKey>
           label="Sort by"
@@ -270,7 +273,7 @@ export function HandComparison({ className }: { className?: string }) {
         >
           <div className="px-3 pt-3 pb-2 font-sans text-sm leading-snug">
             <StageCallout data-testid="hand-gap-note">
-              Gray means the maker hasn&apos;t published it. No hand shows both.
+              Gray means the maker hasn&apos;t published it. Only Shadow shows both.
             </StageCallout>
             <ul
               data-testid="hand-cards"
@@ -288,7 +291,9 @@ export function HandComparison({ className }: { className?: string }) {
         <>
           <p>
             Joint motions are degrees of freedom, passive ones included; lightest touch is the
-            smallest force a fingertip sensor registers. Gray values are unpublished, and
+            smallest force a fingertip sensor registers. Shadow&apos;s value is the low end of
+            the roughly 0.2 to 20 N range of its tactile fingertips, two of which come fitted
+            as standard. Gray values are unpublished, and
             Unitree&apos;s $29,900 is the whole H2 robot.
           </p>
           <TableScroll labelledBy={captionId} className="pt-1">
@@ -372,6 +377,11 @@ export function HandComparison({ className }: { className?: string }) {
                       {hand.secondarySourceId && hand.secondarySourceLabel ? (
                         <span className="block">
                           <SourceLink id={hand.secondarySourceId} label={hand.secondarySourceLabel} />
+                        </span>
+                      ) : null}
+                      {hand.tactileSourceId && hand.tactileSourceLabel ? (
+                        <span className="block">
+                          <SourceLink id={hand.tactileSourceId} label={hand.tactileSourceLabel} />
                         </span>
                       ) : null}
                       <span className="block whitespace-nowrap text-text-dim">{hand.asOf}</span>

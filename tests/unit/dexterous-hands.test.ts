@@ -43,11 +43,15 @@ describe('dexterous-hands data', () => {
     expect(sanctuary?.actuation.toLowerCase()).toContain('hydraulic');
     expect(sanctuary?.tactileSort).toBe(5);
 
-    // Shadow Dexterous Hand: 20 actuated DoF, EUR 110,000 in 2022.
+    // Shadow Dexterous Hand: 20 actuated DoF, EUR 110,000 in 2022, and
+    // tactile fingertips sensitive from about 0.2 N (200 mN).
     const shadow = byId.get('shadow-dexterous');
     expect(shadow?.dofSort).toBe(20);
     expect(shadow?.costSort).toBe(110000);
     expect(shadow?.costDisplay).toContain('110,000');
+    expect(shadow?.tactileSort).toBe(200);
+    expect(shadow?.tactileDisplay).toContain('0.2 N');
+    expect(shadow?.tactileSourceId).toBe('shadow-sensors-2026');
 
     // Unitree H2: the whole robot lists at $29,900.
     const unitree = byId.get('unitree-h2');
@@ -60,8 +64,6 @@ describe('dexterous-hands data', () => {
     expect(byId.get('tesla-optimus-gen3')?.tactileSort).toBeNull();
     expect(byId.get('tesla-optimus-gen3')?.tactileDisplay).toBeNull();
     expect(byId.get('tesla-optimus-gen3')?.costSort).toBeNull();
-    // Shadow fits tactile fingertips but publishes no force threshold.
-    expect(byId.get('shadow-dexterous')?.tactileSort).toBeNull();
     // Neither Sanctuary nor Unitree publishes a hand price.
     expect(byId.get('sanctuary-phoenix')?.costSort).toBeNull();
     expect(byId.get('unitree-h2')?.tactileSort).toBeNull();
@@ -69,7 +71,7 @@ describe('dexterous-hands data', () => {
 
   it('gives every row sources that resolve in the citation registry', () => {
     for (const hand of DEXTEROUS_HANDS) {
-      const ids = [hand.sourceId, hand.secondarySourceId].filter(
+      const ids = [hand.sourceId, hand.secondarySourceId, hand.tactileSourceId].filter(
         (id): id is string => Boolean(id),
       );
       expect(ids.length).toBeGreaterThan(0);
@@ -109,14 +111,16 @@ describe('sortHands', () => {
     const rows = sortHands(DEXTEROUS_HANDS, 'tactile', 'asc');
     expect(rows[0]?.id).toBe('sanctuary-phoenix');
     expect(rows[1]?.id).toBe('figure-02-03');
-    expect(rows.slice(2).every((h) => h.tactileSort === null)).toBe(true);
+    expect(rows[2]?.id).toBe('shadow-dexterous');
+    expect(rows.slice(3).every((h) => h.tactileSort === null)).toBe(true);
   });
 
   it('keeps unknowns last in the descending direction too', () => {
     const rows = sortHands(DEXTEROUS_HANDS, 'tactile', 'desc');
-    expect(rows[0]?.id).toBe('figure-02-03');
-    expect(rows[1]?.id).toBe('sanctuary-phoenix');
-    expect(rows.slice(2).every((h) => h.tactileSort === null)).toBe(true);
+    expect(rows[0]?.id).toBe('shadow-dexterous');
+    expect(rows[1]?.id).toBe('figure-02-03');
+    expect(rows[2]?.id).toBe('sanctuary-phoenix');
+    expect(rows.slice(3).every((h) => h.tactileSort === null)).toBe(true);
   });
 
   it('sorts by cost, cheapest first, unknowns last', () => {

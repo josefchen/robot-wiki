@@ -21,20 +21,20 @@ function rowOrder(): string[] {
     .map((el) => (el.getAttribute('data-testid') ?? '').replace('hand-row-', ''));
 }
 
-const DEFAULT_ORDER = ['sanctuary-phoenix', 'figure-02-03'];
+const DEFAULT_ORDER = ['sanctuary-phoenix', 'figure-02-03', 'shadow-dexterous'];
 
 describe('HandComparison', () => {
   it('leads with a plain-words claim and keeps the sort presets visible', () => {
     render(<HandComparison />);
     expect(
-      screen.getByText('No hand here publishes both touch sensitivity and price'),
+      screen.getByText('Only Shadow publishes both touch sensitivity and price'),
     ).toBeInTheDocument();
     const sort = screen.getByRole('group', { name: 'Sort by' });
     for (const label of ['Most joints', 'Lightest touch felt', 'Lowest price']) {
       expect(within(sort).getByRole('button', { name: label })).toBeInTheDocument();
     }
     expect(screen.getByTestId('hand-gap-note')).toHaveTextContent(
-      "Gray means the maker hasn't published it. No hand shows both.",
+      "Gray means the maker hasn't published it. Only Shadow shows both.",
     );
   });
 
@@ -58,21 +58,32 @@ describe('HandComparison', () => {
       const source = scope.getByRole('link', { name: hand.sourceLabel, hidden: true });
       expect(source).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
       expect(source).toHaveAttribute('target', '_blank');
+      if (hand.tactileSourceLabel) {
+        const tactileSource = scope.getByRole('link', {
+          name: hand.tactileSourceLabel,
+          hidden: true,
+        });
+        expect(tactileSource).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
+      }
     }
     expect(screen.getByTestId('hand-row-unitree-h2').closest('details')).not.toBeNull();
   });
 
   it('renders undisclosed specs as "not disclosed", never a guessed value', () => {
     render(<HandComparison />);
-    // Cards: Sanctuary price, Figure price, Tesla touch + price, Shadow
-    // touch, Unitree touch + hand price (its listed price is the whole robot).
-    expect(document.querySelectorAll('[data-hand-gap]')).toHaveLength(7);
-    // Table: Tesla tactile + cost, Figure cost, Shadow tactile, Sanctuary
-    // cost, Unitree tactile.
+    // Cards: Sanctuary price, Figure price, Tesla touch + price, Unitree
+    // touch + hand price (its listed price is the whole robot).
+    expect(document.querySelectorAll('[data-hand-gap]')).toHaveLength(6);
+    // Table: Tesla tactile + cost, Figure cost, Sanctuary cost, Unitree
+    // tactile.
     const tableGaps = screen
       .getAllByTestId(/^hand-row-/)
       .flatMap((row) => within(row).queryAllByText('not disclosed', { exact: true }));
-    expect(tableGaps).toHaveLength(6);
+    expect(tableGaps).toHaveLength(5);
+    // Shadow's card shows both a touch value and a hand price.
+    const shadowCard = within(screen.getByTestId('hand-card-shadow-dexterous'));
+    expect(shadowCard.getByText('about 20 grams')).toBeInTheDocument();
+    expect(shadowCard.getByText('€110,000')).toBeInTheDocument();
     expect(screen.queryByText('n/a', { exact: true })).not.toBeInTheDocument();
   });
 
@@ -89,10 +100,11 @@ describe('HandComparison', () => {
     render(<HandComparison />);
     const tactile = DEXTEROUS_HANDS.filter((hand) => hand.tactileDisplay).length;
     const cost = DEXTEROUS_HANDS.filter((hand) => hand.costDisplay).length;
-    const both = DEXTEROUS_HANDS.filter((hand) => hand.tactileDisplay && hand.costDisplay).length;
-    // The headline and caption claim no hand publishes both; a data change
-    // that breaks this must rewrite them.
-    expect([tactile, cost, both]).toEqual([2, 2, 0]);
+    const both = DEXTEROUS_HANDS.filter((hand) => hand.tactileDisplay && hand.costDisplay);
+    // The headline and callout claim only Shadow publishes both; a data
+    // change that breaks this must rewrite them.
+    expect([tactile, cost, both.length]).toEqual([3, 2, 1]);
+    expect(both[0]?.id).toBe('shadow-dexterous');
     expect(
       screen.getByText(
         'Counts are independent joint motions, passive ones included; active means motor-driven.',
@@ -102,13 +114,9 @@ describe('HandComparison', () => {
 
   it('opens sorted by lightest touch felt', () => {
     render(<HandComparison />);
-    expect(cardOrder().slice(0, 2)).toEqual(DEFAULT_ORDER);
+    expect(cardOrder().slice(0, 3)).toEqual(DEFAULT_ORDER);
     // Hands without a disclosed threshold fill the end.
-    expect(cardOrder().slice(2)).toEqual([
-      'tesla-optimus-gen3',
-      'shadow-dexterous',
-      'unitree-h2',
-    ]);
+    expect(cardOrder().slice(3)).toEqual(['tesla-optimus-gen3', 'unitree-h2']);
     expect(rowOrder()).toEqual(cardOrder());
     expect(screen.getByRole('button', { name: 'Lightest touch felt' })).toHaveAttribute(
       'aria-pressed',
@@ -219,7 +227,7 @@ describe('HandComparison', () => {
     expect(cardOrder()[0]).toBe('shadow-dexterous');
 
     await user.click(screen.getByRole('button', { name: /reset/i, hidden: true }));
-    expect(cardOrder().slice(0, 2)).toEqual(DEFAULT_ORDER);
+    expect(cardOrder().slice(0, 3)).toEqual(DEFAULT_ORDER);
     expect(toggle).toHaveAttribute('aria-pressed', 'false');
     expect(screen.getByTestId('hand-comparison-selection')).toHaveTextContent(
       /select hands to compare/i,
