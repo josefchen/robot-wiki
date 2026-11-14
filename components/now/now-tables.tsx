@@ -312,55 +312,46 @@ export function ArgumentsTable({ rows, labelledBy }: { rows: readonly NowArgumen
 
 /**
  * A gap figure and what it counts, the kind in grey from the data: "1,079
- * sold". A side with no figure gives its kind first, "in service: not
- * disclosed"; a milestone has no figure, only its kind.
+ * sold". A milestone headline has no figure, only its kind. A side with no
+ * figure otherwise prints nothing here: its stored `what` says why.
  */
 function GapValue({ gap, side }: { gap: DeliveryGap; side: 'promised' | 'delivered' }) {
   const { value, countKind } = gap[side];
+  if (value === null) {
+    return side === 'promised' && countKind === 'milestone' ? (
+      <span data-gap-value={side} className="block text-text-dim">
+        {countKind}
+      </span>
+    ) : null;
+  }
   return (
     <span data-gap-value={side} className="block">
-      {value === null ? (
-        <span className="text-text-dim">
-          {countKind}
-          {countKind === 'milestone' ? null : (
-            <>
-              : <span className="font-mono tabular-nums">{formatGapValue(gap, side)}</span>
-            </>
-          )}
-        </span>
-      ) : (
-        <>
-          <span className="font-mono tabular-nums text-text">{formatGapValue(gap, side)}</span>{' '}
-          <span className="text-text-dim">{countKind}</span>
-        </>
-      )}
+      <span className="font-mono tabular-nums text-text">{formatGapValue(gap, side)}</span>{' '}
+      <span className="text-text-dim">{countKind}</span>
     </span>
   );
 }
 
-/** The gap's pages; with two, each carries the date of the side it backs, so two pages on one host read apart. */
+/** The gap's pages; with two, each carries the date of the side it backs on the line below, so two pages on one host read apart. */
 function GapSources({ gap }: { gap: DeliveryGap }) {
   const sources = gapSources(gap);
   const dates = [gap.promised.said, gap.delivered.asOf];
   return sources.map((source, index) => (
-    <span key={source.sourceUrl} className="block">
+    <span key={source.sourceUrl} className={cx('block', index > 0 && 'mt-1')}>
       {index > 0 ? <span className="sr-only">, </span> : null}
       <SourceLink url={source.sourceUrl} title={source.sourceTitle} />
-      {sources.length > 1 ? (
-        <>
-          {' '}
-          <DateText iso={dates[index]} className="text-[12px] text-text-dim" />
-        </>
-      ) : null}
       <Reported when={source.sourceType === 'reported'} />
+      {sources.length > 1 ? (
+        <DateText iso={dates[index]} className="block text-[12px] text-text-dim" />
+      ) : null}
     </span>
   ));
 }
 
 /**
- * "Announced against delivered": who, the headline number with the date it
- * was given, what the newest source counts, as of when, and the sources. On
- * a phone the date and sources sit in the delivered cell.
+ * "Announced against delivered": who, the headline with the date it was
+ * given, what the cited page counts as delivered, as of when, and the
+ * sources. On a phone the date and sources sit in the delivered cell.
  */
 export function GapsTable({ rows, labelledBy }: { rows: readonly DeliveryGap[]; labelledBy: string }) {
   return (
@@ -389,7 +380,7 @@ export function GapsTable({ rows, labelledBy }: { rows: readonly DeliveryGap[]; 
             <td>
               <DateText iso={gap.delivered.asOf} className="mb-1 block sm:hidden" />
               <GapValue gap={gap} side="delivered" />
-              <span className="mt-1 block">{gap.delivered.what}</span>
+              <span className={cx('block', gap.delivered.value !== null && 'mt-1')}>{gap.delivered.what}</span>
               <span className={cx(DIM, 'mt-1 block sm:hidden')}>
                 <GapSources gap={gap} />
               </span>

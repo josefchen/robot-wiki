@@ -114,12 +114,15 @@ describe('/now/', () => {
     for (const gap of DELIVERY_GAPS) {
       const row = container.querySelector(`[data-now-row="${gap.id}"]`)!;
       for (const side of ['promised', 'delivered'] as const) {
-        const cell = row.querySelector(`[data-gap-value="${side}"]`)?.textContent ?? '';
-        const value = formatGapValue(gap, side);
-        const { countKind } = gap[side];
-        const expected =
-          gap[side].value === null ? (countKind === 'milestone' ? countKind : `${countKind}: ${value}`) : `${value} ${countKind}`;
-        expect(cell, `${gap.id} ${side}`).toBe(expected);
+        const cell = row.querySelector(`[data-gap-value="${side}"]`);
+        const { value, countKind } = gap[side];
+        if (value !== null) {
+          expect(cell?.textContent, `${gap.id} ${side}`).toBe(`${formatGapValue(gap, side)} ${countKind}`);
+        } else if (side === 'promised' && countKind === 'milestone') {
+          expect(cell?.textContent, `${gap.id} ${side}`).toBe(countKind);
+        } else {
+          expect(cell, `${gap.id} ${side}`).toBeNull();
+        }
       }
       expect(row.textContent, gap.id).toContain(gap.unit);
       expect(row.textContent, gap.id).toContain(gap.promised.what);
@@ -127,6 +130,22 @@ describe('/now/', () => {
       const links = [...row.querySelectorAll<HTMLAnchorElement>('td.hidden a[data-source-link]')].map((a) => a.getAttribute('href'));
       expect(links, gap.id).toEqual(gapSources(gap).map((source) => source.sourceUrl));
     }
+  });
+
+  it('prints a delivered side with no figure as its stored sentence alone, and "not disclosed" only where the data says it', () => {
+    const container = renderPage();
+    const pending = DELIVERY_GAPS.filter((gap) => gap.delivered.value === null);
+    expect(pending.length).toBeGreaterThan(0);
+    for (const gap of pending) {
+      const cell = container.querySelectorAll(`[data-now-row="${gap.id}"] td`)[1] as HTMLElement;
+      expect(cell.querySelector('[data-gap-value]'), gap.id).toBeNull();
+      const sentence = [...cell.querySelectorAll(':scope > span')].find((span) => span.textContent === gap.delivered.what);
+      expect(sentence, gap.id).toBeDefined();
+    }
+    const occurrences = (text: string) => text.split('not disclosed').length - 1;
+    const stored = DELIVERY_GAPS.flatMap((gap) => [gap.who, gap.unit, gap.promised.what, gap.delivered.what]).join(' ');
+    const table = container.querySelector('#announced-against-delivered table')?.textContent ?? '';
+    expect(occurrences(table)).toBe(occurrences(stored));
   });
 
   it('shows a stated end’s note beside that end under How this was made', () => {
