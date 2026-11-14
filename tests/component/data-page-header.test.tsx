@@ -281,7 +281,7 @@ describe('the market map page header', () => {
       expect(title.textContent).toBe('Market Map');
       expect(header.firstElementChild).toBe(title);
       expect(lead(container).textContent).toBe(
-        `${COMPANIES.length} companies in six segments, each with its latest disclosed round or its status, and the sources behind its figures, as of ${formatLongDate(MARKET_MAP_AS_OF)}.`,
+        `${COMPANIES.length} companies in six segments, each with its latest disclosed round or status and the sources behind it, as of ${formatLongDate(MARKET_MAP_AS_OF)}.`,
       );
       // The header sits in the page's one searchable, material-declaring block.
       const body = header.parentElement!;

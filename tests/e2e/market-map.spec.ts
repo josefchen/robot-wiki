@@ -117,7 +117,7 @@ test.describe('market map visualization', () => {
     const lead = page.locator('header[data-page-header] [data-page-lead]');
     await expect(lead).toBeVisible();
     await expect(lead).toHaveText(
-      `${COMPANY_COUNT} companies in six segments, each with its latest disclosed round or its status, and the sources behind its figures, ${asOf}.`,
+      `${COMPANY_COUNT} companies in six segments, each with its latest disclosed round or status and the sources behind it, ${asOf}.`,
     );
     // One page in the Market section today, so the header links nowhere.
     await expect(page.locator('header[data-page-header] a')).toHaveCount(0);

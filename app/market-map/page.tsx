@@ -46,7 +46,7 @@ export default function MarketMapPage() {
       <div data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <PageHeader
           title={title}
-          lead={`${COMPANIES.length} companies in six segments, each with its latest disclosed round or its status, and the sources behind its figures`}
+          lead={`${COMPANIES.length} companies in six segments, each with its latest disclosed round or status and the sources behind it`}
           asOf={MARKET_MAP_AS_OF}
           section={{ ...MARKET_SECTION, current: '/market-map/' }}
         />
