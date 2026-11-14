@@ -54,15 +54,15 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-09T21:01:27+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T15:18:51Z"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T21:01:27+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T15:18:52Z"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T21:01:27+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-14T15:18:52Z"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T21:01:27+02:00",
@@ -218,7 +218,7 @@
     },
     "world-models/model-based-robot-learning": {
       "published": "2026-09-24T21:27:51+02:00",
-      "modified": "2026-11-14T14:32:49Z"
+      "modified": "2026-11-14T23:18:44+08:00"
     },
     "world-models/taxonomy": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-14T14:32:50Z"
+      "modified": "2026-11-14T15:18:52Z"
     },
     "/manipulation/": {
       "modified": "2026-11-13T15:15:57+08:00"
@@ -264,7 +264,7 @@
       "modified": "2026-11-13T13:50:10+08:00"
     },
     "/glossary/": {
-      "modified": "2026-11-14T14:32:50Z"
+      "modified": "2026-11-14T23:18:44+08:00"
     },
     "/credits/": {
       "modified": "2026-11-13T15:15:57+08:00"
@@ -276,7 +276,7 @@
       "modified": "2026-11-13T13:50:10+08:00"
     },
     "/a-z/": {
-      "modified": "2026-11-14T14:32:50Z"
+      "modified": "2026-11-14T23:18:44+08:00"
     }
   }
 }
