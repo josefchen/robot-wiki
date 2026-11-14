@@ -2,9 +2,17 @@ import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import NowPage from '@/app/now/page';
 import { DELIVERY_GAPS, TRAJECTORIES } from '@/data/now';
-import { NOW_ARGUMENTS } from '@/data/now-debates';
-import { developmentsNewestFirst, formatGapValue } from '@/lib/now';
-import { NOW_SECTIONS, endNote, gapSources, questionsWithArguments, standaloneArguments } from '@/lib/now-page';
+import { NOW_ARGUMENTS, OPEN_QUESTIONS } from '@/data/now-debates';
+import { developmentsNewestFirst, formatGapValue, resolvedTrajectories } from '@/lib/now';
+import { isSourced } from '@/lib/now-debates';
+import {
+  NOW_SECTIONS,
+  endNote,
+  gapSources,
+  questionsWithArguments,
+  standaloneArguments,
+  stated,
+} from '@/lib/now-page';
 
 function renderPage() {
   const { container } = render(<NowPage />);
@@ -148,7 +156,7 @@ describe('/now/', () => {
     expect(occurrences(table)).toBe(occurrences(stored));
   });
 
-  it('shows a stated end’s note beside that end under How this was made', () => {
+  it('shows a stated end’s note beside that end under How this was made, its page linked once in that end', () => {
     const container = renderPage();
     for (const trajectory of TRAJECTORIES) {
       const method = container.querySelector(`[data-method-row="${trajectory.id}"]`)!;
@@ -157,12 +165,80 @@ describe('/now/', () => {
         const shown = method.querySelector(`[data-end-note="${which}"]`);
         if (note) {
           expect(shown?.textContent, trajectory.id).toContain(note.text);
-          expect(shown?.querySelector('a[data-source-link]')?.getAttribute('href')).toBe(note.sourceUrl);
+          const links = [...method.querySelectorAll(`[data-method-end="${which}"] a[data-source-link]`)];
+          expect(links.filter((a) => a.getAttribute('href') === note.sourceUrl), trajectory.id).toHaveLength(1);
         } else {
           expect(shown, `${trajectory.id} ${which}`).toBeNull();
         }
       }
     }
+  });
+
+  it('prints How this was made as sentences, each page once per end and each period or label once', () => {
+    const container = renderPage();
+    for (const row of resolvedTrajectories()) {
+      const method = container.querySelector(`[data-method-row="${row.id}"]`)!;
+      expect(method.textContent, row.id).not.toContain('Measured by');
+      expect(method.querySelector('[data-method-measured]')?.textContent, row.id).toBe(`${row.measuredBy}.`);
+      for (const which of ['earlier', 'later'] as const) {
+        const end = method.querySelector(`[data-method-end="${which}"]`)!;
+        const hrefs = [...end.querySelectorAll('a[data-source-link]')].map((a) => a.getAttribute('href'));
+        expect(new Set(hrefs).size, `${row.id} ${which}`).toBe(hrefs.length);
+        const pages = [...row[which].sources.map((source) => source.sourceUrl), endNote(row.id, which)?.sourceUrl];
+        expect(new Set(hrefs), `${row.id} ${which}`).toEqual(new Set(pages.filter(Boolean)));
+      }
+      const said = (text: string, part: string) => text.split(part).length - 1;
+      for (const which of ['earlier', 'later'] as const) {
+        const text = method.querySelector(`[data-method-end="${which}"] [data-method-when]`)?.textContent ?? '';
+        const { period, label } = row[which];
+        expect(said(text, period), `${row.id} ${which}: ${text}`).toBeLessThanOrEqual(1);
+        expect(said(text, label), `${row.id} ${which}: ${text}`).toBe(1);
+        if (!label.includes(period)) expect(said(text, period), `${row.id} ${which}`).toBe(1);
+      }
+    }
+    const when = (id: string, which: 'earlier' | 'later') =>
+      container.querySelector(`[data-method-row="${id}"] [data-method-end="${which}"] [data-method-when]`)?.textContent;
+    expect(when('robotics-venture-funding', 'earlier')).toBe('Q3 2025');
+    expect(when('ukraine-ground-robot-missions', 'earlier')).toBe('January 2026');
+    expect(when('ukraine-ground-robot-missions', 'later')).toBe('October 2026, a record');
+    expect(when('gemini-robotics-release-gap', 'earlier')).toBe('Gemini Robotics 1.5 to 2');
+    expect(when('robolab-120-success', 'earlier')).toBe('π0, October 2024');
+    expect(when('da-vinci-installed-base', 'earlier')).toBe('30 September 2025. Installed base');
+  });
+
+  it('says it is the publication date that is missing when an evidence source gives none', () => {
+    const container = renderPage();
+    const undated = OPEN_QUESTIONS.flatMap((question) =>
+      [question.evidenceFor, question.evidenceAgainst].filter(isSourced).map((side) => ({ question, side })),
+    ).filter(({ side }) => stated(side.published) === null);
+    expect(undated.length).toBeGreaterThan(0);
+    for (const { question, side } of undated) {
+      const row = container.querySelector(`[data-now-row="${question.id}"]`)!.cloneNode(true) as HTMLElement;
+      for (const hidden of row.querySelectorAll('.sr-only')) hidden.remove();
+      expect(row.textContent, question.id).toContain(`${side.publisher}, date ${side.published}`);
+    }
+  });
+
+  it('gives each two-sided table a phone line naming the row, so no column is pinned or hidden past the edge', () => {
+    const container = renderPage();
+    const subjects = [
+      ...DELIVERY_GAPS.map((gap) => ({ id: gap.id, text: gap.who })),
+      ...OPEN_QUESTIONS.map((question) => ({ id: question.id, text: question.question })),
+    ];
+    for (const { id, text } of subjects) {
+      const line = container.querySelector(`tbody[data-now-row="${id}"] > tr.sm\\:hidden > th[scope="rowgroup"]`);
+      expect(line?.textContent, id).toContain(text);
+      expect(line?.getAttribute('colspan'), id).toBe('2');
+    }
+    expect(container.querySelectorAll('#open-questions .sticky, #announced-against-delivered .sticky')).toHaveLength(0);
+  });
+
+  it('states what the gap table compares without calling every right side a delivered count', () => {
+    const container = renderPage();
+    const lead = container.querySelector('#announced-against-delivered > p')?.textContent;
+    expect(lead).toBe(
+      `In each of the ${DELIVERY_GAPS.length} rows, the left is what was announced, ordered, registered or produced, and the right is what the cited page shows so far, each number with what it counts; each side carries its own date.`,
+    );
   });
 
   it('gives every table row and every quote a source link', () => {

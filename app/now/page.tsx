@@ -110,7 +110,7 @@ export default function NowPage() {
 
       <Section
         id="announced-against-delivered"
-        lead={`In each of the ${counts.gaps} rows, the left is what was announced, ordered, registered or produced, and the right is what the cited page counts as delivered; each carries its own date.`}
+        lead={`In each of the ${counts.gaps} rows, the left is what was announced, ordered, registered or produced, and the right is what the cited page shows so far, each number with what it counts; each side carries its own date.`}
       >
         <GapsTable rows={DELIVERY_GAPS} labelledBy={heading('announced-against-delivered')} />
       </Section>
