@@ -32,7 +32,7 @@ import {
   ukAndEuropeRounds,
   windowStart,
 } from '@/lib/rounds.ts';
-import { listText } from '@/lib/rounds-figure.ts';
+import { amountIsCeiling, listText } from '@/lib/rounds-figure.ts';
 
 export const ROUNDS_PAGE_PATH = '/market-map/rounds/';
 export const ROUNDS_PAGE_TITLE = 'Recent funding rounds';
@@ -222,7 +222,7 @@ export function placeText(city: string, country: string): string {
 }
 
 export interface AmountText {
-  /** As announced: "EUR 27M", "over $27M", "about CNY 6.1B"; "not disclosed" or "n/a". */
+  /** As announced: "EUR 27M", "over $27M", "about CNY 6.1B", "up to $700M"; "not disclosed" or "n/a". */
   own: string;
   /** The US dollar conversion when the currency is not USD, else null. */
   usd: string | null;
@@ -230,12 +230,18 @@ export interface AmountText {
 
 /** An amount in its own currency with the USD conversion beside it when that differs. */
 export function amountText(
-  event: Pick<FundingEvent, 'currency' | 'amountIsFloor' | 'amountIsApproximate'> & {
+  event: Pick<FundingEvent, 'currency' | 'amountIsFloor' | 'amountIsApproximate' | 'note'> & {
     amount: FundingEvent['amount'] | CorporateEvent['amount'];
   },
 ): AmountText {
   if (typeof event.amount !== 'number') return { own: event.amount, usd: null };
-  const prefix = event.amountIsFloor ? 'over ' : event.amountIsApproximate ? 'about ' : '';
+  const prefix = amountIsCeiling(event)
+    ? 'up to '
+    : event.amountIsFloor
+      ? 'over '
+      : event.amountIsApproximate
+        ? 'about '
+        : '';
   const own = `${prefix}${formatMoney(event.amount, event.currency)}`;
   const usd =
     event.currency === 'USD' ? null : `${prefix}${formatUsd(amountUsd({ amount: event.amount, currency: event.currency })!)}`;

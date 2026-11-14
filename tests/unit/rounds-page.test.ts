@@ -197,6 +197,20 @@ describe('cell text', () => {
     }
   });
 
+  it('prints "up to" before an amount its note gives as a ceiling, and no ceiling bare', () => {
+    expect(amountText({ currency: 'USD', amount: 700_000_000, note: 'Up to USD 700M, per a newspaper.' }).own).toBe('up to $700M');
+    const eur = amountText({ currency: 'EUR', amount: 35_000_000, note: 'Up to EUR 35M on milestones.' });
+    expect(eur.own).toBe('up to EUR 35M');
+    expect(eur.usd).toMatch(/^up to \$\d+M$/);
+    expect(amountText({ currency: 'USD', amount: 700_000_000, note: 'Plus up to USD 700M later.' }).own).toBe('$700M');
+    const records = [...ROUNDS, ...LISTINGS, ...UK_EUROPE_2026_EARLIER, ...CORPORATE_EVENTS];
+    const ceilings = records.filter((e) => /^Up to /.test(e.note ?? '') && !e.amountIsApproximate);
+    expect(ceilings.length).toBeGreaterThan(0);
+    for (const event of ceilings) {
+      expect(amountText({ ...event, currency: event.currency ?? 'USD' }).own, event.key).toMatch(/^up to /);
+    }
+  });
+
   it('says what each corporate event is', () => {
     const byKind = (kind: string) => CORPORATE_EVENTS.find((e) => e.kind === kind)!;
     expect(corporateEventText(byKind('shutdown'))).toBe('Shut down');
