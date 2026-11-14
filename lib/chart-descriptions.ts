@@ -28,8 +28,16 @@
  */
 import { MODEL_BASED_LOOP_DESCRIPTION, EVALUATION_LADDER_DESCRIPTION, WORLD_MODEL_OUTPUT_DESCRIPTION } from './world-model-figures.ts';
 import type { ChartDescriptionEntry } from './chart-description-rules.ts';
+import { trajectoryDescription } from './now-page.ts';
 
 export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
+  {
+    component: 'TrajectoryFigure',
+    file: 'components/now/trajectory-figure.tsx',
+    route: '/now/',
+    quantityNames: ['measures', 'value'],
+    text: trajectoryDescription(),
+  },
   {
     component: 'ModelBasedLoop',
     file: 'components/interactive/model-based-loop.tsx',

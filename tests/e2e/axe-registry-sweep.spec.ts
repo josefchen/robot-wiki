@@ -43,6 +43,7 @@ const PAGE_GROUND = 'rgb(250, 250, 248)';
  * a clean, accessible page.
  */
 const ROUTES: string[] = [
+  '/now/',
   '/',
   ...DOMAINS.map((d) => `/${d}/`),
   '/market-map/',

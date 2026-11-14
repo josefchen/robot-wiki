@@ -22,6 +22,13 @@ export interface RouteSeoProfile {
 }
 
 export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
+  '/now/': {
+    title: 'Robotics Now: Trends, Changes, Open Questions',
+    headTerm: 'robotics now',
+    description:
+      'Robotics now: where the field stands and which way it is moving, in dated trends, recent developments, open questions and promises against delivery.',
+    queries: [],
+  },
   '/': {
     title: 'Modern Robotics and Robot Learning | Robot Wiki',
     headTerm: 'robot learning',
