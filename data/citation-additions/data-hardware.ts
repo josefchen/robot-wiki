@@ -34,12 +34,12 @@ export const ADDITIONS: Citation[] = [
   },
   // cls-data-price-investigation-2026: read 2026-11-14 (dated 2026-11-11). STAR Market Daily investigation,
   // source line Cailian Press; byline names no reporter. Real-robot list price up to RMB 1,000, raw monocular
-  // data RMB 5 to 10 an hour (industry veteran Wang Jian), collector pay about RMB 8; Lingyu CEO Jin Ge's reference prices; >70 training grounds
+  // data RMB 5 to 10 an hour (an industry veteran quoted under a pseudonym), collector pay about RMB 8; Lingyu CEO Jin Ge's reference prices; >70 training grounds
   // open and 40+ planned by June 2026; Shao Tianlan's September criticism.
   {
     id: 'cls-data-price-investigation-2026',
     title: '具身数据采集价格迷雾调查：千元报价，8元时薪，差价去哪了？',
-    authors: ['财联社'],
+    authors: ['Cailian Press'],
     year: 2026,
     venue: '21st Century Business Herald, from Cailian Press (STAR Market Daily), 2026-11-11',
     url: 'https://m.21jingji.com/article/20261111/herald/4fb59aec91c1d17ef8059497e7a2b001.html',
@@ -50,7 +50,7 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'beijing-daily-data-collectors-2026',
     title: '具身智能产业发展打开灵活就业新通道',
-    authors: ['北京日报'],
+    authors: ['Beijing Daily'],
     year: 2026,
     venue: 'Xinhuanet, from Beijing Daily, 2026-09-04',
     url: 'https://www.news.cn/tech/20260904/8b947072714f4f3ebe72c7fb9a092c0f/c.html',
@@ -61,7 +61,7 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'techxingqiu-data-collectors-2026',
     title: '我给机器人当“燃料”：叠衣服时薪30元，卖数据估值150亿',
-    authors: ['林京'],
+    authors: ['Jing Lin'],
     year: 2026,
     venue: '36Kr, from Tech Xingqiu, 2026-07-13',
     url: 'https://36kr.com/p/3893319165360899',
@@ -73,7 +73,7 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'jiazi-data-collection-2026',
     title: '具身数据采集产业链调查：被机器人采集的人',
-    authors: ['卫琳聪'],
+    authors: ['Lincong Wei'],
     year: 2026,
     venue: '36Kr, from Jiazi Guangnian, 2026-06-25',
     url: 'https://36kr.com/p/3868536772236297',
@@ -84,7 +84,7 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'nbd-galaxea-data-cost-2026',
     title: '具身智能“卷”数据：行业共识质量为先 多样性和流通性仍有不足',
-    authors: ['可杨'],
+    authors: ['Yang Ke'],
     year: 2026,
     venue: 'Sina Finance, from National Business Daily, 2026-06-17',
     url: 'https://finance.sina.com.cn/roll/2026-06-17/doc-inicrume5928552.shtml',
@@ -96,7 +96,7 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'yicai-mifeng-2026',
     title: '智元生态再扩容，旗下觅蜂科技抢滩具身智能数据赛道',
-    authors: ['第一财经'],
+    authors: ['Yicai'],
     year: 2026,
     venue: 'Sina Tech, from Yicai, 2026-04-17',
     url: 'https://finance.sina.com.cn/tech/roll/2026-04-17/doc-inhuuimk6582970.shtml',
@@ -108,7 +108,7 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'huxiu-collection-centers-2026',
     title: '遍地开花的数采中心，开始批量露馅',
-    authors: ['易玉琴'],
+    authors: ['Yuqin Yi'],
     year: 2026,
     venue: 'Huxiu, 2026-09-20',
     url: 'https://www.huxiu.com/article/4892109.html',
@@ -121,7 +121,7 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'cls-miit-data-cost-2026',
     title: '具身智能数据赛道“变天”',
-    authors: ['付静'],
+    authors: ['Jing Fu'],
     year: 2026,
     venue: 'Huxiu, from Cailian Press, 2026-11-08',
     url: 'https://www.huxiu.com/article/4903954.html',
@@ -421,7 +421,7 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'jd-data-center-2026',
     title: '京东将建成全球最大具身数据采集中心',
-    authors: ['南方财经网'],
+    authors: ['Southern Finance'],
     year: 2026,
     venue: 'Eastmoney, from Southern Finance, 2026-03-16',
     url: 'https://finance.eastmoney.com/a/202603163673254172.html',
@@ -432,14 +432,14 @@ export const ADDITIONS: Citation[] = [
   {
     id: 'jiangsu-data-exchange-2026',
     title: '全国首例具身智能数据集场内交易在江苏完成，可“培训”机器人保姆',
-    authors: ['万承源'],
+    authors: ['Chengyuan Wan'],
     year: 2026,
     venue: 'Yangtse Evening Post (yzwb.net), 2026-01-06',
     url: 'https://www.yzwb.net/news/jiangsu/202601/t20260106_308264.html',
     type: 'press',
   },
-  // robopilots-providers-2026: read 2026-11-14 (dated 2026-11-11). A competitor's review: RoboPilots "a
-  // starting price of $12 an hour"; OBI Services "from USD 4.95 an hour for large volumes".
+  // robopilots-providers-2026: read 2026-11-14 (dated 2026-11-11). RoboPilots' own guide: its operators at "a
+  // starting price of $12 an hour".
   {
     id: 'robopilots-providers-2026',
     title: 'Teleoperation service providers compared (2026): managed operators, data labs and software',
