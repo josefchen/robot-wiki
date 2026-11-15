@@ -308,11 +308,11 @@ test.describe('home front page', () => {
     }
   });
 
-  test('"Also in the wiki" names the six parts that are not articles, each counted from its registry', async ({
+  test('"Also in the wiki" names the six parts that are not articles and the rounds page under the market map, each counted from its registry', async ({
     page,
     browser,
   }) => {
-    // Six pages, each opened in a context of its own.
+    // Seven pages, each opened in a context of its own.
     test.setTimeout(60_000);
     const main = await home(page);
     const block = main.getByRole('region', { name: 'Also in the wiki' });
@@ -351,9 +351,12 @@ test.describe('home front page', () => {
     const roundsLink = block.locator(`a[href="${ROUNDS_PAGE_PATH}"]`);
     await expect(roundsLink).toHaveCount(1);
     await expect(roundsLink).toHaveText('Recent rounds');
+    const roundsLine = `${facts.closed} closed from ${readableSpan(facts.start, facts.end)}.`;
     expect(squash(await block.locator('[data-also="market-map"] > p').nth(1).innerText())).toBe(
-      `Recent rounds: ${facts.closed} closed from ${readableSpan(facts.start, facts.end)}.`,
+      `Recent rounds: ${roundsLine}`,
     );
+    // The line after its link is held to the ten words of every other line.
+    expect(words(roundsLine).length, roundsLine).toBeLessThanOrEqual(10);
     expect(counts.closedRounds).toBe(facts.closed);
     // Each link opens a real page with its own h1.
     const links = entries.flatMap((entry) => entry.links);
@@ -478,9 +481,10 @@ test.describe('home front page', () => {
   });
 
   // Home prose is everything but article titles and navigation labels, and
-  // it holds 250 words or fewer even with a full ten-word note on every
-  // "Latest" row.
-  test('<main> holds 250 words of prose or fewer beside article titles and navigation, and nothing drawn', async ({
+  // it holds 259 words or fewer even with a full ten-word note on every
+  // "Latest" row. Nine of them are the recent rounds line: its count and the
+  // days it covers.
+  test('<main> holds 259 words of prose or fewer beside article titles and navigation, and nothing drawn', async ({
     page,
   }) => {
     const main = await home(page);
@@ -500,7 +504,7 @@ test.describe('home front page', () => {
       return { prose: count((el as HTMLElement).innerText) - titles - navigation, notes };
     });
     const room = 5 * UPDATE_NOTE_MAX_WORDS - counted.notes;
-    expect(counted.prose + room, `${counted.prose} words of prose, room for ${room} more in notes`).toBeLessThanOrEqual(250);
+    expect(counted.prose + room, `${counted.prose} words of prose, room for ${room} more in notes`).toBeLessThanOrEqual(259);
 
     // No picture, drawing, canvas or painted background anywhere in <main>:
     // the page is type on paper.
