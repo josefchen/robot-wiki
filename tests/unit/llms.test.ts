@@ -24,6 +24,14 @@ const input = registryLlmsInput();
 const llms = buildLlmsTxt(input);
 const full = buildLlmsFullTxt(input);
 const url = (a: Pick<LlmsArticle, 'domain' | 'slug'>) => `${SITE_URL}/${a.domain}/${a.slug}/`;
+// An article link is /<domain>/<slug>/; a standalone page of any depth is not.
+const articleLinks = (text: string) =>
+  [...text.matchAll(/\]\((https:\/\/[^)]+)\)/g)]
+    .map((m) => m[1])
+    .filter((href) => {
+      const segments = new URL(href).pathname.split('/').filter(Boolean);
+      return segments.length === 2 && (DOMAINS as readonly string[]).includes(segments[0]);
+    });
 
 const FIXTURE: LlmsArticle = {
   domain: 'classical',
@@ -45,9 +53,7 @@ const FIXTURE: LlmsArticle = {
 describe('llms.txt', () => {
   it('lists every domain and every published article once, with its summary and canonical URL', () => {
     for (const domain of DOMAINS) expect(llms).toContain(`(${SITE_URL}/${domain}/)`);
-    const listed = [...llms.matchAll(/\]\((https:\/\/[^)]+)\)/g)].map((m) => m[1]);
-    const articles = listed.filter((href) => href.split('/').filter(Boolean).length === 4);
-    expect(articles.sort()).toEqual(publishedModules().map(url).sort());
+    expect(articleLinks(llms).sort()).toEqual(publishedModules().map(url).sort());
     for (const entry of publishedModules()) {
       expect(llms).toContain(`- [${entry.title}](${url(entry)}): ${entry.summary}\n`);
     }
@@ -146,15 +152,18 @@ describe('llms generators follow the registry', () => {
   });
 
   it('add a new sitemap page under Data and tools, before Optional', () => {
-    const page: LlmsPage = { path: '/fixture-data/', title: 'Fixture Data', description: 'A page only this test adds.' };
-    const pages = [...input.pages];
-    pages.splice(pages.findIndex((entry) => LLMS_OPTIONAL_PATHS.includes(entry.path)), 0, page);
-    const withPage = buildLlmsTxt({ ...input, pages: [...input.pages, page] });
-    const line = `- [Fixture Data](${SITE_URL}/fixture-data/): A page only this test adds.\n`;
-    const dataSection = withPage.slice(withPage.indexOf('## Data and tools\n'), withPage.indexOf('## Optional\n'));
-    expect(dataSection.endsWith(`${line}\n`)).toBe(true);
-    expect(buildLlmsTxt({ ...input, pages })).toBe(withPage);
-    expect(withPage.replace(line, '')).toBe(llms);
+    for (const path of ['/fixture-data/', '/fixture-data/nested/']) {
+      const page: LlmsPage = { path, title: 'Fixture Data', description: 'A page only this test adds.' };
+      const pages = [...input.pages];
+      pages.splice(pages.findIndex((entry) => LLMS_OPTIONAL_PATHS.includes(entry.path)), 0, page);
+      const withPage = buildLlmsTxt({ ...input, pages: [...input.pages, page] });
+      const line = `- [Fixture Data](${SITE_URL}${path}): A page only this test adds.\n`;
+      const dataSection = withPage.slice(withPage.indexOf('## Data and tools\n'), withPage.indexOf('## Optional\n'));
+      expect(dataSection.endsWith(`${line}\n`), path).toBe(true);
+      expect(buildLlmsTxt({ ...input, pages }), path).toBe(withPage);
+      expect(withPage.replace(line, ''), path).toBe(llms);
+      expect(articleLinks(withPage).sort(), path).toEqual(publishedModules().map(url).sort());
+    }
   });
 
   it('leave llms-full.txt to the articles alone', () => {
