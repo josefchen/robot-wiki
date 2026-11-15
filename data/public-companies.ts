@@ -4227,7 +4227,7 @@ export const LEFT_OUT_COMPANIES: LeftOutCompany[] = [
     name: 'Swancor Advanced Materials',
     exchange: 'Shanghai STAR',
     ticker: '688585',
-    reason: 'Composite materials; it trades as a robot stock because AgiBot controls it.',
+    reason: 'Composite and wind blade materials, not robots.',
     source: {
       url: 'https://stockanalysis.com/quote/sha/688585/company/',
       title: 'Stock Analysis company profile, Swancor Advanced Materials',
@@ -4948,7 +4948,7 @@ export const IPO_WATCH: IpoWatchRow[] = [
       url: 'https://finance.sina.com.cn/jjxw/2026-05-20/doc-inhynvwt1829510.shtml',
       title: '乐聚智能创业板IPO申请获受理：拟募资26亿元 (Sina Finance)',
       type: 'reported',
-      quote: '5月19日，乐聚智能创业板IPO申请获深交所受理，保荐人为东方证券。公司拟发行不超2000万股，募资26亿用于多项目。',
+      quote: '5月19日，乐聚智能（深圳）股份有限公司（以下简称“乐聚智能”）的创业板IPO申请获深交所受理，保荐人为东方证券股份有限公司。…根据招股书，乐聚智能拟发行股份不超过2000万股，发行后总股本不超过8000万股（不含采用超额配售选择权发行股份数量），共募资26亿元',
       verified: true,
     },
   },
