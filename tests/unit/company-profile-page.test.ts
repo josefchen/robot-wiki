@@ -22,6 +22,7 @@ import {
   latestUnitsSold,
   lineYearRows,
   listingComputedNote,
+  noteIsAboutShownFigure,
   listingFacts,
   possessive,
   priceCounts,
@@ -102,7 +103,7 @@ describe('sentences', () => {
     expect(profileLead(profile)).toBe(
       'Unitree Robotics\u2019 listing documents report 2025 sales of 23,037 quadrupeds and 5,215 humanoids and total ' +
         'revenue of CNY\u00a01,699.27\u00a0m; this page lists 62 of the company\u2019s robots, arms, grippers, hands and ' +
-        'lidars, 31 of them with a list price from USD 249 to USD 50,000',
+        'lidars, 31 of them with a list price from USD\u00a0249 to USD\u00a050,000',
     );
     expect(profileLead(profile)).not.toMatch(/[.,;:]\s*$/);
   });
@@ -221,6 +222,21 @@ describe('money', () => {
     ]);
     expect(rows.get('fy2024')!.notes).toEqual(['Revenue as restated by the board in May 2026.']);
     expect(rows.get('fy2023')!.notes).toEqual([]);
+  });
+
+  it('prints a note only when it is about a figure the row shows, and the table shows no growth', () => {
+    const rows = resultsRows(profile);
+    const withGrowthNote = profile.financials.filter((period) => period.note && /\bgrowth\b/i.test(period.note));
+    expect(withGrowthNote.map((period) => period.id)).toEqual(['nine-months-2026']);
+    expect(noteIsAboutShownFigure(withGrowthNote[0].note!)).toBe(false);
+    for (const row of rows) {
+      for (const note of row.notes) expect(note, row.period.id).not.toMatch(/\bgrowth\b/i);
+    }
+    const nineMonths = rows.find((row) => row.period.id === 'nine-months-2026')!;
+    expect(nineMonths.notes).toEqual([]);
+    const printed = rows.flatMap((row) => row.notes);
+    expect(printed).toContain('Revenue as restated by the board in May 2026.');
+    expect(printed).toContain('Net profit is after a one-off share-based payment charge of CNY 349.07 m.');
   });
 
   it('gives each margin its basis, marks the one computed on total revenue and names the absent ones', () => {

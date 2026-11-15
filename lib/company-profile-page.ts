@@ -346,9 +346,19 @@ const MARGIN_BASIS: Record<'main business' | 'computed on total revenue', string
 };
 
 /**
+ * Whether a period's note is about a figure the results table prints. The
+ * table prints amounts and margins, not growth rates, so a note that explains
+ * a growth rate would explain nothing on the row and is left off it.
+ */
+export function noteIsAboutShownFigure(note: string): boolean {
+  return !/\bgrowth\b/i.test(note);
+}
+
+/**
  * The results table: every stored period in CNY millions, oldest first as
  * filed. A period's note that names its one-off charge is replaced by the
- * sentence that gives the charge's amount, so the row says it once.
+ * sentence that gives the charge's amount, so the row says it once; a note
+ * about a figure the row does not show is left off.
  */
 export function resultsRows(profile: CompanyProfile): ResultsRow[] {
   return profile.financials.map((period) => {
@@ -358,7 +368,9 @@ export function resultsRows(profile: CompanyProfile): ResultsRow[] {
       ...(charge
         ? [`Net profit is after a one-off ${charge.label} charge of ${periodMoney(period, charge.amount)}.`]
         : []),
-      ...(period.note && !(charge && period.note.includes(charge.label)) ? [period.note] : []),
+      ...(period.note && noteIsAboutShownFigure(period.note) && !(charge && period.note.includes(charge.label))
+        ? [period.note]
+        : []),
     ];
     return {
       period,
