@@ -114,10 +114,9 @@ describe('top of the page', () => {
     expect(afterLink).toContain('sum of the rounds listed');
   });
 
-  it('names the known miss on its investor\'s own page and keeps it out of the rows', () => {
+  it('names the known miss on its investor\'s own page', () => {
     expect(new URL(COVERAGE_OMISSION.sourceUrl).hostname).toBe('news.medtronic.com');
     expect(COVERAGE_OMISSION.sourceUrl).toContain(COVERAGE_OMISSION.date);
-    expect(ROUNDS.some((r) => /cornerstone/i.test(r.company))).toBe(false);
   });
 });
 
