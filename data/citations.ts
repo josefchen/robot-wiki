@@ -23721,7 +23721,6 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['ISO/IEC JTC 1/SC 42', 'ISO/IEC JTC 1/SC 42'],
   ['Japan Aerospace Exploration Agency', 'JAXA'],
   ['Johnson & Johnson', 'Johnson & Johnson'],
-  ['Joint Research Team', 'Joint Research Team'],
   ['Kavraki Lab', 'Kavraki Lab'],
   ['Lean Enterprise Institute', 'Lean Enterprise Institute'],
   ['LimX Dynamics', 'LimX Dynamics'],
