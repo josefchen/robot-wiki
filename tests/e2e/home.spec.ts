@@ -326,7 +326,12 @@ test.describe('home page', () => {
       await expect(link).toBeVisible();
       expect(await link.getAttribute('href')).toMatch(href);
     }
-    // Six entries, one line of text under each, and no picture.
+    // The market map's entry also links the recent rounds page under it.
+    const rounds = also.getByRole('link', { name: 'Recent rounds', exact: true });
+    await expect(rounds).toBeVisible();
+    expect(await rounds.getAttribute('href')).toMatch(/^\/market-map\/rounds\/?$/);
+    await expect(also.getByRole('link')).toHaveCount(7);
+    // Six entries, a line of text under each, and no picture.
     await expect(also.getByRole('listitem')).toHaveCount(6);
     expect(await also.getByRole('img').count()).toBe(0);
     for (const line of await also.locator('li > p').allInnerTexts()) {

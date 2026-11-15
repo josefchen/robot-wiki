@@ -7,12 +7,13 @@ import { publishedModules } from '@/data/modules';
 import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '@/data/now';
 import { readableDate } from '@/lib/home-updates';
 import { moduleSource } from '@/lib/module-source';
+import { headlineFacts } from '@/lib/rounds-page';
 import { WIDGET_CITATION_IDS } from '@/lib/widget-citations';
 
 /**
  * Every number the home page prints, each derived from its registry when
  * the page is built: the three counts under the search, and the explainers,
- * companies and developments that "Also in the wiki" names.
+ * companies, funding rounds and developments that "Also in the wiki" names.
  *
  * A source counts once however many pages cite it. The population is every
  * citation record a published page renders: the frontmatter `citations` of
@@ -27,6 +28,10 @@ export type HomeCounts = {
   glossaryTerms: number;
   explainers: number;
   companies: number;
+  /** The closed rounds the recent funding rounds page holds. */
+  closedRounds: number;
+  /** The days those rounds cover, as home writes a span of dates. */
+  roundsWindow: string;
   developments: number;
   /** The first day those developments cover, as home writes a date. */
   developmentsSince: string;
@@ -35,6 +40,16 @@ export type HomeCounts = {
 /** A count as the page prints it, thousands grouped: `1,771`. */
 export function formatCount(count: number): string {
   return count.toLocaleString('en-US');
+}
+
+/**
+ * Two days as home writes a span: `17 Jul to 14 Nov 2026`. The first day
+ * keeps its year when the two fall in different years.
+ */
+export function readableSpan(from: string, to: string): string {
+  const start = readableDate(from);
+  const sameYear = from.slice(0, 4) === to.slice(0, 4);
+  return `${sameYear ? start.replace(/ \d{4}$/, '') : start} to ${readableDate(to)}`;
 }
 
 export function citedSourceIds(
@@ -57,12 +72,15 @@ export function citedSourceIds(
 }
 
 export function homeCounts(): HomeCounts {
+  const rounds = headlineFacts();
   return {
     articles: publishedModules().length,
     sources: citedSourceIds().size,
     glossaryTerms: GLOSSARY.length,
     explainers: EXPLAINER_ORDER.length,
     companies: COMPANIES.length,
+    closedRounds: rounds.closed,
+    roundsWindow: readableSpan(rounds.start, rounds.end),
     developments: DEVELOPMENTS.length,
     developmentsSince: readableDate(DEVELOPMENTS_FROM),
   };

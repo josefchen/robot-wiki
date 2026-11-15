@@ -15,8 +15,9 @@ import { HOME_FEATURED_PICKS } from '@/data/home-featured';
 import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '@/data/now';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '@/data/modules';
 import { GLOSSARY } from '@/data/glossary';
-import { citedSourceIds, formatCount, homeCounts } from '@/lib/home-counts';
+import { citedSourceIds, formatCount, homeCounts, readableSpan } from '@/lib/home-counts';
 import { latestChanges, readableDate } from '@/lib/home-updates';
+import { headlineFacts, headlineText } from '@/lib/rounds-page';
 import {
   CONTENT_CORRECTION_URL,
   PUBLIC_DESCRIPTOR,
@@ -183,9 +184,29 @@ describe('Home page', () => {
       const entry = also.querySelector(`[data-also="${key}"]`) as HTMLElement;
       const link = within(entry).getByRole('heading', { level: 3, name }).querySelector('a');
       expect(path(link?.getAttribute('href') ?? null)).toBe(href);
-      expect(within(entry).getAllByRole('link')).toHaveLength(1);
+      // One link an entry; the market map also links the page under it.
+      expect(within(entry).getAllByRole('link')).toHaveLength(key === 'market-map' ? 2 : 1);
       expect(entry.textContent).toContain(line);
     }
+    // The recent rounds page: one link in the block, on a line of its own in
+    // the market map's cell, with the count its own headline prints.
+    const rounds = [...also.querySelectorAll('a')].filter(
+      (a) => path(a.getAttribute('href')) === '/market-map/rounds',
+    );
+    expect(rounds).toHaveLength(1);
+    expect(rounds[0].textContent).toBe('Recent rounds');
+    const roundsLine = rounds[0].closest('p') as HTMLElement;
+    expect(roundsLine.closest('[data-also]')?.getAttribute('data-also')).toBe('market-map');
+    const facts = headlineFacts();
+    expect(roundsLine.textContent?.replace(/\s/g, ' ')).toBe(
+      `Recent rounds: ${facts.closed} closed from ${readableSpan(facts.start, facts.end)}.`,
+    );
+    expect(headlineText(facts).reported).toContain(`of the ${facts.closed} closed rounds`);
+    // The span of dates cannot break across lines.
+    expect(roundsLine.textContent).toContain(
+      `from ${readableSpan(facts.start, facts.end).replace(/ /g, String.fromCharCode(0xa0))}.`,
+    );
+    expect(counts.closedRounds).toBe(facts.closed);
     expect(counts.explainers).toBe(EXPLAINER_ORDER.length);
     expect(counts.companies).toBe(COMPANIES.length);
     expect(counts.developments).toBe(DEVELOPMENTS.length);
@@ -242,6 +263,7 @@ describe('Home page', () => {
       '/how-robots-work',
       '/now',
       '/market-map',
+      '/market-map/rounds',
       '/playground',
       '/glossary',
       '/a-z',
