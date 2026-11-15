@@ -54,7 +54,7 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T11:02:43Z"
+      "modified": "2026-11-15T11:32:55Z"
     },
     "data-hardware/data-market": {
       "published": "2026-11-14T20:33:02Z",
@@ -62,15 +62,15 @@
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T11:02:41Z"
+      "modified": "2026-11-15T11:32:55Z"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-14T16:03:25Z"
+      "modified": "2026-11-15T11:33:01Z"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T03:49:27Z"
+      "modified": "2026-11-15T11:33:01Z"
     },
     "data-hardware/industrial-deployment": {
       "published": "2026-08-22T21:06:38Z",
@@ -82,7 +82,7 @@
     },
     "data-hardware/robot-learning-stack": {
       "published": "2026-09-24T19:27:51Z",
-      "modified": "2026-11-15T11:02:43Z"
+      "modified": "2026-11-15T11:32:55Z"
     },
     "data-hardware/teleop-rigs": {
       "published": "2026-08-09T19:01:27Z",
@@ -106,7 +106,7 @@
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T16:33:06Z",
-      "modified": "2026-11-14T20:02:37Z"
+      "modified": "2026-11-15T11:33:01Z"
     },
     "frontier/safety-and-assurance": {
       "published": "2026-08-22T21:06:38Z",
@@ -239,7 +239,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T11:02:43Z"
+      "modified": "2026-11-15T11:33:01Z"
     },
     "/manipulation/": {
       "modified": "2026-11-15T08:48:08Z"
@@ -275,13 +275,13 @@
       "modified": "2026-11-13T07:15:57Z"
     },
     "/companies/unitree/": {
-      "modified": "2026-11-15T11:02:42Z"
+      "modified": "2026-11-15T11:32:55Z"
     },
     "/how-robots-work/": {
       "modified": "2026-11-13T05:50:10Z"
     },
     "/glossary/": {
-      "modified": "2026-11-15T08:48:08Z"
+      "modified": "2026-11-15T11:33:01Z"
     },
     "/credits/": {
       "modified": "2026-11-14T19:31:23Z"
