@@ -277,7 +277,7 @@ const ROWS: Thesis[] = [
         citationIds: ['aa-robotics-2026'],
       },
       {
-        text: 'Across 5,699 blinded pairwise trials at 124 real sites, RoboColosseum found that frontier agents rival specialized VLA policies, though no system completed any of five G1 humanoid tasks.',
+        text: 'Across 5,699 blinded pairwise trials at 124 real sites, RoboColosseum found that frontier agents rival specialized VLA policies, while all systems struggle to complete open-world tasks reliably.',
         citationIds: ['robocolosseum-2026'],
       },
     ],
@@ -292,7 +292,7 @@ const ROWS: Thesis[] = [
       },
     ],
     falsification:
-      'A small model trained only in simulation matching the general model across a broad task set at a fraction of its cost, or contact-rich real tasks such as insertion staying near zero as general models improve.',
+      'A small model with no real robot data matching the general model across a broad task set at a fraction of its cost, or contact-rich real tasks such as insertion staying near zero as general models improve.',
     falsificationSignal: 'small sim-trained model matches it',
   },
 ];

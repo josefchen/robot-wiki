@@ -1,6 +1,6 @@
 ---
 title: "Competing Theses"
-description: "Seven live bets on building robot intelligence: VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation, humanoids and general models, each with a refuting test."
+description: "Seven live bets on robot intelligence: VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation, humanoids and general models, each with a refuting test."
 domain: frontier
 slug: competing-theses
 order: 4
@@ -184,11 +184,11 @@ The general-model thesis: a general AI model, given a harness, controls a robot 
 | --- | --- | --- | --- |
 | NVIDIA | Simulation, RoboLab-120 | GPT-6 Astra 74.8%, against 51.0% for Lakeside, the best policy compared <Cite id="nvidia-astranomy-2026" /> | Pick-and-place only; 13.37 s per call; USD 36.40 per successful episode |
 | Artificial Analysis | Real 6-axis arm, eight tabletop tasks | Astra first, 69.4 of 100 <Cite id="aa-robotics-2026" /> | About 30 minutes a task, against 20 s for a person |
-| RoboColosseum authors | Real, 124 sites, 5,699 blinded pairwise trials | Frontier agents "rival specialized VLA policies" <Cite id="robocolosseum-2026" /> | No system completed any of five G1 humanoid tasks |
+| RoboColosseum authors | Real, 124 sites, 5,699 blinded pairwise trials | Frontier agents "rival specialized VLA policies" <Cite id="robocolosseum-2026" /> | "All systems struggle to complete open-world tasks reliably" |
 | SenseNova joint team | Real, eight robot configurations | Astra: rigid pick-and-place 17 of 18, plug insertion 0 of 11 <Cite id="sensenova-astra-2026" /> | Few trials; hardware faults ended runs |
-| ZAP authors | Real tasks; bimanual RoboLab-120 | A small model trained only in simulation matches Astra: 96.7% real, 74.0% against 72.2% <Cite id="zap-2026" /> | Authors' own harness; 3x faster and 17x cheaper than Astra |
+| ZAP authors | Real tasks; bimanual RoboLab-120 | A small open VLM, its motion taught only in simulation, matches Astra: 96.7% real, 74.0% against 72.2% <Cite id="zap-2026" /> | Authors' own harness; 3x faster and 17x cheaper than Astra |
 
-A model's score is a model-plus-harness score: JustRUA's harness alone lifts GPT-6 Astra on RoboDojo from 29.7 to 50.3 <Cite id="justrua-2026" />. The thesis fails if small models trained only in simulation match it beyond ZAP's tests, or if contact-rich real tasks stay near zero.
+A model's score is a model-plus-harness score: JustRUA's harness alone lifts GPT-6 Astra on RoboDojo from 29.7 to 50.3 <Cite id="justrua-2026" />. The thesis fails if small models with no real robot data match it on a broad task set, or if contact-rich real tasks stay near zero.
 
 <span id="what-would-settle-it" />
 ## Seven observations would settle the theses, and GEN-1 nearly meets one
