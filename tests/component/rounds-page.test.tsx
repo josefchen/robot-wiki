@@ -195,6 +195,22 @@ describe('/market-map/rounds/ page', () => {
       expect(button.tagName).toBe('BUTTON');
       expect(button).not.toHaveAttribute('tabindex');
     });
+
+    it('keeps the pressed control where it was on screen, opening and closing', () => {
+      renderPage();
+      const button = screen.getByRole('button', { name: `Show all ${keys.length} rounds` });
+      // jsdom has no layout; the stub moves the control 64 px down while the fold is open.
+      vi.spyOn(button, 'getBoundingClientRect').mockImplementation(
+        () => ({ top: button.getAttribute('aria-expanded') === 'true' ? 464 : 400 }) as DOMRect,
+      );
+      const scrollBy = vi.spyOn(window, 'scrollBy').mockImplementation(() => {});
+      onTestFinished(() => scrollBy.mockRestore());
+      fireEvent.click(button);
+      expect(scrollBy).toHaveBeenLastCalledWith(0, 64);
+      fireEvent.click(button);
+      expect(scrollBy).toHaveBeenLastCalledWith(0, -64);
+      expect(scrollBy).toHaveBeenCalledTimes(2);
+    });
   });
 
   it('opens the fold when an investor link points at a folded row', () => {
