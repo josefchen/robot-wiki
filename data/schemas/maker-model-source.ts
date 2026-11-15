@@ -10,8 +10,16 @@ import { httpsUrlSchema, isoDateSchema, slugSchema } from './shared.ts';
  *     redistribution with notices kept;
  *   - restricted: published, with terms that limit use or redistribution
  *     (the limiting clause is quoted);
- *   - no-licence: published with no licence file, so all rights reserved;
+ *   - no-licence: published, and at the commit no licence reaches the model
+ *     files: no licence file, and no licence declared for them in a
+ *     manifest (package.xml, setup.py, pyproject.toml) or the README;
  *   - none-found: no maker file found where the maker publishes code.
+ *
+ * A licence declared only in a manifest that covers the model files, such
+ * as a ROS package.xml, makes the row official; its licence address is that
+ * manifest, and the note says the repository has no licence file. A
+ * no-licence row cites its README at the commit and names in its note any
+ * declaration that does not reach the model files.
  */
 
 export const makerModelStatusSchema = z.enum([
