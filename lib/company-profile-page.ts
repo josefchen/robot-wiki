@@ -121,9 +121,10 @@ export function calendarYearPeriod(profile: CompanyProfile, year: number): Finan
 }
 
 /**
- * The header's lead, without its closing date: what the company sells, how
- * many, at what prices, and what its listing documents report for the
- * latest full year.
+ * The header's lead, without its closing date: the latest full year's units
+ * and total revenue from the listing documents, then the products the
+ * company names in its shop, product pages and prospectus, which the date
+ * dates. "Names" holds for rows that are listed but not orderable.
  */
 export function profileLead(profile: CompanyProfile): string {
   const counts = profilePageCounts(profile);
@@ -133,9 +134,9 @@ export function profileLead(profile: CompanyProfile): string {
   const period = calendarYearPeriod(profile, units.year);
   const sold = joinList(units.lines.map((row) => `${formatCount(row.sold)} ${row.line}s`));
   return (
-    `${profile.company.name} sells ${counts.products} products, ${prices.priced} of them listed from ` +
-    `${formatUsdPrice(range.low)} to ${formatUsdPrice(range.high)}, and its listing documents report ${sold} ` +
-    `sold in ${units.year} on revenue of ${periodMoney(period, period.revenue)}`
+    `${possessive(profile.company.name)} listing documents report ${sold} sold in ${units.year} and total revenue of ` +
+    `${periodMoney(period, period.revenue)}; the company names ${counts.products} products, ${prices.priced} ` +
+    `with a list price from ${formatUsdPrice(range.low)} to ${formatUsdPrice(range.high)}`
   );
 }
 
@@ -153,6 +154,11 @@ export function priceCounts(profile: CompanyProfile): PriceCounts {
     else counts.notDisclosed += 1;
   }
   return counts;
+}
+
+/** "Unitree Robotics'", "Unitree's". */
+export function possessive(name: string): string {
+  return name.endsWith('s') ? `${name}'` : `${name}'s`;
 }
 
 /** "a", "a and b", "a, b and c". */
@@ -349,7 +355,7 @@ export function resultsRows(profile: CompanyProfile): ResultsRow[] {
 
 /** The note under a table whose rows carry the reported mark. True of figures and events alike. */
 export const REPORTED_NOTE =
-  'marks a source that is a press report or a market-data feed, not a filing or the publisher’s own page.';
+  'marks a source that is a press report or a market-data feed, not a filing or a page of the company, maker or researcher the row is about.';
 
 /** The note under the results table: what the computed margins are worked out from. */
 export function resultsComputedNote(profile: CompanyProfile): string | null {
