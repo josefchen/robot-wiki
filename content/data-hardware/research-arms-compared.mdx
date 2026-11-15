@@ -59,7 +59,7 @@ seeAlso:
 
 Arms used in robot-learning research split at the control interface. The SO-101 and the Koch arm (version 1.1) cost a few hundred dollars in parts and run natively in LeRobot over a hobby-servo bus, while the Franka Research 3, UR5e and Kinova Gen3 expose 500 Hz to 1 kHz Ethernet interfaces with ROS 2 drivers and list no price on their datasheets.
 
-Between those tiers, the AgileX PiPER, Trossen WidowX AI and UFACTORY xArm 7 list at US\$1,999 to US\$10,194 and reach LeRobot through plugins. All figures are the makers' own, read on 14 November 2026; LeRobot support is checked against release 0.7.0 and `main` at commit `fe1c545`. [Hardware Taxonomy](/data-hardware/hardware-taxonomy/) carries the SO-101 and WidowX AI prices.
+Between those tiers, the AgileX PiPER, Trossen WidowX AI and UFACTORY xArm 7 list at US\$1,999 to US\$10,194 and reach LeRobot through plugins. All spec and price figures are the makers' own, read on 14 November 2026; LeRobot support is checked against release 0.7.0 and `main` at commit `fe1c545`. [Hardware Taxonomy](/data-hardware/hardware-taxonomy/) carries the SO-101 and WidowX AI prices.
 
 ## Mechanics
 
@@ -86,13 +86,13 @@ Between those tiers, the AgileX PiPER, Trossen WidowX AI and UFACTORY xArm 7 lis
 | ViperX 300 S, WidowX 250 S | Dynamixel bus at 1 Mbps <Cite id="trossen-vx300s-specs" /> <Cite id="trossen-wx250s-specs" /> | not in 0.7.0 or `main` <Cite id="lerobot-robots-source-2026" /> | Interbotix packages <Cite id="interbotix-ros-manipulators-repo" /> | discontinued <Cite id="trossen-vx300s-product" /> <Cite id="trossen-wx250s-product" /> |
 | WidowX AI | Ethernet; rate not disclosed <Cite id="trossen-wxai-docs-2026" /> | maker plugin <Cite id="lerobot-third-party-robots-docs-2026" /> | listed <Cite id="trossen-widowx-ai-2026" /> | in [Hardware Taxonomy](/data-hardware/hardware-taxonomy/) |
 | AgileX PiPER | CAN; rate not disclosed <Cite id="agilex-piper-2026" /> | three community plugins <Cite id="lerobot-third-party-robots-docs-2026" /> | listed <Cite id="agilex-piper-2026" /> | US\$1,999.00 <Cite id="agilex-piper-2026" /> |
-| OpenArm 2.0 | CAN FD, 1 kHz <Cite id="openarm-docs-2026" /> | native, one and two arms <Cite id="lerobot-robots-source-2026" /> | `openarm_ros2` <Cite id="openarm-repo-2026" /> | US\$6,500 for a two-arm system <Cite id="openarm-repo-2026" /> |
+| OpenArm 2.0 | CAN FD, 1 kHz <Cite id="openarm-docs-2026" /> | native, one and two arms <Cite id="lerobot-robots-source-2026" /> | `openarm_ros2` <Cite id="openarm-repo-2026" /> | US\$6,500 bill of materials, two arms <Cite id="openarm-docs-2026" /> <Cite id="openarm-repo-2026" /> |
 | UFACTORY xArm 7 | network cable to control box; servo mode up to 250 Hz <Cite id="ufactory-servo-mode-guide" /> | community plugin; UFACTORY's own extension <Cite id="lerobot-third-party-robots-docs-2026" /> | `xarm_ros2` <Cite id="xarm-ros2-repo" /> | US\$9,999.00 to \$10,194.00 <Cite id="ufactory-xarm7-2026" /> |
 | Franka Research 3 | Ethernet, 1 kHz Franka Control Interface <Cite id="franka-fr3-datasheet-2026" /> | one plugin, one fork <Cite id="lerobot-third-party-robots-docs-2026" /> | `franka_ros2` <Cite id="franka-ros2-repo" /> | not disclosed |
 | UR5e | Ethernet <Cite id="ur5e-datasheet-2026" />, RTDE up to 500 Hz <Cite id="ur-rtde-guide" /> | one plugin, two forks <Cite id="lerobot-third-party-robots-docs-2026" /> | UR driver <Cite id="ur-ros2-driver-repo" /> | not disclosed |
 | Kinova Gen3 | Ethernet, Kortex API, 1 kHz <Cite id="kinova-gen3-specs-2026" /> | none listed <Cite id="lerobot-third-party-robots-docs-2026" /> | Humble <Cite id="kinova-gen3-specs-2026" /> | not disclosed |
 
-## Where each arm has been used
+## Papers that used these arms
 
 | Arm | Papers and datasets |
 |---|---|
