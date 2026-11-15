@@ -46,7 +46,7 @@
     },
     "classical/scene-representation": {
       "published": "2026-08-22T23:06:38+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-15T00:21:29Z"
     },
     "classical/state-estimation": {
       "published": "2026-08-11T23:27:51+02:00",
@@ -214,7 +214,7 @@
     },
     "world-models/jepa": {
       "published": "2026-08-08T23:15:16+02:00",
-      "modified": "2026-11-13T15:15:57+08:00"
+      "modified": "2026-11-15T00:21:29Z"
     },
     "world-models/latent-dynamics": {
       "published": "2026-08-08T23:15:16+02:00",
@@ -235,7 +235,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T04:33:02+08:00"
+      "modified": "2026-11-15T00:21:36Z"
     },
     "/manipulation/": {
       "modified": "2026-11-15T04:33:02+08:00"
@@ -257,6 +257,9 @@
     },
     "/adjacent/": {
       "modified": "2026-11-15T04:33:02+08:00"
+    },
+    "/now/": {
+      "modified": "2026-11-15T00:21:33Z"
     },
     "/market-map/": {
       "modified": "2026-11-15T07:17:07+08:00"
