@@ -58,6 +58,9 @@ citations:
   - goldberg-agentic-robotics-2026
   - gemini-robotics-2-5-2026
   - gr00t-2-2026
+  - auriga-2026
+  - ebench-astra-2026
+  - galbot-astra-policies-2026
 seeAlso:
   - "classical/motion-planning"
   - "frontier/competing-theses"
@@ -86,18 +89,15 @@ Code as Policies (2022) has a language model write Python that calls supplied pe
 
 ## Coding agents return
 
-In late 2026 code-writing planners came back as coding agents that test and repair their own programs, usually with model weights fixed.
+In late 2026 planners returned as coding agents that test and repair their own programs.
 
 | System | What the agent does | Result |
 | --- | --- | --- |
 | RPG <Cite id="rpg-2026" /> | Revises a skill library and its own instructions through simulated practice | 28.6% to 95.0% on held-out starts of 22 tasks; 30 of 30 physical trials |
-| SimEX <Cite id="simex-2026" /> | Builds a toolbox in simulation and corrects the simulator from real trials | Towel folding and barcode scanning from 10 minutes of real interaction |
 | RAX <Cite id="rax-2026" /> | Explores online without demonstrations and compiles what worked into programs | 37.4 points over the best prior learned policy, using over \$100,000 of API credits |
-| CoEvolve <Cite id="coevolve-2026" /> | Writes coordination code for two simulated Unitree G1 humanoids | 8 of 15 payload runs; four baselines finished none, under differing settings |
 | Apple AMP1 <Cite id="apple-amp1-2026" /> | Lets a generalist model command the arm with no grasping or placing skills | Gemini 4 Argon: 85.6% zero-shot on RoboLab-120, top VLA 49.2%; Claude Opus 5.5: 104 of 108 real trials |
-| ChunkAct <Cite id="chunkact-2026" /> | Launches chains of primitives in one call | 2.9 times fewer model calls |
 
-Also: ASENA <Cite id="asena-2026" />, EmbodiedSWE <Cite id="embodiedswe-2026" />, RoboHarn-Evo <Cite id="roboharn-evo-2026" />, AW-0 <Cite id="aw0-agentic-wam-2026" />, Ken Goldberg on agentic robotics <Cite id="goldberg-agentic-robotics-2026" />.
+Also: SimEX <Cite id="simex-2026" />, CoEvolve <Cite id="coevolve-2026" />, ChunkAct <Cite id="chunkact-2026" />, ASENA <Cite id="asena-2026" />, EmbodiedSWE <Cite id="embodiedswe-2026" />, RoboHarn-Evo <Cite id="roboharn-evo-2026" />, AW-0 <Cite id="aw0-agentic-wam-2026" />, Ken Goldberg on agentic robotics <Cite id="goldberg-agentic-robotics-2026" />.
 
 ## Keypoints: the planner points
 
@@ -141,12 +141,20 @@ A large VLM runs a few times a second, too slow for fingers, so many systems sin
 
 ## Orchestrators call the policy like a tool
 
-Gemini Robotics 1.5 added the ER 1.5 orchestrator <Cite id="gemini-robotics-15-2025" />, which Google opened as a high-level model that can call a VLA or user-defined functions <Cite id="gemini-robotics-er-15-dev-2025" />. In [Gemini Robotics 2](/manipulation/generalist-policies/), ER 2 coordinates with the VLA over multi-minute tasks <Cite id="gemini-robotics-2-2026" /> and scores 57.4% on progress classification <Cite id="gemini-robotics-er-2-2026" />. With Gemini Robotics 2.5, ER tracked a kitting workflow while the VLA moved Apollo 2's hands, at 96% success in a Mercedes-Benz proof of concept <Cite id="gemini-robotics-2-5-2026" />.
+Gemini Robotics 1.5 added the ER 1.5 orchestrator <Cite id="gemini-robotics-15-2025" />; Google's developer release can call a VLA or user-defined functions <Cite id="gemini-robotics-er-15-dev-2025" />. In [Gemini Robotics 2](/manipulation/generalist-policies/), ER 2 coordinates with the VLA over multi-minute tasks <Cite id="gemini-robotics-2-2026" /> and scores 57.4% on progress classification <Cite id="gemini-robotics-er-2-2026" />. With Gemini Robotics 2.5, ER tracked a kitting workflow while the VLA moved Apollo 2's hands, at 96% success in a Mercedes-Benz proof of concept <Cite id="gemini-robotics-2-5-2026" />.
 
 NVIDIA's GR00T 2 uses a reasoning agent that calls the world action model as a tool and repairs dropped parts with code skills. With it, a YAM arm completed 97 or 98 of 100 assemblies of each of three toys, against 71 to 84 for the policy alone <Cite id="gr00t-2-2026" />.
 
-Robo-COP fine-tunes the VLA under an orchestrator during deployment, keeping an update only if it improves the skills it targeted. Success on three real tasks rose from 38.3% to 50.0% <Cite id="robo-cop-2026" />.
+Robo-COP fine-tunes the VLA under an orchestrator during deployment, keeping only updates that improve their target skills; success on three real tasks rose from 38.3% to 50.0% <Cite id="robo-cop-2026" />.
 
 ## Neither design has won
 
-[Both designs persist](/frontier/competing-theses/). On a real ALOHA robot, the best hierarchy placed 12 of 15 fruits, against 9 for a naive hierarchy and 3 for a flat VLA <Cite id="orchestrating-policies-2026" />. Hierarchy inside a network can stall: token-by-token waypoint planning took 57 VLM forward passes until the authors cut latency 8.7-fold <Cite id="fast-plans-2026" />.
+On a real ALOHA robot, the best hierarchy placed 12 of 15 fruits, against 9 for a naive hierarchy and 3 for a flat VLA <Cite id="orchestrating-policies-2026" />. Hierarchy inside a network can stall: token-by-token waypoint planning took 57 VLM forward passes until the authors cut latency 8.7-fold <Cite id="fast-plans-2026" />.
+
+Controlling simulated robots, GPT-6 Astra [decides better than it executes](/frontier/competing-theses/):
+
+| Study | Setup | Benchmark | Success |
+| --- | --- | --- | --- |
+| Auriga <Cite id="auriga-2026" /> | Arm-free object moves, the reference harness, then Auriga's, developed on RoboDojo | RoboDojo, 210 then 6,300 episodes | 76.2%; 22.5%; 57.7% (score 64.0) |
+| EBench <Cite id="ebench-astra-2026" /> | Against eight trained policies, then calling one | EBench, 26 tasks | 46.7%, third; first on short tasks, behind on long; 56.0% calling InternW0-Δ, first |
+| Galbot <Cite id="galbot-astra-policies-2026" /> | Alone, then correcting π0.5 | RoboDojo, 10 tasks | 26%; 48% |

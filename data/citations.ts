@@ -23704,6 +23704,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['FF EAI Robotics Ecosystem Inc.', 'FF EAI Robotics'],
   ['Figure AI', 'Figure AI'],
   ['Franka Robotics', 'Franka Robotics'],
+  ['Galbot Team', 'Galbot Team'],
   ['GEAR Team', 'GEAR Team'],
   ['Gemini Robotics Team', 'Gemini Robotics Team'],
   ['Gemma Team', 'Gemma Team'],
