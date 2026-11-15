@@ -61,6 +61,8 @@ export interface FigureRound {
   clamped: boolean;
   /** The amount is a ceiling ("up to"): the dot sits at it and is never labeled. */
   ceiling: boolean;
+  /** Known from a press or newsletter report, not a primary source. */
+  reported: boolean;
   /** Company and amount, as printed beside the dot. */
   label: string;
 }
@@ -140,6 +142,7 @@ export function figureRounds(
       monthOnly: event.datePrecision === 'month',
       clamped: plotted !== plotDate(event, NO_CLAMP),
       ceiling: amountIsCeiling(event),
+      reported: event.sourceType === 'reported',
       label: `${event.company} ${amountText(event, usd)}`,
     });
   }
@@ -200,8 +203,6 @@ export interface RoundsFigureFacts {
   belowFloor: FundingEvent[];
   monthOnly: number;
   clamped: number;
-  /** Drawn rounds whose amount is a ceiling, largest first; never labeled. */
-  ceilings: FigureRound[];
   totalUsd: number;
   fxDate: string;
   largestClosed: FigureRound;
@@ -228,7 +229,6 @@ export function roundsFigureFacts(): RoundsFigureFacts {
     belowFloor,
     monthOnly: drawn.filter((r) => r.monthOnly).length,
     clamped: drawn.filter((r) => r.clamped).length,
-    ceilings: drawn.filter((r) => r.ceiling).sort(bySize),
     totalUsd: totalRaisedUsd(),
     fxDate: FX_RATES_DATE,
     largestClosed,
@@ -309,29 +309,45 @@ export function readoutText(total: SegmentTotal, allUsd: number = totalRaisedUsd
   );
 }
 
-/** The labeling sentence, for the layout on screen. */
-export function labelsText(layout: Pick<RoundsFigureLayout, 'labels' | 'cap' | 'firstUnplaced'>): string {
-  const n = layout.labels.length;
-  const placed = `At this width the ${count(n, 'largest round is', 'largest rounds are')} labeled with company and amount`;
-  if (layout.firstUnplaced) {
-    return `${placed}; the next, ${layout.firstUnplaced.label}, has no spot clear of every dot, axis label and other label.`;
-  }
-  return `${placed}, the most this width takes. No label touches a dot, an axis label or another label.`;
+/**
+ * Ceilings that outrank the smallest label: larger than a labeled round, yet
+ * unlabeled. Every drawn ceiling when nothing is labeled.
+ */
+export function outrankingCeilings(layout: Pick<RoundsFigureLayout, 'dots' | 'labels'>): FigureRound[] {
+  const labeled = new Set(layout.labels.map((l) => l.key));
+  const rounds = layout.dots.map((d) => d.round);
+  const smallest = rounds.filter((r) => labeled.has(r.key)).sort(bySize).at(-1);
+  return rounds.filter((r) => r.ceiling && (!smallest || bySize(r, smallest) < 0)).sort(bySize);
 }
 
-/** The sentence on unlabeled ceilings, with a leading space; empty when there are none. */
-export function ceilingText(ceilings: readonly FigureRound[]): string {
-  if (ceilings.length === 0) return '';
-  const names = listText(ceilings.map((r) => `${r.company} (up to ${formatUsd(r.usd)})`));
-  return ceilings.length === 1
-    ? ` ${names} sits at that ceiling and carries no label.`
-    : ` ${names} sit at those ceilings and carry no labels.`;
+/** The labeling sentences, for the layout on screen. */
+export function labelsText(
+  layout: Pick<RoundsFigureLayout, 'dots' | 'labels' | 'cap' | 'firstUnplaced'>,
+): string {
+  const n = layout.labels.length;
+  const others = layout.dots.some((d) => d.round.ceiling) ? ' other than ceilings' : '';
+  const placed =
+    `At this width the ${count(n, 'largest round', 'largest rounds')}${others} ` +
+    `${n === 1 ? 'is' : 'are'} labeled with company and amount`;
+  const ceilings = outrankingCeilings(layout);
+  const one = ceilings.length === 1;
+  const reported = ceilings.every((r) => r.reported) ? 'reported ' : '';
+  const skipped =
+    ceilings.length === 0
+      ? ''
+      : `; ${listText(ceilings.map((r) => `${r.company} (up to ${formatUsd(r.usd)})`))} ` +
+        `would rank among them but ${one ? 'carries' : 'carry'} no label, because ` +
+        `${one ? `its amount is a ${reported}ceiling` : `their amounts are ${reported}ceilings`}`;
+  if (layout.firstUnplaced) {
+    return `${placed}${skipped}. The next, ${layout.firstUnplaced.label}, has no spot clear of every dot, axis label and other label.`;
+  }
+  return `${placed}, the most this width takes${skipped}. No label touches a dot, an axis label or another label.`;
 }
 
 /** The paragraphs of the "How this was made" fold. */
 export function methodParagraphs(
   facts: RoundsFigureFacts,
-  layout: Pick<RoundsFigureLayout, 'labels' | 'cap' | 'firstUnplaced'>,
+  layout: Pick<RoundsFigureLayout, 'dots' | 'labels' | 'cap' | 'firstUnplaced'>,
 ): string[] {
   const hollow = facts.hollow.map((h) => `${h.count} ${STATUS_WORDS[h.status]}`);
   const floorNames = facts.belowFloor.map((r) => r.company);
@@ -348,7 +364,7 @@ export function methodParagraphs(
       `${count(floorNames.length, 'round', 'rounds')} under the ${formatUsd(FLOOR_USD)} floor` +
       `${floorNames.length > 0 ? ` (${listText(floorNames)})` : ''}. They stay in the tables, and the closed ones in the totals.`,
     `${count(facts.monthOnly, 'round', 'rounds')} dated only to a month ${facts.monthOnly === 1 ? 'sits' : 'sit'} on its 15th${clamped}.`,
-    labelsText(layout) + ceilingText(facts.ceilings),
+    labelsText(layout),
     `Amounts in other currencies are converted to US dollars at the European Central Bank's euro reference rates of ` +
       `${formatLongDate(facts.fxDate)}. The segments are the market map's six; each round's sector maps onto one of them.`,
   ];
