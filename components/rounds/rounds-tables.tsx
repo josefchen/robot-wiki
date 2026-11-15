@@ -29,6 +29,7 @@ import {
   TextCell,
   type ColumnHead,
 } from './rounds-cells';
+import { RoundsFold } from './rounds-fold';
 
 /**
  * The rounds page's tables, all static and server-rendered. Rows come from
@@ -120,18 +121,35 @@ function RoundRow({ round, anchored }: { round: FundingEvent; anchored: boolean 
   );
 }
 
-/** Every round in the window, newest first, each row anchored for the investor links. */
+/**
+ * Rows the rounds table shows before its fold. The newest, because the page
+ * is about recent rounds and the table's lead says "newest first": the fold
+ * then cuts the one order in two, and opening it continues that order.
+ */
+export const ROUNDS_SHOWN = 30;
+
+/**
+ * Every round in the window, newest first, each row anchored for the
+ * investor links. Rows past ROUNDS_SHOWN are in the HTML behind a fold.
+ */
 export function RoundsTable() {
+  const rounds = roundsInWindow();
+  const row = (round: FundingEvent) => <RoundRow key={round.key} round={round} anchored />;
   return (
     <StaticTable
       captionId="rounds-table-caption"
       caption={`Rounds in the window, newest first. ${REPORTED_NOTE} ${FX_NOTE}`}
       columns={ROUND_COLUMNS}
       minWidth={ROUND_TABLE_WIDTH}
+      after={
+        rounds.length > ROUNDS_SHOWN ? (
+          <RoundsFold shown={ROUNDS_SHOWN} total={rounds.length} columns={ROUND_COLUMNS.length}>
+            {rounds.slice(ROUNDS_SHOWN).map(row)}
+          </RoundsFold>
+        ) : null
+      }
     >
-      {roundsInWindow().map((round) => (
-        <RoundRow key={round.key} round={round} anchored />
-      ))}
+      {rounds.slice(0, ROUNDS_SHOWN).map(row)}
     </StaticTable>
   );
 }

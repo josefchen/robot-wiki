@@ -30,6 +30,7 @@ export function StaticTable({
   minWidth,
   className,
   children,
+  after,
 }: {
   captionId: string;
   caption: ReactNode;
@@ -38,6 +39,8 @@ export function StaticTable({
   minWidth: string;
   className?: string;
   children: ReactNode;
+  /** Further table bodies after the first, such as a fold. */
+  after?: ReactNode;
 }) {
   return (
     <TableScroll labelledBy={captionId} className={cx('[container-type:inline-size]', className)}>
@@ -59,6 +62,7 @@ export function StaticTable({
           </tr>
         </thead>
         <tbody>{children}</tbody>
+        {after}
       </table>
     </TableScroll>
   );
