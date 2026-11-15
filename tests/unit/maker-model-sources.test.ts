@@ -110,6 +110,28 @@ describe('maker model sources: rows', () => {
     }
   });
 
+  it('no-licence rows cite the README read at the commit and open "No licence file"', () => {
+    for (const row of rowsByStatus(rows, 'no-licence')) {
+      expect(
+        row.sources.some((s) =>
+          s.url.startsWith(`${row.repository}/blob/${row.commit!.hash}/README`),
+        ),
+        row.id,
+      ).toBe(true);
+      expect(row.note, row.id).toMatch(/^No licence file\b/);
+    }
+  });
+
+  it('a licence declared only in a manifest is official and says there is no licence file', () => {
+    const manifest = /\/(?:package\.xml|setup\.py|pyproject\.toml)$/;
+    const declared = rows.filter((row) => row.licence && manifest.test(row.licence.url));
+    expect(declared.map((row) => row.id)).toEqual(['agibot-omnihand']);
+    for (const row of declared) {
+      expect(row.status, row.id).toBe('official');
+      expect(row.note, row.id).toMatch(/no licence file/);
+    }
+  });
+
   it('none-found rows cite the maker, have no files and say "none found" with the date', () => {
     for (const row of rowsByStatus(rows, 'none-found')) {
       expect(row.repository, row.id).toBeNull();
@@ -175,9 +197,9 @@ describe('maker model sources: counts', () => {
   it('counts every status from the rows', () => {
     const counts = countsByStatus(rows);
     expect(counts).toEqual({
-      official: 20,
+      official: 21,
       restricted: 4,
-      'no-licence': 3,
+      'no-licence': 2,
       'none-found': 7,
     });
     const total = Object.values(counts).reduce((a, b) => a + b, 0);
@@ -194,7 +216,6 @@ describe('maker model sources: counts', () => {
     ]);
     expect(rowsByStatus(rows, 'no-licence').map((row) => row.id)).toEqual([
       'agibot-x1-train',
-      'agibot-omnihand',
       'engineai-description',
     ]);
     expect(rowsByStatus(rows, 'none-found').map((row) => row.maker)).toEqual([
@@ -214,7 +235,7 @@ describe('maker model sources: counts', () => {
   it('reports zero for a status with no rows', () => {
     const official = rowsByStatus(rows, 'official');
     expect(countsByStatus(official)).toEqual({
-      official: 20,
+      official: 21,
       restricted: 0,
       'no-licence': 0,
       'none-found': 0,

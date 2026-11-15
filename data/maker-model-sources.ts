@@ -28,10 +28,13 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
   {
     id: 'unitree-ros',
     maker: 'Unitree Robotics',
+    // One name per robot folder under robots/; folders that fit a listed
+    // robot with another arm or hand (aliengoZ1, g1_with_brainco_hand,
+    // r1_7a, r1_a5, r1_a7) and b2_description_mujoco add no name.
     robots: [
-      'A1', 'A2', 'Aliengo', 'AS2', 'B1', 'B2', 'B2W', 'G1', 'G1-D', 'Go1',
-      'Go2', 'Go2W', 'H1', 'H1-2', 'H2', 'H2 Plus', 'H2X', 'Laikago', 'R1',
-      'R1 Air', 'Z1', 'Dexterous hands',
+      'A1', 'A2', 'Aliengo', 'AS2', 'AS2W', 'B1', 'B2', 'B2W', 'G1', 'G1-D',
+      'Go1', 'Go2', 'Go2W', 'H1', 'H1-2', 'H2', 'H2-D', 'H2 Plus', 'H2X',
+      'Laikago', 'R1', 'R1 Air', 'R1-D', 'Z1', 'Dexterous hands',
     ],
     status: 'official',
     repository: 'https://github.com/unitreerobotics/unitree_ros',
@@ -266,7 +269,7 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
         kind: 'primary',
       },
     ],
-    note: 'The licensed home of the X1 model: 65 STL meshes and MJCF, where agibot_x1_train has none.',
+    note: 'The licensed home of the X1 model; agibot_x1_train carries the same 65 STL meshes, three of them renamed, with no licence file.',
   },
   {
     id: 'agibot-genie-g2',
@@ -292,6 +295,36 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
       },
     ],
     note: 'The repository also bundles AgileX, ARX, Franka and UR models; this row covers robots/genie only.',
+  },
+  {
+    id: 'agibot-omnihand',
+    maker: 'AgiBot',
+    robots: ['OmniHand 2025 (O10)'],
+    status: 'official',
+    repository: 'https://github.com/AgibotTech/agilink_omnihand_description',
+    commit: {
+      hash: 'ddd053c4b09bd7eddc0ab28305d9107b49157808',
+      date: '2026-11-12',
+    },
+    formats: ['URDF', 'MJCF'],
+    licence: {
+      name: 'Apache-2.0',
+      url: 'https://github.com/AgibotTech/agilink_omnihand_description/blob/ddd053c4b09bd7eddc0ab28305d9107b49157808/package.xml',
+    },
+    checked: CHECKED,
+    sources: [
+      {
+        url: 'https://github.com/AgibotTech/agilink_omnihand_description/tree/ddd053c4b09bd7eddc0ab28305d9107b49157808',
+        title: 'agilink_omnihand_description at ddd053c4; no licence file in the tree',
+        kind: 'primary',
+      },
+      {
+        url: 'https://github.com/AgibotTech/agilink_omnihand_description/blob/ddd053c4b09bd7eddc0ab28305d9107b49157808/package.xml',
+        title: 'omnihand_2025_description package.xml at ddd053c4: <license>Apache-2.0</license>',
+        kind: 'primary',
+      },
+    ],
+    note: 'Apache-2.0 is declared only in the package.xml that covers the URDF, MJCF and meshes; the repository has no licence file.',
   },
   {
     id: 'booster-assets',
@@ -341,7 +374,7 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
         kind: 'primary',
       },
     ],
-    note: 'The README gives MJCF for the base HU_D04 only and marks HU_D03 discontinued.',
+    note: 'Among the HU_D04 variants only the base has MJCF; HU_D03, marked discontinued, has URDF, MJCF and USD.',
   },
   {
     id: 'franka-description',
@@ -371,7 +404,9 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
   {
     id: 'ur-bsd',
     maker: 'Universal Robots',
-    robots: ['UR3', 'UR5', 'UR10', 'UR3e', 'UR5e', 'UR10e', 'UR16e'],
+    robots: [
+      'UR3', 'UR5', 'UR10', 'UR3e', 'UR5e', 'UR7e', 'UR10e', 'UR12e', 'UR16e',
+    ],
     status: 'official',
     repository: 'https://github.com/UniversalRobots/Universal_Robots_ROS2_Description',
     commit: {
@@ -391,7 +426,7 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
         kind: 'primary',
       },
     ],
-    note: 'The README puts everything outside the newer models\' mesh folders under BSD-3-Clause.',
+    note: 'The README puts everything outside the newer models\' mesh folders under BSD-3-Clause, and UR7e and UR12e reuse the UR5e and UR10e meshes.',
   },
   {
     id: 'leap-hand-sim',
@@ -416,7 +451,7 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
         kind: 'primary',
       },
     ],
-    note: 'The simulation files are MIT; the website CAD carries different licences.',
+    note: 'The simulation files are MIT; the URDF and STEP downloads on the LEAP website carry other licences.',
   },
   {
     id: 'leap-hand-v1-cad',
@@ -425,7 +460,7 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
     status: 'official',
     repository: 'https://v1.leaphand.com/leap_cad',
     commit: null,
-    formats: ['STEP'],
+    formats: ['URDF', 'STEP'],
     licence: {
       name: 'CC-BY-SA-4.0',
       url: 'https://creativecommons.org/licenses/by-sa/4.0/',
@@ -604,7 +639,7 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
     status: 'restricted',
     repository: 'https://v2-adv.leaphand.com/leap_cad',
     commit: null,
-    formats: ['STEP'],
+    formats: ['URDF', 'STEP'],
     licence: {
       name: 'CC BY-NC-SA (version not stated)',
       url: 'https://v2-adv.leaphand.com/leap_cad',
@@ -669,30 +704,18 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
         title: 'agibot_x1_train at e6651b9a, resources/robots/x1; no licence file in the tree',
         kind: 'primary',
       },
-    ],
-    note: 'No licence file at this commit; agibot_x1_infer carries the X1 model under Mulan PSL v2.',
-  },
-  {
-    id: 'agibot-omnihand',
-    maker: 'AgiBot',
-    robots: ['OmniHand 2025', 'OmniHand 3'],
-    status: 'no-licence',
-    repository: 'https://github.com/AgibotTech/agilink_omnihand_description',
-    commit: {
-      hash: 'ddd053c4b09bd7eddc0ab28305d9107b49157808',
-      date: '2026-11-12',
-    },
-    formats: ['URDF', 'MJCF'],
-    licence: null,
-    checked: CHECKED,
-    sources: [
       {
-        url: 'https://github.com/AgibotTech/agilink_omnihand_description/tree/ddd053c4b09bd7eddc0ab28305d9107b49157808',
-        title: 'agilink_omnihand_description at ddd053c4; no licence file in the tree',
+        url: 'https://github.com/AgibotTech/agibot_x1_train/blob/e6651b9ab843fd1b1be70c087bfb7e8b28e44ccd/setup.py',
+        title: 'agibot_x1_train setup.py at e6651b9a: license="BSD-3-Clause", packages=find_packages()',
+        kind: 'primary',
+      },
+      {
+        url: 'https://github.com/AgibotTech/agibot_x1_train/blob/e6651b9ab843fd1b1be70c087bfb7e8b28e44ccd/README.md',
+        title: 'agibot_x1_train README at e6651b9a: no licence statement',
         kind: 'primary',
       },
     ],
-    note: 'No licence file at this commit, so the files can be linked but not rehosted.',
+    note: 'No licence file; the SPDX header and license field of setup.py declare BSD-3-Clause for the humanoid Python package, which does not take in resources/robots/x1.',
   },
   {
     id: 'engineai-description',
@@ -710,11 +733,16 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
     sources: [
       {
         url: 'https://github.com/engineai-robotics/engineai_robotics_description/tree/1d2d7601f520f716863c32a83abe9c77b26ee06c',
-        title: 'engineai_robotics_description at 1d2d7601; no licence file in the tree',
+        title: 'engineai_robotics_description at 1d2d7601; no licence file or manifest in the tree',
+        kind: 'primary',
+      },
+      {
+        url: 'https://github.com/engineai-robotics/engineai_robotics_description/blob/1d2d7601f520f716863c32a83abe9c77b26ee06c/README_EN.md',
+        title: 'engineai_robotics_description README_EN at 1d2d7601: no licence statement',
         kind: 'primary',
       },
     ],
-    note: 'No licence file at this commit, and no SE01 model in the repository.',
+    note: 'No licence file, manifest or README licence statement at this commit, and no SE01 model in the repository.',
   },
   {
     id: 'tesla-optimus',
@@ -823,12 +851,12 @@ export const MAKER_MODEL_SOURCES: MakerModelSource[] = [
     checked: CHECKED,
     sources: [
       {
-        url: 'https://github.com/apptronik',
-        title: 'apptronik on GitHub: no public repositories',
+        url: 'https://apptronik.com/',
+        title: 'apptronik.com: no GitHub, developer or download link',
         kind: 'primary',
       },
     ],
-    note: 'None found on 15 Nov 2026; Apptronik\'s GitHub account has no public repositories.',
+    note: 'None found on 15 Nov 2026; Apptronik\'s site links no GitHub account and no developer or download page.',
   },
   {
     id: 'agibot-a2',
