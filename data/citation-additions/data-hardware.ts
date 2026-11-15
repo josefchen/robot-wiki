@@ -229,6 +229,25 @@ export const ADDITIONS: Citation[] = [
     url: 'https://huggingface.co/datasets/XDOF/ABC-130k',
     type: 'docs',
   },
+  // abc-behavior-cloning-2026: arXiv abstract read 2026-11-15 (v1 25 Jun 2026, the only version).
+  // "ABC-130K: the largest open-source teleoperation dataset to date, featuring 3,500 hours of data
+  // spanning over 130K episodes across 195 diverse tasks"; "We also release 400 hours of sim-teleop data".
+  // Not the 2018 CAD-model dataset ABC (abc-models-2018).
+  {
+    id: 'abc-behavior-cloning-2026',
+    title: 'Scalable Behavior Cloning with Open Data, Training, and Evaluation',
+    authors: [
+      'Arthur Allshire', 'Himanshu Gaurav Singh', 'Ritvik Singh', 'Adam Rashid', 'Hongsuk Choi',
+      'David McAllister', 'Justin Yu', 'Yiyuan Chen', 'Huang Huang', 'Pieter Abbeel', 'Xi Chen',
+      'Rocky Duan', 'Phillip Isola', 'Jitendra Malik', 'Fred Shentu', 'Guanya Shi', 'Philipp Wu',
+      'Angjoo Kanazawa',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2606.27375',
+    url: 'https://arxiv.org/abs/2606.27375',
+    type: 'paper',
+  },
   // roboticscenter-marketplace: read 2026-11-14 (undated page; operator DeepAware, Inc., per the page's
   // structured data). 26 datasets priced per recorded hour, 10-hour minimum: egocentric $90-270,
   // teleoperation $450-1,200, handheld gripper $375-600, motion capture $250-900, hands and tactile
