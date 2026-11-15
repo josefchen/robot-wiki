@@ -53,6 +53,18 @@ export const ADDITIONS: Citation[] = [
     type: 'press',
   },
   {
+    // PDF read 2026-11-15; byline "Joint Research Team", undated (SOTA cut-off 12 Oct 2026). Date from the
+    // SenseNova-RoboRSI GitHub news line of 2026-10-16. Sec. 4.2 and Table 14: rigid pick-and-place 17/18,
+    // plug insertion 0/11 over three platforms, cloth folding 2/4 on the Franka 3, navigation and search 9/23.
+    id: 'sensenova-astra-embodied-2026',
+    title: 'Has GPT-6-Astra Achieved Embodied Intelligence?',
+    authors: ['Joint Research Team'],
+    year: 2026,
+    venue: 'SenseNova, 2026-10-16',
+    url: 'https://sensenova.ai/gpt-6/assets/docs/has_gpt-6_achieved_embodied_intelligence.pdf',
+    type: 'paper',
+  },
+  {
     id: 'backtrack-vla-2026',
     title: "If at First You Don't Succeed, Backtrack: Lightweight Recovery for Frozen VLAs",
     authors: ['Thomas Landeg', 'Thierry Tambe'],
