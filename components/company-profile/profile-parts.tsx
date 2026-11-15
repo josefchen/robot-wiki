@@ -28,15 +28,19 @@ export function Source({ source, className }: { source: ProfileSource; className
     <span className={cx('text-[13px] leading-[1.45]', className)}>
       <SourceLink url={source.sourceUrl} title={source.sourceTitle} label={sourceLabel(source)} />
       {source.pageRef ? (
-        <span className="font-mono text-[12px] text-text-dim">
-          {/* Lines break between references, never inside "1-1-145" or "p. 12". */}
-          {source.pageRef.split(/(?<=[,;]) /).map((token, index) => (
-            <span key={index}>
-              {index === 0 ? ', ' : ' '}
-              <span className="whitespace-nowrap">{token}</span>
-            </span>
-          ))}
-        </span>
+        <>
+          {/* The comma belongs to the name it follows, not to the mono reference. */}
+          <span className="text-text-dim">,</span>{' '}
+          <span className="font-mono text-[12px] text-text-dim">
+            {/* Lines break between references, never inside "1-1-145" or "p. 12". */}
+            {source.pageRef.split(/(?<=[,;]) /).map((token, index) => (
+              <span key={index}>
+                {index === 0 ? '' : ' '}
+                <span className="whitespace-nowrap">{token}</span>
+              </span>
+            ))}
+          </span>
+        </>
       ) : null}
       {source.sourceType === 'reported' ? (
         <>
