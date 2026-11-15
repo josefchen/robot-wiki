@@ -119,6 +119,20 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.30953',
     type: 'paper',
   },
+  // alpamayo-2-edge-2026: Hugging Face model card read 2026-11-15 (release date 11/10/2026): "a
+  // 2B-parameter reasoning vision-language-action model"; "efficient in-vehicle deployment on NVIDIA
+  // DRIVE AGX Thor"; backbone 2.45B plus 0.2B action expert; "The model weights are released under the
+  // OpenMDW-1.1 license"; "Closed-Loop Evaluation using AlpaSim on 875 scenarios ..., with three
+  // rollouts per scenario: 15.15 ± 0.04 km driven per at-fault incident (off-road or at-fault collision".
+  {
+    id: 'alpamayo-2-edge-2026',
+    title: 'Alpamayo 2 Edge',
+    authors: ['NVIDIA'],
+    year: 2026,
+    venue: 'Hugging Face model card',
+    url: 'https://huggingface.co/nvidia/Alpamayo2-Edge',
+    type: 'docs',
+  },
   // drones
   {
     id: 'walmart-zipline-300-2026',

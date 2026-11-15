@@ -90,6 +90,7 @@ citations:
   - aurora-q3-2026
   - cercola-binding-gap-2026
   - manalu-reasoning-coupling-2026
+  - alpamayo-2-edge-2026
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/hierarchical"
@@ -232,7 +233,7 @@ Driving gave robot learning four tools ([data bottleneck](/data-hardware/data-bo
 
 EMMA is a <Term id="vision-language-action-model">vision-language-action model</Term> whose body is a car <Cite id="emma-2024" />. Driving VLAs are single networks or dual systems, with a slow vision-language model over fast execution <Cite id="vla-ad-survey-2026" />, the shape of [hierarchical](/manipulation/hierarchical/) manipulation.
 
-Waymo pairs a fast sensor-fusion encoder with a driving model trained using Gemini <Cite id="waymo-foundation-model-2025" /> ([knowledge insulation](/manipulation/knowledge-insulation/)). NVIDIA's Alpamayo-R1 runs onboard at 99 ms <Cite id="alpamayo-r1-2025" />.
+Waymo pairs a fast sensor-fusion encoder with a driving model trained using Gemini <Cite id="waymo-foundation-model-2025" /> ([knowledge insulation](/manipulation/knowledge-insulation/)). NVIDIA's Alpamayo-R1 runs onboard at 99 ms <Cite id="alpamayo-r1-2025" />. Alpamayo 2 Edge, a 2B-parameter model for DRIVE AGX Thor with open OpenMDW-1.1 weights, drove 15.15 km per at-fault incident in NVIDIA's own closed-loop AlpaSim test (875 scenarios, three rollouts each) <Cite id="alpamayo-2-edge-2026" />.
 
 These models do not reliably act on what they see or say.
 
