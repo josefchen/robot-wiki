@@ -23,14 +23,26 @@ export interface LlmsArticle {
   source: string;
 }
 
+/** A standalone page from the sitemap, with its search title and description. */
+export interface LlmsPage {
+  path: string;
+  title: string;
+  description: string;
+}
+
 export interface LlmsInput {
   siteUrl: string;
   siteName: string;
   descriptor: string;
   domains: ReadonlyArray<{ id: string; name: string; description: string }>;
   articles: readonly LlmsArticle[];
+  /** Every sitemap standalone page, in sitemap order. */
+  pages: readonly LlmsPage[];
   citation: (id: string) => LlmsCitation | undefined;
 }
+
+/** Pages about the site itself, listed under llms.txt's skippable `## Optional`. */
+export const LLMS_OPTIONAL_PATHS: readonly string[] = ['/credits/', '/editorial-policy/', '/about/', '/a-z/'];
 
 /** How many cited, numeric sentences llms-full.txt keeps per article. */
 export const KEY_FACTS_PER_ARTICLE = 5;
@@ -105,7 +117,10 @@ export function articleKeyFacts(input: LlmsInput, article: LlmsArticle): string[
   return facts;
 }
 
-/** `/llms.txt`: every domain and published article with a one-line summary. */
+/**
+ * `/llms.txt`: every domain and published article with a one-line summary,
+ * then every sitemap standalone page, the pages about the site last.
+ */
 export function buildLlmsTxt(input: LlmsInput): string {
   const lines = [`# ${input.siteName}`, '', `> ${input.descriptor}`, ''];
   lines.push(
@@ -118,6 +133,16 @@ export function buildLlmsTxt(input: LlmsInput): string {
     for (const article of input.articles.filter((entry) => entry.domain === domain.id)) {
       lines.push(`- [${article.title}](${articleUrl(input, article)}): ${article.summary}`);
     }
+    lines.push('');
+  }
+  const sections: Array<[string, LlmsPage[]]> = [
+    ['Data and tools', input.pages.filter((page) => !LLMS_OPTIONAL_PATHS.includes(page.path))],
+    ['Optional', input.pages.filter((page) => LLMS_OPTIONAL_PATHS.includes(page.path))],
+  ];
+  for (const [heading, pages] of sections) {
+    if (pages.length === 0) continue;
+    lines.push(`## ${heading}`, '');
+    for (const page of pages) lines.push(`- [${page.title}](${input.siteUrl}${page.path}): ${page.description}`);
     lines.push('');
   }
   return `${lines.join('\n').trimEnd()}\n`;
