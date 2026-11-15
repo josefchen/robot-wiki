@@ -77,8 +77,8 @@
       "modified": "2026-11-14T20:02:37Z"
     },
     "data-hardware/research-arms-compared": {
-      "published": "2026-11-15T08:10:35Z",
-      "modified": "2026-11-15T08:10:35Z"
+      "published": "2026-11-15T08:48:08Z",
+      "modified": "2026-11-15T08:48:08Z"
     },
     "data-hardware/robot-learning-stack": {
       "published": "2026-09-24T19:27:51Z",
@@ -239,28 +239,28 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/manipulation/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/classical/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/rl-sim2real/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/world-models/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/frontier/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/data-hardware/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/adjacent/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/now/": {
       "modified": "2026-11-15T00:52:44Z"
@@ -269,7 +269,7 @@
       "modified": "2026-11-15T03:49:27Z"
     },
     "/market-map/rounds/": {
-      "modified": "2026-11-15T03:49:27Z"
+      "modified": "2026-11-15T08:48:23Z"
     },
     "/playground/": {
       "modified": "2026-11-13T07:15:57Z"
@@ -278,7 +278,7 @@
       "modified": "2026-11-13T05:50:10Z"
     },
     "/glossary/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/credits/": {
       "modified": "2026-11-14T19:31:23Z"
@@ -287,10 +287,10 @@
       "modified": "2026-11-13T03:01:06Z"
     },
     "/about/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     },
     "/a-z/": {
-      "modified": "2026-11-15T08:10:35Z"
+      "modified": "2026-11-15T08:48:08Z"
     }
   }
 }
