@@ -1590,6 +1590,9 @@ article > hr {
   text-indent: 0;
   text-transform: none;
   white-space: normal;
+  /* A note opened inside a run of numbers wraps as prose, not as the run
+     around it does (lib/rehype-cite-punctuation.mjs). */
+  overflow-wrap: normal;
   color: var(--muted);
 }
 
