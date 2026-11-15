@@ -1,6 +1,7 @@
-import { cleanup, render, screen, within } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
+import { afterEach, describe, expect, it, onTestFinished, vi } from 'vitest';
 import RecentRoundsPage, { metadata } from '@/app/market-map/rounds/page';
+import { ROUNDS_SHOWN } from '@/components/rounds/rounds-tables';
 import sitemap from '@/app/sitemap';
 import { CORPORATE_EVENTS, EUROPE_INVESTORS, LISTINGS, ROUNDS_AS_OF } from '@/data/rounds';
 import { CHART_DESCRIPTIONS } from '@/lib/chart-descriptions';
@@ -27,11 +28,22 @@ function renderPage() {
   return render(<RecentRoundsPage />).container;
 }
 
-/** A table's body rows, found by its caption id. */
+/** A table's body rows, found by its caption id, folded rows included and the fold's control row left out. */
 function bodyRows(container: HTMLElement, captionId: string): HTMLTableRowElement[] {
   const caption = container.querySelector(`caption#${captionId}`);
   if (!caption) throw new Error(`no table captioned ${captionId}`);
-  return [...caption.closest('table')!.querySelectorAll<HTMLTableRowElement>('tbody tr')];
+  return [
+    ...caption
+      .closest('table')!
+      .querySelectorAll<HTMLTableRowElement>('tbody:not([data-rounds-fold-control]) tr'),
+  ];
+}
+
+/** Rows of the rounds table a reader sees: none inside a hidden body. */
+function visibleRoundKeys(container: HTMLElement): string[] {
+  return bodyRows(container, 'rounds-table-caption')
+    .filter((row) => !row.closest('tbody')!.hidden)
+    .map((row) => row.getAttribute('data-round-row')!);
 }
 
 const TABLES: [string, number][] = [
@@ -139,6 +151,60 @@ describe('/market-map/rounds/ page', () => {
         expect(target!.closest('table')!.querySelector('caption')!.id).toBe('rounds-table-caption');
       }
     }
+  });
+
+  it('shows the newest rounds and folds the rest, every row in the HTML in one order', () => {
+    const container = renderPage();
+    const keys = roundsInWindow().map((r) => r.key);
+    expect(keys.length).toBeGreaterThan(ROUNDS_SHOWN);
+    expect(bodyRows(container, 'rounds-table-caption').map((r) => r.getAttribute('data-round-row'))).toEqual(keys);
+    expect(visibleRoundKeys(container)).toEqual(keys.slice(0, ROUNDS_SHOWN));
+    const folded = container.querySelector<HTMLElement>('tbody[data-rounds-folded]')!;
+    expect(folded.hidden).toBe(true);
+    expect(folded.querySelectorAll('tr')).toHaveLength(keys.length - ROUNDS_SHOWN);
+    expect(folded.querySelectorAll('a[data-source-link]')).toHaveLength(keys.length - ROUNDS_SHOWN);
+    const button = screen.getByRole('button', { name: `Show all ${keys.length} rounds` });
+    expect(button).toHaveAttribute('aria-expanded', 'false');
+    expect(button).toHaveAttribute('aria-controls', folded.id);
+  });
+
+  it('opens the fold to every row and closes it again', () => {
+    const container = renderPage();
+    const keys = roundsInWindow().map((r) => r.key);
+    fireEvent.click(screen.getByRole('button', { name: `Show all ${keys.length} rounds` }));
+    expect(visibleRoundKeys(container)).toEqual(keys);
+    const close = screen.getByRole('button', { name: `Show the ${ROUNDS_SHOWN} newest` });
+    expect(close).toHaveAttribute('aria-expanded', 'true');
+    fireEvent.click(close);
+    expect(visibleRoundKeys(container)).toEqual(keys.slice(0, ROUNDS_SHOWN));
+  });
+
+  it('puts the control before the folded rows, so Tab after opening reaches them', () => {
+    const container = renderPage();
+    const button = screen.getByRole('button', { name: /^Show all/ });
+    const folded = container.querySelector('tbody[data-rounds-folded]')!;
+    expect(button.compareDocumentPosition(folded) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(button.tagName).toBe('BUTTON');
+    expect(button).not.toHaveAttribute('tabindex');
+  });
+
+  it('opens the fold when an investor link points at a folded row', () => {
+    // jsdom has no scrollIntoView; the stub records which row the fold scrolled to.
+    const scroll = vi.fn();
+    Object.defineProperty(Element.prototype, 'scrollIntoView', { value: scroll, configurable: true });
+    onTestFinished(() => {
+      delete (Element.prototype as Partial<Element>).scrollIntoView;
+    });
+    const container = renderPage();
+    const folded = container.querySelector<HTMLElement>('tbody[data-rounds-folded]')!;
+    const link = [...container.querySelectorAll<HTMLAnchorElement>('a[data-investor-link]')].find((a) =>
+      folded.contains(container.querySelector(a.getAttribute('href')!)),
+    );
+    expect(link, 'an investor link into the fold').toBeDefined();
+    fireEvent.click(link!);
+    expect(folded.hidden).toBe(false);
+    expect(scroll).toHaveBeenCalled();
+    expect(scroll.mock.contexts[0]).toBe(container.querySelector(link!.getAttribute('href')!));
   });
 
   it('prints both totals as the functions compute them, strict first', () => {
