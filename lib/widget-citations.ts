@@ -40,6 +40,7 @@ import { TRANSIENT_CONTACT_LIMIT_CITATION } from '@/lib/force-limits';
 import { FUNDING_HUMANOID_SOURCES } from '@/lib/funding-humanoid-counts';
 import { GENERALIST_RELEASES } from '@/lib/generalist-policies';
 import { LADDER_POINTS } from '@/lib/hardware-price-ladder';
+import { DATA_PRICE_LADDER_SOURCES } from '@/lib/data-price-ladder';
 import { HELIX_ZERO_SHOT_CITATION_ID } from '@/lib/helix-zero-shot';
 import { HIERARCHY_SYSTEMS } from '@/lib/hierarchy-timescales';
 import { KNOWLEDGE_INSULATION_CITATION_ID } from '@/lib/knowledge-insulation';
@@ -92,6 +93,7 @@ export const WIDGET_CITATION_IDS = {
   RealRobotRlGains: () => GAIN_STUDIES.map((study) => study.citationId),
   DatasetRunsHours: () => DATASET_RUNS_HOURS.map((dataset) => dataset.citationId),
   HardwarePriceLadder: () => LADDER_POINTS.map((point) => point.citationId),
+  DataPriceLadder: () => [...DATA_PRICE_LADDER_SOURCES],
   UmiCollectionRates: () => [UMI_RATES_CITATION_ID],
   FundingHumanoidCounts: () => [...FUNDING_HUMANOID_SOURCES],
   SafetyRulesTimeline: () => [...SAFETY_RULE_SOURCES],

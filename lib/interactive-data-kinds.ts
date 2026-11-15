@@ -449,6 +449,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // OpenAI's Rubik's-cube trial counts: 2 of 10 with a sensor cube, 0 of 10 with vision for face angles.
     kind: 'source-data',
   },
+  'interactive:DataPriceLadder': {
+    // Every row of the robot data market article's four price, cost and pay tables; yuan and euros at the ECB rates of 13 November 2026.
+    kind: 'source-data',
+  },
   'interactive:DatasetRunsHours': {
     // Run and hour totals as the FineART, DROID, Galaxea, RoboMIND and AgiBot World papers print them.
     kind: 'source-data',

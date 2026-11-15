@@ -77,6 +77,9 @@ export const CrossEmbodimentStrategies = dynamic(() =>
 export const CubeTrials = dynamic(() =>
   import('@/components/interactive/cube-trials').then((m) => m.CubeTrials),
 );
+export const DataPriceLadder = dynamic(() =>
+  import('@/components/interactive/data-price-ladder').then((m) => m.DataPriceLadder),
+);
 export const DataScaleChart = dynamic(() =>
   import('@/components/interactive/data-scale-chart').then((m) => m.DataScaleChart),
 );

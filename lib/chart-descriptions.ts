@@ -27,6 +27,7 @@
  * route that owns its default render.
  */
 import { MODEL_BASED_LOOP_DESCRIPTION, EVALUATION_LADDER_DESCRIPTION, WORLD_MODEL_OUTPUT_DESCRIPTION } from './world-model-figures.ts';
+import { DATA_PRICE_LADDER_DESCRIPTION } from './data-price-ladder.ts';
 import type { ChartDescriptionEntry } from './chart-description-rules.ts';
 import { trajectoryDescription } from './now-page.ts';
 
@@ -305,6 +306,13 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     route: '/data-hardware/hardware-taxonomy/',
     quantityNames: ['prices', 'arms'],
     text: 'Listed prices of 16 robot products on a ruler that steps by ten times: arms from $295 (SO-ARM101 Pro kit) to $70,000 (Reachy 2), humanoids from $2,490 (FF Nova) to $29,900 (Unitree H2), and robot computers from $2,999 (Jetson Thor T4000) to $4,999 (Jetson Thor T5000). EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.',
+  },
+  {
+    component: 'DataPriceLadder',
+    file: 'components/interactive/data-price-ladder.tsx',
+    route: '/data-hardware/data-market/',
+    quantityNames: ['US dollars', 'pay'],
+    text: DATA_PRICE_LADDER_DESCRIPTION,
   },
   {
     component: 'UmiCollectionRates',
