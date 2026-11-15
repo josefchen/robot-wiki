@@ -9,8 +9,9 @@ import { HOME_FEATURED_PICKS } from '../../data/home-featured';
 import { DEVELOPMENTS, DEVELOPMENTS_FROM } from '../../data/now';
 import { DOMAINS, DOMAIN_META, getModule, publishedModules } from '../../data/modules';
 import { FEATURED_DEK_MAX_WORDS } from '../../lib/featured-article';
-import { formatCount, homeCounts } from '../../lib/home-counts';
+import { formatCount, homeCounts, readableSpan } from '../../lib/home-counts';
 import { UPDATE_NOTE_MAX_WORDS, latestChanges } from '../../lib/home-updates';
+import { ROUNDS_PAGE_PATH, headlineFacts } from '../../lib/rounds-page';
 import {
   CONTENT_CORRECTION_URL,
   PUBLIC_DESCRIPTOR,
@@ -335,7 +336,7 @@ test.describe('home front page', () => {
     expect(entries).toEqual([
       { key: 'now', links: ['/now/'], title: 'Robotics now', line: `${DEVELOPMENTS.length} developments since ${since}.`, media: 0 },
       { key: 'how-robots-work', links: ['/how-robots-work/'], title: 'How robots work', line: `${EXPLAINER_ORDER.length} short explainers you can turn in 3D.`, media: 0 },
-      { key: 'market-map', links: ['/market-map/'], title: 'Market map', line: `${COMPANIES.length} companies, with the sources behind each figure.`, media: 0 },
+      { key: 'market-map', links: ['/market-map/', ROUNDS_PAGE_PATH], title: 'Market map', line: `${COMPANIES.length} companies, with the sources behind each figure.`, media: 0 },
       { key: 'playground', links: ['/playground/'], title: 'Playground', line: 'Pose a small robot arm one joint at a time.', media: 0 },
       { key: 'glossary', links: ['/glossary/'], title: 'Glossary', line: `${GLOSSARY.length} terms, each defined with its sources.`, media: 0 },
       { key: 'a-z', links: ['/a-z/'], title: 'A to Z index', line: `All ${publishedModules().length} articles in one list.`, media: 0 },
@@ -344,12 +345,31 @@ test.describe('home front page', () => {
     expect(counts.companies).toBe(COMPANIES.length);
     expect(counts.developments).toBe(DEVELOPMENTS.length);
     for (const entry of entries) expect(words(entry.line).length, entry.line).toBeLessThanOrEqual(10);
-    // Each entry opens a real page with its own h1.
-    await forEachInOwnContext(browser, entries, async (entryPage, entry) => {
-      const response = await entryPage.goto(`${BASE}${entry.links[0]}`);
-      expect(response?.status(), entry.links[0]).toBe(200);
+    // The market map's cell names the page under it on a second line: the
+    // closed rounds and the days they cover, as that page's headline counts them.
+    const facts = headlineFacts();
+    const roundsLink = block.locator(`a[href="${ROUNDS_PAGE_PATH}"]`);
+    await expect(roundsLink).toHaveCount(1);
+    await expect(roundsLink).toHaveText('Recent rounds');
+    expect(squash(await block.locator('[data-also="market-map"] > p').nth(1).innerText())).toBe(
+      `Recent rounds: ${facts.closed} closed from ${readableSpan(facts.start, facts.end)}.`,
+    );
+    expect(counts.closedRounds).toBe(facts.closed);
+    // Each link opens a real page with its own h1.
+    const links = entries.flatMap((entry) => entry.links);
+    expect(links).toHaveLength(7);
+    await forEachInOwnContext(browser, links, async (entryPage, link) => {
+      const response = await entryPage.goto(`${BASE}${link}`);
+      expect(response?.status(), link).toBe(200);
       await expect(entryPage.getByRole('heading', { level: 1 })).toBeVisible();
     });
+    // The rounds page's headline prints the count home gives.
+    const roundsPage = await browser.newPage();
+    await roundsPage.goto(`${BASE}${ROUNDS_PAGE_PATH}`);
+    await expect(roundsPage.getByTestId('rounds-headline')).toContainText(
+      `of the ${facts.closed} closed rounds`,
+    );
+    await roundsPage.close();
   });
 
   test('"How this wiki is made" holds three statements, each backed by a page, the repository or the correction form', async ({

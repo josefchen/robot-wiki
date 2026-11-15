@@ -1,13 +1,26 @@
 import { IntentLink } from '@/components/ui/intent-link';
 import { formatCount, type HomeCounts } from '@/lib/home-counts';
 
+type Entry = {
+  key: string;
+  href: string;
+  title: string;
+  line: string;
+  /** A page under this one: its link opens a second line in the same cell. */
+  under?: { href: string; title: string; line: string };
+};
+
+const NO_BREAK_SPACE = String.fromCharCode(0xa0);
+
 /**
  * "Also in the wiki": the parts of the site that are not articles, each a
- * plain link and one line on what it holds. Every number and the one date
- * come from the home counts.
+ * plain link and one line on what it holds. The market map's cell also names
+ * the page under it. Every number and date comes from the home counts.
  */
 export function AlsoHere({ counts }: { counts: HomeCounts }) {
-  const entries = [
+  // The span of dates stays on one line.
+  const roundsWindow = counts.roundsWindow.replace(/ /g, NO_BREAK_SPACE);
+  const entries: Entry[] = [
     {
       key: 'now',
       href: '/now/',
@@ -25,6 +38,11 @@ export function AlsoHere({ counts }: { counts: HomeCounts }) {
       href: '/market-map/',
       title: 'Market map',
       line: `${formatCount(counts.companies)} companies, with the sources behind each figure.`,
+      under: {
+        href: '/market-map/rounds/',
+        title: 'Recent rounds',
+        line: `${formatCount(counts.closedRounds)} closed from ${roundsWindow}.`,
+      },
     },
     {
       key: 'playground',
@@ -59,6 +77,18 @@ export function AlsoHere({ counts }: { counts: HomeCounts }) {
             </IntentLink>
           </h3>
           <p className="home-line">{entry.line}</p>
+          {entry.under ? (
+            <p className="home-line">
+              <IntentLink
+                data-brand-control-id="control:link-focus"
+                href={entry.under.href}
+                className="ink-link"
+              >
+                {entry.under.title}
+              </IntentLink>
+              {`: ${entry.under.line}`}
+            </p>
+          ) : null}
         </li>
       ))}
     </ul>
