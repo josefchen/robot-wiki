@@ -2,7 +2,7 @@
   "articles": {
     "adjacent/autonomous-vehicles": {
       "published": "2026-08-15T20:16:24Z",
-      "modified": "2026-11-13T07:15:57Z"
+      "modified": "2026-11-15T03:12:26Z"
     },
     "adjacent/drones": {
       "published": "2026-08-15T20:16:24Z",
@@ -14,7 +14,7 @@
     },
     "adjacent/surgical": {
       "published": "2026-08-15T20:16:24Z",
-      "modified": "2026-11-13T07:15:57Z"
+      "modified": "2026-11-15T03:12:17Z"
     },
     "classical/calibration": {
       "published": "2026-09-24T19:27:51Z",
@@ -54,15 +54,15 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-14T16:03:25Z"
+      "modified": "2026-11-15T03:12:13Z"
     },
     "data-hardware/data-market": {
       "published": "2026-11-14T20:33:02Z",
-      "modified": "2026-11-15T02:27:25Z"
+      "modified": "2026-11-15T03:11:51Z"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-14T16:03:25Z"
+      "modified": "2026-11-15T03:12:13Z"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T19:01:27Z",
@@ -70,7 +70,7 @@
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-13T07:15:57Z"
+      "modified": "2026-11-15T03:12:13Z"
     },
     "data-hardware/industrial-deployment": {
       "published": "2026-08-22T21:06:38Z",
@@ -82,7 +82,7 @@
     },
     "data-hardware/teleop-rigs": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-13T07:15:57Z"
+      "modified": "2026-11-15T03:12:13Z"
     },
     "frontier/bear-case": {
       "published": "2026-08-12T16:33:06Z",
@@ -94,7 +94,7 @@
     },
     "frontier/dexterity": {
       "published": "2026-08-12T16:33:06Z",
-      "modified": "2026-11-14T13:10:53Z"
+      "modified": "2026-11-15T03:12:21Z"
     },
     "frontier/generalization": {
       "published": "2026-08-12T16:33:06Z",
@@ -122,7 +122,7 @@
     },
     "manipulation/comparison-matrix": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-13T07:15:57Z"
+      "modified": "2026-11-15T03:12:22Z"
     },
     "manipulation/cross-embodiment": {
       "published": "2026-08-08T21:15:16Z",
@@ -134,7 +134,7 @@
     },
     "manipulation/foundation-models": {
       "published": "2026-09-24T19:27:51Z",
-      "modified": "2026-11-14T14:32:42Z"
+      "modified": "2026-11-15T03:12:23Z"
     },
     "manipulation/generalist-policies": {
       "published": "2026-08-08T21:15:16Z",
@@ -158,11 +158,11 @@
     },
     "manipulation/rl-finetuning": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-13T07:15:57Z"
+      "modified": "2026-11-15T03:12:23Z"
     },
     "manipulation/robot-learning-roadmap": {
       "published": "2026-09-24T19:27:51Z",
-      "modified": "2026-11-13T07:15:57Z"
+      "modified": "2026-11-15T03:12:23Z"
     },
     "manipulation/vla-models": {
       "published": "2026-08-08T21:15:16Z",
@@ -235,7 +235,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T02:27:25Z"
+      "modified": "2026-11-15T03:12:26Z"
     },
     "/manipulation/": {
       "modified": "2026-11-14T20:33:02Z"
@@ -262,7 +262,10 @@
       "modified": "2026-11-15T00:52:44Z"
     },
     "/market-map/": {
-      "modified": "2026-11-14T23:17:07Z"
+      "modified": "2026-11-15T03:12:10Z"
+    },
+    "/market-map/rounds/": {
+      "modified": "2026-11-15T03:12:11Z"
     },
     "/playground/": {
       "modified": "2026-11-13T07:15:57Z"
