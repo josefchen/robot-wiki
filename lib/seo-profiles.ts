@@ -92,6 +92,13 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
       'About Robot Wiki: what it covers and excludes, the order to read its articles in, what they assume you know and how its citations work.',
     queries: [],
   },
+  '/changes/': {
+    title: 'Recent Changes to Robotics Articles',
+    headTerm: 'recent changes',
+    description:
+      'Recent changes to Robot Wiki: a dated note on what changed in each robotics article, newest first, with a link to the article.',
+    queries: [],
+  },
   '/a-z/': {
     title: 'A-Z Index of Robotics Articles and Terms',
     headTerm: 'A-Z index',

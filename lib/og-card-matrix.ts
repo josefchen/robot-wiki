@@ -35,6 +35,7 @@ export const SITE_CARD_DESTINATIONS = [
   '/credits/',
   '/editorial-policy/',
   '/about/',
+  '/changes/',
   '/privacy/',
   '/search/',
   '/adjacent/',
