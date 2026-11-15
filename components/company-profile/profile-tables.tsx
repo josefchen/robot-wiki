@@ -20,6 +20,7 @@ import {
   lineYearRows,
   listingComputedNote,
   listingFacts,
+  REGION_COLUMNS,
   regionYearRows,
   resultsComputedNote,
   resultsRows,
@@ -351,7 +352,7 @@ export function LinesTable({ profile, labelledBy }: { profile: CompanyProfile; l
   );
 }
 
-/** Domestic, overseas and United States shares of revenue, per year. */
+/** Domestic and overseas shares of main-business revenue and the United States share, per year. */
 export function RegionsTable({ profile, labelledBy }: { profile: CompanyProfile; labelledBy: string }) {
   const rows = regionYearRows(profile);
   const usNotes = [...new Set(profile.marketShares.map((row) => row.note).filter(Boolean))];
@@ -361,9 +362,9 @@ export function RegionsTable({ profile, labelledBy }: { profile: CompanyProfile;
         <thead>
           <tr>
             <th scope="col" className={HEAD}>Year</th>
-            <th scope="col" className={HEAD_NUM}>Domestic</th>
-            <th scope="col" className={HEAD_NUM}>Overseas</th>
-            <th scope="col" className={HEAD_NUM}>United States</th>
+            <th scope="col" className={HEAD_NUM}>{REGION_COLUMNS.domestic}</th>
+            <th scope="col" className={HEAD_NUM}>{REGION_COLUMNS.overseas}</th>
+            <th scope="col" className={HEAD_NUM}>{REGION_COLUMNS.us}</th>
             <th scope="col" className={cx(HEAD, 'hidden sm:table-cell sm:w-[16rem]')}>Source</th>
           </tr>
         </thead>

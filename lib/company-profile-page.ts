@@ -11,6 +11,7 @@ import type {
   FinancialPeriod,
   Holder,
   Money,
+  Product,
   ProductLine,
   ProfileSource,
   TimelineKind,
@@ -120,11 +121,29 @@ export function calendarYearPeriod(profile: CompanyProfile, year: number): Finan
   return period;
 }
 
+/** The kind of thing each product type is, in the plural the page's sentences use. */
+const PRODUCT_KINDS: Record<Product['type'], string> = {
+  humanoid: 'robots',
+  'wheeled humanoid': 'robots',
+  'dual-arm': 'robots',
+  quadruped: 'robots',
+  'wheeled quadruped': 'robots',
+  arm: 'arms',
+  gripper: 'grippers',
+  hand: 'hands',
+  lidar: 'lidars',
+};
+
+/** The kinds the product rows are, from their types, in row order without repeats. */
+export function productKinds(profile: CompanyProfile): string[] {
+  return [...new Set(profile.products.map((product) => PRODUCT_KINDS[product.type]))];
+}
+
 /**
  * The header's lead, without its closing date: the latest full year's units
- * and total revenue from the listing documents, then the products the
- * company names in its shop, product pages and prospectus, which the date
- * dates. "Names" holds for rows that are listed but not orderable.
+ * and total revenue from the listing documents, then what this page's product
+ * rows are, which the date dates. The count is the page's, not the company's:
+ * the shop sells parts and accessories that are not rows.
  */
 export function profileLead(profile: CompanyProfile): string {
   const counts = profilePageCounts(profile);
@@ -134,9 +153,10 @@ export function profileLead(profile: CompanyProfile): string {
   const period = calendarYearPeriod(profile, units.year);
   const sold = joinList(units.lines.map((row) => `${formatCount(row.sold)} ${row.line}s`));
   return (
-    `${possessive(profile.company.name)} listing documents report ${sold} sold in ${units.year} and total revenue of ` +
-    `${unbroken(periodMoney(period, period.revenue))}; the company names ${counts.products} products, ${prices.priced} ` +
-    `with a list price from ${formatUsdPrice(range.low)} to ${formatUsdPrice(range.high)}`
+    `${possessive(profile.company.name)} listing documents report ${units.year} sales of ${sold} and total revenue of ` +
+    `${unbroken(periodMoney(period, period.revenue))}; this page lists ${counts.products} of the company’s ` +
+    `${joinList(productKinds(profile))}, ${prices.priced} of them with a list price from ${formatUsdPrice(range.low)} ` +
+    `to ${formatUsdPrice(range.high)}`
   );
 }
 
@@ -158,12 +178,12 @@ export function priceCounts(profile: CompanyProfile): PriceCounts {
 
 /** An amount kept on one line: "CNY 1,699.27 m" never wraps before its unit. */
 export function unbroken(amount: string): string {
-  return amount.replaceAll(' ', ' ');
+  return amount.replaceAll(' ', '\u00a0');
 }
 
-/** "Unitree Robotics'", "Unitree's". */
+/** "Unitree Robotics’", "Unitree’s", with the page's curly apostrophe. */
 export function possessive(name: string): string {
-  return name.endsWith('s') ? `${name}'` : `${name}'s`;
+  return name.endsWith('s') ? `${name}’` : `${name}’s`;
 }
 
 /** "a", "a and b", "a, b and c". */
@@ -183,14 +203,16 @@ export function sectionLeads(profile: CompanyProfile): Record<ProfileSectionId, 
   const prices = priceCounts(profile);
   return {
     products:
-      `Of the ${counts.products} products, ${prices.priced} carry a list price in US dollars from the maker's shop or product page, ` +
-      `${prices.contactSales} are quoted on request and ${prices.notDisclosed} have no published price.`,
+      `The rows are ${joinList(productKinds(profile))}; parts and accessories such as motors, batteries and chargers ` +
+      `are not listed. Of the ${counts.products} rows, ${prices.priced} carry a list price in US dollars from the ` +
+      `maker’s shop or product page, ${prices.contactSales} are quoted on request and ${prices.notDisclosed} have no ` +
+      'published price.',
     money: `Results from the ${joinList(documentNames(profile.financials))}, in millions of yuan.`,
     timeline:
-      `${counts.events} events, newest first. Each United States restriction carries the company's reply ` +
+      `${counts.events} events, newest first. Each United States restriction carries the company’s reply ` +
       'or says it made none.',
     'software-and-data': `${counts.software} repositories, models, datasets and collections, each with the license its host reports.`,
-    security: `${counts.security} records naming ${counts.cves} CVEs, newest first, with the company's reply where one applies.`,
+    security: `${counts.security} records naming ${counts.cves} CVEs, newest first, with the company’s reply where one applies.`,
   };
 }
 
@@ -198,7 +220,7 @@ export function sectionLeads(profile: CompanyProfile): Record<ProfileSectionId, 
 export function holdersLead(profile: CompanyProfile): string {
   const counts = profilePageCounts(profile);
   return (
-    `${counts.holders} of the ${counts.holderTableRows} rows in the ${sourceLabel(profile.listing.holderTableRows)}'s ` +
+    `${counts.holders} of the ${counts.holderTableRows} rows in the ${sourceLabel(profile.listing.holderTableRows)}’s ` +
     'shareholder table, in its order.'
   );
 }
@@ -229,7 +251,7 @@ export function formatStoredPct(value: number, kind: keyof typeof PCT_DIGITS): s
 
 /** A filing's vehicle name with "No. 1" kept on one line. */
 export function holderName(name: string): string {
-  return name.replace(/\bNo\. (?=\d)/g, 'No. ');
+  return name.replace(/\bNo\. (?=\d)/g, 'No.\u00a0');
 }
 
 /** A signed change, e.g. 4.6034 → "+460.34%". */
@@ -439,7 +461,18 @@ export interface RegionYearRow {
   sources: ProfileSource[];
 }
 
-/** Domestic, overseas and United States shares of revenue, by year, newest first. */
+/**
+ * The market table's column heads. Domestic and overseas split main-business
+ * revenue, as the prospectus's market table does; the United States share
+ * keeps the note that says its basis is not stated.
+ */
+export const REGION_COLUMNS = {
+  domestic: 'Domestic, of main business',
+  overseas: 'Overseas, of main business',
+  us: 'United States',
+} as const;
+
+/** Domestic and overseas shares of main-business revenue and the United States share, by year, newest first. */
 export function regionYearRows(profile: CompanyProfile): RegionYearRow[] {
   const years = [...new Set(profile.regions.map((row) => row.year))].sort((a, b) => b - a);
   return years.map((year) => {
@@ -551,19 +584,19 @@ export function listingFacts(profile: CompanyProfile): ListingFact[] {
     },
     {
       id: 'class-a',
-      label: `${holder.nameEn}'s class A shares`,
+      label: `${possessive(holder.nameEn)} class A shares`,
       value: `${formatCount(control.classAShares.value)}, ${control.votesPerClassAShare.value} votes each`,
       source: control.classAShares,
     },
     {
       id: 'votes-direct',
-      label: `${holder.nameEn}'s votes after listing, direct`,
+      label: `${possessive(holder.nameEn)} votes after listing, direct`,
       value: formatStoredPct(control.directVotesAfterPct.value, 'votes'),
       source: control.directVotesAfterPct,
     },
     {
       id: 'votes-with-platform',
-      label: `${holder.nameEn}'s votes after listing, with the staff platform`,
+      label: `${possessive(holder.nameEn)} votes after listing, with the staff platform`,
       value: formatStoredPct(control.withPlatformVotesAfterPct.value, 'votes'),
       source: control.withPlatformVotesAfterPct,
     },

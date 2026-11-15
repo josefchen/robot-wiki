@@ -4,6 +4,7 @@ import {
   COMPANY_PROFILES,
   PCT_DIGITS,
   PROFILE_SECTIONS,
+  REGION_COLUMNS,
   REPORTED_NOTE,
   absentWithNoun,
   calendarYearPeriod,
@@ -22,8 +23,10 @@ import {
   lineYearRows,
   listingComputedNote,
   listingFacts,
+  possessive,
   priceCounts,
   priceRange,
+  productKinds,
   profileLead,
   resultsComputedNote,
   profilePageCounts,
@@ -95,33 +98,48 @@ describe('counts the page states', () => {
 });
 
 describe('sentences', () => {
-  it('leads with the 2025 units and total revenue, ends on the products the date dates, and leaves the date to the header', () => {
+  it('leads with the 2025 sales and total revenue, ends on what the page\u2019s rows are, and leaves the date to the header', () => {
     expect(profileLead(profile)).toBe(
-      "Unitree Robotics' listing documents report 23,037 quadrupeds and 5,215 humanoids sold in 2025 and total " +
-        'revenue of CNY 1,699.27 m; the company names 62 products, 31 with a list price from USD 249 to USD 50,000',
+      'Unitree Robotics\u2019 listing documents report 2025 sales of 23,037 quadrupeds and 5,215 humanoids and total ' +
+        'revenue of CNY\u00a01,699.27\u00a0m; this page lists 62 of the company\u2019s robots, arms, grippers, hands and ' +
+        'lidars, 31 of them with a list price from USD 249 to USD 50,000',
     );
     expect(profileLead(profile)).not.toMatch(/[.,;:]\s*$/);
-    expect(profileLead(profile)).not.toMatch(/\bsells\b/);
   });
 
-  it('says "names", which holds for every product row: each rests on the shop, a unitree.com page or the prospectus', () => {
-    const prospectus = profile.financials.find((row) => row.id === 'fy2025')!.sourceUrl;
-    for (const product of profile.products) {
-      const onOwnSite = /(^|\.)unitree\.com$/.test(new URL(product.sourceUrl).hostname);
-      expect(onOwnSite || product.sourceUrl === prospectus, product.id).toBe(true);
-    }
-    // Rows the shop lists but does not sell, and one only the prospectus names: "sells" would be false.
-    expect(profile.products.filter((row) => row.note === 'Listed in the shop but not orderable.').length).toBe(6);
+  it('makes the page, not the company, the subject of the product count', () => {
+    // The shop also sells motors, servos, batteries, chargers and a controller that are not rows.
+    const lead = profileLead(profile);
+    expect(lead).toMatch(/this page lists 62 of the company\u2019s /);
+    expect(lead).not.toMatch(/\b(sells|names|makes) \d/);
+    expect(lead).not.toMatch(/\bthe company (sells|names|makes|lists)\b/);
   });
 
-  it('says total revenue, which is more than the two robot lines earned', () => {
+  it('names the kinds of product from the rows\u2019 types, in row order', () => {
+    expect(productKinds(profile)).toEqual(['robots', 'arms', 'grippers', 'hands', 'lidars']);
+    const types = new Set(profile.products.map((row) => row.type));
+    expect(types).toEqual(
+      new Set(['humanoid', 'wheeled humanoid', 'dual-arm', 'quadruped', 'wheeled quadruped', 'arm', 'gripper', 'hand', 'lidar']),
+    );
+    expect(profileLead(profile)).toMatch(/robots, arms, grippers, hands and lidars/);
+    expect(sectionLeads(profile).products).toMatch(/^The rows are robots, arms, grippers, hands and lidars;/);
+  });
+
+  it('dates the revenue with the sales and calls it total revenue, which is more than the two robot lines earned', () => {
     const fy2025 = calendarYearPeriod(profile, 2025);
     const robots = profile.revenueLines
       .filter((row) => row.year === 2025 && (row.line === 'humanoid' || row.line === 'quadruped'))
       .reduce((sum, row) => sum + toYuan(row), 0);
     expect(Math.round(robots / 1e4) / 100).toBe(1_565.46);
     expect(robots).toBeLessThan(toYuan({ amount: fy2025.revenue, unit: fy2025.unit }));
-    expect(profileLead(profile)).toMatch(/and total revenue of CNY 1,699\.27 m;/);
+    expect(profileLead(profile)).toMatch(/report 2025 sales of .+ and total revenue of CNY\u00a01,699\.27\u00a0m;/);
+  });
+
+  it('uses the curly apostrophe in every sentence it writes', () => {
+    const sentences = [profileLead(profile), ...Object.values(sectionLeads(profile)), holdersLead(profile)];
+    for (const sentence of sentences) expect(sentence).not.toMatch(/'/);
+    expect(possessive('Unitree Robotics')).toBe('Unitree Robotics\u2019');
+    expect(possessive('Unitree')).toBe('Unitree\u2019s');
   });
 
   it('takes the lead’s price range, latest units and revenue from the rows', () => {
@@ -152,7 +170,9 @@ describe('sentences', () => {
   it('states the product, event, software and security counts', () => {
     const leads = sectionLeads(profile);
     expect(leads.products).toBe(
-      "Of the 62 products, 31 carry a list price in US dollars from the maker's shop or product page, 16 are quoted on request and 15 have no published price.",
+      'The rows are robots, arms, grippers, hands and lidars; parts and accessories such as motors, batteries and ' +
+        'chargers are not listed. Of the 62 rows, 31 carry a list price in US dollars from the maker’s shop or ' +
+        'product page, 16 are quoted on request and 15 have no published price.',
     );
     expect(leads.timeline).toMatch(/^40 events, newest first\./);
     expect(leads['software-and-data']).toMatch(/^34 /);
@@ -173,7 +193,7 @@ describe('sentences', () => {
 
   it('says how many of the filing’s holder rows the table keeps', () => {
     expect(holdersLead(profile)).toBe(
-      "15 of the 56 rows in the listing announcement's shareholder table, in its order.",
+      '15 of the 56 rows in the listing announcement’s shareholder table, in its order.',
     );
   });
 
@@ -254,6 +274,28 @@ describe('money', () => {
     ]);
   });
 
+  it('heads domestic and overseas as shares of main business, since each year’s two regions sum to its main-business total', () => {
+    const years = [...new Set(profile.regions.map((row) => row.year))];
+    expect(years.length).toBe(3);
+    for (const year of years) {
+      const regions = profile.regions.filter((row) => row.year === year);
+      const total = profile.mainBusinessTotals.find((row) => row.year === year)!;
+      expect(regions.map((row) => row.region).sort(), String(year)).toEqual(['domestic', 'overseas']);
+      expect(regions.every((row) => row.unit === total.unit), String(year)).toBe(true);
+      // Two amounts rounded to 0.01 can miss their rounded total by 0.01: the filing's 2024 rows sum to 38,767.29.
+      const gap = regions.reduce((sum, row) => sum + row.amount, 0) - total.amount;
+      expect(Math.abs(gap), String(year)).toBeLessThanOrEqual(0.01 + 1e-9);
+    }
+    expect(profile.mainBusinessTotals.find((row) => row.year === 2025)!.amount).toBe(167_611.09);
+    expect(REGION_COLUMNS).toEqual({
+      domestic: 'Domestic, of main business',
+      overseas: 'Overseas, of main business',
+      us: 'United States',
+    });
+    // The United States share keeps its own basis note.
+    expect(profile.marketShares.every((row) => row.note === 'The prospectus does not say which revenue this is a share of.')).toBe(true);
+  });
+
   it('computes the listing figures it marks as computed', () => {
     expect(fact('over-plan')).toMatchObject({ value: 'CNY 1,715.44 m', computed: true });
     expect(fact('first-day-change')).toMatchObject({ value: '+460.34%', computed: true });
@@ -319,7 +361,7 @@ describe('formatting and sources', () => {
   });
 
   it('keeps a vehicle number on the line of its "No."', () => {
-    expect(holderName('Nanjing Jingwei Chuang No. 1')).toBe('Nanjing Jingwei Chuang No. 1');
+    expect(holderName('Nanjing Jingwei Chuang No. 1')).toBe('Nanjing Jingwei Chuang No.\u00a01');
     expect(holderName('Wang Xingxing')).toBe('Wang Xingxing');
   });
 
