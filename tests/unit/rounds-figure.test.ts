@@ -22,12 +22,13 @@ import {
   RING_STROKE,
   amountIsCeiling,
   bySize,
-  ceilingText,
   drawOrder,
   figurePlotDate,
   figureRounds,
+  labelsText,
   leadingSegment,
   methodParagraphs,
+  outrankingCeilings,
   roundsFigureCaption,
   roundsFigureDescription,
   roundsFigureFacts,
@@ -223,17 +224,48 @@ describe('rounds figure: labels', () => {
     const amount = Math.ceil(largest.usd / 1e6) * 1e6;
     const marked = figureRounds([{ ...event, note: `Up to USD ${amount / 1e6}M, as reported.`, currency: 'USD', amount }]).drawn[0];
     expect(marked).toMatchObject({ ceiling: true, usd: amount, label: `${largest.company} up to ${formatUsd(amount)}` });
-    const rounds = drawn.map((r) => (r.key === largest.key ? marked : r));
+    // The only ceiling, so the sentence names it alone.
+    const rounds = drawn.map((r) => (r.key === largest.key ? marked : { ...r, ceiling: false }));
+    const reason = marked.reported ? 'its amount is a reported ceiling' : 'its amount is a ceiling';
     for (const width of Object.values(LAYOUTS)) {
       const layout = roundsFigureLayout(width, rounds);
       expect(layout.dots.some((d) => d.round.key === largest.key)).toBe(true);
       expect(layout.labels.some((l) => l.key === largest.key), String(width)).toBe(false);
       expect(layout.labels.length).toBeGreaterThan(0);
       expect(layout.firstUnplaced?.key).not.toBe(largest.key);
+      expect(outrankingCeilings(layout).map((r) => r.key)).toContain(largest.key);
+      expect(labelsText(layout)).toContain(
+        `rounds other than ceilings are labeled with company and amount`,
+      );
+      expect(labelsText(layout)).toContain(
+        `${largest.company} (up to ${formatUsd(amount)}) would rank among them but carries no label, because ${reason}.`,
+      );
     }
-    expect(ceilingText([marked])).toBe(` ${largest.company} (up to ${formatUsd(amount)}) sits at that ceiling and carries no label.`);
-    expect(ceilingText([])).toBe('');
   });
+
+  it('says nothing of ceilings when no drawn round is one', () => {
+    const rounds = figureRounds().drawn.map((r) => ({ ...r, ceiling: false }));
+    const text = labelsText(roundsFigureLayout(LAYOUTS.desktop, rounds));
+    expect(text).not.toContain('ceiling');
+    expect(text).toMatch(/^At this width the \d+ largest rounds are labeled with company and amount/);
+  });
+
+  for (const [name, width] of Object.entries(LAYOUTS)) {
+    it(`${name} (${width} px): labels every round above the smallest label but the ceilings, and names each such ceiling`, () => {
+      const layout = roundsFigureLayout(width);
+      const labeled = new Set(layout.labels.map((l) => l.key));
+      const rounds = layout.dots.map((d) => d.round);
+      const smallest = rounds.filter((r) => labeled.has(r.key)).sort(bySize).at(-1)!;
+      const above = rounds.filter((r) => bySize(r, smallest) < 0);
+      for (const r of above.filter((d) => !d.ceiling)) expect(labeled.has(r.key), r.key).toBe(true);
+      const ceilings = above.filter((d) => d.ceiling);
+      expect(outrankingCeilings(layout).map((r) => r.key)).toEqual(ceilings.map((r) => r.key));
+      const text = labelsText(layout);
+      expect(text).toContain(`the ${layout.labels.length} largest rounds`);
+      for (const r of ceilings) expect(text).toContain(`${r.company} (up to ${formatUsd(r.usd)})`);
+      if (ceilings.length > 0) expect(text).toMatch(/would rank among them but carr(y|ies) no label, because/);
+    });
+  }
 
   it('leaves every ceiling in the data unlabeled and prints no label amount bare', () => {
     const drawn = figureRounds().drawn;
@@ -339,13 +371,12 @@ describe('rounds figure: words computed from the rows', () => {
   it('states the label count, the floor and the clamp in the fold', () => {
     const layout = roundsFigureLayout(LAYOUTS.phone390);
     const text = methodParagraphs(facts, layout).join(' ');
-    expect(text).toContain(`${layout.labels.length} largest rounds are labeled`);
+    expect(text).toContain(`${layout.labels.length} largest rounds other than ceilings are labeled`);
     expect(text).toContain(`${facts.belowFloor.length} rounds under the ${formatUsd(FLOOR_USD)} floor`);
     expect(text).toContain(`${facts.monthOnly} rounds dated only to a month`);
     if (layout.firstUnplaced) expect(text).toContain(layout.firstUnplaced.label);
     expect(text).toContain(`${facts.reported} of them`);
-    expect(facts.ceilings.map((r) => r.key)).toEqual(figureRounds().drawn.filter((r) => r.ceiling).sort(bySize).map((r) => r.key));
-    expect(text).toContain(ceilingText(facts.ceilings));
+    expect(text).toContain(labelsText(layout));
   });
 
   it('registers the computed description, which passes the chart-description rules', () => {
