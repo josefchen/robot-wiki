@@ -219,14 +219,14 @@ export function repositoriesRead(rows: readonly MakerModelSource[] = MAKER_MODEL
 }
 
 /**
- * The distinct pages read that are not a repository at a commit: a found
- * row's download or documentation page, and every page a none-found row
- * cites.
+ * The distinct pages read that are not a repository at a commit: every page
+ * a row without a commit links or cites, its download or documentation page
+ * and each of its sources.
  */
 export function pagesRead(rows: readonly MakerModelSource[] = MAKER_MODEL_SOURCES): string[] {
   const pages = rows.flatMap((row) => {
-    if (row.status === 'none-found') return row.sources.map((source) => source.url);
-    return !row.commit && row.repository ? [row.repository] : [];
+    if (row.commit) return [];
+    return [...(row.repository ? [row.repository] : []), ...row.sources.map((source) => source.url)];
   });
   return [...new Set(pages)];
 }
@@ -256,7 +256,9 @@ export function registerLead(
   const pages = plural(pagesRead(rows).length, 'web page', 'web pages');
   const licensed = licensedCount(rows);
   const carry = `${grouped(licensed)} of them ${licensed === 1 ? 'carries' : 'carry'} a licence`;
-  return `As of ${formatLongDate(asOf)} the register holds ${plural(rows.length, 'entry', 'entries')}, read from ${repositories} at a pinned commit and ${pages}, and ${carry}.`;
+  const commits = new Set(rows.flatMap((row) => (row.commit ? [row.commit.hash] : []))).size;
+  const pinned = commits === 1 ? 'a pinned commit' : 'pinned commits';
+  return `As of ${formatLongDate(asOf)} the register holds ${plural(rows.length, 'entry', 'entries')}, read from ${repositories} at ${pinned} and ${pages}, and ${carry}.`;
 }
 
 /** The page header's date: the newer of the models' newest check and the register's. */
@@ -270,8 +272,9 @@ export function pageAsOf(
 
 /**
  * The page header's lead, without its closing full stop: the hosted models,
- * then how many of the makers searched were found to publish their own
- * files. The header ends it on pageAsOf().
+ * then for how many of the makers searched model files were found. It says
+ * only what was found, never that the others publish none. The header ends
+ * it on pageAsOf().
  */
 export function robotsIn3dPageLead(
   models: readonly Model3d[] = MODELS_3D,
@@ -279,7 +282,7 @@ export function robotsIn3dPageLead(
 ): string {
   const { searched, found } = makerCounts(rows);
   const share = found === searched ? `all ${grouped(searched)}` : `${grouped(found)} of the ${grouped(searched)}`;
-  return `${robotsIn3dLead(models)}, and where ${share} makers searched publish their own model files`;
+  return `${robotsIn3dLead(models)}, and model files found for ${share} makers searched`;
 }
 
 export type RegisterLink = { text: string; href: string };

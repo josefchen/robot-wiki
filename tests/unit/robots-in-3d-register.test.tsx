@@ -51,11 +51,21 @@ describe('the register’s counts and leads', () => {
   it('reads distinct repositories at a commit and distinct other pages', () => {
     const repositories = new Set(rows.filter((row) => row.commit).map((row) => row.repository));
     expect(repositoriesRead()).toEqual([...repositories]);
-    const pages = new Set([
-      ...rows.filter((row) => !row.commit && row.repository).map((row) => row.repository),
-      ...rows.filter((row) => row.status === 'none-found').flatMap((row) => row.sources.map((s) => s.url)),
-    ]);
+    const pages = new Set(
+      rows.filter((row) => !row.commit).flatMap((row) => [...(row.repository ? [row.repository] : []), ...row.sources.map((s) => s.url)]),
+    );
     expect(pagesRead()).toEqual([...pages]);
+    // Every page a row without a commit links or cites is counted, the
+    // restricted clause's own source among them.
+    for (const row of rows.filter((r) => !r.commit)) {
+      for (const source of row.sources) expect(pagesRead(), row.id).toContain(source.url);
+      if (row.clause) expect(row.sources.some((s) => pagesRead().includes(s.url)), row.id).toBe(true);
+    }
+    // A row at a commit cites only files in its repository, so the pages
+    // count misses nothing a git row read.
+    for (const row of rows.filter((r) => r.commit)) {
+      for (const source of row.sources) expect(source.url.startsWith(`${row.repository}/`), `${row.id}: ${source.url}`).toBe(true);
+    }
     // Every row was read at one of them.
     for (const row of rows) {
       const read = row.commit ? repositoriesRead().includes(row.repository!) : row.sources.some((s) => pagesRead().includes(s.url)) || pagesRead().includes(row.repository!);
@@ -71,12 +81,14 @@ describe('the register’s counts and leads', () => {
 
   it('states the register’s lead from the rows and its date', () => {
     expect(registerLead()).toBe(
-      `As of ${formatLongDate(MAKER_MODEL_SOURCES_AS_OF)} the register holds ${rows.length} entries, read from ${repositoriesRead().length} repositories at a pinned commit and ${pagesRead().length} web pages, and ${licensedCount()} of them carry a licence.`,
+      `As of ${formatLongDate(MAKER_MODEL_SOURCES_AS_OF)} the register holds ${rows.length} entries, read from ${repositoriesRead().length} repositories at pinned commits and ${pagesRead().length} web pages, and ${licensedCount()} of them carry a licence.`,
     );
     const [one] = rows.filter((row) => row.status === 'official' && row.commit);
     expect(registerLead([one], '2030-01-02')).toBe(
       'As of 2 January 2030 the register holds 1 entry, read from 1 repository at a pinned commit and 0 web pages, and 1 of them carries a licence.',
     );
+    const cited = rows.find((row) => row.status === 'restricted' && !row.commit && row.sources.length > 1)!;
+    expect(registerLead([cited], '2030-01-02')).toContain(`and ${new Set([cited.repository, ...cited.sources.map((s) => s.url)]).size} web pages`);
   });
 
   it('counts makers searched and makers found to publish', () => {
@@ -89,8 +101,10 @@ describe('the register’s counts and leads', () => {
   it('extends the header’s lead to the register and ends it on the newer date', () => {
     const { searched, found } = makerCounts();
     const share = found === searched ? `all ${searched}` : `${found} of the ${searched}`;
-    expect(robotsIn3dPageLead()).toBe(`${robotsIn3dLead()}, and where ${share} makers searched publish their own model files`);
+    expect(robotsIn3dPageLead()).toBe(`${robotsIn3dLead()}, and model files found for ${share} makers searched`);
     expect(robotsIn3dPageLead()).not.toMatch(/[.,;:!?]\s*$/);
+    // What was found, never what the other makers publish.
+    expect(robotsIn3dPageLead()).not.toMatch(/\bpublish|\bwhere\b|\bno model\b|\bnone\b/i);
     const asOf = pageAsOf();
     expect(asOf >= newestChecked()).toBe(true);
     expect(asOf >= MAKER_MODEL_SOURCES_AS_OF).toBe(true);
@@ -99,7 +113,7 @@ describe('the register’s counts and leads', () => {
     expect(pageAsOf(MODELS_3D, '2099-01-01')).toBe('2099-01-01');
     const none = rows.filter((row) => row.status === 'none-found');
     expect(robotsIn3dPageLead(MODELS_3D, [...none, ...rows.filter((row) => row.status === 'official').slice(0, 1)])).toContain(
-      `, and where 1 of the ${new Set([...none.map((r) => r.maker), rows[0].maker]).size} makers searched publish`,
+      `, and model files found for 1 of the ${new Set([...none.map((r) => r.maker), rows[0].maker]).size} makers searched`,
     );
   });
 });
@@ -146,14 +160,18 @@ describe('the four tables', () => {
 });
 
 describe('each row’s cells', () => {
-  // The robots cell repeats the maker on a line of its own for a phone; the
-  // maker column carries it on a wider screen.
+  // A phone repeats some cells as lines inside others (the maker and formats
+  // in the robots cell, the checked date under the page read); the columns
+  // carry them on a wider screen. These are the columns' own values.
   const cells = (row: MakerModelSource) =>
     [...rowOf(row.id).querySelectorAll('td')].map((td) => {
       const copy = td.cloneNode(true) as Element;
-      copy.querySelector('[data-phone-maker]')?.remove();
+      for (const line of copy.querySelectorAll('[data-phone-only]')) line.remove();
       return text(copy);
     });
+  const phoneLines = (td: Element) => [...td.querySelectorAll('[data-phone-only]')].map(text);
+  const columnHidden = (td: Element) => /\bhidden\b.*\bsm:table-cell\b/.test(td.className);
+  const phoneOnly = (node: Element) => /(^|\s)sm:hidden(\s|$)/.test(node.className);
 
   it('repeat the maker above the robots for a phone and keep the maker column for wider screens', () => {
     for (const row of rows) {
@@ -164,6 +182,50 @@ describe('each row’s cells', () => {
       expect(text(phone), row.id).toBe(row.maker);
       expect(phone.className, row.id).toContain('sm:hidden');
     }
+  });
+
+  it('on a phone, stack each hidden column’s value beside its maker, so nothing is lost', () => {
+    for (const row of rowsByStatus(rows, 'official').concat(rowsByStatus(rows, 'restricted'))) {
+      const tds = [...rowOf(row.id).querySelectorAll('td')];
+      expect(columnHidden(tds[2]), row.id).toBe(true);
+      expect(phoneLines(tds[1]), row.id).toEqual([row.maker, row.formats.join(', ')]);
+    }
+    for (const row of rowsByStatus(rows, 'official')) {
+      // The licence leaves its column for a line under the repository.
+      const tds = [...rowOf(row.id).querySelectorAll('td')];
+      expect(columnHidden(tds[4]), row.id).toBe(true);
+      expect(phoneLines(tds[3]), row.id).toEqual([row.licence!.name]);
+      expect(tds[3].querySelector(`a[href="${licenceLink(row)!.href}"]`)?.textContent, row.id).toBe(row.licence!.name);
+    }
+    // Restricted and no-licence rows move their long columns to a full-width row directly below.
+    const detail = (row: MakerModelSource, hidden: number[]) => {
+      const tds = [...rowOf(row.id).querySelectorAll('td')];
+      for (const index of hidden) expect(columnHidden(tds[index]), `${row.id} column ${index}`).toBe(true);
+      const below = rowOf(row.id).nextElementSibling!;
+      expect(below.getAttribute('data-register-detail'), row.id).toBe(row.id);
+      expect(phoneOnly(below), row.id).toBe(true);
+      const cell = below.querySelector('td')!;
+      expect(Number(cell.getAttribute('colspan'))).toBe(tds.length);
+      return cell;
+    };
+    for (const row of rowsByStatus(rows, 'restricted')) {
+      const cell = detail(row, [2, 4, 5]);
+      expect(cell.querySelector(`a[href="${licenceLink(row)!.href}"]`)?.textContent, row.id).toBe(row.licence!.name);
+      expect(text(cell)).toBe(`${row.licence!.name}“${squash(row.clause!)}”`);
+    }
+    for (const row of rowsByStatus(rows, 'no-licence')) {
+      expect(text(detail(row, [3]))).toBe(row.note);
+    }
+    for (const row of rowsByStatus(rows, 'none-found')) {
+      const tds = [...rowOf(row.id).querySelectorAll('td')];
+      expect(columnHidden(tds[3]), row.id).toBe(true);
+      expect(phoneLines(tds[2]), row.id).toEqual([`Checked ${formatShortDate(row.checked)}`]);
+      expect(tds[2].querySelector(`time[datetime="${row.checked}"]`), row.id).not.toBeNull();
+    }
+    // Only restricted and no-licence rows have a row below them; every phone-only line hides on a wider screen.
+    const counts = countsByStatus(rows);
+    expect(doc.querySelectorAll('[data-register-detail]').length).toBe(counts.restricted + counts['no-licence']);
+    for (const line of doc.querySelectorAll('[data-phone-only]')) expect(phoneOnly(line)).toBe(true);
   });
 
   it('official rows: maker, robots, formats, repository at the commit, licence', () => {
