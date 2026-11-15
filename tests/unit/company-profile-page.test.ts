@@ -34,6 +34,7 @@ import {
   sourceLabel,
   timelineEvents,
 } from '@/lib/company-profile-page';
+import { toYuan } from '@/lib/company-profile';
 import { ROUTE_SEO_PROFILES } from '@/lib/seo-profiles';
 
 const profile = UNITREE_PROFILE;
@@ -94,12 +95,33 @@ describe('counts the page states', () => {
 });
 
 describe('sentences', () => {
-  it('leads with what the company sells, at what prices and in what numbers, and leaves the date to the header', () => {
+  it('leads with the 2025 units and total revenue, ends on the products the date dates, and leaves the date to the header', () => {
     expect(profileLead(profile)).toBe(
-      'Unitree Robotics sells 62 products, 31 of them listed from USD 249 to USD 50,000, and its listing ' +
-        'documents report 23,037 quadrupeds and 5,215 humanoids sold in 2025 on revenue of CNY 1,699.27 m',
+      "Unitree Robotics' listing documents report 23,037 quadrupeds and 5,215 humanoids sold in 2025 and total " +
+        'revenue of CNY 1,699.27 m; the company names 62 products, 31 with a list price from USD 249 to USD 50,000',
     );
     expect(profileLead(profile)).not.toMatch(/[.,;:]\s*$/);
+    expect(profileLead(profile)).not.toMatch(/\bsells\b/);
+  });
+
+  it('says "names", which holds for every product row: each rests on the shop, a unitree.com page or the prospectus', () => {
+    const prospectus = profile.financials.find((row) => row.id === 'fy2025')!.sourceUrl;
+    for (const product of profile.products) {
+      const onOwnSite = /(^|\.)unitree\.com$/.test(new URL(product.sourceUrl).hostname);
+      expect(onOwnSite || product.sourceUrl === prospectus, product.id).toBe(true);
+    }
+    // Rows the shop lists but does not sell, and one only the prospectus names: "sells" would be false.
+    expect(profile.products.filter((row) => row.note === 'Listed in the shop but not orderable.').length).toBe(6);
+  });
+
+  it('says total revenue, which is more than the two robot lines earned', () => {
+    const fy2025 = calendarYearPeriod(profile, 2025);
+    const robots = profile.revenueLines
+      .filter((row) => row.year === 2025 && (row.line === 'humanoid' || row.line === 'quadruped'))
+      .reduce((sum, row) => sum + toYuan(row), 0);
+    expect(Math.round(robots / 1e4) / 100).toBe(1_565.46);
+    expect(robots).toBeLessThan(toYuan({ amount: fy2025.revenue, unit: fy2025.unit }));
+    expect(profileLead(profile)).toMatch(/and total revenue of CNY 1,699\.27 m;/);
   });
 
   it('takes the lead’s price range, latest units and revenue from the rows', () => {
@@ -204,6 +226,8 @@ describe('money', () => {
     expect(computed.every((row) => row.derivation)).toBe(true);
     expect(listingFacts(profile).filter((row) => row.derivation)).toEqual(computed);
     expect(REPORTED_NOTE).not.toMatch(/figure/);
+    expect(REPORTED_NOTE).not.toMatch(/\bthe publisher/);
+    expect(REPORTED_NOTE).toMatch(/the company, maker or researcher the row is about/);
   });
 
   it('computes the average price per unit sold in whole yuan', () => {
