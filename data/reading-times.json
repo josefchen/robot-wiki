@@ -124,11 +124,11 @@
     "minutes": 10
   },
   "data-hardware/data-bottleneck": {
-    "words": 1588,
-    "minutes": 8
+    "words": 1715,
+    "minutes": 9
   },
   "data-hardware/datasets": {
-    "words": 1563,
+    "words": 1602,
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
@@ -148,7 +148,7 @@
     "minutes": 8
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1137,
+    "words": 1139,
     "minutes": 6
   },
   "data-hardware/data-market": {
