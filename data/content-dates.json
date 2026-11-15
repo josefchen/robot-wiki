@@ -58,7 +58,7 @@
     },
     "data-hardware/data-market": {
       "published": "2026-11-14T20:33:02Z",
-      "modified": "2026-11-14T20:33:02Z"
+      "modified": "2026-11-15T02:27:25Z"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T19:01:27Z",
@@ -235,7 +235,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T01:37:03Z"
+      "modified": "2026-11-15T02:27:25Z"
     },
     "/manipulation/": {
       "modified": "2026-11-14T20:33:02Z"
