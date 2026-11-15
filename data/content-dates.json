@@ -62,7 +62,7 @@
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T06:25:33Z"
+      "modified": "2026-11-15T06:56:12Z"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T19:01:27Z",
@@ -235,7 +235,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T06:25:33Z"
+      "modified": "2026-11-15T06:56:12Z"
     },
     "/manipulation/": {
       "modified": "2026-11-15T04:26:30Z"
@@ -274,7 +274,7 @@
       "modified": "2026-11-13T05:50:10Z"
     },
     "/glossary/": {
-      "modified": "2026-11-15T06:25:33Z"
+      "modified": "2026-11-15T06:56:12Z"
     },
     "/credits/": {
       "modified": "2026-11-14T19:31:23Z"
