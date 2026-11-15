@@ -62,7 +62,7 @@
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T03:49:27Z"
+      "modified": "2026-11-15T04:26:52Z"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T19:01:27Z",
@@ -90,7 +90,7 @@
     },
     "frontier/competing-theses": {
       "published": "2026-08-12T16:33:06Z",
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "frontier/dexterity": {
       "published": "2026-08-12T16:33:06Z",
@@ -114,11 +114,11 @@
     },
     "manipulation/action-spaces": {
       "published": "2026-09-24T19:27:51Z",
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "manipulation/bc-foundations": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-15T03:49:38Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "manipulation/comparison-matrix": {
       "published": "2026-08-08T21:15:16Z",
@@ -126,7 +126,7 @@
     },
     "manipulation/cross-embodiment": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-13T07:15:57Z"
+      "modified": "2026-11-15T04:26:52Z"
     },
     "manipulation/diffusion-policy": {
       "published": "2026-08-08T21:15:16Z",
@@ -235,28 +235,28 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T03:49:38Z"
+      "modified": "2026-11-15T04:26:52Z"
     },
     "/manipulation/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/classical/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/rl-sim2real/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/world-models/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/frontier/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/data-hardware/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/adjacent/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/now/": {
       "modified": "2026-11-15T00:52:44Z"
@@ -274,7 +274,7 @@
       "modified": "2026-11-13T05:50:10Z"
     },
     "/glossary/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/credits/": {
       "modified": "2026-11-14T19:31:23Z"
@@ -283,10 +283,10 @@
       "modified": "2026-11-13T03:01:06Z"
     },
     "/about/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     },
     "/a-z/": {
-      "modified": "2026-11-15T03:49:37Z"
+      "modified": "2026-11-15T04:26:30Z"
     }
   }
 }
