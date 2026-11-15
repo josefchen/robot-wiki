@@ -1365,7 +1365,7 @@ export const ROUNDS: readonly FundingEvent[] = [
   {
     key: 'cornerstone-robotics-medtronic-2026-09-01',
     company: 'Cornerstone Robotics',
-    status: 'announced',
+    status: 'closed',
     sourceType: 'primary',
     date: '2026-09-01',
     datePrecision: 'day',
@@ -1378,11 +1378,10 @@ export const ROUNDS: readonly FundingEvent[] = [
     country: 'HK',
     sector: 'surgical-medical',
     whatTheyBuild: 'Sentire endoscopic surgical robot',
-    sourceUrl: 'https://www.csrbtx.com/en/cornerstone-news/2026-09-01-strategic-partnership/',
-    sourceTitle:
-      'Cornerstone Robotics Announces Strategic Partnership with Medtronic to Expand Global Access to Robotic-assisted Surgery',
+    sourceUrl: 'https://www.csrbtx.com/en/cornerstone-news/2026-11-09-surgical-futures-forum/',
+    sourceTitle: 'Cornerstone Robotics Hosts Inaugural “Surgical Futures Forum”',
     amountIsApproximate: true,
-    note: 'Medtronic will make the investment; no completion announced.',
+    note: 'Announced 1 Sep 2026; Cornerstone’s 9 Nov page says Medtronic has made the investment. Medtronic’s release says the sum includes rights to distribute Sentire in select markets outside the U.S.',
   },
   {
     key: 'inleap-2026-09-01',

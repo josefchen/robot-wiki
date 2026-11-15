@@ -334,7 +334,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/rounds/rounds-figure.tsx',
     route: '/market-map/rounds/',
     quantityNames: ['rounds', 'US dollars'],
-    text: '146 funding rounds from 17 July 2026 to 14 November 2026, placed by date and by amount in US dollars on a log scale. 130 closed rounds raised $14B; Vertical applications drew $7.1B of it in 61 rounds, the most of the six segments, and the largest closed round was Atoms at $1.7B.',
+    text: '146 funding rounds from 17 July 2026 to 14 November 2026, placed by date and by amount in US dollars on a log scale. 131 closed rounds raised $15B; Vertical applications drew $7.8B of it in 62 rounds, the most of the six segments, and the largest closed round was Atoms at $1.7B.',
   },
   {
     component: 'SafetyRulesTimeline',
