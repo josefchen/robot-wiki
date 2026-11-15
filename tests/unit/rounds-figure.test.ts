@@ -112,6 +112,15 @@ function labelProblems(layout: RoundsFigureLayout, dots = layout.dots): string[]
         problems.push(`the leader of ${label.text} runs through ${other.text}`);
       }
     });
+    if (!label.leader) {
+      const own = dots.find((d) => d.round.key === label.key)!;
+      const ownDistance = distanceToBox(own.cx, own.cy, box);
+      for (const dot of dots) {
+        if (dot !== own && distanceToBox(dot.cx, dot.cy, box) < 2 * ownDistance) {
+          problems.push(`${label.text} also reads as the label of ${dot.round.key}`);
+        }
+      }
+    }
     if (label.leader) {
       for (const dot of dots) {
         if (dot.round.key === label.key) continue;
@@ -314,6 +323,13 @@ describe('rounds figure: labels', () => {
     const onDot = { ...a, box: { x0: dotA.cx - 2, y0: dotA.cy - h / 2, x1: dotA.cx - 2 + w, y1: dotA.cy + h / 2 } };
     expect(labelProblems({ ...layout, labels: [onDot, ...layout.labels.slice(1)] }).join()).toContain('covers the dot');
     expect(labelProblems({ ...layout, labels: [a, { ...b, box: a.box }] }).join()).toContain('overlaps');
+    // Above its dot and running on over a neighbour at the same height.
+    const gap = PAINTED + 3;
+    const aboveA = { ...a, leader: null, box: { x0: dotA.cx - PAINTED, y0: dotA.cy - gap - h, x1: dotA.cx - PAINTED + w, y1: dotA.cy - gap } };
+    const neighbour = { ...dotA, round: { ...dotA.round, key: 'neighbour' }, cx: dotA.cx + w / 2 };
+    expect(
+      labelProblems({ ...layout, dots: [dotA, neighbour], labels: [aboveA] }).join(),
+    ).toContain('also reads as the label of neighbour');
     const x: Segment = { x1: 500, y1: 300, x2: 540, y2: 340 };
     const crossing = [
       { ...a, box: { x0: 0, y0: 0, x1: 1, y1: 1 }, leader: x },

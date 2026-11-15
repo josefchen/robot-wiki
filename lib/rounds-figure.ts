@@ -12,8 +12,9 @@
  * at the first clean spot of a fixed candidate list, stopping at the first
  * round that has none or at the cap for the width. A label box never
  * touches a dot, an axis label or another label, and a leader never
- * crosses another leader, a label box or a dot other than its own. Text
- * widths come from Geist's advance widths.
+ * crosses another leader, a label box or a dot other than its own. A label
+ * without a leader keeps every other dot at least twice as far as its own,
+ * so it reads as one dot's. Text widths come from Geist's advance widths.
  *
  * Tested in tests/unit/rounds-figure.test.ts.
  */
@@ -497,6 +498,8 @@ export const LABEL_CAP = { phone: 5, desktop: 10 } as const;
 const DOT_EXTENT = DOT_R + RING_STROKE / 2;
 /** Clear space around a label box, from dots, text and leaders. */
 const LABEL_GAP = 3;
+/** From a label without a leader to any dot but its own: twice the gap to its own dot. */
+const NEIGHBOUR_CLEARANCE = 2 * (DOT_EXTENT + LABEL_GAP);
 /** Clear space between a leader and any dot but its own. */
 const LEADER_CLEARANCE = 2;
 /** The label search tries each label's first few clean spots, within a fixed number of steps. */
@@ -690,7 +693,9 @@ export function roundsFigureLayout(
     if (box.x0 < left || box.x1 > width || box.y0 < 0 || box.y1 > axisY - LABEL_GAP) return false;
     if (fixedText.some((t) => boxesOverlap(box, t, LABEL_GAP))) return false;
     if (dots.some((d) => pointBoxDistance(d.cx, d.cy, box) < DOT_EXTENT + LABEL_GAP)) return false;
-    if (!leader) return true;
+    if (!leader) {
+      return dots.every((d) => d === dot || pointBoxDistance(d.cx, d.cy, box) >= NEIGHBOUR_CLEARANCE);
+    }
     if (leader.y2 > axisY || leader.y1 > axisY) return false;
     if (fixedText.some((t) => segmentHitsBox(leader, t, 1))) return false;
     return dots.every(
