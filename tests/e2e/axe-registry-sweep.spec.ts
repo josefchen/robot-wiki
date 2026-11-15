@@ -55,6 +55,7 @@ const ROUTES: string[] = [
   '/credits/',
   '/editorial-policy/',
   '/about/',
+  '/changes/',
   '/privacy/',
   '/a-z/',
   ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),

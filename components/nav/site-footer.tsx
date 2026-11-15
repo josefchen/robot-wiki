@@ -46,6 +46,7 @@ const INDEX_LINKS = [
   { href: '/search/', label: 'Search' },
   { href: '/market-map/', label: 'Market map' },
   { href: '/playground/', label: 'Playground' },
+  { href: '/changes/', label: 'Recent changes' },
   { href: '/credits/', label: 'Credits' },
 ] as const;
 

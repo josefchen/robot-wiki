@@ -62,6 +62,18 @@ describe('SiteFooter', () => {
     expect(repo.getAttribute('href')).not.toContain('robot-wiki.com');
   });
 
+  it('lists Recent changes in the index row, directly before Credits', () => {
+    const { container } = render(<SiteFooter />);
+    const row = [...container.querySelectorAll('footer ul a')].map((link) => [
+      link.textContent,
+      (link.getAttribute('href') ?? '').replace(/\/?$/, '/'),
+    ]);
+    const changes = row.findIndex(([, href]) => href === '/changes/');
+    expect(row[changes]).toEqual(['Recent changes', '/changes/']);
+    expect(row[changes + 1]).toEqual(['Credits', '/credits/']);
+    expect(row.filter(([, href]) => href === '/changes/')).toHaveLength(1);
+  });
+
   it('carries at least 20 visible characters and no em or en dash', () => {
     const { container } = render(<SiteFooter />);
     const text = container.querySelector('footer')?.textContent ?? '';
