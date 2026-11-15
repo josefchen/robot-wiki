@@ -15,6 +15,7 @@ export const SITEMAP_STANDALONE_PATHS = [
   '/market-map/',
   '/market-map/rounds/',
   '/playground/',
+  '/companies/unitree/',
   '/how-robots-work/',
   '/glossary/',
   '/credits/',

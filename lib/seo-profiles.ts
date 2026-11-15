@@ -57,6 +57,13 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
       '3D kinematics playground for the SO-101 robot arm: joint sliders for forward kinematics, click-to-reach inverse kinematics and trajectory replay.',
     queries: [],
   },
+  '/companies/unitree/': {
+    title: 'Unitree Robotics: Products, Prices and Results',
+    headTerm: 'Unitree Robotics',
+    description:
+      'Unitree Robotics in sourced tables: product prices and specs, results and units sold, its Shanghai listing, shareholders, timeline and security flaws.',
+    queries: [],
+  },
   '/how-robots-work/': {
     title: 'How Robots Work: Interactive 3D Explainers',
     headTerm: 'how robots work',

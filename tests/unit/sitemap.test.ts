@@ -60,6 +60,8 @@ describe('sitemap', () => {
     for (const entry of entries) {
       expect(entry.lastModified, entry.url).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     }
+    // Every url that is not an article: a company profile has two segments
+    // as an article does, so articles are told apart by the registry.
     const articles = new Set(publishedModules().map((m) => `/${m.domain}/${m.slug}/`));
     const routes = entries
       .map((entry) => entry.url.slice(SITE_URL.length))

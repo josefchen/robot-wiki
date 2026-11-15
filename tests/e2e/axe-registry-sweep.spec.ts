@@ -49,6 +49,7 @@ const ROUTES: string[] = [
   '/market-map/',
   '/market-map/rounds/',
   '/playground/',
+  '/companies/unitree/',
   '/how-robots-work/',
   '/search/',
   '/glossary/',
@@ -237,6 +238,7 @@ test.describe('responsive viewports', () => {
     ['/market-map/', 'market map'],
     ['/market-map/rounds/', 'recent rounds'],
     ['/playground/', 'playground'],
+    ['/companies/unitree/', 'company profile'],
   ];
 
   for (const [width, height] of [
