@@ -531,7 +531,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'frontier',
     'competing-theses',
     'Competing Theses',
-    'Six bets on how robot intelligence gets built.',
+    'Seven bets on how robot intelligence gets built.',
   ],
   [
     'frontier',

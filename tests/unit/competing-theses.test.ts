@@ -13,10 +13,11 @@ const EXPECTED_IDS = [
   'rl-finetuning',
   'teleop-bridge',
   'form-factor',
+  'general-model-policy',
 ];
 
 describe('competing theses data', () => {
-  it('contains exactly the six live theses, in presentation order', () => {
+  it('contains exactly the seven live theses, in presentation order', () => {
     expect(THESES.map((t) => t.id)).toEqual(EXPECTED_IDS);
   });
 

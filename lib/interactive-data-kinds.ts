@@ -564,7 +564,7 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     kind: 'source-data',
   },
   'interactive:ThesisExplorer': {
-    // Six falsifiable theses with named proponents and evidence.
+    // Seven falsifiable theses with named proponents and evidence.
     kind: 'source-data',
   },
   'interactive:UmiCollectionRates': {

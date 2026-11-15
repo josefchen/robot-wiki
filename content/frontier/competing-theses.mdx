@@ -1,6 +1,6 @@
 ---
 title: "Competing Theses"
-description: "Six live bets on building robot intelligence: VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation and humanoids, each with a refuting test."
+description: "Seven live bets on building robot intelligence: VLA scaling, hierarchy, world models, RL fine-tuning, teleoperation, humanoids and general models, each with a refuting test."
 domain: frontier
 slug: competing-theses
 order: 4
@@ -50,6 +50,13 @@ citations:
   - agility-nasdaq-listing-2026
   - tesla-q3-2026-call
   - forbes-adcock-figure-2026
+  - fortune-openai-robotics-2026
+  - nvidia-astranomy-2026
+  - aa-robotics-2026
+  - robocolosseum-2026
+  - sensenova-astra-2026
+  - zap-2026
+  - justrua-2026
 seeAlso:
   - "manipulation/vla-models"
   - "world-models/generative-video"
@@ -67,7 +74,7 @@ Competing theses are the rival bets on how to build general robot intelligence, 
 <div className="my-6 grid grid-cols-3 gap-4">
   <Stat label="Figure compute" value="$3.5B" note="committed to training Helix" accent />
   <Stat label="scaling fit" value="R²=0.9983" note="EgoScale law, validation loss" />
-  <Stat label="settled" value="0" note="of the six, as of Nov 2026" />
+  <Stat label="settled" value="0" note="of the seven, as of Nov 2026" />
 </div>
 
 <span id="the-six-theses" />
@@ -168,7 +175,22 @@ Gemini Robotics 2 controls a full humanoid from feet to fingertips with one mode
 
 Brooks argues articulated fingers lack the robustness, force and lifetime for industry, and forecasts task-specialized robots still called humanoids for fifteen years <Cite id="brooks-dexterity-2025" />. Both kill conditions measure cost per task. If task-specific robots keep winning the same applications, the humanoid thesis dies; if a humanoid reaches parity across many tasks, the task-specific thesis does.
 
-<span id="what-would-settle-it" />
-## Six observations would settle the theses, and GEN-1 nearly meets one
+<span id="general-model-as-the-policy" />
+## General models drive robots zero-shot but fail at precise contact
 
-The observations run from [real-world success](/data-hardware/evaluation-crisis/) flat after a tenfold data increase to humanoid cost-per-task parity. GEN-1 nearly meets the teleoperation test but still uses 1 hour of robot data per task <Cite id="generalist-gen1-2026" />; [the bear case](/frontier/bear-case/) tracks all six.
+The general-model thesis: a general AI model, given a harness, controls a robot without robot training data. OpenAI disbanded its stand-alone robotics team for that reason, Fortune reports <Cite id="fortune-openai-robotics-2026" />.
+
+| Who measured | Setting | Result | Caveat |
+| --- | --- | --- | --- |
+| NVIDIA | Simulation, RoboLab-120 | GPT-6 Astra 74.8%, against 51.0% for Lakeside, the best policy compared <Cite id="nvidia-astranomy-2026" /> | Pick-and-place only; 13.37 s per call; USD 36.40 per successful episode |
+| Artificial Analysis | Real 6-axis arm, eight tabletop tasks | Astra first, 69.4 of 100 <Cite id="aa-robotics-2026" /> | About 30 minutes a task, against 20 s for a person |
+| RoboColosseum authors | Real, 124 sites, 5,699 blinded pairwise trials | Frontier agents "rival specialized VLA policies" <Cite id="robocolosseum-2026" /> | No system completed any of five G1 humanoid tasks |
+| SenseNova joint team | Real, eight robot configurations | Astra: rigid pick-and-place 17 of 18, plug insertion 0 of 11 <Cite id="sensenova-astra-2026" /> | Few trials; hardware faults ended runs |
+| ZAP authors | Real tasks; bimanual RoboLab-120 | A small model trained only in simulation matches Astra: 96.7% real, 74.0% against 72.2% <Cite id="zap-2026" /> | Authors' own harness; 3x faster and 17x cheaper than Astra |
+
+A model's score is a model-plus-harness score: JustRUA's harness alone lifts GPT-6 Astra on RoboDojo from 29.7 to 50.3 <Cite id="justrua-2026" />. The thesis fails if small models trained only in simulation match it beyond ZAP's tests, or if contact-rich real tasks stay near zero.
+
+<span id="what-would-settle-it" />
+## Seven observations would settle the theses, and GEN-1 nearly meets one
+
+The observations run from [real-world success](/data-hardware/evaluation-crisis/) flat after a tenfold data increase to humanoid cost-per-task parity. GEN-1 nearly meets the teleoperation test but still uses 1 hour of robot data per task <Cite id="generalist-gen1-2026" />; [the bear case](/frontier/bear-case/) tracks eight milestones.

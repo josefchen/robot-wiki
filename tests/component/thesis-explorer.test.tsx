@@ -17,10 +17,10 @@ const card = (id: string) =>
   screen.getByRole('button', { name: plainThesisName(id) });
 
 describe('ThesisExplorer', () => {
-  it('draws six bet cards with plain names, the bet and a "wrong if" line', () => {
+  it('draws seven bet cards with plain names, the bet and a "wrong if" line', () => {
     render(<ThesisExplorer />);
-    expect(screen.getByText('Six competing bets on how robots will get smart')).toBeInTheDocument();
-    expect(screen.getAllByTestId(/^thesis-card-/)).toHaveLength(6);
+    expect(screen.getByText('Seven competing bets on how robots will get smart')).toBeInTheDocument();
+    expect(screen.getAllByTestId(/^thesis-card-/)).toHaveLength(7);
     expect(
       [
         'Just make it bigger',
@@ -29,6 +29,7 @@ describe('ThesisExplorer', () => {
         'Copy first, then practice',
         'Humans steer while robots learn',
         'Human-shaped or built for the job',
+        'One general AI drives the robot',
       ],
     ).toEqual(THESES.map((thesis) => plainThesisName(thesis.id)));
     for (const thesis of THESES) {
@@ -42,16 +43,16 @@ describe('ThesisExplorer', () => {
       expect(card).toHaveTextContent(String(THESES.indexOf(thesis) + 1).padStart(2, '0'));
     }
     expect(screen.getByTestId('thesis-wrong-if-note')).toHaveTextContent(
-      'Six expert bets on generally capable robots; each names what would prove it wrong',
+      'Seven expert bets on generally capable robots; each names what would prove it wrong',
     );
     expect(screen.getByTestId('thesis-readout')).toHaveTextContent(
-      '6 bets. Tap one to read the evidence for and against.',
+      '7 bets. Tap one to read the evidence for and against.',
     );
   });
 
   it('keeps the technical names, claims, proponents and falsification wording in the method table', () => {
     render(<ThesisExplorer />);
-    expect(screen.getAllByTestId(/^thesis-row-/)).toHaveLength(6);
+    expect(screen.getAllByTestId(/^thesis-row-/)).toHaveLength(7);
     for (const thesis of THESES) {
       const row = screen.getByTestId(`thesis-row-${thesis.id}`);
       expect(row.closest('details')).not.toBeNull();
@@ -148,7 +149,7 @@ describe('ThesisExplorer', () => {
     await user.keyboard('{Enter}');
     expect(card('hierarchical-planner')).toHaveAttribute('aria-pressed', 'true');
     await user.keyboard('{End}');
-    expect(card('form-factor')).toHaveAttribute('aria-pressed', 'true');
+    expect(card('general-model-policy')).toHaveAttribute('aria-pressed', 'true');
     await user.keyboard('{Home}');
     expect(card('end-to-end-vla')).toHaveAttribute('aria-pressed', 'true');
   });
@@ -167,7 +168,7 @@ describe('ThesisExplorer', () => {
     }
     expect(screen.queryByTestId('thesis-detail')).not.toBeInTheDocument();
     expect(screen.getByTestId('thesis-readout')).toHaveTextContent(
-      '6 bets. Tap one to read the evidence for and against.',
+      '7 bets. Tap one to read the evidence for and against.',
     );
   });
 });

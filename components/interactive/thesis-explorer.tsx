@@ -9,7 +9,7 @@ import { THESES, type Thesis } from '@/lib/competing-theses';
 import { cx } from '@/lib/utils';
 
 /**
- * ThesisExplorer: six falsifiable bets on how robot intelligence gets
+ * ThesisExplorer: seven falsifiable bets on how robot intelligence gets
  * built, drawn as cards. Each card carries a small line drawing, a plain
  * name, the bet in one line and the result that would prove it wrong.
  * Tapping a card (the figure's one control) opens that bet's evidence for
@@ -66,6 +66,11 @@ const PLAIN: Record<string, { name: string; bet: string; wrongIf: string }> = {
     name: 'Human-shaped or built for the job',
     bet: 'Human-shaped robots fit a world built for people; machines built for one job are cheaper.',
     wrongIf: 'A cost-per-job comparison against purpose-built machines would show which side is wrong.',
+  },
+  'general-model-policy': {
+    name: 'One general AI drives the robot',
+    bet: 'An AI built for chat and code controls the robot directly, with no robot training.',
+    wrongIf: "We'd know it's wrong if small robot models trained in simulation match it for a fraction of the cost.",
   },
 };
 
@@ -170,8 +175,8 @@ export function ThesisExplorer({ className }: { className?: string }) {
   }
 
   const readout = selected
-    ? `6 bets, showing: ${plainFor(selected).name}`
-    : '6 bets. Tap one to read the evidence for and against.';
+    ? `7 bets, showing: ${plainFor(selected).name}`
+    : '7 bets. Tap one to read the evidence for and against.';
 
   return (
     <InstrumentFigure
@@ -179,7 +184,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
       data-testid="thesis-explorer"
       className={className}
       kicker="Competing theses"
-      heading="Six competing bets on how robots will get smart"
+      heading="Seven competing bets on how robots will get smart"
       adjust={<InstrumentReset onClick={() => setSelectedId(null)} />}
       stage={
         <FigureStage
@@ -187,11 +192,11 @@ export function ThesisExplorer({ className }: { className?: string }) {
         >
           <div className="px-3 pt-3 pb-2 font-sans text-sm leading-snug">
             <StageCallout data-testid="thesis-wrong-if-note">
-              Six expert bets on generally capable robots; each names what would prove it wrong
+              Seven expert bets on generally capable robots; each names what would prove it wrong
             </StageCallout>
             <ul
               data-testid="thesis-cards"
-              aria-label="Six bets. Tap one to read its evidence."
+              aria-label="Seven bets. Tap one to read its evidence."
               className="m-0! mt-2 grid list-none grid-cols-1 gap-3 p-0! sm:grid-cols-2 md:grid-cols-3"
             >
               {THESES.map((thesis, index) => {
@@ -253,14 +258,14 @@ export function ThesisExplorer({ className }: { className?: string }) {
       method={
         <>
           <div>
-            The grouping into six theses is Robot Wiki&apos;s editorial reading of the field, not
+            The grouping into seven theses is Robot Wiki&apos;s editorial reading of the field, not
             a published taxonomy. Tap a card for its evidence; the table gives each full
             falsification criterion.
           </div>
           <TableScroll labelledBy={captionId} className="pt-1">
             <table className="w-full min-w-[560px] border-collapse text-left font-sans text-sm text-text">
               <caption id={captionId} className="text-left text-text-dim">
-                The six theses by their technical names, with the core claim, the named
+                The seven theses by their technical names, with the core claim, the named
                 proponents, the short falsification signal and the full criterion.
               </caption>
               <thead>

@@ -36,5 +36,5 @@ export const thesisSchema = z.object({
 export type Thesis = z.infer<typeof thesisSchema>;
 export type ThesisEvidence = z.infer<typeof evidenceSchema>;
 
-/** The explorer's completeness gate: exactly six complete theses. */
-export const thesesSchema = z.array(thesisSchema).length(6);
+/** The explorer's completeness gate: exactly seven complete theses. */
+export const thesesSchema = z.array(thesisSchema).length(7);
