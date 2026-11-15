@@ -23674,6 +23674,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['1X AI Team', '1X AI Team'],
   ['1X Technologies', '1X Technologies'],
   ['Advanced Machine Intelligence (AMI Labs)', 'AMI Labs'],
+  ['AgileX Robotics', 'AgileX Robotics'],
   ['Agility Robotics', 'Agility Robotics'],
   ['AI Robot Association (AIRoA)', 'AIRoA'],
   ['ALOHA 2 Team', 'ALOHA 2 Team'],

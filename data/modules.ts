@@ -456,6 +456,12 @@ const entries: Array<[Domain, string, string, string]> = [
     'Who sells robot training data and what an hour costs.',
   ],
   [
+    'data-hardware',
+    'research-arms-compared',
+    'Robot Arms for Robot Learning Compared',
+    'Eleven research arms on control rate, LeRobot and ROS 2 support.',
+  ],
+  [
     'classical',
     'kinematics',
     'Kinematics',
@@ -616,6 +622,7 @@ const PUBLISHED = new Set([
   'data-hardware/industrial-deployment',
   'data-hardware/robot-learning-stack',
   'data-hardware/data-market',
+  'data-hardware/research-arms-compared',
   'classical/kinematics',
   'classical/motion-planning',
   'classical/control',
