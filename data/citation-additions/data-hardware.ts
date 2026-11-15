@@ -882,7 +882,7 @@ export const ADDITIONS: Citation[] = [
   // research or evaluation purposes only"; the README says the Hugging Face weights carry the same license.
   {
     id: 'flora-code-2026',
-    title: 'FLORA: An Open Model Suite for Scaling Robotics Data Engines',
+    title: 'FLORA inference code and NVIDIA License',
     authors: ['NVIDIA'],
     year: 2026,
     accessedOn: '2026-11-15',

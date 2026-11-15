@@ -136,7 +136,7 @@ A run saves its configuration, code revision, dataset hash, seeds and normalizat
 
 ## Contract 5: simulation must rank policies as hardware does
 
-A simulated score is useful only if it ranks policies in the order hardware does. SIMPLER measures that agreement on matched tasks <Cite id="simpler-2024" />.
+SIMPLER measures whether simulation ranks policies as hardware does on matched tasks <Cite id="simpler-2024" />.
 
 | Tool | Result |
 | --- | --- |
@@ -147,7 +147,7 @@ A simulated score is useful only if it ranks policies in the order hardware does
 
 ## Contract 6: real-world results must state their conditions
 
-Papers often report success rates without run counts, initial conditions or success criteria <Cite id="kress-gazit-evaluation-2024" />. LIBERO-Plus showed that modest perturbations expose gaps high scores hide <Cite id="libero-plus-2025" />; the [evaluation crisis](/data-hardware/evaluation-crisis) covers the statistics.
+Papers often report success rates without run counts, initial conditions or success criteria <Cite id="kress-gazit-evaluation-2024" />. LIBERO-Plus showed modest perturbations expose gaps high scores hide <Cite id="libero-plus-2025" />; the [evaluation crisis](/data-hardware/evaluation-crisis) covers the statistics.
 
 | Method | What it adds |
 | --- | --- |
@@ -158,17 +158,17 @@ Papers often report success rates without run counts, initial conditions or succ
 
 ## Contract 7: a gate stands between policy and motors
 
-On the robot the policy sits in a chain: observation assembler, model server, command gate, controller bridge and supervisor, with safety and fast feedback below. ROS 2 was redesigned from the ground up because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />. The [ROS 2 guide](/classical/ros2-for-ml-engineers) defines the interfaces, and ros2_control provides the real-time bridge <Cite id="ros2-control-docs-2026" />.
+On the robot the policy sits in a chain: observation assembler, model server, command gate, controller bridge and supervisor, with safety and fast feedback below. ROS 2 was redesigned because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />. The [ROS 2 guide](/classical/ros2-for-ml-engineers) defines the interfaces; ros2_control provides the real-time bridge <Cite id="ros2-control-docs-2026" />.
 
 Real-time chunking computes the next action chunk while the current one runs <Cite id="real-time-chunking-2025" />, and SmolVLA decouples prediction from execution <Cite id="smolvla-2025" />. [Real-time execution](/manipulation/realtime-execution) has the latency budgets.
 
-Export must preserve the numbers. The RAI Institute's Exploy packs a PyTorch policy's observation code, network and action processing into one ONNX file and checks numerical equivalence before hardware runs <Cite id="exploy-2026" />. A TensorRT engine works by default only with the TensorRT version that built it <Cite id="tensorrt-engine-compatibility-2026" />.
+The RAI Institute's Exploy packs a PyTorch policy's observation code, network and action processing into one ONNX file and checks numerical equivalence before hardware runs <Cite id="exploy-2026" />. A TensorRT engine works by default only with the TensorRT version that built it <Cite id="tensorrt-engine-compatibility-2026" />.
 
 Also: ONNX graph versioning <Cite id="onnx-ir-spec" />, ONNX Runtime execution providers <Cite id="onnx-runtime-architecture" />, Intrinsic Core under Apache 2.0 <Cite id="intrinsic-core-2026" />, Qualcomm's PickNik deal <Cite id="qualcomm-picknik-2026" />.
 
 ## Failures go back into the dataset
 
-A policy's own actions shape its future observations, which breaks the independence assumption of standard learning <Cite id="dagger-2011" />. NVIDIA's FLORA, the labeling engine behind GR00T, marks where each episode slipped and why; it labels up to 200,000 hours a day on 512 GB300 GPUs <Cite id="flora-2026" />. Its license bars commercial use <Cite id="flora-code-2026" />.
+A policy's actions shape its future observations, breaking the independence assumption of standard learning <Cite id="dagger-2011" />. FLORA, which labels GR00T training data, tags where each episode slipped and why; NVIDIA runs it at up to 200,000 hours a day on 512 GB300 GPUs <Cite id="flora-2026" />. Its license bars commercial use <Cite id="flora-code-2026" />.
 
 | Method | Result |
 | --- | --- |
@@ -179,4 +179,4 @@ A policy's own actions shape its future observations, which breaks the independe
 
 ## A small team needs six pieces
 
-Start with immutable versioned episode files, one versioned conversion command, a checkpoint registry and a deterministic offline test batch <Cite id="lerobot-dataset-v3-2025" /> <Cite id="hidden-technical-debt-2015" />. Add an evaluation sheet linked to episode IDs <Cite id="kress-gazit-evaluation-2024" /> and a policy process kept apart from the gate that approves its commands <Cite id="lerobot-paper-2026" /> <Cite id="safety-filter-2023" />.
+Start with immutable versioned episode files, one versioned conversion command, a checkpoint registry and a deterministic offline test batch <Cite id="lerobot-dataset-v3-2025" /> <Cite id="hidden-technical-debt-2015" />. Add an evaluation sheet linked to episode IDs <Cite id="kress-gazit-evaluation-2024" /> and a policy process kept apart from the gate approving its commands <Cite id="lerobot-paper-2026" /> <Cite id="safety-filter-2023" />.
