@@ -89,7 +89,7 @@ Code as Policies (2022) has a language model write Python that calls supplied pe
 
 ## Coding agents return
 
-In late 2026 planners returned as coding agents that test and repair their own programs.
+In late 2026 code-writing planners became agents that test and repair their programs.
 
 | System | What the agent does | Result |
 | --- | --- | --- |
@@ -151,10 +151,10 @@ Robo-COP fine-tunes the VLA under an orchestrator during deployment, keeping onl
 
 On a real ALOHA robot, the best hierarchy placed 12 of 15 fruits, against 9 for a naive hierarchy and 3 for a flat VLA <Cite id="orchestrating-policies-2026" />. Hierarchy inside a network can stall: token-by-token waypoint planning took 57 VLM forward passes until the authors cut latency 8.7-fold <Cite id="fast-plans-2026" />.
 
-Controlling simulated robots, GPT-6 Astra [decides better than it executes](/frontier/competing-theses/):
+In simulation, GPT-6 Astra does better when a stronger harness or trained policy executes its motions:
 
-| Study | Setup | Benchmark | Success |
-| --- | --- | --- | --- |
-| Auriga <Cite id="auriga-2026" /> | Arm-free object moves, the reference harness, then Auriga's, developed on RoboDojo | RoboDojo, 210 then 6,300 episodes | 76.2%; 22.5%; 57.7% (score 64.0) |
-| EBench <Cite id="ebench-astra-2026" /> | Against eight trained policies, then calling one | EBench, 26 tasks | 46.7%, third; first on short tasks, behind on long; 56.0% calling InternW0-Δ, first |
-| Galbot <Cite id="galbot-astra-policies-2026" /> | Alone, then correcting π0.5 | RoboDojo, 10 tasks | 26%; 48% |
+| Study | Setup | Success |
+| --- | --- | --- |
+| Auriga <Cite id="auriga-2026" /> | RoboDojo, 210 episodes | Reference harness 22.5%; Auriga 59.2%; arm-free 76.2% |
+| EBench <Cite id="ebench-astra-2026" /> | 26 tasks, against eight trained policies | Direct 46.7%, third; 73.2% on short tasks, first; calling InternW0-Δ, 56.0%, first |
+| Galbot <Cite id="galbot-astra-policies-2026" /> | RoboDojo, 50 episodes on 10 tasks | Direct 26%; with π0.5, 48% |
