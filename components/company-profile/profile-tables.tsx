@@ -157,8 +157,13 @@ export function ProductsTable({ profile, labelledBy }: { profile: CompanyProfile
             <td className="lg:whitespace-nowrap lg:text-right">
               {price(product)}
               <span className={cx(narrow, 'mt-1 block text-[13px]')}>{mass(product)}</span>
-              <span className={cx(narrow, 'block text-[13px]')}>{dof(product, true)}</span>
-              <span className={cx(narrow, 'block text-[13px]')}>{payload(product, true)}</span>
+              {/* A bare "n/a" under the mass has no column head to name it. */}
+              {product.dof === NOT_APPLICABLE ? null : (
+                <span className={cx(narrow, 'block text-[13px]')}>{dof(product, true)}</span>
+              )}
+              {product.payload === NOT_APPLICABLE ? null : (
+                <span className={cx(narrow, 'block text-[13px]')}>{payload(product, true)}</span>
+              )}
             </td>
             <td className={cx(wide, 'whitespace-nowrap')}>{mass(product)}</td>
             <td className={cx(wide, 'text-[13px]')}>{dof(product, false)}</td>
