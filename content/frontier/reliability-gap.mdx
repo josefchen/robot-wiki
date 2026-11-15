@@ -47,6 +47,7 @@ citations:
   - collective-experience-learning-2026
   - gr00t-2-2026
   - backtrack-vla-2026
+  - sensenova-astra-embodied-2026
 seeAlso:
   - "data-hardware/industrial-deployment"
   - "manipulation/generalist-policies"
@@ -69,7 +70,7 @@ The reliability gap is the distance between how often a robot succeeds in a demo
 <span id="the-arithmetic-of-compounding" />
 ## At 99.9% per step, a 30-step task still fails about once in 34 runs
 
-A task succeeds only if every step does. With $N$ independent steps at probability $p$, it succeeds with probability $p^N$ <Cite id="maker-2025" />, so at 99% per step a 30-step task finishes three runs in four. A success rate means nothing without the task's length, and papers often omit runs, starting conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />.
+A task succeeds only if every step does. With $N$ independent steps at probability $p$, it succeeds with probability $p^N$ <Cite id="maker-2025" />. A success rate means nothing without the task's length, and papers often omit runs, starting conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />.
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} presets="per-step-thresholds" descriptionVariant="reliability" className="my-6" />
 
@@ -79,7 +80,7 @@ A task succeeds only if every step does. With $N$ independent steps at probabili
 
 A slip puts the robot where its training data never went, so the next slip is likelier: <Term id="compounding-error">compounding error</Term>. An imitator with per-step error $\varepsilon$ can make up to $T^2\varepsilon$ mistakes over $T$ steps <Cite id="dagger-2011" />, and smooth imitators of continuous actions can suffer error "exponentially larger" with horizon <Cite id="simchowitz-continuous-il-2025" />.
 
-In GR00T 2's report, an arm taught a toy truck assembly from about 20 demonstrations finished 1 of 10 trials while scoring 81 of 100 on progress <Cite id="gr00t-2-2026" />. Holding 99% end-to-end over 50 steps needs about 99.98% per step, which no generalist policy publishes.
+In GR00T 2's report, an arm taught a toy truck assembly from about 20 demonstrations finished 1 of 10 trials while scoring 81 of 100 on progress <Cite id="gr00t-2-2026" />.
 
 <span id="why-the-last-stretch-is-different" />
 ## The last stretch to 99.9% needs other tools
@@ -89,7 +90,7 @@ Formal proof scales badly: Hamilton-Jacobi reachability faces "exponential compu
 <span id="what-is-closing-the-gap" />
 ## Practice on the job lifts single tasks above 90%
 
-<Term id="reinforcement-learning">Reinforcement learning</Term> on the robot's own attempts is the most direct fix, mostly one task at a time:
+<Term id="reinforcement-learning">Reinforcement learning</Term> on the robot's attempts fixes tasks mostly one at a time:
 
 | System | Result |
 | --- | --- |
@@ -100,6 +101,8 @@ Formal proof scales badly: Hamilton-Jacobi reachability faces "exponential compu
 | 96 pooled robots (2026) | Phone packaging from 79.2% to 98.3%, operators resetting scenes <Cite id="collective-experience-learning-2026" /> |
 | RAPolicy (2026) | Five jointly trained tasks from 52% to 88% <Cite id="rapolicy-2026" /> |
 | GEN-1 (2026) | 99% on fine-tuned tasks, against 64% for GEN-0 <Cite id="generalist-gen1-2026" /> |
+
+In SenseNova's zero-shot tests on eight real robots, GPT-6 Astra passed 17 of 18 rigid pick-and-place trials but 2 of 4 cloth folds on one arm, 9 of 23 navigation-and-search runs and 0 of 11 plug insertions; hardware faults ended some trials <Cite id="sensenova-astra-embodied-2026" />.
 
 <span id="runtime-monitors-make-failures-visible-and-human-help-rescues-episodes" />
 ## Monitors flag failures, and help fixes them
@@ -113,14 +116,14 @@ A runtime monitor flags a failure as it starts. FAIL-Detect learns this "from su
 | A second policy steers back to safety | Recovery RL <Cite id="recovery-rl-2020" /> |
 | The arm retraces and retries, 19 to 48% fewer failures | Backtrack <Cite id="backtrack-vla-2026" /> |
 
-The best long-task results lean on help. GR00T 2 assembled three toys in 97 or more of 100 trials each only with corrective data and a repairing agent, against 71 to 84 without <Cite id="gr00t-2-2026" />.
+GR00T 2 assembled three toys in 97 or more of 100 trials each only with corrective data and a repairing agent, against 71 to 84 without <Cite id="gr00t-2-2026" />.
 
 Also: language coaching <Cite id="pi07-blog-2026" />, expert takeover <Cite id="hg-dagger-2019" />, remote experts for NEO owners <Cite id="1x-neo-2026" />.
 
 <span id="what-is-actually-deployed" />
 ## Deployment records count hours and parts
 
-Companies publish hours and parts, rarely failures ([industrial deployment](/data-hardware/industrial-deployment/)):
+Companies rarely publish failures ([industrial deployment](/data-hardware/industrial-deployment/)):
 
 | Deployment | Reported |
 | --- | --- |
