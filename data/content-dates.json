@@ -62,7 +62,7 @@
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T05:04:01Z"
+      "modified": "2026-11-15T06:25:33Z"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T19:01:27Z",
@@ -166,7 +166,7 @@
     },
     "manipulation/vla-models": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-15T06:00:48Z"
+      "modified": "2026-11-15T06:25:28Z"
     },
     "rl-sim2real/humanoid-wbc": {
       "published": "2026-08-08T21:15:16Z",
@@ -235,7 +235,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T06:00:48Z"
+      "modified": "2026-11-15T06:25:33Z"
     },
     "/manipulation/": {
       "modified": "2026-11-15T04:26:30Z"
@@ -274,7 +274,7 @@
       "modified": "2026-11-13T05:50:10Z"
     },
     "/glossary/": {
-      "modified": "2026-11-15T05:48:16Z"
+      "modified": "2026-11-15T06:25:33Z"
     },
     "/credits/": {
       "modified": "2026-11-14T19:31:23Z"
