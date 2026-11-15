@@ -1,7 +1,7 @@
 /**
  * Competing-theses data for the frontier/competing-theses module.
  *
- * The field's six live disagreements, each stated as a falsifiable thesis
+ * The field's seven live disagreements, each stated as a falsifiable thesis
  * with named proponents, the strongest published evidence on both sides,
  * and the observation that would kill it. Row data lives here (not in the
  * component) so the module's prose, the explorer, and the tests share one
@@ -257,10 +257,48 @@ const ROWS: Thesis[] = [
       'Task-specific robots consistently beating humanoids on cost per task and reliability in the same applications kills the humanoid side; a humanoid reaching cost-per-task parity with purpose-built systems across a broad task range kills the task-specific side.',
     falsificationSignal: 'cost-per-task parity test',
   },
+  {
+    id: 'general-model-policy',
+    name: 'General model as the policy',
+    claim:
+      'A general AI model, given a harness, controls a robot without robot training data.',
+    proponents: [
+      'OpenAI (robotics team folded into general research, reported)',
+      'Apple (AMP1 agentic harness)',
+      'Google DeepMind (Gemini 4 Argon for Robotics)',
+    ],
+    evidenceFor: [
+      {
+        text: 'NVIDIA ran GPT-6 Astra zero-shot on the simulated RoboLab-120 benchmark: in a persistent Codex session it reached 74.8% success against 51.0% for Lakeside, the best policy in the comparison. Each successful episode cost USD 36.40 in API tokens, and the simulator paused while the model thought.',
+        citationIds: ['nvidia-astranomy-2026'],
+      },
+      {
+        text: 'Artificial Analysis gave frontier models in coding-agent harnesses a real 6-axis arm and eight tabletop tasks. GPT-6 Astra scored 69.4 of 100, ahead of GPT-6.1 Sol, Gemini 4 Argon, Claude Opus 5.5 and Claude Fable 5.1, at about 30 minutes and USD 16.36 per task against a human average of 20 seconds.',
+        citationIds: ['aa-robotics-2026'],
+      },
+      {
+        text: 'Across 5,699 blinded pairwise trials at 124 real sites, RoboColosseum found that frontier agents rival specialized VLA policies, though no system completed any of five G1 humanoid tasks.',
+        citationIds: ['robocolosseum-2026'],
+      },
+    ],
+    evidenceAgainst: [
+      {
+        text: "ZAP, a small open vision-language model taught motion entirely in simulation with no real robot data, reaches 96.7% on real tasks, matching GPT-6 Astra in the same harness while running 3x faster and 17x cheaper, and 74.0% against Astra's 72.2% on a bimanual adaptation of RoboLab-120.",
+        citationIds: ['zap-2026'],
+      },
+      {
+        text: "On eight real robot configurations, a SenseNova joint team found Astra reliable at rigid pick-and-place (17 of 18 trials) but 0 of 11 at plug insertion across three platforms. JustRUA's harness alone lifts Astra on RoboDojo from 29.7 to 50.3, so each result rates model and harness together.",
+        citationIds: ['sensenova-astra-2026', 'justrua-2026'],
+      },
+    ],
+    falsification:
+      'A small model trained only in simulation matching the general model across a broad task set at a fraction of its cost, or contact-rich real tasks such as insertion staying near zero as general models improve.',
+    falsificationSignal: 'small sim-trained model matches it',
+  },
 ];
 
 /**
- * The six theses. lib/registry-validation.ts parses them against
+ * The seven theses. lib/registry-validation.ts parses them against
  * thesesSchema at build time; an incomplete row fails `next build` during
  * static generation of the article routes.
  */

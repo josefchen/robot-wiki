@@ -453,7 +453,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'VLAs vs World Models: How Robots Scale',
     headTerm: 'VLAs vs world models',
     description:
-      'VLAs vs world models and four other bets on building robot intelligence: hierarchy, RL fine-tuning, teleoperation and humanoids, each with a kill test.',
+      'VLAs vs world models and five other bets on robot intelligence: hierarchy, RL, teleoperation, humanoids and general models, each with a kill test.',
     queries: ['VLA vs world model', 'how will robot learning scale', 'robot foundation model debate'],
   },
   '/frontier/bear-case/': {
