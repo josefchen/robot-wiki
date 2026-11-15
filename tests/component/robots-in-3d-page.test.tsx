@@ -2,17 +2,24 @@ import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import RobotsIn3dPage, { metadata } from '@/app/robots-in-3d/page';
 import sitemap from '@/app/sitemap';
+import { MAKER_MODEL_SOURCES_AS_OF } from '@/data/maker-model-sources';
 import { MODELS_3D } from '@/data/models-3d';
 import { formatLongDate } from '@/lib/dates';
 import {
+  MAKER_FILES_ID,
+  MAKER_FILES_TITLE,
   ROBOTS_IN_3D_PATH,
   ROBOTS_IN_3D_TITLE,
   modelCaption,
   modelHeading,
   modelSummary,
   newestChecked,
+  pageAsOf,
   recordRows,
+  registerLead,
+  registerTables,
   robotsIn3dLead,
+  robotsIn3dPageLead,
 } from '@/lib/robots-in-3d-page';
 import { SITE_URL } from '@/lib/site';
 
@@ -32,16 +39,40 @@ function renderPage() {
 }
 
 describe('/robots-in-3d/', () => {
-  it('opens with the shared header: the title and the lead ending on the newest checked date', () => {
+  it('opens with the shared header: the title and the lead ending on the newer of the two dates', () => {
     const container = renderPage();
     expect(container.querySelectorAll('h1')).toHaveLength(1);
     const header = container.querySelector('[data-page-header]');
     expect(header?.querySelector('h1')?.textContent).toBe(ROBOTS_IN_3D_TITLE);
     expect(text(header!.querySelector('[data-page-lead]'))).toBe(
-      `${robotsIn3dLead()}, as of ${formatLongDate(newestChecked())}.`,
+      `${robotsIn3dPageLead()}, as of ${formatLongDate(pageAsOf())}.`,
     );
-    expect(header?.querySelector('time')?.getAttribute('datetime')).toBe(newestChecked());
+    expect(robotsIn3dPageLead().startsWith(robotsIn3dLead())).toBe(true);
+    expect(header?.querySelector('time')?.getAttribute('datetime')).toBe(pageAsOf());
+    expect(pageAsOf() >= newestChecked() && pageAsOf() >= MAKER_MODEL_SOURCES_AS_OF).toBe(true);
     expect(header?.querySelectorAll('nav')).toHaveLength(0);
+  });
+
+  it('closes with the register below every model block: its heading, its lead, then the four tables', () => {
+    const container = renderPage();
+    const section = container.querySelector(`section#${MAKER_FILES_ID}`)!;
+    expect(section).not.toBeNull();
+    expect(section.querySelector('h2')?.textContent).toBe(MAKER_FILES_TITLE);
+    expect(text(section.querySelector('p'))).toBe(registerLead());
+    for (const block of container.querySelectorAll('[data-model-section]')) {
+      expect(block.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    }
+    expect([...section.querySelectorAll('[data-register-table]')].map((t) => t.getAttribute('data-register-table'))).toEqual(
+      registerTables().map((table) => table.status),
+    );
+    for (const table of section.querySelectorAll('[data-register-table] table')) {
+      const region = table.closest('[role="region"]');
+      expect(region?.getAttribute('tabindex')).toBe('0');
+      expect(container.querySelector(`#${region?.getAttribute('aria-labelledby')}`)?.tagName).toBe('H3');
+    }
+    for (const link of section.querySelectorAll('a[href^="#"]')) {
+      expect(container.querySelector(`[data-model-section]${link.getAttribute('href')}`), link.getAttribute('href')!).not.toBeNull();
+    }
   });
 
   it('gives each record one block, in data order: a heading, the viewer, then the record', () => {

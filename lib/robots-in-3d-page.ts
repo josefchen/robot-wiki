@@ -1,10 +1,19 @@
 /**
- * What /robots-in-3d/ derives from data/models-3d.ts: the lead sentence, the
- * addresses the viewer loads, and each record as the rows of its definition
- * table. Every value on the page comes from a record through here, so the
- * page holds whatever MODELS_3D holds.
+ * What /robots-in-3d/ derives from data/models-3d.ts and
+ * data/maker-model-sources.ts: the lead sentences, the addresses the viewer
+ * loads, each record as the rows of its definition table, and the register's
+ * four tables. Every value on the page comes from a record through here, so
+ * the page holds whatever the two modules hold.
  */
+import {
+  MAKER_MODEL_SOURCES,
+  MAKER_MODEL_SOURCES_AS_OF,
+  type MakerModelSource,
+  type MakerModelStatus,
+} from '../data/maker-model-sources.ts';
 import { MODELS_3D, type Model3d } from '../data/models-3d.ts';
+import { formatLongDate } from './dates.ts';
+import { MAKER_MODEL_STATUS_ORDER, countsByStatus, rowsByStatus } from './maker-model-sources.ts';
 import { formatShortDate } from './market-map.ts';
 
 export const ROBOTS_IN_3D_PATH = '/robots-in-3d/';
@@ -158,4 +167,156 @@ export function recordRows(model: Model3d): RecordRow[] {
     { key: 'change', label: 'What the conversion changed', text: model.change, mono: false },
     { key: 'checked', label: 'Checked', text: formatShortDate(model.checked), date: model.checked, mono: true },
   ];
+}
+
+/** The id of a model's block on the page: its section, viewer and record. */
+export function modelBlockId(model: Model3d): string {
+  return model.id;
+}
+
+/* The register of makers' own model files. */
+
+export const MAKER_FILES_ID = 'maker-files';
+export const MAKER_FILES_TITLE = 'Makers’ own model files';
+
+/** Each status's table title, in display order. */
+export const REGISTER_TABLE_TITLES: Readonly<Record<MakerModelStatus, string>> = {
+  official: 'Published under a licence',
+  restricted: 'Published with limits',
+  'no-licence': 'Published with no licence',
+  'none-found': 'None found',
+};
+
+export type RegisterTable = {
+  status: MakerModelStatus;
+  /** The table caption's id. */
+  id: string;
+  title: string;
+  rows: MakerModelSource[];
+};
+
+/** The four tables, in MAKER_MODEL_STATUS_ORDER, each with its rows in data order. */
+export function registerTables(rows: readonly MakerModelSource[] = MAKER_MODEL_SOURCES): RegisterTable[] {
+  return MAKER_MODEL_STATUS_ORDER.map((status) => ({
+    status,
+    id: `${MAKER_FILES_ID}-${status}`,
+    title: REGISTER_TABLE_TITLES[status],
+    rows: rowsByStatus(rows, status),
+  }));
+}
+
+const plural = (n: number, one: string, many: string) => `${grouped(n)} ${n === 1 ? one : many}`;
+
+/** "Published under a licence, 21 entries". */
+export function registerTableHeading(table: RegisterTable): string {
+  return `${table.title}, ${plural(table.rows.length, 'entry', 'entries')}`;
+}
+
+/** The distinct git repositories read at a pinned commit. */
+export function repositoriesRead(rows: readonly MakerModelSource[] = MAKER_MODEL_SOURCES): string[] {
+  const repositories = rows.flatMap((row) => (row.commit && row.repository ? [row.repository] : []));
+  return [...new Set(repositories)];
+}
+
+/**
+ * The distinct pages read that are not a repository at a commit: a found
+ * row's download or documentation page, and every page a none-found row
+ * cites.
+ */
+export function pagesRead(rows: readonly MakerModelSource[] = MAKER_MODEL_SOURCES): string[] {
+  const pages = rows.flatMap((row) => {
+    if (row.status === 'none-found') return row.sources.map((source) => source.url);
+    return !row.commit && row.repository ? [row.repository] : [];
+  });
+  return [...new Set(pages)];
+}
+
+/** Rows that name a licence: the official and restricted ones. */
+export function licensedCount(rows: readonly MakerModelSource[] = MAKER_MODEL_SOURCES): number {
+  const counts = countsByStatus(rows);
+  return counts.official + counts.restricted;
+}
+
+/** Distinct makers in the register, and those with at least one found row. */
+export function makerCounts(rows: readonly MakerModelSource[] = MAKER_MODEL_SOURCES): {
+  searched: number;
+  found: number;
+} {
+  const searched = new Set(rows.map((row) => row.maker));
+  const found = new Set(rows.filter((row) => row.status !== 'none-found').map((row) => row.maker));
+  return { searched: searched.size, found: found.size };
+}
+
+/** The register's lead under its heading: what was read, what carries a licence, and when. */
+export function registerLead(
+  rows: readonly MakerModelSource[] = MAKER_MODEL_SOURCES,
+  asOf: string = MAKER_MODEL_SOURCES_AS_OF,
+): string {
+  const repositories = plural(repositoriesRead(rows).length, 'repository', 'repositories');
+  const pages = plural(pagesRead(rows).length, 'web page', 'web pages');
+  const licensed = licensedCount(rows);
+  const carry = `${grouped(licensed)} of them ${licensed === 1 ? 'carries' : 'carry'} a licence`;
+  return `As of ${formatLongDate(asOf)} the register holds ${plural(rows.length, 'entry', 'entries')}, read from ${repositories} at a pinned commit and ${pages}, and ${carry}.`;
+}
+
+/** The page header's date: the newer of the models' newest check and the register's. */
+export function pageAsOf(
+  models: readonly Model3d[] = MODELS_3D,
+  registerAsOf: string = MAKER_MODEL_SOURCES_AS_OF,
+): string {
+  const modelsAsOf = newestChecked(models);
+  return registerAsOf > modelsAsOf ? registerAsOf : modelsAsOf;
+}
+
+/**
+ * The page header's lead, without its closing full stop: the hosted models,
+ * then how many of the makers searched were found to publish their own
+ * files. The header ends it on pageAsOf().
+ */
+export function robotsIn3dPageLead(
+  models: readonly Model3d[] = MODELS_3D,
+  rows: readonly MakerModelSource[] = MAKER_MODEL_SOURCES,
+): string {
+  const { searched, found } = makerCounts(rows);
+  const share = found === searched ? `all ${grouped(searched)}` : `${grouped(found)} of the ${grouped(searched)}`;
+  return `${robotsIn3dLead(models)}, and where ${share} makers searched publish their own model files`;
+}
+
+export type RegisterLink = { text: string; href: string };
+
+/** An address as link text: host and path, without "www." or a trailing slash. */
+export function displayAddress(url: string): string {
+  const { hostname, pathname } = new URL(url);
+  return `${hostname.replace(/^www\./, '')}${pathname}`.replace(/\/$/, '');
+}
+
+/** The repository at its pinned commit, or the download page when no commit is pinned. */
+export function repositoryLink(row: MakerModelSource): RegisterLink | null {
+  if (!row.repository) return null;
+  if (!row.commit) return { text: displayAddress(row.repository), href: row.repository };
+  const { hostname, pathname } = new URL(row.repository);
+  const text = hostname === 'github.com' ? pathname.replace(/^\/|\/$/g, '') : displayAddress(row.repository);
+  return { text, href: `${row.repository}/tree/${row.commit.hash}` };
+}
+
+/** The pinned commit's first eight characters, or null off git. */
+export function registerShortCommit(row: MakerModelSource): string | null {
+  return row.commit ? row.commit.hash.slice(0, 8) : null;
+}
+
+export function licenceLink(row: MakerModelSource): RegisterLink | null {
+  return row.licence ? { text: row.licence.name, href: row.licence.url } : null;
+}
+
+/** A row whose files the site ships: the link to that model's block on this page. */
+export function hostedLink(row: MakerModelSource, models: readonly Model3d[] = MODELS_3D): RegisterLink | null {
+  if (!row.hostedModelId) return null;
+  const model = models.find((candidate) => candidate.id === row.hostedModelId);
+  if (!model) throw new Error(`robots-in-3d: ${row.id} names ${row.hostedModelId}, which the site does not ship`);
+  return { text: model.product, href: `#${modelBlockId(model)}` };
+}
+
+/** The pages a none-found row read. */
+export function pagesReadLinks(row: MakerModelSource): RegisterLink[] {
+  return row.sources.map((source) => ({ text: displayAddress(source.url), href: source.url }));
 }
