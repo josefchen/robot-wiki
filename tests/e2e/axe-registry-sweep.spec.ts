@@ -52,6 +52,7 @@ const ROUTES: string[] = [
   '/how-robots-work/',
   '/search/',
   '/glossary/',
+  '/robots-in-3d/',
   '/credits/',
   '/editorial-policy/',
   '/about/',

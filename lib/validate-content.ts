@@ -120,6 +120,7 @@ const DEFAULT_STATIC_ROUTES = [
   '/playground',
   '/how-robots-work',
   '/glossary',
+  '/robots-in-3d',
   '/credits',
   '/editorial-policy',
   '/about',
