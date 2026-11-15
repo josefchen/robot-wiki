@@ -572,6 +572,8 @@ export const ADDITIONS: Citation[] = [
   // apple-halo-2026: arXiv Atom API and HTML read 2026-11-15 (v1 4 Nov 2026), Apple. Abstract: "a 91%
   // success rate across 360 trials in six unmapped real-world environments"; Table II single-task real
   // mean 91 over six skills, 10 trials per skill per environment, Unitree G1. No real-data baseline.
+  // No robot demonstrations, but human ones: App. A3 and Table IV take Crawl and Crouch keyframes from
+  // phone videos of a person and Push from a motion-capture recording of a person.
   // Not to be confused with halo-payload-2026 (payload estimation).
   {
     id: 'apple-halo-2026',
