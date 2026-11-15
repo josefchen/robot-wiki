@@ -61,7 +61,7 @@ const BOSCHKO_GO2 = {
     'From DDS Packets to Robot Shells: Two RCEs in Unitree Go2 Robot Dog (Boschko Security Blog, 26 Feb 2026)',
 } as const satisfies ProfileSource;
 
-const GITHUB_API ='https://api.github.com/orgs/unitreerobotics/repos';
+const GITHUB_API = 'https://api.github.com/orgs/unitreerobotics/repos';
 const HF_MODELS = {
   sourceType: 'primary',
   sourceUrl: 'https://huggingface.co/api/models?author=unitreerobotics',
@@ -135,6 +135,7 @@ const ABOUT = 'about' as const;
 const ARM_MAX = 'per arm, maximum';
 const ARM_RATED = 'per arm, rated; peak about 15 kg';
 const WALKING = 'continuous walking';
+const HAND_CONTINUOUS = 'per hand, continuous';
 
 export const UNITREE_PROFILE: CompanyProfile = {
   slug: 'unitree',
@@ -840,7 +841,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'b2', name: 'B2', family: 'B2', type: 'quadruped',
       priceUsd: null, priceAbsent: 'contact sales',
       mass: { value: 60, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed',
-      payload: { value: 40, unit: 'kg', qualifier: 'over' }, payloadBasis: WALKING,
+      payload: { value: 40, unit: 'kg', qualifier: 'over' }, payloadBasis: 'walking',
       notable: 'IP67; over 6 m/s in a special configuration',
       ...page('b2', 'b2'),
       note: 'The prospectus rates it IP68.',
@@ -938,15 +939,19 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'go1-air', name: 'Go1 Air', family: 'Go1', type: 'quadruped',
       priceUsd: 2_700, priceAbsent: null,
-      mass: 'not disclosed', dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 12, unit: 'kg' }, dof: 12, dofBasis: 'joint motors', payload: { value: 4, unit: 'kg', qualifier: ABOUT },
+      notable: '0 to 2.5 m/s; 10 kg load limit',
       ...SHOP,
+      ...specFrom('go1', 'Go1'),
       note: 'Listed in the shop but not orderable.',
     },
     {
       id: 'go1-pro', name: 'Go1 Pro', family: 'Go1', type: 'quadruped',
       priceUsd: 3_500, priceAbsent: null,
-      mass: 'not disclosed', dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 12, unit: 'kg' }, dof: 12, dofBasis: 'joint motors', payload: { value: 4, unit: 'kg', qualifier: ABOUT },
+      notable: '0 to 3.5 m/s; 10 kg load limit',
       ...SHOP,
+      ...specFrom('go1', 'Go1'),
       note: 'Listed in the shop but not orderable.',
     },
     {
@@ -1037,22 +1042,24 @@ export const UNITREE_PROFILE: CompanyProfile = {
       priceUsd: null, priceAbsent: 'not disclosed',
       mass: { value: 1_100, unit: 'g' }, dof: 20, dofBasis: '16 active',
       payload: { value: 3.5, unit: 'kg' }, payloadBasis: 'palm down, holding a 5 cm object',
-      notable: '94 tactile sensors per hand',
+      notable: 'No pressure sensors; the Dex5-1P adds 94',
       ...page('Dex5-1', 'Dex5-1'),
       note: 'The prospectus gives 1,000 g.',
     },
     {
       id: 'dex5-s', name: 'Dex5-S', family: 'Dex5-S', type: 'hand',
       priceUsd: 6_350, priceAbsent: null,
-      mass: { value: 620, unit: 'g' }, dof: 22, payload: { value: 1, unit: 'kg' },
+      mass: { value: 620, unit: 'g' }, dof: 22, payload: { value: 1, unit: 'kg' }, payloadBasis: HAND_CONTINUOUS,
       notable: 'Direct drive and backdrivable; 2 kg peak payload',
       ...page('Dex5-S', 'Dex5-S'),
     },
     {
       id: 'dex5-s-pro', name: 'Dex5-S Pro', family: 'Dex5-S', type: 'hand',
       priceUsd: 13_500, priceAbsent: null,
-      mass: 'not disclosed', dof: 'not disclosed', payload: 'not disclosed',
+      mass: { value: 620, unit: 'g' }, dof: 22, payload: { value: 1, unit: 'kg' }, payloadBasis: HAND_CONTINUOUS,
+      notable: 'Adds tactile sensing; 2 kg peak payload',
       ...SHOP,
+      ...specFrom('Dex5-S', 'Dex5-S'),
       note: 'Listed in the shop but not orderable.',
     },
     {
@@ -1074,15 +1081,19 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'l1-pm', name: 'L1 PM', family: 'L1', type: 'lidar',
       priceUsd: 249, priceAbsent: null,
-      mass: 'not disclosed', dof: 'n/a', payload: 'n/a',
+      mass: { value: 230, unit: 'g' }, dof: 'n/a', payload: 'n/a',
+      notable: '20 m range at 90% reflectivity',
       ...SHOP,
+      ...specFrom('LiDAR', 'L1'),
       note: 'Listed in the shop but not orderable.',
     },
     {
       id: 'l1-rm', name: 'L1 RM', family: 'L1', type: 'lidar',
       priceUsd: 309, priceAbsent: null,
-      mass: 'not disclosed', dof: 'n/a', payload: 'n/a',
+      mass: { value: 230, unit: 'g' }, dof: 'n/a', payload: 'n/a',
+      notable: '30 m range at 90% reflectivity',
       ...SHOP,
+      ...specFrom('LiDAR', 'L1'),
       note: 'Listed in the shop but not orderable.',
     },
   ],

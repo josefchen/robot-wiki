@@ -431,9 +431,22 @@ describe('Unitree profile: products', () => {
     expect(spec('as2-w-x')).toEqual(['16', 'about 25 kg', 'about 16 kg', walking]);
     expect(spec('as2-w-edu')).toEqual(['16', 'about 25 kg', 'about 16 kg', walking]);
     expect(spec('b2-ex-inspection').slice(0, 2)).toEqual(['12', 'about 170 kg']);
+    expect(spec('b2')).toEqual(['not disclosed', 'about 60 kg', 'over 40 kg', 'walking']);
     expect(spec('b2-w')).toEqual(['not disclosed', 'about 85 kg', 'over 40 kg', 'walking']);
     expect(spec('a2')).toEqual(['12', 'about 42 kg', 'about 25 kg', walking]);
     expect(spec('a2-w')).toEqual(['16', 'about 52 kg', 'about 25 kg', walking]);
+    expect(spec('go1-air')).toEqual(['12', '12 kg', 'about 4 kg', '']);
+    expect(spec('go1-pro')).toEqual(['12', '12 kg', 'about 4 kg', '']);
+    expect(spec('dex5-s')).toEqual(['22', '620 g', '1 kg', 'per hand, continuous']);
+    expect(spec('dex5-s-pro')).toEqual(['22', '620 g', '1 kg', 'per hand, continuous']);
+    expect(spec('l1-pm').slice(1, 2)).toEqual(['230 g']);
+    expect(spec('l1-rm').slice(1, 2)).toEqual(['230 g']);
+    for (const row of profile.products) {
+      const stated = [row.mass, row.dof, row.payload].some((v) => v !== 'not disclosed' && v !== 'n/a');
+      if (row.sourceUrl.startsWith('https://shop.unitree.com/') && stated) {
+        expect(row.specSourceUrl, row.id).toBeDefined();
+      }
+    }
     for (const row of profile.products) {
       if (row.type.includes('humanoid') && typeof row.payload === 'object') {
         expect(row.payloadBasis, row.id).toMatch(/^per arm/);
@@ -449,6 +462,7 @@ describe('Unitree profile: products', () => {
     expect(formatQuantity(product('r1-7a').payload)).toBe('3 to 5 kg');
     expect(formatQuantity(product('r1').payload)).toBe('about 3 to 5 kg');
     expect(formatQuantity(product('dex5-1').payload)).toBe('3.5 kg');
+    expect(product('dex5-1').notable).toBe('No pressure sensors; the Dex5-1P adds 94');
     expect(formatProfileDate('2026-08-19')).toBe('19 Aug 2026');
     expect(formatProfileDate('2024-05')).toBe('May 2024');
     expect(formatProfileDate('2017')).toBe('2017');
