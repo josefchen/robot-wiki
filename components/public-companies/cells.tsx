@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { NumberText } from '@/components/ui/number-text';
 import { TableScroll } from '@/components/ui/table-scroll';
-import { sourceHost } from '@/lib/public-companies-page';
+import { NO_CLOSE, sourceHost } from '@/lib/public-companies-page';
 import { cx } from '@/lib/utils';
 
 /**
@@ -18,7 +18,7 @@ export interface ColumnHead {
 }
 
 const SECOND_LINE = 'mt-0.5 block font-sans text-[12px] leading-[1.45] text-text-dim';
-const UNKNOWN = new Set(['not disclosed', 'n/a']);
+const UNKNOWN = new Set(['not disclosed', 'n/a', NO_CLOSE]);
 
 /**
  * A static booktabs table in its own scroll frame, named by its caption. The

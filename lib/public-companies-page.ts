@@ -334,6 +334,9 @@ const RAISED_KIND: Record<string, string | null> = {
   'total capital': 'total capital',
 };
 
+/** A debut that trades but has no close in the module: the close exists, the data lacks it. */
+export const NO_CLOSE = 'no close in the data';
+
 export function debutText(debut: Debut): DebutText {
   const change = sinceListingChange(debut);
   const gross = debutGrossProceeds(debut);
@@ -346,9 +349,10 @@ export function debutText(debut: Debut): DebutText {
     debut,
     listed: debut.listingDate ? formatShortDate(debut.listingDate) : 'not disclosed',
     offer,
-    close: debut.close ? formatPrice(debut.close.price, debut.currency) : 'n/a',
+    close: debut.close ? formatPrice(debut.close.price, debut.currency) : NO_CLOSE,
     change,
-    changeText: change === null ? 'n/a' : formatChange(change),
+    // A merger has no offer price, so no change applies; a missing close is the data's gap.
+    changeText: change !== null ? formatChange(change) : debut.offerPrice === null ? 'n/a' : NO_CLOSE,
     raised: gross === null ? 'not disclosed' : formatMoney(gross, debut.currency),
     raisedKind: proceeds ? RAISED_KIND[proceeds.kind === 'stated' ? proceeds.qualifier : proceeds.kind] : null,
     reported: debut.source.type === 'reported',
@@ -365,23 +369,42 @@ export function debutRows(debuts: readonly Debut[] = DEBUTS): DebutText[] {
   });
 }
 
-/** Debuts trading above and below their offer price. */
-export function debutTally(rows: readonly DebutText[] = debutRows()): { above: number; below: number; none: number } {
-  let above = 0;
-  let below = 0;
-  for (const row of rows) {
-    if (row.change === null) continue;
-    if (row.change > 0) above += 1;
-    else if (row.change < 0) below += 1;
+export interface DebutTally {
+  above: number;
+  below: number;
+  /** Listed by merger: no offer price, so no change applies. */
+  noOffer: string[];
+  /** An offer price, but no close in the module to compare with it. */
+  noClose: string[];
+}
+
+/** Debuts trading above and below their offer price, and those without a change, by name. */
+export function debutTally(rows: readonly DebutText[] = debutRows()): DebutTally {
+  const tally: DebutTally = { above: 0, below: 0, noOffer: [], noClose: [] };
+  for (const { debut, change } of rows) {
+    if (change !== null) {
+      if (change > 0) tally.above += 1;
+      else if (change < 0) tally.below += 1;
+    } else if (debut.offerPrice === null) tally.noOffer.push(debut.name);
+    else tally.noClose.push(debut.name);
   }
-  return { above, below, none: rows.filter((row) => row.change === null).length };
+  return tally;
+}
+
+function names(list: readonly string[]): string {
+  return list.length > 1 ? `${list.slice(0, -1).join(', ')} and ${list.at(-1)}` : list.join('');
 }
 
 export function sinceListingLead(rows: readonly DebutText[] = debutRows()): string {
-  const { above, below, none } = debutTally(rows);
+  const { above, below, noOffer, noClose } = debutTally(rows);
+  const gaps = [
+    noOffer.length ? `${names(noOffer)} listed by merger, with no offer price` : null,
+    noClose.length ? `the data has no close for ${names(noClose)}` : null,
+  ].filter(Boolean);
   return (
     `Of the ${rows.length} debuts of 2026, ${above} trade above their offer price and ${below} below it ` +
-    `at the close of ${formatLongDate(PUBLIC_COMPANIES_AS_OF)}; ${none} have no offer price or no close to compare with it.`
+    `at the close of ${formatLongDate(PUBLIC_COMPANIES_AS_OF)}.` +
+    (gaps.length ? ` ${gaps.join('; ').replace(/^./, (c) => c.toUpperCase())}.` : '')
   );
 }
 
@@ -399,6 +422,25 @@ export function leftOutLead(rows: readonly LeftOutCompany[] = LEFT_OUT_COMPANIES
     `${count(rows.length, 'listed company', 'listed companies')} kept off the list: ` +
     'robots are neither the business nor a named, reported part of it.'
   );
+}
+
+/** The left-out sources as they are: which Stock Analysis page backs how many rows. */
+export function leftOutCaption(rows: readonly LeftOutCompany[] = LEFT_OUT_COMPANIES): string {
+  const page = (row: LeftOutCompany) => {
+    const url = new URL(row.source.url);
+    if (sourceHost(row.source.url) !== 'stockanalysis.com') throw new Error(`${row.id}: source is not Stock Analysis`);
+    if (url.pathname.endsWith('/company/')) return 'profile';
+    if (url.pathname.endsWith('/market-cap/')) return 'value';
+    throw new Error(`${row.id}: source is neither a profile nor a market value page`);
+  };
+  const profiles = rows.filter((row) => page(row) === 'profile').length;
+  const values = rows.length - profiles;
+  const parts = [
+    profiles ? `the company profile for ${profiles}` : null,
+    values ? `the market value page for ${values}` : null,
+  ].filter(Boolean);
+  const reported = rows.every((row) => row.source.type === 'reported') ? ' (reported)' : '';
+  return `Sources: Stock Analysis, ${parts.join(' and ')}${reported}.`;
 }
 
 /** The IPO watch lead: how many companies at each status, in table order. */

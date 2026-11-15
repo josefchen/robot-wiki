@@ -48,6 +48,26 @@ describe('/market-map/public/', () => {
     expect(renderPage().querySelector('#left-out-caption')?.textContent).toContain('(reported)');
   });
 
+  it('names what each reported exposure rests on, profile or press', () => {
+    const hosts = new Set(
+      PUBLIC_COMPANIES.filter((c) => c.exposureSource?.type === 'reported').map(
+        (c) => new URL(c.exposureSource!.url).hostname,
+      ),
+    );
+    expect(hosts.has('stockanalysis.com') && hosts.size > 1).toBe(true);
+    expect(renderPage().querySelector('#listed-companies-caption')?.textContent).toContain(
+      'company profile or a press report, not on a filing.',
+    );
+  });
+
+  it('labels a merger’s source by the listing it backs, not an offer it lacks', () => {
+    const container = renderPage();
+    for (const debut of DEBUTS) {
+      const cell = container.querySelector(`[data-debut-row="${debut.id}"] td:last-child`)?.textContent ?? '';
+      expect(cell.startsWith(debut.offerPrice === null ? 'Listing ' : 'Offer '), debut.id).toBe(true);
+    }
+  });
+
   it('hides no column at any width', () => {
     const container = renderPage();
     for (const cell of container.querySelectorAll('table :is(th, td)')) {

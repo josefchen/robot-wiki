@@ -11,6 +11,7 @@ import {
 import { LISTING_CURRENCIES } from '@/data/schemas/public-company';
 import { debutGrossProceeds, toUsd } from '@/lib/public-companies';
 import {
+  NO_CLOSE,
   PAGE_RATES,
   PUBLIC_PAGE_SECTIONS,
   conversionNote,
@@ -24,6 +25,7 @@ import {
   formatWatchDate,
   ipoRows,
   ipoWatchLead,
+  leftOutCaption,
   leftOutLead,
   leftOutRows,
   listedLead,
@@ -138,8 +140,9 @@ describe('page text', () => {
         '6 reported only. The ABB Robotics sale closes the table as context: not an IPO.',
     );
     expect(sinceListingLead()).toBe(
-      'Of the 24 debuts of 2026, 7 trade above their offer price and 13 below it at the close of 13 November 2026; ' +
-        '4 have no offer price or no close to compare with it.',
+      'Of the 24 debuts of 2026, 7 trade above their offer price and 13 below it at the close of 13 November 2026. ' +
+        'Agility Robotics and XTEND AI Robotics listed by merger, with no offer price; ' +
+        'the data has no close for Cosmo Robotics and Estun Automation (H shares).',
     );
   });
 });
@@ -198,6 +201,16 @@ describe('listed companies table', () => {
     const left = leftOutRows();
     expect(left).toHaveLength(LEFT_OUT_COMPANIES.length);
     expect(left.map((r) => r.name)).toEqual([...left.map((r) => r.name)].sort((a, b) => a.localeCompare(b)));
+  });
+
+  it('describes the left-out sources by the pages they are', () => {
+    const profiles = LEFT_OUT_COMPANIES.filter((r) => r.source.url.endsWith('/company/')).length;
+    expect([profiles, LEFT_OUT_COMPANIES.length - profiles]).toEqual([18, 4]);
+    expect(leftOutCaption()).toBe(
+      'Sources: Stock Analysis, the company profile for 18 and the market value page for 4 (reported).',
+    );
+    const elsewhere = { ...LEFT_OUT_COMPANIES[0], source: { ...LEFT_OUT_COMPANIES[0].source, url: 'https://example.com/x' } };
+    expect(() => leftOutCaption([elsewhere])).toThrow();
   });
 });
 
@@ -258,7 +271,12 @@ describe('since listing table', () => {
       'cosmo-robotics',
       'estun-automation-h-shares',
     ]);
-    expect(debutTally(rows)).toEqual({ above: 7, below: 13, none: 4 });
+    expect(debutTally(rows)).toEqual({
+      above: 7,
+      below: 13,
+      noOffer: ['Agility Robotics', 'XTEND AI Robotics'],
+      noClose: ['Cosmo Robotics', 'Estun Automation (H shares)'],
+    });
   });
 
   it('computes each change from the offer price and the close', () => {
@@ -270,6 +288,20 @@ describe('since listing table', () => {
     ]);
     expect(at('mech-mind-robotics').changeText).toBe('−17.1%');
     expect([at('agility-robotics').offer, at('agility-robotics').changeText]).toEqual(['n/a', 'n/a']);
+  });
+
+  it('says a missing close is the data’s gap, never that no close exists', () => {
+    // Cosmo has an offer price and trades: the change is unknown, not inapplicable.
+    expect([at('cosmo-robotics').offer, at('cosmo-robotics').close, at('cosmo-robotics').changeText]).toEqual([
+      'KRW 6,000',
+      NO_CLOSE,
+      NO_CLOSE,
+    ]);
+    expect(at('agility-robotics').close).toBe(NO_CLOSE);
+    for (const row of rows) {
+      if (!row.debut.close) expect(row.close, row.debut.id).toBe(NO_CLOSE);
+      if (row.change === null) expect(row.changeText, row.debut.id).toBe(row.debut.offerPrice === null ? 'n/a' : NO_CLOSE);
+    }
   });
 
   it('sums what each debut raised from the module, never a press total', () => {
