@@ -118,9 +118,10 @@ export function formatMoney(amount: number, currency: ListingCurrency): string {
   return `${prefix}${significant(amount)}`;
 }
 
-/** A share price as written, with grouping: "HKD 43.24", "KRW 17,600", "$5". */
+/** A share price as written, with grouping: "HKD 43.24", "HKD 8.635", "KRW 17,600", "$5". */
 export function formatPrice(price: number, currency: ListingCurrency): string {
-  const text = price.toLocaleString('en-US', { maximumFractionDigits: 2 });
+  // HKEX prints some closes to three decimals (Galaxis, 8.635); rounding them would change the figure.
+  const text = price.toLocaleString('en-US', { maximumFractionDigits: 3 });
   return currency === 'USD' ? `$${text}` : `${currency} ${text}`;
 }
 
@@ -333,6 +334,31 @@ const RAISED_KIND: Record<string, string | null> = {
   reported: null,
   'total capital': 'total capital',
 };
+
+/** Who publishes each close, by the host of the row's close link. */
+const CLOSE_SOURCES: Readonly<Record<string, { name: string; reported: boolean }>> = {
+  'hkex.com.hk': { name: 'HKEX daily quotations', reported: false },
+  'yunhq.sse.com.cn': { name: 'SSE quotation server', reported: false },
+  'api.nasdaq.com': { name: 'Nasdaq historical data', reported: false },
+  'stockanalysis.com': { name: 'Stock Analysis quote page', reported: true },
+};
+
+export function closeSource(close: NonNullable<Debut['close']>): { name: string; reported: boolean } {
+  const source = CLOSE_SOURCES[sourceHost(close.url)];
+  if (!source) throw new Error(`no close source named for ${close.url}`);
+  return source;
+}
+
+/** The since-listing caption's first sentence: where the closes come from, with a count each. */
+export function closesCaption(debuts: readonly Debut[] = DEBUTS): string {
+  const parts = Object.values(CLOSE_SOURCES)
+    .map((source) => {
+      const n = debuts.filter((d) => d.close && closeSource(d.close).name === source.name).length;
+      return n ? `${source.name}, ${n}${source.reported ? ' (reported)' : ''}` : null;
+    })
+    .filter((part): part is string => part !== null);
+  return `Closes, linked in each row: ${parts.join('; ')}.`;
+}
 
 /** A debut that trades but has no close in the module: the close exists, the data lacks it. */
 export const NO_CLOSE = 'no close in the data';

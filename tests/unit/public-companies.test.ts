@@ -139,7 +139,7 @@ describe('public companies data', () => {
     });
     expect(LEFT_OUT_COMPANIES).toHaveLength(22);
     expect(REMOVED_COMPANIES).toHaveLength(4);
-    expect(IPO_WATCH).toHaveLength(22);
+    expect(IPO_WATCH).toHaveLength(21);
     expect(AI_LAB_FILINGS).toHaveLength(3);
   });
 
@@ -312,10 +312,50 @@ describe('debuts', () => {
   it('belong to listed companies and listed in 2026', () => {
     const ids = new Set(PUBLIC_COMPANIES.map((c) => c.id));
     for (const debut of DEBUTS) {
-      expect(ids.has(debut.listedCompanyId), debut.id).toBe(true);
+      if (debut.listedCompanyId !== null) expect(ids.has(debut.listedCompanyId), debut.id).toBe(true);
       if (debut.listingDate !== null) expect(debut.listingDate.slice(0, 4), debut.id).toBe('2026');
     }
+    // Duke Robotics has no market value in the module, so no listed row.
+    expect(DEBUTS.filter((d) => d.listedCompanyId === null).map((d) => d.id)).toEqual(['duke-robotics']);
+    expect(ids.has('duke-robotics')).toBe(false);
+    expect(DEBUTS).toHaveLength(25);
     expect(DEBUTS.find((d) => d.name === 'BRILS')?.listingDate).toBeNull();
+  });
+
+  it('gives every debut a close, the exchange’s own where it published one', () => {
+    for (const debut of DEBUTS) expect(debut.close, debut.id).not.toBeNull();
+    const host = (url: string) => new URL(url).hostname;
+    for (const debut of DEBUTS.filter((d) => d.exchange === 'HKEX')) {
+      const close = debut.close!;
+      expect(close.url, debut.id).toBe('https://www.hkex.com.hk/eng/stat/smstat/dayquot/d261113e.htm');
+      expect(close.verified, debut.id).toBe(true);
+      // The sheet's second line opens with the closing price.
+      const closing = close.quote!.split(' / ')[1].split(' ')[0];
+      expect(Number(closing), debut.id).toBe(close.price);
+      expect(close.quote!.startsWith(debut.ticker), debut.id).toBe(true);
+    }
+    expect(DEBUTS.filter((d) => d.exchange === 'HKEX')).toHaveLength(17);
+    const at = (id: string) => DEBUTS.find((d) => d.id === id)!.close!;
+    expect([at('estun-automation-h-shares'), at('excelland-robotics'), at('galaxis-technology'), at('huayan-robotics')]
+      .map((c) => c.price)).toEqual([12.89, 34.48, 8.635, 6.705]);
+    expect([at('unitree-robotics').price, host(at('unitree-robotics').url)]).toEqual([696, 'yunhq.sse.com.cn']);
+    expect(at('unitree-robotics').quote).toContain('"date":20261113');
+    expect(at('unitree-robotics').quote).toContain('696.0000');
+    for (const [id, price] of [['swarmer', 8.84], ['agility-robotics', 7.36], ['duke-robotics', 2.02]] as const) {
+      expect([at(id).price, host(at(id).url), at(id).verified], id).toEqual([price, 'api.nasdaq.com', true]);
+      expect(at(id).url, id).toContain('fromdate=2026-11-13');
+      expect(at(id).quote, id).toBe(`"date":"11/13/2026","close":"$${price}"`);
+    }
+    // KRX gave no price and NYSE's page prints none: these rest on the quote page, unverified.
+    expect(at('cosmo-robotics').price).toBe(3875);
+    expect(at('xtend-ai-robotics').price).toBe(1.39);
+    const quotePages = DEBUTS.filter((d) => host(d.close!.url) === 'stockanalysis.com');
+    expect(quotePages.map((d) => d.id).sort()).toEqual(['bigwave-robotics', 'brils', 'cosmo-robotics', 'xtend-ai-robotics']);
+    for (const debut of quotePages) expect(debut.close!.verified, debut.id).toBe(false);
+    for (const debut of DEBUTS.filter((d) => d.close!.verified)) {
+      expect(host(debut.close!.url), debut.id).not.toBe('stockanalysis.com');
+      expect(debut.close!.quote, debut.id).toBeTruthy();
+    }
   });
 
   it('sums HKEX’s two lines for every Hong Kong debut', () => {
@@ -361,12 +401,63 @@ describe('debuts', () => {
     }
     expect(withChange.length).toBe(DEBUTS.filter((d) => d.offerPrice !== null && d.close !== null).length);
   });
+
+  it('takes Swarmer’s amount from the 8-K that reports the closed IPO, not the pricing release', () => {
+    const swarmer = DEBUTS.find((d) => d.id === 'swarmer')!;
+    const proceeds = swarmer.proceeds!;
+    expect(proceeds.kind).toBe('stated');
+    if (proceeds.kind !== 'stated') return;
+    expect([proceeds.gross, proceeds.offerShares, proceeds.qualifier]).toEqual([17.3e6, 3_450_000, 'final']);
+    expect(proceeds.sourceUrl).toBe(
+      'https://www.sec.gov/Archives/edgar/data/2092574/000110465926031244/tm2529424d17_8k.htm',
+    );
+    // 3,450,000 x $5.00 = $17.25M, which the 8-K rounds to $17.3 million.
+    expect(Math.abs(proceeds.offerShares! * swarmer.offerPrice! - proceeds.gross)).toBeLessThanOrEqual(0.05e6);
+    expect(swarmer.source.quote).not.toMatch(/expected to be approximately \$15\.0 million/);
+    // The Ratel Robotics purchase was still pending on 10 November: no row speaks of it.
+    const rows = [...PUBLIC_COMPANIES, ...DEBUTS].filter((r) => r.id === 'swarmer');
+    expect(rows).toHaveLength(2);
+    expect(JSON.stringify(rows)).not.toMatch(/merg|acqui|Ratel/i);
+  });
+
+  it('lists Duke Robotics as a Nasdaq uplisting of units, not on the IPO watch', () => {
+    expect(IPO_WATCH.some((r) => r.id === 'duke-robotics' || r.name === 'Duke Robotics')).toBe(false);
+    const duke = DEBUTS.find((d) => d.id === 'duke-robotics')!;
+    expect([duke.exchange, duke.ticker, duke.listingDate, duke.currency, duke.offerPrice]).toEqual([
+      'Nasdaq',
+      'DUKR',
+      '2026-05-15',
+      'USD',
+      8.2,
+    ]);
+    // 1,125,000 units at $8.20 = $9,225,000, the 8-K's gross.
+    expect(duke.proceeds).toEqual({ kind: 'stated', gross: 9_225_000, qualifier: 'final' });
+    expect(1_125_000 * duke.offerPrice!).toBeCloseTo(9_225_000, 6);
+    expect(duke.source.quote).toContain('1,125,000 units');
+    expect(duke.source.quote).toContain('$8.20');
+    expect(duke.source.quote).toContain('$9,225,000');
+    expect([duke.source.type, duke.source.verified]).toEqual(['primary', true]);
+    expect(JSON.stringify(duke)).not.toMatch(/6\.85/);
+    // A share's close against a unit's price: the change stands only beside the note that says so.
+    expect(duke.note).toContain('Uplisted from OTCQB');
+    expect(duke.note).toContain('a unit of one share and one warrant');
+    expect(sinceListingChange(duke)).toBeCloseTo(2.02 / 8.2 - 1, 12);
+  });
 });
 
 describe('IPO watch and AI labs', () => {
   it('flags the ABB Robotics sale as not an IPO', () => {
     const abb = IPO_WATCH.filter((r) => r.status === 'not an IPO');
     expect(abb.map((r) => r.id)).toEqual(['abb-robotics-sale']);
+  });
+
+  it('writes a missing filing one way', () => {
+    expect(IPO_WATCH.filter((r) => /^none/i.test(r.filingType))).toEqual([]);
+    expect(IPO_WATCH.filter((r) => r.filingType === 'not published').map((r) => r.id)).toEqual([
+      'agibot',
+      'engineai',
+      'wb-electronics',
+    ]);
   });
 
   it('marks every reported-only row with a reported source', () => {

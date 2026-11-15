@@ -14,10 +14,12 @@ import {
   NO_CLOSE,
   PAGE_RATES,
   PUBLIC_PAGE_SECTIONS,
+  closesCaption,
   conversionNote,
   countryName,
   debutRows,
   debutTally,
+  debutText,
   exposureText,
   formatChange,
   formatMoney,
@@ -97,6 +99,7 @@ describe('formats', () => {
   it('writes share prices as given, with grouping', () => {
     expect(formatPrice(17600, 'KRW')).toBe('KRW 17,600');
     expect(formatPrice(43.24, 'HKD')).toBe('HKD 43.24');
+    expect(formatPrice(8.635, 'HKD')).toBe('HKD 8.635');
     expect(formatPrice(5, 'USD')).toBe('$5');
   });
 
@@ -120,11 +123,11 @@ describe('formats', () => {
 describe('page text', () => {
   it('opens with counts taken from the rows', () => {
     expect(publicLeadSentence()).toBe(
-      '135 listed robotics companies by market value, the 24 debuts of 2026 and 21 companies on the IPO watch',
+      '135 listed robotics companies by market value, the 25 debuts of 2026 and 20 companies on the IPO watch',
     );
     expect(PUBLIC_COMPANIES).toHaveLength(135);
-    expect(DEBUTS).toHaveLength(24);
-    expect(IPO_WATCH.filter((row) => row.status !== 'not an IPO')).toHaveLength(21);
+    expect(DEBUTS).toHaveLength(25);
+    expect(IPO_WATCH.filter((row) => row.status !== 'not an IPO')).toHaveLength(20);
   });
 
   it('gives each section its lead', () => {
@@ -136,14 +139,25 @@ describe('page text', () => {
       '22 listed companies kept off the list: robots are neither the business nor a named, reported part of it.',
     );
     expect(ipoWatchLead()).toBe(
-      '21 companies heading to market, nearest first: 1 priced, 9 filed, 3 accepted, 1 postponed, 1 paused and ' +
+      '20 companies heading to market, nearest first: 1 priced, 8 filed, 3 accepted, 1 postponed, 1 paused and ' +
         '6 reported only. The ABB Robotics sale closes the table as context: not an IPO.',
     );
     expect(sinceListingLead()).toBe(
-      'Of the 24 debuts of 2026, 7 trade above their offer price and 13 below it at the close of 13 November 2026. ' +
-        'Agility Robotics and XTEND AI Robotics listed by merger, with no offer price; ' +
-        'the data has no close for Cosmo Robotics and Estun Automation (H shares).',
+      'Of the 25 debuts of 2026, 7 trade above their offer price and 16 below it at the close of 13 November 2026. ' +
+        'Agility Robotics and XTEND AI Robotics listed by merger, with no offer price.',
     );
+    // A row without a close still names the gap.
+    const estun = debutText({ ...DEBUTS.find((d) => d.id === 'estun-automation-h-shares')!, close: null });
+    expect(sinceListingLead([...debutRows(), estun])).toContain('the data has no close for Estun Automation (H shares).');
+  });
+
+  it('names where every close comes from, with a count each', () => {
+    expect(closesCaption()).toBe(
+      'Closes, linked in each row: HKEX daily quotations, 17; SSE quotation server, 1; ' +
+        'Nasdaq historical data, 3; Stock Analysis quote page, 4 (reported).',
+    );
+    const elsewhere = { ...DEBUTS[0], close: { ...DEBUTS[0].close!, url: 'https://example.com/x' } };
+    expect(() => closesCaption([elsewhere])).toThrow();
   });
 });
 
@@ -265,18 +279,37 @@ describe('since listing table', () => {
     const changes = rows.map((r) => r.change);
     const firstNull = changes.indexOf(null);
     expect(changes.slice(firstNull).every((c) => c === null)).toBe(true);
-    expect(rows.slice(firstNull).map((r) => r.debut.id)).toEqual([
-      'agility-robotics',
-      'xtend-ai-robotics',
-      'cosmo-robotics',
-      'estun-automation-h-shares',
-    ]);
+    expect(rows.slice(firstNull).map((r) => r.debut.id)).toEqual(['agility-robotics', 'xtend-ai-robotics']);
     expect(debutTally(rows)).toEqual({
       above: 7,
-      below: 13,
+      below: 16,
       noOffer: ['Agility Robotics', 'XTEND AI Robotics'],
-      noClose: ['Cosmo Robotics', 'Estun Automation (H shares)'],
+      noClose: [],
     });
+  });
+
+  it('prints the four closes the data lacked, and Duke’s change beside its unit note', () => {
+    // 12.89 / 15.36 - 1 = -16.1%; 3,875 / 6,000 - 1 = -35.4%; 2.02 / 8.20 - 1 = -75.4%.
+    expect([at('estun-automation-h-shares').close, at('estun-automation-h-shares').changeText]).toEqual([
+      'HKD 12.89',
+      '−16.1%',
+    ]);
+    expect([at('cosmo-robotics').close, at('cosmo-robotics').changeText]).toEqual(['KRW 3,875', '−35.4%']);
+    expect([at('agility-robotics').close, at('agility-robotics').changeText]).toEqual(['$7.36', 'n/a']);
+    expect([at('xtend-ai-robotics').close, at('xtend-ai-robotics').changeText]).toEqual(['$1.39', 'n/a']);
+    expect(at('galaxis-technology').close).toBe('HKD 8.635');
+    expect(at('huayan-robotics').close).toBe('HKD 6.705');
+    const duke = at('duke-robotics');
+    expect([duke.offer, duke.close, duke.changeText, duke.raised, duke.raisedKind]).toEqual([
+      '$8.2',
+      '$2.02',
+      '−75.4%',
+      // $9,225,000 to three figures; toFixed rounds the binary 9.225 down.
+      '$9.22M',
+      null,
+    ]);
+    expect(duke.debut.note).toContain('a unit of one share and one warrant');
+    expect([at('swarmer').raised, at('swarmer').raisedKind]).toEqual(['$17.3M', null]);
   });
 
   it('computes each change from the offer price and the close', () => {
@@ -291,13 +324,15 @@ describe('since listing table', () => {
   });
 
   it('says a missing close is the data’s gap, never that no close exists', () => {
-    // Cosmo has an offer price and trades: the change is unknown, not inapplicable.
-    expect([at('cosmo-robotics').offer, at('cosmo-robotics').close, at('cosmo-robotics').changeText]).toEqual([
-      'KRW 6,000',
+    // With an offer price and no close, the change is unknown, not inapplicable.
+    const cosmo = DEBUTS.find((d) => d.id === 'cosmo-robotics')!;
+    const noClose = debutText({ ...cosmo, close: null });
+    expect([noClose.offer, noClose.close, noClose.changeText]).toEqual(['KRW 6,000', NO_CLOSE, NO_CLOSE]);
+    const agility = DEBUTS.find((d) => d.id === 'agility-robotics')!;
+    expect([debutText({ ...agility, close: null }).close, debutText({ ...agility, close: null }).changeText]).toEqual([
       NO_CLOSE,
-      NO_CLOSE,
+      'n/a',
     ]);
-    expect(at('agility-robotics').close).toBe(NO_CLOSE);
     for (const row of rows) {
       if (!row.debut.close) expect(row.close, row.debut.id).toBe(NO_CLOSE);
       if (row.change === null) expect(row.changeText, row.debut.id).toBe(row.debut.offerPrice === null ? 'n/a' : NO_CLOSE);

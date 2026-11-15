@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import PublicCompaniesPage, { metadata } from '@/app/market-map/public/page';
 import { DEBUTS, IPO_WATCH, LEFT_OUT_COMPANIES, PUBLIC_COMPANIES } from '@/data/public-companies';
-import { PUBLIC_PAGE_SECTIONS, debutRows, ipoRows, listedRows } from '@/lib/public-companies-page';
+import { PUBLIC_PAGE_SECTIONS, closesCaption, debutRows, ipoRows, listedRows } from '@/lib/public-companies-page';
 
 function renderPage() {
   return render(<PublicCompaniesPage />).container;
@@ -20,7 +20,7 @@ describe('/market-map/public/', () => {
     const container = renderPage();
     expect(container.querySelector('h1')?.textContent).toBe('Public robotics companies');
     expect(container.querySelector('[data-page-lead]')?.textContent).toBe(
-      '135 listed robotics companies by market value, the 24 debuts of 2026 and 21 companies on the IPO watch, ' +
+      '135 listed robotics companies by market value, the 25 debuts of 2026 and 20 companies on the IPO watch, ' +
         'as of 13 November 2026.',
     );
     const sections = [...container.querySelectorAll('section')];
@@ -66,6 +66,15 @@ describe('/market-map/public/', () => {
       const cell = container.querySelector(`[data-debut-row="${debut.id}"] td:last-child`)?.textContent ?? '';
       expect(cell.startsWith(debut.offerPrice === null ? 'Listing ' : 'Offer '), debut.id).toBe(true);
     }
+  });
+
+  it('prints Duke’s change in the row that says the offer was a unit', () => {
+    const container = renderPage();
+    const duke = container.querySelector('[data-debut-row="duke-robotics"]');
+    expect(duke?.querySelector('[data-change]')?.textContent).toBe('−75.4%');
+    expect(duke?.textContent).toContain('Uplisted from OTCQB; the offer was a unit of one share and one warrant.');
+    expect(container.querySelector('[data-ipo-row="duke-robotics"]')).toBeNull();
+    expect(container.querySelector('#since-listing-caption')?.textContent).toContain(closesCaption());
   });
 
   it('hides no column at any width', () => {
