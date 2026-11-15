@@ -6,6 +6,7 @@ import {
   conversionNote,
   debutRows,
   ipoRows,
+  leftOutCaption,
   leftOutRows,
   listedRows,
 } from '@/lib/public-companies-page';
@@ -30,8 +31,8 @@ export function ListedCompaniesTable() {
     <StaticTable
       captionId="listed-companies-caption"
       caption={
-        `${marketValueSourceLine()} ${conversionNote()} reported beside an exposure class: ` +
-        'it rests on the quote service’s company profile, not on a filing.'
+        `${marketValueSourceLine()} ${conversionNote()} An exposure class marked reported ` +
+        'rests on the quote service’s company profile or a press report, not on a filing.'
       }
       // Company and value first, so a phone shows both before the frame scrolls.
       columns={[
@@ -92,7 +93,7 @@ export function LeftOutTable() {
   return (
     <StaticTable
       captionId="left-out-caption"
-      caption="Each source is the company's market value page on the quote service (reported)."
+      caption={leftOutCaption()}
       columns={[{ label: 'Company', sub: 'ticker, exchange' }, { label: 'Why it is left out', sub: 'source' }]}
       // Two columns, so the list fits a phone without scrolling.
       minWidth="w-full"
@@ -187,7 +188,7 @@ export function IpoWatchTable() {
   );
 }
 
-/** The 2026 debuts against their offer price, best first; "n/a" where there is no price to compare. */
+/** The 2026 debuts against their offer price, best first; "n/a" for a merger, which has no offer price. */
 export function SinceListingTable() {
   return (
     <StaticTable
@@ -234,7 +235,8 @@ export function SinceListingTable() {
           <td>{listed === 'not disclosed' ? <Figure>{listed}</Figure> : <span className={DATE_CELL}>{listed}</span>}</td>
           <SourceCell
             sources={[
-              { label: 'Offer', url: debut.source.url, title: debut.source.title },
+              // A merger has no offer price: its source backs the listing itself.
+              { label: debut.offerPrice === null ? 'Listing' : 'Offer', url: debut.source.url, title: debut.source.title },
               ...(debut.proceeds?.kind === 'stated' && debut.proceeds.sourceUrl
                 ? [{ label: 'Raised', url: debut.proceeds.sourceUrl, title: `${debut.name}, amount raised` }]
                 : []),
