@@ -45,7 +45,8 @@ export function StaticTable({
   return (
     <TableScroll labelledBy={captionId} className={cx('[container-type:inline-size]', className)}>
       <table className={cx('booktabs', minWidth)}>
-        <caption id={captionId}>
+        {/* First in the DOM but drawn under the rows: kept out of scroll anchoring, or opening a fold pins the caption and throws the reader down past the new rows. */}
+        <caption id={captionId} className="[overflow-anchor:none]">
           <span className="sticky left-0 block max-w-[100cqw]">{caption}</span>
         </caption>
         <thead>

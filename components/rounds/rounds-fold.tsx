@@ -56,6 +56,20 @@ export function RoundsFold({
     };
   }, [reveal]);
 
+  // The control's place on screen when pressed. Opening or closing keeps it
+  // there: the rows gained or lost sit below it, and the rows above can
+  // re-flow their column widths when the folded rows join the table.
+  const button = useRef<HTMLButtonElement>(null);
+  const pressedAt = useRef<number | null>(null);
+
+  useLayoutEffect(() => {
+    const before = pressedAt.current;
+    pressedAt.current = null;
+    if (before === null || !button.current) return;
+    const moved = button.current.getBoundingClientRect().top - before;
+    if (moved !== 0) window.scrollBy(0, moved);
+  }, [open]);
+
   useLayoutEffect(() => {
     if (!open || !pending) return;
     document.getElementById(pending)?.scrollIntoView();
@@ -72,10 +86,14 @@ export function RoundsFold({
             <span className="sticky left-1 inline-block">
               <button
                 data-brand-control-id="control:secondary-action"
+                ref={button}
                 type="button"
                 aria-expanded={open}
                 aria-controls={id}
-                onClick={() => setOpen((value) => !value)}
+                onClick={() => {
+                  pressedAt.current = button.current!.getBoundingClientRect().top;
+                  setOpen((value) => !value);
+                }}
                 className="inline-flex min-h-6 cursor-pointer items-center font-sans text-[13px] text-text-dim underline decoration-dotted decoration-border-strong underline-offset-[3px] hover:text-text hover:decoration-text-dim"
               >
                 {open ? `Show the ${shown} newest` : `Show all ${total} rounds`}
