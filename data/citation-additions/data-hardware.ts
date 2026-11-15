@@ -876,4 +876,342 @@ export const ADDITIONS: Citation[] = [
     url: 'https://www.harmonicdrive.net/_hd/content/documents1/CSG-CSF_Component.pdf',
     type: 'docs',
   },
+  // Sources for data-hardware/research-arms-compared (Robot Arms for Robot Learning Compared), opened and checked 2026-11-14.
+  // lerobot-robots-source-2026: GitHub contents API at fe1c545 (main, 2026-11-13) and tag v0.7.0 (2026-11-05), identical 16 packages.
+  {
+    id: 'lerobot-robots-source-2026',
+    title: 'LeRobot robots package at fe1c545',
+    authors: ['Hugging Face'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'huggingface/lerobot (GitHub)',
+    url: 'https://github.com/huggingface/lerobot/tree/fe1c54594f6ba275fccf210b9f7b11f0e2324b89/src/lerobot/robots',
+    type: 'docs',
+  },
+  // lerobot-il-robots-docs-2026: docs/source/il_robots.mdx at fe1c545, H1 "Imitation Learning on Real-World Robots";
+  // "lerobot-record paces the loop at --dataset.fps", examples at 30 Hz.
+  {
+    id: 'lerobot-il-robots-docs-2026',
+    title: 'Imitation Learning on Real-World Robots',
+    authors: ['Hugging Face'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'LeRobot documentation',
+    url: 'https://huggingface.co/docs/lerobot/il_robots',
+    type: 'docs',
+  },
+  // lerobot-third-party-robots-docs-2026: docs/source/third_party_robots.mdx at fe1c545.
+  {
+    id: 'lerobot-third-party-robots-docs-2026',
+    title: 'Third-Party Robots & Teleoperators',
+    authors: ['Hugging Face'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'LeRobot documentation',
+    url: 'https://huggingface.co/docs/lerobot/third_party_robots',
+    type: 'docs',
+  },
+  // koch-v1-1-repo-2026: README read 2026-11-14 (leader total $199, follower total $278, US column).
+  {
+    id: 'koch-v1-1-repo-2026',
+    title: 'Koch v1.1',
+    authors: ['Jess Moss'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    url: 'https://github.com/jess-moss/koch-v1-1',
+    type: 'docs',
+  },
+  // trossen-vx300s-specs: read 2026-11-14 (6 DoF, 750 mm reach, 1 mm repeatability, 5 - 8 mm accuracy, 750 g working payload, 1 Mbps).
+  {
+    id: 'trossen-vx300s-specs',
+    title: 'ViperX-300 6DOF',
+    authors: ['Trossen Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'Interbotix X-Series Arms Documentation',
+    url: 'https://docs.trossenrobotics.com/interbotix_xsarms_docs/specifications/vx300s.html',
+    type: 'docs',
+  },
+  // trossen-wx250s-specs: read 2026-11-14 (6 DoF, 650 mm, 1 mm, 5 - 8 mm, 250 g working payload, 1 Mbps).
+  {
+    id: 'trossen-wx250s-specs',
+    title: 'WidowX-250 6DOF',
+    authors: ['Trossen Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'Interbotix X-Series Arms Documentation',
+    url: 'https://docs.trossenrobotics.com/interbotix_xsarms_docs/specifications/wx250s.html',
+    type: 'docs',
+  },
+  // trossen-vx300s-product: read 2026-11-14, "THIS PRODUCT HAS BEEN DISCONTINUED", no price.
+  {
+    id: 'trossen-vx300s-product',
+    title: 'ViperX 300 S',
+    authors: ['Trossen Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'Trossen Robotics product page',
+    url: 'https://www.trossenrobotics.com/viperx-300',
+    type: 'docs',
+  },
+  // trossen-wx250s-product: read 2026-11-14, "THIS PRODUCT HAS BEEN DISCONTINUED", no price.
+  {
+    id: 'trossen-wx250s-product',
+    title: 'WidowX 250 S',
+    authors: ['Trossen Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'Trossen Robotics product page',
+    url: 'https://www.trossenrobotics.com/widowx-250',
+    type: 'docs',
+  },
+  // trossen-wxai-docs-2026: read 2026-11-14 (6 + Gripper, 1.5 kg, 0.769 m, Ethernet); footer "Copyright 2026, Trossen Robotics."
+  {
+    id: 'trossen-wxai-docs-2026',
+    title: 'WidowX AI',
+    authors: ['Trossen Robotics'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'Trossen Arm Documentation (main)',
+    url: 'https://docs.trossenrobotics.com/trossen_arm/main/specifications/wxai.html',
+    type: 'docs',
+  },
+  // trossen-arms-docs-2026: read 2026-11-14 ("The WidowX AI is the previous-generation arm"; Core, Pro, Heavy at 2, 4, 6 kg; marked preliminary).
+  {
+    id: 'trossen-arms-docs-2026',
+    title: 'Arms',
+    authors: ['Trossen Robotics'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'Trossen Arm Documentation (main)',
+    url: 'https://docs.trossenrobotics.com/trossen_arm/main/specifications/arms.html',
+    type: 'docs',
+  },
+  // interbotix-ros-manipulators-repo: branches read 2026-11-14 (humble, iron, jazzy, rolling among them).
+  {
+    id: 'interbotix-ros-manipulators-repo',
+    title: 'interbotix_ros_manipulators',
+    authors: ['Trossen Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    url: 'https://github.com/Interbotix/interbotix_ros_manipulators',
+    type: 'docs',
+  },
+  // agilex-piper-2026: rendered in a browser 2026-11-14; global.agilex.ai/products/piper now redirects here. FAQ "1.5kg payload,
+  // a 626mm working reach, ±0.1mm repeatability"; "CAN"; "ROS 1/ROS 2"; Shopify price amount 1999.0 USD.
+  {
+    id: 'agilex-piper-2026',
+    title: 'PiPER 6-DoF Lightweight Robotic Arm',
+    authors: ['AgileX Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'AgileX Robotics product page',
+    url: 'https://global.agilex.ai/products/piper-6-dof-robotic-arm',
+    type: 'docs',
+  },
+  // openarm-docs-2026: live page "Last updated on Nov 10, 2026"; source website/docs/hardware/openarm-2.0/general.mdx at e15e09e
+  // (2026-11-10). Payload text in the page; 7DOF, 606mm, 1kHz CAN-FD in its key-features image.
+  {
+    id: 'openarm-docs-2026',
+    title: 'OpenArm 2.0: General',
+    authors: ['Enactic'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'OpenArm documentation',
+    url: 'https://docs.openarm.dev/hardware/openarm-2.0/general/',
+    type: 'docs',
+  },
+  // openarm-repo-2026: README at e15e09e (2026-11-10): "$6,500 USD for a complete bimanual system"; hardware CERN-OHL-S-2.0.
+  {
+    id: 'openarm-repo-2026',
+    title: 'OpenArm',
+    authors: ['Enactic'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    url: 'https://github.com/enactic/openarm',
+    type: 'docs',
+  },
+  // ufactory-xarm7-2026: rendered in a browser 2026-11-14; www.ufactory.cc/product-page/ufactory-xarm-7 now redirects here.
+  // 3.5 kg, 700 mm, ±0.1 mm, 7 DoF; variants 999900, 1008900, 1019400 cents USD.
+  {
+    id: 'ufactory-xarm7-2026',
+    title: 'UFACTORY xArm 7',
+    authors: ['UFACTORY'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    venue: 'UFACTORY store product page',
+    url: 'https://www.shop.ufactory.cc/products/xarm-7',
+    type: 'docs',
+  },
+  // ufactory-servo-mode-guide: read 2026-11-14 ("maximum frequency of 250Hz"); "Last updated" field blank.
+  {
+    id: 'ufactory-servo-mode-guide',
+    title: 'UFACTORY Robot Arm Servo Mode Usage Guide',
+    authors: ['UFACTORY'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    url: 'https://docs.supportarticle.ufactory.cc/support_articles/developer/ufactory-servo-mode-guide.html',
+    type: 'docs',
+  },
+  // xarm-ros2-repo: GitHub API 2026-11-14, last push 2026-10-20, not archived.
+  {
+    id: 'xarm-ros2-repo',
+    title: 'xarm_ros2',
+    authors: ['UFACTORY'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    url: 'https://github.com/xArm-Developer/xarm_ros2',
+    type: 'docs',
+  },
+  // franka-fr3-datasheet-2026: PDF read 2026-11-14 (7 DoF, 3 kg, 855 mm, <+/- 0.1 mm ISO 9283, link-side torque sensors, 1 kHz FCI).
+  {
+    id: 'franka-fr3-datasheet-2026',
+    title: 'Datasheet Franka Research 3',
+    authors: ['Franka Robotics'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'Franka Robotics datasheet R02212, release 2.6 (July 2026)',
+    url: 'https://franka.de/hubfs/Datasheet%20Franka%20Research%203_R02212_2.6_EN_July%202026.pdf',
+    type: 'docs',
+  },
+  // franka-ros2-repo: GitHub API 2026-11-14, last push 2026-10-27, not archived.
+  {
+    id: 'franka-ros2-repo',
+    title: 'franka_ros2',
+    authors: ['Franka Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    url: 'https://github.com/frankarobotics/franka_ros2',
+    type: 'docs',
+  },
+  // ur5e-datasheet-2026: serves UR5e_techsheet_en.pdf, "Updated October 2026" (5 kg, 850 mm, ±0.03 mm ISO 9283, Ethernet 1 Gb/s).
+  {
+    id: 'ur5e-datasheet-2026',
+    title: 'UR5e Technical specification',
+    authors: ['Universal Robots'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'Universal Robots datasheet, updated October 2026',
+    url: 'https://www.universal-robots.com/manuals/latest/en/datasheets/ur5e/',
+    type: 'docs',
+  },
+  // ur-rtde-guide: read 2026-11-14 ("500 Hz on e-Series and ur-Series robots").
+  {
+    id: 'ur-rtde-guide',
+    title: 'Real-Time Data Exchange (RTDE) Guide',
+    authors: ['Universal Robots'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    url: 'https://docs.universal-robots.com/tutorials/communication-protocol-tutorials/rtde-guide.html',
+    type: 'docs',
+  },
+  // ur-ros2-driver-repo: GitHub API 2026-11-14, last push 2026-11-13, not archived.
+  {
+    id: 'ur-ros2-driver-repo',
+    title: 'Universal_Robots_ROS2_Driver',
+    authors: ['Universal Robots'],
+    year: 'n.d.',
+    accessedOn: '2026-11-14',
+    url: 'https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver',
+    type: 'docs',
+  },
+  // kinova-gen3-specs-2026: PDF read 2026-11-14 (7 DoF: 2.0 / 4.0 kg without gripper, 902 mm, Kortex, 1 kHz, ROS 2 Humble);
+  // year from the 2026 file name, footer "© Kinova inc 2024".
+  {
+    id: 'kinova-gen3-specs-2026',
+    title: 'Kinova Gen3 Ultra Lightweight Robot: Technical Specifications',
+    authors: ['Kinova'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    url: 'https://www.kinovarobotics.com/uploads/Kinova_Onepager_Gen3_2026_EN.pdf',
+    type: 'docs',
+  },
+  // mole-vla-2025: arXiv abstract and HTML read 2026-11-14 (v2; first submitted 2025-03-26). Real-world tests on a Franka Research 3.
+  {
+    id: 'mole-vla-2025',
+    title: 'MoLe-VLA: Dynamic Layer-skipping Vision Language Action Model via Mixture-of-Layers for Efficient Robot Manipulation',
+    authors: ['Rongyu Zhang', 'Menghang Dong', 'Yuan Zhang', 'Liang Heng', 'Xiaowei Chi', 'Gaole Dai', 'Li Du', 'Yuan Du', 'Shanghang Zhang'],
+    year: 2025,
+    venue: 'arXiv preprint',
+    arxiv: '2503.20384',
+    url: 'https://arxiv.org/abs/2503.20384',
+    type: 'paper',
+  },
+  // lift3d-vla-2026: arXiv read 2026-11-14 (v1, 2026-07-07). Franka Research 3, single and dual arm.
+  {
+    id: 'lift3d-vla-2026',
+    title: 'Lift3D-VLA: Lifting VLA Models to 3D Geometry and Dynamics-Aware Manipulation',
+    authors: ['Jiaming Liu', 'Qingpo Wuwu', 'Nuowei Han', 'Hao Chen', 'Zhuoyang Liu', 'Fan Fei', 'Yueru Jia', 'Chenyang Gu', 'Yandong Guo', 'Boxin Shi', 'Shanghang Zhang'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2607.06564',
+    url: 'https://arxiv.org/abs/2607.06564',
+    type: 'paper',
+  },
+  // closed-form-diffusion-policy-2026: arXiv read 2026-11-14 (v1, 2026-05-31). "PushT task on UR5e robot".
+  {
+    id: 'closed-form-diffusion-policy-2026',
+    title: 'Training-Free Imitation Learning with Closed-Form Diffusion Policies',
+    authors: ['Raghav Mishra', 'Ian R. Manchester'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2606.01238',
+    url: 'https://arxiv.org/abs/2606.01238',
+    type: 'paper',
+  },
+  // fingertip-anchoring-2026: arXiv read 2026-11-14 (v1, 2026-09-24). "The robot is a UR5e with a Robotiq 2F-140 gripper".
+  {
+    id: 'fingertip-anchoring-2026',
+    title: 'Self-Supervised Anchoring of Fingertip Sensing to Proprioception and Proactive Actions for Robot Imitation Learning',
+    authors: ['Tomohiro Motoda', 'Masaki Murooka', 'Keisuke Shirai', 'Hanbit Oh', 'Ryoichi Nakajo', 'Shotaro Miwa', 'Roman Mykhailyshyn', 'Hugo Duarte', 'Yukiyasu Domae'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2609.29822',
+    url: 'https://arxiv.org/abs/2609.29822',
+    type: 'paper',
+  },
+  // trajectory-standardization-2026: arXiv read 2026-11-14 (v1, 2026-06-22). AgileX Piper; "three real-world manipulation tasks".
+  {
+    id: 'trajectory-standardization-2026',
+    title: 'Improving Robotic Imitation Learning via Trajectory Standardization',
+    authors: ['Licheng Yang', 'Lingfeng Qian', 'Fei Zheng', 'Yonghao He', 'Wei Sui', 'Shuangshuang Li', 'Hu Su'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2606.22907',
+    url: 'https://arxiv.org/abs/2606.22907',
+    type: 'paper',
+  },
+  // retry-value-learning-2026: arXiv read 2026-11-14 (v2; first submitted 2026-06-23). "4 real-robot manipulation tasks using a Piper robot arm".
+  {
+    id: 'retry-value-learning-2026',
+    title: 'Beyond Monotonic Progress: Retry-Supervised Value Learning for Robot Imitation',
+    authors: ['Xinyao Qin', 'Junjie Lu', 'Kaixin Wang', 'Chuheng Zhang', 'Sinjae Kang', 'Kimin Lee', 'Min Xu', 'Bin Liang', 'Jun Yang', 'Li Zhao'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2606.24633',
+    url: 'https://arxiv.org/abs/2606.24633',
+    type: 'paper',
+  },
+  // online-world-model-irl-2026: arXiv read 2026-11-14 (v3; first submitted 2026-02-27; comment "CoRL 2026"). Kinova Gen3 6-DoF.
+  {
+    id: 'online-world-model-irl-2026',
+    title: 'Online World Modeling Enables Real-World Inverse Reinforcement Learning from Observation',
+    authors: ['Tyler Han', 'Bat Nemekhbold', 'Siyang Shen', 'Rohan Baijal', 'Richard Ebock', 'Harine Ravichandiran', 'Sanghun Jung', 'Kevin Huang', 'Byron Boots'],
+    year: 2026,
+    venue: 'CoRL 2026',
+    arxiv: '2602.24121',
+    url: 'https://arxiv.org/abs/2602.24121',
+    type: 'paper',
+  },
+  // glam-heterogeneous-demos-2026: arXiv read 2026-11-14 (v1, 2026-06-19). 7-DoF Kinova Gen3; "100 teleoperated Kinova trajectories".
+  {
+    id: 'glam-heterogeneous-demos-2026',
+    title: 'Imitation from Heterogeneous Demonstrations using Grounded Latent-Action World Models',
+    authors: ['Tianyou Wang', 'Anson Lei', 'Joe Watson', 'Ingmar Posner'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2606.21672',
+    url: 'https://arxiv.org/abs/2606.21672',
+    type: 'paper',
+  },
 ];

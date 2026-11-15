@@ -20,6 +20,7 @@ export type ArticleUpdate = {
 };
 
 export const ARTICLE_UPDATES: readonly ArticleUpdate[] = [
+  { date: '2026-11-14', domain: 'data-hardware', slug: 'research-arms-compared', note: 'New page comparing eleven research arms on control and software.' },
   { date: '2026-11-14', domain: 'data-hardware', slug: 'data-market', note: 'New article on what an hour of robot data costs.' },
   { date: '2026-11-14', domain: 'frontier', slug: 'reliability-gap', note: "Adds the F.02 fleet's retirement to the BMW row." },
   { date: '2026-11-14', domain: 'data-hardware', slug: 'industrial-deployment', note: "Adds the F.02 retirement; Optimus row follows Tesla's Q3 letter." },

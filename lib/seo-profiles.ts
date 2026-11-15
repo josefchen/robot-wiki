@@ -517,7 +517,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     headTerm: 'robot hardware',
     description:
       'Dated 2026 prices and specs for robot hardware: arms, humanoids, dexterous hands, tactile sensors and Jetson Thor compute, from a $122 SO-101 to Atlas.',
-    queries: ['humanoid robot price 2026', 'robot arm for robot learning'],
+    queries: ['humanoid robot price 2026'],
   },
   '/data-hardware/teleop-rigs/': {
     title: 'Robot Teleoperation and Data Collection Rigs',
@@ -546,6 +546,13 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     description:
       'The robot learning stack as seven contracts: calibration, episode capture, dataset schema, training, sim and real evaluation, and ROS 2 serving.',
     queries: ['robot learning pipeline', 'MLOps for robotics'],
+  },
+  '/data-hardware/research-arms-compared/': {
+    title: 'Robotic Arms for Research: SO-101 to Franka FR3',
+    headTerm: 'robotic arms for research',
+    description:
+      'Robotic arms for research compared: 11 arms from the SO-101 to the Franka FR3 on reach, repeatability, control rate, LeRobot and ROS 2 support.',
+    queries: ['best robotic arm for research', 'robot arm for robot learning', 'lerobot supported robots'],
   },
   '/adjacent/': {
     title: 'Robotics Applications Outside the Lab',

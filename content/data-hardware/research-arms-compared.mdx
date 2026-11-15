@@ -1,0 +1,126 @@
+---
+title: "Robot Arms for Robot Learning Compared"
+description: "Robotic arms for research compared: 11 arms from the SO-101 to the Franka FR3 on reach, repeatability, control rate, LeRobot and ROS 2 support and price."
+domain: data-hardware
+slug: research-arms-compared
+order: 9
+status: published
+lastReviewed: "2026-11-14"
+citations:
+  - so-arm100-repo-2026
+  - seeed-so-arm101-pro-2026
+  - koch-v1-1-repo-2026
+  - lerobot-robots-source-2026
+  - lerobot-third-party-robots-docs-2026
+  - lerobot-il-robots-docs-2026
+  - lerobot-paper-2026
+  - trossen-vx300s-specs
+  - trossen-wx250s-specs
+  - trossen-vx300s-product
+  - trossen-wx250s-product
+  - trossen-widowx-ai-2026
+  - trossen-wxai-docs-2026
+  - trossen-arms-docs-2026
+  - interbotix-ros-manipulators-repo
+  - agilex-piper-2026
+  - openarm-docs-2026
+  - openarm-repo-2026
+  - ufactory-xarm7-2026
+  - ufactory-servo-mode-guide
+  - xarm-ros2-repo
+  - franka-fr3-datasheet-2026
+  - franka-ros2-repo
+  - ur5e-datasheet-2026
+  - ur-rtde-guide
+  - ur-ros2-driver-repo
+  - kinova-gen3-specs-2026
+  - act-aloha-2023
+  - bridgedata-v2-2023
+  - smolvla-2025
+  - maniskill3-2024
+  - gello-2023
+  - bunny-visionpro-2024
+  - pi0-2024
+  - droid-2024
+  - diffusion-policy-2023
+  - mole-vla-2025
+  - lift3d-vla-2026
+  - closed-form-diffusion-policy-2026
+  - fingertip-anchoring-2026
+  - trajectory-standardization-2026
+  - retry-value-learning-2026
+  - online-world-model-irl-2026
+  - glam-heterogeneous-demos-2026
+seeAlso:
+  - "data-hardware/hardware-taxonomy"
+  - "data-hardware/teleop-rigs"
+  - "data-hardware/datasets"
+---
+
+Arms used in robot-learning research split at the control interface. The SO-101 and the Koch arm (version 1.1) cost a few hundred dollars in parts and run natively in LeRobot over a hobby-servo bus, while the Franka Research 3, UR5e and Kinova Gen3 expose 500 Hz to 1 kHz Ethernet interfaces with ROS 2 drivers and list no price on their datasheets.
+
+Between those tiers, the AgileX PiPER, Trossen WidowX AI and UFACTORY xArm 7 list at US\$1,999 to US\$10,194 and reach LeRobot through plugins. All figures are the makers' own, read on 14 November 2026; LeRobot support is checked against release 0.7.0 and `main` at commit `fe1c545`. [Hardware Taxonomy](/data-hardware/hardware-taxonomy/) carries the SO-101 and WidowX AI prices.
+
+## Mechanics
+
+| Arm | DoF | Payload | Reach | Repeatability |
+|---|---|---|---|---|
+| SO-101 | 6, gripper included | 500 g (Seeed Pro kit) <Cite id="seeed-so-arm101-pro-2026" /> | not disclosed | not disclosed |
+| Koch | 6 motors, gripper included <Cite id="koch-v1-1-repo-2026" /> | not disclosed | not disclosed | not disclosed |
+| ViperX 300 S | 6 | 750 g working | 750 mm | 1 mm <Cite id="trossen-vx300s-specs" /> |
+| WidowX 250 S | 6 | 250 g working | 650 mm | 1 mm <Cite id="trossen-wx250s-specs" /> |
+| WidowX AI | 6 + gripper | 1.5 kg | 700 mm (store), 769 mm (docs) | 1 mm <Cite id="trossen-widowx-ai-2026" /> <Cite id="trossen-wxai-docs-2026" /> |
+| AgileX PiPER | 6 | 1.5 kg | 626 mm | ±0.1 mm <Cite id="agilex-piper-2026" /> |
+| OpenArm 2.0 | 7 per arm | 4.1 kg nominal, 6.0 kg peak | 606 mm | not disclosed <Cite id="openarm-docs-2026" /> |
+| UFACTORY xArm 7 | 7 | 3.5 kg | 700 mm | ±0.1 mm <Cite id="ufactory-xarm7-2026" /> |
+| Franka Research 3 | 7 | 3 kg | 855 mm | \<±0.1 mm, ISO 9283 <Cite id="franka-fr3-datasheet-2026" /> |
+| UR5e | 6 | 5 kg | 850 mm | ±0.03 mm, ISO 9283 <Cite id="ur5e-datasheet-2026" /> |
+| Kinova Gen3 (7 DoF) | 7 | 2.0 kg full range, 4.0 kg mid-range | 902 mm | not disclosed <Cite id="kinova-gen3-specs-2026" /> |
+
+## Control, software and price
+
+| Arm | Interface and rate | LeRobot | ROS 2 | List price, 14 Nov 2026 |
+|---|---|---|---|---|
+| SO-101 | STS3215 bus servos (UART) over USB <Cite id="seeed-so-arm101-pro-2026" />; loop paced by LeRobot, 30 Hz in its guide <Cite id="lerobot-il-robots-docs-2026" /> | native <Cite id="lerobot-robots-source-2026" /> | unofficial community bridges <Cite id="seeed-so-arm101-pro-2026" /> | in [Hardware Taxonomy](/data-hardware/hardware-taxonomy/) |
+| Koch | Dynamixel serial bus over USB <Cite id="koch-v1-1-repo-2026" />; same LeRobot loop | native <Cite id="lerobot-robots-source-2026" /> | none from the designer <Cite id="koch-v1-1-repo-2026" /> | \$278 follower, \$199 leader, US parts <Cite id="koch-v1-1-repo-2026" /> |
+| ViperX 300 S, WidowX 250 S | Dynamixel bus at 1 Mbps <Cite id="trossen-vx300s-specs" /> <Cite id="trossen-wx250s-specs" /> | not in 0.7.0 or `main` <Cite id="lerobot-robots-source-2026" /> | Interbotix packages <Cite id="interbotix-ros-manipulators-repo" /> | discontinued <Cite id="trossen-vx300s-product" /> <Cite id="trossen-wx250s-product" /> |
+| WidowX AI | Ethernet; rate not disclosed <Cite id="trossen-wxai-docs-2026" /> | maker plugin <Cite id="lerobot-third-party-robots-docs-2026" /> | listed <Cite id="trossen-widowx-ai-2026" /> | in [Hardware Taxonomy](/data-hardware/hardware-taxonomy/) |
+| AgileX PiPER | CAN; rate not disclosed <Cite id="agilex-piper-2026" /> | three community plugins <Cite id="lerobot-third-party-robots-docs-2026" /> | listed <Cite id="agilex-piper-2026" /> | US\$1,999.00 <Cite id="agilex-piper-2026" /> |
+| OpenArm 2.0 | CAN FD, 1 kHz <Cite id="openarm-docs-2026" /> | native, one and two arms <Cite id="lerobot-robots-source-2026" /> | `openarm_ros2` <Cite id="openarm-repo-2026" /> | US\$6,500 for a two-arm system <Cite id="openarm-repo-2026" /> |
+| UFACTORY xArm 7 | network cable to control box; servo mode up to 250 Hz <Cite id="ufactory-servo-mode-guide" /> | community plugin; UFACTORY's own extension <Cite id="lerobot-third-party-robots-docs-2026" /> | `xarm_ros2` <Cite id="xarm-ros2-repo" /> | US\$9,999.00 to \$10,194.00 <Cite id="ufactory-xarm7-2026" /> |
+| Franka Research 3 | Ethernet, 1 kHz Franka Control Interface <Cite id="franka-fr3-datasheet-2026" /> | one plugin, one fork <Cite id="lerobot-third-party-robots-docs-2026" /> | `franka_ros2` <Cite id="franka-ros2-repo" /> | not disclosed |
+| UR5e | Ethernet <Cite id="ur5e-datasheet-2026" />, RTDE up to 500 Hz <Cite id="ur-rtde-guide" /> | one plugin, two forks <Cite id="lerobot-third-party-robots-docs-2026" /> | UR driver <Cite id="ur-ros2-driver-repo" /> | not disclosed |
+| Kinova Gen3 | Ethernet, Kortex API, 1 kHz <Cite id="kinova-gen3-specs-2026" /> | none listed <Cite id="lerobot-third-party-robots-docs-2026" /> | Humble <Cite id="kinova-gen3-specs-2026" /> | not disclosed |
+
+## Where each arm has been used
+
+| Arm | Papers and datasets |
+|---|---|
+| SO-101 | SmolVLA: pretrained on SO-100 community data, evaluated on SO-100 and SO-101 <Cite id="smolvla-2025" />; LeRobot paper <Cite id="lerobot-paper-2026" /> |
+| Koch | ManiSkill 3: sim-trained cube picking, 22 of 24 real trials <Cite id="maniskill3-2024" />; one of LeRobot's first three supported setups <Cite id="lerobot-paper-2026" /> |
+| ViperX 300 S, WidowX 250 | ALOHA and ACT: two ViperX followers driven by WidowX leaders <Cite id="act-aloha-2023" />; π0's bimanual Trossen setup <Cite id="pi0-2024" /> |
+| WidowX 250 | BridgeData V2: 60,096 trajectories at 5 Hz, setup about \$4,000 <Cite id="bridgedata-v2-2023" /> |
+| AgileX PiPER | trajectory standardization, three tasks <Cite id="trajectory-standardization-2026" />; retry-supervised value learning, four tasks <Cite id="retry-value-learning-2026" /> |
+| UFACTORY xArm 7 | GELLO <Cite id="gello-2023" />; Bunny-VisionPro, two xArm 7s with Ability hands <Cite id="bunny-visionpro-2024" /> |
+| Franka Research 3 | MoLe-VLA <Cite id="mole-vla-2025" />; Lift3D-VLA, single and dual arm <Cite id="lift3d-vla-2026" />. DROID used its predecessor, the Panda <Cite id="droid-2024" /> |
+| UR5e | π0, single and bimanual <Cite id="pi0-2024" />; closed-form diffusion on Push-T <Cite id="closed-form-diffusion-policy-2026" />; fingertip-sensing diffusion policy <Cite id="fingertip-anchoring-2026" /> |
+| Kinova Gen3 | inverse RL from observation, 6-DoF Gen3 <Cite id="online-world-model-irl-2026" />; latent-action imitation from 100 teleoperated trajectories, 7-DoF Gen3 <Cite id="glam-heterogeneous-demos-2026" /> |
+
+Diffusion Policy <Cite id="diffusion-policy-2023" /> and GELLO's user study <Cite id="gello-2023" /> used a UR5 without naming its series.
+
+## What the spec sheets leave out
+
+Payload means different things. Trossen recommends no more than 50% arm extension when the ViperX 300 S carries its 750 g working payload <Cite id="trossen-vx300s-specs" />. Kinova's Gen3 ratings exclude the gripper <Cite id="kinova-gen3-specs-2026" />; OpenArm's 4.1 kg includes the end effector and is a one-minute hold at full extension <Cite id="openarm-docs-2026" />.
+
+Repeatability is comparable only for Franka and UR, which cite ISO 9283; Franka's figure holds inside a 0.4 m cube about half a metre in front of the base <Cite id="franka-fr3-datasheet-2026" /> <Cite id="ur5e-datasheet-2026" />. Trossen pairs its 1 mm repeatability with 5 to 8 mm accuracy <Cite id="trossen-vx300s-specs" /> <Cite id="trossen-wx250s-specs" />. PiPER and xArm 7 name no test standard.
+
+Trossen's documentation now calls the WidowX AI its previous-generation arm and lists WidowX Core, Pro and Heavy at 2, 4 and 6 kg payload, as preliminary specifications <Cite id="trossen-arms-docs-2026" />.
+
+LeRobot's paper lists ALOHA among its first three setups <Cite id="lerobot-paper-2026" />, yet neither 0.7.0 nor `main` ships an ALOHA or ViperX class <Cite id="lerobot-robots-source-2026" />; Trossen's own plugin covers WidowX and ALOHA-style arms <Cite id="lerobot-third-party-robots-docs-2026" />.
+
+## Choosing
+
+- **A first LeRobot policy:** SO-101. Koch's parts cost about twice as much for the same native support: \$477 against \$229.88 for a leader and follower pair <Cite id="koch-v1-1-repo-2026" /> <Cite id="so-arm100-repo-2026" />.
+- **A 6-DoF arm with a 1.5 kg payload:** PiPER or WidowX AI. The PiPER costs less than half as much <Cite id="agilex-piper-2026" /> <Cite id="trossen-widowx-ai-2026" />; the WidowX AI is sold as a leader too <Cite id="trossen-widowx-ai-2026" /> and has Trossen's own LeRobot plugin <Cite id="lerobot-third-party-robots-docs-2026" />.
+- **Two 7-DoF arms in LeRobot without a plugin:** OpenArm, the only arm here beyond the SO-101 and Koch with a native LeRobot class <Cite id="lerobot-robots-source-2026" />. Its CAD and bill of materials are open (CERN-OHL-S-2.0) <Cite id="openarm-repo-2026" />.
+- **Contact-rich tasks or torque control:** Franka Research 3 or Kinova Gen3. The FR3 has link-side torque sensors in all seven joints <Cite id="franka-fr3-datasheet-2026" />, and the Gen3 offers low-level torque control at 1 kHz <Cite id="kinova-gen3-specs-2026" />. The UR5e measures force at its tool flange instead <Cite id="ur5e-datasheet-2026" />.
