@@ -864,6 +864,32 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18873',
     type: 'paper',
   },
+  // flora-2026: arXiv abstract and HTML v1 read 2026-11-15 (submitted 22 Oct 2026). "an industrial-quality data
+  // engine used to train GR00T models"; three models produce "timestamped captions, process rewards, and outcome
+  // rewards"; "labeling up to 200,000 hours of data per day across 512 GB300 GPUs" (Introduction).
+  {
+    id: 'flora-2026',
+    title: 'FLORA: An Open Model Suite for Scaling Robotics Data Engines',
+    authors: ['Sicong Leng', 'Yunze Man', 'Zhiqi Li', 'Jing Wang', 'Yuhe Zhang', 'Ryan Punamiya', 'Siddharth Patki', 'Kaiyuan Zheng', 'Zi-ang Cao', 'Zhiding Yu', 'Sifei Liu', 'Danfei Xu', 'Ben Levin', 'Jan Kautz', 'Yuke Zhu', 'Johan Bjorck', 'Linxi "Jim" Fan'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.31779',
+    url: 'https://arxiv.org/abs/2610.31779',
+    type: 'paper',
+  },
+  // flora-code-2026: NVlabs/Flora README and LICENSE read 2026-11-15. Rewarder "judges an episode: did it succeed,
+  // where did it slip, and why"; LICENSE 3.3: "only may be used or intended for use non-commercially", meaning "for
+  // research or evaluation purposes only"; the README says the Hugging Face weights carry the same license.
+  {
+    id: 'flora-code-2026',
+    title: 'FLORA: An Open Model Suite for Scaling Robotics Data Engines',
+    authors: ['NVIDIA'],
+    year: 2026,
+    accessedOn: '2026-11-15',
+    venue: 'GitHub repository NVlabs/Flora',
+    url: 'https://github.com/NVlabs/Flora',
+    type: 'docs',
+  },
   // wensing-cheetah-actuator-2017: author's proof PDF (mit.edu/~pwensing) read 2026-11-13; DOI printed on it.
   {
     id: 'wensing-cheetah-actuator-2017',

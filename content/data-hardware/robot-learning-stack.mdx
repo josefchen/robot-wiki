@@ -56,6 +56,8 @@ citations:
   - race-checkpoint-selection-2026
   - isaac-lab-3-0-2026
   - loopwam-2026
+  - flora-2026
+  - flora-code-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "data-hardware/teleop-rigs"
@@ -166,7 +168,7 @@ Also: ONNX graph versioning <Cite id="onnx-ir-spec" />, ONNX Runtime execution p
 
 ## Failures go back into the dataset
 
-A policy's own actions shape its future observations, which breaks the independence assumption of standard learning <Cite id="dagger-2011" />. Return each failure to the dataset tagged with its cause.
+A policy's own actions shape its future observations, which breaks the independence assumption of standard learning <Cite id="dagger-2011" />. NVIDIA's FLORA, the labeling engine behind GR00T, marks where each episode slipped and why; it labels up to 200,000 hours a day on 512 GB300 GPUs <Cite id="flora-2026" />. Its license bars commercial use <Cite id="flora-code-2026" />.
 
 | Method | Result |
 | --- | --- |
