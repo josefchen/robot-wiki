@@ -43,10 +43,11 @@ const withMDX = createMDX({
       // typeset math, so the article template loads KaTeX's stylesheet on
       // those pages only (components/article/math-stylesheet.tsx).
       path.join(process.cwd(), 'lib/rehype-math-flag.mjs'),
-      // Binds every <Cite> chip cluster to its trailing sentence punctuation
-      // in a whitespace-nowrap span, so a line can never begin with an
-      // orphaned "." or ",". No interaction with katex/pretty-code (chips
-      // never occur in math or code); grouped with the other local plugins.
+      // Keeps <Cite> numbers cited together on one line and binds the last
+      // to its trailing sentence punctuation, so a line can never begin with
+      // a lone number, "." or ",". No interaction with katex/pretty-code
+      // (chips never occur in math or code); grouped with the other local
+      // plugins.
       path.join(process.cwd(), 'lib/rehype-cite-punctuation.mjs'),
       // Links the first prose mention of each glossary term to its
       // /glossary/#<id> entry. The registry rides in the options, so the
