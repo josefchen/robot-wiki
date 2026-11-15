@@ -19,7 +19,6 @@ import {
 } from '@/lib/rounds';
 import {
   CONTEXT_KEYS,
-  COVERAGE_OMISSION,
   COVERAGE_THRESHOLDS_USD,
   ROUNDS_PAGE_PATH,
   ROUNDS_PAGE_SECTIONS,
@@ -104,19 +103,17 @@ describe('top of the page', () => {
 
   it('states coverage from the thresholds and claims sums, not market totals', () => {
     expect(COVERAGE_THRESHOLDS_USD).toEqual({ nearComplete: 100_000_000, regional: 50_000_000 });
-    const { beforeLink, afterLink } = coverageText();
-    expect(beforeLink).toBe(
-      "Above $100M the list is close to complete outside China; one known miss is Medtronic's approximately " +
-        '$700 million investment in Cornerstone Robotics, announced on 1 September 2026',
+    const coverage = coverageText();
+    expect(coverage).toMatch(
+      /^Above \$100M the list is close to complete outside China\. From \$50M to \$100M it is good for the United States and Europe and thin for China;/,
     );
-    expect(afterLink).toMatch(/^\. From \$50M to \$100M it is good for the United States and Europe and thin for China;/);
-    expect(afterLink).toContain('below $50M it shows examples, not totals');
-    expect(afterLink).toContain('sum of the rounds listed');
+    expect(coverage).toContain('below $50M it shows examples, not totals');
+    expect(coverage).toContain('sum of the rounds listed');
+    expect(coverage).not.toMatch(/known miss/);
   });
 
-  it('names the known miss on its investor\'s own page', () => {
-    expect(new URL(COVERAGE_OMISSION.sourceUrl).hostname).toBe('news.medtronic.com');
-    expect(COVERAGE_OMISSION.sourceUrl).toContain(COVERAGE_OMISSION.date);
+  it('holds the round the coverage sentence once named as missing', () => {
+    expect(ROUNDS.some((r) => /cornerstone/i.test(r.company))).toBe(true);
   });
 });
 

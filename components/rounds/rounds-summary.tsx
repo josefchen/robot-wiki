@@ -1,6 +1,5 @@
 import {
   contextSentence,
-  COVERAGE_OMISSION,
   coverageText,
   formatTotalUsd,
   headlineFacts,
@@ -40,9 +39,7 @@ export function RoundsHeadline() {
         </div>
       </dl>
       <p data-coverage="" className="mt-6 max-w-[40rem] font-sans text-[15px] leading-[1.6] text-text">
-        {text.reported} {coverage.beforeLink} (
-        <SourceLink url={COVERAGE_OMISSION.sourceUrl} title={COVERAGE_OMISSION.sourceTitle} />)
-        {coverage.afterLink}
+        {text.reported} {coverage}
       </p>
     </div>
   );
