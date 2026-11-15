@@ -155,8 +155,8 @@ export function profileLead(profile: CompanyProfile): string {
   return (
     `${possessive(profile.company.name)} listing documents report ${units.year} sales of ${sold} and total revenue of ` +
     `${unbroken(periodMoney(period, period.revenue))}; this page lists ${counts.products} of the company’s ` +
-    `${joinList(productKinds(profile))}, ${prices.priced} of them with a list price from ${formatUsdPrice(range.low)} ` +
-    `to ${formatUsdPrice(range.high)}`
+    `${joinList(productKinds(profile))}, ${prices.priced} of them with a list price from ` +
+    `${unbroken(formatUsdPrice(range.low))} to ${unbroken(formatUsdPrice(range.high))}`
   );
 }
 
@@ -176,7 +176,7 @@ export function priceCounts(profile: CompanyProfile): PriceCounts {
   return counts;
 }
 
-/** An amount kept on one line: "CNY 1,699.27 m" never wraps before its unit. */
+/** An amount kept on one line: "CNY 1,699.27 m" and "USD 249" never wrap inside. */
 export function unbroken(amount: string): string {
   return amount.replaceAll(' ', '\u00a0');
 }
