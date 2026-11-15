@@ -62,7 +62,7 @@
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T04:26:52Z"
+      "modified": "2026-11-15T05:04:01Z"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T19:01:27Z",
@@ -126,7 +126,7 @@
     },
     "manipulation/cross-embodiment": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-15T04:26:52Z"
+      "modified": "2026-11-15T05:04:01Z"
     },
     "manipulation/diffusion-policy": {
       "published": "2026-08-08T21:15:16Z",
@@ -142,7 +142,7 @@
     },
     "manipulation/hierarchical": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-14T14:32:42Z"
+      "modified": "2026-11-15T05:04:11Z"
     },
     "manipulation/knowledge-insulation": {
       "published": "2026-08-08T21:15:16Z",
@@ -235,7 +235,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T04:26:52Z"
+      "modified": "2026-11-15T05:04:11Z"
     },
     "/manipulation/": {
       "modified": "2026-11-15T04:26:30Z"
@@ -274,7 +274,7 @@
       "modified": "2026-11-13T05:50:10Z"
     },
     "/glossary/": {
-      "modified": "2026-11-15T04:26:30Z"
+      "modified": "2026-11-15T05:04:11Z"
     },
     "/credits/": {
       "modified": "2026-11-14T19:31:23Z"
