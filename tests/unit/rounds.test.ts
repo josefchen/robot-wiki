@@ -81,9 +81,9 @@ describe('rounds data', () => {
     // closed, so announced: CMR Surgical's round, Shield's Series H and
     // FieldAI's term sheet (unconfirmed in the first tally). Kraken's source dates it
     // to July only, so it leaves the earlier rows for the July month-only rounds.
-    // Added after it: Medtronic's announced investment in Cornerstone Robotics.
-    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 3 - 2 + 1);
-    expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(3 + 1);
+    // Added after it: Medtronic's investment in Cornerstone Robotics, made by 9 Nov.
+    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 3 - 2 + 1 + 1);
+    expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(3);
     expect(ROUNDS.filter((r) => r.status === 'unconfirmed')).toHaveLength(4 - 1);
     expect(ROUNDS.filter((r) => r.status === 'talks')).toHaveLength(9);
     expect(LISTINGS).toHaveLength(7);
@@ -184,10 +184,9 @@ describe('rounds data', () => {
     expect(fundingEventSchema.safeParse(both).success).toBe(false);
   });
 
-  it('keeps announced to listings and the four agreed rounds, and the earlier rows closed', () => {
+  it('keeps announced to listings and the three agreed rounds, and the earlier rows closed', () => {
     expect(ROUNDS.filter((r) => r.status === 'announced').map((r) => r.key).sort()).toEqual([
       'cmr-surgical-stryker-2026-10-12',
-      'cornerstone-robotics-medtronic-2026-09-01',
       'fieldai-2026-10-02',
       'shield-ai-series-h-2026-11-05',
     ]);
@@ -314,7 +313,7 @@ describe('totals', () => {
     // is still raising its 1B Series H. Shandong UBTECH's 13.9M is stored in
     // yuan, as its source announces it, and Motion's own post gives USD 2M
     // where the first tally had EUR. Cornerstone's approximately 700M, added
-    // after the tally, is announced, not closed.
+    // after the tally, is in: Cornerstone said on 9 Nov the investment is made.
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
     expect(total(usdOnly)).toBe(
       15_478_200_000 -
@@ -323,18 +322,19 @@ describe('totals', () => {
         400_000_000 -
         1_000_000_000 -
         13_900_000 +
-        2_000_000,
+        2_000_000 +
+        700_000_000,
     );
   });
 
-  it('counts Moove in the full total only and keeps the Cornerstone investment out of both', () => {
+  it('counts Moove in the full total only and the Cornerstone investment in both', () => {
     const full = new Set(closedRoundsInWindow().map((r) => r.key));
     const strict = new Set(closedRoundsInWindow({ strict: true }).map((r) => r.key));
     expect(full.has('moove-2026-08-05')).toBe(true);
     expect(strict.has('moove-2026-08-05')).toBe(false);
     const cornerstone = 'cornerstone-robotics-medtronic-2026-09-01';
-    expect(roundsInWindow().map((r) => r.key)).toContain(cornerstone);
-    expect(full.has(cornerstone)).toBe(false);
+    expect(full.has(cornerstone)).toBe(true);
+    expect(strict.has(cornerstone)).toBe(true);
   });
 
   it('counts statuses, reported sources and size bands from the same rows', () => {

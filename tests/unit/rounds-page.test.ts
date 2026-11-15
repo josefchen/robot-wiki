@@ -112,7 +112,7 @@ describe('top of the page', () => {
     expect(coverage).not.toMatch(/known miss/);
   });
 
-  it('holds the round the coverage sentence once named as missing', () => {
+  it('lists Cornerstone Robotics among the rounds', () => {
     expect(ROUNDS.some((r) => /cornerstone/i.test(r.company))).toBe(true);
   });
 });
