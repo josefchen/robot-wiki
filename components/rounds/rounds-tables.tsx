@@ -143,7 +143,7 @@ export function RoundsTable() {
       minWidth={ROUND_TABLE_WIDTH}
       after={
         rounds.length > ROUNDS_SHOWN ? (
-          <RoundsFold shown={ROUNDS_SHOWN} total={rounds.length} columns={ROUND_COLUMNS.length}>
+          <RoundsFold id="rounds-folded" shown={ROUNDS_SHOWN} total={rounds.length} columns={ROUND_COLUMNS.length}>
             {rounds.slice(ROUNDS_SHOWN).map(row)}
           </RoundsFold>
         ) : null
@@ -314,39 +314,63 @@ export function EuropeInvestorsTable() {
   );
 }
 
+/** Rows the UK and Europe table shows before its fold: the newest, as its lead orders them. */
+export const UK_EUROPE_SHOWN = 10;
+
+const UK_EUROPE_COLUMNS: readonly ColumnHead[] = [
+  EVENT_HEAD,
+  { label: 'Amount', numeric: true },
+  { label: 'Round' },
+  { label: 'Lead investors' },
+  { label: 'What they build' },
+  { label: 'Source' },
+];
+
+function UkEuropeRow({ round }: { round: FundingEvent }) {
+  return (
+    <tr data-uk-europe-row={round.key}>
+      <EventCell
+        date={eventDateText(round)}
+        company={round.company}
+        city={round.city}
+        country={round.country}
+        sourceType={round.sourceType}
+      />
+      <AmountCell event={round} />
+      <TextCell>{round.round}</TextCell>
+      <td className={round.leadInvestors.length > 0 ? 'text-text' : 'text-[13px] text-text-dim'}>
+        {leadsText(round)}
+      </td>
+      <TextCell>{round.whatTheyBuild}</TextCell>
+      <SourceCell url={round.sourceUrl} title={round.sourceTitle} />
+    </tr>
+  );
+}
+
+/** UK and Europe rounds of the year, newest first; rows past UK_EUROPE_SHOWN are in the HTML behind a fold. */
 export function UkEuropeTable() {
+  const rounds = ukAndEuropeRounds();
+  const row = (round: FundingEvent) => <UkEuropeRow key={round.key} round={round} />;
   return (
     <StaticTable
       captionId="uk-europe-caption"
       caption={`United Kingdom and Europe rounds, newest first. ${REPORTED_NOTE} ${FX_NOTE}`}
-      columns={[
-        EVENT_HEAD,
-        { label: 'Amount', numeric: true },
-        { label: 'Round' },
-        { label: 'Lead investors' },
-        { label: 'What they build' },
-        { label: 'Source' },
-      ]}
+      columns={UK_EUROPE_COLUMNS}
       minWidth="min-w-[60rem]"
+      after={
+        rounds.length > UK_EUROPE_SHOWN ? (
+          <RoundsFold
+            id="uk-europe-folded"
+            shown={UK_EUROPE_SHOWN}
+            total={rounds.length}
+            columns={UK_EUROPE_COLUMNS.length}
+          >
+            {rounds.slice(UK_EUROPE_SHOWN).map(row)}
+          </RoundsFold>
+        ) : null
+      }
     >
-      {ukAndEuropeRounds().map((round) => (
-        <tr key={round.key} data-uk-europe-row={round.key}>
-          <EventCell
-            date={eventDateText(round)}
-            company={round.company}
-            city={round.city}
-            country={round.country}
-            sourceType={round.sourceType}
-          />
-          <AmountCell event={round} />
-          <TextCell>{round.round}</TextCell>
-          <td className={round.leadInvestors.length > 0 ? 'text-text' : 'text-[13px] text-text-dim'}>
-            {leadsText(round)}
-          </td>
-          <TextCell>{round.whatTheyBuild}</TextCell>
-          <SourceCell url={round.sourceUrl} title={round.sourceTitle} />
-        </tr>
-      ))}
+      {rounds.slice(0, UK_EUROPE_SHOWN).map(row)}
     </StaticTable>
   );
 }

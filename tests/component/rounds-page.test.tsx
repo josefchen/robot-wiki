@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, onTestFinished, vi } from 'vitest';
 import RecentRoundsPage, { metadata } from '@/app/market-map/rounds/page';
-import { ROUNDS_SHOWN } from '@/components/rounds/rounds-tables';
+import { ROUNDS_SHOWN, UK_EUROPE_SHOWN } from '@/components/rounds/rounds-tables';
 import sitemap from '@/app/sitemap';
 import { CORPORATE_EVENTS, EUROPE_INVESTORS, LISTINGS, ROUNDS_AS_OF } from '@/data/rounds';
 import { CHART_DESCRIPTIONS } from '@/lib/chart-descriptions';
@@ -39,12 +39,18 @@ function bodyRows(container: HTMLElement, captionId: string): HTMLTableRowElemen
   ];
 }
 
-/** Rows of the rounds table a reader sees: none inside a hidden body. */
-function visibleRoundKeys(container: HTMLElement): string[] {
-  return bodyRows(container, 'rounds-table-caption')
+/** The keys of a table's rows a reader sees: none inside a hidden body. */
+function visibleKeys(container: HTMLElement, captionId: string, keyAttribute: string): string[] {
+  return bodyRows(container, captionId)
     .filter((row) => !row.closest('tbody')!.hidden)
-    .map((row) => row.getAttribute('data-round-row')!);
+    .map((row) => row.getAttribute(keyAttribute)!);
 }
+
+/** The folded tables: caption, rows in order, rows shown, and the attribute holding each row's key. */
+const FOLDS: [string, { key: string }[], number, string][] = [
+  ['rounds-table-caption', roundsInWindow(), ROUNDS_SHOWN, 'data-round-row'],
+  ['uk-europe-caption', ukAndEuropeRounds(), UK_EUROPE_SHOWN, 'data-uk-europe-row'],
+];
 
 const TABLES: [string, number][] = [
   ['rounds-table-caption', roundsInWindow().length],
@@ -153,39 +159,42 @@ describe('/market-map/rounds/ page', () => {
     }
   });
 
-  it('shows the newest rounds and folds the rest, every row in the HTML in one order', () => {
-    const container = renderPage();
-    const keys = roundsInWindow().map((r) => r.key);
-    expect(keys.length).toBeGreaterThan(ROUNDS_SHOWN);
-    expect(bodyRows(container, 'rounds-table-caption').map((r) => r.getAttribute('data-round-row'))).toEqual(keys);
-    expect(visibleRoundKeys(container)).toEqual(keys.slice(0, ROUNDS_SHOWN));
-    const folded = container.querySelector<HTMLElement>('tbody[data-rounds-folded]')!;
-    expect(folded.hidden).toBe(true);
-    expect(folded.querySelectorAll('tr')).toHaveLength(keys.length - ROUNDS_SHOWN);
-    expect(folded.querySelectorAll('a[data-source-link]')).toHaveLength(keys.length - ROUNDS_SHOWN);
-    const button = screen.getByRole('button', { name: `Show all ${keys.length} rounds` });
-    expect(button).toHaveAttribute('aria-expanded', 'false');
-    expect(button).toHaveAttribute('aria-controls', folded.id);
-  });
+  describe.each(FOLDS)('the fold in %s', (captionId, rows, shown, keyAttribute) => {
+    const keys = rows.map((r) => r.key);
+    const folded = (container: HTMLElement) =>
+      container.querySelector(`caption#${captionId}`)!.closest('table')!.querySelector<HTMLElement>('tbody[data-rounds-folded]')!;
 
-  it('opens the fold to every row and closes it again', () => {
-    const container = renderPage();
-    const keys = roundsInWindow().map((r) => r.key);
-    fireEvent.click(screen.getByRole('button', { name: `Show all ${keys.length} rounds` }));
-    expect(visibleRoundKeys(container)).toEqual(keys);
-    const close = screen.getByRole('button', { name: `Show the ${ROUNDS_SHOWN} newest` });
-    expect(close).toHaveAttribute('aria-expanded', 'true');
-    fireEvent.click(close);
-    expect(visibleRoundKeys(container)).toEqual(keys.slice(0, ROUNDS_SHOWN));
-  });
+    it('shows the newest rows and folds the rest, every row in the HTML in one order', () => {
+      const container = renderPage();
+      expect(keys.length).toBeGreaterThan(shown);
+      expect(bodyRows(container, captionId).map((r) => r.getAttribute(keyAttribute))).toEqual(keys);
+      expect(visibleKeys(container, captionId, keyAttribute)).toEqual(keys.slice(0, shown));
+      const body = folded(container);
+      expect(body.hidden).toBe(true);
+      expect(body.querySelectorAll('tr')).toHaveLength(keys.length - shown);
+      expect(body.querySelectorAll('a[data-source-link]')).toHaveLength(keys.length - shown);
+      const button = screen.getByRole('button', { name: `Show all ${keys.length} rounds` });
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      expect(button).toHaveAttribute('aria-controls', body.id);
+    });
 
-  it('puts the control before the folded rows, so Tab after opening reaches them', () => {
-    const container = renderPage();
-    const button = screen.getByRole('button', { name: /^Show all/ });
-    const folded = container.querySelector('tbody[data-rounds-folded]')!;
-    expect(button.compareDocumentPosition(folded) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(button.tagName).toBe('BUTTON');
-    expect(button).not.toHaveAttribute('tabindex');
+    it('opens to every row and closes again', () => {
+      const container = renderPage();
+      fireEvent.click(screen.getByRole('button', { name: `Show all ${keys.length} rounds` }));
+      expect(visibleKeys(container, captionId, keyAttribute)).toEqual(keys);
+      const close = screen.getByRole('button', { name: `Show the ${shown} newest` });
+      expect(close).toHaveAttribute('aria-expanded', 'true');
+      fireEvent.click(close);
+      expect(visibleKeys(container, captionId, keyAttribute)).toEqual(keys.slice(0, shown));
+    });
+
+    it('puts the control before the folded rows, so Tab after opening reaches them', () => {
+      const container = renderPage();
+      const button = screen.getByRole('button', { name: `Show all ${keys.length} rounds` });
+      expect(button.compareDocumentPosition(folded(container)) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+      expect(button.tagName).toBe('BUTTON');
+      expect(button).not.toHaveAttribute('tabindex');
+    });
   });
 
   it('opens the fold when an investor link points at a folded row', () => {
@@ -196,7 +205,7 @@ describe('/market-map/rounds/ page', () => {
       delete (Element.prototype as Partial<Element>).scrollIntoView;
     });
     const container = renderPage();
-    const folded = container.querySelector<HTMLElement>('tbody[data-rounds-folded]')!;
+    const folded = container.querySelector<HTMLElement>('tbody#rounds-folded')!;
     const link = [...container.querySelectorAll<HTMLAnchorElement>('a[data-investor-link]')].find((a) =>
       folded.contains(container.querySelector(a.getAttribute('href')!)),
     );
