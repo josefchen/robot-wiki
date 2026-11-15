@@ -543,6 +543,46 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2501.05098',
     type: 'paper',
   },
+  // zero-hlm-2026: arXiv Atom API and HTML read 2026-11-15 (v1 26 Oct 2026). Table 8: Real-Only(100) 46.7,
+  // Sim-Ours(800) 66.7 mean full-task success over Tasks A to C, 20 real trials a task; Table 9: pooled
+  // Expanded success 23.0 against 69.0 over 100 trials. GR00T N1.7 fine-tuned in every setting.
+  {
+    id: 'zero-hlm-2026',
+    title: 'Zero-HLM: Generalizable Humanoid Loco-Manipulation without Real Robot Data',
+    authors: ['Dianyi Yang', 'Mengya Liu', 'Zhumei Wang', 'Yu Liu', 'Xiaochen Zhang', 'Yixuan Li', 'Le Ma', 'Yuhang Yang', 'Weiqi Huang', 'Wei Liang', 'Baoxiong Jia', 'Siyuan Huang'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.35075',
+    url: 'https://arxiv.org/abs/2610.35075',
+    type: 'paper',
+  },
+  // simvla-2026: arXiv Atom API and HTML read 2026-11-15 (v1 8 Oct 2026). Table 13 (mock kitchen ID,
+  // 20 trials a task): binary successes SimVLA 9+6+6+9+8 = 38, pi0.5 on 50 demos 33, on 200 demos 58.
+  // Table 17 (pantry 3 tasks x 20, real home 2 tasks x 10): SimVLA 26 + 9 = 35, pi0.5 on 50 0, on 200 3.
+  {
+    id: 'simvla-2026',
+    title: 'SimVLA: Zero-Shot Sim-to-Real VLA Learning for Mobile Manipulation',
+    authors: ['Kyoungin Baik', 'Youngwoon Lee'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.11248',
+    url: 'https://arxiv.org/abs/2610.11248',
+    type: 'paper',
+  },
+  // apple-halo-2026: arXiv Atom API and HTML read 2026-11-15 (v1 4 Nov 2026), Apple. Abstract: "a 91%
+  // success rate across 360 trials in six unmapped real-world environments"; Table II single-task real
+  // mean 91 over six skills, 10 trials per skill per environment, Unitree G1. No real-data baseline.
+  // Not to be confused with halo-payload-2026 (payload estimation).
+  {
+    id: 'apple-halo-2026',
+    title: 'Perceptive Humanoid Motion from Simulation',
+    authors: ['Siyuan Hu', 'Abulikemu Abuduweili', 'Yue Meng', 'Shipeng Liu', 'Quentin Leboutet', 'Chen Chen', 'Matthias Müller', 'Vladlen Koltun'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.06908',
+    url: 'https://arxiv.org/abs/2611.06908',
+    type: 'paper',
+  },
   // oxe-auge-2025: arXiv Atom API and abstract read 2026-11-12 (v1 15 Dec 2025); ICML 2026 poster page
   // (icml.cc/virtual/2026/poster/64619) lists it.
   {

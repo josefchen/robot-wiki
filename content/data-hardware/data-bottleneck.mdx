@@ -63,6 +63,9 @@ citations:
   - lafan1-2021
   - motion-x-plus-plus-2025
   - bridgedata-v2-2023
+  - zero-hlm-2026
+  - simvla-2026
+  - apple-halo-2026
 seeAlso:
   - "data-hardware/datasets"
   - "manipulation/foundation-models"
@@ -190,6 +193,14 @@ Generative models stretch a few real examples, as GenAug did for tabletop scenes
 ## Real data stays necessary
 
 Sergey Levine of Physical Intelligence argues that real data is indispensable for robots to generalize as broadly as language models <Cite id="levine-sporks-2025" />. A copied policy meets <Term id="covariate-shift">covariate shift</Term> once it acts alone: small errors carry it into states its data never showed ([behavior cloning foundations](/manipulation/bc-foundations)). Goldberg instead proposes "agentic robotics": AI agents that write and test robot programs in simulation <Cite id="goldberg-agentic-robotics-2026" />.
+
+Three 2026 papers trained real-robot policies for narrow tasks without real demonstrations. Against real-data training, simulation gained most outside the demonstrated setup or room:
+
+| No real demonstrations | Real test | Real demonstrations |
+| --- | --- | --- |
+| Zero-HLM: 66.7% from 800 simulated a task; 69% in shifted setups | GR00T N1.7 fine-tuned for a Unitree G1, three tasks in the room its simulation copied from phone photos | 46.7% from 100 a task; 23% shifted <Cite id="zero-hlm-2026" /> |
+| SimVLA: 38 of 100 in the baselines' kitchen; 35 of 80 in an unseen pantry and home | Five tasks, wheeled two-arm robot | π0.5 on 50 a task: 33 and 0; on 200: 58 and 3 <Cite id="simvla-2026" /> |
+| Apple HALO: 91% of 360 trials | Six whole-body skills, Unitree G1, six unscanned homes | None <Cite id="apple-halo-2026" /> |
 
 ## Count data claims in hours
 
