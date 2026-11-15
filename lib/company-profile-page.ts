@@ -24,6 +24,7 @@ import {
   formatCny,
   formatPct,
   formatSharePrice,
+  formatUsdPrice,
   grossMargin,
   groupStakes,
   holdersInFilingOrder,
@@ -95,12 +96,46 @@ export function profilePageCounts(profile: CompanyProfile): ProfilePageCounts {
   };
 }
 
-/** The header's lead, without its closing date: true of every row the page holds. */
+/** The lowest and highest list price in US dollars across the priced products. */
+export function priceRange(profile: CompanyProfile): { low: number; high: number } {
+  const prices = profile.products.flatMap((product) => (product.priceUsd === null ? [] : [product.priceUsd]));
+  if (prices.length === 0) throw new Error(`${profile.slug}: no priced product`);
+  return { low: Math.min(...prices), high: Math.max(...prices) };
+}
+
+/** The latest year the units table covers, with each line's units sold that year, most first. */
+export function latestUnitsSold(profile: CompanyProfile): { year: number; lines: Array<{ line: ProductLine; sold: number }> } {
+  const year = Math.max(...profile.units.map((row) => row.year));
+  const lines = profile.units
+    .filter((row) => row.year === year)
+    .map((row) => ({ line: row.line, sold: row.sold }))
+    .sort((a, b) => b.sold - a.sold);
+  return { year, lines };
+}
+
+/** The full calendar year's results period, e.g. fy2025. */
+export function calendarYearPeriod(profile: CompanyProfile, year: number): FinancialPeriod {
+  const period = profile.financials.find((row) => row.start === `${year}-01-01` && row.end === `${year}-12-31`);
+  if (!period) throw new Error(`${profile.slug}: no results for ${year}`);
+  return period;
+}
+
+/**
+ * The header's lead, without its closing date: what the company sells, how
+ * many, at what prices, and what its listing documents report for the
+ * latest full year.
+ */
 export function profileLead(profile: CompanyProfile): string {
   const counts = profilePageCounts(profile);
+  const prices = priceCounts(profile);
+  const range = priceRange(profile);
+  const units = latestUnitsSold(profile);
+  const period = calendarYearPeriod(profile, units.year);
+  const sold = joinList(units.lines.map((row) => `${formatCount(row.sold)} ${row.line}s`));
   return (
-    `${counts.products} ${profile.company.name} products, its results, listing and shareholders, ` +
-    `${counts.events} dated events and ${counts.security} security records, each row with its source`
+    `${profile.company.name} sells ${counts.products} products, ${prices.priced} of them listed from ` +
+    `${formatUsdPrice(range.low)} to ${formatUsdPrice(range.high)}, and its listing documents report ${sold} ` +
+    `sold in ${units.year} on revenue of ${periodMoney(period, period.revenue)}`
   );
 }
 
@@ -137,8 +172,8 @@ export function sectionLeads(profile: CompanyProfile): Record<ProfileSectionId, 
   const prices = priceCounts(profile);
   return {
     products:
-      `${counts.products} trims, one per row. ${prices.priced} carry a list price in US dollars from the maker's ` +
-      `shop or product page, ${prices.contactSales} are sold through sales and ${prices.notDisclosed} have no published price.`,
+      `Of the ${counts.products} products, ${prices.priced} carry a list price in US dollars from the maker's shop or product page, ` +
+      `${prices.contactSales} are quoted on request and ${prices.notDisclosed} have no published price.`,
     money: `Results from the ${joinList(documentNames(profile.financials))}, in millions of yuan.`,
     timeline:
       `${counts.events} events, newest first. Each United States restriction carries the company's reply ` +
@@ -169,9 +204,21 @@ export function formatCount(value: number): string {
   return value.toLocaleString('en-US');
 }
 
-/** A percentage stored in percent, e.g. 21.4395 → "21.4395%". The digits stay as filed. */
-export function formatStoredPct(value: number): string {
-  return `${value}%`;
+/**
+ * Decimals per kind of percentage, as the filings print them: shares of
+ * revenue and votes to two, shareholdings to four. A column keeps one
+ * precision so its figures line up.
+ */
+export const PCT_DIGITS = { share: 2, votes: 2, stake: 4 } as const;
+
+/** A percentage stored in percent at its column's fixed precision, e.g. 13.3 → "13.30%". */
+export function formatStoredPct(value: number, kind: keyof typeof PCT_DIGITS): string {
+  return `${value.toFixed(PCT_DIGITS[kind])}%`;
+}
+
+/** A filing's vehicle name with "No. 1" kept on one line. */
+export function holderName(name: string): string {
+  return name.replace(/\bNo\. (?=\d)/g, 'No. ');
 }
 
 /** A signed change, e.g. 4.6034 → "+460.34%". */
@@ -204,17 +251,37 @@ export function sourceHost(url: string): string {
   return new URL(url).hostname.replace(/^www\./, '');
 }
 
+/** Publishers whose data endpoints a source can point at, by registrable domain. */
+const API_PUBLISHERS: Record<string, string> = {
+  'eastmoney.com': 'Eastmoney',
+  'github.com': 'GitHub',
+  'huggingface.co': 'Hugging Face',
+};
+
+/** A machine endpoint ("api.github.com", ".../api/qt/..."), whose address names no page a reader opens. */
+function isApiEndpoint(url: URL): boolean {
+  return url.hostname.startsWith('api.') || url.pathname.startsWith('/api/');
+}
+
 /**
  * The short name a source link shows: the publisher or document the title
  * names in its last parenthesis ("final prospectus", "Boschko Security
  * Blog"), else the host. A parenthesis that is one lowercase word
  * ("unadjusted") qualifies the title and names nothing, so the host is used.
+ * A data endpoint shows its publisher's name in place of its address.
  */
 export function sourceLabel(source: Pick<ProfileSource, 'sourceUrl' | 'sourceTitle'>): string {
   const groups = [...source.sourceTitle.matchAll(/\(([^()]+)\)/g)];
   const last = groups.at(-1)?.[1];
   const name = last?.split(/[,;]/)[0]?.trim();
   if (name && /[A-Z\s]/.test(name)) return name;
+  const url = new URL(source.sourceUrl);
+  if (isApiEndpoint(url)) {
+    const domain = url.hostname.split('.').slice(-2).join('.');
+    const publisher = API_PUBLISHERS[domain];
+    if (!publisher) throw new Error(`${source.sourceUrl}: a data endpoint with no publisher name`);
+    return publisher;
+  }
   return sourceHost(source.sourceUrl);
 }
 
@@ -230,22 +297,36 @@ export interface ResultsRow {
   revenue: string;
   netProfit: string;
   adjustedNetProfit: string;
-  margin: { text: string; computed: boolean };
-  oneOffCharge: string | null;
-}
-
-function capitalize(text: string): string {
-  return text.charAt(0).toUpperCase() + text.slice(1);
+  /** basis: what revenue the margin is a share of, null when none is disclosed. */
+  margin: { text: string; basis: string | null; computed: boolean };
+  /** The period's notes, the one-off charge first with its amount. */
+  notes: string[];
 }
 
 function periodMoney(period: FinancialPeriod, amount: number): string {
   return formatCny({ amount, unit: period.unit });
 }
 
-/** The results table: every stored period in CNY millions, oldest first as filed. */
+const MARGIN_BASIS: Record<'main business' | 'computed on total revenue', string> = {
+  'main business': 'on main business',
+  'computed on total revenue': 'on total revenue',
+};
+
+/**
+ * The results table: every stored period in CNY millions, oldest first as
+ * filed. A period's note that names its one-off charge is replaced by the
+ * sentence that gives the charge's amount, so the row says it once.
+ */
 export function resultsRows(profile: CompanyProfile): ResultsRow[] {
   return profile.financials.map((period) => {
     const margin = grossMargin(period);
+    const charge = period.oneOffCharge;
+    const notes = [
+      ...(charge
+        ? [`Net profit is after a one-off ${charge.label} charge of ${periodMoney(period, charge.amount)}.`]
+        : []),
+      ...(period.note && !(charge && period.note.includes(charge.label)) ? [period.note] : []),
+    ];
     return {
       period,
       revenue: periodMoney(period, period.revenue),
@@ -253,13 +334,39 @@ export function resultsRows(profile: CompanyProfile): ResultsRow[] {
       adjustedNetProfit: periodMoney(period, period.adjustedNetProfit),
       margin:
         margin === NOT_DISCLOSED
-          ? { text: absentWithNoun(NOT_DISCLOSED, 'margin'), computed: false }
-          : { text: `${margin.pct.toFixed(2)}%`, computed: margin.basis === 'computed on total revenue' },
-      oneOffCharge: period.oneOffCharge
-        ? `${capitalize(period.oneOffCharge.label)} charge ${periodMoney(period, period.oneOffCharge.amount)}`
-        : null,
+          ? { text: absentWithNoun(NOT_DISCLOSED, 'margin'), basis: null, computed: false }
+          : {
+              text: `${margin.pct.toFixed(2)}%`,
+              basis: MARGIN_BASIS[margin.basis],
+              computed: margin.basis === 'computed on total revenue',
+            },
+      notes,
     };
   });
+}
+
+// ── Mark notes ────────────────────────────────────────────────────────────
+
+/** The note under a table whose rows carry the reported mark. True of figures and events alike. */
+export const REPORTED_NOTE =
+  'marks a source that is a press report or a market-data feed, not a filing or the publisher’s own page.';
+
+/** The note under the results table: what the computed margins are worked out from. */
+export function resultsComputedNote(profile: CompanyProfile): string | null {
+  const periods = resultsRows(profile).filter((row) => row.margin.computed).map((row) => row.period);
+  if (periods.length === 0) return null;
+  return (
+    `marks revenue less cost of sales, over revenue, from the ` +
+    `${joinList(documentNames(periods))}, which states no margin.`
+  );
+}
+
+export const LINES_COMPUTED_NOTE = 'marks the line’s revenue divided by its units sold.';
+
+/** The note under the listing table: each computed fact with what it is worked out from. */
+export function listingComputedNote(profile: CompanyProfile): string {
+  const derivations = listingFacts(profile).flatMap((fact) => (fact.derivation ? [fact.derivation] : []));
+  return `marks a figure derived from the rows above: ${joinList(derivations)}.`;
 }
 
 /** Distinct sources across a set of rows, in first-seen order. */
@@ -347,8 +454,10 @@ export interface ListingFact {
   value: string;
   /** The value is a name, not a figure, and is set as text. */
   text?: boolean;
-  /** A figure worked out here from stored rows, not filed. */
+  /** A figure computed from other rows of the table, not filed. */
   computed?: boolean;
+  /** For a computed figure, what it is computed from. */
+  derivation?: string;
   source: ProfileSource;
 }
 
@@ -390,6 +499,7 @@ export function listingFacts(profile: CompanyProfile): ListingFact[] {
       label: 'Net proceeds over the plan',
       value: formatCny(netProceedsOverPlan(listing)),
       computed: true,
+      derivation: 'net proceeds less the planned raise',
       source: listing.netProceeds,
     },
     {
@@ -410,6 +520,7 @@ export function listingFacts(profile: CompanyProfile): ListingFact[] {
       label: 'First-day close against the offer price',
       value: formatChange(firstDayChange(listing)),
       computed: true,
+      derivation: 'the first-day close against the offer price',
       source: listing.firstDay,
     },
     {
@@ -424,6 +535,7 @@ export function listingFacts(profile: CompanyProfile): ListingFact[] {
       label: 'Market value at that close',
       value: formatCny(marketValueAtLatestClose(listing)),
       computed: true,
+      derivation: 'the latest close times the shares after listing',
       source: listing.latestClose,
     },
     {
@@ -433,9 +545,15 @@ export function listingFacts(profile: CompanyProfile): ListingFact[] {
       source: control.classAShares,
     },
     {
-      id: 'votes-after',
-      label: `${holder.nameEn}'s votes after listing`,
-      value: `${formatStoredPct(control.directVotesAfterPct.value)} direct, ${formatStoredPct(control.withPlatformVotesAfterPct.value)} with the staff platform`,
+      id: 'votes-direct',
+      label: `${holder.nameEn}'s votes after listing, direct`,
+      value: formatStoredPct(control.directVotesAfterPct.value, 'votes'),
+      source: control.directVotesAfterPct,
+    },
+    {
+      id: 'votes-with-platform',
+      label: `${holder.nameEn}'s votes after listing, with the staff platform`,
+      value: formatStoredPct(control.withPlatformVotesAfterPct.value, 'votes'),
       source: control.withPlatformVotesAfterPct,
     },
   ];

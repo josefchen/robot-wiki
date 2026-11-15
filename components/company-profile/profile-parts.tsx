@@ -3,7 +3,7 @@ import { SourceLink, SourceTypeMark } from '@/components/now/source-mark';
 import { TableScroll } from '@/components/ui/table-scroll';
 import type { CompanyReply, ProfileSource } from '@/data/schemas/company-profile';
 import { formatProfileDate } from '@/lib/company-profile';
-import { replyStatement, sourceLabel } from '@/lib/company-profile-page';
+import { REPORTED_NOTE, replyStatement, sourceLabel } from '@/lib/company-profile-page';
 import { cx } from '@/lib/utils';
 
 export const ROW = 'border-b border-border last:border-b-0';
@@ -91,13 +91,14 @@ export function Reply({ reply, company, labelled = false }: { reply: CompanyRepl
 export function ProfileTable({
   labelledBy,
   reported = false,
-  computed = false,
+  computed = null,
   narrow = false,
   children,
 }: {
   labelledBy: string;
   reported?: boolean;
-  computed?: boolean;
+  /** The note on the computed mark: what the table's computed figures are worked out from. */
+  computed?: string | null;
   /** A table of few short columns keeps to the reading width. */
   narrow?: boolean;
   children: ReactNode;
@@ -113,13 +114,12 @@ export function ProfileTable({
         <p className={cx(DIM, 'mt-3 max-w-[44rem]')}>
           {reported ? (
             <>
-              <SourceTypeMark type="reported" /> marks a figure from a press report or a market-data feed, not from
-              the company&apos;s filing or the source&apos;s own page.{' '}
+              <SourceTypeMark type="reported" /> {REPORTED_NOTE}{' '}
             </>
           ) : null}
           {computed ? (
             <>
-              <SourceTypeMark type="computed" /> marks a figure worked out here from the stored rows.
+              <SourceTypeMark type="computed" /> {computed}
             </>
           ) : null}
         </p>
