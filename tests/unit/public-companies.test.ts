@@ -402,9 +402,39 @@ describe('sources and notes', () => {
       'UBTech Robotics',
       'Unitree Robotics',
     ]);
-    const verifiedExposure = PUBLIC_COMPANIES.filter((c) => c.exposureSource?.verified).map((c) => c.name);
-    expect(verifiedExposure.sort()).toEqual(['Fanuc', 'Yaskawa Electric']);
+    const verifiedExposure = PUBLIC_COMPANIES.filter((c) => c.exposureSource?.verified);
+    const verifiedFilings = verifiedExposure.filter((c) => c.exposureBasis !== 'business description');
+    expect(verifiedFilings.map((c) => c.name).sort()).toEqual(['Fanuc', 'Yaskawa Electric']);
+    // The 56 company profiles reopened to replace quotes that held only the company name.
+    expect(verifiedExposure.length - verifiedFilings.length).toBe(56);
+    expect(LEFT_OUT_COMPANIES.filter((c) => c.source.verified).map((c) => c.id).sort()).toEqual([
+      'applied-aerospace-and-defense',
+      'ningbo-tuopu',
+      'ningbo-zhongda-leader',
+      'robotechnik',
+      'seyond',
+      'swancor-advanced-materials',
+    ]);
     expect(byName('ABB').exposureSource?.verified).toBe(false);
+  });
+
+  it('quotes a passage past the company name for every exposure and left-out source', () => {
+    const wordsPastName = (quote: string, name: string) =>
+      (quote.startsWith(name) ? quote.slice(name.length) : quote).split(/\s+/).filter((w) => /\p{L}|\d/u.test(w))
+        .length;
+    for (const c of PUBLIC_COMPANIES) {
+      if (!c.exposureSource) continue;
+      const quote = c.exposureSource.quote.trim();
+      expect(quote, c.id).not.toBe(c.quoteName);
+      expect(quote.length, c.id).toBeGreaterThan(c.quoteName.length);
+      expect(quote.length, c.id).toBeGreaterThan(c.name.length);
+      expect(wordsPastName(quote, c.quoteName), c.id).toBeGreaterThanOrEqual(6);
+    }
+    for (const c of LEFT_OUT_COMPANIES) {
+      const quote = c.source.quote.trim();
+      expect(quote.length, c.id).toBeGreaterThan(c.name.length);
+      expect(wordsPastName(quote, c.name), c.id).toBeGreaterThanOrEqual(6);
+    }
   });
 
   it('writes notes and reasons as one short clause without dashes', () => {
