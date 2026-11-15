@@ -63,8 +63,10 @@ function Section({
   children: ReactNode;
 }) {
   const section = PROFILE_SECTIONS.find((candidate) => candidate.id === id)!;
+  // Unnamed, so no landmark: a table region here borrows this heading, and two
+  // regions with one name fail landmark-unique.
   return (
-    <section id={id} aria-labelledby={`${id}-heading`} data-profile-section={id} className="mt-16 scroll-mt-24 sm:mt-20">
+    <section id={id} data-profile-section={id} className="mt-16 scroll-mt-24 sm:mt-20">
       <h2 id={`${id}-heading`} className="section-h2">
         {section.title}
       </h2>
