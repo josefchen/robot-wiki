@@ -864,19 +864,6 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.18843',
     type: 'paper',
   },
-  // robocolosseum-2026: arXiv Atom API, abstract and HTML full text read 2026-11-15 (v1 2 Nov 2026). Real-world
-  // network, not RoboColiseum (2610.27865). Kendall's W = 0.24 across the four Fine-tune Track suites (Fig. 10a);
-  // Open vs Fine-tune Spearman -0.20, -0.40, 0.20 on the three shared embodiments (Fig. 9).
-  {
-    id: 'robocolosseum-2026',
-    title: 'RoboColosseum: Evaluating Physical Intelligence at Scale In-The-Wild',
-    authors: ['Tan Sang Nguyen', 'Yi Ru Wang', 'Shailesh Shailesh', 'Gang Yang', 'Jiamo Hu', 'Jianuo Jiang', 'Haoquan Fang', 'Zhongzheng Ren', 'Zhongyi Luo', 'Ian Chong', 'Aaron Tung', 'Santiago Pravisani', 'Minghui Lin', 'Yao Mo', 'Ishneet Singh', 'Benjamin Tee', 'Harold Soh', 'Siddhartha Srinivasa', 'Dieter Fox', 'David Hsu', 'Haoming Song', 'Maxime Ellerbach', 'Thomas Wolf', 'Pepijn Kooijmans', 'Ruijie He', 'Michael Cho', 'Jiafei Duan'],
-    year: 2026,
-    venue: 'arXiv preprint',
-    arxiv: '2611.02497',
-    url: 'https://arxiv.org/abs/2611.02497',
-    type: 'paper',
-  },
   // race-checkpoint-selection-2026: arXiv Atom API and abstract read 2026-11-12 (v1 4 Nov 2026).
   {
     id: 'race-checkpoint-selection-2026',
