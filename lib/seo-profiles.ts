@@ -75,7 +75,7 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     title: 'Robots in 3D: Maker Models and Their Files',
     headTerm: 'robots in 3D',
     description:
-      "Robots in 3D, drawn in the browser from each maker's own URDF and meshes, with the repository, commit, licence and triangle counts of the files.",
+      "Robots in 3D, drawn in the browser from each maker's own URDF and meshes, and the repository, commit and licence of the model files makers publish.",
     queries: [],
   },
   '/credits/': {
