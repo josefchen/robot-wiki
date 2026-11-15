@@ -32,6 +32,7 @@ export const SITE_CARD_DESTINATIONS = [
   '/playground/',
   '/how-robots-work/',
   '/glossary/',
+  '/robots-in-3d/',
   '/credits/',
   '/editorial-policy/',
   '/about/',

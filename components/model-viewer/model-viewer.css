@@ -1,0 +1,136 @@
+/*
+ * The maker-model viewer: the playground's stage and controls inside the
+ * site's figure frame. One stage height in every state (before loading,
+ * loading, loaded, failed, no WebGL), so nothing below it moves.
+ */
+.mv-stage {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+@media (min-width: 640px) {
+  .mv-stage { aspect-ratio: 16 / 10; }
+}
+.mv-stage canvas { display: block; outline: none; }
+.mv-stage canvas:focus-visible { outline: 1px solid var(--ink); outline-offset: -1px; }
+
+.mv-centre {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 6px;
+  padding: 16px;
+  text-align: center;
+}
+.mv-centre:focus { outline: none; }
+
+.mv-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.mv-summary {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.mv-status {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.mv-status:focus { outline: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .mv-status[data-loading] { animation: mv-breathe 1.6s ease-in-out infinite alternate; }
+}
+@keyframes mv-breathe {
+  from { opacity: 0.65; }
+  to { opacity: 1; }
+}
+
+/* The playground's primary button and quiet text action. */
+.mv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 6px 14px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font: 500 14px/1.2 var(--font-sans);
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+.mv-btn:hover { background: var(--chart-dark); }
+.mv-btn:active { transform: translateY(1px); }
+.mv-text {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: 400 14px/1.2 var(--font-sans);
+  cursor: pointer;
+  transition: color 150ms;
+}
+.mv-text:hover { color: var(--ink); }
+.mv-btn:focus-visible,
+.mv-text:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+
+.mv-hint {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  margin: 0;
+  padding: 2px 6px 2px 0;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  pointer-events: none;
+}
+.mv-hint-touch { display: none; }
+@media (hover: none) {
+  .mv-hint-touch { display: inline; }
+  .mv-hint-mouse { display: none; }
+}
+.mv-reset {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/* Without WebGL the message takes the playground's type, left-aligned. */
+.mv-unavailable { justify-items: start; text-align: left; }
+.mv-unavailable .pg-unavailable { display: grid; gap: 8px; }
+.mv-unavailable h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.mv-unavailable p {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}

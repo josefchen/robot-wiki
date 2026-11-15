@@ -71,6 +71,13 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
       'Glossary of robotics and robot learning terms: cited definitions of the jargon used across Robot Wiki, from action chunking to Kalman filters.',
     queries: [],
   },
+  '/robots-in-3d/': {
+    title: 'Robots in 3D: Maker Models and Their Files',
+    headTerm: 'robots in 3D',
+    description:
+      "Robots in 3D, drawn in the browser from each maker's own URDF and meshes, with the repository, commit, licence and triangle counts of the files.",
+    queries: [],
+  },
   '/credits/': {
     title: 'Credits: Image Sources, Licences and Author',
     headTerm: 'credits',

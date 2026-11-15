@@ -6,12 +6,12 @@ import { PUBLIC_IDENTITY } from '@/lib/identity';
  * message says what is missing and how a reader usually gets it back.
  * Reduced motion never leads here; it only calms the live scene.
  */
-export function WebGLUnavailable() {
+export function WebGLUnavailable({ subject = 'arm' }: { subject?: string }) {
   return (
     <div className="pg-unavailable" data-testid="webgl-unavailable">
       <h2>WebGL is not available</h2>
       <p>
-        The 3D arm needs WebGL, and this browser did not start it. Turning on
+        The 3D {subject} needs WebGL, and this browser did not start it. Turning on
         hardware acceleration in the browser&apos;s settings and reloading
         usually fixes it. The rest of {PUBLIC_IDENTITY} works without it.
       </p>
