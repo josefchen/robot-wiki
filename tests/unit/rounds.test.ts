@@ -77,12 +77,13 @@ describe('rounds data', () => {
   it('holds the first tally by kind, less the rows left out', () => {
     // The first tally: 147 closed rounds and 4 unconfirmed, 7 listings, 14 corporate
     // events, 11 earlier UK and Europe rows, 4 investor and 4 context rows.
-    // Left out: Moove, Tangent, Maven and the Genrobot Series A. Agreed, not
+    // Left out: Tangent, Maven and the Genrobot Series A. Agreed, not
     // closed, so announced: CMR Surgical's round, Shield's Series H and
     // FieldAI's term sheet (unconfirmed in the first tally). Kraken's source dates it
     // to July only, so it leaves the earlier rows for the July month-only rounds.
-    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 4 - 2 + 1);
-    expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(3);
+    // Added after it: Medtronic's announced investment in Cornerstone Robotics.
+    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 3 - 2 + 1);
+    expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(3 + 1);
     expect(ROUNDS.filter((r) => r.status === 'unconfirmed')).toHaveLength(4 - 1);
     expect(ROUNDS.filter((r) => r.status === 'talks')).toHaveLength(9);
     expect(LISTINGS).toHaveLength(7);
@@ -183,9 +184,10 @@ describe('rounds data', () => {
     expect(fundingEventSchema.safeParse(both).success).toBe(false);
   });
 
-  it('keeps announced to listings and the three agreed rounds, and the earlier rows closed', () => {
+  it('keeps announced to listings and the four agreed rounds, and the earlier rows closed', () => {
     expect(ROUNDS.filter((r) => r.status === 'announced').map((r) => r.key).sort()).toEqual([
       'cmr-surgical-stryker-2026-10-12',
+      'cornerstone-robotics-medtronic-2026-09-01',
       'fieldai-2026-10-02',
       'shield-ai-series-h-2026-11-05',
     ]);
@@ -305,17 +307,17 @@ describe('totals', () => {
 
   it('matches the first tally of USD rounds, less the rows left out', () => {
     // The first tally gave USD 15.48B (15,478.2M) for closed USD rounds in the window.
-    // Left out here: Moove, USD 250M (its source page gives another date),
-    // Tangent Robotics, 4.5M (its release states no currency) and Maven
-    // Robotics, 100M. The Genrobot Series A also left out has no amount.
+    // Left out here: Tangent Robotics, 4.5M (its release states no currency)
+    // and Maven Robotics, 100M. The Genrobot Series A also left out has no
+    // amount. Moove's 250M is in, dated 5 August from its own page.
     // CMR Surgical's approximately 400M is agreed, not closed, and Shield
     // is still raising its 1B Series H. Shandong UBTECH's 13.9M is stored in
     // yuan, as its source announces it, and Motion's own post gives USD 2M
-    // where the first tally had EUR.
+    // where the first tally had EUR. Cornerstone's approximately 700M, added
+    // after the tally, is announced, not closed.
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
     expect(total(usdOnly)).toBe(
       15_478_200_000 -
-        250_000_000 -
         4_500_000 -
         100_000_000 -
         400_000_000 -
@@ -323,6 +325,16 @@ describe('totals', () => {
         13_900_000 +
         2_000_000,
     );
+  });
+
+  it('counts Moove in the full total only and keeps the Cornerstone investment out of both', () => {
+    const full = new Set(closedRoundsInWindow().map((r) => r.key));
+    const strict = new Set(closedRoundsInWindow({ strict: true }).map((r) => r.key));
+    expect(full.has('moove-2026-08-05')).toBe(true);
+    expect(strict.has('moove-2026-08-05')).toBe(false);
+    const cornerstone = 'cornerstone-robotics-medtronic-2026-09-01';
+    expect(roundsInWindow().map((r) => r.key)).toContain(cornerstone);
+    expect(full.has(cornerstone)).toBe(false);
   });
 
   it('counts statuses, reported sources and size bands from the same rows', () => {
