@@ -142,7 +142,7 @@
     },
     "manipulation/hierarchical": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-15T05:04:11Z"
+      "modified": "2026-11-15T05:48:16Z"
     },
     "manipulation/knowledge-insulation": {
       "published": "2026-08-08T21:15:16Z",
@@ -166,7 +166,7 @@
     },
     "manipulation/vla-models": {
       "published": "2026-08-08T21:15:16Z",
-      "modified": "2026-11-15T01:36:54Z"
+      "modified": "2026-11-15T06:00:48Z"
     },
     "rl-sim2real/humanoid-wbc": {
       "published": "2026-08-08T21:15:16Z",
@@ -235,7 +235,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T05:04:11Z"
+      "modified": "2026-11-15T06:00:48Z"
     },
     "/manipulation/": {
       "modified": "2026-11-15T04:26:30Z"
@@ -274,7 +274,7 @@
       "modified": "2026-11-13T05:50:10Z"
     },
     "/glossary/": {
-      "modified": "2026-11-15T05:04:11Z"
+      "modified": "2026-11-15T05:48:16Z"
     },
     "/credits/": {
       "modified": "2026-11-14T19:31:23Z"
