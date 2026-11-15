@@ -102,7 +102,7 @@ describe('sentences', () => {
     expect(profileLead(profile)).toBe(
       'Unitree Robotics\u2019 listing documents report 2025 sales of 23,037 quadrupeds and 5,215 humanoids and total ' +
         'revenue of CNY\u00a01,699.27\u00a0m; this page lists 62 of the company\u2019s robots, arms, grippers, hands and ' +
-        'lidars, 31 of them with a list price from USD 249 to USD 50,000',
+        'lidars, 31 of them with a list price from USD 249 to USD 50,000',
     );
     expect(profileLead(profile)).not.toMatch(/[.,;:]\s*$/);
   });
