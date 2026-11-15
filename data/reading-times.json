@@ -32,7 +32,7 @@
     "minutes": 7
   },
   "manipulation/rl-finetuning": {
-    "words": 2482,
+    "words": 2477,
     "minutes": 12
   },
   "manipulation/realtime-execution": {
@@ -48,7 +48,7 @@
     "minutes": 5
   },
   "manipulation/robot-learning-roadmap": {
-    "words": 822,
+    "words": 819,
     "minutes": 4
   },
   "manipulation/action-spaces": {
@@ -56,7 +56,7 @@
     "minutes": 6
   },
   "manipulation/foundation-models": {
-    "words": 1152,
+    "words": 1143,
     "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
@@ -128,11 +128,11 @@
     "minutes": 8
   },
   "data-hardware/datasets": {
-    "words": 1461,
+    "words": 1492,
     "minutes": 7
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3341,
+    "words": 3343,
     "minutes": 17
   },
   "data-hardware/teleop-rigs": {
@@ -196,8 +196,8 @@
     "minutes": 5
   },
   "frontier/dexterity": {
-    "words": 1661,
-    "minutes": 8
+    "words": 1737,
+    "minutes": 9
   },
   "frontier/generalization": {
     "words": 1466,
@@ -216,7 +216,7 @@
     "minutes": 10
   },
   "adjacent/autonomous-vehicles": {
-    "words": 2064,
+    "words": 2097,
     "minutes": 10
   },
   "adjacent/drones": {
@@ -224,8 +224,8 @@
     "minutes": 9
   },
   "adjacent/surgical": {
-    "words": 1657,
-    "minutes": 8
+    "words": 1743,
+    "minutes": 9
   },
   "adjacent/space": {
     "words": 1632,
