@@ -12,7 +12,6 @@ import {
   ROUNDS_PAGE_PATH,
   ROUNDS_PAGE_SECTIONS,
   ROUNDS_PAGE_TITLE,
-  COVERAGE_OMISSION,
   byDateDesc,
   coverageText,
   formatTotalUsd,
@@ -20,7 +19,6 @@ import {
   monthCells,
   roundAnchor,
   roundsLeadSentence,
-  sourceHost,
 } from '@/lib/rounds-page';
 
 afterEach(cleanup);
@@ -199,14 +197,12 @@ describe('/market-map/rounds/ page', () => {
     }
   });
 
-  it('names the known miss in the coverage paragraph and links its source', () => {
+  it('prints the coverage paragraph as the function words it, with no source link', () => {
     const container = renderPage();
     const paragraph = container.querySelector('[data-coverage]')!;
-    const { beforeLink, afterLink } = coverageText();
-    expect(paragraph.textContent).toContain(`${beforeLink} (${sourceHost(COVERAGE_OMISSION.sourceUrl)})${afterLink}`);
-    const link = paragraph.querySelector('a[data-source-link]')!;
-    expect(link).toHaveAttribute('href', COVERAGE_OMISSION.sourceUrl);
-    expect(link).toHaveAttribute('rel', 'noopener');
+    expect(paragraph.textContent).toContain(coverageText());
+    expect(paragraph.textContent!.endsWith(coverageText())).toBe(true);
+    expect(paragraph.querySelector('a')).toBeNull();
   });
 
   it('mounts the figure, whose registered description now renders here', () => {

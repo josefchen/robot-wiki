@@ -132,34 +132,15 @@ export function headlineText(facts: HeadlineFacts = headlineFacts()): {
   };
 }
 
-/**
- * A round above the top threshold that the list does not hold, named where
- * the coverage is stated. Amount and verb as the investor's release words them.
- */
-export const COVERAGE_OMISSION = {
-  what: "Medtronic's approximately $700 million investment in Cornerstone Robotics",
-  date: '2026-09-01',
-  sourceUrl:
-    'https://news.medtronic.com/2026-09-01-Medtronic-Announces-Strategic-Partnership-with-Cornerstone-Robotics-to-Further-Expand-Global-Access-to-Robotic-Assisted-Surgery',
-  sourceTitle:
-    'Medtronic Announces Strategic Partnership with Cornerstone Robotics to Further Expand Global Access to Robotic-Assisted Surgery',
-} as const;
-
-/**
- * How complete the list is at each amount band; one paragraph. The source
- * link for the omission goes between `beforeLink` and `afterLink`.
- */
-export function coverageText(): { beforeLink: string; afterLink: string } {
+/** How complete the list is at each amount band; one paragraph. */
+export function coverageText(): string {
   const high = formatUsd(COVERAGE_THRESHOLDS_USD.nearComplete);
   const mid = formatUsd(COVERAGE_THRESHOLDS_USD.regional);
-  return {
-    beforeLink:
-      `Above ${high} the list is close to complete outside China; one known miss is ${COVERAGE_OMISSION.what}, ` +
-      `announced on ${formatLongDate(COVERAGE_OMISSION.date)}`,
-    afterLink:
-      `. From ${mid} to ${high} it is good for the United States and Europe and thin for China; ` +
-      `below ${mid} it shows examples, not totals. Every total on this page is the sum of the rounds listed.`,
-  };
+  return (
+    `Above ${high} the list is close to complete outside China. ` +
+    `From ${mid} to ${high} it is good for the United States and Europe and thin for China; ` +
+    `below ${mid} it shows examples, not totals. Every total on this page is the sum of the rounds listed.`
+  );
 }
 
 const MONTH_LONG = [
