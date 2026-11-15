@@ -580,6 +580,48 @@ export const ADDITIONS: Citation[] = [
     url: 'https://huggingface.co/datasets/Sharpa-Robotics/SharpaDex-v1.0',
     type: 'docs',
   },
+  // xr2-bimanual-2026: arXiv abstract and HTML v1 read 2026-11-15 (v1 3 Sep 2026). "we release 1,500 hours";
+  // real-robot subset "32,518 trajectories, 57.4 million frames, and 531.7 hours" on the X2W, "a mobile
+  // bimanual robotic platform"; "approximately 1,000 hours of in-the-wild bimanual UMI demonstrations".
+  // The CC BY-SA 4.0 on the arXiv page is the paper's licence; the data licence is on the dataset card.
+  {
+    id: 'xr2-bimanual-2026',
+    title: 'Scaling Bimanual Household Manipulation from 1,500 hours of Demonstrations to On-Policy Corrections',
+    authors: ['Jiafeng Xu', 'Qi Li', 'Yan Shen', 'Yiyu Ren', 'Travis Davies', 'Shaowen He', 'Ze Wang', 'Yifan Yang', 'Ran Cheng', 'Hao Dong'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2609.03591',
+    url: 'https://arxiv.org/abs/2609.03591',
+    type: 'paper',
+  },
+  // xr2-dataset-card: Hugging Face card read 2026-11-15 (created 2026-08-06, last modified 2026-09-23).
+  // license: cc-by-sa-4.0. Change log: "All 500+ hours of real robot data released open source" (2026-08-06);
+  // UMI batches of 5, 100 and 100 hours (2026-08-10, 09-08, 09-23). Robot data: head and two wrist cameras,
+  // 1280x720 at 30 FPS; UMI data: left and right wrist-mounted cameras, 960x960, plus IMU.
+  {
+    id: 'xr2-dataset-card',
+    title: 'PrimeBot Household Bimanual Manipulation Challenge Dataset',
+    authors: ['PrimeBot Research Institute'],
+    year: 2026,
+    accessedOn: '2026-11-15',
+    venue: 'Hugging Face dataset card',
+    url: 'https://huggingface.co/datasets/challenge-2026/challenge_data',
+    type: 'docs',
+  },
+  // touchscale-dataset-card: Hugging Face card read 2026-11-15 (last modified 2026-10-23; gated). "currently
+  // hosts 100 hours of the 500-hour TouchScale dataset: 15,324 episodes"; "released under CC BY-NC 4.0";
+  // "you have to accept the conditions to access its files". Head RGB-D (Orbbec Gemini 345Lg), two wrist
+  // cameras (Intel RealSense D405), tactile gloves with 880 taxels per hand.
+  {
+    id: 'touchscale-dataset-card',
+    title: 'TouchScale (dataset card)',
+    authors: ['2077AI'],
+    year: 2026,
+    accessedOn: '2026-11-15',
+    venue: 'Hugging Face dataset card',
+    url: 'https://huggingface.co/datasets/2077AIDataFoundation/TouchScale',
+    type: 'docs',
+  },
   // ff-nova-2026: FF EAI Robotics / Faraday Future release on PR Newswire read 2026-11-12 (dated 2026-10-16):
   // "The FF Nova device is priced at $2,490"; Phase One limited to 100 units by invitation.
   {

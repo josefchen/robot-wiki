@@ -23744,6 +23744,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Physical Intelligence', 'Physical Intelligence'],
   ['PickNik Robotics', 'PickNik Robotics'],
   ['Pony AI Inc.', 'Pony AI'],
+  ['PrimeBot Research Institute', 'PrimeBot'],
   ['PyTorch Contributors', 'PyTorch'],
   ['Robotics and AI Institute', 'RAI Institute'],
   ['Robotics Center', 'Robotics Center'],
