@@ -13,11 +13,15 @@ import {
   absentWithNoun,
   formatCount,
   formatStoredPct,
+  LINES_COMPUTED_NOTE,
   groupLines,
+  holderName,
   holdersInFilingOrder,
   lineYearRows,
+  listingComputedNote,
   listingFacts,
   regionYearRows,
+  resultsComputedNote,
   resultsRows,
   timelineKindLabel,
   type LineYearRow,
@@ -108,7 +112,7 @@ function ProductSources({ product }: { product: Product }) {
 }
 
 /**
- * Every trim, one per row, in the maker's own grouping. From lg up each
+ * Every product, one per row, in the maker's own grouping. From lg up each
  * field has its column; below it the specification stacks under the price
  * and the launch, notes and sources under the name, so a phone reads two
  * columns without scrolling sideways.
@@ -201,8 +205,11 @@ function PeriodNotes({ row }: { row: ResultsRow }) {
     <>
       {row.period.label}
       <span className={cx(DIM, 'block font-normal')}>{row.period.assurance}</span>
-      {row.oneOffCharge ? <Note className="font-normal">{row.oneOffCharge}</Note> : null}
-      {row.period.note ? <Note className="font-normal">{row.period.note}</Note> : null}
+      {row.notes.map((note) => (
+        <Note key={note} className="font-normal">
+          {note}
+        </Note>
+      ))}
       <span className="mt-1 block font-normal md:hidden">
         <Source source={row.period} />
       </span>
@@ -215,7 +222,7 @@ export function ResultsTable({ profile, labelledBy }: { profile: CompanyProfile;
   const rows = resultsRows(profile);
   const wide = 'hidden sm:table-cell';
   return (
-    <ProfileTable labelledBy={labelledBy} computed={rows.some((row) => row.margin.computed)}>
+    <ProfileTable labelledBy={labelledBy} computed={resultsComputedNote(profile)}>
       <thead>
         <tr>
           <th scope="col" className={cx(HEAD, wide)}>Period</th>
@@ -241,6 +248,7 @@ export function ResultsTable({ profile, labelledBy }: { profile: CompanyProfile;
               </span>
             </>
           );
+          const basis = row.margin.basis ? <span className="text-[12px] text-text-dim">{row.margin.basis}</span> : null;
           return (
             <tr key={row.period.id} data-profile-row={row.period.id} className={ROW}>
               <th scope="row" className={cx('text-left font-medium', wide)}>
@@ -249,7 +257,10 @@ export function ResultsTable({ profile, labelledBy }: { profile: CompanyProfile;
               <td className={cx(NUM, wide)}>{row.revenue}</td>
               <td className={cx(NUM, wide)}>{row.netProfit}</td>
               <td className={cx(NUM, wide)}>{row.adjustedNetProfit}</td>
-              <td className={cx('whitespace-nowrap text-right', wide)}>{margin}</td>
+              <td className={cx('whitespace-nowrap text-right', wide)}>
+                {margin}
+                {basis ? <span className="block">{basis}</span> : null}
+              </td>
               <td className="sm:hidden">
                 <span className="block font-medium">
                   <PeriodNotes row={row} />
@@ -258,7 +269,9 @@ export function ResultsTable({ profile, labelledBy }: { profile: CompanyProfile;
                   <Labelled label="Revenue"><span className={FIGURE}>{row.revenue}</span></Labelled>
                   <Labelled label="Net profit"><span className={FIGURE}>{row.netProfit}</span></Labelled>
                   <Labelled label="Adjusted net profit"><span className={FIGURE}>{row.adjustedNetProfit}</span></Labelled>
-                  <Labelled label="Gross margin">{margin}</Labelled>
+                  <Labelled label={row.margin.basis ? `Gross margin ${row.margin.basis}` : 'Gross margin'}>
+                    {margin}
+                  </Labelled>
                 </span>
               </td>
               <td className="hidden md:table-cell">
@@ -277,7 +290,7 @@ export function LinesTable({ profile, labelledBy }: { profile: CompanyProfile; l
   const rows = lineYearRows(profile);
   const wide = 'hidden sm:table-cell';
   return (
-    <ProfileTable labelledBy={labelledBy} computed>
+    <ProfileTable labelledBy={labelledBy} computed={LINES_COMPUTED_NOTE}>
       <thead>
         <tr>
           <th scope="col" className={cx(HEAD, wide)}>Year and line</th>
@@ -311,7 +324,7 @@ export function LinesTable({ profile, labelledBy }: { profile: CompanyProfile; l
               <td className={cx(NUM, wide)}>{formatCount(row.sold)}</td>
               <td className={cx('whitespace-nowrap text-right', wide)}>{shipped}</td>
               <td className={cx(NUM, wide)}>{row.revenue}</td>
-              <td className={cx(NUM, wide)}>{formatStoredPct(row.sharePct)}</td>
+              <td className={cx(NUM, wide)}>{formatStoredPct(row.sharePct, 'share')}</td>
               <td className={cx('whitespace-nowrap text-right', wide)}>{average}</td>
               <td className="sm:hidden">
                 <span className="block font-medium">
@@ -322,7 +335,7 @@ export function LinesTable({ profile, labelledBy }: { profile: CompanyProfile; l
                   <Labelled label="Shipped">{shipped}</Labelled>
                   <Labelled label="Revenue"><span className={FIGURE}>{row.revenue}</span></Labelled>
                   <Labelled label="Share of main business">
-                    <span className={FIGURE}>{formatStoredPct(row.sharePct)}</span>
+                    <span className={FIGURE}>{formatStoredPct(row.sharePct, 'share')}</span>
                   </Labelled>
                   <Labelled label="Average per unit sold">{average}</Labelled>
                 </span>
@@ -357,11 +370,11 @@ export function RegionsTable({ profile, labelledBy }: { profile: CompanyProfile;
         <tbody>
           {rows.map((row) => (
             <tr key={row.year} data-profile-row={`regions-${row.year}`} className={ROW}>
-              <th scope="row" className="text-left font-mono font-medium tabular-nums">{row.year}</th>
-              <td className={NUM}>{formatStoredPct(row.domesticPct)}</td>
-              <td className={NUM}>{formatStoredPct(row.overseasPct)}</td>
+              <th scope="row" className="text-left font-mono text-[13px] font-medium tabular-nums">{row.year}</th>
+              <td className={NUM}>{formatStoredPct(row.domesticPct, 'share')}</td>
+              <td className={NUM}>{formatStoredPct(row.overseasPct, 'share')}</td>
               <td className={NUM}>
-                {row.usPct === null ? absentWithNoun('not disclosed', 'share') : formatStoredPct(row.usPct)}
+                {row.usPct === null ? absentWithNoun('not disclosed', 'share') : formatStoredPct(row.usPct, 'share')}
               </td>
               <td className="hidden sm:table-cell">
                 {row.sources.map((source) => (
@@ -399,7 +412,7 @@ export function ListingTable({ profile, labelledBy }: { profile: CompanyProfile;
       labelledBy={labelledBy}
       narrow
       reported={facts.some((fact) => fact.source.sourceType === 'reported')}
-      computed={facts.some((fact) => fact.computed)}
+      computed={facts.some((fact) => fact.computed) ? listingComputedNote(profile) : null}
     >
       <thead>
         <tr>
@@ -452,7 +465,9 @@ export function HoldersTable({ profile, labelledBy }: { profile: CompanyProfile;
   const groups = groupLines(profile.holders);
   const wide = 'hidden sm:table-cell';
   const before = (value: number | 'n/a') =>
-    value === NOT_APPLICABLE ? <span className="text-text-dim">none</span> : formatStoredPct(value);
+    value === NOT_APPLICABLE ? <span className="text-text-dim">none</span> : formatStoredPct(value, 'stake');
+  const votes = (value: number | 'not disclosed') =>
+    value === 'not disclosed' ? absentWithNoun('not disclosed', 'votes') : formatStoredPct(value, 'votes');
   return (
     <>
       <ProfileTable labelledBy={labelledBy}>
@@ -469,7 +484,7 @@ export function HoldersTable({ profile, labelledBy }: { profile: CompanyProfile;
           {holders.map((holder) => (
             <tr key={holder.id} data-profile-row={holder.id} className={ROW}>
               <th scope="row" className="text-left font-medium">
-                {holder.nameEn}
+                {holderName(holder.nameEn)}
                 <span className={cx(DIM, 'block font-normal')}>
                   {holder.name}, row <span className="font-mono tabular-nums">{holder.filingRow}</span>
                   {holder.group ? `, ${holder.group}` : null}
@@ -480,21 +495,12 @@ export function HoldersTable({ profile, labelledBy }: { profile: CompanyProfile;
                 </span>
               </th>
               <td className={NUM}>
-                {formatStoredPct(holder.stakeAfterPct)}
+                {formatStoredPct(holder.stakeAfterPct, 'stake')}
                 <span className={cx(DIM, 'mt-1 block sm:hidden')}>before {before(holder.stakeBeforePct)}</span>
-                <span className={cx(DIM, 'block sm:hidden')}>
-                  votes{' '}
-                  {holder.votesAfterPct === 'not disclosed'
-                    ? absentWithNoun('not disclosed', 'votes')
-                    : formatStoredPct(holder.votesAfterPct)}
-                </span>
+                <span className={cx(DIM, 'block sm:hidden')}>votes {votes(holder.votesAfterPct)}</span>
               </td>
               <td className={cx(NUM, wide)}>{before(holder.stakeBeforePct)}</td>
-              <td className={cx(NUM, wide)}>
-                {holder.votesAfterPct === 'not disclosed'
-                  ? absentWithNoun('not disclosed', 'votes')
-                  : formatStoredPct(holder.votesAfterPct)}
-              </td>
+              <td className={cx(NUM, wide)}>{votes(holder.votesAfterPct)}</td>
               <td className="hidden md:table-cell">
                 <Source source={holder} />
               </td>
@@ -508,7 +514,7 @@ export function HoldersTable({ profile, labelledBy }: { profile: CompanyProfile;
             <span key={group.group}>
               {index > 0 ? ' ' : null}
               {group.group}&apos;s {group.members} vehicles hold{' '}
-              <span className="font-mono tabular-nums">{formatStoredPct(group.stakeAfterPct)}</span> together.
+              <span className="font-mono tabular-nums">{formatStoredPct(group.stakeAfterPct, 'stake')}</span> together.
             </span>
           ))}
         </p>
