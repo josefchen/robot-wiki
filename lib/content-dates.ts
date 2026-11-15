@@ -66,6 +66,13 @@ export const ROUTE_SOURCES: Readonly<Record<string, readonly string[]>> = {
     'data/fx-rates.ts',
   ],
   '/playground/': ['app/playground/page.tsx'],
+  '/companies/unitree/': [
+    'app/companies/[slug]/page.tsx',
+    'components/company-profile',
+    'lib/company-profile.ts',
+    'lib/company-profile-page.ts',
+    'data/company-profiles/unitree.ts',
+  ],
   '/how-robots-work/': ['app/how-robots-work/page.tsx', 'components/explainers'],
   '/glossary/': ['app/glossary/page.tsx', 'data/glossary.ts', 'data/citations.ts'],
   '/credits/': [

@@ -30,6 +30,7 @@ export const SITE_CARD_DESTINATIONS = [
   '/market-map/',
   '/market-map/rounds/',
   '/playground/',
+  '/companies/unitree/',
   '/how-robots-work/',
   '/glossary/',
   '/robots-in-3d/',

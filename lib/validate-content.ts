@@ -118,6 +118,7 @@ const DEFAULT_STATIC_ROUTES = [
   '/market-map',
   '/market-map/rounds',
   '/playground',
+  '/companies/unitree',
   '/how-robots-work',
   '/glossary',
   '/robots-in-3d',
