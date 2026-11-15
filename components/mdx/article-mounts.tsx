@@ -22,6 +22,7 @@ import {
   ComparisonMatrix as LazyComparisonMatrix,
   CrossEmbodimentStrategies as LazyCrossEmbodimentStrategies,
   CubeTrials as LazyCubeTrials,
+  DataPriceLadder as LazyDataPriceLadder,
   DatasetRunsHours as LazyDatasetRunsHours,
   DemoOrSim as LazyDemoOrSim,
   DeploymentDashboard as LazyDeploymentDashboard,
@@ -162,6 +163,7 @@ export const CalibrationChain = withCitationRecords('CalibrationChain', LazyCali
 export const ComparisonMatrix = withCitationRecords('ComparisonMatrix', LazyComparisonMatrix);
 export const CrossEmbodimentStrategies = withCitationRecords('CrossEmbodimentStrategies', LazyCrossEmbodimentStrategies);
 export const CubeTrials = withCitationRecords('CubeTrials', LazyCubeTrials);
+export const DataPriceLadder = withCitationRecords('DataPriceLadder', LazyDataPriceLadder);
 export const DatasetRunsHours = withCitationRecords('DatasetRunsHours', LazyDatasetRunsHours);
 export const DemoOrSim = withCitationRecords('DemoOrSim', LazyDemoOrSim);
 export const DeploymentDashboard = withCitationRecords('DeploymentDashboard', LazyDeploymentDashboard);
