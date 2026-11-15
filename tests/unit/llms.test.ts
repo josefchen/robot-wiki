@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { GET as getLlmsFull } from '@/app/llms-full.txt/route';
 import { GET as getLlms } from '@/app/llms.txt/route';
+import { SITEMAP_STANDALONE_PATHS } from '@/app/sitemap';
 import { DOMAINS, publishedModules } from '@/data/modules';
 import { leadParagraph } from '@/lib/article-lead';
 import {
@@ -10,10 +11,13 @@ import {
   articleLead,
   buildLlmsFullTxt,
   buildLlmsTxt,
+  LLMS_OPTIONAL_PATHS,
   type LlmsArticle,
   type LlmsInput,
+  type LlmsPage,
 } from '@/lib/llms';
-import { registryLlmsInput } from '@/lib/llms-registry';
+import { registryLlmsInput, standalonePages } from '@/lib/llms-registry';
+import { routeSeoProfile } from '@/lib/seo-profiles';
 import { SITE_URL } from '@/lib/site';
 
 const input = registryLlmsInput();
@@ -47,6 +51,32 @@ describe('llms.txt', () => {
     for (const entry of publishedModules()) {
       expect(llms).toContain(`- [${entry.title}](${url(entry)}): ${entry.summary}\n`);
     }
+  });
+
+  it('lists every sitemap standalone page exactly once, in sitemap order, with its seo profile', () => {
+    const at = (path: string) => llms.indexOf(`](${SITE_URL}${path}): `);
+    for (const path of SITEMAP_STANDALONE_PATHS) {
+      expect(llms.split(`](${SITE_URL}${path}): `), path).toHaveLength(2);
+      const { title, description } = routeSeoProfile(path);
+      expect(llms, path).toContain(`- [${title}](${SITE_URL}${path}): ${description}\n`);
+    }
+    const order = [...SITEMAP_STANDALONE_PATHS].sort((a, b) => at(a) - at(b));
+    expect(order).toEqual([...SITEMAP_STANDALONE_PATHS]);
+  });
+
+  it('puts the data and tool pages after the domains and the pages about the site last, under Optional', () => {
+    const sections = llms.split(/^## /m).slice(1);
+    const headings = sections.map((section) => section.slice(0, section.indexOf('\n')));
+    expect(headings.slice(-2)).toEqual(['Data and tools', 'Optional']);
+    const links = (section: string) => [...section.matchAll(/\]\(https:\/\/[^/]+(\/[^)]*)\)/g)].map((m) => m[1]);
+    const optional = SITEMAP_STANDALONE_PATHS.filter((path) => LLMS_OPTIONAL_PATHS.includes(path));
+    expect(optional).toEqual([...LLMS_OPTIONAL_PATHS]);
+    expect(links(sections.at(-2)!)).toEqual(SITEMAP_STANDALONE_PATHS.filter((path) => !optional.includes(path)));
+    expect(links(sections.at(-1)!)).toEqual(optional);
+  });
+
+  it('names a sitemap page that has no seo profile', () => {
+    expect(() => standalonePages([...SITEMAP_STANDALONE_PATHS, '/no-such-page/'])).toThrow('/no-such-page/');
   });
 
   it('is served as plain text from the build, not from a hand-kept file', async () => {
@@ -113,6 +143,23 @@ describe('llms generators follow the registry', () => {
     expect(fullWith).toContain(`## Fixture Article\n\nURL: ${url(FIXTURE)}\n`);
     expect(fullWith).toContain('A fixture article is a registry entry that exists only in this test.');
     expect(fullWith).toMatch(/- Its filter ran at 100 Hz on the bench \[Kalman 1960b\]\(https?:\/\/[^)]+\)\./);
+  });
+
+  it('add a new sitemap page under Data and tools, before Optional', () => {
+    const page: LlmsPage = { path: '/fixture-data/', title: 'Fixture Data', description: 'A page only this test adds.' };
+    const pages = [...input.pages];
+    pages.splice(pages.findIndex((entry) => LLMS_OPTIONAL_PATHS.includes(entry.path)), 0, page);
+    const withPage = buildLlmsTxt({ ...input, pages: [...input.pages, page] });
+    const line = `- [Fixture Data](${SITE_URL}/fixture-data/): A page only this test adds.\n`;
+    const dataSection = withPage.slice(withPage.indexOf('## Data and tools\n'), withPage.indexOf('## Optional\n'));
+    expect(dataSection.endsWith(`${line}\n`)).toBe(true);
+    expect(buildLlmsTxt({ ...input, pages })).toBe(withPage);
+    expect(withPage.replace(line, '')).toBe(llms);
+  });
+
+  it('leave llms-full.txt to the articles alone', () => {
+    expect(buildLlmsFullTxt({ ...input, pages: [] })).toBe(full);
+    for (const path of SITEMAP_STANDALONE_PATHS) expect(full).not.toContain(`${SITE_URL}${path}`);
   });
 
   it('drop a removed registry entry from both files', () => {
