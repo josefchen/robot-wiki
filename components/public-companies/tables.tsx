@@ -3,6 +3,8 @@ import { PUBLIC_COMPANIES_AS_OF } from '@/data/public-companies';
 import { formatShortDate } from '@/lib/market-map';
 import { marketValueSourceLine } from '@/lib/public-companies';
 import {
+  closeSource,
+  closesCaption,
   conversionNote,
   debutRows,
   ipoRows,
@@ -194,7 +196,7 @@ export function SinceListingTable() {
     <StaticTable
       captionId="since-listing-caption"
       caption={
-        'Closes from the quote page linked in each row (reported). HKEX, both lines: the sum of the two amounts ' +
+        `${closesCaption()} HKEX, both lines: the sum of the two amounts ` +
         `HKEX's New Listing Report gives for each issue. ${REPORTED_NOTE}`
       }
       // The change sits beside the company, so a phone shows it before the frame scrolls.
@@ -240,7 +242,9 @@ export function SinceListingTable() {
               ...(debut.proceeds?.kind === 'stated' && debut.proceeds.sourceUrl
                 ? [{ label: 'Raised', url: debut.proceeds.sourceUrl, title: `${debut.name}, amount raised` }]
                 : []),
-              ...(debut.close ? [{ label: 'Close', url: debut.close.url, title: `${debut.name}, quote page` }] : []),
+              ...(debut.close
+                ? [{ label: 'Close', url: debut.close.url, title: `${debut.name}, ${closeSource(debut.close).name}` }]
+                : []),
             ]}
           />
         </tr>

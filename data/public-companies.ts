@@ -16,7 +16,12 @@
  *     no total.
  *   - Unknown values are null and render as "not disclosed" or "n/a".
  *   - `verified: true` marks a source opened again for this module on
- *     14 November 2026 that says what the row says.
+ *     14 or 15 November 2026 that says what the row says.
+ *   - A debut's close is the exchange's own figure where the exchange
+ *     published one: HKEX's daily quotations, whose two lines per stock read
+ *     previous close, ask, high, shares traded / closing, bid, low, turnover;
+ *     SSE's quotation server, whose snapshot reads name, previous close,
+ *     open, high, low, last, change, change %; Nasdaq's historical data.
  *
  * The rows are typed against the Zod schemas' inferred types and parsed in
  * the unit suite. The parse is not done here so that a page rendering these
@@ -4308,6 +4313,13 @@ export const LEFT_OUT_COMPANIES: LeftOutCompany[] = [
   },
 ];
 
+/** HKEX, Daily Quotations, 13 November 2026: the close of every Hong Kong debut. */
+const HKEX_QUOTATIONS = 'https://www.hkex.com.hk/eng/stat/smstat/dayquot/d261113e.htm';
+
+/** Nasdaq's historical data, from 13 November 2026: its first row is that day's close. */
+const nasdaqHistory = (symbol: string) =>
+  `https://api.nasdaq.com/api/quote/${symbol}/historical?assetclass=stocks&fromdate=2026-11-13&todate=2026-11-14`;
+
 /** The 2026 debuts, for the since-listing table. */
 export const DEBUTS: Debut[] = [
   {
@@ -4319,7 +4331,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 43.24,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 119874252, fundsRaisedB: 1258638568 },
-    close: { price: 27.34, url: 'https://stockanalysis.com/quote/hkg/2675/market-cap/', verified: false },
+    close: {
+      price: 27.34,
+      url: HKEX_QUOTATIONS,
+      quote: '2675 EDGE MEDICAL-B HKD 27.88 27.88 27.36 410,000 / 27.34 27.34 26.22 10,897,876',
+      verified: true,
+    },
     listedCompanyId: 'edge-medical',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4339,7 +4356,12 @@ export const DEBUTS: Debut[] = [
     offerPrice: 15.36,
     offerPriceB: 15.33,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 148654080, fundsRaisedB: 1337886720 },
-    close: null,
+    close: {
+      price: 12.89,
+      url: HKEX_QUOTATIONS,
+      quote: '2715 ESTUN HKD 13.38 12.89 13.79 4,451,600 / 12.89 12.86 12.82 58,999,310',
+      verified: true,
+    },
     listedCompanyId: 'estun-automation',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4359,7 +4381,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 16.66,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 61305468, fundsRaisedB: 551749212 },
-    close: { price: 8.64, url: 'https://stockanalysis.com/quote/hkg/2729/market-cap/', verified: false },
+    close: {
+      price: 8.635,
+      url: HKEX_QUOTATIONS,
+      quote: '2729 GALAXIS TECH HKD 10.00 8.635 10.11 3,289,200 / 8.635 8.60 8.465 29,979,629',
+      verified: true,
+    },
     listedCompanyId: 'galaxis-technology',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4378,7 +4405,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 17,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 274669000, fundsRaisedB: 1533648200 },
-    close: { price: 6.71, url: 'https://stockanalysis.com/quote/hkg/1021/market-cap/', verified: false },
+    close: {
+      price: 6.705,
+      url: HKEX_QUOTATIONS,
+      quote: '1021 HUAYAN ROBOTICS HKD 6.84 6.71 7.30 4,362,600 / 6.705 6.705 6.55 29,981,428',
+      verified: true,
+    },
     listedCompanyId: 'huayan-robotics',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4397,7 +4429,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 26.36,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 87868424, fundsRaisedB: 790800000 },
-    close: { price: 20.8, url: 'https://stockanalysis.com/quote/hkg/1236/market-cap/', verified: false },
+    close: {
+      price: 20.8,
+      url: HKEX_QUOTATIONS,
+      quote: '1236 LDROBOT HKD 20.90 20.84 21.12 95,000 / 20.80 20.80 20.62 1,980,232',
+      verified: true,
+    },
     listedCompanyId: 'ldrobot',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4416,7 +4453,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 30.5,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 150060000, fundsRaisedB: 600240000 },
-    close: { price: 18.19, url: 'https://stockanalysis.com/quote/hkg/6871/market-cap/', verified: false },
+    close: {
+      price: 18.19,
+      url: HKEX_QUOTATIONS,
+      quote: '6871 ROBOTPHOENIX HKD 19.00 18.20 20.20 94,800 / 18.19 18.13 18.00 1,762,488',
+      verified: true,
+    },
     listedCompanyId: 'robotphoenix',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4435,7 +4477,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 60.3,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 174402675, fundsRaisedB: 697607685 },
-    close: { price: 41.66, url: 'https://stockanalysis.com/quote/hkg/1511/market-cap/', verified: false },
+    close: {
+      price: 41.66,
+      url: HKEX_QUOTATIONS,
+      quote: '1511 UISEE TECH HKD 41.00 41.88 43.66 162,250 / 41.66 41.66 40.54 6,808,997',
+      verified: true,
+    },
     listedCompanyId: 'uisee-technologies',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4454,7 +4501,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 101.6,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 213309200, fundsRaisedB: 853216480 },
-    close: { price: 58.85, url: 'https://stockanalysis.com/quote/hkg/6106/market-cap/', verified: false },
+    close: {
+      price: 58.85,
+      url: HKEX_QUOTATIONS,
+      quote: '6106 SEER TECH HKD 62.30 58.85 63.85 310,550 / 58.85 58.65 57.75 18,622,620',
+      verified: true,
+    },
     listedCompanyId: 'seer-robotics',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4473,7 +4525,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 85.5,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 229858200, fundsRaisedB: 982386450 },
-    close: { price: 26.5, url: 'https://stockanalysis.com/quote/hkg/3952/market-cap/', verified: false },
+    close: {
+      price: 26.5,
+      url: HKEX_QUOTATIONS,
+      quote: '3952 LAIFUAL HKD 28.26 26.50 29.58 98,800 / 26.50 26.32 26.32 2,703,899',
+      verified: true,
+    },
     listedCompanyId: 'laifual-drive',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4492,7 +4549,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 295.6,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 589379104, fundsRaisedB: 5304382376 },
-    close: { price: 143.4, url: 'https://stockanalysis.com/quote/hkg/6880/market-cap/', verified: false },
+    close: {
+      price: 143.4,
+      url: HKEX_QUOTATIONS,
+      quote: '6880 MOMENTA-W HKD 153.20 143.60 157.50 105,860 / 143.40 143.40 143.40 15,585,197',
+      verified: true,
+    },
     listedCompanyId: 'momenta',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4511,7 +4573,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 87.92,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 229752544, fundsRaisedB: 2311403612 },
-    close: { price: 64.3, url: 'https://stockanalysis.com/quote/hkg/7687/market-cap/', verified: false },
+    close: {
+      price: 64.3,
+      url: HKEX_QUOTATIONS,
+      quote: '7687 EACON HKD 65.50 64.50 65.80 173,605 / 64.30 64.30 61.15 11,059,582',
+      verified: true,
+    },
     listedCompanyId: 'eacon-group',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4530,7 +4597,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 38,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 87521600, fundsRaisedB: 918969200 },
-    close: { price: 38.56, url: 'https://stockanalysis.com/quote/hkg/3752/market-cap/', verified: false },
+    close: {
+      price: 38.56,
+      url: HKEX_QUOTATIONS,
+      quote: '3752 ROKAE ROBOTICS HKD 40.70 38.74 40.48 149,000 / 38.56 38.56 38.44 5,788,956',
+      verified: true,
+    },
     listedCompanyId: 'rokae-robotics',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4549,7 +4621,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 101.7,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 470680821, fundsRaisedB: 1882717182 },
-    close: { price: 84.35, url: 'https://stockanalysis.com/quote/hkg/9615/market-cap/', verified: false },
+    close: {
+      price: 84.35,
+      url: HKEX_QUOTATIONS,
+      quote: '9615 MECH-MIND ROBOT HKD 85.90 84.35 86.10 66,270 / 84.35 83.80 83.10 5,615,532',
+      verified: true,
+    },
     listedCompanyId: 'mech-mind-robotics',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4568,7 +4645,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 14.45,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 40197010, fundsRaisedB: 610052990 },
-    close: { price: 34.5, url: 'https://stockanalysis.com/quote/hkg/3231/market-cap/', verified: false },
+    close: {
+      price: 34.48,
+      url: HKEX_QUOTATIONS,
+      quote: '3231 EXCELLAND ROBOT HKD 34.52 34.50 34.94 143,000 / 34.48 34.18 34.10 4,931,472',
+      verified: true,
+    },
     listedCompanyId: 'excelland-robotics',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4587,7 +4669,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 21.6,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 216000000, fundsRaisedB: 864000000 },
-    close: { price: 43.86, url: 'https://stockanalysis.com/quote/hkg/6731/market-cap/', verified: false },
+    close: {
+      price: 43.86,
+      url: HKEX_QUOTATIONS,
+      quote: '6731 DIRECT DRIVE HKD 41.02 43.88 44.00 420,860 / 43.86 43.84 41.02 18,083,182',
+      verified: true,
+    },
     listedCompanyId: 'direct-drive-tech',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4606,7 +4693,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 58.85,
     proceeds: { kind: 'hkex lines', fundsRaisedA: 68201265, fundsRaisedB: 716098570 },
-    close: { price: 94.8, url: 'https://stockanalysis.com/quote/hkg/6802/market-cap/', verified: false },
+    close: {
+      price: 94.8,
+      url: HKEX_QUOTATIONS,
+      quote: '6802 CAMSENSE HKD 97.00 96.95 97.55 11,000 / 94.80 94.80 91.55 1,045,660',
+      verified: true,
+    },
     listedCompanyId: 'camsense-technologies',
     source: {
       url: 'https://www2.hkexnews.hk/-/media/HKEXnews/Homepage/New-Listings/New-Listing-Information/New-Listing-Report/Main/NLR2026_Eng.xlsx',
@@ -4625,7 +4717,12 @@ export const DEBUTS: Debut[] = [
     currency: 'HKD',
     offerPrice: 9.9,
     proceeds: { kind: 'stated', gross: 709.7e6, net: 655.89e6, offerShares: 71_687_000, qualifier: 'final' },
-    close: { price: 11.85, url: 'https://stockanalysis.com/quote/hkg/2065/', verified: true },
+    close: {
+      price: 11.85,
+      url: HKEX_QUOTATIONS,
+      quote: '2065 AMICRO HKD 13.68 11.85 15.20 3,248,700 / 11.85 11.81 11.63 41,600,621',
+      verified: true,
+    },
     listedCompanyId: 'amicro-technology',
     source: {
       url: 'https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1111/2026111101359.pdf',
@@ -4645,7 +4742,13 @@ export const DEBUTS: Debut[] = [
     currency: 'CNY',
     offerPrice: 150.8,
     proceeds: { kind: 'price times shares', offerShares: 40_446_434 },
-    close: { price: 696, url: 'https://stockanalysis.com/quote/sha/688836/market-cap/', verified: true },
+    // The quotation server SSE's company page for 688836 calls (hq_queryUrl).
+    close: {
+      price: 696,
+      url: 'https://yunhq.sse.com.cn:32042/v1/sh1/snap/688836?select=name,prev_close,open,high,low,last,change,chg_rate',
+      quote: '"date":20261113 … "snap":["宇树科技",700.9000,699.0000,718.7000,689.2000,696.0000,-4.9000,-0.70]',
+      verified: true,
+    },
     listedCompanyId: 'unitree-robotics',
     source: {
       url: 'https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-08-18/688836_20260818_ROD1.pdf',
@@ -4665,7 +4768,12 @@ export const DEBUTS: Debut[] = [
     currency: 'KRW',
     offerPrice: 6000,
     proceeds: null,
-    close: null,
+    close: {
+      price: 3875,
+      url: 'https://stockanalysis.com/quote/kosdaq/439960/',
+      quote: 'p:3875,u:"Nov 13, 2026, 3:30 PM KST" … ms:"closed",pd:3875,td:"2026-11-13"',
+      verified: false,
+    },
     listedCompanyId: 'cosmo-robotics',
     source: {
       url: 'https://exoskeletonreport.com/2026/05/exoatlet-parent-cosmo-robotics-completes-ipo-and-begins-trading-on-kosdaq/',
@@ -4722,16 +4830,25 @@ export const DEBUTS: Debut[] = [
     listingDate: '2026-03-17',
     currency: 'USD',
     offerPrice: 5,
-    proceeds: { kind: 'stated', gross: 15.0e6, qualifier: 'expected' },
-    close: { price: 8.84, url: 'https://stockanalysis.com/stocks/swmr/market-cap/', verified: true },
+    // The 8-K of 18 March 2026, Item 8.01: "On March 18, 2026, the Company completed its IPO of 3,450,000
+    // shares of its common stock … at a public offering price of $5.00 per share … The gross proceeds to
+    // the Company from the IPO were approximately $17.3 million". The over-allotment is included.
+    proceeds: {
+      kind: 'stated',
+      gross: 17.3e6,
+      offerShares: 3_450_000,
+      qualifier: 'final',
+      sourceUrl: 'https://www.sec.gov/Archives/edgar/data/2092574/000110465926031244/tm2529424d17_8k.htm',
+    },
+    close: { price: 8.84, url: nasdaqHistory('SWMR'), quote: '"date":"11/13/2026","close":"$8.84"', verified: true },
     listedCompanyId: 'swarmer',
     source: {
-      url: 'https://www.businesswire.com/news/home/20260316719643/en/Swarmer-Announces-Pricing-of-Initial-Public-Offering',
-      title: 'Swarmer Announces Pricing of Initial Public Offering',
+      url: 'https://www.sec.gov/Archives/edgar/data/2092574/000110465926031244/tm2529424d17_ex99-1.htm',
+      title: 'Swarmer Announces Pricing of Initial Public Offering (16 March 2026; Exhibit 99.1 to the 8-K of 18 March)',
       type: 'primary',
       quote:
-        'The gross proceeds from the Offering, before deducting underwriting discounts and commissions and other offering expenses payable by Swarmer, are expected to be approximately $15.0 million.',
-      verified: false,
+        'the pricing of its initial public offering (the “Offering”) of 3,000,000 shares of its common stock (the “Common Stock”) at a public offering price of $5.00 per share. … Swarmer’s Common Stock is expected to begin trading on the Nasdaq Capital Market on March 17, 2026, under the ticker symbol “SWMR.”',
+      verified: true,
     },
   },
   {
@@ -4748,7 +4865,7 @@ export const DEBUTS: Debut[] = [
       qualifier: 'expected',
       sourceUrl: 'https://www.sec.gov/Archives/edgar/data/2074973/000121390026114063/ea031030301ex99-1.htm',
     },
-    close: null,
+    close: { price: 7.36, url: nasdaqHistory('AGLT'), quote: '"date":"11/13/2026","close":"$7.36"', verified: true },
     listedCompanyId: 'agility-robotics',
     source: {
       url: 'https://www.globenewswire.com/news-release/2026/11/04/3395899/0/en/agility-robotics-and-churchill-capital-corp-xi-complete-business-combination.html',
@@ -4769,7 +4886,13 @@ export const DEBUTS: Debut[] = [
     currency: 'USD',
     offerPrice: null,
     proceeds: { kind: 'stated', gross: 110e6, qualifier: 'total capital' },
-    close: null,
+    // NYSE's own quote page draws its prices in the browser and prints none; this is the quote page.
+    close: {
+      price: 1.39,
+      url: 'https://stockanalysis.com/stocks/xtnd/',
+      quote: 'p:1.39,u:"Nov 13, 2026, 4:00 PM EST" … ex:"NYSE",ms:"closed",pd:1.39,td:"2026-11-13"',
+      verified: false,
+    },
     listedCompanyId: 'xtend-ai-robotics',
     source: {
       url: 'https://www.globenewswire.com/news-release/2026/09/03/3356320/0/en/xtend-reality-expansion-ltd-and-jfb-construction-holdings-complete-business-combination-raising-110-million-in-total-capital.html',
@@ -4781,6 +4904,31 @@ export const DEBUTS: Debut[] = [
       verified: false,
     },
     note: 'Listed by reverse merger, so there is no offer price.',
+  },
+  {
+    id: 'duke-robotics',
+    name: 'Duke Robotics',
+    exchange: 'Nasdaq',
+    ticker: 'DUKR',
+    // The closing release of 18 May 2026, Exhibit 99.2 to the same 8-K: "The shares of common stock and
+    // warrants began trading on the Nasdaq Capital Market on May 15, 2026 … under the symbols “DUKR” and
+    // “DUKRW,” respectively." The final prospectus (424B4) is dated 14 May 2026.
+    listingDate: '2026-05-15',
+    currency: 'USD',
+    // Per unit of one share and one warrant; the note says so, since the close is a share's.
+    offerPrice: 8.2,
+    proceeds: { kind: 'stated', gross: 9_225_000, qualifier: 'final' },
+    close: { price: 2.02, url: nasdaqHistory('DUKR'), quote: '"date":"11/13/2026","close":"$2.02"', verified: true },
+    listedCompanyId: null,
+    source: {
+      url: 'https://www.sec.gov/Archives/edgar/data/1638911/000121390026058485/ea0291190-8k_duke.htm',
+      title: 'DUKE Robotics Corp., Form 8-K, 18 May 2026 (SEC EDGAR)',
+      type: 'primary',
+      quote:
+        'On May 14, 2026, DUKE Robotics Corp. (the “Company”) entered into an underwriting agreement … of 1,125,000 units, with each unit consisting of one share of the Company’s common stock … The combined price public offering price per Unit was $8.20. … On May 18, 2026, the Company closed the Offering, as well as the partial exercise of the over-allotment option, resulting in aggregate gross proceeds of approximately $9,225,000',
+      verified: true,
+    },
+    note: 'Uplisted from OTCQB; the offer was a unit of one share and one warrant.',
   },
 ];
 
@@ -4957,7 +5105,7 @@ export const IPO_WATCH: IpoWatchRow[] = [
     name: 'AgiBot',
     exchange: 'HKEX (reported)',
     status: 'paused',
-    filingType: 'None published',
+    filingType: 'not published',
     date: '2026-10-26',
     dateKind: 'reported',
     source: {
@@ -5040,7 +5188,7 @@ export const IPO_WATCH: IpoWatchRow[] = [
     name: 'EngineAI',
     exchange: 'Not stated',
     status: 'reported only',
-    filingType: 'None published',
+    filingType: 'not published',
     date: '2026-07-14',
     dateKind: 'reported',
     source: {
@@ -5072,25 +5220,6 @@ export const IPO_WATCH: IpoWatchRow[] = [
       verified: false,
     },
     note: 'A direct listing, so there is no offer price or proceeds.',
-  },
-  {
-    id: 'duke-robotics',
-    name: 'Duke Robotics',
-    exchange: 'Nasdaq (proposed)',
-    ticker: 'DUKR',
-    status: 'filed',
-    filingType: 'Form S-1/A',
-    date: null,
-    dateKind: null,
-    currency: 'USD',
-    amount: { value: 6.85e6, kind: 'offering' },
-    source: {
-      url: 'https://www.stocktitan.net/sec-filings/DUKR/s-1-a-duke-robotics-corp-amends-ipo-registration-statement-ee3c13b3e24e.html',
-      title: 'DUKE Robotics plans $6.85M Nasdaq unit offering (StockTitan summary of SEC filing)',
-      type: 'reported',
-      quote: 'DUKE Robotics plans $6.85M Nasdaq unit offering',
-      verified: false,
-    },
   },
   {
     id: 'garuda-aerospace',
@@ -5135,7 +5264,7 @@ export const IPO_WATCH: IpoWatchRow[] = [
     name: 'WB Electronics',
     exchange: 'Warsaw (reported)',
     status: 'reported only',
-    filingType: 'None',
+    filingType: 'not published',
     date: '2026-11-05',
     dateKind: 'reported',
     currency: 'EUR',

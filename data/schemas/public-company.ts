@@ -216,10 +216,17 @@ export const debutSchema = z.object({
   /** HKEX's (b) line price, where it differs from the (a) line. */
   offerPriceB: z.number().positive().optional(),
   proceeds: debutProceedsSchema.nullable(),
-  /** Close of PUBLIC_COMPANIES_AS_OF, from the quote page. */
-  close: z.object({ price: z.number().positive(), url: httpsUrlSchema, verified: z.boolean() }).nullable(),
-  /** The listed row this debut belongs to. */
-  listedCompanyId: slugSchema,
+  /** Close of PUBLIC_COMPANIES_AS_OF, with the line the page prints for it when one was copied. */
+  close: z
+    .object({
+      price: z.number().positive(),
+      url: httpsUrlSchema,
+      quote: z.string().min(1).optional(),
+      verified: z.boolean(),
+    })
+    .nullable(),
+  /** The listed row this debut belongs to; null when the module holds no market value for the company. */
+  listedCompanyId: slugSchema.nullable(),
   source: publicSourceSchema,
   note: z.string().min(1).optional(),
 });
