@@ -19,6 +19,27 @@ export const EUR_REFERENCE_RATES = {
   KRW: 1477.8,
   INR: 104.1575,
   HKD: 8.6714,
+  SEK: 11.1075,
+  CHF: 0.9266,
+  NOK: 10.5695,
+  AUD: 1.6288,
+  CAD: 1.5758,
+  ILS: 3.5485,
+  NZD: 1.9978,
 } as const;
 
 export type RatedCurrency = keyof typeof EUR_REFERENCE_RATES;
+
+/**
+ * The ECB publishes no Taiwan dollar rate. This is the Federal Reserve's
+ * H.10 noon buying rate for 6 November 2026, Taiwan dollars per 1 USD,
+ * copied from the release of 9 November 2026: a week older than
+ * FX_RATES_DATE, so a page that converts with it states its own date.
+ */
+export const TWD_PER_USD = 32.85;
+
+export const TWD_RATE_DATE = '2026-11-06';
+
+export const TWD_RATE_SOURCE_URL = 'https://www.federalreserve.gov/releases/h10/20261109/';
+
+export const TWD_RATE_SOURCE_TITLE = 'Foreign Exchange Rates, H.10 Weekly, 9 November 2026 (Federal Reserve)';
