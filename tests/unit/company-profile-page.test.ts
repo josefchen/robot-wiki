@@ -98,7 +98,7 @@ describe('sentences', () => {
   it('leads with the 2025 units and total revenue, ends on the products the date dates, and leaves the date to the header', () => {
     expect(profileLead(profile)).toBe(
       "Unitree Robotics' listing documents report 23,037 quadrupeds and 5,215 humanoids sold in 2025 and total " +
-        'revenue of CNY 1,699.27 m; the company names 62 products, 31 with a list price from USD 249 to USD 50,000',
+        'revenue of CNY 1,699.27 m; the company names 62 products, 31 with a list price from USD 249 to USD 50,000',
     );
     expect(profileLead(profile)).not.toMatch(/[.,;:]\s*$/);
     expect(profileLead(profile)).not.toMatch(/\bsells\b/);
@@ -121,7 +121,7 @@ describe('sentences', () => {
       .reduce((sum, row) => sum + toYuan(row), 0);
     expect(Math.round(robots / 1e4) / 100).toBe(1_565.46);
     expect(robots).toBeLessThan(toYuan({ amount: fy2025.revenue, unit: fy2025.unit }));
-    expect(profileLead(profile)).toMatch(/and total revenue of CNY 1,699\.27 m;/);
+    expect(profileLead(profile)).toMatch(/and total revenue of CNY 1,699\.27 m;/);
   });
 
   it('takes the lead’s price range, latest units and revenue from the rows', () => {

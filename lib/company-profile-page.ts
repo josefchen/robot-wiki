@@ -135,7 +135,7 @@ export function profileLead(profile: CompanyProfile): string {
   const sold = joinList(units.lines.map((row) => `${formatCount(row.sold)} ${row.line}s`));
   return (
     `${possessive(profile.company.name)} listing documents report ${sold} sold in ${units.year} and total revenue of ` +
-    `${periodMoney(period, period.revenue)}; the company names ${counts.products} products, ${prices.priced} ` +
+    `${unbroken(periodMoney(period, period.revenue))}; the company names ${counts.products} products, ${prices.priced} ` +
     `with a list price from ${formatUsdPrice(range.low)} to ${formatUsdPrice(range.high)}`
   );
 }
@@ -154,6 +154,11 @@ export function priceCounts(profile: CompanyProfile): PriceCounts {
     else counts.notDisclosed += 1;
   }
   return counts;
+}
+
+/** An amount kept on one line: "CNY 1,699.27 m" never wraps before its unit. */
+export function unbroken(amount: string): string {
+  return amount.replaceAll(' ', ' ');
 }
 
 /** "Unitree Robotics'", "Unitree's". */
