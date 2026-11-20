@@ -81,8 +81,8 @@ describe('rounds data', () => {
     // closed, so announced: CMR Surgical's round, Shield's Series H and
     // FieldAI's term sheet (unconfirmed in the first tally). Kraken's source dates it
     // to July only, so it leaves the earlier rows for the July month-only rounds.
-    // Added after it: Medtronic's investment in Cornerstone Robotics, made by 9 Nov.
-    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 3 - 2 + 1 + 1);
+    // Later additions: Cornerstone and the four financings announced on 16–18 Nov.
+    expect(ROUNDS.filter((r) => r.status === 'closed')).toHaveLength(147 - 3 - 2 + 1 + 1 + 4);
     expect(ROUNDS.filter((r) => r.status === 'announced')).toHaveLength(3);
     expect(ROUNDS.filter((r) => r.status === 'unconfirmed')).toHaveLength(4 - 1);
     expect(ROUNDS.filter((r) => r.status === 'talks')).toHaveLength(9);
@@ -91,7 +91,7 @@ describe('rounds data', () => {
     expect(CORPORATE_EVENTS.filter((r) => r.kind === 'blocked')).toHaveLength(1);
     expect(CORPORATE_EVENTS.filter((r) => r.kind === 'shutdown')).toHaveLength(3);
     expect(UK_EUROPE_2026_EARLIER).toHaveLength(11 - 1);
-    expect(EUROPE_INVESTORS).toHaveLength(4);
+    expect(EUROPE_INVESTORS).toHaveLength(7);
     expect(MARKET_CONTEXT).toHaveLength(4);
     expect(monthUnconfirmedRounds()).toHaveLength(12 + 1);
     expect(monthUnconfirmedRounds().map((r) => r.key)).toContain('kraken-technology-2026-07-13');
@@ -199,10 +199,10 @@ describe('rounds data', () => {
 });
 
 describe('the window', () => {
-  it('starts 120 days before the as-of date', () => {
-    expect(ROUNDS_AS_OF).toBe('2026-11-14');
-    expect(windowStart()).toBe('2026-07-17');
-    expect(windowStart('2026-03-01', 1)).toBe('2026-02-28');
+  it('includes exactly 120 calendar dates, through the as-of date', () => {
+    expect(ROUNDS_AS_OF).toBe('2026-11-20');
+    expect(windowStart()).toBe('2026-07-24');
+    expect(windowStart('2026-03-01', 1)).toBe('2026-03-01');
   });
 
   it('plots month-only rows on the 15th', () => {
@@ -223,9 +223,9 @@ describe('the window', () => {
   it('marks a month that straddles the window start as unconfirmed', () => {
     expect(windowMembership({ date: '2026-07', datePrecision: 'month' })).toBe('unconfirmed');
     expect(windowMembership({ date: '2026-08', datePrecision: 'month' })).toBe('in');
-    expect(windowMembership({ date: '2026-07-16', datePrecision: 'day' })).toBe('out');
-    expect(windowMembership({ date: '2026-07-17', datePrecision: 'day' })).toBe('in');
-    expect(windowMembership({ date: '2026-11-15', datePrecision: 'day' })).toBe('out');
+    expect(windowMembership({ date: '2026-07-23', datePrecision: 'day' })).toBe('out');
+    expect(windowMembership({ date: '2026-07-24', datePrecision: 'day' })).toBe('in');
+    expect(windowMembership({ date: '2026-11-21', datePrecision: 'day' })).toBe('out');
   });
 
   it('keeps the July month-only rows, flagged, and counts them', () => {
@@ -307,27 +307,18 @@ describe('totals', () => {
     expect(totalRaisedUsd({ strict: true })).toBeCloseTo(totalRaisedUsd() - total(borderline), 2);
   });
 
-  it('matches the first tally of USD rounds, less the rows left out', () => {
-    // The first tally gave USD 15.48B (15,478.2M) for closed USD rounds in the window.
-    // Left out here: Tangent Robotics, 4.5M (its release states no currency)
-    // and Maven Robotics, 100M. The Genrobot Series A also left out has no
-    // amount. Moove's 250M is in, dated 5 August from its own page.
-    // CMR Surgical's approximately 400M is agreed, not closed, and Shield
-    // is still raising its 1B Series H. Shandong UBTECH's 13.9M is stored in
-    // yuan, as its source announces it, and Motion's own post gives USD 2M
-    // where the first tally had EUR. Cornerstone's approximately 700M, added
-    // after the tally, is in: Cornerstone said on 9 Nov the investment is made.
+  it('reconciles the USD window with the four new financings and the three USD amounts that aged out', () => {
     const usdOnly = closedRoundsInWindow().filter((r) => r.currency === 'USD');
-    expect(total(usdOnly)).toBe(
-      15_478_200_000 -
-        4_500_000 -
-        100_000_000 -
-        400_000_000 -
-        1_000_000_000 -
-        13_900_000 +
-        2_000_000 +
-        700_000_000,
-    );
+    const priorUsd = 14_661_800_000;
+    const added = 62_000_000 + 500_000_000 + 97_000_000 + 200_000_000;
+    const agedOut = 152_000_000 + 1_700_000_000 + 22_000_000;
+    expect(total(usdOnly)).toBe(priorUsd + added - agedOut);
+    const byKey = new Map(closedRoundsInWindow().map((row) => [row.company, row]));
+    expect(byKey.get('MegaRobo')).toMatchObject({ date: '2026-11-18', amountIsApproximate: 'nearly', leadInvestors: [] });
+    expect(byKey.get('Genesis AI')?.leadInvestors).toEqual(['Premji Invest', 'Khosla Ventures', 'Eclipse']);
+    expect(closedRoundsInWindow({ strict: true }).some((row) => row.company === 'BrightAI')).toBe(false);
+    expect(ROUNDS.filter((row) => row.company === 'Aformic')).toHaveLength(1);
+    expect(ROUNDS.find((row) => row.company === 'Emulate')?.status).toBe('talks');
   });
 
   it('counts Moove in the full total only and the Cornerstone investment in both', () => {
@@ -393,6 +384,7 @@ describe('UK and Europe', () => {
     const keys = new Set(rows.map((r) => r.key));
     for (const row of UK_EUROPE_2026_EARLIER) expect(keys.has(row.key), row.key).toBe(true);
     expect(keys.has('uforce-2026-11-12')).toBe(true);
+    expect(keys.has('humanoid-2026-07-21')).toBe(true);
     expect(keys.has('emulate-talks-2026-09-17')).toBe(false);
   });
 
@@ -408,7 +400,6 @@ describe('UK and Europe', () => {
         'cloudnc',
         'danu',
         'extend-robotics',
-        'humanoid',
         'kinematic-trees',
         'machenta',
         'mistt',

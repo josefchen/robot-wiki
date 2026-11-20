@@ -209,12 +209,14 @@ describe('TRAJECTORIES', () => {
     }
   });
 
-  it("keeps Alphabet's own words for each Waymo end and says no newer figure exists", () => {
+  it("keeps the earnings-call metrics distinct from Waymo's November ride-hailing count", () => {
     const row = TRAJECTORIES.find((r) => r.id === 'waymo-weekly-rides');
     expect(row?.earlier.label.toLowerCase()).toContain('paid');
     expect(row?.later.label.toLowerCase()).toContain('fully autonomous');
     expect(row?.later.label.toLowerCase()).not.toContain('paid');
-    expect(row?.note?.text.toLowerCase()).toContain('no newer');
+    expect(row?.note?.text).toContain('17 November 2026');
+    expect(row?.note?.text).toContain('ride-hailing');
+    expect(row?.note?.sourceType).toBe('reported');
   });
 
   it("keeps the AMP1 end's paper date and notes the leaderboard's own submission date", () => {
@@ -247,8 +249,9 @@ describe('TRAJECTORIES', () => {
 });
 
 describe('DEVELOPMENTS', () => {
-  it('holds the twelve that matter most, all inside the window', () => {
-    expect(DEVELOPMENTS).toHaveLength(12);
+  it('keeps 12 to 16 dated developments inside the window', () => {
+    expect(DEVELOPMENTS.length).toBeGreaterThanOrEqual(12);
+    expect(DEVELOPMENTS.length).toBeLessThanOrEqual(16);
     for (const row of DEVELOPMENTS) {
       expect(row.date >= DEVELOPMENTS_FROM && row.date <= NOW_AS_OF, row.id).toBe(true);
     }

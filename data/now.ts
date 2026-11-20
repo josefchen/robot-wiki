@@ -6,13 +6,13 @@
  *     carries the page's own number; a computed end carries the stated
  *     inputs, and lib/now.ts derives its value. No derived number is typed
  *     here. The rows do not share an axis and are not ranked.
- *   - DEVELOPMENTS: the twelve changes between 15 October and NOW_AS_OF
+ *   - DEVELOPMENTS: the changes between DEVELOPMENTS_FROM and NOW_AS_OF
  *     that matter most, one sentence each, with what it means and what it
  *     does not mean, four each for models, deployments and policy.
  *   - DELIVERY_GAPS: a promise or an announced figure against what has been
  *     delivered, each number labeled with what it counts.
  *
- * Every page here was opened on NOW_AS_OF and `wording` quotes it. A
+ * The figures and evidence carry their own dates, and `wording` quotes each source. A
  * `reported` source is a report of the measurer's figure, not the measurer's
  * own page. In a quoted list where the page puts a dash between a label and
  * its number, the quote writes a colon.
@@ -35,10 +35,10 @@ export type {
   TrajectoryUnit,
 } from './schemas/now.ts';
 
-export const NOW_AS_OF = '2026-11-14';
+export const NOW_AS_OF = '2026-11-20';
 
 /** The first day the developments list covers. */
-export const DEVELOPMENTS_FROM = '2026-10-15';
+export const DEVELOPMENTS_FROM = '2026-10-22';
 
 type Source = Omit<Cited, 'wording'>;
 
@@ -129,10 +129,10 @@ const ALPHABET_Q1_2026: Source = {
   sourceTitle: 'Q1 2026 earnings call: Remarks from our CEO (Alphabet, 29 Apr 2026)',
   sourceType: 'primary',
 };
-const ALPHABET_Q3_2026: Source = {
-  sourceUrl: 'https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q3-2026/',
-  sourceTitle: 'Q3 2026 earnings call: Remarks from our CEO (Alphabet, 28 Oct 2026)',
-  sourceType: 'primary',
+const WAYMO_FREEWAYS: Source = {
+  sourceUrl: 'https://techcrunch.com/2026/11/17/waymo-suspends-freeway-rides-nationwide-after-california-dmv-order/',
+  sourceTitle: 'Waymo and California DMV statements to TechCrunch, 17 November 2026',
+  sourceType: 'reported',
 };
 const UKRINFORM: Source = {
   sourceUrl: 'https://www.ukrinform.net/rubric-ato/4182313-ground-robotic-systems-complete-record-31398-logistics-and-evacuation-missions-in-october.html',
@@ -552,10 +552,9 @@ export const TRAJECTORIES: readonly Trajectory[] = [
       wording: 'Waymo also surpassed 500,000 fully autonomous rides per week, doubling in less than a year.',
     },
     note: {
-      text: 'No newer weekly figure: the 28 October 2026 remarks give miles and cities, not rides per week',
-      ...ALPHABET_Q3_2026,
-      wording:
-        'We’ve now driven more than 300 million fully autonomous miles. Waymo now operates in 15 major U.S. cities',
+      text: 'On 17 November 2026, Waymo said its ride-hailing service was providing more than 500,000 trips a week on surface streets',
+      ...WAYMO_FREEWAYS,
+      wording: 'serving over half a million trips each week',
     },
   },
   {
@@ -612,6 +611,28 @@ export const TRAJECTORIES: readonly Trajectory[] = [
 ];
 
 export const DEVELOPMENTS: readonly Development[] = [
+  {
+    id: 'genesis-ai-series-a',
+    date: '2026-11-17',
+    area: 'money',
+    what: 'Genesis AI raised $500 million to expand production and deployment of its Eno robot.',
+    means: 'The Series A valued Genesis AI at $3.5 billion after the investment',
+    doesNotMean: 'A count of Eno robots delivered to customers',
+    sourceUrl: 'https://www.prnewswire.com/news-releases/genesis-ai-raises-500m-series-a-at-3-5b-valuation-to-master-human-level-dexterity-in-general-purpose-robots-and-deploy-at-scale-302941249.html',
+    sourceTitle: 'Genesis AI announces its Series A, 17 November 2026',
+    sourceType: 'primary',
+    wording: 'it has raised $500 million in Series A funding at a $3.5 billion post-money valuation | Deploying Eno',
+  },
+  {
+    id: 'waymo-freeway-pause',
+    date: '2026-11-17',
+    area: 'policy',
+    what: 'Waymo confirmed it had paused driverless freeway operations across its US markets.',
+    means: 'California’s DMV imposed the restriction on 11 November. Waymo extended the pause to its other markets',
+    doesNotMean: 'A suspension of ride-hailing on surface streets',
+    ...WAYMO_FREEWAYS,
+    wording: 'temporarily restricted freeway operations across our other operating markets | continues to operate safely on surface streets',
+  },
   {
     id: 'gxo-apptronik-letter-of-intent',
     date: '2026-11-12',
@@ -812,7 +833,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
         'We promised the first NEOs would ship in 2026, and we’re keeping that promise. | package it up to ship to customers that paid good money for a life-changing experience',
     },
     delivered: {
-      asOf: NOW_AS_OF,
+      asOf: '2026-11-14',
       what: 'No customer delivery announced; the newest post in 1X’s news index is dated 9 July 2026',
       value: null,
       countKind: 'delivered',
@@ -984,7 +1005,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
     who: 'Tesla Robotaxi in Texas',
     unit: 'Tesla Robotaxi vehicles registered in Texas',
     promised: {
-      said: NOW_AS_OF,
+      said: '2026-11-14',
       what: '1,303 Tesla vehicles in the Texas automated vehicle registry',
       value: 1_303,
       countKind: 'registered',
@@ -1035,7 +1056,7 @@ export const DELIVERY_GAPS: readonly DeliveryGap[] = [
       wording: 'We are releasing not only the model weights and X-Adapt recipes (coming December)',
     },
     delivered: {
-      asOf: NOW_AS_OF,
+      asOf: '2026-11-14',
       what: 'The project page still reads Code Available in December',
       value: null,
       countKind: 'milestone',

@@ -101,6 +101,7 @@ function amountText(event: FundingEvent, usd: number): string {
   const amount = formatUsd(usd);
   if (amountIsCeiling(event)) return `up to ${amount}`;
   if (event.amountIsFloor) return `over ${amount}`;
+  if (event.amountIsApproximate === 'nearly') return `nearly ${amount}`;
   if (event.amountIsApproximate) return `about ${amount}`;
   return amount;
 }

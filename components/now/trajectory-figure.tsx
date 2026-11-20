@@ -271,9 +271,9 @@ export function TrajectoryFigure({ rows }: { rows: readonly ResolvedTrajectory[]
             rowHeader="Measure"
             columns={[
               { header: 'Earlier' },
-              { header: 'When' },
+              { header: 'Earlier period' },
               { header: 'Now' },
-              { header: 'When' },
+              { header: 'Later period' },
             ]}
             rows={rows.map((row) => ({
               label: row.title,

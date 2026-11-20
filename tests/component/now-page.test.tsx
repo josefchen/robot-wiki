@@ -46,7 +46,7 @@ describe('/now/', () => {
 
   it('states the as-of date in the lead from the data', () => {
     const container = renderPage();
-    expect(container.textContent).toContain('which way it is moving, as of 14 November 2026.');
+    expect(container.textContent).toContain('which way it is moving, as of 20 November 2026.');
   });
 
   it('opens with the shared data-page header: title, lead dated from the data, anchors, no section links', () => {
