@@ -65,7 +65,7 @@ describe('headline totals', () => {
     const facts = headlineFacts();
     const text = headlineText(facts);
     expect(text.strict).toBe(
-      `raised in ${facts.closedStrict} closed rounds from 17 July 2026 to 14 November 2026`,
+      `raised in ${facts.closedStrict} closed rounds from 24 July 2026 to 20 November 2026`,
     );
     expect(text.full).toBe(`with the ${facts.borderline} closed rounds marked borderline robotics`);
     expect(text.reported).toContain(`${facts.reported} of the ${facts.closed} closed rounds`);
@@ -104,11 +104,10 @@ describe('top of the page', () => {
   it('states coverage from the thresholds and claims sums, not market totals', () => {
     expect(COVERAGE_THRESHOLDS_USD).toEqual({ nearComplete: 100_000_000, regional: 50_000_000 });
     const coverage = coverageText();
-    expect(coverage).toMatch(
-      /^Above \$100M the list is close to complete outside China\. From \$50M to \$100M it is good for the United States and Europe and thin for China;/,
-    );
-    expect(coverage).toContain('below $50M it shows examples, not totals');
-    expect(coverage).toContain('sum of the rounds listed');
+    expect(coverage).toContain('through 14 November 2026, coverage is strongest above $100M outside China');
+    expect(coverage).toContain('Between $50M and $100M');
+    expect(coverage).toContain('additions after 14 November are selected examples');
+    expect(coverage).toContain('sum disclosed amounts, including estimates');
     expect(coverage).not.toMatch(/known miss/);
   });
 
@@ -127,8 +126,8 @@ describe('month row', () => {
 
   it('marks only the months the window cuts', () => {
     const cells = monthCells();
-    expect(cells[0]).toMatchObject({ name: 'July 2026', span: 'from 17 July' });
-    expect(cells.at(-1)).toMatchObject({ name: 'November 2026', span: 'to 14 November' });
+    expect(cells[0]).toMatchObject({ name: 'July 2026', span: 'from 24 July' });
+    expect(cells.at(-1)).toMatchObject({ name: 'November 2026', span: 'to 20 November' });
     expect(cells.slice(1, -1).every((c) => c.span === null)).toBe(true);
   });
 });
@@ -186,7 +185,8 @@ describe('cell text', () => {
     for (const event of [...funding, ...corporate]) {
       const { own, usd } = amountText(event);
       const floor = 'amountIsFloor' in event && event.amountIsFloor === true;
-      expect(own.startsWith('about '), event.key).toBe(Boolean(event.amountIsApproximate));
+      expect(own.startsWith('about '), event.key).toBe(event.amountIsApproximate === true);
+      expect(own.startsWith('nearly '), event.key).toBe(event.amountIsApproximate === 'nearly');
       expect(own.startsWith('over '), event.key).toBe(floor);
       const word = (text: string) => /^(about|over) /.exec(text)?.[1] ?? null;
       if (usd) expect(word(usd), event.key).toBe(word(own));

@@ -85,8 +85,8 @@ const fundingEventObjectSchema = z
     sourceTitle: z.string().min(1),
     /** The source gives a floor ("over", "more than"); the true figure is higher. */
     amountIsFloor: z.literal(true).optional(),
-    /** The source gives the figure as approximate ("about", "approximately"). */
-    amountIsApproximate: z.literal(true).optional(),
+    /** The source rounds its amount. Preserve “nearly” when the value falls below the stated figure. */
+    amountIsApproximate: z.union([z.literal(true), z.literal('nearly')]).optional(),
     /** The figure includes debt as well as equity. */
     includesDebt: z.literal(true).optional(),
     /** Robotics by some definitions only; the reason is shown on the page. */

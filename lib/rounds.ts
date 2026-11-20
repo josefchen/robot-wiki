@@ -99,9 +99,9 @@ function toIsoDay(ms: number): string {
   return new Date(ms).toISOString().slice(0, 10);
 }
 
-/** First day of the window that ends on `asOf` and spans `days` days back. */
+/** First day of a window containing exactly `days` calendar dates, including `asOf`. */
 export function windowStart(asOf: string = ROUNDS_AS_OF, days: number = ROUNDS_WINDOW_DAYS): string {
-  return toIsoDay(parseIsoDay(asOf) - days * DAY_MS);
+  return toIsoDay(parseIsoDay(asOf) - (days - 1) * DAY_MS);
 }
 
 /** First and last calendar day a record's date can mean. */
@@ -305,13 +305,13 @@ export function leadInvestorCounts(options: TotalsOptions & { minRounds?: number
 }
 
 /**
- * Closed UK and Europe rounds of the whole of 2026: the window's rounds,
- * the July rows dated to the month, and the earlier 2026 rows. Newest first.
+ * Closed UK and Europe rounds for the snapshot year, including rounds
+ * that have rolled out of the 120-day window. Newest first.
  */
 export function ukAndEuropeRounds(): FundingEvent[] {
-  const recent = ROUNDS.filter((r) => windowMembership(r) !== 'out');
-  return [...recent, ...UK_EUROPE_2026_EARLIER]
-    .filter((r) => r.status === 'closed' && EUROPE_COUNTRIES.has(r.country))
+  const year = ROUNDS_AS_OF.slice(0, 4);
+  return [...ROUNDS, ...UK_EUROPE_2026_EARLIER]
+    .filter((r) => r.date.startsWith(year) && r.date <= ROUNDS_AS_OF && r.status === 'closed' && EUROPE_COUNTRIES.has(r.country))
     .sort(newestFirst);
 }
 

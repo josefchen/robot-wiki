@@ -137,9 +137,10 @@ export function coverageText(): string {
   const high = formatUsd(COVERAGE_THRESHOLDS_USD.nearComplete);
   const mid = formatUsd(COVERAGE_THRESHOLDS_USD.regional);
   return (
-    `Above ${high} the list is close to complete outside China. ` +
-    `From ${mid} to ${high} it is good for the United States and Europe and thin for China; ` +
-    `below ${mid} it shows examples, not totals. Every total on this page is the sum of the rounds listed.`
+    `For rounds announced through 14 November 2026, coverage is strongest above ${high} outside China. ` +
+    `Between ${mid} and ${high}, it is stronger in the United States and Europe than in China. ` +
+    'Smaller rounds and additions after 14 November are selected examples. Totals sum disclosed amounts, including estimates. ' +
+    'Deal counts include rounds with undisclosed amounts.'
   );
 }
 
@@ -151,7 +152,7 @@ const MONTH_LONG = [
 export interface MonthCell {
   month: string;
   name: string;
-  /** "from 17 July" or "to 14 November" for a month the window cuts; null for a whole month. */
+  /** "from 24 July" or "to 20 November" for a month the window cuts; null for a whole month. */
   span: string | null;
   usd: number;
   rounds: number;
@@ -220,9 +221,9 @@ export function amountText(
     ? 'up to '
     : event.amountIsFloor
       ? 'over '
-      : event.amountIsApproximate
-        ? 'about '
-        : '';
+      : event.amountIsApproximate === 'nearly'
+        ? 'nearly '
+        : event.amountIsApproximate ? 'about ' : '';
   const own = `${prefix}${formatMoney(event.amount, event.currency)}`;
   const usd =
     event.currency === 'USD' ? null : `${prefix}${formatUsd(amountUsd({ amount: event.amount, currency: event.currency })!)}`;

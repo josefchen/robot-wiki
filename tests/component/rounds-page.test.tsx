@@ -271,7 +271,8 @@ describe('/market-map/rounds/ page', () => {
     expect(rounds.some((r) => r.amountIsFloor)).toBe(true);
     for (const [i, row] of bodyRows(container, 'rounds-table-caption').entries()) {
       expect(amountCell(row).startsWith('over '), rounds[i].key).toBe(Boolean(rounds[i].amountIsFloor));
-      expect(amountCell(row).startsWith('about '), rounds[i].key).toBe(Boolean(rounds[i].amountIsApproximate));
+      expect(amountCell(row).startsWith('about '), rounds[i].key).toBe(rounds[i].amountIsApproximate === true);
+      expect(amountCell(row).startsWith('nearly '), rounds[i].key).toBe(rounds[i].amountIsApproximate === 'nearly');
     }
   });
 

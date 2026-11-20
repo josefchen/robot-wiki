@@ -1,7 +1,7 @@
 /**
  * Funding rounds, listings, acquisitions and shutdowns in robotics for the
  * 120 days to ROUNDS_AS_OF, with the earlier 2026 UK and Europe rounds, notes
- * on four European investors and third-party counts. Feeds /market-map/rounds/.
+ * on European investors and third-party counts. Feeds /market-map/rounds/.
  *
  * Rules:
  *   - Amounts are as announced, in the announced currency. Nothing here is
@@ -35,7 +35,7 @@ export type {
   SourceType,
 } from './schemas/round.ts';
 
-export const ROUNDS_AS_OF = '2026-11-14';
+export const ROUNDS_AS_OF = '2026-11-20';
 
 /** Rounds of any status: closed, unconfirmed and talks. */
 export const ROUNDS: readonly FundingEvent[] = [
@@ -2635,7 +2635,7 @@ export const ROUNDS: readonly FundingEvent[] = [
     key: 'machenta-2026-10-27',
     company: 'Machenta',
     status: 'closed',
-    sourceType: 'reported',
+    sourceType: 'primary',
     date: '2026-10-27',
     datePrecision: 'day',
     round: 'Seed',
@@ -2647,8 +2647,8 @@ export const ROUNDS: readonly FundingEvent[] = [
     country: 'GB',
     sector: 'simulation-data',
     whatTheyBuild: 'robot policies trained entirely in simulation',
-    sourceUrl: 'https://tech.eu/2026/10/27/london-robotics-startup-machenta-raises-40m-seed-investment/',
-    sourceTitle: 'London robotics startup Machenta raises $40M seed investment',
+    sourceUrl: 'https://www.usv.com/writing/physical-vibe-coding-our-investment-in-machenta',
+    sourceTitle: 'Physical Vibe Coding: Our Investment in Machenta',
   },
   {
     key: 'physical-intelligence-talks-2026-10-27',
@@ -3162,6 +3162,85 @@ export const ROUNDS: readonly FundingEvent[] = [
     sourceTitle: 'Arcanus Raises More Than US$27 Million',
     amountIsFloor: true,
     note: 'The release gives a floor: more than USD 27M.',
+  },
+  {
+    key: 'remedy-robotics-2026-11-16',
+    company: 'Remedy Robotics',
+    status: 'closed',
+    sourceType: 'primary',
+    date: '2026-11-16',
+    datePrecision: 'day',
+    round: 'Series B',
+    amount: 62_000_000,
+    currency: 'USD',
+    valuation: 'not disclosed',
+    leadInvestors: ['DCVC'],
+    city: 'San Francisco',
+    country: 'US',
+    sector: 'surgical-medical',
+    whatTheyBuild: 'endovascular robots for catheter procedures',
+    sourceUrl: 'https://www.prnewswire.com/news-releases/remedy-robotics-raises-62-million-series-b-to-bring-life-saving-cardiovascular-intervention-to-patients-everywhere-302939871.html',
+    sourceTitle: 'Remedy Robotics announces its Series B',
+  },
+  {
+    key: 'genesis-ai-2026-11-17',
+    company: 'Genesis AI',
+    status: 'closed',
+    sourceType: 'primary',
+    date: '2026-11-17',
+    datePrecision: 'day',
+    round: 'Series A',
+    amount: 500_000_000,
+    currency: 'USD',
+    valuation: 'USD 3.5B post-money',
+    leadInvestors: ['Premji Invest', 'Khosla Ventures', 'Eclipse'],
+    city: 'Paris',
+    country: 'FR',
+    sector: 'foundation-models',
+    whatTheyBuild: 'Eno robots and models for physical manipulation',
+    sourceUrl: 'https://www.prnewswire.com/news-releases/genesis-ai-raises-500m-series-a-at-3-5b-valuation-to-master-human-level-dexterity-in-general-purpose-robots-and-deploy-at-scale-302941249.html',
+    sourceTitle: 'Genesis AI announces its Series A and post-money valuation',
+  },
+  {
+    key: 'brightai-2026-11-18',
+    company: 'BrightAI',
+    status: 'closed',
+    sourceType: 'primary',
+    date: '2026-11-18',
+    datePrecision: 'day',
+    round: 'not disclosed',
+    amount: 97_000_000,
+    currency: 'USD',
+    valuation: 'not disclosed',
+    leadInvestors: ['Smith Point Capital'],
+    city: 'Palo Alto',
+    country: 'US',
+    sector: 'construction-field',
+    whatTheyBuild: 'sensors, inspection robots and software for infrastructure',
+    sourceUrl: 'https://www.smithpointcapital.com/news/the-intelligence-layer-for-critical-infrastructure',
+    sourceTitle: 'Smith Point Capital on its investment in BrightAI',
+    borderline: 'the financing covers the whole infrastructure platform, including sensors and software',
+  },
+  {
+    key: 'megarobo-2026-11-18',
+    company: 'MegaRobo',
+    status: 'closed',
+    sourceType: 'primary',
+    date: '2026-11-18',
+    datePrecision: 'day',
+    round: 'not disclosed',
+    amount: 200_000_000,
+    currency: 'USD',
+    valuation: 'not disclosed',
+    leadInvestors: [],
+    city: 'Suzhou',
+    country: 'CN',
+    sector: 'lab-automation',
+    whatTheyBuild: 'robotic automation for laboratories',
+    sourceUrl: 'https://www.prnewswire.com/news-releases/megarobo-raises-nearly-us200-million-in-new-funding-to-build-intelligence-infrastructure-for-the-physical-world-302944651.html',
+    sourceTitle: 'MegaRobo announces nearly US$200 million in financing',
+    amountIsApproximate: 'nearly',
+    note: 'Oman Investment Authority joined the round. MegaRobo names no lead.',
   },
 ];
 
@@ -3769,8 +3848,38 @@ export const UK_EUROPE_2026_EARLIER: readonly FundingEvent[] = [
   },
 ];
 
-/** Four European investors: what each did in robotics in 2026. */
+/** European investors: what each did in robotics in 2026. */
 export const EUROPE_INVESTORS: readonly InvestorNote[] = [
+  {
+    key: 'inv-creandum-machenta-2026',
+    investor: 'Creandum',
+    summary: 'Co-led the USD 40M Machenta seed round with Union Square Ventures.',
+    date: '2026-10-27',
+    datePrecision: 'day',
+    sourceType: 'primary',
+    sourceUrl: 'https://www.usv.com/writing/physical-vibe-coding-our-investment-in-machenta',
+    sourceTitle: 'Physical Vibe Coding: Our Investment in Machenta',
+  },
+  {
+    key: 'inv-creandum-emulate-2026',
+    investor: 'Creandum',
+    summary: 'Bloomberg reported that Creandum invested in Emulate.',
+    date: '2026-10-22',
+    datePrecision: 'day',
+    sourceType: 'reported',
+    sourceUrl: 'https://news.bloomberglaw.com/private-equity/ai-deal-frenzy-sees-vcs-back-the-same-startup-at-distinct-values',
+    sourceTitle: 'AI Gold Rush Sees Startup Valuations Rising 15-Fold in Days',
+  },
+  {
+    key: 'inv-creandum-sereact-2026',
+    investor: 'Creandum',
+    summary: 'Returned for Sereact’s USD 110M Series B. Headline led the round.',
+    date: '2026-04-27',
+    datePrecision: 'day',
+    sourceType: 'primary',
+    sourceUrl: 'https://sereact.ai/posts/series-b',
+    sourceTitle: 'Sereact Raises $110M Series B',
+  },
   {
     key: 'inv-plural-upside-2026',
     investor: 'Plural',
@@ -3794,12 +3903,12 @@ export const EUROPE_INVESTORS: readonly InvestorNote[] = [
   {
     key: 'inv-air-street-sereact-2026',
     investor: 'Air Street Capital',
-    summary: 'Invested in Sereact\'s Series B; the source does not say it led.',
+    summary: 'Returned for Sereact’s USD 110M Series B, led by Headline.',
     date: '2026-04-27',
     datePrecision: 'day',
-    sourceType: 'reported',
-    sourceUrl: 'https://www.osborneclarke.com/news/osborne-clarke-advises-air-street-capital-series-b-financing-round-ai-robotics-start-sereact',
-    sourceTitle: 'Osborne Clarke advises Air Street Capital on Series B financing round for AI robotics start-up Sereact',
+    sourceType: 'primary',
+    sourceUrl: 'https://sereact.ai/posts/series-b',
+    sourceTitle: 'Sereact Raises $110M Series B',
   },
   {
     key: 'inv-aria-robot-dexterity-2026',
