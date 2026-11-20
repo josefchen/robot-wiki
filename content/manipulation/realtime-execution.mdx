@@ -5,7 +5,7 @@ domain: manipulation
 slug: realtime-execution
 order: 10
 status: published
-lastReviewed: "2026-11-13"
+lastReviewed: "2026-11-20"
 citations:
   - act-aloha-2023
   - pi0-2024
@@ -53,6 +53,7 @@ citations:
   - sonic-2025
   - robotwin-2-2025
   - diffusion-policy-2023
+  - dash-asynchronous-2026
 seeAlso:
   - "data-hardware/hardware-taxonomy"
   - "manipulation/rl-finetuning"
@@ -116,6 +117,7 @@ RTC computes the next chunk while one plays, fixing the actions that run during 
 | VLASH | Rolls the robot's state forward to execution time | Up to 11.8 times lower reaction latency than synchronous <Cite id="vlash-2025" /> |
 | A2C2 | Adds a small correction at every step | 23 points over RTC <Cite id="a2c2-2025" /> |
 | FutureRTC | Predicts the camera view at execution time | <Cite id="futurertc-2026" /> |
+| DASH | Runs its action head separately from the vision-language model | On the RoboTwin simulator, RTX 4090 timing supported 20 Hz for 0.8B to 8B backbones. Synchronous control fell from 9.7 to 4.1 Hz <Cite id="dash-asynchronous-2026" /> |
 | Event-triggered inference | Replans when the scene changes | <Cite id="event-triggered-vla-2026" /> |
 | SmolVLA <Cite id="smolvla-2025" /> | Asynchronous inference | About twice as fast on a local network <Cite id="lerobot-async-inference-2025" /> |
 | ChunkTrust | Chooses how many actions to play before replanning | 6.80 points on 50 RoboTwin 2.0 tasks <Cite id="robotwin-2-2025" />; 50.4% to 57.5% on four real tasks <Cite id="chunktrust-2026" /> |

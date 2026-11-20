@@ -5,7 +5,7 @@ domain: manipulation
 slug: hierarchical
 order: 8
 status: published
-lastReviewed: "2026-11-13"
+lastReviewed: "2026-11-20"
 citations:
   - saycan-2022
   - code-as-policies-2022
@@ -61,6 +61,7 @@ citations:
   - auriga-2026
   - ebench-astra-2026
   - galbot-astra-policies-2026
+  - roboarcade-completion-2026
 seeAlso:
   - "classical/motion-planning"
   - "frontier/competing-theses"
@@ -98,6 +99,8 @@ In late 2026 code-writing planners became agents that test and repair their prog
 | Apple AMP1 <Cite id="apple-amp1-2026" /> | Lets a generalist model command the arm with no grasping or placing skills | Gemini 4 Argon: 85.6% zero-shot on RoboLab-120, top VLA 49.2%; Claude Opus 5.5: 104 of 108 real trials |
 
 Also: SimEX <Cite id="simex-2026" />, CoEvolve <Cite id="coevolve-2026" />, ChunkAct <Cite id="chunkact-2026" />, ASENA <Cite id="asena-2026" />, EmbodiedSWE <Cite id="embodiedswe-2026" />, RoboHarn-Evo <Cite id="roboharn-evo-2026" />, AW-0 <Cite id="aw0-agentic-wam-2026" />, Ken Goldberg on agentic robotics <Cite id="goldberg-agentic-robotics-2026" />.
+
+A planner can stop a subtask before the robot has finished it. In the RoboARCade simulator, GPT-6 Astra wrongly declared success on 24% of attempted subtasks and Claude Opus 5 on 39%. Both used the same visual gripper-control interface <Cite id="roboarcade-completion-2026" />.
 
 ## Keypoints: the planner points
 
