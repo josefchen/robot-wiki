@@ -707,6 +707,16 @@ export const ADDITIONS: Citation[] = [
     url: 'https://www.intel.com/content/www/us/en/products/details/robotics.html',
     type: 'docs',
   },
+  // DA 26-957, released 9 Sep 2026, p. 2: Husqvarna's 305v IQ, 310v IQ, 420v IQ and 440v IQ.
+  {
+    id: 'fcc-da-26-957',
+    title: 'FCC’s Public Safety and Homeland Security Bureau Announces Conditional Approval and Exemption of Certain Routers and Advanced Robotic Devices from FCC Covered List',
+    authors: ['Federal Communications Commission'],
+    year: 2026,
+    venue: 'FCC Public Notice DA 26-957',
+    url: 'https://docs.fcc.gov/public/attachments/DA-26-957A1.pdf',
+    type: 'docs',
+  },
   // fcc-da-26-1130: FCC Public Notice DA 26-1130, released 21 Oct 2026, PDF read 2026-11-12.
   {
     id: 'fcc-da-26-1130',
