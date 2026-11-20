@@ -66,11 +66,11 @@
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T11:33:01Z"
+      "modified": "2026-11-15T11:57:10Z"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T19:01:27Z",
-      "modified": "2026-11-15T11:33:01Z"
+      "modified": "2026-11-20T21:50:52Z"
     },
     "data-hardware/industrial-deployment": {
       "published": "2026-08-22T21:06:38Z",
@@ -106,7 +106,7 @@
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T16:33:06Z",
-      "modified": "2026-11-15T11:33:01Z"
+      "modified": "2026-11-15T11:57:10Z"
     },
     "frontier/safety-and-assurance": {
       "published": "2026-08-22T21:06:38Z",
@@ -239,7 +239,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-11-15T11:33:01Z"
+      "modified": "2026-11-20T21:50:52Z"
     },
     "/manipulation/": {
       "modified": "2026-11-15T08:48:08Z"
@@ -281,7 +281,7 @@
       "modified": "2026-11-13T05:50:10Z"
     },
     "/glossary/": {
-      "modified": "2026-11-15T11:33:01Z"
+      "modified": "2026-11-15T11:57:10Z"
     },
     "/credits/": {
       "modified": "2026-11-14T19:31:23Z"
