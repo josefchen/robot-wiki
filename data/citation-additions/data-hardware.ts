@@ -723,6 +723,16 @@ export const ADDITIONS: Citation[] = [
     url: 'https://huggingface.co/datasets/2077AIDataFoundation/TouchScale',
     type: 'docs',
   },
+  {
+    id: 'taxel-placement-2026',
+    title: 'Which Taxels, Not How Many: Tactile Sensor Placement for Dexterous Policies',
+    authors: ['Taeyun Kim', 'Jinsoo Shin', 'Taehwa Kim', 'Taeyoon Kim', 'Jinyoung Choi'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.10647',
+    url: 'https://arxiv.org/abs/2611.10647',
+    type: 'paper',
+  },
   // ff-nova-2026: FF EAI Robotics / Faraday Future release on PR Newswire read 2026-11-12 (dated 2026-10-16):
   // "The FF Nova device is priced at $2,490"; Phase One limited to 100 units by invitation.
   {

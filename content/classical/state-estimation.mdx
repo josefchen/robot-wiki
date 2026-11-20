@@ -5,7 +5,7 @@ domain: classical
 slug: state-estimation
 order: 4
 status: published
-lastReviewed: "2026-11-13"
+lastReviewed: "2026-11-20"
 citations:
   - kalman-1960-filter
   - mcgee-schmidt-1985
@@ -53,6 +53,7 @@ citations:
   - matos-lio-benchmark-2026
   - lag-io-2026
   - contact-flow-filter-2026
+  - human-humanoid-inertial-2026
 seeAlso:
   - "rl-sim2real/legged-locomotion"
   - "adjacent/autonomous-vehicles"
@@ -161,6 +162,7 @@ Learning mostly enters as a measurement with its own uncertainty, which the filt
 | TLIO (2020) | Displacement and its uncertainty from IMU data | Fused in an EKF <Cite id="tlio-2020" /> |
 | MAC-VO (2024) | Per-keypoint uncertainty | Weights pose optimization <Cite id="mac-vo-2024" /> |
 | AirIO (2025) | IMU correction for aerial robots | Paired with an uncertainty-aware EKF <Cite id="airio-2025" /> |
+| Human and humanoid inertial encoder (2026) | Body velocity from inertial readings, learned from human recordings and motion retargeted to robots | Mean velocity error of 0.099 m/s on a physical Unitree G1 with no real-robot training trajectories <Cite id="human-humanoid-inertial-2026" /> |
 | Backprop KF (2016) | The whole filter | Trained end to end from raw observations <Cite id="backprop-kf-2016" /> |
 | Mesh MCL (2026) | Particle-filter observation model matching LiDAR scans to a building mesh, trained on simulated scans | Beat diffusion-based and ScanContext++ baselines on real construction sites, 18 ms per call <Cite id="mesh-mcl-construction-2026" /> |
 | ContactFlowFilter (2026) | Flow-matching proposal for contact estimation | 0.36 cm real-world error for one contact, 0.69 ms per step <Cite id="contact-flow-filter-2026" /> |

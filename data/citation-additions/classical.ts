@@ -285,6 +285,19 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.29568',
     type: 'paper',
   },
+  {
+    id: 'human-humanoid-inertial-2026',
+    title: 'A Unified Inertial Encoder for Human and Humanoid Motion',
+    authors: [
+      'Yutian Chen', 'Shibo Zhao', 'Rocky Duan', 'Karen Liu', 'Carmelo Sferrazza', 'Guanya Shi',
+      'Yuheng Qiu', 'Koushil Sreenath',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.10137',
+    url: 'https://arxiv.org/abs/2611.10137',
+    type: 'paper',
+  },
   // grasp-planning, 2026-11-12. arXiv 2212.08333 (IEEE T-RO 2023): "a 93.3% success rate when clearing
   // bins with over 300 unseen objects"; "Over 900 mean-picks-per-hour is reported on a single-arm system."
   {
