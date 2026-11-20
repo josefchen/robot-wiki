@@ -5,7 +5,7 @@ domain: manipulation
 slug: action-chunking
 order: 2
 status: published
-lastReviewed: "2026-11-13"
+lastReviewed: "2026-11-20"
 citations:
   - dagger-2011
   - act-aloha-2023
@@ -45,6 +45,7 @@ citations:
   - path-preserving-time-scaling-2026
   - odeaction-2026
   - gr00t-2-2026
+  - vla-reactive-execution-2026
 seeAlso:
   - "data-hardware/teleop-rigs"
   - "manipulation/rl-finetuning"
@@ -100,6 +101,8 @@ People repeat a motion slightly differently, so ACT is a <Term id="cvae">conditi
 Small chunks bring back <Term id="compounding-error">compounding error</Term>; large ones react slowly to surprises <Cite id="bidirectional-decoding-2024" />. ACT's success peaked at chunks of 100 and dipped at 200 and 400 <Cite id="act-aloha-2023" />, and flow-based VLAs rise and fall the same way <Cite id="autohorizon-2026" />.
 
 Choosing the length on the fly lifted real ALOHA and Franka success from 50.7% to 70.4% with PACE <Cite id="pace-2026" />. Mixture of Horizons blends lengths through a learned gate <Cite id="moh-2025" />.
+
+A π0.5 study compared two simulation benchmarks and three tasks on real robots. Predicting about one second ahead worked best, but how much of each chunk to play depended on the checkpoint. Keeping successive chunks continuous helped more than choosing the lowest-latency method <Cite id="vla-reactive-execution-2026" />.
 
 ## Overlapping chunks are averaged into one action
 

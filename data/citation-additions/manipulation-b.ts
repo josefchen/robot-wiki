@@ -125,6 +125,29 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24579',
     type: 'paper',
   },
+  {
+    id: 'dash-asynchronous-2026',
+    title: 'Decoupled Asynchronous System for Humanoids (DASH): Latency-Agnostic Scaling of Vision-Language-Action Models for Humanoid Manipulation',
+    authors: [
+      'Bingzhang Wang', 'Nathan Zhao', 'Jialeng Ni', 'Jiayin Zheng', 'Yin Zhang', 'Kehua Chen',
+      'Jian Yao',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.11854',
+    url: 'https://arxiv.org/abs/2611.11854',
+    type: 'paper',
+  },
+  {
+    id: 'vla-reactive-execution-2026',
+    title: 'What Makes a VLA Reactive? A Study of Execution Strategies for Dynamic Manipulation',
+    authors: ['Zhuoyue Li', 'Zhendong Han', 'Pankhuri Vanjani', 'Wenting Li', 'Rudolf Lioutikov'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.15491',
+    url: 'https://arxiv.org/abs/2611.15491',
+    type: 'paper',
+  },
   // realtime-execution, 2026-11-12. Blog post read 2026-11-12 (published 13 October 2026).
   {
     id: 'pi-api-beta-2026',

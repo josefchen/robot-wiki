@@ -239,6 +239,16 @@ export const ADDITIONS: Citation[] = [
     type: 'blog',
   },
   {
+    id: 'roboarcade-completion-2026',
+    title: 'RoboARCade: Benchmarking Agentic Robot Control',
+    authors: ['Satvik Sharma', 'Hengyuan Hu', 'Mihika Kamat', 'Dorsa Sadigh', 'Jeannette Bohg'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.08209',
+    url: 'https://arxiv.org/abs/2611.08209',
+    type: 'paper',
+  },
+  {
     id: 'agibot-go3-preview-2026',
     title: 'AGIBOT Unveils GO-3 Preview, Takes Top Spot on Three Embodied AI Benchmarks',
     authors: ['AGIBOT'],
