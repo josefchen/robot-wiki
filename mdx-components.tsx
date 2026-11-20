@@ -36,11 +36,13 @@ function ProseLink({ href, rel, ...props }: ComponentPropsWithoutRef<'a'>) {
 }
 
 /** Keep authored Markdown tables inside the prose column on narrow screens. */
-function ProseTable({ className, ...props }: ComponentPropsWithoutRef<'table'>) {
+function ProseTable({
+  className, 'data-scroll-label': scrollLabel, ...props
+}: ComponentPropsWithoutRef<'table'> & { 'data-scroll-label'?: string }) {
   return (
     <div
       role="region"
-      aria-label="Scrollable article table"
+      aria-label={scrollLabel ?? props['aria-label'] ?? 'Article table'}
       tabIndex={0}
       className="my-9 max-w-full overflow-x-auto"
     >
