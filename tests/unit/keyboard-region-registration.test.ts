@@ -15,6 +15,22 @@ describe('named keyboard-region registration', () => {
     });
   });
 
+  it('names each Markdown table across repeated tables and linked headings', () => {
+    const table = () => ({ type: 'element', tagName: 'table', properties: {}, children: [] });
+    const heading = {
+      type: 'element', tagName: 'h2', properties: {}, children: [{
+        type: 'element', tagName: 'a', properties: {}, children: [{ type: 'text', value: 'What sellers supply' }],
+      }],
+    };
+    const tree = { type: 'root', children: [table(), heading, table(), table()] };
+    rehypeScrollRegions()(tree);
+    const root = document.createElement('div');
+    root.innerHTML = toHtml(tree as Parameters<typeof toHtml>[0]);
+    expect([...root.querySelectorAll('table')].map(row => row.dataset.scrollLabel)).toEqual([
+      'Article table 1', 'Table 2 in What sellers supply', 'Table 3 in What sellers supply',
+    ]);
+  });
+
   it('serializes the same control ID through the actual hast property mapping', () => {
     // The JS plugin accepts the raw string spelling that hast serializes
     // into the same space-separated attribute as its typed array form.
