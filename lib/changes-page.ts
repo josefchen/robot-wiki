@@ -61,3 +61,8 @@ export function changeRows(
       titleEnd: /[.?!]$/.test(article.title) ? '' : '.',
     }));
 }
+
+/** Search registration starts at thirty published editorial notes. */
+export function changesAreIndexable(publishedNotes = changeRows().length): boolean {
+  return publishedNotes >= 30;
+}

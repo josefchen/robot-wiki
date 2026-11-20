@@ -1,0 +1,94 @@
+---
+title: "Motion Retargeting for Humanoid Robots"
+description: "Motion retargeting maps human motion onto a humanoid's body. How GMR, OmniRetarget, NMR, UMR and PriMoRetarget work, the errors they leave and which to use."
+domain: rl-sim2real
+slug: motion-retargeting
+order: 7
+status: published
+lastReviewed: "2026-11-20"
+citations:
+  - omniretarget-2025
+  - gmr-retargeting-2025
+  - smpl-2015
+  - unitree-h1-2026
+  - h2o-2024
+  - phc-2023
+  - protomotions-repo-2024
+  - beyondmimic-2025
+  - nmr-retargeting-2026
+  - primoretarget-2026
+  - gmr-repo-2025
+  - umr-retargeting-2026
+  - amass-2019
+  - omnih2o-2024
+  - tram-2024
+  - maskedmimic-2024
+  - isaac-gym-2021
+  - asap-2025
+  - human2humanoid-repo-2024
+  - smplx-2019
+  - gvhmr-2024
+  - unitree-g1-2026
+  - nmr-repo-2026
+  - soma-2026
+  - mimickit-2025
+  - omnicontact-2026
+  - umr-repo-2026
+  - holosoma-repo-2025
+  - omniretarget-dataset-2025
+  - inter-x-2023
+  - ppo-2017
+  - lafan1-2021
+  - omomo-2023
+  - asap-repo-2025
+seeAlso:
+  - "rl-sim2real/humanoid-wbc"
+  - "rl-sim2real/sim2real-transfer"
+  - "data-hardware/teleop-rigs"
+---
+
+<Term id="retargeting">Motion retargeting</Term> converts a human motion clip, from motion capture or estimated from video, into joint trajectories for a robot whose proportions and joint limits differ from the performer's. For humanoids the output is the kinematic reference a [tracking policy](/rl-sim2real/humanoid-wbc/) learns to follow with reinforcement learning <Cite id="omniretarget-2025" />, and artifacts in that reference make the policy fail more often <Cite id="gmr-retargeting-2025" />.
+
+## What a retargeter solves
+
+H2O picks 12 joints that correspond between human and humanoid, fits the SMPL body shape <Cite id="smpl-2015" /> to the Unitree H1 <Cite id="unitree-h1-2026" /> in a shared rest pose, then minimises the 12 joint-position differences with Adam <Cite id="h2o-2024" />.
+
+GMR maps human key bodies to robot bodies with position and orientation weights, aligns the two rest poses and scales upper and lower body separately. Differential inverse kinematics under joint limits then solves body orientations and end-effector positions first and all key-body positions second, starting each frame from the previous one. Subtracting the lowest body height removes floating and ground penetration <Cite id="gmr-retargeting-2025" />.
+
+## The errors it leaves
+
+A kinematic fit ignores dynamics, and ignores contact unless the objective includes it. Typical failures are foot sliding; penetration of the ground, the robot's own body or an object; joint values that jump between frames; and hand contacts the robot no longer makes.
+
+In the GMR study, PHC's <Cite id="phc-2023" /> retargets of two dance clips penetrated the ground, by 60 cm in one case; ProtoMotions' <Cite id="protomotions-repo-2024" /> legs intersected in a stop-and-go run; GMR's own output had sudden joint jumps on one 10-second segment, under 2% of the dataset. A BeyondMimic <Cite id="beyondmimic-2025" /> policy trained on either PHC dance clip succeeded in 0% of IsaacSim rollouts without domain randomisation, against 100% for GMR's. Unitree's closed-source retargets did better still, lowest on all three tracking-error metrics <Cite id="gmr-retargeting-2025" />.
+
+## Four families
+
+**Kinematic optimisation.** H2O and GMR fit the robot to the human body alone; objects and terrain are no part of the input. GMR's repository describes it as retargeting "in real time on CPU" <Cite id="gmr-repo-2025" />.
+
+**Learned retargeting.** NMR trains a CNN-Transformer to map SMPL motion straight to G1 motion, on about 30,000 pairs that per-cluster RL tracking policies made physically consistent. On 82 AMASS sequences its output had no frame with a joint step above 0.5 rad, against 56 for GMR, and 431 self-collision frames against 947 <Cite id="nmr-retargeting-2026" />. UMR learns only the correspondence: a point-cloud network places each human surface point on the robot in a T-pose, and a constrained Gauss-Newton solver fits every frame under joint limits and floor clearance. G1 policies trained on its references succeeded on a carrying task 99.28% of the time, against 82.89% with OmniRetarget's, but trailed on a chair task, 75.24% to 79.67% <Cite id="umr-retargeting-2026" />.
+
+**Interaction-preserving retargeting.** OmniRetarget tetrahedralises key joints with sampled object and environment points into an interaction mesh and minimises its Laplacian deformation between human and robot. Collision avoidance, joint and velocity limits and foot sticking are hard constraints; a foot is in stance when its source horizontal velocity falls below 1 cm/s. G1 policies trained on its data with five reward terms and no curriculum ran parkour and loco-manipulation of up to 30 seconds <Cite id="omniretarget-2025" />. PriMoRetarget orders objectives instead of weighting them <Cite id="primoretarget-2026" />; how well a G1 tracks its two-person retargets is on the [whole-body control page](/rl-sim2real/humanoid-wbc/#retargeting-loses-information).
+
+**Filter, then let RL absorb the rest.** H2O trains a privileged imitator on every retargeted clip and keeps the roughly 8.5k of 10k AMASS sequences <Cite id="amass-2019" /> it can track <Cite id="h2o-2024" />. OmniH2O reuses H2O's retargeting and adds copies of clips with the lower body fixed standing or squatting <Cite id="omnih2o-2024" />. ASAP filters earlier: it reconstructs human motion from video with TRAM <Cite id="tram-2024" />, keeps the clips the MaskedMimic <Cite id="maskedmimic-2024" /> tracker can follow in IsaacGym <Cite id="isaac-gym-2021" />, then retargets them in two stages. Its later [delta-action correction](/rl-sim2real/sim2real-transfer/) targets simulator dynamics and leaves the reference alone <Cite id="asap-2025" />.
+
+## Methods compared
+
+| Method | Input | Robot | Preserves | Reported result (protocol) | Code, licence |
+| --- | --- | --- | --- | --- | --- |
+| H2O (2024) | AMASS mocap | Unitree H1 | 12 joint positions | Tracking success 72.5% with filtering, 67.9% without (simulation, uncleaned AMASS) <Cite id="h2o-2024" /> | CC BY-NC 4.0 (non-commercial) <Cite id="human2humanoid-repo-2024" /> |
+| GMR (2025) | Mocap (SMPL-X <Cite id="smplx-2019" />, BVH, FBX); video via GVHMR <Cite id="gvhmr-2024" /> | Unitree G1 <Cite id="unitree-g1-2026" /> | Key-body positions and orientations | Mean root-relative body error 28.1 mm; PHC 40.2, ProtoMotions 33.2, Unitree 23.2 (21 LAFAN1 clips, BeyondMimic, IsaacSim) <Cite id="gmr-retargeting-2025" /> | MIT <Cite id="gmr-repo-2025" /> |
+| NMR (2026) | SMPL motion | Unitree G1 | Human motion similarity, trained on RL-tracked feasible targets | Frames with a joint step over 0.5 rad: 0, GMR 56; self-collision frames: 431, GMR 947 (82 AMASS sequences) <Cite id="nmr-retargeting-2026" /> | Inference code and weights; code licence not disclosed <Cite id="nmr-repo-2026" /> |
+| UMR (2026) | Surface meshes: SMPL-X, SOMA <Cite id="soma-2026" />, MimicKit <Cite id="mimickit-2025" /> characters, a scanned human | Unitree G1; five humanoids of 0.75 to 1.83 m shown | Surface positions and orientations, contacts | RL success: carry 99.28%, OmniRetarget 82.89%; chair 75.24%, OmniRetarget 79.67% (OmniContact <Cite id="omnicontact-2026" /> and OmniRetarget protocols) <Cite id="umr-retargeting-2026" /> | MIT <Cite id="umr-repo-2026" /> |
+| OmniRetarget (2025) | Mocap (OMOMO, LAFAN1, in-house) | Unitree G1 | Contacts and spatial relations with objects and terrain | Max penetration 1.34 cm, GMR 8.50 cm; RL success 82.20%, GMR 50.83% (OMOMO box carrying, simulation) <Cite id="omniretarget-2025" /> | Apache-2.0 <Cite id="holosoma-repo-2025" />; dataset MIT <Cite id="omniretarget-dataset-2025" /> |
+| PriMoRetarget (2026) | Mocap (LAFAN1, OMOMO, Inter-X <Cite id="inter-x-2023" />, in-house) | Unitree G1; also DR02, H1-2, T1 | Feet, then contacts, then pose | Contact 96.9%, OmniRetarget 86.4%; RL success 100.0%, OmniRetarget 99.1% (OMOMO large-box motions; one PPO <Cite id="ppo-2017" /> policy per motion on a simulated G1, 0.5 m failure) <Cite id="primoretarget-2026" /> | Not released <Cite id="primoretarget-2026" /> |
+
+## Where the numbers disagree
+
+On LAFAN1 <Cite id="lafan1-2021" />, OmniRetarget reports zero foot skating for its own output <Cite id="omniretarget-2025" />; PriMoRetarget measures that output sliding at 9.4 cm/s, highest of the three methods it tests, against 1.2 cm/s for the source capture <Cite id="primoretarget-2026" />. GMR's downstream success on OMOMO <Cite id="omomo-2023" /> is 50.83% in OmniRetarget's paper and 79.8% in PriMoRetarget's <Cite id="omniretarget-2025" /> <Cite id="primoretarget-2026" />. The papers define stance, select motions and train trackers differently, so their numbers cannot rank methods across papers.
+
+## What to use when
+
+- One performer, no objects: GMR (MIT), configured for Unitree, Booster, Fourier and other humanoids <Cite id="gmr-repo-2025" />.
+- Objects or terrain: OmniRetarget, through Amazon FAR's holosoma (Apache-2.0), with an MIT dataset <Cite id="holosoma-repo-2025" /> <Cite id="omniretarget-dataset-2025" />.
+- Two people in contact: PriMoRetarget reports higher contact preservation than PHC, GMR and OmniRetarget, but its code was unreleased on 14 November 2026 <Cite id="primoretarget-2026" />.
+- Any source: filter clips with a simulated tracker before training, as H2O does after retargeting and ASAP (MIT code) before it <Cite id="h2o-2024" /> <Cite id="asap-2025" /> <Cite id="asap-repo-2025" />.

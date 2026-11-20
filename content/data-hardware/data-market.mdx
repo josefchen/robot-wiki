@@ -5,8 +5,12 @@ domain: data-hardware
 slug: data-market
 order: 8
 status: published
-lastReviewed: "2026-11-14"
+lastReviewed: "2026-11-20"
 citations:
+  - padilla-eidon-data-sales-2026
+  - roboticscenter-seller-terms
+  - ay-robots-dataset-marketplace
+  - sun-robot-data-economics-2026
   - yicai-mifeng-2026
   - jiazi-data-collection-2026
   - huxiu-collection-centers-2026
@@ -65,13 +69,13 @@ seeAlso:
 
 import { DataPriceLadder } from '@/components/interactive/data-price-ladder';
 
-Robot training data is sold by the hour. In China an hour recorded on a real robot sells for RMB 500 to 1,000, the price three sources give <Cite id="yicai-mifeng-2026" /> <Cite id="jiazi-data-collection-2026" /> <Cite id="huxiu-collection-centers-2026" />, and an MIIT institute puts its cost in the same range <Cite id="cls-miit-data-cost-2026" />. The people who record robot data are reported to earn RMB 8 to 40 an hour <Cite id="cls-data-price-investigation-2026" /> <Cite id="standard-umi-collectors-2026" /> <Cite id="techxingqiu-data-collectors-2026" />; one company says it pays RMB 70 per effective hour <Cite id="beijing-daily-data-collectors-2026" />. [The Data Bottleneck](/data-hardware/data-bottleneck) covers why the data is scarce, and [Teleoperation Rigs](/data-hardware/teleop-rigs) the hardware that records it.
+An hour of real-robot training data sells for RMB 500 to 1,000 in three reports from China <Cite id="yicai-mifeng-2026" /> <Cite id="jiazi-data-collection-2026" /> <Cite id="huxiu-collection-centers-2026" />. Eidon’s Sam Padilla reports selling first-person video with arm motion for about \$60 an hour <Cite id="padilla-eidon-data-sales-2026" />. [The Data Bottleneck](/data-hardware/data-bottleneck) explains why demonstrations are scarce. [Teleoperation Rigs](/data-hardware/teleop-rigs) describes the recording hardware.
 
 <DataPriceLadder className="my-6" />
 
 ## China prices real-robot data at RMB 500 to 1,000 an hour
 
-Mifeng's chief executive gave the range in April <Cite id="yicai-mifeng-2026" />, the Beijing humanoid center's data lead in June <Cite id="jiazi-data-collection-2026" /> and a Huxiu survey of collection centers in September <Cite id="huxiu-collection-centers-2026" />. In November Li Shuai, deputy director of the AI center at MIIT's Fifth Electronics Research Institute, put the cost of real-robot data at the same RMB 500 to 1,000 <Cite id="cls-miit-data-cost-2026" />. Data recorded without a robot sells for less.
+Mifeng, the Beijing humanoid center and Huxiu reported that range in April, June and September respectively <Cite id="yicai-mifeng-2026" /> <Cite id="jiazi-data-collection-2026" /> <Cite id="huxiu-collection-centers-2026" />. MIIT institute researcher Li Shuai gave the same range for collection cost in November <Cite id="cls-miit-data-cost-2026" />.
 
 | Data | Price per hour | Who stated it |
 | --- | --- | --- |
@@ -88,11 +92,11 @@ Mifeng's chief executive gave the range in April <Cite id="yicai-mifeng-2026" />
 
 At the European Central Bank's reference rates of 13 November 2026, RMB 500 to 1,000 is \$75 to \$150 <Cite id="ecb-reference-rates-2026-11-13" />.
 
-An hour is a loose unit. Huxiu reports that 100 collected hours can yield very different amounts of trainable data, depending on operator skill, success rate, scene and robot condition, and that buyers now ask what the data does for a model <Cite id="huxiu-collection-centers-2026" />. Robot-free recordings are often resold three to five times, Lingyu's Jin Ge told STAR Market Daily; his team fingerprints its real-robot data and has no fix yet for the rest <Cite id="cls-data-price-investigation-2026" />. Mifeng's chief executive said in April that he expects robot-free data to settle at a third to a half of the real-robot price <Cite id="techxingqiu-data-collectors-2026" />.
+Huxiu reports that usable time varies with operator skill, task success, scene and robot condition <Cite id="huxiu-collection-centers-2026" />. Lingyu’s Jin Ge says robot-free recordings often sell three to five times. His team fingerprints real-robot data but cannot trace the rest <Cite id="cls-data-price-investigation-2026" />. In April, Mifeng’s chief executive predicted robot-free data would fetch a third to a half of the real-robot price <Cite id="techxingqiu-data-collectors-2026" />.
 
 ## Outside China, sellers publish list prices
 
-The public figures outside China are list prices, rate cards and one reported ceiling <Cite id="roboticscenter-marketplace" /> <Cite id="exylos-pricing-2026" /> <Cite id="latimes-encord-2026" />.
+These are list prices, rate cards and one reported ceiling <Cite id="roboticscenter-marketplace" /> <Cite id="exylos-pricing-2026" /> <Cite id="latimes-encord-2026" />.
 
 | Seller | Data | Price per hour |
 | --- | --- | --- |
@@ -106,9 +110,41 @@ The public figures outside China are list prices, rate cards and one reported ce
 | Unidata, on Datarade | 4,050 hours of egocentric household video | From \$30,000 a purchase, about \$7.40 an hour by our division <Cite id="unidata-datarade-egocentric" /> |
 | RoboPilots | Teleoperation service | From \$12 per operator hour, its own list price <Cite id="robopilots-providers-2026" /> |
 
-## Making an hour costs a fraction of its price
+## Selling robot data
 
-Gao Jiyang, Galaxea's chief executive, put collection cost at RMB 50 to 100 an hour for human-centric data and about RMB 250 for robot-centric data. At the industry average he gave, RMB 100 to 150, a million hours costs RMB 100 to 200 million, which he called money worth spending next to the compute bill of a large model <Cite id="nbd-galaxea-data-cost-2026" />. For North America, the PyRUA-DataFarm authors modeled teleoperation labor alone, before any robot, venue or setup cost <Cite id="pyrua-datafarm-2026" />.
+Eidon sold in 1,000-hour batches. Padilla says the team shared samples early. Some labs wanted joint angles, others the raw inertial readings. A seller who keeps only the angles cannot later deliver raw readings <Cite id="padilla-eidon-data-sales-2026" />.
+
+<div role="region" aria-labelledby="selling-robot-data" tabIndex={0} className="my-9 max-w-full overflow-x-auto">
+  <table className="booktabs text-left" aria-label="Marketplace requirements and seller shares">
+    <thead>
+      <tr>
+        <th scope="col">Where to sell</th>
+        <th scope="col">What the seller submits</th>
+        <th scope="col">How the seller earns</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Robotics Center</th>
+        <td>A sample, tasks, hours, robot and sensors. The published dataset minimum is 100 episodes per task. The platform requires distribution rights and excludes personally identifiable information. It checks quality and agrees on pricing and a research, commercial or exclusive license.</td>
+        <td>65% of each sale. The seller agreement sets payout terms <Cite id="roboticscenter-seller-terms" />.</td>
+      </tr>
+      <tr>
+        <th scope="row">AY-Robots</th>
+        <td>An archived LeRobot dataset. The seller confirms the rights and sets the price. The platform validates the format and generates episode previews.</td>
+        <td>90% of each sale is credited to the seller’s platform balance <Cite id="ay-robots-dataset-marketplace" />.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## What an accepted hour costs
+
+In Michelle Sun’s example, an operator paid \$30 an hour records for 60% of a shift. If 80% passes review, each staffed hour yields 0.48 accepted hours. Labor alone costs \$62.50 per accepted hour <Cite id="sun-robot-data-economics-2026" />.
+
+## Collection costs by method
+
+Galaxea’s chief executive estimated RMB 100 to 200 million to collect a million hours <Cite id="nbd-galaxea-data-cost-2026" />. The North American estimate below covers teleoperation labor alone <Cite id="pyrua-datafarm-2026" />.
 
 | Cost or estimate | Per hour | Source |
 | --- | --- | --- |
@@ -120,7 +156,7 @@ Gao Jiyang, Galaxea's chief executive, put collection cost at RMB 50 to 100 an h
 
 ## Collectors earn a small fraction of the price
 
-Reported pay for people who record themselves at home or at work runs from \$1 to \$15 an hour, and robot operators in California are offered \$25 to \$46 <Cite id="techcrunch-human-archive-2026" /> <Cite id="mittr-micro1-gig-2026" /> <Cite id="pi-robot-operator-posting" /> <Cite id="onex-senior-operator-posting" />. In China, STAR Market Daily traced orders priced in the hundreds of yuan an hour reaching service firms at RMB 70 to 90 and collectors at RMB 40 down to 15, figures it says come from different projects <Cite id="cls-data-price-investigation-2026" />.
+STAR Market Daily traced Chinese orders priced in the hundreds of yuan per hour. Across different projects, service firms received RMB 70 to 90 and collectors RMB 15 to 40 <Cite id="cls-data-price-investigation-2026" />.
 
 | Worker | Pay per hour | Source |
 | --- | --- | --- |
@@ -166,7 +202,7 @@ Repeat buyers are few: a collection-base operator told Huxiu that many companies
 
 ## The largest corpora record people
 
-Every size below is self-reported except Tesla's, which reaches the public only through The Information <Cite id="techtimes-tesla-optimus-data-2026" />.
+The labs report their own figures. Tesla’s comes from The Information <Cite id="techtimes-tesla-optimus-data-2026" />.
 
 | Lab or model | Hours | What was recorded |
 | --- | --- | --- |

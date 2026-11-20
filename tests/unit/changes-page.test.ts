@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ARTICLE_UPDATES, type ArticleUpdate } from '@/data/updates';
 import { getModule } from '@/data/modules';
-import { changeRows, unresolvedChanges } from '@/lib/changes-page';
+import { changesAreIndexable, changeRows, unresolvedChanges } from '@/lib/changes-page';
 
 /**
  * The rows of /changes/ (lib/changes-page.ts): every note in data/updates.ts,
@@ -20,6 +20,12 @@ const registry =
     articles[`${domain}/${slug}`];
 
 describe('the rows of Recent changes', () => {
+  it('requires thirty published notes before opening the page to search', () => {
+    expect(changesAreIndexable(29)).toBe(false);
+    expect(changesAreIndexable(30)).toBe(true);
+    expect(changesAreIndexable(31)).toBe(true);
+  });
+
   it('resolves every note in the data to a published article', () => {
     expect(unresolvedChanges()).toEqual([]);
   });

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { DOMAINS, publishedModules } from '@/data/modules';
+import { CHANGES_PATH, changesAreIndexable } from '@/lib/changes-page';
 import { articleDateModified, routeDateModified } from '@/lib/content-dates';
 import { articleStructuredImagePaths } from '@/lib/og-cards';
 import { SITE_URL } from '@/lib/site';
@@ -20,6 +21,7 @@ export const SITEMAP_STANDALONE_PATHS = [
   '/glossary/',
   '/credits/',
   '/editorial-policy/',
+  ...(changesAreIndexable() ? [CHANGES_PATH] : []),
   '/about/',
   '/a-z/',
 ] as const;
