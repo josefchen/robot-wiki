@@ -6,6 +6,46 @@
 import type { Citation } from '../schemas/citation.ts';
 
 export const ADDITIONS: Citation[] = [
+  {
+    id: 'padilla-eidon-data-sales-2026',
+    title: 'Robotics Data is a Broken Business',
+    authors: ['Sam Padilla'],
+    year: 2026,
+    accessedOn: '2026-11-20',
+    venue: 'X',
+    url: 'https://x.com/theSamPadilla/article/2102533979291443495',
+    type: 'blog',
+  },
+  {
+    id: 'sun-robot-data-economics-2026',
+    title: 'The Economics of Robot Data: Building the Scale AI of Robotics',
+    authors: ['Michelle Sun'],
+    year: 2026,
+    accessedOn: '2026-11-20',
+    venue: 'X',
+    url: 'https://x.com/michellelsun/article/2110072973923324010',
+    type: 'blog',
+  },
+  {
+    id: 'roboticscenter-seller-terms',
+    title: 'Start Selling Robotics Data',
+    authors: ['Robotics Center'],
+    year: 'n.d.',
+    accessedOn: '2026-11-20',
+    venue: 'Robotics Center',
+    url: 'https://www.roboticscenter.ai/marketplace/sell',
+    type: 'docs',
+  },
+  {
+    id: 'ay-robots-dataset-marketplace',
+    title: 'Robotics Dataset Marketplace',
+    authors: ['AY-Robots'],
+    year: 'n.d.',
+    accessedOn: '2026-11-20',
+    venue: 'AY-Robots',
+    url: 'https://www.ay-robots.com/en/marketplace',
+    type: 'docs',
+  },
   // open-humanwam-2026: arXiv Atom API and abstract read 2026-11-12 (v1 4 Nov 2026; PKU, NUS, MIT, UCSB, NVIDIA).
   {
     id: 'open-humanwam-2026',

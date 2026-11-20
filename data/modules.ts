@@ -349,6 +349,12 @@ const entries: Array<[Domain, string, string, string]> = [
   ],
   [
     'rl-sim2real',
+    'motion-retargeting',
+    'Motion Retargeting for Humanoid Robots',
+    'How human motion clips become humanoid reference motion.',
+  ],
+  [
+    'rl-sim2real',
     'reward-design-mpc',
     'Reward Design and the MPC Debate',
     'Hand-tuned and language-model rewards, and the MPC debate.',
@@ -599,6 +605,7 @@ const PUBLISHED = new Set([
   'manipulation/rl-finetuning',
   'manipulation/vla-models',
   'rl-sim2real/humanoid-wbc',
+  'rl-sim2real/motion-retargeting',
   'rl-sim2real/legged-locomotion',
   'rl-sim2real/parallel-sim-rl',
   'rl-sim2real/reward-design-mpc',

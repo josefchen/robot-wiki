@@ -76,8 +76,9 @@ describe('/changes/', () => {
     });
   });
 
-  it('stays out of search engines and out of the sitemap', () => {
-    expect(metadata.robots).toMatchObject({ index: false, follow: true, googleBot: { index: false, follow: true } });
-    expect(sitemap().map((entry) => entry.url)).not.toContain(`${SITE_URL}${CHANGES_PATH}`);
+  it('registers the page in metadata and the sitemap at thirty published notes', () => {
+    const indexable = changeRows().length >= 30;
+    expect(metadata.robots).toMatchObject({ index: indexable, follow: true, googleBot: { index: indexable, follow: true } });
+    expect(sitemap().some((entry) => entry.url === `${SITE_URL}${CHANGES_PATH}`)).toBe(indexable);
   });
 });

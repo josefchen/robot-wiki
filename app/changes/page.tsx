@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/data-page/page-header';
 import { IntentLink } from '@/components/ui/intent-link';
-import { CHANGES_PATH, CHANGES_TITLE, changeRows } from '@/lib/changes-page';
+import { CHANGES_PATH, CHANGES_TITLE, changeRows, changesAreIndexable } from '@/lib/changes-page';
 import { readableDate } from '@/lib/home-updates';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { routeSeoProfile } from '@/lib/seo-profiles';
@@ -10,15 +10,15 @@ import { webPageJsonLd } from '@/lib/structured-data';
 
 const profile = routeSeoProfile(CHANGES_PATH);
 
+const indexable = changesAreIndexable();
+
 export const metadata: Metadata = {
   title: profile.title,
   description: profile.description,
-  // Out of search and out of the sitemap while the list is short; links on
-  // it may still be followed.
   robots: {
-    index: false,
+    index: indexable,
     follow: true,
-    googleBot: { index: false, follow: true },
+    googleBot: { index: indexable, follow: true },
   },
   // Full card blocks restated: a route-level object replaces the layout's
   // for the same key. og:title is the rendered h1.

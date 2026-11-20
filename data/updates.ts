@@ -20,6 +20,8 @@ export type ArticleUpdate = {
 };
 
 export const ARTICLE_UPDATES: readonly ArticleUpdate[] = [
+  { date: '2026-11-20', domain: 'data-hardware', slug: 'data-market', note: 'Compares seller fees and a reported robot data sale.' },
+  { date: '2026-11-20', domain: 'rl-sim2real', slug: 'motion-retargeting', note: 'New page comparing six motion retargeters, with code licences.' },
   { date: '2026-11-14', domain: 'data-hardware', slug: 'research-arms-compared', note: 'New page comparing eleven research arms on control and software.' },
   { date: '2026-11-14', domain: 'data-hardware', slug: 'data-market', note: 'New article on what an hour of robot data costs.' },
   { date: '2026-11-14', domain: 'frontier', slug: 'reliability-gap', note: "Adds the F.02 fleet's retirement to the BMW row." },

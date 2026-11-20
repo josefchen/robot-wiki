@@ -1,3 +1,4 @@
+import { CHANGES_PATH, changesAreIndexable } from './changes-page.ts';
 import dates from '../data/content-dates.json' with { type: 'json' };
 
 /**
@@ -81,6 +82,9 @@ export const ROUTE_SOURCES: Readonly<Record<string, readonly string[]>> = {
     'data/companies.ts',
     'data/logos.ts',
   ],
+  ...(changesAreIndexable() ? {
+    [CHANGES_PATH]: ['app/changes/page.tsx', 'lib/changes-page.ts', 'data/updates.ts', 'data/modules.ts'],
+  } : {}),
   '/editorial-policy/': ['app/editorial-policy/page.tsx'],
   '/about/': ['app/about/page.tsx', 'data/modules.ts'],
   '/a-z/': ['app/a-z/page.tsx', 'data/modules.ts', 'data/glossary.ts'],

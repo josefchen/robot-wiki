@@ -475,4 +475,234 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2611.12676',
     type: 'paper',
   },
+  // gmr-repo-2025: motion-retargeting, read 2026-11-14; MIT, created 2025-08-03.
+  {
+    id: 'gmr-repo-2025',
+    title: 'GMR: General Motion Retargeting',
+    authors: ['Yanjie Ze'],
+    year: 2025,
+    accessedOn: '2026-11-14',
+    venue: 'GitHub repository YanjieZe/GMR',
+    url: 'https://github.com/YanjieZe/GMR',
+    type: 'docs',
+  },
+  // human2humanoid-repo-2024: motion-retargeting, read 2026-11-15; LICENSE-CC-BY-NC-4.0.md in the repository root and the README both state CC BY-NC 4.0 (non-commercial); the GitHub API reports license null; created 2024-09-29.
+  {
+    id: 'human2humanoid-repo-2024',
+    title: 'human2humanoid (H2O and OmniH2O code)',
+    authors: ['LeCAR Lab'],
+    year: 2024,
+    accessedOn: '2026-11-15',
+    venue: 'GitHub repository LeCAR-Lab/human2humanoid',
+    url: 'https://github.com/LeCAR-Lab/human2humanoid',
+    type: 'docs',
+  },
+  // holosoma-repo-2025: motion-retargeting, read 2026-11-14; Apache-2.0, created 2025-11-13.
+  {
+    id: 'holosoma-repo-2025',
+    title: 'holosoma',
+    authors: ['Amazon FAR'],
+    year: 2025,
+    accessedOn: '2026-11-14',
+    venue: 'GitHub repository amazon-far/holosoma',
+    url: 'https://github.com/amazon-far/holosoma',
+    type: 'docs',
+  },
+  // omniretarget-dataset-2025: motion-retargeting, read 2026-11-14; license:mit, created 2025-09-18. Author is the Hub account "omniretarget", display name "OmniRetarget" (read 2026-11-15).
+  {
+    id: 'omniretarget-dataset-2025',
+    title: 'OmniRetarget Dataset',
+    authors: ['OmniRetarget'],
+    year: 2025,
+    accessedOn: '2026-11-14',
+    venue: 'Hugging Face Datasets',
+    url: 'https://huggingface.co/datasets/omniretarget/OmniRetarget_Dataset',
+    type: 'docs',
+  },
+  // asap-repo-2025: motion-retargeting, read 2026-11-14; MIT, created 2025-01-28.
+  {
+    id: 'asap-repo-2025',
+    title: 'ASAP',
+    authors: ['LeCAR Lab'],
+    year: 2025,
+    accessedOn: '2026-11-14',
+    venue: 'GitHub repository LeCAR-Lab/ASAP',
+    url: 'https://github.com/LeCAR-Lab/ASAP',
+    type: 'docs',
+  },
+  // nmr-retargeting-2026: motion-retargeting, read 2026-11-14; arXiv v3, first submitted 2026-03-23, no venue.
+  {
+    id: 'nmr-retargeting-2026',
+    title: 'Make Tracking Easy: Neural Motion Retargeting for Humanoid Whole-body Control',
+    authors: ['Qingrui Zhao', 'Kaiyue Yang', 'Xiyu Wang', 'Shiqi Zhao', 'Yi Lu', 'Xinfang Zhang', 'Qiu Shen', 'Xiao-Xiao Long', 'Xun Cao'],
+    year: 2026,
+    arxiv: '2603.22201',
+    url: 'https://arxiv.org/abs/2603.22201',
+    type: 'paper',
+  },
+  // umr-retargeting-2026: motion-retargeting, read 2026-11-14; arXiv v2, first submitted 2026-09-02, no venue.
+  {
+    id: 'umr-retargeting-2026',
+    title: 'Unified Motion Retargeting for Humanoids with Learned Point Cloud Correspondence',
+    authors: ['Hanyang Cao', 'Yuetong Fang', 'Taesoo Kwon', 'Runyi Yu', 'Ji Ma', 'Jing Tan', 'Yangchen Zhou', 'Baoze Du', 'Yi Gu', 'Yukang Gao', 'Ruoli Dai', 'Lei Han', 'Renjing Xu'],
+    year: 2026,
+    arxiv: '2609.02134',
+    url: 'https://arxiv.org/abs/2609.02134',
+    type: 'paper',
+  },
+  // nmr-repo-2026: motion-retargeting, read 2026-11-14; title is the README H1; no licence (API license null, no LICENSE file).
+  {
+    id: 'nmr-repo-2026',
+    title: 'Make Tracking Easy: Neural Motion Retargeting for Humanoid Whole-body Control (NMR)',
+    authors: ['NJU3DV Humanoid Group'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'GitHub repository NJU3DV-HumanoidGroup/MakeTrackingEasy',
+    url: 'https://github.com/NJU3DV-HumanoidGroup/MakeTrackingEasy',
+    type: 'docs',
+  },
+  // umr-repo-2026: motion-retargeting, read 2026-11-14; title is the API description; MIT, LICENSE "Copyright (c) 2026 Hanyang Cao and UMR contributors".
+  {
+    id: 'umr-repo-2026',
+    title: 'The official codebase of Unified Motion Retargeting',
+    authors: ['Hanyang Cao'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    venue: 'GitHub repository hanyang9/UMR',
+    url: 'https://github.com/hanyang9/UMR',
+    type: 'docs',
+  },
+  // smpl-2015: motion-retargeting, read 2026-11-14. No arXiv listing; Crossref for DOI 10.1145/2816795.2818013: title "SMPL",
+  // subtitle "a skinned multi-person linear model", ACM Transactions on Graphics 34(6), issued 2015-10-26. The DOI resolves
+  // to dl.acm.org, which returned 403; the project page (smpl.is.tue.mpg.de, HTTP 200) describes the model.
+  {
+    id: 'smpl-2015',
+    title: 'SMPL: A Skinned Multi-Person Linear Model',
+    authors: ['Matthew Loper', 'Naureen Mahmood', 'Javier Romero', 'Gerard Pons-Moll', 'Michael J. Black'],
+    year: 2015,
+    venue: 'ACM Transactions on Graphics 34(6) (SIGGRAPH Asia 2015)',
+    url: 'https://doi.org/10.1145/2816795.2818013',
+    type: 'paper',
+  },
+  // unitree-h1-2026: motion-retargeting, read 2026-11-14; one page covers H1 and H1-2. Reread 2026-11-14 (HTTP 200): "Unitree H1
+  // Full-size universal humanoid robot … Height about 180CM Weight about 47kg"; "Unitree H1-2 … Height about 178CM Weight about 70kg".
+  {
+    id: 'unitree-h1-2026',
+    title: 'Unitree H1 and H1-2 Product Page',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    accessedOn: '2026-11-14',
+    url: 'https://www.unitree.com/h1/',
+    type: 'docs',
+  },
+  // protomotions-repo-2024: motion-retargeting, read 2026-11-14; the GMR paper's reference [40] for ProtoMotions. GitHub API
+  // on 2026-11-14: Apache-2.0, created 2024-09-24, pushed 2026-11-10; description "a GPU-accelerated simulation and learning framework
+  // for training physically simulated digital humans and humanoid robots".
+  {
+    id: 'protomotions-repo-2024',
+    title: 'ProtoMotions',
+    authors: ['NVIDIA'],
+    year: 2024,
+    accessedOn: '2026-11-14',
+    venue: 'GitHub repository NVlabs/ProtoMotions',
+    url: 'https://github.com/NVlabs/ProtoMotions',
+    type: 'docs',
+  },
+  // tram-2024: motion-retargeting, read 2026-11-14; arXiv v1 2024-03-26, v2; ECCV 2024 per the project page (yufu-wang.github.io/tram4d).
+  {
+    id: 'tram-2024',
+    title: 'TRAM: Global Trajectory and Motion of 3D Humans from in-the-wild Videos',
+    authors: ['Yufu Wang', 'Ziyun Wang', 'Lingjie Liu', 'Kostas Daniilidis'],
+    year: 2024,
+    venue: 'ECCV 2024',
+    arxiv: '2403.17346',
+    url: 'https://arxiv.org/abs/2403.17346',
+    type: 'paper',
+  },
+  // maskedmimic-2024: motion-retargeting, read 2026-11-14; arXiv v1 2024-09-22, comment "ACM Transactions on Graphics (Proc. SIGGRAPH Asia 2024)".
+  {
+    id: 'maskedmimic-2024',
+    title: 'MaskedMimic: Unified Physics-Based Character Control Through Masked Motion Inpainting',
+    authors: ['Chen Tessler', 'Yunrong Guo', 'Ofir Nabati', 'Gal Chechik', 'Xue Bin Peng'],
+    year: 2024,
+    venue: 'ACM Transactions on Graphics (SIGGRAPH Asia 2024)',
+    arxiv: '2409.14393',
+    url: 'https://arxiv.org/abs/2409.14393',
+    type: 'paper',
+  },
+  // smplx-2019: motion-retargeting, read 2026-11-14; arXiv v1 2019-04-11, comment "To appear in CVPR 2019".
+  {
+    id: 'smplx-2019',
+    title: 'Expressive Body Capture: 3D Hands, Face, and Body from a Single Image',
+    authors: ['Georgios Pavlakos', 'Vasileios Choutas', 'Nima Ghorbani', 'Timo Bolkart', 'Ahmed A. A. Osman', 'Dimitrios Tzionas', 'Michael J. Black'],
+    year: 2019,
+    venue: 'CVPR 2019',
+    arxiv: '1904.05866',
+    url: 'https://arxiv.org/abs/1904.05866',
+    type: 'paper',
+  },
+  // gvhmr-2024: motion-retargeting, read 2026-11-14; arXiv v1 2024-09-10, comment "Accepted at SIGGRAPH Asia 2024 (Conference Track)".
+  {
+    id: 'gvhmr-2024',
+    title: 'World-Grounded Human Motion Recovery via Gravity-View Coordinates',
+    authors: ['Zehong Shen', 'Huaijin Pi', 'Yan Xia', 'Zhi Cen', 'Sida Peng', 'Zechen Hu', 'Hujun Bao', 'Ruizhen Hu', 'Xiaowei Zhou'],
+    year: 2024,
+    venue: 'SIGGRAPH Asia 2024',
+    arxiv: '2409.06662',
+    url: 'https://arxiv.org/abs/2409.06662',
+    type: 'paper',
+  },
+  // soma-2026: motion-retargeting, read 2026-11-14; arXiv v1 2026-03-17, no comment or venue. UMR's reference [6] for SOMA.
+  {
+    id: 'soma-2026',
+    title: 'SOMA: Unifying Parametric Human Body Models',
+    authors: ['Jun Saito', 'Jiefeng Li', 'Michael de Ruyter', 'Miguel Guerrero', 'Edy Lim', 'Ehsan Hassani', 'Roger Blanco Ribera', 'Hyejin Moon', 'Magdalena Dadela', 'Marco Di Lucca', 'Qiao Wang', 'Xueting Li', 'Jan Kautz', 'Simon Yuen', 'Umar Iqbal'],
+    year: 2026,
+    arxiv: '2603.16858',
+    url: 'https://arxiv.org/abs/2603.16858',
+    type: 'paper',
+  },
+  // mimickit-2025: motion-retargeting, read 2026-11-14; arXiv v1 2025-10-15, v4, no venue. UMR's reference [32] for MimicKit.
+  {
+    id: 'mimickit-2025',
+    title: 'MimicKit: A Reinforcement Learning Framework for Motion Imitation and Control',
+    authors: ['Xue Bin Peng'],
+    year: 2025,
+    arxiv: '2510.13794',
+    url: 'https://arxiv.org/abs/2510.13794',
+    type: 'paper',
+  },
+  // omnicontact-2026: motion-retargeting, read 2026-11-14; arXiv v1 2026-06-24, no comment or venue. UMR's reference [37].
+  {
+    id: 'omnicontact-2026',
+    title: 'OmniContact: Chaining Meta-Skills via Contact Flow for Generalizable Humanoid Loco-Manipulation',
+    authors: ['Runyi Yu', 'Xiaoyi Lin', 'Ji Ma', 'Yinhuai Wang', 'Koukou Luo', 'Jiahao Ji', 'Huayi Wang', 'Wenjia Wang', 'Runhan Zhang', 'Ping Tan', 'Ting Wu', 'Ruoli Dai', 'Qifeng Chen', 'Lei Han'],
+    year: 2026,
+    arxiv: '2606.26201',
+    url: 'https://arxiv.org/abs/2606.26201',
+    type: 'paper',
+  },
+  // inter-x-2023: motion-retargeting, read 2026-11-14; arXiv v1 2023-12-26 (first-submission year in the id); CVPR 2024 per the
+  // project page (liangxuy.github.io/inter-x).
+  {
+    id: 'inter-x-2023',
+    title: 'Inter-X: Towards Versatile Human-Human Interaction Analysis',
+    authors: ['Liang Xu', 'Xintao Lv', 'Yichao Yan', 'Xin Jin', 'Shuwen Wu', 'Congsheng Xu', 'Yifan Liu', 'Yizhou Zhou', 'Fengyun Rao', 'Xingdong Sheng', 'Yunhui Liu', 'Wenjun Zeng', 'Xiaokang Yang'],
+    year: 2023,
+    venue: 'CVPR 2024',
+    arxiv: '2312.16051',
+    url: 'https://arxiv.org/abs/2312.16051',
+    type: 'paper',
+  },
+  // omomo-2023: motion-retargeting, read 2026-11-14; arXiv v1 2023-09-28, comment "SIGGRAPH Asia 2023".
+  {
+    id: 'omomo-2023',
+    title: 'Object Motion Guided Human Motion Synthesis',
+    authors: ['Jiaman Li', 'Jiajun Wu', 'C. Karen Liu'],
+    year: 2023,
+    venue: 'SIGGRAPH Asia 2023',
+    arxiv: '2309.16237',
+    url: 'https://arxiv.org/abs/2309.16237',
+    type: 'paper',
+  },
 ];

@@ -365,6 +365,13 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
       'Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.',
     queries: ['humanoid whole-body control', 'humanoid motion tracking RL'],
   },
+  '/rl-sim2real/motion-retargeting/': {
+    title: 'Motion Retargeting: Six Methods Compared',
+    headTerm: 'motion retargeting',
+    description:
+      "Motion retargeting maps human motion onto a humanoid. Six methods compared; on OMOMO, OmniRetarget's peak penetration was 1.34 cm against GMR's 8.50 cm.",
+    queries: ['motion retargeting humanoid', 'human to humanoid motion retargeting'],
+  },
   '/rl-sim2real/reward-design-mpc/': {
     title: 'Reward Design and MPC vs RL for Robots',
     headTerm: 'reward design',
