@@ -13,6 +13,7 @@ export const dynamic = 'force-static';
  */
 export const SITEMAP_STANDALONE_PATHS = [
   '/now/',
+  ...(changesAreIndexable() ? [CHANGES_PATH] : []),
   '/market-map/',
   '/market-map/rounds/',
   '/playground/',
@@ -21,7 +22,6 @@ export const SITEMAP_STANDALONE_PATHS = [
   '/glossary/',
   '/credits/',
   '/editorial-policy/',
-  ...(changesAreIndexable() ? [CHANGES_PATH] : []),
   '/about/',
   '/a-z/',
 ] as const;
