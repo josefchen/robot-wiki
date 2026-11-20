@@ -140,7 +140,10 @@ describe('rounds data', () => {
     }
     expect(FX_RATES_DATE).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(FX_RATES_DATE <= ROUNDS_AS_OF).toBe(true);
-    expect(FX_RATES_SOURCE_URL.startsWith('https://www.ecb.europa.eu/')).toBe(true);
+    const source = new URL(FX_RATES_SOURCE_URL);
+    expect(source.origin).toBe('https://data-api.ecb.europa.eu');
+    expect(source.searchParams.get('startPeriod')).toBe(FX_RATES_DATE);
+    expect(source.searchParams.get('endPeriod')).toBe(FX_RATES_DATE);
   });
 
   it('maps every sector to exactly one market-map segment', () => {
