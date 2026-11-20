@@ -267,6 +267,29 @@ export const ADDITIONS: Citation[] = [
     url: 'https://www.agilityrobotics.com/content/agility-becomes-first-u-s-publicly-listed-pure-play-humanoid-robotics-company-begins-trading-today-on-nasdaq-as-aglt',
     type: 'press',
   },
+  {
+    id: 'cowboy-grasping-2026',
+    title: 'COWBOY: A Scalable Sim-to-Real Framework for Learning Contextual Whole-Body Manipulation',
+    authors: [
+      'Jiahui Yang', 'Jason Jingzhou Liu', 'Ray Muxin Liu', 'Andrew E. Wang', 'Kenneth Shaw',
+      'Deepak Pathak', 'Ruslan Salakhutdinov',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.28948',
+    url: 'https://arxiv.org/abs/2610.28948',
+    type: 'paper',
+  },
+  {
+    id: 'noetix-e1-parkour-2026',
+    title: 'Terrain-Indexed Motion Priors and Geometric Support for Extreme Humanoid Parkour',
+    authors: ['Chenghao Sun', 'Youhao Lyu', 'Zizheng Li', 'Shuting Zhang', 'Ziyang Dong', 'Wenhao Cui'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.08056',
+    url: 'https://arxiv.org/abs/2611.08056',
+    type: 'paper',
+  },
   // legged-locomotion, 2026-11-12. arXiv Atom API read 2026-11-12 (v1 15 Oct 2026): on scanned construction-site
   // terrain "FCTS raises success rate from 28.4% to 85.8% on a medium-difficulty course and from 14.9% to 44.7% on a
   // hard course"; "Hardware experiments on a quadruped robot confirm that the learned FCTS policies transfer".
