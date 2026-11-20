@@ -523,11 +523,11 @@ export const ADDITIONS: Citation[] = [
   // yuan renminbi 7.3738 per euro, so RMB 1 = $0.1499).
   {
     id: 'ecb-reference-rates-2026-11-13',
-    title: 'Euro foreign exchange reference rates',
+    title: 'Euro foreign exchange reference rates for 13 November 2026 (CSV)',
     authors: ['European Central Bank'],
     year: 2026,
     venue: 'European Central Bank, rates of 13 November 2026',
-    url: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html',
+    url: 'https://data-api.ecb.europa.eu/service/data/EXR/D.USD+CNY.EUR.SP00.A?startPeriod=2026-11-13&endPeriod=2026-11-13&format=csvdata',
     type: 'docs',
   },
   // airoa-0-2026: AIRoA news release read 2026-11-12 (dated 2026-11-06).

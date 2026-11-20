@@ -7,7 +7,8 @@
 
 export const FX_RATES_DATE = '2026-11-13';
 
-export const FX_RATES_SOURCE_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml';
+export const FX_RATES_SOURCE_URL =
+  `https://data-api.ecb.europa.eu/service/data/EXR/D..EUR.SP00.A?startPeriod=${FX_RATES_DATE}&endPeriod=${FX_RATES_DATE}&format=csvdata`;
 
 export const FX_RATES_SOURCE_TITLE = 'Euro foreign exchange reference rates (ECB)';
 
