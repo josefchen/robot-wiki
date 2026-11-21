@@ -1,5 +1,6 @@
 /**
- * Market-map company logos: the licensed marks plotted on /market-map.
+ * Market-map company logos: the registered marks plotted on /market-map and
+ * on the public companies map, IPO watch and funding tables.
  *
  * Full provenance (creator, licence, source URL, verbatim Commons sentence)
  * lives here so /credits and validate:content stay honest. The market-map
@@ -11,12 +12,13 @@
  * when the licence cannot be named). Do not invent a Commons licence to
  * skip a mark: the market map plots every company's real logo.
  *
- * Type-only relative import so this file loads under plain node, Vitest,
+ * Relative imports let this file load under plain node, Vitest,
  * and Next.js alike.
  */
+import { marketTableLogoIds } from '../lib/market-table-logos.ts';
 import type { SiteImage } from './schemas/image.ts';
 
-export const LOGO_IMAGES: SiteImage[] = [
+const mapImages: SiteImage[] = [
   {
     id: 'physical-intelligence-logo',
     file: '/images/logos/physical-intelligence.png',
@@ -2009,16 +2011,6 @@ export const LOGO_IMAGES: SiteImage[] = [
     // unchanged. File SHA-256 54fd5266460a605667c52d74654763e4d58463d1d401e8b9210bc88a5883a7cc, retrieved
     // 2026-11-12. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
-];
-
-/**
- * Marks the market pages find by company name (data/company-logos.ts) that no
- * published page draws yet. Each keeps its full provenance here, but none is
- * in IMAGES, so /credits lists none of them and the validator counts none as
- * used. The change that adds the page drawing a mark moves its entry into
- * LOGO_IMAGES.
- */
-export const PENDING_LOGO_IMAGES: SiteImage[] = [
   {
     id: 'procept-biorobotics-logo',
     file: '/images/logos/procept-biorobotics.png',
@@ -3210,6 +3202,504 @@ export const PENDING_LOGO_IMAGES: SiteImage[] = [
     // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
+    id: 'swarmer-logo',
+    file: '/images/logos/swarmer.svg',
+    alt: 'Swarmer chevron mark and wordmark',
+    caption: 'Swarmer logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of getswarmer.com',
+    sourceUrl: 'https://media.brand.dev/bfaf1101-26f1-4d48-85be-d8f8cbc4f387.svg',
+    creator: 'Swarmer',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/bfaf1101-26f1-4d48-85be-d8f8cbc4f387.svg',
+    retrieved: '2026-11-14',
+    width: 131,
+    height: 20,
+    // Official mark: the logo Brand.dev records for getswarmer.com, fetched from its file URL above and saved
+    // unchanged. File SHA-256 0b633e45fc7a903336c875b6127df4faeeb3d26a58ba26d5a92e3eac657ab984, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'amc-robotics-logo',
+    file: '/images/logos/amc-robotics.png',
+    alt: 'AMC Robotics wordmark',
+    caption: 'AMC Robotics logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of amcx.ai',
+    sourceUrl: 'https://media.brand.dev/373719b0-14fd-4cb9-99ef-0c5d14b77196.png',
+    creator: 'AMC Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/373719b0-14fd-4cb9-99ef-0c5d14b77196.png',
+    retrieved: '2026-11-14',
+    width: 840,
+    height: 210,
+    // Official mark: the logo Brand.dev records for amcx.ai, fetched from its file URL above and saved
+    // unchanged. File SHA-256 a350d9b7c43ca8140a79e504b3f9af0580e2d083fd57c022c72508a3246ae323, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'kaierda-logo',
+    file: '/images/logos/kaierda.png',
+    alt: 'Kaierda wordmark with its Chinese name',
+    caption: 'Kaierda logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of kaierda.cn',
+    sourceUrl: 'https://media.brand.dev/479f5aa6-cdf4-4d32-aa91-69c51dda3bb1.png',
+    creator: 'Kaierda',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/479f5aa6-cdf4-4d32-aa91-69c51dda3bb1.png',
+    retrieved: '2026-11-14',
+    width: 142,
+    height: 52,
+    // Official mark: the logo Brand.dev records for kaierda.cn, fetched from its file URL above and saved
+    // unchanged. File SHA-256 987e7205621fa740e72ca6e6b52d21c19446b8f4c4e0398beef5927932b1c02a, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'edge-medical-logo',
+    file: '/images/logos/edge-medical.svg',
+    alt: 'Edge Medical wordmark',
+    caption: 'Edge Medical logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of edgemed.cn',
+    sourceUrl: 'https://media.brand.dev/372ecca2-b498-49c0-b7f3-6ea3b61ba2e8.svg',
+    creator: 'Edge Medical',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/372ecca2-b498-49c0-b7f3-6ea3b61ba2e8.svg',
+    retrieved: '2026-11-14',
+    width: 842,
+    height: 317,
+    // Official mark: the logo Brand.dev records for edgemed.cn, fetched from its file URL above and saved
+    // unchanged. File SHA-256 716cfd0b7f56912a6ff4c04a5fd199b266365e171b91fdbf012ab63ecbfbbe26, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'eacon-logo',
+    file: '/images/logos/eacon.png',
+    alt: 'EACON wordmark with its Chinese name',
+    caption: 'EACON logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of eacon.com',
+    sourceUrl: 'https://media.brand.dev/b78b9a6d-4818-4c06-ad81-fd09e5c2ec1e.png',
+    creator: 'EACON',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/b78b9a6d-4818-4c06-ad81-fd09e5c2ec1e.png',
+    retrieved: '2026-11-14',
+    width: 1949,
+    height: 198,
+    // Official mark: the logo Brand.dev records for eacon.com, fetched from its file URL above and saved
+    // unchanged. File SHA-256 3f9c3f63dd9e95da77e2ca597d9a228a3c6ecc286711286bb71232caa842266d, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'excelland-robotics-logo',
+    file: '/images/logos/excelland-robotics.svg',
+    alt: 'Excelland Robotics mark and wordmark with its Chinese name',
+    caption: 'Excelland Robotics logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of uditech.com.cn',
+    sourceUrl: 'https://media.brand.dev/eb5418f4-9976-4eff-ab08-2f9f93b0c6d7.svg',
+    creator: 'Excelland Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/eb5418f4-9976-4eff-ab08-2f9f93b0c6d7.svg',
+    retrieved: '2026-11-14',
+    width: 131,
+    height: 33,
+    // Official mark: the logo Brand.dev records for uditech.com.cn, fetched from its file URL above and saved
+    // unchanged. File SHA-256 14e71031d8c709eec25f062c8c32c0274fa793c9f0efc94a6aa39bbbd0bc4cf3, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'bigwave-robotics-logo',
+    file: '/images/logos/bigwave-robotics.png',
+    alt: 'Bigwave Robotics wave mark and wordmark',
+    caption: 'Bigwave Robotics logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of bigwaverobotics.com',
+    sourceUrl: 'https://media.brand.dev/5e89726a-4aba-476b-97b3-861a915f8d8c.png',
+    creator: 'Bigwave Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/5e89726a-4aba-476b-97b3-861a915f8d8c.png',
+    retrieved: '2026-11-14',
+    width: 596,
+    height: 78,
+    // Official mark: the logo Brand.dev records for bigwaverobotics.com, fetched from its file URL above and saved
+    // unchanged. File SHA-256 500853dd80e9d447fa06ed5eae1fd12432f234fa7d9386ad8a75030e6652dbf9, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'onerobotics-logo',
+    file: '/images/logos/onerobotics.svg',
+    alt: 'OneRobotics wordmark',
+    caption: 'OneRobotics logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of onerobot.com',
+    sourceUrl: 'https://media.brand.dev/6d179368-a1b6-4c30-a574-ce1451573975.svg',
+    creator: 'OneRobotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/6d179368-a1b6-4c30-a574-ce1451573975.svg',
+    retrieved: '2026-11-14',
+    width: 200,
+    height: 26,
+    // Official mark: the logo Brand.dev records for onerobot.com, fetched from its file URL above and saved
+    // unchanged. File SHA-256 367c7655d1d2547188a61ac71418a97ff5a7b45df1630d31cf498739c3adcd28, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+  {
+    id: 'galaxis-logo',
+    file: '/images/logos/galaxis.png',
+    alt: 'Galaxis wordmark',
+    caption: 'Galaxis logo from its brand profile, used on the market pages.',
+    sourceName: 'Brand.dev profile of galaxis-tech.com',
+    sourceUrl: 'https://media.brand.dev/3b9c55c8-3754-4079-b24e-9951bcf88a53.png',
+    creator: 'Galaxis',
+    licence: 'unlicensed',
+    licenceUrl: 'https://media.brand.dev/3b9c55c8-3754-4079-b24e-9951bcf88a53.png',
+    retrieved: '2026-11-14',
+    width: 279,
+    height: 50,
+    // Official mark: the logo Brand.dev records for galaxis-tech.com, fetched from its file URL above and saved
+    // unchanged. File SHA-256 cb049474e25c812d886723c2055fd4f2d99781fe1c42ecfd74196adc456ee379, retrieved 2026-11-14.
+    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+  },
+];
+
+/**
+ * Additional marks for named issuers. Those displayed in the IPO or funding
+ * tables enter the published credits; the rest stay in the pending registry.
+ */
+const namedImages: SiteImage[] = [
+  {
+    id: 'uforce-logo',
+    file: '/images/logos/uforce.svg',
+    alt: 'UFORCE wordmark',
+    caption: 'UFORCE logo from its official website.',
+    sourceName: 'UFORCE official website',
+    sourceUrl: 'https://cdn.prod.website-files.com/69844f2062f5867ca9e6b409/698f53e17f90be48592bf827_UFORCE.svg',
+    creator: 'UFORCE',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.uforce.com/',
+    retrieved: '2026-11-20',
+    width: 293,
+    height: 100,
+  },
+  {
+    id: 'warp-sciences-logo',
+    file: '/images/logos/warp-sciences.svg',
+    alt: 'Warp Sciences wordmark',
+    caption: 'Warp Sciences logo from its official website.',
+    sourceName: 'Warp Sciences official website',
+    sourceUrl: 'https://warp.xyz/',
+    creator: 'Warp Sciences',
+    licence: 'unlicensed',
+    licenceUrl: 'https://warp.xyz/',
+    retrieved: '2026-11-20',
+    width: 2832,
+    height: 912,
+  },
+  {
+    id: 'gravis-robotics-logo',
+    file: '/images/logos/gravis-robotics.png',
+    alt: 'Gravis Robotics G symbol',
+    caption: 'Gravis Robotics logo from its official website.',
+    sourceName: 'Gravis Robotics official website',
+    sourceUrl: 'https://cdn.prod.website-files.com/69016a2658231cb1d2ca58c5/691a4736270d41db65a20b9a_favicon_square.png',
+    creator: 'Gravis Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://gravisrobotics.com/',
+    retrieved: '2026-11-20',
+    width: 32,
+    height: 32,
+  },
+  {
+    id: 'icon-construction-logo',
+    file: '/images/logos/icon-construction.svg',
+    alt: 'ICON wordmark with a dot above the O',
+    caption: 'ICON logo from its official website.',
+    sourceName: 'ICON official website',
+    sourceUrl: 'https://cdn.prod.website-files.com/696aa403bbe74c1adbd1ed11/699f0ca2d77efb26e8acb8ad_ison%20logo%20white.svg',
+    creator: 'ICON',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.iconbuild.com/',
+    retrieved: '2026-11-20',
+    width: 60,
+    height: 32,
+  },
+  {
+    id: 'reliable-robotics-logo',
+    file: '/images/logos/reliable-robotics.svg',
+    alt: 'Reliable Robotics symbol and wordmark',
+    caption: 'Reliable Robotics logo from its official website.',
+    sourceName: 'Reliable Robotics official website',
+    sourceUrl: 'https://reliable.co/assets/images/reliable-logo-lockup.svg',
+    creator: 'Reliable Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://reliable.co/',
+    retrieved: '2026-11-20',
+    width: 140,
+    height: 40,
+  },
+  {
+    id: 'dream-labs-logo',
+    file: '/images/logos/dream-labs.svg',
+    alt: 'Dream Labs cloud symbol',
+    caption: 'Dream Labs logo from its official website.',
+    sourceName: 'Dream Labs official website',
+    sourceUrl: 'https://dreamlabs.ai/brand/favicon.svg',
+    creator: 'Dream Labs',
+    licence: 'unlicensed',
+    licenceUrl: 'https://dreamlabs.ai/',
+    retrieved: '2026-11-20',
+    width: 334,
+    height: 334,
+  },
+  {
+    id: 'veeda-ai-logo',
+    file: '/images/logos/veeda-ai.svg',
+    alt: 'Veeda AI angular symbol',
+    caption: 'Veeda AI logo from its official website.',
+    sourceName: 'Veeda AI official website',
+    sourceUrl: 'https://www.veeda.ai/favicon.svg',
+    creator: 'Veeda AI',
+    licence: 'unlicensed',
+    licenceUrl: 'https://veeda.ai/',
+    retrieved: '2026-11-20',
+    width: 64,
+    height: 64,
+  },
+  {
+    id: 'enigma-robotics-logo',
+    file: '/images/logos/enigma-robotics.svg',
+    alt: 'Enigma wordmark',
+    caption: 'Enigma logo from its official website.',
+    sourceName: 'Enigma official website',
+    sourceUrl: 'https://www.enigma.inc/',
+    creator: 'Enigma',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.enigma.inc/',
+    retrieved: '2026-11-20',
+    width: 384,
+    height: 80,
+  },
+  {
+    id: 'poseidon-aerospace-logo',
+    file: '/images/logos/poseidon-aerospace.svg',
+    alt: 'Poseidon Aerospace geometric symbol',
+    caption: 'Poseidon Aerospace logo from its official website.',
+    sourceName: 'Poseidon Aerospace official website',
+    sourceUrl: 'https://poseidonaero.com/',
+    creator: 'Poseidon Aerospace',
+    licence: 'unlicensed',
+    licenceUrl: 'https://poseidonaero.com/',
+    retrieved: '2026-11-20',
+    width: 188,
+    height: 83,
+  },
+  {
+    id: 'standard-robots-logo',
+    file: '/images/logos/standard-robots.png',
+    alt: 'Standard Robots symbol and wordmark',
+    caption: 'Standard Robots logo from its official website.',
+    sourceName: 'Standard Robots official website',
+    sourceUrl: 'https://en.standard-robots.com/',
+    creator: 'Standard Robots',
+    licence: 'unlicensed',
+    licenceUrl: 'https://en.standard-robots.com/',
+    retrieved: '2026-11-20',
+    width: 173,
+    height: 40,
+  },
+  {
+    id: 'atomrobot-logo',
+    file: '/images/logos/atomrobot.png',
+    alt: 'Atomrobot English and Chinese wordmark',
+    caption: 'Tianjin Chenxing Technology (Atomrobot) logo from its official website.',
+    sourceName: 'Tianjin Chenxing Technology (Atomrobot) official website',
+    sourceUrl: 'https://www.atomrobot.com/',
+    creator: 'Tianjin Chenxing Technology (Atomrobot)',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.atomrobot.com/',
+    retrieved: '2026-11-20',
+    width: 595,
+    height: 296,
+  },
+  {
+    id: 'changzhou-microintelligence-logo',
+    file: '/images/logos/changzhou-microintelligence.png',
+    alt: 'Micro-Intelligence Chinese and English wordmark',
+    caption: 'Changzhou Microintelligence logo from its official website.',
+    sourceName: 'Changzhou Microintelligence official website',
+    sourceUrl: 'https://www.microintelligence.com.cn/_nuxt/img/ee463d9.png',
+    creator: 'Changzhou Microintelligence',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.microintelligence.com.cn/home',
+    retrieved: '2026-11-20',
+    width: 350,
+    height: 80,
+  },
+  {
+    id: 'al-robot-logo',
+    file: '/images/logos/al-robot.png',
+    alt: 'AL.Robot wordmark and symbol',
+    caption: 'AL Robot logo from its official website.',
+    sourceName: 'AL Robot official website',
+    sourceUrl: 'https://al-robot.com/cdn/shop/files/AL-Robots_Logo_Horizontal.png?v=1718740411&width=255',
+    creator: 'AL Robot',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.al-robot.com/',
+    retrieved: '2026-11-20',
+    width: 255,
+    height: 96,
+  },
+  {
+    id: 'firefly-robotics-logo',
+    file: '/images/logos/firefly-robotics.png',
+    alt: 'FireFly Robotics wordmark and firefly symbol',
+    caption: 'FireFly Robotics logo from its official website.',
+    sourceName: 'FireFly Robotics official website',
+    sourceUrl: 'https://fireflyautomatix.com/wp-content/uploads/2026/06/FireFly-Robotics-Logo_Blue-Yellow_No-Bg-Square_675x675.png',
+    creator: 'FireFly Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://fireflyautomatix.com/',
+    retrieved: '2026-11-20',
+    width: 675,
+    height: 675,
+  },
+  {
+    id: 'garuda-aerospace-logo',
+    file: '/images/logos/garuda-aerospace.svg',
+    alt: 'Garuda Aerospace symbol and wordmark',
+    caption: 'Garuda Aerospace logo from its official website.',
+    sourceName: 'Garuda Aerospace official website',
+    sourceUrl: 'https://www.garudaaerospace.com/images/logo.svg',
+    creator: 'Garuda Aerospace',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.garudaaerospace.com/',
+    retrieved: '2026-11-20',
+    width: 123,
+    height: 47,
+  },
+  {
+    id: 'aitmc-ventures-logo',
+    file: '/images/logos/aitmc-ventures.png',
+    alt: 'AVPL International wordmark and drone symbol',
+    caption: 'AITMC Ventures (AVPL International) logo from its official website.',
+    sourceName: 'AITMC Ventures (AVPL International) official website',
+    sourceUrl: 'https://avplinternational.com/AVPL%20Logo%20White.png',
+    creator: 'AITMC Ventures (AVPL International)',
+    licence: 'unlicensed',
+    licenceUrl: 'https://avplinternational.com/',
+    retrieved: '2026-11-20',
+    width: 3013,
+    height: 704,
+  },
+  {
+    id: 'wb-electronics-logo',
+    file: '/images/logos/wb-electronics.png',
+    alt: 'WB Electronics subsidiary wordmark and WB Group signature',
+    caption: 'WB Electronics logo from its official website.',
+    sourceName: 'WB Electronics official website',
+    sourceUrl: 'https://www.wbgroup.pl/app/uploads/2017/06/wb_electronics_logorgb.png',
+    creator: 'WB Electronics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.wbgroup.pl/en/wb-electronics/',
+    retrieved: '2026-11-20',
+    width: 4023,
+    height: 834,
+  },
+  {
+    id: 'brightai-logo',
+    file: '/images/logos/brightai.svg',
+    alt: 'BrightAI star and wordmark',
+    caption: 'BrightAI logo from its official website, used on the market pages.',
+    sourceName: 'BrightAI official website',
+    sourceUrl: 'https://www.bright.ai/',
+    creator: 'BrightAI',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.bright.ai/',
+    retrieved: '2026-11-20',
+    width: 1223,
+    height: 260,
+  },
+  {
+    id: 'cornerstone-robotics-logo',
+    file: '/images/logos/cornerstone-robotics.png',
+    alt: 'Cornerstone Robotics symbol and English wordmark',
+    caption: 'Cornerstone Robotics logo from its official website, used on the market pages.',
+    sourceName: 'Cornerstone Robotics official website',
+    sourceUrl: 'https://www.csrbtx.com/logo/csr-logo-en-brand.png',
+    creator: 'Cornerstone Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.csrbtx.com/en/',
+    retrieved: '2026-11-20',
+    width: 682,
+    height: 223,
+  },
+  {
+    id: 'iplusmobot-logo',
+    file: '/images/logos/iplusmobot.webp',
+    alt: 'IPLUSMOBOT symbol and wordmark',
+    caption: 'IPLUSMOBOT logo from its official website, used on the market pages.',
+    sourceName: 'IPLUSMOBOT official website',
+    sourceUrl: 'https://www.iplusmobot.com/themes/simple/img/logo.webp',
+    creator: 'IPLUSMOBOT',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.iplusmobot.com/',
+    retrieved: '2026-11-20',
+    width: 204,
+    height: 30,
+  },
+  {
+    id: 'megarobo-logo',
+    file: '/images/logos/megarobo.svg',
+    alt: 'MegaRobo angular M symbol',
+    caption: 'MegaRobo logo from its official website, used on the market pages.',
+    sourceName: 'MegaRobo official website',
+    sourceUrl: 'https://en.megarobo.com/assets/addons/cms/frontend/img/logo2.svg',
+    creator: 'MegaRobo',
+    licence: 'unlicensed',
+    licenceUrl: 'https://en.megarobo.com/',
+    retrieved: '2026-11-20',
+    width: 30,
+    height: 30,
+  },
+  {
+    id: 'remedy-robotics-logo',
+    file: '/images/logos/remedy-robotics.svg',
+    alt: 'Remedy Robotics symbol and wordmark',
+    caption: 'Remedy Robotics logo from its official website, used on the market pages.',
+    sourceName: 'Remedy Robotics official website',
+    sourceUrl: 'https://www.remedyrobotics.com/',
+    creator: 'Remedy Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.remedyrobotics.com/',
+    retrieved: '2026-11-20',
+    width: 284,
+    height: 42,
+  },
+  {
+    id: 'sudo-technology-logo',
+    file: '/images/logos/sudo-technology.svg',
+    alt: 'Sudo hash symbol and wordmark',
+    caption: 'Sudo Technology logo from its official website, used on the market pages.',
+    sourceName: 'Sudo Technology official website',
+    sourceUrl: 'https://assets.sudoai.cc/site/sudoai/logo.svg',
+    creator: 'Sudo Technology',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.sudo.ai/',
+    retrieved: '2026-11-20',
+    width: 84,
+    height: 24,
+  },
+  {
+    // The issuer PNG was losslessly deinterlaced; all decoded RGBA pixels are identical.
+    id: 'topstar-logo',
+    file: '/images/logos/topstar.png',
+    alt: 'Topstar wordmark',
+    caption: 'Topstar Technology logo from its official website, used on the market pages.',
+    sourceName: 'Topstar Technology official website',
+    sourceUrl: 'https://www.topstarmachine.com/wp-content/uploads/2026/07/Topstar-logo.png',
+    creator: 'Topstar Technology',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.topstarmachine.com/',
+    retrieved: '2026-11-20',
+    width: 4881,
+    height: 991,
+  },
+
+  {
     id: 'keyence-logo',
     file: '/images/logos/keyence.svg',
     alt: 'Keyence wordmark',
@@ -3618,125 +4108,6 @@ export const PENDING_LOGO_IMAGES: SiteImage[] = [
     // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
-    id: 'swarmer-logo',
-    file: '/images/logos/swarmer.svg',
-    alt: 'Swarmer chevron mark and wordmark',
-    caption: 'Swarmer logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of getswarmer.com',
-    sourceUrl: 'https://media.brand.dev/bfaf1101-26f1-4d48-85be-d8f8cbc4f387.svg',
-    creator: 'Swarmer',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/bfaf1101-26f1-4d48-85be-d8f8cbc4f387.svg',
-    retrieved: '2026-11-14',
-    width: 131,
-    height: 20,
-    // Official mark: the logo Brand.dev records for getswarmer.com, fetched from its file URL above and saved
-    // unchanged. File SHA-256 0b633e45fc7a903336c875b6127df4faeeb3d26a58ba26d5a92e3eac657ab984, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
-    id: 'amc-robotics-logo',
-    file: '/images/logos/amc-robotics.png',
-    alt: 'AMC Robotics wordmark',
-    caption: 'AMC Robotics logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of amcx.ai',
-    sourceUrl: 'https://media.brand.dev/373719b0-14fd-4cb9-99ef-0c5d14b77196.png',
-    creator: 'AMC Robotics',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/373719b0-14fd-4cb9-99ef-0c5d14b77196.png',
-    retrieved: '2026-11-14',
-    width: 840,
-    height: 210,
-    // Official mark: the logo Brand.dev records for amcx.ai, fetched from its file URL above and saved
-    // unchanged. File SHA-256 a350d9b7c43ca8140a79e504b3f9af0580e2d083fd57c022c72508a3246ae323, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
-    id: 'kaierda-logo',
-    file: '/images/logos/kaierda.png',
-    alt: 'Kaierda wordmark with its Chinese name',
-    caption: 'Kaierda logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of kaierda.cn',
-    sourceUrl: 'https://media.brand.dev/479f5aa6-cdf4-4d32-aa91-69c51dda3bb1.png',
-    creator: 'Kaierda',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/479f5aa6-cdf4-4d32-aa91-69c51dda3bb1.png',
-    retrieved: '2026-11-14',
-    width: 142,
-    height: 52,
-    // Official mark: the logo Brand.dev records for kaierda.cn, fetched from its file URL above and saved
-    // unchanged. File SHA-256 987e7205621fa740e72ca6e6b52d21c19446b8f4c4e0398beef5927932b1c02a, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
-    id: 'edge-medical-logo',
-    file: '/images/logos/edge-medical.svg',
-    alt: 'Edge Medical wordmark',
-    caption: 'Edge Medical logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of edgemed.cn',
-    sourceUrl: 'https://media.brand.dev/372ecca2-b498-49c0-b7f3-6ea3b61ba2e8.svg',
-    creator: 'Edge Medical',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/372ecca2-b498-49c0-b7f3-6ea3b61ba2e8.svg',
-    retrieved: '2026-11-14',
-    width: 842,
-    height: 317,
-    // Official mark: the logo Brand.dev records for edgemed.cn, fetched from its file URL above and saved
-    // unchanged. File SHA-256 716cfd0b7f56912a6ff4c04a5fd199b266365e171b91fdbf012ab63ecbfbbe26, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
-    id: 'eacon-logo',
-    file: '/images/logos/eacon.png',
-    alt: 'EACON wordmark with its Chinese name',
-    caption: 'EACON logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of eacon.com',
-    sourceUrl: 'https://media.brand.dev/b78b9a6d-4818-4c06-ad81-fd09e5c2ec1e.png',
-    creator: 'EACON',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/b78b9a6d-4818-4c06-ad81-fd09e5c2ec1e.png',
-    retrieved: '2026-11-14',
-    width: 1949,
-    height: 198,
-    // Official mark: the logo Brand.dev records for eacon.com, fetched from its file URL above and saved
-    // unchanged. File SHA-256 3f9c3f63dd9e95da77e2ca597d9a228a3c6ecc286711286bb71232caa842266d, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
-    id: 'excelland-robotics-logo',
-    file: '/images/logos/excelland-robotics.svg',
-    alt: 'Excelland Robotics mark and wordmark with its Chinese name',
-    caption: 'Excelland Robotics logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of uditech.com.cn',
-    sourceUrl: 'https://media.brand.dev/eb5418f4-9976-4eff-ab08-2f9f93b0c6d7.svg',
-    creator: 'Excelland Robotics',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/eb5418f4-9976-4eff-ab08-2f9f93b0c6d7.svg',
-    retrieved: '2026-11-14',
-    width: 131,
-    height: 33,
-    // Official mark: the logo Brand.dev records for uditech.com.cn, fetched from its file URL above and saved
-    // unchanged. File SHA-256 14e71031d8c709eec25f062c8c32c0274fa793c9f0efc94a6aa39bbbd0bc4cf3, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
-    id: 'bigwave-robotics-logo',
-    file: '/images/logos/bigwave-robotics.png',
-    alt: 'Bigwave Robotics wave mark and wordmark',
-    caption: 'Bigwave Robotics logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of bigwaverobotics.com',
-    sourceUrl: 'https://media.brand.dev/5e89726a-4aba-476b-97b3-861a915f8d8c.png',
-    creator: 'Bigwave Robotics',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/5e89726a-4aba-476b-97b3-861a915f8d8c.png',
-    retrieved: '2026-11-14',
-    width: 596,
-    height: 78,
-    // Official mark: the logo Brand.dev records for bigwaverobotics.com, fetched from its file URL above and saved
-    // unchanged. File SHA-256 500853dd80e9d447fa06ed5eae1fd12432f234fa7d9386ad8a75030e6652dbf9, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
     id: 'shuanghuan-logo',
     file: '/images/logos/shuanghuan.png',
     alt: 'Shuanghuan double ring mark and wordmark',
@@ -3785,40 +4156,6 @@ export const PENDING_LOGO_IMAGES: SiteImage[] = [
     height: 512,
     // Official mark: the logo Brand.dev records for applied-ad.com, fetched from its file URL above and saved
     // unchanged. File SHA-256 77dcf44a08c295cb267cca979a0413ecd7a20252eadda1b1c16328fe49d34c79, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
-    id: 'onerobotics-logo',
-    file: '/images/logos/onerobotics.svg',
-    alt: 'OneRobotics wordmark',
-    caption: 'OneRobotics logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of onerobot.com',
-    sourceUrl: 'https://media.brand.dev/6d179368-a1b6-4c30-a574-ce1451573975.svg',
-    creator: 'OneRobotics',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/6d179368-a1b6-4c30-a574-ce1451573975.svg',
-    retrieved: '2026-11-14',
-    width: 200,
-    height: 26,
-    // Official mark: the logo Brand.dev records for onerobot.com, fetched from its file URL above and saved
-    // unchanged. File SHA-256 367c7655d1d2547188a61ac71418a97ff5a7b45df1630d31cf498739c3adcd28, retrieved 2026-11-14.
-    // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
-  },
-  {
-    id: 'galaxis-logo',
-    file: '/images/logos/galaxis.png',
-    alt: 'Galaxis wordmark',
-    caption: 'Galaxis logo from its brand profile, used on the market pages.',
-    sourceName: 'Brand.dev profile of galaxis-tech.com',
-    sourceUrl: 'https://media.brand.dev/3b9c55c8-3754-4079-b24e-9951bcf88a53.png',
-    creator: 'Galaxis',
-    licence: 'unlicensed',
-    licenceUrl: 'https://media.brand.dev/3b9c55c8-3754-4079-b24e-9951bcf88a53.png',
-    retrieved: '2026-11-14',
-    width: 279,
-    height: 50,
-    // Official mark: the logo Brand.dev records for galaxis-tech.com, fetched from its file URL above and saved
-    // unchanged. File SHA-256 cb049474e25c812d886723c2055fd4f2d99781fe1c42ecfd74196adc456ee379, retrieved 2026-11-14.
     // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
@@ -3873,3 +4210,8 @@ export const PENDING_LOGO_IMAGES: SiteImage[] = [
     // No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
 ];
+
+// A mark belongs on /credits as soon as a published table draws it.
+const tableMarks = new Set(marketTableLogoIds());
+export const LOGO_IMAGES = [...mapImages, ...namedImages.filter((image) => tableMarks.has(image.id))];
+export const PENDING_LOGO_IMAGES = namedImages.filter((image) => !tableMarks.has(image.id));

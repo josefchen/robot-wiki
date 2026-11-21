@@ -14,6 +14,8 @@
  * lists for the page, first query first. `scripts/check-seo.ts` holds the
  * exported pages to these limits.
  */
+import { DEBUTS, PUBLIC_COMPANIES } from '../data/public-companies.ts';
+
 export interface RouteSeoProfile {
   title: string;
   description: string;
@@ -41,6 +43,17 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     headTerm: 'market map',
     description:
       'Market map of over 100 robotics and embodied-AI companies in six segments, from humanoids to foundation models, with disclosed funding and its sources.',
+    queries: [],
+  },
+  // The counts come from the rows, as in publicPageDescription() in
+  // lib/public-companies-page.ts, which this module cannot import: scripts
+  // load it under plain node, where the @/ alias does not resolve.
+  '/market-map/public/': {
+    title: 'Public Robotics Companies, Debuts and IPO Watch',
+    headTerm: 'public robotics companies',
+    description:
+      `Public robotics companies: ${PUBLIC_COMPANIES.length} listed companies by market value, ` +
+      `the ${DEBUTS.length} debuts of 2026 against their offer price, and who is preparing to list.`,
     queries: [],
   },
   '/market-map/rounds/': {

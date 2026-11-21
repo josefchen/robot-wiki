@@ -10,7 +10,7 @@
  */
 import type { CompanyProfile, ProfileSource } from '../schemas/company-profile.ts';
 
-export const UNITREE_AS_OF = '2026-11-14';
+export const UNITREE_AS_OF = '2026-11-20';
 
 const PROSPECTUS = {
   sourceType: 'primary',
@@ -58,15 +58,10 @@ const BOSCHKO_GO2 = {
   sourceType: 'primary',
   sourceUrl: 'https://boschko.ca/unitree-go2-rce/',
   sourceTitle:
-    'From DDS Packets to Robot Shells: Two RCEs in Unitree Go2 Robot Dog (Boschko Security Blog, 26 Feb 2026)',
+    'Unitree Go2 disclosure and vendor response timeline (Boschko Security Blog, 26 Feb 2026)',
 } as const satisfies ProfileSource;
 
 const GITHUB_API = 'https://api.github.com/orgs/unitreerobotics/repos';
-const HF_MODELS = {
-  sourceType: 'primary',
-  sourceUrl: 'https://huggingface.co/api/models?author=unitreerobotics',
-  sourceTitle: 'Hugging Face API: models by unitreerobotics',
-} as const satisfies ProfileSource;
 
 /** A product page on unitree.com, as a row source. */
 function page(path: string, title: string) {
@@ -91,7 +86,7 @@ function cveRecord(id: string) {
   } as const satisfies ProfileSource;
 }
 
-/** A GitHub repository row; the license is GitHub's detection on UNITREE_AS_OF. */
+/** A GitHub repository row; the license describes the publisher’s own code. */
 function repo(
   name: string,
   description: string,
@@ -109,7 +104,7 @@ function repo(
     created,
     sourceType: 'primary',
     sourceUrl: url,
-    sourceTitle: `unitreerobotics/${name} (GitHub; license as detected by GitHub)`,
+    sourceTitle: `unitreerobotics/${name} repository and license (GitHub)`,
   } as const;
 }
 
@@ -127,7 +122,9 @@ function hfModel(
     description,
     license,
     created,
-    ...HF_MODELS,
+    sourceType: 'primary',
+    sourceUrl: `https://huggingface.co/unitreerobotics/${name}`,
+    sourceTitle: `${name} model card and repository (Hugging Face)`,
   } as const;
 }
 
@@ -586,7 +583,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
   products: [
     // Humanoids
     {
-      id: 'g1', name: 'G1', family: 'G1', type: 'humanoid',
+      id: 'g1', name: 'G1', family: 'G1', type: 'humanoid', viewerModelId: 'unitree-g1',
       priceUsd: 13_500, priceAbsent: null,
       mass: { value: 35, unit: 'kg', qualifier: ABOUT }, dof: 23,
       payload: { value: 2, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
@@ -624,9 +621,17 @@ export const UNITREE_PROFILE: CompanyProfile = {
       ...page('G1pl', 'G1pl'),
     },
     {
+      id: 'g1-a-standard', name: 'G1-A Standard', family: 'G1-A', type: 'dual-arm',
+      priceUsd: null, priceAbsent: 'not disclosed',
+      mass: { value: 22, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'excluding end effector',
+      payload: { value: 3, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
+      notable: 'Fixed base with a three-axis waist',
+      ...page('G1-D', 'G1 Series'),
+    },
+    {
       id: 'g1-d-standard', name: 'G1-D Standard', family: 'G1-D', type: 'wheeled humanoid',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 90, unit: 'kg', qualifier: ABOUT }, dof: 17, dofBasis: 'excluding end effector',
+      mass: { value: 90, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'excluding end effector',
       payload: { value: 3, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       ...page('G1-D', 'G1-D'),
       note: 'The prospectus gives about 50 kg.',
@@ -634,7 +639,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'g1-d-flagship', name: 'G1-D Flagship', family: 'G1-D', type: 'wheeled humanoid',
       priceUsd: null, priceAbsent: 'not disclosed',
-      mass: { value: 90, unit: 'kg', qualifier: ABOUT }, dof: 19, dofBasis: 'excluding end effector',
+      mass: { value: 90, unit: 'kg', qualifier: ABOUT }, dof: 21, dofBasis: 'excluding end effector',
       payload: { value: 3, unit: 'kg', qualifier: ABOUT }, payloadBasis: ARM_MAX,
       ...page('G1-D', 'G1-D'),
     },
@@ -643,7 +648,11 @@ export const UNITREE_PROFILE: CompanyProfile = {
       priceUsd: null, priceAbsent: 'contact sales',
       mass: { value: 47, unit: 'kg', qualifier: ABOUT }, dof: 'not disclosed', payload: 'not disclosed',
       notable: '5 DoF per leg and 4 per arm; about 180 cm; knee torque about 360 N·m',
-      ...page('h1', 'h1'),
+      sourceType: 'primary',
+      sourceUrl: 'https://shop.unitree.com/products/unitree-h1',
+      sourceTitle: 'Unitree H1 (Unitree shop)',
+      ...specFrom('h1', 'h1'),
+      note: 'The shop lists an unavailable USD 90,000 variant. Its description says below USD 90,000 and directs buyers to sales.',
     },
     {
       id: 'h1-2', name: 'H1-2', family: 'H1-2', type: 'humanoid',
@@ -687,7 +696,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
     {
       id: 'h2-plus', name: 'H2 Plus', family: 'H2 Plus', type: 'humanoid',
       priceUsd: null, priceAbsent: 'contact sales',
-      mass: { value: 150, unit: 'lb' }, dof: 75, dofBasis: '31 in the body and 22 in each hand', payload: 'not disclosed',
+      mass: { value: 150, unit: 'lb' }, dof: 75, dofBasis: '31 in the body and 22 in each hand',
+      payload: { value: 7, unit: 'kg' }, payloadBasis: 'per arm on H2 Plus, rated; peak 15 kg',
       notable: 'NVIDIA Isaac GR00T reference humanoid with Jetson AGX Thor T5000',
       sourceType: 'primary',
       sourceUrl: 'https://www.unitree.com/news/40',
@@ -1161,7 +1171,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'notice-2026-005',
       date: '2026-10-29',
       kind: 'corporate',
-      title: 'Adds capital to the Hangzhou embodied AI pilot base, a 10% associate',
+      title: 'Proposes a capital increase for the Hangzhou embodied AI pilot base, a 10% associate',
       amount: { amount: 2_000, unit: 'CNY10k' },
       sourceType: 'primary',
       sourceUrl:
@@ -1173,18 +1183,17 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'cnpc-joint-venture',
       date: '2026-11-04',
       kind: 'corporate',
-      title: 'Merger filing shows a joint venture with CNPC units for industrial robots, 20% held by Unitree',
+      title: 'Merger filing proposes an industrial robotics joint venture with CNPC units and a 20% stake for Unitree',
       sourceType: 'reported',
       sourceUrl: 'https://www.nbd.com.cn/articles/2026-11-06/4641079.html',
       sourceTitle: '中石油联手宇树科技设合营公司，央企“组局”工业具身智能 (National Business Daily, 6 Nov 2026)',
       companyReply: 'no statement',
-      note: 'Unitree has filed no announcement on it.',
     },
     {
       id: 'tianjin-subsidiary',
       date: '2026-11',
       kind: 'corporate',
-      title: 'Tianjin subsidiary Tianjin Yutian Technology opens with an embodied AI innovation center',
+      title: 'Tianjin Yutian Technology begins operating as Unitree opens its Tianjin embodied AI innovation center',
       sourceType: 'reported',
       sourceUrl: 'https://www.tj.gov.cn/sy/tjxw/202611/t20261110_7652973.html',
       sourceTitle: '宇树科技具身智能创新中心启用 (Tianjin government portal, reprinting Tianjin Daily, 10 Nov 2026)',
@@ -1296,11 +1305,12 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'us-fcc-covered-list',
       date: '2026-07-28',
       kind: 'us-restriction',
-      title: 'FCC adds foreign-made advanced robots to its Covered List; new models cannot be authorized',
+      title: 'FCC restricts new authorizations for foreign-made advanced robots',
       sourceType: 'primary',
-      sourceUrl: 'https://docs.fcc.gov/public/attachments/DOC-423682A1.pdf',
+      sourceUrl: 'https://docs.fcc.gov/public/attachments/DA-26-786A1.pdf',
+      note: 'Earlier authorizations stand. For a covered advanced robot, the US Department of War may consider a request for conditional approval.',
       sourceTitle:
-        'FACT SHEET: FCC Updates Covered List to Include Foreign-Produced Advanced Robotic Devices and Power Inverters (FCC, 28 Jul 2026)',
+        'Public Notice DA 26-786: additions to the Covered List and conditional approvals (FCC, 28 Jul 2026)',
       companyReply: {
         text: 'Says its G1, H2, R1, Go2, B2 and A2 already hold FCC authorization.',
         ...PROSPECTUS,
@@ -1326,24 +1336,24 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'sec-cloudsail',
       date: '2025-03-27',
       kind: 'security',
-      title: 'Hidden CloudSail remote access tunnel on the Go1',
+      title: 'Researchers disclose a Go1 remote-access issue',
       cves: ['CVE-2025-2894'],
       credits: ['Andreas Makris', 'Kevin Finisterre'],
       sourceType: 'primary',
       sourceUrl: 'https://takeonme.org/cves/cve-2025-2894/',
-      sourceTitle: 'CVE-2025-2894: Unitree Go1 Backdoor Control Channel (AHA! disclosure, 27 Mar 2025)',
+      sourceTitle: 'CVE-2025-2894 disclosure for Unitree Go1 (AHA! disclosure, 27 Mar 2025)',
       companyReply: {
         text: 'Revoked the CloudSail API token two days after the report, per the researchers.',
         sourceType: 'primary',
         sourceUrl: 'https://takeonme.org/cves/cve-2025-2894/',
-        sourceTitle: 'CVE-2025-2894: Unitree Go1 Backdoor Control Channel (AHA! disclosure, 27 Mar 2025)',
+        sourceTitle: 'CVE-2025-2894 disclosure for Unitree Go1 (AHA! disclosure, 27 Mar 2025)',
       },
     },
     {
       id: 'sec-g1-telemetry',
       date: '2025-09-17',
       kind: 'security',
-      title: 'Paper finds the G1 sends telemetry to two outside servers every 300 s',
+      title: 'Researchers report external telemetry on the G1',
       credits: ['Víctor Mayoral-Vilches', 'Andreas Makris', 'Kevin Finisterre'],
       sourceType: 'primary',
       sourceUrl: 'https://arxiv.org/abs/2509.14139',
@@ -1352,14 +1362,12 @@ export const UNITREE_PROFILE: CompanyProfile = {
     },
     {
       id: 'sec-unipwn',
-      date: '2025-09-20',
+      date: '2025-09-26',
       kind: 'security',
-      title: 'UniPwn: a Bluetooth Wi-Fi setup flaw gives root on the Go2, G1, H1 and B2',
+      title: 'CVE records identify issues affecting the Go2, G1, H1 and B2',
       cves: ['CVE-2025-35027', 'CVE-2025-60017', 'CVE-2025-60250', 'CVE-2025-60251'],
       credits: ['Andreas Makris', 'Kevin Finisterre'],
-      sourceType: 'primary',
-      sourceUrl: 'https://github.com/Bin4ry/UniPwn',
-      sourceTitle: 'Bin4ry/UniPwn README (GitHub), 20 Sep 2025',
+      ...cveRecord('CVE-2025-60017'),
       companyReply: {
         text: 'Said on LinkedIn it had completed most of the fixes and would roll them out.',
         date: '2025-09-29',
@@ -1367,7 +1375,6 @@ export const UNITREE_PROFILE: CompanyProfile = {
         sourceUrl: 'https://spectrum.ieee.org/unitree-robot-exploit',
         sourceTitle: 'Unitree Robot Hack: What You Need to Know (IEEE Spectrum, updated 29 Sep 2025)',
       },
-      note: 'The CVE records were published on 26 Sep 2025.',
     },
     {
       id: 'sec-response-center',
@@ -1382,7 +1389,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'sec-go2-dds',
       date: '2026-02-26',
       kind: 'security',
-      title: 'Two Go2 root code execution flaws, through DDS and tampered app programs',
+      title: 'Researchers disclose two Go2 software vulnerabilities',
       cves: ['CVE-2026-27509', 'CVE-2026-27510'],
       credits: ['Olivier Laflamme', 'Ruikai'],
       ...BOSCHKO_GO2,
@@ -1396,7 +1403,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'sec-cve-2026-1442',
       date: '2026-02-27',
       kind: 'security',
-      title: 'Firmware updates can be altered and still trusted, on all current products',
+      title: 'CVE record lists Unitree firmware packages through version 20260226v1 as affected',
       cves: ['CVE-2026-1442'],
       credits: ['Andreas Makris'],
       ...cveRecord('CVE-2026-1442'),
@@ -1406,27 +1413,26 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'sec-unibleed',
       date: '2026-08-27',
       kind: 'security',
-      title: 'UniBLEed: unauthenticated root on any G1 within Bluetooth range',
+      title: 'Researchers disclose two G1 EDU security issues',
       cves: ['CVE-2026-76639', 'CVE-2026-76640'],
       credits: ['Olivier Laflamme'],
       sourceType: 'primary',
       sourceUrl: 'https://boschko.ca/g1-ble-rce/',
       sourceTitle:
-        'UniBLEed: Unauthenticated Root RCE on Any Unitree G1 Humanoid Robot Within Bluetooth Range (Boschko Security Blog, 27 Aug 2026)',
+        'Unitree G1 EDU disclosure and vendor response timeline (Boschko Security Blog, 27 Aug 2026)',
       companyReply: {
-        text: 'Validated both flaws, paid a USD 5,000 bounty on 6 Aug 2026 and shipped firmware 1.5.5.0 on 1 Sep 2026, per the researcher.',
+        text: 'Confirmed both issues and shipped firmware 1.5.5.0 on 1 Sep 2026, per the researcher.',
         sourceType: 'primary',
         sourceUrl: 'https://boschko.ca/g1-ble-rce/',
         sourceTitle:
-          'UniBLEed: Unauthenticated Root RCE on Any Unitree G1 Humanoid Robot Within Bluetooth Range (Boschko Security Blog, 27 Aug 2026)',
+          'Unitree G1 EDU disclosure and vendor response timeline (Boschko Security Blog, 27 Aug 2026)',
       },
-      note: 'The post’s subtitle says USD 6,700; its timeline says USD 5,000 was paid.',
     },
     {
       id: 'sec-cve-2026-115995',
       date: '2026-10-24',
       kind: 'security',
-      title: 'Critical command injection in the Go2 chat_go volume control, fixed in 1.1.11.5',
+      title: 'Go2 software issue fixed in version 1.1.11.5',
       cves: ['CVE-2026-115995'],
       credits: ['JasperXJY'],
       ...cveRecord('CVE-2026-115995'),
@@ -1439,7 +1445,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       id: 'sec-cve-2026-115996',
       date: '2026-10-24',
       kind: 'security',
-      title: 'Go2 chat_go client skips certificate validation',
+      title: 'Go2 software security issue acknowledged by Unitree',
       cves: ['CVE-2026-115996'],
       credits: ['JasperXJY'],
       ...cveRecord('CVE-2026-115996'),
@@ -1458,7 +1464,7 @@ export const UNITREE_PROFILE: CompanyProfile = {
       url: 'https://github.com/unitreerobotics',
       description: 'Public repositories of the organization',
       license: 'mixed',
-      count: 59,
+      count: 61,
       countIsFloor: false,
       sourceType: 'primary',
       sourceUrl: GITHUB_API,
@@ -1473,11 +1479,11 @@ export const UNITREE_PROFILE: CompanyProfile = {
     repo('unitree_rl_gym', 'Reinforcement learning for the Go2, H1, H1-2 and G1', 'BSD-3-Clause', '2023-10-11'),
     repo('unitree_rl_lab', 'Reinforcement learning on Isaac Lab', 'Apache-2.0', '2025-06-05'),
     repo('unitree_rl_mjlab', 'Reinforcement learning on MuJoCo', 'Apache-2.0', '2026-01-27'),
-    repo('unitree_sim_isaaclab', 'Simulation environment on Isaac Lab', 'custom license file', '2025-06-24'),
+    repo('unitree_sim_isaaclab', 'Simulation environment on Isaac Lab', 'Apache-2.0', '2025-06-24'),
     repo('unitree_model', 'Robot model files', 'BSD-3-Clause', '2024-04-29'),
-    repo('xr_teleoperate', 'Humanoid teleoperation from XR headsets such as Apple Vision Pro', 'custom license file', '2024-08-05'),
-    repo('unitree_lerobot', 'Imitation learning framework built on LeRobot', 'custom license file', '2024-10-18'),
-    repo('unifolm-world-model-action', 'UnifoLM-WMA-0 world model action code', 'custom license file', '2025-09-12'),
+    repo('xr_teleoperate', 'Humanoid teleoperation from XR headsets such as Apple Vision Pro', 'Apache-2.0', '2024-08-05'),
+    repo('unitree_lerobot', 'Imitation learning framework built on LeRobot', 'Apache-2.0', '2024-10-18'),
+    repo('unifolm-world-model-action', 'UnifoLM-WMA-0 world model action code', 'CC BY-NC-SA 4.0', '2025-09-12'),
     repo('unifolm-vla', 'UnifoLM-VLA-0 vision language action code', 'no license file', '2026-01-12'),
     repo('unifolm-wla', 'UnifoLM-WLA-1.0 humanoid foundation model code', 'Apache-2.0', '2026-09-11'),
     repo('point_lio_unilidar', 'Point-LIO SLAM for the L1 and L2 lidars', 'GPL-2.0', '2023-09-22'),
@@ -1485,12 +1491,20 @@ export const UNITREE_PROFILE: CompanyProfile = {
     repo('z1_sdk', 'SDK for the Z1 arm', 'BSD-3-Clause', '2022-07-20'),
     repo('unitree_robotskills', 'Robot skill framework', 'Apache-2.0', '2026-10-28'),
     repo('r1-7a_sdk', 'SDK for the R1-7a arm', 'BSD-3-Clause', '2026-09-28'),
-    repo('Qmini', 'Open bipedal robot design', 'custom license file', '2025-05-22'),
-    hfModel('UnifoLM-WMA-0-Base', 'World model action, base weights', 'Apache-2.0', '2025-09-09'),
-    hfModel('UnifoLM-WMA-0-Dual', 'World model action, dual weights', 'Apache-2.0', '2025-09-17'),
-    hfModel('UnifoLM-VLM-Base', 'Vision language model weights', 'no license tag', '2026-01-28'),
-    hfModel('UnifoLM-VLA-Base', 'Vision language action weights', 'no license tag', '2026-01-28'),
-    hfModel('UnifoLM-VLA-Libero', 'Vision language action weights for LIBERO', 'no license tag', '2026-01-28'),
+    repo('uni_calib', 'Camera calibration for robots', 'Apache-2.0', '2026-11-17'),
+    repo('G1_cloth_service', 'Reads tactile sensing cloth on the G1', 'BSD-3-Clause', '2026-11-18'),
+    repo('Qmini', 'Open bipedal robot design', 'CC BY-NC-SA 4.0', '2025-05-22'),
+    {
+      ...hfModel('UnifoLM-WMA-0-Base', 'World model action, base weights', 'conflicting statements', '2025-09-09'),
+      note: 'The model card specifies CC BY-NC-SA 4.0, while its metadata carries an Apache-2.0 tag.',
+    },
+    {
+      ...hfModel('UnifoLM-WMA-0-Dual', 'World model action, dual weights', 'conflicting statements', '2025-09-17'),
+      note: 'The model card specifies CC BY-NC-SA 4.0, while its metadata carries an Apache-2.0 tag.',
+    },
+    hfModel('UnifoLM-VLM-Base', 'Vision language model weights', 'CC BY-NC-SA 4.0', '2026-01-28'),
+    hfModel('UnifoLM-VLA-Base', 'Vision language action weights', 'CC BY-NC-SA 4.0', '2026-01-28'),
+    hfModel('UnifoLM-VLA-Libero', 'Vision language action weights for LIBERO', 'CC BY-NC-SA 4.0', '2026-01-28'),
     hfModel('UnifoLM-ER-1', 'Embodied reasoning weights', 'Apache-2.0', '2026-09-11'),
     hfModel('UnifoLM-ER-Flow', 'Embodied reasoning weights', 'Apache-2.0', '2026-09-11'),
     {
@@ -1500,6 +1514,8 @@ export const UNITREE_PROFILE: CompanyProfile = {
         'Apache-2.0',
         '2026-09-28',
       ),
+      sourceUrl: 'https://github.com/unitreerobotics/unifolm-wla',
+      sourceTitle: 'UnifoLM-WLA-1.0 model description (GitHub)',
       note: 'Parameter count, hours and tasks are Unitree’s own figures.',
     },
     {
@@ -1509,20 +1525,21 @@ export const UNITREE_PROFILE: CompanyProfile = {
       url: 'https://huggingface.co/unitreerobotics',
       description: 'Robot task datasets, mostly G1 sets, among them sets with the Dex1 and Dex3 hands',
       license: 'mixed',
-      count: 246,
+      count: 262,
       countIsFloor: false,
       sourceType: 'primary',
       sourceUrl: 'https://huggingface.co/api/datasets?author=unitreerobotics',
       sourceTitle: 'Hugging Face API: datasets by unitreerobotics',
-      note: '245 of the 246 carry an Apache-2.0 tag; unitree_model carries none.',
+      note: '261 of the 262 carry an Apache-2.0 tag; unitree_model carries none.',
     },
     {
       id: 'unibot-v1',
       name: 'UniBot-V1 challenge dataset',
       kind: 'dataset',
-      url: 'https://www.unitree.com/data',
+      url: 'https://huggingface.co/collections/unitreerobotics/unibot-v1-challenge-dataset-6a3138a00ea492d60df023c8',
       description: 'Over 160 h and 33,000 trajectories on the G1 with the Dex1 gripper, 32 tabletop tasks, LeRobot v3 format',
-      license: 'not disclosed',
+      license: 'Apache-2.0',
+      note: 'All 32 task datasets in Unitree’s Hugging Face collection carry the Apache-2.0 tag.',
       created: '2026-10-15',
       sourceType: 'primary',
       sourceUrl: 'https://www.unitree.com/data',

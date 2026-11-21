@@ -119,10 +119,14 @@ test.describe('market map visualization', () => {
     await expect(lead).toHaveText(
       `${COMPANY_COUNT} companies in six segments, each with its latest disclosed round or status and the sources behind it, ${asOf}.`,
     );
-    // The Market section's two pages: this one marked, the rounds linked.
+    // The Market section's three pages: this one marked, the other two linked.
     const section = page.getByRole('navigation', { name: 'Market' });
     await expect(section.locator('[aria-current="page"]')).toHaveText('Market map');
-    await expect(section.getByRole('link')).toHaveCount(1);
+    await expect(section.getByRole('link')).toHaveCount(2);
+    await expect(section.getByRole('link', { name: 'Public companies' })).toHaveAttribute(
+      'href',
+      '/market-map/public/',
+    );
     await expect(section.getByRole('link', { name: 'Recent rounds' })).toHaveAttribute(
       'href',
       '/market-map/rounds/',

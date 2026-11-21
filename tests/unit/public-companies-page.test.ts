@@ -80,7 +80,7 @@ describe('the rates the page converts with', () => {
 
   it('states both dates in the conversion note', () => {
     expect(conversionNote()).toBe(
-      "Sorted by market value in US dollars, converted at the European Central Bank's reference rates of " +
+      "Market values use US dollars for comparison, converted at the European Central Bank's reference rates of " +
         "13 November 2026; Taiwan dollars at the Federal Reserve's H.10 rate of 6 November 2026.",
     );
   });
@@ -133,7 +133,7 @@ describe('page text', () => {
   it('gives each section its lead', () => {
     expect(PUBLIC_PAGE_SECTIONS.map((s) => s.id)).toEqual(['listed-companies', 'ipo-watch', 'since-listing']);
     expect(listedLead()).toBe(
-      '73 pure plays, 19 companies where robots are a major part and 43 where they are a minor part, largest first.',
+      '73 pure plays, 19 companies where robots are a major part and 43 where they are a minor part. The table opens with pure plays first, largest by market value within each group.',
     );
     expect(leftOutLead()).toBe(
       '22 listed companies kept off the list: robots are neither the business nor a named, reported part of it.',

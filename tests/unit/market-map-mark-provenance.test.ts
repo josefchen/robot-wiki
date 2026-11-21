@@ -22,6 +22,8 @@ import {
   withheldMark,
   type MarkPreset,
 } from '@/lib/market-map-marks';
+import { marketTableLogoIds } from '@/lib/market-table-logos';
+import { publicMarketMapData } from '@/lib/public-market-map';
 
 /**
  * The provenance of every company mark the market pages can draw, joined
@@ -90,28 +92,52 @@ const companyMarks = COMPANIES.filter((company) => company.logo !== null).map((c
 }));
 
 /**
- * Marks the market pages find by company name (data/company-logos.ts) that
- * no market-map row carries. No published page draws them yet, so they are
- * pending (PENDING_LOGO_IMAGES), outside IMAGES and off /credits. They meet
- * the same provenance checks; only the rendered credit and the CompanyLogo
- * rendering are checked on the drawn marks alone.
+ * Marks the public companies map or the IPO and funding tables draw at some
+ * width that no primary market-map row
+ * carries. Drawn, so credited: in LOGO_IMAGES, in IMAGES and on /credits.
  */
-const namedMarks = [...new Set(Object.values(COMPANY_LOGO_IDS))]
+const publicMapData = publicMarketMapData();
+const publishedNamedMarks = [
+  ...new Set([
+    ...[...publicMapData.sized, ...publicMapData.outOfScale].flatMap((c) => (c.mark ? [c.mark.logo] : [])),
+    ...marketTableLogoIds(),
+  ]),
+]
   .filter((id) => !companyMarks.some((mark) => mark.id === id))
   .sort()
   .map((id) => ({ company: null, ...joined(id) }));
 
-const marks = [...companyMarks, ...namedMarks];
+/**
+ * Marks the market pages find by company name (data/company-logos.ts) that
+ * the maps and market tables do not draw. No
+ * page draws them yet, so they are pending (PENDING_LOGO_IMAGES), outside
+ * IMAGES and off /credits. They meet the same provenance checks; only the
+ * rendered credit and the CompanyLogo rendering are checked on the drawn
+ * marks alone.
+ */
+const namedMarks = [...new Set(Object.values(COMPANY_LOGO_IDS))]
+  .filter((id) => !companyMarks.some((mark) => mark.id === id))
+  .filter((id) => !publishedNamedMarks.some((mark) => mark.id === id))
+  .sort()
+  .map((id) => ({ company: null, ...joined(id) }));
+
+const marks = [...companyMarks, ...publishedNamedMarks, ...namedMarks];
 
 describe('market-map mark provenance, mark by mark', () => {
   it('joins every company mark to one registry record, lookup and placement', () => {
     expect(marks.length).toBeGreaterThan(0);
     // One mark per company, and every registered mark belongs to a company
-    // row or to a name the market pages look up.
+    // row, to the public companies map or to a name the market pages look up.
     expect(namedMarks.length).toBeGreaterThan(0);
+    expect(publishedNamedMarks.length).toBeGreaterThan(0);
     expect(new Set(marks.map((mark) => mark.id)).size).toBe(marks.length);
-    expect(companyMarks.map((mark) => mark.id).sort()).toEqual(LOGO_IMAGES.map((image) => image.id).sort());
+    // Credited exactly when a page draws it.
+    expect([...companyMarks, ...publishedNamedMarks].map((mark) => mark.id).sort()).toEqual(
+      LOGO_IMAGES.map((image) => image.id).sort(),
+    );
     expect(namedMarks.map((mark) => mark.id)).toEqual(PENDING_LOGO_IMAGES.map((image) => image.id).sort());
+    // The public map finds its marks by name, through the same lookup.
+    for (const mark of publishedNamedMarks) expect(Object.values(COMPANY_LOGO_IDS), mark.id).toContain(mark.id);
     for (const mark of marks) {
       const owner = mark.company?.id ?? 'named';
       expect(mark.record, `${owner}: registry record for ${mark.id}`).toBeDefined();
@@ -188,7 +214,7 @@ describe('market-map mark provenance, mark by mark', () => {
     const withheld = companyMarks.filter(({ id }) => withheldMark(id) !== null);
     expect(withheld.map(({ id }) => id)).toEqual(Object.keys(WITHHELD_MARKS));
     expect(withheld).toHaveLength(1);
-    for (const mark of namedMarks) expect(withheldMark(mark.id), mark.id).toBeNull();
+    for (const mark of [...publishedNamedMarks, ...namedMarks]) expect(withheldMark(mark.id), mark.id).toBeNull();
     for (const mark of companyMarks) {
       const entry = withheldMark(mark.id);
       for (const preset of ['tile', 'sheet'] as const) {

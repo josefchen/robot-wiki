@@ -53,6 +53,8 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'agibot-logo': { sha256: '83535ee96d57a776', box: [0.0041, 0.0517, 1, 0.9656], ink: 0.199 },
   'agile-robots-logo': { sha256: 'dedf35cd7294a7b6', box: [0, 0, 0.9995, 0.9937], ink: 0.243 },
   'agility-robotics-logo': { sha256: '002ec3a67ac2d4b4', box: null, ink: 0.338 },
+  'aitmc-ventures-logo': { sha256: '14403f585437f23b', box: null, ink: 0.231 },
+  'al-robot-logo': { sha256: '8ca5bd8122dd53d0', box: [0.0431, 0.1875, 0.9569, 0.8125], ink: 0.419 },
   'alphabet-logo': { sha256: 'fd06ce5686c3f6fd', box: null, ink: 0.28 },
   'amazon-robotics-logo': { sha256: '2a9bbfe5cefc4c98', box: null, ink: 0.16 },
   'ambirobotics-logo': { sha256: '01bedd4837d4db48', box: [0, 0, 0.9915, 0.9987], ink: 0.343 },
@@ -64,6 +66,7 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'apptronik-logo': { sha256: '1de32fafc1067e0c', box: null, ink: 0.25 },
   'assured-robot-intelligence-logo': { sha256: '30e8b908eff58d07', box: null, ink: 0.991 },
   'astribot-logo': { sha256: 'dcaf7edf89799411', box: [0, 0.2755, 1, 0.7194], ink: 0.346 },
+  'atomrobot-logo': { sha256: 'aef24b601f55c566', box: [0.0033, 0.1418, 0.9967, 0.8683], ink: 0.331 },
   'atoms-logo': { sha256: '583574ad607d96a5', box: null, ink: 0.52 },
   'aurora-innovation-logo': { sha256: 'd50c6a1ecf26183c', box: [0, 0.0106, 1, 0.9894], ink: 0.329 },
   'automata-logo': { sha256: '0eadf9a3bd83239a', box: null, ink: 0.308 },
@@ -75,8 +78,10 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'booster-robotics-logo': { sha256: 'e6ad6a165f2499f7', box: [0.062, 0.1035, 0.9175, 0.8965], ink: 0.855 },
   'boston-dynamics-logo': { sha256: 'd5f3c7c5371e487c', box: [0, 0.3825, 1, 0.618], ink: 0.198 },
   'brain-corp-logo': { sha256: '407e78af7411b004', box: null, ink: 0.285 },
+  'brightai-logo': { sha256: '375a6e715712d58f', box: null, ink: 0.302 },
   'camsense-logo': { sha256: '97187e53d5515fd9', box: [0, 0, 0.976, 0.8474], ink: 0.209 },
   'carbon-robotics-logo': { sha256: '563b8cc9e28c68c1', box: null, ink: 0.441 },
+  'changzhou-microintelligence-logo': { sha256: 'fc757e27a6e88039', box: null, ink: 0.417 },
   'chef-robotics-logo': { sha256: 'c032cbb38784252c', box: [0.0225, 0.1995, 0.987, 0.8616], ink: 0.294 },
   'cidi-logo': { sha256: '64a0c5c8061c21d8', box: null, ink: 0.686 },
   'clobot-logo': { sha256: '17d1993e68ac811e', box: null, ink: 0.264 },
@@ -85,6 +90,7 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'coco-robotics-logo': { sha256: 'a631b8e840f671e2', box: null, ink: 0.347 },
   'cognex-logo': { sha256: 'd95ba1d91e6593e4', box: null, ink: 0.637 },
   'collaborative-robotics-logo': { sha256: '812ff81760dea8dc', box: [0, 0, 0.992, 1], ink: 0.306 },
+  'cornerstone-robotics-logo': { sha256: '69e70a728cff9d90', box: [0.0263, 0.0807, 0.9751, 0.9193], ink: 0.214 },
   'covariant-logo': { sha256: 'f3b4b71e2da692e1', box: [0, 0, 0.972, 0.972], ink: 0.25 },
   'curexo-logo': { sha256: 'a0ab120c4b8dab7f', box: null, ink: 0.263 },
   'cyberdyne-logo': { sha256: '02b7ef86e1d8246a', box: [0.0085, 0.0675, 0.9915, 0.9325], ink: 0.167 },
@@ -96,6 +102,7 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'dobot-logo': { sha256: 'f44d5d7c7579d322', box: [0.008, 0, 0.992, 1], ink: 0.309 },
   'doosan-robotics-logo': { sha256: 'ce7d21cceb3bfdd4', box: [0, 0.0247, 0.9975, 0.9753], ink: 0.648 },
   'draganfly-logo': { sha256: 'a72fb5bf2546ab40', box: null, ink: 0.263 },
+  'dream-labs-logo': { sha256: '863059def5ad567c', box: [0.005, 0.254, 0.995, 0.746], ink: 0.691 },
   'durr-logo': { sha256: 'edbf5f1af04973c5', box: null, ink: 0.561 },
   'dyna-robotics-logo': { sha256: 'ff25acc405ad3892', box: null, ink: 0.329 },
   'eacon-logo': { sha256: '3f9c3f63dd9e95da', box: null, ink: 0.402 },
@@ -105,6 +112,7 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'eka-robotics-logo': { sha256: '9f5e876be3125938', box: null, ink: 0.48 },
   'encord-logo': { sha256: '7053e234155595f4', box: null, ink: 0.593 },
   'engineai-logo': { sha256: '2f6e25ab155f8b00', box: [0.1513, 0.3107, 0.8477, 0.6872], ink: 0.386 },
+  'enigma-robotics-logo': { sha256: '25a9a983018bfd72', box: [0, 0.1462, 1, 0.9809], ink: 0.487 },
   'epson-logo': { sha256: '4a768b44784fbc60', box: [0, 0.1414, 1, 0.8261], ink: 0.53 },
   'exail-logo': { sha256: 'e65456b6888b8e98', box: null, ink: 0.432 },
   'excelland-robotics-logo': { sha256: '14e71031d8c709ee', box: null, ink: 0.3 },
@@ -112,6 +120,7 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'farm-ng-logo': { sha256: 'afce0abf0c8a8fbb', box: null, ink: 0.156 },
   'field-ai-logo': { sha256: '35ea012d62b6d0bd', box: [0.016, 0.0527, 0.984, 0.9473], ink: 0.478 },
   'figure-ai-logo': { sha256: '01566fa8768852f2', box: null, ink: 0.31 },
+  'firefly-robotics-logo': { sha256: '34bd5d35daecc0f8', box: [0.0666, 0.1274, 0.9334, 0.8726], ink: 0.304 },
   'formic-logo': { sha256: '2321647ef9c5751d', box: null, ink: 0.261 },
   'foundry-robotics-logo': { sha256: 'ad9abd8bd0ebe40d', box: [0.0395, 0.0395, 0.9605, 0.9605], ink: 0.462 },
   'fourier-intelligence-logo': { sha256: '898ede3483071d3e', box: [0.0375, 0.136, 0.9625, 0.864], ink: 0.46 },
@@ -120,6 +129,7 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'galaxea-ai-logo': { sha256: '343665114cf5ee3a', box: null, ink: 0.255 },
   'galaxis-logo': { sha256: 'cb049474e25c812d', box: null, ink: 0.469 },
   'galbot-logo': { sha256: '78ff7309207722d2', box: [0, 0, 0.999, 0.9904], ink: 0.306 },
+  'garuda-aerospace-logo': { sha256: '81f98cf46b16d4c2', box: [0.005, 0.0667, 0.976, 0.8456], ink: 0.317 },
   'gatik-logo': { sha256: '54cd8457e6cd0db7', box: null, ink: 0.377 },
   'gecko-robotics-logo': { sha256: '7f3c4d161eba6758', box: null, ink: 0.399 },
   'geek-plus-logo': { sha256: 'e7c67ccf575f9312', box: [0.028, 0.2124, 0.9704, 0.7855], ink: 0.406 },
@@ -128,6 +138,7 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'genrobot-logo': { sha256: '89f99ca2de5c461f', box: null, ink: 0.377 },
   'globus-medical-logo': { sha256: '867ca1a508e756fb', box: null, ink: 0.333 },
   'google-deepmind-robotics-logo': { sha256: 'a0ef252f512e9750', box: null, ink: 0.286 },
+  'gravis-robotics-logo': { sha256: '20bcc33a7f7e1d16', box: [0.1562, 0.0625, 0.8438, 0.9063], ink: 0.549 },
   'guardforce-ai-logo': { sha256: 'f9d16b64eb1ee43c', box: null, ink: 0.347 },
   'hadrian-logo': { sha256: 'a00e2533a07b3b9d', box: [0, 0, 0.9985, 0.976], ink: 0.507 },
   'hanson-robotics-logo': { sha256: 'a9b6f489c4f29018', box: [0.0272, 0.102, 0.9778, 0.884], ink: 0.219 },
@@ -136,7 +147,9 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'hiwin-logo': { sha256: '16d9b834e771fe72', box: null, ink: 0.479 },
   'hugging-face-logo': { sha256: '87ac947dc4f0a914', box: [0.0925, 0.12, 0.9075, 0.88], ink: 0.533 },
   'humanoid-uk-logo': { sha256: '0a86825d0538deb5', box: [0, 0, 0.9985, 0.9843], ink: 0.187 },
+  'icon-construction-logo': { sha256: 'a592c551cb9e71e9', box: null, ink: 0.465 },
   'intuitive-surgical-logo': { sha256: 'c264280dd715519a', box: null, ink: 0.077 },
+  'iplusmobot-logo': { sha256: 'd50c9d0d8c4eb97a', box: null, ink: 0.337 },
   'irobot-logo': { sha256: '51fd0c843c51c51a', box: [0.005, 0.0252, 0.995, 0.9748], ink: 0.56 },
   'johnson-and-johnson-logo': { sha256: '4a2b19e761a80353', box: [0.011, 0.0256, 0.9875, 0.9744], ink: 0.336 },
   'jungheinrich-logo': { sha256: '2f58e94909e00aae', box: [0, 0, 0.999, 0.9867], ink: 0.427 },
@@ -165,6 +178,7 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'maytronics-logo': { sha256: '2959a743e4121ce0', box: [0, 0.0187, 1, 0.9813], ink: 0.168 },
   'mech-mind-logo': { sha256: '515515ab4ab84886', box: [0.0134, 0.0546, 0.9858, 0.9336], ink: 0.362 },
   'mecka-logo': { sha256: 'c9aa08f163979356', box: [0, 0.0144, 0.9985, 0.9239], ink: 0.326 },
+  'megarobo-logo': { sha256: 'e9251820f8cc44b6', box: [0, 0.1395, 1, 0.8605], ink: 0.453 },
   'mentee-robotics-logo': { sha256: '334175e1e217e684', box: [0, 0.0357, 1, 0.9881], ink: 0.378 },
   'meta-logo': { sha256: 'b536f39ac80d6b93', box: null, ink: 0.39 },
   'micro1-logo': { sha256: 'd47e282dc81a7794', box: [0.005, 0.0356, 1, 0.9644], ink: 0.415 },
@@ -208,9 +222,12 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'physical-intelligence-logo': { sha256: 'e9d0c305d49f04ed', box: [0, 0.015, 1, 0.985], ink: 0.424 },
   'plus-one-robotics-logo': { sha256: '6495996b5ac0c095', box: [0.0053, 0, 1, 1], ink: 0.207 },
   'pollen-robotics-logo': { sha256: 'ccae1aa71a658d59', box: [0, 0.0816, 0.994, 0.9184], ink: 0.201 },
+  'poseidon-aerospace-logo': { sha256: 'd44fe7b95b7782e1', box: [0.0895, 0.0826, 0.9105, 0.9061], ink: 0.793 },
   'procept-biorobotics-logo': { sha256: '802df476fd752b41', box: null, ink: 0.266 },
   'rainbow-robotics-logo': { sha256: '801d3b9dc5962665', box: null, ink: 0.467 },
   'red-cat-logo': { sha256: '15fd0440ff1d4981', box: [0, 0.3088, 1, 0.8089], ink: 0.281 },
+  'reliable-robotics-logo': { sha256: '53494db9195e1576', box: null, ink: 0.522 },
+  'remedy-robotics-logo': { sha256: '15599e62e58c55cf', box: [0, 0, 0.999, 0.9899], ink: 0.21 },
   'rhoda-ai-logo': { sha256: 'b4e18713c8a5bf99', box: null, ink: 0.287 },
   'richtech-robotics-logo': { sha256: 'd9eb677f63ae0232', box: null, ink: 0.395 },
   'righthand-robotics-logo': { sha256: '5113850e9b0c22ce', box: null, ink: 0.229 },
@@ -239,7 +256,9 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'spirit-ai-logo': { sha256: 'a5dc5cb85406b0a1', box: [0.0045, 0.0208, 0.9995, 0.9804], ink: 0.304 },
   'ss-innovations-logo': { sha256: '7b29bad0fd3e1ff2', box: [0, 0.0333, 1, 0.9667], ink: 0.258 },
   'standard-bots-logo': { sha256: 'f2075bb7562a6f31', box: [0.005, 0, 0.992, 1], ink: 0.267 },
+  'standard-robots-logo': { sha256: '974f045b5e2226e1', box: null, ink: 0.299 },
   'starship-logo': { sha256: '95c2e46e3a137b3d', box: [0.004, 0.0263, 0.996, 0.9737], ink: 0.611 },
+  'sudo-technology-logo': { sha256: '21693d6c1b1a3b6a', box: [0, 0, 0.998, 0.916], ink: 0.356 },
   'sunday-robotics-logo': { sha256: 'afbe6d1eb3fd3f54', box: null, ink: 0.452 },
   'swarmer-logo': { sha256: '0b633e45fc7a9033', box: [0.0135, 0.0098, 0.994, 0.9902], ink: 0.35 },
   'switchbot-logo': { sha256: '637e5358ea2dd3d2', box: [0.0833, 0.1923, 0.9167, 0.8077], ink: 0.359 },
@@ -251,15 +270,20 @@ export const MARK_PLACEMENT: Readonly<Record<string, MarkPlacement>> = {
   'tesla-logo': { sha256: '63dffdd057fb53b0', box: null, ink: 0.195 },
   'the-bot-company-logo': { sha256: '0f176f24c2a76466', box: null, ink: 0.709 },
   'tinavi-logo': { sha256: '6bb20cc22ee00f59', box: null, ink: 0.463 },
+  'topstar-logo': { sha256: 'db62f56f32908d9e', box: null, ink: 0.413 },
   'tuopu-logo': { sha256: 'cb9d293f0555fc6c', box: [0, 0, 1, 0.7917], ink: 0.447 },
   'tutor-intelligence-logo': { sha256: 'be7d267a532ad18a', box: [0, 0, 0.9955, 0.9915], ink: 0.372 },
   'ubtech-logo': { sha256: '74ec0762eb27cb88', box: null, ink: 0.306 },
+  'uforce-logo': { sha256: 'e83fd16c5bab3d1c', box: [0.136, 0.3484, 0.864, 0.6516], ink: 0.419 },
   'uisee-logo': { sha256: 'c85ea6941525cfd7', box: null, ink: 0.431 },
   'unitree-logo': { sha256: 'f2ace736d962af69', box: [0.014, 0.0779, 0.9905, 0.9288], ink: 0.351 },
   'unusual-machines-logo': { sha256: '271f2104ad694826', box: null, ink: 0.297 },
+  'veeda-ai-logo': { sha256: '1a9f9f7148ae311f', box: [0.028, 0.17, 0.9715, 0.831], ink: 0.305 },
   'walden-robotics-logo': { sha256: '0611c0b6c4016028', box: null, ink: 0.44 },
   'wandercraft-logo': { sha256: '893924f1b4720abe', box: [0.094, 0.3278, 0.906, 0.675], ink: 0.283 },
+  'warp-sciences-logo': { sha256: '2938d5c48921d3ec', box: [0.005, 0.0124, 0.9965, 0.9892], ink: 0.303 },
   'watney-logo': { sha256: 'c8a6a0933edd5763', box: null, ink: 0.449 },
+  'wb-electronics-logo': { sha256: 'bec9e601cb3f6160', box: [0.0825, 0.2002, 0.928, 0.7638], ink: 0.25 },
   'weave-robotics-logo': { sha256: 'fadd6aab37e07d0d', box: null, ink: 0.377 },
   'wonik-logo': { sha256: '38b3b2f6d95e5e83', box: null, ink: 0.34 },
   'x-square-robot-logo': { sha256: '33720bc0f5f50d78', box: [0, 0, 0.9965, 0.9907], ink: 0.5 },
@@ -339,6 +363,18 @@ export type LuminanceMask = {
  * unit tests then require it to be reviewed.
  */
 export const LUMINANCE_MASKS: Readonly<Record<string, LuminanceMask>> = {
+  'uforce-logo': {
+    sha256: 'e83fd16c5bab3d1c6b88caa74cafa245b4ea695239a0145fa5d374d4923864b2',
+    ink: 'light',
+    reason: 'The publisher sets light letters on solid black. Its light lettering supplies the ink and the black rectangle drops out.',
+    recorded: '2026-11-20',
+  },
+  'gravis-robotics-logo': {
+    sha256: '20bcc33a7f7e1d16b53d2e0227dd645b4dee2fde12691f58f6565c2b71b36097',
+    ink: 'light',
+    reason: 'The official website icon sets a white G on a black square. Only the white G supplies the ink.',
+    recorded: '2026-11-20',
+  },
   'k-scale-labs-logo': {
     sha256: 'a1dc6c50310938f0d90be4304cd1a19fd58c3cf85bc8d049784911e9a1ad1f1a',
     ink: 'light',
@@ -369,7 +405,7 @@ export function markInk(logoId: string | null): MarkInk {
   return (logoId && LUMINANCE_MASKS[logoId]?.ink) || 'alpha';
 }
 
-export type MarkPreset = 'tile' | 'sheet' | 'credits';
+export type MarkPreset = 'tile' | 'sheet' | 'credits' | 'table';
 
 type PresetSize = {
   /** Area every mark is drawn at before its ink weighting, in square CSS pixels. */
@@ -387,6 +423,7 @@ type PresetSize = {
  * scale the mark down whole.
  */
 export const MARK_PRESETS: Readonly<Record<MarkPreset, PresetSize>> = {
+  table: { area: 360, minHeight: 10, maxHeight: 16, maxWidth: 62 },
   tile: { area: 680, minHeight: 10.5, maxHeight: 18, maxWidth: 132 },
   sheet: { area: 2200, minHeight: 16, maxHeight: 36, maxWidth: 240 },
   credits: { area: 5200, minHeight: 24, maxHeight: 56, maxWidth: 300 },

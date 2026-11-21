@@ -170,10 +170,11 @@ describe('CompanyLogo', () => {
       unmount();
     }
     expect(drawn).toBe(COMPANIES.length - Object.keys(WITHHELD_MARKS).length);
-    // Only the reviewed luminance-derived masks leave the alpha.
+    // Compare the reviewed luminance masks drawn by this map. Other registers have their own issuers.
+    const companyMarks = new Set(COMPANIES.map((company) => company.logo));
     expect(
       COMPANIES.filter((company) => markInk(company.logo) !== 'alpha').map((company) => company.logo).sort(),
-    ).toEqual(Object.keys(LUMINANCE_MASKS).sort());
+    ).toEqual(Object.keys(LUMINANCE_MASKS).filter((id) => companyMarks.has(id)).sort());
   });
 
   it('renders the registered file when the company has a licensed logo', () => {

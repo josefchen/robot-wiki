@@ -6,16 +6,17 @@ type Entry = {
   href: string;
   title: string;
   line: string;
-  /** A page under this one: its link opens a second line in the same cell. */
+  /** A related page with its own count or date range. */
   under?: { href: string; title: string; line: string };
+  related?: { href: string; title: string }[];
 };
 
 const NO_BREAK_SPACE = String.fromCharCode(0xa0);
 
 /**
  * "Also in the wiki": the parts of the site that are not articles, each a
- * plain link and one line on what it holds. The market map's cell also names
- * the page under it. Every number and date comes from the home counts.
+ * plain link and one line on what it holds. Related pages sit with their
+ * subject. Every number and date comes from the home counts.
  */
 export function AlsoHere({ counts }: { counts: HomeCounts }) {
   // The span of dates stays on one line.
@@ -32,6 +33,7 @@ export function AlsoHere({ counts }: { counts: HomeCounts }) {
       href: '/how-robots-work/',
       title: 'How robots work',
       line: `${formatCount(counts.explainers)} short explainers you can turn in 3D.`,
+      related: [{ href: '/robots-in-3d/', title: 'Robots in 3D' }],
     },
     {
       key: 'market-map',
@@ -43,6 +45,10 @@ export function AlsoHere({ counts }: { counts: HomeCounts }) {
         title: 'Recent rounds',
         line: `${formatCount(counts.closedRounds)} closed from ${roundsWindow}.`,
       },
+      related: [
+        { href: '/market-map/public/', title: 'Public robotics companies' },
+        { href: '/companies/unitree/', title: 'Unitree Robotics' },
+      ],
     },
     {
       key: 'playground',
@@ -89,6 +95,20 @@ export function AlsoHere({ counts }: { counts: HomeCounts }) {
               {`: ${entry.under.line}`}
             </p>
           ) : null}
+          {entry.related && (
+            <p className="home-more">
+              {entry.related.map((link) => (
+                <IntentLink
+                  key={link.href}
+                  data-brand-control-id="control:link-focus"
+                  href={link.href}
+                  className="ink-link"
+                >
+                  {link.title}
+                </IntentLink>
+              ))}
+            </p>
+          )}
         </li>
       ))}
     </ul>

@@ -24,7 +24,7 @@
     "minutes": 7
   },
   "manipulation/comparison-matrix": {
-    "words": 1582,
+    "words": 1637,
     "minutes": 8
   },
   "manipulation/hierarchical": {
@@ -80,7 +80,7 @@
     "minutes": 8
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1757,
+    "words": 1791,
     "minutes": 9
   },
   "rl-sim2real/motion-retargeting": {
@@ -108,8 +108,8 @@
     "minutes": 8
   },
   "world-models/jepa": {
-    "words": 1289,
-    "minutes": 6
+    "words": 1307,
+    "minutes": 7
   },
   "world-models/generative-sim": {
     "words": 1207,
@@ -120,39 +120,39 @@
     "minutes": 6
   },
   "world-models/evaluation": {
-    "words": 1216,
-    "minutes": 6
+    "words": 1349,
+    "minutes": 7
   },
   "world-models/world-models-vs-simulators": {
     "words": 2083,
     "minutes": 10
   },
   "data-hardware/data-bottleneck": {
-    "words": 1715,
+    "words": 1773,
     "minutes": 9
   },
   "data-hardware/datasets": {
-    "words": 1602,
+    "words": 1641,
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3393,
+    "words": 3392,
     "minutes": 17
   },
   "data-hardware/teleop-rigs": {
-    "words": 1768,
+    "words": 1786,
     "minutes": 9
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1562,
+    "words": 1588,
     "minutes": 8
   },
   "data-hardware/industrial-deployment": {
-    "words": 1629,
+    "words": 1640,
     "minutes": 8
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1139,
+    "words": 1171,
     "minutes": 6
   },
   "data-hardware/data-market": {

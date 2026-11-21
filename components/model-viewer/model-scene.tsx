@@ -31,6 +31,16 @@ NEUTRAL.name = 'model-neutral';
 
 /** The camera's reach, as multiples of the fitted distance. */
 const ZOOM_RANGE = { min: 0.35, max: 2.5 } as const;
+/**
+ * The stage height the fit takes for its band, in CSS px. A square stage
+ * (278 to 557 px tall) is fitted as the 390 px phone's 308 px stage, low
+ * enough to clear the hint line; a 16:10 stage (329 to 569 px) takes the
+ * centred band. The fit is then the same share of the stage at every width,
+ * so one still per shape lands under the canvas without a shift.
+ */
+export const FIT_STAGE_PX = { square: 308, wide: 0 } as const;
+export const fitStagePx = (aspect: number) => (aspect < 1.3 ? FIT_STAGE_PX.square : FIT_STAGE_PX.wide);
+
 /** Never under the ground, never straight down. */
 const POLAR = { min: 0.12, max: Math.PI / 2 - 0.03 } as const;
 
@@ -181,7 +191,7 @@ function Rig({
     const orbit = getState().controls as OrbitControlsImpl;
     const aspect = width / height;
     lens.fov = stageFov(aspect);
-    const view = fitHome(points, aspect, height);
+    const view = fitHome(points, aspect, fitStagePx(aspect));
     const distance = view.position.distanceTo(view.target);
     orbit.minDistance = distance * ZOOM_RANGE.min;
     orbit.maxDistance = distance * ZOOM_RANGE.max;

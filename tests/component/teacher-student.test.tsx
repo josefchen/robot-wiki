@@ -1,8 +1,7 @@
-import { fireEvent, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { act, fireEvent, screen } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { HINT, NOISE_PRESETS, TOUR, TeacherStudent, WALKING, gapCm, readoutFor } from '@/components/interactive/teacher-student';
 import { HEADS, LOWER_PINS, PARK, PIN_LENGTH, STOP_TIP, TRUE_Z, carriageShift, groundAt, pinRest, pinShift, pinX } from '@/components/iso/figures/contour-gauge-track';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
@@ -80,18 +79,26 @@ describe('TeacherStudent', () => {
     expect(WALKING).not.toMatch(/\d/);
   });
 
-  it('moves the readout with the presets: clean matches, very noisy loses most readings', async () => {
-    const user = userEvent.setup();
-    const { container } = render(<TeacherStudent />);
-    await user.click(screen.getByRole('button', { name: 'Clean' }));
-    // The carriage walks the track before the readout settles.
-    await waitFor(() => expect(container.querySelector('[data-readout]')).toHaveTextContent(readoutFor(0)), { timeout: 8000 });
-    expect(num('mae-readout')).toBe(0);
-    expect(screen.getByTestId('contour-gauge')).toHaveAttribute('data-missing', '0');
-    await user.click(screen.getByRole('button', { name: 'Very noisy' }));
-    expect(slider()).toHaveValue('60');
-    await waitFor(() => expect(container.querySelector('[data-readout]')).toHaveTextContent(readoutFor(0.6)), { timeout: 8000 });
-    expect(screen.getByTestId('pin-heads').querySelectorAll('[data-missing]')).toHaveLength(17);
+  it('moves the readout with the presets: clean matches, very noisy loses most readings', () => {
+    vi.useFakeTimers();
+    try {
+      const { container } = render(<TeacherStudent />);
+      const readout = container.querySelector('[data-readout]');
+      fireEvent.click(screen.getByRole('button', { name: 'Clean' }));
+      act(() => vi.advanceTimersByTime(32));
+      expect(readout).toHaveTextContent(WALKING);
+      act(() => vi.advanceTimersByTime(8000));
+      expect(readout).toHaveTextContent(readoutFor(0));
+      expect(num('mae-readout')).toBe(0);
+      expect(screen.getByTestId('contour-gauge')).toHaveAttribute('data-missing', '0');
+      fireEvent.click(screen.getByRole('button', { name: 'Very noisy' }));
+      expect(slider()).toHaveValue('60');
+      act(() => vi.advanceTimersByTime(8000));
+      expect(readout).toHaveTextContent(readoutFor(0.6));
+      expect(screen.getByTestId('pin-heads').querySelectorAll('[data-missing]')).toHaveLength(17);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('keeps the slider and Reset in Adjust more and the model numbers in How this was made', () => {

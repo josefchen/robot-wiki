@@ -40,6 +40,14 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: trajectoryDescription(),
   },
   {
+    // Computed in lib/public-market-map.ts (mapDescription); a unit test keeps the two equal.
+    component: 'PublicMarketMap',
+    file: 'components/public-companies/public-market-map.tsx',
+    route: '/market-map/public/',
+    quantityNames: ['market value', 'US dollars'],
+    text: '92 listed robotics companies in 8 segments, sized by market value in US dollars, $396B together. Surgical is the largest segment at $161B, and Intuitive Surgical the largest pure play at $154B. The 43 companies where robots are a minor part are listed under the map at full value, not to scale.',
+  },
+  {
     component: 'ModelBasedLoop',
     file: 'components/interactive/model-based-loop.tsx',
     route: '/world-models/model-based-robot-learning/',

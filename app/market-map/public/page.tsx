@@ -1,6 +1,8 @@
+import { publicMarketMapData, publicMarketMapText } from '@/lib/public-market-map';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { PageHeader } from '@/components/data-page/page-header';
+import { PublicMarketMap } from '@/components/public-companies/public-market-map';
 import {
   IpoWatchTable,
   LeftOutTable,
@@ -21,21 +23,17 @@ import {
   sinceListingLead,
   type PublicPageSectionId,
 } from '@/lib/public-companies-page';
+import { routeSeoProfile } from '@/lib/seo-profiles';
 import { MARKET_SECTION } from '@/lib/site-sections';
 import { webPageJsonLd } from '@/lib/structured-data';
 
 const description = publicPageDescription();
 
+const profile = routeSeoProfile(PUBLIC_PAGE_PATH);
+
 export const metadata: Metadata = {
-  title: PUBLIC_PAGE_TITLE,
-  description,
-  // Out of search until the page is listed in the sitemap and linked from
-  // the site; links on it may still be followed.
-  robots: {
-    index: false,
-    follow: true,
-    googleBot: { index: false, follow: true },
-  },
+  title: profile.title,
+  description: profile.description,
   // og:title is the h1: the page has no entry in the social-title map.
   openGraph: routeOpenGraph(PUBLIC_PAGE_TITLE),
   twitter: routeTwitter(PUBLIC_PAGE_TITLE),
@@ -58,6 +56,7 @@ function Section({ id, lead, children }: { id: PublicPageSectionId; lead: string
 }
 
 export default function PublicCompaniesPage() {
+  const mapData = publicMarketMapData();
   return (
     <div
       data-page-frame="frame:map"
@@ -76,10 +75,12 @@ export default function PublicCompaniesPage() {
           title={PUBLIC_PAGE_TITLE}
           lead={publicLeadSentence()}
           asOf={PUBLIC_COMPANIES_AS_OF}
-          section={MARKET_SECTION}
+          section={{ ...MARKET_SECTION, current: PUBLIC_PAGE_PATH }}
           anchors={PUBLIC_PAGE_SECTIONS}
         />
       </div>
+
+      <PublicMarketMap data={mapData} text={publicMarketMapText(mapData)} />
 
       <Section id="listed-companies" lead={listedLead()}>
         <ListedCompaniesTable />

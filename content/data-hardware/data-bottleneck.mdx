@@ -5,7 +5,7 @@ domain: data-hardware
 slug: data-bottleneck
 order: 1
 status: published
-lastReviewed: "2026-11-13"
+lastReviewed: "2026-11-20"
 citations:
   - gpt3-2020
   - llama-3-2024
@@ -66,6 +66,7 @@ citations:
   - zero-hlm-2026
   - simvla-2026
   - apple-halo-2026
+  - liber-0-2026
 seeAlso:
   - "data-hardware/datasets"
   - "manipulation/foundation-models"
@@ -155,6 +156,8 @@ With UMI an operator holds a 3D-printed gripper fitted with a GoPro, and the tra
 | EgoScale | 20,854 | Egocentric video labeled with actions <Cite id="egoscale-2026" /> |
 | Open-HumanWAM (November 2026) | 50,000 | Released corpus; simulated robot success rose log-linearly with hours <Cite id="open-humanwam-2026" /> |
 | Build AI Egocentric-100K | 100,405 | Head-mounted video of manual labor <Cite id="egocentric-100k-2025" /> |
+
+LiberAI pretrained Liber-0 on more than 2.2 million hours of human video and motion recordings. The company tested the model on 60 tasks without training it on robot demonstrations collected specifically for those tasks. It reports 36% success across 600 trials, falling to 10.5% on the 20 multi-step tasks that required more than picking and placing <Cite id="liber-0-2026" />.
 
 Human data follows scaling laws too: the validation loss of EgoScale's [vision-language-action model](/manipulation/foundation-models) fell log-linearly with human hours, tracking real-robot performance. With a short aligned human-robot stage, that pretraining raised average <Term id="success-rate">success rate</Term> 54% over none on a 22-degree-of-freedom hand <Cite id="egoscale-2026" />. EgoMimic found an hour of hand data worth more than an hour of robot data <Cite id="egomimic-2024" />.
 

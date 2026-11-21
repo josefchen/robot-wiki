@@ -307,6 +307,8 @@ export const productSchema = profileSourceSchema
     name: z.string().min(1),
     /** Model family the launch row names, e.g. "G1" for the G1 EDU. */
     family: z.string().min(1),
+    /** Related maker model in the 3D register, when available for display. */
+    viewerModelId: slugSchema.optional(),
     type: productTypeSchema,
     priceUsd: z.number().positive().nullable(),
     priceAbsent: z.enum(['contact sales', NOT_DISCLOSED, NOT_APPLICABLE]).nullable(),
@@ -407,6 +409,8 @@ export const licenseSchema = z.enum([
   'GPL-2.0',
   'MIT',
   'MPL-2.0',
+  'CC BY-NC-SA 4.0',
+  'conflicting statements',
   'custom license file',
   'no license file',
   'no license tag',

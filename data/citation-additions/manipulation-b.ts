@@ -78,6 +78,16 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2611.05080',
     type: 'paper',
   },
+  {
+    id: 'so101-demo-scaling-2026',
+    title: 'From 12 to 200 Demonstrations: How ACT, Diffusion Policy, SmolVLA and π0.5 Scale on a Low-Cost Arm',
+    authors: ['Simon Cowling'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.37170',
+    url: 'https://arxiv.org/abs/2610.37170',
+    type: 'paper',
+  },
   // realtime-execution, 2026-11-12. arXiv Atom API read 2026-11-12 (v1 2 Nov 2026).
   {
     id: 'vla-lagbench-2026',

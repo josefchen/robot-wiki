@@ -29,16 +29,31 @@
 }
 .mv-centre:focus { outline: none; }
 
-.mv-name {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
+/*
+ * The still: the viewer's opening view rendered from the same files, at the
+ * stage's own shape, so the live canvas lands on it without a shift.
+ */
+.mv-still,
+.mv-still img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* "Load model" and the model's size, then the loading line, at the foot. */
+.mv-load {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 34px;
 }
 .mv-summary {
-  margin: 0 0 12px;
+  margin: 0;
   font-family: var(--font-mono);
   font-size: 13px;
   font-variant-numeric: tabular-nums;
@@ -93,6 +108,8 @@
 .mv-text:hover { color: var(--ink); }
 .mv-btn:focus-visible,
 .mv-text:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+/* In the stage's corner an outside ring would be clipped: draw it inside. */
+.mv-load .mv-btn:focus-visible { outline-color: var(--paper); outline-offset: -4px; }
 
 .mv-hint {
   position: absolute;
@@ -115,7 +132,9 @@
   position: absolute;
   right: 0;
   bottom: 0;
+  padding: 0 6px;
 }
+.mv-stage .mv-reset:focus-visible { outline-offset: -2px; }
 
 /* Without WebGL the message takes the playground's type, left-aligned. */
 .mv-unavailable { justify-items: start; text-align: left; }

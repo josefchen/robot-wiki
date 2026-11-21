@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import sharp from 'sharp';
 import { Object3D } from 'three';
 import URDFLoader from 'urdf-loader';
 import { describe, expect, it } from 'vitest';
@@ -10,7 +11,11 @@ import {
   joinNames,
   licenceFileName,
   licenceUrl,
+  MODEL_STILLS,
   modelAltText,
+  modelStill,
+  modelStillAlt,
+  modelViewerProps,
   modelCaption,
   modelFileUrl,
   modelHeading,
@@ -115,7 +120,8 @@ describe('each record', () => {
       expect(rows.change.text).toBe(model.change);
       expect(rows.checked.text).toBe(formatShortDate(model.checked));
       expect(rows.checked.date).toBe(model.checked);
-      expect(recordRows(model)).toHaveLength(14);
+      expect(rows.still.text).toBe('Rendered from the shipped URDF and meshes, in the viewer’s opening view, light and grey');
+      expect(recordRows(model)).toHaveLength(15);
     }
   });
 
@@ -172,11 +178,66 @@ describe('each record', () => {
     for (const model of MODELS_3D) {
       expect(words(modelHeading(model)), model.id).toBeLessThanOrEqual(10);
       expect(words(modelCaption(model)), model.id).toBeLessThanOrEqual(25);
-      for (const text of [modelHeading(model), modelCaption(model), modelAltText(model), ...recordRows(model).map((row) => `${row.label} ${row.text} ${row.detail ?? ''}`)]) {
+      for (const text of [modelHeading(model), modelCaption(model), modelAltText(model), modelStillAlt(model), ...recordRows(model).map((row) => `${row.label} ${row.text} ${row.detail ?? ''}`)]) {
         expect(text, model.id).not.toMatch(/\bCAD\b|converted from|[–—]/);
       }
       expect(modelAltText(model)).toContain(model.product);
       expect(modelAltText(model)).toContain(model.urdfFile);
+      expect(modelStillAlt(model)).toContain(model.product);
+      expect(modelStillAlt(model)).toContain(model.urdfFile);
+    }
+  });
+
+  it('ships both stills beside its URDF, at the sizes the viewer declares', async () => {
+    for (const model of MODELS_3D) {
+      const still = modelStill(model);
+      for (const [key, file] of [['wide', still.wide], ['square', still.square]] as const) {
+        expect(file.src, `${model.id} ${key}`).toBe(modelFileUrl(model, MODEL_STILLS[key].file));
+        const meta = await sharp(publicFile(file.src)).metadata();
+        expect([meta.format, meta.width, meta.height], `${model.id} ${key}`).toEqual(['webp', file.width, file.height]);
+      }
+      expect(still.alt).toBe(modelStillAlt(model));
+    }
+  });
+
+  it('gives the viewer the record’s own values, the same on every page', () => {
+    for (const model of MODELS_3D) {
+      expect(modelViewerProps(model)).toEqual({
+        id: model.id,
+        product: model.product,
+        summary: modelSummary(model),
+        heading: modelHeading(model),
+        caption: modelCaption(model),
+        alt: modelAltText(model),
+        urdf: urdfUrl(model),
+        still: modelStill(model),
+      });
+    }
+  });
+
+  it('has stills of the stage’s two shapes, split at the width the stage changes at', () => {
+    const css = readFileSync(join(repoRoot, 'components/model-viewer/model-viewer.css'), 'utf8');
+    const { wide, square } = MODEL_STILLS;
+    expect(square.width / square.height).toBe(1);
+    expect(css).toMatch(/\.mv-stage \{[^}]*aspect-ratio: 1 \/ 1;/);
+    expect(wide.width / wide.height).toBe(16 / 10);
+    const breakpoint = css.indexOf(`@media ${wide.media}`);
+    expect(breakpoint).toBeGreaterThan(-1);
+    expect(css.slice(breakpoint, css.indexOf('}', breakpoint))).toContain('.mv-stage { aspect-ratio: 16 / 10;');
+  });
+
+  it('renders its stills in windows that give the stage each shape, at the canvas’s largest pixel ratio', () => {
+    const minWide = Number(MODEL_STILLS.wide.media.match(/min-width: (\d+)px/)![1]);
+    expect(MODEL_STILLS.wide.window.width).toBeGreaterThanOrEqual(minWide);
+    // The widest square stage is the one just under the breakpoint.
+    expect(MODEL_STILLS.square.window.width).toBe(minWide - 1);
+    // The viewer's canvas caps its pixel ratio at 2, and each still covers its
+    // widest stage at that ratio (the script checks the stage's width), so
+    // the browser never shows it upscaled.
+    expect(readFileSync(join(repoRoot, 'components/model-viewer/model-scene.tsx'), 'utf8')).toContain('dpr={[1, 2]}');
+    for (const still of [MODEL_STILLS.wide, MODEL_STILLS.square]) {
+      expect(still.width).toBeGreaterThanOrEqual(2 * still.stageWidth);
+      expect(still.width).toBeLessThanOrEqual(2 * still.stageWidth + 8);
     }
   });
 

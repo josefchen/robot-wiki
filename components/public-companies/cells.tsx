@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { NumberText } from '@/components/ui/number-text';
 import { TableScroll } from '@/components/ui/table-scroll';
-import { NO_CLOSE, sourceHost } from '@/lib/public-companies-page';
+import { NO_CLOSE, sourceHost } from '@/lib/public-company-labels';
 import { cx } from '@/lib/utils';
 
 /**

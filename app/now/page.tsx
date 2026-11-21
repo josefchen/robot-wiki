@@ -35,7 +35,12 @@ function Section({ id, lead, children }: { id: SectionId; lead?: string; childre
   const section = NOW_SECTIONS.find((candidate) => candidate.id === id)!;
   const headingId = `${id}-heading`;
   return (
-    <section id={id} aria-labelledby={headingId} data-now-section={id} className="mt-16 scroll-mt-24 sm:mt-20">
+    <section
+      id={id}
+      aria-labelledby={id === 'where-it-is-heading' ? headingId : undefined}
+      data-now-section={id}
+      className="mt-16 scroll-mt-24 sm:mt-20"
+    >
       <h2 id={headingId} className="section-h2">
         {section.title}
       </h2>

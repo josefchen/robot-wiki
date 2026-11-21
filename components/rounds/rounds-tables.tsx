@@ -29,6 +29,7 @@ import {
   TextCell,
   type ColumnHead,
 } from './rounds-cells';
+import { fundingTableLogoId } from '@/lib/market-table-logos';
 import { RoundsFold } from './rounds-fold';
 
 /**
@@ -91,6 +92,7 @@ function RoundRow({ round, anchored }: { round: FundingEvent; anchored: boolean 
         country={round.country}
         sourceType={round.sourceType}
         status={round.status}
+        logo={anchored ? fundingTableLogoId(round.key) : null}
       />
       <AmountCell event={round} />
       <TextCell>{round.round}</TextCell>

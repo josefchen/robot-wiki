@@ -1,11 +1,17 @@
+import { MarketTableMark } from '@/components/ui/market-table-mark';
+import { ipoTableLogoId } from '@/lib/market-table-logos';
+import { ListedTable } from './listed-table';
 import { NumberText } from '@/components/ui/number-text';
+import { ANNUAL_REVENUE, type AnnualRevenue } from '@/data/public-company-annual-revenue';
 import { PUBLIC_COMPANIES_AS_OF } from '@/data/public-companies';
+import { COMPANY_PROFILES, companyProfilePath } from '@/lib/company-profile-page';
 import { formatShortDate } from '@/lib/market-map';
 import { marketValueSourceLine } from '@/lib/public-companies';
 import {
   closeSource,
   closesCaption,
   conversionNote,
+  formatMoney,
   debutRows,
   ipoRows,
   leftOutCaption,
@@ -16,7 +22,7 @@ import { cx } from '@/lib/utils';
 import { Figure, Mark, SecondLine, SourceCell, SourceLines, StaticTable } from './cells';
 
 /**
- * The public companies page's tables, all static and server-rendered. Rows
+ * The public companies page's tables and source-linked rows. Rows
  * come from data/public-companies.ts through lib/public-companies-page.ts;
  * no count or amount is typed here.
  */
@@ -27,31 +33,38 @@ const REPORTED_NOTE =
 const NUMBER_CELL = 'text-right tabular-nums';
 const DATE_CELL = 'whitespace-nowrap font-mono text-[13px] tabular-nums text-text';
 
-/** Every listed company, largest market value in US dollars first. */
-export function ListedCompaniesTable() {
+const profileByName = new Map(
+  COMPANY_PROFILES.map((profile) => [profile.company.name, companyProfilePath(profile.slug)]),
+);
+
+function FiscalRevenue({ revenue }: { revenue: AnnualRevenue | undefined }) {
+  if (!revenue) return <span className="text-text-dim">No figure</span>;
   return (
-    <StaticTable
-      captionId="listed-companies-caption"
-      caption={
-        `${marketValueSourceLine()} ${conversionNote()} An exposure class marked reported ` +
-        'rests on the quote service’s company profile or a press report, not on a filing.'
-      }
-      // Company and value first, so a phone shows both before the frame scrolls.
-      columns={[
-        { label: 'Company', sub: 'ticker, exchange' },
-        { label: 'Market value', sub: formatShortDate(PUBLIC_COMPANIES_AS_OF), numeric: true },
-        { label: 'Exposure' },
-        { label: 'Segment' },
-        { label: 'Country' },
-        { label: 'Note' },
-        { label: 'Source' },
-      ]}
-      minWidth="min-w-[66rem]"
-    >
-      {listedRows().map(({ company, segment, country, value, valueUsd, exposure }) => (
+    <>
+      <Figure>{formatMoney(revenue.amount, revenue.currency)}</Figure>
+      <SecondLine>Year to {formatShortDate(revenue.yearEnd)}</SecondLine>
+      {revenue.scope && <SecondLine>{revenue.scope}</SecondLine>}
+    </>
+  );
+}
+
+/** Render each sourced row on the server; the reader can filter and order them in place. */
+export function ListedCompaniesTable() {
+  const entries = listedRows().map(({ company, segment, country, value, valueUsd, exposure, usd }) => {
+    const revenue = ANNUAL_REVENUE[company.id];
+    return {
+      id: company.id,
+      name: company.name,
+      exposure: company.exposure,
+      segment,
+      country,
+      usd,
+      row: (
         <tr key={company.id} data-listed-row={company.id}>
           <td className="w-[12rem] min-w-[10rem] text-text">
-            {company.name}
+            {profileByName.has(company.name) ? (
+              <a className="ink-link" href={profileByName.get(company.name)}>{company.name}</a>
+            ) : company.name}
             <SecondLine>
               <span className="font-mono">{company.ticker}</span> {company.exchange}
             </SecondLine>
@@ -64,7 +77,7 @@ export function ListedCompaniesTable() {
               </SecondLine>
             ) : null}
           </td>
-          <td className="min-w-[12rem] text-text">
+          <td className="min-w-[11rem] text-text">
             <span className="whitespace-nowrap">
               {exposure.label}
               {exposure.reported ? <Mark>reported</Mark> : null}
@@ -73,20 +86,38 @@ export function ListedCompaniesTable() {
               <NumberText>{exposure.detail}</NumberText>
             </SecondLine>
           </td>
+          <td data-fiscal-revenue="" className="min-w-[9rem] text-right"><FiscalRevenue revenue={revenue} /></td>
           <td className="min-w-[7rem] text-text">{segment}</td>
           <td className="whitespace-nowrap text-text">{country}</td>
-          <td className="min-w-[14rem] text-[13px] leading-[1.5] text-text">{company.note ?? null}</td>
+          <td className="min-w-[9rem] text-[13px] leading-[1.5] text-text">{company.note ?? null}</td>
           <SourceCell
             sources={[
               { label: 'Value', url: company.marketCapSource.url, title: company.marketCapSource.title },
               ...(company.exposureSource
                 ? [{ label: 'Exposure', url: company.exposureSource.url, title: company.exposureSource.title }]
                 : []),
+              ...(revenue ? [{ label: 'Revenue', url: revenue.sourceUrl, title: revenue.sourceTitle }] : []),
             ]}
           />
         </tr>
-      ))}
-    </StaticTable>
+      ),
+    };
+  });
+  return (
+    <ListedTable
+      entries={entries}
+      caption={`${marketValueSourceLine()} ${conversionNote()} An exposure class marked reported rests on the quote service’s company profile or a press report, not on a filing. Revenue is the issuer’s annual figure in its reporting currency. “No figure” means the annual amount is missing from this table.`}
+      columns={[
+        { label: 'Company', sub: 'ticker, exchange' },
+        { label: 'Market value', sub: formatShortDate(PUBLIC_COMPANIES_AS_OF), numeric: true },
+        { label: 'Exposure' },
+        { label: 'Fiscal-year revenue', sub: 'whole company', numeric: true },
+        { label: 'Segment' },
+        { label: 'Country' },
+        { label: 'Note' },
+        { label: 'Source' },
+      ]}
+    />
   );
 }
 
@@ -150,11 +181,12 @@ export function IpoWatchTable() {
             className={cx(ruled && '[&>td]:border-t [&>td]:border-border')}
           >
             <td className="w-[15rem] min-w-[11rem] text-text">
-              {row.name}
-              {reported ? <Mark>reported</Mark> : null}
+              <span>{row.name}{reported ? <Mark>reported</Mark> : null}</span>
               <SecondLine>
-                {row.ticker ? <span className="font-mono">{row.ticker} </span> : null}
-                {row.exchange}
+                <span className="flex flex-wrap items-center gap-x-2">
+                  <span>{row.ticker ? <span className="font-mono">{row.ticker} </span> : null}{row.exchange}</span>
+                  <MarketTableMark id={ipoTableLogoId(row)} />
+                </span>
               </SecondLine>
               {row.note ? <SecondLine>{row.note}</SecondLine> : null}
             </td>

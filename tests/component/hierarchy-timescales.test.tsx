@@ -1,7 +1,7 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { act, fireEvent, screen } from '@testing-library/react';
 import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
 import {
   HIERARCHY_SYSTEMS,
@@ -98,15 +98,22 @@ describe('HierarchyTimescales', () => {
     expect(adjust).not.toContainElement(play);
   });
 
-  it('replays the 2 seconds only when the reader asks, and Pause holds the clock', async () => {
-    const user = userEvent.setup();
-    render(<HierarchyTimescales />);
-    expect(screen.getByTestId('playhead-readout')).toHaveTextContent('t = 2000 ms');
-    await user.click(screen.getByRole('button', { name: 'Play the 2 seconds' }));
-    await user.click(screen.getByRole('button', { name: 'Pause' }));
-    expect(screen.getByRole('button', { name: 'Play the 2 seconds' })).toBeInTheDocument();
-    const held = screen.getByTestId('playhead-readout').textContent ?? '';
-    expect(Number(held.match(/\d+/)?.[0])).toBeLessThan(2000);
+  it('replays the 2 seconds only when the reader asks, and Pause holds the clock', () => {
+    vi.useFakeTimers();
+    try {
+      render(<HierarchyTimescales />);
+      const readout = screen.getByTestId('playhead-readout');
+      expect(readout).toHaveTextContent('t = 2000 ms');
+      fireEvent.click(screen.getByRole('button', { name: 'Play the 2 seconds' }));
+      act(() => vi.advanceTimersByTime(480));
+      expect(readout).toHaveTextContent('t = 400 ms');
+      fireEvent.click(screen.getByRole('button', { name: 'Pause' }));
+      expect(screen.getByRole('button', { name: 'Play the 2 seconds' })).toBeInTheDocument();
+      act(() => vi.advanceTimersByTime(2400));
+      expect(readout).toHaveTextContent('t = 400 ms');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('the note follows the selected system', async () => {

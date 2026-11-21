@@ -34,6 +34,16 @@ function hasBoundArxivUrl(c: Pick<Citation, 'id' | 'arxiv' | 'url'>): boolean {
 }
 
 describe('citation registry', () => {
+  it.each([
+    ['genesis-handover-2026', '2610.08003v2', 'Pascal Burkhard'],
+    ['hwm-2026', '2604.03208v2', 'Adrien Bardes'],
+    ['pace-2026', '2606.00537v3', 'Liang Lin'],
+  ])('links %s to the edition that credits its listed author', (id, edition, author) => {
+    const citation = getCitation(id);
+    expect(citation?.url).toBe(`https://arxiv.org/abs/${edition}`);
+    expect(citation?.authors).toContain(author);
+  });
+
   it('contains only schema-valid entries', () => {
     for (const citation of CITATIONS) {
       const parsed = citationSchema.safeParse(citation);

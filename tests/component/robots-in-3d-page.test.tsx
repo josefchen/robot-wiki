@@ -12,6 +12,7 @@ import {
   ROBOTS_IN_3D_TITLE,
   modelCaption,
   modelHeading,
+  modelStill,
   modelSummary,
   newestChecked,
   pageAsOf,
@@ -21,6 +22,7 @@ import {
   robotsIn3dLead,
   robotsIn3dPageLead,
 } from '@/lib/robots-in-3d-page';
+import { routeSeoProfile } from '@/lib/seo-profiles';
 import { SITE_URL } from '@/lib/site';
 
 // Plain CSS: the test transform does not run the site's PostCSS pipeline.
@@ -109,6 +111,22 @@ describe('/robots-in-3d/', () => {
     }
   });
 
+  it('shows each robot before any click: its still, named in the alt text, behind "Load model"', () => {
+    const container = renderPage();
+    for (const model of MODELS_3D) {
+      const viewer = container.querySelector(`[data-model-viewer="${model.id}"]`) as HTMLElement;
+      const { wide, square, alt } = modelStill(model);
+      const image = within(viewer).getByRole('img', { name: alt });
+      expect(alt, model.id).toContain(model.product);
+      expect(image.getAttribute('src'), model.id).toBe(square.src);
+      expect(image.closest('picture')?.querySelector(`source[media="${wide.media}"]`)?.getAttribute('srcset'), model.id).toBe(
+        wide.src,
+      );
+      const button = within(viewer).getByRole('button', { name: 'Load model' });
+      expect(image.compareDocumentPosition(button) & Node.DOCUMENT_POSITION_FOLLOWING, model.id).toBeTruthy();
+    }
+  });
+
   it('prints each record as its rows, the field names as row headers', () => {
     const container = renderPage();
     for (const model of MODELS_3D) {
@@ -159,8 +177,11 @@ describe('/robots-in-3d/', () => {
     });
   });
 
-  it('stays out of search engines and out of the sitemap', () => {
-    expect(metadata.robots).toMatchObject({ index: false, follow: true, googleBot: { index: false, follow: true } });
-    expect(sitemap().map((entry) => entry.url)).not.toContain(`${SITE_URL}${ROBOTS_IN_3D_PATH}`);
+  it('is open to search engines, in the sitemap once, under its SEO profile', () => {
+    expect(metadata.robots).toBeUndefined();
+    expect(sitemap().filter((entry) => entry.url === `${SITE_URL}${ROBOTS_IN_3D_PATH}`)).toHaveLength(1);
+    const profile = routeSeoProfile(ROBOTS_IN_3D_PATH);
+    expect(metadata.title).toBe(profile.title);
+    expect(metadata.description).toBe(profile.description);
   });
 });

@@ -85,10 +85,12 @@ describe('no mark draws as a block', () => {
 describe('luminance-derived masks', () => {
   it('apply to the recorded bytes only and name their reason', () => {
     expect(Object.keys(LUMINANCE_MASKS).sort()).toEqual([
+      'gravis-robotics-logo',
       'k-scale-labs-logo',
       'miso-robotics-logo',
       'rainbow-robotics-logo',
       'sanhua-logo',
+      'uforce-logo',
     ]);
     for (const [id, entry] of Object.entries(LUMINANCE_MASKS)) {
       const asset = getCompanyLogo(id);

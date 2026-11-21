@@ -6,7 +6,7 @@ slug: evaluation
 order: 7
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-11-13"
+lastReviewed: "2026-11-20"
 citations:
   - world-model-survey-2026
   - genie-3-2025
@@ -47,6 +47,9 @@ citations:
   - worldecho-2026
   - physcanvas-2026
   - runway-praxis-1-open-2026
+  - robofqe-2026
+  - wam-best-of-n-2026
+  - wevo-2026
 seeAlso:
   - "frontier/safety-and-assurance"
   - "manipulation/generalist-policies"
@@ -132,7 +135,7 @@ Agreement is scored as Pearson r (1 is perfect) and Mean Maximum Rank Violation,
 
 | Evaluator | Kind | Agreement with real trials |
 | --- | --- | --- |
-| Veo, 8 Gemini Robotics checkpoints | World model | MMRV 0.03 over 1,600+ real runs; underpredicts absolute success <Cite id="veo-world-simulator-2025" /> |
+| Veo, 8 Gemini Robotics checkpoints | World model | MMRV 0.03 on 80 pairs of scenes and instructions in nominal conditions. Veo underpredicted absolute success <Cite id="veo-world-simulator-2025" /> |
 | WorldGym | World model | r = 0.78 <Cite id="worldgym-2025" /> |
 | DreamDojo | World model | r = 0.995, NVIDIA's figure <Cite id="dreamdojo-2026" /> |
 | Ctrl-World, tested by PolaRiS | World model | MMRV 0.22, "heavy hallucinations" in contact <Cite id="polaris-2025" /> |
@@ -140,6 +143,8 @@ Agreement is scored as Pearson r (1 is perfect) and Mean Maximum Rank Violation,
 | SimFoundry, scenes rebuilt from video | Physics simulator | r = 0.911, MMRV 0.018, 7 tasks, 5 policy types <Cite id="simfoundry-2026" /> |
 | PolaRiS | Physics simulator | r = 0.9 <Cite id="polaris-2025" /> |
 | X2Real | Physics simulator | r = 0.84 <Cite id="x2real-2026" /> |
+
+A simulator can rank policies correctly and still miss their returns. On LIBERO-Long, three video models each had over 50% absolute relative error in estimating the return. RoboFQE, which estimates return from recorded trajectories, kept the error below 6% <Cite id="robofqe-2026" />.
 
 Physics simulation sets the bar but has artifacts: one collision constant ejected objects on RoboTwin; fixing it raised container-task success from 89% to 98% <Cite id="simuguard-2026" />. In WorldFailBench, seven world models largely failed to reproduce why and when policies fail <Cite id="worldfailbench-2026" />.
 
@@ -152,7 +157,10 @@ The last test puts the model in the loop and measures the real robot.
 | --- | --- | --- |
 | Planning | IRASim | Push-T goal overlap from 0.637 to 0.961 <Cite id="irasim-2024" /> |
 | Fine-tuning on imagined successes | Ctrl-World | Policy success up 44.7% <Cite id="ctrl-world-2025" /> |
+| Learning in video rollouts | WEVO | On three physical G1 tasks, success averaged 23.3% before reinforcement learning, 75.0% after training in the video model and 48.3% after training on the robot. Each policy ran 20 trials per task <Cite id="wevo-2026" /> |
 | Action-observation post-training | World-in-World | Beat a stronger pretrained generator <Cite id="world-in-world-2025" /> |
+
+Picking the best action after seeing how every candidate turned out credits the policy for lucky outcomes. On LIBERO-Plus, researchers replayed each Cosmos Policy candidate 17 times. They estimated that choosing among the actions accounted for only 24% to 52% of the apparent gain <Cite id="wam-best-of-n-2026" />.
 
 Also: SIMPLER's sim-real correlation test <Cite id="simpler-2024" />, RoboArena's multi-lab real evaluation <Cite id="roboarena-2025" />.
 

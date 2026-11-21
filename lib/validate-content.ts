@@ -102,6 +102,12 @@ export interface ValidateContentOptions {
    * id fails the same way an unregistered <Image> does.
    */
   companies?: ReadonlyArray<{ id: string; logo: string | null }>;
+  /**
+   * Pages that draw registry logos found by company name (the public
+   * companies map). Each id is a published usage, and an unknown id fails
+   * like an unknown company.logo. `label` names the page in failure messages.
+   */
+  logoUses?: ReadonlyArray<{ label: string; ids: readonly string[] }>;
   /** Non-module routes that internal links may target. */
   staticRoutes?: readonly string[];
 }
@@ -116,6 +122,7 @@ const DEFAULT_STATIC_ROUTES = [
   '/',
   '/search',
   '/market-map',
+  '/market-map/public',
   '/market-map/rounds',
   '/playground',
   '/companies/unitree',
@@ -507,6 +514,13 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
         );
       } else {
         usedImageIds.add(company.logo);
+      }
+    }
+
+    for (const use of opts.logoUses ?? []) {
+      for (const id of use.ids) {
+        if (!imageIds.has(id)) push(use.label, `logo "${id}" is not in the image registry`);
+        else usedImageIds.add(id);
       }
     }
 

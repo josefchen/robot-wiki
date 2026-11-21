@@ -17,9 +17,9 @@ import {
   type FundingEvent,
   type RoundSector,
   type RoundStatus,
-} from '@/data/rounds.ts';
-import { EUR_REFERENCE_RATES } from '@/data/fx-rates.ts';
-import { formatUsd, type MarketMapSegment } from '@/lib/market-map.ts';
+} from '../data/rounds.ts';
+import { EUR_REFERENCE_RATES } from '../data/fx-rates.ts';
+import { formatUsd, type MarketMapSegment } from './market-map.ts';
 
 export const ROUNDS_WINDOW_DAYS = 120;
 

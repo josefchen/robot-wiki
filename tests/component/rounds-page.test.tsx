@@ -304,6 +304,30 @@ describe('/market-map/rounds/ page', () => {
     expect(screen.getByText(entry.text)).toBeInTheDocument();
   });
 
+  it('preserves the light letters inside both official dark-backed funding marks', () => {
+    const container = renderPage();
+    for (const id of ['uforce-logo', 'gravis-robotics-logo']) {
+      const mark = container.querySelector(`#rounds [data-market-table-mark="${id}"] [data-logo-mark]`);
+      expect(mark).toHaveAttribute('data-logo-ink-mode', 'light');
+    }
+  });
+
+  it('draws the selected issuer marks only on ranked financing rows and preserves the visible names', () => {
+    const page = renderPage();
+    for (const [key, name, logo] of [
+      ['genesis-ai-2026-11-17', 'Genesis AI', 'genesis-ai-logo'],
+      ['megarobo-2026-11-18', 'MegaRobo', 'megarobo-logo'],
+      ['brightai-2026-11-18', 'BrightAI', 'brightai-logo'],
+      ['remedy-robotics-2026-11-16', 'Remedy Robotics', 'remedy-robotics-logo'],
+    ]) {
+      const cell = page.querySelector(`[data-round-row="${key}"] td`)!;
+      expect(cell.textContent).toContain(name);
+      expect(cell.querySelector(`[data-market-table-mark="${logo}"]`)).toHaveAttribute('aria-hidden', 'true');
+    }
+    expect(page.querySelector('[data-uk-europe-row] [data-market-table-mark]')).toBeNull();
+    expect(page.querySelector('[data-round-row^="emulate-talks"] [data-market-table-mark]')).toBeNull();
+  });
+
   it('is indexable, listed in the sitemap, and shares its h1 as og:title', () => {
     expect(metadata.robots).toBeUndefined();
     expect(sitemap().map((entry) => entry.url)).toContain(`${SITE_URL}${ROUNDS_PAGE_PATH}`);

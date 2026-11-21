@@ -138,6 +138,7 @@ describe('SiteShell', () => {
     ['/now/', 'Now', 'page'],
     ['/now', 'Now', 'page'],
     ['/market-map/', 'Market', 'page'],
+    ['/market-map/public/', 'Market', 'true'],
     ['/market-map/rounds/', 'Market', 'true'],
     ['/how-robots-work/', 'How robots work', 'page'],
   ])('on %s marks only "%s", with the underline and no change of weight', (pathname, label, value) => {

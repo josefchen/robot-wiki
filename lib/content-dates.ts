@@ -60,6 +60,12 @@ export const ROUTE_SOURCES: Readonly<Record<string, readonly string[]>> = {
   '/adjacent/': HUB_SOURCES,
   '/now/': ['app/now/page.tsx', 'data/now.ts', 'data/now-debates.ts'],
   '/market-map/': ['app/market-map/page.tsx', 'data/companies.ts', 'data/logos.ts'],
+  '/market-map/public/': [
+    'app/market-map/public/page.tsx',
+    'components/public-companies',
+    'data/public-companies.ts',
+    'data/fx-rates.ts',
+  ],
   '/market-map/rounds/': [
     'app/market-map/rounds/page.tsx',
     'components/rounds',
@@ -76,6 +82,14 @@ export const ROUTE_SOURCES: Readonly<Record<string, readonly string[]>> = {
   ],
   '/how-robots-work/': ['app/how-robots-work/page.tsx', 'components/explainers'],
   '/glossary/': ['app/glossary/page.tsx', 'data/glossary.ts', 'data/citations.ts'],
+  '/robots-in-3d/': [
+    'app/robots-in-3d/page.tsx',
+    'components/model-viewer',
+    'components/maker-model-sources',
+    'data/models-3d.ts',
+    'data/maker-model-sources.ts',
+    'lib/robots-in-3d-page.ts',
+  ],
   '/credits/': [
     'app/credits/page.tsx',
     'data/images.ts',
