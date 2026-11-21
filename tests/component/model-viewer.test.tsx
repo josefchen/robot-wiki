@@ -151,6 +151,45 @@ describe('ModelViewer', () => {
     expect(root().getAttribute('data-state')).toBe('loading');
   });
 
+  it('focuses each committed control through a failed load and retry without waiting for an animation frame', async () => {
+    render(<ModelViewer {...PROPS} />);
+    expect(document.activeElement).toBe(document.body);
+    const load = screen.getByRole('button', { name: 'Load model' });
+    load.focus();
+    fireEvent.click(load);
+    expect(screen.getByRole('status')).toHaveFocus();
+    await vi.waitFor(() => expect(loader.calls).toHaveLength(1));
+    await act(async () => loader.calls[0].settle.reject(new UrdfModelError(0, 0)));
+    const retry = screen.getByRole('button', { name: 'Try again' });
+    expect(retry).toHaveFocus();
+    fireEvent.click(retry);
+    expect(screen.getByRole('status')).toHaveFocus();
+    await vi.waitFor(() => expect(loader.calls).toHaveLength(2));
+    await act(async () => loader.calls[1].settle.resolve({ robot: {}, meshes: 3 }));
+    fireEvent.click(screen.getByText('Report drawn'));
+    expect(screen.getByRole('button', { name: 'Reset view' })).toHaveFocus();
+  });
+
+  it.each(['error', 'drawn'])('leaves the next link focused when a pending model reaches %s', async (outcome) => {
+    render(<><ModelViewer {...PROPS} /><a href="/">Next page</a></>);
+    const load = screen.getByRole('button', { name: 'Load model' });
+    load.focus();
+    fireEvent.click(load);
+    await vi.waitFor(() => expect(loader.calls).toHaveLength(1));
+    const next = screen.getByRole('link', { name: 'Next page' });
+    next.focus();
+    act(() => loader.calls[0].progress?.(2, 3));
+    if (outcome === 'error') {
+      await act(async () => loader.calls[0].settle.reject(new UrdfModelError(1, 3)));
+      expect(screen.getByRole('button', { name: 'Try again' })).toBeVisible();
+    } else {
+      await act(async () => loader.calls[0].settle.resolve({ robot: {}, meshes: 3 }));
+      fireEvent.click(screen.getByText('Report drawn'));
+      expect(screen.getByRole('button', { name: 'Reset view' })).toBeVisible();
+    }
+    expect(next).toHaveFocus();
+  });
+
   it('says when the URDF itself did not load', () => {
     expect(failedText({ failed: 0, meshes: 0 })).toBe('The URDF did not load, so the model is not drawn.');
   });
@@ -161,6 +200,7 @@ describe('ModelViewer', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Load model' }));
     expect(root().getAttribute('data-state')).toBe('unavailable');
     expect(screen.getByTestId('webgl-unavailable')).toBeInTheDocument();
+    expect(screen.getByTestId('webgl-unavailable').closest('[tabindex]')).toHaveFocus();
     expect(loader.calls).toHaveLength(0);
   });
 });

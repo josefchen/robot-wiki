@@ -75,29 +75,38 @@ export function ModelViewer({ id, product, summary, heading, caption, alt, urdf,
   const [drawn, setDrawn] = useState(false);
   const [resetToken, setResetToken] = useState(0);
   const reducedMotion = useSyncExternalStore(subscribeReducedMotion, prefersReducedMotion, () => false);
-  const statusRef = useRef<HTMLParagraphElement>(null);
-  const resetRef = useRef<HTMLButtonElement>(null);
-  const retryRef = useRef<HTMLButtonElement>(null);
-  const unavailableRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const moveFocus = useRef(false);
 
-  // The pressed button leaves the frame; focus moves to what replaces it.
-  const focusSoon = (ref: { current: HTMLElement | null }) =>
-    requestAnimationFrame(() => ref.current?.focus({ preventScroll: true }));
-
-  const onViewerError = useCallback(() => {
-    setState({ kind: 'viewer-failed' });
-    focusSoon(retryRef);
+  // Remember who owned focus before React removes the old control. A reader
+  // who tabs away while the model loads keeps their place in the page.
+  const rememberFocus = useCallback(() => {
+    moveFocus.current = stageRef.current?.contains(document.activeElement) ?? false;
+  }, []);
+  // React calls the ref with the actual control during the DOM commit. It
+  // stays attached during progress updates, so they never interrupt the reader.
+  const focusReplacement = useCallback((element: HTMLElement | null) => {
+    if (!element || !moveFocus.current) return;
+    moveFocus.current = false;
+    const active = document.activeElement;
+    if (active === document.body || stageRef.current?.contains(active)) {
+      element.focus({ preventScroll: true });
+    }
   }, []);
 
+  const onViewerError = useCallback(() => {
+    rememberFocus();
+    setState({ kind: 'viewer-failed' });
+  }, [rememberFocus]);
+
   const load = useCallback(async () => {
+    moveFocus.current = true;
     if (!isWebGLAvailable()) {
       setState({ kind: 'unavailable' });
-      focusSoon(unavailableRef);
       return;
     }
     setDrawn(false);
     setState({ kind: 'loading', loaded: 0, total: 0 });
-    focusSoon(statusRef);
     const loader = await import('@/components/three/load-urdf-model').catch(() => null);
     if (!loader) {
       onViewerError();
@@ -110,15 +119,15 @@ export function ModelViewer({ id, product, summary, heading, caption, alt, urdf,
       setState((current) => ({ kind: 'loaded', robot: model.robot, total: current.kind === 'loading' ? current.total : 0 }));
     } catch (error) {
       const failure = error instanceof loader.UrdfModelError ? error : { failed: 0, meshes: 0 };
+      rememberFocus();
       setState({ kind: 'failed', failed: failure.failed, meshes: failure.meshes });
-      focusSoon(retryRef);
     }
-  }, [urdf, onViewerError]);
+  }, [urdf, onViewerError, rememberFocus]);
 
   const onDrawn = useCallback(() => {
+    rememberFocus();
     setDrawn(true);
-    focusSoon(resetRef);
-  }, []);
+  }, [rememberFocus]);
   const pending = state.kind === 'loaded' && !drawn;
   const showStill = state.kind === 'idle' || state.kind === 'loading' || pending;
   const progress = state.kind === 'loading' ? state : pending ? { loaded: state.total, total: state.total } : null;
@@ -133,7 +142,7 @@ export function ModelViewer({ id, product, summary, heading, caption, alt, urdf,
       caption={caption}
       stage={
         <FigureStage>
-          <div className="mv-stage" data-testid="model-stage">
+          <div ref={stageRef} className="mv-stage" data-testid="model-stage">
             {showStill ? (
               <picture className="mv-still">
                 <source media={still.wide.media} srcSet={still.wide.src} width={still.wide.width} height={still.wide.height} />
@@ -170,7 +179,7 @@ export function ModelViewer({ id, product, summary, heading, caption, alt, urdf,
 
             {progress ? (
               <div className="mv-load">
-                <p ref={statusRef} tabIndex={-1} role="status" className="mv-status" data-loading="">
+                <p ref={focusReplacement} tabIndex={-1} role="status" className="mv-status" data-loading="">
                   {loadingText(progress)}
                 </p>
               </div>
@@ -182,7 +191,7 @@ export function ModelViewer({ id, product, summary, heading, caption, alt, urdf,
                   {failedText(state)}
                 </p>
                 <button
-                  ref={retryRef}
+                  ref={focusReplacement}
                   type="button"
                   className="mv-text"
                   data-brand-control-id="control:secondary-action"
@@ -194,7 +203,7 @@ export function ModelViewer({ id, product, summary, heading, caption, alt, urdf,
             ) : null}
 
             {state.kind === 'unavailable' ? (
-              <div ref={unavailableRef} tabIndex={-1} className="mv-centre mv-unavailable">
+              <div ref={focusReplacement} tabIndex={-1} className="mv-centre mv-unavailable">
                 <WebGLUnavailable subject="model" />
               </div>
             ) : null}
@@ -202,7 +211,7 @@ export function ModelViewer({ id, product, summary, heading, caption, alt, urdf,
             {state.kind === 'viewer-failed' ? (
               <div className="mv-centre">
                 <p role="status" className="mv-status">The 3D viewer could not start.</p>
-                <button ref={retryRef} type="button" className="mv-text" onClick={() => window.location.reload()}>
+                <button ref={focusReplacement} type="button" className="mv-text" onClick={() => window.location.reload()}>
                   Reload page
                 </button>
               </div>
@@ -233,7 +242,7 @@ export function ModelViewer({ id, product, summary, heading, caption, alt, urdf,
                       <span className="mv-hint-touch">Tap, then drag to turn and pinch to zoom.</span>
                     </p>
                     <button
-                      ref={resetRef}
+                      ref={focusReplacement}
                       type="button"
                       className="mv-text mv-reset"
                       data-brand-control-id="control:secondary-action"
