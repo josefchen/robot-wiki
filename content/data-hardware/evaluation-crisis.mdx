@@ -154,7 +154,7 @@ SIMPLER tests whether simulation predicts real performance. It matches real back
 
 SimFoundry's simulated evaluations reached a mean 0.911 correlation with real results over 7 tasks and 5 policy architectures <Cite id="simfoundry-2026" />. Google DeepMind validated a Veo [world model](/world-models/evaluation) evaluator against 1,600+ real evaluations of eight Gemini Robotics checkpoints <Cite id="veo-world-simulator-2025" />. SureSim corrects simulator bias with a few paired real and simulated trials, saving over 20 to 25% of hardware evaluation effort <Cite id="suresim-2025" />.
 
-World models drift over long episodes. WorldOracle (October 2026) replays the actions of 100 two-minute AgiBot G2 episodes through seven world models and scores each predicted video against reality, out of 100 <Cite id="worldoracle-2026" />:
+World models drift over long episodes. WorldOracle (October 2026) replays the actions of 100 two-minute AgiBot G2 episodes through seven world models and compares their predicted videos with the recordings. The table gives single-view scores out of 100 <Cite id="worldoracle-2026" />:
 
 | World model | First 30 seconds | Full episode |
 | --- | --- | --- |
