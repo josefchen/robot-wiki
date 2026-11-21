@@ -219,9 +219,9 @@ export function recordRows(model: Model3d): RecordRow[] {
     { key: 'encoding', label: 'Encoding', text: model.encoding, mono: false },
     {
       key: 'bound',
-      label: 'Position bound per axis',
+      label: 'Nominal rounding per axis',
       text: `${model.positionBoundUm} µm`,
-      detail: 'half a quantization step, computed, not measured',
+      detail: 'Half the largest coordinate step used to encode these meshes.',
       mono: true,
     },
     { key: 'change', label: 'What the conversion changed', text: model.change, mono: false },
