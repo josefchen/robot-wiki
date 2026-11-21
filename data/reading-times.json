@@ -8,7 +8,7 @@
     "minutes": 9
   },
   "manipulation/diffusion-policy": {
-    "words": 1031,
+    "words": 1032,
     "minutes": 5
   },
   "manipulation/vla-models": {
@@ -132,15 +132,15 @@
     "minutes": 9
   },
   "data-hardware/datasets": {
-    "words": 1641,
+    "words": 1646,
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3392,
+    "words": 3408,
     "minutes": 17
   },
   "data-hardware/teleop-rigs": {
-    "words": 1786,
+    "words": 1791,
     "minutes": 9
   },
   "data-hardware/evaluation-crisis": {
@@ -148,7 +148,7 @@
     "minutes": 8
   },
   "data-hardware/industrial-deployment": {
-    "words": 1640,
+    "words": 1667,
     "minutes": 8
   },
   "data-hardware/robot-learning-stack": {
@@ -196,7 +196,7 @@
     "minutes": 5
   },
   "classical/ros2-for-ml-engineers": {
-    "words": 1010,
+    "words": 1014,
     "minutes": 5
   },
   "frontier/reliability-gap": {
@@ -204,11 +204,11 @@
     "minutes": 5
   },
   "frontier/dexterity": {
-    "words": 1737,
+    "words": 1748,
     "minutes": 9
   },
   "frontier/generalization": {
-    "words": 1466,
+    "words": 1470,
     "minutes": 7
   },
   "frontier/competing-theses": {
@@ -228,7 +228,7 @@
     "minutes": 10
   },
   "adjacent/drones": {
-    "words": 1860,
+    "words": 1857,
     "minutes": 9
   },
   "adjacent/surgical": {
