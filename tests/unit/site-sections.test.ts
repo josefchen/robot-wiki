@@ -72,11 +72,12 @@ describe('site sections', () => {
     expect(new Set(SITE_SECTIONS.map((section) => section.label)).size).toBe(SITE_SECTIONS.length);
   });
 
-  it('opens the Market section on the market map, then the recent rounds', () => {
+  it('opens the Market section on the market map, then the public companies and the recent rounds', () => {
     expect(SITE_SECTIONS).toContain(MARKET_SECTION);
     expect(MARKET_SECTION.label).toBe('Market');
     expect(MARKET_SECTION.pages).toEqual([
       { label: 'Market map', route: '/market-map/' },
+      { label: 'Public companies', route: '/market-map/public/' },
       { label: 'Recent rounds', route: '/market-map/rounds/' },
     ]);
   });

@@ -66,6 +66,7 @@ describe('sitemap', () => {
     const routes = entries
       .map((entry) => entry.url.slice(SITE_URL.length))
       .filter((path) => !articles.has(path));
+    expect(routes).toContain('/market-map/public/');
     expect(routes).toContain('/market-map/rounds/');
     expect(new Set(routes)).toEqual(
       new Set([...Object.keys(ROUTE_SOURCES)]),

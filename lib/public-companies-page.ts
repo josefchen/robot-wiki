@@ -7,6 +7,8 @@
  *
  * Tested in tests/unit/public-companies-page.test.ts.
  */
+import { NO_CLOSE, sourceHost } from './public-company-labels';
+export { NO_CLOSE, sourceHost };
 import {
   EUR_REFERENCE_RATES,
   FX_RATES_DATE,
@@ -104,11 +106,6 @@ const SCALES: readonly [number, string][] = [
   [1e3, 'K'],
 ];
 
-/** The host a source sits on, without "www.": what a reader sees before following it. */
-export function sourceHost(url: string): string {
-  return new URL(url).hostname.replace(/^www\d?\./, '');
-}
-
 /** A large amount in its own currency: "$154B", "JPY 5.12T", "HKD 710M". */
 export function formatMoney(amount: number, currency: ListingCurrency): string {
   const prefix = currency === 'USD' ? '$' : `${currency} `;
@@ -160,7 +157,7 @@ export function publicPageDescription(): string {
 /** The listed table's conversion note, with each rate's date. */
 export function conversionNote(): string {
   return (
-    `Sorted by market value in US dollars, converted at the European Central Bank's reference rates of ` +
+    `Market values use US dollars for comparison, converted at the European Central Bank's reference rates of ` +
     `${formatLongDate(FX_RATES_DATE)}; Taiwan dollars at the Federal Reserve's H.10 rate of ` +
     `${formatLongDate(TWD_RATE_DATE)}.`
   );
@@ -361,7 +358,7 @@ export function closesCaption(debuts: readonly Debut[] = DEBUTS): string {
 }
 
 /** A debut that trades but has no close in the module: the close exists, the data lacks it. */
-export const NO_CLOSE = 'no close in the data';
+
 
 export function debutText(debut: Debut): DebutText {
   const change = sinceListingChange(debut);
@@ -439,7 +436,7 @@ export function listedLead(companies: readonly PublicCompany[] = PUBLIC_COMPANIE
   const counts = exposureCounts(companies);
   return (
     `${counts['pure play']} pure plays, ${counts['major part']} companies where robots are a major part ` +
-    `and ${counts['minor part']} where they are a minor part, largest first.`
+    `and ${counts['minor part']} where they are a minor part. The table opens with pure plays first, largest by market value within each group.`
   );
 }
 

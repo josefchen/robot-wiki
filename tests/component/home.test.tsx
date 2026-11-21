@@ -184,9 +184,16 @@ describe('Home page', () => {
       const entry = also.querySelector(`[data-also="${key}"]`) as HTMLElement;
       const link = within(entry).getByRole('heading', { level: 3, name }).querySelector('a');
       expect(path(link?.getAttribute('href') ?? null)).toBe(href);
-      // One link an entry; the market map also links the page under it.
-      expect(within(entry).getAllByRole('link')).toHaveLength(key === 'market-map' ? 2 : 1);
       expect(entry.textContent).toContain(line);
+    }
+    for (const [group, title, href] of [
+      ['how-robots-work', 'Robots in 3D', '/robots-in-3d'],
+      ['market-map', 'Public robotics companies', '/market-map/public'],
+      ['market-map', 'Unitree Robotics', '/companies/unitree'],
+    ]) {
+      const link = within(also).getByRole('link', { name: title });
+      expect(path(link.getAttribute('href'))).toBe(href);
+      expect(link.closest('[data-also]')).toHaveAttribute('data-also', group);
     }
     // The recent rounds page: one link in the block, on a line of its own in
     // the market map's cell, with the count its own headline prints.
@@ -264,6 +271,9 @@ describe('Home page', () => {
       '/now',
       '/market-map',
       '/market-map/rounds',
+      '/market-map/public',
+      '/companies/unitree',
+      '/robots-in-3d',
       '/playground',
       '/glossary',
       '/a-z',

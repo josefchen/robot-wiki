@@ -20,6 +20,7 @@ export const MARKET_SECTION: SiteSection = {
   label: 'Market',
   pages: [
     { label: 'Market map', route: '/market-map/' },
+    { label: 'Public companies', route: '/market-map/public/' },
     { label: 'Recent rounds', route: '/market-map/rounds/' },
   ],
 };

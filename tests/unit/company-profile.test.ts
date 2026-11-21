@@ -68,7 +68,7 @@ describe('Unitree profile: schema', () => {
   it('parses against the company profile schema', () => {
     expect(() => companyProfileSchema.parse(profile)).not.toThrow();
     expect(profile.asOf).toBe(UNITREE_AS_OF);
-    expect(UNITREE_AS_OF).toBe('2026-11-14');
+    expect(UNITREE_AS_OF).toBe('2026-11-20');
   });
 
   it('gives every row and fact a source', () => {
@@ -420,6 +420,10 @@ describe('Unitree profile: products', () => {
       const row = product(id);
       return [formatDof(row.dof), formatQuantity(row.mass), formatQuantity(row.payload), row.payloadBasis ?? ''];
     };
+    expect(spec('g1-a-standard')).toEqual(['19', 'about 22 kg', 'about 3 kg', 'per arm, maximum']);
+    expect(product('g1-d-standard').dof).toBe(19);
+    expect(product('g1-d-flagship').dof).toBe(21);
+    expect(spec('h2-plus')).toEqual(['75', 'about 68 kg', '7 kg', 'per arm on H2 Plus, rated; peak 15 kg']);
     const walking = 'continuous walking';
     expect(spec('go2-pro')).toEqual(['12', 'about 15 kg', 'about 8 kg', '']);
     expect(spec('go2-x')).toEqual(['12', 'about 15 kg', 'about 8 kg', '']);
@@ -494,7 +498,7 @@ describe('Unitree profile: timeline', () => {
 
   it('dates and credits the security findings from the researchers and the CVE records', () => {
     const security = new Map(timelineOfKind(profile.timeline, 'security').map((row) => [row.id, row]));
-    expect(security.get('sec-unipwn')?.date).toBe('2025-09-20');
+    expect(security.get('sec-unipwn')?.date).toBe('2025-09-26');
     expect(security.get('sec-unipwn')?.cves).toEqual([
       'CVE-2025-35027',
       'CVE-2025-60017',
@@ -530,10 +534,19 @@ describe('Unitree profile: timeline', () => {
 describe('Unitree profile: software and provenance', () => {
   it('never states one license for everything', () => {
     const licenses = new Set(profile.software.map((row) => row.license));
-    for (const license of ['BSD-3-Clause', 'Apache-2.0', 'GPL-2.0', 'custom license file', 'no license file', 'no license tag']) {
+    for (const license of ['BSD-3-Clause', 'Apache-2.0', 'GPL-2.0', 'CC BY-NC-SA 4.0', 'no license file', 'conflicting statements']) {
       expect(licenses.has(license as never), license).toBe(true);
     }
     const repo = (name: string) => profile.software.find((row) => row.name === name)?.license;
+    for (const name of ['unitree_sim_isaaclab', 'xr_teleoperate', 'unitree_lerobot', 'uni_calib']) {
+      expect(repo(name), name).toBe('Apache-2.0');
+    }
+    for (const name of ['Qmini', 'unifolm-world-model-action', 'UnifoLM-VLM-Base', 'UnifoLM-VLA-Base', 'UnifoLM-VLA-Libero']) {
+      expect(repo(name), name).toBe('CC BY-NC-SA 4.0');
+    }
+    for (const name of ['UnifoLM-WMA-0-Base', 'UnifoLM-WMA-0-Dual']) {
+      expect(repo(name), name).toBe('conflicting statements');
+    }
     expect(repo('point_lio_unilidar')).toBe('GPL-2.0');
     expect(repo('unifolm-vla')).toBe('no license file');
     expect(repo('unitree_rl_lab')).toBe('Apache-2.0');
@@ -541,7 +554,7 @@ describe('Unitree profile: software and provenance', () => {
 
   it('counts every Hugging Face dataset, not a first page', () => {
     const datasets = profile.software.find((row) => row.id === 'hf-datasets');
-    expect(datasets?.count).toBe(246);
+    expect(datasets?.count).toBe(262);
     expect(datasets?.countIsFloor).toBe(false);
   });
 
@@ -549,7 +562,7 @@ describe('Unitree profile: software and provenance', () => {
     const counts = countsBySourceType(profile);
     expect(counts.total).toBe(profileRows(profile).length);
     expect(counts.primary + counts.reported).toBe(counts.total);
-    expect(counts).toEqual({ primary: 216, reported: 5, total: 221 });
+    expect(counts).toEqual({ primary: 219, reported: 5, total: 224 });
     expect(rowCountsBySection(profile)).toEqual({
       company: 3,
       listing: 15,
@@ -561,15 +574,15 @@ describe('Unitree profile: software and provenance', () => {
       mainBusinessTotals: 3,
       regions: 6,
       marketShares: 3,
-      products: 62,
+      products: 63,
       timeline: 49,
-      software: 34,
+      software: 36,
     });
   });
 
-  it('prices 31 trims, sends 16 to contact sales and leaves 15 not disclosed', () => {
+  it('prices 31 trims, sends 16 to contact sales and leaves 16 not disclosed', () => {
     const tally = (kind: string) =>
       profile.products.filter((row) => (row.priceUsd !== null ? 'price' : row.priceAbsent) === kind).length;
-    expect([tally('price'), tally('contact sales'), tally('not disclosed')]).toEqual([31, 16, 15]);
+    expect([tally('price'), tally('contact sales'), tally('not disclosed')]).toEqual([31, 16, 16]);
   });
 });

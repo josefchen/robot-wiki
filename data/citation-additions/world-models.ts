@@ -391,6 +391,42 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.35636',
     type: 'paper',
   },
+  {
+    id: 'robofqe-2026',
+    title: 'RoboFQE: Rollout-Free Evaluation of Visual Robot Policies from Offline Trajectories',
+    authors: ['Yunfu Deng', 'Sangwoo Shin', 'Brahma S. Pavse', 'Josiah P. Hanna'],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.18699',
+    url: 'https://arxiv.org/abs/2610.18699',
+    type: 'paper',
+  },
+  {
+    id: 'wam-best-of-n-2026',
+    title: 'How Much Can Best-of-N Help a World Action Model? Measuring Selectable Headroom and Realizing It in Closed Loop',
+    authors: [
+      'Haojia Gao', 'Yue Cao', 'Yumin Liu', 'Haohua Que', 'Mingkai Liu', 'Guanqiu Guo', 'Zhuo Zou',
+      'Bokui Chen', 'Xueqian Wang',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.37196',
+    url: 'https://arxiv.org/abs/2610.37196',
+    type: 'paper',
+  },
+  {
+    id: 'wevo-2026',
+    title: 'WEVO: World Model-Enabled VLA Optimization for Whole-Body Loco-Manipulation',
+    authors: [
+      'Qianzhong Chen', 'Muyuan Lin', 'Yuyin Sun', 'Mac Schwager', 'Cheng-Hao Kuo',
+      'Roberto Martín-Martín',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2611.25251',
+    url: 'https://arxiv.org/abs/2611.25251',
+    type: 'paper',
+  },
   // arXiv Atom API, 2610.33565v1 published 2026-10-24, fetched 2026-11-12: tests failure reason, failure stage and
   // failure boundary on LIBERO, RoboTwin and real G1 humanoid tasks; "Experiments across seven world models reveal
   // substantial gaps in their understanding of policy failures".

@@ -205,7 +205,10 @@ test.describe('home front page', () => {
   }) => {
     const sitemap = await (await page.request.get(`${BASE}/sitemap.xml`)).text();
     const routes = [...sitemap.matchAll(/<loc>https?:\/\/[^/]+(\/[^<]*)<\/loc>/g)].map(([, route]) => route);
-    const articles = routes.filter((route) => /^\/[a-z0-9-]+\/[a-z0-9-]+\/$/.test(route));
+    // Market and company references also use two-segment URLs.
+    const articles = routes.filter((route) =>
+      DOMAINS.some((domain) => route.startsWith(`/${domain}/`) && route !== `/${domain}/`),
+    );
     expect(articles.sort()).toEqual(
       publishedModules()
         .map((entry) => `/${entry.domain}/${entry.slug}/`)
@@ -308,11 +311,11 @@ test.describe('home front page', () => {
     }
   });
 
-  test('"Also in the wiki" names the six parts that are not articles and the rounds page under the market map, each counted from its registry', async ({
+  test('"Also in the wiki" links the six reference sections and their related pages, with counts from the registries', async ({
     page,
     browser,
   }) => {
-    // Seven pages, each opened in a context of its own.
+    // Ten pages, each opened in a context of its own.
     test.setTimeout(60_000);
     const main = await home(page);
     const block = main.getByRole('region', { name: 'Also in the wiki' });
@@ -335,8 +338,8 @@ test.describe('home front page', () => {
     );
     expect(entries).toEqual([
       { key: 'now', links: ['/now/'], title: 'Robotics now', line: `${DEVELOPMENTS.length} developments since ${since}.`, media: 0 },
-      { key: 'how-robots-work', links: ['/how-robots-work/'], title: 'How robots work', line: `${EXPLAINER_ORDER.length} short explainers you can turn in 3D.`, media: 0 },
-      { key: 'market-map', links: ['/market-map/', ROUNDS_PAGE_PATH], title: 'Market map', line: `${COMPANIES.length} companies, with the sources behind each figure.`, media: 0 },
+      { key: 'how-robots-work', links: ['/how-robots-work/', '/robots-in-3d/'], title: 'How robots work', line: `${EXPLAINER_ORDER.length} short explainers you can turn in 3D.`, media: 0 },
+      { key: 'market-map', links: ['/market-map/', ROUNDS_PAGE_PATH, '/market-map/public/', '/companies/unitree/'], title: 'Market map', line: `${COMPANIES.length} companies, with the sources behind each figure.`, media: 0 },
       { key: 'playground', links: ['/playground/'], title: 'Playground', line: 'Pose a small robot arm one joint at a time.', media: 0 },
       { key: 'glossary', links: ['/glossary/'], title: 'Glossary', line: `${GLOSSARY.length} terms, each defined with its sources.`, media: 0 },
       { key: 'a-z', links: ['/a-z/'], title: 'A to Z index', line: `All ${publishedModules().length} articles in one list.`, media: 0 },
@@ -360,7 +363,7 @@ test.describe('home front page', () => {
     expect(counts.closedRounds).toBe(facts.closed);
     // Each link opens a real page with its own h1.
     const links = entries.flatMap((entry) => entry.links);
-    expect(links).toHaveLength(7);
+    expect(links).toHaveLength(10);
     await forEachInOwnContext(browser, links, async (entryPage, link) => {
       const response = await entryPage.goto(`${BASE}${link}`);
       expect(response?.status(), link).toBe(200);
@@ -596,8 +599,8 @@ test.describe('home front page', () => {
     // The caveats home no longer carries, each once.
     for (const moved of [
       /Technical claims trace to cited evidence\./g,
-      /a citation tells you where a claim comes from/g,
-      /the reading order is the contents order/g,
+      /the kind of source tells you how far to trust a claim/g,
+      /within a domain later articles assume the earlier ones/g,
       /The one prerequisite is fluency in machine learning/g,
     ]) {
       expect(about.match(moved) ?? [], String(moved)).toHaveLength(1);

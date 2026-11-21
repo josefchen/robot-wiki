@@ -299,6 +299,15 @@ describe('company logo lookup', () => {
     }
   });
 
+  it('identifies the issuer in the IPO filing and preserves the label of the financing', () => {
+    expect(logoIdFor('AITMC Ventures')).toBe('aitmc-ventures-logo');
+    expect(logoIdFor('Tianjin Chenxing Technology')).toBe(logoIdFor('Atomrobot'));
+    expect(logoIdFor('WB Electronics')).toBe('wb-electronics-logo');
+    expect(logoIdFor('WB Group')).toBeNull();
+    expect(logoIdFor('Dream Labs')).toBe('dream-labs-logo');
+    expect(companyLogo('Hai Robotics')?.reason).toContain('fewer than seven pixels');
+  });
+
   it('keeps its keys normalized and never gives a name both a mark and a reason', () => {
     for (const key of [...Object.keys(COMPANY_LOGO_IDS), ...Object.keys(NO_LOGO)]) {
       expect(normalizeCompanyName(key)).toBe(key);

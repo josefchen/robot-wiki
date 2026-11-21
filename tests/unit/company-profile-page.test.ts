@@ -67,13 +67,13 @@ describe('company profile registry', () => {
 describe('counts the page states', () => {
   it('counts products, events, security records, CVEs, holders and software from the rows', () => {
     expect(profilePageCounts(profile)).toEqual({
-      products: 62,
+      products: 63,
       events: 40,
       security: 9,
       cves: 12,
       holders: 15,
       holderTableRows: 56,
-      software: 34,
+      software: 36,
     });
   });
 
@@ -91,9 +91,9 @@ describe('counts the page states', () => {
     expect(cveCount(profile)).toBe(new Set(all).size);
   });
 
-  it('prices 31 products, quotes 16 on request and leaves 15 without a price, 62 in all', () => {
+  it('prices 31 products, quotes 16 on request and leaves 16 without a price, 63 in all', () => {
     const counts = priceCounts(profile);
-    expect(counts).toEqual({ priced: 31, contactSales: 16, notDisclosed: 15 });
+    expect(counts).toEqual({ priced: 31, contactSales: 16, notDisclosed: 16 });
     expect(counts.priced + counts.contactSales + counts.notDisclosed).toBe(profile.products.length);
   });
 });
@@ -102,7 +102,7 @@ describe('sentences', () => {
   it('leads with the 2025 sales and total revenue, ends on what the page\u2019s rows are, and leaves the date to the header', () => {
     expect(profileLead(profile)).toBe(
       'Unitree Robotics\u2019 listing documents report 2025 sales of 23,037 quadrupeds and 5,215 humanoids and total ' +
-        'revenue of CNY\u00a01,699.27\u00a0m; this page lists 62 of the company\u2019s robots, arms, grippers, hands and ' +
+        'revenue of CNY\u00a01,699.27\u00a0m; this page lists 63 of the company\u2019s robots, arms, grippers, hands and ' +
         'lidars, 31 of them with a list price from USD\u00a0249 to USD\u00a050,000',
     );
     expect(profileLead(profile)).not.toMatch(/[.,;:]\s*$/);
@@ -111,7 +111,7 @@ describe('sentences', () => {
   it('makes the page, not the company, the subject of the product count', () => {
     // The shop also sells motors, servos, batteries, chargers and a controller that are not rows.
     const lead = profileLead(profile);
-    expect(lead).toMatch(/this page lists 62 of the company\u2019s /);
+    expect(lead).toMatch(/this page lists 63 of the company\u2019s /);
     expect(lead).not.toMatch(/\b(sells|names|makes) \d/);
     expect(lead).not.toMatch(/\bthe company (sells|names|makes|lists)\b/);
   });
@@ -172,11 +172,11 @@ describe('sentences', () => {
     const leads = sectionLeads(profile);
     expect(leads.products).toBe(
       'The rows are robots, arms, grippers, hands and lidars; parts and accessories such as motors, batteries and ' +
-        'chargers are not listed. Of the 62 rows, 31 carry a list price in US dollars from the maker’s shop or ' +
-        'product page, 16 are quoted on request and 15 have no published price.',
+        'chargers are not listed. Of the 63 rows, 31 carry a list price in US dollars from the maker’s shop or ' +
+        'product page, 16 are quoted on request and 16 have no published price.',
     );
     expect(leads.timeline).toMatch(/^40 events, newest first\./);
-    expect(leads['software-and-data']).toMatch(/^34 /);
+    expect(leads['software-and-data']).toMatch(/^36 /);
     expect(leads.security).toMatch(/^9 records naming 12 CVEs/);
   });
 
@@ -256,7 +256,7 @@ describe('money', () => {
     );
     expect(listingComputedNote(profile)).toBe(
       'marks a figure derived from the rows above: net proceeds less the planned raise, the first-day close ' +
-        'against the offer price and the latest close times the shares after listing.',
+        'against the offer price and the dated close times the shares after listing.',
     );
     const computed = listingFacts(profile).filter((row) => row.computed);
     expect(computed.every((row) => row.derivation)).toBe(true);

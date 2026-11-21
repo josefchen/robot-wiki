@@ -5,7 +5,7 @@ domain: world-models
 slug: jepa
 order: 4
 status: published
-lastReviewed: "2026-11-13"
+lastReviewed: "2026-11-21"
 citations:
   - vjepa-2024
   - vjepa2-2025
@@ -95,7 +95,7 @@ V-JEPA 2-AC then trains an action-conditioned predictor on the frozen encoder wi
 
 ## Latent planning works on tabletop picks, and successors improve it
 
-Each step, the planner samples 800 candidate actions over ten rounds, scores each by embedding distance to the goal, executes the best and replans <Cite id="vjepa2-2025" />. Nothing shows that this distance tracks real progress.
+In the reported one-step planning setup, the planner samples 800 candidate actions in each of ten rounds. It scores them by embedding distance to the goal, updates the sampling distribution from the strongest candidates, then executes the final mean action and replans <Cite id="vjepa2-2025" />. Nothing shows that this distance tracks real progress.
 
 Also: embedding distance trained as goal-conditioned value <Cite id="jepa-value-planning-2026" />.
 

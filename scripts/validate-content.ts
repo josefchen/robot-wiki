@@ -14,6 +14,8 @@ import { findProseCitationYearDisagreements } from '../lib/prose-citation-years.
 import { GLOSSARY } from '../data/glossary.ts';
 import { IMAGES } from '../data/images.ts';
 import { COMPANIES } from '../data/companies.ts';
+import { fundingTableLogoIds, ipoTableLogoIds } from '../lib/market-table-logos.ts';
+import { publicMapLogoIds } from '../lib/public-market-map-logos.ts';
 import { companySegmentSchema } from '../data/schemas/company.ts';
 import { companyPopulationIssues } from '../lib/company-population.ts';
 import { roundSourceMembershipIssues } from '../lib/company-source-provenance.ts';
@@ -34,6 +36,10 @@ const issues = validateContent({
   // usages too and any image it mounts meets the same unregistered-id gate.
   imageSources: [
     { label: 'app/page.tsx', body: readFileSync(join(root, 'app', 'page.tsx'), 'utf8') },
+  ],
+  logoUses: [
+    { label: 'app/market-map/public/page.tsx', ids: [...publicMapLogoIds(), ...ipoTableLogoIds()] },
+    { label: 'app/market-map/rounds/page.tsx', ids: fundingTableLogoIds() },
   ],
 });
 

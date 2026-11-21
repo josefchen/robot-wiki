@@ -297,9 +297,10 @@ describe('the market map page header', () => {
         expect(section).not.toBeNull();
         const marked = section!.querySelector('[aria-current="page"]')!;
         expect(marked.textContent).toBe('Market map');
-        expect(
-          Array.from(section!.querySelectorAll('a')).map(route),
-        ).not.toContain('/market-map/');
+        expect(Array.from(section!.querySelectorAll('a')).map(route)).toEqual([
+          '/market-map/public/',
+          '/market-map/rounds/',
+        ]);
       }
     },
     30_000,

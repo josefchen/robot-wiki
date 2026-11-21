@@ -112,6 +112,25 @@ function ProductSources({ product }: { product: Product }) {
   );
 }
 
+export function ModelProductSpecs({ profile, product }: { profile: CompanyProfile; product: Product }) {
+  const launch = profile.timeline.find((event) => event.launchOf === product.family);
+  return (
+    <div>
+      <h2 className="font-sans text-[20px] font-semibold text-text">{product.name} specifications</h2>
+      <dl className="mt-4 grid grid-cols-[max-content_minmax(0,1fr)] gap-x-6 gap-y-2 text-[14px]">
+        <dt>List price</dt><dd>{price(product)}</dd>
+        <dt>Mass</dt><dd>{mass(product)}</dd>
+        <dt>Degrees of freedom</dt><dd>{dof(product, false)}</dd>
+        <dt>Launched</dt><dd>{launchText(profile, product)}</dd>
+      </dl>
+      <p className="mt-3 text-[13px] leading-relaxed text-text-dim">
+        <a href={product.sourceUrl} className="ink-link">Product specifications</a>
+        {launch ? <> · <a href={launch.sourceUrl} className="ink-link">Launch filing{launch.pageRef ? `, p. ${launch.pageRef}` : ''}</a></> : null}
+      </p>
+    </div>
+  );
+}
+
 /**
  * Every product, one per row, in the maker's own grouping. From lg up each
  * field has its column; below it the specification stacks under the price

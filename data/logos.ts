@@ -5,9 +5,11 @@
  * would ship the whole image registry (article photographs included) into
  * that chunk. This module carries only the fields the mark needs: file path
  * and intrinsic size. Provenance stays in data/logo-images.ts and is
- * concatenated into IMAGES for /credits and the validator. Marks no
- * published page draws yet (PENDING_LOGO_IMAGES) are listed here too and
- * stay out of IMAGES until one does.
+ * concatenated into IMAGES for /credits and the validator: every mark a
+ * /market-map company row carries, and every mark the public companies
+ * map on /market-map/public/ can draw. Marks no page draws yet
+ * (PENDING_LOGO_IMAGES) are listed here too and stay out of IMAGES until
+ * one does.
  */
 export type CompanyLogoAsset = {
   file: string;
@@ -16,6 +18,30 @@ export type CompanyLogoAsset = {
 };
 
 const COMPANY_LOGOS: Record<string, CompanyLogoAsset> = {
+  'uforce-logo': { file: '/images/logos/uforce.svg', width: 293, height: 100 },
+  'warp-sciences-logo': { file: '/images/logos/warp-sciences.svg', width: 2832, height: 912 },
+  'gravis-robotics-logo': { file: '/images/logos/gravis-robotics.png', width: 32, height: 32 },
+  'icon-construction-logo': { file: '/images/logos/icon-construction.svg', width: 60, height: 32 },
+  'reliable-robotics-logo': { file: '/images/logos/reliable-robotics.svg', width: 140, height: 40 },
+  'dream-labs-logo': { file: '/images/logos/dream-labs.svg', width: 334, height: 334 },
+  'veeda-ai-logo': { file: '/images/logos/veeda-ai.svg', width: 64, height: 64 },
+  'enigma-robotics-logo': { file: '/images/logos/enigma-robotics.svg', width: 384, height: 80 },
+  'poseidon-aerospace-logo': { file: '/images/logos/poseidon-aerospace.svg', width: 188, height: 83 },
+  'standard-robots-logo': { file: '/images/logos/standard-robots.png', width: 173, height: 40 },
+  'atomrobot-logo': { file: '/images/logos/atomrobot.png', width: 595, height: 296 },
+  'changzhou-microintelligence-logo': { file: '/images/logos/changzhou-microintelligence.png', width: 350, height: 80 },
+  'al-robot-logo': { file: '/images/logos/al-robot.png', width: 255, height: 96 },
+  'firefly-robotics-logo': { file: '/images/logos/firefly-robotics.png', width: 675, height: 675 },
+  'garuda-aerospace-logo': { file: '/images/logos/garuda-aerospace.svg', width: 123, height: 47 },
+  'aitmc-ventures-logo': { file: '/images/logos/aitmc-ventures.png', width: 3013, height: 704 },
+  'wb-electronics-logo': { file: '/images/logos/wb-electronics.png', width: 4023, height: 834 },
+  'brightai-logo': { file: '/images/logos/brightai.svg', width: 1223, height: 260 },
+  'cornerstone-robotics-logo': { file: '/images/logos/cornerstone-robotics.png', width: 682, height: 223 },
+  'iplusmobot-logo': { file: '/images/logos/iplusmobot.webp', width: 204, height: 30 },
+  'megarobo-logo': { file: '/images/logos/megarobo.svg', width: 30, height: 30 },
+  'remedy-robotics-logo': { file: '/images/logos/remedy-robotics.svg', width: 284, height: 42 },
+  'sudo-technology-logo': { file: '/images/logos/sudo-technology.svg', width: 84, height: 24 },
+  'topstar-logo': { file: '/images/logos/topstar.png', width: 4881, height: 991 },
   'physical-intelligence-logo': { file: '/images/logos/physical-intelligence.png', width: 200, height: 200 },
   'covariant-logo': { file: '/images/logos/covariant.svg', width: 21, height: 21 },
   'nvidia-logo': { file: '/images/logos/nvidia.svg', width: 630, height: 118 },

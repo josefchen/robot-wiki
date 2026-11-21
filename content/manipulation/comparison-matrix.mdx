@@ -5,7 +5,7 @@ domain: manipulation
 slug: comparison-matrix
 order: 7
 status: published
-lastReviewed: "2026-11-13"
+lastReviewed: "2026-11-20"
 citations:
   - rt1-2022
   - act-aloha-2023
@@ -49,6 +49,7 @@ citations:
   - runway-praxis-1-open-2026
   - xiaomi-robotics-1-2026
   - xiaomi-robotics-1-repo-2026
+  - so101-demo-scaling-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "manipulation/action-spaces"
@@ -72,6 +73,8 @@ Rule out models on weights, license and training data first; Gemini Robotics On-
 <Image id="roboarena-evaluation-2025" />
 
 Compare the rest under one protocol, with identical cameras, horizon and resets, plus a behavior-cloning baseline. TRI's Large Behavior Model study used blind, randomized trials <Cite id="tri-lbm-2025" />. RoboArena's 600-plus double-blind pairwise episodes ranked seven generalist policies more accurately than centralized evaluation <Cite id="roboarena-2025" />.
+
+One training comparison used the same SO-101 pick-and-place task at five demonstration counts. With its action expert fine-tuned, π0.5 succeeded in 16 of 40 trials after 12 demonstrations. ACT managed one. With 100 demonstrations, ACT completed 37 of 40 and π0.5 completed 30. The trials leave the size of that later advantage uncertain <Cite id="so101-demo-scaling-2026" />.
 
 ## Actions are numbers, tokens or refined noise
 

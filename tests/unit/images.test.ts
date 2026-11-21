@@ -31,6 +31,8 @@ import { modules } from '@/data/modules';
 import { CITATIONS } from '@/data/citations';
 import { GLOSSARY } from '@/data/glossary';
 import { COMPANIES } from '@/data/companies';
+import { fundingTableLogoIds, ipoTableLogoIds } from '@/lib/market-table-logos';
+import { publicMapLogoIds } from '@/lib/public-market-map-logos';
 
 /**
  * Imagery pipeline: the Zod schema is the licence gate, and the validator's
@@ -399,6 +401,28 @@ describe('validateContent imagery check', () => {
     ).toBe(true);
   });
 
+  it('counts a logo a page draws by name as published usage and rejects an unknown one', () => {
+    writeArticle('no imagery here');
+    const drawn = validateContent({
+      ...baseOpts(),
+      logoUses: [{ label: 'app/market-map/public/page.tsx', ids: [validEntry.id] }],
+    }).filter((issue) => issue.message.toLowerCase().includes('image'));
+    expect(drawn).toEqual([]);
+
+    const unknown = validateContent({
+      ...baseOpts(),
+      logoUses: [{ label: 'app/market-map/public/page.tsx', ids: ['ghost-logo'] }],
+    });
+    expect(
+      unknown.some(
+        (issue) =>
+          issue.file === 'app/market-map/public/page.tsx' &&
+          issue.message.includes('ghost-logo') &&
+          issue.message.includes('not in the image registry'),
+      ),
+    ).toBe(true);
+  });
+
   it('fails on a schema-invalid registry entry, naming the id and the problem', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
     const broken = { ...validEntry, licence: 'made-up-licence' } as unknown as SiteImage;
@@ -464,6 +488,10 @@ describe('the shipped registry', () => {
           // ImageRef usages exactly like an MDX body.
           body: readFileSync(join(process.cwd(), 'app', 'page.tsx'), 'utf8'),
         },
+      ],
+      logoUses: [
+        { label: 'app/market-map/public/page.tsx', ids: [...publicMapLogoIds(), ...ipoTableLogoIds()] },
+        { label: 'app/market-map/rounds/page.tsx', ids: fundingTableLogoIds() },
       ],
     });
     expect(issues).toEqual([]);

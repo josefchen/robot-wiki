@@ -368,6 +368,19 @@ export const ADDITIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.41354',
     type: 'paper',
   },
+  {
+    id: 'wbd-2026',
+    title: 'Whole-Body Dexterity',
+    authors: [
+      'Conor Mc Gartoll', 'An Dang', 'Pranay Thangeda', 'Arjun Gupta',
+      'Carolina Higuera', 'Nima Fazeli', 'Mustafa Mukadam', 'Manikantan Nambi',
+    ],
+    year: 2026,
+    venue: 'arXiv preprint',
+    arxiv: '2610.22184',
+    url: 'https://arxiv.org/abs/2610.22184',
+    type: 'paper',
+  },
   // humanoid-wbc, 2026-11-12. arXiv Atom API read 2026-11-12 (v1 27 Oct 2026): frozen generative base policy driven
   // by prompts; "Skills are ordinary code, refined by coding agents"; "On the physical Unitree G1, one frozen
   // checkpoint supports walking, recovery, teleoperated object pickup, and sitting on furniture".

@@ -211,7 +211,7 @@ export function sectionLeads(profile: CompanyProfile): Record<ProfileSectionId, 
     timeline:
       `${counts.events} events, newest first. Each United States restriction carries the company’s reply ` +
       'or says it made none.',
-    'software-and-data': `${counts.software} repositories, models, datasets and collections, each with the license its host reports.`,
+    'software-and-data': `${counts.software} repositories, models, datasets and collections, with the license stated by the publisher or a note where its statements disagree.`,
     security: `${counts.security} records naming ${counts.cves} CVEs, newest first, with the company’s reply where one applies.`,
   };
 }
@@ -581,7 +581,7 @@ export function listingFacts(profile: CompanyProfile): ListingFact[] {
     },
     {
       id: 'latest-close',
-      label: 'Latest close',
+      label: 'Closing share price',
       date: listing.latestClose.value.date,
       value: formatSharePrice(listing.latestClose.value.close),
       source: listing.latestClose,
@@ -591,7 +591,7 @@ export function listingFacts(profile: CompanyProfile): ListingFact[] {
       label: 'Market value at that close',
       value: formatCny(marketValueAtLatestClose(listing)),
       computed: true,
-      derivation: 'the latest close times the shares after listing',
+      derivation: 'the dated close times the shares after listing',
       source: listing.latestClose,
     },
     {

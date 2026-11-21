@@ -119,6 +119,66 @@ export function modelAltText(model: Model3d): string {
   return `3D model of the ${model.product} by ${model.maker}, assembled from ${model.urdfFile} and ${grouped(model.meshCount)} meshes at the zero pose. Drag or use the arrow keys to turn it; scroll, pinch or press + or - to zoom.`;
 }
 
+/**
+ * The two stills of the viewer's opening view, one per stage shape
+ * (components/model-viewer/model-viewer.css: 1:1, and 16:10 from 640 px).
+ * scripts/render-model-stills.ts renders them in the viewer itself from the
+ * shipped URDF and meshes and writes them beside the URDF. The viewer fits
+ * each shape at one share of the stage at every width (FIT_STAGE_PX in
+ * model-scene.tsx), so each still is rendered once, in the window where its
+ * stage is widest (`stageWidth` CSS px), at the canvas's largest pixel ratio
+ * (2): the browser only ever scales it down.
+ */
+export const MODEL_STILLS = {
+  wide: {
+    file: 'still-16x10.webp',
+    width: 1824,
+    height: 1140,
+    media: '(min-width: 640px)',
+    window: { width: 1440, height: 900 },
+    stageWidth: 910,
+  },
+  square: { file: 'still-1x1.webp', width: 1114, height: 1114, window: { width: 639, height: 900 }, stageWidth: 557 },
+} as const;
+
+type StillFile = { src: string; width: number; height: number };
+
+export type ModelStill = {
+  /** The 16:10 still, for stages from 640 px wide (`media`). */
+  wide: StillFile & { media: string };
+  /** The 1:1 still, for narrower stages. */
+  square: StillFile;
+  alt: string;
+};
+
+/** The still's text alternative. */
+export function modelStillAlt(model: Model3d): string {
+  return `The ${model.product} by ${model.maker} at the zero pose of ${model.urdfFile}, rendered from its ${grouped(model.meshCount)} shipped meshes.`;
+}
+
+export function modelStill(model: Model3d): ModelStill {
+  const { wide, square } = MODEL_STILLS;
+  return {
+    wide: { src: modelFileUrl(model, wide.file), width: wide.width, height: wide.height, media: wide.media },
+    square: { src: modelFileUrl(model, square.file), width: square.width, height: square.height },
+    alt: modelStillAlt(model),
+  };
+}
+
+/** Everything the viewer takes for a record, so every page mounts it alike. */
+export function modelViewerProps(model: Model3d) {
+  return {
+    id: model.id,
+    product: model.product,
+    summary: modelSummary(model),
+    heading: modelHeading(model),
+    caption: modelCaption(model),
+    alt: modelAltText(model),
+    urdf: urdfUrl(model),
+    still: modelStill(model),
+  };
+}
+
 export type RecordRow = {
   key: string;
   label: string;
@@ -165,6 +225,12 @@ export function recordRows(model: Model3d): RecordRow[] {
       mono: true,
     },
     { key: 'change', label: 'What the conversion changed', text: model.change, mono: false },
+    {
+      key: 'still',
+      label: 'Still before loading',
+      text: 'Rendered from the shipped URDF and meshes, in the viewer’s opening view, light and grey',
+      mono: false,
+    },
     { key: 'checked', label: 'Checked', text: formatShortDate(model.checked), date: model.checked, mono: true },
   ];
 }

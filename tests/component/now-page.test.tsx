@@ -44,6 +44,20 @@ describe('/now/', () => {
     }
   });
 
+  it('exposes each heading once in landmark navigation and keeps the four tables keyboard accessible', () => {
+    const container = renderPage();
+    for (const { id } of NOW_SECTIONS) {
+      const regions = container.querySelectorAll(`section[aria-labelledby="${id}-heading"], [role="region"][aria-labelledby="${id}-heading"]`);
+      expect(regions, id).toHaveLength(1);
+      if (id === 'where-it-is-heading') {
+        expect(regions[0].id).toBe(id);
+      } else {
+        expect(regions[0].getAttribute('tabindex')).toBe('0');
+        expect(regions[0].querySelector('table')).not.toBeNull();
+      }
+    }
+  });
+
   it('states the as-of date in the lead from the data', () => {
     const container = renderPage();
     expect(container.textContent).toContain('which way it is moving, as of 20 November 2026.');

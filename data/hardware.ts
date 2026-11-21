@@ -427,7 +427,7 @@ export const HARDWARE: HardwareEntry[] = [
   },
   {
     id: 'agibot-a2',
-    name: 'AgiBot A2',
+    name: 'AgiBot A2 Ultra',
     maker: 'AgiBot',
     category: 'humanoid',
     priceUsd: null,
@@ -435,11 +435,11 @@ export const HARDWARE: HardwareEntry[] = [
     priceNote: null,
     priceAsOf: null,
     dof: 40,
-    dofNote: 'Officially 40+',
+    dofNote: null,
     availability: 'contact',
     availabilityNote: 'Contact sales',
-    highlight: '169 cm, 69 kg; 700 Wh swappable battery',
-    url: 'https://www.agibot.com/products/A2',
+    highlight: '169 cm, about 69 kg, 14.4 Ah swappable battery',
+    url: 'https://www.agibot.com/products/A2_Ultra',
     sources: ['agibot-a2-2026'],
   },
   {

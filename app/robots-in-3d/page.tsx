@@ -10,16 +10,12 @@ import {
   MAKER_FILES_TITLE,
   ROBOTS_IN_3D_PATH,
   ROBOTS_IN_3D_TITLE,
-  modelAltText,
   modelBlockId,
-  modelCaption,
-  modelHeading,
-  modelSummary,
+  modelViewerProps,
   pageAsOf,
   registerLead,
   registerTables,
   robotsIn3dPageLead,
-  urdfUrl,
 } from '@/lib/robots-in-3d-page';
 import { routeSeoProfile } from '@/lib/seo-profiles';
 import { materialAttributes } from '@/lib/site-materials';
@@ -30,13 +26,6 @@ const profile = routeSeoProfile(ROBOTS_IN_3D_PATH);
 export const metadata: Metadata = {
   title: profile.title,
   description: profile.description,
-  // Out of search and out of the sitemap until the page is linked; links on
-  // it may still be followed.
-  robots: {
-    index: false,
-    follow: true,
-    googleBot: { index: false, follow: true },
-  },
   // Full card blocks restated: a route-level object replaces the layout's
   // for the same key. og:title is the rendered h1.
   openGraph: routeOpenGraph(ROBOTS_IN_3D_TITLE),
@@ -45,8 +34,9 @@ export const metadata: Metadata = {
 
 /**
  * Each maker model the site ships, in data order: the model drawn from its
- * shipped URDF and meshes, then its provenance record. Below them, where
- * makers publish their own model files, one table per status.
+ * shipped URDF and meshes (a still of it until the reader loads it), then
+ * its provenance record. Below them, where makers publish their own model
+ * files, one table per status.
  */
 export default function RobotsIn3dPage() {
   return (
@@ -75,15 +65,7 @@ export default function RobotsIn3dPage() {
             <h2 id={headingId} className="section-h2">
               {model.product}
             </h2>
-            <ModelViewer
-              id={model.id}
-              product={model.product}
-              summary={modelSummary(model)}
-              heading={modelHeading(model)}
-              caption={modelCaption(model)}
-              alt={modelAltText(model)}
-              urdf={urdfUrl(model)}
-            />
+            <ModelViewer {...modelViewerProps(model)} />
             <ModelRecord model={model} />
           </section>
         );

@@ -1,3 +1,4 @@
+import { MarketTableMark } from '@/components/ui/market-table-mark';
 import type { ReactNode } from 'react';
 import { NumberText } from '@/components/ui/number-text';
 import { TableScroll } from '@/components/ui/table-scroll';
@@ -98,6 +99,7 @@ export function EventCell({
   country,
   sourceType,
   status,
+  logo = null,
 }: {
   date: string;
   company: string;
@@ -106,11 +108,13 @@ export function EventCell({
   sourceType: SourceType;
   /** Shown in the data's own word when it is not "closed". */
   status?: string;
+  logo?: string | null;
 }) {
   return (
     <td className="w-[11rem] min-w-[9.5rem] text-text">
-      <span data-date="" className="block whitespace-nowrap font-mono text-[13px] leading-5 tabular-nums">
-        {date}
+      <span className="flex items-center gap-2">
+        <span data-date="" className="whitespace-nowrap font-mono text-[13px] leading-5 tabular-nums">{date}</span>
+        <MarketTableMark id={logo} />
       </span>
       <span className="mt-1 block">
         {company}

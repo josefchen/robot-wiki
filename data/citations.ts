@@ -10208,7 +10208,7 @@ export const CITATIONS: Citation[] = [
     authors: ['Junnan Nie', 'Jiayi Li', 'Chenghao Liu', 'Junyi Lao', 'Jiachen Zhang', 'Tianle Zhang', 'Liang Lin', 'Songfang Huang'],
     year: 2026,
     arxiv: '2606.00537',
-    url: 'https://arxiv.org/abs/2606.00537',
+    url: 'https://arxiv.org/abs/2606.00537v3',
     type: 'paper',
   },
   // moh-2025: added 2026-10-06.
@@ -13588,8 +13588,8 @@ export const CITATIONS: Citation[] = [
     title: 'Tf2',
     authors: ['ROS 2 Project'],
     year: 2026,
-    venue: 'ROS 2 Documentation, as of 2026-10-04',
-    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/interfaces/About-Tf2/About-Tf2.html',
+    venue: 'ROS 2 Documentation, Lyrical Luth',
+    url: 'https://github.com/ros2/ros2_documentation/blob/f9143b270e5e49bcba6624eb05e1e1b316e2c391/source/ROS-Framework/interfaces/Working-with-interfaces/About-Tf2/About-Tf2.rst',
     type: 'docs',
   },
   // tf2-time-tutorial-2026: added 2026-10-06.
@@ -13721,8 +13721,8 @@ export const CITATIONS: Citation[] = [
     title: 'Different ROS 2 middleware vendors',
     authors: ['ROS 2 Project'],
     year: 2026,
-    venue: 'ROS 2 Documentation, as of 2026-10-04',
-    url: 'https://docs.ros.org/en/lyrical/ROS-Framework/client-libraries/About-Different-Middleware-Vendors.html',
+    venue: 'ROS 2 Documentation, Lyrical Luth',
+    url: 'https://github.com/ros2/ros2_documentation/blob/f9143b270e5e49bcba6624eb05e1e1b316e2c391/source/ROS-Framework/middleware/About-Different-Middleware-Vendors.rst',
     type: 'docs',
   },
   // noetic-eol-2025: added 2026-10-06.
@@ -14520,10 +14520,10 @@ export const CITATIONS: Citation[] = [
   {
     id: 'genesis-handover-2026',
     title: 'Reactive Task-Oriented Robot-Human Handovers via Generative Hypothesis Selection',
-    authors: ['Carmen Scheidemann', 'Andreea Tulbure', 'Pascal Burkhardt', 'Marco Hutter'],
+    authors: ['Carmen Scheidemann', 'Andreea Tulbure', 'Pascal Burkhard', 'Marco Hutter'],
     year: 2026,
     arxiv: '2610.08003',
-    url: 'https://arxiv.org/abs/2610.08003',
+    url: 'https://arxiv.org/abs/2610.08003v2',
     type: 'paper',
   },
   // graspgen-x-2026: added 2026-10-06, added 2026-10-08.
@@ -17270,7 +17270,7 @@ export const CITATIONS: Citation[] = [
     authors: ['Wancong Zhang', 'Basile Terver', 'Artem Zholus', 'Soham Chitnis', 'Harsh Sutaria', 'Mido Assran', 'Randall Balestriero', 'Amir Bar', 'Adrien Bardes', 'Yann LeCun', 'Nicolas Ballas'],
     year: 2026,
     arxiv: '2604.03208',
-    url: 'https://arxiv.org/abs/2604.03208',
+    url: 'https://arxiv.org/abs/2604.03208v2',
     type: 'paper',
   },
   // masked-world-models-2022: added 2026-10-06.
@@ -21512,19 +21512,16 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.agilityrobotics.com/content/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics',
     type: 'press',
   },
-  // agibot-a2-2026: owed-figures slice 2026-10-26 (hardware guide row agibot-a2). Read 2026-10-26
-  // (HTTP 200): "Height 169 cm", "Weight 69 kg", "Battery 700 wh", "Support battery swapping",
-  // "Degrees of Freedom 40 + Active DoF"; sales by "Contact us".
   {
     "id": "agibot-a2-2026",
-    "title": "AGIBOT A2",
+    "title": "AGIBOT A2 Ultra and A2 Lite specifications",
     "authors": [
       "AgiBot"
     ],
     "year": "n.d.",
-    "accessedOn": "2026-11-02",
+    "accessedOn": "2026-11-21",
     "venue": "AgiBot product page",
-    "url": "https://www.agibot.com/products/A2",
+    "url": "https://www.agibot.com/products/A2_Ultra",
     "type": "docs"
   },
   // ubtech-walker-s2-2026: owed-figures slice 2026-10-26 (hardware guide row ubtech-walker-s2). Read
@@ -23794,6 +23791,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['World Labs', 'World Labs'],
   ['Xiaomi Robotics Team', 'Xiaomi Robotics Team'],
   ['Xiaomi Robotics', 'Xiaomi Robotics'],
+  ['Liberai Team', 'LiberAI'],
 ]);
 
 /**

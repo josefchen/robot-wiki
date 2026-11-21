@@ -5,6 +5,7 @@ import {
   HoldersTable,
   LinesTable,
   ListingTable,
+  ModelProductSpecs,
   ProductsTable,
   RegionsTable,
   ResultsTable,
@@ -13,6 +14,8 @@ import {
   TimelineTable,
 } from '@/components/company-profile/profile-tables';
 import { SubHeading } from '@/components/company-profile/profile-parts';
+import { ModelViewer } from '@/components/model-viewer/model-viewer';
+import { MODELS_3D } from '@/data/models-3d';
 import {
   COMPANY_PROFILES,
   PROFILE_SECTIONS,
@@ -26,6 +29,7 @@ import {
   type ProfileSectionId,
 } from '@/lib/company-profile-page';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { ROBOTS_IN_3D_PATH, licenceUrl, modelBlockId, modelViewerProps } from '@/lib/robots-in-3d-page';
 import { routeSeoProfile } from '@/lib/seo-profiles';
 import { materialAttributes } from '@/lib/site-materials';
 import { MARKET_SECTION } from '@/lib/site-sections';
@@ -82,6 +86,7 @@ export default async function CompanyProfilePage({ params }: { params: Params })
   const path = companyProfilePath(slug);
   const seo = routeSeoProfile(path);
   const leads = sectionLeads(profile);
+  const modelProducts = profile.products.filter((product) => product.viewerModelId);
   return (
     <div
       data-page-frame="frame:map"
@@ -101,6 +106,28 @@ export default async function CompanyProfilePage({ params }: { params: Params })
           section={MARKET_SECTION}
           anchors={PROFILE_SECTIONS.map((section) => ({ id: section.id, label: section.title }))}
         />
+
+        {modelProducts.map((product) => {
+          const model = MODELS_3D.find((entry) => entry.id === product.viewerModelId);
+          if (!model || model.maker !== profile.company.name) throw new Error(`Invalid maker model for ${slug}/${product.id}`);
+          return (
+            <div key={model.id} className="mt-8 grid items-start gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(16rem,1fr)] lg:gap-12">
+              <ModelViewer {...modelViewerProps(model)} />
+              <div className="lg:pt-4">
+                <ModelProductSpecs profile={profile} product={product} />
+                <p className="mt-6 text-[14px] leading-relaxed text-text-dim">
+                  {model.maker} model file<br />
+                  <a className="ink-link break-all" href={`${model.repository}/blob/${model.commit}/${model.sourcePath}/${model.urdfFile}`}>
+                    {model.urdfFile}
+                  </a><br />
+                  <a className="ink-link" href={licenceUrl(model)}>{model.licence.name}</a>
+                  {' · '}
+                  <a className="ink-link" href={`${ROBOTS_IN_3D_PATH}#${modelBlockId(model)}`}>Model details</a>
+                </p>
+              </div>
+            </div>
+          );
+        })}
 
         <Section id="products" lead={leads.products}>
           <ProductsTable profile={profile} labelledBy="products-heading" />
