@@ -74,7 +74,7 @@ Aerial robotics builds and controls flying robots, from delivery drones and raci
 
 <Image id="racing-quadrotor-minion-220-2016" />
 
-A drone's top safe speed depends on how fast its camera reports an obstacle: about 70 ms for a stereo camera, far less for an event camera <Cite id="falanga-latency-2019" />.
+In one obstacle-avoidance study, the model’s speed limit varied with the camera’s delay and detection range <Cite id="falanga-latency-2019" />.
 
 <PerceptionLatency className="my-6" />
 
@@ -112,10 +112,10 @@ A drone must know where it is without GPS. <Term id="visual-inertial-odometry">V
 
 A drone cannot dodge what its camera has not reported. At speed $v$, an obstacle seen at range $s$ leaves $s/v - \tau$ after latency $\tau$; if that is shorter than the swerve, no controller saves it <Cite id="falanga-latency-2019" />. An event camera reports per-pixel brightness changes without waiting for a frame.
 
-| Camera | Sideways acceleration | Top safe speed |
+| Camera | Sideways acceleration | Speed in the study’s model |
 | --- | --- | --- |
-| 70 ms stereo | 25 m/s² | About 19 m/s <Cite id="falanga-latency-2019" /> |
-| 70 ms stereo | 50 m/s² | About 25 m/s |
+| Stereo, 70 ms, 8 m range | 25 m/s² | About 19 m/s <Cite id="falanga-latency-2019" /> |
+| Stereo, 70 ms, 8 m range | 50 m/s² | About 25 m/s |
 | Event, 8 m range | 10 m/s² | 7% faster |
 | Event, 8 m range | 50 m/s² | 22% faster, 31.03 against 25.40 m/s |
 | Event against fastest stereo | 200 m/s² | 7 to 12% faster |

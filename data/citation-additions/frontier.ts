@@ -101,6 +101,24 @@ export const ADDITIONS: Citation[] = [
   },
   // dexterity
   {
+    id: 'unitree-h2-plus-announcement',
+    title: 'Unitree Announces H2 Plus, an NVIDIA Isaac GR00T Reference Humanoid Robot for Academic Research',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    accessedOn: '2026-11-21',
+    url: 'https://www.unitree.com/news/40',
+    type: 'docs',
+  },
+  {
+    id: 'unitree-h2-plus-store',
+    title: 'Unitree H2 Plus',
+    authors: ['Unitree Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-11-21',
+    url: 'https://shop.unitree.com/products/unitree-h2-plus',
+    type: 'docs',
+  },
+  {
     id: 'holson-pi-deep-dive-2026',
     title: 'Physical Intelligence Wins the Olympics: Deep Dive',
     authors: ['Benjie Holson'],

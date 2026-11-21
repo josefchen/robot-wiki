@@ -103,7 +103,7 @@ Streams arrive at different rates, so log each reading's capture and arrival tim
 
 ## tf2 knows where every frame was, and when
 
-tf2 keeps a time-buffered tree of frames and transforms data between any two at any moment <Cite id="tf2-docs-2026" />, after Foote's tf <Cite id="tf-library-2013" />. In the tf2 tutorial, a lookup at an image's timestamp waits 50 ms before it fails <Cite id="tf2-time-tutorial-2026" />.
+tf2 keeps a time-buffered tree of frames and transforms data between any two at any moment <Cite id="tf2-docs-2026" />, after Foote's tf <Cite id="tf-library-2013" />. In the tf2 tutorial, the turtle listener waits up to 50 ms for a transform at the current ROS time <Cite id="tf2-time-tutorial-2026" />.
 
 REP 105 defines `odom` as a drifting frame and lets `map` poses jump <Cite id="rep-105-2010" />; camera optical frames take an `_optical` suffix and their own axes <Cite id="rep-103-2010" />. A policy trained on <Term id="end-effector">end-effector</Term> motions in the base frame cannot take tool-frame motions <Cite id="modern-robotics-2017" />.
 
