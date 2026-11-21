@@ -171,12 +171,12 @@ describe('ModelViewer', () => {
   });
 
   it.each(['error', 'drawn'])('leaves the next link focused when a pending model reaches %s', async (outcome) => {
-    render(<><ModelViewer {...PROPS} /><a href="/">Next page</a></>);
+    render(<><ModelViewer {...PROPS} /><a href="#next-section">Next section</a></>);
     const load = screen.getByRole('button', { name: 'Load model' });
     load.focus();
     fireEvent.click(load);
     await vi.waitFor(() => expect(loader.calls).toHaveLength(1));
-    const next = screen.getByRole('link', { name: 'Next page' });
+    const next = screen.getByRole('link', { name: 'Next section' });
     next.focus();
     act(() => loader.calls[0].progress?.(2, 3));
     if (outcome === 'error') {
@@ -187,6 +187,7 @@ describe('ModelViewer', () => {
       fireEvent.click(screen.getByText('Report drawn'));
       expect(screen.getByRole('button', { name: 'Reset view' })).toBeVisible();
     }
+    await act(async () => { await new Promise(requestAnimationFrame); });
     expect(next).toHaveFocus();
   });
 
