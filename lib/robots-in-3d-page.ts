@@ -221,7 +221,7 @@ export function recordRows(model: Model3d): RecordRow[] {
       key: 'bound',
       label: 'Nominal rounding per axis',
       text: `${model.positionBoundUm} µm`,
-      detail: 'Half the largest coordinate step used to encode these meshes.',
+      detail: 'half the largest coordinate step used to encode these meshes',
       mono: true,
     },
     { key: 'change', label: 'What the conversion changed', text: model.change, mono: false },
