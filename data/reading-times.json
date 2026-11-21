@@ -4,7 +4,7 @@
     "minutes": 6
   },
   "manipulation/action-chunking": {
-    "words": 1701,
+    "words": 1746,
     "minutes": 9
   },
   "manipulation/diffusion-policy": {
@@ -28,15 +28,15 @@
     "minutes": 8
   },
   "manipulation/hierarchical": {
-    "words": 1479,
-    "minutes": 7
+    "words": 1520,
+    "minutes": 8
   },
   "manipulation/rl-finetuning": {
     "words": 2477,
     "minutes": 12
   },
   "manipulation/realtime-execution": {
-    "words": 1233,
+    "words": 1268,
     "minutes": 6
   },
   "manipulation/cross-embodiment": {
@@ -72,16 +72,20 @@
     "minutes": 6
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1553,
+    "words": 1576,
     "minutes": 8
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1527,
+    "words": 1551,
     "minutes": 8
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1748,
+    "words": 1757,
     "minutes": 9
+  },
+  "rl-sim2real/motion-retargeting": {
+    "words": 1088,
+    "minutes": 5
   },
   "rl-sim2real/reward-design-mpc": {
     "words": 1735,
@@ -132,7 +136,7 @@
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3342,
+    "words": 3393,
     "minutes": 17
   },
   "data-hardware/teleop-rigs": {
@@ -152,8 +156,8 @@
     "minutes": 6
   },
   "data-hardware/data-market": {
-    "words": 2713,
-    "minutes": 14
+    "words": 2668,
+    "minutes": 13
   },
   "data-hardware/research-arms-compared": {
     "words": 1072,
@@ -172,7 +176,7 @@
     "minutes": 9
   },
   "classical/state-estimation": {
-    "words": 2149,
+    "words": 2187,
     "minutes": 11
   },
   "classical/grasp-planning": {
