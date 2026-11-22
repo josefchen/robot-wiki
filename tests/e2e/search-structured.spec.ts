@@ -264,3 +264,45 @@ test.describe('structured search on the static export', () => {
     expect(parsed.documentCount).toBeGreaterThanOrEqual(111 + 18 + 6);
   });
 });
+
+test('an exact paper ID opens the cited reference with the keyboard', async ({page}) => {
+  const requested: string[] = [];
+  page.on('request', (request) => requested.push(new URL(request.url()).pathname));
+  const query = 'https://arxiv.org/pdf/2111.08933v3.pdf#page=2';
+  await page.goto(`${BASE}/search/?q=${encodeURIComponent(query)}`);
+  const result = page.getByRole('region', { name: 'Citing articles' }).getByRole('link').first();
+  await expect(result).toHaveAttribute('href', '/classical/kinematics/#ref-ikflow-2021');
+  await expect(page.getByRole('region', { name: 'Citing articles' })).toContainText('IKFlow');
+  expect(requested).toContain('/paper-citations.json');
+  expect(requested).not.toContain('/search-index.json');
+  expect(requested).not.toContain('/pagefind/pagefind.js');
+  const input = page.getByRole('searchbox', { name: 'Search the wiki' });
+  await input.press('ArrowDown');
+  await expect(result).toBeFocused();
+  await result.press('Enter');
+  await expect(page).toHaveURL(/\/classical\/kinematics\/#ref-ikflow-2021$/);
+  const source = page.locator(':target [data-reference-source-link]');
+  await expect(source).toBeInViewport();
+  await expect(source).toHaveAttribute('href', /arxiv\.org\/abs\/2111\.08933/);
+});
+
+test('paper search distinguishes unavailable, uncited and ordinary queries', async ({page}) => {
+  let requests = 0;
+  await page.route('**/paper-citations.json', async (route) => {
+    if (++requests === 1) await route.fulfill({ status: 503, body: 'Unavailable' });
+    else await route.continue();
+  });
+  await page.goto(`${BASE}/search/?q=arXiv%3A2304.13705`);
+  const retry = page.getByRole('button', { name: 'Try again' });
+  await expect(retry).toBeVisible();
+  await expect(page.locator('[data-search-empty]')).toHaveCount(0);
+  await retry.press('Enter');
+  await expect(page.getByRole('link', { name: /^Action Chunking/ }).first()).toBeVisible();
+  const input = page.getByRole('searchbox', { name: 'Search the wiki' });
+  await input.fill('2403.99999');
+  await expect(page.getByRole('status')).toHaveText('No wiki pages cite arXiv:2403.99999');
+  await expect(page.locator('[data-search-empty]')).toContainText('Try the paper title');
+  await input.fill('DROID dataset');
+  await expect(page.getByRole('region', { name: 'Wiki pages', exact: true }).getByRole('link').first()).toContainText('Datasets');
+  expect(requests).toBe(2);
+});
