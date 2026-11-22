@@ -137,6 +137,17 @@ describe('llms-full.txt', () => {
   });
 });
 
+it('gives readers the paper index and footnote format at the top of both text guides', () => {
+  const siteUrl = 'https://wiki.example';
+  for (const build of [buildLlmsTxt, buildLlmsFullTxt]) {
+    const guide = build({ ...input, siteUrl });
+    const introduction = guide.split(/^## /m)[0];
+    expect(introduction).toContain(`[arXiv citation index](${siteUrl}/paper-citations.json)`);
+    expect(introduction).toContain('technical chapters');
+    expect(introduction).toContain('`#ref-`');
+  }
+});
+
 describe('llms generators follow the registry', () => {
   const withFixture: LlmsInput = { ...input, articles: [...input.articles, FIXTURE] };
   const removed = input.articles[0];
