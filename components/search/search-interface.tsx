@@ -284,8 +284,8 @@ export function SearchInterface({
       : undefined;
     if (paperId) {
       statusText = proseCount
-        ? `${pages} ${proseCount === 1 ? 'cites' : 'cite'} arXiv:${paperId}`
-        : `No wiki pages cite arXiv:${paperId}`;
+        ? `${proseCount} technical ${proseCount === 1 ? 'chapter cites' : 'chapters cite'} arXiv:${paperId}`
+        : `No technical chapters cite arXiv:${paperId}`;
     } else if (proseFailed) {
       const available = filtered ?? (entityCount
         ? `${results} for "${trimmed}"`
