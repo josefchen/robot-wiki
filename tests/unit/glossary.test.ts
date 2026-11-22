@@ -153,17 +153,35 @@ describe('inline term ids across published articles', () => {
   });
 });
 
-it('links the inverse kinematics definition to the worked example and keeps its textbook citation', () => {
+it.each([
+  {
+    id: 'inverse-kinematics', label: 'How does a robot arm reach a cup?',
+    route: '/classical/kinematics', fragment: 'inverse-kinematics-has-many-answers-or-none',
+    sourceId: 'modern-robotics-2017', sourceUrl: 'https://hades.mech.northwestern.edu/index.php/Modern_Robotics',
+  },
+  {
+    id: 'whole-body-control', label: 'Which controllers ran on real humanoids?',
+    route: '/rl-sim2real/humanoid-wbc', fragment: 'trackers-reached-real-humanoids-in-2024',
+    sourceId: 'h2o-2024', sourceUrl: 'https://arxiv.org/abs/2403.04436',
+  },
+  {
+    id: 'action-chunking', label: 'Which moves can the robot still change?',
+    route: '/manipulation/action-chunking', fragment: 'real-time-chunking-keeps-the-committed-moves',
+    sourceId: 'act-aloha-2023', sourceUrl: 'https://arxiv.org/abs/2304.13705',
+  },
+])('links $id to its worked section and keeps its original source', ({ id, label, route, fragment, sourceId, sourceUrl }) => {
   const rendered = new DOMParser().parseFromString(renderToStaticMarkup(GlossaryPage()), 'text/html');
-  const term = rendered.querySelector('#inverse-kinematics')!;
-  expect(term.querySelector('[data-glossary-definition]')?.textContent)
-    .toBe(getTerm('inverse-kinematics')!.definition);
-  const link = Array.from(term.querySelectorAll('a')).find(
-    (anchor) => anchor.textContent === 'How does a robot arm reach a cup?',
-  )!;
-  expect(link.pathname.replace(/\/$/, '')).toBe('/classical/kinematics');
-  const source = readFileSync(join(process.cwd(), 'content/classical/kinematics.mdx'), 'utf8');
-  expect(articleOutline(moduleBody(source)).map((heading) => heading.id))
-    .toContain(link.hash.slice(1));
-  expect(term.querySelector('a[href="' + getCitation('modern-robotics-2017')!.url + '"]')).not.toBeNull();
+  const entry = rendered.getElementById(id)!;
+  const term = getTerm(id)!;
+  expect(entry.querySelector('[data-glossary-definition]')?.textContent).toBe(term.definition);
+  const link = Array.from(entry.querySelectorAll('a')).find((anchor) => anchor.textContent === label)!;
+  expect(link.pathname.replace(/\/$/, '')).toBe(route);
+  expect(link.hash).toBe('#' + fragment);
+  const source = readFileSync(join(process.cwd(), 'content', route.slice(1) + '.mdx'), 'utf8');
+  expect(articleOutline(moduleBody(source)).map((heading) => heading.id)).toContain(fragment);
+  const sources = Array.from(entry.querySelectorAll('ul a'), (anchor) => anchor.getAttribute('href'));
+  expect(term.citations).toContain(sourceId);
+  expect(getCitation(sourceId)!.url).toBe(sourceUrl);
+  expect(sources).toContain(sourceUrl);
+  expect(sources).toEqual(term.citations.map((citation) => getCitation(citation)!.url));
 });
