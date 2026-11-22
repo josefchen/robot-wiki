@@ -10,6 +10,7 @@ import {
   type ChangeEvent,
   type KeyboardEvent,
 } from 'react';
+import { arxivPaper, findPaperCitations } from '@/lib/arxiv-search';
 import { IntentLink } from '@/components/ui/intent-link';
 import {
   createPagefindClient,
@@ -33,6 +34,7 @@ type SearchStatus = 'idle' | 'searching' | 'done' | 'unavailable';
 type SearchOutcome = {
   query: string;
   hits: SearchHit[];
+  paperTitle?: string;
   structured: StructuredHit[];
   proseFailed: boolean;
   structuredFailed: boolean;
@@ -109,6 +111,10 @@ export function SearchInterface({
   }
 
   const trimmed = query.trim();
+  const paper = arxivPaper(trimmed);
+  const paperId = paper?.id;
+  const PageResultLink = paperId ? 'a' : IntentLink;
+  const [attempt, setAttempt] = useState(0);
 
   // Status is derived, never mirrored: idle when the query is empty,
   // searching until the result for exactly this query lands, then done, or
@@ -118,18 +124,18 @@ export function SearchInterface({
   let status: SearchStatus;
   if (!trimmed) status = 'idle';
   else if (result?.query !== trimmed) status = 'searching';
-  else if (result.proseFailed && result.structuredFailed) {
+  else if (result.proseFailed && (paperId || result.structuredFailed)) {
     status = 'unavailable';
   } else status = 'done';
 
   const hits =
-    status === 'searching' || status === 'done' ? (result?.hits ?? []) : [];
+    status === 'done' || (status === 'searching' && !paperId) ? (result?.hits ?? []) : [];
   // The unfiltered structured list is kept alongside the filtered one so the
   // empty state can tell the two apart: a facet hiding real matches is a
   // different situation from a query nothing in the wiki answers, and the
   // old single message conflated them.
   const structuredAll =
-    status === 'searching' || status === 'done'
+    !paperId && (status === 'searching' || status === 'done')
       ? (result?.structured ?? [])
       : [];
   const structuredHits = applyStructuredFacet(structuredAll, {
@@ -170,12 +176,19 @@ export function SearchInterface({
       });
       void (async () => {
         let found: SearchHit[] = [];
+        let paperTitle: string | undefined;
         let structured: StructuredHit[] = [];
         let proseLoadFailed = false;
         let structuredLoadFailed = false;
         await Promise.all([
           (async () => {
             try {
+              if (paperId) {
+                const lookup = await findPaperCitations(paperId);
+                found = lookup.hits;
+                paperTitle = lookup.title;
+                return;
+              }
               clientRef.current ??= await loadClient();
               found = await clientRef.current.search(trimmed);
             } catch {
@@ -184,6 +197,7 @@ export function SearchInterface({
           })(),
           (async () => {
             try {
+              if (paperId) return;
               structuredRef.current ??= await loadStructured();
               structured = await structuredRef.current.search(trimmed);
             } catch {
@@ -195,6 +209,7 @@ export function SearchInterface({
         setResult({
           query: trimmed,
           hits: proseLoadFailed ? [] : found,
+          paperTitle,
           structured: structuredLoadFailed ? [] : structured,
           proseFailed: proseLoadFailed,
           structuredFailed: structuredLoadFailed,
@@ -202,7 +217,7 @@ export function SearchInterface({
       })();
     }, debounceMs);
     return () => clearTimeout(timer);
-  }, [trimmed, debounceMs, loadClient, loadStructured, router]);
+  }, [trimmed, paperId, attempt, debounceMs, loadClient, loadStructured, router]);
 
   function resetToIdle() {
     sequencerRef.current.invalidate();
@@ -267,7 +282,11 @@ export function SearchInterface({
     const filtered = facetNarrowing
       ? `No ${ENTITY_TYPE_LABEL[facetType]} results for "${trimmed}" with this filter`
       : undefined;
-    if (proseFailed) {
+    if (paperId) {
+      statusText = proseCount
+        ? `${pages} ${proseCount === 1 ? 'cites' : 'cite'} arXiv:${paperId}`
+        : `No wiki pages cite arXiv:${paperId}`;
+    } else if (proseFailed) {
       const available = filtered ?? (entityCount
         ? `${results} for "${trimmed}"`
         : `No companies, methods or datasets found for "${trimmed}"`);
@@ -353,7 +372,7 @@ export function SearchInterface({
       <p
         role="status"
         aria-live="polite"
-        className="mt-4 font-mono text-xs text-text-dim"
+        className="mt-4 wrap-anywhere font-mono text-xs text-text-dim"
       >
         {statusText}
       </p>
@@ -362,7 +381,7 @@ export function SearchInterface({
         <div className="mt-8 border-t border-border pt-6">
           {/* The page lead already says what is searched; idle shows only examples. */}
           <p data-search-idle-hint className="font-mono text-xs text-text-dim">
-            Try: temporal ensembling, ALOHA, chunk size
+            Try: temporal ensembling, ALOHA, or an arXiv ID
           </p>
         </div>
       ) : null}
@@ -374,7 +393,15 @@ export function SearchInterface({
           data-search-unavailable
         >
           <p className="max-w-[65ch] border-l border-err pl-3 text-sm leading-relaxed text-err">
-            Search could not load. Try again or browse{' '}
+            Search could not load.{' '}
+            <button
+              type="button"
+              className="ink-link cursor-pointer"
+              data-brand-control-id="control:secondary-action"
+              onClick={() => { setResult(null); setAttempt((previous) => previous + 1); }}
+            >
+              Try again
+            </button>{' '}or browse{' '}
             <Link data-brand-control-id="control:link-focus" href="/a-z" className="ink-link">
               the A–Z index
             </Link>
@@ -393,8 +420,9 @@ export function SearchInterface({
           className="mt-8 border-t border-border pt-6"
         >
           <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
-            No wiki pages, companies, methods or datasets match &ldquo;{trimmed}&rdquo;.
-            Try a shorter search or browse{' '}
+            {paperId ? 'Try the paper title or browse ' : (
+              <>No wiki pages, companies, methods or datasets match &ldquo;{trimmed}&rdquo;. Try a shorter search or browse{' '}</>
+            )}
             <Link
               data-brand-control-id="control:link-focus"
               href="/a-z"
@@ -407,21 +435,27 @@ export function SearchInterface({
         </div>
       ) : null}
 
-      {status === 'searching' || status === 'done' ? (
+      {(status === 'searching' || status === 'done') && !(paperId && siteEmpty) ? (
         <div ref={resultsRef} className="mt-8 space-y-10">
           <ResultsGroup
             id="prose"
-            heading="Wiki pages"
-            count={status === 'done' ? hits.length : undefined}
+            heading={paperId ? 'Citing articles' : 'Wiki pages'}
+            count={status === 'done' && !paperId ? hits.length : undefined}
             note={proseNote}
             noteIsError={proseFailed}
             loading={status === 'searching' && hits.length === 0}
           >
+            {paperId && settled && result?.paperTitle ? (
+              <p className="mt-4 max-w-prose text-base leading-relaxed text-text">
+                {result.paperTitle}
+                {paper?.version ? <span className="block text-sm text-text-dim">Showing citations across all versions.</span> : null}
+              </p>
+            ) : null}
             {hits.length > 0 ? (
               <ul className="mt-4 divide-y divide-border border-t border-border">
                 {hits.map((entry, index) => (
                   <li key={entry.url}>
-                    <IntentLink
+                    <PageResultLink
                       data-brand-control-id="control:link-focus"
                       href={entry.url}
                       data-search-result
@@ -440,14 +474,14 @@ export function SearchInterface({
                           dangerouslySetInnerHTML={{ __html: entry.excerpt }}
                         />
                       ) : null}
-                    </IntentLink>
+                    </PageResultLink>
                   </li>
                 ))}
               </ul>
             ) : null}
           </ResultsGroup>
 
-          <ResultsGroup
+          {!paperId && <ResultsGroup
             id="structured"
             heading="Companies, methods and datasets"
             count={status === 'done' ? structuredHits.length : undefined}
@@ -531,7 +565,7 @@ export function SearchInterface({
                 ))}
               </ul>
             ) : null}
-          </ResultsGroup>
+          </ResultsGroup>}
         </div>
       ) : null}
     </div>
