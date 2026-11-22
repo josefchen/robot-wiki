@@ -158,8 +158,10 @@ it('links the inverse kinematics definition to the worked example and keeps its 
   const term = rendered.querySelector('#inverse-kinematics')!;
   expect(term.querySelector('[data-glossary-definition]')?.textContent)
     .toBe(getTerm('inverse-kinematics')!.definition);
-  const link = term.querySelector<HTMLAnchorElement>('a[href^="/classical/kinematics/#"]')!;
-  expect(link.textContent).toBe('How does a robot arm reach a cup?');
+  const link = Array.from(term.querySelectorAll('a')).find(
+    (anchor) => anchor.textContent === 'How does a robot arm reach a cup?',
+  )!;
+  expect(link.pathname.replace(/\/$/, '')).toBe('/classical/kinematics');
   const source = readFileSync(join(process.cwd(), 'content/classical/kinematics.mdx'), 'utf8');
   expect(articleOutline(moduleBody(source)).map((heading) => heading.id))
     .toContain(link.hash.slice(1));
