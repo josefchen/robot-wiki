@@ -477,6 +477,33 @@ describe('reader questions in prose search', () => {
     expect(await searchPagefind(async () => ({ results: [] }), 'robot kinematics for diving')).toEqual([]);
   });
 
+  it('only treats validation data as a published evaluation title when the subject matches', async () => {
+    const lookup = async () => ({results: []});
+    const [lead] = await searchPagefind(lookup, 'world model validation data');
+    expect(lead.url).toBe('/world-models/evaluation/');
+    for (const query of ['world model training data', 'world model datasets', 'lunar soil validation data']) {
+      expect(await searchPagefind(lookup, query)).toEqual([]);
+    }
+  });
+
+  it('links a matching directory question to the section and keeps other Pagefind results', async () => {
+    const query = 'Can a robot world model predict which policy works on a real robot?';
+    const result = (url: string) => ({id: url, score: 5, data: async () => ({
+      url, meta: {title: url}, content: query,
+    })});
+    const lookup = async () => ({results: [result('/other/'), result('/world-models/evaluation/')]});
+    const hits = await searchPagefind(lookup, query);
+    expect(hits.map(hit => hit.url)).toEqual([
+      '/world-models/evaluation/#level-4-the-best-simulators-order-policies-as-real-trials-do',
+      '/other/',
+    ]);
+    expect(hits[0].excerpt).toContain('which robot policy');
+    for (const objection of ['How do I train a world model on video of a real robot?',
+      'Can a world model predict which video works best on a real robot?', 'How do lunar rovers drive themselves?']) {
+      expect(await searchPagefind(async () => ({results: []}), objection)).toEqual([]);
+    }
+  });
+
   it('returns a real escaped passage and drops partial or scattered mentions', async () => {
     const lookup = async (word: string) => ({
       results: word === question ? [] : [result('glass', 5), result('gripper', 8), result('distant', 9)],

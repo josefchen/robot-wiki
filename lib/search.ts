@@ -321,10 +321,16 @@ function escapeExcerpt(text: string) {
 async function preferQualifiedTitle(query: string, hits: SearchHit[]) {
   const phrase = tokenize(query).join(' ');
   const qualifier = /^(?:robot|robotic|robotics) (.+)$|^(.+) (?:in|of|for) robotics$/.exec(phrase);
-  if (!qualifier || hits.some((hit) => titleWeight(query, hit.title) === 2)) return hits;
-  const subject = qualifier[1] ?? qualifier[2];
+  // "Validation data" asks for evidence about a named subject. Only map it
+  // when that subject has an entire published evaluation article.
+  const validation = /^(.+) (?:validation|evaluation) (?:data|results|evidence)$/.exec(phrase);
+  if ((!qualifier && !validation) || hits.some((hit) => titleWeight(query, hit.title) === 2)) return hits;
   const { publishedModules } = await import('../data/modules');
-  const article = publishedModules().find((entry) => tokenize(entry.title).join(' ') === subject);
+  const article = publishedModules().find((entry) => {
+    const title = tokenize(entry.title).join(' ');
+    return qualifier ? title === (qualifier[1] ?? qualifier[2])
+      : title.replace(/ for robotics$/, '') === `${validation![1]} evaluation`;
+  });
   if (!article) return hits;
 
   const url = `/${article.domain}/${article.slug}/`;
@@ -333,13 +339,50 @@ async function preferQualifiedTitle(query: string, hits: SearchHit[]) {
   return [lead, ...hits.filter((hit) => hit.url !== url)].slice(0, RESULT_LIMIT);
 }
 
-/** Try partial matches only for a question whose complete search found nothing. */
-export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
-  const strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
-  if (strict.length) return strict;
-  const terms = questionTerms(query);
-  if (!terms.length) return [];
+// Match a reader's question against both the directory wording and the
+// actual heading it links to. Keep short or ambiguous overlaps in Pagefind.
+function directoryTerms(text: string) {
+  const words = tokenize(text).filter(word => !QUESTION_FILLER.has(word)
+    && !/^\d+$/.test(word) && !['level', 'actual', 'way', 'same'].includes(word));
+  return new Set(words.map(word => {
+    if (/^(rank|order)(s|ed|ing|ings)?$/.test(word)) return 'order';
+    if (word.endsWith('ies')) return word.slice(0, -3) + 'y';
+    return singular(word);
+  }));
+}
 
+async function preferDirectoryQuestion(query: string, hits: SearchHit[]) {
+  const [{ questionsForArticles }, { publishedModules }] = await Promise.all([
+    import('../data/article-questions'), import('../data/modules'),
+  ]);
+  const articles = publishedModules();
+  const words = directoryTerms(query);
+  const matches = questionsForArticles(articles).map(question => {
+    // Published heading IDs come from their visible heading; a citation's
+    // internal key is not a reader question.
+    const fragment = question.href.split('#')[1];
+    const label = directoryTerms(question.label);
+    const heading = directoryTerms(fragment && !fragment.startsWith('ref-') ? fragment : '');
+    const overlap = (terms: Set<string>) => {
+      const common = [...terms].filter(term => words.has(term)).length;
+      return common < 3 ? 0 : common / Math.max(words.size, terms.size);
+    };
+    // Swapping an important part of a question ("which video" for "which
+    // policy") can leave nearly every other word identical.
+    const covered = [...words].every(word => label.has(word) || heading.has(word));
+    const score = Math.max(covered ? overlap(label) : 0, overlap(heading));
+    return { question, score };
+  }).sort((a, b) => b.score - a.score);
+  const [best, next] = matches;
+  if (!best || best.score < 0.6 || best.score === next?.score) return hits;
+  const path = best.question.href.split('#')[0];
+  const article = articles.find(entry => `/${entry.domain}/${entry.slug}/` === path)!;
+  const lead = {url: best.question.href, title: article.title, excerpt: escapeExcerpt(best.question.label)};
+  return [lead, ...hits.filter(hit => hit.url.split('#')[0] !== path)].slice(0, RESULT_LIMIT);
+}
+
+/** Try partial matches only for a question whose complete search found nothing. */
+async function partialQuestionHits(lookup: PagefindLookup, terms: string[]): Promise<SearchHit[]> {
   const searches = await Promise.all(terms.map((term) => lookup(term)));
   const weights = new Map<string, number>();
   const pages = new Map<string, { result: RankedResult; total: number; scores: Map<string, number> }>();
@@ -371,6 +414,14 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
     .map(({ hit }) => hit);
+}
+
+export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
+  const strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
+  const terms = questionTerms(query);
+  if (!terms.length) return strict;
+  const hits = strict.length ? strict : await partialQuestionHits(lookup, terms);
+  return preferDirectoryQuestion(query, hits);
 }
 
 /**
