@@ -184,12 +184,14 @@ export async function toSearchHits(
   response: PagefindSearchResponse,
   query: string,
   limit: number = RESULT_LIMIT,
+  requiredPhrase?: RegExp,
 ): Promise<SearchHit[]> {
   const data = await Promise.all(
     response.results.map((result) => result.data()),
   );
   return data
-    .filter((entry) => isGenuineHit(query, entry.content ?? ''))
+    .filter((entry) => isGenuineHit(query, entry.content ?? '')
+      && (!requiredPhrase || requiredPhrase.test(entry.content ?? '')))
     .map((entry, index) => {
       const title = stripSiteSuffix(entry.meta?.title, entry.url);
       return {
@@ -415,7 +417,15 @@ async function partialQuestionHits(lookup: PagefindLookup, terms: string[]): Pro
 }
 
 export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
-  const strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
+  let strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
+  // Papers and readers use “sim2real” for the wiki’s “sim-to-real”. Keep any
+  // literal results first, and keep the reader's other terms in the lookup.
+  if (!strict.length) {
+    const expanded = query.replace(/(?<![\p{L}\p{N}_-])sim2real(?![\p{L}\p{N}_-])/giu, 'sim-to-real');
+    if (expanded !== query) {
+      strict = await toSearchHits(await lookup(expanded), expanded, RESULT_LIMIT, /\bsim[\s\p{Pd}]+to[\s\p{Pd}]+real\b/iu);
+    }
+  }
   const terms = questionTerms(query);
   if (!terms.length) return strict;
   const hits = strict.length ? strict : await partialQuestionHits(lookup, terms);
