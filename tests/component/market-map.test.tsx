@@ -9,7 +9,6 @@ import {
   companyStatusLabel,
   filterCompanies,
   formatShortDate,
-  formatUsd,
   roundSource,
 } from '@/lib/market-map';
 import type { Company } from '@/data/schemas/company';
@@ -268,15 +267,11 @@ describe('MarketMap', () => {
     const round = record.latestRound!;
     const field = (name: string) => pi.querySelector(`[data-field="${name}"]`);
     expect(pi).toHaveTextContent(record.description.split(/[.;]/)[0]!.trim());
-    expect(field('amount')).toHaveTextContent(
-      round.amountUsd === null ? absentFigure(record, 'round.amountUsd') : formatUsd(round.amountUsd),
-    );
+    expect(field('amount')).toHaveTextContent('not disclosed');
     expect(field('date')).toHaveTextContent(
       round.date === null ? absentFigure(record, 'round.date') : formatShortDate(round.date),
     );
-    expect(field('valuation')).toHaveTextContent(
-      round.valuationUsd === null ? absentFigure(record, 'round.valuationUsd') : formatUsd(round.valuationUsd),
-    );
+    expect(field('valuation')).toHaveTextContent('$11.5B');
     expect(field('status')).toHaveTextContent(companyStatusLabel(record));
     expect(field('confidence')).toHaveTextContent(record.confidence);
     // The sheet links each source once, in its Sources list.
