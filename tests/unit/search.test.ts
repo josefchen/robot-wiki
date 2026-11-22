@@ -504,6 +504,26 @@ describe('reader questions in prose search', () => {
     }
   });
 
+  it.each([
+    'What does System 3 do in a humanoid robot?',
+    'What do System 1 and System 3 do in a humanoid robot?',
+    'Which paper should I cite for OpenVLA 2?',
+    'How does light delay make lunar rovers drive themselves?',
+    'Do simulators rank policies as real flight trials do?',
+    'Do the simulators order robots for trials?',
+    'Do simulators rank policy 4 as real trials do?',
+    'Do simulators rank policies without real trials?',
+  ])('retains the ordinary page and its rank for a different subject: %s', async query => {
+    const data = {url: '/ordinary/', meta: {title: 'Ordinary match'}, content: query};
+    const lookup = async () => ({results: [{id: 'ordinary', score: 5, data: async () => data}]});
+    expect((await searchPagefind(lookup, query)).map(hit => hit.url)).toEqual(['/ordinary/']);
+  });
+
+  it('accepts an alternate question grounded in the policy comparison and its agreement column', async () => {
+    const hits = await searchPagefind(async () => ({results: []}), 'Do simulator rankings agree with trials on actual hardware?');
+    expect(hits[0]?.url).toBe('/world-models/evaluation/#level-4-the-best-simulators-order-policies-as-real-trials-do');
+  });
+
   it('returns a real escaped passage and drops partial or scattered mentions', async () => {
     const lookup = async (word: string) => ({
       results: word === question ? [] : [result('glass', 5), result('gripper', 8), result('distant', 9)],

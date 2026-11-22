@@ -339,45 +339,43 @@ async function preferQualifiedTitle(query: string, hits: SearchHit[]) {
   return [lead, ...hits.filter((hit) => hit.url !== url)].slice(0, RESULT_LIMIT);
 }
 
-// Match a reader's question against both the directory wording and the
-// actual heading it links to. Keep short or ambiguous overlaps in Pagefind.
-function directoryTerms(text: string) {
-  const words = tokenize(text).filter(word => !QUESTION_FILLER.has(word)
-    && !/^\d+$/.test(word) && !['level', 'actual', 'way', 'same'].includes(word));
+// Only the policy-ranking experiment has been checked for these alternate
+// wordings. Leave the rest of the directory to ordinary Pagefind search.
+function comparisonTerms(text: string) {
+  const words = tokenize(text).filter(word => !QUESTION_FILLER.has(word) || ['real', 'without'].includes(word));
   return new Set(words.map(word => {
     if (/^(rank|order)(s|ed|ing|ings)?$/.test(word)) return 'order';
+    if (word === 'actual' || word === 'physical') return 'real';
+    if (word === 'hardware') return 'robot';
     if (word.endsWith('ies')) return word.slice(0, -3) + 'y';
     return singular(word);
   }));
 }
 
-async function preferDirectoryQuestion(query: string, hits: SearchHit[]) {
-  const [{ questionsForArticles }, { publishedModules }] = await Promise.all([
+async function preferPolicyComparison(query: string, hits: SearchHit[]) {
+  const words = comparisonTerms(query);
+  const simulator = words.has('simulator') || (words.has('world') && words.has('model'));
+  const ranking = words.has('order') && (words.has('policy') || words.has('agree') || words.has('agreement'));
+  const predicting = words.has('predict') && words.has('policy') && (words.has('work') || words.has('best'));
+  if (!simulator || !(ranking || predicting) || !(words.has('trial') || words.has('robot'))) return hits;
+
+  const [{ questionsForArticles }, { getModule }] = await Promise.all([
     import('../data/article-questions'), import('../data/modules'),
   ]);
-  const articles = publishedModules();
-  const words = directoryTerms(query);
-  const matches = questionsForArticles(articles).map(question => {
-    // Published heading IDs come from their visible heading; a citation's
-    // internal key is not a reader question.
-    const fragment = question.href.split('#')[1];
-    const label = directoryTerms(question.label);
-    const heading = directoryTerms(fragment && !fragment.startsWith('ref-') ? fragment : '');
-    const overlap = (terms: Set<string>) => {
-      const common = [...terms].filter(term => words.has(term)).length;
-      return common < 3 ? 0 : common / Math.max(words.size, terms.size);
-    };
-    // Swapping an important part of a question ("which video" for "which
-    // policy") can leave nearly every other word identical.
-    const covered = [...words].every(word => label.has(word) || heading.has(word));
-    const score = Math.max(covered ? overlap(label) : 0, overlap(heading));
-    return { question, score };
-  }).sort((a, b) => b.score - a.score);
-  const [best, next] = matches;
-  if (!best || best.score < 0.6 || best.score === next?.score) return hits;
-  const path = best.question.href.split('#')[0];
-  const article = articles.find(entry => `/${entry.domain}/${entry.slug}/` === path)!;
-  const lead = {url: best.question.href, title: article.title, excerpt: escapeExcerpt(best.question.label)};
+  const article = getModule('world-models', 'evaluation');
+  if (!article || article.status !== 'published') return hits;
+  const question = questionsForArticles([article]).find(({href}) => href.endsWith('order-policies-as-real-trials-do'));
+  if (!question) return hits;
+
+  const heading = question.href.split('#')[1].replace(/^level-\d+-/, '');
+  // The table's column heading is "Agreement with real trials". Every
+  // subject word must be accounted for, including names, numbers and task
+  // qualifiers such as "flight" in "real flight trials".
+  const supported = comparisonTerms(question.label + ' ' + heading + ' agreement agree');
+  if (![...words].every(word => supported.has(word))) return hits;
+
+  const path = question.href.split('#')[0];
+  const lead = {url: question.href, title: article.title, excerpt: escapeExcerpt(question.label)};
   return [lead, ...hits.filter(hit => hit.url.split('#')[0] !== path)].slice(0, RESULT_LIMIT);
 }
 
@@ -421,7 +419,7 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
   const terms = questionTerms(query);
   if (!terms.length) return strict;
   const hits = strict.length ? strict : await partialQuestionHits(lookup, terms);
-  return preferDirectoryQuestion(query, hits);
+  return preferPolicyComparison(query, hits);
 }
 
 /**
