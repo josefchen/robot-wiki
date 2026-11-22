@@ -298,7 +298,10 @@ test('paper search distinguishes unavailable, uncited and ordinary queries', asy
   await expect(page.locator('[data-search-empty]')).toHaveCount(0);
   await retry.press('Enter');
   await expect(page.getByRole('link', { name: /^Action Chunking/ }).first()).toBeVisible();
-  await expect(page.getByRole('status')).toHaveText('13 technical chapters cite arXiv:2304.13705');
+  const citations = page.getByRole('region', { name: 'Citing articles' }).getByRole('link');
+  const count = await citations.count();
+  expect(count).toBeGreaterThan(1);
+  await expect(page.getByRole('status')).toHaveText(`${count} technical chapters cite arXiv:2304.13705`);
   const input = page.getByRole('searchbox', { name: 'Search the wiki' });
   await input.fill('2403.99999');
   await expect(page.getByRole('status')).toHaveText('No technical chapters cite arXiv:2403.99999');
