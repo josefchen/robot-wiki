@@ -99,6 +99,10 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
   {
     id: 'inverse-kinematics',
     term: 'inverse kinematics',
+    example: {
+      label: 'How does a robot arm reach a cup?',
+      href: '/classical/kinematics/#inverse-kinematics-has-many-answers-or-none',
+    },
     definition:
       'Inverse kinematics is finding the joint angles that put the end effector at a target position and orientation. A target can have no solution, one or many, so solvers usually search for one numerically.',
     citations: ['modern-robotics-2017'],

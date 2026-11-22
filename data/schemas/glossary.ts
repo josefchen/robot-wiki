@@ -18,6 +18,11 @@ export const glossaryTermSchema = z.object({
   definition: z.string().min(1),
   /** Citation registry ids backing the definition. At least one, always. */
   citations: z.array(slugSchema).min(1),
+  /** A worked example in a published article, when available. */
+  example: z.object({
+    label: z.string().min(1),
+    href: z.string().regex(/^\/[a-z0-9-]+\/[a-z0-9-]+\/#[a-z0-9-]+$/),
+  }).optional(),
 });
 
 export type GlossaryTerm = z.infer<typeof glossaryTermSchema>;

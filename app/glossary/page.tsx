@@ -96,6 +96,11 @@ export default function GlossaryPage() {
                   </Fragment>
                 ))}
               </div>
+              {term.example && (
+                <a href={term.example.href} className="ink-link mt-2 inline-block py-1 text-base">
+                  {term.example.label}
+                </a>
+              )}
               <ul className="mt-3 flex flex-col gap-1.5">
                 {sources.map((source) => (
                   <li key={source.id} className="flex flex-wrap items-baseline gap-x-2">
