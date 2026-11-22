@@ -279,7 +279,7 @@ export default async function DomainLandingPage({
                           href="/data-hardware/datasets/#bridgedata-v2-is-built-on-a-cheap-arm"
                           className="ink-link"
                         >
-                          Researchers collected BridgeData V2 with a WidowX 250 arm
+                          The BridgeData V2 team used a WidowX 250 arm
                         </IntentLink>.
                       </>
                     )}
