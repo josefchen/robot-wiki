@@ -23,16 +23,21 @@ describe('question sources in llms-full.txt', () => {
   });
 
   it('connects the published answers to their primary sources, preserving the selected source versions', () => {
-    const ids = ['enav-perseverance-2026', 'asap-2025', 'openvla-2024', 'pace-2026', 'helix-2025', 'gello-2023'];
+    const ids = [
+      ['enav-perseverance-2026'], ['asap-2025'], ['openvla-2024'], ['pace-2026'],
+      ['helix-2025'], ['gello-2023'], ['trossen-widowx-ai-2026', 'trossen-wxai-docs-2026'],
+    ];
     const questions = questionsForArticles(input.articles);
     // A reader that only downloads the start of the digest can still follow every question.
     const sourceGuide = full.slice(0, full.indexOf('\n## '));
     expect(questions).toHaveLength(ids.length);
     for (const [i, { href, label }] of questions.entries()) {
-      const source = input.citation(ids[i])!;
       const block = sourceGuide.split(`Sources for [${label}](${input.siteUrl}${href})\n`)[1].split('\n\n')[0];
-      const note = `${input.siteUrl}${href.split('#')[0]}#ref-${ids[i]}`;
-      expect(block).toContain(`- [${source.label}](${note}). [${source.title}](${source.url})`);
+      for (const id of ids[i]) {
+        const source = input.citation(id)!;
+        const note = `${input.siteUrl}${href.split('#')[0]}#ref-${id}`;
+        expect(block).toContain(`- [${source.label}](${note}). [${source.title}](${source.url})`);
+      }
       expect(full).toContain(`[All references for this article](${input.siteUrl}${href.split('#')[0]}#references-heading)`);
     }
   });
