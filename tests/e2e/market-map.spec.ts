@@ -146,7 +146,7 @@ test.describe('market map visualization', () => {
     const page = await browser.newPage({ javaScriptEnabled: false });
     try {
       await page.goto(ROUTE);
-      const sales = page.getByRole('link', { name: '2024–25 unit sales (PDF)' });
+      const sales = page.getByRole('link', { name: 'unit sales chart (PDF)' });
       const scope = page.getByRole('link', { name: 'survey coverage (PDF)' });
       await expect(sales).toBeVisible();
       await expect(sales).toHaveAttribute(
