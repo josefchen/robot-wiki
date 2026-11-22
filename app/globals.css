@@ -1602,6 +1602,8 @@ article > hr {
  * still closes the line it belongs to.
  */
 .sidenote[data-open='true'] {
+  /* Keep the absolutely positioned screen-reader text inside its note when a table scrolls. */
+  position: relative;
   display: inline;
 }
 
