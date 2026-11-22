@@ -22,6 +22,8 @@ Every check here fails when a reader would get something wrong.
 ## Tests
 
 - `npm test` runs the unit and component tests.
+- The article question test checks that the A–Z index and `/llms.txt`
+  link to the same published headings and references in the same order.
 - `npm run test:e2e` runs the browser tests, including the axe sweep. It
   starts its own dev server on port 3200.
 - On every push, a GitHub workflow steps each 3D explainer at 1280 and 390 px
