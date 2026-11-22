@@ -14,7 +14,8 @@ describe('question sources in llms-full.txt', () => {
     for (const [i, { href, label }] of questions.entries()) {
       const source = input.citation(ids[i])!;
       const block = full.split(`Sources for [${label}](${input.siteUrl}${href})\n`)[1].split('\n\n')[0];
-      expect(block).toContain(`- ${source.label}. [${source.title}](${source.url})`);
+      const note = `${input.siteUrl}${href.split('#')[0]}#ref-${ids[i]}`;
+      expect(block).toContain(`- [${source.label}](${note}). [${source.title}](${source.url})`);
       expect(full).toContain(`[All references for this article](${input.siteUrl}${href.split('#')[0]}#references-heading)`);
     }
   });
@@ -34,11 +35,13 @@ describe('question sources in llms-full.txt', () => {
 
   it('keeps cited sources from that passage only, skips sample code and prints a repeated source once', () => {
     const fixture = article([
-      '```md', section, '<Cite id="asap-2025" />', '```',
+      '```md', section, '<Cite id="asap-2025" />', '````',
+      '~~~md', section, '<Cite id="asap-2025" />', '~~~~',
       section, 'The study <Cite id="pace-2026" /> is cited twice <Cite id=\'pace-2026\' />.',
       'An example of markup is `<Cite id="asap-2025" />`.',
+      '##', 'An untitled section cites <Cite id="asap-2025" />.',
       '## A different experiment', 'Another lab <Cite id="asap-2025" />.',
-    ].join('\n'));
+    ].join('\r\n'));
     const block = buildLlmsFullTxt({ ...input, articles: [fixture] }).split('Sources for ')[1];
     expect(block.match(/2606\.00537v3/g)).toHaveLength(1);
     expect(block).not.toContain(input.citation('asap-2025')!.url);

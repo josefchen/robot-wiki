@@ -1,7 +1,7 @@
 import matter from 'gray-matter';
 import { ARTICLE_QUESTIONS_HEADING, questionsForArticles } from '../data/article-questions.ts';
 import { leadParagraph, sentences } from './article-lead.ts';
-import { articleOutline } from './article-outline.ts';
+import { articlePassages } from './article-outline.ts';
 import { inlineCitationIds } from './references.ts';
 
 /**
@@ -163,10 +163,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
   if (!questions.length) return [];
 
   const { content, data } = matter(article.source);
-  // A heading or a Cite tag shown as sample code is not part of the passage.
-  const body = content.replace(/^[ \t]*(`{3,}|~{3,})[^\n]*\n[\s\S]*?^[ \t]*\1[ \t]*$/gm, '');
-  const outline = articleOutline(body);
-  const sections = body.split(/^##[ \t]+/m).slice(1);
+  const { introduction, sections } = articlePassages(content);
   const declared = new Set<string>(data.citations ?? []);
   const lines: string[] = [];
 
@@ -175,10 +172,11 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
     let ids: string[];
     if (fragment.startsWith('ref-')) {
       const id = fragment.slice(4);
-      ids = inlineCitationIds(body).includes(id) ? [id] : [];
+      const groups = [introduction, ...sections.map((section) => section.lines)];
+      ids = groups.some((lines) => inlineCitationIds(lines.join('\n')).includes(id)) ? [id] : [];
     } else {
-      const index = outline.findIndex((heading) => heading.id === fragment);
-      ids = index < 0 ? [] : inlineCitationIds(sections[index]);
+      const section = sections.find((entry) => entry.id === fragment);
+      ids = section ? inlineCitationIds(section.lines.join('\n')) : [];
     }
     if (!ids.length) throw new Error(`llms: no cited source for ${href}`);
     lines.push(`Sources for [${label}](${input.siteUrl}${href})`);
@@ -186,7 +184,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
       const source = input.citation(id);
       if (!declared.has(id) || !source) throw new Error(`llms: unresolved citation "${id}" for ${href}`);
       const title = source.title.replace(/([\\[\]])/g, '\\$1');
-      lines.push(`- ${source.label}. [${title}](${source.url})`);
+      lines.push(`- [${source.label}](${articleUrl(input, article)}#ref-${id}). [${title}](${source.url})`);
     }
     lines.push('');
   }
