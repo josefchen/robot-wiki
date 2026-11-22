@@ -103,6 +103,20 @@ test.describe('structured search on the static export', () => {
     ).toBeVisible();
   });
 
+  test('a funding search opens the dated row and its source from the keyboard', async ({page}) => {
+    await page.goto(`${BASE}/search/?q=O-ID%20funding`);
+    const group = page.getByRole('region', {name: 'Companies, methods and datasets'});
+    const result = group.getByRole('link', {name: /^O-ID funding/});
+    await expect(result).toHaveCount(1);
+    await expect(result).toContainText('Pre-seed · Closed · Reported');
+    await result.focus();
+    await result.press('Enter');
+    const row = page.locator('#round-o-id-2026-09-24');
+    await expect(row).toBeVisible();
+    await expect(row).toContainText('$1.2M');
+    await expect(row.locator('[data-source-link]')).toHaveAttribute('href', /techinasia\.com\//);
+  });
+
   test('clicking a method result lands on that row', async ({
     page,
   }) => {

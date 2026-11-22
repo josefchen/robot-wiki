@@ -18,6 +18,8 @@ import {
   SNIPPET_MIN_CHARS,
   trailingCellRun,
 } from './entity-cells.ts';
+import { roundsInWindow } from './rounds.ts';
+import { formatShortDate } from './market-map.ts';
 import { foldGreekToAscii } from './greek-transliteration.ts';
 
 export const STRUCTURED_INDEX_PATH = '/search-index.json';
@@ -227,7 +229,20 @@ export function structuredIndexLoadOptions() {
 export function buildStructuredIndex(): unknown {
   const index = createStructuredMiniSearch();
   index.addAll(collectStructuredDocuments());
-  return index.toJSON();
+  // Only named lookups can return a financing record. Putting table cells in
+  // MiniSearch would change ranking for every ordinary company or method query.
+  const fundingRows = roundsInWindow().map(row => {
+    const date = row.datePrecision === 'day' ? formatShortDate(row.date) : row.date;
+    const stage = row.round === 'not disclosed' ? '' : row.round;
+    const status = {closed: 'Closed', talks: 'In talks', announced: 'Announced', unconfirmed: 'Close unconfirmed'}[row.status];
+    const details = [date, stage, status, row.sourceType === 'reported' ? 'Reported' : ''];
+    return {
+      key: row.key,
+      company: row.company,
+      snippet: details.filter(Boolean).join(' · '),
+    };
+  });
+  return {...index.toJSON(), fundingRows};
 }
 
 type StoredDocument = {
@@ -453,6 +468,30 @@ async function entityNames(index: MiniSearch<StructuredSearchDocument>) {
   return {names, longest};
 }
 
+type FundingRow = {key: string; company: string; snippet: string};
+
+function fundingCatalog(rows: readonly FundingRow[]) {
+  const names = new Map<string, StructuredHit[]>();
+  let longest = 0;
+  for (const {key, company, snippet} of rows) {
+    const hit: StructuredHit = {
+      id: `funding:${key}`, entityId: key, type: 'company', title: `${company} funding`,
+      url: `/market-map/rounds/#round-${key}`, facet: '', snippet,
+    };
+    const parenthetical = company.match(/^(.*?)\s*\((.+)\)$/);
+    for (const name of new Set([company, ...(parenthetical?.slice(1) ?? [])])) {
+      const words = nameWords(name).map(foldGreekToAscii);
+      const term = words.join(' ');
+      longest = Math.max(longest, words.length);
+      const entries = names.get(term) ?? [];
+      if (words.length && !entries.some(row => row.id === hit.id)) names.set(term, [...entries, hit]);
+    }
+  }
+  return {names, longest};
+}
+
+const FUNDING_INTENT = /\b(?:fund(?:ing|ed)|fundrais(?:e|ed|ing)|financ(?:ed|ing)|rais(?:e|ed)|invest(?:ed|ment|ments|or|ors)|valuation|seed round|pre[- ]seed|series [a-z]\b|rounds?$)\b/i;
+
 function mentionedEntities(words: string[], catalog: Awaited<ReturnType<typeof entityNames>>): StructuredHit[] {
   const folded = words.map(foldGreekToAscii);
   const found = new Map<string, StructuredHit>();
@@ -581,17 +620,45 @@ export async function createStructuredSearchClient(): Promise<StructuredSearchCl
       `structured index unavailable (${response.status} ${response.statusText})`,
     );
   }
-  const json = await response.text();
-  const index = MiniSearch.loadJSON<StructuredSearchDocument>(
-    json,
+  const serialized = await response.json();
+  const funding = fundingCatalog(serialized.fundingRows ?? []);
+  const index = MiniSearch.loadJS<StructuredSearchDocument>(
+    serialized,
     structuredIndexLoadOptions(),
   );
   let names: ReturnType<typeof entityNames> | undefined;
+  let financeNames: ReturnType<typeof fundingCatalog> | undefined;
   return {
     async search(query: string) {
       if (!query.trim()) return [];
       const words = nameWords(query);
       const question = words.length >= 2 && (/[?？]/u.test(query) || QUESTION_START.test(words[0]));
+      const exactName = words.map(foldGreekToAscii).join(' ');
+      const exactRounds = funding.names.get(exactName);
+      if (FUNDING_INTENT.test(words.join(' '))) {
+        const catalog = await (names ??= entityNames(index));
+        financeNames ??= {
+          names: new Map([...catalog.names, ...funding.names]),
+          longest: Math.max(catalog.longest, funding.longest),
+        };
+        const named = mentionedEntities(words, financeNames);
+        const hits = named.flatMap(hit => {
+          // An alias such as "1X" can identify a market profile whose full
+          // company name is how its funding row is recorded.
+          if (hit.type !== 'company' || hit.id.startsWith('funding:')) return [hit];
+          const issuer = nameWords(hit.title.split(' (')[0]).map(foldGreekToAscii).join(' ');
+          return funding.names.get(issuer) ?? [hit];
+        });
+        if (hits.some(hit => hit.id.startsWith('funding:'))) {
+          return [...new Map(hits.map(hit => [hit.id, hit])).values()];
+        }
+      } else if (exactRounds) {
+        const catalog = await (names ??= entityNames(index));
+        // Keep an ordinary word already in the wiki, e.g. lowercase "motion".
+        const existingTerm = words.length === 1 && query.trim() === exactName &&
+          index.search(exactName, {prefix: false, fuzzy: false}).length > 0;
+        if (!existingTerm && !catalog.names.has(exactName)) return exactRounds;
+      }
       if (question || words.length >= 5) {
         const requested = requestedEntityType(words);
         const mentioned = mentionedEntities(words, await (names ??= entityNames(index)))
