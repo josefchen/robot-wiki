@@ -237,6 +237,94 @@ export function createRequestSequencer(): {
   };
 }
 
+type RankedResult = PagefindResult & { id: string; score: number };
+type PagefindLookup = (query: string) => Promise<{ results: RankedResult[] }>;
+
+const QUESTION_FILLER = new Set(`
+  a an and are as at be been can could did do does for from give had has have how
+  i if in into is it its know me much my of on or our own real s should so that the
+  their them these this to use uses using was we were what when where whether which
+  who why will with without would you your
+`.trim().split(/\s+/));
+
+function singular(word: string) {
+  return word.length > 3 && word.endsWith('s') && !/(ss|ics)$/.test(word) ? word.slice(0, -1) : word;
+}
+
+function questionTerms(query: string) {
+  const words = tokenize(query);
+  if (words.length < 4) return [];
+  const startsWithQuestion = /^(how|what|why|when|which|where|who|can|could|did|does|is|are|will)$/.test(words[0]);
+  if (!startsWithQuestion && !/\?\s*$/.test(query)) return [];
+  const terms = new Map<string, string>();
+  for (const word of words) {
+    if (!QUESTION_FILLER.has(word)) terms.set(singular(word), word);
+  }
+  return terms.size >= 2 && terms.size <= 10 ? [...terms.values()] : [];
+}
+
+/** Give a reader an actual passage that contains several of the words together.
+ * Only the original escaped text goes into the HTML excerpt slot. */
+function questionPassage(content: string, weights: Map<string, number>) {
+  const words = content.trim().split(/\s+/u);
+  const present = new Set<string>();
+  let excerpt = '';
+  let bestWeight = 0;
+  for (let start = 0; start < words.length; start += 20) {
+    const passage = words.slice(start, start + 40).join(' ');
+    const matched = new Set(tokenize(passage).map(singular).filter((word) => weights.has(word)));
+    for (const word of matched) present.add(word);
+    if (matched.size < Math.max(2, Math.ceil(weights.size / 2))) continue;
+    const weight = [...matched].reduce((sum, word) => sum + weights.get(word)!, 0);
+    if (weight > bestWeight) {
+      bestWeight = weight;
+      excerpt = passage;
+    }
+  }
+  const escaped = excerpt.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+  return { present, excerpt: escaped };
+}
+
+/** Try partial matches only for a question whose complete search found nothing. */
+export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
+  const strict = await toSearchHits(await lookup(query), query);
+  if (strict.length) return strict;
+  const terms = questionTerms(query);
+  if (!terms.length) return [];
+
+  const searches = await Promise.all(terms.map((term) => lookup(term)));
+  const weights = new Map<string, number>();
+  const pages = new Map<string, { result: RankedResult; total: number; scores: Map<string, number> }>();
+  searches.forEach(({ results }, index) => {
+    const term = singular(terms[index]);
+    // A rare word such as a dataset name carries more evidence than "robot".
+    weights.set(term, 1 / Math.sqrt(1 + results.length));
+    for (const result of results) {
+      const page = pages.get(result.id) ?? { result, total: 0, scores: new Map<string, number>() };
+      page.total += result.score;
+      page.scores.set(term, result.score);
+      pages.set(result.id, page);
+    }
+  });
+  const totalWeight = [...weights.values()].reduce((sum, weight) => sum + weight, 0);
+  // Ranking IDs is cheap. Only fetch bodies from the leading candidates.
+  const candidates = [...pages.values()].sort((a, b) => b.total - a.total).slice(0, 12);
+  const inspected = await Promise.all(candidates.map(async ({ result, scores }) => {
+    const data = await result.data();
+    const { present, excerpt } = questionPassage(data.content ?? '', weights);
+    const weight = [...present].reduce((sum, word) => sum + weights.get(word)!, 0);
+    // Require support for most words and most of the information they carry.
+    if (!excerpt || present.size < Math.ceil(terms.length * 0.6) || weight <= totalWeight / 2) return null;
+    const score = [...present].reduce((sum, word) => sum + (scores.get(word) ?? 0), 0);
+    const hit = { url: data.url, title: stripSiteSuffix(data.meta?.title, data.url), excerpt };
+    return { hit, score };
+  }));
+  return inspected.filter((entry) => entry !== null)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map(({ hit }) => hit);
+}
+
 /**
  * Loads the Pagefind runtime and adapts it to SearchClient.
  *
@@ -251,12 +339,7 @@ export async function createPagefindClient(): Promise<SearchClient> {
     'return import(specifier)',
   ) as (specifier: string) => Promise<unknown>;
   const pagefind = (await runtimeImport('/pagefind/pagefind.js')) as {
-    search: (query: string) => Promise<PagefindSearchResponse>;
+    search: PagefindLookup;
   };
-  return {
-    async search(query: string) {
-      const response = await pagefind.search(query);
-      return toSearchHits(response, query);
-    },
-  };
+  return { search: (query) => searchPagefind((term) => pagefind.search(term), query) };
 }
