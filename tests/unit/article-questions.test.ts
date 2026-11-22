@@ -20,7 +20,7 @@ describe('article question directory', () => {
     const links = [...section.querySelectorAll('a')].map((a) => ({
       label: a.textContent, href: a.getAttribute('href'),
     }));
-    expect(links).toEqual(questions);
+    expect(links).toEqual(questions.map(({ label, href }) => ({ label, href })));
     expect(links.map(({ label }) => label)).toEqual([
       expect.stringMatching(/Mars rovers/), expect.stringMatching(/humanoids.*whole-body/),
       expect.stringMatching(/cite.*OpenVLA/), expect.stringMatching(/PACE.*moves/),

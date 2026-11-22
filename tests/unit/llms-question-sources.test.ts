@@ -43,6 +43,21 @@ describe('question sources in llms-full.txt', () => {
   });
 
   const chunking = input.articles.find((a) => a.slug === 'action-chunking')!;
+  const arms = input.articles.find((a) => a.slug === 'research-arms-compared')!;
+
+  it('prints the current reach from the selected row next to each manufacturer source', () => {
+    const store = input.citation('trossen-widowx-ai-2026')!.url;
+    const manual = input.citation('trossen-wxai-docs-2026')!.url;
+    expect(full).toContain(`WidowX AI reach is reported as [700 mm in the store](${store}) and [769 mm in the specifications](${manual}).`);
+
+    const render = (source: string) => buildLlmsFullTxt({ ...input, articles: [{ ...arms, source }] });
+    const cell = '700 mm (store), 769 mm (docs)';
+    const changed = arms.source.replace(cell, '0.8 m (docs), 710 mm (store)');
+    expect(render(changed)).toContain(`[710 mm in the store](${store}) and [0.8 m in the specifications](${manual})`);
+    expect(() => render(arms.source.replace(cell, '700 mm'))).toThrow(/cannot pair/);
+    expect(() => render(arms.source.replace('<Cite id="trossen-wxai-docs-2026" />', ''))).toThrow(/cannot pair/);
+  });
+
   const article = (source: string): LlmsArticle => ({
     ...chunking,
     source: [

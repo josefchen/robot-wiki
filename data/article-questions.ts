@@ -1,4 +1,10 @@
-const questions = [
+export interface TableComparison {
+  row: string;
+  column: string;
+  sources: ReadonlyArray<{ tag: string; label: string; citation: string }>;
+}
+
+const questions: ReadonlyArray<{ label: string; href: string; comparison?: TableComparison }> = [
   {
     label: 'Why do Mars rovers drive themselves?',
     href: '/adjacent/space/#light-delay-makes-rovers-drive-themselves',
@@ -26,6 +32,14 @@ const questions = [
   {
     label: 'How far can robot arms reach, and how precisely can they return to the same spot?',
     href: '/data-hardware/research-arms-compared/#mechanics',
+    comparison: {
+      row: 'WidowX AI',
+      column: 'Reach',
+      sources: [
+        { tag: 'store', label: 'store', citation: 'trossen-widowx-ai-2026' },
+        { tag: 'docs', label: 'specifications', citation: 'trossen-wxai-docs-2026' },
+      ],
+    },
   },
 ];
 
