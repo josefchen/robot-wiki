@@ -2,6 +2,8 @@ import { describe, expect, it, vi } from 'vitest';
 import { COMPANIES } from '@/data/companies';
 import { DATASETS } from '@/data/datasets';
 import { METHODS } from '@/data/methods';
+import { roundsInWindow } from '@/lib/rounds';
+import { ROUNDS_PAGE_PATH, roundAnchor } from '@/lib/rounds-page';
 import { SNIPPET_MIN_CHARS } from '@/lib/entity-cells';
 import {
   applyStructuredFacet,
@@ -71,6 +73,64 @@ describe('structured entity search in reader questions', () => {
       expect((await ids('DROI'))[0]).toBe('dataset:droid');
       expect((await ids('Robotics Transformer 1'))[0]).toBe('method:rt-1');
       expect(fetchIndex).toHaveBeenCalledTimes(1);
+    } finally {
+      fetchIndex.mockRestore();
+    }
+  });
+});
+
+describe('named company funding records', () => {
+  it('returns each anchored issuer with the recorded status and preserves the ordinary profile rankings', async () => {
+    const serialized = buildStructuredIndex() as Record<string, unknown>;
+    const legacy = {...serialized};
+    delete legacy.fundingRows;
+    const fetchIndex = vi.spyOn(globalThis, 'fetch');
+    try {
+      fetchIndex.mockResolvedValueOnce(new Response(JSON.stringify(legacy)));
+      const before = await createStructuredSearchClient();
+      fetchIndex.mockResolvedValueOnce(new Response(JSON.stringify(serialized)));
+      const client = await createStructuredSearchClient();
+      for (const company of COMPANIES) {
+        expect(await client.search(company.name), company.name).toEqual(await before.search(company.name));
+      }
+      const rows = roundsInWindow();
+      for (const row of rows) {
+        const matches = await client.search(row.company + ' funding');
+        const sameIssuer = rows.filter(other => other.company === row.company);
+        expect(matches.map(hit => hit.url), row.company).toEqual(
+          sameIssuer.map(other => ROUNDS_PAGE_PATH + '#' + roundAnchor(other.key)),
+        );
+        const match = matches.find(hit => hit.entityId === row.key)!;
+        expect(match.snippet.toLowerCase()).toContain(row.status);
+        expect(match.snippet.includes('Reported')).toBe(row.sourceType === 'reported');
+      }
+      const ids = async (q: string) => (await client.search(q)).map(hit => hit.id);
+      expect(await ids('O-ID')).toEqual(['funding:o-id-2026-09-24']);
+      expect(await ids('Minerva Humanoids')).toEqual(['funding:minerva-humanoids-2026-10-06']);
+      expect(await ids('How much did 1X raise?')).toEqual(['funding:1x-softbank-talks-2026-08-28']);
+      expect(await ids('Who invested in Motion?')).toEqual(['funding:motion-2026-08-27']);
+      expect(await ids('How much money did Minerva Humanoids raise?')).toEqual(await ids('Minerva Humanoids funding'));
+      expect(await ids('What is O-ID’s latest funding round?')).toEqual(await ids('O-ID funding'));
+      expect(await ids('Who led O-ID’s pre-seed round?')).toEqual(await ids('O-ID funding'));
+      expect(await ids('Did Motion raise capital?')).toEqual(await ids('Motion funding'));
+      expect(await ids('Who are the investors in Motion?')).toEqual(await ids('Motion funding'));
+      expect(await ids('Who funded O-ID or Figure AI?')).toEqual(['funding:o-id-2026-09-24', 'company:figure-ai']);
+      for (const q of [
+        'How high can 1X raise its arms?',
+        'How much did 1X raise its gripper?',
+        'Who invested in motion planning research?',
+        'Who invested in Motion Planning Research?',
+        'How do I raise the sample rate for Physical Intelligence controllers?',
+        'Who funded Physical Intelligence research?',
+        'Motion planning research funding',
+        'Which companies make robots that raise boxes?',
+      ]) {
+        expect(await client.search(q), q).toEqual(await before.search(q));
+      }
+      expect(await ids('motion')).toEqual((await before.search('motion')).map(hit => hit.id));
+      for (const q of ['funding', 'CarbonSix funding', 'How do I seed a motion planner?', 'Which companies make surgical robots?']) {
+        expect((await ids(q)).some(id => id.startsWith('funding:'))).toBe(false);
+      }
     } finally {
       fetchIndex.mockRestore();
     }

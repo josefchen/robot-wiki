@@ -103,6 +103,36 @@ test.describe('structured search on the static export', () => {
     ).toBeVisible();
   });
 
+  test('a funding search opens the dated row and its source from the keyboard', async ({page}) => {
+    await page.goto(`${BASE}/search/?q=O-ID%20funding`);
+    const group = page.getByRole('region', {name: 'Companies, methods and datasets'});
+    const result = group.getByRole('link', {name: /^O-ID funding/});
+    await expect(result).toHaveCount(1);
+    await expect(result).toContainText('Pre-seed · Closed · Reported');
+    await result.focus();
+    await result.press('Enter');
+    const row = page.locator('#round-o-id-2026-09-24');
+    await expect(row).toBeVisible();
+    await expect(row).toContainText('$1.2M');
+    await expect(row.locator('[data-source-link]')).toHaveAttribute('href', /techinasia\.com\//);
+  });
+
+  test('financial questions identify the whole company being asked about', async ({page}) => {
+    await page.goto(`${BASE}/search`);
+    const group = page.getByRole('region', {name: 'Companies, methods and datasets'});
+    for (const [query, expected] of [
+      ['How much did 1X raise?', 1],
+      ['How high can 1X raise its arms?', 0],
+      ['Who invested in Motion?', 1],
+      ['Who invested in motion planning research?', 0],
+      ['How do I raise the sample rate for Physical Intelligence controllers?', 0],
+    ] as const) {
+      await typeQuery(page, query);
+      await waitForSettled(page);
+      await expect(group.locator('a[href^="/market-map/rounds/#round-"]')).toHaveCount(expected);
+    }
+  });
+
   test('clicking a method result lands on that row', async ({
     page,
   }) => {
