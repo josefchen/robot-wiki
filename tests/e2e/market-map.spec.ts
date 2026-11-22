@@ -237,25 +237,35 @@ test.describe('market map visualization', () => {
     await expect(pi.getByRole('heading', { name: 'Physical Intelligence' })).toBeFocused();
     await expect(page).toHaveURL(/#company-physical-intelligence$/);
     await expect(pi.getByText(/vision-language-action/)).toBeVisible();
-    // Target the funding figure by its data field: the round's source is a
-    // Robot Report article whose TITLE contains "$600M" (a correct title),
-    // linked once in the sheet's Sources list and named in plain text under
-    // the round, so a bare getByText collides with it in strict mode. The
-    // data-field locator still fails if the figure is wrong.
-    await expect(pi.locator('[data-field="amount"]')).toHaveText('$600M');
-    await expect(pi.locator('[data-field="valuation"]')).toHaveText('$5.6B');
-    await expect(pi.locator('[data-field="confidence"]')).toHaveText('high');
-    // The open-source entry was "openpi" until the 2026-10-19 field audit:
-    // no fetched source names that repository, and Physical Intelligence's
-    // own release says "We are releasing the weights and code for π0 as
-    // well as our new π0-FAST autoregressive model."
+    // The sourced 2026 valuation displaced the earlier Series B in the latest
+    // fields. The caveat keeps the closed round distinct from later talks.
+    for (const field of ['amount', 'date', 'round-type', 'leads']) {
+      await expect(pi.locator(`[data-field="${field}"]`)).toHaveText('not disclosed');
+    }
+    await expect(pi.locator('[data-field="valuation"]')).toHaveText('$11.5B');
+    await expect(pi.locator('[data-field="confidence"]')).toHaveText('medium');
+    const roundNote = pi.locator('[data-round-caveat]');
+    await expect(roundNote).toContainText('a $600M Series B at $5.6B led by CapitalG');
+    await expect(roundNote).toContainText('talks to raise at least $1B at about $20B, not yet closed');
+    await expect(pi.getByRole('link', { name: 'Physical Intelligence is seeking a valuation of about $20 billion' }))
+      .toHaveAttribute('href', 'https://qz.com/physical-intelligence-funding-talks-20-billion-valuation-102726');
+    // The maker's Open Sourcing π0 announcement names the repository and the
+    // releases. The field should tell readers which models they can obtain.
     const piRelease = 'π0 and π0-FAST (weights and code)';
-    await expect(pi.getByText(piRelease)).toBeVisible();
-    await expect(pi.getByText('openpi')).toHaveCount(0);
-    await expect(pi.getByText('CapitalG, Lux Capital')).toBeVisible();
+    const piOpenSource = pi.locator('[data-field="open-source"]');
+    await expect(piOpenSource).toBeVisible();
+    await expect(piOpenSource).toHaveText(piRelease);
     await pi.getByRole('button', { name: 'Close Physical Intelligence details' }).click();
     await expect(page.getByText(piRelease)).toHaveCount(0);
     await expect(tile(page, 'physical-intelligence')).toBeFocused();
+
+    const chefTile = tile(page, 'chef-robotics');
+    await expect(chefTile).toHaveAccessibleName(/latest round \$43\.1M/);
+    await expect(chefTile).toContainText('$43.1M');
+    await chefTile.click();
+    const chef = sheet(page, 'Chef Robotics');
+    await expect(chef.locator('[data-field="amount"]')).toHaveText('$43.1M');
+    await expect(chef.locator('[data-field="total-raised"]')).toHaveText('$65.6M');
 
     await tile(page, 'unitree-robotics').click();
     const unitree = sheet(page, 'Unitree Robotics');
@@ -290,6 +300,8 @@ test.describe('market map visualization', () => {
     // Skild's round "values it at more than $14 billion". Neither floor is
     // a figure, so the row prints what is stated and each card carries the
     // floor as a sourced caveat.
+    const chefRow = page.locator('[data-timeline-id][data-company-id="chef-robotics"]');
+    await expect(chefRow).toContainText('$43.1M');
     const figureRow = page.locator('[data-timeline-id][data-company-id="figure-ai"]');
     await expect(figureRow).toContainText('not disclosed at $39B');
     await expect(figureRow).not.toContainText('$1B');
@@ -333,6 +345,10 @@ test.describe('market map visualization', () => {
     await expect(page.locator('circle[data-company-id="covariant"]')).toHaveCount(
       0,
     );
+    const piMark = page.locator('circle[data-company-id="physical-intelligence"]');
+    await expect(piMark).toHaveAccessibleName('Physical Intelligence, founded 2024, valuation $11.5B');
+    await piMark.focus();
+    await expect(page.locator('[data-bubble-label]')).toContainText('valuation $11.5B');
     await page.locator('circle[data-company-id="figure-ai"]').click();
     await expect(sheet(page, 'Figure AI')).toBeVisible();
     await expect(sheet(page, 'Figure AI').locator('[data-field="valuation"]')).toHaveText('$39B');

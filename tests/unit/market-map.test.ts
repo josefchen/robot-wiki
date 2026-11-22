@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { COMPANIES } from '@/data/companies';
+import { formatReportedUsd, marketTileFact } from '@/components/market-map/funding-values';
 import {
   DEFAULT_MARKET_MAP_FILTERS,
   SEGMENT_ORDER,
@@ -344,6 +345,29 @@ describe('money and unknown figures', () => {
     expect(formatUsd(618_000_000)).toBe('$618M');
     expect(formatUsd(105_000_000)).toBe('$105M');
     expect(unknownFigure()).toBe('not disclosed');
+  });
+
+  it('preserves recorded precision in amounts, valuations and totals', () => {
+    expect(formatReportedUsd(11_500_000_000)).toBe('$11.5B');
+    expect(formatReportedUsd(5_375_000_000)).toBe('$5.375B');
+    expect(formatReportedUsd(43_100_000)).toBe('$43.1M');
+    expect(formatReportedUsd(6_250_000)).toBe('$6.25M');
+    expect(formatReportedUsd(125_700)).toBe('$125.7k');
+    expect(formatReportedUsd(12_345_678)).toBe('$12,345,678');
+    expect(formatReportedUsd(1_234.56)).toBe('$1,234.56');
+    expect(formatReportedUsd(0)).toBe('$0');
+  });
+
+  it('shows an approximation on long tile badges and exposes the full value to assistive technology', () => {
+    const pi = COMPANIES.find((company) => company.id === 'physical-intelligence')!;
+    const company = {
+      ...pi,
+      latestRound: { ...pi.latestRound!, amountUsd: 12_345_678 },
+    };
+    expect(marketTileFact(company)).toMatchObject({
+      text: '≈$12M',
+      label: 'latest round $12,345,678',
+    });
   });
 
   it('formats short dates without a Date timezone round-trip', () => {

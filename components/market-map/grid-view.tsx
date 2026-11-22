@@ -9,8 +9,8 @@ import {
   isMapArrowKey,
   planMapColumns,
   stepTile,
-  tileFact,
 } from '@/lib/market-map';
+import { marketTileFact } from './funding-values';
 import { cx } from '@/lib/utils';
 import { CompanyLogo } from './company-logo';
 import { SHEET_ID } from './company-sheet';
@@ -208,7 +208,7 @@ function MapTile({
   onFocus: () => void;
   onArrow: (key: Parameters<typeof stepTile>[2]) => void;
 }) {
-  const fact = tileFact(company);
+  const fact = marketTileFact(company);
   return (
     <li
       id={`company-${company.id}`}
