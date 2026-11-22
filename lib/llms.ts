@@ -194,18 +194,19 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
 
 /** `/llms-full.txt`: each published article's lead and key facts with sources. */
 export function buildLlmsFullTxt(input: LlmsInput): string {
-  const lines = [`# ${input.siteName}: leads and key facts`, '', `> ${input.descriptor}`, ''];
+  const sourceGuide = [`# ${input.siteName}: leads and key facts`, '', `> ${input.descriptor}`, ''];
+  const articles: string[] = [];
   for (const domain of input.domains) {
     for (const article of input.articles.filter((entry) => entry.domain === domain.id)) {
-      lines.push(`## ${article.title}`, '');
-      lines.push(`URL: ${articleUrl(input, article)}`, `Domain: ${domain.name}`, '');
-      lines.push(articleLead(input, article), '');
+      sourceGuide.push(...questionSources(input, article));
+      articles.push(`## ${article.title}`, '');
+      articles.push(`URL: ${articleUrl(input, article)}`, `Domain: ${domain.name}`, '');
+      articles.push(articleLead(input, article), '');
       const facts = articleKeyFacts(input, article);
       if (facts.length > 0) {
-        lines.push('Key facts:', ...facts.map((fact) => `- ${fact}`), '');
+        articles.push('Key facts:', ...facts.map((fact) => `- ${fact}`), '');
       }
-      lines.push(...questionSources(input, article));
     }
   }
-  return `${lines.join('\n').trimEnd()}\n`;
+  return `${[...sourceGuide, ...articles].join('\n').trimEnd()}\n`;
 }
