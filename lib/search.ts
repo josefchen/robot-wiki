@@ -329,7 +329,8 @@ function resultExcerpt(entry: PagefindResultData, title: string, query: string) 
   const original = entry.excerpt ?? '';
   if (!plain || !content?.startsWith(plain) || !plain.startsWith(title)) return original;
 
-  const boundary = /^(?:[.!?。！？]\s*|\s+|$)/u.exec(content.slice(title.length));
+  // Whitespace alone can join a subject to its verb in an ordinary sentence.
+  const boundary = /^(?:[.!?。！？]\s*|$)/u.exec(content.slice(title.length));
   if (!boundary) return original;
   const offset = title.length + boundary[0].length;
   const body = content.slice(offset).trimStart();
@@ -337,12 +338,13 @@ function resultExcerpt(entry: PagefindResultData, title: string, query: string) 
 
   // Pagefind inserts a full stop between the heading and its authored deck.
   // Sentence segmentation preserves decimals, initials and non-Latin stops.
-  const lead = sentenceBreaks?.segment(body.slice(0, 241)).containing(0)?.segment.trim() ?? '';
+  const lead = firstExcerptSentence(body);
   const complete = !!lead && lead.length <= 240 && (lead === body || /[.!?。！？][”’"')\]]*$/u.test(lead));
   const rest = plain.slice(offset).trim();
   const terms = tokenize(query);
-  const matches = (text: string, term: string) => tokenize(text).some(word =>
-    /\p{N}/u.test(term) ? word === term : word.startsWith(term));
+  const matchesTerm = (word: string, term: string) =>
+    /\p{N}/u.test(term) ? word === term : word.startsWith(term);
+  const matches = (text: string, term: string) => tokenize(text).some(word => matchesTerm(word, term));
   const qualifiers = terms.filter(term => (!QUESTION_FILLER.has(term) || term === 'real')
     && !matches(title, term));
   const visible = qualifiers.filter(term => matches(rest, term));
@@ -367,8 +369,19 @@ function resultExcerpt(entry: PagefindResultData, title: string, query: string) 
   return preview.split(/([\p{L}\p{N}]+)/u).map(part => {
     const escaped = escapeExcerpt(part);
     const word = tokenize(part)[0];
-    return word && terms.some(term => word.startsWith(term)) ? `<mark>${escaped}</mark>` : escaped;
+    return word && terms.some(term => matchesTerm(word, term)) ? `<mark>${escaped}</mark>` : escaped;
   }).join('');
+}
+
+function firstExcerptSentence(body: string): string {
+  if (!sentenceBreaks) return '';
+  let lead = '';
+  for (const { segment } of sentenceBreaks.segment(body.slice(0, 241))) {
+    lead += segment;
+    // Some ICU versions end a sentence at the title in “Dr. Smith”.
+    if (!/\b(?:Mr|Mrs|Ms|Dr|Prof|Sr|Jr|Fig|Eq|No|e\.g|i\.e)\.\s*$/iu.test(lead)) break;
+  }
+  return lead.trim();
 }
 
 const sentenceBreaks = typeof Intl.Segmenter === 'function'

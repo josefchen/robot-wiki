@@ -46,6 +46,20 @@ describe('toSearchHits', () => {
       .toBe('A short guide. The <mark>G1</mark> works…');
   });
 
+  it('retains an opening subject that happens to be the title', async () => {
+    const plain = 'Robot welding requires a person to inspect the seam. The next';
+    expect(await excerpt('Robot welding', plain, plain + ' test follows.', 'robot welding')).toBe(plain);
+  });
+
+  it('keeps an abbreviated title with the name and marks model numbers exactly', async () => {
+    const calibration = 'Calibration. The method follows Dr. Smith’s test. Only three arms';
+    expect(await excerpt('Calibration', calibration, calibration + ' were tested.', 'calibration'))
+      .toBe('The method follows Dr. Smith’s test.');
+    const motors = 'Robot arms. The G1 and G10 use different joints. The next';
+    expect(await excerpt('Robot arms', motors, motors + ' test follows.', 'robot arms G1'))
+      .toBe('The <mark>G1</mark> and G10 use different joints.');
+  });
+
   it('preserves a non-Latin sentence and suppresses a title-only result description', async () => {
     const plain = '測定。距離は何メートル？次の';
     expect(await excerpt('測定', plain, plain + 'テスト。', '測定')).toBe('距離は何メートル？');
