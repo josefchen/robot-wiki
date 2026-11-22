@@ -58,6 +58,10 @@ function articleUrl(input: LlmsInput, article: LlmsArticle): string {
   return `${input.siteUrl}/${article.domain}/${article.slug}/`;
 }
 
+function paperIndexGuide(siteUrl: string): string {
+  return `Find which technical chapters cite a paper in the [arXiv citation index](${siteUrl}/paper-citations.json). Look up the arXiv number under \`papers\`. To open a footnote, use the citation’s \`article\` path followed by \`#ref-\` and the value of \`ref\`.`;
+}
+
 /** Prose with inline markup unwrapped and each citation kept as a marker. */
 function proseText(block: string): string {
   return block
@@ -128,6 +132,8 @@ export function buildLlmsTxt(input: LlmsInput): string {
   const lines = [`# ${input.siteName}`, '', `> ${input.descriptor}`, ''];
   lines.push(
     `Every article cites its primary sources inline. The full digest of leads and key facts is at ${input.siteUrl}/llms-full.txt.`,
+    '',
+    paperIndexGuide(input.siteUrl),
     '',
   );
   for (const domain of input.domains) {
@@ -233,6 +239,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
 /** `/llms-full.txt`: each published article's lead and key facts with sources. */
 export function buildLlmsFullTxt(input: LlmsInput): string {
   const sourceGuide = [`# ${input.siteName}: leads and key facts`, '', `> ${input.descriptor}`, ''];
+  sourceGuide.push(paperIndexGuide(input.siteUrl), '');
   const articles: string[] = [];
   for (const domain of input.domains) {
     for (const article of input.articles.filter((entry) => entry.domain === domain.id)) {
