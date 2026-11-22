@@ -321,10 +321,16 @@ function escapeExcerpt(text: string) {
 async function preferQualifiedTitle(query: string, hits: SearchHit[]) {
   const phrase = tokenize(query).join(' ');
   const qualifier = /^(?:robot|robotic|robotics) (.+)$|^(.+) (?:in|of|for) robotics$/.exec(phrase);
-  if (!qualifier || hits.some((hit) => titleWeight(query, hit.title) === 2)) return hits;
-  const subject = qualifier[1] ?? qualifier[2];
+  // "Validation data" asks for evidence about a named subject. Only map it
+  // when that subject has an entire published evaluation article.
+  const validation = /^(.+) (?:validation|evaluation) (?:data|results|evidence)$/.exec(phrase);
+  if ((!qualifier && !validation) || hits.some((hit) => titleWeight(query, hit.title) === 2)) return hits;
   const { publishedModules } = await import('../data/modules');
-  const article = publishedModules().find((entry) => tokenize(entry.title).join(' ') === subject);
+  const article = publishedModules().find((entry) => {
+    const title = tokenize(entry.title).join(' ');
+    return qualifier ? title === (qualifier[1] ?? qualifier[2])
+      : title.replace(/ for robotics$/, '') === `${validation![1]} evaluation`;
+  });
   if (!article) return hits;
 
   const url = `/${article.domain}/${article.slug}/`;
@@ -333,13 +339,48 @@ async function preferQualifiedTitle(query: string, hits: SearchHit[]) {
   return [lead, ...hits.filter((hit) => hit.url !== url)].slice(0, RESULT_LIMIT);
 }
 
-/** Try partial matches only for a question whose complete search found nothing. */
-export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
-  const strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
-  if (strict.length) return strict;
-  const terms = questionTerms(query);
-  if (!terms.length) return [];
+// Only the policy-ranking experiment has been checked for these alternate
+// wordings. Leave the rest of the directory to ordinary Pagefind search.
+function comparisonTerms(text: string) {
+  const words = tokenize(text).filter(word => !QUESTION_FILLER.has(word) || ['real', 'without'].includes(word));
+  return new Set(words.map(word => {
+    if (/^(rank|order)(s|ed|ing|ings)?$/.test(word)) return 'order';
+    if (word === 'actual' || word === 'physical') return 'real';
+    if (word === 'hardware') return 'robot';
+    if (word.endsWith('ies')) return word.slice(0, -3) + 'y';
+    return singular(word);
+  }));
+}
 
+async function preferPolicyComparison(query: string, hits: SearchHit[]) {
+  const words = comparisonTerms(query);
+  const simulator = words.has('simulator') || (words.has('world') && words.has('model'));
+  const ranking = words.has('order') && (words.has('policy') || words.has('agree') || words.has('agreement'));
+  const predicting = words.has('predict') && words.has('policy') && (words.has('work') || words.has('best'));
+  if (!simulator || !(ranking || predicting) || !(words.has('trial') || words.has('robot'))) return hits;
+
+  const [{ questionsForArticles }, { getModule }] = await Promise.all([
+    import('../data/article-questions'), import('../data/modules'),
+  ]);
+  const article = getModule('world-models', 'evaluation');
+  if (!article || article.status !== 'published') return hits;
+  const question = questionsForArticles([article]).find(({href}) => href.endsWith('order-policies-as-real-trials-do'));
+  if (!question) return hits;
+
+  const heading = question.href.split('#')[1].replace(/^level-\d+-/, '');
+  // The table's column heading is "Agreement with real trials". Every
+  // subject word must be accounted for, including names, numbers and task
+  // qualifiers such as "flight" in "real flight trials".
+  const supported = comparisonTerms(question.label + ' ' + heading + ' agreement agree');
+  if (![...words].every(word => supported.has(word))) return hits;
+
+  const path = question.href.split('#')[0];
+  const lead = {url: question.href, title: article.title, excerpt: escapeExcerpt(question.label)};
+  return [lead, ...hits.filter(hit => hit.url.split('#')[0] !== path)].slice(0, RESULT_LIMIT);
+}
+
+/** Try partial matches only for a question whose complete search found nothing. */
+async function partialQuestionHits(lookup: PagefindLookup, terms: string[]): Promise<SearchHit[]> {
   const searches = await Promise.all(terms.map((term) => lookup(term)));
   const weights = new Map<string, number>();
   const pages = new Map<string, { result: RankedResult; total: number; scores: Map<string, number> }>();
@@ -371,6 +412,14 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
     .map(({ hit }) => hit);
+}
+
+export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
+  const strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
+  const terms = questionTerms(query);
+  if (!terms.length) return strict;
+  const hits = strict.length ? strict : await partialQuestionHits(lookup, terms);
+  return preferPolicyComparison(query, hits);
 }
 
 /**
