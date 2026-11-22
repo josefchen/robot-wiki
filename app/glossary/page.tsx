@@ -96,9 +96,12 @@ export default function GlossaryPage() {
                   </Fragment>
                 ))}
               </div>
-              {term.example && (
-                <a href={term.example.href} className="ink-link mt-2 inline-block py-1 text-base">
-                  {term.example.label}
+              {term.id === 'inverse-kinematics' && (
+                <a
+                  href="/classical/kinematics/#inverse-kinematics-has-many-answers-or-none"
+                  className="ink-link mt-2 inline-block py-1 text-base"
+                >
+                  How does a robot arm reach a cup?
                 </a>
               )}
               <ul className="mt-3 flex flex-col gap-1.5">

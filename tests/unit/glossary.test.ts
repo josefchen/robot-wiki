@@ -153,7 +153,6 @@ describe('inline term ids across published articles', () => {
   });
 });
 
-
 it('links the inverse kinematics definition to the worked example and keeps its textbook citation', () => {
   const rendered = new DOMParser().parseFromString(renderToStaticMarkup(GlossaryPage()), 'text/html');
   const term = rendered.querySelector('#inverse-kinematics')!;
