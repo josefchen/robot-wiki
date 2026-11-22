@@ -36,7 +36,6 @@ describe('ArticleHeader', () => {
       screen.getByRole('heading', { level: 1, name: entry.title }),
     ).toBeVisible();
     expect(screen.getByText(entry.summary)).toBeVisible();
-    expect(screen.getByText(entry.summary)).toHaveAttribute('data-pagefind-meta', 'summary');
     // The breadcrumb trail above the header names the domain, so the
     // header does not repeat it (the eyebrow was removed with the
     // breadcrumb feature).

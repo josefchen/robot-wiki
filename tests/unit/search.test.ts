@@ -442,7 +442,7 @@ describe('reader questions in prose search', () => {
 
   function result(id: Page, score: number) {
     const { url, title, content } = pages[id];
-    return { id, score, data: async () => ({ url, meta: { title, summary: introduction }, content }) };
+    return { id, score, data: async () => ({ url, meta: { title }, content, anchors: [{ element: 'h2', text: 'Handling <glass> & fragile samples', location: 0 }] }) };
   }
 
   it('keeps strict matches and performs no secondary lookups for an ordinary empty search', async () => {
@@ -463,8 +463,21 @@ describe('reader questions in prose search', () => {
     const hits = await searchPagefind(lookup, question);
     expect(hits).toEqual([{
       url: '/glass/', title: 'Glass handling',
-      excerpt: introduction.replace('<thin>', '&lt;thin&gt;').replace('& other', '&amp; other'),
+      excerpt: 'Handling &lt;glass&gt; &amp; fragile samples',
     }]);
+  });
+
+  it('uses the published summary for an introduction with no preceding section', async () => {
+    const query = 'How do joint angles place a hand?';
+    const lookup = async (word: string) => ({
+      results: word === query ? [] : [{
+        id: 'arm', score: 5, data: async () => ({
+          url: '/classical/kinematics/', content: 'Kinematics JointAngleControl Find joint angles to place the hand.',
+        }),
+      }],
+    });
+    expect((await searchPagefind(lookup, query))[0].excerpt)
+      .toBe("How joint angles place a robot's hand, and the reverse.");
   });
 
   it('uses the complete heading for a matching table and excludes later sections', async () => {

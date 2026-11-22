@@ -44,7 +44,7 @@ export function ArticleHeader({
       <h1 data-tektur-role="article-h1" className="article-title">
         {entry.title}
       </h1>
-      <p data-pagefind-meta="summary" className="page-lead">{entry.summary}</p>
+      <p className="page-lead">{entry.summary}</p>
       {/* The meta line is page chrome, not prose: dates and counts are
           never legitimate excerpt candidates. data-pagefind-ignore is
           index-only: the line

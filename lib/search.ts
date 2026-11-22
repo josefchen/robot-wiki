@@ -45,7 +45,7 @@ const SITE_TITLE_SUFFIX = ` | ${PUBLIC_IDENTITY}`;
 /* The subset of the Pagefind runtime API this app consumes. */
 export interface PagefindResultData {
   url: string;
-  meta?: { title?: string; summary?: string };
+  meta?: { title?: string };
   anchors?: { element: string; text: string; location: number }[];
   excerpt?: string;
   content?: string;
@@ -289,7 +289,7 @@ function questionPassage(content: string, weights: Map<string, number>) {
   return { present, location };
 }
 
-function questionExcerpt(data: PagefindResultData, location: number, weights: Map<string, number>) {
+async function questionExcerpt(data: PagefindResultData, location: number, weights: Map<string, number>) {
   // An article can mention a topic in a comparison table before its own section.
   // Prefer a heading that itself matches most of the query's evidence.
   const headings = data.anchors?.filter((anchor) => anchor.element === 'h2') ?? [];
@@ -300,7 +300,14 @@ function questionExcerpt(data: PagefindResultData, location: number, weights: Ma
     return words.size >= 2 && weight > total / 2;
   });
   const section = named ?? headings.findLast((heading) => heading.location <= location);
-  const text = section?.text.trim() || data.meta?.summary || '';
+  let text = section?.text.trim() ?? '';
+  const route = !text && /^\/([^/]+)\/([^/]+)\/$/.exec(data.url);
+  if (route) {
+    // Load the small title/summary catalog only for an introduction. The
+    // masthead uses this same text, and Pagefind's indexed input stays intact.
+    const { getModule } = await import('../data/modules');
+    text = getModule(route[1], route[2])?.summary ?? '';
+  }
   return text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 }
 
@@ -335,7 +342,7 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
     // Require support for most words and most of the information they carry.
     if (location === undefined || present.size < Math.ceil(terms.length * 0.6) || weight <= totalWeight / 2) return null;
     const score = [...present].reduce((sum, word) => sum + (scores.get(word) ?? 0), 0);
-    const hit = { url: data.url, title: stripSiteSuffix(data.meta?.title, data.url), excerpt: questionExcerpt(data, location, weights) };
+    const hit = { url: data.url, title: stripSiteSuffix(data.meta?.title, data.url), excerpt: await questionExcerpt(data, location, weights) };
     return { hit, score };
   }));
   return inspected.filter((entry) => entry !== null)
