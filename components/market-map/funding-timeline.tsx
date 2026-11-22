@@ -10,6 +10,7 @@ import {
   timelineEvents,
   type TimelineEvent,
 } from '@/lib/market-map';
+import { formatReportedUsd } from './funding-values';
 import { cx } from '@/lib/utils';
 import { SHEET_ID } from './company-sheet';
 import { useChartWidth } from './use-chart-width';
@@ -158,8 +159,8 @@ export function FundingTimeline({ companies, selectedId, onSelect }: FundingTime
                     event.amountUsd === null ? 'text-text-dim' : 'text-text',
                   )}
                 >
-                  {event.amountUsd === null ? event.amountAbsent : formatUsd(event.amountUsd)}
-                  {event.valuationUsd !== null ? ` at ${formatUsd(event.valuationUsd)}` : ''}
+                  {event.amountUsd === null ? event.amountAbsent : formatReportedUsd(event.amountUsd)}
+                  {event.valuationUsd !== null ? ` at ${formatReportedUsd(event.valuationUsd)}` : ''}
                 </span>
               </button>
             </li>
@@ -353,7 +354,7 @@ function TimelinePlot({
               textAnchor={label.cx > width / 2 ? 'end' : 'start'}
               className="fill-text-dim stroke-bg font-sans text-[12px] tabular-nums [paint-order:stroke] [stroke-width:4px]"
             >
-              {`${label.event.amountUsd === null ? label.event.amountAbsent : formatUsd(label.event.amountUsd)}, ${formatShortDate(label.event.date)}`}
+              {`${label.event.amountUsd === null ? label.event.amountAbsent : formatReportedUsd(label.event.amountUsd)}, ${formatShortDate(label.event.date)}`}
             </text>
           </g>
         ) : null}

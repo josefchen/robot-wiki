@@ -9,6 +9,7 @@ import {
   stepMark,
   type BubblePoint,
 } from '@/lib/market-map';
+import { formatReportedUsd } from './funding-values';
 import { SHEET_ID } from './company-sheet';
 import { useChartWidth } from './use-chart-width';
 
@@ -72,8 +73,8 @@ function yTicks(min: number, max: number): number[] {
 
 function plottedValueLabel(point: BubblePoint): string {
   return point.yKind === 'valuation'
-    ? `valuation ${formatUsd(point.yUsd)}`
-    : `total raised ${formatUsd(point.yUsd)}`;
+    ? `valuation ${formatReportedUsd(point.yUsd)}`
+    : `total raised ${formatReportedUsd(point.yUsd)}`;
 }
 
 /**
@@ -335,9 +336,7 @@ export function BubbleView({ companies, selectedId, onSelect }: BubbleViewProps)
                       style={{ outline: 'none', cursor: 'pointer' }}
                       tabIndex={rovingId === point.id ? 0 : -1}
                       role="button"
-                      aria-label={`${point.name}, founded ${point.founded}, ${
-                        point.yKind === 'valuation' ? 'valuation' : 'total raised'
-                      } ${formatUsd(point.yUsd)}`}
+                      aria-label={`${point.name}, founded ${point.founded}, ${plottedValueLabel(point)}`}
                       aria-haspopup="dialog"
                       aria-expanded={isSelected}
                       aria-controls={isSelected ? SHEET_ID : undefined}

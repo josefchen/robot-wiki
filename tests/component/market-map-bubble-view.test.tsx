@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { COMPANIES } from '@/data/companies';
-import { bubblePoints, formatUsd } from '@/lib/market-map';
+import { bubblePoints } from '@/lib/market-map';
 import { BubbleView } from '@/components/market-map/bubble-view';
 
 /**
@@ -67,7 +67,7 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const label = labelEl();
     expect(label).not.toBeNull();
     expect(label).toHaveTextContent('Figure AI');
-    expect(label).toHaveTextContent(formatUsd(bubblePointsById().get('figure-ai')!.yUsd));
+    expect(label).toHaveTextContent('$39B');
     await user.unhover(figure);
     expect(labelEl()).toBeNull();
   }, TIMEOUT);
@@ -79,7 +79,7 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const label = labelEl();
     expect(label).not.toBeNull();
     expect(label).toHaveTextContent('Physical Intelligence');
-    expect(label).toHaveTextContent(formatUsd(bubblePointsById().get('physical-intelligence')!.yUsd));
+    expect(label).toHaveTextContent('$11.5B');
     fireEvent.blur(mark('physical-intelligence'));
     expect(labelEl()).toBeNull();
   }, TIMEOUT);

@@ -9,10 +9,10 @@ import {
   formatApproach,
   formatShortDate,
   formatSubSegment,
-  formatUsd,
   roundSource,
   unknownFigure,
 } from '@/lib/market-map';
+import { formatReportedUsd } from './funding-values';
 import { withheldMark } from '@/lib/market-map-marks';
 import { CompanyLogo } from './company-logo';
 
@@ -39,7 +39,7 @@ function Money({
   value: number | null;
 }) {
   if (value === null) return <Absent company={company} field={field} />;
-  return <span className="tabular-nums">{formatUsd(value)}</span>;
+  return <span className="tabular-nums">{formatReportedUsd(value)}</span>;
 }
 
 function Row({ term, field, children }: { term: string; field: string; children: ReactNode }) {
