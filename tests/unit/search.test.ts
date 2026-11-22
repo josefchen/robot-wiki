@@ -456,6 +456,41 @@ describe('reader questions in prose search', () => {
     expect(calls).toEqual(['fragile glass', 'zzqqxx']);
   });
 
+  it('finds the spelled-out transfer term with the reader’s other qualifiers', async () => {
+    const pages = [
+      {url: '/humanoid/', content: 'Humanoid whole-body control with sim-to-real transfer.'},
+      {url: '/other/', content: 'Simple whole-body humanoid control today in realistic games.'},
+      {url: '/arm/', content: 'An arm controller applies sim-to-real transfer.'},
+    ];
+    const requests: string[] = [];
+    const lookup = async (query: string) => {
+      requests.push(query);
+      const results = query.includes('sim-to-real') ? pages.map((page, n) => ({
+        id: page.url, score: 3 - n, data: async () => page,
+      })) : [];
+      return {results};
+    };
+    const hits = await searchPagefind(lookup, 'SIM2REAL whole-body control humanoid');
+    expect(requests).toEqual(['SIM2REAL whole-body control humanoid', 'sim-to-real whole-body control humanoid']);
+    expect(hits.map(hit => hit.url)).toEqual(['/humanoid/']);
+  });
+
+  it('preserves a literal result and leaves longer names containing sim2real alone', async () => {
+    for (const query of ['sim2real', 'Sim2RealBench', 'Project-Sim2Real', 'éSim2Real', 'sim2real_2026']) {
+      const requests: string[] = [];
+      const lookup = async (text: string) => {
+        requests.push(text);
+        const results = text === 'sim2real' ? [{
+          id: 'literal', score: 1, data: async () => ({url: '/literal/', content: 'Sim2Real'}),
+        }] : [];
+        return {results};
+      };
+      const hits = await searchPagefind(lookup, query);
+      expect(requests).toEqual([query]);
+      expect(hits.map(hit => hit.url)).toEqual(query === 'sim2real' ? ['/literal/'] : []);
+    }
+  });
+
   it.each(['robotic kinematics', 'robotics kinematics', 'kinematics of robotics'])(
     'returns the published article for the qualified title %s even when it lacks the literal phrase',
     async (query) => {
