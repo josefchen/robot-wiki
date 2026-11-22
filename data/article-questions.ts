@@ -49,6 +49,10 @@ const questions: ReadonlyArray<{ label: string; href: string; comparison?: Table
     label: 'Can a world model predict which robot policy will work best on a real robot?',
     href: '/world-models/evaluation/#level-4-the-best-simulators-order-policies-as-real-trials-do',
   },
+  {
+    label: 'What share of a robot dataset sale does the seller receive?',
+    href: '/data-hardware/data-market/#selling-robot-data',
+  },
 ];
 
 export const ARTICLE_QUESTIONS_HEADING = 'Questions answered in the articles';
