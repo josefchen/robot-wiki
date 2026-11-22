@@ -94,9 +94,9 @@ describe('SearchInterface structured results', () => {
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
 
     const structured = await screen.findByRole('region', {
-      name: 'Structured',
+      name: 'Companies, methods and datasets',
     });
-    const prose = await screen.findByRole('region', { name: 'Modules' });
+    const prose = await screen.findByRole('region', { name: 'Wiki pages' });
     expect(structured).not.toBe(prose);
 
     const figure = await screen.findByRole('link', { name: FIGURE_RESULT });
@@ -130,9 +130,9 @@ describe('SearchInterface structured results', () => {
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
 
-    const prose = await screen.findByRole('region', { name: 'Modules' });
+    const prose = await screen.findByRole('region', { name: 'Wiki pages' });
     const structured = await screen.findByRole('region', {
-      name: 'Structured',
+      name: 'Companies, methods and datasets',
     });
     expect(prose).toContainElement(
       await screen.findByRole('link', { name: ACT_RESULT }),
@@ -156,10 +156,10 @@ describe('SearchInterface structured results', () => {
       'zzqxzzqx',
     );
     expect(
-      await screen.findByText(/no module prose matches/i),
+      await screen.findByText(/no matching wiki pages/i),
     ).toBeInTheDocument();
     expect(
-      await screen.findByText(/no structured (entities|results) match/i),
+      await screen.findByText(/no matching companies, methods or datasets/i),
     ).toBeInTheDocument();
     expect(screen.queryByText(/searching/i)).not.toBeInTheDocument();
   });
@@ -198,7 +198,7 @@ describe('SearchInterface structured results', () => {
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'ai');
 
     const structured = await screen.findByRole('region', {
-      name: 'Structured',
+      name: 'Companies, methods and datasets',
     });
     expect(
       within(structured).getByRole('link', { name: FIGURE_RESULT }),
@@ -231,7 +231,7 @@ describe('SearchInterface structured results', () => {
       within(structured).queryByRole('link', { name: DROID_RESULT }),
     ).not.toBeInTheDocument();
 
-    const prose = screen.getByRole('region', { name: 'Modules' });
+    const prose = screen.getByRole('region', { name: 'Wiki pages' });
     expect(
       within(prose).getByRole('link', { name: ACT_RESULT }),
     ).toBeInTheDocument();
@@ -357,15 +357,15 @@ describe('SearchInterface structured results', () => {
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
 
-    const prose = await screen.findByRole('region', { name: 'Modules' });
+    const prose = await screen.findByRole('region', { name: 'Wiki pages' });
     const structured = await screen.findByRole('region', {
-      name: 'Structured',
+      name: 'Companies, methods and datasets',
     });
     expect(prose).toContainElement(
       await screen.findByRole('link', { name: ACT_RESULT }),
     );
     expect(
-      within(structured).getByText(/no structured (entities|results) match/i),
+      within(structured).getByText(/no matching companies, methods or datasets/i),
     ).toBeInTheDocument();
     expect(within(structured).queryByRole('link')).not.toBeInTheDocument();
     expect(screen.queryByText(/searching/i)).not.toBeInTheDocument();
@@ -393,7 +393,7 @@ describe('SearchInterface structured results', () => {
       expect(screen.getByText(/try: temporal ensembling/i)).toBeInTheDocument(),
     );
     expect(
-      screen.queryByRole('region', { name: 'Structured' }),
+      screen.queryByRole('region', { name: 'Companies, methods and datasets' }),
     ).not.toBeInTheDocument();
     expect(
       screen.queryByRole('link', { name: FIGURE_RESULT }),

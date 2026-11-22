@@ -262,50 +262,36 @@ export function SearchInterface({
   } else if (status === 'done') {
     const proseCount = hits.length;
     const entityCount = structuredHits.length;
-    if (facetNarrowing && proseFailed) {
-      // A type facet is hiding real entity hits while the module surface is
-      // also down. The filter is named, never a total miss, because the
-      // page still shows the filter-hiding recovery note: what a screen
-      // reader hears must agree with it. This check runs
-      // before the proseFailed empty-match copy for exactly that reason.
-      statusText = `No ${ENTITY_TYPE_LABEL[facetType as EntityType]} results for "${trimmed}" under the active type filter; the module index is unavailable`;
-    } else if (proseFailed) {
-      // The module surface did not answer, so the status names its failure
-      // alongside whatever the entity surface did answer.
-      statusText =
-        entityCount > 0
-          ? `${entityCount} ${entityCount === 1 ? 'entity matches' : 'entities match'} "${trimmed}"; the module index is unavailable`
-          : `No method, company or dataset entity matches "${trimmed}"; the module index is unavailable`;
+    const pages = `${proseCount} wiki ${proseCount === 1 ? 'page' : 'pages'}`;
+    const results = `${entityCount} ${entityCount === 1 ? 'result' : 'results'}`;
+    const filtered = facetNarrowing
+      ? `No ${ENTITY_TYPE_LABEL[facetType]} results for "${trimmed}" with this filter`
+      : undefined;
+    if (proseFailed) {
+      const available = filtered ?? (entityCount
+        ? `${results} for "${trimmed}"`
+        : `No companies, methods or datasets found for "${trimmed}"`);
+      statusText = `${available}. Wiki page search is unavailable.`;
     } else if (structuredFailed) {
-      statusText =
-        proseCount > 0
-          ? `${proseCount} ${proseCount === 1 ? 'module matches' : 'modules match'} "${trimmed}"; the entity index is unavailable`
-          : `No article prose matches "${trimmed}"; the entity index is unavailable`;
-    } else if (entityCount === 0) {
-      statusText =
-        proseCount > 0
-          ? `${proseCount} ${proseCount === 1 ? 'module matches' : 'modules match'} "${trimmed}"`
-          : facetNarrowing
-            ? `No ${ENTITY_TYPE_LABEL[facetType as EntityType]} results for "${trimmed}" under the active type filter`
-            : // Names both surfaces searched, so what a screen reader hears
-              // agrees with the visible message instead of blaming the
-              // module prose for what may be an entity miss too.
-              `No article prose and no method, company or dataset entity matches "${trimmed}"`;
-    } else if (proseCount === 0) {
-      statusText = `${entityCount} ${entityCount === 1 ? 'entity matches' : 'entities match'} "${trimmed}"`;
+      const available = proseCount ? `${pages} for "${trimmed}"` : `No wiki pages found for "${trimmed}"`;
+      statusText = `${available}. Search for companies, methods and datasets is unavailable.`;
+    } else if (proseCount && entityCount) {
+      statusText = `${pages} and ${entityCount} other ${entityCount === 1 ? 'result' : 'results'} for "${trimmed}"`;
+    } else if (proseCount) {
+      statusText = `${pages} for "${trimmed}"`;
+    } else if (entityCount) {
+      statusText = `${results} for "${trimmed}"`;
     } else {
-      statusText = `${proseCount} ${proseCount === 1 ? 'module' : 'modules'}, ${entityCount} ${entityCount === 1 ? 'entity' : 'entities'} match "${trimmed}"`;
+      statusText = filtered ?? `No wiki pages, companies, methods or datasets found for "${trimmed}"`;
     }
   } else if (status === 'unavailable') {
-    statusText = 'The search index is unavailable';
+    statusText = 'Search is unavailable.';
   }
 
-  // The prose group's settled note: an index failure reads as an error,
-  // never as "nothing matched".
   const proseNote: string | undefined = proseFailed
-    ? 'The module index is unavailable, so module results could not be loaded for this query. This is a load failure, not a verdict on the query.'
+    ? 'Wiki page results could not be loaded.'
     : status === 'done' && hits.length === 0
-      ? `No module prose matches "${trimmed}". Check the spelling, or try a broader term.`
+      ? 'No matching wiki pages.'
       : undefined;
 
   return (
@@ -388,16 +374,11 @@ export function SearchInterface({
           data-search-unavailable
         >
           <p className="max-w-[65ch] border-l border-err pl-3 text-sm leading-relaxed text-err">
-            The search index is unavailable in this environment. It is
-            generated during the production build; run{' '}
-            <code className="bg-surface-2 px-1 py-0.5 font-mono text-xs text-err">
-              npm run build
-            </code>{' '}
-            and serve the{' '}
-            <code className="bg-surface-2 px-1 py-0.5 font-mono text-xs text-err">
-              out/
-            </code>{' '}
-            directory to search locally.
+            Search could not load. Try again or browse{' '}
+            <Link data-brand-control-id="control:link-focus" href="/a-z" className="ink-link">
+              the A–Z index
+            </Link>
+            .
           </p>
         </div>
       ) : null}
@@ -412,15 +393,14 @@ export function SearchInterface({
           className="mt-8 border-t border-border pt-6"
         >
           <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
-            Nothing matches &ldquo;{trimmed}&rdquo;, in the article prose or
-            in the methods, companies, and datasets of the wiki data layer.
-            Check the spelling, try a broader term, or browse{' '}
+            No wiki pages, companies, methods or datasets match &ldquo;{trimmed}&rdquo;.
+            Try a shorter search or browse{' '}
             <Link
               data-brand-control-id="control:link-focus"
               href="/a-z"
               className="ink-link"
             >
-              the A-Z index
+              the A–Z index
             </Link>
             .
           </p>
@@ -431,7 +411,7 @@ export function SearchInterface({
         <div ref={resultsRef} className="mt-8 space-y-10">
           <ResultsGroup
             id="prose"
-            heading="Modules"
+            heading="Wiki pages"
             count={status === 'done' ? hits.length : undefined}
             note={proseNote}
             noteIsError={proseFailed}
@@ -469,14 +449,14 @@ export function SearchInterface({
 
           <ResultsGroup
             id="structured"
-            heading="Structured"
+            heading="Companies, methods and datasets"
             count={status === 'done' ? structuredHits.length : undefined}
             note={
               !settled || structuredHits.length > 0 ? undefined : structuredFailed ? (
-                'The entity index is unavailable, so method, company and dataset results could not be loaded for this query. This is a load failure, not a verdict on the query.'
+                'Results for companies, methods and datasets could not be loaded.'
               ) : facetNarrowing ? (
                 <>
-                  {`The ${ENTITY_TYPE_LABEL[facetType as EntityType]} filter is hiding ${structuredAll.length} ${structuredAll.length === 1 ? 'entity that matches' : 'entities that match'} "${trimmed}".`}{' '}
+                  {`The ${ENTITY_TYPE_LABEL[facetType as EntityType]} filter is hiding ${structuredAll.length} ${structuredAll.length === 1 ? 'matching result' : 'matching results'} for "${trimmed}".`}{' '}
                   <button
                     data-brand-control-id="control:secondary-action"
                     type="button"
@@ -487,7 +467,7 @@ export function SearchInterface({
                   </button>
                 </>
               ) : (
-                `No structured entities match "${trimmed}". Try another term.`
+                'No matching companies, methods or datasets.'
               )
             }
             noteIsError={structuredFailed}
