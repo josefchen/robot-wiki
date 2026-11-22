@@ -442,7 +442,7 @@ describe('reader questions in prose search', () => {
 
   function result(id: Page, score: number) {
     const { url, title, content } = pages[id];
-    return { id, score, data: async () => ({ url, meta: { title }, content }) };
+    return { id, score, data: async () => ({ url, meta: { title, summary: introduction }, content }) };
   }
 
   it('keeps strict matches and performs no secondary lookups for an ordinary empty search', async () => {
@@ -465,6 +465,24 @@ describe('reader questions in prose search', () => {
       url: '/glass/', title: 'Glass handling',
       excerpt: introduction.replace('<thin>', '&lt;thin&gt;').replace('& other', '&amp; other'),
     }]);
+  });
+
+  it('uses the complete heading for a matching table and excludes later sections', async () => {
+    const query = 'Did the gripper lift the glass?';
+    const lookup = async (word: string) => ({
+      results: word === query ? [] : [{
+        id: 'glass', score: 5, data: async () => ({
+          url: '/glass/', content: 'Overview. Equipment ModelLoadOutcome Glass gripper can lift fragile glass.',
+          anchors: [
+            { element: 'h2', location: 0, text: 'Overview' },
+            { element: 'h2', location: 1, text: 'Holding glass <safely> & steadily' },
+            { element: 'h2', location: 20, text: 'A later section' },
+          ],
+        }),
+      }],
+    });
+    expect((await searchPagefind(lookup, query))[0].excerpt)
+      .toBe('Holding glass &lt;safely&gt; &amp; steadily');
   });
 
   it('keeps a rare unrecognized subject from becoming a result about common equipment', async () => {

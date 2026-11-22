@@ -45,7 +45,8 @@ const SITE_TITLE_SUFFIX = ` | ${PUBLIC_IDENTITY}`;
 /* The subset of the Pagefind runtime API this app consumes. */
 export interface PagefindResultData {
   url: string;
-  meta?: { title?: string };
+  meta?: { title?: string; summary?: string };
+  anchors?: { element: string; text: string; location: number }[];
   excerpt?: string;
   content?: string;
 }
@@ -263,26 +264,44 @@ function questionTerms(query: string) {
   return terms.size >= 2 && terms.size <= 10 ? [...terms.values()] : [];
 }
 
-/** Give a reader an actual passage that contains several of the words together.
- * Only the original escaped text goes into the HTML excerpt slot. */
+/** Verify that several terms occur together. Pagefind flattens tables into one
+ * string, so a matching window is evidence for ranking, never display copy. */
 function questionPassage(content: string, weights: Map<string, number>) {
   const words = content.trim().split(/\s+/u);
   const present = new Set<string>();
-  let excerpt = '';
+  let location: number | undefined;
   let bestWeight = 0;
   for (let start = 0; start < words.length; start += 20) {
-    const passage = words.slice(start, start + 40).join(' ');
-    const matched = new Set(tokenize(passage).map(singular).filter((word) => weights.has(word)));
+    const passage = words.slice(start, start + 40);
+    const tokens = tokenize(passage.join(' ')).map(singular);
+    const matched = new Set(tokens.filter((word) => weights.has(word)));
     for (const word of matched) present.add(word);
     if (matched.size < Math.max(2, Math.ceil(weights.size / 2))) continue;
     const weight = [...matched].reduce((sum, word) => sum + weights.get(word)!, 0);
     if (weight > bestWeight) {
       bestWeight = weight;
-      excerpt = passage;
+      // Resolve the section at an actual query word, including a window that
+      // straddles a heading. Pagefind anchor locations count raw content words.
+      const first = passage.findIndex((word) => tokenize(word).some((token) => weights.has(singular(token))));
+      location = start + first;
     }
   }
-  const escaped = excerpt.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-  return { present, excerpt: escaped };
+  return { present, location };
+}
+
+function questionExcerpt(data: PagefindResultData, location: number, weights: Map<string, number>) {
+  // An article can mention a topic in a comparison table before its own section.
+  // Prefer a heading that itself matches most of the query's evidence.
+  const headings = data.anchors?.filter((anchor) => anchor.element === 'h2') ?? [];
+  const total = [...weights.values()].reduce((sum, value) => sum + value, 0);
+  const named = headings.find((heading) => {
+    const words = new Set(tokenize(heading.text).map(singular).filter((word) => weights.has(word)));
+    const weight = [...words].reduce((sum, word) => sum + weights.get(word)!, 0);
+    return words.size >= 2 && weight > total / 2;
+  });
+  const section = named ?? headings.findLast((heading) => heading.location <= location);
+  const text = section?.text.trim() || data.meta?.summary || '';
+  return text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 }
 
 /** Try partial matches only for a question whose complete search found nothing. */
@@ -311,12 +330,12 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
   const candidates = [...pages.values()].sort((a, b) => b.total - a.total).slice(0, 12);
   const inspected = await Promise.all(candidates.map(async ({ result, scores }) => {
     const data = await result.data();
-    const { present, excerpt } = questionPassage(data.content ?? '', weights);
+    const { present, location } = questionPassage(data.content ?? '', weights);
     const weight = [...present].reduce((sum, word) => sum + weights.get(word)!, 0);
     // Require support for most words and most of the information they carry.
-    if (!excerpt || present.size < Math.ceil(terms.length * 0.6) || weight <= totalWeight / 2) return null;
+    if (location === undefined || present.size < Math.ceil(terms.length * 0.6) || weight <= totalWeight / 2) return null;
     const score = [...present].reduce((sum, word) => sum + (scores.get(word) ?? 0), 0);
-    const hit = { url: data.url, title: stripSiteSuffix(data.meta?.title, data.url), excerpt };
+    const hit = { url: data.url, title: stripSiteSuffix(data.meta?.title, data.url), excerpt: questionExcerpt(data, location, weights) };
     return { hit, score };
   }));
   return inspected.filter((entry) => entry !== null)
