@@ -456,6 +456,27 @@ describe('reader questions in prose search', () => {
     expect(calls).toEqual(['fragile glass', 'zzqqxx']);
   });
 
+  it.each(['robotic kinematics', 'robotics kinematics', 'kinematics of robotics'])(
+    'returns the published article for the qualified title %s even when it lacks the literal phrase',
+    async (query) => {
+      const hits = await searchPagefind(async () => ({ results: [] }), query);
+      expect(hits).toEqual([{
+        url: '/classical/kinematics/', title: 'Kinematics',
+        excerpt: "How joint angles place a robot's hand, and the reverse.",
+      }]);
+    },
+  );
+
+  it('keeps a full phrase title ahead of a qualified match and rejects unrelated qualifiers', async () => {
+    const query = 'robotic kinematics';
+    const exact = { id: 'named', score: 5, data: async () => ({
+      url: '/named/', meta: { title: 'Robotic Kinematics' }, content: query,
+    }) };
+    expect((await searchPagefind(async () => ({ results: [exact] }), query))[0].url).toBe('/named/');
+    expect(await searchPagefind(async () => ({ results: [] }), 'robot fishing')).toEqual([]);
+    expect(await searchPagefind(async () => ({ results: [] }), 'robot kinematics for diving')).toEqual([]);
+  });
+
   it('returns a real escaped passage and drops partial or scattered mentions', async () => {
     const lookup = async (word: string) => ({
       results: word === question ? [] : [result('glass', 5), result('gripper', 8), result('distant', 9)],
