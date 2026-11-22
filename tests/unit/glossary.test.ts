@@ -153,17 +153,19 @@ describe('inline term ids across published articles', () => {
   });
 });
 
-it('links the inverse kinematics definition to the worked example and keeps its textbook citation', () => {
+it.each([
+  ['inverse-kinematics', 'How does a robot arm reach a cup?', '/classical/kinematics'],
+  ['whole-body-control', 'Which controllers ran on real humanoids?', '/rl-sim2real/humanoid-wbc'],
+  ['action-chunking', 'Which moves can the robot still change?', '/manipulation/action-chunking'],
+])('links %s to an existing worked section and keeps its sources', (id, label, route) => {
   const rendered = new DOMParser().parseFromString(renderToStaticMarkup(GlossaryPage()), 'text/html');
-  const term = rendered.querySelector('#inverse-kinematics')!;
-  expect(term.querySelector('[data-glossary-definition]')?.textContent)
-    .toBe(getTerm('inverse-kinematics')!.definition);
-  const link = Array.from(term.querySelectorAll('a')).find(
-    (anchor) => anchor.textContent === 'How does a robot arm reach a cup?',
-  )!;
-  expect(link.pathname.replace(/\/$/, '')).toBe('/classical/kinematics');
-  const source = readFileSync(join(process.cwd(), 'content/classical/kinematics.mdx'), 'utf8');
-  expect(articleOutline(moduleBody(source)).map((heading) => heading.id))
-    .toContain(link.hash.slice(1));
-  expect(term.querySelector('a[href="' + getCitation('modern-robotics-2017')!.url + '"]')).not.toBeNull();
+  const entry = rendered.getElementById(id)!;
+  const term = getTerm(id)!;
+  expect(entry.querySelector('[data-glossary-definition]')?.textContent).toBe(term.definition);
+  const link = Array.from(entry.querySelectorAll('a')).find((anchor) => anchor.textContent === label)!;
+  expect(link.pathname.replace(/\/$/, '')).toBe(route);
+  const source = readFileSync(join(process.cwd(), 'content', route.slice(1) + '.mdx'), 'utf8');
+  expect(articleOutline(moduleBody(source)).map((heading) => heading.id)).toContain(link.hash.slice(1));
+  expect(Array.from(entry.querySelectorAll('ul a'), (anchor) => anchor.getAttribute('href')))
+    .toEqual(term.citations.map((citation) => getCitation(citation)!.url));
 });

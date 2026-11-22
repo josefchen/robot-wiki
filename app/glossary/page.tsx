@@ -14,6 +14,21 @@ import {
 
 const title = 'Glossary';
 
+const workedExamples = new Map([
+  ['action-chunking', {
+    href: '/manipulation/action-chunking/#real-time-chunking-keeps-the-committed-moves',
+    label: 'Which moves can the robot still change?',
+  }],
+  ['inverse-kinematics', {
+    href: '/classical/kinematics/#inverse-kinematics-has-many-answers-or-none',
+    label: 'How does a robot arm reach a cup?',
+  }],
+  ['whole-body-control', {
+    href: '/rl-sim2real/humanoid-wbc/#trackers-reached-real-humanoids-in-2024',
+    label: 'Which controllers ran on real humanoids?',
+  }],
+]);
+
 export const metadata: Metadata = {
   title: STANDALONE_SEO_TITLES.glossary,
   description: STANDALONE_SEO_DESCRIPTIONS.glossary,
@@ -61,6 +76,7 @@ export default function GlossaryPage() {
 
       <ol className="mt-16 list-none border-t border-border">
         {terms.map((term) => {
+          const example = workedExamples.get(term.id);
           const sources = term.citations
             .map((id) => getCitation(id))
             .filter((c) => c !== undefined);
@@ -97,13 +113,13 @@ export default function GlossaryPage() {
                   </Fragment>
                 ))}
               </div>
-              {term.id === 'inverse-kinematics' && (
+              {example && (
                 <Link
-                  href="/classical/kinematics/#inverse-kinematics-has-many-answers-or-none"
+                  href={example.href}
                   prefetch={false}
                   className="ink-link mt-2 inline-block py-1 text-base"
                 >
-                  How does a robot arm reach a cup?
+                  {example.label}
                 </Link>
               )}
               <ul className="mt-3 flex flex-col gap-1.5">
