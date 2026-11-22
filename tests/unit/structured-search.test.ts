@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { COMPANIES } from '@/data/companies';
 import { DATASETS } from '@/data/datasets';
 import { METHODS } from '@/data/methods';
@@ -9,6 +9,7 @@ import {
   assertStructuredSnippets,
   buildStructuredIndex,
   collectStructuredDocuments,
+  createStructuredSearchClient,
   expectedStructuredIds,
   structuredIndexLoadOptions,
   toStructuredHits,
@@ -17,6 +18,38 @@ import {
 } from '@/lib/structured-search';
 
 const EXPECTED_COUNT = METHODS.length + COMPANIES.length + DATASETS.length;
+
+describe('structured entity search in reader questions', () => {
+  it.each([true, false])('recognizes names in the loaded index (stored aliases: %s)', async (storedAliases) => {
+    const serialized = buildStructuredIndex() as {storedFields: Record<string, {aliases?: string[]}>};
+    if (!storedAliases) {
+      for (const row of Object.values(serialized.storedFields)) delete row.aliases;
+    }
+    const fetchIndex = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(JSON.stringify(serialized)));
+    try {
+      const client = await createStructuredSearchClient();
+      const ids = async (query: string) => (await client.search(query)).map(hit => hit.id);
+      expect(await ids('Where can I buy a Swiss fishing licence?')).toEqual([]);
+      expect(await ids('Swiss fishing licence application instructions')).toEqual([]);
+      expect(await ids('Did STAR stitch real bowel tissue by itself?')).toEqual([]);
+      expect(await ids('How do I figure out how humanoid robots act?')).toEqual([]);
+      expect(await ids('Which arm did the BridgeData V2 researchers use?')).toEqual(['dataset:bridgedata-v2']);
+      expect(await ids('Which arm was used for BridgeData?')).toEqual(['dataset:bridgedata-v2']);
+      expect(await ids('Which arm was used for BridgeData V1?')).toEqual([]);
+      expect(await ids('What does Figure’s original Helix do?')).toEqual(['company:figure-ai']);
+      expect(await ids('When was Action Chunking with Transformers introduced?')).toEqual(['method:act']);
+      expect(await ids('Which robots are part of OXE?')).toEqual(['dataset:open-x-embodiment']);
+      expect(await ids('Can I use π0.5 or pi0-FAST for this?')).toEqual(['method:pi05', 'method:pi0-fast']);
+      expect(await ids('How was pi 0.5 trained?')).toEqual(['method:pi05']);
+      expect(await ids('How does OpenVLA compare with OpenVLA-OFT?')).toEqual(['method:openvla', 'method:openvla-oft']);
+      expect((await ids('DROI'))[0]).toBe('dataset:droid');
+      expect((await ids('Robotics Transformer 1'))[0]).toBe('method:rt-1');
+      expect(fetchIndex).toHaveBeenCalledTimes(1);
+    } finally {
+      fetchIndex.mockRestore();
+    }
+  });
+});
 
 function hit(overrides: Partial<StructuredHit> = {}): StructuredHit {
   return {
