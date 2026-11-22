@@ -108,7 +108,25 @@ describe('named company funding records', () => {
       expect(await ids('O-ID')).toEqual(['funding:o-id-2026-09-24']);
       expect(await ids('Minerva Humanoids')).toEqual(['funding:minerva-humanoids-2026-10-06']);
       expect(await ids('How much did 1X raise?')).toEqual(['funding:1x-softbank-talks-2026-08-28']);
+      expect(await ids('Who invested in Motion?')).toEqual(['funding:motion-2026-08-27']);
+      expect(await ids('How much money did Minerva Humanoids raise?')).toEqual(await ids('Minerva Humanoids funding'));
+      expect(await ids('What is O-ID’s latest funding round?')).toEqual(await ids('O-ID funding'));
+      expect(await ids('Who led O-ID’s pre-seed round?')).toEqual(await ids('O-ID funding'));
+      expect(await ids('Did Motion raise capital?')).toEqual(await ids('Motion funding'));
+      expect(await ids('Who are the investors in Motion?')).toEqual(await ids('Motion funding'));
       expect(await ids('Who funded O-ID or Figure AI?')).toEqual(['funding:o-id-2026-09-24', 'company:figure-ai']);
+      for (const q of [
+        'How high can 1X raise its arms?',
+        'How much did 1X raise its gripper?',
+        'Who invested in motion planning research?',
+        'Who invested in Motion Planning Research?',
+        'How do I raise the sample rate for Physical Intelligence controllers?',
+        'Who funded Physical Intelligence research?',
+        'Motion planning research funding',
+        'Which companies make robots that raise boxes?',
+      ]) {
+        expect(await client.search(q), q).toEqual(await before.search(q));
+      }
       expect(await ids('motion')).toEqual((await before.search('motion')).map(hit => hit.id));
       for (const q of ['funding', 'CarbonSix funding', 'How do I seed a motion planner?', 'Which companies make surgical robots?']) {
         expect((await ids(q)).some(id => id.startsWith('funding:'))).toBe(false);

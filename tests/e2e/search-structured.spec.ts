@@ -117,6 +117,22 @@ test.describe('structured search on the static export', () => {
     await expect(row.locator('[data-source-link]')).toHaveAttribute('href', /techinasia\.com\//);
   });
 
+  test('financial questions identify the whole company being asked about', async ({page}) => {
+    await page.goto(`${BASE}/search`);
+    const group = page.getByRole('region', {name: 'Companies, methods and datasets'});
+    for (const [query, expected] of [
+      ['How much did 1X raise?', 1],
+      ['How high can 1X raise its arms?', 0],
+      ['Who invested in Motion?', 1],
+      ['Who invested in motion planning research?', 0],
+      ['How do I raise the sample rate for Physical Intelligence controllers?', 0],
+    ] as const) {
+      await typeQuery(page, query);
+      await waitForSettled(page);
+      await expect(group.locator('a[href^="/market-map/rounds/#round-"]')).toHaveCount(expected);
+    }
+  });
+
   test('clicking a method result lands on that row', async ({
     page,
   }) => {

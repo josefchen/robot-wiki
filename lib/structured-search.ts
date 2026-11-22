@@ -472,7 +472,6 @@ type FundingRow = {key: string; company: string; snippet: string};
 
 function fundingCatalog(rows: readonly FundingRow[]) {
   const names = new Map<string, StructuredHit[]>();
-  let longest = 0;
   for (const {key, company, snippet} of rows) {
     const hit: StructuredHit = {
       id: `funding:${key}`, entityId: key, type: 'company', title: `${company} funding`,
@@ -482,15 +481,35 @@ function fundingCatalog(rows: readonly FundingRow[]) {
     for (const name of new Set([company, ...(parenthetical?.slice(1) ?? [])])) {
       const words = nameWords(name).map(foldGreekToAscii);
       const term = words.join(' ');
-      longest = Math.max(longest, words.length);
       const entries = names.get(term) ?? [];
       if (words.length && !entries.some(row => row.id === hit.id)) names.set(term, [...entries, hit]);
     }
   }
-  return {names, longest};
+  return names;
 }
 
-const FUNDING_INTENT = /\b(?:fund(?:ing|ed)|fundrais(?:e|ed|ing)|financ(?:ed|ing)|rais(?:e|ed)|invest(?:ed|ment|ments|or|ors)|valuation|seed round|pre[- ]seed|series [a-z]\b|rounds?$)\b/i;
+// Look up the complete subject of a financing question. A company mentioned
+// inside a longer subject (e.g. "motion planning research") is not that subject.
+const FINANCE_TOPIC = /(?:funding(?: rounds?| history| amount)?|fundraising|financing|investments?|investors?|valuation|(?:pre seed|preseed|seed|series [a-z])(?: rounds?| funding)?|rounds?)/.source;
+const LABELED_TOPIC = '(?:(?:latest|last|recent|current|first|total) )?' + FINANCE_TOPIC;
+const QUESTION_COPULA = '(?:(?:what|when|who) (?:is|was|are|were) )?';
+const FUNDING_QUESTIONS = [
+  new RegExp('^(?:who|which investors?) (?:has |have )?(?:invested in|funds|funded|financed|backed) (.+?)(?: s ' + LABELED_TOPIC + ')?$'),
+  new RegExp('^(?:who|which investors?) (?:led|participated in) (.+?) s ' + LABELED_TOPIC + '$'),
+  /^(?:how much(?: money| funding| investment| capital)?|when|how) (?:did|has|had|will) (.+?) (?:raise|raised|fundraise|fundraised)(?: (?:money|capital|funding|funds))?(?: (?:in total|so far|to date))?$/,
+  /^how much (?:money|funding|capital) (?:has|had|did) (.+?) (?:receive|received|get|secured?)$/,
+  /^(?:(?:when|how) )?(?:was|is) (.+?) (?:funded|financed)$/,
+  new RegExp('^(?:did|has) (.+?) (?:raise|raised|secure|secured) (?:money|capital|funding|(?:a |its )?' + LABELED_TOPIC + ')$'),
+  new RegExp('^' + QUESTION_COPULA + '(.+?)(?: s)? ' + LABELED_TOPIC + '$'),
+  new RegExp('^' + QUESTION_COPULA + '(?:the )?' + LABELED_TOPIC + ' (?:of|in|for|at|behind) (.+)$'),
+];
+
+function fundingSubject(query: string): string | undefined {
+  for (const pattern of FUNDING_QUESTIONS) {
+    const match = query.match(pattern);
+    if (match) return match[1];
+  }
+}
 
 function mentionedEntities(words: string[], catalog: Awaited<ReturnType<typeof entityNames>>): StructuredHit[] {
   const folded = words.map(foldGreekToAscii);
@@ -627,27 +646,27 @@ export async function createStructuredSearchClient(): Promise<StructuredSearchCl
     structuredIndexLoadOptions(),
   );
   let names: ReturnType<typeof entityNames> | undefined;
-  let financeNames: ReturnType<typeof fundingCatalog> | undefined;
+  let financeNames: Map<string, StructuredHit[]> | undefined;
   return {
     async search(query: string) {
       if (!query.trim()) return [];
       const words = nameWords(query);
       const question = words.length >= 2 && (/[?？]/u.test(query) || QUESTION_START.test(words[0]));
       const exactName = words.map(foldGreekToAscii).join(' ');
-      const exactRounds = funding.names.get(exactName);
-      if (FUNDING_INTENT.test(words.join(' '))) {
+      const exactRounds = funding.get(exactName);
+      const subject = fundingSubject(exactName);
+      if (subject) {
         const catalog = await (names ??= entityNames(index));
-        financeNames ??= {
-          names: new Map([...catalog.names, ...funding.names]),
-          longest: Math.max(catalog.longest, funding.longest),
-        };
-        const named = mentionedEntities(words, financeNames);
+        const known = financeNames ??= new Map([...catalog.names, ...funding]);
+        const issuers = known.has(subject) ? [subject] : subject.split(/ (?:or|and|versus|vs) /);
+        const companies = issuers.map(issuer => known.get(issuer)?.filter(hit => hit.type === 'company'));
+        const named = companies.every(matches => matches?.length) ? companies.flatMap(matches => matches ?? []) : [];
         const hits = named.flatMap(hit => {
           // An alias such as "1X" can identify a market profile whose full
           // company name is how its funding row is recorded.
-          if (hit.type !== 'company' || hit.id.startsWith('funding:')) return [hit];
+          if (hit.id.startsWith('funding:')) return [hit];
           const issuer = nameWords(hit.title.split(' (')[0]).map(foldGreekToAscii).join(' ');
-          return funding.names.get(issuer) ?? [hit];
+          return funding.get(issuer) ?? [hit];
         });
         if (hits.some(hit => hit.id.startsWith('funding:'))) {
           return [...new Map(hits.map(hit => [hit.id, hit])).values()];
