@@ -26,6 +26,7 @@ describe('question sources in llms-full.txt', () => {
     const ids = [
       ['enav-perseverance-2026'], ['asap-2025'], ['openvla-2024'], ['pace-2026'],
       ['helix-2025'], ['gello-2023'], ['trossen-widowx-ai-2026', 'trossen-wxai-docs-2026'],
+      ['knowledge-insulation-paper-2025'], ['veo-world-simulator-2025', 'worldgym-2025'],
     ];
     const questions = questionsForArticles(input.articles);
     // A reader that only downloads the start of the digest can still follow every question.
