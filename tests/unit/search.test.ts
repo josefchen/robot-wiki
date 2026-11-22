@@ -4,6 +4,7 @@ import {
   createRequestSequencer,
   isGenuineHit,
   RESULT_LIMIT,
+  searchPagefind,
   titleWeight,
   toSearchHits,
   type PagefindResult,
@@ -422,5 +423,87 @@ describe('createRequestSequencer', () => {
     seq.invalidate();
     const next = seq.begin();
     expect(seq.isCurrent(next)).toBe(true);
+  });
+});
+
+describe('reader questions in prose search', () => {
+  const question = 'Can a gripper lift fragile glass?';
+  const introduction = 'A gripper can lift fragile glass, including <thin> glass & other samples.';
+  const pages = {
+    glass: { url: '/glass/', content: introduction, title: 'Glass handling' },
+    gripper: { url: '/gripper/', content: 'Only the gripper is relevant here.', title: 'Grippers' },
+    distant: {
+      url: '/distant/',
+      content: ['gripper', 'lift', 'fragile', 'glass'].join(' bridge'.repeat(50) + ' '),
+      title: 'Unrelated mentions',
+    },
+  };
+  type Page = keyof typeof pages;
+
+  function result(id: Page, score: number) {
+    const { url, title, content } = pages[id];
+    return { id, score, data: async () => ({ url, meta: { title }, content, anchors: [{ element: 'h2', text: 'Handling <glass> & fragile samples', location: 0 }] }) };
+  }
+
+  it('keeps strict matches and performs no secondary lookups for an ordinary empty search', async () => {
+    const calls: string[] = [];
+    const lookup = async (query: string) => {
+      calls.push(query);
+      return { results: query === 'fragile glass' ? [result('glass', 10)] : [] };
+    };
+    expect((await searchPagefind(lookup, 'fragile glass'))[0].url).toBe('/glass/');
+    expect(await searchPagefind(lookup, 'zzqqxx')).toEqual([]);
+    expect(calls).toEqual(['fragile glass', 'zzqqxx']);
+  });
+
+  it('returns a real escaped passage and drops partial or scattered mentions', async () => {
+    const lookup = async (word: string) => ({
+      results: word === question ? [] : [result('glass', 5), result('gripper', 8), result('distant', 9)],
+    });
+    const hits = await searchPagefind(lookup, question);
+    expect(hits).toEqual([{
+      url: '/glass/', title: 'Glass handling',
+      excerpt: 'Handling &lt;glass&gt; &amp; fragile samples',
+    }]);
+  });
+
+  it('uses the published summary for an introduction with no preceding section', async () => {
+    const query = 'How do joint angles place a hand?';
+    const lookup = async (word: string) => ({
+      results: word === query ? [] : [{
+        id: 'arm', score: 5, data: async () => ({
+          url: '/classical/kinematics/', content: 'Kinematics JointAngleControl Find joint angles to place the hand.',
+        }),
+      }],
+    });
+    expect((await searchPagefind(lookup, query))[0].excerpt)
+      .toBe("How joint angles place a robot's hand, and the reverse.");
+  });
+
+  it('uses the complete heading for a matching table and excludes later sections', async () => {
+    const query = 'Did the gripper lift the glass?';
+    const lookup = async (word: string) => ({
+      results: word === query ? [] : [{
+        id: 'glass', score: 5, data: async () => ({
+          url: '/glass/', content: 'Overview. Equipment ModelLoadOutcome Glass gripper can lift fragile glass.',
+          anchors: [
+            { element: 'h2', location: 0, text: 'Overview' },
+            { element: 'h2', location: 1, text: 'Holding glass <safely> & steadily' },
+            { element: 'h2', location: 20, text: 'A later section' },
+          ],
+        }),
+      }],
+    });
+    expect((await searchPagefind(lookup, query))[0].excerpt)
+      .toBe('Holding glass &lt;safely&gt; &amp; steadily');
+  });
+
+  it('keeps a rare unrecognized subject from becoming a result about common equipment', async () => {
+    const lookup = async (word: string) => ({
+      results: ['gripper', 'lift'].includes(word) ? Array.from({ length: 15 }, (_, i) => ({
+        ...result('glass', 3), id: String(i),
+      })) : [],
+    });
+    expect(await searchPagefind(lookup, 'Can a gripper lift zqxvqq?')).toEqual([]);
   });
 });

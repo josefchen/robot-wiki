@@ -57,7 +57,7 @@ export function ResultsGroup({
         {typeof count === 'number' ? (
           <span
             data-results-group-count
-            className="font-mono text-xs text-text-dim"
+            className="shrink-0 whitespace-nowrap font-mono text-xs text-text-dim"
           >
             {count} {count === 1 ? 'result' : 'results'}
           </span>

@@ -92,7 +92,7 @@ describe('empty state (a): prose empty, entities present', () => {
       'figure',
     );
     const structured = await screen.findByRole('region', {
-      name: 'Structured',
+      name: 'Companies, methods and datasets',
     });
     expect(
       within(structured).getByRole('link', { name: /^Figure AI/ }),
@@ -115,7 +115,7 @@ describe('empty state (a): prose empty, entities present', () => {
     );
     await screen.findByRole('link', { name: /^Figure AI/ });
     expect(screen.getByRole('status')).not.toHaveTextContent(
-      /no modules match/i,
+      /no wiki pages, companies, methods or datasets found/i,
     );
   });
 
@@ -179,7 +179,7 @@ describe('empty state (b): both groups empty', () => {
     const message = container.querySelector(SITE_EMPTY)!;
     const recovery = within(message as HTMLElement).getByRole('link');
     expect(recovery.getAttribute('href')).toMatch(/^\/a-z/);
-    expect(recovery).toHaveAccessibleName(/a-z/i);
+    expect(recovery).toHaveAccessibleName(/a–z/i);
     recovery.focus();
     expect(recovery).toHaveFocus();
   });
@@ -198,10 +198,10 @@ describe('empty state (b): both groups empty', () => {
       'zzqxzzqx',
     );
     expect(
-      await screen.findByText(/no module prose matches/i),
+      await screen.findByText(/no matching wiki pages/i),
     ).toBeInTheDocument();
     expect(
-      await screen.findByText(/no structured entities match/i),
+      await screen.findByText(/no matching companies, methods or datasets/i),
     ).toBeInTheDocument();
   });
 });
@@ -224,20 +224,20 @@ describe('empty state (c): a type facet is narrowing the results', () => {
 
   it('names the filter instead of claiming nothing matches', async () => {
     const { container } = await narrowToDatasets();
-    const structured = screen.getByRole('region', { name: 'Structured' });
+    const structured = screen.getByRole('region', { name: 'Companies, methods and datasets' });
     const text = structured.textContent ?? '';
     expect(text).toMatch(/filter/i);
     // The site-wide "nothing at all matched" message must not claim the
     // corpus is empty while two unfiltered entity matches exist.
     expect(container.querySelectorAll(SITE_EMPTY)).toHaveLength(0);
     expect(screen.getByRole('status')).not.toHaveTextContent(
-      /no modules match/i,
+      /no wiki pages, companies, methods or datasets found/i,
     );
   });
 
   it('exposes a keyboard-reachable clear control that restores the unfiltered results', async () => {
     const { user } = await narrowToDatasets();
-    const structured = screen.getByRole('region', { name: 'Structured' });
+    const structured = screen.getByRole('region', { name: 'Companies, methods and datasets' });
     expect(
       within(structured).queryByRole('link', { name: /^Figure AI/ }),
     ).not.toBeInTheDocument();

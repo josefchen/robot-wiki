@@ -51,13 +51,13 @@ test.describe('structured search on the static export', () => {
     await typeQuery(page, 'Figure AI');
     await waitForSettled(page);
 
-    const structured = page.getByRole('region', { name: 'Structured' });
+    const structured = page.getByRole('region', { name: 'Companies, methods and datasets' });
     await expect(structured).toBeVisible();
     const figure = structured.getByRole('link', { name: /^Figure AI/ });
     await expect(figure).toBeVisible();
     await expect(figure).toHaveAttribute('href', /\/market-map\/#company-figure-ai/);
     await expect(structured.getByText(/^company$/i).first()).toBeVisible();
-    await expect(page.getByRole('region', { name: 'Modules' })).toBeVisible();
+    await expect(page.getByRole('region', { name: 'Wiki pages' })).toBeVisible();
   });
 
   test('a query matching both layers shows both groups', async ({
@@ -67,8 +67,8 @@ test.describe('structured search on the static export', () => {
     await typeQuery(page, 'ACT');
     await waitForSettled(page);
 
-    const prose = page.getByRole('region', { name: 'Modules' });
-    const structured = page.getByRole('region', { name: 'Structured' });
+    const prose = page.getByRole('region', { name: 'Wiki pages' });
+    const structured = page.getByRole('region', { name: 'Companies, methods and datasets' });
     await expect(prose).toBeVisible();
     await expect(structured).toBeVisible();
     // Selected by destination, not by title text. The query "ACT" also
@@ -90,7 +90,7 @@ test.describe('structured search on the static export', () => {
     await typeQuery(page, 'Figure AI');
     await waitForSettled(page);
     await page
-      .getByRole('region', { name: 'Structured' })
+      .getByRole('region', { name: 'Companies, methods and datasets' })
       .getByRole('link', { name: /^Figure AI/ })
       .click();
     await expect(page).toHaveURL(/\/market-map\/#company-figure-ai/);
@@ -110,7 +110,7 @@ test.describe('structured search on the static export', () => {
     await typeQuery(page, 'Diffusion Policy');
     await waitForSettled(page);
     await page
-      .getByRole('region', { name: 'Structured' })
+      .getByRole('region', { name: 'Companies, methods and datasets' })
       .getByRole('link', { name: /^Diffusion Policy/ })
       .click();
     await expect(page).toHaveURL(
@@ -128,7 +128,7 @@ test.describe('structured search on the static export', () => {
     await typeQuery(page, 'DROID');
     await waitForSettled(page);
     await page
-      .getByRole('region', { name: 'Structured' })
+      .getByRole('region', { name: 'Companies, methods and datasets' })
       .getByRole('link', { name: /^DROID/ })
       .click();
     await expect(page).toHaveURL(/\/data-hardware\/datasets\/#dataset-droid/);
@@ -143,9 +143,9 @@ test.describe('structured search on the static export', () => {
     await page.goto(`${BASE}/search`);
     await typeQuery(page, 'zzqxzzqxzz');
     await waitForSettled(page);
-    await expect(page.getByText(/no module prose matches/i)).toBeVisible();
+    await expect(page.getByText(/no matching wiki pages/i)).toBeVisible();
     await expect(
-      page.getByText(/no structured (entities|results) match/i),
+      page.getByText(/no matching companies, methods or datasets/i),
     ).toBeVisible();
     await expect(page.getByText(/searching/i)).toHaveCount(0);
     await expect(page.locator('[data-search-result]')).toHaveCount(0);
@@ -158,14 +158,14 @@ test.describe('structured search on the static export', () => {
     await typeQuery(page, 'compounding');
     await waitForSettled(page);
 
-    const prose = page.getByRole('region', { name: 'Modules' });
-    const structured = page.getByRole('region', { name: 'Structured' });
+    const prose = page.getByRole('region', { name: 'Wiki pages' });
+    const structured = page.getByRole('region', { name: 'Companies, methods and datasets' });
     await expect(prose).toBeVisible();
     await expect(structured).toBeVisible();
     const proseCount = await prose.locator('[data-search-result]').count();
     expect(proseCount).toBeGreaterThan(0);
     await expect(
-      structured.getByText(/no structured (entities|results) match/i),
+      structured.getByText(/no matching companies, methods or datasets/i),
     ).toBeVisible();
     expect(await structured.locator('[data-search-result]').count()).toBe(0);
     await expect(page.getByText(/searching/i)).toHaveCount(0);
@@ -178,8 +178,8 @@ test.describe('structured search on the static export', () => {
     await typeQuery(page, 'open');
     await waitForSettled(page);
 
-    const structured = page.getByRole('region', { name: 'Structured' });
-    const prose = page.getByRole('region', { name: 'Modules' });
+    const structured = page.getByRole('region', { name: 'Companies, methods and datasets' });
+    const prose = page.getByRole('region', { name: 'Wiki pages' });
     const beforeStructured = await structured
       .locator('[data-search-result]')
       .count();
@@ -214,7 +214,7 @@ test.describe('structured search on the static export', () => {
 
     await typeQuery(page, 'ACT');
     await waitForSettled(page);
-    await expect(page.getByRole('region', { name: 'Structured' })).toBeVisible();
+    await expect(page.getByRole('region', { name: 'Companies, methods and datasets' })).toBeVisible();
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 
     await page.getByRole('button', { name: /^Methods$/i }).click();

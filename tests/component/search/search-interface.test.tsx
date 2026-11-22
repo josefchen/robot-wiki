@@ -78,7 +78,7 @@ describe('SearchInterface', () => {
       />,
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'chunk');
-    const group = await screen.findByRole('region', { name: 'Modules' });
+    const group = await screen.findByRole('region', { name: 'Wiki pages' });
     const link = await screen.findByRole('link', { name: ACT_RESULT });
     expect(group).toContainElement(link);
     // next/link normalizes the trailing slash when no Next config is loaded
@@ -101,7 +101,7 @@ describe('SearchInterface', () => {
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'chunk');
     await screen.findByRole('link', { name: ACT_RESULT });
-    expect(screen.getByRole('status')).toHaveTextContent('1 module matches');
+    expect(screen.getByRole('status')).toHaveTextContent('1 wiki page for');
   });
 
   it('shows an explicit no-results state', async () => {
@@ -113,7 +113,7 @@ describe('SearchInterface', () => {
       />,
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'zzqx');
-    expect(await screen.findByText(/no module prose matches/i)).toBeInTheDocument();
+    expect(await screen.findByText(/no matching wiki pages/i)).toBeInTheDocument();
   });
 
   it('returns to the idle state when the query is cleared', async () => {
@@ -219,9 +219,9 @@ describe('SearchInterface', () => {
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'chunk');
     const note = await screen.findByRole('note');
-    expect(note).toHaveTextContent(/search index is unavailable/i);
-    expect(note).toHaveTextContent(/npm run build/);
-    expect(screen.queryByRole('region', { name: 'Modules' })).not.toBeInTheDocument();
+    expect(note).toHaveTextContent(/search could not load/i);
+    expect(note).toHaveTextContent(/browse the A–Z index/);
+    expect(screen.queryByRole('region', { name: 'Wiki pages' })).not.toBeInTheDocument();
   });
 
   it('syncs the query into the URL', async () => {
@@ -288,20 +288,20 @@ describe('SearchInterface', () => {
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
 
-    const prose = await screen.findByRole('region', { name: 'Modules' });
+    const prose = await screen.findByRole('region', { name: 'Wiki pages' });
     await waitFor(() =>
       expect(
         prose.querySelector('[data-search-group-error="prose"]'),
       ).not.toBeNull(),
     );
-    expect(prose).not.toHaveTextContent(/no module prose matches/i);
+    expect(prose).not.toHaveTextContent(/no matching wiki pages/i);
     expect(
       await screen.findByRole('link', { name: /^ACT/ }),
     ).toBeInTheDocument();
     expect(screen.getByRole('status')).toHaveTextContent(
-      /module index is unavailable/i,
+      /wiki page search is unavailable/i,
     );
-    expect(screen.queryByText(/nothing matches/i)).not.toBeInTheDocument();
+    expect(document.querySelector('[data-search-empty]')).not.toBeInTheDocument();
   });
 
   it('reports a failed structured index per group instead of an empty result', async () => {
@@ -315,20 +315,20 @@ describe('SearchInterface', () => {
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
 
-    const structured = await screen.findByRole('region', { name: 'Structured' });
+    const structured = await screen.findByRole('region', { name: 'Companies, methods and datasets' });
     await waitFor(() =>
       expect(
         structured.querySelector('[data-search-group-error="structured"]'),
       ).not.toBeNull(),
     );
     expect(structured).not.toHaveTextContent(
-      /no structured (entities|results) match/i,
+      /no matching companies, methods or datasets/i,
     );
     expect(
       await screen.findByRole('link', { name: ACT_RESULT }),
     ).toBeInTheDocument();
     expect(screen.getByRole('status')).toHaveTextContent(
-      /entity index is unavailable/i,
+      /search for companies, methods and datasets is unavailable/i,
     );
   });
 
@@ -397,13 +397,13 @@ describe('facet narrowing is announced before index-failure emptiness', () => {
 
     const status = screen.getByRole('status');
     await waitFor(() =>
-      expect(status).toHaveTextContent(/under the active type filter/i),
+      expect(status).toHaveTextContent(/with this filter/i),
     );
     // The total-miss verdict must not be announced while unfiltered entity
     // matches exist behind the facet.
-    expect(status).not.toHaveTextContent(/entity matches/i);
+    expect(status).not.toHaveTextContent(/no companies, methods or datasets found/i);
     // The module surface failure is still named alongside the filter.
-    expect(status).toHaveTextContent(/module index is unavailable/i);
+    expect(status).toHaveTextContent(/wiki page search is unavailable/i);
     // And the visible recovery copy the announcement agrees with.
     expect(
       screen.getByRole('button', { name: /clear the type filter/i }),

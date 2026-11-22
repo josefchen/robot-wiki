@@ -33,6 +33,8 @@ export type StructuredSearchDocument = {
   entityId: string;
   type: EntityType;
   title: string;
+  /** Alternate names used to recognize an entity in a reader's question. */
+  aliases?: readonly string[];
   /** Searchable body: aliases, description, tags. */
   text: string;
   /**
@@ -64,7 +66,7 @@ export const DEFAULT_STRUCTURED_FACET: StructuredFacet = { type: 'all' };
 
 export const STRUCTURED_SEARCH_OPTIONS = {
   fields: ['title', 'text', 'type', 'facet'],
-  storeFields: ['entityId', 'type', 'title', 'url', 'facet', 'snippet'],
+  storeFields: ['entityId', 'type', 'title', 'url', 'facet', 'snippet', 'aliases'],
   searchOptions: {
     boost: { title: 3, text: 1 },
     prefix: true,
@@ -111,6 +113,7 @@ function methodDocument(
     entityId: method.id,
     type: 'method',
     title: method.name,
+    aliases: method.aka,
     text: compactText([
       method.name,
       ...method.aka,
@@ -133,6 +136,7 @@ function companyDocument(
     entityId: company.id,
     type: 'company',
     title: company.name,
+    aliases: company.aka,
     text: compactText([
       company.name,
       ...company.aka,
@@ -159,6 +163,7 @@ function datasetDocument(
     entityId: dataset.id,
     type: 'dataset',
     title: dataset.name,
+    aliases: dataset.aka,
     text: compactText([
       dataset.name,
       ...dataset.aka,
@@ -400,6 +405,170 @@ export function toStructuredHits(
   }));
 }
 
+// Keep model versions intact: the name π0 must not match the token π0.5.
+function nameWords(value: string): string[] {
+  return value.normalize('NFKC').match(/[\p{L}\p{N}]+(?:\.\d+)*/gu) ?? [];
+}
+
+const QUESTION_START = /^(how|what|why|when|which|where|who|can|could|did|does|do|is|are|will|would|should)$/i;
+const COMMON_NAMES = new Set(['act', 'automata', 'cobot', 'dexterity', 'figure', 'humanoid', 'intuitive', 'nimble', 'sunday']);
+
+async function legacyAliases() {
+  const [{COMPANIES: companies}, {METHODS: methods}, {DATASETS: datasets}] = await Promise.all([
+    import('../data/companies.ts'), import('../data/methods.ts'), import('../data/datasets.ts'),
+  ]);
+  return new Map([
+    ...companies.map(item => [namespacedId('company', item.id), item.aka] as const),
+    ...methods.map(item => [namespacedId('method', item.id), item.aka] as const),
+    ...datasets.map(item => [namespacedId('dataset', item.id), item.aka] as const),
+  ]);
+}
+
+async function entityNames(index: MiniSearch<StructuredSearchDocument>) {
+  const records = index.search(MiniSearch.wildcard);
+  // A cached index from before aliases were stored can still serve older tabs.
+  const legacy = records.some(row => !Array.isArray(row.aliases))
+    ? await legacyAliases()
+    : undefined;
+  const names = new Map<string, StructuredHit[]>();
+  let longest = 0;
+  for (const [i, hit] of toStructuredHits(records).entries()) {
+    const aliases: readonly string[] = records[i].aliases ?? legacy?.get(hit.id) ?? [];
+    const title = hit.title.split(' (')[0];
+    const shortName = hit.type === 'company'
+      ? title.replace(/\s+(AI|Robotics|Technologies)$/i, '')
+      : hit.type === 'dataset' ? title.replace(/\s+v\d+(?:\.\d+)*$/i, '') : title;
+    const parenthetical = hit.title.match(/\(([^()]+)\)$/)?.[1] ?? '';
+    const spacedVersion = foldGreekToAscii(hit.title).replace(/(\p{L})(?=\d)/gu, '$1 ');
+    for (const name of new Set([hit.title, shortName, parenthetical, spacedVersion, hit.entityId, ...aliases])) {
+      const words = nameWords(name).map(foldGreekToAscii);
+      if (!words.length) continue;
+      longest = Math.max(longest, words.length);
+      const key = words.join(' ');
+      const hits = names.get(key) ?? [];
+      if (!hits.some(existing => existing.id === hit.id)) hits.push(hit);
+      names.set(key, hits);
+    }
+  }
+  return {names, longest};
+}
+
+function mentionedEntities(words: string[], catalog: Awaited<ReturnType<typeof entityNames>>): StructuredHit[] {
+  const folded = words.map(foldGreekToAscii);
+  const found = new Map<string, StructuredHit>();
+  for (let start = 0; start < words.length; start++) {
+    // Prefer the complete name at this position, e.g. OpenVLA-OFT over OpenVLA.
+    for (let end = Math.min(start + catalog.longest, words.length); end > start; end--) {
+      const phrase = folded.slice(start, end).join(' ');
+      const hits = catalog.names.get(phrase);
+      if (!hits) continue;
+      // A family name alone cannot identify a different requested release.
+      if (/^v\d/.test(folded[end] ?? '') && hits.every(hit => /\s+v\d/i.test(hit.title))) continue;
+      if (phrase === 'figure' && folded[end] === 'out') continue;
+      const namedSubject = phrase === 'figure' && folded[start - 1] === 'does';
+      if (COMMON_NAMES.has(phrase) && words[start] === phrase && folded[end] !== 's' && !namedSubject) continue;
+      for (const hit of hits) found.set(hit.id, hit);
+      start = end - 1;
+      break;
+    }
+  }
+  return [...found.values()];
+}
+
+const SUPPLIERS = /^(compan(y|ies)|firms?|makers?|manufacturers?|vendors?|suppliers?|startups?|brands?)$/;
+const SUPPLY_VERBS = /^(mak(e|es|ing)|build(s|ing)?|sell(s|ing)?|suppl(y|ies|ying)|offer(s|ing)?|produc(e|es|ing)|manufactur(e|es|ing)|develop(s|ing)?|buy|purchas(e|ing))$/;
+const PRODUCT_FILLER = new Set(`
+  a an and any are at be can could currently do does equipment equipped featuring find for
+  from has have i in including is it leading list looking me need of on or product products
+  system systems that the them there those to top using want we what where which who with would
+`.trim().split(/\s+/));
+const CATALOG_VERBS = /^(uses?|contains?|includes?|combines?|provides?|features?)$/;
+
+function catalogType(subject: string): EntityType | undefined {
+  if (SUPPLIERS.test(subject)) return 'company';
+  if (/^(methods?|models?|polic(?:y|ies)|algorithms?|techniques?)$/.test(subject)) return 'method';
+  if (/^(datasets?|collections?)$/.test(subject)) return 'dataset';
+}
+
+function requestedEntityType(words: string[]): EntityType | undefined {
+  // Identify the subject of a catalog lookup, not a type mentioned later in
+  // a question about something else ("What does Figure's model do?").
+  const query = words.join(' ').toLowerCase().replace(/\bdata sets?\b/g, 'dataset');
+  const match = /^(?:(?:which|what|list|find|show|any|are there)(?: me)? (?:any |the )?)?(?:robot(?:ic)?s? |learning )?(\w+)/.exec(query);
+  return catalogType(match?.[1] ?? '');
+}
+
+function productWord(word: string): string {
+  if (/^(robotics?|robots?)$/.test(word)) return 'robot';
+  return word.length > 3 ? word.replace(/ies$/, 'y').replace(/(?<!s)s$/, '') : word;
+}
+
+/** Search only the requested catalog and require support in the indexed record. */
+function descriptiveMatches(words: string[], question: boolean, index: MiniSearch<StructuredSearchDocument>, requested?: EntityType): StructuredHit[] {
+  const tokens = words.map(foldGreekToAscii);
+  const hasSupplier = tokens.some(word => SUPPLIERS.test(word));
+  const buying = tokens.includes('buy') || tokens.includes('purchase');
+  const requestsList = hasSupplier && (!question || ['which', 'what'].includes(tokens[0]));
+  const makingOrSelling = tokens.some(word => SUPPLY_VERBS.test(word));
+  const wantsSupplier = requestsList || (makingOrSelling && (hasSupplier || tokens[0] === 'who' || buying));
+  const type = requested ?? 'company';
+  const modifier = type === 'company' ? tokens.findIndex(word => /^(with|featuring|including)$/.test(word)) : -1;
+  if (!requested && !wantsSupplier && (QUESTION_START.test(tokens[0]) || modifier < 1)) return [];
+  if (tokens.some(word => /^(no|not|without)$/.test(word))) return [];
+
+  const descriptive = (word: string) => !PRODUCT_FILLER.has(word) && !SUPPLIERS.test(word) && !SUPPLY_VERBS.test(word);
+  const terms = new Set(tokens.filter(descriptive).map(productWord));
+  terms.delete('robot');
+  if (type !== 'company') {
+    // These nouns and verbs express the request. The useful discriminators
+    // are e.g. the action representation, named platform or licence.
+    for (const term of terms) {
+      if (CATALOG_VERBS.test(term) || catalogType(term) === type) terms.delete(term);
+    }
+    const context = type === 'method'
+      ? ['action', 'predict', 'predicting', 'generate', 'generating']
+      : ['demonstration', 'trajectory', 'collected', 'recorded', 'data', 'set'];
+    for (const term of context) terms.delete(term);
+  }
+  if (!terms.size) return [];
+  const variants = new Set(tokens.filter(word => terms.has(productWord(word))));
+  for (const term of terms) {
+    variants.add(term);
+    variants.add(term.endsWith('y') ? term.slice(0, -1) + 'ies' : term + 's');
+  }
+  const indexed = index.search([...variants].join(' '), {
+    fields: ['title', 'text', 'facet'], prefix: false, fuzzy: false,
+  });
+  const candidates = indexed.filter(result => result.type === type);
+  const subject = modifier > 0 ? tokens.slice(0, modifier).filter(descriptive).map(productWord) : [];
+  const subjectTerms = subject.filter(word => terms.has(word));
+  const features = new Set(modifier > 0 ? tokens.slice(modifier + 1).filter(descriptive).map(productWord) : []);
+  const rows = candidates.map(result => ({
+    result,
+    matched: new Set(Object.keys(result.match).map(productWord).filter(word => terms.has(word))),
+  }));
+  // The method and dataset indexes describe different fields. Two matching
+  // platform terms can identify a dataset whose camera details are unlisted.
+  const known = new Set(indexed.flatMap(row => Object.keys(row.match).map(productWord)));
+  const coverage = type === 'dataset' && [...terms].filter(term => !known.has(term)).length <= 1 ? 1 / 2 : 2 / 3;
+  const required = Math.min(terms.size, Math.max(2, Math.ceil(terms.size * coverage)));
+  const supportsSubject = (matched: Set<string>) => !subjectTerms.length || subjectTerms.some(word => matched.has(word));
+  const hasSupportedSpec = subject.length > 1 && rows.some(({matched}) =>
+    matched.size >= required && supportsSubject(matched) && [...features].some(word => matched.has(word)),
+  );
+  const phrase = ' ' + subject.join(' ') + ' ';
+  const relevant = rows.filter(({result, matched}) => {
+    if (matched.size >= required && supportsSubject(matched)) return true;
+    // A parts buyer can also inspect an exact match to the product itself. Put it
+    // after results that support the requested features in their own records.
+    if (!hasSupportedSpec) return false;
+    const description = nameWords(result.title + ' ' + result.snippet).map(foldGreekToAscii).map(productWord);
+    return (' ' + description.join(' ') + ' ').includes(phrase);
+  });
+  relevant.sort((a, b) => b.matched.size - a.matched.size || b.result.score - a.result.score);
+  return toStructuredHits(relevant.map(row => row.result));
+}
+
 /**
  * Loads the build-time MiniSearch index and adapts it to a search client.
  * Rejects when /search-index.json is unavailable (for example under a
@@ -417,9 +586,18 @@ export async function createStructuredSearchClient(): Promise<StructuredSearchCl
     json,
     structuredIndexLoadOptions(),
   );
+  let names: ReturnType<typeof entityNames> | undefined;
   return {
     async search(query: string) {
       if (!query.trim()) return [];
+      const words = nameWords(query);
+      const question = words.length >= 2 && (/[?？]/u.test(query) || QUESTION_START.test(words[0]));
+      if (question || words.length >= 5) {
+        const requested = requestedEntityType(words);
+        const mentioned = mentionedEntities(words, await (names ??= entityNames(index)))
+          .filter(hit => !requested || hit.type === requested);
+        return mentioned.length ? mentioned : descriptiveMatches(words, question, index, requested);
+      }
       return toStructuredHits(index.search(query));
     },
   };
