@@ -482,37 +482,64 @@ const PRODUCT_FILLER = new Set(`
   from has have i in including is it leading list looking me need of on or product products
   system systems that the them there those to top using want we what where which who with would
 `.trim().split(/\s+/));
+const CATALOG_VERBS = /^(uses?|contains?|includes?|combines?|provides?|features?)$/;
+
+function catalogType(subject: string): EntityType | undefined {
+  if (SUPPLIERS.test(subject)) return 'company';
+  if (/^(methods?|models?|polic(?:y|ies)|algorithms?|techniques?)$/.test(subject)) return 'method';
+  if (/^(datasets?|collections?)$/.test(subject)) return 'dataset';
+}
+
+function requestedEntityType(words: string[]): EntityType | undefined {
+  // Identify the subject of a catalog lookup, not a type mentioned later in
+  // a question about something else ("What does Figure's model do?").
+  const query = words.join(' ').toLowerCase().replace(/\bdata sets?\b/g, 'dataset');
+  const match = /^(?:(?:which|what|list|find|show|any|are there)(?: me)? (?:any |the )?)?(?:robot(?:ic)?s? |learning )?(\w+)/.exec(query);
+  return catalogType(match?.[1] ?? '');
+}
 
 function productWord(word: string): string {
   if (/^(robotics?|robots?)$/.test(word)) return 'robot';
   return word.length > 3 ? word.replace(/ies$/, 'y').replace(/(?<!s)s$/, '') : word;
 }
 
-/** Require product evidence when a reader explicitly asks for suppliers or describes a specification. */
-function productMatches(words: string[], question: boolean, index: MiniSearch<StructuredSearchDocument>): StructuredHit[] {
+/** Search only the requested catalog and require support in the indexed record. */
+function descriptiveMatches(words: string[], question: boolean, index: MiniSearch<StructuredSearchDocument>, requested?: EntityType): StructuredHit[] {
   const tokens = words.map(foldGreekToAscii);
   const hasSupplier = tokens.some(word => SUPPLIERS.test(word));
   const buying = tokens.includes('buy') || tokens.includes('purchase');
   const requestsList = hasSupplier && (!question || ['which', 'what'].includes(tokens[0]));
   const makingOrSelling = tokens.some(word => SUPPLY_VERBS.test(word));
   const wantsSupplier = requestsList || (makingOrSelling && (hasSupplier || tokens[0] === 'who' || buying));
-  const modifier = tokens.findIndex(word => /^(with|featuring|including)$/.test(word));
-  if (!wantsSupplier && (QUESTION_START.test(tokens[0]) || modifier < 1)) return [];
+  const type = requested ?? 'company';
+  const modifier = type === 'company' ? tokens.findIndex(word => /^(with|featuring|including)$/.test(word)) : -1;
+  if (!requested && !wantsSupplier && (QUESTION_START.test(tokens[0]) || modifier < 1)) return [];
   if (tokens.some(word => /^(no|not|without)$/.test(word))) return [];
 
   const descriptive = (word: string) => !PRODUCT_FILLER.has(word) && !SUPPLIERS.test(word) && !SUPPLY_VERBS.test(word);
   const terms = new Set(tokens.filter(descriptive).map(productWord));
   terms.delete('robot');
+  if (type !== 'company') {
+    // These nouns and verbs express the request. The useful discriminators
+    // are e.g. the action representation, named platform or licence.
+    for (const term of terms) {
+      if (CATALOG_VERBS.test(term) || catalogType(term) === type) terms.delete(term);
+    }
+    const context = type === 'method'
+      ? ['action', 'predict', 'predicting', 'generate', 'generating']
+      : ['demonstration', 'trajectory', 'collected', 'recorded', 'data', 'set'];
+    for (const term of context) terms.delete(term);
+  }
   if (!terms.size) return [];
   const variants = new Set(tokens.filter(word => terms.has(productWord(word))));
   for (const term of terms) {
     variants.add(term);
     variants.add(term.endsWith('y') ? term.slice(0, -1) + 'ies' : term + 's');
   }
-  const candidates = index.search([...variants].join(' '), {
+  const indexed = index.search([...variants].join(' '), {
     fields: ['title', 'text', 'facet'], prefix: false, fuzzy: false,
-    filter: result => result.type === 'company',
   });
+  const candidates = indexed.filter(result => result.type === type);
   const subject = modifier > 0 ? tokens.slice(0, modifier).filter(descriptive).map(productWord) : [];
   const subjectTerms = subject.filter(word => terms.has(word));
   const features = new Set(modifier > 0 ? tokens.slice(modifier + 1).filter(descriptive).map(productWord) : []);
@@ -520,7 +547,11 @@ function productMatches(words: string[], question: boolean, index: MiniSearch<St
     result,
     matched: new Set(Object.keys(result.match).map(productWord).filter(word => terms.has(word))),
   }));
-  const required = Math.min(terms.size, Math.max(2, Math.ceil(terms.size * 2 / 3)));
+  // The method and dataset indexes describe different fields. Two matching
+  // platform terms can identify a dataset whose camera details are unlisted.
+  const known = new Set(indexed.flatMap(row => Object.keys(row.match).map(productWord)));
+  const coverage = type === 'dataset' && [...terms].filter(term => !known.has(term)).length <= 1 ? 1 / 2 : 2 / 3;
+  const required = Math.min(terms.size, Math.max(2, Math.ceil(terms.size * coverage)));
   const supportsSubject = (matched: Set<string>) => !subjectTerms.length || subjectTerms.some(word => matched.has(word));
   const hasSupportedSpec = subject.length > 1 && rows.some(({matched}) =>
     matched.size >= required && supportsSubject(matched) && [...features].some(word => matched.has(word)),
@@ -562,8 +593,10 @@ export async function createStructuredSearchClient(): Promise<StructuredSearchCl
       const words = nameWords(query);
       const question = words.length >= 2 && (/[?？]/u.test(query) || QUESTION_START.test(words[0]));
       if (question || words.length >= 5) {
-        const mentioned = mentionedEntities(words, await (names ??= entityNames(index)));
-        return mentioned.length ? mentioned : productMatches(words, question, index);
+        const requested = requestedEntityType(words);
+        const mentioned = mentionedEntities(words, await (names ??= entityNames(index)))
+          .filter(hit => !requested || hit.type === requested);
+        return mentioned.length ? mentioned : descriptiveMatches(words, question, index, requested);
       }
       return toStructuredHits(index.search(query));
     },

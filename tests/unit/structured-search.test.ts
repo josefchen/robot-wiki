@@ -57,6 +57,17 @@ describe('structured entity search in reader questions', () => {
       expect(hardware).toContain('company:paxini');
       expect(hardware.indexOf('company:wonik-robotics')).toBeGreaterThan(hardware.indexOf('company:paxini'));
       expect(await ids('Who is building warehouse robots?')).toContain('company:locus-robotics');
+      const diffusion = await ids('Which methods use diffusion to predict robot actions?');
+      expect(diffusion).toEqual(expect.arrayContaining(['method:diffusion-policy', 'method:gr00t-2']));
+      expect(diffusion.every(id => id.startsWith('method:'))).toBe(true);
+      expect(diffusion).not.toContain('method:rt-1');
+      expect(await ids('Which policy uses diffusion?')).toEqual(diffusion);
+      expect(await ids('Which dataset uses the WidowX 250 arm?')).toEqual(['dataset:bridgedata-v2']);
+      expect(await ids('Which datasets combine Franka Panda wrist-camera demonstrations?')).toEqual(['dataset:droid', 'dataset:robomind']);
+      expect(await ids('Which data sets include AgiBot G1?')).toEqual(['dataset:agibot-world']);
+      expect(await ids('Which datasets record Swiss fishing licences?')).toEqual([]);
+      expect(await ids('Which methods use chocolate frosting?')).toEqual([]);
+      expect(await ids('Which datasets use Franka Panda chocolate frosting?')).toEqual([]);
       expect((await ids('DROI'))[0]).toBe('dataset:droid');
       expect((await ids('Robotics Transformer 1'))[0]).toBe('method:rt-1');
       expect(fetchIndex).toHaveBeenCalledTimes(1);
