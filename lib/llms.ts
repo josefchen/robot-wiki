@@ -1,6 +1,8 @@
 import matter from 'gray-matter';
 import { ARTICLE_QUESTIONS_HEADING, questionsForArticles } from '../data/article-questions.ts';
 import { leadParagraph, sentences } from './article-lead.ts';
+import { articlePassages } from './llms-passages.ts';
+import { inlineCitationIds } from './references.ts';
 
 /**
  * The two plain-text maps of the site that `/llms.txt` and `/llms-full.txt`
@@ -155,6 +157,41 @@ export function buildLlmsTxt(input: LlmsInput): string {
   return `${lines.join('\n').trimEnd()}\n`;
 }
 
+/** Sources for the exact passages linked by the reader question directory. */
+function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
+  const questions = questionsForArticles([article]);
+  if (!questions.length) return [];
+
+  const { content, data } = matter(article.source);
+  const { introduction, sections, forFragment } = articlePassages(content);
+  const declared = new Set<string>(data.citations ?? []);
+  const lines: string[] = [];
+
+  for (const { href, label } of questions) {
+    const fragment = href.split('#')[1];
+    let ids: string[];
+    if (fragment.startsWith('ref-')) {
+      const id = fragment.slice(4);
+      const groups = [introduction, ...sections.map((section) => section.lines)];
+      ids = groups.some((lines) => inlineCitationIds(lines.join('\n')).includes(id)) ? [id] : [];
+    } else {
+      const section = forFragment(fragment);
+      ids = section ? inlineCitationIds(section.lines.join('\n')) : [];
+    }
+    if (!ids.length) throw new Error(`llms: no cited source for ${href}`);
+    lines.push(`Sources for [${label}](${input.siteUrl}${href})`);
+    for (const id of ids) {
+      const source = input.citation(id);
+      if (!declared.has(id) || !source) throw new Error(`llms: unresolved citation "${id}" for ${href}`);
+      const title = source.title.replace(/([\\[\]])/g, '\\$1');
+      lines.push(`- [${source.label}](${articleUrl(input, article)}#ref-${id}). [${title}](${source.url})`);
+    }
+    lines.push('');
+  }
+  lines.push(`[All references for this article](${articleUrl(input, article)}#references-heading)`, '');
+  return lines;
+}
+
 /** `/llms-full.txt`: each published article's lead and key facts with sources. */
 export function buildLlmsFullTxt(input: LlmsInput): string {
   const lines = [`# ${input.siteName}: leads and key facts`, '', `> ${input.descriptor}`, ''];
@@ -167,6 +204,7 @@ export function buildLlmsFullTxt(input: LlmsInput): string {
       if (facts.length > 0) {
         lines.push('Key facts:', ...facts.map((fact) => `- ${fact}`), '');
       }
+      lines.push(...questionSources(input, article));
     }
   }
   return `${lines.join('\n').trimEnd()}\n`;
