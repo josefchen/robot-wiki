@@ -24,6 +24,7 @@ describe('article question directory', () => {
     expect(links.map(({ label }) => label)).toEqual([
       expect.stringMatching(/Mars rovers/), expect.stringMatching(/humanoids.*whole-body/),
       expect.stringMatching(/cite.*OpenVLA/), expect.stringMatching(/PACE.*moves/),
+      expect.stringMatching(/System 1 and System 2/), expect.stringMatching(/GELLO.*cost/),
     ]);
     const machineSection = buildLlmsTxt(input).split(`## ${ARTICLE_QUESTIONS_HEADING}\n\n`)[1].split('\n\n')[0];
     expect(machineSection.split('\n')).toEqual(links.map(({ label, href }) => `- [${label}](${input.siteUrl}${href})`));

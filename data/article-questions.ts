@@ -15,6 +15,14 @@ const questions = [
     label: 'Did robots do better when PACE varied the number of moves between plans?',
     href: '/manipulation/action-chunking/#chunk-size-trades-error-against-reaction-time',
   },
+  {
+    label: 'What do System 1 and System 2 do in a humanoid robot?',
+    href: '/manipulation/hierarchical/#two-speeds-in-one-system',
+  },
+  {
+    label: 'What did the original GELLO controllers cost in parts?',
+    href: '/data-hardware/teleop-rigs/#gello-copies-the-arm-in-printed-parts',
+  },
 ];
 
 export const ARTICLE_QUESTIONS_HEADING = 'Questions answered in the articles';

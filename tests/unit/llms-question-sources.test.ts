@@ -22,8 +22,8 @@ describe('question sources in llms-full.txt', () => {
     }
   });
 
-  it('connects the four published answers to the named papers, preserving the selected source versions', () => {
-    const ids = ['enav-perseverance-2026', 'asap-2025', 'openvla-2024', 'pace-2026'];
+  it('connects the published answers to their primary sources, preserving the selected source versions', () => {
+    const ids = ['enav-perseverance-2026', 'asap-2025', 'openvla-2024', 'pace-2026', 'helix-2025', 'gello-2023'];
     const questions = questionsForArticles(input.articles);
     // A reader that only downloads the start of the digest can still follow every question.
     const sourceGuide = full.slice(0, full.indexOf('\n## '));
