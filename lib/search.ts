@@ -48,6 +48,8 @@ export interface PagefindResultData {
   meta?: { title?: string };
   anchors?: { element: string; text: string; location: number }[];
   excerpt?: string;
+  plain_excerpt?: string;
+  sub_results?: { title: string; url: string }[];
   content?: string;
 }
 
@@ -195,11 +197,8 @@ export async function toSearchHits(
     .map((entry, index) => {
       const title = stripSiteSuffix(entry.meta?.title, entry.url);
       return {
-        hit: {
-          url: entry.url,
-          title,
-          excerpt: entry.excerpt ?? '',
-        },
+        entry,
+        title,
         index,
         titleWeight: titleWeight(query, title),
         phraseWeight: contentPhraseWeight(query, entry.content ?? ''),
@@ -212,7 +211,11 @@ export async function toSearchHits(
         a.index - b.index,
     )
     .slice(0, limit)
-    .map((entry) => entry.hit);
+    .map(({ entry, title }) => ({
+      url: entry.url,
+      title,
+      excerpt: resultExcerpt(entry, title, query),
+    }));
 }
 
 /**
@@ -316,6 +319,73 @@ async function questionExcerpt(data: PagefindResultData, location: number, weigh
 function escapeExcerpt(text: string) {
   return text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 }
+
+/** Pagefind sometimes spends its entire opening window on the page title,
+ * its short description, and half of the next sentence. Only replace that
+ * kind of window. A match inside the article keeps Pagefind's own context. */
+function resultExcerpt(entry: PagefindResultData, title: string, query: string) {
+  const plain = entry.plain_excerpt;
+  const content = entry.content;
+  const original = entry.excerpt ?? '';
+  if (!plain || !content?.startsWith(plain) || !plain.startsWith(title)) return original;
+
+  // Whitespace alone can join a subject to its verb in an ordinary sentence.
+  const boundary = /^(?:[.!?。！？]\s*|$)/u.exec(content.slice(title.length));
+  if (!boundary) return original;
+  const offset = title.length + boundary[0].length;
+  const body = content.slice(offset).trimStart();
+  if (!body) return '';
+
+  // Pagefind inserts a full stop between the heading and its authored deck.
+  // Sentence segmentation preserves decimals, initials and non-Latin stops.
+  const lead = firstExcerptSentence(body);
+  const complete = !!lead && lead.length <= 240 && (lead === body || /[.!?。！？][”’"')\]]*$/u.test(lead));
+  const rest = plain.slice(offset).trim();
+  const terms = tokenize(query);
+  const matchesTerm = (word: string, term: string) =>
+    /\p{N}/u.test(term) ? word === term : word.startsWith(term);
+  const matches = (text: string, term: string) => tokenize(text).some(word => matchesTerm(word, term));
+  const qualifiers = terms.filter(term => (!QUESTION_FILLER.has(term) || term === 'real')
+    && !matches(title, term));
+  const visible = qualifiers.filter(term => matches(rest, term));
+
+  // Prefer the deck when it answers the qualifier. Otherwise a matched
+  // section can tell the reader which part covers the rest of their search.
+  let preview = complete ? lead : '';
+  let score = qualifiers.filter(term => matches(preview, term)).length;
+  for (const section of entry.sub_results ?? []) {
+    if (!section.url.includes('#') || section.title.length > 240) continue;
+    const covered = qualifiers.filter(term => matches(section.title, term));
+    if (covered.length > score && visible.every(term => covered.includes(term))) {
+      preview = section.title;
+      score = covered.length;
+    }
+  }
+  // Keep a rare qualifier, model number or measurement from the original
+  // window if the shorter alternatives would hide it.
+  if (!preview || !visible.every(term => matches(preview, term))) {
+    preview = rest + (rest && rest !== body && !/[.!?。！？][”’"')\]]*$/u.test(rest) ? '…' : '');
+  }
+  return preview.split(/([\p{L}\p{N}]+)/u).map(part => {
+    const escaped = escapeExcerpt(part);
+    const word = tokenize(part)[0];
+    return word && terms.some(term => matchesTerm(word, term)) ? `<mark>${escaped}</mark>` : escaped;
+  }).join('');
+}
+
+function firstExcerptSentence(body: string): string {
+  if (!sentenceBreaks) return '';
+  let lead = '';
+  for (const { segment } of sentenceBreaks.segment(body.slice(0, 241))) {
+    lead += segment;
+    // Some ICU versions end a sentence at the title in “Dr. Smith”.
+    if (!/\b(?:Mr|Mrs|Ms|Dr|Prof|Sr|Jr|Fig|Eq|No|e\.g|i\.e)\.\s*$/iu.test(lead)) break;
+  }
+  return lead.trim();
+}
+
+const sentenceBreaks = typeof Intl.Segmenter === 'function'
+  ? new Intl.Segmenter('en', { granularity: 'sentence' }) : undefined;
 
 /** An exact article title can be qualified by the site's subject, as in
  * "robotic kinematics" or "kinematics of robotics". Body matches can miss the
