@@ -146,8 +146,8 @@ test.describe('market map visualization', () => {
     const page = await browser.newPage({ javaScriptEnabled: false });
     try {
       await page.goto(ROUTE);
-      const sales = page.getByRole('link', { name: 'service robot unit sales in 2024 and 2025 (PDF)' });
-      const scope = page.getByRole('link', { name: 'the survey’s coverage and limits (PDF)' });
+      const sales = page.getByRole('link', { name: '2024–25 unit sales (PDF)' });
+      const scope = page.getByRole('link', { name: 'survey coverage (PDF)' });
       await expect(sales).toBeVisible();
       await expect(sales).toHaveAttribute(
         'href',
