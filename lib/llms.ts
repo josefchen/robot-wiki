@@ -1,7 +1,7 @@
 import matter from 'gray-matter';
 import { ARTICLE_QUESTIONS_HEADING, questionsForArticles } from '../data/article-questions.ts';
 import { leadParagraph, sentences } from './article-lead.ts';
-import { articlePassages } from './article-outline.ts';
+import { articlePassages } from './llms-passages.ts';
 import { inlineCitationIds } from './references.ts';
 
 /**
@@ -163,7 +163,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
   if (!questions.length) return [];
 
   const { content, data } = matter(article.source);
-  const { introduction, sections } = articlePassages(content);
+  const { introduction, sections, forFragment } = articlePassages(content);
   const declared = new Set<string>(data.citations ?? []);
   const lines: string[] = [];
 
@@ -175,7 +175,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
       const groups = [introduction, ...sections.map((section) => section.lines)];
       ids = groups.some((lines) => inlineCitationIds(lines.join('\n')).includes(id)) ? [id] : [];
     } else {
-      const section = sections.find((entry) => entry.id === fragment);
+      const section = forFragment(fragment);
       ids = section ? inlineCitationIds(section.lines.join('\n')) : [];
     }
     if (!ids.length) throw new Error(`llms: no cited source for ${href}`);

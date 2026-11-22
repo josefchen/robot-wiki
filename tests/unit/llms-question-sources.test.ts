@@ -1,12 +1,27 @@
+import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
 import { questionsForArticles } from '@/data/article-questions';
+import { articleOutline } from '@/lib/article-outline';
 import { buildLlmsFullTxt, type LlmsArticle } from '@/lib/llms';
+import { articlePassages } from '@/lib/llms-passages';
 import { registryLlmsInput } from '@/lib/llms-registry';
 
 const input = registryLlmsInput();
 const full = buildLlmsFullTxt(input);
 
 describe('question sources in llms-full.txt', () => {
+  it('resolves every published outline fragment to the corresponding passage in source order', () => {
+    for (const article of input.articles) {
+      const { content } = matter(article.source);
+      const { sections, forFragment } = articlePassages(content);
+      const outline = articleOutline(content);
+      expect(sections, article.slug).toHaveLength(outline.length);
+      for (const [index, heading] of outline.entries()) {
+        expect(forFragment(heading.id), `${article.slug}#${heading.id}`).toBe(sections[index]);
+      }
+    }
+  });
+
   it('connects the four published answers to the named papers, preserving the selected source versions', () => {
     const ids = ['enav-perseverance-2026', 'asap-2025', 'openvla-2024', 'pace-2026'];
     const questions = questionsForArticles(input.articles);
@@ -50,8 +65,19 @@ describe('question sources in llms-full.txt', () => {
   it('reports a missing passage or unresolved citation and omits the section from other articles', () => {
     const render = (body: string) => buildLlmsFullTxt({ ...input, articles: [article(body)] });
     expect(() => render('## Elsewhere\nNo study here.')).toThrow(/no cited source/);
+    // A short delimiter inside a longer fence makes the legacy rail miss the real heading.
+    const ambiguous = ['````md', '```', '````', section, 'A study <Cite id="pace-2026" />.'];
+    expect(() => render(ambiguous.join('\r\n'))).toThrow(/no cited source/);
     expect(() => render(section + '\nA study <Cite id="unknown" />.')).toThrow(/unresolved citation "unknown"/);
     const other = { ...article(section + '\nNothing to cite.'), slug: 'unlisted-article' };
     expect(buildLlmsFullTxt({ ...input, articles: [other] })).not.toContain('Sources for ');
+  });
+
+  it('binds repeated titles to the exact anchor, including suffixes shared with lower-level headings', () => {
+    const body = ['### Same', '## Same', 'First.', '## Same', 'Second.'].join('\n');
+    const { forFragment } = articlePassages(body);
+    expect(forFragment('same')).toBeUndefined();
+    expect(forFragment('same-1')?.lines).toEqual(['## Same', 'First.']);
+    expect(forFragment('same-2')?.lines).toEqual(['## Same', 'Second.']);
   });
 });
