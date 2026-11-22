@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
 import { IntentLink } from '@/components/ui/intent-link';
+import { ARTICLE_QUESTIONS_HEADING, questionsForArticles } from '@/data/article-questions';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
 import { DOMAIN_META, publishedModules } from '@/data/modules';
 import {
@@ -39,8 +40,10 @@ export const metadata: Metadata = {
  * can read right now, never authoring progress.
  */
 export default function AzIndexPage() {
+  const articles = publishedModules();
+  const questions = questionsForArticles(articles);
   const entries: AzIndexSourceEntry[] = [
-    ...publishedModules().map((m) => ({
+    ...articles.map((m) => ({
       kind: 'article' as const,
       label: m.title,
       href: `/${m.domain}/${m.slug}/`,
@@ -110,6 +113,21 @@ export default function AzIndexPage() {
           ))}
         </ul>
       </nav>
+
+      {questions.length > 0 && (
+        <nav aria-labelledby="article-questions" className="mt-10">
+          <h2 id="article-questions" className="section-h2">{ARTICLE_QUESTIONS_HEADING}</h2>
+          <ul className="mt-3 grid gap-x-12 sm:grid-cols-2">
+            {questions.map(({ href, label }) => (
+              <li key={href}>
+                <a href={href} className="ink-link inline-block py-2 text-base">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
 
       <div className="mt-6">
         {groups.map((group) => (

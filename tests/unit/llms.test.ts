@@ -24,13 +24,14 @@ const input = registryLlmsInput();
 const llms = buildLlmsTxt(input);
 const full = buildLlmsFullTxt(input);
 const url = (a: Pick<LlmsArticle, 'domain' | 'slug'>) => `${SITE_URL}/${a.domain}/${a.slug}/`;
-// An article link is /<domain>/<slug>/; a standalone page of any depth is not.
+// Count catalogue entries separately from question links to fragments within them.
 const articleLinks = (text: string) =>
   [...text.matchAll(/\]\((https:\/\/[^)]+)\)/g)]
     .map((m) => m[1])
     .filter((href) => {
-      const segments = new URL(href).pathname.split('/').filter(Boolean);
-      return segments.length === 2 && (DOMAINS as readonly string[]).includes(segments[0]);
+      const { pathname, hash } = new URL(href);
+      const segments = pathname.split('/').filter(Boolean);
+      return !hash && segments.length === 2 && (DOMAINS as readonly string[]).includes(segments[0]);
     });
 
 const FIXTURE: LlmsArticle = {

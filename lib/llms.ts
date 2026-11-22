@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+import { ARTICLE_QUESTIONS_HEADING, questionsForArticles } from '../data/article-questions.ts';
 import { leadParagraph, sentences } from './article-lead.ts';
 
 /**
@@ -133,6 +134,12 @@ export function buildLlmsTxt(input: LlmsInput): string {
     for (const article of input.articles.filter((entry) => entry.domain === domain.id)) {
       lines.push(`- [${article.title}](${articleUrl(input, article)}): ${article.summary}`);
     }
+    lines.push('');
+  }
+  const questions = questionsForArticles(input.articles);
+  if (questions.length > 0) {
+    lines.push(`## ${ARTICLE_QUESTIONS_HEADING}`, '');
+    for (const { label, href } of questions) lines.push(`- [${label}](${input.siteUrl}${href})`);
     lines.push('');
   }
   const sections: Array<[string, LlmsPage[]]> = [
