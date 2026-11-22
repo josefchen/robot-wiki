@@ -36,8 +36,8 @@ const questions: ReadonlyArray<{ label: string; href: string; comparison?: Table
       row: 'WidowX AI',
       column: 'Reach',
       sources: [
-        { tag: 'store', label: 'store', citation: 'trossen-widowx-ai-2026' },
-        { tag: 'docs', label: 'specifications', citation: 'trossen-wxai-docs-2026' },
+        { tag: 'store', label: 'Store page', citation: 'trossen-widowx-ai-2026' },
+        { tag: 'docs', label: 'Technical specifications', citation: 'trossen-wxai-docs-2026' },
       ],
     },
   },
