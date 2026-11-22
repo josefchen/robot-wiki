@@ -50,6 +50,25 @@ export default function MarketMapPage() {
           asOf={MARKET_MAP_AS_OF}
           section={{ ...MARKET_SECTION, current: '/market-map/' }}
         />
+        <p className="mt-3 max-w-prose text-base leading-relaxed text-text">
+          For agricultural and other service robots, the International Federation of Robotics publishes a{' '}
+          <a
+            className="ink-link whitespace-nowrap"
+            data-brand-control-id="control:link-focus"
+            href="https://ifr.org/img/worldrobotics/Executive_Summary_WR_2026_-_Service_Robots.pdf#page=4"
+          >
+            unit sales chart (PDF)
+          </a>
+          {' '}for 2024 and 2025 and explains its{' '}
+          <a
+            className="ink-link whitespace-nowrap"
+            data-brand-control-id="control:link-focus"
+            href="https://ifr.org/img/worldrobotics/Sources___Methods_WR_2026_-_Service_Robots.pdf#page=17"
+          >
+            survey coverage (PDF)
+          </a>
+          .
+        </p>
       </div>
       <div className="mt-8">
         <MarketMap companies={COMPANIES} />

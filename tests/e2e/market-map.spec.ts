@@ -142,6 +142,29 @@ test.describe('market map visualization', () => {
     expect(tops[5]).toBeGreaterThan(tops[4]);
   });
 
+  test('links to the sales chart and its sample without JavaScript', async ({ browser }) => {
+    const page = await browser.newPage({ javaScriptEnabled: false });
+    try {
+      await page.goto(ROUTE);
+      const sales = page.getByRole('link', { name: 'unit sales chart (PDF)' });
+      const scope = page.getByRole('link', { name: 'survey coverage (PDF)' });
+      await expect(sales).toBeVisible();
+      await expect(sales).toHaveAttribute(
+        'href',
+        'https://ifr.org/img/worldrobotics/Executive_Summary_WR_2026_-_Service_Robots.pdf#page=4',
+      );
+      await expect(scope).toHaveAttribute(
+        'href',
+        'https://ifr.org/img/worldrobotics/Sources___Methods_WR_2026_-_Service_Robots.pdf#page=17',
+      );
+      await sales.focus();
+      await page.keyboard.press('Tab');
+      await expect(scope).toBeFocused();
+    } finally {
+      await page.close();
+    }
+  });
+
   test('filters compose, deep-link, and clear', async ({
     page,
   }) => {
