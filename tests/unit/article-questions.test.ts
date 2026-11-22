@@ -26,6 +26,8 @@ describe('article question directory', () => {
       expect.stringMatching(/cite.*OpenVLA/), expect.stringMatching(/PACE.*moves/),
       expect.stringMatching(/System 1 and System 2/), expect.stringMatching(/GELLO.*cost/),
       expect.stringMatching(/robot arms reach.*return to the same spot/),
+      expect.stringMatching(/knowledge insulation.*training steps.*clear a table/),
+      expect.stringMatching(/world model.*best on a real robot/),
     ]);
     const machineSection = buildLlmsTxt(input).split(`## ${ARTICLE_QUESTIONS_HEADING}\n\n`)[1].split('\n\n')[0];
     expect(machineSection.split('\n')).toEqual(links.map(({ label, href }) => `- [${label}](${input.siteUrl}${href})`));

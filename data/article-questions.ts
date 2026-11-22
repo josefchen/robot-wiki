@@ -41,6 +41,14 @@ const questions: ReadonlyArray<{ label: string; href: string; comparison?: Table
       ],
     },
   },
+  {
+    label: 'Did knowledge insulation cut the training steps needed to clear a table?',
+    href: '/manipulation/knowledge-insulation/#insulation-trains-faster',
+  },
+  {
+    label: 'Can a world model predict which robot policy will work best on a real robot?',
+    href: '/world-models/evaluation/#level-4-the-best-simulators-order-policies-as-real-trials-do',
+  },
 ];
 
 export const ARTICLE_QUESTIONS_HEADING = 'Questions answered in the articles';
