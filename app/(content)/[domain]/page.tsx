@@ -271,6 +271,18 @@ export default async function DomainLandingPage({
                   </IntentLink>
                   <p className="mt-1.5 text-[15px] leading-[1.6] text-text-dim">
                     {m.summary}
+                    {domain === 'data-hardware' && m.slug === 'datasets' && (
+                      <>
+                        {' '}
+                        <IntentLink
+                          data-brand-control-id="control:link-focus"
+                          href="/data-hardware/datasets/#bridgedata-v2-is-built-on-a-cheap-arm"
+                          className="ink-link"
+                        >
+                          Researchers collected BridgeData V2 with a WidowX 250 arm
+                        </IntentLink>.
+                      </>
+                    )}
                   </p>
                 </div>
             </li>
