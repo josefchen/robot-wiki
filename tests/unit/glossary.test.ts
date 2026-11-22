@@ -1,6 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
+import GlossaryPage from '@/app/glossary/page';
+import { articleOutline } from '@/lib/article-outline';
 import { GLOSSARY, getTerm, glossaryTermsAlphabetical } from '@/data/glossary';
 import { glossaryTermSchema } from '@/data/schemas/glossary';
 import { getCitation } from '@/data/citations';
@@ -148,4 +151,19 @@ describe('inline term ids across published articles', () => {
       }
     }
   });
+});
+
+it('links the inverse kinematics definition to the worked example and keeps its textbook citation', () => {
+  const rendered = new DOMParser().parseFromString(renderToStaticMarkup(GlossaryPage()), 'text/html');
+  const term = rendered.querySelector('#inverse-kinematics')!;
+  expect(term.querySelector('[data-glossary-definition]')?.textContent)
+    .toBe(getTerm('inverse-kinematics')!.definition);
+  const link = Array.from(term.querySelectorAll('a')).find(
+    (anchor) => anchor.textContent === 'How does a robot arm reach a cup?',
+  )!;
+  expect(link.pathname.replace(/\/$/, '')).toBe('/classical/kinematics');
+  const source = readFileSync(join(process.cwd(), 'content/classical/kinematics.mdx'), 'utf8');
+  expect(articleOutline(moduleBody(source)).map((heading) => heading.id))
+    .toContain(link.hash.slice(1));
+  expect(term.querySelector('a[href="' + getCitation('modern-robotics-2017')!.url + '"]')).not.toBeNull();
 });

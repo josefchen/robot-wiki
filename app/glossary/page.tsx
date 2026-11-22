@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Fragment } from 'react';
 import { citationLabel, getCitation } from '@/data/citations';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
@@ -96,6 +97,15 @@ export default function GlossaryPage() {
                   </Fragment>
                 ))}
               </div>
+              {term.id === 'inverse-kinematics' && (
+                <Link
+                  href="/classical/kinematics/#inverse-kinematics-has-many-answers-or-none"
+                  prefetch={false}
+                  className="ink-link mt-2 inline-block py-1 text-base"
+                >
+                  How does a robot arm reach a cup?
+                </Link>
+              )}
               <ul className="mt-3 flex flex-col gap-1.5">
                 {sources.map((source) => (
                   <li key={source.id} className="flex flex-wrap items-baseline gap-x-2">
