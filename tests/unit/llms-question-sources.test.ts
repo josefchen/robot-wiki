@@ -1,0 +1,54 @@
+import { describe, expect, it } from 'vitest';
+import { questionsForArticles } from '@/data/article-questions';
+import { buildLlmsFullTxt, type LlmsArticle } from '@/lib/llms';
+import { registryLlmsInput } from '@/lib/llms-registry';
+
+const input = registryLlmsInput();
+const full = buildLlmsFullTxt(input);
+
+describe('question sources in llms-full.txt', () => {
+  it('connects the four published answers to the named papers, preserving the selected source versions', () => {
+    const ids = ['enav-perseverance-2026', 'asap-2025', 'openvla-2024', 'pace-2026'];
+    const questions = questionsForArticles(input.articles);
+    expect(questions).toHaveLength(ids.length);
+    for (const [i, { href, label }] of questions.entries()) {
+      const source = input.citation(ids[i])!;
+      const block = full.split(`Sources for [${label}](${input.siteUrl}${href})\n`)[1].split('\n\n')[0];
+      expect(block).toContain(`- ${source.label}. [${source.title}](${source.url})`);
+      expect(full).toContain(`[All references for this article](${input.siteUrl}${href.split('#')[0]}#references-heading)`);
+    }
+  });
+
+  const chunking = input.articles.find((a) => a.slug === 'action-chunking')!;
+  const article = (source: string): LlmsArticle => ({
+    ...chunking,
+    source: [
+      '---',
+      'citations: [pace-2026, asap-2025]',
+      '---',
+      'A timing study asks when to plan again.',
+      source,
+    ].join('\n\n'),
+  });
+  const section = '## Chunk size trades error against reaction time';
+
+  it('keeps cited sources from that passage only, skips sample code and prints a repeated source once', () => {
+    const fixture = article([
+      '```md', section, '<Cite id="asap-2025" />', '```',
+      section, 'The study <Cite id="pace-2026" /> is cited twice <Cite id=\'pace-2026\' />.',
+      'An example of markup is `<Cite id="asap-2025" />`.',
+      '## A different experiment', 'Another lab <Cite id="asap-2025" />.',
+    ].join('\n'));
+    const block = buildLlmsFullTxt({ ...input, articles: [fixture] }).split('Sources for ')[1];
+    expect(block.match(/2606\.00537v3/g)).toHaveLength(1);
+    expect(block).not.toContain(input.citation('asap-2025')!.url);
+  });
+
+  it('reports a missing passage or unresolved citation and omits the section from other articles', () => {
+    const render = (body: string) => buildLlmsFullTxt({ ...input, articles: [article(body)] });
+    expect(() => render('## Elsewhere\nNo study here.')).toThrow(/no cited source/);
+    expect(() => render(section + '\nA study <Cite id="unknown" />.')).toThrow(/unresolved citation "unknown"/);
+    const other = { ...article(section + '\nNothing to cite.'), slug: 'unlisted-article' };
+    expect(buildLlmsFullTxt({ ...input, articles: [other] })).not.toContain('Sources for ');
+  });
+});
