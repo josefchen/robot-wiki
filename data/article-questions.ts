@@ -20,7 +20,7 @@ const questions = [
     href: '/manipulation/hierarchical/#two-speeds-in-one-system',
   },
   {
-    label: 'How much does a GELLO controller cost to build?',
+    label: 'What did the original GELLO controllers cost in parts?',
     href: '/data-hardware/teleop-rigs/#gello-copies-the-arm-in-printed-parts',
   },
 ];
