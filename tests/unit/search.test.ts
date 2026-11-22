@@ -8,6 +8,7 @@ import {
   titleWeight,
   toSearchHits,
   type PagefindResult,
+  type PagefindResultData,
 } from '@/lib/search';
 
 function fakeResult(data: {
@@ -20,6 +21,45 @@ function fakeResult(data: {
 }
 
 describe('toSearchHits', () => {
+  async function excerpt(title: string, plain: string, content: string, query: string, sections: string[] = []) {
+    const data: PagefindResultData = {
+      url: '/example/', meta: { title }, content, plain_excerpt: plain,
+      excerpt: plain, sub_results: sections.map((title, i) => ({ title, url: `/example/#section-${i}` })),
+    };
+    return (await toSearchHits({ results: [fakeResult(data)] }, query))[0]?.excerpt;
+  }
+
+  it('uses a matched section for a qualifier beyond the repeated heading', async () => {
+    const plain = 'Humanoid Control. How robots move. A humanoid can';
+    const result = await excerpt('Humanoid Control', plain, plain + ' move. Sim-to-real results. Real humanoids at work.', 'humanoid control sim-to-real', ['Real humanoids at work']);
+    expect(result).toBe('<mark>Real</mark> <mark>humanoids</mark> at work');
+  });
+
+  it('keeps the complete deck for a title match, including an escaped comparison and decimal', async () => {
+    const plain = 'Control. A 3.5 mm gap is < 5 mm & visible. The next';
+    expect(await excerpt('Control', plain, plain + ' sentence.', 'control')).toBe('A 3.5 mm gap is &lt; 5 mm &amp; visible.');
+  });
+
+  it('keeps a model identifier in the clipped window when the deck and section miss it', async () => {
+    const plain = 'Motors. A short guide. The G1 works';
+    expect(await excerpt('Motors', plain, plain + ' at low speed. G10 guide.', 'motors G1', ['G10 guide']))
+      .toBe('A short guide. The <mark>G1</mark> works…');
+  });
+
+  it('preserves a non-Latin sentence and suppresses a title-only result description', async () => {
+    const plain = '測定。距離は何メートル？次の';
+    expect(await excerpt('測定', plain, plain + 'テスト。', '測定')).toBe('距離は何メートル？');
+    expect(await excerpt('Control', 'Control.', 'Control.', 'control')).toBe('');
+  });
+
+  it('leaves an interior match intact and never interpolates markup in a replacement heading', async () => {
+    const middle = 'Repeat. The clipped match 42';
+    expect(await excerpt('Repeat', middle, 'Earlier. ' + middle + ' metres.', '42')).toBe(middle);
+    const plain = 'Sensors. Camera coverage.';
+    expect(await excerpt('Sensors', plain, plain + ' Glass & <probe>.', 'sensors glass', ['Glass & <probe>']))
+      .toBe('<mark>Glass</mark> &amp; &lt;probe&gt;');
+  });
+
   it('maps url, title, and excerpt from pagefind result data', async () => {
     const hits = await toSearchHits(
       {

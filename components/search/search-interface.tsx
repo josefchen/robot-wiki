@@ -430,13 +430,13 @@ export function SearchInterface({
                     >
                       <span
                         data-result-title
-                        className="font-sans text-[15px] font-medium text-text decoration-1 underline-offset-[3px] group-hover:underline group-focus-visible:underline"
+                        className="font-sans text-base font-medium text-text decoration-1 underline-offset-[3px] group-hover:underline group-focus-visible:underline"
                       >
                         {entry.title}
                       </span>
                       {entry.excerpt ? (
                         <span
-                          className="search-excerpt mt-1 block text-sm leading-relaxed text-text-dim"
+                          className="search-excerpt mt-1 block max-w-prose text-base leading-relaxed text-text-dim"
                           dangerouslySetInnerHTML={{ __html: entry.excerpt }}
                         />
                       ) : null}
