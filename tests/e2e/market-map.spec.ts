@@ -647,7 +647,12 @@ test.describe('market map visualization', () => {
       // The whole-body-control readouts sit in "How this was made".
       {
         route: '/rl-sim2real/humanoid-wbc/',
-        labels: ['Representative:', 'Layers:', 'Fastest loop:', 'Motion data'],
+        labels: [
+          'Representative:',
+          'Layers:',
+          'Fastest loop:',
+          "The simplest copy keeps the person's joint angles",
+        ],
         openFolds: true,
       },
       // The taxonomy figure's one visible control names the form a model
