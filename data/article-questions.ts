@@ -23,6 +23,10 @@ const questions = [
     label: 'What did the original GELLO controllers cost in parts?',
     href: '/data-hardware/teleop-rigs/#gello-copies-the-arm-in-printed-parts',
   },
+  {
+    label: 'How far can robot arms reach, and how precisely can they return to the same spot?',
+    href: '/data-hardware/research-arms-compared/#mechanics',
+  },
 ];
 
 export const ARTICLE_QUESTIONS_HEADING = 'Questions answered in the articles';
