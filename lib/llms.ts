@@ -1,5 +1,5 @@
 import matter from 'gray-matter';
-import { ARTICLE_QUESTIONS_HEADING, questionsForArticles } from '../data/article-questions.ts';
+import { ARTICLE_QUESTIONS_HEADING, questionsForArticles, type TableComparison } from '../data/article-questions.ts';
 import { leadParagraph, sentences } from './article-lead.ts';
 import { articlePassages } from './llms-passages.ts';
 import { inlineCitationIds } from './references.ts';
@@ -157,6 +157,41 @@ export function buildLlmsTxt(input: LlmsInput): string {
   return `${lines.join('\n').trimEnd()}\n`;
 }
 
+/** Read a labelled comparison cell and use the source IDs cited in its own row. */
+function comparisonTable(input: LlmsInput, lines: readonly string[], comparison: TableComparison, passageUrl: string): string[] {
+  const cells = (line: string) => line.trim().replace(/^\||\|$/g, '').split(/(?<!\\)\|/).map(cell => cell.trim());
+  const rows: Array<{ value: string; ids: string[] }> = [];
+  for (const block of lines.join('\n').split(/\n\s*\n/)) {
+    const table = block.trim().split('\n');
+    if (table.length < 3 || !cells(table[1]).every(cell => /^:?-+:?$/.test(cell))) continue;
+    const column = cells(table[0]).indexOf(comparison.column);
+    if (column === -1) continue;
+    for (const line of table.slice(2)) {
+      const row = cells(line);
+      if (row[0] === comparison.row) rows.push({ value: row[column] ?? '', ids: inlineCitationIds(line) });
+    }
+  }
+  if (rows.length !== 1) throw new Error(`llms: expected one ${comparison.row} row with column ${comparison.column}`);
+  const values = rows[0].value.split(/,\s+/).map(part => /^([^()[\]]+) \(([^()]+)\)$/.exec(part));
+  const sourceRows = comparison.sources.map(({ tag, label, citation }) => {
+    const matches = values.filter(match => match?.[2] === tag);
+    const source = input.citation(citation);
+    const value = matches[0]?.[1];
+    if (!value || matches.length !== 1 || !rows[0].ids.includes(citation) || !source) {
+      throw new Error(`llms: cannot pair ${comparison.row} ${comparison.column} with source ${tag}`);
+    }
+    return `| ${label} | ${value} | ${source.url} |`;
+  });
+  if (values.length !== sourceRows.length) throw new Error(`llms: unpaired value for ${comparison.row} ${comparison.column}`);
+  const field = comparison.column.toLowerCase();
+  return [
+    `${comparison.row} ${field}`, '',
+    `| Manufacturer source | Reported ${field} | Original URL |`, '| --- | --- | --- |',
+    ...sourceRows, '',
+    `Robot Wiki comparison table — ${passageUrl}`, '',
+  ];
+}
+
 /** Sources for the exact passages linked by the reader question directory. */
 function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
   const questions = questionsForArticles([article]);
@@ -167,9 +202,10 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
   const declared = new Set<string>(data.citations ?? []);
   const lines: string[] = [];
 
-  for (const { href, label } of questions) {
+  for (const { href, label, comparison } of questions) {
     const fragment = href.split('#')[1];
     let ids: string[];
+    let answer: string[] = [];
     if (fragment.startsWith('ref-')) {
       const id = fragment.slice(4);
       const groups = [introduction, ...sections.map((section) => section.lines)];
@@ -177,9 +213,11 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
     } else {
       const section = forFragment(fragment);
       ids = section ? inlineCitationIds(section.lines.join('\n')) : [];
+      if (comparison && section) answer = comparisonTable(input, section.lines, comparison, `${input.siteUrl}${href}`);
     }
     if (!ids.length) throw new Error(`llms: no cited source for ${href}`);
     lines.push(`Sources for [${label}](${input.siteUrl}${href})`);
+    lines.push(...answer);
     for (const id of ids) {
       const source = input.citation(id);
       if (!declared.has(id) || !source) throw new Error(`llms: unresolved citation "${id}" for ${href}`);

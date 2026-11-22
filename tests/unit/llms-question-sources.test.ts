@@ -32,7 +32,8 @@ describe('question sources in llms-full.txt', () => {
     const sourceGuide = full.slice(0, full.indexOf('\n## '));
     expect(questions).toHaveLength(ids.length);
     for (const [i, { href, label }] of questions.entries()) {
-      const block = sourceGuide.split(`Sources for [${label}](${input.siteUrl}${href})\n`)[1].split('\n\n')[0];
+      const block = sourceGuide.split(`Sources for [${label}](${input.siteUrl}${href})\n`)[1]
+        .split(/\n(?:Sources for |\[All references for this article\])/)[0];
       for (const id of ids[i]) {
         const source = input.citation(id)!;
         const note = `${input.siteUrl}${href.split('#')[0]}#ref-${id}`;
@@ -43,6 +44,27 @@ describe('question sources in llms-full.txt', () => {
   });
 
   const chunking = input.articles.find((a) => a.slug === 'action-chunking')!;
+  const arms = input.articles.find((a) => a.slug === 'research-arms-compared')!;
+
+  it('prints the current reach from the selected row next to each manufacturer source', () => {
+    const store = input.citation('trossen-widowx-ai-2026')!.url;
+    const manual = input.citation('trossen-wxai-docs-2026')!.url;
+    const table = `${input.siteUrl}/data-hardware/research-arms-compared/#mechanics`;
+    expect(full).toContain([
+      'WidowX AI reach', '',
+      '| Manufacturer source | Reported reach | Original URL |', '| --- | --- | --- |',
+      `| Store page | 700 mm | ${store} |`, `| Technical specifications | 769 mm | ${manual} |`, '',
+      `Robot Wiki comparison table — ${table}`,
+    ].join('\n'));
+
+    const render = (source: string) => buildLlmsFullTxt({ ...input, articles: [{ ...arms, source }] });
+    const cell = '700 mm (store), 769 mm (docs)';
+    const changed = arms.source.replace(cell, '0.8 m (docs), 710 mm (store)');
+    expect(render(changed)).toContain(`| Store page | 710 mm | ${store} |\n| Technical specifications | 0.8 m | ${manual} |`);
+    expect(() => render(arms.source.replace(cell, '700 mm'))).toThrow(/cannot pair/);
+    expect(() => render(arms.source.replace('<Cite id="trossen-wxai-docs-2026" />', ''))).toThrow(/cannot pair/);
+  });
+
   const article = (source: string): LlmsArticle => ({
     ...chunking,
     source: [
