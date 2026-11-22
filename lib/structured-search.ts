@@ -475,6 +475,69 @@ function mentionedEntities(words: string[], catalog: Awaited<ReturnType<typeof e
   return [...found.values()];
 }
 
+const SUPPLIERS = /^(compan(y|ies)|firms?|makers?|manufacturers?|vendors?|suppliers?|startups?|brands?)$/;
+const SUPPLY_VERBS = /^(mak(e|es|ing)|build(s|ing)?|sell(s|ing)?|suppl(y|ies|ying)|offer(s|ing)?|produc(e|es|ing)|manufactur(e|es|ing)|develop(s|ing)?|buy|purchas(e|ing))$/;
+const PRODUCT_FILLER = new Set(`
+  a an and any are at be can could currently do does equipment equipped featuring find for
+  from has have i in including is it leading list looking me need of on or product products
+  system systems that the them there those to top using want we what where which who with would
+`.trim().split(/\s+/));
+
+function productWord(word: string): string {
+  if (/^(robotics?|robots?)$/.test(word)) return 'robot';
+  return word.length > 3 ? word.replace(/ies$/, 'y').replace(/(?<!s)s$/, '') : word;
+}
+
+/** Require product evidence when a reader explicitly asks for suppliers or describes a specification. */
+function productMatches(words: string[], question: boolean, index: MiniSearch<StructuredSearchDocument>): StructuredHit[] {
+  const tokens = words.map(foldGreekToAscii);
+  const hasSupplier = tokens.some(word => SUPPLIERS.test(word));
+  const buying = tokens.includes('buy') || tokens.includes('purchase');
+  const requestsList = hasSupplier && (!question || ['which', 'what'].includes(tokens[0]));
+  const makingOrSelling = tokens.some(word => SUPPLY_VERBS.test(word));
+  const wantsSupplier = requestsList || (makingOrSelling && (hasSupplier || tokens[0] === 'who' || buying));
+  const modifier = tokens.findIndex(word => /^(with|featuring|including)$/.test(word));
+  if (!wantsSupplier && (QUESTION_START.test(tokens[0]) || modifier < 1)) return [];
+  if (tokens.some(word => /^(no|not|without)$/.test(word))) return [];
+
+  const descriptive = (word: string) => !PRODUCT_FILLER.has(word) && !SUPPLIERS.test(word) && !SUPPLY_VERBS.test(word);
+  const terms = new Set(tokens.filter(descriptive).map(productWord));
+  terms.delete('robot');
+  if (!terms.size) return [];
+  const variants = new Set(tokens.filter(word => terms.has(productWord(word))));
+  for (const term of terms) {
+    variants.add(term);
+    variants.add(term.endsWith('y') ? term.slice(0, -1) + 'ies' : term + 's');
+  }
+  const candidates = index.search([...variants].join(' '), {
+    fields: ['title', 'text', 'facet'], prefix: false, fuzzy: false,
+    filter: result => result.type === 'company',
+  });
+  const subject = modifier > 0 ? tokens.slice(0, modifier).filter(descriptive).map(productWord) : [];
+  const subjectTerms = subject.filter(word => terms.has(word));
+  const features = new Set(modifier > 0 ? tokens.slice(modifier + 1).filter(descriptive).map(productWord) : []);
+  const rows = candidates.map(result => ({
+    result,
+    matched: new Set(Object.keys(result.match).map(productWord).filter(word => terms.has(word))),
+  }));
+  const required = Math.min(terms.size, Math.max(2, Math.ceil(terms.size * 2 / 3)));
+  const supportsSubject = (matched: Set<string>) => !subjectTerms.length || subjectTerms.some(word => matched.has(word));
+  const hasSupportedSpec = subject.length > 1 && rows.some(({matched}) =>
+    matched.size >= required && supportsSubject(matched) && [...features].some(word => matched.has(word)),
+  );
+  const phrase = ' ' + subject.join(' ') + ' ';
+  const relevant = rows.filter(({result, matched}) => {
+    if (matched.size >= required && supportsSubject(matched)) return true;
+    // A parts buyer can also inspect an exact match to the product itself. Put it
+    // after results that support the requested features in their own records.
+    if (!hasSupportedSpec) return false;
+    const description = nameWords(result.title + ' ' + result.snippet).map(foldGreekToAscii).map(productWord);
+    return (' ' + description.join(' ') + ' ').includes(phrase);
+  });
+  relevant.sort((a, b) => b.matched.size - a.matched.size || b.result.score - a.result.score);
+  return toStructuredHits(relevant.map(row => row.result));
+}
+
 /**
  * Loads the build-time MiniSearch index and adapts it to a search client.
  * Rejects when /search-index.json is unavailable (for example under a
@@ -499,7 +562,8 @@ export async function createStructuredSearchClient(): Promise<StructuredSearchCl
       const words = nameWords(query);
       const question = words.length >= 2 && (/[?？]/u.test(query) || QUESTION_START.test(words[0]));
       if (question || words.length >= 5) {
-        return mentionedEntities(words, await (names ??= entityNames(index)));
+        const mentioned = mentionedEntities(words, await (names ??= entityNames(index)));
+        return mentioned.length ? mentioned : productMatches(words, question, index);
       }
       return toStructuredHits(index.search(query));
     },
