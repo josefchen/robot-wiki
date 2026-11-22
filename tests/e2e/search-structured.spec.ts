@@ -298,11 +298,19 @@ test('paper search distinguishes unavailable, uncited and ordinary queries', asy
   await expect(page.locator('[data-search-empty]')).toHaveCount(0);
   await retry.press('Enter');
   await expect(page.getByRole('link', { name: /^Action Chunking/ }).first()).toBeVisible();
+  await expect(page.getByRole('status')).toHaveText('13 technical chapters cite arXiv:2304.13705');
   const input = page.getByRole('searchbox', { name: 'Search the wiki' });
   await input.fill('2403.99999');
-  await expect(page.getByRole('status')).toHaveText('No wiki pages cite arXiv:2403.99999');
+  await expect(page.getByRole('status')).toHaveText('No technical chapters cite arXiv:2403.99999');
   await expect(page.locator('[data-search-empty]')).toContainText('Try the paper title');
   await input.fill('DROID dataset');
   await expect(page.getByRole('region', { name: 'Wiki pages', exact: true }).getByRole('link').first()).toContainText('Datasets');
   expect(requests).toBe(2);
+});
+
+test('a paper linked only from a company profile has no technical chapter matches', async ({ page }) => {
+  await page.goto(`${BASE}/search/?q=arxiv%3A2509.14139`);
+  await expect(page.getByRole('status')).toHaveText('No technical chapters cite arXiv:2509.14139');
+  await page.goto(`${BASE}/companies/unitree/`);
+  await expect(page.locator('a[href*="arxiv.org/"][href*="2509.14139"]').first()).toBeAttached();
 });
