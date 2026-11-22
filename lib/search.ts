@@ -308,12 +308,34 @@ async function questionExcerpt(data: PagefindResultData, location: number, weigh
     const { getModule } = await import('../data/modules');
     text = getModule(route[1], route[2])?.summary ?? '';
   }
+  return escapeExcerpt(text);
+}
+
+function escapeExcerpt(text: string) {
   return text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+}
+
+/** An exact article title can be qualified by the site's subject, as in
+ * "robotic kinematics" or "kinematics of robotics". Body matches can miss the
+ * article when its author calls a robot a hand or an arm. */
+async function preferQualifiedTitle(query: string, hits: SearchHit[]) {
+  const phrase = tokenize(query).join(' ');
+  const qualifier = /^(?:robot|robotic|robotics) (.+)$|^(.+) (?:in|of|for) robotics$/.exec(phrase);
+  if (!qualifier || hits.some((hit) => titleWeight(query, hit.title) === 2)) return hits;
+  const subject = qualifier[1] ?? qualifier[2];
+  const { publishedModules } = await import('../data/modules');
+  const article = publishedModules().find((entry) => tokenize(entry.title).join(' ') === subject);
+  if (!article) return hits;
+
+  const url = `/${article.domain}/${article.slug}/`;
+  const lead = hits.find((hit) => hit.url === url)
+    ?? { url, title: article.title, excerpt: escapeExcerpt(article.summary) };
+  return [lead, ...hits.filter((hit) => hit.url !== url)].slice(0, RESULT_LIMIT);
 }
 
 /** Try partial matches only for a question whose complete search found nothing. */
 export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
-  const strict = await toSearchHits(await lookup(query), query);
+  const strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
   if (strict.length) return strict;
   const terms = questionTerms(query);
   if (!terms.length) return [];
