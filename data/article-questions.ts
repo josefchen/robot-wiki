@@ -22,6 +22,8 @@ interface ArticleQuestion {
 const cameraExampleWords = new Set([
   'gr00t', 'n1', 'nvidia', 'isaac', 'so100', 'camera',
   'input', 'example', 'code', 'script', 'control', 'loop',
+  'update', 'updates', 'between', 'every', 'each', 'per',
+  'step', 'steps', 'action', 'actions', 'command', 'commands', 'move', 'moves',
 ]);
 
 /** A compact source lookup may name the camera, arm and model in any order.

@@ -561,6 +561,8 @@ describe('reader questions in prose search', () => {
     for (const query of [
       'SO100 GR00T camera', 'camera GR00T SO-100', 'GR00T N1 SO 100 camera',
       'NVIDIA GR00T-N1 SO‑100 camera example', 'Camera input SO100 GR00T code',
+      'gr00t so-100 camera between actions', 'SO‑100 GR00T N1 camera updates',
+      'SO100 gr00t camera every step', 'gr00t camera per command SO100',
     ]) {
       const other = {url: '/ordinary/', content: query};
       const lookup = async () => ({results: [{id: 'page', score: 1, data: async () => other}]});
@@ -576,6 +578,8 @@ describe('reader questions in prose search', () => {
       'GR00T N1.6 SO100 camera', 'GR00T N1.7 SO-100 camera', 'GR00T N2 SO100 camera',
       'SO-101 GR00T camera', 'SO100 GR00T camera price', 'GR00T SO-100 camera tripod for filming',
       'SO100 GR00T camera calibration', 'SO100 camera', 'GR00T N1 camera',
+      'SO100 GR00T camera between action shots for filming',
+      'SO100 GR00T N1.7 camera every step',
     ]) {
       const results = await searchPagefind(async () => ({results: []}), query);
       expect(results).toEqual([]);
