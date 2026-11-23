@@ -24,14 +24,21 @@ interface ArticleQuestion {
 function asksAboutControlRates(query: string) {
   const model = /\bgr00t[ -]n1\b(?![.\d])/.test(query);
   if (/\bgr00t\b/.test(query) && !model) return false;
-  const observation = /\b(camera|frames?|images?|observations?)\b/.test(query);
-  const visionModel = /\b(?:vision(?:[ -]language)?|visual|vlm)\b/.test(query);
+  const visionModel = /\b(?:vision[ -]language|(?:vision|visual) (?:model|encoder)|vlm)\b/.test(query);
+  const freshInput = /\b(?:new|fresh|next|latest) (?:camera )?(?:frames?|images?|observations?)\b/.test(query);
   const motion = /\b(act(?:ion)?s?|acting|motor|mov(?:e|es|ing|ement|ements)|commands?|control(?:ler)?)\b/.test(query);
-  const rateQuestion = /\b(?:rate|rates|often|fast|faster|slow|slower|frequency|frequencies|every|each)\b/.test(query);
+  const cadence = /\b(?:rates?|often|fast(?:er)?|slow(?:er)?|frequen(?:tly|cy|cies)|every|each|hz)\b/.test(query);
+  if (!motion || !cadence) return false;
+
+  // A camera filming the arm is not a control input. Look for the model
+  // processing an observation or a new frame tied to an action.
+  const processesInput = /\b(?:sees?|process(?:es)?|receives?) (?:an? |the |each |every |new |fresh |camera )*(?:images?|frames?|observations?|scene)\b/.test(query);
+  const inputToAction = freshInput && /\b(?:for|at|before|with) (?:every|each) (?:motor )?(?:actions?|commands?|moves?|movements?)\b/.test(query);
+  if (model) return visionModel || processesInput || inputToAction;
+
   const robotPlanner = /\b(?:robot|arm|gripper)\b/.test(query)
-    && /\b(?:vision[ -]language model|vlm|planner|planning model)\b/.test(query)
-    && /\b(?:fast|slow)(?:er)?\b/.test(query);
-  return motion && rateQuestion && ((model && (visionModel || observation)) || (robotPlanner && observation));
+    && /\b(?:vision[ -]language model|vlm|planner|planning model)\b/.test(query);
+  return robotPlanner && freshInput && /\b(?:fast|slow)(?:er)?\b/.test(query);
 }
 
 const questions: readonly ArticleQuestion[] = [

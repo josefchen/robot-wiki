@@ -499,7 +499,7 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
     }
   }
   const terms = questionTerms(query);
-  const hits = strict.length || !terms.length ? strict : await partialQuestionHits(lookup, terms);
+  const ordinaryHits = () => strict.length || !terms.length ? strict : partialQuestionHits(lookup, terms);
   const exact = exactSearchQuestion(query);
   const question = exact || (!strict.length && relatedSearchQuestion(query));
   if (question) {
@@ -514,9 +514,11 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
         excerpt: escapeExcerpt(exact ? question.label : `Related question: ${question.label}`),
         ...(question.source && {source: question.source}),
       };
+      const hits = exact ? strict : await ordinaryHits();
       return [lead, ...hits.filter(hit => hit.url.split('#')[0] !== path)].slice(0, RESULT_LIMIT);
     }
   }
+  const hits = await ordinaryHits();
   return terms.length ? preferPolicyComparison(query, hits) : hits;
 }
 
