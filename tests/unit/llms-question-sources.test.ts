@@ -27,6 +27,7 @@ describe('question sources in llms-full.txt', () => {
       ['enav-perseverance-2026'], ['asap-2025'], ['openvla-2024'], ['pace-2026'],
       ['helix-2025'], ['gello-2023'], ['trossen-widowx-ai-2026', 'trossen-wxai-docs-2026'],
       ['knowledge-insulation-paper-2025'], ['veo-world-simulator-2025', 'worldgym-2025'],
+      ['roboticscenter-seller-terms', 'ay-robots-dataset-marketplace'],
     ];
     const questions = questionsForArticles(input.articles);
     // A reader that only downloads the start of the digest can still follow every question.
@@ -42,6 +43,16 @@ describe('question sources in llms-full.txt', () => {
       }
       expect(full).toContain(`[All references for this article](${input.siteUrl}${href.split('#')[0]}#references-heading)`);
     }
+  });
+
+  it('limits the seller-share answer to the marketplaces that disclose the fees', () => {
+    const market = input.articles.find((article) => article.slug === 'data-market')!;
+    const guide = buildLlmsFullTxt({ ...input, articles: [market] });
+    const block = guide.split('Sources for [What share')[1].split('[All references for this article]')[0];
+    expect(block.split('\n').filter((line) => line.startsWith('- ['))).toHaveLength(2);
+    expect(block).not.toContain('Robotics Data is a Broken Business');
+    const source = market.source.replace('<Cite id="roboticscenter-seller-terms" />', '');
+    expect(() => buildLlmsFullTxt({ ...input, articles: [{ ...market, source }] })).toThrow(/question source .* missing from/);
   });
 
   const chunking = input.articles.find((a) => a.slug === 'action-chunking')!;
