@@ -66,11 +66,11 @@ seeAlso:
 
 import { ActionConditioning } from '@/components/interactive/action-conditioning';
 
-A generative video [world model](/world-models/taxonomy/) is a video generator that also takes the robot's action, so it shows what the camera would see after that move. It can stand in for the real world to train and test policies, and some now act as the policy <Cite id="world-model-survey-2026" />.
+A generative video [world model](/world-models/taxonomy/) is a video generation model that also conditions on an action, in order to model what a camera would see if the robot were to take that action. These models can be used as a stand-in for the real world to train and evaluate robot policies, and some of these models double as the policy themselves <Cite id="world-model-survey-2026" />.
 
 <Image id="gr1-video-prediction-2023" />
 
-Policies trained only inside UniSim ran in the real world zero-shot <Cite id="unisim-2023" />. The catch is a model that renders realistic frames while ignoring the action: "visual realism does not imply physical understanding" <Cite id="physics-iq-2025" />.
+Policies learned using only interactions with UniSim transferred zero-shot to control real robots <Cite id="unisim-2023" />. However, "visual realism does not imply physical understanding": a video prediction model may learn to produce photorealistic rollouts that ignore the agent's actions <Cite id="physics-iq-2025" />.
 
 <ActionConditioning className="my-6" />
 
@@ -83,9 +83,9 @@ Policies trained only inside UniSim ran in the real world zero-shot <Cite id="un
 <span id="cosmos-3-the-omni-model" />
 ## Cosmos 3 replaces a stack of separate models with one omni-model
 
-NVIDIA calls a home robot built from separate planner, policy and action-prediction models "fragmented" and "computationally wasteful" <Cite id="cosmos-3-2026" />. Cosmos 3, launched on May 31, 2026, does those jobs in one model <Cite id="nvidia-cosmos-3-launch-2026" />.
+NVIDIA says building a home robot from separate planner, policy and action-prediction models is "fragmented" and "computationally wasteful" <Cite id="cosmos-3-2026" />. On May 31, 2026, NVIDIA released Cosmos 3, which does planning, policy and action prediction in one model <Cite id="nvidia-cosmos-3-launch-2026" />.
 
-It pairs a <Term id="vision-language-model">vision-language</Term> reasoner with a generator of video, audio and actions, so it can predict video from actions, actions from video, or both as a policy <Cite id="cosmos-3-2026" />. Open checkpoints from November 2026 simulate YAM and AgiBot two-arm robots <Cite id="cosmos3-interactive-sim-2026" />.
+It consists of a <Term id="vision-language-model">vision-language</Term> reasoner and a video, audio and action generator, enabling prediction of video conditioned on actions, actions conditioned on video, or both jointly as a policy <Cite id="cosmos-3-2026" />. In November 2026, open checkpoints that simulate YAM and AgiBot two-arm embodiments were released <Cite id="cosmos3-interactive-sim-2026" />.
 
 Also: its predecessor Predict2.5 <Cite id="cosmos-predict2-5-2025" />.
 
@@ -100,21 +100,21 @@ Also: its predecessor Predict2.5 <Cite id="cosmos-predict2-5-2025" />.
 | Project Genie | January 2026, AI Ultra subscribers | Sessions capped at 60 seconds per world <Cite id="project-genie-2026" /><Cite id="google-project-genie-2026" /> |
 | Genie 4 | October 2026, trusted testers | Adds audio and text steering by Gemini; simulated Apptronik's Apollo humanoid playing checkers <Cite id="genie-4-2026" /> |
 
-In Genie 3 the <Term id="world-model">world model</Term> simulated a SIMA agent's navigation actions without knowing its goal; no robot manipulation was involved <Cite id="genie-3-2025" />. Genie 4's object permanence drifts over longer sessions <Cite id="genie-4-2026" />.
+Genie 3 demonstrated a <Term id="world-model">world model</Term> capable of simulating the effects of navigation actions issued by a SIMA agent, despite not being explicitly provided with SIMA's goal. Manipulation using a robot was not explored in this context <Cite id="genie-3-2025" />. Genie 4's object permanence drifts over longer sessions <Cite id="genie-4-2026" />.
 
 <span id="gr-1-to-gr-3-video-pre-training-for-manipulation" />
 ## GR-1 and GR-2 built on video pre-training; GR-3 switched to a VLA
 
-ByteDance's GR-1 predicted future images and actions together, raising CALVIN success from 88.9% to 94.9%, and from 53.3% to 85.4% in unseen scenes <Cite id="gr-1-2023" />. GR-2 pretrained on 38 million internet clips and reported 97.7% average success over 100+ tasks <Cite id="gr-2-2024" />; GR-3 switched to a vision-language-action design <Cite id="gr-3-2025" />.
+ByteDance's GR-1 is trained to predict future images and actions simultaneously, which improves the success rate on the CALVIN benchmark from 88.9% to 94.9%, and on unseen scenes from 53.3% to 85.4% <Cite id="gr-1-2023" />. GR-2 is pretrained on 38 million video clips from the internet, and reports an average success rate of 97.7% on more than 100 tasks <Cite id="gr-2-2024" />; GR-3 switched to a vision-language-action design <Cite id="gr-3-2025" />.
 
 <Image id="gr2-multitask-settings-2024" />
 
 <span id="world-action-models-as-policies" />
 ## World-action models now run as closed-loop robot policies
 
-A world-action model (WAM) predicts future video and the robot's next actions together. NVIDIA's DreamZero, a 14-billion-parameter video model, controls a real robot seven times a second and more than doubles the generalization of leading [VLAs](/manipulation/vla-models/) <Cite id="dreamzero-2026" />. Fast-WAM traces the gain to video training: skipping video generation at test time stays competitive, while dropping video co-training costs far more <Cite id="fast-wam-2026" />.
+A world-action model (WAM) predicts future video and the robot's next actions together. NVIDIA's DreamZero is a 14-billion-parameter video model capable of controlling a real robot seven times a second, and it has been shown to more than double the generalization performance of state-of-the-art [VLAs](/manipulation/vla-models/) <Cite id="dreamzero-2026" />. Fast-WAM traces the gain to video training: skipping video generation at test time stays competitive, while dropping video co-training costs far more <Cite id="fast-wam-2026" />.
 
-These results are self-reported, mostly in simulation.
+These results are self-reported and mostly in simulation.
 
 | System | What it showed | Reported result |
 | --- | --- | --- |
@@ -129,27 +129,27 @@ These results are self-reported, mostly in simulation.
 <span id="1x-and-odyssey-the-commercial-edges" />
 ## 1X still fails dexterous tasks, while Odyssey streams worlds live
 
-1X's NEO policy builds on a 14-billion-parameter video model further trained on 900 hours of first-person human video and 70 hours of robot data. Over 30 runs per task it scored 0% on drawing a smiley and on pouring cereal, and it takes 11 seconds to generate 5 seconds of video <Cite id="1x-world-model-2026" />.
+1X's NEO policy further fine-tunes a 14-billion-parameter video model with 900 hours of human egocentric video and 70 hours of robot data. NEO achieves a 0% success rate over 30 runs for each task of drawing a smiley and pouring cereal. It takes NEO 11 seconds to generate 5 seconds of video <Cite id="1x-world-model-2026" />.
 
-Odyssey-2 streams a new frame every 50 milliseconds, generated from earlier frames and user input <Cite id="odyssey-2-2025" />. A driving policy trained on 20 simulated hours in a frozen Odyssey-3 then drove real roads in India. By Odyssey's measure, it went about 77% as far between safety-driver interventions as a policy trained on real footage <Cite id="odyssey-3-2026" />.
+In Odyssey-2, new frames are generated every 50 milliseconds based on previous frames and user inputs <Cite id="odyssey-2-2025" />. A driving policy trained on 20 simulated hours in a frozen Odyssey-3 transfers to real driving in the streets of India, driving about 77% as far between safety-driver interventions as a model trained with real driving data, using Odyssey's definition of intervention <Cite id="odyssey-3-2026" />.
 
 Also: 1X's World Model Lab <Cite id="1x-world-model-lab-2026" />, Odyssey's Starchild-1 with audio <Cite id="odyssey-starchild-1-2026" />, its multiplayer Agora-1 <Cite id="odyssey-agora-1-2026" />.
 
 <span id="the-conditioning-problem" />
 ## Weak action conditioning is the field's main bottleneck
 
-A 2026 survey names weak action conditioning the bottleneck: futures come out "semantically plausible or intention-consistent, but not necessarily faithful to the physical consequences of the candidate action" <Cite id="world-model-survey-2026" />. In closed-loop tests, controllability mattered more than visual quality, and action-observation post-training beat upgrading the base generator <Cite id="world-in-world-2025" />.
+Video models still produce futures that are "semantically plausible or intention-consistent, but not necessarily faithful to the physical consequences of the candidate action", and a 2026 survey names weak action conditioning the main bottleneck <Cite id="world-model-survey-2026" />. In closed-loop tests, improving action controllability was more important than increasing visual fidelity, and post-training with action-observation pairs outperformed improving the underlying video generation model <Cite id="world-in-world-2025" />.
 
-Expert demonstrations vary their actions so little that a model can ignore them, and WorldEcho found such models break on unfamiliar actions <Cite id="worldecho-2026" />. A Princeton and Columbia group proved that how much actions influence next states caps what any model can learn. In simulated pushing, 500 high-influence episodes plus 3,000 demonstrations matched 300,000 expert episodes at following gripper commands <Cite id="aim-2026" />.
+Expert demonstrations vary their actions so little that a model can ignore them, and WorldEcho found such models break on unfamiliar actions <Cite id="worldecho-2026" />. A Princeton and Columbia group proved that how much actions influence next states caps what any model can learn. In a pushing task in simulation, they showed that 500 action-influential episodes in addition to 3,000 episodes of expert data performed as well as 300,000 episodes of expert data when it comes to following gripper commands <Cite id="aim-2026" />.
 
 Also: DIAMOND, an Atari agent trained inside a diffusion world model <Cite id="diamond-world-model-2024" />.
 
 <span id="does-it-work-as-a-simulator-the-evidence-both-ways" />
 ## In IWS tests, generated demonstrations rivalled real ones for two policies
 
-The Interactive World Simulator (IWS), a <Term id="latent-dynamics">latent dynamics</Term> model, runs stable 128-by-128-pixel interaction for 10+ minutes at up to 15 frames per second on one RTX 4090. Policies trained only on its demonstrations matched real-data policies: Diffusion Policy succeeded 87.9% of the time against 90.3%, and ACT 76.2% against 73.6% <Cite id="interactive-world-simulator-2026" />.
+The Interactive World Simulator (IWS) is a <Term id="latent-dynamics">latent dynamics</Term> model capable of generating stable interactions with 128-by-128-pixel observations for more than 10 minutes at up to 15 frames per second on one RTX 4090 GPU. Policies trained only on the simulator's data perform on par with those trained on real data: Diffusion Policy achieves an 87.9% success rate (compared to 90.3% with real data), and ACT reaches 76.2% (versus 73.6% with real data) <Cite id="interactive-world-simulator-2026" />.
 
-Latents trained to be easy to predict gave up to five times cheaper inference and 15% to 24% lower errors out of distribution and over long horizons <Cite id="predictable-latents-2026" />.
+Training latents to be easy to predict led to up to five times cheaper inference as well as 15% to 24% lower errors over long horizons and out of distribution <Cite id="predictable-latents-2026" />.
 
 ## Some video simulators rank policies in real-world order, others do not
 
@@ -163,7 +163,7 @@ A simulator that orders policies as real trials do picks the best one before any
 | Ctrl-World, tested by PolaRiS (2025) | Diverse scenes | Hallucinated in object interaction; mis-ranked policies at rank violation 0.22 <Cite id="polaris-2025" /> |
 | PhysCanvas (October 2026), vision and touch | Four real tasks | Correlation from 0.602 to 0.885 after reward-model post-training <Cite id="physcanvas-2026" /> |
 
-RoboWorld's correlation rests on eight data points <Cite id="roboworld-2026" />, and Runway's study tests ranking, not absolute success <Cite id="runway-gwm-robotics-eval-2026" />.
+RoboWorld's correlation is limited to eight data points <Cite id="roboworld-2026" />. Runway's study focuses on ranking, rather than absolute success prediction <Cite id="runway-gwm-robotics-eval-2026" />.
 
 <Image id="roboworld-contact-failures-2026" />
 
@@ -175,11 +175,11 @@ RoboWorld's correlation rests on eight data points <Cite id="roboworld-2026" />,
 | GRAIL | Over 20,000 humanoid sequences from 3D assets and video models | 84% at picking up objects, 90% at climbing stairs on a Unitree G1 <Cite id="grail-2026" /> |
 | CASTER | A video of a person, then a robot motion optimized in a digital twin | 76.6% zero-shot over 12 Franka tasks, against 42.5% for copying the object path <Cite id="caster-2026" /> |
 
-The survey calls visual plausibility "only a weak proxy for control utility" and touch indispensable, since cameras miss friction, stiffness and contact stability. World-model policies also cost far more compute than <Term id="vision-language-action-model">VLAs</Term>, and step-by-step video generation adds delay <Cite id="world-model-survey-2026" />.
+The survey argues that visual plausibility is "only a weak proxy for control utility", and that tactile sensing is critical because cameras miss friction, stiffness, and contact stability. World-model-based policies are far more computationally expensive than <Term id="vision-language-action-model">VLAs</Term>, and autoregressive generation introduces latency <Cite id="world-model-survey-2026" />.
 
 <span id="an-evaluation-ladder-for-video-models" />
 ## Test action response before trusting a video model's rankings
 
-Start with paired interventions that change only the action from identical frames. Check direction of motion, moment of contact and object identity before image quality, then lengthen the horizon, then rank policies against blinded real trials. By 1X's estimate, a 70%-accurate world model picks the better of two policies 15% apart 90% of the time <Cite id="1x-world-model-2025" />.
+Start with paired interventions on identical frames (change only the action). Check direction of motion, moment of contact and object identity before image quality, then lengthen the horizon, then rank policies against blinded real trials. By 1X's estimate, a 70%-accurate world model picks the better of two policies 15% apart 90% of the time <Cite id="1x-world-model-2025" />.
 
 The [evaluation guide](/world-models/evaluation/) gives the full protocol; see also [the evaluation crisis](/data-hardware/evaluation-crisis/) and the non-generative [JEPA](/world-models/jepa/).
