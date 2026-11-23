@@ -118,11 +118,12 @@ export default function AzIndexPage() {
         <nav aria-labelledby="article-questions" className="mt-10">
           <h2 id="article-questions" className="section-h2">{ARTICLE_QUESTIONS_HEADING}</h2>
           <ul className="mt-3 grid gap-x-12 sm:grid-cols-2">
-            {questions.map(({ href, label }) => (
+            {questions.map(({ href, label, source }) => (
               <li key={href}>
                 <a href={href} className="ink-link inline-block py-2 text-base">
                   {label}
                 </a>
+                {source ? <a href={source.url} className="ink-link block w-fit pb-2 text-sm">{source.label}</a> : null}
               </li>
             ))}
           </ul>

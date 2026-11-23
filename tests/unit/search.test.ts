@@ -545,6 +545,47 @@ describe('reader questions in prose search', () => {
     }
   });
 
+  it('offers related reading and the source code for questions about vision and motor timing', async () => {
+    const lookup = async () => ({results: []});
+    for (const query of [
+      'For GR00T N1, does 120 Hz mean a new camera image for every movement?',
+      'How often does a GR00T N1 vision model update compared with its motor actions?',
+      'How can a robot arm keep moving under a slow planner while fresh camera frames arrive?',
+      'How frequently does the GR00T N1 vision model send a new command to its arm?',
+      'Does GR00T N1 receive a camera frame before each motor action?',
+    ]) {
+      const [hit] = await searchPagefind(lookup, query);
+      expect(hit.url).toBe('/manipulation/hierarchical/#two-speeds-in-one-system');
+      expect(hit.excerpt).toMatch(/^Related question:/);
+      expect(hit.source?.url).toMatch(/1184da1013ceb359f8b0e1801280ae12347396df.*eval_gr00t_so100/);
+    }
+  });
+
+  it('keeps different model versions, camera shopping and unrelated uses of system names out of the timing passage', async () => {
+    for (const query of [
+      'How often does a GR00T N1.6 controller use new camera frames as the arm moves?',
+      'How much should I pay for a GR00T N1 120 Hz camera to record arm movement?',
+      'Which 120 Hz USB camera should I buy for a robot arm?',
+      'Should I buy a faster camera to record a moving GR00T N1 robot at a trade show?',
+      'How often should I move a tripod camera to film a GR00T N1 arm?',
+      'How fast should a camera operator pan to film the movements of GR00T N1?',
+      'How does System 1 psychology affect fast thinking?',
+      'Can a robot with a slow planner move pallets while recording invoices?',
+    ]) {
+      expect(await searchPagefind(async () => ({results: []}), query)).toEqual([]);
+    }
+  });
+
+  it('returns the exact directory passage without issuing word-by-word lookups', async () => {
+    const query = 'Can a robot reach the same cup with its elbow up or down?';
+    const lookup = async (word: string) => {
+      if (word !== query) throw new Error('Unexpected fallback lookup');
+      return {results: []};
+    };
+    const [hit] = await searchPagefind(lookup, query);
+    expect(hit.url).toBe('/classical/kinematics/#inverse-kinematics-has-many-answers-or-none');
+  });
+
   it('opens the inverse kinematics passage for its question and the exact cup search', async () => {
     const lookup = async () => ({results: []});
     const path = '/classical/kinematics/#inverse-kinematics-has-many-answers-or-none';

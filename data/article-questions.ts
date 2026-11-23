@@ -4,7 +4,44 @@ export interface TableComparison {
   sources: ReadonlyArray<{ tag: string; label: string; citation: string }>;
 }
 
-const questions: ReadonlyArray<{ label: string; href: string; searchPhrases?: readonly string[]; citations?: readonly string[]; comparison?: TableComparison }> = [
+export interface QuestionSource {
+  label: string;
+  url: string;
+}
+
+interface ArticleQuestion {
+  label: string;
+  href: string;
+  searchPhrases?: readonly string[];
+  citations?: readonly string[];
+  comparison?: TableComparison;
+  source?: QuestionSource;
+  related?: (query: string) => boolean;
+}
+
+/** A question about the speed of seeing and acting needs both parts. A camera's
+ * refresh rate or a model name alone does not identify this comparison. */
+function asksAboutControlRates(query: string) {
+  const model = /\bgr00t[ -]n1\b(?![.\d])/.test(query);
+  if (/\bgr00t\b/.test(query) && !model) return false;
+  const visionModel = /\b(?:vision[ -]language|(?:vision|visual) (?:model|encoder)|vlm)\b/.test(query);
+  const freshInput = /\b(?:new|fresh|next|latest) (?:camera )?(?:frames?|images?|observations?)\b/.test(query);
+  const motion = /\b(act(?:ion)?s?|acting|motor|mov(?:e|es|ing|ement|ements)|commands?|control(?:ler)?)\b/.test(query);
+  const cadence = /\b(?:rates?|often|fast(?:er)?|slow(?:er)?|frequen(?:tly|cy|cies)|every|each|hz)\b/.test(query);
+  if (!motion || !cadence) return false;
+
+  // A camera filming the arm is not a control input. Look for the model
+  // processing an observation or a new frame tied to an action.
+  const processesInput = /\b(?:sees?|process(?:es)?|receives?) (?:an? |the |each |every |new |fresh |camera )*(?:images?|frames?|observations?|scene)\b/.test(query);
+  const inputToAction = freshInput && /\b(?:for|at|before|with) (?:every|each) (?:motor )?(?:actions?|commands?|moves?|movements?)\b/.test(query);
+  if (model) return visionModel || processesInput || inputToAction;
+
+  const robotPlanner = /\b(?:robot|arm|gripper)\b/.test(query)
+    && /\b(?:vision[ -]language model|vlm|planner|planning model)\b/.test(query);
+  return robotPlanner && freshInput && /\b(?:fast|slow)(?:er)?\b/.test(query);
+}
+
+const questions: readonly ArticleQuestion[] = [
   {
     label: 'Why do Mars rovers drive themselves?',
     href: '/adjacent/space/#light-delay-makes-rovers-drive-themselves',
@@ -24,6 +61,12 @@ const questions: ReadonlyArray<{ label: string; href: string; searchPhrases?: re
   {
     label: 'What do System 1 and System 2 do in a humanoid robot?',
     href: '/manipulation/hierarchical/#two-speeds-in-one-system',
+    searchPhrases: ['System 1 System 2', 'System 1 and System 2 robotics'],
+    related: asksAboutControlRates,
+    source: {
+      label: 'NVIDIA’s SO-100 control loop',
+      url: 'https://github.com/NVIDIA/Isaac-GR00T/blob/1184da1013ceb359f8b0e1801280ae12347396df/getting_started/examples/eval_gr00t_so100.py#L235-L303',
+    },
   },
   {
     label: 'What did the original GELLO controllers cost in parts?',
@@ -80,4 +123,10 @@ export function exactSearchQuestion(query: string) {
   return phrase && questions.find(({label, searchPhrases}) =>
     searchPhrases && [label, ...searchPhrases].some(text => normalize(text) === phrase)
   );
+}
+
+/** Supplemental reading when a complete question has no ordinary page match. */
+export function relatedSearchQuestion(query: string) {
+  const text = query.toLowerCase().replace(/[\u2010-\u2015]/g, '-');
+  return questions.find(question => question.related?.(text));
 }

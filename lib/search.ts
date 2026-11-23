@@ -13,7 +13,7 @@
  * interface and the results area in components/search/ remain the UI seams.
  */
 
-import { exactSearchQuestion } from '../data/article-questions';
+import { exactSearchQuestion, relatedSearchQuestion, type QuestionSource } from '../data/article-questions';
 import { foldGreekToAscii } from './greek-transliteration';
 import { PUBLIC_IDENTITY } from './identity';
 
@@ -25,6 +25,7 @@ export type SearchHit = {
   title: string;
   /** Match-context snippet; may contain <mark> highlight markup. */
   excerpt: string;
+  source?: QuestionSource;
 };
 
 /** Minimal search backend contract. Pagefind satisfies it for prose. */
@@ -489,17 +490,6 @@ async function partialQuestionHits(lookup: PagefindLookup, terms: string[]): Pro
 
 export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
   let strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
-  const question = exactSearchQuestion(query);
-  if (question) {
-    const path = question.href.split('#')[0];
-    const [, domain, slug] = path.split('/');
-    const { getModule } = await import('../data/modules');
-    const article = getModule(domain, slug);
-    if (article?.status === 'published') {
-      const lead = {url: question.href, title: article.title, excerpt: escapeExcerpt(question.label)};
-      return [lead, ...strict.filter(hit => hit.url.split('#')[0] !== path)].slice(0, RESULT_LIMIT);
-    }
-  }
   // Papers and readers use “sim2real” for the wiki’s “sim-to-real”. Keep any
   // literal results first, and keep the reader's other terms in the lookup.
   if (!strict.length) {
@@ -509,9 +499,27 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
     }
   }
   const terms = questionTerms(query);
-  if (!terms.length) return strict;
-  const hits = strict.length ? strict : await partialQuestionHits(lookup, terms);
-  return preferPolicyComparison(query, hits);
+  const ordinaryHits = () => strict.length || !terms.length ? strict : partialQuestionHits(lookup, terms);
+  const exact = exactSearchQuestion(query);
+  const question = exact || (!strict.length && relatedSearchQuestion(query));
+  if (question) {
+    const path = question.href.split('#')[0];
+    const [, domain, slug] = path.split('/');
+    const { getModule } = await import('../data/modules');
+    const article = getModule(domain, slug);
+    if (article?.status === 'published') {
+      const lead = {
+        url: question.href,
+        title: article.title,
+        excerpt: escapeExcerpt(exact ? question.label : `Related question: ${question.label}`),
+        ...(question.source && {source: question.source}),
+      };
+      const hits = exact ? strict : await ordinaryHits();
+      return [lead, ...hits.filter(hit => hit.url.split('#')[0] !== path)].slice(0, RESULT_LIMIT);
+    }
+  }
+  const hits = await ordinaryHits();
+  return terms.length ? preferPolicyComparison(query, hits) : hits;
 }
 
 /**

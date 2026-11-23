@@ -153,7 +153,10 @@ export function buildLlmsTxt(input: LlmsInput): string {
   const questions = questionsForArticles(input.articles);
   if (questions.length > 0) {
     lines.push(`## ${ARTICLE_QUESTIONS_HEADING}`, '');
-    for (const { label, href } of questions) lines.push(`- [${label}](${input.siteUrl}${href})`);
+    for (const {label, href, source} of questions) {
+      const example = source ? ` · [${source.label}](${source.url})` : '';
+      lines.push(`- [${label}](${input.siteUrl}${href})${example}`);
+    }
     lines.push('');
   }
   const sections: Array<[string, LlmsPage[]]> = [
@@ -214,7 +217,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
   const declared = new Set<string>(data.citations ?? []);
   const lines: string[] = [];
 
-  for (const { href, label, comparison, citations } of questions) {
+  for (const { href, label, comparison, citations, source: example } of questions) {
     const fragment = href.split('#')[1];
     let ids: string[];
     let answer: string[] = [];
@@ -242,6 +245,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
       const title = source.title.replace(/([\\[\]])/g, '\\$1');
       lines.push(`- [${source.label}](${articleUrl(input, article)}#ref-${id}). [${title}](${source.url})`);
     }
+    if (example) lines.push(`Accompanying code: [${example.label}](${example.url})`);
     lines.push('');
   }
   lines.push(`[All references for this article](${articleUrl(input, article)}#references-heading)`, '');

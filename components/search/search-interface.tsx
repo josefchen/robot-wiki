@@ -372,7 +372,7 @@ export function SearchInterface({
       <p
         role="status"
         aria-live="polite"
-        className="mt-4 wrap-anywhere font-mono text-xs text-text-dim"
+        className="mt-4 max-w-[70ch] wrap-anywhere font-mono text-xs text-text-dim"
       >
         {statusText}
       </p>
@@ -475,6 +475,11 @@ export function SearchInterface({
                         />
                       ) : null}
                     </PageResultLink>
+                    {entry.source ? (
+                      <a href={entry.source.url} className="ink-link mb-2 ml-1 inline-flex min-h-11 items-center text-base">
+                        {entry.source.label}
+                      </a>
+                    ) : null}
                   </li>
                 ))}
               </ul>
