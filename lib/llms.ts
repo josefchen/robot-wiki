@@ -208,7 +208,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
   const declared = new Set<string>(data.citations ?? []);
   const lines: string[] = [];
 
-  for (const { href, label, comparison } of questions) {
+  for (const { href, label, comparison, citations } of questions) {
     const fragment = href.split('#')[1];
     let ids: string[];
     let answer: string[] = [];
@@ -220,6 +220,12 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
       const section = forFragment(fragment);
       ids = section ? inlineCitationIds(section.lines.join('\n')) : [];
       if (comparison && section) answer = comparisonTable(input, section.lines, comparison, `${input.siteUrl}${href}`);
+    }
+    if (citations) {
+      for (const id of citations) {
+        if (!ids.includes(id)) throw new Error(`llms: question source "${id}" missing from ${href}`);
+      }
+      ids = [...citations];
     }
     if (!ids.length) throw new Error(`llms: no cited source for ${href}`);
     lines.push(`Sources for [${label}](${input.siteUrl}${href})`);

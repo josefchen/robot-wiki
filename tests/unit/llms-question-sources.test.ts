@@ -45,6 +45,16 @@ describe('question sources in llms-full.txt', () => {
     }
   });
 
+  it('limits the seller-share answer to the marketplaces that disclose the fees', () => {
+    const market = input.articles.find((article) => article.slug === 'data-market')!;
+    const guide = buildLlmsFullTxt({ ...input, articles: [market] });
+    const block = guide.split('Sources for [What share')[1].split('[All references for this article]')[0];
+    expect(block.split('\n').filter((line) => line.startsWith('- ['))).toHaveLength(2);
+    expect(block).not.toContain('Robotics Data is a Broken Business');
+    const source = market.source.replace('<Cite id="roboticscenter-seller-terms" />', '');
+    expect(() => buildLlmsFullTxt({ ...input, articles: [{ ...market, source }] })).toThrow(/question source .* missing from/);
+  });
+
   const chunking = input.articles.find((a) => a.slug === 'action-chunking')!;
   const arms = input.articles.find((a) => a.slug === 'research-arms-compared')!;
 

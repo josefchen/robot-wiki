@@ -4,7 +4,7 @@ export interface TableComparison {
   sources: ReadonlyArray<{ tag: string; label: string; citation: string }>;
 }
 
-const questions: ReadonlyArray<{ label: string; href: string; comparison?: TableComparison }> = [
+const questions: ReadonlyArray<{ label: string; href: string; citations?: readonly string[]; comparison?: TableComparison }> = [
   {
     label: 'Why do Mars rovers drive themselves?',
     href: '/adjacent/space/#light-delay-makes-rovers-drive-themselves',
@@ -52,6 +52,7 @@ const questions: ReadonlyArray<{ label: string; href: string; comparison?: Table
   {
     label: 'What share of a robot dataset sale does the seller receive?',
     href: '/data-hardware/data-market/#selling-robot-data',
+    citations: ['roboticscenter-seller-terms', 'ay-robots-dataset-marketplace'],
   },
 ];
 
