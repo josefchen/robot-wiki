@@ -61,7 +61,7 @@ import { HandEyePoses } from '@/components/interactive/hand-eye-poses';
 
 import { TimeOffsetMiss } from '@/components/interactive/time-offset-miss';
 
-Calibration makes a robot's measurements and commands agree with the world: model, measure, identify, correct <Cite id="roth-mooring-ravani-1987" />. A learned policy inherits every error it leaves.
+Calibration is about making a robot's commands and sensor readings consistent with reality by modeling, measuring, identifying and correcting errors in the system <Cite id="roth-mooring-ravani-1987" />. Any mistakes that remain after calibration will be baked into a learned policy.
 
 <Image id="leica-laser-tracker-ats600" />
 
@@ -90,7 +90,7 @@ Calibration makes a robot's measurements and commands agree with the world: mode
 
 ## A wrong link anywhere moves the grasp
 
-Between the pixel where a policy sees a mug and the gripper reaching for it sit <Term id="camera-intrinsics">camera intrinsics</Term>, depth, the camera mount, joint zeroes, tool dimensions, timing and actuator response. A wrong camera transform misses even with FoundationPose tracking the object <Cite id="foundationpose-2024" />.
+From the pixel that the policy deems to be a mug to the gripper that grabs it, there are many transformations and dynamics including <Term id="camera-intrinsics">camera intrinsics</Term>, depth information, how the camera is mounted, robot joint zero positions, tool dimensions, timing and actuator response. If the camera transform is wrong, the arm will reach in the wrong place even though FoundationPose was tracking the object <Cite id="foundationpose-2024" />.
 
 Also: [visual servoing](/classical/perception) <Cite id="espiau-1992" />.
 
@@ -98,23 +98,23 @@ Also: [visual servoing](/classical/perception) <Cite id="espiau-1992" />.
 
 ## The camera model must match the lens and the depth sensor
 
-Intrinsics map a pixel to a ray. Zhang's method recovers them from a flat pattern at a few angles <Cite id="zhang-2000-calibration" />. Refit after any focus or crop change, judged by held-out reprojection error <Cite id="reproducible-intrinsics-2026" />.
+Camera intrinsics describe how to associate a pixel in an image with a ray in space. These can be estimated using Zhang's method <Cite id="zhang-2000-calibration" /> by imaging a flat calibration pattern from a handful of different angles. Changes to focus or cropping require refitting intrinsics; quality of the fit is judged by reprojection error on held-out calibration images <Cite id="reproducible-intrinsics-2026" />.
 
-Stereo depth error grows with the square of distance <Cite id="realsense-tuning-2026" />, and shiny surfaces saturate the image <Cite id="realsense-d400-datasheet-2026" />. Kinect's error reaches about 4 cm at full range <Cite id="khoshelham-kinect-2012" />.
+The depth error of stereo methods increases with the square of the distance <Cite id="realsense-tuning-2026" />. Highly reflective objects cause saturation in images <Cite id="realsense-d400-datasheet-2026" />. The Kinect's depth error reaches about 4 cm at its maximum operating range <Cite id="khoshelham-kinect-2012" />.
 
 Also: fisheye lenses <Cite id="kannala-brandt-2006" />, single-image AnyCalib <Cite id="anycalib-2025" />, Kinect depth distortion <Cite id="herrera-depth-color-2012" />.
 
 ## Hand-eye calibration solves AX = XB
 
-Hand-eye calibration locates the camera on the gripper. Shiu and Ahmad cast it as $AX = XB$, with arm motions $A$, camera motions $B$ and the unknown mount $X$ <Cite id="shiu-ahmad-1989" />. Tsai and Lenz solved it in closed form <Cite id="tsai-lenz-1989" />.
+Hand-eye calibration is the problem of estimating the location of a camera mounted on a gripper. Shiu and Ahmad formulated the problem as $AX = XB$, where $A$ and $B$ are transformations due to movements of the robot arm and the camera, respectively, and $X$ is the unknown camera mount <Cite id="shiu-ahmad-1989" />. This problem has a closed-form solution presented by Tsai and Lenz <Cite id="tsai-lenz-1989" />.
 
 <Image id="baxter-gripper-wrist-camera" />
 
-It needs at least three poses about non-parallel axes <Cite id="opencv-hand-eye-docs-2026" />; accuracy levels off near 12 to 15 <Cite id="moveit-hand-eye-tutorial-2026" />.
+It requires at least three poses about non-parallel axes <Cite id="opencv-hand-eye-docs-2026" />. Accuracy levels off at about 12 to 15 poses <Cite id="moveit-hand-eye-tutorial-2026" />.
 
 <HandEyePoses className="my-6" />
 
-Markerless methods recognize the robot itself and now rival targets.
+Markerless vision-based systems now rival target-based systems by recognizing the robot itself.
 
 | Method | Result |
 | --- | --- |
@@ -128,13 +128,13 @@ Also: closed form by Park and Martin <Cite id="park-martin-1994" />, dual quater
 
 ## Real arms drift from their nominal kinematics
 
-Manufacturing errors and joint flex shift real arms from nominal [kinematics](/classical/kinematics) <Cite id="modern-robotics-2017" />. Calibrating a humanoid from 31 postures cut its RMS error 2.3-fold <Cite id="humanoid-geometric-calibration-2025" />, and OmniCalib found CAD camera values off by up to 10.56 mm <Cite id="omnicalib-2026" />.
+CAD models do not accurately capture real-world [kinematics](/classical/kinematics) due to manufacturing errors and joint flexion <Cite id="modern-robotics-2017" />. A humanoid robot was calibrated using 31 poses, which reduced the RMS error by a factor of 2.3 <Cite id="humanoid-geometric-calibration-2025" />. OmniCalib showed that CAD camera values had errors up to 10.56 mm <Cite id="omnicalib-2026" />.
 
 Also: humanoid joint offsets <Cite id="humanoid-joint-offset-2026" />.
 
 ## A late frame misses by speed times delay
 
-A frame 50 ms late shows the gripper where it was, so at 10 cm a second the grasp lands 5 mm off. A RealSense rig measured 55 ms of camera delay <Cite id="realtime-vla-v2-2026" />, and compensating such delay raised policy success by 8.1 points <Cite id="synchec-2026" />.
+A frame 50 ms late shows the gripper where it was: if the gripper moves at 10 cm per second, the grasp position would be off by 5 mm. A RealSense rig was measured to have 55 ms of camera delay <Cite id="realtime-vla-v2-2026" />. Compensating for camera delay increased policy success rate by 8.1 points <Cite id="synchec-2026" />.
 
 <TimeOffsetMiss className="my-6" />
 
@@ -142,12 +142,12 @@ Also: Kalibr time offsets <Cite id="kalibr-2013" />, IEEE 1588 clock sync <Cite 
 
 ## Actuator response must be measured
 
-Without a measured actuator response, policy error and tracking error look the same. Hwangbo and colleagues learned ANYmal's actuator dynamics from measurements <Cite id="hwangbo-2019" />. SPI-Active, choosing that data actively, beat baselines by 42 to 63% in locomotion transfer <Cite id="spi-active-2025" />.
+In the absence of measured actuator response, policy error and tracking error are indistinguishable. Hwangbo and colleagues learned ANYmal's actuator dynamics from measurements <Cite id="hwangbo-2019" />. Actively selecting such data (SPI-Active) improved performance over baselines by 42 to 63% in locomotion transfer <Cite id="spi-active-2025" />.
 
 Also: identified inertias <Cite id="atkeson-an-hollerbach-1986" />, Franka Panda dynamics <Cite id="gaz-panda-dynamics-2019" />, periodic excitation <Cite id="swevers-excitation-1997" />.
 
 ## Calibrations drift, so store them with their evidence
 
-Most public datasets lack extrinsics; CalibAll recovered them for about 97,000 episodes <Cite id="calib-all-2025" />. Store each calibration with serials, settings, software version and residuals; recalibrate after a remount, collision or tool change.
+Most public datasets lack extrinsics; CalibAll recovered them for about 97,000 episodes <Cite id="calib-all-2025" />. Save each calibration alongside other relevant information (robot and camera serial numbers, settings, software version, residuals). Recalibrate after collisions, tool changes, or remounts.
 
 Also: DROID's per-session checkerboards <Cite id="droid-2024" />.
