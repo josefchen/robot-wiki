@@ -27,7 +27,7 @@ const cameraExampleWords = new Set([
 /** A compact source lookup may name the camera, arm and model in any order.
  * Extra qualifiers leave the query to ordinary search. */
 function namesCameraExample(query: string) {
-  const words = query.replace(/\bso[ -]?100\b/g, 'so100').match(/[\p{L}\p{N}]+/gu) ?? [];
+  const words: string[] = query.replace(/\bso[ -]?100\b/g, 'so100').match(/[\p{L}\p{N}]+/gu) ?? [];
   return words.includes('so100') && words.includes('gr00t') && words.includes('camera')
     && words.every(word => cameraExampleWords.has(word));
 }
