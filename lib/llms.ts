@@ -217,7 +217,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
   const declared = new Set<string>(data.citations ?? []);
   const lines: string[] = [];
 
-  for (const { href, label, comparison, citations } of questions) {
+  for (const { href, label, comparison, citations, source: example } of questions) {
     const fragment = href.split('#')[1];
     let ids: string[];
     let answer: string[] = [];
@@ -245,6 +245,7 @@ function questionSources(input: LlmsInput, article: LlmsArticle): string[] {
       const title = source.title.replace(/([\\[\]])/g, '\\$1');
       lines.push(`- [${source.label}](${articleUrl(input, article)}#ref-${id}). [${title}](${source.url})`);
     }
+    if (example) lines.push(`Accompanying code: [${example.label}](${example.url})`);
     lines.push('');
   }
   lines.push(`[All references for this article](${articleUrl(input, article)}#references-heading)`, '');

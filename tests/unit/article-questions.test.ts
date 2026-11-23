@@ -5,7 +5,7 @@ import AzIndexPage from '@/app/a-z/page';
 import { ARTICLE_QUESTIONS_HEADING, questionsForArticles } from '@/data/article-questions';
 import { getCitation } from '@/data/citations';
 import { articleOutline } from '@/lib/article-outline';
-import { buildLlmsTxt } from '@/lib/llms';
+import { buildLlmsFullTxt, buildLlmsTxt } from '@/lib/llms';
 import { registryLlmsInput } from '@/lib/llms-registry';
 import { inlineCitationIds, resolveReferences } from '@/lib/references';
 
@@ -39,6 +39,9 @@ describe('article question directory', () => {
     }));
     const source = section.querySelector('a[href*="eval_gr00t_so100.py"]');
     expect(source?.getAttribute('href')).toContain('1184da1013ceb359f8b0e1801280ae12347396df/');
+    const chapter = input.articles.find(article => article.slug === 'hierarchical')!;
+    const fullGuide = buildLlmsFullTxt({...input, articles: [chapter]});
+    expect(fullGuide).toContain(`Accompanying code: [${source?.textContent}](${source?.getAttribute('href')})`);
   });
 
   it('lands each question on a published article heading or a cited paper', () => {
