@@ -17,7 +17,7 @@ describe('article question directory', () => {
     const index = new DOMParser().parseFromString(renderToStaticMarkup(AzIndexPage()), 'text/html');
     const section = index.querySelector('nav[aria-labelledby="article-questions"]')!;
     expect(section.querySelector('h2')?.textContent).toBe(ARTICLE_QUESTIONS_HEADING);
-    const links = [...section.querySelectorAll('a')].map((a) => ({
+    const links = [...section.querySelectorAll('li > a:first-child')].map((a) => ({
       label: a.textContent, href: a.getAttribute('href'),
     }));
     expect(links).toEqual(questions.map(({ label, href }) => ({ label, href })));
@@ -32,7 +32,13 @@ describe('article question directory', () => {
       expect.stringMatching(/share of a robot dataset sale/),
     ]);
     const machineSection = buildLlmsTxt(input).split(`## ${ARTICLE_QUESTIONS_HEADING}\n\n`)[1].split('\n\n')[0];
-    expect(machineSection.split('\n')).toEqual(links.map(({ label, href }) => `- [${label}](${input.siteUrl}${href})`));
+    expect(machineSection.split('\n')).toEqual(links.map(({ label, href }, i) => {
+      const source = section.querySelectorAll('li')[i].querySelector('a + a');
+      const example = source ? ` · [${source.textContent}](${source.getAttribute('href')})` : '';
+      return `- [${label}](${input.siteUrl}${href})${example}`;
+    }));
+    const source = section.querySelector('a[href*="eval_gr00t_so100.py"]');
+    expect(source?.getAttribute('href')).toContain('1184da1013ceb359f8b0e1801280ae12347396df/');
   });
 
   it('lands each question on a published article heading or a cited paper', () => {

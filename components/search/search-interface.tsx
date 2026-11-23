@@ -475,6 +475,11 @@ export function SearchInterface({
                         />
                       ) : null}
                     </PageResultLink>
+                    {entry.source ? (
+                      <a href={entry.source.url} className="ink-link mb-3 inline-block text-sm">
+                        {entry.source.label}
+                      </a>
+                    ) : null}
                   </li>
                 ))}
               </ul>

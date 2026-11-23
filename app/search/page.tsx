@@ -65,6 +65,9 @@ export default function SearchPage() {
         Search the articles, methods, companies and datasets. Queries run in
         your browser.
       </p>
+      <noscript>
+        <p className="mt-4"><a className="ink-link" href="/a-z/#article-questions">Browse article questions in the A–Z index</a></p>
+      </noscript>
       <Suspense fallback={null}>
         <SearchInterface />
       </Suspense>

@@ -153,7 +153,10 @@ export function buildLlmsTxt(input: LlmsInput): string {
   const questions = questionsForArticles(input.articles);
   if (questions.length > 0) {
     lines.push(`## ${ARTICLE_QUESTIONS_HEADING}`, '');
-    for (const { label, href } of questions) lines.push(`- [${label}](${input.siteUrl}${href})`);
+    for (const {label, href, source} of questions) {
+      const example = source ? ` · [${source.label}](${source.url})` : '';
+      lines.push(`- [${label}](${input.siteUrl}${href})${example}`);
+    }
     lines.push('');
   }
   const sections: Array<[string, LlmsPage[]]> = [
