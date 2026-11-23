@@ -58,6 +58,8 @@ export const metadata: Metadata = {
     template: `%s | ${PUBLIC_IDENTITY}`,
   },
   description: PUBLIC_DESCRIPTOR,
+  // The site name as a browser and search engine reads it off any route.
+  applicationName: PUBLIC_IDENTITY,
   // Author identity: declared once in the root layout so
   // every route inherits meta[name=author] (a route-level metadata object
   // replaces only the keys it declares; authors is never overridden).

@@ -11,7 +11,11 @@ import { formatCount, homeCounts } from '@/lib/home-counts';
 import { latestChanges } from '@/lib/home-updates';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
-import { HOME_META_DESCRIPTION, websiteJsonLd } from '@/lib/seo';
+import {
+  HOME_META_DESCRIPTION,
+  organizationJsonLd,
+  websiteJsonLd,
+} from '@/lib/seo';
 import { SITE_DISPLAY_NAME } from '@/lib/site';
 
 /**
@@ -64,6 +68,10 @@ export default function Home() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: websiteJsonLd() }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: organizationJsonLd() }}
         />
         {/* The lockup is the h1 and the descriptor alone in one container:
             any other text beside the wordmark would read as a descriptor

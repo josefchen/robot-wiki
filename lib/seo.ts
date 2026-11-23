@@ -1,7 +1,7 @@
 import type { Citation } from '../data/citations.ts';
 import type { Domain, ModuleRegistryEntry } from '../data/modules.ts';
 import { DOMAIN_META } from '../data/modules.ts';
-import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from './identity.ts';
+import { AUTHOR_NAME, AUTHOR_PROFILE_URL, REPOSITORY_URL } from './identity.ts';
 import { articleStructuredImagePaths } from './og-cards.ts';
 import { routeSeoProfile } from './seo-profiles.ts';
 import { SITE_DISPLAY_NAME, SITE_URL } from './site.ts';
@@ -12,7 +12,14 @@ export const SEO_TITLE_SUFFIX = ' | Robot Wiki';
 /** Search-facing copy shared by metadata and WebSite structured data. */
 export const HOME_SEO_TITLE = routeSeoProfile('/').title;
 export const HOME_SEO_DESCRIPTION =
-  'Explore modern robotics with source-cited guides to robot learning, vision-language-action models, reinforcement learning, sim-to-real and control.';
+  'Robot Wiki is a source-cited wiki of modern robotics: robot learning, vision-language-action models, reinforcement learning, sim-to-real and control.';
+
+/**
+ * Other spellings of the site name. Search engines read these from the
+ * WebSite and Organization nodes to tie the domain and the one-word form
+ * to "Robot Wiki".
+ */
+export const SITE_ALTERNATE_NAMES = ['robot-wiki.com', 'RobotWiki'] as const;
 /**
  * Home's meta description. It opens with the locked descriptor, which the
  * site root's metadata has to carry verbatim.
@@ -157,6 +164,27 @@ function personJsonLd() {
 /** The site search URL, with the placeholder its SearchAction declares. */
 export const SEARCH_URL_TEMPLATE = `${SITE_URL}/search/?q={search_term_string}`;
 
+const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+
+/**
+ * The site as a named entity: home carries this node beside the WebSite one
+ * so the name, the domain and the source repository resolve to one thing.
+ */
+export function organizationJsonLd(): string {
+  return serializeJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': ORGANIZATION_ID,
+    url: `${SITE_URL}/`,
+    name: SITE_DISPLAY_NAME,
+    alternateName: SITE_ALTERNATE_NAMES,
+    description: HOME_SEO_DESCRIPTION,
+    logo: `${SITE_URL}/apple-icon.png`,
+    sameAs: [REPOSITORY_URL],
+    founder: personJsonLd(),
+  });
+}
+
 export function websiteJsonLd(): string {
   return serializeJsonLd({
     '@context': 'https://schema.org',
@@ -164,9 +192,12 @@ export function websiteJsonLd(): string {
     '@id': `${SITE_URL}/#website`,
     url: `${SITE_URL}/`,
     name: SITE_DISPLAY_NAME,
+    alternateName: SITE_ALTERNATE_NAMES,
     description: HOME_SEO_DESCRIPTION,
     inLanguage: 'en',
     creator: personJsonLd(),
+    publisher: { '@id': ORGANIZATION_ID },
+    sameAs: [REPOSITORY_URL],
     potentialAction: {
       '@type': 'SearchAction',
       target: SEARCH_URL_TEMPLATE,

@@ -32,17 +32,17 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: [],
   },
   '/': {
-    title: 'Modern Robotics and Robot Learning | Robot Wiki',
+    title: 'Robot Wiki: Modern Robotics and Robot Learning',
     headTerm: 'robot learning',
     description:
-      'Citation-first encyclopedia of modern robot learning. It explains VLA models, reinforcement learning, sim-to-real, world models and robot control.',
+      'Citation-first encyclopedia of modern robot learning. Robot Wiki covers VLA models, reinforcement learning, sim-to-real, world models and robot control.',
     queries: [],
   },
   '/market-map/': {
-    title: 'Market Map: Robotics Companies and Funding',
-    headTerm: 'market map',
+    title: 'Robotics Market Map: 100+ Companies, 6 Segments',
+    headTerm: 'robotics market map',
     description:
-      'Market map of over 100 robotics and embodied-AI companies in six segments, from humanoids to foundation models, with disclosed funding and its sources.',
+      'Robotics market map: over 100 robotics and embodied-AI companies in six segments, from humanoids to foundation models, each with its latest round.',
     queries: [],
   },
   // The counts come from the rows, as in publicPageDescription() in
@@ -85,10 +85,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: [],
   },
   '/glossary/': {
-    title: 'Glossary of Robotics and Robot Learning Terms',
-    headTerm: 'glossary',
+    title: 'Robotics Glossary: Robot Learning Terms Defined',
+    headTerm: 'robotics glossary',
     description:
-      'Glossary of robotics and robot learning terms: cited definitions of the jargon used across Robot Wiki, from action chunking to Kalman filters.',
+      'Robotics glossary with more than 150 cited definitions of robot and robot learning terms, from action chunking and VLA to Kalman filters and LQR.',
     queries: [],
   },
   '/robots-in-3d/': {
@@ -155,74 +155,74 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['robot learning manipulation', 'learned robot manipulation policies'],
   },
   '/manipulation/bc-foundations/': {
-    title: 'Behavior Cloning: Compounding Error and DAgger',
+    title: 'Behavior Cloning, DAgger and Compounding Error',
     headTerm: 'behavior cloning',
     description:
-      'Behavior cloning trains a robot policy on expert demonstrations. Why errors compound in closed loop, what DAgger fixes, and what action chunking changes.',
+      'Behavior cloning copies demonstrations, and small errors compound. DAgger and recovery data help: DART gained 62% on average at grasping in clutter.',
     queries: ['behavior cloning robotics', 'imitation learning compounding error', 'DAgger'],
   },
   '/manipulation/action-chunking/': {
-    title: 'Action Chunking: ACT, Real-Time Chunking, PACE',
+    title: 'Action Chunking with Transformers (ACT), PACE',
     headTerm: 'action chunking',
     description:
-      'Action chunking in ACT, ALOHA, real-time chunking (RTC) and PACE. In ACT\'s simulated ablation, success rose from 1% at chunk size 1 to 44% at 100.',
-    queries: ['action chunking', 'ACT ALOHA', 'action chunking transformer'],
+      'Action chunking has a robot policy predict a burst of moves at once. In ACT\'s simulation, success rose from 1% at chunk size 1 to 44% at 100.',
+    queries: ['action chunking', 'action chunking with transformers', 'ACT ALOHA', 'PACE phase-aware chunk execution'],
   },
   '/manipulation/diffusion-policy/': {
-    title: 'Diffusion Policy for Robot Control',
+    title: 'Diffusion Policy Explained (Chi et al., 2023)',
     headTerm: 'diffusion policy',
     description:
-      'Diffusion Policy explained: denoising action sequences for visuomotor robot control, receding-horizon execution, and faster one-step and flow successors.',
-    queries: ['diffusion policy', 'diffusion policy robotics'],
+      'Diffusion Policy turns random noise into robot actions step by step. In simulation it averaged a 46.9% relative gain over the best earlier method per task.',
+    queries: ['diffusion policy', 'diffusion policy robotics', 'diffusion policy paper'],
   },
   '/manipulation/vla-models/': {
-    title: 'Vision-Language-Action Models: RT-2 to OpenVLA',
-    headTerm: 'vision-language-action models',
+    title: 'What Is a VLA Model? RT-2, Octo, OpenVLA, Pi0',
+    headTerm: 'vision-language-action model',
     description:
-      'Vision-language-action models from RT-1 and RT-2 to Octo, OpenVLA and pi0. OpenVLA-OFT action chunks took OpenVLA from 4.2 to 109.7 actions a second.',
-    queries: ['what is a VLA model', 'vision-language-action model'],
+      'A vision-language-action model (VLA) is a vision-language model taught to output robot moves. OpenVLA-OFT took OpenVLA from 4.2 to 109.7 actions a second.',
+    queries: ['what is a VLA model', 'vision-language-action model', 'VLA model', 'OpenVLA'],
   },
   '/manipulation/pi-line/': {
-    title: 'Pi0, Pi0.5, Pi0.7: Physical Intelligence VLAs',
+    title: 'Pi0, Pi0.5, Pi0.6 and Pi0.7 Explained',
     headTerm: 'pi0',
     description:
-      'Physical Intelligence\'s pi0, pi0-FAST, pi0.5, pi0.6 and pi0.7 explained. pi0 samples an action chunk in 10 flow-matching steps; pi0.6 and pi0.7 use five.',
-    queries: ['pi0', 'Physical Intelligence pi0', 'pi0.5', 'pi0.7'],
+      'Physical Intelligence\'s pi0 line, from pi0 (October 2024) to pi0.7 (April 2026). pi0 turns noise into a 50-action chunk in 10 flow-matching steps.',
+    queries: ['pi0', 'Physical Intelligence pi0', 'pi0.5', 'pi0.6', 'pi0.7'],
   },
   '/manipulation/generalist-policies/': {
-    title: 'Generalist Robot Policies: GR00T, Helix, Skild',
+    title: 'Generalist Robot Policies: Gemini, GR00T, Helix',
     headTerm: 'generalist robot policies',
     description:
-      'Generalist robot policies: Gemini Robotics, GR00T, Helix, GO-2, Skild and GEN-1.5. GR00T N1.7 has public 3B weights; Figure gives no Helix trial counts.',
+      'Generalist robot policies from Google DeepMind, NVIDIA, Figure, AgiBot and Skild. Figure\'s Helix reasons at 7 to 9 Hz and sends motor commands at 200 Hz.',
     queries: ['generalist robot policy', 'robot foundation model companies', 'Helix vs GR00T vs Gemini Robotics'],
   },
   '/manipulation/comparison-matrix/': {
-    title: 'VLA Model Architecture: 23 Policies Compared',
-    headTerm: 'VLA model architecture',
+    title: 'VLA Models Compared: 23 Policies, RT-1 to Pi0.7',
+    headTerm: 'VLA models compared',
     description:
-      'VLA model architecture across 23 robot policies, RT-1 to pi0.7, GR00T 2 and Xiaomi-Robotics-1: action head, chunk horizon, control rate and weights.',
-    queries: ['VLA model architecture', 'VLA architecture'],
+      'VLA models compared in one table: 23 robot policies from RT-1 to pi0.7 on eight design choices, including action format and downloadable weights.',
+    queries: ['VLA models compared', 'VLA model architecture', 'VLA architecture'],
   },
   '/manipulation/hierarchical/': {
-    title: 'Hierarchical Robot Policies: Planners and VLAs',
+    title: 'Hierarchical VLAs: SayCan, Hi Robot and Pi0.5',
     headTerm: 'hierarchical robot policies',
     description:
-      'Hierarchical robot policies split what to do from how to move: SayCan, Code as Policies, pi0.5 subtasks and orchestrators such as Gemini Robotics ER 2.',
+      'Hierarchical robot policies split what to do from how to move, from SayCan to Hi Robot and pi0.5. Text2Motion solved 82% of long-horizon problems.',
     queries: ['hierarchical VLA', 'LLM robot planning', 'SayCan code as policies'],
   },
   '/manipulation/rl-finetuning/': {
-    title: 'RL Fine-Tuning for VLAs: Recap, HIL-SERL, DPPO',
+    title: 'RL Fine-Tuning for VLAs and Robot Policies',
     headTerm: 'RL fine-tuning',
     description:
-      'RL fine-tuning for robot policies and VLAs: DPPO, Recap, pi_RL, HIL-SERL and EXPO-FT. HIL-SERL trains most tasks on the real robot in 1 to 2.5 hours.',
+      'RL fine-tuning improves a robot policy from its own attempts: DPPO, Recap and HIL-SERL, which trains most tasks on a real robot in 1 to 2.5 hours.',
     queries: ['RL fine-tuning VLA', 'reinforcement learning robot policy fine-tuning'],
   },
   '/manipulation/realtime-execution/': {
-    title: 'Real-Time VLA Inference and Action Chunking',
-    headTerm: 'real-time VLA inference',
+    title: 'Real-Time Chunking (RTC) and VLA Latency',
+    headTerm: 'real-time chunking',
     description:
-      'Real-time VLA inference decides robot control quality: latency budgets, temporal ensembling, real-time chunking (RTC) and training-time delay conditioning.',
-    queries: ['VLA inference latency', 'real-time chunking', 'robot policy control frequency'],
+      'Real-time chunking and VLA latency, measured: pi0.6 takes 63 ms per chunk on one H100, and 100 ms of lag nearly halves success on moving targets.',
+    queries: ['real-time chunking', 'real-time execution of action chunking flow policies', 'VLA inference latency', 'robot policy control frequency'],
   },
   '/manipulation/cross-embodiment/': {
     title: 'Cross-Embodiment Learning for Robot Policies',
@@ -232,11 +232,11 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['cross-embodiment robot learning', 'human video to robot transfer'],
   },
   '/manipulation/knowledge-insulation/': {
-    title: 'Knowledge Insulation in VLAs: The Pi0.5 Recipe',
+    title: 'Knowledge Insulation by Physical Intelligence',
     headTerm: 'knowledge insulation',
     description:
-      'Knowledge insulation trains a VLA backbone on FAST tokens and blocks expert gradients. pi0 needs 7.5x the training steps of pi0.5 + KI on table bussing.',
-    queries: ['knowledge insulation VLA', 'stop gradient VLA training'],
+      'Knowledge insulation trains a VLA\'s backbone on action tokens and blocks the action expert\'s gradients. pi0 needed 7.5x the training steps of pi0.5 + KI.',
+    queries: ['knowledge insulation', 'knowledge insulation Physical Intelligence', 'knowledge insulation VLA', 'stop gradient VLA training'],
   },
   '/manipulation/robot-learning-roadmap/': {
     title: 'Robot Learning Roadmap for ML Engineers',
@@ -372,11 +372,11 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['legged robot locomotion reinforcement learning', 'quadruped RL locomotion'],
   },
   '/rl-sim2real/humanoid-wbc/': {
-    title: 'Humanoid Whole-Body Control and Motion Tracking',
+    title: 'Humanoid Whole-Body Control, Sim to Real',
     headTerm: 'humanoid whole-body control',
     description:
-      'Humanoid whole-body control via RL motion tracking, from PHC and ASAP to BeyondMimic and SONIC, and how Helix 02, GR00T and Gemini Robotics 2 split it.',
-    queries: ['humanoid whole-body control', 'humanoid motion tracking RL'],
+      'Humanoid whole-body control is trained in simulation to track human motion, then run on the robot. PHC imitated 98.9% of 11,313 motion-capture clips.',
+    queries: ['humanoid whole-body control', 'sim2real whole-body control humanoid', 'humanoid motion tracking RL'],
   },
   '/rl-sim2real/motion-retargeting/': {
     title: 'Motion Retargeting: Six Methods Compared',
@@ -386,10 +386,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['motion retargeting humanoid', 'human to humanoid motion retargeting'],
   },
   '/rl-sim2real/reward-design-mpc/': {
-    title: 'Reward Design and MPC vs RL for Robots',
+    title: 'Reward Design for Robot RL, and MPC vs RL',
     headTerm: 'reward design',
     description:
-      'Robot reward design, from hand-tuned terms and constraints to Eureka and DrEureka, and when whole-body model predictive control beats a learned policy.',
+      'Reward design for legged robots: Rudin\'s walking reward summed nine weighted terms; Eureka\'s rewards beat the shaped original on 83% of 29 tasks.',
     queries: ['reward design reinforcement learning robotics', 'MPC vs reinforcement learning'],
   },
   '/rl-sim2real/offline-rl/': {
@@ -421,10 +421,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['Dreamer world model', 'TD-MPC2', 'latent dynamics model'],
   },
   '/world-models/generative-video/': {
-    title: 'Video World Models for Robots: Cosmos, Genie 3',
+    title: 'Video World Models: Cosmos 3 and Genie 3',
     headTerm: 'video world models',
     description:
-      'Action-conditioned video world models for robotics: Cosmos 3, Genie 3, DreamZero, 1X and Veo policy evaluation, and why action sensitivity decides.',
+      'Video world models show what a robot\'s camera would see after an action. Genie 3 runs at 24 fps in 720p; RoboWorld\'s rankings matched real ones at 0.989.',
     queries: ['video world models robotics', 'Cosmos world model', 'Genie 3 robotics'],
   },
   '/world-models/jepa/': {
@@ -435,11 +435,11 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['JEPA world model', 'V-JEPA 2', 'JEPA vs generative'],
   },
   '/world-models/generative-sim/': {
-    title: 'Generative Simulation: RoboGen and RoboCasa',
+    title: 'Generative Simulation with RoboGen and RoboCasa',
     headTerm: 'generative simulation',
     description:
-      'Generative simulation in RoboGen, Holodeck and RoboCasa. Going from 100 to 3,000 generated demos per task lifted RoboCasa success from 26.3% to 47.6%.',
-    queries: ['generative simulation robotics', 'AI-generated simulation environments'],
+      'Generative simulation has AI write a simulator\'s tasks and scenes. RoboCasa success rose from 26.3% at 100 generated demos per task to 47.6% at 3,000.',
+    queries: ['generative simulation', 'generative simulation robotics', 'RoboGen', 'RoboCasa'],
   },
   '/world-models/model-based-robot-learning/': {
     title: 'Model-Based Robot Learning with World Models',
@@ -470,10 +470,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['open problems in robot learning', 'robotics challenges 2026'],
   },
   '/frontier/reliability-gap/': {
-    title: 'Robot Reliability: Why Demos Fail to Deploy',
+    title: 'Robot Reliability Gap: 80% Demo, 99.9% Product',
     headTerm: 'robot reliability',
     description:
-      'Robot reliability: why 95% per-step success fails a 30-step task, which methods raise it, and what Figure, Agility and Tesla deployments report in 2026.',
+      'Robot reliability compounds: 95% per step gives 21% over a 30-step task, 99.9% gives 97%. What closes the gap, and what Agility, Figure and Tesla report.',
     queries: ['robot reliability', 'why robot demos fail in production', '99.9% robot success rate'],
   },
   '/frontier/dexterity/': {
@@ -484,10 +484,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['robot dexterity', 'dexterous robot hands', 'tactile sensing robot hand'],
   },
   '/frontier/generalization/': {
-    title: 'Robot Generalization: Pi0.5, Pi0.7, Helix 2.5',
+    title: 'Robot Generalization in Homes It Has Never Seen',
     headTerm: 'robot generalization',
     description:
-      'Robot generalization in unseen homes: pi0.5, pi0.7 and Helix 2.5. Figure reports 56% zero-shot success in 30 homes, against 9% without Index pretraining.',
+      'Robot generalization to unseen homes, in numbers: Figure reports 56% zero-shot success for Helix 2.5 in 30 homes, against 9% when trained from scratch.',
     queries: ['robot generalization', 'zero-shot robot unseen homes', 'generalist robot policy'],
   },
   '/frontier/competing-theses/': {
@@ -533,25 +533,25 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['robot training data cost per hour', 'robot data collection companies'],
   },
   '/data-hardware/datasets/': {
-    title: 'Robot Learning Datasets Compared (2026)',
+    title: 'Robot Learning Datasets: DROID, BridgeData V2',
     headTerm: 'robot learning datasets',
     description:
-      'Open robot learning datasets compared by hours, episodes, tasks, embodiments and license: Open X-Embodiment, DROID, AgiBot World, Galaxea and more.',
-    queries: ['robot learning datasets', 'open robot manipulation datasets comparison'],
+      'Robot learning datasets compared by hours, robots and license. Open X-Embodiment pools over a million trajectories from 22 robot types; DROID has 76,000.',
+    queries: ['robot learning datasets', 'open robot manipulation datasets comparison', 'BridgeData V2'],
   },
   '/data-hardware/hardware-taxonomy/': {
-    title: 'Robot Hardware Prices 2026: Arms to Humanoids',
-    headTerm: 'robot hardware',
+    title: 'Robot Prices in 2026: Arms, Hands and Humanoids',
+    headTerm: 'robot prices',
     description:
-      'Dated 2026 prices and specs for robot hardware: arms, humanoids, dexterous hands, tactile sensors and Jetson Thor compute, from a $122 SO-101 to Atlas.',
-    queries: ['humanoid robot price 2026'],
+      'Robot prices in 2026 as makers list them: about $122 in parts for an SO-101 arm, $29,900 for a Unitree H2 humanoid, plus hands, sensors and Jetson Thor.',
+    queries: ['humanoid robot price 2026', 'robot arm price', 'robot hardware'],
   },
   '/data-hardware/teleop-rigs/': {
-    title: 'Robot Teleoperation and Data Collection Rigs',
-    headTerm: 'robot teleoperation',
+    title: 'Teleoperation Rig Costs: GELLO, ALOHA and UMI',
+    headTerm: 'teleoperation rig',
     description:
-      'Robot teleoperation rigs compared: ALOHA, GELLO, UMI, VR headsets and wearable gloves on cost, demos per hour, data quality and the embodiment gap.',
-    queries: ['robot teleoperation data collection', 'ALOHA vs UMI'],
+      'Teleoperation rig costs, from a $300 GELLO parts list to a $23,996 Trossen bimanual kit. UMI collects 111 demos an hour against 35 for spacemouse teleop.',
+    queries: ['teleoperation rig cost', 'robot teleoperation data collection', 'ALOHA vs UMI'],
   },
   '/data-hardware/evaluation-crisis/': {
     title: 'Robot Policy Evaluation and Benchmarks',
@@ -603,18 +603,18 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['autonomous drones', 'how autonomous drones fly', 'AI drone racing'],
   },
   '/adjacent/surgical/': {
-    title: 'Surgical Robotics: Systems, Safety and Autonomy',
-    headTerm: 'surgical robotics',
+    title: 'Surgical Robots: da Vinci 5, Versius and Hugo',
+    headTerm: 'surgical robots',
     description:
-      'Surgical robotics from da Vinci 5 to Hugo and OTTAVA: how they work, why they stay surgeon-controlled, and where learned autonomy stands in 2026.',
-    queries: ['surgical robotics', 'surgical robots', 'robotic surgery systems', 'autonomous surgery'],
+      'Surgical robots move as the surgeon moves. Intuitive had 12,094 da Vinci systems installed by September 30, 2026, and autonomy stays at level 0 or 1.',
+    queries: ['surgical robots', 'surgical robotics', 'robotic surgery systems', 'autonomous surgery'],
   },
   '/adjacent/space/': {
-    title: 'Space Robotics: Rovers, Arms and Autonomy',
+    title: 'Space Robotics: Rovers, Station Arms, Servicing',
     headTerm: 'space robotics',
     description:
-      'Space robotics explained: Mars rover autonomy, lunar drilling for ISRU, and robotic satellite servicing and debris removal, with mission data.',
-    queries: ['space robotics', 'space robots examples', 'Mars rover autonomy', 'satellite servicing robots'],
+      'Space robotics spans planetary rovers, station arms and satellite servicers. Signals take 4 to 20 minutes to reach Mars, so rovers mostly drive themselves.',
+    queries: ['space robotics', 'what is space robotics', 'Mars rover autonomy', 'satellite servicing robots'],
   },
 };
 
