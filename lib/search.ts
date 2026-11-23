@@ -489,7 +489,10 @@ async function partialQuestionHits(lookup: PagefindLookup, terms: string[]): Pro
 }
 
 export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
-  let strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
+  // The arm's published name is SO-100. A bare “SO 100” would otherwise match
+  // pages that happen to contain both “so” and the number 100.
+  const indexedQuery = /^\s*so[\s\p{Pd}]?100\s*$/iu.test(query) ? 'SO-100' : query;
+  let strict = await preferQualifiedTitle(indexedQuery, await toSearchHits(await lookup(indexedQuery), indexedQuery));
   // Papers and readers use “sim2real” for the wiki’s “sim-to-real”. Keep any
   // literal results first, and keep the reader's other terms in the lookup.
   if (!strict.length) {
@@ -501,7 +504,7 @@ export async function searchPagefind(lookup: PagefindLookup, query: string): Pro
   const terms = questionTerms(query);
   const ordinaryHits = () => strict.length || !terms.length ? strict : partialQuestionHits(lookup, terms);
   const exact = exactSearchQuestion(query);
-  const question = exact || (!strict.length && relatedSearchQuestion(query));
+  const question = exact || relatedSearchQuestion(query, strict.length > 0);
   if (question) {
     const path = question.href.split('#')[0];
     const [, domain, slug] = path.split('/');

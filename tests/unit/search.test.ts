@@ -545,6 +545,43 @@ describe('reader questions in prose search', () => {
     }
   });
 
+  it('looks up the bare arm identifier under its published spelling', async () => {
+    for (const query of ['SO100', 'so 100', 'SO‑100', 'so-100']) {
+      const requests: string[] = [];
+      const lookup = async (term: string) => {
+        requests.push(term);
+        return {results: [result('glass', 5)]};
+      };
+      await searchPagefind(lookup, query);
+      expect(requests).toEqual(['SO-100']);
+    }
+  });
+
+  it('finds the original camera example by its arm, model and subject in any order', async () => {
+    for (const query of [
+      'SO100 GR00T camera', 'camera GR00T SO-100', 'GR00T N1 SO 100 camera',
+      'NVIDIA GR00T-N1 SO‑100 camera example', 'Camera input SO100 GR00T code',
+    ]) {
+      const other = {url: '/ordinary/', content: query};
+      const lookup = async () => ({results: [{id: 'page', score: 1, data: async () => other}]});
+      const hits = await searchPagefind(lookup, query);
+      expect(hits.map(hit => hit.url)).toEqual(['/manipulation/hierarchical/#two-speeds-in-one-system', '/ordinary/']);
+      expect(hits[0].source?.label).toBe('NVIDIA’s SO-100 control loop');
+      expect(hits[0].excerpt).toMatch(/^Related question:/);
+    }
+  });
+
+  it('keeps ordinary results for other model versions, hardware and camera questions', async () => {
+    for (const query of [
+      'GR00T N1.6 SO100 camera', 'GR00T N1.7 SO-100 camera', 'GR00T N2 SO100 camera',
+      'SO-101 GR00T camera', 'SO100 GR00T camera price', 'GR00T SO-100 camera tripod for filming',
+      'SO100 GR00T camera calibration', 'SO100 camera', 'GR00T N1 camera',
+    ]) {
+      const results = await searchPagefind(async () => ({results: []}), query);
+      expect(results).toEqual([]);
+    }
+  });
+
   it('offers related reading and the source code for questions about vision and motor timing', async () => {
     const lookup = async () => ({results: []});
     for (const query of [

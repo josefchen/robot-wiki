@@ -16,12 +16,27 @@ interface ArticleQuestion {
   citations?: readonly string[];
   comparison?: TableComparison;
   source?: QuestionSource;
-  related?: (query: string) => boolean;
+  related?: (query: string, hasPageMatch: boolean) => boolean;
 }
 
-/** A question about the speed of seeing and acting needs both parts. A camera's
- * refresh rate or a model name alone does not identify this comparison. */
-function asksAboutControlRates(query: string) {
+const cameraExampleWords = new Set([
+  'gr00t', 'n1', 'nvidia', 'isaac', 'so100', 'camera',
+  'input', 'example', 'code', 'script', 'control', 'loop',
+]);
+
+/** A compact source lookup may name the camera, arm and model in any order.
+ * Extra qualifiers leave the query to ordinary search. */
+function namesCameraExample(query: string) {
+  const words = query.replace(/\bso[ -]?100\b/g, 'so100').match(/[\p{L}\p{N}]+/gu) ?? [];
+  return words.includes('so100') && words.includes('gr00t') && words.includes('camera')
+    && words.every(word => cameraExampleWords.has(word));
+}
+
+function asksAboutRobotVision(query: string, hasPageMatch: boolean) {
+  if (namesCameraExample(query)) return true;
+  // Broader timing questions only need supplemental reading when the full
+  // query did not match an indexed page.
+  if (hasPageMatch) return false;
   const model = /\bgr00t[ -]n1\b(?![.\d])/.test(query);
   if (/\bgr00t\b/.test(query) && !model) return false;
   const visionModel = /\b(?:vision[ -]language|(?:vision|visual) (?:model|encoder)|vlm)\b/.test(query);
@@ -62,7 +77,7 @@ const questions: readonly ArticleQuestion[] = [
     label: 'What do System 1 and System 2 do in a humanoid robot?',
     href: '/manipulation/hierarchical/#two-speeds-in-one-system',
     searchPhrases: ['System 1 System 2', 'System 1 and System 2 robotics'],
-    related: asksAboutControlRates,
+    related: asksAboutRobotVision,
     source: {
       label: 'NVIDIA’s SO-100 control loop',
       url: 'https://github.com/NVIDIA/Isaac-GR00T/blob/1184da1013ceb359f8b0e1801280ae12347396df/getting_started/examples/eval_gr00t_so100.py#L235-L303',
@@ -125,8 +140,8 @@ export function exactSearchQuestion(query: string) {
   );
 }
 
-/** Supplemental reading when a complete question has no ordinary page match. */
-export function relatedSearchQuestion(query: string) {
+/** Related passages and their accompanying primary sources. */
+export function relatedSearchQuestion(query: string, hasPageMatch: boolean) {
   const text = query.toLowerCase().replace(/[\u2010-\u2015]/g, '-');
-  return questions.find(question => question.related?.(text));
+  return questions.find(question => question.related?.(text, hasPageMatch));
 }
