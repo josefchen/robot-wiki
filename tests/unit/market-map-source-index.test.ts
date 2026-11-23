@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { GET } from '@/app/market-map/sources.json/route';
+import { GET } from '@/app/company-sources.json/route';
 import { COMPANIES } from '@/data/companies';
 import { buildLlmsFullTxt, buildLlmsTxt } from '@/lib/llms';
 import { registryLlmsInput } from '@/lib/llms-registry';
@@ -22,7 +22,7 @@ describe('market map source index', () => {
 
   it('links the source index in both plain-text guides before the reference entries', () => {
     const input = registryLlmsInput();
-    const link = `[market map source index](${input.siteUrl}/market-map/sources.json)`;
+    const link = `[market map source index](${input.siteUrl}/company-sources.json)`;
     for (const guide of [buildLlmsTxt(input), buildLlmsFullTxt(input)]) {
       expect(guide.split('\n## ')[0]).toContain(link);
     }

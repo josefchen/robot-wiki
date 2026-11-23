@@ -63,7 +63,7 @@ function paperIndexGuide(siteUrl: string): string {
 }
 
 function companySourcesGuide(siteUrl: string): string {
-  return `Look up a company in the [market map source index](${siteUrl}/market-map/sources.json). Each entry links to its market map record and lists its sources in the order shown there.`;
+  return `Look up a company in the [market map source index](${siteUrl}/company-sources.json). Each entry links to its market map record and lists its sources in the order shown there.`;
 }
 
 /** Prose with inline markup unwrapped and each citation kept as a marker. */

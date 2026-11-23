@@ -73,7 +73,7 @@ export default function MarketMapPage() {
           <a
             className="ink-link"
             data-brand-control-id="control:link-focus"
-            href="/market-map/sources.json"
+            href="/company-sources.json"
           >
             Company sources (JSON)
           </a>
