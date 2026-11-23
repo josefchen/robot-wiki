@@ -59,23 +59,23 @@ seeAlso:
 
 import { AppearancePhysicsPush } from '@/components/interactive/appearance-physics-push';
 
-Generative simulation uses AI models to write a simulator's tasks, scenes, objects and rewards, while a physics engine, itself a hand-built <Term id="world-model">world model</Term>, still computes how things move <Cite id="robogen-2024" />. A 2026 survey sees the field moving "from visual realism toward interaction readiness" <Cite id="3d-gen-embodied-survey-2026" />.
+Generative simulation refers to using AI models to generate components of a simulator: scenes, tasks, objects and rewards. Meanwhile, a physics engine (which is also a hand-built <Term id="world-model">world model</Term>) is still used to simulate the dynamics <Cite id="robogen-2024" />. According to a 2026 survey, generative simulation is on its way "from visual realism toward interaction readiness" <Cite id="3d-gen-embodied-survey-2026" />.
 
 <Image id="robocasa-object-library-2024" />
 
-Realism does not supply physics: on Physics-IQ, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
+Realism is not a good proxy for physical accuracy: on Physics-IQ, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
 
 <AppearancePhysicsPush className="my-6" />
 
 <span id="generate-content-inside-a-physics-engine" />
 ## A physics engine keeps generated content physically consistent
 
-A solver executes the generated task, layout, object or reward, so a mug with the wrong friction may slide too far but cannot fall upward. [Generative video](/world-models/generative-video/) learns physics from pixels instead, and a 2026 survey calls visual plausibility a weak proxy for control <Cite id="world-model-survey-2026" />. ManiSkill3 runs physics and rendering in parallel on the GPU <Cite id="maniskill3-2024" />, and Isaac Lab 3.0 runs one task interface across several physics back ends <Cite id="isaac-lab-3-0-2026" />.
+The generated tasks, layouts, objects and rewards are executed by a physics engine: a generated mug with incorrect friction might slide more than it should, but it cannot fall up. [Generative video](/world-models/generative-video/) models learn physical dynamics from visual observations instead, and a 2026 survey argues that visual plausibility is a weak proxy for control <Cite id="world-model-survey-2026" />. ManiSkill3 runs physics and rendering in parallel on the GPU <Cite id="maniskill3-2024" />, and Isaac Lab 3.0 runs one task interface across several physics back ends <Cite id="isaac-lab-3-0-2026" />.
 
 <span id="robogen-propose-generate-learn" />
 ## RoboGen automates task proposal, but humans still inspect the results
 
-Given a robot and a sampled object, GPT-4 in RoboGen proposes a task, writes the scene, splits the task into sub-tasks and supplies rewards. People still design the prompts and inspect the results <Cite id="robogen-2024" />.
+RoboGen leverages GPT-4 to propose a task given a robot and a sampled object, generate a scene description, decompose the task into sub-tasks, and devise reward functions. Human-written prompts are still required in RoboGen, and humans are needed to evaluate the generated tasks <Cite id="robogen-2024" />.
 
 | System | Method | Result |
 | --- | --- | --- |
@@ -86,18 +86,18 @@ Given a robot and a sampled object, GPT-4 in RoboGen proposes a task, writes the
 <span id="holodeck-language-guided-environment-generation" />
 ## Holodeck builds rooms from prompts but does not test manipulation
 
-Holodeck turns a text prompt into an AI2-THOR room of Objaverse objects, placed by a solver that respects collisions and room bounds. Its tests used navigation only, so it says nothing about valid manipulation <Cite id="holodeck-2024" />. ProcTHOR generates interactive houses for navigation, rearrangement and arm manipulation <Cite id="procthor-2022" />.
+Holodeck is a system to automatically generate AI2-THOR scenes from natural language descriptions using objects from Objaverse and a constraint solver to place objects in the scene while accounting for collisions and the boundaries of the room. Its tests used navigation only, so it says nothing about valid manipulation <Cite id="holodeck-2024" />. ProcTHOR is a data generator that procedurally generates interactive houses for navigation, rearrangement and arm manipulation tasks <Cite id="procthor-2022" />.
 
-Objects are the weak link. Objaverse has over 800,000 3D models with no physical properties <Cite id="objaverse-2022" />. SceneSmith estimates those properties and places 3 to 6 times more objects than prior methods, under 2% colliding and 96% stable <Cite id="scenesmith-2026" />.
+Objects are the weak link. Objaverse consists of more than 800,000 3D models that do not have physical properties <Cite id="objaverse-2022" />. SceneSmith estimates physical properties and enables placing 3 to 6 times more objects than previous approaches while having less than 2% of the objects in collision and 96% of objects being stable <Cite id="scenesmith-2026" />.
 
 <span id="robocasa" />
 ## More generated demonstrations raised RoboCasa success from 26.3% to 47.6%
 
-RoboCasa's 120 simulated kitchens hold 2,509 objects, and GPT-4 and Gemini 1.5 drafted 75 of its 100 tasks before people edited them. MimicGen multiplies human demonstrations by adapting them to new scenes and keeping successes <Cite id="robocasa-2024" />; alone it turned about 200 demonstrations into over 50,000 <Cite id="mimicgen-2023" />.
+In RoboCasa, GPT-4 and Gemini 1.5 generated 75 out of 100 tasks (before human refinement) in its benchmark with 2,509 objects in 120 simulated kitchens. MimicGen amplifies demonstrations by transforming them to fit different scenes and retaining successful examples <Cite id="robocasa-2024" />; MimicGen alone expanded a dataset from about 200 human demos to over 50,000 <Cite id="mimicgen-2023" />.
 
 <Image id="robocasa-kitchens-2024" />
 
-With 100, 300 or 3,000 generated demonstrations per task, a Franka Panda policy on 24 basic tasks succeeded 26.3%, 35.0% and 47.6% of the time on unseen objects <Cite id="robocasa-2024" />. RoboCasa365 scales to 365 tasks in 2,500 kitchens, with 600+ hours of human and 1,600 hours of synthetic demonstrations <Cite id="robocasa365-2026" />.
+Scaling the number of generated demonstrations per task for a policy on the Franka Panda robot to 100, 300 or 3,000 leads to success rates on unseen objects of 26.3%, 35.0% and 47.6% respectively on 24 basic tasks <Cite id="robocasa-2024" />. RoboCasa365 contains more than 600 hours of human demonstration data and 1,600 hours of synthetic demonstration data across 365 tasks in 2,500 kitchen environments <Cite id="robocasa365-2026" />.
 
 ## Generators expand a few demonstrations or one image into training data
 
@@ -112,14 +112,14 @@ With 100, 300 or 3,000 generated demonstrations per task, a Franka Panda policy 
 <span id="the-push-test" />
 ## Generative simulation borrows its physics from the engine
 
-A simulated push has three layers: appearance, a physics proxy of shape, mass and friction, and the integrator that always slides the mug $d = v^2/(2\mu g)$. Cosmos-Transfer1 generates only appearance, from segmentation, depth and edge maps <Cite id="cosmos-transfer1-2025" />, and so does a [Gaussian Splatting twin](/world-models/taxonomy/) <Cite id="3dgs-2023" />. Generative video tries to learn the third layer; generative simulation borrows the second and third from an engine.
+A simulated push has three layers: a visual appearance, a simplified model used to compute physics (shape, mass and friction), and an integrator to update the state (sliding a mug will always result in a distance of $d = v^2/(2\mu g)$). Cosmos-Transfer1 only generates the first layer given segmentation, depth and edge maps <Cite id="cosmos-transfer1-2025" />, as does a [Gaussian Splatting twin](/world-models/taxonomy/) <Cite id="3dgs-2023" />. Generative video tries to learn the third layer; generative simulation borrows the second and third from an engine.
 
-RoboRender restyles simulated video while keeping geometry, robot motion and action labels <Cite id="roborender-2026" />. NVIDIA's November 2026 Cosmos framework renders from an external simulator's physical state, so the engine keeps the dynamics <Cite id="cosmos-interactive-sim-2026" />.
+RoboRender re-renders videos from simulation while preserving geometry, robot motion as well as action labels <Cite id="roborender-2026" />. NVIDIA's November 2026 Cosmos framework renders from an external simulator's physical state, so the engine keeps the dynamics <Cite id="cosmos-interactive-sim-2026" />.
 
 <span id="limitations" />
 ## Generated content still needs physical and human checks
 
-A scene is only as physical as its objects. Generated assets "often overlook rich and important physical properties" <Cite id="physx-3d-2025" />, and generated geometry can look right while intersecting itself or sitting at the wrong scale <Cite id="worldlabs-taxonomy-2026" />.
+A scene is only as physical as its objects. Generated assets "often overlook rich and important physical properties" <Cite id="physx-3d-2025" />. Even if the generated geometry looks right, it might intersect itself or have an inappropriate scale <Cite id="worldlabs-taxonomy-2026" />.
 
 | System | Automates | Result |
 | --- | --- | --- |
@@ -127,20 +127,20 @@ A scene is only as physical as its objects. Generated assets "often overlook ric
 | DrEureka | Ranges for <Term id="domain-randomization">domain randomization</Term> | Built automatically <Cite id="dreureka-2024" /> |
 | Articulate-Anything | Objects with moving parts | 75% success, against 8.7% to 12.2% for prior work <Cite id="articulate-anything-2024" /> |
 
-Generated goals can miss what a person wants. Eureka's task metric may not match the intended behavior, and its authors do not require human inspection of generated rewards <Cite id="eureka-2024" />. Text2Reward's rewards matched or beat expert rewards on 13 of 17 manipulation tasks <Cite id="text2reward-2023" />; see [reward design](/rl-sim2real/reward-design-mpc/).
+Generated goals can miss what a person wants. Eureka's task metric may not match the intended behavior, and its authors do not require validating the generated reward function with human inspection <Cite id="eureka-2024" />. The reward functions generated in Text2Reward perform as well as or better than rewards designed by human experts in 13 of 17 manipulation tasks <Cite id="text2reward-2023" />; see [reward design](/rl-sim2real/reward-design-mpc/).
 
 <span id="where-this-leaves-the-field" />
 ## Policies trained on generated variations now transfer to real robots
 
-Variety beats exactness. Policies trained on digital cousins, similar but not identical scenes, reached 90% zero-shot sim-to-real success against 25% for exact digital twins <Cite id="digital-cousins-2024" />. SimFoundry's object, scene and task cousins raised zero-shot real success by 17%, 21% and 40% <Cite id="simfoundry-2026" />.
+Variety beats exactness: zero-shot sim-to-real success rates were 90% for policies learned on environments that are cousins (similar, but not exact replicas) of their real-world counterpart, as opposed to 25% for exact digital twins <Cite id="digital-cousins-2024" />. In SimFoundry, learning on cousin objects, scenes and tasks leads to 17%, 21% and 40% improvement in zero-shot real-world success rate, respectively <Cite id="simfoundry-2026" />.
 
-MetaGenSim learns which simulator settings make useful co-training data. With 10 real demonstrations per task, its data gave 58 successes in 80 real trials <Cite id="metagensim-2026" />. Real data alone gave 26, uniform simulation 23 and hand-tuned settings 57.
+MetaGenSim learns a set of simulator parameters that generate useful co-training data. With 10 real demonstrations per task, its data gave 58 successes in 80 real trials <Cite id="metagensim-2026" />. Real data alone gave 26, uniform simulation 23 and hand-tuned settings 57.
 
 <span id="the-hybrid-boundary" />
 ## Generators propose content and the engine integrates contact
 
-A generator proposes layouts, tasks and starting states, an asset pipeline attaches physical properties, and the engine integrates contacts. Infinigen-Articulated checks interpenetration for 18 categories of objects with moving parts <Cite id="infinigen-articulated-2025" />, and Newton 1.0 adds hydroelastic contact for tight assembly such as connector insertion <Cite id="newton-manipulation-blog-2026" />.
+A generator proposes object layouts, tasks, and initial states; an asset pipeline annotates objects with physical properties; and the simulation engine handles contact between objects. Infinigen-Articulated checks interpenetration for articulated objects spanning 18 categories <Cite id="infinigen-articulated-2025" />. Newton 1.0 introduces hydroelastic contact, which is important for tightly fitting assemblies such as plugging in a connector <Cite id="newton-manipulation-blog-2026" />.
 
-World Labs follows the same split. Marble exports worlds as Gaussian splats plus low-fidelity collision meshes <Cite id="marble-2025" />. Atlas turns images, camera poses and depth into splats or point clouds <Cite id="worldlabs-atlas-2026" />, and its November 12, 2026 release converts splats to meshes for simulation <Cite id="worldlabs-atlas-release-2026" />.
+World Labs follows the same pattern, with its Marble product generating worlds that it exports as Gaussian splats complemented by low-fidelity meshes for collision detection <Cite id="marble-2025" />. Atlas can generate splats or point clouds from images (with camera poses) and depth maps <Cite id="worldlabs-atlas-2026" />, and a new feature (as of November 12, 2026) can convert splats to meshes to enable simulation <Cite id="worldlabs-atlas-release-2026" />.
 
-Check scale and collision geometry before dynamics, stability before rollouts, and contact against real measurements before claiming transfer. Steerable scene generation enforces feasibility "via projection and simulation" across 44 million released scenes <Cite id="steerable-scene-generation-2025" />. The [simulator comparison](/world-models/world-models-vs-simulators/) gives the selection rule.
+Before doing dynamics, check the scale and collision geometry. Before rollouts, check stability. And before claiming transfer, check contact against real measurements. Steerable scene generation enforces feasibility of the generated scenes "via projection and simulation", and 44 million of these scenes have been released <Cite id="steerable-scene-generation-2025" />. The [simulator comparison](/world-models/world-models-vs-simulators/) gives the selection rule.
