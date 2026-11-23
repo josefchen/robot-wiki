@@ -69,6 +69,15 @@ export default function MarketMapPage() {
           </a>
           .
         </p>
+        <p className="mt-3 text-base">
+          <a
+            className="ink-link"
+            data-brand-control-id="control:link-focus"
+            href="/company-sources.json"
+          >
+            Company sources (JSON)
+          </a>
+        </p>
       </div>
       <div className="mt-8">
         <MarketMap companies={COMPANIES} />

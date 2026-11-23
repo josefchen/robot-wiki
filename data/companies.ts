@@ -4524,6 +4524,11 @@ const ROWS: Company[] = [
         title: 'Carbon Autonomous Robotic Systems Inc. Form D (SEC, October 31, 2024)',
         asOf: '2026-11-23',
       },
+      {
+        url: 'https://www.sec.gov/Archives/edgar/data/1763479/000176347925000005/xslFormDX01/primary_doc.xml',
+        title: 'Carbon Autonomous Robotic Systems Inc. Form D (SEC, October 22, 2025)',
+        asOf: '2026-11-23',
+      },
     ],
     confidence: 'high',
     absent: {
