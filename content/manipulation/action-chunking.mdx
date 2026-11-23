@@ -61,9 +61,9 @@ With <Term id="action-chunking">action chunking</Term>, a robot policy predicts 
 
 ## Fewer decisions, fewer slips
 
-A policy that picks one move at a time makes thousands of decisions per task, and each slip can carry it where no demonstration went. In [behavior cloning](/manipulation/bc-foundations/) that cost can grow with the square of task length; <Term id="dagger">DAgger</Term> makes it linear <Cite id="dagger-2011" />. Chunks of k actions cut the decisions k-fold <Cite id="act-aloha-2023" />.
+Policies that output one action at a time must make thousands of decisions per task (with a cost that can scale quadratically with task length in [behavior cloning](/manipulation/bc-foundations/), and linearly in <Term id="dagger">DAgger</Term> <Cite id="dagger-2011" />), and can wander into behavior not represented in demonstrations. Chunks of k actions cut the decisions k-fold <Cite id="act-aloha-2023" />.
 
-With continuous actions, smooth deterministic imitators can let errors grow exponentially <Cite id="simchowitz-continuous-il-2025" />, and chunking prevents that in stable systems <Cite id="zhang-chunking-exploration-2025" />. Three 2026 studies found this account incomplete.
+For imitation with smooth, deterministic policies and continuous actions, compounding error can grow exponentially <Cite id="simchowitz-continuous-il-2025" />, and action chunking prevents this in stable systems <Cite id="zhang-chunking-exploration-2025" />. Three studies from 2026 found that this picture is incomplete.
 
 | Study | Finding |
 | --- | --- |
@@ -77,7 +77,7 @@ Also: the term's origin in psychology <Cite id="lai-action-chunking-2022" />.
 
 Action Chunking with Transformers (ACT, 2023) came with ALOHA, a low-cost two-arm [teleoperation rig](/data-hardware/teleop-rigs/), and learned to open a translucent condiment cup from 10 minutes of demonstrations <Cite id="act-aloha-2023" />.
 
-People repeat a motion slightly differently, so ACT is a <Term id="cvae">conditional variational autoencoder</Term>: it compresses each demonstrated chunk into a style variable, set to zero at test time. Without it, success on human demonstrations fell from 35.3% to 2% <Cite id="act-aloha-2023" />.
+Action chunks are compressed into a style variable in order to deal with variations between demonstrations, as humans are not able to repeat actions exactly the same way. Thus, ACT is a <Term id="cvae">conditional variational autoencoder</Term>. At test time this variable is set to zero. Without this component, ACT performs worse (2% instead of 35.3% success on human demonstrations) <Cite id="act-aloha-2023" />.
 
 <Image id="aloha-2-workcell-2024" />
 
@@ -98,25 +98,25 @@ People repeat a motion slightly differently, so ACT is a <Term id="cvae">conditi
 
 <ChunkSizeCurve className="my-6" />
 
-Small chunks bring back <Term id="compounding-error">compounding error</Term>; large ones react slowly to surprises <Cite id="bidirectional-decoding-2024" />. ACT's success peaked at chunks of 100 and dipped at 200 and 400 <Cite id="act-aloha-2023" />, and flow-based VLAs rise and fall the same way <Cite id="autohorizon-2026" />.
+Smaller chunks lead to <Term id="compounding-error">compounding error</Term>, while larger chunks cannot respond quickly to unexpected situations <Cite id="bidirectional-decoding-2024" />. For example, ACT achieved its best performance with action chunks of length 100, and performance dipped when the chunk length was increased to 200 or 400 <Cite id="act-aloha-2023" />. VLAs based on flow matching also exhibit similar performance trends <Cite id="autohorizon-2026" />.
 
-Choosing the length on the fly lifted real ALOHA and Franka success from 50.7% to 70.4% with PACE <Cite id="pace-2026" />. Mixture of Horizons blends lengths through a learned gate <Cite id="moh-2025" />.
+Dynamically choosing the length increased the success rate on real ALOHA and Franka tasks from 50.7% to 70.4% when using PACE <Cite id="pace-2026" />. Mixture of Horizons instead blends lengths through a learned gate <Cite id="moh-2025" />.
 
-A π0.5 study compared two simulation benchmarks and three tasks on real robots. Predicting about one second ahead worked best, but how much of each chunk to play depended on the checkpoint. Keeping successive chunks continuous helped more than choosing the lowest-latency method <Cite id="vla-reactive-execution-2026" />.
+A π0.5 study compared two simulation benchmarks and three tasks on real robots. Predicting about one second ahead worked best, but the optimal number of timesteps to play back depended on the checkpoint. Keeping successive chunks continuous helped more than choosing the lowest-latency method <Cite id="vla-reactive-execution-2026" />.
 
 ## Overlapping chunks are averaged into one action
 
-Switching chunks abruptly jerks the arm. ACT's code uses <Term id="temporal-ensembling">temporal ensembling</Term>: it queries the policy every step and averages the overlapping predictions <Cite id="act-reference-2023" />. The weights $w_i = \exp(-m \cdot i)$, $m = 0.01$, favor the oldest ($i = 0$); the best decay varies by task <Cite id="bidirectional-decoding-2024" />.
+Switching abruptly between chunks will cause jerky arm movements. In the original implementation, ACT uses <Term id="temporal-ensembling">temporal ensembling</Term>. That is, it makes a prediction every time step and then averages the predictions that overlap in time (with exponentially decaying weights $w_i = \exp(-m \cdot i)$, favoring older predictions, where $m = 0.01$ and $i = 0$ is the oldest prediction) <Cite id="act-reference-2023" />. The optimal decay hyperparameter varies by task <Cite id="bidirectional-decoding-2024" />.
 
 <Image id="temporal-ensembling" />
 
 ## Real-Time Chunking keeps the committed moves
 
-Averaging fails when consecutive chunks go opposite ways around an obstacle <Cite id="bidirectional-decoding-2024" />, or when the model is slow. <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats [the hand-off](/manipulation/realtime-execution/) as inpainting: it freezes the actions that run during computation and fills in the rest. With π0.5 under 100 or 200 ms of added delay, ensembling triggered protective stops while RTC held throughput <Cite id="real-time-chunking-2025" /> <Cite id="pi-real-time-chunking-blog-2025" />.
+Averaging fails when consecutive chunks go opposite ways around an obstacle <Cite id="bidirectional-decoding-2024" />, or when the model is slow. In <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC), [the hand-off](/manipulation/realtime-execution/) is instead framed as an inpainting problem, where actions executed during inference are frozen and the model infers the remaining actions. Using π0.5 with either 100 or 200 ms of additional latency, ensembling caused protective stops while RTC maintained throughput <Cite id="real-time-chunking-2025" /> <Cite id="pi-real-time-chunking-blog-2025" />.
 
 <LatencyComparison className="my-6" />
 
-With moving objects, background replanning helped only while planned actions never ran out <Cite id="libero-dynamic-2026" />. LeRobot ships RTC <Cite id="lerobot-rtc-docs" />.
+With moving objects, background replanning helped only while planned actions never ran out <Cite id="libero-dynamic-2026" />. RTC is supported in LeRobot <Cite id="lerobot-rtc-docs" />.
 
 | Method | What it does |
 | --- | --- |
@@ -128,7 +128,7 @@ With moving objects, background replanning helped only while planned actions nev
 
 ## Every major policy now chunks
 
-RT-1 predicted one action per step <Cite id="rt1-2022" />; [diffusion](/manipulation/diffusion-policy/), flow and vision-language-action policies now all chunk <Cite id="dehp-2026" />. [π0](/manipulation/pi-line/) generates chunks by <Term id="flow-matching">flow matching</Term> <Cite id="pi0-2024" />; π0.5 adds FAST tokens <Cite id="pi05-2025" />, but openpi ships only the flow head <Cite id="openpi-repo-2024" />.
+Instead of predicting one action per step as RT-1 did <Cite id="rt1-2022" />, modern [diffusion](/manipulation/diffusion-policy/), flow and vision-language-action policies all predict action chunks <Cite id="dehp-2026" />. [π0](/manipulation/pi-line/) predicts action chunks using <Term id="flow-matching">flow matching</Term> <Cite id="pi0-2024" /> and π0.5 additionally uses FAST tokens <Cite id="pi05-2025" />, although openpi only implements the flow prediction head <Cite id="openpi-repo-2024" />.
 
 <PolicyChunkingTable className="my-6" />
 
@@ -146,4 +146,4 @@ Chunks also hide inference time.
 
 ## Chunking moved to mobile robots and RL
 
-Mobile ALOHA put the recipe on a wheeled two-arm robot, and co-training with static ALOHA data raised its success <Cite id="mobile-aloha-2024" />. ALOHA Unleashed scaled it to over 26,000 real demonstrations for 5 tasks <Cite id="aloha-unleashed-2024" />. In [RL fine-tuning](/manipulation/rl-finetuning/), Q-chunking learns values over whole chunks for better exploration <Cite id="q-chunking-2025" />.
+Mobile ALOHA put the recipe on a wheeled two-arm robot, and co-training with static ALOHA data raised its success <Cite id="mobile-aloha-2024" />. Scaling data further, ALOHA Unleashed collected more than 26,000 real robot demonstrations to train policies for 5 tasks <Cite id="aloha-unleashed-2024" />. In [RL fine-tuning](/manipulation/rl-finetuning/), Q-chunking learns values over whole chunks for better exploration <Cite id="q-chunking-2025" />.
