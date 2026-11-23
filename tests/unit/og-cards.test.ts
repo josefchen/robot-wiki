@@ -110,7 +110,7 @@ describe('og card vocabulary', () => {
   // explicitly so that can never happen.
   it('routeOpenGraph declares the search title, a website card block, and the site card', () => {
     const og = routeOpenGraph('Market Map');
-    expect(og.title).toBe('Market Map: Robotics Companies and Funding');
+    expect(og.title).toBe('Robotics Market Map: 100+ Companies, 6 Segments');
     expect(og.title).not.toContain(SITE_NAME);
     expect(og.type).toBe('website');
     expect(og.url).toBe('./');
@@ -122,7 +122,7 @@ describe('og card vocabulary', () => {
   it('routeTwitter pins the search title, summary_large_image, and the same images as og', () => {
     const tw = routeTwitter('Market Map');
     expect(tw.card).toBe('summary_large_image');
-    expect(tw.title).toBe('Market Map: Robotics Companies and Funding');
+    expect(tw.title).toBe('Robotics Market Map: 100+ Companies, 6 Segments');
     expect(tw.title).toBe(routeOpenGraph('Market Map').title);
     expect(tw.images).toEqual(siteOgImage());
   });
@@ -147,7 +147,7 @@ describe('og card vocabulary', () => {
       expect(routeSocialTitle(name), name).toBe(expected);
       expect(routeSocialTitle(name), name).not.toContain(`| ${SITE_NAME}`);
     }
-    expect(routeSocialTitle(SITE_NAME)).toBe('Modern Robotics and Robot Learning');
+    expect(routeSocialTitle(SITE_NAME)).toBe('Robot Wiki: Modern Robotics and Robot Learning');
     // A page with no search profile keeps its own name.
     expect(routeSocialTitle('Page not found')).toBe('Page not found');
   });
@@ -155,7 +155,7 @@ describe('og card vocabulary', () => {
   it('articleOpenGraph declares the search title and the article card', () => {
     const og = articleOpenGraph('manipulation', 'action-chunking', 'Action Chunking (ACT and ALOHA)');
     expect(og.type).toBe('article');
-    expect(og.title).toBe('Action Chunking: ACT, Real-Time Chunking, PACE');
+    expect(og.title).toBe('Action Chunking with Transformers (ACT), PACE');
     expect(og.title).not.toContain(SITE_NAME);
     expect(og.url).toBe('./');
     expect(og.siteName).toBe(SITE_NAME);

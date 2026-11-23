@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { DOMAIN_META, DOMAINS, publishedModules } from '@/data/modules';
-import { AUTHOR_NAME, AUTHOR_PROFILE_URL, PUBLIC_DESCRIPTOR } from '@/lib/identity';
+import {
+  AUTHOR_NAME,
+  AUTHOR_PROFILE_URL,
+  PUBLIC_DESCRIPTOR,
+  REPOSITORY_URL,
+} from '@/lib/identity';
 import { articleStructuredImagePaths } from '@/lib/og-cards';
 import {
   ACQUISITION_CLUSTERS,
@@ -12,6 +17,7 @@ import {
   HOME_META_DESCRIPTION,
   HOME_SEO_DESCRIPTION,
   HOME_SEO_TITLE,
+  organizationJsonLd,
   SEARCH_URL_TEMPLATE,
   SEO_TITLE_SUFFIX,
   serializeJsonLd,
@@ -69,6 +75,7 @@ describe('search titles', () => {
 
   it('keeps home search copy inside useful snippet lengths', () => {
     expect(HOME_SEO_TITLE.length).toBeLessThanOrEqual(60);
+    expect(HOME_SEO_TITLE.startsWith('Robot Wiki')).toBe(true);
     expect(HOME_SEO_DESCRIPTION.length).toBeGreaterThanOrEqual(120);
     expect(HOME_SEO_DESCRIPTION.length).toBeLessThanOrEqual(160);
     expect(HOME_META_DESCRIPTION.startsWith(PUBLIC_DESCRIPTOR)).toBe(true);
@@ -146,6 +153,8 @@ describe('JSON-LD', () => {
       '@id': `${SITE_URL}/#website`,
       url: `${SITE_URL}/`,
       name: 'Robot Wiki',
+      alternateName: ['robot-wiki.com', 'RobotWiki'],
+      publisher: { '@id': `${SITE_URL}/#organization` },
       creator: {
         '@type': 'Person',
         name: AUTHOR_NAME,
@@ -158,6 +167,20 @@ describe('JSON-LD', () => {
       },
     });
     expect(SEARCH_URL_TEMPLATE).toBe('https://robot-wiki.com/search/?q={search_term_string}');
+  });
+
+  it('names the site as an entity tied to its domain and repository', () => {
+    expect(JSON.parse(organizationJsonLd())).toMatchObject({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      url: `${SITE_URL}/`,
+      name: 'Robot Wiki',
+      alternateName: ['robot-wiki.com', 'RobotWiki'],
+      sameAs: [REPOSITORY_URL],
+      founder: { '@type': 'Person', name: AUTHOR_NAME, url: AUTHOR_PROFILE_URL },
+    });
+    expect(JSON.parse(websiteJsonLd()).sameAs).toEqual([REPOSITORY_URL]);
   });
 
   it('describes a published article with its topic, keywords and cited sources', () => {
