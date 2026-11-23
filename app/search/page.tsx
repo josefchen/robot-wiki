@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Suspense } from 'react';
 import { SearchInterface } from '@/components/search/search-interface';
 import { materialAttributes } from '@/lib/site-materials';
@@ -66,7 +67,7 @@ export default function SearchPage() {
         your browser.
       </p>
       <noscript>
-        <p className="mt-4"><a className="ink-link" href="/a-z/#article-questions">Browse article questions in the A–Z index</a></p>
+        <p className="mt-4"><Link className="ink-link" href="/a-z/#article-questions">Browse article questions in the A–Z index</Link></p>
       </noscript>
       <Suspense fallback={null}>
         <SearchInterface />
