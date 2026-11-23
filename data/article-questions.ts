@@ -4,7 +4,7 @@ export interface TableComparison {
   sources: ReadonlyArray<{ tag: string; label: string; citation: string }>;
 }
 
-const questions: ReadonlyArray<{ label: string; href: string; citations?: readonly string[]; comparison?: TableComparison }> = [
+const questions: ReadonlyArray<{ label: string; href: string; searchPhrases?: readonly string[]; citations?: readonly string[]; comparison?: TableComparison }> = [
   {
     label: 'Why do Mars rovers drive themselves?',
     href: '/adjacent/space/#light-delay-makes-rovers-drive-themselves',
@@ -50,6 +50,16 @@ const questions: ReadonlyArray<{ label: string; href: string; citations?: readon
     href: '/world-models/evaluation/#level-4-the-best-simulators-order-policies-as-real-trials-do',
   },
   {
+    label: 'Can a robot reach the same cup with its elbow up or down?',
+    href: '/classical/kinematics/#inverse-kinematics-has-many-answers-or-none',
+    searchPhrases: [
+      'Two elbow poses reach the same cup',
+      'Two elbow poses reach the same cup. Does one local joint-speed calculation tell me all the poses?',
+      'Can the gripper reach the same cup with the elbow bent the other way?',
+    ],
+    citations: ['modern-robotics-2017'],
+  },
+  {
     label: 'What share of a robot dataset sale does the seller receive?',
     href: '/data-hardware/data-market/#selling-robot-data',
     citations: ['roboticscenter-seller-terms', 'ay-robots-dataset-marketplace'],
@@ -61,4 +71,13 @@ export const ARTICLE_QUESTIONS_HEADING = 'Questions answered in the articles';
 export function questionsForArticles(articles: readonly { domain: string; slug: string }[]) {
   const paths = new Set(articles.map(({ domain, slug }) => `/${domain}/${slug}/`));
   return questions.filter(({ href }) => paths.has(href.split('#')[0]));
+}
+
+/** Only exact, reviewed phrasings can override ordinary page search. */
+export function exactSearchQuestion(query: string) {
+  const normalize = (text: string) => text.toLowerCase().match(/[\p{L}\p{N}]+/gu)?.join(' ');
+  const phrase = normalize(query);
+  return phrase && questions.find(({label, searchPhrases}) =>
+    searchPhrases && [label, ...searchPhrases].some(text => normalize(text) === phrase)
+  );
 }

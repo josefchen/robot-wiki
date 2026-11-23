@@ -13,6 +13,7 @@
  * interface and the results area in components/search/ remain the UI seams.
  */
 
+import { exactSearchQuestion } from '../data/article-questions';
 import { foldGreekToAscii } from './greek-transliteration';
 import { PUBLIC_IDENTITY } from './identity';
 
@@ -488,6 +489,17 @@ async function partialQuestionHits(lookup: PagefindLookup, terms: string[]): Pro
 
 export async function searchPagefind(lookup: PagefindLookup, query: string): Promise<SearchHit[]> {
   let strict = await preferQualifiedTitle(query, await toSearchHits(await lookup(query), query));
+  const question = exactSearchQuestion(query);
+  if (question) {
+    const path = question.href.split('#')[0];
+    const [, domain, slug] = path.split('/');
+    const { getModule } = await import('../data/modules');
+    const article = getModule(domain, slug);
+    if (article?.status === 'published') {
+      const lead = {url: question.href, title: article.title, excerpt: escapeExcerpt(question.label)};
+      return [lead, ...strict.filter(hit => hit.url.split('#')[0] !== path)].slice(0, RESULT_LIMIT);
+    }
+  }
   // Papers and readers use “sim2real” for the wiki’s “sim-to-real”. Keep any
   // literal results first, and keep the reader's other terms in the lookup.
   if (!strict.length) {

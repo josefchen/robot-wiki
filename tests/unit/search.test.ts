@@ -545,6 +545,26 @@ describe('reader questions in prose search', () => {
     }
   });
 
+  it('opens the inverse kinematics passage for its question and the exact cup search', async () => {
+    const lookup = async () => ({results: []});
+    const path = '/classical/kinematics/#inverse-kinematics-has-many-answers-or-none';
+    for (const text of [
+      'two elbow poses reach the same cup',
+      'Two elbow poses reach the same cup. Does one local joint-speed calculation tell me all the poses?',
+      'Can the gripper reach the same cup with the elbow bent the other way?',
+      'Can a robot reach the same cup with its elbow up or down?',
+    ]) {
+      expect((await searchPagefind(lookup, text))[0]?.url).toBe(path);
+    }
+    for (const text of [
+      'elbow injury',
+      'two elbow poses reach the same cup after an injury',
+      'Two elbow poses reach the same cup, but how do I treat an elbow injury?',
+    ]) {
+      expect(await searchPagefind(lookup, text)).toEqual([]);
+    }
+  });
+
   it.each(['robotic kinematics', 'robotics kinematics', 'kinematics of robotics'])(
     'returns the published article for the qualified title %s even when it lacks the literal phrase',
     async (query) => {

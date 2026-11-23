@@ -44,6 +44,17 @@ async function waitForSettled(page: Page) {
 }
 
 test.describe('structured search on the static export', () => {
+  test('the cup search opens the elbow-up and elbow-down passage by keyboard', async ({page}) => {
+    await page.goto(`${BASE}/search/?q=two%20elbow%20poses%20reach%20the%20same%20cup`);
+    const box = page.getByRole('searchbox');
+    const lead = page.getByRole('region', {name: 'Wiki pages'}).locator('[data-search-result]').first();
+    await expect(lead).toHaveAttribute('href', '/classical/kinematics/#inverse-kinematics-has-many-answers-or-none');
+    await box.press('ArrowDown');
+    await expect(lead).toBeFocused();
+    await lead.press('Enter');
+    await expect(page.getByRole('heading', {name: 'Inverse kinematics has many answers, or none'})).toBeInViewport();
+  });
+
   test('a company query produces a typed structured group', async ({
     page,
   }) => {

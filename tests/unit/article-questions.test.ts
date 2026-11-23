@@ -28,6 +28,7 @@ describe('article question directory', () => {
       expect.stringMatching(/robot arms reach.*return to the same spot/),
       expect.stringMatching(/knowledge insulation.*training steps.*clear a table/),
       expect.stringMatching(/world model.*best on a real robot/),
+      expect.stringMatching(/same cup with its elbow up or down/),
       expect.stringMatching(/share of a robot dataset sale/),
     ]);
     const machineSection = buildLlmsTxt(input).split(`## ${ARTICLE_QUESTIONS_HEADING}\n\n`)[1].split('\n\n')[0];
