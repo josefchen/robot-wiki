@@ -58,17 +58,17 @@ seeAlso:
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
 
-The π line is Physical Intelligence's series of [vision-language-action models](/manipulation/vla-models/), from π0 (October 2024) to π0.7 (April 2026) <Cite id="pi0-blog-2024" /> <Cite id="pi07-2026" />. Each pairs a web-trained vision-language model with a smaller "action expert" that turns what it sees into bursts of motion <Cite id="pi0-2024" />.
+The π line is Physical Intelligence's series of [vision-language-action models](/manipulation/vla-models/), ranging from π0 (October 2024) to π0.7 (April 2026) <Cite id="pi0-blog-2024" /> <Cite id="pi07-2026" />. Each combines a vision-language model pretrained on internet-scale data with a smaller "action expert" that outputs short action chunks <Cite id="pi0-2024" />.
 
 <Image id="pi06-espresso-2025" />
 
 ## A π model refines noise into motion
 
-A pretrained <Term id="vision-language-model">vision-language model</Term> reads camera images and the instruction. The action expert reads its state at every layer and outputs the next 50 actions, 1 to 2.5 seconds of motion. It starts from noise and takes 10 steps toward a plausible chunk; the robot runs 16 or 25, then the model replans <Cite id="pi0-2024" />.
+The action expert conditions on features from all layers of a pretrained <Term id="vision-language-model">vision-language model</Term> that encodes images from the robot's cameras and the task instruction. It generates 50 actions (1 to 2.5 seconds of robot motion) via 10 denoising steps starting from pure noise, after which the robot executes either 16 or 25 actions before replanning <Cite id="pi0-2024" />.
 
 <FlowMatchingTrajectory className="my-6" />
 
-This is <Term id="flow-matching">flow matching</Term>, which replaced the <Term id="action-tokenization">discrete action tokens</Term> of earlier VLAs. Training mixes noise $\varepsilon$ with true actions along a straight line, $A_t^\tau = \tau A_t + (1 - \tau)\varepsilon$, and learns the direction $u = A_t - \varepsilon$ <Cite id="pi0-2024" />. Straight paths survive coarse steps <Cite id="rectified-flow-2022" /> and train more efficiently than diffusion paths <Cite id="lipman-flow-matching-2022" />.
+This is <Term id="flow-matching">flow matching</Term>, which replaced the <Term id="action-tokenization">discrete action tokens</Term> of earlier VLAs. During training, noise $\varepsilon$ is mixed with ground truth actions along a straight line, $A_t^\tau = \tau A_t + (1 - \tau)\varepsilon$, and the model learns the direction $u = A_t - \varepsilon$ <Cite id="pi0-2024" />. Flow matching has advantages over diffusion-based approaches in that straight-line paths remain valid under coarse timesteps <Cite id="rectified-flow-2022" /> and train more efficiently <Cite id="lipman-flow-matching-2022" />.
 
 | Model | Released | Backbone | Action output | Weights |
 | --- | --- | --- | --- | --- |
@@ -80,7 +80,7 @@ This is <Term id="flow-matching">flow matching</Term>, which replaced the <Term 
 
 ## π0: one model, seven robots
 
-π0 controlled 7 robot configurations with one model. Base π0 reached "rudimentary proficiency"; laundry folding needed fine-tuning on curated data <Cite id="pi0-2024" />.
+π0 controlled 7 robot configurations with one model and showed "rudimentary proficiency" out of the box; laundry folding needed fine-tuning on curated data <Cite id="pi0-2024" />.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="action expert" value="~300M" note="parameters, beside the vision-language model" accent />
@@ -94,25 +94,25 @@ Also: π0 to π0.5 paused between chunks <Cite id="pi-real-time-chunking-blog-20
 
 ## π0-FAST compresses actions into tokens
 
-Per-step action tokens fail at high control rates because neighbors are nearly identical; such policies made no progress bussing tables at 20 Hz <Cite id="pi0-fast-2025" />. FAST encodes a second of motion by its frequencies, as JPEG does images <Cite id="pi0-fast-2025" /> <Cite id="pi-fast-blog-2025" />.
+With per-step action tokens, neighboring tokens at high control rates are highly similar, so policies using such tokens did not make progress bussing tables at 20 Hz <Cite id="pi0-fast-2025" />. FAST instead encodes a second of actions using ideas borrowed from frequency-domain compression techniques like JPEG <Cite id="pi0-fast-2025" /> <Cite id="pi-fast-blog-2025" />.
 
 <Image id="pi0-fast-laundry-folding-2025" />
 
-π0-FAST matched π0 with up to five times fewer GPU hours. It runs slower, about 750 ms per one-second chunk on an NVIDIA 4090 against under 100 ms for π0 <Cite id="pi0-fast-2025" />, and took twice as long to bus a table <Cite id="knowledge-insulation-2025" />.
+π0-FAST matched π0 with up to five times fewer GPU hours. π0-FAST is slower to run. It takes around 750 ms per one-second action chunk on an NVIDIA 4090 GPU, while π0 takes less than 100 ms <Cite id="pi0-fast-2025" />. π0-FAST took twice as much time to bus a table compared to π0 <Cite id="knowledge-insulation-2025" />.
 
 ## π0.5 works in homes it has never seen
 
-π0.5 runs mobile robots in homes absent from its training data. It writes a subtask in words ("pick up the plate"), then the motion <Cite id="pi05-2025" />, as in PI's Hi Robot <Cite id="hi-robot-blog-2025" />. Removing cross-robot data cut task scores; removing web data mainly hurt language following <Cite id="pi05-2025" />.
+π0.5 controls mobile manipulation robots in unseen homes. It generates a language subtask ("pick up the plate"), followed by actions <Cite id="pi05-2025" />, similar to PI's Hi Robot <Cite id="hi-robot-blog-2025" />. Ablation studies show that removing data from other robots decreases task performance, and removing web data mainly hurts instruction following <Cite id="pi05-2025" />.
 
-Knowledge Insulation trains both halves at once and blocks the expert's gradients from the backbone; π0 needed 7.5 times the training steps to match it on table bussing <Cite id="knowledge-insulation-paper-2025" />. openpi trains π0.5 this way but ships only flow-matching heads <Cite id="openpi-repo-2024" />, so others reimplement both <Cite id="garg-self-demonstrated-control-2026" />.
+Knowledge Insulation trains the expert and backbone simultaneously, but prevents gradients from flowing from the expert into the backbone. π0 required 7.5 times the training steps to match it on table bussing <Cite id="knowledge-insulation-paper-2025" />. While openpi trains π0.5 using Knowledge Insulation, it only releases the flow-matching heads <Cite id="openpi-repo-2024" />, so others reimplement both <Cite id="garg-self-demonstrated-control-2026" />.
 
 <span id="π06-and-π06-the-line-goes-closed" />
 
 ## π*0.6 learns from its own practice
 
-π0.6 folds laundry reliably and assembles boxes 20% of the time with no task fine-tuning <Cite id="pi06-model-card-2025" />. Fine-tuned on 11 Robot Olympics tasks, it averaged 52% success on them, where a VLM without robot pretraining scored zero <Cite id="pi-olympics-2025" />.
+π0.6 achieved an average success rate of 52% on 11 Robot Olympics tasks after fine-tuning. By comparison, a VLM that did not undergo robot-related pretraining scored zero <Cite id="pi-olympics-2025" />. Without task-specific fine-tuning, π0.6 folds laundry reliably and assembles boxes 20% of the time <Cite id="pi06-model-card-2025" />.
 
-π*0.6 adds Recap. A value function labels each action, from demonstrations, corrections or autonomous runs, as an improvement or not, and the policy favors improvements <Cite id="pistar06-2025" />. Against offline RL plus demonstration fine-tuning, practice more than doubled espresso and laundry throughput and roughly halved failures <Cite id="pistar06-2025" />.
+π*0.6 introduces Recap, a method that trains a value function to predict if an action (collected from demonstrations, human corrections or autonomous rollouts) will improve task progress, and biases the policy toward actions predicted as improvements <Cite id="pistar06-2025" />. In practice, relative to a system trained with offline RL followed by policy fine-tuning on human demonstrations, this more than doubled task throughput for making espresso and doing laundry and roughly halved task failure rates <Cite id="pistar06-2025" />.
 
 Also: the espresso failure case <Cite id="pistar06-blog-2025" />, Recap's nearest relative CFGRL <Cite id="cfgrl-2025" />, RL on flow-based π models <Cite id="pi-rl-2026" />, partner deployments <Cite id="pi-partner-2026" />.
 
@@ -132,7 +132,7 @@ Also: air-fryer coaching with no new teleoperation <Cite id="pi07-blog-2026" />;
 
 ## Open weights stop at π0.5
 
-openpi lists base checkpoints for π0, π0-FAST and π0.5, plus DROID, ALOHA and LIBERO fine-tunes <Cite id="openpi-repo-2024" />. PI released it on February 4, 2025, saying 1 to 20 hours of data fine-tune varied tasks <Cite id="openpi-blog-2025" />. π0.6 and π0.7 weights are unlisted; PI's latest models have been on the Pi API beta since October 13, 2026 <Cite id="pi-api-beta-2026" />.
+openpi provides base checkpoints for π0, π0-FAST and π0.5 as well as checkpoints fine-tuned on DROID, ALOHA and LIBERO <Cite id="openpi-repo-2024" />. PI released openpi on February 4, 2025; according to PI, the openpi checkpoints can be fine-tuned using 1 to 20 hours of data to perform a variety of tasks <Cite id="openpi-blog-2025" />. π0.6 and π0.7 checkpoints are not listed on openpi; PI's most recent models have been available through the Pi API beta since October 13, 2026 <Cite id="pi-api-beta-2026" />.
 
 Also: DROID, 76,000 real trajectories <Cite id="droid-2024" />; LIBERO, 130 simulated tasks <Cite id="libero-2023" />; π0.5 on Jetson AGX Thor <Cite id="jetson-ai-lab-openpi-thor" />; PI's reported \$20 billion valuation talks <Cite id="bloomberg-pi-20b-2026" />.
 
