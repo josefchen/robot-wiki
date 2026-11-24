@@ -65,7 +65,7 @@ import { JepaPlanning } from '@/components/interactive/jepa-planning';
 
 A Joint-Embedding Predictive Architecture (JEPA) is a [world-model design](/world-models/taxonomy/) that predicts an embedding, an abstract description of the future, instead of the future image <Cite id="vjepa2-2025" />. It is the main non-generative alternative to generative <Term id="world-model">world models</Term>.
 
-A JEPA planner encodes the current view and a goal image, tries candidate actions in embedding space and keeps the one landing closest to the goal. Planning this way, DINO-WM solved six environments zero-shot without demonstrations, reward models or inverse models <Cite id="dino-wm-2024" />.
+A JEPA planner encodes the current view and goal image and plans in the embedding space. It tries actions and selects the one that leads to an embedding closest to the goal embedding. Using this planner, DINO-WM is able to solve six environments zero-shot, without demonstrations, reward models or inverse models <Cite id="dino-wm-2024" />.
 
 <JepaPlanning className="my-6" />
 
@@ -80,22 +80,22 @@ A JEPA planner encodes the current view and a goal image, tries candidate action
 <span id="the-argument-for-representation-prediction" />
 ## Predicting embeddings skips detail that control does not need
 
-A pixel predictor spends effort on leaf texture and sensor noise that do not help a robot decide. In deep linear models, JEPA objectives are "biased to learn high-influence features" <Cite id="jepa-implicit-bias-2024" />. On physically impossible events, predictors in a learned representation space showed object permanence, while pixel predictors scored near chance <Cite id="intuitive-physics-2025" />.
+Pixel predictors waste their capacity modeling details irrelevant for robotic decision making, such as sensor noise and leaf textures. In deep linear models, JEPA objectives are "biased to learn high-influence features" <Cite id="jepa-implicit-bias-2024" />. Prediction in a learned representation space exhibited object permanence on physically impossible events, whereas performance of pixel predictors was close to chance level <Cite id="intuitive-physics-2025" />.
 
 Also: I-JEPA, "a non-generative approach" for images <Cite id="ijepa-2023" />, and its video successor V-JEPA <Cite id="vjepa-2024" />.
 
 <span id="v-jepa-2-and-its-successors" />
 ## V-JEPA 2 adds robot control with under 62 hours of robot video
 
-V-JEPA 2 learns from over a million hours of internet video and images, with no actions, and recognizes 77.3% of actions in the motion-heavy Something-Something-v2 <Cite id="vjepa2-2025" />.
+V-JEPA 2 is trained on over a million hours of images and videos from the internet (with no actions) and gets 77.3% on the motion-heavy Something-Something-v2 <Cite id="vjepa2-2025" />.
 
-V-JEPA 2-AC then trains an action-conditioned predictor on the frozen encoder with under 62 hours of Droid robot video, labeled only with gripper motion. It ran zero-shot on Franka arms in two labs absent from Droid, on four tabletop tasks with image goals <Cite id="vjepa2-2025" />.
+V-JEPA 2-AC then trains an action-conditioned predictor on top of the frozen video encoder using less than 62 hours of videos from Droid robots, where the only action labels available are gripper actions. It was deployed zero-shot on Franka arms in two labs not present in Droid, on four tabletop manipulation tasks with image goals <Cite id="vjepa2-2025" />.
 
 <Image id="vjepa2-overview-2025" />
 
 ## Latent planning works on tabletop picks, and successors improve it
 
-In the reported one-step planning setup, the planner samples 800 candidate actions in each of ten rounds. It scores them by embedding distance to the goal, updates the sampling distribution from the strongest candidates, then executes the final mean action and replans <Cite id="vjepa2-2025" />. Nothing shows that this distance tracks real progress.
+In the reported one-step planning setup, the planner samples 800 candidate actions in each of ten rounds. It scores them by embedding distance to the goal, updates the sampling distribution from the strongest candidates, then executes the final mean action and replans <Cite id="vjepa2-2025" />. There is no evidence that the embedding distance is correlated with actual task progress.
 
 Also: embedding distance trained as goal-conditioned value <Cite id="jepa-value-planning-2026" />.
 
@@ -108,7 +108,7 @@ Also: embedding distance trained as goal-conditioned value <Cite id="jepa-value-
 
 ## Robot results do not yet separate the two camps
 
-JEPA and video policies score alike on the LIBERO simulation benchmark and its perturbed version, LIBERO-Plus.
+On the LIBERO simulation benchmark, policies trained with JEPA achieve comparable performance to video policies. The same trend can be observed on its perturbed version, LIBERO-Plus.
 
 | Model (approach) | LIBERO | LIBERO-Plus |
 | --- | --- | --- |
@@ -116,29 +116,29 @@ JEPA and video policies score alike on the LIBERO simulation benchmark and its p
 | Cosmos Policy, LingBot-VA, Say-Dream-ACT (video) | 98.5, 98.5, 98.1 <Cite id="world-model-survey-2026" /> | Cosmos Policy 82.2 <Cite id="wam-robustness-2026" /> |
 | JEPA-WAM (JEPA) | | 79.2 without large-scale robot pretraining, 86.3 built on π0.5 <Cite id="jepa-wam-2026" /> |
 
-La-JEPA trains a compact policy on V-JEPA 2.1 features and matches π0.5 on four real tasks <Cite id="la-jepa-2026" />. Fast-WAM's gains came from video co-training more than future generation, so a general JEPA advantage is unproven <Cite id="fast-wam-2026" />. SkyJEPA flew a quadrotor outdoors with an onboard JEPA-style model, transferred zero-shot from simulation <Cite id="skyjepa-2026" />.
+La-JEPA learns compact policies using features from V-JEPA 2.1 and achieves performance on par with π0.5 on four real-robot tasks <Cite id="la-jepa-2026" />. Fast-WAM finds improvements stem from video co-training more than future generation, leaving it unclear whether JEPA offers advantages in general <Cite id="fast-wam-2026" />. SkyJEPA flew a quadrotor outdoors with an onboard JEPA-style model, transferred zero-shot from simulation <Cite id="skyjepa-2026" />.
 
 Also: VLA-JEPA on pixel-anchored latent actions <Cite id="vla-jepa-2026" />, JEPA-VLA on what V-JEPA 2 embeddings discard <Cite id="jepa-vla-2026" />.
 
 <span id="the-counterargument-stated-fairly" />
 ## JEPA has no steerable simulator, and its latents are hard to validate
 
-Every interactive simulator in use is generative, rendering pixels a user can steer; no action-controllable JEPA environment has shipped.
+Every interactive simulator that has been deployed in practice to date has been a generative model, rendering pixels a user can steer; no action-controllable JEPA environment has shipped.
 
 Also: Genie 3 <Cite id="genie-3-2025" />, Genie 4 <Cite id="genie-4-2026" />, Cosmos 3 <Cite id="cosmos-3-2026" />, Odyssey-2 <Cite id="odyssey-2-2025" />, Odyssey-3 <Cite id="odyssey-3-2026" />, the Interactive World Simulator <Cite id="interactive-world-simulator-2026" />.
 
-Without a decoder no one can see what the model believes, and causal checks of JEPA latents are largely unexplored <Cite id="wm-interpretability-2026" />. Training loss is a poor guide: across 15 checkpoints of one JEPA world model, one-step error and planning success were uncorrelated (r = -0.010) <Cite id="one-step-fidelity-2026" />.
+Without a decoder, no one can see what the model believes, and causal probes of JEPA latents remain largely unexplored <Cite id="wm-interpretability-2026" />. Training loss also offers little insight: in one JEPA world model, across 15 training checkpoints, there was no correlation (r = -0.010) between one-step prediction error and planning success rate <Cite id="one-step-fidelity-2026" />.
 
-Collapse maps every input to one embedding. V-JEPA prevents it with a slow target encoder and a stop-gradient from BYOL <Cite id="byol-2020" />, a design its authors call a hypothesis <Cite id="vjepa-2024" />. LeJEPA drops those heuristics, with "no stop-gradient, no teacher-student" <Cite id="lejepa-2025" />.
+Collapse refers to a degenerate solution in which a model learns to map all inputs to one embedding. V-JEPA avoids collapse by employing a slow target encoder and a stop-gradient from BYOL <Cite id="byol-2020" />, a design its authors term a hypothesis <Cite id="vjepa-2024" />. LeJEPA does not require such heuristics, with "no stop-gradient, no teacher-student" <Cite id="lejepa-2025" />.
 
 Also: LeVJEPA for video <Cite id="levjepa-2026" />, a proof that LeJEPA recovers hidden variables <Cite id="lejepa-world-model-2026" />, IntPhys 2, where most models still score at chance <Cite id="intphys2-2025" />.
 
 <span id="what-would-settle-it" />
 ## An interactive JEPA world or a contact-rich win would settle it
 
-Two results would settle it: a JEPA world a user can steer as Genie is steered today <Cite id="genie-3-2025" />, or a JEPA win on contact-rich tasks. Until then JEPA has the cheapest proven path from watching video to zero-shot planning <Cite id="leworldmodel-2026" />, and [generative video](/world-models/generative-video/) the only usable simulators.
+Two results would settle it: a JEPA world a user can steer as Genie is steered today <Cite id="genie-3-2025" />, or a JEPA win on contact-rich tasks. Until then, JEPA models offer the cheapest demonstrated route from video to zero-shot planning <Cite id="leworldmodel-2026" />, while [generative video](/world-models/generative-video/) models offer the only simulators people can use today.
 
-LeCun's group showed that next-step prediction with anti-collapse regularization can reach its lowest loss while discarding a system's controllable unstable modes, so the state cannot be stabilized <Cite id="jepa-unstable-modes-2026" />.
+LeCun's group found that next-step prediction trained with anti-collapse regularization can minimize its loss function while ignoring a system's controllable unstable modes, precluding stabilization <Cite id="jepa-unstable-modes-2026" />.
 
 | Work | Change | Result |
 | --- | --- | --- |
@@ -152,13 +152,13 @@ LeCun's group showed that next-step prediction with anti-collapse regularization
 <span id="the-institutional-bet-ami-labs" />
 ## LeCun's AMI Labs raised over a billion dollars for world models
 
-Yann LeCun left Meta and co-founded AMI Labs, which raised \$1.03 billion <Cite id="ami-labs-launch-2026" /> at a \$3.5 billion pre-money valuation in March 2026 <Cite id="ami-labs-2026" />. LeCun is executive chairman and Alex LeBrun is CEO <Cite id="lecun-ami-techcrunch-2025" />. LeBrun warned: "In six months, every company will call itself a world model to raise funding." <Cite id="ami-labs-2026" />
+Yann LeCun left Meta and co-founded AMI Labs, which raised \$1.03 billion <Cite id="ami-labs-launch-2026" /> at a \$3.5 billion pre-money valuation in March 2026 <Cite id="ami-labs-2026" />. LeCun is the executive chairman, with Alex LeBrun as CEO <Cite id="lecun-ami-techcrunch-2025" />. LeBrun warned: "In six months, every company will call itself a world model to raise funding." <Cite id="ami-labs-2026" />
 
 In July 2026 AMI was still pre-product <Cite id="techcrunch-lebrun-2026" />, and in October LeCun said it would release its world model openly <Cite id="chosun-lecun-2026" />.
 
 <span id="a-deployment-rule-for-representation-prediction" />
 ## Use JEPA when reconstructing pixels adds no evidence
 
-A JEPA-style model fits when pixels add nothing to the decision, as in goal-conditioned planning; one decoder-free TD-MPC2 agent of 317 million parameters performs 80 tasks <Cite id="tdmpc2-2023" />. It fits synthetic video, visual debugging and simulator replacement poorly, since a decoder-free state hides what it omits. Test whether nearby embeddings mean equivalent outcomes and whether action rankings match hardware, because embedding distance is not a calibrated confidence.
+A JEPA-style model fits when pixels add nothing to the decision, as in goal-conditioned planning; one decoder-free TD-MPC2 agent with 317 million parameters performs 80 tasks <Cite id="tdmpc2-2023" />. However, without a decoder it is hard to tell what information the state representation is missing, making it poorly suited to synthetic video, visual debugging or simulator replacement. Test whether nearby embeddings lead to equivalent outcomes, and validate that the relative ordering of actions is consistent with ground truth on real hardware, because embedding distance is not a calibrated confidence.
 
-See the [model-based](/world-models/model-based-robot-learning/) and [evaluation](/world-models/evaluation/) guides.
+For more details, see the [model-based](/world-models/model-based-robot-learning/) and [evaluation](/world-models/evaluation/) guides.
