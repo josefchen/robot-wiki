@@ -57,23 +57,23 @@ seeAlso:
 
 import { CompoundingError } from '@/components/interactive/compounding-error';
 
-<Term id="behavior-cloning">Behavior cloning</Term> trains a network to map what a robot senses to [what a demonstrator did](/how-robots-work/#puppeteer). It is the simplest <Term id="imitation-learning">imitation learning</Term>, and its small mistakes <Term id="compounding-error">compound</Term> <Cite id="ross-bagnell-2010" />.
+<Term id="behavior-cloning">Behavior cloning</Term> trains a network to predict [what a demonstrator did](/how-robots-work/#puppeteer) given the observations the robot receives. It is the simplest <Term id="imitation-learning">imitation learning</Term>, and its small mistakes <Term id="compounding-error">compound</Term> <Cite id="ross-bagnell-2010" />.
 
 ## Driving found the flaw first
 
-In 1988 ALVINN steered Carnegie Mellon's Navlab van from simulated road images <Cite id="alvinn-1988" />; by 1991 it learned to drive by watching a person for under five minutes <Cite id="pomerleau-1991" />. A good driver stays centered, so the network never saw a recovery. Pomerleau shifted each image into 14 off-center copies labeled with corrected steering <Cite id="pomerleau-1991" />.
+In 1988 ALVINN steered Carnegie Mellon's Navlab van from simulated road images <Cite id="alvinn-1988" />; by 1991 it learned to drive by watching a person for under five minutes <Cite id="pomerleau-1991" />. It learned steering control from examples of good driving where the vehicle remained centered in the lane, hence there were no examples of how to steer back into the lane after leaving it. Pomerleau shifted each image into 14 off-center copies labeled with corrected steering <Cite id="pomerleau-1991" />.
 
 Also: rotated views <Cite id="bojarski-e2e-driving-2016" />, synthetic perturbations <Cite id="chauffeurnet-2018" />.
 
 <Image id="navlab-1-5-cmu-2017" />
 
-Robot arms learn the same way, from ACT and Diffusion Policy <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" /> to large multitask models <Cite id="tri-lbm-2025" />.
+The same applies to behaviors learned for robot arms, using ACT <Cite id="act-aloha-2023" /> or Diffusion Policy <Cite id="diffusion-policy-2023" />, or large multitask models <Cite id="tri-lbm-2025" />.
 
 <Image id="droid-robot-platform-2024" />
 
 ## Small errors compound
 
-Each slip moves the robot into states its training data never covered, where the next slip is likelier <Cite id="dagger-2011" />.
+Mistakes put the robot in novel situations not present in the demonstration data, making further mistakes more likely <Cite id="dagger-2011" />.
 
 <PredictThenReveal
   prompt="Make the task twice as long, 240 moves instead of 120, with the same 5% slip per move and nothing else changed. Roughly what happens to the total drift?"
@@ -106,7 +106,7 @@ Each slip moves the robot into states its training data never covered, where the
 
 Training data come from the expert's states, but the robot acts in its own <Cite id="dagger-2011" />. Ross and Bagnell (2010) bounded the cost of this <Term id="covariate-shift">covariate shift</Term> <Cite id="ross-bagnell-2010" />.
 
-With per-step cost in [0, 1] and error $\varepsilon$ on the expert's states, a cloned <Term id="policy">policy</Term>'s cost over $T$ steps can exceed the expert's by $T^2\varepsilon$, a tight bound <Cite id="dagger-2011" />:
+Suppose the per-step cost is in [0, 1], and the imitation learning algorithm suffers an error $\varepsilon$ in imitating the expert <Term id="policy">policy</Term> on the states visited by the expert. Then there are examples where the cost of the cloned policy over $T$ steps exceeds that of the expert policy by $T^2\varepsilon$; this bound is tight <Cite id="dagger-2011" />:
 
 $$
 J(\pi) \leq J(\pi^*) + T^2\varepsilon
@@ -125,25 +125,25 @@ Later theory cuts both ways.
 
 ## Demonstrations hide several answers
 
-Some tasks have several right answers: in Push-T the gripper can pass a block on either side, and Diffusion Policy learns both routes <Cite id="diffusion-policy-2023" />. Energy-based implicit policies often beat mean-squared-error ones <Cite id="implicit-bc-2021" />.
+Some tasks have several right answers. Diffusion Policy, for example, learns to navigate around the block from either side in the Push-T task <Cite id="diffusion-policy-2023" />. Energy-based implicit policies often beat mean-squared-error ones <Cite id="implicit-bc-2021" />.
 
 Operators pause, so a policy that sees only the current frame can learn to stall <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. Adding history can backfire, making a cloned policy worse under shift <Cite id="causal-confusion-2019" /> or copying the expert's previous action <Cite id="copycat-bc-2020" />.
 
-More environments and objects help; past a threshold, more demonstrations per environment barely do <Cite id="lin-data-scaling-laws-2024" />. Behavior cloning at best matches its demonstrator <Cite id="robomimic-2021" />.
+The number of environments and objects has a positive effect, while performance increases very little with the number of demonstrations per environment beyond a certain point <Cite id="lin-data-scaling-laws-2024" />. Performance of behavior cloning is upper bounded by the performance of the demonstrator <Cite id="robomimic-2021" />.
 
 Also: generative gains traced to iterative computation <Cite id="much-ado-noising-2025" />, weighting failure-critical states <Cite id="scrim-state-criticality-2026" />, weight averaging against training noise <Cite id="butterfly-sgd-noise-2023" />, OCBench's open puzzles <Cite id="ocbench-2026" />.
 
 ## DAgger relabels the states the robot visits
 
-<Term id="dagger">DAgger</Term> (Dataset Aggregation, 2011) has the expert label the states the learner reaches, turning imitation into online learning <Cite id="dagger-2011" />. Each round runs the policy, has the expert label every state it visited, and retrains on all the data.
+In Dataset Aggregation (<Term id="dagger">DAgger</Term>, 2011), the expert is tasked with labeling states visited by the learner, turning imitation learning into online learning <Cite id="dagger-2011" />. In each round the learner's policy is run and all visited states are labeled by the expert. The learner is then retrained using all the data collected so far.
 
-Under idealized assumptions one of its policies meets the bound below, with $\varepsilon_N$ the best error achievable on visited states <Cite id="dagger-2011" />. The penalty is linear in $T$ only while $u$, the extra cost of one wrong action, stays bounded.
+Assuming idealized conditions, one of its policies enjoys the following bound, where $\varepsilon_N$ is the best error achievable on visited states <Cite id="dagger-2011" />. The penalty is linear in $T$ only while $u$, the extra cost of one wrong action, stays bounded.
 
 $$
 J(\hat{\pi}) \leq J(\pi^*) + uT\varepsilon_N + O(1)
 $$
 
-Recovery data needs no expert: DART noises the demonstrator's commands and gained 62% on average over behavior cloning at grasping in clutter <Cite id="dart-2017" />. Others generate off-course images <Cite id="diffusion-meets-dagger-2024" /> or steer operators toward the learner's likely mistakes <Cite id="data-inoculation-2026" />.
+Recovery data needs no expert: DART adds noise to the demonstrator's command signals and shows an average of 62% improvement over behavior cloning when grasping in cluttered scenes <Cite id="dart-2017" />. Others generate off-course images <Cite id="diffusion-meets-dagger-2024" /> or steer operators toward the learner's likely mistakes <Cite id="data-inoculation-2026" />.
 
 ## Human corrections beat more demonstrations
 
@@ -157,7 +157,7 @@ In HG-DAgger the person takes over to steer the robot back, and the recovery bec
 | RaC <Cite id="rac-2025" /> | Imitation plateaued despite thousands of demonstrations; corrections beat the prior best with 10 times less collection |
 | PHIL, Nov 2026 <Cite id="phil-proactive-correction-2026" /> | Shows operators the planned motion: 70.3% mean success from five correction episodes, against 44.0% for HG-DAgger |
 
-Corrections now train vision-language-action models <Cite id="pistar06-blog-2025" /> <Cite id="pistar06-2025" /> <Cite id="sop-2026" />. DAgger distills simulation experts into camera students too: in RebarSim, plain cloning in its place cut simulated success from 96.1% to 68.9% <Cite id="rebarsim-2026" />.
+Vision-language-action models have been trained using corrections <Cite id="pistar06-blog-2025" /> <Cite id="pistar06-2025" /> <Cite id="sop-2026" />. DAgger distills simulation experts into camera students too: in RebarSim, plain cloning in its place cut simulated success from 96.1% to 68.9% <Cite id="rebarsim-2026" />.
 
 Also: NVIDIA's Recova correction pipeline <Cite id="recova-2026" />.
 
@@ -165,9 +165,9 @@ Also: NVIDIA's Recova correction pipeline <Cite id="recova-2026" />.
 
 ## Chunking, generative models and RL also curb drift
 
-[Action chunking](/manipulation/action-chunking/) and exploratory data collection provably avoid exponential compounding in stable systems <Cite id="zhang-chunking-exploration-2025" />. A [diffusion policy](/manipulation/diffusion-policy/) over a stabilizing controller can match the expert's per-step distribution <Cite id="block-generative-bc-2023" />.
+[Action chunking](/manipulation/action-chunking/) and exploratory data collection are guaranteed to avoid exponential compounding under certain stability assumptions <Cite id="zhang-chunking-exploration-2025" />. A [diffusion policy](/manipulation/diffusion-policy/) over a stabilizing controller can match the expert's per-step distribution <Cite id="block-generative-bc-2023" />.
 
-GAIL <Cite id="gail-2016" /> and DARP's nearest-neighbor retrieval, 15 to 46% better than behavior cloning <Cite id="darp-2026" />, need no expert queries. HIL-SERL adds real-world RL and nears perfect success in 1 to 2.5 hours <Cite id="hil-serl-2024" />.
+GAIL <Cite id="gail-2016" /> and DARP's nearest-neighbor retrieval, 15 to 46% better than behavior cloning <Cite id="darp-2026" />, need no expert queries. HIL-SERL adds real-world RL and approaches perfect success rates within 1 to 2.5 hours of training <Cite id="hil-serl-2024" />.
 
 Also: why chunking helps <Cite id="lazzati-why-chunking-2026" />.
 
