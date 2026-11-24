@@ -70,7 +70,7 @@ import { TeacherStudent } from '@/components/interactive/teacher-student';
 
 import { ScannedTwinCheck } from '@/components/interactive/scanned-twin-check';
 
-Sim-to-real transfer makes a policy trained in simulation work on a physical robot. Simulators are cheap and fast but never exact, and four method families close or work around the gap <Cite id="reality-gap-survey-2026" />.
+Sim-to-real transfer refers to transferring a policy learned in simulation to be executed in the real world. Although never exact, simulators are cheap and fast, and four families of methods have been developed to bridge or work around the sim-to-real gap <Cite id="reality-gap-survey-2026" />.
 
 <Image id="isaac-gym-anymal-real-stairs-2021" />
 
@@ -88,22 +88,22 @@ Sim-to-real transfer makes a policy trained in simulation work on a physical rob
 
 ## Domain randomization makes reality one more variation
 
-<Term id="domain-randomization">Domain randomization</Term> trains on many perturbed simulators so that the real world looks like one more variation. In 1995 Jakobi and colleagues found that transfer depended on the simulation's noise level <Cite id="jakobi-1995" />. Tobin and colleagues randomized textures, lighting and camera pose, and a network trained only on those images located objects to about 1.5 cm in real webcam images <Cite id="tobin-2017" />.
+<Term id="domain-randomization">Domain randomization</Term> refers to randomly perturbing aspects of the simulator during training such that the real environment becomes one more instance of perturbed dynamics or appearance. In 1995 Jakobi and colleagues observed that sim-to-real transfer was dependent on the amount of noise added in simulation <Cite id="jakobi-1995" />. Tobin and colleagues randomized texture, illumination and camera pose, and showed that an object localization network trained only on those images could localize objects to about 1.5 cm in real webcam images <Cite id="tobin-2017" />.
 
-Peng and colleagues randomized the physics instead, from link mass to sensor noise, over [that range of worlds](/how-robots-work/#worlds). A recurrent policy trained only in simulation then pushed a puck to targets with a real Fetch arm <Cite id="peng-2018" />, and later theory showed why memory of recent history matters <Cite id="chen-dr-theory-2021" />.
+Peng and colleagues randomized the physics instead, from link mass to sensor noise, over [that range of worlds](/how-robots-work/#worlds). A recurrent policy was learned purely in simulation and then pushed a puck to targets with a real Fetch arm <Cite id="peng-2018" />. Subsequent theoretical work showed why it's important for the policy to maintain a memory of recent history <Cite id="chen-dr-theory-2021" />.
 
-OpenAI's robot hand randomized friction and appearance and transferred to the physical hand <Cite id="openai-dactyl-2018" />. Its Rubik's-cube successor widened the ranges as the policy succeeded, a <Term id="curriculum-learning">curriculum</Term> <Cite id="openai-rubiks-cube-2019" />.
+Randomizing the appearance and friction of OpenAI's robot hand allowed a policy trained in simulation to transfer to the physical hand <Cite id="openai-dactyl-2018" />. In their follow-up work on learning to solve a Rubik's cube, OpenAI increases the randomization ranges as the policy improves, a <Term id="curriculum-learning">curriculum</Term> <Cite id="openai-rubiks-cube-2019" />.
 
 <Image id="mujoco-playground-franka-block-2025" />
 
-Isaac Lab, the [GPU-parallel training framework](/rl-sim2real/parallel-sim-rl), ships randomization as a configurable curriculum <Cite id="isaac-lab-2025" />. Poorly tuned ranges "can lead to overly conservative policies" <Cite id="spi-active-2025" />.
+Isaac Lab, the [GPU-parallel training framework](/rl-sim2real/parallel-sim-rl), includes domain randomization as a configurable curriculum <Cite id="isaac-lab-2025" />. Poorly tuned ranges "can lead to overly conservative policies" <Cite id="spi-active-2025" />.
 
 <span id="teacher-student-distillation-privilege-in-proprioception-out" />
 ## Teacher-student distillation: train with privileges, deploy without
 
-<Term id="teacher-student-distillation">Teacher-student distillation</Term> splits learning in two. A teacher learns with privileged simulator information, such as exact terrain, and a student that sees only the robot's sensors learns to imitate it. Learning by Cheating used this for driving <Cite id="learning-by-cheating-2019" />, after asymmetric actor-critic gave full state only to the critic <Cite id="asymmetric-ac-2017" />.
+<Term id="teacher-student-distillation">Teacher-student distillation</Term> splits learning in two. A teacher learns with privileged simulator information, such as exact terrain, and is then distilled into a student policy that only has access to onboard sensing. This idea was used for driving in Learning by Cheating <Cite id="learning-by-cheating-2019" />, after asymmetric actor-critic, where only the critic is allowed to see the true state <Cite id="asymmetric-ac-2017" />.
 
-Lee and colleagues' student read two seconds of <Term id="proprioception">proprioceptive</Term> history and walked ANYmal through mud, snow and rubble <Cite id="lee-2020" />.
+Lee and colleagues used a student policy with two seconds of <Term id="proprioception">proprioceptive</Term> input history to walk ANYmal over mud, snow and rubble <Cite id="lee-2020" />.
 
 | The student sees | Task | Result |
 | --- | --- | --- |
@@ -113,13 +113,13 @@ Lee and colleagues' student read two seconds of <Term id="proprioception">propri
 | Camera | Rebar insertion at 1.4 mm clearance | 91.3% of real rollouts <Cite id="rebarsim-2026" /> |
 | Camera | Humanoid carrying while walking | 54 cycles, on 64 GPUs <Cite id="viral-2025" /> |
 
-RMA adds an estimator of current conditions. On the A1 it updates 10 times a second from half a second of history, so the robot adapts in under a second with no fine-tuning <Cite id="rma-2021" />. UP-OSI earlier fed dynamics parameters predicted from recent history into one universal policy <Cite id="up-osi-2017" />.
+RMA estimates relevant properties of the current environment from sensory history. On the A1, the environment estimator receives half a second of history and updates 10 times per second, allowing the robot to adapt in less than a second without fine-tuning <Cite id="rma-2021" />. UP-OSI earlier learned to predict parameters of a dynamics model from recent history and used them to condition one universal policy <Cite id="up-osi-2017" />.
 
 <TeacherStudent className="my-6" />
 
 ## System identification: measure the gap instead
 
-Randomization averages over model error; <Term id="system-identification">system identification</Term> measures it. Hwangbo and colleagues fitted a neural network to real data from ANYmal's elastic actuators. With ideal or analytical actuator models, policies could not take a single step without falling <Cite id="hwangbo-2019" />.
+Another approach is to directly quantify model errors through <Term id="system-identification">system identification</Term> instead of averaging them out through randomization. Hwangbo and colleagues use a neural network learned from ANYmal's real data to model its elastic actuator dynamics. They show that RL policies trained with ideal or analytical actuator models fail to even take a step on the real robot without falling <Cite id="hwangbo-2019" />.
 
 | Work | What it identifies | Result |
 | --- | --- | --- |
@@ -130,13 +130,13 @@ Randomization averages over model error; <Term id="system-identification">system
 | HALO | An unknown payload's mass on a humanoid | <Cite id="halo-payload-2026" /> |
 | CUE | Contact dynamics, probed where the simulation is least accurate | 72% lower billiard-ball error than the best baseline in simulation; ran on a real pool table <Cite id="cue-dynamics-2026" /> |
 
-ASAP corrects the simulator with what the robot did. It records a Unitree G1 running policies trained on <Term id="retargeting">retargeted</Term> human motion, learns a correction added before each simulator step, and fine-tunes the policy against the corrected simulator. Tracking error fell from 61.2 to 50.2 mm on a kick and from 159 to 112 mm on LeBron James's "Silencer" celebration <Cite id="asap-2025" />.
+ASAP corrects the simulator with what the robot did. It records a Unitree G1 running policies trained on <Term id="retargeting">retargeted</Term> human motion, and uses these data to learn a correction term that is added before each simulation step. The motion tracking policy is then fine-tuned in the corrected simulator. Tracking error fell from 61.2 mm to 50.2 mm on a kick motion and from 159 mm to 112 mm on LeBron James's "Silencer" celebration <Cite id="asap-2025" />.
 
-HumanoidNDM fine-tunes G1 tracking online without motion capture, through a dynamics model learned from the robot's own sensing <Cite id="humanoid-ndm-2026" />. Swift's champion-level drone racing also combined simulated RL with real data <Cite id="swift-drone-racing-2023" />.
+HumanoidNDM fine-tunes G1 humanoid tracking online without using motion capture by learning a dynamics model using onboard sensing <Cite id="humanoid-ndm-2026" />. Swift's champion-level drone racing also combined simulated RL with real data <Cite id="swift-drone-racing-2023" />.
 
 ## Real-to-sim: rebuild the scene, keep the physics
 
-Real-to-sim methods rebuild the deployment scene in simulation, usually as photo-realistic Gaussian splats, and keep a standard physics engine. Diffusion policies trained only on SplatSim's simulated demonstrations reached 86.25% real success on four UR5 tasks, against 97.5% with real data <Cite id="splatsim-2024" />.
+Real-to-sim focuses on reconstructing real scenes (typically as photo-realistic Gaussian splats) in simulators with conventional physics engines. Diffusion policies trained purely on simulated demonstrations in SplatSim transfer to the real world, achieving a success rate of 86.25% on four manipulation tasks using a UR5 arm (97.5% when trained with real data) <Cite id="splatsim-2024" />.
 
 | System | What it builds | Reported result |
 | --- | --- | --- |
@@ -150,16 +150,16 @@ Real-to-sim methods rebuild the deployment scene in simulation, usually as photo
 | ForceTwin (2026) | Friction and springs of doors and other articulated objects | 87% goal completion on nine object and robot pairs <Cite id="forcetwin-2026" /> |
 | GRAIL (2026) | Generated scenes for humanoids; a CoRL 2026 best-paper finalist <Cite id="nvidia-corl-gr00t-2-2026" /> | 84% real pick-up success on a Unitree G1 <Cite id="grail-2026" /> |
 
-NVIDIA's Newton 1.0 renders meshes and splats in one camera <Cite id="newton-manipulation-blog-2026" />. A rebuilt twin can still mislead: a ring-toss model placed 90% of rings on the real UR5 but 30% in RoboGSim <Cite id="robogsim-2024" />. In a 3D-scanned lab, navigation agents' simulated and real success correlated at only 0.18, and tuned simulation parameters raised it to 0.844 <Cite id="kadian-2019" />.
+NVIDIA's Newton 1.0 simulator renders meshes and Gaussian splats from one camera <Cite id="newton-manipulation-blog-2026" />. A rebuilt twin can still mislead: a ring-toss policy only achieved a 30% success rate in RoboGSim, compared to 90% on the real UR5 arm <Cite id="robogsim-2024" />. When tested in a lab environment reconstructed via 3D scanning, the correlation between real and simulated success rates for navigation policies was only 0.18, improving to 0.844 after simulator parameter tuning <Cite id="kadian-2019" />.
 
-RoboSimStudio lets people and coding agents edit a simulation's solver, contact model and physical parameters. Agents built a two-armed sponge-wiping simulation from a smartphone video in about an hour, and a policy improved there completed the wipe on the real robot <Cite id="robosimstudio-2026" />.
+In RoboSimStudio, both humans and coding agents can modify the solver, contact model and physical parameters of simulators. Agents were able to recreate a two-armed sponge-wiping task in simulation from a smartphone video in about an hour, and a policy improved there completed the wipe on the real robot <Cite id="robosimstudio-2026" />.
 
 <ScannedTwinCheck className="my-6" />
 
 <span id="the-levers-nobody-demos" />
 ## Data mix and hardware also decide transfer
 
-Mixing simulated with real data raised real-world performance by 38% on average <Cite id="sim-real-cotraining-2025" />, mainly by aligning how the policy represents both <Cite id="lei-cotraining-2026" />. RL in simulation anchored on real data raised real success by 24% for OpenVLA and 20% for π0.5 <Cite id="rl-co-2026" />. The action space "plays a crucial role in reducing the sim-to-real gap" <Cite id="reality-gap-survey-2026" />.
+Blending simulated trajectories with real ones improved downstream policy performance in the real world by 38% on average <Cite id="sim-real-cotraining-2025" />, primarily because it encourages compatible policy representations <Cite id="lei-cotraining-2026" />. RL training in simulation anchored on real data improves real success by 24% and 20% for OpenVLA and π0.5 respectively <Cite id="rl-co-2026" />. Other work has emphasized the importance of designing the action space, noting that it "plays a crucial role in reducing the sim-to-real gap" <Cite id="reality-gap-survey-2026" />.
 
 | Lever | Example | Result |
 | --- | --- | --- |
