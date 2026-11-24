@@ -76,7 +76,7 @@ import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
 import { ExpoFtResults } from '@/components/interactive/expo-ft-results';
 import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
 
-RL fine-tuning improves a pretrained robot policy with <Term id="reinforcement-learning">reinforcement learning</Term>: the robot attempts a task, a reward scores each attempt, and the policy shifts toward what worked. Imitation alone is brittle once errors carry the robot off its demonstrations <Cite id="dagger-2011" />, and reliable success is much harder than occasional success <Cite id="pistar06-blog-2025" />.
+RL fine-tuning improves a pretrained robot policy with <Term id="reinforcement-learning">reinforcement learning</Term>: the robot performs a task, a reward is computed for that trial, and the policy is adapted to encourage behavior that did well. Imitation learning alone is brittle to compounding errors that carry the robot off its demonstrations <Cite id="dagger-2011" />. Reliable success is much harder than occasional success <Cite id="pistar06-blog-2025" />.
 
 <Image id="hil-serl-tasks-2024" />
 
@@ -88,17 +88,17 @@ RL fine-tuning improves a pretrained robot policy with <Term id="reinforcement-l
 
 ## Practice turns attempts into training data
 
-RL scores each attempt with a reward, often a success detector or a person's verdict. A <Term id="value-function">value function</Term> estimates how well things are going; a step that leaves the robot better off than expected has positive advantage, and training pushes the policy toward it. On a real robot, a person also resets the scene and takes over before a mistake does damage <Cite id="hil-serl-2024" />.
+RL rewards each episode with some metric of performance, often a success detector or human judgment. A <Term id="value-function">value function</Term> estimates how well things are going; a step that leaves the robot better off than expected has positive advantage, and training pushes the policy toward it. On a real robot, a person also resets the scene and takes over before a mistake does damage <Cite id="hil-serl-2024" />.
 
 <AdvantageScrubber className="my-6" />
 
 ## Diffusion and flow policies hide their probabilities
 
-Standard RL such as <Term id="ppo">PPO</Term> raises the probability of actions that did well, so it needs each action's probability <Cite id="ppo-2017" />. <Term id="flow-matching">Flow-matching</Term> policies train by regressing vector fields along fixed probability paths <Cite id="lipman-flow-matching-2022" />, so the executed action's likelihood cannot be computed <Cite id="pi-rl-2026" />. Online RL on large VLAs is also unstable and needs more compute than most local machines have <Cite id="ire-vla-2025" />.
+Standard RL such as <Term id="ppo">PPO</Term> raises the probability of actions that did well, so it needs each action's probability <Cite id="ppo-2017" />. <Term id="flow-matching">Flow-matching</Term> policies optimize by fitting a velocity field along predetermined probability trajectories <Cite id="lipman-flow-matching-2022" />, making it infeasible to determine the probability of the taken action <Cite id="pi-rl-2026" />. Online RL on large VLAs is also unstable and needs more compute than most local machines have <Cite id="ire-vla-2025" />.
 
 ## Each denoising step can become a decision
 
-One fix makes the denoising steps part of the task, so each step has a simple Gaussian probability and reward arrives after the last.
+One fix makes the denoising process part of the task, with each denoising step a decision. The reward only comes at the end, but the probability of the denoising chain is easy to compute (a product of Gaussians).
 
 | Method | Trick | Result |
 | --- | --- | --- |
@@ -114,21 +114,21 @@ One fix makes the denoising steps part of the task, so each step has a simple Ga
 
 Recap, the method behind π*0.6, sidesteps the probability problem. A value function predicts steps remaining to success, and each action is labeled "Advantage: positive" or "Advantage: negative" in the prompt. Good and bad data both train the policy, and at deployment it is asked for the positive version <Cite id="pistar06-2025" />.
 
-The target is the improved policy of KL-regularized RL, the reference policy reweighted toward high-advantage actions:
+The target is given by a KL-regularized RL policy improvement step, resulting in an improved policy that upweights actions with high advantages under the reference policy:
 
 $$
 \hat{\pi}(a \mid o) \propto \pi_{\mathrm{ref}}(a \mid o)\,\exp\!\left(A^{\pi_{\mathrm{ref}}}(o,a)/\beta_{\mathrm{KL}}\right).
 $$
 
-Advantage-weighted regression fits it with two supervised steps <Cite id="awr-2019" />; Recap reaches it by conditioning. Dropping the label at random enables classifier-free guidance <Cite id="pistar06-2025" /> <Cite id="cfg-2022" />, and a guidance weight above one leans further toward the positive label. Knowledge insulation stops the action expert's gradient at the backbone <Cite id="pi06-model-card-2025" />.
+Advantage-weighted regression fits it in two supervised steps <Cite id="awr-2019" />. Recap instead reaches it by conditioning. Randomly dropping the conditioning label during training enables inference with classifier-free guidance <Cite id="pistar06-2025" /> <Cite id="cfg-2022" />, and using a guidance weight larger than one leans further toward the positive label. Knowledge insulation stops the gradient of the action expert's loss from backpropagating into the backbone <Cite id="pi06-model-card-2025" />.
 
-Against offline RL plus demonstration fine-tuning, on-robot practice more than doubled successful espresso and laundry completions per hour and roughly halved failures <Cite id="pistar06-2025" />. One run made espresso for "13 hours straight", with human reward labels, interventions and resets <Cite id="pistar06-blog-2025" />.
+Against offline RL followed by fine-tuning on demonstrations, on-robot learning more than doubled the number of successful espresso and laundry tasks completed per hour and approximately halved the number of failures <Cite id="pistar06-2025" />. In one case the system made espresso for "13 hours straight" (with human-provided reward labels, interventions and resets) <Cite id="pistar06-blog-2025" />.
 
 Also: RL tokens, up to 3 times faster on the most precise stage of four tasks <Cite id="rlt-2026" />; the [π line](/manipulation/pi-line/) covers the models.
 
 ## A person on hand makes real-robot RL work
 
-HIL-SERL runs RL on the physical robot from 20 to 30 demonstrations, with a person who can take over, building on SERL <Cite id="serl-2024" /> and RLPD <Cite id="rlpd-2023" />. It succeeded in every evaluation trial after 1 to 2.5 hours of training on nearly all tasks. HG-DAgger <Cite id="hg-dagger-2019" />, which imitates the person's corrections, averaged 49.7% <Cite id="hil-serl-2024" />.
+HIL-SERL runs RL on the physical robot from 20 to 30 demonstrations, with a person who can take over, building on SERL <Cite id="serl-2024" /> and RLPD <Cite id="rlpd-2023" />. After 1 to 2.5 hours of training, HIL-SERL succeeded in all evaluation trials for almost all tasks. HG-DAgger <Cite id="hg-dagger-2019" />, which learns by imitation from the human corrections, achieves an average performance of 49.7% <Cite id="hil-serl-2024" />.
 
 | Method | Setup | Result |
 | --- | --- | --- |
@@ -140,7 +140,7 @@ Background: [RL for Robotics](/rl-sim2real/rl-for-robotics/) and [parallel simul
 
 ## Small RL helpers can teach the generalist
 
-Another route leaves the large model alone and trains something small, like residual RL's correction to a fixed controller <Cite id="residual-rl-2018" />. PLD freezes a VLA, trains residual actors to recover from states the base reaches, and distills their trajectories back into the generalist <Cite id="pld-2026" />.
+Another route leaves the large model alone and trains something small, like residual RL's correction to a fixed controller <Cite id="residual-rl-2018" />. PLD keeps the VLA frozen while learning residual RL policies on top of it to recover from states encountered with the frozen VLA, and then distills data collected with the residual RL policies back into the VLA <Cite id="pld-2026" />.
 
 <Image id="pld-gpu-insertion-2025" />
 
@@ -154,15 +154,15 @@ Another route leaves the large model alone and trains something small, like resi
 
 ## EXPO-FT edits actions toward higher value
 
-EXPO pairs a large flow or diffusion policy, trained by stable imitation, with a small edit policy that nudges sampled actions toward higher value. No gradient passes through the denoising chain, and sample efficiency improves 2 to 3 times on average <Cite id="expo-2025" />. EXPO-FT extends it to π0.5's action chunks and human corrections, reaching 30 of 30 on every task after an average 19.1 minutes of online robot data <Cite id="expo-ft-2026" />.
+EXPO pairs a large flow or diffusion policy, trained by stable imitation, with a small edit policy that nudges sampled actions toward higher value. No gradient passes through the denoising chain, and sample efficiency improves 2 to 3 times on average <Cite id="expo-2025" />. EXPO-FT extends EXPO to fine-tune π0.5 with action chunks and human corrections, achieving 30 of 30 successes on all tasks with an average of 19.1 minutes of online robot data <Cite id="expo-ft-2026" />.
 
 <ExpoFtResults className="my-6" />
 
-These tests vary starting states far more than HIL-SERL's; with its standard budget, HIL-SERL never started learning Cube Pick or Pool Shot <Cite id="expo-ft-2026" /> <Cite id="hil-serl-2024" />. DSRL instead runs RL over a frozen policy's starting noise <Cite id="dsrl-2025" />. Noise search cannot produce a skill the base never learned, Dong and Finn argue, and DSRL averages 19 of 30 in their comparison <Cite id="perry-dong-post-training-2026" /> <Cite id="expo-ft-2026" />.
+These tasks have much greater variation in initial conditions than HIL-SERL's; with its standard budget, HIL-SERL never started learning Cube Pick or Pool Shot <Cite id="expo-ft-2026" /> <Cite id="hil-serl-2024" />. DSRL instead runs RL over a frozen policy's starting noise <Cite id="dsrl-2025" />. As argued by Dong and Finn, noise-based exploration methods such as DSRL are unable to discover skills that are absent from the initial policy, and DSRL averages 19 out of 30 in their comparison <Cite id="perry-dong-post-training-2026" /> <Cite id="expo-ft-2026" />.
 
 <NoiseOrEdit className="my-6" />
 
-Real-Time EXPO-FT lets the edit policy react to the latest view ([real-time execution](/manipulation/realtime-execution/)), lifting four dynamic real tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />. Dong and Finn still call RL "not yet a recipe. It's a craft." A person defines success, resets and intervenes, and "Nineteen minutes of robot interaction is not nineteen minutes of post-training" <Cite id="perry-dong-post-training-2026" />.
+Real-Time EXPO-FT conditions the edit policy on the latest view ([real-time execution](/manipulation/realtime-execution/)), improving performance on four dynamic real tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />. Dong and Finn still call RL "not yet a recipe. It's a craft." There is a human in the loop deciding what success looks like, and intervening or resetting as needed: "Nineteen minutes of robot interaction is not nineteen minutes of post-training" <Cite id="perry-dong-post-training-2026" />.
 
 Also: SeeQ, values for the current subtask only <Cite id="seeq-2026" />; PrefPI, preference-conditioned policies <Cite id="prefpi-2026" />.
 
@@ -170,7 +170,7 @@ Also: SeeQ, values for the current subtask only <Cite id="seeq-2026" />; PrefPI,
 
 <RlMethodsTable className="my-6 wide-measure" />
 
-Protocols differ too much to rank, and code availability comes from each source <Cite id="dppo-2024" /> <Cite id="conrft-2025" /> <Cite id="hil-serl-2024" /> <Cite id="pi-rl-2026" /> <Cite id="pistar06-2025" /> <Cite id="pistar06-blog-2025" /> <Cite id="pi06-model-card-2025" /> <Cite id="pld-2026" /> <Cite id="expo-ft-2026" /> <Cite id="dsrl-2025" />.
+The protocols are so different from each other that the methods cannot be ranked in any meaningful sense, and code availability comes from each source <Cite id="dppo-2024" /> <Cite id="conrft-2025" /> <Cite id="hil-serl-2024" /> <Cite id="pi-rl-2026" /> <Cite id="pistar06-2025" /> <Cite id="pistar06-blog-2025" /> <Cite id="pi06-model-card-2025" /> <Cite id="pld-2026" /> <Cite id="expo-ft-2026" /> <Cite id="dsrl-2025" />.
 
 ## RL now ships in foundation models and fleets
 
@@ -189,10 +189,10 @@ Protocols differ too much to rank, and code availability comes from each source 
 
 ## RL's generalization gains are mostly simulated
 
-Evidence that RL generalizes better than supervised fine-tuning comes mostly from simulation. Liu et al. found PPO beat three other objectives, GRPO <Cite id="grpo-2024" /> among them, and generalized better than supervised fine-tuning, all on simulated pick-and-place <Cite id="rl-vla-generalization-2025" />. With enough training tasks, value-based recipes raised held-out success by up to 58 points in simulation; with few, they forgot <Cite id="generalist-rl-improvement-2026" />.
+Evidence that RL generalizes better than supervised fine-tuning comes mostly from simulation. For instance, in simulated pick-and-place, Liu et al. found that PPO outperformed three other training objectives (including GRPO <Cite id="grpo-2024" />) and generalized better than supervised fine-tuning <Cite id="rl-vla-generalization-2025" />. Value-based recipes increased success rates on held-out tasks by up to 58 points in simulation, given a large enough number of training tasks; otherwise, the models suffered from forgetting <Cite id="generalist-rl-improvement-2026" />.
 
 Also: SimpleVLA-RL lifts OpenVLA-OFT <Cite id="openvla-oft-2025" /> on LIBERO from 91% to 99% <Cite id="simplevla-rl-2025" />.
 
-Much of the cost lies outside the algorithm. No vision-language model judges robot reward well across tasks <Cite id="roboreward-2026" />, and naive VLA fine-tuning fails without scene resets <Cite id="cronos-2026" />. Coding agents now automate resets, rollouts and checks: ENPIRE's agents trained policies to 99% on tasks such as fastening a zip tie <Cite id="enpire-2026" />.
+Much of the cost lies outside the algorithm. There is not a vision-language model that can provide good robot rewards across tasks <Cite id="roboreward-2026" />, and naive fine-tuning of VLAs does not work without resetting the scene <Cite id="cronos-2026" />. Coding agents now automate resets, rollouts and checks: ENPIRE's agents trained policies to perform tasks such as fastening a zip tie with a 99% success rate <Cite id="enpire-2026" />.
 
-Physical Intelligence says π0.7 runs an espresso machine out of the box, matching specialized RL-finetuned models <Cite id="pi07-2026" />.
+Physical Intelligence says π0.7 runs an espresso machine with no additional tuning, performing on par with models that were specifically RL-finetuned on this task <Cite id="pi07-2026" />.
