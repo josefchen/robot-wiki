@@ -70,7 +70,7 @@ import { SenseAvoid } from '@/components/motion/scenes/sense-avoid';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Aerial robotics builds and controls flying robots, from delivery drones and racing quadrotors to <Term id="swarm-robotics">swarms</Term>. Flight was an early learning win: a reinforcement-learning drone beat human world champions in its lab in 2023 <Cite id="swift-drone-racing-2023" />, and a one-camera drone won an organizer-run race in 2025 <Cite id="monorace-2026" />.
+Aerial robotics builds and controls flying robots, ranging from delivery drones and quadrotors used for racing to <Term id="swarm-robotics">swarms</Term> of robots. Flight was an early learning win. In 2023, a drone using reinforcement learning outperformed human world champions in its lab <Cite id="swift-drone-racing-2023" />. And in 2025, a drone equipped with one camera won a drone race organized by the competition's hosts <Cite id="monorace-2026" />.
 
 <Image id="racing-quadrotor-minion-220-2016" />
 
@@ -82,35 +82,35 @@ In one obstacle-avoidance study, the model’s speed limit varied with the camer
 
 ## Flight simulates well
 
-A quadrotor in open air touches nothing. Its motion is differentially flat, so a smooth path alone fixes the inputs to fly it <Cite id="faessler-flatness-2018" />, and standard models cover its dynamics and control <Cite id="mahony-multirotor-2012" />. The hard part is speed: racing quadrotors pass 100 km/h at several g <Cite id="swift-drone-racing-2023" />.
+A quadrotor in open air touches nothing. The system is differentially flat, meaning that given a smooth trajectory, the inputs required to follow it can be calculated <Cite id="faessler-flatness-2018" />. There are also standard models of quadrotor dynamics and control <Cite id="mahony-multirotor-2012" />. The hard part is speed, as racing drones can reach speeds in excess of 100 km/h at several g <Cite id="swift-drone-racing-2023" />.
 
 <ExplainerFigure id="flying" />
 
-Classical stacks plan a smooth trajectory <Cite id="mellinger-minimum-snap-2011" /> and track it with a geometric controller <Cite id="lee-se3-control-2010" />. In 2021 time-optimal planning beat professional pilots <Cite id="foehn-time-optimal-2021" />. Neural-Fly learns aerodynamic effects offline and adjusts a few coefficients in flight as the wind changes <Cite id="neural-fly-2022" />.
+Classical approaches use a trajectory planner to generate a smooth trajectory <Cite id="mellinger-minimum-snap-2011" /> followed by a geometry-based tracking controller <Cite id="lee-se3-control-2010" />. In 2021 autonomous planners producing time-optimal trajectories beat professional pilots <Cite id="foehn-time-optimal-2021" />. Neural-Fly learns a model of aerodynamic effects offline, and fine-tunes a small number of coefficients online to accommodate changes in wind <Cite id="neural-fly-2022" />.
 
 Also: simulators Flightmare <Cite id="flightmare-2020" />, FlightGoggles <Cite id="flightgoggles-2019" />, AirSim <Cite id="airsim-2017" />.
 
 ## Learned controllers beat the champions
 
-Zurich's Swift beat three human champions, including two league world champions, in several races each. It learned by model-free reinforcement learning in simulation, then retrained on noise and dynamics models fitted from real flights <Cite id="swift-drone-racing-2023" />.
+Swift, developed in Zurich, defeated three human champions (two of them league world champions), each in multiple races. First trained with model-free reinforcement learning in simulation, Swift was retrained using noise and dynamics models fitted from real flight data <Cite id="swift-drone-racing-2023" />.
 
-Reinforcement learning beat optimal control on the same task above 12 g and 108 km/h, because it optimizes the race directly instead of tracking a planned path <Cite id="racing-rl-vs-oc-2023" />. A hybrid with a differentiable model-predictive controller inside the learner matched it at up to 21 m/s <Cite id="ac-mpc-2026" />.
+Reinforcement learning outperformed optimal control on the same task above 12 g and 108 km/h, since it directly optimizes the race instead of attempting to follow a planned path <Cite id="racing-rl-vs-oc-2023" />. A differentiable model-predictive controller embedded into a reinforcement learning algorithm matched it at up to 21 m/s <Cite id="ac-mpc-2026" />.
 
-The wins came with conditions. At the 2025 A2RL race the organizers set hardware and track <Cite id="tudelft-a2rl-2025" />, and TU Delft's one-camera drone beat every AI team and three human world champions <Cite id="monorace-2026" />. In January 2026 Minchan Kim won a best-of-nine final from 4 to 4 when TII Racing's drone struck a gate <Cite id="a2rl-2026-final" />.
+The wins came with conditions. In the 2025 A2RL competition, drones raced on a track and with hardware specified by the competition <Cite id="tudelft-a2rl-2025" />. A drone from TU Delft used one camera and defeated all AI teams as well as three human world champions <Cite id="monorace-2026" />. In January 2026, Minchan Kim was victorious in a best-of-nine drone racing final from 4 to 4 after TII Racing's drone hit a gate <Cite id="a2rl-2026-final" />.
 
-Champion policies often crash at once on unseen tracks; a 2026 method generalized 7.4 times better <Cite id="green-generalization-2026" />.
+However, champion policies often crash immediately when deployed on a new track; a 2026 method showed a 7.4 times improvement in generalization performance <Cite id="green-generalization-2026" />.
 
 <DroneChampionsTimeline className="my-6" />
 
 ## The autonomy stack on a flying robot
 
-A drone must know where it is without GPS. <Term id="visual-inertial-odometry">Visual-inertial odometry</Term> fuses one camera and a low-cost <Term id="imu">IMU</Term> into the pose and velocity the controller needs <Cite id="vins-mono-2018" /><Cite id="swift-drone-racing-2023" />. The inner loop often runs on a PX4 microcontroller, with far lower latency than Linux <Cite id="px4-2015" />.
+Autonomous flight requires a state estimator that does not rely on GPS. <Term id="visual-inertial-odometry">Visual-inertial odometry</Term> fuses one camera and a low-cost <Term id="imu">IMU</Term> into the pose and velocity the controller needs <Cite id="vins-mono-2018" /><Cite id="swift-drone-racing-2023" />. Inner-loop control on drones is often performed on PX4 since microcontrollers provide much lower latencies compared to Linux-based solutions <Cite id="px4-2015" />.
 
 <Image id="dji-mavic-pro-in-flight" />
 
 ### Perception latency bounds the whole system
 
-A drone cannot dodge what its camera has not reported. At speed $v$, an obstacle seen at range $s$ leaves $s/v - \tau$ after latency $\tau$; if that is shorter than the swerve, no controller saves it <Cite id="falanga-latency-2019" />. An event camera reports per-pixel brightness changes without waiting for a frame.
+The reaction time of a flying robot is limited by the latency of its perception. Obstacles detected at a distance $s$ when flying with velocity $v$ can only be avoided if $s/v - \tau$ (where $\tau$ is the latency) is larger than the time required to execute an evasive maneuver <Cite id="falanga-latency-2019" />. Event cameras only report changes in brightness per pixel and do not suffer from frame latency.
 
 | Camera | Sideways acceleration | Speed in the study’s model |
 | --- | --- | --- |
@@ -120,7 +120,7 @@ A drone cannot dodge what its camera has not reported. At speed $v$, an obstacle
 | Event, 8 m range | 50 m/s² | 22% faster, 31.03 against 25.40 m/s |
 | Event against fastest stereo | 200 m/s² | 7 to 12% faster |
 
-In 2020 an event-camera quadrotor dodged fast-moving objects with only onboard sensing and computing <Cite id="falanga-event-avoidance-2020" />.
+In 2020 an event-camera quadrotor was able to avoid fast-moving obstacles using only onboard computation and perception <Cite id="falanga-event-avoidance-2020" />.
 
 Also: perception-aware control PAMPC <Cite id="pampc-2018" />.
 
@@ -134,7 +134,7 @@ Language-driven flight is far slower.
 
 ### End-to-end learning skips the interfaces
 
-Each hand-off between sensing, mapping and planning adds delay and passes on errors <Cite id="high-speed-flight-2021" />. Swift kept a modular front end feeding a small network that outputs thrust and body rates <Cite id="swift-drone-racing-2023" />. Later controllers remove more.
+Removing interfaces between sensing, mapping and planning reduces latency and avoids compounding module errors <Cite id="high-speed-flight-2021" />. Swift uses a front end with multiple modular components, followed by a small neural network to predict thrust and body rate control commands <Cite id="swift-drone-racing-2023" />. Later controllers have removed more components.
 
 | System | Approach | Reported result |
 | --- | --- | --- |
@@ -150,7 +150,7 @@ Each hand-off between sensing, mapping and planning adds delay and passes on err
 
 ## Swarms coordinate without assigning tasks
 
-Swarms fly many cheap drones at once, for search or light shows. Reynolds' 1987 flocking model treats the group as local attraction and repulsion between neighbors <Cite id="reynolds-boids-1987" />. Vásárhelyi and colleagues tuned such rules to flock 30 drones outdoors <Cite id="vasarhelyi-flocking-2018" />, but reactive rules do not look ahead.
+Swarms fly many cheap drones at once, for search or light shows. Reynolds' 1987 work simulated flocking through attraction and repulsion rules between neighbors <Cite id="reynolds-boids-1987" />, an idea which Vásárhelyi and colleagues have since tuned to control 30 drones flying outside <Cite id="vasarhelyi-flocking-2018" />. These rules are reactive and do not look ahead.
 
 <SwarmControlTable className="my-6" />
 
@@ -162,20 +162,20 @@ Swarms fly many cheap drones at once, for search or light shows. Reynolds' 1987 
 | Zhang et al., 2025 <Cite id="zhang-diff-physics-2025" /> | Several drones coordinate with no communication |
 | League self-play, 2026 <Cite id="geles-marl-2026" /> | Beat a champion-level human above 22 m/s, with 50% fewer collisions |
 
-These drones coordinate through shared paths or learned behavior. In Ukraine, jamming is pushing military drones toward terrain navigation, autonomous target lock and, eventually, mesh-networked swarms <Cite id="spectrum-ukraine-autonomy-2026" />.
+These drones coordinate through shared paths or learned behavior. In Ukraine, jamming is driving military drones to navigate using terrain features, lock on to targets autonomously and, in the longer term, operate as mesh-networked swarms <Cite id="spectrum-ukraine-autonomy-2026" />.
 
 ## Delivery drones fly at commercial scale
 
-Drones have what manipulation lacks: commercial fleets. Zipline reports more than 3 million deliveries and nearly 150 million autonomous miles since 2016 <Cite id="zipline-safety-facts" />, and Wing passed one million deliveries in June 2026 <Cite id="wing-walmart-2026" />. Walmart passed 2 million drone deliveries in November 2026 and agreed to add 300 Zipline sites <Cite id="walmart-zipline-300-2026" />.
+Drones have what manipulation lacks: commercial fleets. Zipline reports that its drones have flown close to 150 million miles autonomously since 2016, making over 3 million deliveries <Cite id="zipline-safety-facts" />. In June 2026, Wing surpassed one million deliveries <Cite id="wing-walmart-2026" />, and in November 2026 Walmart surpassed 2 million deliveries by drone and agreed to add 300 Zipline sites <Cite id="walmart-zipline-300-2026" />.
 
 Also: Walmart's first million <Cite id="walmart-drone-1m-2026" />, Zipline's \$1.5 billion raise <Cite id="zipline-raise-2026" />.
 
 <DroneDeliveryCounts className="my-6" />
 
-Routine flight beyond the pilot's sight still awaits rules. The FAA and TSA proposed Part 108 in August 2025 <Cite id="faa-part-108-nprm-2025" /> and reopened comments until February 11, 2026 <Cite id="faa-part-108-reopen-2026" />. In November 2026 Wing still called the final rule upcoming <Cite id="wing-fort-worth-2026" />.
+In August 2025, the FAA and TSA put out proposed draft Part 108 regulations to allow routine flight beyond the pilot's sight <Cite id="faa-part-108-nprm-2025" />, with the comment period reopened through February 11, 2026 <Cite id="faa-part-108-reopen-2026" />. As of November 2026, Wing characterized the final rule as forthcoming <Cite id="wing-fort-worth-2026" />.
 
 ## Robotics takes latency budgets and sim-to-real from flight
 
-A policy inferring at 20 Hz controls a contact-rich task at about 20 Hz whatever the arm's bandwidth, the budget the latency study set for flight <Cite id="falanga-latency-2019" /> ([real-time execution](/manipulation/realtime-execution/)). The sim-to-real recipe transfers too: gap models fitted from real data <Cite id="swift-drone-racing-2023" /> and privileged imitation with realistic sensor noise <Cite id="high-speed-flight-2021" /> ([sim-to-real transfer](/rl-sim2real/sim2real-transfer/), [parallel simulation](/rl-sim2real/parallel-sim-rl/)).
+A policy running inference at 20 Hz controls a contact-rich task at about 20 Hz whatever the arm's bandwidth, which is the budget the latency study set for flight <Cite id="falanga-latency-2019" /> ([real-time execution](/manipulation/realtime-execution/)). Robotics also benefits from flight research on how to close the sim-to-real gap, including modeling the gap using real data <Cite id="swift-drone-racing-2023" /> and privileged imitation with realistic sensor noise <Cite id="high-speed-flight-2021" /> ([sim-to-real transfer](/rl-sim2real/sim2real-transfer/), [parallel simulation](/rl-sim2real/parallel-sim-rl/)).
 
-Champion claims need their conditions attached <Cite id="tudelft-a2rl-2025" /><Cite id="a2rl-2026-final" />. The distance from peak to reliable performance is the [reliability gap](/frontier/reliability-gap/), and [surgical robotics](/adjacent/surgical/) shows a bar cleared under regulators.
+Champion claims should be reported with their conditions stated <Cite id="tudelft-a2rl-2025" /><Cite id="a2rl-2026-final" />. The gap between peak and reliably achievable performance is the [reliability gap](/frontier/reliability-gap/), and [surgical robotics](/adjacent/surgical/) shows a bar cleared under regulators.
