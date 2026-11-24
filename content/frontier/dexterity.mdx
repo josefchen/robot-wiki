@@ -73,11 +73,11 @@ import { TactileSlip } from '@/components/motion/scenes/tactile-slip';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Dexterity is skilled <Term id="contact-rich-manipulation">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It is unsolved: a model Physical Intelligence fine-tuned on 11 of Benjie Holson's Humanoid Olympics tasks averaged 52% success on them <Cite id="pi-olympics-2025" />.
+Dexterity is skilled <Term id="contact-rich-manipulation">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It is unsolved: the Physical Intelligence model fine-tuned on 11 manipulation tasks from Benjie Holson's Humanoid Olympics achieved an average success rate of 52% <Cite id="pi-olympics-2025" />.
 
 <Image id="uskin-tactile-allegro-hand-2021" />
 
-The problem is old: by 1961 Heinrich Ernst had a computer-controlled hand stacking blocks at MIT <Cite id="brooks-dexterity-2025" />. Contact makes it hard. Grip force and slip decide success, cameras lose them once the fingers close, and [impedance control](/classical/control) shapes contact that only touch observes.
+The problem is old: by 1961 Heinrich Ernst had demonstrated stacking of blocks using a computer-controlled hand at MIT <Cite id="brooks-dexterity-2025" />. Grasping and manipulation are challenging as success depends on contact, which is difficult to sense. Grip force and slip decide success, but once the fingers are closed, cameras cannot tell what is going on inside the grasp, and [impedance control](/classical/control) shapes contact that only touch observes.
 
 <HandComparison className="my-6" />
 
@@ -92,27 +92,27 @@ The problem is old: by 1961 Heinrich Ernst had a computer-controlled hand stacki
 
 <TactileSlip className="my-6" />
 
-The human hand carries about 17,000 low-threshold <Term id="mechanoreceptor">mechanoreceptors</Term>, roughly 1,000 per fingertip <Cite id="macefield-touch-2022" />. With anesthetized fingertips, a person in Roland Johansson's lab took four times as long to light a match. Brooks concludes that robots "will need a sense of touch, and a level of touch sensing that no one has yet built in the lab" <Cite id="brooks-dexterity-2025" />.
+The human hand contains some 17,000 low-threshold <Term id="mechanoreceptor">mechanoreceptors</Term>, about 1,000 of them in each fingertip <Cite id="macefield-touch-2022" />. With anesthetized fingertips, a person in Roland Johansson's lab took four times as long to light a match. Robots, Brooks notes, "will need a sense of touch, and a level of touch sensing that no one has yet built in the lab" <Cite id="brooks-dexterity-2025" />.
 
-The people who teach robots lack touch too. Holson saw demonstration rigs with open-close fingers and no force or touch for the operator, and put task precision at 1 to 3 cm, a <Term id="teleoperation">teleoperation</Term> limit <Cite id="holson-olympics-2025" />.
+The people who teach robots lack touch too. Holson also found that, in the rigs he saw, the teleoperators' hands could only open and close and provided no force or touch feedback to the operator. As such, he pegged the limits of <Term id="teleoperation">teleoperation</Term> at a task precision of 1 to 3 cm <Cite id="holson-olympics-2025" />.
 
 Also: open problems in robot touch <Cite id="tactile-outlook-2025" />, ReSkin's replaceable magnetic skin <Cite id="reskin-2021" />.
 
 <span id="the-bet-against-touch" />
 ## The bet on video: learn hands by watching people
 
-The scaling bet holds that enough video of human hands teaches dexterity without new sensors. Brooks answers that speech and image learning succeeded on engineered inputs, and that dexterity needs the right sensory data <Cite id="brooks-dexterity-2025" />.
+The "scaling bet" is the claim that with enough video of human hands performing tasks, robots can learn dexterity without new sensors. Brooks argues that speech and image learning succeeded with carefully designed input modalities, and learning dexterity will require appropriate modalities <Cite id="brooks-dexterity-2025" />.
 
-Tesla moved Optimus to a "vision-only approach", with workers in five-camera rigs recording tasks such as folding a t-shirt <Cite id="brooks-dexterity-2025" />. Figure's Project Go-Big pretrains on human video, and its first result was Helix walking from egocentric human video alone <Cite id="figure-go-big-2025" />.
+Figure's Project Go-Big pretrains on human video, and its first result was Helix walking from egocentric human video alone <Cite id="figure-go-big-2025" />. Tesla moved Optimus to a "vision-only approach", in which workers are tasked with performing activities such as folding a t-shirt while wearing rigs outfitted with five cameras <Cite id="brooks-dexterity-2025" />.
 
-GR00T 2 tested the bet on hands. Shown a task only by humans, it lined a lab funnel with filter paper in 65% of trials on a robot with two five-fingered hands <Cite id="gr00t-2-2026" />.
+GR00T 2 tested the bet on hands. It was shown how to perform a task (lining a lab funnel with filter paper) only by watching humans perform it, and when asked to reproduce the task on a robot with two five-fingered hands, it was successful 65% of the time <Cite id="gr00t-2-2026" />.
 
-A camera can stand in for a force sensor. Haonan Chen and colleagues read grip force from how a soft gripper bends, and steering a Diffusion Policy with that estimate raised berry picking from 0% to 73.3% <Cite id="visual-predicted-force-2026" />.
+A camera can stand in for a force sensor. Haonan Chen and coworkers were able to infer the gripping force of a soft gripper by watching it deform on camera, and by using this estimated force to condition a Diffusion Policy, improved the success rate of a berry-picking task from 0% to 73.3% <Cite id="visual-predicted-force-2026" />.
 
 <span id="the-bet-on-touch" />
 ## The bet on touch: feel contact before it moves the object
 
-With video alone, says Jeremy Fishel of Sanctuary AI, a robot learns it touched something only after the collision has moved it <Cite id="sanctuary-tactile-2025" />. Sanctuary's Phoenix fingerpads reportedly sense about 5 mN, against roughly 3 mN for a human finger <Cite id="robozaps-phoenix-2026" />. Figure 03 fingertips detect three grams <Cite id="figure-03-2025" />, and Figure calls Helix 02 its first policies that depend on that touch <Cite id="helix-02-2026" />.
+Sanctuary AI's Jeremy Fishel points out that, using video alone, the robot doesn't learn it's touched anything until after that contact has moved the object <Cite id="sanctuary-tactile-2025" />. The Phoenix fingerpads developed by Sanctuary AI reportedly sense touch down to about 5 mN, compared to roughly 3 mN for a human finger <Cite id="robozaps-phoenix-2026" />. Figure 03 fingertips can sense objects as light as three grams <Cite id="figure-03-2025" />, and the company says Helix 02 marks the first set of Figure policies to make use of touch <Cite id="helix-02-2026" />.
 
 Touch beats a closer camera and lifts models above their baselines:
 
@@ -131,27 +131,27 @@ Touch beats a closer camera and lifts models above their baselines:
 
 <Image id="t-rex-bimanual-tactile-setup-2026" />
 
-Touch does not finish the job. Gemini Robotics 2 drives the tactile 22-degree-of-freedom SharpaWave hand, unscrewing a light bulb 92% of the time but scoring 32 to 44% on its other multi-finger tasks <Cite id="gemini-robotics-2-2026" />.
+Touch does not finish the job. Gemini Robotics 2 drives a tactile 22-degree-of-freedom SharpaWave hand, unscrewing a light bulb with 92% success but achieving 32 to 44% success rates on other multi-finger tasks <Cite id="gemini-robotics-2-2026" />.
 
 <span id="five-hands-five-bets" />
 ## Every hand trades articulation, touch and price differently
 
-Tesla's 22-<Term id="degrees-of-freedom">degree-of-freedom</Term> tendon hand has the most articulation. Of the V3 design, Musk said "this one didn't actually work" <Cite id="teslarati-optimus-hand-2026" /> <Cite id="droids-optimus-v3-hand-2026" />, and he tied outside Optimus deliveries around the end of 2027 to solving it <Cite id="tesla-q3-2026-call" />. Sanctuary reportedly has near-human touch and a working in-hand demo, and now sells software instead <Cite id="robozaps-phoenix-2026" />.
+Tesla's tendon-driven 22-<Term id="degrees-of-freedom">degree-of-freedom</Term> hand is the most articulated. Musk said of the V3 design "this one didn't actually work" <Cite id="teslarati-optimus-hand-2026" /> <Cite id="droids-optimus-v3-hand-2026" />, and he tied outside Optimus deliveries around the end of 2027 to solving it <Cite id="tesla-q3-2026-call" />. Sanctuary's hand reportedly comes close to human-level tactile sensation and has been demonstrated manipulating an object in-hand, and the company has since shifted to selling software <Cite id="robozaps-phoenix-2026" />.
 
-Shadow's Dexterous Hand, the research benchmark for two decades, runs more than 100 sensors at up to 1 kHz <Cite id="shadow-dexterous-hand-2026" /> and cost €110,000 with support in 2022 <Cite id="shadow-hand-cost-2022" />. Unitree lists the base H2 at \$29,900 <Cite id="unitree-h2-2026" />. The H2 Plus has five-fingered Sharpa hands <Cite id="unitree-h2-plus-announcement" />. Unitree asks buyers to contact its sales team for a price <Cite id="unitree-h2-plus-store" />.
+Shadow's Dexterous Hand packs more than 100 sensors sampling at up to 1 kHz and has been the research benchmark for two decades <Cite id="shadow-dexterous-hand-2026" />. It cost €110,000 with support in 2022 <Cite id="shadow-hand-cost-2022" />. Unitree's H2 Plus has five-fingered Sharpa hands <Cite id="unitree-h2-plus-announcement" /> (\$29,900 for the base H2 model <Cite id="unitree-h2-2026" />). Pricing for the H2 Plus is available upon contacting Unitree's sales team <Cite id="unitree-h2-plus-store" />.
 
-Boston Dynamics built its new Atlas hand, with 13 actuated degrees of freedom and touch in fingertips and palm, to simulate accurately for reinforcement learning <Cite id="bd-atlas-hand-2026" />. At ETH Zurich a 738 g WUJI hand became the whole robot, crawling on its fingers <Cite id="fingers-as-legs-2026" />.
+Boston Dynamics equipped Atlas with a hand with touch sensing in the palm and fingertips. This hand, with 13 actuated degrees of freedom, is designed to be accurately simulatable for reinforcement learning <Cite id="bd-atlas-hand-2026" />. At ETH Zurich, researchers showed how a 738 g robot consisting of nothing but a WUJI hand can crawl using its fingers <Cite id="fingers-as-legs-2026" />.
 
 Also: Figure 02's 16-degree-of-freedom hands <Cite id="figure-02-2024" />.
 
 <span id="in-hand-manipulation" />
 ## In-hand manipulation separates a hand from a gripper
 
-<Term id="in-hand-manipulation">In-hand manipulation</Term> means reorienting a held object without setting it down. Holson's "Use a key" event drops a keyring into the robot's hand, which must insert and turn the right key <Cite id="holson-olympics-2025" />. Physical Intelligence won at about five times human time by passing the keys between two grippers <Cite id="holson-pi-deep-dive-2026" />.
+<Term id="in-hand-manipulation">In-hand manipulation</Term> refers to the task of reorienting an object while holding it (without placing it on a surface). In Holson's "Use a key" event, a keyring is placed in the robot's hand and the robot is tasked with inserting and turning the correct key <Cite id="holson-olympics-2025" />. The winning solution from Physical Intelligence passed the keys between two grippers and completed the task in about five times human time <Cite id="holson-pi-deep-dive-2026" />.
 
 <ExplainerFigure id="hand" />
 
-Most progress comes one task at a time. Sanctuary's 21-degree-of-freedom hydraulic hands reorient objects <Cite id="sanctuary-inhand-2024" />, even with a 500 g weight added <Cite id="sanctuary-hydraulic-rl-2025" />. Figure's Helix 02 unscrews bottle caps and pushes exactly 5 ml from a syringe, with no published success rates <Cite id="helix-02-2026" />.
+Most progress happens one task at a time. Sanctuary's 21-degree-of-freedom hydraulic hands can manipulate objects by reorienting them <Cite id="sanctuary-inhand-2024" />, even when an additional 500 g mass is attached <Cite id="sanctuary-hydraulic-rl-2025" />. Figure's Helix 02 is capable of performing tasks such as unscrewing bottle caps and pushing out a precise volume (5 ml) from a syringe (although success rates are not reported) <Cite id="helix-02-2026" />.
 
 Research systems push precision and breadth:
 
@@ -164,14 +164,14 @@ Research systems push precision and breadth:
 
 <Image id="fingr-cube-layer-turn-2026" />
 
-Where to put the fingers is its own problem. Dexonomy refines one human template per grasp type in simulation <Cite id="dexonomy-2025" />, and Chen and colleagues synthesize grasps for task forces such as turning knobs <Cite id="task-wrench-boundary-2023" />.
+Other works focus on generating finger poses for grasps. Dexonomy refines one human template per grasp type in simulation <Cite id="dexonomy-2025" />, and Chen and colleagues synthesize grasps for task forces such as turning knobs <Cite id="task-wrench-boundary-2023" />.
 
 <span id="deformables-and-the-long-tail" />
 ## Soft objects have endless states
 
-A block rests on one of six sides; a towel bunches in more ways than any estimator can list. Holson's tasks include hanging a shirt with one sleeve inside out and wiping peanut butter off the robot's own hand <Cite id="holson-olympics-2025" />.
+While a block can only rest on one of its six sides, a towel can be crumpled into far more positions than any estimator can list. Holson's tasks include hanging a shirt with one sleeve inside out and wiping peanut butter off the robot's own hand <Cite id="holson-olympics-2025" />.
 
-Cloth methods first cut the disorder or change the forces available:
+Cloth methods either start by removing some of the mess, or by modifying the forces at play:
 
 | Method | Move |
 | --- | --- |
@@ -185,9 +185,9 @@ RL-100 ran a juicing robot in a mall for about seven hours without failure <Cite
 
 Also: π0.7 on laundry and espresso <Cite id="pi07-2026" />.
 
-On Holson's Olympics, Physical Intelligence's π0.6-based model took gold in three of five categories, at 72% task progress against 9% for a vision-language baseline <Cite id="pi-olympics-2025" />.
+In Holson's Olympics, a model based on Physical Intelligence's π0.6 won gold medals in three of five categories, achieving 72% task progress (compared to 9% for a VLM baseline) <Cite id="pi-olympics-2025" />.
 
 <span id="what-solved-would-look-like" />
 ## What solved would look like
 
-Dexterity is solved when one policy does Holson's fifteen tasks in unseen homes within ten times his own time, with no per-task data and published success rates <Cite id="holson-olympics-2025" />. Per-task medals came fast: nearly all his first challenges fell within three months, so he set harder ones such as separating an egg yolk <Cite id="holson-olympics-part2-2026" />. If Tesla or Figure reach household dexterity from video, the tactile gap was a passing hardware shortage <Cite id="brooks-dexterity-2025" /> <Cite id="figure-go-big-2025" />.
+Dexterity is solved when one policy does Holson's fifteen tasks in unseen homes within ten times his own time, with no per-task data and published success rates <Cite id="holson-olympics-2025" />. Per-task medals came fast: nearly all his first challenges fell within three months, prompting him to post harder challenges such as separating an egg yolk <Cite id="holson-olympics-part2-2026" />. If Figure or Tesla demonstrate household dexterity learned from videos, lack of tactile sensing was a temporary hardware limitation <Cite id="brooks-dexterity-2025" /> <Cite id="figure-go-big-2025" />.
