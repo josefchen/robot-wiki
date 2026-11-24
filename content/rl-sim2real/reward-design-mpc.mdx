@@ -69,7 +69,7 @@ import { EurekaLoop } from '@/components/interactive/eureka-loop';
 import { MpcVsRl } from '@/components/interactive/mpc-vs-rl';
 import { MpcComparison } from '@/components/mdx/mpc-comparison';
 
-In <Term id="reinforcement-learning">reinforcement learning</Term> a robot learns whatever its reward pays for, so writing the reward is where much of the engineering goes <Cite id="rudin-2021" />. Model-predictive control (MPC) skips learning and plans each move online with a physics model <Cite id="mujoco-ilqr-2026" />.
+In <Term id="reinforcement-learning">reinforcement learning</Term>, robots learn what they are rewarded for, and thus much of the engineering goes into crafting the reward <Cite id="rudin-2021" />. In model-predictive control (MPC), planning is done online using a model of the physics, with no learning involved <Cite id="mujoco-ilqr-2026" />.
 
 <Image id="mini-cheetah-spin-rapid-locomotion-2022" />
 
@@ -84,11 +84,11 @@ In <Term id="reinforcement-learning">reinforcement learning</Term> a robot learn
 
 ## The reward is the product
 
-Rudin and colleagues' walking reward summed nine weighted terms, from velocity tracking to feet air time, and prescribed no gait <Cite id="rudin-2021" />. The October 2021 `legged_gym` code sets nine of its fifteen reward weights to nonzero values <Cite id="legged-gym-repo-2021" />. When a policy fails somewhere new, the fix is "a slow and iterative cycle of reward and environment redesign" <Cite id="walk-these-ways-2022" />.
+The walking reward proposed by Rudin and colleagues is composed of nine weighted terms, from tracking the body velocity to feet air time, and prescribes no gait <Cite id="rudin-2021" />. The October 2021 `legged_gym` code has nine out of fifteen reward weights different from zero <Cite id="legged-gym-repo-2021" />. When the learned policy does not behave as expected in some new situation, the fix is "a slow and iterative cycle of reward and environment redesign" <Cite id="walk-these-ways-2022" />.
 
 ## Three ways cut the weight tuning
 
-Constraints, adaptive weights and shared setups each move effort out of the weights.
+Constraints, adaptive weights and shared setups each shift some of this burden away from the reward weights.
 
 | Approach | Work | Result |
 | --- | --- | --- |
@@ -106,13 +106,13 @@ A planner can replace the shaped reward. Schuck, Hutter and colleagues had sampl
 <span id="eureka-the-reward-as-code-under-evolution" />
 ## Language models write the reward
 
-Eureka treats reward design as a search over code. A language model reads the task and the environment code and writes Python reward functions. <Term id="ppo">PPO</Term> trains a policy on each, and a fitness function scores them to steer the next round <Cite id="eureka-2024" />.
+Eureka treats reward design as a search over code. Given a task description and the code for an RL environment, a language model generates reward functions written in Python. Eureka then uses these reward functions to train policies using <Term id="ppo">PPO</Term>, and a fitness function scores them to inform the next round of reward functions <Cite id="eureka-2024" />.
 
-Across 29 simulated tasks, Eureka's rewards beat the original shaped reward on 83%, with 52% average normalized improvement <span className="max-sm:[&_[role=tooltip]]:-translate-x-[48px]"><Cite id="eureka-2024" /></span>.
+Across 29 tasks in simulation, Eureka finds rewards that outperform the original shaped reward function in 83% of tasks, with an average normalized improvement of 52% <span className="max-sm:[&_[role=tooltip]]:-translate-x-[48px]"><Cite id="eureka-2024" /></span>.
 
 <EurekaLoop className="my-6" />
 
-People still write the fitness function, and it can diverge from what they intend. That gap is specification gaming, meeting the literal objective without the intended outcome; DeepMind researchers collected about 60 examples <Cite id="specification-gaming-2020" />, and task-only rewards invite it <Cite id="fey-athletic-2025" />.
+People still write the fitness function, and it can diverge from what they intend. That gap is specification gaming, where agents succeed at the given objective but do not exhibit the intended behavior. DeepMind researchers have identified about 60 examples <Cite id="specification-gaming-2020" />. Reward functions that are specified only in terms of the task are susceptible to specification gaming <Cite id="fey-athletic-2025" />.
 
 | System | The model writes | Finding |
 | --- | --- | --- |
@@ -122,9 +122,9 @@ People still write the fitness function, and it can diverge from what they inten
 
 ## A curriculum keeps training at the edge of ability
 
-<Term id="reward-shaping">Reward shaping</Term> sets what to optimize; a <Term id="curriculum-learning">curriculum</Term> sets the order of difficulty. Shaping has one safe form: a bonus written as a difference of potentials between states leaves the best policy unchanged, and only that form guarantees it <Cite id="ng-reward-shaping-1999" />.
+<Term id="reward-shaping">Reward shaping</Term> is about what to optimize, whereas a <Term id="curriculum-learning">curriculum</Term> is about the order in which difficulty is presented to the agent. Shaping has one safe form: a bonus that can be written as a difference of some potential of the states is the only form that provably does not change the optimal policy <Cite id="ng-reward-shaping-1999" />.
 
-A terrain curriculum promotes robots that succeed on a tile to harder terrain and demotes those that fail <Cite id="rudin-2021" />. Automatic Domain Randomization widens the simulated conditions as success crosses a threshold, an idea from OpenAI's robot hand that Isaac Lab ships <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />.
+In a terrain curriculum, robots are promoted onto harder tiles when they are successful on the current tile and demoted back down when they fail <Cite id="rudin-2021" />. Automatic Domain Randomization increases the amount of randomization applied in simulation as the agent's performance passes a success threshold, an idea from OpenAI's robot hand that Isaac Lab ships <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />.
 
 <Image id="isaac-gym-anymal-terrain-2021" />
 
@@ -138,7 +138,7 @@ A terrain curriculum promotes robots that succeed on a tile to harder terrain an
 
 ## The classical baseline got stronger
 
-Classical legged control simplifies the model inside its <Term id="mpc">MPC</Term> layer. MIT Cheetah 3 posed its dynamics as a convex problem, planning ground forces 0.5 s ahead and solving in under 1 ms <Cite id="di-carlo-2018" />. Whole-body MPC, which plans with the full robot model, now runs on hardware.
+Classical legged control uses a simplified robot dynamic model in its <Term id="mpc">MPC</Term> layer. For example, MIT Cheetah 3 cast its MPC layer as a convex optimization problem and planned its ground contact forces 0.5 s into the future, solving it in less than 1 ms <Cite id="di-carlo-2018" />. Today, whole-body MPC that plans using the full robot dynamic model runs on hardware.
 
 | Controller | What it showed |
 | --- | --- |
@@ -149,26 +149,26 @@ Classical legged control simplifies the model inside its <Term id="mpc">MPC</Ter
 | Zhang et al. iLQR | Unitree quadrupeds and an H1 at about 50 Hz, with motion capture <Cite id="mujoco-ilqr-2026" /> |
 | Humanoid iLQR-MPC | A real G1 survived 245 N forward and 175 N sideways pushes <Cite id="ilqr-mpc-humanoid-2026" /> |
 
-MPC re-solves against the measured state every step, so feedback absorbs part of any model error. Boston Dynamics keeps Spot's model-based controller and uses a learned policy so it need not run several MPC instances in parallel <Cite id="bd-spot-rl-2024" />. Its Atlas work with TRI drives language-conditioned policies through an MPC-based teleoperation interface <Cite id="bd-atlas-lbm-2025" />.
+Since MPC is solved at every time step with respect to the measured system state, some feedback is already included, which compensates for model errors to some extent. Boston Dynamics keeps MPC for model-based control in Spot, but uses a learned policy to avoid solving multiple MPCs in parallel <Cite id="bd-spot-rl-2024" />. Its Atlas work with TRI drives language-conditioned policies through an MPC-based teleoperation interface <Cite id="bd-atlas-lbm-2025" />.
 
 <span id="the-debate-steelmanned" />
 ## The case for each side
 
 <MpcComparison className="my-6" />
 
-Learning wins on reach and speed. Simulation-trained controllers took ANYmal through natural terrain at one network pass per step <Cite id="lee-2020" /> and up a 2.2 km alpine hike <Cite id="miki-2022" />. An RL policy ran Spot at over 5.2 m/s, triple the default controller's top speed <Cite id="miller-spot-2025" />.
+Learning-based control wins on reach and speed: simulation-trained controllers enabled ANYmal to navigate natural terrain using one forward pass of a neural network for each control decision <Cite id="lee-2020" /> and to complete a 2.2 km hike through alpine terrain <Cite id="miki-2022" />. A reinforcement learning policy enabled Spot to run at over 5.2 m/s, triple the top speed of the robot's stock controller <Cite id="miller-spot-2025" />.
 
-Boston Dynamics uses RL to have Atlas lift a fridge, sensing the load through its body <Cite id="bd-atlas-hard-work-2026" />. In drone racing RL beat optimal control because it "optimizes a better objective" and handles model error with <Term id="domain-randomization">domain randomization</Term> <Cite id="racing-rl-vs-oc-2023" />. Language-conditioned [humanoid whole-body control](/rl-sim2real/humanoid-wbc/) comes from the learned side too <Cite id="gemini-robotics-2-2026" />.
+Boston Dynamics trains an RL policy that controls Atlas to lift a fridge, where the load is sensed through the robot's own proprioception <Cite id="bd-atlas-hard-work-2026" />. In drone racing, RL outperformed optimal control because it "optimizes a better objective" and handles model error with <Term id="domain-randomization">domain randomization</Term> <Cite id="racing-rl-vs-oc-2023" />. Language-conditioned [humanoid whole-body control](/rl-sim2real/humanoid-wbc/) comes from the learned side too <Cite id="gemini-robotics-2-2026" />.
 
-Model-based control needs no task data: a whole-body iLQR baseline runs in real time on quadruped and humanoid hardware <Cite id="mujoco-ilqr-2026" />. Grandia and colleagues optimize all of ANYmal's joints against foothold limits from elevation maps <Cite id="grandia-2022" />, and sampling MPC discovers gaits from trotting to galloping on a CPU <Cite id="schramm-2025" />. Convex MPC enforces friction limits as hard constraints, where a reward penalty only discourages violations <Cite id="di-carlo-2018" />.
+On the other hand, model-based approaches do not require any task data: a whole-body iLQR baseline controller runs in real time on quadruped and humanoid hardware <Cite id="mujoco-ilqr-2026" />. Grandia and colleagues optimize the entire set of ANYmal's joints with foothold limits given by elevation maps <Cite id="grandia-2022" />, and sampling MPC discovers gaits such as trotting and galloping on a CPU <Cite id="schramm-2025" />. Friction limits are included as hard constraints in convex MPC, instead of being penalized in the reward <Cite id="di-carlo-2018" />.
 
-The two sides share tools. Newton's hydroelastic contact draws on Drake's, TRI works with Newton on solvers, and Newton is a physics backend for Isaac Lab <Cite id="state-of-simulation-2026" /> <Cite id="newton-manipulation-blog-2026" />. Contact sensitivity remains a main challenge for parallel sampling MPC on a real Franka arm <Cite id="dierking-2026" />.
+The two sides share tools: Newton's hydroelastic contact draws on Drake's, TRI collaborates with Newton on solvers, and Newton serves as a physics engine in Isaac Lab <Cite id="state-of-simulation-2026" /> <Cite id="newton-manipulation-blog-2026" />. Work on a real Franka arm points out that contact sensitivity remains a main challenge for parallel sampling MPC <Cite id="dierking-2026" />.
 
 <MpcVsRl className="my-6" />
 
 ## The debate landed on hybrids
 
-Hybrids run in both directions: a planner trains or steers a policy, or a policy tunes a planner.
+Hybrids run in both directions: either a planning algorithm is used to train or steer a policy, or a learned policy tunes a planning algorithm.
 
 | Hybrid | How | Result |
 | --- | --- | --- |
