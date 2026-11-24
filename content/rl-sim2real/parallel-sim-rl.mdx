@@ -60,7 +60,7 @@ import { NewtonSolvers } from '@/components/interactive/newton-solvers';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-<Term id="parallel-simulation">Massively parallel simulation</Term> runs thousands of copies of a robot's world at once on a GPU, so <Term id="reinforcement-learning">reinforcement learning</Term> trains orders of magnitude faster. It produced Rudin and colleagues' four-minute [ANYmal walking run](/rl-sim2real/why-rl-locomotion), trained with <Term id="ppo">PPO</Term> <Cite id="rudin-2021" /> <Cite id="ppo-2017" />.
+<Term id="parallel-simulation">Massively parallel simulation</Term> exploits the parallelism of GPUs to simulate thousands of copies of a robot's world at once, which speeds up <Term id="reinforcement-learning">reinforcement learning</Term> by orders of magnitude. Rudin and colleagues used it for their four-minute [ANYmal walking run](/rl-sim2real/why-rl-locomotion), trained with <Term id="ppo">PPO</Term> <Cite id="rudin-2021" /> <Cite id="ppo-2017" />.
 
 <Image id="isaac-gym-shadow-hand-envs-2021" />
 
@@ -74,7 +74,7 @@ import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
 ## In 2021 physics moved onto the GPU
 
-Isaac Gym (2021) kept physics and the network on one GPU and reported 2 to 3 orders of magnitude over CPU simulators feeding GPU networks <Cite id="isaac-gym-2021" />. Rudin and colleagues scaled from 128 robots, typical for CPUs, to 16,384 on one workstation GPU <Cite id="rudin-2021" />.
+Isaac Gym (2021) reported 2 to 3 orders of magnitude speedup compared to simulators running on CPUs while sending observations to networks running on GPUs, by running the neural network and physics simulation on one GPU <Cite id="isaac-gym-2021" />. Rudin and colleagues scaled from 128 robots, typical for CPU-based simulation, to 16,384 on one workstation GPU <Cite id="rudin-2021" />.
 
 <ExplainerFigure id="worlds" />
 
@@ -84,7 +84,7 @@ Also: the `legged_gym` environment <span className="max-sm:[&_[role=tooltip]]:-l
 
 ## More environments help until something else bottlenecks
 
-On a Franka drawer task, an RTX 5090 workstation nearly matched a server with two data-center GPUs, which Isaac Lab's authors attribute to CPU bottlenecks <Cite id="isaac-lab-2025" />. At a fixed batch size, more robots hurt Rudin's policy past a point <Cite id="rudin-2021" />, and SAPG reports PPO saturating <Cite id="sapg-2024" />.
+On a Franka drawer task the authors of Isaac Lab found that a workstation with an RTX 5090 performs almost as well as a server with two data-center GPUs, which they attribute to bottlenecks on the CPU <Cite id="isaac-lab-2025" />. At a fixed batch size, adding robots beyond a certain point had a negative effect on Rudin's policy <Cite id="rudin-2021" />, and SAPG found that PPO performance saturates <Cite id="sapg-2024" />.
 
 Newer methods push past that limit.
 
@@ -97,7 +97,7 @@ Newer methods push past that limit.
 
 ## Two software lines now meet in Newton
 
-NVIDIA's line runs from Isaac Gym to Orbit and Isaac Lab. Google DeepMind's builds on MuJoCo <Cite id="mujoco-2012" />, open-sourced in 2022 <Cite id="mujoco-overview-docs-2026" />, whose MJX and MuJoCo Warp versions run on accelerators <Cite id="mjx-docs-2026" /> <Cite id="mjwarp-docs-2026" />. Newton, from Disney Research, Google DeepMind and NVIDIA, uses MuJoCo Warp as its main backend <Cite id="newton-lf-2025" /> <Cite id="newton-repo-2026" />.
+NVIDIA's line runs from Isaac Gym to Orbit and Isaac Lab. Google DeepMind's line builds on MuJoCo <Cite id="mujoco-2012" />, which was open-sourced in 2022 <Cite id="mujoco-overview-docs-2026" /> and also has versions known as MJX and MuJoCo Warp that run on accelerators <Cite id="mjx-docs-2026" /> <Cite id="mjwarp-docs-2026" />. The latter is the main backend for Newton, from Disney Research, Google DeepMind and NVIDIA <Cite id="newton-lf-2025" /> <Cite id="newton-repo-2026" />.
 
 | Tool | Released | What it does |
 | --- | --- | --- |
@@ -111,7 +111,7 @@ NVIDIA's line runs from Isaac Gym to Orbit and Isaac Lab. Google DeepMind's buil
 
 <Image id="mujoco-playground-environments-2025" />
 
-Throughput is the selling point, and most figures come from the vendors.
+Throughput is the selling point, and most performance numbers are self-reported by the vendors.
 
 | System | Reported throughput |
 | --- | --- |
@@ -122,14 +122,14 @@ Throughput is the selling point, and most figures come from the vendors.
 
 <NewtonSolvers className="my-6" />
 
-Contact models are improving too. Newton handles detailed CAD meshes and hydroelastic contact, which spreads force over a patch instead of a point <Cite id="newton-manipulation-blog-2026" /> <Cite id="elandt-2019" />. Isaac Sim 6.1 <Cite id="isaac-sim-v6-1-0-2026" /> added that model to its experimental Newton integration <Cite id="isaac-sim-6-1-release-notes-2026" />, the same day as Newton 1.6.0 <Cite id="newton-v1-6-0-2026" />.
+Contact models are improving too. Newton handles detailed CAD meshes and hydroelastic contact, a contact model that results in forces being distributed over a patch instead of at a single point <Cite id="newton-manipulation-blog-2026" /> <Cite id="elandt-2019" />. Isaac Sim 6.1 <Cite id="isaac-sim-v6-1-0-2026" /> added hydroelastic contact to its experimental Newton integration <Cite id="isaac-sim-6-1-release-notes-2026" /> the same day as Newton 1.6.0 <Cite id="newton-v1-6-0-2026" />.
 
 Also: Newton grew from Warp's deprecated simulation module <Cite id="nvidia-warp-repo-2026" />.
 
 ## Repeatability and gradients are the open problems
 
-Batched execution in Isaac Lab and Genesis adds significant variability between runs and environments, even from identical starts <Cite id="gpusimbench-2026" />; Steel lists run-to-run determinism as a feature <Cite id="newton-v1-8-0-2026" />. In Isaac Lab, <Term id="domain-randomization">domain randomization</Term> of mass and friction still goes through the CPU <Cite id="isaac-lab-2025" />.
+Batched execution in Isaac Lab and Genesis adds significant variability between runs and environments, even with identical initial conditions <Cite id="gpusimbench-2026" />, while Steel lists run-to-run determinism as a feature <Cite id="newton-v1-8-0-2026" />. In Isaac Lab, <Term id="domain-randomization">domain randomization</Term> of mass and friction is still done on the CPU <Cite id="isaac-lab-2025" />.
 
-SHAC, which takes gradients through the simulator, trained more than 17 times faster than the best established RL on muscle-driven locomotion <Cite id="shac-2022" />. Schwarke and colleagues report the first legged sim-to-real transfer learned entirely in a differentiable simulator <Cite id="schwarke-2024" />. Newton's main backend says "Differentiability via Warp is not yet available" <Cite id="mujoco-warp-repo-2026" />.
+SHAC differentiates through the simulator and was able to train more than 17 times faster than the best established RL on muscle-driven locomotion <Cite id="shac-2022" />. Schwarke and colleagues report the first sim-to-real transfer for legged locomotion using a policy trained exclusively in a differentiable simulator <Cite id="schwarke-2024" />. For Newton, the main backend states "Differentiability via Warp is not yet available" <Cite id="mujoco-warp-repo-2026" />.
 
 Also: per-solver gradients in Newton <Cite id="newton-repo-2026" /> <Cite id="state-of-simulation-2026" />, beta <Term id="system-identification">system identification</Term> in Isaac Sim 6.1 <Cite id="isaac-sim-6-1-release-notes-2026" />, Drake as the "gold standard" for rigorous numerics <Cite id="state-of-simulation-2026" />.
