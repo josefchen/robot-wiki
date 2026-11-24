@@ -72,7 +72,7 @@ import {
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
-Motion planning finds a collision-free route from a robot's posture to a goal, a sequence of joint angles that [kinematics](/classical/kinematics) turns into poses <Cite id="lavalle-2006" />. Sampling planners connect random postures; trajectory optimizers bend a whole motion until it is smooth and clear <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
+Motion planning is the problem of computing a collision-free motion that takes a robot from its current posture to a goal, a sequence of joint angles that [kinematics](/classical/kinematics) turns into poses <Cite id="lavalle-2006" />. Sampling planners construct a path by connecting random collision-free postures, and trajectory optimizers start with an initial trajectory and optimize the whole motion until it is smooth and collision-free <Cite id="ratliff-2009" /> <Cite id="schulman-2013" />.
 
 <Image id="pr2-willow-garage-2010" />
 
@@ -80,27 +80,27 @@ Motion planning finds a collision-free route from a robot's posture to a goal, a
 
 ## In configuration space the robot is a point
 
-In <Term id="configuration-space">configuration space</Term>, one point $q$ lists every joint value: a seven-joint arm is a point in 7 dimensions. Postures that touch an obstacle form $\mathcal{C}_{obs}$, the rest is free space $\mathcal{C}_{free} = \mathcal{C} \setminus \mathcal{C}_{obs}$, and planning becomes finding a curve through free space <Cite id="lozano-perez-1983" />.
+A configuration $q$ specifies all of the robot's joint values as one point in <Term id="configuration-space">configuration space</Term>, so a seven-joint arm is a point in 7 dimensions. Configurations at which the robot collides with an obstacle are in $\mathcal{C}_{obs}$, and all other configurations are in the free space $\mathcal{C}_{free} = \mathcal{C} \setminus \mathcal{C}_{obs}$. A collision-free path is then a path that only passes through free space <Cite id="lozano-perez-1983" />.
 
-Mapping that space exactly is intractable: the generalized mover's problem is PSPACE-hard <Cite id="reif-1979" />, even for the basic version with unbounded <Term id="degrees-of-freedom">degrees of freedom</Term> <Cite id="lavalle-2006" />. Sampling planners skip the map and only ask a collision checker about particular postures and short paths <Cite id="lavalle-2006" />.
+Computing an exact representation of that space is intractable: deciding whether a path exists, known as the generalized mover's problem, is PSPACE-hard <Cite id="reif-1979" />, and remains so even in the basic version with unbounded <Term id="degrees-of-freedom">degrees of freedom</Term> <Cite id="lavalle-2006" />. Sampling planners avoid representing the space, and instead ask a collision checker whether particular postures and short paths are collision-free <Cite id="lavalle-2006" />.
 
-Constraints make sampling harder: a robot holding a tray level lives on a thin slice of its space that random samples almost never hit <Cite id="kingston-constraints-2018" />. MCVAMP projects many samples onto that slice at once with CPU vector instructions <Cite id="mcvamp-2026" />, and ReVAMP samples it directly through analytic inverse kinematics <Cite id="revamp-2026" />.
+Constraints make sampling harder. For a robot holding a tray level, the configurations at which the tray is level form a very small subset of its space and are unlikely to be found by random sampling <Cite id="kingston-constraints-2018" />. MCVAMP uses vector instructions on CPUs to project many sampled configurations onto that subset at once <Cite id="mcvamp-2026" />, and ReVAMP performs inverse kinematics analytically to sample directly from it <Cite id="revamp-2026" />.
 
 Also: Canny's roadmap <Cite id="solovey-complexity-2020" />.
 
 ## Sampling planners grow graphs through free space
 
-The probabilistic roadmap (PRM) builds a graph of free postures once and answers many queries by graph search <Cite id="kavraki-1996" />. The rapidly-exploring random tree (RRT) grows one tree from the start: it extends the nearest node toward a random point and keeps the branch if it is free <Cite id="lavalle-1998" />. Frontier nodes are nearest to the most empty space, so the tree is pulled outward.
+The probabilistic roadmap (PRM) builds a graph of sampled collision-free postures once, which can then be used to answer many planning queries via graph search <Cite id="kavraki-1996" />. In the rapidly-exploring random tree (RRT), one tree is grown from the start by extending the node closest to a randomly sampled configuration toward that configuration and, if the extension is collision-free, adding the new node to the tree <Cite id="lavalle-1998" />. Because the frontier nodes are closest to unexplored space, the tree is pulled outward.
 
 <ExplainerFigure id="path" />
 
-RRT-Connect grows trees from start and goal until they meet <Cite id="rrt-connect-2000" />, and led a 2023 comparison on six manipulation problems <Cite id="orthey-review-2023" />. These planners are probabilistically complete: if a solution exists, the chance of finding it approaches one as sampling continues <Cite id="lavalle-2006" />. Karaman and Frazzoli proved it for RRT and a simplified PRM <Cite id="karaman-frazzoli-2011" />.
+RRT-Connect grows trees from both the start and goal configurations, stopping when the trees connect <Cite id="rrt-connect-2000" />. RRT-Connect led a 2023 comparison on six manipulation problems <Cite id="orthey-review-2023" />. These planners are probabilistically complete, meaning that if a solution exists, the probability of finding a solution approaches one as sampling continues <Cite id="lavalle-2006" />. Karaman and Frazzoli proved this for RRT and a simplified version of PRM <Cite id="karaman-frazzoli-2011" />.
 
 Also: kinodynamic RRT <Cite id="lavalle-kuffner-2001" />, FLASK <Cite id="flask-2026" />, OMPL <Cite id="ompl-2012" />, OMPL 2.0 <Cite id="ompl-2-2026" />.
 
 ## Parallel hardware keeps sampling ahead
 
-Kinematics and collision checks take much of a planner's time, and both parallelize. On a GPU, sampling solved about 90% of feasible 14-joint dual-arm problems in 2 seconds, while no search or optimization planner solved a third <Cite id="prismplan-2026" />.
+Kinematics and collision checking take much of a planner's time, and both can be parallelized. On a GPU, sampling-based planning solved about 90% of feasible dual-arm planning problems with 14 joints in 2 seconds, while no search or optimization-based planner was able to solve a third of these problems <Cite id="prismplan-2026" />.
 
 | Planner | Hardware | Reported result |
 | --- | --- | --- |
@@ -112,13 +112,13 @@ Kinematics and collision checks take much of a planner's time, and both parallel
 
 ## RRT\* rewires its way to the optimal path
 
-RRT's best path converges, almost surely, to a suboptimal one even in empty space <Cite id="karaman-frazzoli-2011" />. RRT\* rewires: each new node takes the cheapest free parent among its neighbors, which switch to it when that shortens their route, within a radius <Cite id="karaman-frazzoli-2011" />
+Even in empty space, RRT's best path almost surely converges to a suboptimal one <Cite id="karaman-frazzoli-2011" />. RRT\* improves on this by rewiring: each new node takes the cheapest free parent among its neighbors, and neighbors switch to the new node if it is cheaper for them to do so, within a radius <Cite id="karaman-frazzoli-2011" />
 
 $$
 r_n = \min\!\left\{\eta,\; \gamma\left(\frac{\log n}{n}\right)^{1/d}\right\},
 $$
 
-for $n$ nodes in $d$ dimensions, with step cap $\eta$ and $\gamma$ above a bound set by the free space's volume. The best cost then converges to the optimum with probability one, for order $n\log n$ work <Cite id="karaman-frazzoli-2011" />. In 2020 Solovey and colleagues found a gap in the original proof; the corrected proof suggests a larger radius, scaling as $(\log n/n)^{1/(d+1)}$ <Cite id="solovey-rrt-star-2020" />.
+where $n$ is the number of nodes in the tree, $d$ is the dimension of the space being searched, $\eta$ is a maximum allowable step size, and $\gamma$ is a constant larger than a lower bound that depends on the volume of free space. The best cost then converges to the optimal cost with probability one, requiring order $n\log n$ work <Cite id="karaman-frazzoli-2011" />. In 2020 Solovey and colleagues showed that the original proof has a gap, and the corrected proof suggests a larger rewiring radius, on the order of $(\log n/n)^{1/(d+1)}$ <Cite id="solovey-rrt-star-2020" />.
 
 | Planner | How it improves paths faster |
 | --- | --- |
@@ -129,46 +129,46 @@ for $n$ nodes in $d$ dimensions, with step cap $\eta$ and $\gamma$ above a bound
 
 ## Trajectory optimization pushes a whole motion clear
 
-<Term id="trajectory-optimization">Trajectory optimization</Term> treats the whole motion as the unknown and lowers a cost for jerkiness, obstacle proximity and the task. CHOMP and TrajOpt can start from a guess that passes through an obstacle and push it out, with no guarantee of success <Cite id="ratliff-2009" /><Cite id="schulman-2013" />. Graphs of Convex Sets poses planning as a mixed-integer program whose tight relaxation usually rounds to a globally optimal trajectory <Cite id="gcs-2022" />.
+<Term id="trajectory-optimization">Trajectory optimization</Term> refers to approaches in which the unknown to be solved for is an entire trajectory and the objective function contains terms for jerkiness, obstacle proximity and the task. CHOMP and TrajOpt can move trajectories away from obstacles given initial guesses that pass through them, albeit with no guarantee of success <Cite id="ratliff-2009" /> <Cite id="schulman-2013" />. Graphs of Convex Sets casts planning as a mixed-integer program and can usually extract a globally optimal trajectory by rounding the solution of a tight relaxation <Cite id="gcs-2022" />.
 
-CHOMP's cost over the waypoints $\xi$ is a smoothness term plus an obstacle term <Cite id="ratliff-2009" />:
+In CHOMP, a trajectory is parameterized by a sequence of waypoints $\xi$, and the cost function is a smoothness term plus an obstacle term <Cite id="ratliff-2009" />:
 
 $$
 \mathcal U(\xi)=f_{\mathrm{prior}}(\xi)+f_{\mathrm{obs}}(\xi)
 $$
 
-Each gradient step spreads smoothly along the whole path. On six joints of a Barrett WAM arm, CHOMP solved 99 of 105 problems <Cite id="ratliff-2009" />.
+Each gradient step makes changes smoothly over the entire trajectory. CHOMP was used to compute trajectories for six joints of a Barrett WAM arm and succeeded in 99 of 105 test cases <Cite id="ratliff-2009" />.
 
-TrajOpt solves a sequence of convex subproblems inside a trust region, with penalties that grow until hard constraints hold. Its collision penalty $\max(d_{\mathrm{safe}}-\operatorname{sd},\,0)$ covers the swept volume between waypoints, so it catches collisions between them <Cite id="schulman-2013" />.
+TrajOpt solves a sequence of convex optimization problems inside a trust region, augmenting the objective with increasing penalty terms until the hard constraints are satisfied. Its collision penalty $\max(d_{\mathrm{safe}}-\operatorname{sd},\,0)$ covers the swept volume between consecutive waypoints, so collisions between waypoints are caught <Cite id="schulman-2013" />.
 
 <Image id="atlas-vrc-simulation-2013" />
 
-Its 2013 simulated benchmark ran 198 PR2 arm problems and 96 full-body ones <Cite id="schulman-2013" />.
+Its 2013 simulated benchmark consisted of 198 problems for the arm of the PR2 robot and 96 problems for its full body <Cite id="schulman-2013" />.
 
 <TrajOptArmTable className="my-6" />
 
-From one guess TrajOpt solved fewer arm problems than either OMPL planner; from several guesses it solved the most <Cite id="schulman-2013" />.
+Given only one initial guess, TrajOpt solved fewer arm problems than either OMPL planner; given multiple initial guesses, it solved the most <Cite id="schulman-2013" />.
 
 <TrajOptFullBodyTable className="my-6" />
 
-Deployments run in two stages: a sampling planner finds a feasible path, then shortcutting, the cheapest cleanup, joins path points with shorter free segments <Cite id="ratliff-2009" /> <Cite id="hauser-shortcut-2010" />.
+Deployments use a two-stage approach: a feasible path is first found using a sampling-based planner and then improved using shortcutting, the process of connecting path points with shorter collision-free segments, which is the cheapest way of improving a path <Cite id="ratliff-2009" /> <Cite id="hauser-shortcut-2010" />.
 
 Also: Hamiltonian Monte Carlo CHOMP <Cite id="chomp-ijrr-2013" />, gradient-free STOMP <Cite id="stomp-2011" />, TrajOpt on Atlas <Cite id="trajopt-ijrr-2014" />, cuRobo on a gantry <Cite id="industrial-curobo-2025" />, MR-POP <Cite id="mr-pop-2026" />.
 
 ## Learned planners trade guarantees for speed
 
-Motion Policy Networks trained on over 3 million problems in over 500,000 [environments](/world-models/generative-sim) <Cite id="mpinets-2022" />, yet neural planners often fail in unseen settings <Cite id="neural-motion-planner-survey-2026" />. Deep Reactive Policy switched its expert from AIT\* to GPU-based cuRobo to scale to 10 million trajectories <Cite id="deep-reactive-policy-2025" />.
+Motion Policy Networks were trained on more than 3 million planning problems in more than 500,000 [environments](/world-models/generative-sim) <Cite id="mpinets-2022" />, yet neural planners often fail in unseen settings <Cite id="neural-motion-planner-survey-2026" />. In Deep Reactive Policy, the authors replaced their AIT\* expert with the GPU-based planner cuRobo to scale to 10 million expert trajectories <Cite id="deep-reactive-policy-2025" />.
 
-Ariadne learns from valid postures alone. On two seven-joint arms it averaged 53.3% success against 44.7% for RRT, training one planner per scene <Cite id="ariadne-2026" />.
+Ariadne learns from valid postures alone. Trained as one planner per scene, it averaged a 53.3% success rate against 44.7% for RRT on planning tasks for two seven-joint arms <Cite id="ariadne-2026" />.
 
 Also: Neural Motion Planning <Cite id="neural-mp-2024" />, receding-horizon MPC <Cite id="mayne-2000" />, Diffusion Policy <Cite id="diffusion-policy-2023" />, [MPC against learned policies](/rl-sim2real/reward-design-mpc).
 
 ## A plan is only as safe as its execution
 
-A deployable planner needs the robot model, current state, collision geometry, limits and a [controller](/classical/control) that can follow the result; a path checked against a stale scene is unsafe. The [ROS 2 guide](/classical/ros2-for-ml-engineers) maps these onto the runtime.
+A deployable planner needs up-to-date information on the robot model, current state, collision geometry and limits, and a [controller](/classical/control) that can execute the result; the path must be checked against the latest collision geometry to be safe. The [ROS 2 guide](/classical/ros2-for-ml-engineers) maps these onto the runtime.
 
-A planner's path has no clock. Time-Optimal Trajectory Generation finds the fastest timing within velocity and acceleration limits <Cite id="totg-2012" />, as MoveIt 2 advises <Cite id="moveit-trajectory-processing-2026" />, and jerk-limited Ruckig <Cite id="ruckig-2021" /> can smooth its output <Cite id="moveit-time-parameterization-2026" />.
+A planner's path has no clock. Time-Optimal Trajectory Generation can be used to generate the fastest possible timing given velocity and acceleration limits <Cite id="totg-2012" />, as recommended by MoveIt 2 <Cite id="moveit-trajectory-processing-2026" />, and the result can be smoothed with the jerk-limited trajectory generator Ruckig <Cite id="ruckig-2021" /> <Cite id="moveit-time-parameterization-2026" />.
 
-Payloads change what is executable. cuRoboV2 reports 99.7% success under a 3 kg payload against 72 to 77% for baselines <Cite id="curobo-v2-2026" />. cuRoboV2-Fast plans those motions in 4.4 ms on an RTX 5090 <Cite id="curobo-v2-fast-2026" />.
+Payloads change what is executable. cuRoboV2 reports a 99.7% execution success rate under a 3 kg payload, outperforming baseline planners at 72 to 77% <Cite id="curobo-v2-2026" />. Fast planning of such motions with cuRoboV2-Fast takes 4.4 ms on an RTX 5090 <Cite id="curobo-v2-fast-2026" />.
 
-Validators fail too. MoveIt Pro 10.1.0 fixed a bug that passed a colliding trajectory as free <Cite id="moveit-pro-10-1-2026" />. Release 10.2.0 re-validates every plan, cutting residual tunneling 7 to 12 times on PickNik's benchmark <Cite id="moveit-pro-10-2-2026" />.
+Validators fail too. MoveIt Pro 10.1.0 fixed a bug that allowed a colliding trajectory to be marked collision-free <Cite id="moveit-pro-10-1-2026" />. In MoveIt Pro 10.2.0, all trajectories are re-validated, resulting in 7 to 12 times less residual tunneling on PickNik's tunneling benchmark <Cite id="moveit-pro-10-2-2026" />.
