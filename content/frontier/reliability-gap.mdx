@@ -57,7 +57,7 @@ seeAlso:
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { DeploymentDashboard } from '@/components/interactive/deployment-dashboard';
 
-The reliability gap is the distance between how often a robot succeeds in a demo and how often it must succeed to be useful. Bessemer Venture Partners calls 80% <Term id="success-rate">success</Term> a demo and 99.9% a product <Cite id="bessemer-robotics-2026" />.
+The reliability gap is the difference between the level of reliability needed to showcase a demo and to offer a useful product: Bessemer Venture Partners pegs the first at 80% <Term id="success-rate">success</Term> and the second at 99.9% <Cite id="bessemer-robotics-2026" />.
 
 <Image id="amazon-swindon-slam-line-2025" />
 
@@ -70,7 +70,7 @@ The reliability gap is the distance between how often a robot succeeds in a demo
 <span id="the-arithmetic-of-compounding" />
 ## At 99.9% per step, a 30-step task still fails about once in 34 runs
 
-A task succeeds only if every step does. With $N$ independent steps at probability $p$, it succeeds with probability $p^N$ <Cite id="maker-2025" />. A success rate means nothing without the task's length, and papers often omit runs, starting conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />.
+Success of a task requires success in each step: if each step is independently successful with probability $p$, the probability of successfully completing a task with $N$ steps is $p^N$ <Cite id="maker-2025" />. Without the task's length, a success rate means nothing, and papers often do not specify the number of trials, initial conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />.
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} presets="per-step-thresholds" descriptionVariant="reliability" className="my-6" />
 
@@ -78,14 +78,14 @@ A task succeeds only if every step does. With $N$ independent steps at probabili
 
 ## Each mistake makes the next one likelier
 
-A slip puts the robot where its training data never went, so the next slip is likelier: <Term id="compounding-error">compounding error</Term>. An imitator with per-step error $\varepsilon$ can make up to $T^2\varepsilon$ mistakes over $T$ steps <Cite id="dagger-2011" />, and smooth imitators of continuous actions can suffer error "exponentially larger" with horizon <Cite id="simchowitz-continuous-il-2025" />.
+When the robot slips, it is in a state that was not covered by its training data, so it is more likely to slip again, leading to <Term id="compounding-error">compounding error</Term>. An imitator can make as many as $T^2\varepsilon$ errors over $T$ steps, where $\varepsilon$ is its error in each step <Cite id="dagger-2011" />, and for smooth imitation policies of continuous actions, error can grow "exponentially larger" as the horizon increases <Cite id="simchowitz-continuous-il-2025" />.
 
-In GR00T 2's report, an arm taught a toy truck assembly from about 20 demonstrations finished 1 of 10 trials while scoring 81 of 100 on progress <Cite id="gr00t-2-2026" />.
+GR00T 2's report says that a robot arm trained on about 20 demonstrations to assemble a toy truck fully completed the task in 1 out of 10 trials, despite receiving a progress score of 81 out of 100 <Cite id="gr00t-2-2026" />.
 
 <span id="why-the-last-stretch-is-different" />
 ## The last stretch to 99.9% needs other tools
 
-Formal proof scales badly: Hamilton-Jacobi reachability faces "exponential computational complexity with respect to the number of state variables" <Cite id="hj-reachability-2017" />. No deployed <Term id="vision-language-action-model">vision-language-action model</Term> publishes formal guarantees, so assurance rests on testing and monitoring ([evaluation crisis](/data-hardware/evaluation-crisis/)).
+Formal proof is computationally challenging, as current methods scale poorly: Hamilton-Jacobi reachability has "exponential computational complexity with respect to the number of state variables" <Cite id="hj-reachability-2017" />. Since no deployed <Term id="vision-language-action-model">vision-language-action model</Term> publishes formal guarantees, assurance rests on monitoring and testing ([evaluation crisis](/data-hardware/evaluation-crisis/)).
 
 <span id="what-is-closing-the-gap" />
 ## Practice on the job lifts single tasks above 90%
@@ -102,12 +102,12 @@ Formal proof scales badly: Hamilton-Jacobi reachability faces "exponential compu
 | RAPolicy (2026) | Five jointly trained tasks from 52% to 88% <Cite id="rapolicy-2026" /> |
 | GEN-1 (2026) | 99% on fine-tuned tasks, against 64% for GEN-0 <Cite id="generalist-gen1-2026" /> |
 
-On SenseNova's eight real robots, with no robot-specific training, GPT-6 Astra passed 17 of 18 rigid pick-and-place trials, 2 of 4 cloth folds on one arm, 9 of 23 navigation-and-search runs and 0 of 11 plug insertions; hardware faults ended some trials <Cite id="sensenova-astra-2026" />.
+On SenseNova's eight real robots, with no robot-specific training, GPT-6 Astra had 17 out of 18 successes on pick-and-place tasks involving rigid objects, 2 out of 4 on cloth folding with one arm, 9 out of 23 on navigation-and-search tasks, and 0 out of 11 on plug insertions; hardware faults ended some trials <Cite id="sensenova-astra-2026" />.
 
 <span id="runtime-monitors-make-failures-visible-and-human-help-rescues-episodes" />
 ## Monitors flag failures, and help fixes them
 
-A runtime monitor flags a failure as it starts. FAIL-Detect learns this "from successful training data alone" <Cite id="fail-detect-2025" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id="sentinel-2024" />. DeepMind's ASIMOV-Agentic checks payload, reach and safety limits <Cite id="asimov-agentic-2026" />, and Gemini Robotics ER 2 is its safest model on such tests <Cite id="gemini-robotics-2-2026" />.
+A runtime monitor flags failures as they start. FAIL-Detect learns to predict when a behavior is likely to fail "from successful training data alone" <Cite id="fail-detect-2025" />, and Sentinel's two detectors complement each other to detect 18% more failures than either detector <Cite id="sentinel-2024" />. ASIMOV-Agentic, proposed by DeepMind, verifies if the actions satisfy requirements around payload, reach and safety <Cite id="asimov-agentic-2026" />, and Gemini Robotics ER 2 is DeepMind's safest model in such tests <Cite id="gemini-robotics-2-2026" />.
 
 | Fix | Method |
 | --- | --- |
@@ -116,14 +116,14 @@ A runtime monitor flags a failure as it starts. FAIL-Detect learns this "from su
 | A second policy steers back to safety | Recovery RL <Cite id="recovery-rl-2020" /> |
 | The arm retraces and retries, 19 to 48% fewer failures | Backtrack <Cite id="backtrack-vla-2026" /> |
 
-GR00T 2 assembled three toys in 97 or more of 100 trials each only with corrective data and a repairing agent, against 71 to 84 without <Cite id="gr00t-2-2026" />.
+Using corrective data and a repairing agent, GR00T 2 assembled three toys in at least 97 out of 100 trials each, as opposed to between 71 and 84 without them <Cite id="gr00t-2-2026" />.
 
 Also: language coaching <Cite id="pi07-blog-2026" />, expert takeover <Cite id="hg-dagger-2019" />, remote experts for NEO owners <Cite id="1x-neo-2026" />.
 
 <span id="what-is-actually-deployed" />
 ## Deployment records count hours and parts
 
-Companies rarely publish failures ([industrial deployment](/data-hardware/industrial-deployment/)):
+Companies do not typically publicize failures ([industrial deployment](/data-hardware/industrial-deployment/)):
 
 | Deployment | Reported |
 | --- | --- |
@@ -139,6 +139,6 @@ Companies rarely publish failures ([industrial deployment](/data-hardware/indust
 <span id="what-solved-would-look-like" />
 ## Showing 99.9% takes about 3,000 straight successes
 
-With zero failures in $n$ trials, the 95% upper bound on the failure rate is still about ${3/n}$ <Cite id="hanley-zero-numerators-1983" />, so a 99.9% claim needs about 3,000 successes in a row. Real-robot comparisons often stop at 10 or 50 trials <Cite id="optimal-stopping-2025" />, and no vendor above discloses a <Term id="mean-time-between-failures">mean time between failures</Term>.
+Even with zero failures observed in $n$ trials, the 95% upper confidence bound for the true failure rate is still roughly ${3/n}$ <Cite id="hanley-zero-numerators-1983" />, so substantiating a claim of 99.9% would require observing about 3,000 successful trials in a row. Real-robot comparisons often stop at 10 or 50 trials <Cite id="optimal-stopping-2025" />, and none of the above vendors report a <Term id="mean-time-between-failures">mean time between failures</Term>.
 
-Toyota Research Institute's blind, randomized trials show the discipline needed <Cite id="tri-lbm-2025" />, and Waymo's crash-rate comparison rested on 56.7 million rider-only miles <Cite id="waymo-crash-rates-2025" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)). [Safety and assurance](/frontier/safety-and-assurance/) covers the standards a learned policy cannot be rated under.
+Toyota Research Institute's blind, randomized trials demonstrate the level of rigor required <Cite id="tri-lbm-2025" />. Waymo's comparison of crash rates was based on 56.7 million miles driven in rider-only mode <Cite id="waymo-crash-rates-2025" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)). [Safety and assurance](/frontier/safety-and-assurance/) covers the standards that learned policies cannot be assessed against.
