@@ -56,15 +56,15 @@ seeAlso:
 import { DiffusionDenoising } from '@/components/motion/scenes/diffusion-denoising';
 import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 
-<Term id="diffusion-policy">Diffusion Policy</Term> (Chi et al., 2023) makes robot motion the way image generators make pictures: it starts from random numbers and removes noise step by step, guided by camera images. Across its simulation benchmarks it averaged a 46.9% relative gain in success over the best earlier method on each task, excluding multi-operator data <Cite id="diffusion-policy-2023" />.
+<Term id="diffusion-policy">Diffusion Policy</Term> (Chi et al., 2023) works like diffusion models in image generation, generating actions by iteratively denoising a noise signal conditioned on visual observations. On a suite of simulation tasks, it achieves on average a 46.9% relative improvement in task success rate compared to the best earlier method on each task (excluding multi-operator data) <Cite id="diffusion-policy-2023" />.
 
 <Image id="aloha-unleashed-shirt-rollout-2024" />
 
 ## Averaging demonstrations fails
 
-In Push-T a robot pushes a T-shaped block onto a target, and the gripper can go around either side. A policy that minimizes average error blends the two routes and drives into the block. Diffusion Policy learned both and committed to one per attempt <Cite id="diffusion-policy-2023" />.
+In Push-T, the agent can push the T-shaped block to the goal location by going around either side of the block. A policy that minimizes average error blends the two routes and drives into the block. Diffusion Policy learns both modes and commits to one per attempt <Cite id="diffusion-policy-2023" />.
 
-Capturing several modes may not be why it works: a two-step regression policy essentially matched flow policies <Cite id="much-ado-noising-2025" />. OpenVLA-OFT, trained by plain regression, beat from-scratch Diffusion Policy and ACT by up to 15 points <Cite id="openvla-oft-2025" />.
+Capturing several modes may not be why it works. A two-step regression policy essentially matched flow policies' performance <Cite id="much-ado-noising-2025" />, and OpenVLA-OFT trained with plain regression outperformed Diffusion Policy and ACT trained from scratch by up to 15 points <Cite id="openvla-oft-2025" />.
 
 Also: implicit policies <Cite id="implicit-bc-2021" />, earlier diffusion policies <Cite id="pearce-diffusion-bc-2023" />, a Gaussian readout at up to twice the speed <Cite id="gaussian-action-readout-2026" />.
 
@@ -72,17 +72,17 @@ Also: implicit policies <Cite id="implicit-bc-2021" />, earlier diffusion polici
 
 <DiffusionDenoising className="my-6" />
 
-Starting from random actions, a network removes some noise given the latest camera frames. Repeated, this leaves the next $T_p$ actions, as DDPM does with pixels <Cite id="ddpm-2020" />:
+Beginning with random actions, a network denoises them conditioned on the latest camera frames. Iterating this process yields the next $T_p$ actions, analogous to DDPM's denoising process for images <Cite id="ddpm-2020" />:
 
 $$
 A_t^{k-1} = \alpha \left( A_t^k - \gamma \, \epsilon_\theta(O_t, A_t^k, k) + \mathcal{N}(0, \sigma^2 I) \right)
 $$
 
-Training uses improved DDPM's noise schedule <Cite id="iddpm-2021" />. On real robots the DDIM sampler <Cite id="ddim-2021" /> ran 10 steps in 0.1 seconds on an Nvidia 3080 <Cite id="diffusion-policy-2023" />.
+Training uses improved DDPM's noise schedule <Cite id="iddpm-2021" />. At test time, sampling with DDIM <Cite id="ddim-2021" /> with 10 steps on real robots takes 0.1 seconds on an Nvidia 3080 <Cite id="diffusion-policy-2023" />.
 
 ## Plan sixteen moves, carry out eight
 
-The policy predicts $T_p$ actions, carries out the first $T_a$ and replans; a common setting is 16 and 8. At 10 commands per second, that commits the robot for 0.8 seconds <Cite id="diffusion-policy-2023" />.
+The policy outputs $T_p$ actions, the first $T_a$ of which are executed, after which replanning occurs; typical values are 16 and 8. For a command rate of 10 Hz, the robot commits to actions for 0.8 seconds <Cite id="diffusion-policy-2023" />.
 
 <RecedingHorizon className="my-6" />
 
@@ -95,7 +95,7 @@ Long commitments move smoothly but react slowly; short ones can switch strategy 
 | 1D U-Net, adapted from Diffuser <Cite id="diffuser-2022" /> | FiLM <Cite id="film-2018" /> | Default; needs little tuning |
 | minGPT-style transformer | Cross-attention | Best with robot state as input; needs more tuning <Cite id="diffusion-policy-2023" /> |
 
-Both see through a ResNet-18 trained with the policy, with GroupNorm <Cite id="groupnorm-2018" />. ScaleDP grew the transformer from 10 million to 1 billion parameters <Cite id="scaledp-2024" />.
+Both approaches see through a ResNet-18 trained with the policy, and adopt GroupNorm <Cite id="groupnorm-2018" />. ScaleDP scaled up the transformer from 10 million to 1 billion parameters <Cite id="scaledp-2024" />.
 
 ## The recipe spread to 3D, symmetry and scale
 
@@ -108,13 +108,13 @@ Both see through a ResNet-18 trained with the policy, with GroupNorm <Cite id="g
 
 <Image id="dp3-real-robot-setup-2024" />
 
-NVIDIA's GR00T 2 <Cite id="gr00t-2-2026" /> and Runway's open 27-billion-parameter Praxis-1 <Cite id="runway-praxis-1-open-2026" /> denoise video and actions together.
+NVIDIA's GR00T 2 <Cite id="gr00t-2-2026" /> and Runway's open 27-billion-parameter Praxis-1 <Cite id="runway-praxis-1-open-2026" /> perform joint video and action denoising.
 
 Also: action-shaped noise, no fine-tuning gain <Cite id="gaussian-prior-lbm-2026" />.
 
 ## One step can be enough
 
-Ten network passes per decision are slow; consistency models need one <Cite id="consistency-models-2023" />.
+Ten network passes per decision are slow. Consistency models need one <Cite id="consistency-models-2023" />.
 
 | Method | Result |
 | --- | --- |
@@ -127,14 +127,14 @@ Also: One-Step Flow Policy, teacher-free <Cite id="one-step-flow-policy-2026" />
 
 ## Flow matching takes a straight path
 
-π0 replaced DDPM with <Term id="flow-matching">flow matching</Term>, which moves noise toward data along fixed paths <Cite id="lipman-flow-matching-2022" />. π0's paths are straight, as in rectified flow <Cite id="rectified-flow-2022" />, and it follows them in 10 steps <Cite id="pi0-2024" />. Across six flow-matching VLAs, one step largely matched many once models were large and well trained <Cite id="one-step-euler-flow-2026" />.
+π0 uses <Term id="flow-matching">flow matching</Term> instead of DDPM. In flow matching, noise is transformed into data following predefined paths <Cite id="lipman-flow-matching-2022" />. Similar to rectified flow <Cite id="rectified-flow-2022" />, π0 uses straight paths and follows them in 10 steps <Cite id="pi0-2024" />. Across six flow-matching VLAs, performance with one step largely matched that with many steps given a sufficiently large and well-trained model <Cite id="one-step-euler-flow-2026" />.
 
 Also: coarse steps over long horizons <Cite id="horizon-depth-coupling-2026" />, Bilinear Flow Policy for unfamiliar goals <Cite id="bilinear-flow-policy-2026" />.
 
 ## It reacts late and memorizes small datasets
 
-A committed chunk ignores events until the next prediction <Cite id="bidirectional-decoding-2024" />. <Term id="real-time-chunking">Real-Time Chunking</Term> plans the next chunk during the current one and holds throughput under 200 milliseconds of injected delay <Cite id="real-time-chunking-2025" />; [training-time RTC](/manipulation/realtime-execution/) removes its overhead <Cite id="training-time-rtc-2025" />.
+A committed chunk ignores new events until the agent has to make its next prediction <Cite id="bidirectional-decoding-2024" />. <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) predicts the next chunk while executing the current one, maintaining throughput under 200 milliseconds of injected delay <Cite id="real-time-chunking-2025" />; [training-time RTC](/manipulation/realtime-execution/) removes its overhead <Cite id="training-time-rtc-2025" />.
 
-With few demonstrations the policy acts as a lookup table, replaying the nearest training example even for pictures of cats and dogs <Cite id="demystifying-diffusion-policies-2025" />.
+If there are few demonstrations, the behavior of the policy resembles that of a lookup table, outputting an action corresponding to the closest demonstration even for images of dogs and cats <Cite id="demystifying-diffusion-policies-2025" />.
 
 Also: Octo, with language and goal-image instructions <Cite id="octo-2024" />.
