@@ -60,7 +60,7 @@ import { ChunkBuffer } from '@/components/interactive/chunk-buffer';
 
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 
-The comparison matrix lines up major robot policies, from RT-1 (2022) to π0.7 (2026), on eight design choices, including action format and downloadable weights <Cite id="rt1-2022" /> <Cite id="pi07-2026" />. Each cell records what a named source discloses.
+The table compares some of the most notable robot policies, ranging from RT-1 (2022) to π0.7 (2026), summarizing eight design choices, including action format and downloadable weights <Cite id="rt1-2022" /> <Cite id="pi07-2026" />. Entries are as reported by the linked source.
 
 <Image id="octo-evaluation-setups-2024" />
 
@@ -68,17 +68,17 @@ The comparison matrix lines up major robot policies, from RT-1 (2022) to π0.7 (
 
 ## Narrow the field before comparing scores
 
-Rule out models on weights, license and training data first; Gemini Robotics On-Device, for example, goes only to trusted testers via an SDK <Cite id="gemini-robotics-on-device-2025" />. Then drop those whose actions, speed, cameras or data needs do not fit the robot.
+Filter on weights, licensing and training data to shortlist models (Gemini Robotics On-Device is only available to trusted testers, via an SDK <Cite id="gemini-robotics-on-device-2025" />). Then shortlist further based on what actions the model can predict, its inference speed, what cameras it needs as input, and data requirements, depending on the robot.
 
 <Image id="roboarena-evaluation-2025" />
 
-Compare the rest under one protocol, with identical cameras, horizon and resets, plus a behavior-cloning baseline. TRI's Large Behavior Model study used blind, randomized trials <Cite id="tri-lbm-2025" />. RoboArena's 600-plus double-blind pairwise episodes ranked seven generalist policies more accurately than centralized evaluation <Cite id="roboarena-2025" />.
+Evaluations should be conducted under one protocol (same cameras, horizon, resets) and include a behavior-cloning policy as a baseline. TRI's study of Large Behavior Models used blind, randomized trials <Cite id="tri-lbm-2025" />. RoboArena aggregated results from more than 600 double-blind, pairwise evaluation episodes and demonstrated improved accuracy in ranking seven generalist policies over a centralized evaluation <Cite id="roboarena-2025" />.
 
-One training comparison used the same SO-101 pick-and-place task at five demonstration counts. With its action expert fine-tuned, π0.5 succeeded in 16 of 40 trials after 12 demonstrations. ACT managed one. With 100 demonstrations, ACT completed 37 of 40 and π0.5 completed 30. The trials leave the size of that later advantage uncertain <Cite id="so101-demo-scaling-2026" />.
+One training comparison used the same SO-101 pick-and-place task at five demonstration counts. With its action expert fine-tuned, π0.5 succeeded in 16 of 40 trials after 12 demonstrations, whereas ACT could only complete one. With 100 demonstrations, ACT completed 37 of 40 and π0.5 completed 30. The trials leave the size of that later advantage uncertain <Cite id="so101-demo-scaling-2026" />.
 
 ## Actions are numbers, tokens or refined noise
 
-A policy outputs plain numbers, word-like tokens, or noise refined into motion by diffusion or <Term id="flow-matching">flow matching</Term>. Training and running can differ: π0.5 learns from compressed FAST tokens <Cite id="pi0-fast-2025" /> but generates actions by flow matching <Cite id="pi05-2025" />.
+Actions are represented as plain numbers, word-like tokens, or noise refined into motion (via diffusion or <Term id="flow-matching">flow matching</Term>). In some cases, actions may be represented differently during training and inference: π0.5 is trained using compressed FAST action tokens <Cite id="pi0-fast-2025" /> but decodes actions using flow matching <Cite id="pi05-2025" />.
 
 The <Term id="predicted-horizon">predicted horizon</Term> is how many actions a chunk holds; the <Term id="committed-horizon">committed horizon</Term> is how many run before replanning. [Real-time chunking](/manipulation/realtime-execution/) computes the next chunk during the current one <Cite id="real-time-chunking-2025" />.
 
@@ -108,11 +108,11 @@ Control rate depends on hardware, and chunks hide latency.
 
 Backbone and conditioning are a model's pretrained parts and accepted inputs. Octo takes an instruction in words or a goal image <Cite id="octo-2024" />, and Skild says S1 performs a task shown in one video <Cite id="skild-s1-2026" />.
 
-Cross-embodiment evidence comes in three strengths: many robots' training data, as in Open X-Embodiment's 22 robot types <Cite id="open-x-embodiment-2023" />; fine-tuning to a new body; one checkpoint running different bodies. CrossFormer has the strongest: identical weights control very different robots after 900,000 trajectories from 20 embodiments <Cite id="crossformer-2024" />.
+Evidence for cross-embodiment learning can take one of three forms, of increasing strength: learning from data collected on many embodiments (as in Open X-Embodiment's 22 robot types <Cite id="open-x-embodiment-2023" />), fine-tuning on a new embodiment, or using a single set of model weights to control multiple embodiments. CrossFormer has the strongest: identical weights control very different robots after 900,000 trajectories from 20 embodiments <Cite id="crossformer-2024" />.
 
-Hierarchy separates planning from motion. π0.5 writes a subtask before acting, inside one model <Cite id="pi05-2025" />, and π0 can take subtasks from a separate vision-language model <Cite id="pi0-2024" />. GR00T N1.7's SONIC workflow hands latent action tokens to a separate whole-body controller <Cite id="isaac-gr00t-repo-2026" />.
+Hierarchy separates planning from motion. For example, π0.5 predicts a subtask and conditions its action prediction on it, inside one model <Cite id="pi05-2025" />, and π0 can also accept subtask prediction from another vision-language model <Cite id="pi0-2024" />. GR00T N1.7's SONIC workflow hands latent action tokens to a separate whole-body controller <Cite id="isaac-gr00t-repo-2026" />.
 
-Downloadable weights can still carry license limits: GR00T N1.7 pairs Apache 2.0 code with NVIDIA Open Model License weights <Cite id="isaac-gr00t-repo-2026" />. openpi lists π0, π0-FAST and π0.5 checkpoints <Cite id="openpi-repo-2024" />, and SmolVLA releases code, pretrained models and training data <Cite id="smolvla-2025" />.
+Downloadable weights can still carry license limits: GR00T N1.7 has its code under Apache 2.0 but weights under the NVIDIA Open Model License <Cite id="isaac-gr00t-repo-2026" />. openpi offers checkpoints for π0, π0-FAST and π0.5 <Cite id="openpi-repo-2024" />, and SmolVLA shares code, training data and pretrained models <Cite id="smolvla-2025" />.
 
 ## Seven rows carry caveats
 
@@ -137,11 +137,11 @@ Downloadable weights can still carry license limits: GR00T N1.7 pairs Apache 2.0
 | AgiBot GO-2 <Cite id="agibot-go2-2026" /> | Slow planner, fast executor | Rates, backbone, output format, weight terms |
 | Skild <Cite id="skild-series-c-2026" /> | A funding announcement | Reproducible evaluation, runtime details |
 
-AgiBot's earlier GO-1 learned latent actions from over 1 million AgiBot World trajectories across 217 tasks <Cite id="agibot-world-2025" />. Generalist's 99% average success for GEN-1, against 64% for earlier models with 1 hour of robot data per task, is self-reported <Cite id="generalist-gen1-2026" />.
+AgiBot's earlier GO-1 learns latent actions from more than 1 million trajectories in the AgiBot World dataset covering 217 tasks <Cite id="agibot-world-2025" />. Generalist's 99% average success for GEN-1, against 64% for earlier models with 1 hour of robot data per task, is self-reported <Cite id="generalist-gen1-2026" />.
 
 ## The newest rows add video and open weights
 
-NVIDIA previewed GR00T N2, based on DreamZero, in March 2026 <Cite id="nvidia-gtc-gr00t-n2-2026" />.
+In March 2026, NVIDIA previewed GR00T N2, built on top of DreamZero <Cite id="nvidia-gtc-gr00t-n2-2026" />.
 
 | Model | What it adds |
 | --- | --- |
