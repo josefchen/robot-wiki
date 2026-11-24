@@ -82,7 +82,7 @@ import { DatasetTable } from '@/components/interactive/dataset-table';
 
 import { DatasetRunsHours } from '@/components/interactive/dataset-runs-hours';
 
-A robot learning dataset records what a robot's cameras and sensors saw, paired with the commands it carried out. Open datasets trade breadth for consistency: <Term id="open-x-embodiment">Open X-Embodiment</Term> pools over a million trajectories from 22 kinds of robot <Cite id="open-x-embodiment-2023" />, while all of DROID's 76,000 come from one arm setup <Cite id="droid-2024" />.
+Robot learning datasets consist of observations (images from cameras, other sensor data) and actions taken by the robot. Open datasets trade breadth for consistency: <Term id="open-x-embodiment">Open X-Embodiment</Term> consists of more than a million trajectories collected using 22 robot embodiments <Cite id="open-x-embodiment-2023" />, while DROID contains 76,000 trajectories all using one robotic arm setup <Cite id="droid-2024" />.
 
 <Image id="open-x-embodiment-overview-2023" />
 
@@ -90,7 +90,7 @@ A robot learning dataset records what a robot's cameras and sensors saw, paired 
 
 <DatasetTable className="my-6 wide-measure" />
 
-A trajectory can last eight seconds or eight minutes: DROID's average about 17 seconds and AgiBot World's about 11 <Cite id="droid-2024" /> <Cite id="agibot-world-2025" />. NVIDIA's open Physical AI dataset counts bytes, 15 terabytes for 320,000+ trajectories <Cite id="nvidia-physical-ai-dataset-2025" />; the 2025 BEHAVIOR Challenge counts 1,200+ hours in 10,000 teleoperated demonstrations <Cite id="behavior-challenge-2025" />.
+A trajectory can last eight seconds or eight minutes: on average about 17 seconds in DROID and 11 seconds in AgiBot World <Cite id="droid-2024" /> <Cite id="agibot-world-2025" />. Some datasets report their size in bytes (NVIDIA's open Physical AI dataset is 15 terabytes for more than 320,000 trajectories <Cite id="nvidia-physical-ai-dataset-2025" />) or in hours (more than 1,200 hours of teleoperated data in 10,000 demonstrations for the 2025 BEHAVIOR Challenge <Cite id="behavior-challenge-2025" />).
 
 <DatasetRunsHours className="my-6" />
 
@@ -98,9 +98,9 @@ Also: synthetic InternData-A1, 7,433 hours <Cite id="interndata-a1-2025" />.
 
 ## Open X-Embodiment pools many labs in one format
 
-OXE (2023) converted 60 datasets from 34 labs into the shared RLDS episode format <Cite id="rlds-2021" />, for over a million trajectories across 22 robot types and 527 skills <Cite id="open-x-embodiment-2023" />.
+OXE (2023) is a collection of 60 datasets released by 34 labs, standardized in the RLDS episode format <Cite id="rlds-2021" />, containing more than a million trajectories and encompassing 527 skills across 22 embodiments <Cite id="open-x-embodiment-2023" />.
 
-The pool helped small datasets most. RT-1-X beat each one's original method by 50% on average, and RT-2-X roughly tripled RT-2's success on skills seen only in another robot's data <Cite id="open-x-embodiment-2023" />.
+Training on such a pool was particularly helpful on datasets that, on their own, are small: RT-1-X outperformed each one's original method by an average of 50%, and RT-2-X saw a roughly threefold improvement in success rate over RT-2 on tasks only demonstrated on other embodiments <Cite id="open-x-embodiment-2023" />.
 
 Later <Term id="cross-embodiment">cross-embodiment</Term> pools are larger:
 
@@ -110,15 +110,15 @@ Later <Term id="cross-embodiment">cross-embodiment</Term> pools are larger:
 | CrossFormer | 900,000 trajectories from 20 embodiments, quadcopters among them | <Cite id="crossformer-2024" /> |
 | OXE-AugE | Over 4.4 million trajectories, adding nine robot types | <Cite id="oxe-auge-2025" /> |
 
-Federation costs consistency: action spaces, control rates, cameras and licenses differ, and four robot types supply over 85% of OXE's real data <Cite id="oxe-auge-2025" />. Moritz Reuss's ICLR 2026 review of VLA papers calls OXE mostly low-quality data <Cite id="oxe-quality-critique-2026" />. Re-Mix's weights beat size-proportional sampling by 38%, RT-X's hand-picked weights by 32% <Cite id="remix-2024" />.
+Federation costs consistency: datasets in OXE use different action spaces, control frequencies, camera setups and licenses, and four robot types make up more than 85% of OXE's real data <Cite id="oxe-auge-2025" />. Moritz Reuss's ICLR 2026 review of VLA papers describes OXE data as mostly low-quality <Cite id="oxe-quality-critique-2026" />. The weighting scheme in Re-Mix outperforms sampling in proportion to dataset size by 38% and RT-X's hand-picked weighting by 32% <Cite id="remix-2024" />.
 
 Also: RoboNet <Cite id="robonet-2019" />; [VLA models](/manipulation/vla-models) trained on OXE, Octo <Cite id="octo-2024" /> and OpenVLA <Cite id="openvla-2024" />.
 
 ## DROID trades robot variety for scene variety
 
-Fifty operators at 13 institutions collected its 76,000 trajectories in 564 scenes, all on one rig: a Franka Panda with three cameras, [teleoperated](/data-hardware/teleop-rigs) through a Meta Quest 2 headset <Cite id="droid-2024" />. <Term id="diffusion-policy">Diffusion policies</Term> trained on DROID scored 22 percentage points above the next-best method in familiar conditions and 17 points above it outside them <Cite id="droid-2024" />.
+Fifty operators in 13 institutions gathered its 76,000 trajectories in 564 scenes, all on one rig: a Franka Panda arm equipped with three cameras and [teleoperated](/data-hardware/teleop-rigs) using a Meta Quest 2 headset <Cite id="droid-2024" />. <Term id="diffusion-policy">Diffusion policies</Term> trained on DROID outperformed the second-best method by 22 percentage points in-domain and by 17 percentage points out-of-domain <Cite id="droid-2024" />.
 
-Updates added language labels for 75,000 episodes and better camera calibrations for 36,000 <Cite id="droid-project-page" />. DROID's CC BY 4.0 license <Cite id="droid-2024" /> allows commercial use and adaptation with attribution <Cite id="cc-by-4-0-deed" />.
+DROID received updates to include language annotations on 75,000 episodes and improved camera calibrations on 36,000 <Cite id="droid-project-page" />. DROID is released under the CC BY 4.0 license <Cite id="droid-2024" />, which allows commercial use as well as adaptation given attribution <Cite id="cc-by-4-0-deed" />.
 
 Single-platform collections can be bigger:
 
@@ -130,27 +130,27 @@ Single-platform collections can be bigger:
 
 ## BridgeData V2 is built on a cheap arm
 
-BridgeData V2 uses the WidowX 250, a six-degree-of-freedom arm. Its 60,096 trajectories <Cite id="bridgedata-v2-project-page" /> are 50,365 VR-teleoperated demonstrations and 9,731 scripted pick-and-place runs in 24 environments <Cite id="bridgedata-v2-2023" />. With its 2021 predecessor, joint training with 50 demonstrations of a new task in a new setting doubled success on average <Cite id="bridge-data-2021" />.
+BridgeData V2, collected using the WidowX 250 six-degree-of-freedom arm, contains 60,096 trajectories <Cite id="bridgedata-v2-project-page" />. Of these, 50,365 are VR-teleoperated demonstrations and 9,731 are scripted pick-and-place runs collected in 24 environments <Cite id="bridgedata-v2-2023" />. The 2021 version of BridgeData showed that joint training with 50 demonstrations of a new task in a new environment doubled success on average <Cite id="bridge-data-2021" />.
 
 <Image id="bridgedata-v2-sink-tasks-2023" />
 
-The data is CC BY 4.0 <Cite id="bridgedata-v2-project-page" /> and mostly ships inside OXE <Cite id="open-x-embodiment-2023" />; the paper adds goal-conditioned <Term id="behavior-cloning">behavior cloning</Term> baselines <Cite id="bridgedata-v2-2023" />.
+BridgeData V2 is available under the CC BY 4.0 license <Cite id="bridgedata-v2-project-page" /> and is included, for the most part, in OXE <Cite id="open-x-embodiment-2023" />. The paper also presents goal-conditioned <Term id="behavior-cloning">behavior cloning</Term> baselines <Cite id="bridgedata-v2-2023" />.
 
 ## AgiBot World is one company's fleet data
 
-The Beta release holds 1,001,552 trajectories totaling 2,976 hours, all from the AgiBot G1. AgiBot reports 217 tasks and a 30% average gain over OXE pretraining, a vendor figure with no independent replication <Cite id="agibot-world-2025" />. The million trajectories cover less interaction than Ego4D's 3,670 hours of passive video <Cite id="ego4d-2022" />.
+The Beta release contained 1,001,552 trajectories from AgiBot's G1 robot, totaling 2,976 hours. AgiBot reports 217 tasks and claims pretraining on AgiBot World Beta leads to a 30% performance uplift on average over OXE pretraining, a vendor figure with no independent replication <Cite id="agibot-world-2025" />. Despite having over a million trajectories, AgiBot World Beta contains less interaction than Ego4D, which contains 3,670 hours of passive video <Cite id="ego4d-2022" />.
 
-The repository now lists 1,003,672 trajectories under CC BY-NC-SA 4.0 <Cite id="agibot-world-repo" />, which bars commercial use <Cite id="cc-by-nc-sa-4-0-deed" />. AgiBot World 2026, recorded on the newer G2, lists 17.5 TB under the same license and no episode or hour totals <Cite id="agibot-world-2026" />. AgiBot also [sells data](/data-hardware/data-market/) through its unit Mifeng, and Mifeng's Yao Maoqing put China's real-robot data at about RMB 500 to 1,000 an hour, Yicai reported in April 2026 <Cite id="yicai-mifeng-2026" />.
+AgiBot World currently contains 1,003,672 trajectories available under a CC BY-NC-SA 4.0 license <Cite id="agibot-world-repo" />, meaning that it cannot be used commercially <Cite id="cc-by-nc-sa-4-0-deed" />. AgiBot World 2026, collected using AgiBot's newer G2 robot, is also under the same license and contains 17.5 TB, although AgiBot does not specify how many episodes or hours this corresponds to <Cite id="agibot-world-2026" />. AgiBot also [sells data](/data-hardware/data-market/) through its unit Mifeng; in April 2026, Yicai reported Mifeng's Yao Maoqing putting China's real-robot data at roughly RMB 500 to 1,000 an hour <Cite id="yicai-mifeng-2026" />.
 
 ## RoboMIND records four robots under one protocol
 
-RoboMIND reports 107,000 successful trajectories, 305.5 hours real and simulated, across 479 tasks on four robots. It also releases 5,000 real-world failures with annotated causes <Cite id="robomind-2024" />. RoboMIND 2.0 (December 2025) reports over 310,000 dual-arm trajectories from six embodiments, 12,000 with touch sensing <Cite id="robomind-2-2025" />.
+RoboMIND reports 107,000 successful trajectories (305.5 hours of real and simulated data) collected while performing 479 tasks on four robots. It also releases 5,000 failed real-world trajectories with annotations describing failure causes <Cite id="robomind-2024" />. RoboMIND 2.0 (December 2025) expands on RoboMIND with over 310,000 dual-arm trajectories collected from six robot embodiments, 12,000 of which include tactile sensing <Cite id="robomind-2-2025" />.
 
-Its [dataset card](https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND) says Apache-2.0 but gates download behind access conditions <Cite id="robomind-dataset-card" />.
+Although RoboMIND's [dataset card](https://huggingface.co/datasets/x-humanoid-robomind/RoboMIND) lists an Apache-2.0 license, downloading the data is subject to access conditions <Cite id="robomind-dataset-card" />.
 
 ## The largest new releases record people
 
-Community data now trains real models: SmolVLA used fewer than 30,000 community-contributed episodes <Cite id="smolvla-2025" />, and continual pretraining on the community-built AXIS raised π0.5's overall success rate by 5.8% <Cite id="axis-2026" />.
+Community data now trains real models: SmolVLA was trained on community-collected data with fewer than 30,000 episodes <Cite id="smolvla-2025" />, and π0.5 saw a 5.8% increase in overall success rate when continually pretrained on AXIS, a dataset collected by the community <Cite id="axis-2026" />.
 
 | Release | What it holds |
 | --- | --- |
@@ -169,7 +169,7 @@ Community data now trains real models: SmolVLA used fewer than 30,000 community-
 
 ## Other datasets add senses, labels and shapes
 
-RH20T pairs vision, force, audio and actions in over 110,000 contact-rich sequences <Cite id="rh20t-2023" />, and Humanoid Everyday adds depth, LiDAR and touch to 10,300 humanoid trajectories <Cite id="humanoid-everyday-2025" />.
+RH20T provides vision, force sensing, audio and robot action data collected from more than 110,000 contact-rich sequences <Cite id="rh20t-2023" />. Humanoid Everyday offers depth, LiDAR and tactile sensing for 10,300 humanoid trajectories <Cite id="humanoid-everyday-2025" />.
 
 | Dataset | Supplies |
 | --- | --- |
@@ -188,8 +188,8 @@ RH20T pairs vision, force, audio and actions in over 110,000 contact-rich sequen
 
 ## A usable dataset is legal, consistent and versioned
 
-A dataset must be legal for its use, consistent in actions, units, frames and rates, and downloadable as versioned episodes. LeRobot's format moved to multi-episode files in 2025, after one file per episode hit file-system limits <Cite id="lerobot-dataset-v3-2025" />.
+A dataset must be legal for its use, consistent in actions, units, frames and rates, and downloadable as versioned episodes. In LeRobot's case, episodes were initially released one per file but ran into file-system limitations, and in 2025 the format changed to files with multiple episodes <Cite id="lerobot-dataset-v3-2025" />.
 
-Mixing needs one schema for observations and actions, an adapter per source and source labels kept through training, to tell real transfer from one corpus dominating <Cite id="open-x-embodiment-2023" /> <Cite id="octo-2024" /> <Cite id="remix-2024" />. The [robot-learning stack](/data-hardware/robot-learning-stack) covers the tooling.
+Mixing needs one schema for observations and actions, with adapters to convert incoming datasets to that schema. It is important to keep track of which dataset an episode is from throughout training to understand if performance gains are due to real transfer or one dataset dominating <Cite id="open-x-embodiment-2023" /> <Cite id="octo-2024" /> <Cite id="remix-2024" />. The [robot-learning stack](/data-hardware/robot-learning-stack) covers the tooling.
 
 Also: Datasheets for Datasets <Cite id="datasheets-for-datasets-2018" />, task variety on AgiBot World <Cite id="diversity-scaling-2025" />.
