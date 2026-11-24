@@ -101,47 +101,47 @@ import { AvSafetyMiles } from '@/components/interactive/av-safety-miles';
 
 import { AvStackTable } from '@/components/mdx/av-stack-table';
 
-Autonomous vehicles are cars and trucks whose software perceives the road, predicts other road users, plans a path and steers. Waymo robotaxis passed 300 million fully autonomous miles by October 2026 <Cite id="alphabet-q3-2026" />, and driving is the robot-learning neighbor that already has fleets, recalls and a public crash record.
+The software controlling self-driving cars and trucks is tasked with sensing the surroundings, predicting the actions of other road users, planning a trajectory and controlling the steering. Waymo's robotaxis, as of October 2026, have driven more than 300 million fully autonomous miles <Cite id="alphabet-q3-2026" />. Unlike many areas neighboring robot learning, autonomous driving already has fleets in operation, recalls and a public crash record.
 
 <Image id="waymo-jaguar-ipace-san-francisco-2023" />
 
 ## Driving splits into four stages
 
-Production vehicles run perception, prediction, planning and control as separate stages <Cite id="uniad-2023" /><Cite id="paden-2016" />.
+Production pipelines for self-driving cars and trucks consist of separate components: perception, prediction, planning and control <Cite id="uniad-2023" /><Cite id="paden-2016" />.
 
 <AvStackTable className="my-6" />
 
-Also: early learned drivers ALVINN, 1988 <Cite id="alvinn-1988" />, ALVINN in five minutes, 1991 <Cite id="pomerleau-1991" />, RALPH across the US, 1995 <Cite id="no-hands-across-america-1995" />, Stanley, 2005 <Cite id="stanley-2006" />.
+Learning to drive was demonstrated as early as 1988 with ALVINN <Cite id="alvinn-1988" />, which could be trained in five minutes by 1991 <Cite id="pomerleau-1991" />. Other learning-based drivers include RALPH, which crossed the US in 1995 <Cite id="no-hands-across-america-1995" />, and Stanley in 2005 <Cite id="stanley-2006" />.
 
 ### Perception fuses every sensor
 
-Waymo fuses camera, <Term id="lidar">lidar</Term> and radar over time <Cite id="waymo-foundation-model-2025" /> and says no single sensor can replace that redundancy <Cite id="waymo-ai-lessons-2026" />. Camera-only BEVFormer matched lidar baselines on the nuScenes test set <Cite id="bevformer-2022" />.
+Waymo aggregates <Term id="lidar">lidar</Term>, radar and camera measurements over time <Cite id="waymo-foundation-model-2025" />, noting that no single sensor is enough <Cite id="waymo-ai-lessons-2026" />. Camera-only BEVFormer achieves comparable performance to lidar-based methods on the nuScenes test set <Cite id="bevformer-2022" />.
 
-Also: <Term id="point-cloud">point-cloud</Term> detectors PointPillars <Cite id="pointpillars-2018" />, PV-RCNN <Cite id="pv-rcnn-2019" />, CenterPoint <Cite id="centerpoint-2020" />.
+Different approaches have been proposed in the literature for <Term id="point-cloud">point-cloud</Term> detection, including PointPillars <Cite id="pointpillars-2018" />, PV-RCNN <Cite id="pv-rcnn-2019" /> and CenterPoint <Cite id="centerpoint-2020" />.
 
 <Image id="waymo-roof-sensor-suite-2025" />
 
 ### Prediction keeps several futures
 
-A pedestrian may cross or wait, and the average of the two is neither. VectorNet read lanes and tracks as line segments and matched image-based predictors with over 70 percent fewer parameters <Cite id="vectornet-2020" />. MotionLM writes several agents' motion as tokens, like words <Cite id="motionlm-2023" />.
+A pedestrian could cross the road or wait, and the average of the two is neither. VectorNet encodes lanes and tracks as line segments and matches image-based predictors using over 70 percent fewer parameters <Cite id="vectornet-2020" />. MotionLM predicts the motions of multiple agents by encoding them as tokens, like words <Cite id="motionlm-2023" />.
 
 Also: multi-future predictors MultiPath <Cite id="multipath-2019" />, LaneGCN <Cite id="lanegcn-2020" />, Trajectron++ <Cite id="trajectron-plus-plus-2020" />, Wayformer <Cite id="wayformer-2022" />, Motion Transformer <Cite id="motion-transformer-2022" />.
 
 ### Planning needs more than copying drivers
 
-CMU's Boss won the 2007 DARPA Urban Challenge with a three-layer planner for mission, behavior and motion <Cite id="boss-urban-challenge-2008" />, the split Paden's survey uses <Cite id="paden-2016" /> ([motion planning](/classical/motion-planning/)).
+CMU's Boss won the 2007 DARPA Urban Challenge with a three-level hierarchical planner that consisted of mission, behavior and motion planners <Cite id="boss-urban-challenge-2008" />. Such a decomposition is also used in Paden's survey <Cite id="paden-2016" /> ([motion planning](/classical/motion-planning/)).
 
 <Image id="cmu-boss-urban-challenge-winner" />
 
-Waymo's ChauffeurNet found <Term id="behavior-cloning">behavior cloning</Term> on 30 million examples insufficient, so it trained on perturbed expert driving with losses that penalize collisions <Cite id="chauffeurnet-2018" />. Manipulation later rediscovered that cure for <Term id="covariate-shift">covariate shift</Term> ([behavior cloning foundations](/manipulation/bc-foundations/)).
+Waymo's ChauffeurNet used perturbed expert driving data along with collision-penalizing losses, since <Term id="behavior-cloning">behavior cloning</Term> on 30 million driving examples alone was insufficient <Cite id="chauffeurnet-2018" />. People working on manipulation later rediscovered the same solution to combat <Term id="covariate-shift">covariate shift</Term> ([behavior cloning foundations](/manipulation/bc-foundations/)).
 
-Control tracks the path with methods from pure pursuit to <Term id="mpc">model-predictive control</Term>, even behind a learned planner <Cite id="paden-2016" /> ([control](/classical/control/)).
+Control involves tracking a planned trajectory and is accomplished with techniques ranging from pure pursuit to <Term id="mpc">model-predictive control</Term>, even in cases where the planner is learned <Cite id="paden-2016" /> ([control](/classical/control/)).
 
 ### Simple planners still match end-to-end networks
 
-Every hand-off between stages loses information, so <Term id="end-to-end-driving">end-to-end</Term> systems train the stages together; modular ones are easier to debug <Cite id="e2e-ad-survey-2024" />. UniAD trains all four as one network <Cite id="uniad-2023" />, and EMMA writes driving outputs as text <Cite id="emma-2024" />.
+Information is inevitably lost when passing information between modules, so <Term id="end-to-end-driving">end-to-end</Term> approaches have been developed that jointly train the modules, while modular systems are easier to debug <Cite id="e2e-ad-survey-2024" />. UniAD trains all four as one network <Cite id="uniad-2023" />, and EMMA predicts driving outputs as text <Cite id="emma-2024" />.
 
-In closed loop, a planner built on rule-based priors won the 2023 nuPlan challenge <Cite id="nuplan-2021" /><Cite id="dauner-misconceptions-2023" />, and on NAVSIM the simple TransFuser matched UniAD <Cite id="navsim-2024" />.
+In closed-loop evaluation, a planner that relies on rule-based prior knowledge won the 2023 nuPlan planning challenge <Cite id="nuplan-2021" /><Cite id="dauner-misconceptions-2023" />, and in NAVSIM evaluation the simple TransFuser performed on par with UniAD <Cite id="navsim-2024" />.
 
 | Benchmark | Year | What it tests |
 | --- | --- | --- |
@@ -159,7 +159,7 @@ In closed loop, a planner built on rule-based priors won the 2023 nuPlan challen
 
 ## Robotaxis run at scale
 
-Waymo gave 15 million rides in 2025 <Cite id="waymo-year-in-review-2025" />. Every operator reports a different unit.
+Waymo provided 15 million rides in 2025 <Cite id="waymo-year-in-review-2025" />. Different companies use different metrics.
 
 | Operator | Service | Reported scale |
 | --- | --- | --- |
@@ -169,11 +169,11 @@ Waymo gave 15 million rides in 2025 <Cite id="waymo-year-in-review-2025" />. Eve
 | Pony.ai | Robotaxi fleet <Cite id="pony-q2-2026" /> | 1,975 vehicles by June 2026 <Cite id="pony-q2-2026" /> |
 | Aurora | Driverless trucks, Dallas to Houston, since May 2025 <Cite id="aurora-driverless-launch-2025" /> | Over 500,000 commercial driverless miles by September 2026 <Cite id="aurora-q3-2026" /> |
 
-Aurora reported zero collisions attributed to its system through June 2026 <Cite id="aurora-q2-2026" /> and expects more than 200 driverless trucks by the end of February 2027 <Cite id="aurora-q3-2026" />.
+Aurora reported zero collisions attributed to its system through June 2026 <Cite id="aurora-q2-2026" />, and expects more than 200 driverless trucks by the end of February 2027 <Cite id="aurora-q3-2026" />.
 
 ### The long tail still causes recalls
 
-The <Term id="long-tail">long tail</Term> is the mass of rare situations, such as an officer waving cars through a red light, that no log holds enough of to learn from. Waymo's WOD-E2E benchmark gathers 4,021 segments, about 12 hours, of scenarios rarer than 0.03 percent <Cite id="wod-e2e-2025" />.
+The <Term id="long-tail">long tail</Term> is the mass of rare situations, like police officers directing traffic through red lights, that no log holds enough of to learn from. Waymo's WOD-E2E benchmark collects 4,021 clips, totaling approximately 12 hours, of scenarios that occur less than 0.03 percent of the time <Cite id="wod-e2e-2025" />.
 
 | Date | Action | Defect |
 | --- | --- | --- |
@@ -181,11 +181,11 @@ The <Term id="long-tail">long tail</Term> is the mass of rare situations, such a
 | May 2026 | Waymo recall, 3,791 vehicles | Slowed but did not stop for a flooded lane <Cite id="waymo-recall-26e026-2026" /> |
 | Nov 2026 | NHTSA query | Most school-bus incidents came after the fix <Cite id="nhtsa-rq26006-2026" /> |
 
-Waymo's World Model, built on Genie 3, generates camera and lidar data for rare events "from a tornado to a casual encounter with an elephant" <Cite id="waymo-world-model-2026" />. Wayve's GAIA-2 does the same for video <Cite id="gaia-2-2025" />. Whether they reach past their training data is open ([generative video](/world-models/generative-video/)).
+Waymo's World Model, based on Genie 3, simulates lidar and camera data of rare driving scenarios, "from a tornado to a casual encounter with an elephant" <Cite id="waymo-world-model-2026" />. Similarly, Wayve's GAIA-2 generates driving videos <Cite id="gaia-2-2025" />. Whether such generative models can extrapolate beyond their training data remains to be seen ([generative video](/world-models/generative-video/)).
 
 ## Proving safety is a measurement problem
 
-Test driving alone would need hundreds of millions of miles, sometimes hundreds of billions, RAND found <Cite id="kalra-paddock-2016" />. Mobileye's Responsibility-Sensitive Safety writes safe distances as an explicit model instead <Cite id="rss-2017" />, and Koopman adds accountability and no risk hot spots to "safe enough" <Cite id="koopman-safe-enough-2026" />.
+RAND estimated the amount of test driving alone needed at hundreds of millions, and in some cases hundreds of billions, of miles <Cite id="kalra-paddock-2016" />. Mobileye has proposed Responsibility-Sensitive Safety, which models safe distances explicitly instead <Cite id="rss-2017" />. Koopman adds accountability and no risk hot spots to "safe enough" <Cite id="koopman-safe-enough-2026" />.
 
 <AvSafetyMiles className="my-6" />
 
@@ -197,11 +197,11 @@ Waymo crashes far less than human drivers on the same roads.
 | Waymo safety hub | Through June 2026 | 95% fewer serious-injury crashes, 82% fewer injury crashes <Cite id="waymo-safety-hub-2026" /> |
 | IIHS, independent, 2026 | Same areas as human drivers | 68% fewer police-reportable crashes per mile <Cite id="iihs-waymo-2026" /><Cite id="iihs-rise-of-machines-2026" /> |
 
-Most operators publish no denominator: US companies must report crashes but not miles <Cite id="iihs-waymo-2026" />. Tesla now pairs its robotaxi collisions with mileage <Cite id="tesla-robotaxi-safety-2026" />. California says its disengagement reports cannot compare companies <Cite id="ca-dmv-av-miles-2026" />.
+Most operators do not publish the denominator: US companies are required to report crashes, but not miles driven <Cite id="iihs-waymo-2026" />. Tesla recently included miles driven in its reporting of robotaxi collisions <Cite id="tesla-robotaxi-safety-2026" />. California said that disengagement data reported by companies cannot be used to compare companies' performance <Cite id="ca-dmv-av-miles-2026" />.
 
 ## Regulators set the terms
 
-SAE J3016 defines six levels of automation, 0 through 5 <Cite id="sae-j3016-2021" />, and Waymo calls pushing level 2 driver assist toward full autonomy "a false summit" <Cite id="waymo-ai-lessons-2026" />. Every deployed level 4 system runs inside an <Term id="operational-design-domain">operational design domain</Term>, a defined set of places, roads, speeds and weather.
+There are six levels of driving automation, numbered 0 to 5, defined in SAE J3016 <Cite id="sae-j3016-2021" />. Waymo has referred to the progression from level 2 driver assist systems to fully autonomous driving as "a false summit" <Cite id="waymo-ai-lessons-2026" />. All deployed level 4 systems operate within an <Term id="operational-design-domain">operational design domain</Term>, a defined set of roads, places, driving speeds and weather conditions.
 
 | Date | Regulator | Rule |
 | --- | --- | --- |
@@ -210,13 +210,13 @@ SAE J3016 defines six levels of automation, 0 through 5 <Cite id="sae-j3016-2021
 | July 2026 | NHTSA | Zoox robotaxi exempt from parts of eight standards, up to 2,500 a year for two years <Cite id="nhtsa-zoox-exemption-2026" /> |
 | October 2026 | FMCSA | Level 4 trucks may use cab-mounted beacons for five years <Cite id="fmcsa-aurora-beacons-2026" /> |
 
-Aurora closed its safety case before going driverless <Cite id="aurora-driverless-launch-2025" />, and Zoox began charging fares in Las Vegas <Cite id="amazon-q3-2026" />. Trucks take far longer to stop, and an empty cab could not set out the roadside warning devices the law required, Chris Paxton noted <Cite id="paxton-autonomous-trucks-2026" />.
+Aurora completed its safety case prior to operating vehicles without a safety driver <Cite id="aurora-driverless-launch-2025" />. Zoox started accepting paying customers in Las Vegas <Cite id="amazon-q3-2026" />. Chris Paxton pointed out trucks require much longer distances to come to a stop and, if unmanned, could not set up the roadside warning devices that regulations required <Cite id="paxton-autonomous-trucks-2026" />.
 
 ## Uber and Cruise failed on public roads
 
-In 2018 an Uber test car in Tempe, Arizona killed a pedestrian walking a bicycle at night. It saw her 5.6 seconds out, kept reclassifying her, and left emergency braking to an operator who was streaming a television show <Cite id="ntsb-uber-2019" />. Every layer failed at once ([reliability gap](/frontier/reliability-gap/)).
+Uber's self-driving test car fatally struck a pedestrian in Tempe, Arizona in 2018. The pedestrian was walking alongside her bicycle at night. The car did not detect her until 5.6 seconds before impact and kept switching between different classifications for her; emergency braking was left to a human operator who was watching TV <Cite id="ntsb-uber-2019" />. Every layer failed at once ([reliability gap](/frontier/reliability-gap/)).
 
-In 2023 a driverless Cruise car dragged a pedestrian about 20 feet. Cruise agreed to a \$1.5 million penalty for crash reports that left this out <Cite id="nhtsa-cruise-consent-2024" />, and GM stopped funding its robotaxis that December <Cite id="gm-cruise-refocus-2024" />.
+In 2023, a driverless Cruise car dragged a pedestrian about 20 feet. Cruise accepted a \$1.5 million penalty for not including that in its crash reports <Cite id="nhtsa-cruise-consent-2024" />, and GM stopped funding Cruise's robotaxis that December <Cite id="gm-cruise-refocus-2024" />.
 
 ## Robot learning borrowed driving's tools
 
@@ -231,9 +231,9 @@ Driving gave robot learning four tools ([data bottleneck](/data-hardware/data-bo
 
 ## Driving models are becoming VLAs
 
-EMMA is a <Term id="vision-language-action-model">vision-language-action model</Term> whose body is a car <Cite id="emma-2024" />. Driving VLAs are single networks or dual systems, with a slow vision-language model over fast execution <Cite id="vla-ad-survey-2026" />, the shape of [hierarchical](/manipulation/hierarchical/) manipulation.
+EMMA is a <Term id="vision-language-action-model">vision-language-action model</Term> whose body is a car <Cite id="emma-2024" />. Driving VLAs are single networks or dual systems, where a slow vision-language model informs fast execution <Cite id="vla-ad-survey-2026" />, analogous to [hierarchical](/manipulation/hierarchical/) models for manipulation.
 
-Waymo pairs a fast sensor-fusion encoder with a driving model trained using Gemini <Cite id="waymo-foundation-model-2025" /> ([knowledge insulation](/manipulation/knowledge-insulation/)). NVIDIA's Alpamayo-R1 runs onboard at 99 ms <Cite id="alpamayo-r1-2025" />. Alpamayo 2 Edge, a 2B-parameter model for DRIVE AGX Thor with open OpenMDW-1.1 weights, drove 15.15 km per at-fault incident in NVIDIA's own closed-loop AlpaSim test (875 scenarios, three rollouts each) <Cite id="alpamayo-2-edge-2026" />.
+Waymo couples a driving model trained with Gemini with a fast sensor-fusion encoder <Cite id="waymo-foundation-model-2025" /> ([knowledge insulation](/manipulation/knowledge-insulation/)). NVIDIA's Alpamayo-R1 runs onboard with a latency of 99 ms <Cite id="alpamayo-r1-2025" />. In NVIDIA's own closed-loop simulation (AlpaSim), Alpamayo 2 Edge, a 2B-parameter model targeting DRIVE AGX Thor with open weights (OpenMDW-1.1), achieved 15.15 km driving distance per at-fault incident (evaluated over 875 scenarios with three rollouts each) <Cite id="alpamayo-2-edge-2026" />.
 
 These models do not reliably act on what they see or say.
 
@@ -245,8 +245,8 @@ These models do not reliably act on what they see or say.
 
 ## Contact does not transfer
 
-A car has two controls, steering and speed, under well-studied tire models. A manipulator moves dozens of joints while making and breaking contact, where the control that tracks a car <Cite id="paden-2016" /> has no clean purchase ([why RL won locomotion](/rl-sim2real/why-rl-locomotion/)).
+Control of a car boils down to two controls, speed and steering, and there are mature models of tire dynamics. Controlling a manipulator involves dozens of coordinated joints and making and breaking contact. Control that works for tracking a car <Cite id="paden-2016" /> has no clean purchase on a manipulator ([why RL won locomotion](/rl-sim2real/why-rl-locomotion/)).
 
-Waymo calls open-loop replay insufficient <Cite id="waymo-ai-lessons-2026" />, yet manipulation still reports short tasks on few trials ([evaluation crisis](/data-hardware/evaluation-crisis/)). A driving simulator has no contact to model, and Waymo says its World Model helps it scale safely <Cite id="waymo-world-model-2026" />. Genie-class models for robots still offer a narrow range of actions <Cite id="genie-3-2025" />.
+Waymo argues that replaying data in an open-loop fashion is not enough <Cite id="waymo-ai-lessons-2026" />, but many manipulation papers still report results on short-horizon tasks with few rollouts ([evaluation crisis](/data-hardware/evaluation-crisis/)). A driving simulator has no contact to model, and Waymo says its World Model helps it scale safely <Cite id="waymo-world-model-2026" />. Genie-class models for robots still offer a narrow range of actions <Cite id="genie-3-2025" />.
 
 Open: whether driving VLAs converge on hierarchical manipulation <Cite id="vla-ad-survey-2026" />, and whether robotics adopts driving's safety cases, from RSS <Cite id="rss-2017" /> to credibility rules for virtual tests <Cite id="unece-ads-press-2026" />. [Drones](/adjacent/drones/) covers flight, where a sim-trained policy has beaten human champions.
