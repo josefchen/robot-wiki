@@ -69,7 +69,7 @@ seeAlso:
 import { PendulumController } from '@/components/interactive/pendulum-controller';
 import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-lab';
 
-Control is feedback that makes a robot follow a reference, such as a [motion plan](/classical/motion-planning), despite model errors and pushes <Cite id="fbs-2020" />. It runs beneath every learned policy.
+Control refers to the usage of feedback to achieve tracking of some reference, such as a [motion plan](/classical/motion-planning), in the presence of disturbances and model inaccuracies <Cite id="fbs-2020" />. This idea pervades even learned policies.
 
 <Image id="centrifugal-governor-queen-street-mill" />
 
@@ -108,51 +108,51 @@ Control is feedback that makes a robot follow a reference, such as a [motion pla
 
 ## PID corrects the error now, its history and its trend
 
-With error $e(t) = r(t) - y(t)$ between the reference $r$ and the measurement $y$, PID commands <Cite id="fbs-2020" />
+A PID controller takes a reference $r$, compares it to a measured process variable $y$ and produces a control action based on the difference, or error $e(t) = r(t) - y(t)$, according to the following control law <Cite id="fbs-2020" />
 
 $$
 u(t) = K_p\, e(t) + K_i \int_0^{t} e(\tau)\, d\tau + K_d\, \frac{de}{dt}
 $$
 
-The first term pushes against the error now, the second erases a steady offset, and the third damps overshoot. Ziegler and Nichols's 1942 tuning rule pushes the loop to oscillation, then backs off <Cite id="ziegler-nichols-1942" />. Of over 11,000 process controllers surveyed, 97% were PID <Cite id="fbs-2020" />.
+The proportional term reacts to the current error, the integral term removes any steady offset and the derivative term reduces overshoot. One way to tune PID controllers is through the Ziegler-Nichols rule (from 1942) where the controller gains are increased until the system starts to oscillate and then backed off a bit <Cite id="ziegler-nichols-1942" />. Out of over 11,000 process controllers surveyed, 97% were found to be PID controllers <Cite id="fbs-2020" />.
 
-A pole balanced upright by a motor obeys <Cite id="tedrake-underactuated" />
+Consider the dynamics of balancing a pole upright using a motor at its base <Cite id="tedrake-underactuated" />
 
 $$
 \ddot{\theta} = \frac{g}{\ell} \sin\theta + \frac{u + \tau_{bias}}{m \ell^2}
 $$
 
-where $\theta$ is the lean, $m$ and $\ell$ the pole's mass and length, $u$ the motor torque and $\tau_{bias}$ a payload's torque. Near upright the loop holds only when $K_p > m g \ell$: the motor must out-push gravity <Cite id="tedrake-underactuated" />.
+where $\theta$ is the pole's angle from vertical, $m$ its mass, $\ell$ its length, $u$ the torque from the motor, and $\tau_{bias}$ an additional bias torque from a payload. Around the upright pose, the loop can balance the pole only if $K_p > m g \ell$, because the proportional gain has to overcome gravity <Cite id="tedrake-underactuated" />.
 
 ## LQR prices error against effort
 
-The linear quadratic regulator (LQR) takes a linear model $\dot{x} = Ax + Bu$ and finds the feedback $u = -Kx$ that minimizes <Cite id="tedrake-underactuated" />
+The linear quadratic regulator (LQR) solves for the optimal feedback controller $u = -Kx$ of a linear system $\dot{x} = Ax + Bu$ by minimizing the cost <Cite id="tedrake-underactuated" />
 
 $$
 J = \int_0^{\infty} \left( x^{\top} Q x + u^{\top} R u \right) dt
 $$
 
-$Q$ prices state error and $R$ prices effort. The guarantee is local: swinging the pole up needs energy shaping, with LQR catching it at the top <Cite id="tedrake-underactuated" />.
+where $Q$ and $R$ represent the relative cost of state error and control effort, respectively. LQR is only guaranteed to stabilize the system locally: swinging a pole up to the top requires shaping the energy of the system, and LQR can take over once the pole is near the top <Cite id="tedrake-underactuated" />.
 
 ## MPC re-plans at every step
 
-<Term id="mpc">Model-predictive control</Term> plans the next $N$ inputs from the measured state at every step, within the model $f$ and the limits $\mathcal{U}$ and $\mathcal{X}$ <Cite id="mayne-2000" />:
+<Term id="mpc">Model-predictive control</Term> repeatedly solves the following optimal control problem for the next $N$ inputs, where $f$ represents the dynamics of the system and $\mathcal{U}$ and $\mathcal{X}$ represent constraints on the control and state respectively <Cite id="mayne-2000" />:
 
 $$
 \min_{u_0, \dots, u_{N-1}} \; \sum_{k=0}^{N-1} \left( x_k^{\top} Q x_k + u_k^{\top} R u_k \right) \quad \text{s.t.} \quad x_{k+1} = f(x_k, u_k), \; u_k \in \mathcal{U}, \; x_k \in \mathcal{X}
 $$
 
-Only the first input is applied before the next solve, so fresh measurements absorb model error <Cite id="tedrake-underactuated" /><Cite id="di-carlo-2018" />. Torque bounds and friction cones enter the optimization directly <Cite id="neunert-2018" />.
+At each time step a new sequence of controls is solved for based on the latest state measurement, but only the first is implemented before the optimization problem is solved again. By incorporating new measurements at each time step, MPC is able to compensate for modeling error <Cite id="tedrake-underactuated" /> <Cite id="di-carlo-2018" />. Constraints such as friction cones and torque limits are included directly in the optimization problem <Cite id="neunert-2018" />.
 
-On the MIT Cheetah 3, convex MPC solved each problem in under a millisecond <Cite id="di-carlo-2018" />. DIAL-MPC beat RL policies by 50% on quadruped climbing, with no training <Cite id="dial-mpc-2024" />.
+Convex MPC solved control problems in less than a millisecond on the MIT Cheetah 3 <Cite id="di-carlo-2018" />. DIAL-MPC outperformed RL policies on quadruped climbing by 50% without any training <Cite id="dial-mpc-2024" />.
 
 Also: refinery origins <Cite id="garcia-1989" /> <Cite id="qin-badgwell-2003" />, whole-body MPC on HRP-2 <Cite id="koenemann-2015" />, acados <Cite id="acados-2019" />, Crocoddyl <Cite id="crocoddyl-2019" />, MuJoCo MPC <Cite id="mjpc-2022" />, [MPC against learned policies](/rl-sim2real/reward-design-mpc).
 
 ## A whole-body QP turns every goal into torques each tick
 
-Khatib wrote the dynamics in terms of the hand's motion, mapped to joints by the [kinematic](/classical/kinematics) <Term id="jacobian">Jacobian</Term> <Cite id="khatib-1987" />. Sentis and Khatib ranked contact and joint limits first, posture in the leftover <Term id="degrees-of-freedom">degrees of freedom</Term> <Cite id="sentis-khatib-2005" />.
+Khatib developed a controller that computes torques to follow hand trajectories, writing the dynamics in terms of the hand's motion. Hand velocities are related to joint velocities through the [kinematic](/classical/kinematics) <Term id="jacobian">Jacobian</Term> <Cite id="khatib-1987" />. Sentis and Khatib used a prioritized task space where contact and joint limits take precedence over the posture task, which acts in the leftover <Term id="degrees-of-freedom">degrees of freedom</Term> <Cite id="sentis-khatib-2005" />.
 
-Weighted controllers solve one quadratic program (QP) per tick:
+Weighted whole-body control is formulated as a quadratic program (QP) solved at each time step:
 
 $$
 \begin{aligned}
@@ -162,23 +162,23 @@ $$
 \end{aligned}
 $$
 
-Each task is a weighted error over accelerations $\ddot{q}$, torques $\tau$ and contact forces $f$; physics is the constraint, and $\mathcal{F}$ keeps forces inside friction cones <Cite id="kuindersma-2015" />.
+Here, each task is a weighted error over the joint accelerations $\ddot{q}$, joint torques $\tau$, and contact forces $f$; the robot dynamics are a constraint in the optimization, and contact forces are constrained to lie in the friction cones $\mathcal{F}$ <Cite id="kuindersma-2015" />.
 
 <Image id="atlas-darpa-testing-2013" />
 
-Learned and model-based <Term id="whole-body-control">whole-body control</Term> both ship. Figure's Helix 02 handles balance and contact at 1 kHz <Cite id="helix-02-2026" />, and Boston Dynamics pairs Atlas's MPC with VR teleoperation to collect data <Cite id="bd-atlas-lbm-2025" />.
+Figure's Helix 02 uses a whole-body controller that runs at 1 kHz to handle balance and contact <Cite id="helix-02-2026" />, and Boston Dynamics uses VR teleoperation on Atlas together with MPC-based whole-body control to collect data <Cite id="bd-atlas-lbm-2025" />. Learned and model-based <Term id="whole-body-control">whole-body control</Term> both ship.
 
 Also: hierarchical QP <Cite id="escande-2014" />, fast dynamics algorithms <Cite id="featherstone-2008" />, [learned whole-body control](/rl-sim2real/humanoid-wbc).
 
 ## Impedance control makes contact a design variable
 
-Under stiff position control, an arm wiping a tabletop that sits 2 mm higher than modeled collides hard. Hogan's <Term id="impedance-control">impedance control</Term> commands how force relates to motion, so the arm acts like a mass on a spring and damper <Cite id="hogan-1985" />.
+If a robot arm's position controller is stiff, and the arm's goal is to wipe a tabletop that it believes to be 2 mm lower than reality, it will slam into the table. Hogan introduced <Term id="impedance-control">impedance control</Term>, which specifies the dynamic relation between force and motion so that the robot arm behaves like a mass on a spring and damper <Cite id="hogan-1985" />.
 
-<Term id="admittance-control">Admittance control</Term> is the mirror image: measure force at the wrist, command motion. A backdrivable arm realizes impedance directly; a stiff geared arm with a force sensor runs admittance in software.
+<Term id="admittance-control">Admittance control</Term> is the mirror image: a force sensor measures the forces at the robot's wrist and the controller calculates what motion the forces imply. Impedance control can be implemented directly with a backdrivable robot arm, while admittance control can be implemented in software with a stiff geared robot arm and a force sensor.
 
-<Term id="hybrid-force-position-control">Hybrid force/position control</Term> controls force along constrained axes and position along free ones <Cite id="mason-1981" /> <Cite id="raibert-craig-1981" />.
+<Term id="hybrid-force-position-control">Hybrid force/position control</Term> uses position control in unconstrained directions and force control in constrained directions <Cite id="mason-1981" /> <Cite id="raibert-craig-1981" />.
 
-Learned policies now set compliance.
+Learned policies are now used to specify compliance.
 
 | Policy | What it learns | Result |
 | --- | --- | --- |
@@ -187,19 +187,19 @@ Learned policies now set compliance.
 | FLORE | Force-reactive humanoid actions | 80% success, against 26.7% position-only <Cite id="flore-2026" /> |
 | ForceTwin | An object's inertia, friction and springs, from human probing | 87% of goals, against 60% with vision-language priors <Cite id="forcetwin-2026" /> |
 
-Rules still won Intrinsic's 2026 workcell challenge: 90% of top teams inserted the connector with hand-written routines and force feedback <Cite id="intrinsic-ai-for-industry-challenge-2026" />.
+Rules still won Intrinsic's 2026 workcell challenge: 90% of the highest-scoring teams used force feedback and hand-crafted control programs to insert the connector <Cite id="intrinsic-ai-for-industry-challenge-2026" />.
 
 Also: stiffness control <Cite id="salisbury-1980" />, blended impedance and admittance <Cite id="ott-2010" />.
 
 ## The hardware decides what force control is possible
 
-A stiff geared arm with no force sensor cannot regulate force, which limits [dexterity](/frontier/dexterity). <Term id="series-elastic-actuator">Series elastic actuation</Term> adds a spring for shock tolerance and stable force control <Cite id="pratt-williamson-1995" />.
+Force control cannot be implemented on stiff geared arms without force sensors, which limits [dexterity](/frontier/dexterity). <Term id="series-elastic-actuator">Series elastic actuation</Term> is an alternative solution, which inserts a spring between the motor and load to make the actuator shock tolerant and enable stable force control <Cite id="pratt-williamson-1995" />.
 
 <Image id="baxter-rethink-innorobo-2015" />
 
-<Term id="backdrivability">Backdrivability</Term> fixes what the hardware can attempt. Franka exposes 1 kHz torque control with Cartesian impedance <Cite id="franka-fci-docs" />, and Universal Robots offers a force mode <Cite id="ur-force-mode-docs" />.
+<Term id="backdrivability">Backdrivability</Term> fixes what the hardware can attempt. For example, the Franka arm allows torque control at 1 kHz in combination with Cartesian impedance control <Cite id="franka-fci-docs" />, and Universal Robots arms have a force control mode <Cite id="ur-force-mode-docs" />.
 
-Near people, force has limits; the lab below takes its limit from measured pain thresholds <Cite id="han-force-pain-2024" />. The 2025 ISO 10218 editions absorb the collaborative-robot tables of ISO/TS 15066 <Cite id="iso-10218-1-2025" /><Cite id="iso-10218-2-2025" /><Cite id="iso-ts-15066" /><Cite id="hartmann-iso-2026" />.
+Force limits apply to robots operating near humans; the limits presented in the lab below are based on pain threshold measurements <Cite id="han-force-pain-2024" />. The 2025 editions of ISO 10218 include the tables for collaborative robots previously specified in ISO/TS 15066 <Cite id="iso-10218-1-2025" /> <Cite id="iso-10218-2-2025" /> <Cite id="iso-ts-15066" /> <Cite id="hartmann-iso-2026" />.
 
 Also: flexible-joint impedance <Cite id="albu-schaffer-2003" />, the self-balancing robot draft ISO 25785-1 <Cite id="iso-cd-25785-1" />.
 
@@ -207,10 +207,10 @@ Also: flexible-joint impedance <Cite id="albu-schaffer-2003" />, the self-balanc
 
 ## The controller under a policy is part of its interface
 
-A learned [action](/manipulation/action-spaces) reaches the motors through a lower controller whose type, rate and limits are part of the interface. Action type changes learning, robustness and motion quality <Cite id="peng-action-space-2016" />, and VICES lets an RL policy pick its own compliance <Cite id="martin-martin-2019" />.
+A learned [action](/manipulation/action-spaces) must be passed through some form of controller to be transformed into motor commands. The type, rate and limits of this controller are part of the interface. Different action types influence learning performance, robustness and the resulting movement quality <Cite id="peng-action-space-2016" />. In VICES, the RL policy can choose its own level of compliance <Cite id="martin-martin-2019" />.
 
-Berkeley Humanoid runs its policy at 50 Hz, its estimator at 1 kHz and its PD loop at 25 kHz <Cite id="berkeley-humanoid-2024" />. A 3-billion-parameter VLA spends 46 ms reading its inputs <Cite id="real-time-chunking-2025" />, so deadlines, bounds and safety filters sit outside the model <Cite id="safety-filter-2023" />.
+Berkeley Humanoid executes different components of its control stack at different frequencies: 50 Hz for policy execution, 1 kHz for state estimation, and 25 kHz for PD control <Cite id="berkeley-humanoid-2024" />. In a 3-billion-parameter VLA, processing the inputs takes 46 ms <Cite id="real-time-chunking-2025" />. As such, deadlines, bounds and safety filters sit outside the model <Cite id="safety-filter-2023" />.
 
 ## Model error is the open problem
 
-MPC keeps a [sim-to-real](/rl-sim2real/sim2real-transfer) gap even when it re-solves against the [measured state](/classical/state-estimation) <Cite id="mujoco-ilqr-2026" />. Fixes learn a residual model <Cite id="ishihara-2024" /> or estimate a carried payload's inertia online <Cite id="foster-wbmpc-payload-2026" />, and Boston Dynamics added RL to Spot's MPC stack <Cite id="bd-spot-rl-2024" />.
+MPC keeps a [sim-to-real](/rl-sim2real/sim2real-transfer) gap even when it re-solves against the [measured state](/classical/state-estimation) <Cite id="mujoco-ilqr-2026" />. Some works augment MPC with a learned residual model <Cite id="ishihara-2024" /> or incorporate online inertia estimation to handle a carried payload <Cite id="foster-wbmpc-payload-2026" />, and Boston Dynamics' Spot leverages RL to complement its MPC-based controller <Cite id="bd-spot-rl-2024" />.
