@@ -92,7 +92,7 @@ import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
 import { GearRatioBench } from '@/components/interactive/gear-ratio-bench';
 
-Robot-learning hardware is what a learned policy runs on: arms, humanoids, dexterous hands, touch sensors and onboard computers. Listed prices run from about \$122 in parts for an SO-101 arm <Cite id="so-arm100-repo-2026" /> to \$29,900 for a Unitree H2 humanoid <Cite id="unitree-h2-2026" />.
+Robot-learning hardware is everything the learned policy is running on: arms, humanoids, dexterous hands, touch sensors and the computers onboard. Listed prices range from the SO-101 arm (about \$122 for the parts) <Cite id="so-arm100-repo-2026" /> to Unitree's H2 humanoid robot (\$29,900) <Cite id="unitree-h2-2026" />.
 
 <Image id="nist-dexterous-manipulation-testbed-2013" />
 
@@ -161,7 +161,7 @@ Makers are building for volume:
 
 ## Gear ratio sets how a joint behaves
 
-A gear ratio multiplies motor torque and divides speed by the same number, and multiplies the motor's inertia at the joint by its square <Cite id="wensing-cheetah-actuator-2017" />. Fast [legged robots](/rl-sim2real/legged-locomotion) keep it low:
+The gear ratio, g, amplifies torque by a factor of g, reduces speed by a factor of g, and multiplies the motor's inertia at the joint by its square <Cite id="wensing-cheetah-actuator-2017" />. Fast [legged robots](/rl-sim2real/legged-locomotion) keep it low:
 
 | Gearing | Ratio | Example |
 | --- | --- | --- |
@@ -175,7 +175,7 @@ A gear ratio multiplies motor torque and divides speed by the same number, and m
 
 <span id="hands-ship-bundled" />
 
-[Dexterous hand](/frontier/dexterity) DoF counts vary with what is counted: 1X counts 25 per NEO hand, the listed 22 plus three in the wrist <Cite id="1x-neos-hands-2026" />. Open designs cut prices: LEAP Hand costs about an eighth of the Allegro Hand <Cite id="leap-hand-2023" />, which RUKA's authors price at \$15,000 <Cite id="ruka-2025" />.
+[Dexterous hand](/frontier/dexterity) DoF counts vary with what is counted. 1X counts 25 DoFs for each NEO hand, including three wrist DoFs besides the 22 listed <Cite id="1x-neos-hands-2026" />. Open designs cut prices. The LEAP Hand has around an eighth the price of the Allegro Hand <Cite id="leap-hand-2023" />, which is reported to cost \$15,000 by the authors of RUKA <Cite id="ruka-2025" />.
 
 | Hand | Degrees of freedom | Price and notes |
 | --- | --- | --- |
@@ -191,13 +191,13 @@ A gear ratio multiplies motor torque and divides speed by the same number, and m
 
 ## Touch is the missing sensor
 
-Generalist policies learn mostly from cameras and <Term id="proprioception">proprioception</Term>, the robot's sense of its own joints. DROID's Franka rig has three cameras and no touch sensing <Cite id="droid-2024" />; AgiBot World's humanoids add visuo-tactile sensors <Cite id="agibot-world-2025" />.
+Generalist policies learn mostly from cameras and <Term id="proprioception">proprioception</Term>, the robot's sense of its own joints. The Franka robots in DROID are equipped with three cameras but do not have tactile sensors <Cite id="droid-2024" />, whereas the humanoid robots in AgiBot World are equipped with cameras and visuo-tactile sensors <Cite id="agibot-world-2025" />.
 
-Agility Robotics' Chris Paxton argued after IROS 2026 that multi-fingered hands may need touch more than grippers do, because their fingers hide the contacts a camera needs to see. He called off-the-shelf tendon-driven hands a step toward making dexterity "an intelligence problem, instead of a hardware design problem" <Cite id="paxton-iros-2026" />.
+Speaking after IROS 2026, Chris Paxton of Agility Robotics argued that touch could matter more for multi-fingered hands than for grippers, since fingers obscure the contacts cameras are meant to observe. Paxton characterized commercially available tendon-driven hands as progress toward making dexterity "an intelligence problem, instead of a hardware design problem" <Cite id="paxton-iros-2026" />.
 
-A 2025 IEEE outlook finds tactile sensors with no standard evaluation, poor durability, hysteresis and temperature sensitivity <Cite id="tactile-outlook-2025" />.
+A 2025 outlook published by IEEE highlights the lack of standardized evaluation protocols for tactile sensors as well as challenges related to durability, hysteresis, and temperature sensitivity <Cite id="tactile-outlook-2025" />.
 
-In simulation, the XHand1 rotated objects just as well with a few sensors at its frequent contact points as with a larger, evenly spaced array. For grasping and lifting, the Sharpa and Allegro hands did best when sensors covered a wider range of contacts at the largest sensor budget <Cite id="taxel-placement-2026" />.
+In simulation, reducing the number of tactile sensors on XHand1 while keeping sensors at frequent contact locations led to object rotation performance comparable to configurations with a larger number of evenly spaced sensors. For grasping and lifting, sensor configurations for the Allegro and Sharpa hands that maximized task performance placed sensors to cover a wide range of potential contacts when given the largest sensor budget <Cite id="taxel-placement-2026" />.
 
 | Sensor | What it offers |
 | --- | --- |
@@ -215,7 +215,7 @@ Also: ENGINEAI SE01's lidar, depth and infrared cameras <Cite id="engineai-se01-
 
 ## Onboard compute caps the control rate
 
-The onboard computer sets how often a policy can choose its next move. VLA-Perf's analytical model predicts that π0 runs 19.0 times a second on Jetson Thor, 32.2 on an RTX 4090 and 314.4 on a B100 GPU <Cite id="vla-perf-2026" /> ([real-time execution](/manipulation/realtime-execution)).
+The frequency with which policies can take actions is controlled by the robot's onboard computer. VLA-Perf's analytical model predicts that π0 runs 19.0 times a second on Jetson Thor, 32.2 on an RTX 4090, and 314.4 on a B100 GPU <Cite id="vla-perf-2026" /> ([real-time execution](/manipulation/realtime-execution)).
 
 | Platform | What it offers |
 | --- | --- |
@@ -231,4 +231,4 @@ The onboard computer sets how often a policy can choose its next move. VLA-Perf'
 
 <HardwarePriceLadder className="my-6" />
 
-Since July 28, 2026, the FCC's Covered List bars new foreign-produced mobile robots, humanoids and quadrupeds included, from authorization for US sale; earlier-authorized models can still be sold <Cite id="fcc-covered-list-robots-2026" />. Husqvarna's September 9 exemptions followed Department of War conditional approval <Cite id="fcc-da-26-957" />. October exemptions <Cite id="fcc-da-26-1130" /> included ATI Motors' Sherpa Mecha <Cite id="fcc-da-26-1181" />.
+Since July 28, 2026, mobile robots made abroad, including humanoids and quadrupeds, cannot get FCC authorization for sale in the US because of the FCC's Covered List (but can still be sold if already authorized) <Cite id="fcc-covered-list-robots-2026" />. Husqvarna's September 9 exemptions followed Department of War conditional approval <Cite id="fcc-da-26-957" />. October exemptions <Cite id="fcc-da-26-1130" /> included ATI Motors' Sherpa Mecha <Cite id="fcc-da-26-1181" />.
