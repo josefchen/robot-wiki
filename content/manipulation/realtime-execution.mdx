@@ -63,7 +63,7 @@ seeAlso:
 import { ControlLoopBudget } from '@/components/interactive/control-loop-budget';
 import { ExecutionModes } from '@/components/interactive/execution-modes';
 
-Real-time execution keeps a robot moving on its controller's clock while the policy computes the next actions. At 50 commands a second, cameras, network and model share a 20 ms budget, and how the robot switches between plans changes how it moves <Cite id="real-time-chunking-2025" />.
+In real-time execution, while the policy is computing what actions to perform next, the robot will continue to execute actions according to its controller's clock. If actions are issued at a rate of 50 commands a second, cameras, network communication, and the model must operate within a budget of 20 ms. How actions from different plans are spliced together impacts the robot's behavior <Cite id="real-time-chunking-2025" />.
 
 <Image id="rtc-candle-lighting-2025" />
 
@@ -77,13 +77,13 @@ Real-time execution keeps a robot moving on its controller's clock while the pol
 
 ## Large policies need more than one tick
 
-A large policy needs more than one 20 ms tick to think, so it outputs an <Term id="action-chunking">action chunk</Term> the robot plays while the next is computed <Cite id="real-time-chunking-2025" />. Gemini Robotics takes about 250 ms through the cloud yet controls at 50 Hz from a local decoder <Cite id="gemini-robotics-2025" />. GR00T N1 splits language at 10 Hz from actions at 120 Hz <Cite id="gr00t-n1-2025" />.
+For large policies, inference exceeds 20 ms; predicting an <Term id="action-chunking">action chunk</Term> of multiple actions alleviates this problem, as the robot executes these actions while the next chunk is being computed <Cite id="real-time-chunking-2025" />. Gemini Robotics has a latency of around 250 ms via the cloud but still controls the robot at 50 Hz using a locally deployed action decoder <Cite id="gemini-robotics-2025" />. GR00T N1 decouples language at 10 Hz from actions at 120 Hz <Cite id="gr00t-n1-2025" />.
 
-Old plans cost most when the world moves: in VLALagBench, 100 ms of latency nearly halved success on moving targets <Cite id="vla-lagbench-2026" />. In the <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) team's mobile π0.5 <Cite id="pi05-2025" />, the model took 96.89 ms, the network 21.20 ms and image resizing 11.22 ms <Cite id="real-time-chunking-2025" />.
+Following previously generated actions costs most when environments or tasks are dynamic: in VLALagBench, success rates dropped by nearly half with 100 ms of latency in tasks involving moving objects <Cite id="vla-lagbench-2026" />. With a mobile robot running π0.5 <Cite id="pi05-2025" />, the team implementing <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) found that running the policy accounted for 96.89 ms, resizing images added 11.22 ms, and network latency contributed 21.20 ms <Cite id="real-time-chunking-2025" />.
 
 ## Onboard computers are the bottleneck
 
-Jetson Thor <Cite id="jetson-thor-2026" /> has up to 7.5 times the AI compute of the Orin before it <Cite id="nvidia-jetson-thor-available-2025" />. VLA-Perf still predicts π0 on it at only 19 Hz, and that is an upper bound <Cite id="vla-perf-2026" />.
+VLA-Perf predicts that even on Jetson Thor <Cite id="jetson-thor-2026" />, with up to 7.5 times the AI compute of its predecessor Orin <Cite id="nvidia-jetson-thor-available-2025" />, π0 can run at 19 Hz at most <Cite id="vla-perf-2026" />.
 
 <Image id="jetson-agx-orin-auledas-2024" />
 
@@ -96,17 +96,17 @@ Jetson Thor <Cite id="jetson-thor-2026" /> has up to 7.5 times the AI compute of
 | OpenVLA, 7B parameters | RTX 4090 | About 6 Hz <Cite id="openvla-2024" />; 26 times the throughput with OFT's parallel decoding <Cite id="openvla-oft-2025" /> |
 | Fast-in-Slow | Eight-action chunks | 117.7 Hz control <Cite id="fast-in-slow-2025" /> |
 
-How a model generates actions matters more than its size. Across 18 open VLAs on Thor, size explained at most 15% of latency differences; few-step flow models kept up with control, and token-by-token decoders did not <Cite id="vla-hwbench-2026" />. A 4-bit π0.5 kept 94.04% success on LIBERO-10 on Thor <Cite id="flashrt-pai-2026" />.
+Latency is affected more by how a model generates actions than by the model size. Among 18 open VLAs on Jetson Thor, model size accounted for up to 15% of latency differences; few-step flow models kept up with the control rate, whereas token-by-token decoders did not <Cite id="vla-hwbench-2026" />. π0.5 quantized to 4-bit maintains 94.04% success on LIBERO-10 on Thor <Cite id="flashrt-pai-2026" />.
 
-Offloading helps only on a fast network. π0 on a remote RTX 4090 takes 38.7 ms over WiFi 6 but 55.7 ms over 5G, against Thor's 52.6 ms <Cite id="vla-perf-2026" />. Physical Intelligence's cloud API saw connectivity problems with early partners <Cite id="pi-api-beta-2026" />.
+Offloading inference helps only on a fast network: π0 takes 38.7 ms when offloaded to an RTX 4090 over WiFi 6, compared to 52.6 ms on Jetson Thor and 55.7 ms over 5G <Cite id="vla-perf-2026" />. Physical Intelligence reported connectivity problems with its early cloud API partners <Cite id="pi-api-beta-2026" />.
 
 ## Inpainting switches chunks without pauses or jerks
 
-Chunks keep motion close to the demonstrations but react late <Cite id="bidirectional-decoding-2024" />. Synchronous execution pauses for inference between them, a stop-start motion unlike the training data <Cite id="real-time-chunking-2025" />. π0 plays 16 or 25 of each 50 actions <Cite id="pi0-2024" />; PI ran π0, π0-FAST <Cite id="pi0-fast-2025" /> and π0.5 this way before RTC <Cite id="pi-real-time-chunking-blog-2025" />.
+Chunks follow the demonstration motions closely, but exhibit delayed responses <Cite id="bidirectional-decoding-2024" />. Executing chunks synchronously leads to stop-and-go motions as the robot waits for new actions to be generated, motions unlike the training data <Cite id="real-time-chunking-2025" />. π0 executes 16 or 25 out of each 50 predicted actions <Cite id="pi0-2024" />; before RTC, PI employed synchronous execution for π0, π0-FAST <Cite id="pi0-fast-2025" />, and π0.5 <Cite id="pi-real-time-chunking-blog-2025" />.
 
-Naive switching removes the pause but jerks, because the new chunk was planned from an older view <Cite id="real-time-chunking-2025" />. <Term id="temporal-ensembling">Temporal ensembling</Term>, from ACT, averages the overlapping predictions <Cite id="act-aloha-2023" />; at 100 and 200 ms of added latency, both its variants tripped the robot's protective stop <Cite id="real-time-chunking-2025" />.
+Switching chunks without pausing results in jerky behavior since the next chunk was generated based on an outdated observation <Cite id="real-time-chunking-2025" />. <Term id="temporal-ensembling">Temporal ensembling</Term>, introduced in ACT, averages the overlapping actions <Cite id="act-aloha-2023" />. Both variants of temporal ensembling caused the robot to trigger its protective stop when additional latencies of 100 and 200 ms were introduced <Cite id="real-time-chunking-2025" />.
 
-RTC computes the next chunk while one plays, fixing the actions that run during inference and inpainting the rest, with no retraining <Cite id="real-time-chunking-2025" /> <Cite id="pi-real-time-chunking-blog-2025" /> <Cite id="lerobot-rtc-docs" />. On six π0.5 tasks its throughput held with up to 200 ms of added delay, and it lit matches at total delays above 300 ms <Cite id="real-time-chunking-2025" />.
+RTC does not require retraining and computes the next chunk while the current one is being executed; the actions that will be executed during the computation are kept fixed, and the remaining actions are inpainted <Cite id="real-time-chunking-2025" /> <Cite id="pi-real-time-chunking-blog-2025" /> <Cite id="lerobot-rtc-docs" />. Across six π0.5 tasks, RTC maintained throughput with added delays of up to 200 ms, and lit matches with total delays over 300 ms <Cite id="real-time-chunking-2025" />.
 
 <ExecutionModes className="my-6" />
 
@@ -122,19 +122,19 @@ RTC computes the next chunk while one plays, fixing the actions that run during 
 | SmolVLA <Cite id="smolvla-2025" /> | Asynchronous inference | About twice as fast on a local network <Cite id="lerobot-async-inference-2025" /> |
 | ChunkTrust | Chooses how many actions to play before replanning | 6.80 points on 50 RoboTwin 2.0 tasks <Cite id="robotwin-2-2025" />; 50.4% to 57.5% on four real tasks <Cite id="chunktrust-2026" /> |
 
-Asynchronous replanning helps only while the queue of pending actions never runs empty <Cite id="libero-dynamic-2026" />.
+Asynchronous replanning only helps as long as there is always a non-empty queue of actions <Cite id="libero-dynamic-2026" />.
 
 ## Policies can learn to expect delay
 
-Simulating delay in training avoids inpainting's extra compute and works better at long delays <Cite id="training-time-rtc-2025" />. π0.7 trains with up to 240 ms of delay <Cite id="pi07-2026" />, and Soft RTC cuts high-delay jerk by 9.6% against the hard version <Cite id="soft-rtc-2026" />.
+Delay can be simulated during training, which performs better than inpainting for large delays and avoids the additional compute required during inference <Cite id="training-time-rtc-2025" />. π0.7 is trained with up to 240 ms of delay <Cite id="pi07-2026" />, and Soft RTC reduces jerk by 9.6% compared to its hard counterpart for large delays <Cite id="soft-rtc-2026" />.
 
-Chronos Policy timestamps each observation and action and randomizes both in training. On simulated conveyor pick-and-place with up to 200 ms of delay, it kept 76.4% success where Diffusion Policy <Cite id="diffusion-policy-2023" /> fell to 1.8% <Cite id="chronos-policy-2026" />. [Real-Time EXPO-FT](/manipulation/rl-finetuning/) adds a quick edit policy on the newest view, lifting four dynamic real tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />.
+Chronos Policy annotates observations and actions with timestamps and randomizes both in training. On a simulated conveyor pick-and-place task with up to 200 ms of delay, Chronos Policy retains a 76.4% success rate while Diffusion Policy <Cite id="diffusion-policy-2023" /> falls to 1.8% <Cite id="chronos-policy-2026" />. [Real-Time EXPO-FT](/manipulation/rl-finetuning/) introduces a fast edit policy that corrects the action based on the latest observation, improving performance on four dynamic real-world tasks from 42% to 97% success <Cite id="realtime-expo-ft-2026" />.
 
 Also: GR00T N1.6 uses test-time and train-time RTC <Cite id="gr00t-n1-6-2025" />; Helix offsets training inputs by its latency gap <Cite id="helix-2025" />.
 
 ## Fewer denoising steps make faster chunks
 
-π0 used 10 denoising steps per chunk <Cite id="pi0-2024" />, π0.6 uses 5 <Cite id="pi06-model-card-2025" />, and π0.7's minimal variant takes 38 ms on one H100 <Cite id="pi07-2026" />. Distillation and parallel decoding cut further.
+π0 <Cite id="pi0-2024" /> and π0.6 <Cite id="pi06-model-card-2025" /> use 10 and 5 denoising steps per chunk respectively, while the minimal variant of π0.7 takes 38 ms on one H100 <Cite id="pi07-2026" />. Distillation and parallel decoding cut further.
 
 | Method | Gain |
 | --- | --- |
